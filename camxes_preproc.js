@@ -1,5 +1,6 @@
 ﻿function camxes_preprocessing(input) {
-	if (!is_string(input)) return "ERROR";
+	if (!(typeof input.valueOf() === 'string'))
+		return "ERROR: Wrong input type.";
 	input = input.replace(/’/gm,"'");
 	input = input.replace(/([0-9])\.([0-9])/gm,"$1 pi $2");
 	input = input.replace(/0/gm,"no");
@@ -27,4 +28,6 @@
 	input = input.replace(/\(|\)|«|»|—|:/gm,"");
 	return input;
 }
+
+module.exports.preprocessing = camxes_preprocessing;
 

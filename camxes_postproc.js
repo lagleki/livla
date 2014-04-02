@@ -1,7 +1,7 @@
 /*
  * CAMXES.JS POSTPROCESSOR
  * Created by Ilmen (ilmen.pokebip <at> gmail.com) on 2013-08-16.
- * Last change: 2014-01-04.
+ * Last change: 2014-01-26.
  * 
  * Entry point: camxes_postprocessing(text, mode)
  * Arguments:
@@ -12,6 +12,9 @@
  *         2 = Prettified
  *         3 = Prettified + selma'o
  *         4 = Prettified + selma'o + bridi parts
+ *         5 = Prettified - famyma'o
+ *         6 = Prettified - famyma'o + selma'o
+ *         7 = Prettified - famyma'o + selma'o + bridi parts
  * Return value:
  *       [string] postprocessed version of camxes' output
  */
@@ -19,8 +22,9 @@
 /*
  * Function list:
  *   -- camxes_postprocessing(text, mode)
- *   -- prettify_brackets(str)
+ *   -- erase_elided_terminators(str)
  *   -- delete_superfluous_brackets(str)
+ *   -- prettify_brackets(str)
  *   -- is_string(v)
  *   -- str_print_uint(val, charset)
  *   -- str_replace(str, pos, len, sub)
@@ -28,36 +32,35 @@
  *   -- dbg_bracket_count(str)
  */
 
-/* [2013-12-27]
- * TODO:
- *   Re-enabling hiding terminators (basically everything in upper case and
- *   not followed by a colon) would be nice.
- */
-
 function camxes_postprocessing(text, mode) {
-	if (!is_string(text)) return "ERROR";
+	if (!is_string(text)) return "ERROR: Wrong input type.";
 	if (mode == 0) return text;
 	if (text.charAt(0) != '[') return text;
 	/** Condensation **/
-	text = text.replace(/ +/gm,"");
-	text = text.replace(/\r\n|\n|\r/gm,"");
+	text = text.replace(/ +/gm, "");
+	text = text.replace(/\r\n|\n|\r/gm, "");
 	if (mode == 1) return text;
-	/** Prettified form **/
-	var with_selmaho = (mode >= 3);
-	var with_nodes_labels = (mode == 4);
-	text = text.replace(/\"/gm,""); // Delete every quote marks
+	/** Prettified forms **/
+	var with_selmaho = (mode >= 3 && mode != 5);
+	var with_nodes_labels = (mode == 4 || mode == 7);
+	var without_terminator = (mode >= 5);
+	text = text.replace(/\"/gm, ""); // Delete every quote marks
 	/* Save selmaho and brivla types */
 	text = text.replace(/(gismu|lujvo|fuhivla|cmene|cmevla),([A-Za-z']+)/g, "$1:$2");
 	text = text.replace(/([A-Zh]+),([A-Za-z']+)/g, "$1:$2");
-	/* Save a few nodes from deletion */
+	/* Save a few nodes from deletion (optional) */
 	if (with_nodes_labels) {
 		text = text.replace(/prenex,/g, "PN");
 		text = text.replace(/sentence,\[\[terms,/g, "sentence,[BH[terms,");
 		text = text.replace(/bridi_tail_2,/g, "BT");
 	}
+	/* Delete every remaining node names and commas */
+	text = text.replace(/([A-Za-z0-9_]+,)+\[/g, "[");
+	text = text.replace(/,/gm, "");
+	/* If requested, erase every elided terminators from the output */
+	if (without_terminator)
+		text = erase_elided_terminators(text);
 	/* Cleanup */
-	text = text.replace(/[A-Za-z0-9_]+,\[/g, "[");
-	text = text.replace(/,/gm,"");
 	text = delete_superfluous_brackets(text);
 	text = text.replace(/\[ +/g, "[");
 	text = text.replace(/ +\]/g, "]");
@@ -70,10 +73,28 @@ function camxes_postprocessing(text, mode) {
 	text = text.replace(/BRIVLA/g, "Z");
 	/* Making things easier to read */
 	if (!with_selmaho) text = text.replace(/[A-Za-z]+:/g, "");
-	text = text.replace(/\]\[/g,"] [");
+	text = text.replace(/\]\[/g, "] [");
 	text = prettify_brackets(text);
-	text = text.replace(/ +/gm," ");
+	text = text.replace(/ +/gm, " ");
+	text = text.replace(/^ +/, "");
 	return text;
+}
+
+function erase_elided_terminators(str) {
+	var i, j;
+	var parachute = 400;
+	do {
+		i = str.search(/\[[A-Zh]+\]/);
+		if (i < 0) break;
+		j = i + str.substr(i).indexOf("]");
+		while (i-- > 0 && ++j < str.length)
+			if (str[i] != '[' || str[j] != ']') break;
+		i++;
+		j--;
+		//alert("DEL "+str.substr(i,j-i+1));
+		str = str_replace(str, i, j-i+1, "");
+	} while (parachute--);
+	return str;
 }
 
 function delete_superfluous_brackets(string) {
@@ -103,7 +124,7 @@ function delete_superfluous_brackets(string) {
 		while (str[i].search(/[A-Za-z'_:~]/) == 0 && i < str.length) i++;
 		while (str[i] == ']') {
 			if (j <= 0) {
-				alert("ERROR: right bracket found without left equivalent.");
+				alert("ERROR: right bracket found without left counterpart.");
 				break;
 			}
 			j--;
@@ -234,3 +255,6 @@ function dbg_bracket_count(str) {
 	}
 	alert("Bracket count: open = " + x + ", close = " + y);
 }
+
+module.exports.postprocessing = camxes_postprocessing;
+

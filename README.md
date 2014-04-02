@@ -24,6 +24,7 @@ $ node camxes-builder
 (Or camxes-exp-builder in the case of the experimental version of the grammar.)
 
 Then, edit the generated/updated parser engine, and changes the first line so that it looks as shown below:
+
 var camxes = module.exports = (function(){
 
 If you skip this last step, the grammar engine will not be useable by the HTML interface nor by the IRC bot interface.

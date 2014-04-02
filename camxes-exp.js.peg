@@ -439,8 +439,8 @@ tag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("tag", expr); }
 //stag = simple_tense_modal ((jek / joik) simple_tense_modal)*
 stag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("stag", expr); }
 
-tense_modal = expr:(NAhE_clause? SE_clause? 
-(BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / FEhE_clause? number ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause free* selbri FEhU_elidible / FA_clause) free*) {return _node("tense_modal", expr); }
+tense_modal = expr:((NAhE_clause? SE_clause? 
+(BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / FEhE_clause? number ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause free* selbri FEhU_elidible / FA_clause) free*)+) {return _node("tense_modal", expr); }
 
 //// EXP-MODIF: brivla/cmevla merge
 free = expr:(SEI_clause free* (terms CU_elidible free*)? selbri SEhU_elidible / SOI_clause free* subsentence SEhU_elidible / vocative relative_clauses? selbri relative_clauses? DOhU_elidible  / vocative sumti? DOhU_elidible / (number / lerfu_string) MAI_clause / TO_clause text TOI_elidible / xi_clause) {return _node("free", expr); }
@@ -1452,9 +1452,7 @@ initial_rafsi = expr:(extended_rafsi / y_rafsi / !any_extended_rafsi y_less_rafs
 
 any_extended_rafsi = expr:(fuhivla / extended_rafsi / stressed_extended_rafsi) { return _join(expr); }
 
-//// EXP-TEST: allowing CVCyCVCV fu'ivla
-fuhivla = expr:((fuhivla_head / y_rafsi+) stressed_syllable consonantal_syllable* final_syllable) { return _join(expr); }
-// fuhivla = expr:(fuhivla_head stressed_syllable consonantal_syllable* final_syllable) { return _join(expr); }
+fuhivla = expr:(fuhivla_head stressed_syllable consonantal_syllable* final_syllable) { return _join(expr); }
 
 stressed_extended_rafsi = expr:(stressed_brivla_rafsi / stressed_fuhivla_rafsi) { return _join(expr); }
 
@@ -1480,9 +1478,7 @@ rafsi_string = expr:(y_less_rafsi* (gismu / CVV_final_rafsi / stressed_y_less_ra
 
 gismu = expr:(stressed_long_rafsi &final_syllable vowel &post_word) { return _join(expr); }
 
-//// EXP-TEST: allowing CVCyCVCV fu'ivla
-CVV_final_rafsi = expr:(consonant stressed_vowel (h &final_syllable vowel)? &post_word) { return _join(expr); }
-// CVV_final_rafsi = expr:(consonant stressed_vowel h &final_syllable vowel &post_word) { return _join(expr); }
+CVV_final_rafsi = expr:(consonant stressed_vowel h &final_syllable vowel &post_word) { return _join(expr); }
 
 short_final_rafsi = expr:(&final_syllable (consonant diphthong / initial_pair vowel) &post_word) { return _join(expr); }
 

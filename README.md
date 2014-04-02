@@ -19,14 +19,11 @@ However, as the necessary node_modules are already included in this project, I t
 === Building a PEGJS engine ===
 
 After having entered the ilmentufa directory, run the following command:
-$ node camxes-builder
+$ node <builder-filename>
 
-(Or camxes-exp-builder in the case of the experimental version of the grammar.)
+For example, "node camxes-builder" for building the standard grammar engine.
 
-Then, edit the generated/updated parser engine, and changes the first line so that it looks as shown below:
+Now, the grammar engine should have been created/updated, and be ready for use. :)
 
-var camxes = module.exports = (function(){
-
-If you skip this last step, the grammar engine will not be useable by the HTML interface nor by the IRC bot interface.
 
 

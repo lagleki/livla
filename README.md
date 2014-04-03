@@ -30,4 +30,4 @@ Now, the grammar engine should have been created/updated, and be ready for use. 
 === Running the IRC bots ===
 
 Nothing easier; after having entered the ilmentufa directory, run the command "node ircbot/camxes-bot" or "node ircbot/cipra-bot" (the latter is for the experimental grammar).
-The list of the channel joined by the bot can be found and edited within the bot script.
+The list of the channels joined by the bot can be found and edited within the bot script.

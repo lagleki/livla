@@ -19,11 +19,14 @@ However, as the necessary node_modules are already included in this project, I t
 === Building a PEGJS engine ===
 
 After having entered the ilmentufa directory, run the following command:
-$ node <builder-filename>
+$ node [builder-filename]
 
 For example, "node camxes-builder" for building the standard grammar engine.
 
 Now, the grammar engine should have been created/updated, and be ready for use. :)
 
 
+=== Running the IRC bots ===
 
+Nothing easier; after having entered the ilmentufa directory, run the command "node ircbot/camxes-bot" or "node ircbot/cipra-bot" (the latter is for the experimental grammar).
+The list of the channel joined by the bot can be found and edited within the bot script.

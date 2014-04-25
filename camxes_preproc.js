@@ -18,7 +18,7 @@
 	input = input.replace(/[éèêë]/g,"E");
 	input = input.replace(/[íìîïĭị]/g,"I");
 	input = input.replace(/[óòôö]/g,"O");
-	input = input.replace(/[úùûüŭụ]/g,"U");
+	input = input.replace(/[úùûüŭụw]/g,"U");
 	// --- //
 	input = input.replace(/sh/igm,"c");
 	input = input.replace(/zh/igm,"j");

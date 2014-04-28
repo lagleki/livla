@@ -337,7 +337,8 @@ links_sa = expr:(links_start (!links_start (sa_word / SA_clause !links_start ) )
 links_start = expr:(BEI_clause) {return ["links_start", expr];}
 
 //// EXP-MODIF: Making bare mex a legal quantifier (without vei)
-quantifier = expr:(number !MOI_clause BOI_elidible free* / VEI_clause free* quantifier VEhO_elidible free* / mex ) {return _node("quantifier", expr); }
+//// REVERTED
+quantifier = expr:(number !MOI_clause BOI_elidible free* / VEI_clause free* mex VEhO_elidible free*) {return _node("quantifier", expr); }
 
 //;mex = mex_1 (operator mex_1)* / rp_clause
 
@@ -436,8 +437,11 @@ joik_ek_sa = expr:(joik_ek_1 (!joik_ek_1 (sa_word / SA_clause !joik_ek_1 ) )* SA
 
 joik_jek = expr:(joik free* / jek free*) {return _node("joik_jek", expr); }
 
-//// EXP-MODIF: Implementation of GAJA; disallowing things like {geJA} require some further tinkering though.
-gek = expr:(SE_clause? GA_clause (free* joik_jek)? free* / joik GI_clause free* / stag gik) {return _node("gek", expr); }
+//// EXP-MODIF: Implementation of gaJA
+gek = expr:(gak SE_clause? joik_jek  / SE_clause? GA_clause free* / joik GI_clause free* / stag gik ) {return _node("gek", expr); }
+
+//// EXP-ADD: GAJA
+gak = expr:(ga_clause free*) {return _node("gak", expr); }
 
 guhek = expr:(SE_clause? GUhA_clause free*) {return _node("guhek", expr); }
 
@@ -1361,6 +1365,10 @@ FIhOI_post = post_clause
 FIhAU_clause = pre:FIhAU_pre post:FIhAU_post {return _node2("FIhAU_clause", pre, post); }
 FIhAU_pre = pre_clause FIhAU spaces?
 FIhAU_post = post_clause
+
+ga_clause = pre:ga_pre post:ga_post {return _node2("ga_clause", pre, post); }
+ga_pre = pre_clause g a spaces?
+ga_post = post_clause
 
 
 // ___ MORPHOLOGY ___

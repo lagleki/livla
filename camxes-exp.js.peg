@@ -336,7 +336,8 @@ links_sa = expr:(links_start (!links_start (sa_word / SA_clause !links_start ) )
 
 links_start = expr:(BEI_clause) {return ["links_start", expr];}
 
-quantifier = expr:(number !MOI_clause BOI_elidible free* / VEI_clause free* mex VEhO_elidible free*) {return _node("quantifier", expr); }
+//// EXP-MODIF: Making bare mex a legal quantifier (without vei)
+quantifier = expr:(number !MOI_clause BOI_elidible free* / VEI_clause free* quantifier VEhO_elidible free* / mex ) {return _node("quantifier", expr); }
 
 //;mex = mex_1 (operator mex_1)* / rp_clause
 
@@ -398,7 +399,8 @@ operand_1 = expr:(operand_2 (joik_ek operand_2)*) {return _node("operand_1", exp
 
 operand_2 = expr:(operand_3 (joik_ek stag? BO_clause free* operand_2)?) {return _node("operand_2", expr); }
 
-operand_3 = expr:(quantifier / lerfu_string !MOI_clause BOI_elidible free* / NIhE_clause free* selbri TEhU_elidible free* / MOhE_clause free* sumti TEhU_elidible free* / JOhI_clause free* mex_2+ TEhU_elidible free* / gek operand gik operand_3 / (LAhE_clause free* / NAhE_clause BO_clause free*) operand LUhU_elidible free*) {return _node("operand_3", expr); }
+//// EXP-MODIF: BO optional in NAhE+BO+operand
+operand_3 = expr:(quantifier / lerfu_string !MOI_clause BOI_elidible free* / NIhE_clause free* selbri TEhU_elidible free* / MOhE_clause free* sumti TEhU_elidible free* / JOhI_clause free* mex_2+ TEhU_elidible free* / gek operand gik operand_3 / (LAhE_clause free* / NAhE_clause BO_clause? free*) operand LUhU_elidible free*) {return _node("operand_3", expr); }
 
 //// EXP-MODIF
 number = expr:((PA_clause / (NIhE_clause free* selbri TEhU_elidible free*) / (MOhE_clause free* sumti TEhU_elidible free*)) (PA_clause / (NIhE_clause free* selbri TEhU_elidible free*) / (MOhE_clause free* sumti TEhU_elidible free*) / lerfu_word)*) {return _node("number", expr); }

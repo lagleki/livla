@@ -193,8 +193,8 @@ bridi_tail_2 = expr:(bridi_tail_3 (((gihek / JA_clause) stag? / GI_clause stag) 
 
 bridi_tail_3 = expr:(selbri tail_terms / gek_sentence) {return _node("bridi_tail_3", expr);}
 
-//// EXP-FIX: add of "tag*" for allowing gek-subsentence selbri tcita
-gek_sentence = expr:(tag* gek subsentence gik subsentence tail_terms / tag* KE_clause free* gek_sentence KEhE_elidible free* / NA_clause free* gek_sentence) {return _node("gek_sentence", expr);}
+//// EXP-FIX: tag? KE --> tag* KE
+gek_sentence = expr:(gek subsentence gik subsentence tail_terms / tag* KE_clause free* gek_sentence KEhE_elidible free* / NA_clause free* gek_sentence) {return _node("gek_sentence", expr);}
 
 tail_terms = expr:(terms? VAU_elidible free*) {return _node_nonempty("tail_terms", expr); }
 

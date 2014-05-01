@@ -3089,28 +3089,17 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = [];
-        result1 = parse_tag();
-        while (result1 !== null) {
-          result0.push(result1);
-          result1 = parse_tag();
-        }
+        result0 = parse_gek();
         if (result0 !== null) {
-          result1 = parse_gek();
+          result1 = parse_subsentence();
           if (result1 !== null) {
-            result2 = parse_subsentence();
+            result2 = parse_gik();
             if (result2 !== null) {
-              result3 = parse_gik();
+              result3 = parse_subsentence();
               if (result3 !== null) {
-                result4 = parse_subsentence();
+                result4 = parse_tail_terms();
                 if (result4 !== null) {
-                  result5 = parse_tail_terms();
-                  if (result5 !== null) {
-                    result0 = [result0, result1, result2, result3, result4, result5];
-                  } else {
-                    result0 = null;
-                    pos = pos1;
-                  }
+                  result0 = [result0, result1, result2, result3, result4];
                 } else {
                   result0 = null;
                   pos = pos1;

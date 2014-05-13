@@ -1561,7 +1561,8 @@ nucleus = expr:(vowel / diphthong / y !nucleus) {return _join(expr);}
 
 glide = expr:(i / u) &nucleus !glide {return expr;}
 
-diphthong = expr:(a i / a u / e i / o i) !nucleus !glide {return _join(expr);}
+//// EXP-MODIF: Removing "!glide".
+diphthong = expr:(a i / a u / e i / o i) !nucleus {return _join(expr);}
 
 vowel = expr:(a / e / i / o / u) !nucleus {return expr;}
 

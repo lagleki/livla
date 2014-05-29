@@ -4378,7 +4378,7 @@ var camxes = (function(){
           pos2 = pos;
           result0 = parse_NA_clause();
           if (result0 !== null) {
-            result1 = parse_KU_clause();
+            result1 = parse_KU_elidible();
             if (result1 !== null) {
               result2 = [];
               result3 = parse_free();
@@ -4688,7 +4688,7 @@ var camxes = (function(){
           pos2 = pos;
           result0 = parse_NA_clause();
           if (result0 !== null) {
-            result1 = parse_KU_clause();
+            result1 = parse_KU_elidible();
             if (result1 !== null) {
               result2 = [];
               result3 = parse_free();

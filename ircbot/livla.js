@@ -27,9 +27,19 @@ var configmensi = {
   }
 };
 
+var configcipra = {
+  server: 'irc.freenode.net',
+  nick: 'cipra',
+  options: {
+    channels: ['#gleki', chan, '#ckule','#balningau'],
+    debug: false
+  }
+};
+
 var irc = require('irc');
 var client = new irc.Client(config.server, config.nick, config.options);
 var clientmensi = new irc.Client(configmensi.server, configmensi.nick, configmensi.options);
+var clientcipra = new irc.Client(configcipra.server, configcipra.nick, configcipra.options);
 
 client.addListener('message', function(from, to, text, message) {
     processor(client, from, to, text, message);
@@ -39,6 +49,66 @@ clientmensi.addListener('message', function(from, to, text, message) {
     processormensi(clientmensi, from, to, text, message);
 });
 
+clientcipra.addListener('message', function(from, to, text, message) {
+    processorcipra(clientcipra, from, to, text, message);
+});
+
+var camxes = require('../camxes-exp.js');
+var camxes_pre = require('../camxes_preproc.js');
+var camxes_post = require('../camxes_postproc.js');
+
+var processorcipra = function(client, from, to, text, message) {
+	var ret;
+  if (!text) return;
+  var sendTo = from; // send privately
+  if (to.indexOf('#') > -1) {
+    sendTo = to; // send publicly
+  }
+  if (sendTo == to) {  // Public
+    if (text.indexOf("cipra: ") == '0') {
+      text = text.substr(7);
+      ret = extract_mode(text);
+      client.say(sendTo, run_camxes(ret[0], ret[1]));
+    } else if (text.search(/(^| )coi la cipra/) >= 0) {
+      client.say(sendTo, "coi");
+    } else if (text.search(/(^| )ju'i la cipra/) >= 0) {
+      client.say(sendTo, "re'i");
+    } else if (text.search(/(^| )ki'e la cipra/) >= 0) {
+      client.say(sendTo, "je'e fi'i");
+    }
+  } else {  // Private
+	ret = extract_mode(text);
+    client.say(sendTo, run_camxes(ret[0], ret[1]));
+  }
+};
+
+function extract_mode(input) {
+  if (input.indexOf("+s ") == '0') {
+    return [input.substr(3), 3];
+  } else if (input.indexOf("-f ") == '0') {
+    return [input.substr(3), 5];
+  } else if (input.indexOf("-f+s ") == '0') {
+    return [input.substr(5), 6];
+  } else return [input, 2];
+}
+
+function run_camxes(input, mode) {
+	var result;
+	var syntax_error = false;
+	result = camxes_pre.preprocessing(input);
+	try {
+	  result = camxes.parse(result);
+	} catch (e) {
+		result = e;
+		syntax_error = true;
+	}
+	if (!syntax_error) {
+		result = JSON.stringify(result, undefined, 2);
+		result = camxes_post.postprocessing(result, mode);
+	}
+	return result;
+}
+///end cipra
 //dict:
 var emails = ["Please email any questions to gleki.is.my.name@gmail.com","Пишите любые вопросы по ложбану на gleki.is.my.name@gmail.com","mw.lojban.org","http://reddit.com/r/lojban/","Страница на русском: http://mw.lojban.org/index.php?title=%D0%94%D0%BE%D0%B1%D1%80%D0%BE%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D0%BE%D0%B2%D0%B0%D1%82%D1%8C!%20(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)&setlang=ru","http://mw.lojban.org/index.php?title=Bienvenue%20!%20(Fran%C3%A7ais)&setlang=fr"];
 var gaga = ["ga ga u la la", "mama", "do re mi fa so la ti", ".iam .iam i la pitsa cu kukte","ba du bi du","lo mlatu cu fasnu","lo'e mlatu ca ta'e fasnu","lo gerku cu dacti ije lo mlatu cu fasnu i xu lo dacti ka'e catra lo fasnu","i mi troci lo ka catra lo ditcu"];
@@ -113,6 +183,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
   }
   if (sendTo == to) {  // Public
   	switch(true) {
+ 	//case text.indexOf('en: /full ') == '0': clientmensi.say(sendTo, mulno(text.substr(9).trim(),'en'));break;
  	case text.indexOf('jbo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(4).trim(),'jbo'));break;
  	case text.indexOf('en: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'en'));break;
  	case text.indexOf('ru: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'ru'));break;
@@ -265,9 +336,18 @@ return jbopotext;
 
 var vlaste = function (lin,lng)
 {
+lin=lin.toLowerCase();
+if (lin.substr(0,6)=="/full ")
+{lin=lin.substr(6);return mulno(lin,lng);}
+else
+{return tordu(lin,lng);}
+};
+
+var tordu = function (lin,lng)
+{
 var xmlreader = require('xmlreader');
 var isa;
-var gaga;
+var gag;
 var fs = require("fs"),path = require("path");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
 xmlreader.read(content, function (err, res){
@@ -275,15 +355,38 @@ xmlreader.read(content, function (err, res){
     for(var i = 0; i < res.dictionary.direction.at(0).valsi.count(); i++){
         isa= res.dictionary.direction.at(0).valsi.at(i).attributes().word;
 				if (isa==lin){
-					retur=res.dictionary.direction.at(0).valsi.at(i).definition.at(0).text();
+					retur=res.dictionary.direction.at(0).valsi.at(i).definition.at(0).text().toLowerCase();
 					try{retur+=' |>>> ' + res.dictionary.direction.at(0).valsi.at(i).notes.at(0).text();}catch(erro){}
 				}
     }
-		gaga=retur;
+		gag=retur;
 });
-return gaga.replace(/[\$_`\{\}]/g,'');
+return gag.replace(/[\$_`\{\}]/g,'');
 };
 
+var mulno = function (lin,lng)
+{
+var xmlreader = require('xmlreader');
+var isa, isb;
+var gag;
+var fs = require("fs"),path = require("path");
+var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
+xmlreader.read(content, function (err, res){
+		var retur;retur='y no da jai se facki';
+		var stra=[];
+    for(var i = 0; i < res.dictionary.direction.at(0).valsi.count(); i++){
+        isa=res.dictionary.direction.at(0).valsi.at(i).definition.at(0).text().toLowerCase();
+        try{isb=res.dictionary.direction.at(0).valsi.at(i).notes.at(0).text().toLowerCase();}catch(erro){isb="";}
+				if (isa.indexOf(lin)>=0 || isb.indexOf(lin)>=0){
+					stra.push(res.dictionary.direction.at(0).valsi.at(i).attributes().word);
+				}
+    }
+		try{stra.splice(10);}catch(erro){}
+		if (stra.length>=10){stra.push[",..."];}
+		gag=stra.join(", ");
+});
+return gag;
+};
 
 
 

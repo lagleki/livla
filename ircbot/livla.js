@@ -1,3 +1,4 @@
+//livla bot
 var s;
 var t;
 var tato= require('./tatoeba.js');
@@ -181,7 +182,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
   if (to.indexOf('#') > -1) {
     sendTo = to; // send publicly
   }
-  if (sendTo == to) {  // Public
+  if (1==1) {  //sendTo == to Public
   	switch(true) {
  	//case text.indexOf('en: /full ') == '0': clientmensi.say(sendTo, mulno(text.substr(9).trim(),'en'));break;
  	case text.indexOf('selmaho: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(8).trim(),'en','selmaho'));break;
@@ -199,6 +200,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 's ') == '0': clientmensi.say(sendTo, "Tatoeba" + sisku(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
+ 	case text.indexOf(prereplier + 'xu do') == '0': 
  	case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {clientmensi.say(sendTo, from + mireturn());}, interm );break;
  	case text.indexOf(prereplier + 'mi retsku') < 0 && text.indexOf(prereplier + 'mi') == '0': setTimeout(function() {clientmensi.say(sendTo, from + doreturn());}, interm );break;
  	case text.indexOf(prereplier + 'sei mi kucli') == '0' && from==asker: setTimeout(function() {clientmensi.say(sendTo, preasker + ext(nadjuno));}, interm );break;

@@ -220,15 +220,15 @@ term = expr:(term_sa* term_1) {return _node("term", expr);}
 
 term_1 = expr:(sumti / tag_term / termset) {return _node("term_1", expr);}
 
-//// EXP-MODIF: NA without KU as a term
-tag_term = expr:((!gek tag free* (sumti / KU_elidible free*) / NA_clause KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek tag_term)*) {return _node("tag_term", expr);}
+//// EXP-MODIF: NA without KU as a term; free* within NAKU
+tag_term = expr:((!gek tag free* (sumti / KU_elidible free*) / NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek tag_term)*) {return _node("tag_term", expr);}
 
 abs_term = expr:(term_sa* abs_term_1) {return _node("abs_term", expr);}
 
 abs_term_1 = expr:(sumti / abs_tag_term / termset) {return _node("abs_term_1", expr);}
 
-//// EXP-MODIF: NA without KU as a term
-abs_tag_term = expr:((!gek tag free* !selbri !gek_sentence (sumti / KU_elidible free*) / NA_clause KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek abs_tag_term)*) {return _node("abs_tag_term", expr);}
+//// EXP-MODIF: NA without KU as a term; free* within NAKU
+abs_tag_term = expr:((!gek tag free* !selbri !gek_sentence (sumti / KU_elidible free*) / NA_clause free* !selbri !gek_sentence KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek abs_tag_term)*) {return _node("abs_tag_term", expr);}
 /*** END EXP-MODIF ***/
 
 term_sa = expr:(term_start (!term_start (sa_word / SA_clause !term_start ) )* SA_clause &term_1) {return _node("term_sa", expr);}

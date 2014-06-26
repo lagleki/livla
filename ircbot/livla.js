@@ -184,6 +184,8 @@ var processormensi = function(clientmensi, from, to, text, message) {
   if (sendTo == to) {  // Public
   	switch(true) {
  	//case text.indexOf('en: /full ') == '0': clientmensi.say(sendTo, mulno(text.substr(9).trim(),'en'));break;
+ 	case text.indexOf('selmaho: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(8).trim(),'en','selmaho'));break;
+ 	case text.indexOf('rafsi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6).trim(),'en','raf'));break;
  	case text.indexOf('jbo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(4).trim(),'jbo'));break;
  	case text.indexOf('en: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'en'));break;
  	case text.indexOf('ru: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'ru'));break;
@@ -334,14 +336,19 @@ var rusko = function (lin)
 return jbopotext;
 };
 
-var vlaste = function (lin,lng)
+var vlaste = function (lin,lng,raf)
 {
 lin=lin.toLowerCase();
-if (lin.substr(0,6)=="/full ")
-{lin=lin.substr(6);return mulno(lin,lng);}
-else
-{return tordu(lin,lng);}
+var ret;
+	switch(true) {
+		case lin.substr(0,6)=="/full ": ret=mulno(lin.substr(6),lng);break;
+		case raf=='raf': ret=rafsi(lin);break;
+		case raf=='selmaho': ret=selmaho(lin);break;
+		default: ret=tordu(lin,lng);break;
+	}
+return ret;
 };
+
 
 var tordu = function (lin,lng)
 {
@@ -356,7 +363,7 @@ xmlreader.read(content, function (err, res){
         isa= res.dictionary.direction.at(0).valsi.at(i).attributes().word;
 				if (isa==lin){
 					retur=res.dictionary.direction.at(0).valsi.at(i).definition.at(0).text().toLowerCase();
-					try{retur+=' |>>> ' + res.dictionary.direction.at(0).valsi.at(i).notes.at(0).text();}catch(erro){}
+					try{retur+=' |>>> ' + res.dictionary.direction.at(0).valsi.at(i).notes.at(0).text();}catch(err){}
 				}
     }
 		gag=retur;
@@ -376,20 +383,67 @@ xmlreader.read(content, function (err, res){
 		var stra=[];
     for(var i = 0; i < res.dictionary.direction.at(0).valsi.count(); i++){
         isa=res.dictionary.direction.at(0).valsi.at(i).definition.at(0).text().toLowerCase();
-        try{isb=res.dictionary.direction.at(0).valsi.at(i).notes.at(0).text().toLowerCase();}catch(erro){isb="";}
+        try{isb=res.dictionary.direction.at(0).valsi.at(i).notes.at(0).text().toLowerCase();}catch(err){isb="";}
 				if (isa.indexOf(lin)>=0 || isb.indexOf(lin)>=0){
 					stra.push(res.dictionary.direction.at(0).valsi.at(i).attributes().word);
 				}
     }
-		try{stra.splice(10);}catch(erro){}
-		if (stra.length>=10){stra.push[",..."];}
+		try{stra.splice(10);}catch(err){}
+		if (stra.length>=10){stra.push["..."];}
 		gag=stra.join(", ");
 });
 return gag;
 };
 
+var rafsi = function (lin)
+{
+var xmlreader = require('xmlreader');
+var isa;
+var gag;
+var fs = require("fs"),path = require("path");
+var content = fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8');
+xmlreader.read(content, function (err, res){
+		var retur;retur='y no da jai se facki';var rao='';
+    for(var i = 0; i < res.dictionary.direction.at(0).valsi.count(); i++){
+        isa= res.dictionary.direction.at(0).valsi.at(i).attributes().word;
+				if (isa==lin){
+					try{
+						for(var j = 0; j < res.dictionary.direction.at(0).valsi.at(i).rafsi.count(); j++){
+							rao+=' ' + res.dictionary.direction.at(0).valsi.at(i).rafsi.at(j).text();
+						}
+						retur='loi rafsi: ' + rao.trim();
+					}
+					catch(err){}
+				}
+    }
+		gag=retur;
+});
+return gag.replace(/[\$_`\{\}]/g,'');
+};
 
-
+var selmaho = function (lin)
+{
+var xmlreader = require('xmlreader');
+var isa;
+var gag;
+var fs = require("fs"),path = require("path");
+var content = fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8');
+xmlreader.read(content, function (err, res){
+		var retur;retur='y no da jai se facki';var sao='';
+    for(var i = 0; i < res.dictionary.direction.at(0).valsi.count(); i++){
+        isa= res.dictionary.direction.at(0).valsi.at(i).attributes().word;
+				if (isa==lin){
+					try{
+							sao=res.dictionary.direction.at(0).valsi.at(i).selmaho.at(0).text();
+						retur='le selma\'o: ' + sao;
+					}
+					catch(err){}
+				}
+    }
+		gag=retur;
+});
+return gag.replace(/[\$_`\{\}]/g,'');
+};
 
 
 

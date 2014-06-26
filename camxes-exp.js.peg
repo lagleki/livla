@@ -1439,9 +1439,11 @@ zohoi_word = non_space+ {return "~";}
 
 //___________________________________________________________________
 
-cmevla = expr:(!h &consonant_final coda? (any_syllable / digit)* &pause) { return ["cmevla", _join(expr)]; }
+cmevla = expr:(jbocme / zifcme) { return ["cmevla", _join(expr)]; }
 
-consonant_final = expr:((non_space &non_space)* consonant &pause) { return _join(expr); }
+zifcme = (!h (nucleus / glide / h / consonant !pause / digit)* consonant &pause)
+
+jbocme = (&zifcme (any_syllable / digit)* &pause)
 
 //cmevla = !h cmevla_syllable* &consonant coda? consonantal_syllable* onset &pause
 
@@ -1495,7 +1497,7 @@ rafsi_string = expr:(y_less_rafsi* (gismu / CVV_final_rafsi / stressed_y_less_ra
 
 //___________________________________________________________________
 
-gismu = expr:(stressed_long_rafsi &final_syllable vowel &post_word) { return _join(expr); }
+gismu = expr:((initial_pair stressed_vowel / consonant stressed_vowel consonant) &final_syllable consonant vowel &post_word) { return _join(expr); }
 
 CVV_final_rafsi = expr:(consonant stressed_vowel h &final_syllable vowel &post_word) { return _join(expr); }
 
@@ -1505,7 +1507,7 @@ stressed_y_rafsi = expr:((stressed_long_rafsi / stressed_CVC_rafsi) y) { return 
 
 stressed_y_less_rafsi = expr:(stressed_CVC_rafsi !y / stressed_CCV_rafsi / stressed_CVV_rafsi) { return _join(expr); }
 
-stressed_long_rafsi = expr:( (stressed_CCV_rafsi / stressed_CVC_rafsi) consonant ) { return _join(expr); }
+stressed_long_rafsi = expr:(initial_pair stressed_vowel consonant / consonant stressed_vowel consonant consonant) { return _join(expr); }
 
 stressed_CVC_rafsi = expr:(consonant stressed_vowel consonant) { return _join(expr); }
 
@@ -1517,7 +1519,7 @@ y_rafsi = expr:((long_rafsi / CVC_rafsi) y h?) { return _join(expr); }
 
 y_less_rafsi = expr:(!y_rafsi (CVC_rafsi !y / CCV_rafsi / CVV_rafsi) !any_extended_rafsi) { return _join(expr); }
 
-long_rafsi = expr:((CCV_rafsi / CVC_rafsi) consonant) { return _join(expr); }
+long_rafsi = expr:(initial_pair unstressed_vowel consonant / consonant unstressed_vowel consonant consonant) { return _join(expr); }
 
 CVC_rafsi = expr:(consonant unstressed_vowel consonant) { return _join(expr); }
 
@@ -1647,7 +1649,7 @@ digit = expr:(comma* [0123456789] !h !nucleus) {return _join(expr);}
 
 post_word = expr:(pause / !nucleus lojban_word)  {return _join(expr);}
 
-pause = expr:(comma* space_char / EOF)  {return _join(expr);}
+pause = expr:(comma* space_char+ / EOF)  {return _join(expr);}
 
 EOF = expr:(comma* !.)  {return _join(expr);}
 

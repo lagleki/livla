@@ -196,6 +196,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf('de: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'de'));break;
  	case text.indexOf('eo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'eo'));break;
  	case text.indexOf('simple: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7).trim(),'simple'));break;
+ 	case text=='io': clientmensi.say(sendTo, io());break;
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 's ') == '0': clientmensi.say(sendTo, "Tatoeba" + sisku(text.substr(prereplier.length+1).trim()));break;
@@ -344,8 +345,8 @@ lin=lin.toLowerCase();
 var ret;
 	switch(true) {
 		case lin.substr(0,6)=="/full ": ret=mulno(lin.substr(6),lng);break;
-		case raf=='raf': ret=rafsi(lin);break;
-		case raf=='selmaho': ret=selmaho(lin);break;
+		case raf=='raf': ret=rafsi(lin.replace(/[^a-z'\.]/g,''));break;
+		case raf=='selmaho': ret=selmaho(lin.replace(/[^a-z'\.]/g,''));break;
 		default: ret=tordu(lin,lng);break;
 	}
 return ret;
@@ -381,19 +382,20 @@ var gag;
 var fs = require("fs"),path = require("path");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
 xmlreader.read(content, function (err, res){
-		var retur;retur='y no da jai se facki';
+		var retur;
 		var stra=[];
-    for(var i = 0; i < res.dictionary.direction.at(0).valsi.count(); i++){
-        isa=res.dictionary.direction.at(0).valsi.at(i).definition.at(0).text().toLowerCase();
-        try{isb=res.dictionary.direction.at(0).valsi.at(i).notes.at(0).text().toLowerCase();}catch(err){isb="";}
-				if (isa.indexOf(lin)>=0 || isb.indexOf(lin)>=0){
-					stra.push(res.dictionary.direction.at(0).valsi.at(i).attributes().word);
-				}
-    }
+		    for(var i = 0; i < res.dictionary.direction.at(0).valsi.count(); i++){
+		        isa=res.dictionary.direction.at(0).valsi.at(i).definition.at(0).text().toLowerCase();
+		        try{isb=res.dictionary.direction.at(0).valsi.at(i).notes.at(0).text().toLowerCase();}catch(err){isb="";}
+						if (isa.indexOf(lin)>=0 || isb.indexOf(lin)>=0){
+							stra.push(res.dictionary.direction.at(0).valsi.at(i).attributes().word);
+						}
+		    }
 		try{stra.splice(10);}catch(err){}
 		if (stra.length>=10){stra.push["..."];}
-		gag=stra.join(", ");
+		gag=stra.join(", ").trim();
 });
+if(gag==''){gag='y no da jai se facki';}
 return gag;
 };
 
@@ -405,7 +407,8 @@ var gag;
 var fs = require("fs"),path = require("path");
 var content = fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8');
 xmlreader.read(content, function (err, res){
-		var retur;retur='y no da jai se facki';var rao='';
+		var retur;retur='';var rao='';
+  	var seraf='',rett='';
     for(var i = 0; i < res.dictionary.direction.at(0).valsi.count(); i++){
         isa= res.dictionary.direction.at(0).valsi.at(i).attributes().word;
 				if (isa==lin){
@@ -413,12 +416,28 @@ xmlreader.read(content, function (err, res){
 						for(var j = 0; j < res.dictionary.direction.at(0).valsi.at(i).rafsi.count(); j++){
 							rao+=' ' + res.dictionary.direction.at(0).valsi.at(i).rafsi.at(j).text();
 						}
-						retur='loi rafsi: ' + rao.trim();
+						if (rao.trim()!=''){retur='loi rafsi zo\'u: ' + rao.trim();}
 					}
 					catch(err){}
 				}
+		//now the back search: return a word if rafsi matches
+					try{
+						for(j = 0; j < res.dictionary.direction.at(0).valsi.at(i).rafsi.count(); j++){
+							isa= res.dictionary.direction.at(0).valsi.at(i).rafsi.at(j).text();
+							if (isa==lin){
+							seraf+=' ' + res.dictionary.direction.at(0).valsi.at(i).attributes().word;
+							}
+						}
+					}catch(err){}
     }
-		gag=retur;
+		if (seraf.trim()!=''){rett='lo se rafsi zo\'u: ' + seraf.trim();}
+				
+		switch(true){
+		case (retur!='') && (rett !=''): gag=retur.concat(" | ").concat(rett);break;
+		case (retur=='') && (rett !=''): gag=rett;break;
+		case (retur!='') && (rett ==''): gag=retur;break;
+		case (retur=='') && (rett ==''): gag='y no da jai se facki';break;
+		}
 });
 return gag.replace(/[\$_`\{\}]/g,'');
 };
@@ -447,6 +466,19 @@ xmlreader.read(content, function (err, res){
 return gag.replace(/[\$_`\{\}]/g,'');
 };
 
+var io = function ()
+{
+	var start = new Date().getTime();
+	var xmlreader = require('xmlreader');
+	var fs = require("fs"),path = require("path");
+	var content = fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8');
+	var end = new Date().getTime();
+	var time = end - start;
+xmlreader.read(content, function (err, res){
+var i= res.dictionary.direction.at(0).valsi.count();
+});
+return 'io [' + time + ' msec]';
+};
 
 
 

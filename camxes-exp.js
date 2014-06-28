@@ -6262,7 +6262,7 @@ var camxes = (function(){
         pos0 = pos;
         pos1 = pos;
         pos2 = pos;
-        result0 = parse_sumti_6();
+        result0 = parse_sumti();
         if (result0 !== null) {
           result1 = parse_relative_clauses();
           result1 = result1 !== null ? result1 : "";

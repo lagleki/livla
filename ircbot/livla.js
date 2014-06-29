@@ -184,18 +184,18 @@ var processormensi = function(clientmensi, from, to, text, message) {
   }
   if (1==1) {  //sendTo == to Public
   	switch(true) {
- 	//case text.indexOf('en: /full ') == '0': clientmensi.say(sendTo, mulno(text.substr(9).trim(),'en'));break;
- 	case text.indexOf('selmaho: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(8).trim(),'en','selmaho'));break;
- 	case text.indexOf('rafsi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6).trim(),'en','raf'));break;
- 	case text.indexOf('jbo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(4).trim(),'jbo'));break;
- 	case text.indexOf('en: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'en'));break;
- 	case text.indexOf('ru: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'ru'));break;
- 	case text.indexOf('es: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'es'));break;
- 	case text.indexOf('fr: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'fr'));break;
- 	case text.indexOf('ja: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'ja'));break;
- 	case text.indexOf('de: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'de'));break;
- 	case text.indexOf('eo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3).trim(),'eo'));break;
- 	case text.indexOf('simple: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7).trim(),'simple'));break;
+ 	//case text.indexOf('en: /full ') == '0': clientmensi.say(sendTo, mulno(text.substr(9),'en'));break;
+ 	case text.indexOf('selmaho: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
+ 	case text.indexOf('rafsi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
+ 	case text.indexOf('jbo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(4),'jbo'));break;
+ 	case text.indexOf('en: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'en'));break;
+ 	case text.indexOf('ru: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ru'));break;
+ 	case text.indexOf('es: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'es'));break;
+ 	case text.indexOf('fr: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr'));break;
+ 	case text.indexOf('ja: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ja'));break;
+ 	case text.indexOf('de: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'de'));break;
+ 	case text.indexOf('eo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
+ 	case text.indexOf('simple: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'simple'));break;
  	case text=='io': clientmensi.say(sendTo, io());break;
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
@@ -341,10 +341,10 @@ return jbopotext;
 
 var vlaste = function (lin,lng,raf)
 {
-lin=lin.toLowerCase();
+lin=lin.toLowerCase().trim();
 var ret;
 	switch(true) {
-		case lin.substr(0,6)=="/full ": ret=mulno(lin.substr(6),lng);break;
+		case lin.substr(0,6).trim()=="/full ": ret=mulno(lin.substr(6).trim(),lng);break;
 		case raf=='raf': ret=rafsi(lin.replace(/[^a-z'\.]/g,''));break;
 		case raf=='selmaho': ret=selmaho(lin.replace(/[^a-z'\.]/g,''));break;
 		default: ret=tordu(lin,lng);break;
@@ -357,21 +357,20 @@ var tordu = function (lin,lng)
 {
 var xmlreader = require('xmlreader');
 var isa;
-var gag;
 var fs = require("fs"),path = require("path");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
+var retur='y no da jai se facki';
 xmlreader.read(content, function (err, res){
-		var retur;retur='y no da jai se facki';
     for(var i = 0; i < res.dictionary.direction.at(0).valsi.count(); i++){
         isa= res.dictionary.direction.at(0).valsi.at(i).attributes().word;
 				if (isa==lin){
 					retur=res.dictionary.direction.at(0).valsi.at(i).definition.at(0).text().toLowerCase();
 					try{retur+=' |>>> ' + res.dictionary.direction.at(0).valsi.at(i).notes.at(0).text();}catch(err){}
+					break;
 				}
     }
-		gag=retur;
 });
-return gag.replace(/[\$_`\{\}]/g,'');
+return retur.replace(/[\$_`\{\}]/g,'');
 };
 
 var mulno = function (lin,lng)
@@ -406,39 +405,29 @@ var isa;
 var gag;
 var fs = require("fs"),path = require("path");
 var content = fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8');
+var start = new Date().getTime();
+var retur='', rao='',seraf='',rett='';
 xmlreader.read(content, function (err, res){
-		var retur;retur='';var rao='';
-  	var seraf='',rett='';
     for(var i = 0; i < res.dictionary.direction.at(0).valsi.count(); i++){
-        isa= res.dictionary.direction.at(0).valsi.at(i).attributes().word;
-				if (isa==lin){
-					try{
-						for(var j = 0; j < res.dictionary.direction.at(0).valsi.at(i).rafsi.count(); j++){
-							rao+=' ' + res.dictionary.direction.at(0).valsi.at(i).rafsi.at(j).text();
-						}
-						if (rao.trim()!=''){retur='loi rafsi zo\'u: ' + rao.trim();}
-					}
-					catch(err){}
-				}
-		//now the back search: return a word if rafsi matches
-					try{
-						for(j = 0; j < res.dictionary.direction.at(0).valsi.at(i).rafsi.count(); j++){
-							isa= res.dictionary.direction.at(0).valsi.at(i).rafsi.at(j).text();
-							if (isa==lin){
-							seraf+=' ' + res.dictionary.direction.at(0).valsi.at(i).attributes().word;
-							}
-						}
-					}catch(err){}
+	try{for(j = 0; j < res.dictionary.direction.at(0).valsi.at(i).rafsi.count(); j++){
+			if (res.dictionary.direction.at(0).valsi.at(i).rafsi.at(j).text()==lin){seraf+=' ' + res.dictionary.direction.at(0).valsi.at(i).attributes().word;}
+			if (res.dictionary.direction.at(0).valsi.at(i).attributes().word==lin){rao+=' ' + res.dictionary.direction.at(0).valsi.at(i).rafsi.at(j).text();}
+		}
+	}catch(err){}
     }
-		if (seraf.trim()!=''){rett='lo se rafsi zo\'u: ' + seraf.trim();}
+if (rao.trim()!=''){retur='zoi ly. ' + rao.trim() + ' .ly. rafsi zo ' + lin;}
+if (seraf.trim()!=''){rett='zo ' + seraf.trim()+ ' se rafsi ra\'oi '+lin;}
 				
 		switch(true){
-		case (retur!='') && (rett !=''): gag=retur.concat(" | ").concat(rett);break;
+		case (retur!='') && (rett !=''): gag=retur.concat(" .i ").concat(rett);break;
 		case (retur=='') && (rett !=''): gag=rett;break;
 		case (retur!='') && (rett ==''): gag=retur;break;
 		case (retur=='') && (rett ==''): gag='y no da jai se facki';break;
 		}
 });
+	var end = new Date().getTime();
+	var time = end - start;
+console.log('read: ' + time);
 return gag.replace(/[\$_`\{\}]/g,'');
 };
 

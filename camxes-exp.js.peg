@@ -260,9 +260,9 @@ sumti_6 = expr:(ZO_clause free* / ZOI_clause free* / ZOhOI_clause free* / LOhU_c
 
 li_clause = expr:(LI_clause free* mex LOhO_elidible free*) {return _node("li_clause", expr); }
 
-sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1) {return _node("sumti_tail", expr); }
+//// sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1) {return _node("sumti_tail", expr); }
 //// EXP-MODIF: allow {lo mi e do vu'o noi brodi cu broda} (instead of the previous string)
-//// sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1 / sumti sumti_tail_1) {return _node("sumti_tail", expr); }
+sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1 / sumti sumti_tail_1) {return _node("sumti_tail", expr); }
 
 sumti_tail_1 = expr:(selbri relative_clauses? / quantifier selbri relative_clauses? / quantifier sumti) {return _node("sumti_tail_1", expr);}
 

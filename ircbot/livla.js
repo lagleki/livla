@@ -5,6 +5,7 @@ var tato= require('./tatoeba.js');
 var interv=900000;
 var interm=2900;
 var chan='#lojban';
+var livlytcan='#ckule';
 var asker='livla';
 var replier='mensi';
 var preasker=asker + ': ';
@@ -14,7 +15,7 @@ var config = {
   server: 'irc.freenode.net',
   nick: asker,
   options: {
-    channels: ['#gleki', chan],
+    channels: ['#gleki',livlytcan, chan],
     debug: false
   }
 };
@@ -23,7 +24,7 @@ var configmensi = {
   server: 'irc.freenode.net',
   nick: replier,
   options: {
-    channels: ['#gleki', chan],
+    channels: ['#gleki',livlytcan, chan],
     debug: false
   }
 };
@@ -32,7 +33,7 @@ var configcipra = {
   server: 'irc.freenode.net',
   nick: 'cipra',
   options: {
-    channels: ['#gleki', chan, '#ckule','#balningau'],
+    channels: ['#gleki', chan, livlytcan,'#balningau'],
     debug: false
   }
 };
@@ -164,7 +165,7 @@ var processor = function(client, from, to, text, message) {
       	setTimeout(function() {client.say(sendTo, tato.tatoebaprocessing(from));}, interm );
   }
 
-	setInterval(function() {if (Date.now()-said>interv){said=Date.now();client.say(chan, vric());}}, interv);
+	setInterval(function() {if (Date.now()-said>interv){said=Date.now();client.say(livlytcan, vric());}}, interv);
   //}
   var sendTo = from; // send privately
   if (to.indexOf('#') > -1) {
@@ -344,7 +345,7 @@ var vlaste = function (lin,lng,raf)
 lin=lin.toLowerCase().trim();
 var ret;
 	switch(true) {
-		case lin.substr(0,6).trim()=="/full ": ret=mulno(lin.substr(6).trim(),lng);break;
+		case lin.substr(0,5).trim()=="/full": ret=mulno(lin.substr(6).trim(),lng);break;
 		case raf=='raf': ret=rafsi(lin.replace(/[^a-z'\.]/g,''));break;
 		case raf=='selmaho': ret=selmaho(lin.replace(/[^a-z'\.]/g,''));break;
 		default: ret=tordu(lin,lng);break;
@@ -394,7 +395,7 @@ xmlreader.read(content, function (err, res){
 		if (stra.length>=10){stra.push["..."];}
 		gag=stra.join(", ").trim();
 });
-if(gag==''){gag='y no da jai se facki';}
+if(gag===''){gag='y no da jai se facki';}
 return gag;
 };
 
@@ -415,14 +416,14 @@ xmlreader.read(content, function (err, res){
 		}
 	}catch(err){}
     }
-if (rao.trim()!=''){retur='zoi ly. ' + rao.trim() + ' .ly. rafsi zo ' + lin;}
-if (seraf.trim()!=''){rett='zo ' + seraf.trim()+ ' se rafsi ra\'oi '+lin;}
+if (rao.trim()!==''){retur='zoi ly. ' + rao.trim() + ' .ly. rafsi zo ' + lin;}
+if (seraf.trim()!==''){rett='zo ' + seraf.trim()+ ' se rafsi ra\'oi '+lin;}
 				
 		switch(true){
-		case (retur!='') && (rett !=''): gag=retur.concat(" .i ").concat(rett);break;
-		case (retur=='') && (rett !=''): gag=rett;break;
-		case (retur!='') && (rett ==''): gag=retur;break;
-		case (retur=='') && (rett ==''): gag='y no da jai se facki';break;
+		case (retur!=='') && (rett !==''): gag=retur.concat(" .i ").concat(rett);break;
+		case (retur==='') && (rett !==''): gag=rett;break;
+		case (retur!=='') && (rett ===''): gag=retur;break;
+		case (retur==='') && (rett ===''): gag='y no da jai se facki';break;
 		}
 });
 	var end = new Date().getTime();

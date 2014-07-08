@@ -4,8 +4,8 @@ var t;
 var tato= require('./tatoeba.js');
 var interv=900000;
 var interm=2900;
-var chan='#lojban';
-var livlytcan='#ckule';
+var chan='#lojban,#ckule,#tatoeba';
+var livlytcan='##jboselbau';
 var asker='livla';
 var replier='mensi';
 var preasker=asker + ': ';
@@ -33,7 +33,7 @@ var configcipra = {
   server: 'irc.freenode.net',
   nick: 'cipra',
   options: {
-    channels: ['#gleki', chan, livlytcan,'#balningau'],
+    channels: ['#gleki', chan, livlytcan],
     debug: false
   }
 };
@@ -197,7 +197,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf('de: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'de'));break;
  	case text.indexOf('eo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
  	case text.indexOf('simple: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'simple'));break;
- 	case text=='io': clientmensi.say(sendTo, io());break;
+ 	case text=='.mensi': clientmensi.say(sendTo, io());break;
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 's ') == '0': clientmensi.say(sendTo, "Tatoeba" + sisku(text.substr(prereplier.length+1).trim()));break;
@@ -392,7 +392,7 @@ xmlreader.read(content, function (err, res){
 						}
 		    }
 		try{stra.splice(10);}catch(err){}
-		if (stra.length>=10){stra.push["..."];}
+		if (stra.length>=10){stra.push("...");}
 		gag=stra.join(", ").trim();
 });
 if(gag===''){gag='y no da jai se facki';}
@@ -467,7 +467,7 @@ var io = function ()
 xmlreader.read(content, function (err, res){
 var i= res.dictionary.direction.at(0).valsi.count();
 });
-return 'io [' + time + ' msec]';
+return 'lanli ze\'a lo milsnidu be le ' + time + '';
 };
 
 

@@ -198,6 +198,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf('eo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
  	case text.indexOf('simple: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'simple'));break;
  	case text=='.mensi': clientmensi.say(sendTo, io());break;
+ 	case text=='mensi: help': clientmensi.say(sendTo, sidju());break;
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 's ') == '0': clientmensi.say(sendTo, "Tatoeba" + sisku(text.substr(prereplier.length+1).trim()));break;
@@ -384,16 +385,20 @@ var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
 xmlreader.read(content, function (err, res){
 		var retur;
 		var stra=[];
+		var stradef=[];
 		    for(var i = 0; i < res.dictionary.direction.at(0).valsi.count(); i++){
 		        isa=res.dictionary.direction.at(0).valsi.at(i).definition.at(0).text().toLowerCase();
 		        try{isb=res.dictionary.direction.at(0).valsi.at(i).notes.at(0).text().toLowerCase();}catch(err){isb="";}
 						if (isa.indexOf(lin)>=0 || isb.indexOf(lin)>=0){
 							stra.push(res.dictionary.direction.at(0).valsi.at(i).attributes().word);
+							stradef.push(isa + '|>>> ' + isb);
 						}
 		    }
 		try{stra.splice(10);}catch(err){}
 		if (stra.length>=10){stra.push("...");}
 		gag=stra.join(", ").trim();
+		if (stra.length==1){gag = gag + ' = ' + stradef[0].replace(/[\$_`\{\}]/g,'');}
+		//console.log(stra.length);
 });
 if(gag===''){gag='y no da jai se facki';}
 return gag;
@@ -428,7 +433,6 @@ if (seraf.trim()!==''){rett='zo ' + seraf.trim()+ ' se rafsi ra\'oi '+lin;}
 });
 	var end = new Date().getTime();
 	var time = end - start;
-console.log('read: ' + time);
 return gag.replace(/[\$_`\{\}]/g,'');
 };
 
@@ -470,7 +474,10 @@ var i= res.dictionary.direction.at(0).valsi.count();
 return 'lanli ze\'a lo milsnidu be le ' + time + '';
 };
 
-
+var sidju = function ()
+{
+return "Typing in the chat \"rafsi: pof\" will return \"spofu\". \"rafsi: spofu\" will return \"pof po\'u\". Typing \"selmaho: ui\" will return \"UI\". Typing \"mensi: s klama\" will return a random sentence (with its number) from Tatoeba containing \"klama\" sequence.";
+};
 
 
 

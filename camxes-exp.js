@@ -6304,6 +6304,22 @@ var camxes = (function(){
             result0 = null;
             pos = pos1;
           }
+          if (result0 === null) {
+            pos1 = pos;
+            result0 = parse_sumti();
+            if (result0 !== null) {
+              result1 = parse_sumti_tail_1();
+              if (result1 !== null) {
+                result0 = [result0, result1];
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          }
         }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("sumti_tail", expr); })(pos0, result0);

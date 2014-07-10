@@ -68,6 +68,9 @@
 <valsi word="aitco" type="fu'ivla"><definition>$x_1$ - армянский в аспекте $x_2$</definition>
 <definitionid>42555</definitionid><notes>См. также {kafkaso}, {kartuli}.</notes></valsi>
 
+<valsi word="aitxero" type="fu'ivla"><definition>$x_1$ - это эфир/эфирный (всемирная среда)</definition>
+<definitionid>56907</definitionid><notes>От латинского &quot;aetherius&quot; и греческого &quot;αἰθήρ&quot;. Промежуточная среда, заполняющая всю пустоту над сферой земли.</notes></valsi>
+
 <valsi word="akcoloti" type="fu'ivla"><definition>$x_1$ - это аксолотль  (Ambystoma mexicanum)</definition>
 <definitionid>56051</definitionid><notes>См. {respa}</notes></valsi>
 
@@ -1044,9 +1047,6 @@
 <valsi word="cmene" type="gismu"><rafsi>cme</rafsi><rafsi>me&apos;e</rafsi><definition>$x_1$ (цитата) — имя/название/прозвище $x_2$ (кого), используемое именователем $x_3$ (кем)</definition>
 <definitionid>35520</definitionid><notes>Также: $x_2$ называется $x_1$ именователем $x_3$: {selcme} для переставленных аргументов); Также: кличка, прозвище {me&apos;e}, {gismu} (), {tcita} (метка), {valsi} (слово), {judri} (адрес)</notes></valsi>
 
-<valsi unofficial="true" word="cmiai" type="obsolete fu'ivla"><definition>$x_1$ (множество) проводит ритуал миаи (обычай, в котором холостые и незамужние индивиды и/или члены их семей представляются друг другу, чтобы рассмотреть возможность свадьбы)</definition>
-<definitionid>37987</definitionid><notes>$x_1$ может включать женихов, невест, членов их семей</notes></valsi>
-
 <valsi word="cmila" type="gismu"><rafsi>mi&apos;a</rafsi><definition>$x_1$ смеется/хохочет</definition>
 <definitionid>35521</definitionid><notes>$x_1$ смеется над $x_2$: {mi&apos;afra} {ckasu} (насмехаться), {frumu} (хмуриться), {xajmi} (смешной), {cisma} (улыбаться)</notes></valsi>
 
@@ -1718,6 +1718,9 @@
 
 <valsi word="enge" type="fu'ivla"><definition>$x_1$ - это архитектор/дизайнер/инженер $x_2$ (чего)</definition>
 <definitionid>38116</definitionid><notes>См. также {zbaske}, {skezu&apos;e}</notes></valsi>
+
+<valsi word="engranaje" type="fu'ivla"><definition>$x_1$ - это шестерёнка</definition>
+<definitionid>57066</definitionid><notes>См. {vraga}, {pulni}, {cabra}</notes></valsi>
 
 <valsi word="enrio" type="fu'ivla"><definition>$x_1$ проявляет энрио (японский термин) в действиях $x_2$; $x_1$ действует эгоистически, чтобы сохранить свою внутреннюю свободу, предотвратить своё смущение, и в то же время действует альтруистически путём избегания вовлечения социальных элементов без нанесения обид/боли другим; $x_1$ социально ограничивает себя под давлением групповой солидарности и послушания, чтобы не задеть чувства других; $x_1$ вежлив</definition>
 <definitionid>41322</definitionid><notes>См. {clite}, {tarti}, {jikca}, {cnikansa}, {dai}, {sevzi}, {zukte}</notes></valsi>
@@ -4605,6 +4608,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 <valsi word="ni'a" type="cmavo"><selmaho>FAhA2</selmaho><definition>отношение/направление интервала местоположения; внизу/книзу/ниже от ...</definition>
 <definitionid>37401</definitionid></valsi>
 
+<valsi unofficial="true" word="ni'au" type="experimental cmavo"><selmaho>CAI</selmaho><definition>междометие: &apos;как дела?&apos;</definition>
+<definitionid>57081</definitionid><notes>Приветствие в китайском стиле. См. {pei}, {coi}, {a&apos;oi}</notes></valsi>
+
 <valsi word="ni'e" type="cmavo"><selmaho>NIhE</selmaho><definition>превращает selbri в математический (mex) операнд; используется для создания новых не числовых кванторов (мерил); напр., &quot;СТАДО&quot; рогатого скота</definition>
 <definitionid>37402</definitionid></valsi>
 
@@ -5262,8 +5268,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 <valsi word="pluka" type="gismu"><rafsi>puk</rafsi><rafsi>pu&apos;a</rafsi><definition>$x_1$ (событие/состояние) представляется приятным/доставляет удовольствие/угождает/нравится $x_2$ (кому) в условиях $x_3$</definition>
 <definitionid>36199</definitionid><notes>{rigni} (отвратительный), {pu&apos;a}, {melbi} (красивый), {nelci} (любить [предпочитать]), {prami} (любить [кого-либо])</notes></valsi>
 
-<valsi word="plukauai" type="fu'ivla"><definition>$x_1$ - </definition>
-<definitionid>56482</definitionid><notes>Тж. &apos;хорошенький&apos;, &apos;славный&apos;, &apos;вызывающий жалость, желание пожалеть, приголубить&apos;. См. {pluka}, {melbi}</notes></valsi>
+<valsi word="plukauaii" type="fu'ivla"><definition>$x_1$ - кавайный, миленький</definition>
+<definitionid>57015</definitionid><notes>Тж. &apos;хорошенький&apos;, &apos;славный&apos;, &apos;вызывающий жалость, желание пожалеть, приголубить&apos;. См. {pluka}, {melbi}</notes></valsi>
 
 <valsi word="pluta" type="gismu"><rafsi>lut</rafsi><rafsi>lu&apos;a</rafsi><definition>$x_1$ — путь/маршрут/курс к/в $x_2$ из/от $x_3$ через точки $x_4$ (множество)</definition>
 <definitionid>36200</definitionid><notes>Также: трасса, траектория, орбита; путь просто соединяет исходную и конечную точки, инженерное обустройство не подразумевается; $x_4$, как множество, включает достаточное число точек, чтобы разумно определить маршрут {litru} (путешествовать), {naxle} (канал), {tcana} (станция), {dargu} (дорога), {klaji} (улица), {ve} {klama} (перемещаться); {tadji} (метод), {zukte} (действовать) для «пути», как средства достижения цели; {klama} (перемещаться), {pagre} (проникать [проходить сквозь])</notes></valsi>
@@ -8257,6 +8263,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 <valsi word="zu'unai" type="cmavo-compound"><selmaho>UI*3</selmaho><definition>междометие-рассуждение: с одной стороны - с другой стороны</definition>
 <definitionid>37893</definitionid><notes>См. также {karbi}, {frica}, {dukti}.</notes></valsi>
 
+<valsi word="zukmiai" type="fu'ivla"><definition>$x_1$ (множество) проводит ритуал миаи (обычай, в котором холостые и незамужние индивиды и/или члены их семей представляются друг другу, чтобы рассмотреть возможность свадьбы)</definition>
+<definitionid>56905</definitionid><notes>$x_1$ может включать женихов, невест, членов их семей</notes></valsi>
+
 <valsi word="zukte" type="gismu"><rafsi>zuk</rafsi><rafsi>zu&apos;e</rafsi><definition>$x_1$ (существо/организация) своей волей принимает меры/совершает действие $x_2$ с целью $x_3$</definition>
 <definitionid>36666</definitionid><notes>{zu&apos;e}, {bapli} (заставлять), {gunka} (работать), {jalge} (результат), {krinu} (резон), {mukti} (повод), {rinka} (причина [физическая]), {snuti} (случайный [непреднамеренный]), {gasnu} (делать), {fasnu} (происходить [случаться]), {minji} (машина [автомат, механизм]), {prenu} (персона), {ciksi} (объяснять), {jibri} (профессия), {pilno} (использовать), {pluta} (путь), {tadji} (метод), {tutci} (инструмент)</notes></valsi>
 
@@ -8328,6 +8337,10 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 <nlword word="отказ/отклонение" valsi="ainai" />
 
 <nlword word="армянский" valsi="aitco" />
+
+<nlword word="эфир" sense="философия" valsi="aitxero" />
+
+<nlword word="эфирный" sense="философия" valsi="aitxero" />
 
 <nlword word="аксолотль" sense="Ambystoma mexicanum" valsi="akcoloti" />
 
@@ -9219,8 +9232,6 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="имя" valsi="cmene" place="1" />
 
-<nlword word="миаи" sense="ритуал" valsi="cmiai" />
-
 <nlword word="смеющийся" valsi="cmila" place="1" />
 
 <nlword word="смеяться" valsi="cmila" />
@@ -9807,15 +9818,13 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="инженер" valsi="enge" place="1" />
 
+<nlword word="шестерёнка" valsi="engranaje" />
+
 <nlword word="проявлять энрио" valsi="enrio" />
 
 <nlword word="спорт" valsi="esporte" place="1" />
 
 <nlword word="спортсмен" valsi="esporte" place="2" />
-
-<nlword word="эфир" sense="философия" valsi="etreo" />
-
-<nlword word="эфирный" sense="философия" valsi="etreo" />
 
 <nlword word="1-ое sumti-место" valsi="fa" />
 
@@ -10485,9 +10494,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="ислам" valsi="islam" />
 
-<nlword word="исландский" sense="страна" valsi="islenska" />
-
 <nlword word="исландский" sense="язык" valsi="islenska" />
+
+<nlword word="исландский" sense="страна" valsi="islenska" />
 
 <nlword word="исландский" sense="культура" valsi="islenska" />
 
@@ -10949,9 +10958,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="серьёзное" sense="случай, событие" valsi="junri" place="2" />
 
-<nlword word="серьёзный" sense="случай, событие" valsi="junri" place="2" />
-
 <nlword word="серьёзный" sense="о персоне" valsi="junri" place="1" />
+
+<nlword word="серьёзный" sense="случай, событие" valsi="junri" place="2" />
 
 <nlword word="серьёзный" valsi="junri" />
 
@@ -12477,6 +12486,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="внизу" valsi="ni&apos;a" />
 
+<nlword word="как дела?" valsi="ni&apos;au" />
+
 <nlword word="из selbri в операнд" valsi="ni&apos;e" />
 
 <nlword word="логически из-за" valsi="ni&apos;i" />
@@ -13069,7 +13080,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="приятный" valsi="pluka" />
 
-<nlword word="кавайный" valsi="plukauai" />
+<nlword word="кавайный" valsi="plukauaii" />
 
 <nlword word="путь" valsi="pluta" />
 
@@ -15545,9 +15556,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="искренне" sense="прямо, открыто" valsi="xo&apos;o" />
 
-<nlword word="саркастически" sense="иронично говоря" valsi="xo&apos;o" />
-
 <nlword word="саркастически" sense="шутливо, не взаправду" valsi="xo&apos;o" />
+
+<nlword word="саркастически" sense="иронично говоря" valsi="xo&apos;o" />
 
 <nlword word="хорбан" valsi="xorbo" />
 
@@ -15810,6 +15821,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 <nlword word="с одной стороны" valsi="zu&apos;u" />
 
 <nlword word="с другой стороны" valsi="zu&apos;unai" />
+
+<nlword word="проводить ритуал миаи" valsi="zukmiai" />
 
 <nlword word="действовать" valsi="zukte" />
 

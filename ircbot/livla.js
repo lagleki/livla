@@ -4,7 +4,7 @@ var t;
 var tato= require('./tatoeba.js');
 var interv=900000;
 var interm=2900;
-var chan='#lojban,#ckule,#tatoeba';
+var chan='#lojban,#ckule,#tatoeba,#tokipona';
 var livlytcan='##jboselbau';
 var asker='livla';
 var replier='mensi';
@@ -54,6 +54,30 @@ clientmensi.addListener('message', function(from, to, text, message) {
 clientcipra.addListener('message', function(from, to, text, message) {
     processorcipra(clientcipra, from, to, text, message);
 });
+var langs=["jbo","en","ru","es","fr","ja","de","eo","en-simple"];
+//update logs once a djedi
+setInterval(function() { 
+	var request = require("request"); var body;
+	request = request.defaults({jar: true});
+	var jar = request.jar();
+	var cookie = request.cookie("jbovlastesessionid=MTg6MzIwOmdsZWtpOjE0MDQyODk5NDE%3D");
+	langs.forEach(function(thisa) {
+		var uri="http://jbovlaste.lojban.org/export/xml-export.html?lang="+thisa;
+		jar.setCookie(cookie, uri);
+			request({uri: uri,method: "GET",jar: jar}, function(err, response, body) {
+				//write body to file
+				if(err) {
+					console.log(err);
+				} else {
+					fs = require("fs"),path = require("path");
+					var content = fs.writeFile(path.join(__dirname,"dumps",thisa + ".xml"),body, function(err) {
+					if(err) {console.log(err);} else {console.log(thisa + ' updated');}
+					});
+				}
+			}); 
+	});
+	body="";
+}, 86400000);
 
 var camxes = require('../camxes-exp.js');
 var camxes_pre = require('../camxes_preproc.js');
@@ -184,19 +208,20 @@ var processormensi = function(clientmensi, from, to, text, message) {
     sendTo = to; // send publicly
   }
   if (1==1) {  //sendTo == to Public
-  	switch(true) {
- 	//case text.indexOf('en: /full ') == '0': clientmensi.say(sendTo, mulno(text.substr(9),'en'));break;
- 	case text.indexOf('selmaho: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
- 	case text.indexOf('rafsi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
- 	case text.indexOf('jbo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(4),'jbo'));break;
- 	case text.indexOf('en: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'en'));break;
- 	case text.indexOf('ru: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ru'));break;
- 	case text.indexOf('es: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'es'));break;
- 	case text.indexOf('fr: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr'));break;
- 	case text.indexOf('ja: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ja'));break;
- 	case text.indexOf('de: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'de'));break;
- 	case text.indexOf('eo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
- 	case text.indexOf('simple: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'simple'));break;
+	switch(true) {
+	//case text.indexOf('en: /full ') == '0': clientmensi.say(sendTo, mulno(text.substr(9),'en'));break;
+	case text.indexOf('jbo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(4),'jbo'));break;
+	case text.indexOf('en: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'en'));break;
+	case text.indexOf('ru: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ru'));break;
+	case text.indexOf('es: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'es'));break;
+	case text.indexOf('fr: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr'));break;
+	case text.indexOf('ja: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ja'));break;
+	case text.indexOf('de: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'de'));break;
+	case text.indexOf('eo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
+	case text.indexOf('en-simple: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'en-simple'));break;
+	case text.indexOf('selmaho: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
+	case text.indexOf('rafsi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
+	case text.indexOf('toki: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(5),'toki'));break;
  	case text=='.mensi': clientmensi.say(sendTo, io());break;
  	case text=='mensi: help': clientmensi.say(sendTo, sidju());break;
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;

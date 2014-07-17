@@ -401,14 +401,18 @@
 <valsi word="bredi" type="gismu"><rafsi>red</rafsi><rafsi>bre</rafsi><definition>$x_1$ は $x_2$ （事）に向けて準備できている／用意が整っている／覚悟している</definition>
 <definitionid>39300</definitionid><notes>・大意： 準備 ・読み方： ブレディ  ・語呂合わせ： レディ , bei(備), ready, ・関連語： {spaji}, {jukpa}</notes></valsi>
 
-<valsi word="bridi" type="gismu"><rafsi>bri</rafsi><definition>$x_1$ （文字列）は $x_2$ （関係）を $x_3$ （項の集合）について表す命題</definition>
-<definitionid>40393</definitionid><notes>自然言語においては、 x2 を表すのが賓辞／述語、 x3 を表すのが主辞／主語。 ・大意： 命題 ・読み方： ブリディ  ・語呂合わせ： predicate ・関連語： {sumti}, {fancu}</notes></valsi>
+<valsi word="bridi" type="gismu"><rafsi>bri</rafsi><definition>$x_1$ （文字列）は $x_2$ （関係）を $x_3$ （項の集合）について表す述語関係／命題</definition>
+<definitionid>40393</definitionid><notes>自然言語においては、 x2 を表すのが賓辞／述語、 x3 のうちの一つを表すのが主辞／主語。 ・大意： 命題 ・読み方： ブリディ  ・語呂合わせ： predicate ・関連語： {sumti}, {fancu}
+</notes></valsi>
 
 <valsi word="brife" type="gismu"><rafsi>bif</rafsi><rafsi>bi&apos;e</rafsi><definition>$x_1$ は $x_2$ （起源）・ $x_3$ （速度）の風；  $x_1$ は $x_2$ から吹く；  $x_2$ は $x_1$ を吹く</definition>
 <definitionid>40394</definitionid><notes>x2 は方角も。 ・大意： 風 ・読み方： ブリフェ  ・語呂合わせ： breeze, fen(風) ・関連語： {tcima}</notes></valsi>
 
 <valsi word="briju" type="gismu"><rafsi>bij</rafsi><definition>$x_1$ は $x_2$ （従業員）・ $x_3$ （所）の職場／事務所／営業所／局</definition>
 <definitionid>39301</definitionid><notes>・大意： 職場 ・読み方： ブリジュ  ・語呂合わせ：  breau ・関連語： {jibri}, {gunka}</notes></valsi>
+
+<valsi word="bripre" type="lujvo"><definition>$x_1$ は体が命題を表している人</definition>
+<definitionid>56996</definitionid><notes>{bridi} {prenu}</notes></valsi>
 
 <valsi word="brito" type="gismu"><rafsi>rit</rafsi><definition>$x_1$ は $x_2$ （性質面）に関して英国／イギリス系（言語／文化／民族／地理）</definition>
 <definitionid>39302</definitionid><notes>「イングランド」ではない。 ・大意： 英国 ・読み方： ブリト  ・関連語： {glico}, {skoto}, {merko}, {ropno}</notes></valsi>

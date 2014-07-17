@@ -145,6 +145,9 @@ Voir également {krixa}, {cusku}, {casnu}, {tavla}, {voksa}, {pinka}.</notes></v
 <valsi word="bevri" type="gismu"><rafsi>bev</rafsi><rafsi>bei</rafsi><definition>$x_1$ transporte/lève/apporte cargaison/objet $x_2$ à $x_3$ de $x_4$ par chemin $x_5$.</definition>
 <definitionid>20698</definitionid><notes>Que l&apos;objet cesse d&apos;être placé à x2 est impliqué. Voir également {marce}, {muvdu}, {benji}, {klama}.</notes></valsi>
 
+<valsi word="bripre" type="lujvo"><definition>$x_1$ est une personne dont le corps exprime des relations prédicatives.</definition>
+<definitionid>56992</definitionid><notes>{bridi} {prenu}</notes></valsi>
+
 <valsi word="catlu" type="gismu"><rafsi>cta</rafsi><definition>$x_1$ regarde / observe $x_2$</definition>
 <definitionid>20498</definitionid></valsi>
 

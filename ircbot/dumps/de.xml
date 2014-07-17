@@ -2819,6 +2819,9 @@
 <valsi word="lunsa" type="gismu"><rafsi>lus</rafsi><definition>$x_1$ kondensiert/verflüssigt sich auf/in $x_2$ bei Temperatur $x_3$ und Druck $x_4$; $x_1$ ist Tau/Kondenswasser auf $x_2$</definition>
 <definitionid>43351</definitionid></valsi>
 
+<valsi word="ma'arcpana" type="lujvo"><definition>$cp_1$ ist der Gipfel des Berges/Hügels/[der Erhöhung] $cp_2=cm_1$.</definition>
+<definitionid>56935</definitionid><notes>Vgl. {cmana}, {cpana}.</notes></valsi>
+
 <valsi word="mabla" type="gismu"><rafsi>mal</rafsi><definition>$x_1$ ist ein abfälliger/herabwürdigender Sinn/Gebrauch von $x_2$ verwendet von $x_3$; $x_3$ wertet $x_2$ ab in Form von $x_1$</definition>
 <definitionid>43352</definitionid></valsi>
 
@@ -6271,9 +6274,9 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 
 <nlword word="verfluchen" valsi="dapma" />
 
-<nlword word="Fluch" sense="Schicksal" valsi="dapsku" place="5" />
-
 <nlword word="Fluch" sense="Text zum Verfluchen von jemanden oder etwas" valsi="dapsku" place="2" />
+
+<nlword word="Fluch" sense="Schicksal" valsi="dapsku" place="5" />
 
 <nlword word="Verflucher" valsi="dapsku" place="1" />
 
@@ -7340,6 +7343,10 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Erdmond" valsi="lunra" />
 
 <nlword word="kondensieren" valsi="lunsa" />
+
+<nlword word="Berggipfel" valsi="ma&apos;arcpana" place="1" />
+
+<nlword word="Gipfel" sense="Berg" valsi="ma&apos;arcpana" />
 
 <nlword word="abfällig" valsi="mabla" />
 

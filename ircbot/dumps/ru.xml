@@ -7258,7 +7258,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 <valsi word="toldrpleksipi" type="fu'ivla"><definition>$x_1$ - это бабочка-монарх (данаида) подвида $x_2$.</definition>
 <definitionid>39118</definitionid><notes>Представитель вида Danaus plexippus. См. {toldi}.</notes></valsi>
 
-<valsi word="tolspofu" type="lujvo"><definition>$x_1$ способен выполнять функции/готов к использованию для $x_2$; $x_1$ - операбельный, действующий, несломанный, работоспособный</definition>
+<valsi word="tolspofu" type="lujvo"><definition>$x_1$ способен выполнять функции/готов к использованию для $x_2$; $x_1$ - операбельный, несломанный, работоспособный</definition>
 <definitionid>42271</definitionid><notes>См. также {ka&apos;e} se {pilno}, {spofu}</notes></valsi>
 
 <valsi word="tolylau" type="lujvo"><definition>$x_1$ - тихий/слабый/мягкий/негромкий/приглушённый звук в точке наблюдения $x_2$ согласно стандарту $x_3$; $x_1$ производит мало шума</definition>
@@ -10494,9 +10494,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="ислам" valsi="islam" />
 
-<nlword word="исландский" sense="язык" valsi="islenska" />
-
 <nlword word="исландский" sense="страна" valsi="islenska" />
+
+<nlword word="исландский" sense="язык" valsi="islenska" />
 
 <nlword word="исландский" sense="культура" valsi="islenska" />
 
@@ -10958,11 +10958,11 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="серьёзное" sense="случай, событие" valsi="junri" place="2" />
 
+<nlword word="серьёзный" valsi="junri" />
+
 <nlword word="серьёзный" sense="о персоне" valsi="junri" place="1" />
 
 <nlword word="серьёзный" sense="случай, событие" valsi="junri" place="2" />
-
-<nlword word="серьёзный" valsi="junri" />
 
 <nlword word="вес" valsi="junta" place="1" />
 

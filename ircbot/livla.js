@@ -54,9 +54,9 @@ clientmensi.addListener('message', function(from, to, text, message) {
 clientcipra.addListener('message', function(from, to, text, message) {
     processorcipra(clientcipra, from, to, text, message);
 });
-var langs=["jbo","en","ru","es","fr","ja","de","eo","en-simple"];
-//update logs once a djedi
-setInterval(function() { 
+
+setInterval(function() { //update logs once a djedi
+	var langs=["jbo","en","ru","es","fr","ja","de","eo","en-simple"];
 	var request = require("request"); var body;
 	request = request.defaults({jar: true});
 	var jar = request.jar();
@@ -222,7 +222,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('selmaho: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
 	case text.indexOf('rafsi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
 	case text.indexOf('toki: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(5),'toki'));break;
- 	case text=='.mensi': clientmensi.say(sendTo, io());break;
+ 	case text=='mensi: io': clientmensi.say(sendTo, io());break;
  	case text=='mensi: help': clientmensi.say(sendTo, sidju());break;
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
@@ -475,7 +475,7 @@ xmlreader.read(content, function (err, res){
 				if (isa==lin){
 					try{
 							sao=res.dictionary.direction.at(0).valsi.at(i).selmaho.at(0).text();
-						retur='le selma\'o: ' + sao;
+						retur='.i cmavo ma\'oi ' + sao;
 					}
 					catch(err){}
 				}
@@ -496,26 +496,10 @@ var io = function ()
 xmlreader.read(content, function (err, res){
 var i= res.dictionary.direction.at(0).valsi.count();
 });
-return 'lanli ze\'a lo milsnidu be le ' + time + '';
+return '.io (to lanli ze\'a lo milsnidu be li ' + time + ' toi)';
 };
 
 var sidju = function ()
 {
 return "Typing in the chat \"rafsi: pof\" will return \"spofu\". \"rafsi: spofu\" will return \"pof po\'u\". Typing \"selmaho: ui\" will return \"UI\". Typing \"mensi: s klama\" will return a random sentence (with its number) from Tatoeba containing \"klama\" sequence.";
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

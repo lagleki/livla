@@ -4,7 +4,7 @@ var t;
 var tato= require('./tatoeba.js');
 var interv=900000;
 var interm=2900;
-var chan='#lojban,#ckule,#tatoeba,#tokipona';
+var chan='#lojban,#ckule';
 var livlytcan='##jboselbau';
 var asker='livla';
 var replier='mensi';
@@ -77,7 +77,7 @@ setInterval(function() { //update logs once a djedi
 			}); 
 	});
 	body="";
-}, 86400000);
+}, 43200000);
 
 var camxes = require('../camxes-exp.js');
 var camxes_pre = require('../camxes_preproc.js');
@@ -382,21 +382,23 @@ return ret;
 
 var tordu = function (lin,lng)
 {
+//var start;
 var xmlreader = require('xmlreader');
 var isa;
 var fs = require("fs"),path = require("path");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
 var retur='y no da jai se facki';
+//start = new Date().getTime();
 xmlreader.read(content, function (err, res){
     for(var i = 0; i < res.dictionary.direction.at(0).valsi.count(); i++){
-        isa= res.dictionary.direction.at(0).valsi.at(i).attributes().word;
-				if (isa==lin){
+				if (res.dictionary.direction.at(0).valsi.at(i).attributes().word==lin){
 					retur=res.dictionary.direction.at(0).valsi.at(i).definition.at(0).text().toLowerCase();
 					try{retur+=' |>>> ' + res.dictionary.direction.at(0).valsi.at(i).notes.at(0).text();}catch(err){}
 					break;
 				}
     }
 });
+//console.log(new Date().getTime() - start);
 return retur.replace(/[\$_`\{\}]/g,'');
 };
 

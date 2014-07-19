@@ -27,7 +27,9 @@
 	// --- //
 	input = input.replace(/ʃ/igm,"c");
 	input = input.replace(/ʒ/igm,"j");
-	input = input.replace(/ɛ/igm,"e");
+	input = input.replace(/ɛ/gm,"e");
+	input = input.replace(/[Ɛɛ́ɛ̀ɛ̂ɛ̈]/gm,"E");
+        input = input.replace(/ə/igm,"y");
 	// --- //
 	input = input.replace(/\(|\)|«|»|—|:/gm,"");
 	return input;

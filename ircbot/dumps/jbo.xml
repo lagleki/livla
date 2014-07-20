@@ -1091,6 +1091,9 @@
 <valsi word="fe'u" type="cmavo"><selmaho>FEhU</selmaho><definition>fa&apos;orma&apos;o zo fi&apos;o</definition>
 <definitionid>13457</definitionid><notes>{fa&apos;orma&apos;o}; {fi&apos;o}</notes></valsi>
 
+<valsi unofficial="true" word="fegli" type="experimental gismu"><definition>to&apos;e melbi fa $x_1$ boi $x_2$ boi $x_3$</definition>
+<definitionid>57131</definitionid></valsi>
+
 <valsi word="fei" type="cmavo"><selmaho>PA2</selmaho><definition>saclu li papa li paxa</definition>
 <definitionid>13527</definitionid></valsi>
 
@@ -5437,6 +5440,8 @@
 
 <nlword word="fe&apos;u" valsi="fe&apos;u" />
 
+<nlword word="to&apos;e melbi" valsi="fegli" />
+
 <nlword word="fei" valsi="fei" />
 
 <nlword word="kakne" sense="lo ka jai si&apos;u farvi" valsi="ferti" />
@@ -5827,9 +5832,9 @@
 
 <nlword word="lo pluta je se litru" sense="lo ka muvdu fo ce&apos;u" valsi="klama" place="4" />
 
-<nlword word="lo stuzi" sense="lo ka muvdu fi ce&apos;u" valsi="klama" place="3" />
-
 <nlword word="lo stuzi" sense="lo ka muvdu ce&apos;u" valsi="klama" place="2" />
+
+<nlword word="lo stuzi" sense="lo ka muvdu fi ce&apos;u" valsi="klama" place="3" />
 
 <nlword word="lo zukte je litru" sense="lo ka ce&apos;u muvdu" valsi="klama" place="1" />
 

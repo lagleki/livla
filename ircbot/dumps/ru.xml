@@ -1869,6 +1869,9 @@
 <valsi word="febvi" type="gismu"><rafsi>feb</rafsi><definition>$x_1$ испаряется/кипит при температуре $x_2$ и давлении $x_3$</definition>
 <definitionid>35666</definitionid><notes>Бурно кипит: {febjicla} {dunja} (замерзать [затвердевать]), {lunsa} (конденсироваться), {runme} (плавиться)</notes></valsi>
 
+<valsi unofficial="true" word="fegli" type="experimental gismu"><definition>$x_1$ уродлив с точки зрения $x_2$ в аспекте $x_3$</definition>
+<definitionid>57133</definitionid><notes>То же, что и {to&apos;e} {melbi}.</notes></valsi>
+
 <valsi word="fei" type="cmavo"><selmaho>PA2</selmaho><definition>цифра/число: шестнадцатиричная цифра B (соответствует десятичной 11) [одиннадцать]</definition>
 <definitionid>37093</definitionid></valsi>
 
@@ -9948,6 +9951,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="кипящий" valsi="febvi" place="1" />
 
+<nlword word="уродливый" valsi="fegli" />
+
 <nlword word="шестнадцатиричная цифра B" valsi="fei" />
 
 <nlword word="1E-15" valsi="femti" place="1" />
@@ -10494,11 +10499,11 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="ислам" valsi="islam" />
 
-<nlword word="исландский" sense="страна" valsi="islenska" />
-
 <nlword word="исландский" sense="язык" valsi="islenska" />
 
 <nlword word="исландский" sense="культура" valsi="islenska" />
+
+<nlword word="исландский" sense="страна" valsi="islenska" />
 
 <nlword word="ифкуильский" valsi="itkuile" />
 

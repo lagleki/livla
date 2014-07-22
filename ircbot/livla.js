@@ -16,7 +16,8 @@ var config = {
   nick: asker,
   options: {
     channels: ['#gleki',livlytcan, chan],
-    debug: false
+    debug: false,
+    messageSplit: 256
   }
 };
 
@@ -25,7 +26,8 @@ var configmensi = {
   nick: replier,
   options: {
     channels: ['#gleki',livlytcan, chan],
-    debug: false
+    debug: false,
+    messageSplit: 256
   }
 };
 
@@ -34,7 +36,8 @@ var configcipra = {
   nick: 'cipra',
   options: {
     channels: ['#gleki', chan, livlytcan],
-    debug: false
+    debug: false,
+    messageSplit: 256
   }
 };
 
@@ -388,13 +391,13 @@ lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8').toLowerCase();
-var retur='y no da jai se facki';
+//var retur='y no da jai se facki';
 //start = new Date().getTime();
 var xmlDoc = libxmljs.parseXml(content);
-var gchild = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"\"]/definition[1]").text();
+var gchild='';
+try{gchild = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"\"]/definition[1]").text();}catch(err){}
 try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"\"]/notes[1]").text();}catch(err){}
-if (gchild!=''){retur=gchild.replace(/[\$_`\{\}]/g,'');}
-return retur;
+if (gchild===''){return mulno(lin,lng);}else{return gchild.replace(/[\$_`\{\}]/g,'');}
 };
 
 var mulno = function (lin,lng)
@@ -417,7 +420,7 @@ var gag=stra.join(", ").trim();
 if (stra.length==1){gag = gag + ' = ' + tordu(gag,lng);}
 if(gag===''){gag='y no da jai se facki';}
 return gag;
-}
+};
 
 var selmaho = function (lin)
 {
@@ -438,10 +441,10 @@ var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8').toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
-var coun = xmlDoc.find("/dictionary/direction[1]/valsi[@word=\""+lin+"\"]/rafsi/text()[1]").join (' ');
+var coun = xmlDoc.find("/dictionary/direction[1]/valsi[@word=\""+lin+"\"]/rafsi/text()[1]").join (' .e zo ');
 var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
-if (coun!==''){var coun='zoi ly. ' + coun + ' .ly. rafsi zo ' + lin;}
-if (typeof rev!=='undefined'){var rev='zo ' + rev.attr("word").value() + ' se rafsi ra\'oi '+lin;}else{rev='';}
+if (coun!==''){coun='zo ' + coun + ' rafsi zo ' + lin;}
+if (typeof rev!=='undefined'){rev='zo ' + rev.attr("word").value() + ' se rafsi ra\'oi '+lin;}else{rev='';}
 switch(true){
 case (coun!=='') && (rev !==''): gag=coun.concat(" .i ").concat(rev);break;
 case (coun==='') && (rev !==''): gag=rev;break;

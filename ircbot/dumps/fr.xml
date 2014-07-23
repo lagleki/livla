@@ -2,363 +2,363 @@
 <dictionary>
 <direction from="lojban" to="Français">
 
-<valsi word="altamru" type="fu'ivla"><definition>$x_1$ est une palmier dattier/dattier/Phoenix dactylifera L. (arbre ou fruit) de l&apos;espèce / variété $x_2$.</definition>
+<valsi word="altamru" type="fu'ivla"><user><username>phma</username><realname>Pierre Abbat</realname></user><definition>$x_1$ est une palmier dattier/dattier/Phoenix dactylifera L. (arbre ou fruit) de l&apos;espèce / variété $x_2$.</definition>
 <definitionid>56800</definitionid></valsi>
 
-<valsi word="angila" type="fu'ivla"><definition>$x_1$ est une anguille de l&apos;espèce / variété $x_2$</definition>
+<valsi word="angila" type="fu'ivla"><user><username>phma</username><realname>Pierre Abbat</realname></user><definition>$x_1$ est une anguille de l&apos;espèce / variété $x_2$</definition>
 <definitionid>56799</definitionid></valsi>
 
-<valsi word="bacru" type="gismu"><rafsi>ba&apos;u</rafsi><definition>$x_1$ prononce/dit/émet le son (avec sa bouche) $x_2$</definition>
+<valsi word="bacru" type="gismu"><rafsi>ba&apos;u</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ prononce/dit/émet le son (avec sa bouche) $x_2$</definition>
 <definitionid>13792</definitionid><notes>N&apos;implique pas de volonté de communiquer ni la présence d&apos;une audience.
 «Dire» se dit plutôt {cusku}.
 Voir également {krixa}, {cusku}, {casnu}, {tavla}, {voksa}, {pinka}.</notes></valsi>
 
-<valsi word="badna" type="gismu"><definition>$x_1$ est une banane d&apos;espèce $x_2$</definition>
+<valsi word="badna" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est une banane d&apos;espèce $x_2$</definition>
 <definitionid>14469</definitionid></valsi>
 
-<valsi word="badri" type="gismu"><rafsi>dri</rafsi><definition>$x_1$ est triste/déprimé à propos de $x_2$ (abstrait)</definition>
+<valsi word="badri" type="gismu"><rafsi>dri</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est triste/déprimé à propos de $x_2$ (abstrait)</definition>
 <definitionid>20615</definitionid><notes>Voir aussi {klaku}, {gleki}, {betri}, {cinmo}, {junri}.</notes></valsi>
 
-<valsi word="bajra" type="gismu"><rafsi>baj</rafsi><definition>$x_1$ court sur $x_2$ (surface) en se servant de jambe(s)/membre(s) $x_3$ ayant comme démarche $x_4$.</definition>
+<valsi word="bajra" type="gismu"><rafsi>baj</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ court sur $x_2$ (surface) en se servant de jambe(s)/membre(s) $x_3$ ayant comme démarche $x_4$.</definition>
 <definitionid>20616</definitionid><notes>Voir aussi {cadzu}, {klama}, {litru}, {stapa}, {plipe}, {cpare}.</notes></valsi>
 
-<valsi word="bakfu" type="gismu"><rafsi>baf</rafsi><definition>$x_1$ est un colis/paquet contenant $x_2$, maintenu ensemble par $x_3$.</definition>
+<valsi word="bakfu" type="gismu"><rafsi>baf</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est un colis/paquet contenant $x_2$, maintenu ensemble par $x_3$.</definition>
 <definitionid>20617</definitionid><notes>Voir aussi {daski}, {dakli}, {tanxe}.</notes></valsi>
 
-<valsi word="bakni" type="gismu"><rafsi>bak</rafsi><definition>$x_1$ est un(e) vache/boeuf d&apos;espèce $x_2$.</definition>
+<valsi word="bakni" type="gismu"><rafsi>bak</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est un(e) vache/boeuf d&apos;espèce $x_2$.</definition>
 <definitionid>20618</definitionid><notes>Voir également, {danlu}.</notes></valsi>
 
-<valsi word="bakri" type="gismu"><definition>$x_1$ est de la craie provenant de $x_2$ (source) sous forme $x_3$.</definition>
+<valsi word="bakri" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est de la craie provenant de $x_2$ (source) sous forme $x_3$.</definition>
 <definitionid>20619</definitionid><notes>Voir également {pinsi}, {blabi}, {jilka}.</notes></valsi>
 
-<valsi word="baktu" type="gismu"><definition>$x_1$ est un seau/un contenant profond et solide dont le haut est large, contenant $x_2$ et fait de $x_3$.</definition>
+<valsi word="baktu" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est un seau/un contenant profond et solide dont le haut est large, contenant $x_2$ et fait de $x_3$.</definition>
 <definitionid>20620</definitionid><notes>Voir également {botpi}, {patxu}, {lante}, {lanka}.</notes></valsi>
 
-<valsi word="balji" type="gismu"><definition>$x_1$ est un bulbe [partie du corps] de la plante/espèce $x_2$; (métaphore: rond, gonflé, bossu)</definition>
+<valsi word="balji" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est un bulbe [partie du corps] de la plante/espèce $x_2$; (métaphore: rond, gonflé, bossu)</definition>
 <definitionid>20621</definitionid><notes>Voir également {punli}, {batke}.</notes></valsi>
 
-<valsi word="balni" type="gismu"><definition>$x_1$ est un balcon/un rebord/une étagère appartenant à la structure/au bâtiment $x_2$</definition>
+<valsi word="balni" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est un balcon/un rebord/une étagère appartenant à la structure/au bâtiment $x_2$</definition>
 <definitionid>20622</definitionid><notes>Voir également {kajna}.</notes></valsi>
 
-<valsi word="balre" type="gismu"><rafsi>ba&apos;e</rafsi><definition>$x_1$ est une lame de l&apos;outil/l&apos;arme $x_2$.</definition>
+<valsi word="balre" type="gismu"><rafsi>ba&apos;e</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est une lame de l&apos;outil/l&apos;arme $x_2$.</definition>
 <definitionid>20623</definitionid><notes>Voir également {dakfu}, {tunta}, {tutci}, {guska}, {kinli}, {katna}.</notes></valsi>
 
-<valsi word="balvi" type="gismu"><rafsi>bav</rafsi><definition>$x_1$ est dans le futur de/plus tard que/après $x_2$, en ordre chronologique; $x_2$ est premier; $x_1$ est deuxième.</definition>
+<valsi word="balvi" type="gismu"><rafsi>bav</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est dans le futur de/plus tard que/après $x_2$, en ordre chronologique; $x_2$ est premier; $x_1$ est deuxième.</definition>
 <definitionid>20624</definitionid><notes>Aussi &quot;suite&quot;, &quot;succéder&quot;, &quot;successeur&quot;, &quot;suivre&quot;, &quot;venir après&quot;. Ne peut s&apos;utiliser que pour l&apos;ordre temporel. A la particularité d&apos;être comme l&apos;aoriste grec, que les deux évènements peuvent être simultanés pendant une partie de leur durée, tant que x1 est au moins en partie dans le futur de x2. La valeur de x2 par defaut est le référentiel spacio-temporel actuel: le présent. Voir également {linde}, {cabna}, {purci}, {farna}.</notes></valsi>
 
-<valsi word="bancu" type="gismu"><rafsi>bac</rafsi><definition>$x_1$ dépasse/est au-delà de la limite $x_2$, de $x_3$, selon la quantité/la propriété $x_4$ (ni/ka)</definition>
+<valsi word="bancu" type="gismu"><rafsi>bac</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ dépasse/est au-delà de la limite $x_2$, de $x_3$, selon la quantité/la propriété $x_4$ (ni/ka)</definition>
 <definitionid>20625</definitionid><notes>De l&apos;autre bord d&apos;une limite, mais pas nécessairement directement, ni en ayant la plus courte distance (tel que {ragve}); De plus, {bancu} n&apos;est pas limité à l&apos;espace; Voir également {dukse}, {ragve}, {zmadu}, {kuspe}.</notes></valsi>
 
-<valsi word="bandu" type="gismu"><rafsi>bad</rafsi><definition>$x_1$ (évènement) défend/protège $x_2$ (objet/état) du danger/péril $x_3$ (évènement)</definition>
+<valsi word="bandu" type="gismu"><rafsi>bad</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ (évènement) défend/protège $x_2$ (objet/état) du danger/péril $x_3$ (évènement)</definition>
 <definitionid>20626</definitionid><notes>Aussi &quot;sécuriser&quot;; x1 résiste à x3; Couvert protecteur/bouclier (= {badgai}); Voir également {ckape}, {fanta}, {fapro}, {marbi}, {rivbi}, {zunti}, {snura}, {binra}, {lunbe}, {pulji}.</notes></valsi>
 
-<valsi word="banfi" type="gismu"><definition>$x_1$ est un amphibien de type/sorte/espèce $x_2$</definition>
+<valsi word="banfi" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est un amphibien de type/sorte/espèce $x_2$</definition>
 <definitionid>20627</definitionid><notes>Voir également {danlu}, {respa}.</notes></valsi>
 
-<valsi word="bangu" type="gismu"><rafsi>ban</rafsi><rafsi>bau</rafsi><definition>$x_1$ est une langue/un langage/un dialecte utilisé par le peuple/les personnes/le êtres capables de la parole $x_2$ afin d&apos;exprimer l&apos;idée/le fait/l&apos;information $x_3$ (pas une citation).</definition>
+<valsi word="bangu" type="gismu"><rafsi>ban</rafsi><rafsi>bau</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est une langue/un langage/un dialecte utilisé par le peuple/les personnes/le êtres capables de la parole $x_2$ afin d&apos;exprimer l&apos;idée/le fait/l&apos;information $x_3$ (pas une citation).</definition>
 <definitionid>20628</definitionid><notes>Voir également {tance}, {cusku}, {ve} {tavla}, {valsi}, {gerna}, {jufra}, {natmi}, {slaka}.</notes></valsi>
 
-<valsi word="banli" type="gismu"><rafsi>bal</rafsi><rafsi>ba&apos;i</rafsi><definition>$x_1$ est grand/grandiose/magnifique/formidable dans la dimension/au niveau de $x_2$ (ka) selon le standard $x_3$.</definition>
+<valsi word="banli" type="gismu"><rafsi>bal</rafsi><rafsi>ba&apos;i</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est grand/grandiose/magnifique/formidable dans la dimension/au niveau de $x_2$ (ka) selon le standard $x_3$.</definition>
 <definitionid>20629</definitionid><notes>Indique une grandeur subjective, comparée à la grandeur objective exprimée par {barda}. Synonyme de: extraordinaire, illustre, impressionnant, auguste, spécial, majestueux, dintingué, splendide, imposant. Implique généralement {zabna}, mais l&apos;utilisation de {mabla} peut entraîner une très différente signification. Voir également {barda}, {nobli}, {se} {sinma}, {pluja}, {misno}, {vajni}, {fasnu}, {cizra}.</notes></valsi>
 
-<valsi word="banro" type="gismu"><rafsi>ba&apos;o</rafsi><definition>$x_1$ grandit/grossit/croît, atteignant la forme/taille $x_2$ depuis la forme/grandeur initiale $x_3$</definition>
+<valsi word="banro" type="gismu"><rafsi>ba&apos;o</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ grandit/grossit/croît, atteignant la forme/taille $x_2$ depuis la forme/grandeur initiale $x_3$</definition>
 <definitionid>20630</definitionid><notes>Aussi &quot;développer&quot;; x1 devient plus large/plus grand/plus imposant [développement croissant]. Voir également {farvi}, {zenba}, {jmina}, {barda}, {makcu}, {ferti}.</notes></valsi>
 
-<valsi word="banxa" type="gismu"><rafsi>bax</rafsi><definition>$x_1$ est une banque appartenant à/utilisant le système $x_2$, pour la fonction bancaire $x_3$ (évènement).</definition>
+<valsi word="banxa" type="gismu"><rafsi>bax</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est une banque appartenant à/utilisant le système $x_2$, pour la fonction bancaire $x_3$ (évènement).</definition>
 <definitionid>20631</definitionid><notes>Voir également {sorcu}, {zarci}, {canja}, {kagni}.</notes></valsi>
 
-<valsi word="banzu" type="gismu"><rafsi>baz</rafsi><definition>$x_1$ suffit à/est suffisant pour $x_2$ dans les circonstances $x_3$.</definition>
+<valsi word="banzu" type="gismu"><rafsi>baz</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ suffit à/est suffisant pour $x_2$ dans les circonstances $x_3$.</definition>
 <definitionid>20632</definitionid><notes>Voir également {dukse}, {claxu}, {nitcu}, {ricfu}, {curmi}.</notes></valsi>
 
-<valsi word="bapli" type="gismu"><rafsi>bap</rafsi><rafsi>bai</rafsi><definition>$x_1$ [force] force que l&apos;évènement $x_2$ se produise.</definition>
+<valsi word="bapli" type="gismu"><rafsi>bap</rafsi><rafsi>bai</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ [force] force que l&apos;évènement $x_2$ se produise.</definition>
 <definitionid>20652</definitionid><notes>Aussi &quot;contraindre&quot;. Requiert le succès de la force, pas comme le terme en physique, qui se rapproche davantage de {danro}. Voir également {fanta}, {rinju}, {jimte}, {jitro}, {rinka}, {krinu}, {zukte}, {randa}, {danre}, {marxa}, {tinsa}, {xarnu}, {bai}.</notes></valsi>
 
-<valsi word="barda" type="gismu"><rafsi>bra</rafsi><definition>$x_1$ est gros/large dans la dimension/propriété $x_2$ (ka) comparé au standard/la norme $x_3$.</definition>
+<valsi word="barda" type="gismu"><rafsi>bra</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est gros/large dans la dimension/propriété $x_2$ (ka) comparé au standard/la norme $x_3$.</definition>
 <definitionid>20653</definitionid><notes>Voir également {banli}, {clani}, {ganra}, {condi}, {plana}, {cmalu}, {rotsu}, {banro}, {xanto}.</notes></valsi>
 
-<valsi word="bargu" type="gismu"><rafsi>bag</rafsi><definition>$x_1$ forme une arche sur/autour de $x_2$ et est faite de $x_3$ (matériau).</definition>
+<valsi word="bargu" type="gismu"><rafsi>bag</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ forme une arche sur/autour de $x_2$ et est faite de $x_3$ (matériau).</definition>
 <definitionid>20655</definitionid><notes>Aussi &quot;arc&quot;. x2 n&apos;est pas nécessairement un objet, mais peut être un point ou un volume. Voir également {cripu}, {kruvi}, {korcu}, {condi}.</notes></valsi>
 
-<valsi word="barja" type="gismu"><definition>$x_1$ est une taverne/un bar servant boissons (nourriture) $x_2$ au public $x_3$.</definition>
+<valsi word="barja" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est une taverne/un bar servant boissons (nourriture) $x_2$ au public $x_3$.</definition>
 <definitionid>20656</definitionid><notes>Voir également {gusta}, {birje}, {jikru}, {sanmi}, {vanju}, {xotli}, {ckafi}, {se} {pinxe}.</notes></valsi>
 
-<valsi word="barkla" type="lujvo"><definition>$k_1$ sort/va à l&apos;extérieur de $k_3=b_2$ par chemin $k_4$, moyen de transport $k_5$</definition>
+<valsi word="barkla" type="lujvo"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$k_1$ sort/va à l&apos;extérieur de $k_3=b_2$ par chemin $k_4$, moyen de transport $k_5$</definition>
 <definitionid>13611</definitionid></valsi>
 
-<valsi word="barna" type="gismu"><rafsi>ba&apos;a</rafsi><definition>$x_1$ est/sont une/des marque(s)/tache(s) sur $x_2$, de matériau $x_3$.</definition>
+<valsi word="barna" type="gismu"><rafsi>ba&apos;a</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est/sont une/des marque(s)/tache(s) sur $x_2$, de matériau $x_3$.</definition>
 <definitionid>20657</definitionid><notes>{ba&apos;armo&apos;a} pour la forme/le motif des marques. Voir également {sinxa}, {pixra}, {se} {ciska}, {se} {prina}.</notes></valsi>
 
-<valsi word="bartu" type="gismu"><rafsi>bar</rafsi><definition>$x_1$ est à l&apos;extérieur de $x_2$.</definition>
+<valsi word="bartu" type="gismu"><rafsi>bar</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est à l&apos;extérieur de $x_2$.</definition>
 <definitionid>20658</definitionid><notes>Voir également {jibni}, {nenri}, {sruri}, {lamji}, {korbi}, {calku}, {vasru}.</notes></valsi>
 
-<valsi word="basna" type="gismu"><definition>$x_1$ met de l&apos;emphase sur $x_2$, par l&apos;action $x_3$.</definition>
+<valsi word="basna" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ met de l&apos;emphase sur $x_2$, par l&apos;action $x_3$.</definition>
 <definitionid>20659</definitionid><notes>Aussi &quot;dire avec force&quot;. Voir également {pandi}.</notes></valsi>
 
-<valsi word="basti" type="gismu"><rafsi>bas</rafsi><definition>$x_1$ remplace/est un substitut pour/au lieu de $x_2$, lorsque $x_3$ (circonstance).</definition>
+<valsi word="basti" type="gismu"><rafsi>bas</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ remplace/est un substitut pour/au lieu de $x_2$, lorsque $x_3$ (circonstance).</definition>
 <definitionid>20660</definitionid><notes>Aussi, &quot;x1 échange de place avec x2&quot;. Voir également {binra}, {ba&apos;i}.</notes></valsi>
 
-<valsi word="batci" type="gismu"><rafsi>bat</rafsi><definition>$x_1$ mord/pince $x_2$ à (spécifique) $x_3$ avec (dents/doigts) $x_4$.</definition>
+<valsi word="batci" type="gismu"><rafsi>bat</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ mord/pince $x_2$ à (spécifique) $x_3$ avec (dents/doigts) $x_4$.</definition>
 <definitionid>20661</definitionid><notes>&quot;Mordre au travers de&quot; = {ka&apos;arbatci}, {batygre}; &quot;pincer&quot; = {cinzybatci}; Voir également {denci}, {jgalu}, {guska}, {citka}.</notes></valsi>
 
-<valsi word="batke" type="gismu"><definition>$x_1$ est un bouton/une poignée sur/pour $x_2$, avec but/utilité $x_3$, fait de matériau $x_4$.</definition>
+<valsi word="batke" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est un bouton/une poignée sur/pour $x_2$, avec but/utilité $x_3$, fait de matériau $x_4$.</definition>
 <definitionid>20662</definitionid><notes>Voir également {jadni}, {balji}, {punji}, {jgari}, {lasna}.</notes></valsi>
 
-<valsi word="bausmu" type="lujvo"><definition>$s_1$ est la signification de $s_2=b_3$ pour $s_3=b_2$ (interprète) dans la langue $b_1$</definition>
+<valsi word="bausmu" type="lujvo"><user><username>Ilmen</username><realname>Ilmen</realname></user><definition>$s_1$ est la signification de $s_2=b_3$ pour $s_3=b_2$ (interprète) dans la langue $b_1$</definition>
 <definitionid>41829</definitionid><notes>Voir aussi : {bangu}, {smuni}</notes></valsi>
 
-<valsi word="bavmi" type="gismu"><definition>$x_1$ est de l&apos;orge d&apos;espèce/type $x_2$.</definition>
+<valsi word="bavmi" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est de l&apos;orge d&apos;espèce/type $x_2$.</definition>
 <definitionid>20663</definitionid><notes>Noter que quasiment toutes les plantes et tous les animaux n&apos;ont pas plus de deux places, dont la deuxième est l&apos;espèce ou le type; Voir également {gurni}.</notes></valsi>
 
-<valsi word="baxso" type="gismu"><definition>$x_1$ reflète la culture/langue malaise/indonésienne, en ce qui concerne l&apos;aspect $x_2$ (ka).</definition>
+<valsi word="baxso" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ reflète la culture/langue malaise/indonésienne, en ce qui concerne l&apos;aspect $x_2$ (ka).</definition>
 <definitionid>20664</definitionid><notes>Noter que toutes les culturelles n&apos;ont pas plus de deux places, dont la deuxième est l&apos;aspect dans laquelle x1 reflète cette culture; Voir également {meljo}, {bindo}.</notes></valsi>
 
-<valsi word="bebna" type="gismu"><rafsi>beb</rafsi><definition>$x_1$ est bête/stupide/ridicule dans l&apos;aspect/la propriété $x_2$ (ka).</definition>
+<valsi word="bebna" type="gismu"><rafsi>beb</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est bête/stupide/ridicule dans l&apos;aspect/la propriété $x_2$ (ka).</definition>
 <definitionid>20671</definitionid><notes>Il n&apos;y a pas de place &quot;selon xN&quot;, il faudrait alors penser à utiliser ma&apos;i lorsque nécessaire, car être bête n&apos;est pas absolu. Voir également {fenki}, {xajmi}, {prije}, {fliba}.</notes></valsi>
 
-<valsi word="bemro" type="gismu"><rafsi>bem</rafsi><rafsi>be&apos;o</rafsi><definition>$x_1$ reflète de/représente/fait partie de la culture/la géographie/la nationalité nord-américaine en ce qui concerne l&apos;aspect $x_2$.</definition>
+<valsi word="bemro" type="gismu"><rafsi>bem</rafsi><rafsi>be&apos;o</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ reflète de/représente/fait partie de la culture/la géographie/la nationalité nord-américaine en ce qui concerne l&apos;aspect $x_2$.</definition>
 <definitionid>20687</definitionid><notes>Voir également {merko}, {kadno}, {xispo}, {mexno}.</notes></valsi>
 
-<valsi word="bende" type="gismu"><rafsi>bed</rafsi><rafsi>be&apos;e</rafsi><definition>$x_1$ est une gang/un groupe/une équipe/une bande composée de personnes $x_2$, guidé par $x_3$ ayant pour but $x_4$.</definition>
+<valsi word="bende" type="gismu"><rafsi>bed</rafsi><rafsi>be&apos;e</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est une gang/un groupe/une équipe/une bande composée de personnes $x_2$, guidé par $x_3$ ayant pour but $x_4$.</definition>
 <definitionid>20685</definitionid><notes>x1 est une masse. x2 est un ensemble complètement spécifié. Aussi, &quot;orchestre&quot;: {zgibe&apos;e}, {balzgibe&apos;e}; &quot;entreprise&quot;, pas nécessairement une corporation: {cajbe&apos;e}, {venbe&apos;e}. Voir également {gunma}, {girzu}, {dansu}, {jatna}, {jitro}, {kagni}, {kamni}, {minde}, {ralju}, {cecmu}, {gidva}.</notes></valsi>
 
-<valsi word="bengo" type="gismu"><rafsi>beg</rafsi><definition>$x_1$ reflète/représente la culture bengale en ce qui concerne l&apos;aspect $x_2$.</definition>
+<valsi word="bengo" type="gismu"><rafsi>beg</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ reflète/représente la culture bengale en ce qui concerne l&apos;aspect $x_2$.</definition>
 <definitionid>20691</definitionid><notes>Voir également {xindo}.</notes></valsi>
 
-<valsi word="benji" type="gismu"><rafsi>bej</rafsi><rafsi>be&apos;i</rafsi><definition>$x_1$ transfère/transmet/envoie $x_2$ à $x_3$, d&apos;origine $x_4$ par moyen/média $x_5$.</definition>
+<valsi word="benji" type="gismu"><rafsi>bej</rafsi><rafsi>be&apos;i</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ transfère/transmet/envoie $x_2$ à $x_3$, d&apos;origine $x_4$ par moyen/média $x_5$.</definition>
 <definitionid>20692</definitionid><notes>Aussi &quot;partager&quot;. Aucune alienation (complète) aliénation de l&apos;origine indiquée est impliquée. x5 &quot;porteur&quot;. Voir également {muvdu}, {dunda}, {mrilu}, {nirna}, {xruti}, {cradi}, {tivni}, {preja}, {be&apos;i}, {bevri}, {mrilu}, {tcana}.</notes></valsi>
 
-<valsi word="bersa" type="gismu"><rafsi>bes</rafsi><rafsi>be&apos;a</rafsi><definition>$x_1$ est le fils de père/mère/parents $x_2$ (pas nécessairement biologiquement).</definition>
+<valsi word="bersa" type="gismu"><rafsi>bes</rafsi><rafsi>be&apos;a</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est le fils de père/mère/parents $x_2$ (pas nécessairement biologiquement).</definition>
 <definitionid>20693</definitionid><notes>Aussi &quot;filial&quot;. Voir également {verba}, {nanla}, {nakni}, {nanmu}, {patfu}, {mamta}, {bruna}, {rirni}, {rorci}, {panzi}, {tixnu}.</notes></valsi>
 
-<valsi word="berti" type="gismu"><rafsi>ber</rafsi><definition>$x_1$ est au nord de/septentional à $x_2$ selon le référentiel $x_3$.</definition>
+<valsi word="berti" type="gismu"><rafsi>ber</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est au nord de/septentional à $x_2$ selon le référentiel $x_3$.</definition>
 <definitionid>20694</definitionid><notes>Voir également {snanu}, {stici}, {stuna}, {farna}.</notes></valsi>
 
-<valsi word="besna" type="gismu"><rafsi>ben</rafsi><definition>$x_1$ est le cerveau (partie du corps) de $x_2$.</definition>
+<valsi word="besna" type="gismu"><rafsi>ben</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est le cerveau (partie du corps) de $x_2$.</definition>
 <definitionid>20695</definitionid><notes>Peut référer métaphoriquement à l&apos;intelligence et au contrôle mental. </notes></valsi>
 
-<valsi word="betfu" type="gismu"><rafsi>bef</rafsi><rafsi>be&apos;u</rafsi><definition>$x_1$ est l&apos;abdomen de/la partie inférieure du tronc de $x_2$.</definition>
+<valsi word="betfu" type="gismu"><rafsi>bef</rafsi><rafsi>be&apos;u</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est l&apos;abdomen de/la partie inférieure du tronc de $x_2$.</definition>
 <definitionid>20696</definitionid><notes>Peut référer métaphoriquement à une quelconque section centrale, au milieu. Aussi &quot;estomac&quot;, {djaruntyrango} et système disgestif, {befctirangyci&apos;e}. Voir également {cutne}, {livga}, {canti}.</notes></valsi>
 
-<valsi word="betri" type="gismu"><rafsi>bet</rafsi><definition>$x_1$ est un tragédie/un désastre/une catastrophe/tragique pour $x_2$.</definition>
+<valsi word="betri" type="gismu"><rafsi>bet</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est un tragédie/un désastre/une catastrophe/tragique pour $x_2$.</definition>
 <definitionid>20697</definitionid><notes>Voir également {badri}, {xlali}, {morsi}, {binra}.</notes></valsi>
 
-<valsi word="bevri" type="gismu"><rafsi>bev</rafsi><rafsi>bei</rafsi><definition>$x_1$ transporte/lève/apporte cargaison/objet $x_2$ à $x_3$ de $x_4$ par chemin $x_5$.</definition>
+<valsi word="bevri" type="gismu"><rafsi>bev</rafsi><rafsi>bei</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ transporte/lève/apporte cargaison/objet $x_2$ à $x_3$ de $x_4$ par chemin $x_5$.</definition>
 <definitionid>20698</definitionid><notes>Que l&apos;objet cesse d&apos;être placé à x2 est impliqué. Voir également {marce}, {muvdu}, {benji}, {klama}.</notes></valsi>
 
-<valsi word="bripre" type="lujvo"><definition>$x_1$ est une personne dont le corps exprime des relations prédicatives.</definition>
+<valsi word="bripre" type="lujvo"><user><username>gusnikantu</username><realname>guskant</realname></user><definition>$x_1$ est une personne dont le corps exprime des relations prédicatives.</definition>
 <definitionid>56992</definitionid><notes>{bridi} {prenu}</notes></valsi>
 
-<valsi word="catlu" type="gismu"><rafsi>cta</rafsi><definition>$x_1$ regarde / observe $x_2$</definition>
+<valsi word="catlu" type="gismu"><rafsi>cta</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ regarde / observe $x_2$</definition>
 <definitionid>20498</definitionid></valsi>
 
-<valsi word="citka" type="gismu"><rafsi>cti</rafsi><definition>$x_1$ mange $x_2$</definition>
+<valsi word="citka" type="gismu"><rafsi>cti</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ mange $x_2$</definition>
 <definitionid>20497</definitionid></valsi>
 
-<valsi word="cizra" type="gismu"><rafsi>ciz</rafsi><definition>$x_{1}$ est étrange/bizarre/déviant/ selon $x_{2}$ à propos de $x_{3}$ (ka).</definition>
+<valsi word="cizra" type="gismu"><rafsi>ciz</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_{1}$ est étrange/bizarre/déviant/ selon $x_{2}$ à propos de $x_{3}$ (ka).</definition>
 <definitionid>42256</definitionid><notes>Également étranger, mystérieux, louche, inhabituel, exotique. Voir aussi {ranxi}, {rirci}, {fange}, {banli}.</notes></valsi>
 
-<valsi word="ckaji" type="gismu"><rafsi>kai</rafsi><definition>$x_1$ est caractérisé par/manifeste la propriété $x_2$ (ka)</definition>
+<valsi word="ckaji" type="gismu"><rafsi>kai</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est caractérisé par/manifeste la propriété $x_2$ (ka)</definition>
 <definitionid>20511</definitionid><notes>Voir {jarco}, {tcini}, et (tcaci} ainsi que {kai}.</notes></valsi>
 
-<valsi word="cliva" type="gismu"><rafsi>liv</rafsi><rafsi>li&apos;a</rafsi><definition>$x_1$ quitte / s&apos;éloigne de $x_2$ par la route $x_3$</definition>
+<valsi word="cliva" type="gismu"><rafsi>liv</rafsi><rafsi>li&apos;a</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ quitte / s&apos;éloigne de $x_2$ par la route $x_3$</definition>
 <definitionid>20504</definitionid></valsi>
 
-<valsi word="cmalu" type="gismu"><rafsi>cma</rafsi><definition>$x_1$ est de petite dimension [ka]  $x_2$ d&apos;après $x_3$ (norme/standard)</definition>
+<valsi word="cmalu" type="gismu"><rafsi>cma</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est de petite dimension [ka]  $x_2$ d&apos;après $x_3$ (norme/standard)</definition>
 <definitionid>20590</definitionid></valsi>
 
-<valsi word="cmene" type="gismu"><rafsi>cme</rafsi><rafsi>me&apos;e</rafsi><definition>$x_1$ (zo / li&apos;u) [une citation] est le nom / titre / étiquette que porte $x_2$ utilisé par $x_3$ [une personne/communauté]</definition>
+<valsi word="cmene" type="gismu"><rafsi>cme</rafsi><rafsi>me&apos;e</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ (zo / li&apos;u) [une citation] est le nom / titre / étiquette que porte $x_2$ utilisé par $x_3$ [une personne/communauté]</definition>
 <definitionid>20586</definitionid></valsi>
 
-<valsi word="cusku" type="gismu"><rafsi>cus</rafsi><rafsi>sku</rafsi><definition>$x_1$ [agent] exprime/dit $x_2$ à/pour l&apos;audience $x_3$ par le moyen d&apos;expression $x_4$</definition>
+<valsi word="cusku" type="gismu"><rafsi>cus</rafsi><rafsi>sku</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ [agent] exprime/dit $x_2$ à/pour l&apos;audience $x_3$ par le moyen d&apos;expression $x_4$</definition>
 <definitionid>20415</definitionid><notes>Voir également {bacru}, {tavla}, {casnu}, {spuda}, {bangu}, {dapma}, {jufra}, {pinka}, {cu&apos;u}.</notes></valsi>
 
-<valsi word="derdembi" type="lujvo"><definition>$x_1$ est une cacahuète/arachide de variété $x_2$</definition>
+<valsi word="derdembi" type="lujvo"><user><username>phma</username><realname>Pierre Abbat</realname></user><definition>$x_1$ est une cacahuète/arachide de variété $x_2$</definition>
 <definitionid>2453</definitionid><notes>beurre d&apos;arachides = derdembi matne</notes></valsi>
 
-<valsi unofficial="true" word="digno" type="experimental gismu"><definition>$x1$ est une diagonale segment qui relie deux sommets non-consécutifs $x2$ (non reliés par un côté) de la polygone/dans référentiel $x3$</definition>
+<valsi unofficial="true" word="digno" type="experimental gismu"><user><username>krtisfranks</username><realname>Curtis W Franks</realname></user><definition>$x1$ est une diagonale segment qui relie deux sommets non-consécutifs $x2$ (non reliés par un côté) de la polygone/dans référentiel $x3$</definition>
 <definitionid>52689</definitionid><notes>Ne pas utiliser ce mot pour les matrices (cf. {daigno}).</notes></valsi>
 
-<valsi word="djuno" type="gismu"><rafsi>jun</rafsi><rafsi>ju&apos;o</rafsi><definition>$x_1$ sait $x_2$ (du&apos;u) sur le sujet / domaine $x_3$ par épistémologie $x_4$</definition>
+<valsi word="djuno" type="gismu"><rafsi>jun</rafsi><rafsi>ju&apos;o</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ sait $x_2$ (du&apos;u) sur le sujet / domaine $x_3$ par épistémologie $x_4$</definition>
 <definitionid>20501</definitionid></valsi>
 
-<valsi word="drani" type="gismu"><rafsi>dra</rafsi><definition>$x_1$ est correct / juste / parfait sous l&apos;aspect (ka) $x_2$ dans la situation / le contexte $x_3$ d&apos;après $x_4$ (norme / standard)</definition>
+<valsi word="drani" type="gismu"><rafsi>dra</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est correct / juste / parfait sous l&apos;aspect (ka) $x_2$ dans la situation / le contexte $x_3$ d&apos;après $x_4$ (norme / standard)</definition>
 <definitionid>20584</definitionid></valsi>
 
-<valsi word="drata" type="gismu"><rafsi>dat</rafsi><definition>$x_1$ n&apos;est pas la même chose que / est différent de $x_2$ d&apos;après $x_3$ (norme/standard)</definition>
+<valsi word="drata" type="gismu"><rafsi>dat</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ n&apos;est pas la même chose que / est différent de $x_2$ d&apos;après $x_3$ (norme/standard)</definition>
 <definitionid>20589</definitionid></valsi>
 
-<valsi word="ernace" type="fu'ivla"><definition>$x_1$ est un hérisson d&apos;espéce $x_2$</definition>
+<valsi word="ernace" type="fu'ivla"><user><username>phma</username><realname>Pierre Abbat</realname></user><definition>$x_1$ est un hérisson d&apos;espéce $x_2$</definition>
 <definitionid>15008</definitionid><notes>voir aussi {jesymabru}</notes></valsi>
 
-<valsi unofficial="true" word="fau'u" type="experimental cmavo"><selmaho>COI</selmaho><definition>Je suis désolé(e)!/Désolé(e)!/Pardonnez-moi!</definition>
+<valsi unofficial="true" word="fau'u" type="experimental cmavo"><selmaho>COI</selmaho><user><username>gusnikantu</username><realname>guskant</realname></user><definition>Je suis désolé(e)!/Désolé(e)!/Pardonnez-moi!</definition>
 <definitionid>42504</definitionid><notes>cf. {fraxu}, {u&apos;u}.</notes></valsi>
 
-<valsi word="fekpre" type="lujvo"><definition>$x_1$ (personne) est fou/dérangé selon le standard $x_2$</definition>
+<valsi word="fekpre" type="lujvo"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ (personne) est fou/dérangé selon le standard $x_2$</definition>
 <definitionid>53191</definitionid></valsi>
 
-<valsi word="fragari" type="fu'ivla"><definition>$x_1$ est une fraise d&apos;espèce/variété $x_2$</definition>
+<valsi word="fragari" type="fu'ivla"><user><username>phma</username><realname>Pierre Abbat</realname></user><definition>$x_1$ est une fraise d&apos;espèce/variété $x_2$</definition>
 <definitionid>16887</definitionid></valsi>
 
-<valsi word="gasnu" type="gismu"><rafsi>gau</rafsi><definition>$x_1$ [entité capable d&apos;exercer un choix librement] est la cause de / fait en sorte que se produise $x_2$</definition>
+<valsi word="gasnu" type="gismu"><rafsi>gau</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ [entité capable d&apos;exercer un choix librement] est la cause de / fait en sorte que se produise $x_2$</definition>
 <definitionid>20583</definitionid></valsi>
 
-<valsi word="gastcica" type="lujvo"><definition>$x_1$ (event) est une illusion qui trompe $x_2$ (personne) à sentir $x_3$ (ka) dans le sens $x_4$ dans les conditions $x_5$</definition>
+<valsi word="gastcica" type="lujvo"><user><username>selpahi</username><realname>Miles Forster</realname></user><definition>$x_1$ (event) est une illusion qui trompe $x_2$ (personne) à sentir $x_3$ (ka) dans le sens $x_4$ dans les conditions $x_5$</definition>
 <definitionid>42604</definitionid><notes>jai gastcica pour un objet $x_1$; {ganse} {tcica}; {prugastcica}, {narprugastcica}.</notes></valsi>
 
-<valsi word="gerku" type="gismu"><rafsi>ger</rafsi><rafsi>ge&apos;u</rafsi><definition>$x_1$ est un chien(ne) de l&apos;espèce / la race $x_2$</definition>
+<valsi word="gerku" type="gismu"><rafsi>ger</rafsi><rafsi>ge&apos;u</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est un chien(ne) de l&apos;espèce / la race $x_2$</definition>
 <definitionid>56798</definitionid></valsi>
 
-<valsi word="gleki" type="gismu"><rafsi>gek</rafsi><rafsi>gei</rafsi><definition>$x_{1}$ est  heureux / joyeux / content / allègre à propos de $x_{2}$ (évènement/état).</definition>
+<valsi word="gleki" type="gismu"><rafsi>gek</rafsi><rafsi>gei</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_{1}$ est  heureux / joyeux / content / allègre à propos de $x_{2}$ (évènement/état).</definition>
 <definitionid>42258</definitionid><notes>Voir aussi {badri}, {cinmo}.</notes></valsi>
 
-<valsi word="gugdrxelvo" type="fu'ivla"><definition>$g_1$ est la Suisse</definition>
+<valsi word="gugdrxelvo" type="fu'ivla"><user><username>gdyke</username><realname>G. Dyke</realname></user><definition>$g_1$ est la Suisse</definition>
 <definitionid>13608</definitionid></valsi>
 
-<valsi word="jboselkei" type="lujvo"><definition>$x_1=l_1=s_1$ est un jeu de joueur $x_2=s_2$, reflétant la langue/culture/nationalité lojbanic par l&apos;aspect $x_3=l_2$.</definition>
+<valsi word="jboselkei" type="lujvo"><user><username>gusnikantu</username><realname>guskant</realname></user><definition>$x_1=l_1=s_1$ est un jeu de joueur $x_2=s_2$, reflétant la langue/culture/nationalité lojbanic par l&apos;aspect $x_3=l_2$.</definition>
 <definitionid>42511</definitionid><notes>{lojbo} {se} {kelci}</notes></valsi>
 
-<valsi word="jgari" type="gismu"><rafsi>jai</rafsi><definition>$x_{1}$ saisit/s&apos;empare de/tient/s&apos;agrippe à $x_{2}$ par $x_{3}$ (partie de $x_{1}$) à l&apos;endroit $x_{4}$ (partie de $x_{2}$).</definition>
+<valsi word="jgari" type="gismu"><rafsi>jai</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_{1}$ saisit/s&apos;empare de/tient/s&apos;agrippe à $x_{2}$ par $x_{3}$ (partie de $x_{1}$) à l&apos;endroit $x_{4}$ (partie de $x_{2}$).</definition>
 <definitionid>41875</definitionid><notes>poignée de main (= {xanjaisi&apos;u}); tenir dans les mains (= {xanjai}); poignée (= {jaitci}).  Voir aussi {ralte}, {pencu}, {darxi}, {batke}, {rinju}.</notes></valsi>
 
-<valsi word="jgena" type="gismu"><rafsi>jge</rafsi><definition>$x_{1}$ est un noeud dans/entre $x_{2}$ (objet/jo&apos;u-objets).</definition>
+<valsi word="jgena" type="gismu"><rafsi>jge</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_{1}$ est un noeud dans/entre $x_{2}$ (objet/jo&apos;u-objets).</definition>
 <definitionid>41876</definitionid><notes>Voir aussi {pluja}, {julne}, {lasna}, {skori}.</notes></valsi>
 
-<valsi word="jimpe" type="gismu"><rafsi>jmi</rafsi><definition>$x_1$ comprends que le fait $x_2$ (du&apos;u) est vrai à propos du sujet $x_3$</definition>
+<valsi word="jimpe" type="gismu"><rafsi>jmi</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ comprends que le fait $x_2$ (du&apos;u) est vrai à propos du sujet $x_3$</definition>
 <definitionid>20585</definitionid></valsi>
 
-<valsi word="jundi" type="gismu"><rafsi>jud</rafsi><rafsi>ju&apos;i</rafsi><definition>$x_1$ est attentif / prête attention à $x_2$</definition>
+<valsi word="jundi" type="gismu"><rafsi>jud</rafsi><rafsi>ju&apos;i</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est attentif / prête attention à $x_2$</definition>
 <definitionid>32225</definitionid></valsi>
 
-<valsi word="kamxada" type="fu'ivla"><definition>$x_1$ est un camarade de $x_2$, unis dans $x_3$ (ka).</definition>
+<valsi word="kamxada" type="fu'ivla"><user><username>klaku</username><realname>Jakob Nissen</realname></user><definition>$x_1$ est un camarade de $x_2$, unis dans $x_3$ (ka).</definition>
 <definitionid>38564</definitionid><notes>Plus impersonel que {pendo}, puisque pendo n&apos;indique pas le lien précis entre les personnes. Pourtant, «kamxada» indique un sentiment union important qui le rend différent de {kansa}.</notes></valsi>
 
-<valsi word="karkaju" type="fu'ivla"><definition>$x_1$ est un carcajou de variété $x_2$</definition>
+<valsi word="karkaju" type="fu'ivla"><user><username>phma</username><realname>Pierre Abbat</realname></user><definition>$x_1$ est un carcajou de variété $x_2$</definition>
 <definitionid>14470</definitionid></valsi>
 
-<valsi word="kenyDAS" type="cmene"><definition>le Canada</definition>
+<valsi word="kenyDAS" type="cmene"><user><username>totus</username><realname>Andrew Piekarski</realname></user><definition>le Canada</definition>
 <definitionid>16862</definitionid><notes>Cf. {KEnydys}, {kadnygu&apos;e}, {gugdecu&apos;a}.</notes></valsi>
 
-<valsi word="kibyse'u" type="lujvo"><definition>$x_1=k_1=s_1$ est un serveur d&apos;Internet pour un client $x_2=k_1=s_2$ d&apos;un service $x_3=s_3$.</definition>
+<valsi word="kibyse'u" type="lujvo"><user><username>gusnikantu</username><realname>guskant</realname></user><definition>$x_1=k_1=s_1$ est un serveur d&apos;Internet pour un client $x_2=k_1=s_2$ d&apos;un service $x_3=s_3$.</definition>
 <definitionid>42620</definitionid><notes>-kib- est un rafsi court du gismu expérimental {kibro}.{samseltcana}_2 pour des nodes de réseau. Voir {kibro} {selfu}; {kibdu&apos;a}, {kibycpa}, {kibyca&apos;o}.</notes></valsi>
 
-<valsi word="klaku" type="gismu"><rafsi>kak</rafsi><definition>$x_{1}$ pleure $x_{2}$ à propos/à cause de $x_{3}$ (évènement/état).</definition>
+<valsi word="klaku" type="gismu"><rafsi>kak</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_{1}$ pleure $x_{2}$ à propos/à cause de $x_{3}$ (évènement/état).</definition>
 <definitionid>42257</definitionid><notes>Voir aussi {badri}, {krixa}.</notes></valsi>
 
-<valsi word="korgretro" type="lujvo"><definition>$t_1$ contrôle $g_1=t_2$ qui passe $g_2=k_1$ vers $g_3=k_2$ de $g_4=k_2$</definition>
+<valsi word="korgretro" type="lujvo"><user><username>phma</username><realname>Pierre Abbat</realname></user><definition>$t_1$ contrôle $g_1=t_2$ qui passe $g_2=k_1$ vers $g_3=k_2$ de $g_4=k_2$</definition>
 <definitionid>13156</definitionid><notes>voir aussi {natmi}, {pagre}, {jaspu}</notes></valsi>
 
-<valsi word="krinu" type="gismu"><rafsi>rin</rafsi><rafsi>ki&apos;u</rafsi><definition>$x_1$ justifie $x_2$</definition>
+<valsi word="krinu" type="gismu"><rafsi>rin</rafsi><rafsi>ki&apos;u</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ justifie $x_2$</definition>
 <definitionid>20562</definitionid></valsi>
 
-<valsi word="kurbarile" type="fu'ivla"><definition>$x_1$ est un/du courbaril d&apos;espèce/de varieté $x_2$</definition>
+<valsi word="kurbarile" type="fu'ivla"><user><username>phma</username><realname>Pierre Abbat</realname></user><definition>$x_1$ est un/du courbaril d&apos;espèce/de varieté $x_2$</definition>
 <definitionid>15771</definitionid><notes>Grand arbre césalpinioïde du Brésil et de la Guyane qui donne une résine fragrante qui autrefois était fossilisée en ambre.</notes></valsi>
 
-<valsi word="lojbo" type="gismu"><rafsi>lob</rafsi><rafsi>jbo</rafsi><definition>$x_1$ reflette la langue/culture/nationalité lojbanic par l&apos;aspect $x_2$</definition>
+<valsi word="lojbo" type="gismu"><rafsi>lob</rafsi><rafsi>jbo</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ reflette la langue/culture/nationalité lojbanic par l&apos;aspect $x_2$</definition>
 <definitionid>20719</definitionid></valsi>
 
-<valsi unofficial="true" word="mapra" type="experimental gismu"><definition>$x_1$ est une quantité de duvet / peluche / bourre qui a / est de la composition / la structure / caractérisation / substance $x_2$ ; $x_1$ est  pelucheux / duveteux  / moelleux / aéré / flou dans la texture.</definition>
+<valsi unofficial="true" word="mapra" type="experimental gismu"><user><username>krtisfranks</username><realname>Curtis W Franks</realname></user><definition>$x_1$ est une quantité de duvet / peluche / bourre qui a / est de la composition / la structure / caractérisation / substance $x_2$ ; $x_1$ est  pelucheux / duveteux  / moelleux / aéré / flou dans la texture.</definition>
 <definitionid>56599</definitionid><notes>Visuel et tactile. x1 est probablement un peu malléable, mais ce mot n&apos;a pas de telles implications en soi; porosité ou moussité est pas non plus implicite. Pourraient également inclure &quot;moelleux&quot;, &quot;comme le coton&quot;, &quot;comme la laine&quot;; une nature fractale pourrait être présent. Pour flou: il n&apos;est pas nécessairement poilu ou velu, mais doit être doux; pas hérissé (ce qui implique la rigidité, raideur, et dureté). Voyez aussi: {ranti}, {rufsu}, {xutla}, {panje}, {dilnu}, {mapni}, {sunla}, {fonmo}, {jduli}, {pesxu}, {marji}.</notes></valsi>
 
-<valsi word="melbi" type="gismu"><rafsi>mel</rafsi><rafsi>mle</rafsi><definition>$x_1$ (objet/idée) est beau pour $x_2$ (observateur) selon $x_3$ (norme/standard)</definition>
+<valsi word="melbi" type="gismu"><rafsi>mel</rafsi><rafsi>mle</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ (objet/idée) est beau pour $x_2$ (observateur) selon $x_3$ (norme/standard)</definition>
 <definitionid>36677</definitionid></valsi>
 
-<valsi word="mlongena" type="fu'ivla"><definition>$x_1$ est une aubergine de variété $x_2$</definition>
+<valsi word="mlongena" type="fu'ivla"><user><username>phma</username><realname>Pierre Abbat</realname></user><definition>$x_1$ est une aubergine de variété $x_2$</definition>
 <definitionid>15827</definitionid><notes>voir aussi {patlu}, {tamca}, {kapsiku}, {labnyjba}</notes></valsi>
 
-<valsi word="mribriju" type="lujvo"><definition>$x_1=b_1$ est un bureau de poste des employés $x_2=b_2$ au lieu $x_3=b_3$ pour le système postal $x_4=m_5$.</definition>
+<valsi word="mribriju" type="lujvo"><user><username>gusnikantu</username><realname>guskant</realname></user><definition>$x_1=b_1$ est un bureau de poste des employés $x_2=b_2$ au lieu $x_3=b_3$ pour le système postal $x_4=m_5$.</definition>
 <definitionid>42517</definitionid><notes>Voir aussi {mrilu}, {briju}.</notes></valsi>
 
-<valsi word="mutce" type="gismu"><rafsi>tce</rafsi><definition>$x_1$ est beaucoup/très $x_2$ (ka) [une propriété], en direction $x_3$</definition>
+<valsi word="mutce" type="gismu"><rafsi>tce</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est beaucoup/très $x_2$ (ka) [une propriété], en direction $x_3$</definition>
 <definitionid>20411</definitionid><notes>x3 est peut utilisé car considéré comme positif par défaut. Voir également {milxe}, {traji}, {banli}, {carmi}, {nutli}, {traji}</notes></valsi>
 
-<valsi word="narprugastcica" type="lujvo"><definition>$x_1$ (événement) cause un jamais-vu/jamais-senti/jamais-vécu/jamais-visité à $x_2$ (personne) dans le sens $x_3$ dans les conditions $x_4$</definition>
+<valsi word="narprugastcica" type="lujvo"><user><username>gusnikantu</username><realname>guskant</realname></user><definition>$x_1$ (événement) cause un jamais-vu/jamais-senti/jamais-vécu/jamais-visité à $x_2$ (personne) dans le sens $x_3$ dans les conditions $x_4$</definition>
 <definitionid>42601</definitionid><notes>jai narprugastcica pour un objet $x_1$; {pu}{nai}, {ganse} {tcica}; {gastcica}, {prugastcica}</notes></valsi>
 
-<valsi word="nelci" type="gismu"><rafsi>nel</rafsi><rafsi>nei</rafsi><definition>$x_1$ adore / apprécie fortement $x_2$ [un objet / un état]</definition>
+<valsi word="nelci" type="gismu"><rafsi>nel</rafsi><rafsi>nei</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ adore / apprécie fortement $x_2$ [un objet / un état]</definition>
 <definitionid>20496</definitionid></valsi>
 
-<valsi word="nerkla" type="lujvo"><definition>$x_1=k_1=n_1$ entre dans $x_2=k_2=n_2$ à partir de $x_3=k_3$ par $x_4=k_4$ avec moyen de transport $x_5$.</definition>
+<valsi word="nerkla" type="lujvo"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1=k_1=n_1$ entre dans $x_2=k_2=n_2$ à partir de $x_3=k_3$ par $x_4=k_4$ avec moyen de transport $x_5$.</definition>
 <definitionid>20720</definitionid><notes>Voir également {nenri}, {klama}.</notes></valsi>
 
-<valsi word="odbenu" type="fu'ivla"><definition>$x_1$ est un morse de race $x_2$</definition>
+<valsi word="odbenu" type="fu'ivla"><user><username>phma</username><realname>Pierre Abbat</realname></user><definition>$x_1$ est un morse de race $x_2$</definition>
 <definitionid>13609</definitionid></valsi>
 
-<valsi word="pavyseljirna" type="lujvo"><definition>$x_1$ est une licorne</definition>
+<valsi word="pavyseljirna" type="lujvo"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est une licorne</definition>
 <definitionid>13610</definitionid></valsi>
 
-<valsi word="pedysi'u" type="lujvo"><definition>$x_1=s_1$ (groupe) sont des amis (chacun étant l&apos;ami de tout autre).</definition>
+<valsi word="pedysi'u" type="lujvo"><user><username>djeikyb</username><realname>Jacob Thomas Errington</realname></user><definition>$x_1=s_1$ (groupe) sont des amis (chacun étant l&apos;ami de tout autre).</definition>
 <definitionid>20515</definitionid><notes>Version {jvajvo} de {simpe&apos;o}. Voir aussi {simxu} et {pendo}.</notes></valsi>
 
-<valsi word="pendo" type="gismu"><rafsi>ped</rafsi><rafsi>pe&apos;o</rafsi><definition>$x_1$ est l&apos;ami de $x_2$</definition>
+<valsi word="pendo" type="gismu"><rafsi>ped</rafsi><rafsi>pe&apos;o</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est l&apos;ami de $x_2$</definition>
 <definitionid>32232</definitionid></valsi>
 
-<valsi word="pensi" type="gismu"><rafsi>pes</rafsi><rafsi>pei</rafsi><definition>$x_1$ penser / réfléchir au concept / sujet $x_2$</definition>
+<valsi word="pensi" type="gismu"><rafsi>pes</rafsi><rafsi>pei</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ penser / réfléchir au concept / sujet $x_2$</definition>
 <definitionid>20588</definitionid></valsi>
 
-<valsi word="pilno" type="gismu"><rafsi>pli</rafsi><definition>$x_1$ utilise $x_2$ [un outil, une machine, du materiel…] dans le but de faire $x_3$</definition>
+<valsi word="pilno" type="gismu"><rafsi>pli</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ utilise $x_2$ [un outil, une machine, du materiel…] dans le but de faire $x_3$</definition>
 <definitionid>20502</definitionid></valsi>
 
-<valsi word="ponse" type="gismu"><rafsi>pos</rafsi><rafsi>po&apos;e</rafsi><definition>$x_1$ possède $x_2$ selon la loi / les coutumes $x_3$</definition>
+<valsi word="ponse" type="gismu"><rafsi>pos</rafsi><rafsi>po&apos;e</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ possède $x_2$ selon la loi / les coutumes $x_3$</definition>
 <definitionid>32229</definitionid></valsi>
 
-<valsi word="pracmu" type="lujvo"><definition>$j_1$ est le capital (facteurs de production) générant de biens/services $j_2=c_2$.</definition>
+<valsi word="pracmu" type="lujvo"><user><username>tijlan</username><realname>Pascal</realname></user><definition>$j_1$ est le capital (facteurs de production) générant de biens/services $j_2=c_2$.</definition>
 <definitionid>16913</definitionid><notes>cf. {cupra}, {zbasu}, {jdini}.</notes></valsi>
 
-<valsi word="prenu" type="gismu"><rafsi>pre</rafsi><definition>$x_1$ est une personne (pas nécessairement un humain) </definition>
+<valsi word="prenu" type="gismu"><rafsi>pre</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est une personne (pas nécessairement un humain) </definition>
 <definitionid>20433</definitionid></valsi>
 
-<valsi word="prugastcica" type="lujvo"><definition>$x_1$ (événement) cause un déjà-vu/déjà-senti/déjà-vécu/déjà-visité à $x_2$ (personne) dans le sens $x_3$ dans les conditions $x_4$</definition>
+<valsi word="prugastcica" type="lujvo"><user><username>gusnikantu</username><realname>guskant</realname></user><definition>$x_1$ (événement) cause un déjà-vu/déjà-senti/déjà-vécu/déjà-visité à $x_2$ (personne) dans le sens $x_3$ dans les conditions $x_4$</definition>
 <definitionid>42597</definitionid><notes>jai prugastcica pour un objet $x_1$; {pu} {ganse} {tcica}; {gastcica}, {narprugastcica}</notes></valsi>
 
-<valsi word="ractu" type="gismu"><definition>$x_1$ est un lapin de l&apos;espèce $x_2$</definition>
+<valsi word="ractu" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est un lapin de l&apos;espèce $x_2$</definition>
 <definitionid>32230</definitionid></valsi>
 
-<valsi word="rinka" type="gismu"><rafsi>rik</rafsi><rafsi>ri&apos;a</rafsi><definition>$x_1$ [événement/état] est la cause physique de $x_2$ [événement/état] à condition que $x_3$ soit remplie</definition>
+<valsi word="rinka" type="gismu"><rafsi>rik</rafsi><rafsi>ri&apos;a</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ [événement/état] est la cause physique de $x_2$ [événement/état] à condition que $x_3$ soit remplie</definition>
 <definitionid>20560</definitionid></valsi>
 
-<valsi word="roi" type="cmavo"><rafsi>rom</rafsi><rafsi>roi</rafsi><selmaho>ROI</selmaho><definition>Nom qui se joint à un adjectif numéral pour indiquer qu’un fait s’est produit ou s’est répété; Par défaut dix fois.</definition>
+<valsi word="roi" type="cmavo"><rafsi>rom</rafsi><rafsi>roi</rafsi><selmaho>ROI</selmaho><user><username>officialdata</username><realname>Official Data</realname></user><definition>Nom qui se joint à un adjectif numéral pour indiquer qu’un fait s’est produit ou s’est répété; Par défaut dix fois.</definition>
 <definitionid>42259</definitionid></valsi>
 
-<valsi word="selklucipra" type="lujvo"><definition>$x_1=c_1$ est un examen/un test/une épreuve permettant de vérifier si $x_2=k_2=c_3$ appartient à la culture $x_3=k_1=c_2$</definition>
+<valsi word="selklucipra" type="lujvo"><user><username>djeikyb</username><realname>Jacob Thomas Errington</realname></user><definition>$x_1=c_1$ est un examen/un test/une épreuve permettant de vérifier si $x_2=k_2=c_3$ appartient à la culture $x_3=k_1=c_2$</definition>
 <definitionid>20686</definitionid><notes>Voir également {kulnu} et {cipra}.</notes></valsi>
 
-<valsi word="sipna" type="gismu"><rafsi>sip</rafsi><definition>$x_1$ est endormi (adjectif);  $x_1$ dort</definition>
+<valsi word="sipna" type="gismu"><rafsi>sip</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est endormi (adjectif);  $x_1$ dort</definition>
 <definitionid>19468</definitionid><notes>Voir aussi {senva}, {tatpi}, {cikna}, {sanji}.</notes></valsi>
 
-<valsi word="skami" type="gismu"><rafsi>sam</rafsi><definition>$x_1$ est un ordinateur qui a pour but $x_2$</definition>
+<valsi word="skami" type="gismu"><rafsi>sam</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est un ordinateur qui a pour but $x_2$</definition>
 <definitionid>20503</definitionid></valsi>
 
-<valsi word="sutra" type="gismu"><rafsi>sut</rafsi><definition>$x_1$ est rapide à faire $x_2$ (une action)</definition>
+<valsi word="sutra" type="gismu"><rafsi>sut</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est rapide à faire $x_2$ (une action)</definition>
 <definitionid>36676</definitionid></valsi>
 
-<valsi word="tcidu" type="gismu"><rafsi>tid</rafsi><definition>$x_1$ [entité capable d&apos;exercer un choix librement] lit $x_2$ [un texte] sur une surface/un document $x_3$</definition>
+<valsi word="tcidu" type="gismu"><rafsi>tid</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ [entité capable d&apos;exercer un choix librement] lit $x_2$ [un texte] sur une surface/un document $x_3$</definition>
 <definitionid>32226</definitionid></valsi>
 
-<valsi word="valsi" type="gismu"><rafsi>val</rafsi><rafsi>vla</rafsi><definition>$x_1$ (citation) [zo] est un mot qui signifie $x_2$ dans la langue $x_3$</definition>
+<valsi word="valsi" type="gismu"><rafsi>val</rafsi><rafsi>vla</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ (citation) [zo] est un mot qui signifie $x_2$ dans la langue $x_3$</definition>
 <definitionid>20505</definitionid></valsi>
 
-<valsi word="vecnu" type="gismu"><rafsi>ven</rafsi><rafsi>ve&apos;u</rafsi><definition>$x_1$ vend $x_2$ [bien/service/matériel/événement/propriété] au consommateur $x_3$ pour prix/montant/valeur $x_4$.</definition>
+<valsi word="vecnu" type="gismu"><rafsi>ven</rafsi><rafsi>ve&apos;u</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ vend $x_2$ [bien/service/matériel/événement/propriété] au consommateur $x_3$ pour prix/montant/valeur $x_4$.</definition>
 <definitionid>20690</definitionid><notes>x1 est un vendeur. &quot;x3 achète x2 de x1&quot; {terve&apos;u}. &quot;x1 est le prix de x2 pour x3&quot; {velve&apos;u}. {fitselve&apos;u} &quot;en vente&quot;. x2 peut être un objet, une masse ou un événement. En particulier, tout achat est un achat de la propriété de posséder l&apos;objet de l&apos;achat. Voir également {prali}, {zarci}, {vamji}, {jdima}, {fepni}, {friti}, {jerna}, {rupnu}.</notes></valsi>
 
-<valsi word="viska" type="gismu"><rafsi>vis</rafsi><rafsi>vi&apos;a</rafsi><definition>$x_1$ voit / aperçoit $x_2$ sous les conditions $x_3$</definition>
+<valsi word="viska" type="gismu"><rafsi>vis</rafsi><rafsi>vi&apos;a</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ voit / aperçoit $x_2$ sous les conditions $x_3$</definition>
 <definitionid>20587</definitionid></valsi>
 
-<valsi word="vlipa" type="gismu"><rafsi>vli</rafsi><definition>$x_1$ a le pouvoir de faire en sorte que $x_2$ sous conditions $x_3$; $x_1$ est puissant aspect $x_2$ sous $x_3$</definition>
+<valsi word="vlipa" type="gismu"><rafsi>vli</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ a le pouvoir de faire en sorte que $x_2$ sous conditions $x_3$; $x_1$ est puissant aspect $x_2$ sous $x_3$</definition>
 <definitionid>15452</definitionid></valsi>
 
-<valsi word="xabju" type="gismu"><rafsi>xa&apos;u</rafsi><definition>$x_1$ habite / réside / demeure au domicile / foyer / nid $x_2$</definition>
+<valsi word="xabju" type="gismu"><rafsi>xa&apos;u</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ habite / réside / demeure au domicile / foyer / nid $x_2$</definition>
 <definitionid>32227</definitionid></valsi>
 
-<valsi word="xanto" type="gismu"><definition>$x_1$ est un éléphant d&apos;espèce $x_2$</definition>
+<valsi word="xanto" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est un éléphant d&apos;espèce $x_2$</definition>
 <definitionid>14471</definitionid><notes>voir aussi {mabru}, {barda}</notes></valsi>
 
-<valsi word="xruba" type="gismu"><rafsi>xub</rafsi><definition>$x_1$ est une polygonacée/oseille/parelle/rhubarbe / un sarrasin de genre $x_2$</definition>
+<valsi word="xruba" type="gismu"><rafsi>xub</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est une polygonacée/oseille/parelle/rhubarbe / un sarrasin de genre $x_2$</definition>
 <definitionid>15787</definitionid></valsi>
 
-<valsi word="zdani" type="gismu"><rafsi>zda</rafsi><definition>$x_1$ est le lieu de résidence (maison, tanière, nid, abri…) de $x_2$</definition>
+<valsi word="zdani" type="gismu"><rafsi>zda</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ est le lieu de résidence (maison, tanière, nid, abri…) de $x_2$</definition>
 <definitionid>20499</definitionid></valsi>
 
-<valsi word="zukte" type="gismu"><rafsi>zuk</rafsi><rafsi>zu&apos;e</rafsi><definition>$x_1$ [entité capable d&apos;exercer un choix librement] fait (une action) $x_2$ dans le but d&apos;obtenir / faire $x_3$</definition>
+<valsi word="zukte" type="gismu"><rafsi>zuk</rafsi><rafsi>zu&apos;e</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ [entité capable d&apos;exercer un choix librement] fait (une action) $x_2$ dans le but d&apos;obtenir / faire $x_3$</definition>
 <definitionid>20718</definitionid></valsi></direction><direction from="Français" to="lojban">
 
 <nlword word="dattier" sense="fruit/arbre" valsi="altamru" />

@@ -371,7 +371,7 @@ var ret;
 	switch(true) {
 		case lin.substr(0,5).trim()=="/full": ret=mulno(lin.substr(6).trim(),lng);break;
 		case raf=='raf': ret=rafsi(lin.replace(/[^a-z'\.]/g,''));break;
-		case raf=='selmaho': ret=selmaho(lin.replace(/[^a-z'\.0-9]/g,''));break;
+		case raf=='selmaho': ret=selmaho(lin.replace(/[^a-z'\.\*0-9]/g,''));break;
 		default: ret=tordu(lin,lng);break;
 	}
 return ret;
@@ -406,8 +406,8 @@ var stra=[];
 	{
 		stra.push(coun[i].attr("word").value());
 	}
-try{stra.splice(10);}catch(err){}
-if (stra.length>=10){stra.push("...");}
+try{stra.splice(30);}catch(err){}
+if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
 if(gag===''){gag='y no da jai se facki';}
@@ -416,28 +416,29 @@ return gag;
 
 var selmaho = function (lin)
 {
-var lng="en";var gag='';
+var lng="en";var gag='';var ien='';
 var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]");
-if (typeof coun==='undefined'){
+if (typeof coun!=='undefined'){ien='.i lu ' + lin + ' li\'u cmavo zo\'oi ' + coun.text();}
 	//now try to output all cmavo of the given selmaho
-		try{var ali = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./selmaho,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
-		var stra=[];
-		for (var i=0;i<ali.length;i++)
-		{
-			stra.push(ali[i].attr("word").value());
-		}	
-		gag=stra.join(", ").trim();
-		//if (stra.length==1){gag = gag + ' = ' + tordu(gag,lng);}
-		}catch(err){}
-		if(gag===''){gag='y no da jai se facki';}
-	}
-	else{
-		gag='.i zo ' + lin + ' cmavo zo\'oi ' + coun.text();
-	}
+	try{var ali = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./selmaho,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
+	var stra=[];
+	for (var i=0;i<ali.length;i++)
+	{
+		stra.push(ali[i].attr("word").value());
+	}	
+	gag=stra.join(", ").trim();
+	//if (stra.length==1){gag = gag + ' = ' + tordu(gag,lng);}
+	}catch(err){}
+switch(true){
+case (ien!=='') && (gag !==''): gag=ien.concat(" |||| cmavo: ").concat(gag);break;
+case (ien==='') && (gag !==''): gag="cmavo: " + gag;break;
+case (ien!=='') && (gag ===''): gag=ien;break;
+case (ien==='') && (rev ===''): gag='y no da jai se facki';break;
+}
 return gag;
 };
 

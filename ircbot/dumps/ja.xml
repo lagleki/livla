@@ -6854,9 +6854,6 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
 <valsi word="xarju" type="gismu"><rafsi>xaj</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ は $x_2$ （種類）のイノシシ科動物（ブタ／イノシシ等）</definition>
 <definitionid>40333</definitionid><notes>「ベーコン」も。 ・大意： 豚 ・読み方： クァルジュ  ・関連語： {mabru}, {cange}</notes></valsi>
 
-<valsi word="xarna'u" type="lujvo"><user><username>xorxes</username><realname>Jorge Llambias</realname></user><definition>$x_1$ は虚数</definition>
-<definitionid>41843</definitionid><notes>{xanri} {namcu} ・関連語： {tolxarna&apos;u}, {mrena&apos;u}, {lujna&apos;u}, {ka&apos;o}</notes></valsi>
-
 <valsi word="xarnu" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ は $x_2$ （者／事）にたいし、 $x_3$ （事／状態）について（意志的に）頑固／強情／片意地／不屈</definition>
 <definitionid>40334</definitionid><notes>・大意： 頑固 ・読み方： クァルヌ  ・関連語： {tinsa}, {pante}, {bapli}, {fapro}</notes></valsi>
 
@@ -8549,15 +8546,15 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
 
 <nlword word="ザラザラ" valsi="rufsfe" />
 
-<nlword word="日本円" sense="日本" valsi="rupnujupuje" />
-
-<nlword word="日本円" sense="通貨" valsi="rupnujupuje" />
-
-<nlword word="日本円" sense="貨幣" valsi="rupnujupuje" />
-
 <nlword word="日本円" sense="金銭" valsi="rupnujupuje" />
 
 <nlword word="日本円" sense="金融" valsi="rupnujupuje" />
+
+<nlword word="日本円" sense="貨幣" valsi="rupnujupuje" />
+
+<nlword word="日本円" sense="通貨" valsi="rupnujupuje" />
+
+<nlword word="日本円" sense="日本" valsi="rupnujupuje" />
 
 <nlword word="編集挿入" valsi="sa&apos;a" />
 
@@ -8976,8 +8973,6 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
 <nlword word="架空" valsi="xanri" />
 
 <nlword word="非現実" valsi="xanri" place="1" />
-
-<nlword word="虚数" sense="複素数" valsi="xarna&apos;u" />
 
 <nlword word="ある数" valsi="xo&apos;e" />
 

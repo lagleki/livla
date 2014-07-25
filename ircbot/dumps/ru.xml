@@ -3409,6 +3409,9 @@
 <valsi word="korpora" type="fu'ivla"><user><username>danr</username><realname>Dan Rosn</realname></user><definition>$x_1$ - это корпус/большая коллекция текстов $x_2$.</definition>
 <definitionid>56183</definitionid><notes>См. {se} {cusku}</notes></valsi>
 
+<valsi word="korsari" type="fu'ivla"><user><username>gleki</username><realname>gleki</realname></user><definition>$x_1$ - это пират, корсар</definition>
+<definitionid>57155</definitionid><notes>См. {bloti}, {zekri}</notes></valsi>
+
 <valsi word="kosta" type="gismu"><rafsi>kos</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ — пальто/куртка/свитер/пиджак/плащ/{накидка/шаль} (дополнительная верхняя одежда) из материала $x_2$</definition>
 <definitionid>35927</definitionid><notes>Шуба: {sirsunla} {kosta} {pastu} (платье), {sunla} (шерсть), {taxfu} (одежда)</notes></valsi>
 
@@ -10508,11 +10511,11 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="ислам" valsi="islam" />
 
-<nlword word="исландский" sense="язык" valsi="islenska" />
-
 <nlword word="исландский" sense="страна" valsi="islenska" />
 
 <nlword word="исландский" sense="культура" valsi="islenska" />
+
+<nlword word="исландский" sense="язык" valsi="islenska" />
 
 <nlword word="ифкуильский" valsi="itkuile" />
 
@@ -10972,11 +10975,11 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="серьёзное" sense="случай, событие" valsi="junri" place="2" />
 
+<nlword word="серьёзный" sense="о персоне" valsi="junri" place="1" />
+
 <nlword word="серьёзный" valsi="junri" />
 
 <nlword word="серьёзный" sense="случай, событие" valsi="junri" place="2" />
-
-<nlword word="серьёзный" sense="о персоне" valsi="junri" place="1" />
 
 <nlword word="вес" valsi="junta" place="1" />
 
@@ -11365,6 +11368,10 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 <nlword word="кора (луб)" valsi="korka" />
 
 <nlword word="корпус текстов" valsi="korpora" />
+
+<nlword word="корсар" valsi="korsari" />
+
+<nlword word="пират" sense="морской бандит" valsi="korsari" />
 
 <nlword word="куртка" valsi="kosta" />
 

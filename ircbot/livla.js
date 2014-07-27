@@ -208,6 +208,9 @@ var processormensi = function(clientmensi, from, to, text, message) {
   }
   if (1==1) {  //sendTo == to Public
 	switch(true) {
+	case text.indexOf('guaspi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
+	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
+	case text.indexOf('frame: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','frame'));break;
 	case text.indexOf('jbo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(4),'jbo'));break;
 	case text.indexOf('en: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'en'));break;
 	case text.indexOf('ru: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ru'));break;
@@ -372,7 +375,9 @@ var ret;
 		case lin.substr(0,5).trim()=="/full": ret=mulno(lin.substr(6).trim(),lng);break;
 		case raf=='raf': ret=rafsi(lin.replace(/[^a-z'\.]/g,''));break;
 		case raf=='selmaho': ret=selmaho(lin.replace(/[^a-z'\.\*0-9]/g,''));break;
-		default: ret=tordu(lin,lng);break;
+		case raf=='frame': ret=frame(lin.replace(/[^a-z'\.]/g,''));break;
+		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z'\.]/g,''));break;
+		default: ret=tordu(lin.replace(/[^a-z'\.]/g,''),lng);break;
 	}
 return ret;
 };
@@ -386,7 +391,8 @@ var fs = require("fs"),path = require("path");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
 var gchild='';
-try{gchild = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/definition[1]").text();}catch(err){}
+try{gchild +='[' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]").text()+'] ';}catch(err){}
+try{gchild += xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/definition[1]").text();}catch(err){}
 try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text();}catch(err){}
 try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/user[1]/username[1]").text();}catch(err){}
 if (gchild===''){return mulno(lin,lng);}else{return lin + " = " + gchild.replace(/[\$_`\{\}]/g,'');}
@@ -471,3 +477,55 @@ var sidju = function ()
 {
 return "Typing in the chat \"rafsi: pof\" will return \"spofu\". \"rafsi: spofu\" will return \"pof po\'u\". Typing \"selmaho: ui\" will return \"UI\". Typing \"mensi: s klama\" will return a random sentence (with its number) from Tatoeba containing \"klama\" sequence.";
 };
+
+var frame = function (lin)
+{
+var lng="en",gag='';
+var libxmljs = require("libxmljs");
+var fs = require("fs"),path = require("path");
+
+var arrf=fs.readdirSync(path.join(__dirname,"../../../files/frame")).filter(function(file) { return file.substr(-4) === '.xml'; });
+
+for (var i=0;i<arrf.length;i++)
+{
+	var content = fs.readFileSync(path.join(__dirname,"../../../files/frame",arrf[i]),'utf8').replace(/xmlns=\"/g,'mlns=\"');
+	var xmlDoc = libxmljs.parseXml(content);
+	var si = xmlDoc.get("/frame[translate(@name,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/definition[1]/text()");
+	if (typeof si !=='undefined'){gag= si.toString().replace(/&lt;.*?&gt;/g,'');
+	si = xmlDoc.find("/frame[translate(@name,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/FE[@coreType=\"Core\"]/definition/text()");
+	//console.log(si.join(", "));
+if (typeof si !=='undefined'){gag= gag + "\n| >>> te sumti: " + si.join("\n| >>> te sumti: ").replace(/&lt;.*?&gt;/g,'');}
+	break;}//exit cycling if found
+}
+
+if (gag!==''){return gag;}else{return 'no da jai se facki'};
+};
+
+//frame ("Abandonment");
+
+var framemulno = function (lin)
+{
+var lng="en",gag='';
+var libxmljs = require("libxmljs");
+var fs = require("fs"),path = require("path");
+var arrf=fs.readdirSync(path.join(__dirname,"../../../files/frame")).filter(function(file) { return file.substr(-4) === '.xml'; });
+var stra=[];
+
+for (var i=0;i<arrf.length;i++)
+{
+	var content = fs.readFileSync(path.join(__dirname,"../../../files/frame",arrf[i]),'utf8').replace(/xmlns=\"/g,'mlns=\"');
+	var xmlDoc = libxmljs.parseXml(content);
+	var si = xmlDoc.get("/frame[contains(translate(./definition,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
+		if (typeof si !=='undefined'){
+			stra.push(si.attr("name").value());
+		}
+}
+	try{stra.splice(30);}catch(err){}
+	if (stra.length>=30){stra.push("...");}
+	var gag=stra.join(", ").trim();
+	if (stra.length==1){gag = frame(stra[0]);}
+	if (gag!==''){return gag;}else{return 'no da jai se facki'};
+return gag;
+};
+
+//frame ("Abandonment");

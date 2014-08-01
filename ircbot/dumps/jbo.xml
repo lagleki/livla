@@ -2223,9 +2223,6 @@
 <valsi word="lu'u" type="cmavo"><selmaho>LUhU</selmaho><user><username>officialdata</username><realname>Official Data</realname></user><definition>fa&apos;orma&apos;o zo la&apos;e .e lo&apos;u na&apos;e bo le&apos;u</definition>
 <definitionid>13441</definitionid><notes>{fa&apos;orma&apos;o}; {la&apos;e}; {lu&apos;a}; {lu&apos;e}; {lu&apos;i}; {lu&apos;o}; {tu&apos;a}</notes></valsi>
 
-<valsi word="lujna'u" type="lujvo"><user><username>xorxes</username><realname>Jorge Llambias</realname></user><definition>$x_1$ namcu gi&apos;e se pagbu lo tolxarna&apos;u .e lo xarna&apos;u</definition>
-<definitionid>13817</definitionid><notes>{pluja} {namcu}; {xarna&apos;u}; {tolxarna&apos;u}, {mrena&apos;u}; {ka&apos;o}</notes></valsi>
-
 <valsi word="lujrinsku" type="lujvo"><user><username>djeikyb</username><realname>Jacob Thomas Errington</realname></user><definition>.i lo ka lujrinsku cu ka ko&apos;a ko&apos;e ko&apos;i ko&apos;o ko&apos;u fo&apos;a ce&apos;ai ko&apos;a goi $x_1$ cusku lo se du&apos;u ko&apos;e goi $x_2$ krinu lo nu ko&apos;i goi $x_3$ pluja ko&apos;o goi $x_4$ ko&apos;u goi $x_5$ kei kei fo&apos;a goi $x_6$</definition>
 <definitionid>38175</definitionid></valsi>
 
@@ -2447,6 +2444,9 @@
 
 <valsi word="momlai" type="lujvo"><user><username>xorxes</username><realname>Jorge Llambias</realname></user><definition>$x_1$ klani $x_2$ le ka vo&apos;a me vo&apos;e moi $x_3$ boi $x_4$ </definition>
 <definitionid>13889</definitionid><notes>{moi} zei {klani}</notes></valsi>
+
+<valsi word="momvelru'e" type="lujvo"><user><username>durka42</username><realname>Alex Burka</realname></user><definition>$x_1$ momkai $x_2$ boi lo ve pruce be fo $x_3$</definition>
+<definitionid>57167</definitionid></valsi>
 
 <valsi word="mrena'u" type="lujvo"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ namcu gi&apos;e se tenfa lo na&apos;e mleca be li no li re</definition>
 <definitionid>41838</definitionid><notes>dunli zo {tolxarna&apos;u} lo ka ce&apos;u smuni .i {merli} {namcu}; {xarna&apos;u}, {lujna&apos;u}</notes></valsi>
@@ -4659,9 +4659,6 @@
 <valsi word="xanlai" type="lujvo"><user><username>xorxes</username><realname>Jorge Llambias</realname></user><definition>$x_1$ klani $x_2$ lo se gradu be lo se vasru be lo xance be $x_3$</definition>
 <definitionid>15292</definitionid><notes>{xance} {klani}</notes></valsi>
 
-<valsi word="xarna'u" type="lujvo"><user><username>xorxes</username><realname>Jorge Llambias</realname></user><definition>$x_1$ namcu gi&apos;e se tenfa lo mleca be li no li re</definition>
-<definitionid>13819</definitionid><notes>{xanri} {namcu}; {tolxarna&apos;u}, {mrena&apos;u}, {lujna&apos;u}, {ka&apos;o}</notes></valsi>
-
 <valsi word="xavdei" type="lujvo"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$m_1=d_1$ xa moi lo&apos;i djedi goi $m_2$ poi jeftu zo&apos;e $m_3=d_3=j_3$</definition>
 <definitionid>20480</definitionid><notes>{xa}, {moi}, {djedi}, {jeftu}</notes></valsi>
 
@@ -4697,6 +4694,9 @@
 
 <valsi word="xlapre" type="lujvo"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1=p_1$ prenu gi&apos;e xlali $x_2$ $x_3$</definition>
 <definitionid>16959</definitionid></valsi>
+
+<valsi word="xluzerma'esazri" type="lujvo"><user><username>jongausib</username><realname>Sebastian Frjds</realname></user><definition>xoi ke&apos;a zekri $x_3$ se&apos;u ca lo nu $x_4$ xlura $x_1$ boi $x_5$ kei $x_1$ sazri $x_2$ noi marce</definition>
+<definitionid>57160</definitionid><notes>lujvo fo lu {xlura} {zekri} {ke} {marce} {sazri} li&apos;u .i ko viska ji&apos;a zo {xoi} noi cipra ke {adverbi} zbasu cmavo</notes></valsi>
 
 <valsi word="xo" type="cmavo"><selmaho>PA5</selmaho><user><username>officialdata</username><realname>Official Data</realname></user><definition>preti le du&apos;u makau namcu</definition>
 <definitionid>13500</definitionid><notes>{namcu} {preti}</notes></valsi>
@@ -5838,9 +5838,9 @@
 
 <nlword word="lo pluta je se litru" sense="lo ka muvdu fo ce&apos;u" valsi="klama" place="4" />
 
-<nlword word="lo stuzi" sense="lo ka muvdu ce&apos;u" valsi="klama" place="2" />
-
 <nlword word="lo stuzi" sense="lo ka muvdu fi ce&apos;u" valsi="klama" place="3" />
+
+<nlword word="lo stuzi" sense="lo ka muvdu ce&apos;u" valsi="klama" place="2" />
 
 <nlword word="lo zukte je litru" sense="lo ka ce&apos;u muvdu" valsi="klama" place="1" />
 
@@ -5979,8 +5979,6 @@
 <nlword word="lu&apos;o" valsi="lu&apos;o" />
 
 <nlword word="lu&apos;u" valsi="lu&apos;u" />
-
-<nlword word="lujna&apos;u" valsi="lujna&apos;u" />
 
 <nlword word="L" valsi="ly" />
 
@@ -6556,9 +6554,9 @@
 
 <nlword word="user" sense="computer user" valsi="samnarca&apos;igau" place="1" />
 
-<nlword word="username" valsi="samnarca&apos;igau" place="3" />
-
 <nlword word="username" sense="computer" valsi="samnarca&apos;igau" place="3" />
+
+<nlword word="username" valsi="samnarca&apos;igau" place="3" />
 
 <nlword word="sau" valsi="sau" />
 
@@ -7069,8 +7067,6 @@
 <nlword word="xajre&apos;u" sense="xarju rectu" valsi="xajbefre&apos;u" />
 
 <nlword word="xanjaisi&apos;u" valsi="xanjaisi&apos;u" />
-
-<nlword word="xarna&apos;u" valsi="xarna&apos;u" />
 
 <nlword word="xe" valsi="xe" />
 

@@ -5313,8 +5313,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 <valsi word="polno" type="gismu"><rafsi>pol</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ — полинезийский/океанский в аспекте $x_2$</definition>
 <definitionid>36202</definitionid><notes>{sralo} (австралийский), {daplu} (остров), {xamsi} (море)</notes></valsi>
 
-<valsi word="pomrkovni" type="fu'ivla"><user><username>gleki</username><realname>gleki</realname></user><definition>$x_1$ - рассудительный, но с узким кругозором</definition>
-<definitionid>57142</definitionid><notes>См. {stati}, {na} {certu}</notes></valsi>
+<valsi word="pomjiarkovni" type="fu'ivla"><user><username>krtisfranks</username><realname>Curtis W Franks</realname></user><definition>$x_1$ - рассудительный, но с узким кругозором</definition>
+<definitionid>57164</definitionid><notes>См. {stati}, {na} {certu}</notes></valsi>
 
 <valsi word="ponjo" type="gismu"><rafsi>pon</rafsi><rafsi>po&apos;o</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ — японский в аспекте $x_2$</definition>
 <definitionid>36203</definitionid><notes>{xazdo} (азиатский), {daplu} (остров)</notes></valsi>
@@ -10513,9 +10513,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="исландский" sense="страна" valsi="islenska" />
 
-<nlword word="исландский" sense="культура" valsi="islenska" />
-
 <nlword word="исландский" sense="язык" valsi="islenska" />
+
+<nlword word="исландский" sense="культура" valsi="islenska" />
 
 <nlword word="ифкуильский" valsi="itkuile" />
 
@@ -10977,9 +10977,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="серьёзный" sense="о персоне" valsi="junri" place="1" />
 
-<nlword word="серьёзный" valsi="junri" />
-
 <nlword word="серьёзный" sense="случай, событие" valsi="junri" place="2" />
+
+<nlword word="серьёзный" valsi="junri" />
 
 <nlword word="вес" valsi="junta" place="1" />
 
@@ -13132,6 +13132,12 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 <nlword word="складывающий" valsi="polje" place="1" />
 
 <nlword word="полинезийский" valsi="polno" />
+
+<nlword word="рассудительный" sense="узким кругозором" valsi="pomjiarkovni" />
+
+<nlword word="узким кругозором" sense="рассудительный" valsi="pomjiarkovni" />
+
+<nlword word="узким кругозором рассудительный" valsi="pomjiarkovni" />
 
 <nlword word="японский" valsi="ponjo" />
 

@@ -58,8 +58,10 @@ clientcipra.addListener('message', function(from, to, text, message) {
     processorcipra(clientcipra, from, to, text, message);
 });
 
-setInterval(function() { //update logs once a djedi
-	var langs=["jbo","en","ru","es","fr","ja","de","eo","en-simple"];
+setInterval(updatexmldumps, 43200000); //update logs once a djedi
+
+var updatexmldumps = function () {
+	var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple"];
 	var request = require("request"); var body;
 	request = request.defaults({jar: true});
 	var jar = request.jar();
@@ -80,7 +82,7 @@ setInterval(function() { //update logs once a djedi
 			}); 
 	});
 	body="";
-}, 43200000);
+};
 
 var camxes = require('../camxes-exp.js');
 var camxes_pre = require('../camxes_preproc.js');
@@ -208,6 +210,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
   }
   if (1==1) {  //sendTo == to Public
 	switch(true) {
+	case text.indexOf('mensi: ko ningau lo nei') == '0': updatexmldumps();clientmensi.say(sendTo, 'lo datni mo\'u se ningau');break;
 	case text.indexOf('guaspi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
 	case text.indexOf('frame: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','frame'));break;
@@ -219,6 +222,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('ja: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ja'));break;
 	case text.indexOf('de: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'de'));break;
 	case text.indexOf('eo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
+	case text.indexOf('zh: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'zh'));break;
 	case text.indexOf('en-simple: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'en-simple'));break;
 	case text.indexOf('selmaho: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
 	case text.indexOf('rafsi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
@@ -375,8 +379,8 @@ var ret;
 		case lin.substr(0,5).trim()=="/full": ret=mulno(lin.substr(6).trim(),lng);break;
 		case raf=='raf': ret=rafsi(lin.replace(/[^a-z'\.]/g,''));break;
 		case raf=='selmaho': ret=selmaho(lin.replace(/[^a-z'\.\*0-9]/g,''));break;
-		case raf=='frame': ret=frame(lin.replace(/[^a-z'\.]/g,''));break;
-		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z'\.]/g,''));break;
+		case raf=='frame': ret=frame(lin.replace(/[^a-z_'\.]/g,''));break;
+		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z_'\.]/g,''));break;
 		default: ret=tordu(lin.replace(/[^a-z'\.]/g,''),lng);break;
 	}
 return ret;
@@ -498,7 +502,7 @@ if (typeof si !=='undefined'){gag= gag + "\n| >>> te sumti: " + si.join("\n| >>>
 	break;}//exit cycling if found
 }
 
-if (gag!==''){return gag;}else{return 'no da jai se facki'};
+if (gag!==''){return gag;}else{return 'no da jai se facki'}
 };
 
 //frame ("Abandonment");
@@ -522,9 +526,9 @@ for (var i=0;i<arrf.length;i++)
 }
 	try{stra.splice(30);}catch(err){}
 	if (stra.length>=30){stra.push("...");}
-	var gag=stra.join(", ").trim();
+	gag=stra.join(", ").trim();
 	if (stra.length==1){gag = frame(stra[0]);}
-	if (gag!==''){return gag;}else{return 'no da jai se facki'};
+	if (gag!==''){return gag;}else{return 'no da jai se facki'}
 return gag;
 };
 

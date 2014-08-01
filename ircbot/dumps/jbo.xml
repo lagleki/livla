@@ -3354,7 +3354,7 @@
 <valsi word="riryrirni" type="lujvo"><user><username>jongausib</username><realname>Sebastian Frjds</realname></user><definition>$x_1$ rirni lo rirni be $x_2$</definition>
 <definitionid>42470</definitionid></valsi>
 
-<valsi word="rivli'a" type="lujvo"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ cliva $x_2$ boi $x_3$ gi&apos;e rivbi $x_2$</definition>
+<valsi word="rivli'a" type="lujvo"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ zukte lo ka cliva $x_2$ boi $x_3$ kei lo ka rivbi $x_2$</definition>
 <definitionid>19779</definitionid><notes>{rivbi} {cliva}</notes></valsi>
 
 <valsi word="rixybakfu" type="lujvo"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$ko&apos;a$ bakfu $ko&apos;e$ $ko&apos;i$ gi&apos;e trixe $ko&apos;o$ vo&apos;e .ije $ko&apos;o$ bevri $ko&apos;a$</definition>
@@ -5838,9 +5838,9 @@
 
 <nlword word="lo pluta je se litru" sense="lo ka muvdu fo ce&apos;u" valsi="klama" place="4" />
 
-<nlword word="lo stuzi" sense="lo ka muvdu fi ce&apos;u" valsi="klama" place="3" />
-
 <nlword word="lo stuzi" sense="lo ka muvdu ce&apos;u" valsi="klama" place="2" />
+
+<nlword word="lo stuzi" sense="lo ka muvdu fi ce&apos;u" valsi="klama" place="3" />
 
 <nlword word="lo zukte je litru" sense="lo ka ce&apos;u muvdu" valsi="klama" place="1" />
 

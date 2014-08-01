@@ -210,7 +210,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
   }
   if (1==1) {  //sendTo == to Public
 	switch(true) {
-	case text.indexOf('mensi: ko ningau lo nei') == '0': updatexmldumps();clientmensi.say(sendTo, 'lo datni mo\'u se ningau');break;
+	case text.indexOf('mensi: ko ningau lo nei') == '0': updatexmldumps();clientmensi.say(sendTo, 'vi\'o minde .i lo datni mo\'u se ningau mi');break;
 	case text.indexOf('guaspi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
 	case text.indexOf('frame: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','frame'));break;
@@ -434,7 +434,6 @@ var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]");
 if (typeof coun!=='undefined'){ien='.i lu ' + lin + ' li\'u cmavo zo\'oi ' + coun.text();}
-	//now try to output all cmavo of the given selmaho
 	try{var ali = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./selmaho,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 	var stra=[];
 	for (var i=0;i<ali.length;i++)
@@ -462,6 +461,8 @@ var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]").join (' .e zo ');
 var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
+//now try to add a vowel:
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[starts-with(@word,\""+lin+"\")]");}
 if (coun!==''){coun='zo ' + coun + ' rafsi zo ' + lin;}
 if (typeof rev!=='undefined'){rev='zo ' + rev.attr("word").value() + ' se rafsi ra\'oi '+lin;}else{rev='';}
 switch(true){
@@ -498,15 +499,12 @@ for (var i=0;i<arrf.length;i++)
 	var si = xmlDoc.get("/frame[translate(@name,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/definition[1]/text()");
 	if (typeof si !=='undefined'){gag= si.toString().replace(/&lt;.*?&gt;/g,'');
 	si = xmlDoc.find("/frame[translate(@name,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/FE[@coreType=\"Core\"]/definition/text()");
-	//console.log(si.join(", "));
-if (typeof si !=='undefined'){gag= gag + "\n| >>> te sumti: " + si.join("\n| >>> te sumti: ").replace(/&lt;.*?&gt;/g,'');}
-	break;}//exit cycling if found
+	if (typeof si !=='undefined'){gag= gag + "\n| >>> te sumti: " + si.join("\n| >>> te sumti: ").replace(/&lt;.*?&gt;/g,'');}
+	break;}
 }
 
 if (gag!==''){return gag;}else{return 'no da jai se facki'}
 };
-
-//frame ("Abandonment");
 
 var framemulno = function (lin)
 {
@@ -533,4 +531,3 @@ for (var i=0;i<arrf.length;i++)
 return gag;
 };
 
-//frame ("Abandonment");

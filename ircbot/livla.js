@@ -4,7 +4,7 @@ var t;
 var tato= require('./tatoeba.js');
 var interv=900000;
 var interm=2900;
-var chan='#lojban,#ckule';
+var chan='#dwedewdwe';//lojban,#ckule';
 var livlytcan='##jboselbau';
 var asker='livla';
 var replier='mensi';
@@ -227,6 +227,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('selmaho: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
 	case text.indexOf('rafsi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
 	case text.indexOf('toki: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(5),'toki'));break;
+	case text.indexOf('laadan: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'laadan'));break;
  	case text=='mensi: io': clientmensi.say(sendTo, io());break;
  	case text=='mensi: help': clientmensi.say(sendTo, sidju());break;
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
@@ -389,6 +390,8 @@ return ret;
 
 var tordu = function (lin,lng)
 {
+	console.log(lin.length);
+	console.log(lin);
 lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path");

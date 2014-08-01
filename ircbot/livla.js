@@ -4,7 +4,7 @@ var t;
 var tato= require('./tatoeba.js');
 var interv=900000;
 var interm=2900;
-var chan='#dwedewdwe';//lojban,#ckule';
+var chan='#lojban,#ckule';
 var livlytcan='##jboselbau';
 var asker='livla';
 var replier='mensi';
@@ -382,7 +382,7 @@ var ret;
 		case raf=='selmaho': ret=selmaho(lin.replace(/[^a-z'\.\*0-9]/g,''));break;
 		case raf=='frame': ret=frame(lin.replace(/[^a-z_'\.]/g,''));break;
 		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z_'\.]/g,''));break;
-		default: ret=tordu(lin.replace(/[^a-z'\.]/g,''),lng);break;
+		default: ret=tordu(lin.replace(/\"/g,''),lng);break;
 	}
 return ret;
 };
@@ -390,8 +390,6 @@ return ret;
 
 var tordu = function (lin,lng)
 {
-	console.log(lin.length);
-	console.log(lin);
 lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path");

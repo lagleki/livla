@@ -1856,6 +1856,9 @@
 <valsi word="kau" type="cmavo"><selmaho>UI</selmaho><user><username>officialdata</username><realname>Official Data</realname></user><definition>tcita lo preti valsi le du&apos;u sinxa le danfu</definition>
 <definitionid>13996</definitionid></valsi>
 
+<valsi word="kaxyje'u" type="lujvo"><user><username>Ilmen</username><realname>Ilmen</realname></user><definition>lo jetnu cu kanxe $x_1$ fi $x_2$</definition>
+<definitionid>57174</definitionid></valsi>
+
 <valsi word="ke" type="cmavo"><rafsi>kem</rafsi><selmaho>KE</selmaho><user><username>officialdata</username><realname>Official Data</realname></user><definition>krasi lo kuspe girzu noi se fanmo zo ke&apos;e</definition>
 <definitionid>13711</definitionid><notes>{ke&apos;e}</notes></valsi>
 
@@ -4538,6 +4541,9 @@
 
 <valsi word="vlaturge'a" type="lujvo"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ gerna lo stura be lo valsi be fi $x_2$ $x_3$</definition>
 <definitionid>57102</definitionid></valsi>
+
+<valsi word="vlinyje'u" type="lujvo"><user><username>Ilmen</username><realname>Ilmen</realname></user><definition>lo jetnu cu vlina $x_1$ fi $x_2$</definition>
+<definitionid>57173</definitionid></valsi>
 
 <valsi word="vo" type="cmavo"><rafsi>von</rafsi><selmaho>PA</selmaho><user><username>officialdata</username><realname>Official Data</realname></user><definition>namcu .i sumji li ci li pa .i se li&apos;erla&apos;i li ci lei kancu namcu</definition>
 <definitionid>2550</definitionid></valsi>

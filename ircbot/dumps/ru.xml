@@ -6294,6 +6294,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 <valsi word="si'u" type="cmavo"><selmaho>BAI</selmaho><user><username>officialdata</username><realname>Official Data</realname></user><definition>модальный предлог от sidju, 1-ое место (помогающий агент)             с помощью, ...(кого/чего)</definition>
 <definitionid>37668</definitionid></valsi>
 
+<valsi unofficial="true" word="sibli" type="experimental gismu"><user><username>gleki</username><realname>gleki</realname></user><definition>$x_1$ - шипящий звук</definition>
+<definitionid>57175</definitionid><notes>См. {bacru}, {cusku}, {sanga}, {cladu}, {since}</notes></valsi>
+
 <valsi word="siclu" type="gismu"><rafsi>sil</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ свистит, производя звук/ноту/тон/мелодию $x_2$; $x_1$ насвистывает $x_2$</definition>
 <definitionid>36331</definitionid><notes>{sance} (звук), {tonga} (тон), {sanga} (петь), {zgike} (музыка), {savru} (шум)</notes></valsi>
 
@@ -10975,11 +10978,11 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="серьёзное" sense="случай, событие" valsi="junri" place="2" />
 
-<nlword word="серьёзный" sense="о персоне" valsi="junri" place="1" />
+<nlword word="серьёзный" valsi="junri" />
 
 <nlword word="серьёзный" sense="случай, событие" valsi="junri" place="2" />
 
-<nlword word="серьёзный" valsi="junri" />
+<nlword word="серьёзный" sense="о персоне" valsi="junri" place="1" />
 
 <nlword word="вес" valsi="junta" place="1" />
 
@@ -14013,6 +14016,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="с помощью ..." valsi="si&apos;u" />
 
+<nlword word="шипящий звук" valsi="sibli" />
+
 <nlword word="свист" valsi="siclu" place="2" />
 
 <nlword word="свистеть" valsi="siclu" />
@@ -15577,9 +15582,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="искренне" sense="прямо, открыто" valsi="xo&apos;o" />
 
-<nlword word="саркастически" sense="иронично говоря" valsi="xo&apos;o" />
-
 <nlword word="саркастически" sense="шутливо, не взаправду" valsi="xo&apos;o" />
+
+<nlword word="саркастически" sense="иронично говоря" valsi="xo&apos;o" />
 
 <nlword word="хорбан" valsi="xorbo" />
 

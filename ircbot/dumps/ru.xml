@@ -951,6 +951,9 @@
 <valsi word="cisma" type="gismu"><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ улыбается/ухмыляется/усмехается (выражение лица)</definition>
 <definitionid>35487</definitionid><notes>Насмехаться (над кем-либо): {cismyfra} {xajmi} (смешной), {cmila} (смеяться), {frumu} (хмуриться)</notes></valsi>
 
+<valsi word="cismytai" type="lujvo"><user><username>gleki</username><realname>gleki</realname></user><definition>$x_1$ - это улыбка (выражение лица)</definition>
+<definitionid>57190</definitionid><notes>См. {cisma}, {tarmi}, {cmila}</notes></valsi>
+
 <valsi word="ciste" type="gismu"><rafsi>ci&apos;e</rafsi><user><username>noralujv</username><realname>NORALUJV data</realname></user><definition>$x_1$ (масса) есть система, образованная структурой $x_2$ компонентов $x_3$ (множество) и проявляющая свойства $x_4$ ({ka})</definition>
 <definitionid>35488</definitionid><notes>$x_4$: синергический/коллективный эффект, сеть (напр. транспортная, коммуникационная, организационная); $x_2$: отношения, правила; $x_3$: элементы (полностью описанное множество) {ci&apos;e}, {cmima} (член), {girzu} (группа), {gunma} (масса [единое целое]), {stura} (структура [чего-либо]), {tadji} (метод), {munje} (мир [вселенная]), {farvi} (развиваться), {ganzu} (организовывать [упорядочивать]), {judri} (адрес), {julne} (сеть [сито]), {klesi} (класс), {morna} (узор), {tcana} (станция)</notes></valsi>
 
@@ -9170,6 +9173,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="усмехающийся" valsi="cisma" place="1" />
 
+<nlword word="улыбка" sense="выражение лица" valsi="cismytai" />
+
 <nlword word="система" valsi="ciste" />
 
 <nlword word="поедать" valsi="citka" />
@@ -10514,9 +10519,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="ислам" valsi="islam" />
 
-<nlword word="исландский" sense="страна" valsi="islenska" />
-
 <nlword word="исландский" sense="язык" valsi="islenska" />
+
+<nlword word="исландский" sense="страна" valsi="islenska" />
 
 <nlword word="исландский" sense="культура" valsi="islenska" />
 
@@ -10978,11 +10983,11 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes></valsi>
 
 <nlword word="серьёзное" sense="случай, событие" valsi="junri" place="2" />
 
-<nlword word="серьёзный" valsi="junri" />
-
 <nlword word="серьёзный" sense="случай, событие" valsi="junri" place="2" />
 
 <nlword word="серьёзный" sense="о персоне" valsi="junri" place="1" />
+
+<nlword word="серьёзный" valsi="junri" />
 
 <nlword word="вес" valsi="junta" place="1" />
 

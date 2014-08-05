@@ -43,9 +43,10 @@ clientmensi.addListener('message', function(from, to, text, message) {
     processormensi(clientmensi, from, to, text, message);
 });
 
-//setInterval(updatexmldumps, 43200000); //update logs once a djedi
+setInterval(updatexmldumps, 43200000); //update logs once a djedi
 
 var updatexmldumps = function () {
+var err;
 try{
 	var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple"];
 	var request = require("request"); var body;
@@ -189,6 +190,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('zh: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'zh'));break;
 	case text.indexOf('en-simple: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'en-simple'));break;
 	case text.indexOf('selmaho: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
+	case text.indexOf('finti: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','finti'));break;
 	case text.indexOf('rafsi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
 	case text.indexOf('toki: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(5),'toki'));break;
 	case text.indexOf('laadan: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'laadan'));break;
@@ -346,6 +348,7 @@ var ret;
 		case lin.substr(0,5).trim()=="/full": ret=mulno(lin.substr(6).trim(),lng);break;
 		case raf=='raf': ret=rafsi(lin.replace(/[^a-z'\.]/g,''));break;
 		case raf=='selmaho': ret=selmaho(lin.replace(/[^a-z'\.\*0-9]/g,''));break;
+		case raf=='finti': ret=finti(lin.replace(/[^a-z'\.\*0-9]/g,''));break;
 		case raf=='frame': ret=frame(lin.replace(/[^a-z_'\.]/g,''));break;
 		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z_'\.]/g,''));break;
 		default: ret=tordu(lin.replace(/\"/g,''),lng);break;
@@ -425,11 +428,11 @@ var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
-var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]").join (' .e zo ');
+var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]").join (' .e ra\'oi ');
 var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
 //now try to add a vowel:
 if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[starts-with(@word,\""+lin+"\")]");}
-if (coun!==''){coun='zo ' + coun + ' rafsi zo ' + lin;}
+if (coun!==''){coun='ra\'oi ' + coun + ' rafsi zo ' + lin;}
 if (typeof rev!=='undefined'){rev='zo ' + rev.attr("word").value() + ' se rafsi ra\'oi '+lin;}else{rev='';}
 switch(true){
 case (coun!=='') && (rev !==''): gag=coun.concat(" .i ").concat(rev);break;
@@ -523,7 +526,8 @@ lin=lin.toLowerCase().trim();
 	];
 	var i,myregexp;
 	//now the function itself
-	if(direction!=='coi'){
+	try{
+		if(direction!=='coi'){
 		//from lojban to loglan
 		lin=run_camxes(lin.replace(/[^a-z'\. ]/g,''),5).replace(/[^a-z'\. ]/g,'').split(" ");
 		for (i=0;i<items.length;i++)
@@ -544,6 +548,31 @@ lin=lin.toLowerCase().trim();
 		lin=lin.replace(myregexp,items[i][0]);
 		}
 	}
+}catch(err){lin='O_0';}
 	return lin;
 };
 
+var finti = function (lin)
+{
+var lng="en";
+lin=lin.replace(/\"/g,'');
+var libxmljs = require("libxmljs");
+var fs = require("fs"),path = require("path");
+var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
+var retur='y no da jai se facki';
+var xmlDoc = libxmljs.parseXml(content);
+var coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./user/username,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
+var stra=[];
+	for (var i=0;i<coun.length;i++)
+	{
+		stra.push(coun[i].attr("word").value());
+	}
+var cnt=stra.length;
+try{stra.splice(30);}catch(err){}
+if (stra.length>=30){stra.push("...");}
+var gag=stra.join(", ").trim();
+if (stra.length==1){gag = tordu(gag,lng);}
+if (stra.length>1){gag = cnt + " jai se facki: " + gag;}
+if(gag===''){gag='y no da jai se facki';}
+return gag;
+};

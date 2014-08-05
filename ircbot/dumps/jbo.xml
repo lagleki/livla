@@ -2721,6 +2721,9 @@
 <valsi word="nimspe" type="lujvo"><user><username>junpen</username><realname>okaujunpen</realname></user><definition>$x_1$ speni $x_2$ boi $x_3$ gi&apos;e ninmu</definition>
 <definitionid>19682</definitionid><notes>{ninmu} {speni}</notes></valsi>
 
+<valsi word="nintadni" type="lujvo"><user><username>donri</username><realname>Dag Odenhall</realname></user><definition>$x_2=c_1=t_2$ cnino $x_1=c_2=t_1$ lo ka ce&apos;u ce&apos;u se tadni kei $x_3=c_4$</definition>
+<definitionid>57186</definitionid></valsi>
+
 <valsi word="ninynavni" type="lujvo"><user><username>gusnikantu</username><realname>guskant</realname></user><definition>$x_1$ navni lo ratni be li pa no</definition>
 <definitionid>42241</definitionid><notes>{cnino} {navni}; {ratni}</notes></valsi>
 

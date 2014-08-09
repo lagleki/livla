@@ -1,6 +1,5 @@
 //livla bot
-var s;
-var t;
+var s,t,notci,notcijudri;
 var tato= require('./tatoeba.js');
 var interv=900000;
 var interm=2900;
@@ -43,6 +42,24 @@ clientmensi.addListener('message', function(from, to, text, message) {
     processormensi(clientmensi, from, to, text, message);
 });
 
+//prepare notci functions
+	var fs = require("fs"),path = require("path-extra");
+	notcijudri=path.join(path.homedir(),".livla","notci.txt");console.log(notcijudri);
+	fs.exists(notcijudri, function(exists) {
+	if (!exists){
+	    fs.writeFile(notcijudri, "", function(err) {
+		    if(err) {
+		        console.log(err);
+		    } else {
+		        console.log("The notci.txt file was saved!");
+		    }
+	    });
+	}
+	notci = fs.readFileSync(notcijudri,'utf8').split("\n");//split notci
+	});
+
+///end notci
+
 var updatexmldumps = function () {
 var err;
 try{
@@ -59,7 +76,7 @@ try{
 				if(err) {
 					console.log(err);
 				} else {
-					fs = require("fs"),path = require("path");
+					fs = require("fs"),path = require("path-extra");
 					var content = fs.writeFile(path.join(__dirname,"dumps",thisa + ".xml"),body, function(err) {
 					if(err) {console.log(err);} else {console.log(thisa + ' updated');}
 					});
@@ -173,6 +190,34 @@ var processormensi = function(clientmensi, from, to, text, message) {
     sendTo = to; // send publicly
   }
   if (1==1) {  //sendTo == to Public
+  	//notci functions first:
+	if (text.indexOf('mensi: tell ') == '0'){
+		text = text.substr(12).trim().replace("\\t"," ").replace(" ","\t");
+		switch(true) {
+		case from.match(text.substr(0, text.indexOf('\t')))!==null: clientmensi.say(sendTo,from+": e'u do cusku di'u lo nei si'unai");break;
+		case text.substr(0, text.indexOf('\t'))==replier: clientmensi.say(sendTo,from+": xu do je'a jinvi lodu'u mi bebna i oi");break;
+		default:
+		notci.push(from + "\t" + text);clientmensi.say(sendTo,from+": mi ba benji di'u ba lo nu la'o gy."+text.substr(0, text.indexOf('\t'))+".gy. di'a cusku da");
+		var fs = require("fs");
+		fs.writeFile(notcijudri, notci.join("\n"),function(err) {});break;
+		}
+	}
+	//now send back part
+	for (var l=0;l<notci.length;l++){
+		//sendTo
+		var cmenepagbu=notci[l].split("\t");//.substr(0, notci[l].indexOf('\t'));
+		var sem = new RegExp(cmenepagbu[1].toLowerCase(), "gim");
+		if (from.match(sem)!==null)
+		{
+			cmenepagbu=notci[l].split("\t");
+			clientmensi.say(sendTo,from + ": la'o gy." + cmenepagbu[0] + ".gy. pu cusku fi do fe zoi gy."+cmenepagbu[2]+".gy.");
+			notci.splice(l,1);
+			var fs = require("fs");
+			fs.writeFile(notcijudri, notci.join("\n"));
+		}
+	}
+	// 
+	///
 	switch(true) {
 	case text.indexOf("cipra: ") == '0': text = text.substr(7);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
 	case text.indexOf('mensi: ko ningau lo nei') == '0': updatexmldumps();clientmensi.say(sendTo, 'vi\'o minde .i lo datni mo\'u se ningau mi');break;
@@ -361,7 +406,7 @@ var tordu = function (lin,lng)
 {
 lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path");
+var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
 var gchild='';
@@ -376,7 +421,7 @@ var mulno = function (lin,lng)
 {
 lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path");
+var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var retur='y no da jai se facki';
 var xmlDoc = libxmljs.parseXml(content);
@@ -398,7 +443,7 @@ var selmaho = function (lin)
 {
 var lng="en";var gag='';var ien='';
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path");
+var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]");
@@ -425,15 +470,15 @@ var rafsi = function (lin)
 {
 var lng="en",gag;
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path");
+var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
-var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]").join (' .e ra\'oi ');
+var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]").join (' .e zo\'oi ');
 var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
 //now try to add a vowel:
 if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[starts-with(@word,\""+lin+"\")]");}
-if (coun!==''){coun='ra\'oi ' + coun + ' rafsi zo ' + lin;}
-if (typeof rev!=='undefined'){rev='zo ' + rev.attr("word").value() + ' se rafsi ra\'oi '+lin;}else{rev='';}
+if (coun!==''){coun='zo\'oi ' + coun + ' rafsi zo ' + lin;}
+if (typeof rev!=='undefined'){rev='zo ' + rev.attr("word").value() + ' se rafsi zo\'oi '+lin;}else{rev='';}
 switch(true){
 case (coun!=='') && (rev !==''): gag=coun.concat(" .i ").concat(rev);break;
 case (coun==='') && (rev !==''): gag=rev;break;
@@ -457,7 +502,7 @@ var frame = function (lin)
 {
 var lng="en",gag='';
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path");
+var fs = require("fs"),path = require("path-extra");
 
 var arrf=fs.readdirSync(path.join(__dirname,"../../../files/frame")).filter(function(file) { return file.substr(-4) === '.xml'; });
 
@@ -479,7 +524,7 @@ var framemulno = function (lin)
 {
 var lng="en",gag='';
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path");
+var fs = require("fs"),path = require("path-extra");
 var arrf=fs.readdirSync(path.join(__dirname,"../../../files/frame")).filter(function(file) { return file.substr(-4) === '.xml'; });
 var stra=[];
 
@@ -564,7 +609,7 @@ var finti = function (lin)
 var lng="en";
 lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path");
+var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var retur='y no da jai se facki';
 var xmlDoc = libxmljs.parseXml(content);

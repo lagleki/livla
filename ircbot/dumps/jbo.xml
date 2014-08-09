@@ -2838,7 +2838,7 @@
 <valsi word="nunctu" type="lujvo"><user><username>junpen</username><realname>okaujunpen</realname></user><definition>$x_1$ nu $x_2$ ctuca $x_3$ boi $x_4$ boi $x_5$ boi $x_6$</definition>
 <definitionid>19641</definitionid><notes>{ctuca}</notes></valsi>
 
-<valsi word="nungei" type="lujvo"><user><username>vensa</username><realname>Aviv</realname></user><definition>$x1$ nu $x2$ gleki $x3$</definition>
+<valsi word="nungei" type="lujvo"><user><username>vensa</username><realname>Aviv</realname></user><definition>$x_1$ nu $x_2$ gleki $x_3$</definition>
 <definitionid>35276</definitionid></valsi>
 
 <valsi word="nunjmaji" type="lujvo"><user><username>xorxes</username><realname>Jorge Llambias</realname></user><definition>$x_1$ nu $x_2$ jmaji $x_3$ boi $x_4$</definition>

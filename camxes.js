@@ -13166,6 +13166,7 @@ var camxes = (function(){
           result1 = result1 !== null ? result1 : "";
           if (result1 !== null) {
             result2 = parse_space_int_props();
+            result2 = result2 !== null ? result2 : "";
             if (result2 !== null) {
               result0 = [result0, result1, result2];
             } else {
@@ -13181,57 +13182,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 === null) {
-          pos1 = pos;
-          result0 = parse_VEhA_clause();
-          if (result0 === null) {
-            result0 = parse_VIhA_clause();
-            if (result0 === null) {
-              pos2 = pos;
-              result0 = parse_VEhA_clause();
-              if (result0 !== null) {
-                result1 = parse_VIhA_clause();
-                if (result1 !== null) {
-                  result0 = [result0, result1];
-                } else {
-                  result0 = null;
-                  pos = pos2;
-                }
-              } else {
-                result0 = null;
-                pos = pos2;
-              }
-            }
-          }
-          if (result0 !== null) {
-            pos2 = pos;
-            result1 = parse_FAhA_clause();
-            if (result1 !== null) {
-              result2 = parse_NAI_clause();
-              result2 = result2 !== null ? result2 : "";
-              if (result2 !== null) {
-                result1 = [result1, result2];
-              } else {
-                result1 = null;
-                pos = pos2;
-              }
-            } else {
-              result1 = null;
-              pos = pos2;
-            }
-            result1 = result1 !== null ? result1 : "";
-            if (result1 !== null) {
-              result0 = [result0, result1];
-            } else {
-              result0 = null;
-              pos = pos1;
-            }
-          } else {
-            result0 = null;
-            pos = pos1;
-          }
-          if (result0 === null) {
-            result0 = parse_space_int_props();
-          }
+          result0 = parse_space_int_props();
         }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("space_interval", expr); })(pos0, result0);

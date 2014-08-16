@@ -428,7 +428,7 @@ space = expr:(VA_clause space_offset* space_interval? (MOhI_clause space_offset)
 
 space_offset = expr:(FAhA_clause NAI_clause? VA_clause?) {return _node("space_offset", expr); }
 
-space_interval = expr:((VEhA_clause VIhA_clause?/ VIhA_clause) (FAhA_clause NAI_clause?)? space_int_props / (VEhA_clause / VIhA_clause / VEhA_clause VIhA_clause) (FAhA_clause NAI_clause?)? / space_int_props) {return _node("space_interval", expr); }
+space_interval = expr:((VEhA_clause VIhA_clause? / VIhA_clause) (FAhA_clause NAI_clause?)? space_int_props? / space_int_props) {return _node("space_interval", expr); }
 
 space_int_props = expr:((FEhE_clause interval_property)+) {return _node("space_int_props", expr); }
 

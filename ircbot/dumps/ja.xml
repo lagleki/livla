@@ -31,8 +31,8 @@
   <definition>無頓着／無愛想 （ a&apos;a 謹聴／注目 - a&apos;acu&apos;i 無頓着／無愛想 - a&apos;anai 忌避）</definition>
   <definitionid>42012</definitionid>
   <notes>心態詞； 懇ろさを欠いた気持； 気に留めない情況「zo&apos;e .a&apos;acu&apos;i pu ca&apos;o klama／誰だか気に留めなかったが、来ていた人はいた」「.a&apos;a cu&apos;i ko denpa lo nu mi mulgau ti／ちょっとこれ終わるまで待ってて」 ・読み方： アハシュヒ ・関連語： {nalju&apos;i}, {re&apos;i} {nai}</notes>
-  <glossword word="無頓着" />
   <glossword word="無愛想" />
+  <glossword word="無頓着" />
 </valsi>
 <valsi word="a'anai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -209,8 +209,8 @@
   <definition>欲求 （ au 欲求 - aucu&apos;i 無欲求 - aunai 抵抗）</definition>
   <definitionid>15793</definitionid>
   <notes>心態詞； それを欲し求める気持「.au mi binxo lo cakcurnu／私は貝になりたい」「.au lo tricu cu krati lo ro se genja gi&apos;e sfasa lo kusru be gy／樹木は根のあるものたちを代表して、ひどいことをする奴を罰してほしい」 ・読み方： アウ  ・関連語： {djica}</notes>
-  <glossword word="欲求" />
   <glossword word="欲望" />
+  <glossword word="欲求" />
 </valsi>
 <valsi word="aucu'i" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -326,8 +326,8 @@
   <definition>誇張 （ ba&apos;u 誇張 - ba&apos;ucu&apos;i 的確 - ba&apos;unai 控えめ）</definition>
   <definitionid>20633</definitionid>
   <notes>心態詞「blabi kerfa me ci ki&apos;o pavnongutci ba&apos;u／白髪三千丈」 ・読み方： バフ  ・関連語： {satci}, {dukse}</notes>
-  <glossword word="誇張" />
   <glossword word="大袈裟" />
+  <glossword word="誇張" />
 </valsi>
 <valsi word="ba'ucu'i" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -338,9 +338,9 @@
   <definition>的確 （ ba&apos;u 誇張 - ba&apos;ucu&apos;i 的確 - ba&apos;unai 控えめ）</definition>
   <definitionid>20634</definitionid>
   <notes>心態詞「ba&apos;ucu&apos;i lo ni finpe kei pu ni birka clani ／魚はちょうど腕の長さほどあった。」 ・読み方： バフシュヒ</notes>
+  <glossword word="まさに" />
   <glossword word="ちょうど" />
   <glossword word="的確" />
-  <glossword word="まさに" />
 </valsi>
 <valsi word="ba'unai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -372,6 +372,8 @@
   <definitionid>15713</definitionid>
   <notes>参照: {grute}, {jupybadna}</notes>
   <glossword word="バナナ" />
+  <keyword word="バナナ" place="1" />
+  <keyword word="バナナの種類" place="2" sense="種、品種" />
 </valsi>
 <valsi word="badri" type="gismu">
   <rafsi>dri</rafsi>
@@ -411,13 +413,13 @@
   <definition>$j_1=b_1$ は $j_2$ （相手）と $j_3$ （事／レース）で $j_4$ （賞）を競って $b_2$ （競技用トラック）を $b_3$ （足）で $b_4$ （調子／足取り）で走って競走する</definition>
   <definitionid>19755</definitionid>
   <notes>{bajra} {jivna}</notes>
-  <glossword word="マラソン" />
-  <glossword word="徒競走" />
   <glossword word="かけくらべ" />
-  <glossword word="長距離走" />
-  <glossword word="かけっこ" />
+  <glossword word="徒競走" />
   <glossword word="中距離走" />
   <glossword word="短距離走" />
+  <glossword word="長距離走" />
+  <glossword word="マラソン" />
+  <glossword word="かけっこ" />
 </valsi>
 <valsi word="bakfu" type="gismu">
   <rafsi>baf</rafsi>
@@ -474,9 +476,10 @@
   <definition>$x_1$ は $x_2$ （構造体）のバルコニー／さじき／ベランダ／張り出し</definition>
   <definitionid>39245</definitionid>
   <notes>「la juliet. bu&apos;u lo balni cu tavla la noi bartu romeon.／ジュリエットがバルコニーから外のロミオに語りかける」 ・大意： バルコニー ・読み方： バルゥニ  ・語呂合わせ： balcon ・関連語： {kajna}</notes>
+  <glossword word="張り出し" sense="構造" />
   <glossword word="バルコニー" />
   <glossword word="ベランダ" />
-  <glossword word="張り出し" sense="構造" />
+  <glossword word="桟敷" sense="劇場" />
 </valsi>
 <valsi word="balre" type="gismu">
   <rafsi>ba&apos;e</rafsi>
@@ -506,18 +509,18 @@
   <definition>$z_1$ は $z_2$ （品物）を売る $z_3$ （経営者）のスーパー（量販店）／デパート </definition>
   <definitionid>19705</definitionid>
   <notes>{banli} {zarci}</notes>
-  <glossword word="百貨店" />
-  <glossword word="デパートメントストア" />
-  <glossword word="ホームセンター" />
-  <glossword word="スーパーマーケット" />
+  <glossword word="ゼネラルマーチャンダイズストア" />
   <glossword word="ショッピングセンター" />
-  <glossword word="ディスカウントショップ" />
+  <glossword word="ショッピングモール" />
+  <glossword word="ホームセンター" />
+  <glossword word="スーパーセンター" />
   <glossword word="スーパー" sense="量販店" />
   <glossword word="デパート" />
-  <glossword word="ショッピングモール" />
+  <glossword word="百貨店" />
+  <glossword word="デパートメントストア" />
+  <glossword word="ディスカウントショップ" />
+  <glossword word="スーパーマーケット" />
   <glossword word="総合スーパー" />
-  <glossword word="ゼネラルマーチャンダイズストア" />
-  <glossword word="スーパーセンター" />
 </valsi>
 <valsi word="bancu" type="gismu">
   <rafsi>bac</rafsi>
@@ -567,8 +570,8 @@
   <definition>$x_1$ はコード ISO-639-3 jpn (Japanese) の言語（日本語）</definition>
   <definitionid>19813</definitionid>
   <notes>{ponbau}</notes>
-  <glossword word="にほんご" />
   <glossword word="日本語" />
+  <glossword word="にほんご" />
 </valsi>
 <valsi word="banli" type="gismu">
   <rafsi>bal</rafsi>
@@ -659,13 +662,13 @@
   <definition>$k_1$ は $k_3$ （起点）から $k_4$ （経路）・ $k_5$ （方法）で外へ出る</definition>
   <definitionid>19757</definitionid>
   <notes>{bartu} {klama}</notes>
-  <glossword word="出ていく" />
-  <glossword word="出て行く" />
-  <glossword word="出る" sense="外へ出る" />
   <glossword word="外出" sense="外へ出る" />
+  <glossword word="出る" sense="外へ出る" />
+  <glossword word="退出" sense="外へ出る" />
   <glossword word="出て来る" />
   <glossword word="出てくる" />
-  <glossword word="退出" sense="外へ出る" />
+  <glossword word="出て行く" />
+  <glossword word="出ていく" />
   <keyword word="外出者" place="1" />
   <keyword word="外出起点" place="2" />
   <keyword word="外出経路" place="3" />
@@ -679,11 +682,11 @@
   <definition>$c_1$ は $c_2=b_2$ の外へ $c_3$ （経路）を通って離れる／去る</definition>
   <definitionid>19760</definitionid>
   <notes>{bartu} {cliva}</notes>
-  <glossword word="辞する" sense="外へ去る" />
   <glossword word="退室" sense="外へ去る" />
+  <glossword word="辞する" sense="外へ去る" />
+  <glossword word="退出" sense="外へ去る" />
   <glossword word="去る" sense="外へ離れる" />
   <glossword word="退席" sense="外へ去る" />
-  <glossword word="退出" sense="外へ去る" />
 </valsi>
 <valsi word="barna" type="gismu">
   <rafsi>ba&apos;a</rafsi>
@@ -763,6 +766,7 @@
   <notes>・大意： 大麦 ・読み方： バヴミ  ・語呂合わせ： ＜場でヴォミット＞, mai（麦）, barley ・関連語： {gurni}
 </notes>
   <glossword word="大麦" sense="穀粒" />
+  <glossword word="オオムギ" sense="穀粒" />
   <keyword word="オオムギ" place="1" sense="穀粒" />
 </valsi>
 <valsi word="bavmyckafi" type="lujvo">
@@ -773,8 +777,8 @@
   <definition>$c_1$ は $b_2$ （大麦の種類）の麦茶</definition>
   <definitionid>19748</definitionid>
   <notes>{bavmi} {ckafi}</notes>
-  <glossword word="麦湯" />
   <glossword word="麦茶" />
+  <glossword word="麦湯" />
 </valsi>
 <valsi word="baxseljibri" type="lujvo">
   <user>
@@ -1330,8 +1334,8 @@
   <definition>$b_1=s_1$ は $b_2=s_2$（もの）・ $s_3$（側）・ $s_4$（境）・ $b_3$（波形）・ $b_4$（波長）・ $b_5$（周波数）のデコボコ面</definition>
   <definitionid>18299</definitionid>
   <notes>Cf. {boxna}, {sefta}</notes>
-  <glossword word="凹凸" />
   <glossword word="デコボコ" />
+  <glossword word="凹凸" />
 </valsi>
 <valsi word="botpi" type="gismu">
   <rafsi>bot</rafsi>
@@ -1343,8 +1347,10 @@
   <definition>$x_1$は$x_2$を入れるための、$x_3$でできた、ふた$x_4$のついた瓶/ボトル/壷/ふたのできる容器である</definition>
   <definitionid>15736</definitionid>
   <notes>参照: {baktu}, {lante}, {patxu}, {tansi}, {tanxe}, {vasru}, {gacri}.</notes>
-  <glossword word="ボトル" />
+  <glossword word="容器" />
   <glossword word="瓶" />
+  <glossword word="ボトル" />
+  <glossword word="壷" />
 </valsi>
 <valsi word="boxfo" type="gismu">
   <rafsi>bof</rafsi>
@@ -1357,9 +1363,9 @@
   <definitionid>39295</definitionid>
   <notes>的確な日本語訳は存在しない。「枚」で数えられる形状のもの。「紙」「箔」「敷物」「毛布」「アルミホイル」「サランラップ」などの上位概念。 ・大意： シーツ ・読み方： ボクゥフォ  ・語呂合わせ： ＜坊主の不法＞, bo(箔), foil ・関連語： {plita}, {cinje}, {polje}, {slasi}, {tinci}
 </notes>
-  <glossword word="シート" />
-  <glossword word="シーツ" />
   <glossword word="枚" />
+  <glossword word="シーツ" />
+  <glossword word="シート" />
 </valsi>
 <valsi word="boxna" type="gismu">
   <rafsi>bon</rafsi>
@@ -1552,8 +1558,8 @@
   <definition>量化型 selbri 変数抽象 ： 抽象詞； bridi の左に付いて、第3階以上の述語論理で使われる束縛 selbri 変数とする</definition>
   <definitionid>43011</definitionid>
   <notes>第1階の述語論理では {zo&apos;e} が自由変項、 {da} が束縛変項であり、第2階の述語論理では {co&apos;e} が自由 selbri 変数、 {bu&apos;a} が束縛 selbri 変数である。 第3階以上の述語論理を表現するためには、第2階の selbri 全体を対象領域とする selbri が必要である。 NU類に属する {su&apos;u} ・ {bu&apos;ai} はそれぞれ、第2階の selbri 全体を対象領域とする自由 selbri 変数・束縛 selbri 変数を構成することができる。 {bu&apos;ai} が取る selbri 変数が2個以上になる場合は {ju&apos;e} などで繋げる。 {bu&apos;ai} を入れ子状に使えば、さらに高階の述語論理も構成できる。 例： su&apos;o bu&apos;ai xe&apos;u kei su&apos;o bu&apos;a ro da zo&apos;u bu&apos;ai da bu&apos;a （この {xe&apos;u} はNU類を冠頭に置くためのダミー的な brivla） ・関連語： {su&apos;u}, {bu&apos;a}; {xe&apos;u}.</notes>
-  <glossword word="3階" sense="述語論理" />
   <glossword word="高階" sense="述語論理" />
+  <glossword word="3階" sense="述語論理" />
 </valsi>
 <valsi word="bu'e" type="cmavo">
   <selmaho>GOhA</selmaho>
@@ -1771,9 +1777,9 @@
   <definitionid>38565</definitionid>
   <notes>;$d_1=c_1$は今日/本日
 (英語定義から和訳)</notes>
-  <glossword word="今日" />
-  <glossword word="同日" />
   <glossword word="本日" />
+  <glossword word="同日" />
+  <glossword word="今日" />
 </valsi>
 <valsi word="cabna" type="gismu">
   <rafsi>cab</rafsi>
@@ -2306,8 +2312,8 @@
   <definition>$cu_1=ci_1$ は $cu_2=ci_2$ （文字列／内容）を $cu_3$ （読み手）に向けて $ci_3$ （媒体）に $ci_4$ （道具）で書いて表現する</definition>
   <definitionid>19764</definitionid>
   <notes>{ciska} {cusku}</notes>
-  <glossword word="書いて表現する" />
   <glossword word="文章表現" sense="書いて表現する" />
+  <glossword word="書いて表現する" />
 </valsi>
 <valsi word="ci'e" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -2476,9 +2482,9 @@
   <definitionid>39356</definitionid>
   <notes>・大意： 説明 ・読み方： シクスィ  ・関連語： {cipra}, {danfu}, {jalge}, {jinvi}, {krinu}, {mukti}, {nabmi}, {preti}, {rinka}, {sidbo}, {zukte}, {tavla}
 </notes>
-  <glossword word="説明" />
   <glossword word="解説" />
   <glossword word="弁明" />
+  <glossword word="説明" />
 </valsi>
 <valsi word="cilce" type="gismu">
   <rafsi>cic</rafsi>
@@ -2641,11 +2647,11 @@
   <definitionid>39372</definitionid>
   <notes>「箸」「やっとこ」「ピンセット」「ペンチ」など。 ・大意： 箸 ・読み方： シンザ  ・語呂合わせ： 新参者 ・関連語： {tutci}
 </notes>
-  <glossword word="ペンチ" />
   <glossword word="洗濯バサミ" />
+  <glossword word="ペンチ" />
+  <glossword word="ピンセット" />
   <glossword word="やっとこ" />
   <glossword word="箸" />
-  <glossword word="ピンセット" />
 </valsi>
 <valsi word="cipni" type="gismu">
   <rafsi>cpi</rafsi>
@@ -3361,8 +3367,9 @@
   <definition>$x_1$ は $x_2$ （放送内容／信号内容）を $x_3$ （周波数）で $x_4$ （受信機） に放送／通信する放送送信所／放送局／無線局</definition>
   <definitionid>39194</definitionid>
   <notes>「ラジオ」「モールス信号」など。関連語： {tivni}, {benji}, {tcana}</notes>
-  <glossword word="無線通信" />
+  <glossword word="放送局" sense="無線放送" />
   <glossword word="放送" sense="無線放送" />
+  <glossword word="無線通信" />
   <keyword word="放送局" place="1" sense="無線放送" />
   <keyword word="放送内容／信号内容" place="2" sense="無線放送／無線通信" />
   <keyword word="周波数" place="3" sense="無線放送／無線通信" />
@@ -3387,7 +3394,9 @@
   <definition>$x_1$は材質$x_2$でできたシャツ/ブラウス/上着である [袖やボタンの有無は関係ない]</definition>
   <definitionid>15743</definitionid>
   <notes>参照: {taxfu}.</notes>
+  <glossword word="ブラウス" />
   <glossword word="シャツ" />
+  <glossword word="上着" />
 </valsi>
 <valsi word="crepu" type="gismu">
   <rafsi>rep</rafsi>
@@ -3407,19 +3416,19 @@
   <definition>$zu_1=ze_1$ は $zu_2=c_2$ （事／行為）の練習をする</definition>
   <definitionid>19768</definitionid>
   <notes>{certu} {zenba} {zukte} {rapcreze&apos;a} {xadyplijvi}</notes>
-  <glossword word="トレーニング" />
-  <glossword word="訓練" />
-  <glossword word="けいこ" sense="稽古" />
-  <glossword word="おさらい" sense="練習" />
-  <glossword word="習練" />
-  <glossword word="修練" />
-  <glossword word="練磨" />
   <glossword word="演習" />
-  <glossword word="稽古" />
-  <glossword word="練習" />
-  <glossword word="鍛える" sense="練習する" />
-  <glossword word="鍛錬" />
   <glossword word="調練" />
+  <glossword word="けいこ" sense="稽古" />
+  <glossword word="稽古" />
+  <glossword word="修練" />
+  <glossword word="訓練" />
+  <glossword word="練習" />
+  <glossword word="練磨" />
+  <glossword word="習練" />
+  <glossword word="鍛錬" />
+  <glossword word="鍛える" sense="練習する" />
+  <glossword word="トレーニング" />
+  <glossword word="おさらい" sense="練習" />
 </valsi>
 <valsi word="cribe" type="gismu">
   <rafsi>rib</rafsi>
@@ -3661,6 +3670,7 @@
   <notes>・大意： キビ ・読み方： シュンミ  ・語呂合わせ： 旬味 ・関連語： {gurni}
 </notes>
   <glossword word="黍" sense="穀粒" />
+  <glossword word="キビ" sense="穀粒" />
   <keyword word="キビ" place="1" sense="穀粒" />
 </valsi>
 <valsi word="cunso" type="gismu">
@@ -3674,8 +3684,8 @@
   <definitionid>39442</definitionid>
   <notes>・大意： 無作為 ・読み方： シュンソ  ・関連語： {cnici}, {lakne}, {funca}, {kalsa}, {snuti}
 </notes>
-  <glossword word="無作為" />
   <glossword word="ランダム" />
+  <glossword word="無作為" />
 </valsi>
 <valsi word="cuntu" type="gismu">
   <rafsi>cu&apos;u</rafsi>
@@ -3749,6 +3759,7 @@
   <notes>または: ブーツ={tupcutci}. 参照: {smoka}, {taxfu}, {skiji}.</notes>
   <glossword word="靴" />
   <glossword word="サンダル" />
+  <glossword word="ブーツ" />
 </valsi>
 <valsi word="cutne" type="gismu">
   <rafsi>cut</rafsi>
@@ -3768,9 +3779,9 @@
   <definition>$p_1=g_1$ は $p_2$ （素材）のオーバーオール</definition>
   <definitionid>19744</definitionid>
   <notes>{cutne} {gacri} {palku}</notes>
+  <glossword word="つなぎ" sense="オーバーオール" />
   <glossword word="サロペット" />
   <glossword word="オーバーオール" />
-  <glossword word="つなぎ" sense="オーバーオール" />
 </valsi>
 <valsi word="cuxna" type="gismu">
   <rafsi>cux</rafsi>
@@ -3836,7 +3847,7 @@
   <definitionid>20638</definitionid>
   <notes>心態詞（談話系）； 「もし~なら」「仮に～」「da&apos;i trina lo nalglico selbangu／非英語話者を惹きつけられたらなあ」「lonu da&apos;i la betis. klama le te salci cu vajni lenu la bil. gleki／ビルが喜ぶには、ベティがパーティに来ることが重要だった（実際には来なかった）」「lo li&apos;i pu da&apos;i lifri／既視体験」 ・読み方： ダヒ  ・関連語： {xanri}, {sruma}; {da&apos;inai}, {je&apos;u}, {je&apos;unai}</notes>
   <glossword word="仮定" sense="非現実" />
-  <glossword word="仮定" />
+  <glossword word="非現実" />
 </valsi>
 <valsi word="da'inai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -3848,7 +3859,7 @@
   <definitionid>20639</definitionid>
   <notes>心態詞（談話系）； 「実際～」「本当に～」「da&apos;inai fatci nanba .i e&apos;u ko citka／本物のパンです。どうぞ召し上がれ。」「le si&apos;o sidju cu cinri mi .i ku&apos;i da&apos;inai du&apos;eda cuntu mi／援助には興味あるけど、実際にはやることが多すぎてね」 ・読み方： ダヒナイ ・関連語： {fatci}; {da&apos;i}, {je&apos;u}, {je&apos;unai}</notes>
   <glossword word="実際" />
-  <glossword word="事実" />
+  <glossword word="現実" />
   <glossword word="事実" sense="仮ではない" />
 </valsi>
 <valsi word="da'u" type="cmavo">
@@ -3900,6 +3911,7 @@
   <definition>共感</definition>
   <definitionid>42051</definitionid>
   <notes>心態詞（修飾系）； 先行の心態詞にたいする話者の共感／同情を表す； 話者以外の感情を表す「le lenku dilnu cu sutkla a&apos;idai／寒い雲がいそぐ」（山頭火『行乞記（二）』） ・読み方： ダイ  ・関連語： {cnijmi}</notes>
+  <glossword word="共感" />
 </valsi>
 <valsi word="dakfu" type="gismu">
   <rafsi>dak</rafsi>
@@ -3959,7 +3971,11 @@
   <definition>$x_1$は、質問/問題$x_2$に対する解答/返答である</definition>
   <definitionid>15720</definitionid>
   <notes>参照: {ciksi}, {frati}, {preti}, {nabmi}, {spuda} (答える、動詞的な), {cpedu}</notes>
+  <glossword word="返事" />
+  <glossword word="解答" />
   <glossword word="答え" />
+  <keyword word="解答" place="1" />
+  <keyword word="質問" place="2" />
 </valsi>
 <valsi word="danlu" type="gismu">
   <rafsi>dal</rafsi>
@@ -4000,6 +4016,8 @@
   <definition>$x_1$(単数/複数)は伴奏/音楽/リズム$x_2$に合わせて踊る</definition>
   <definitionid>15738</definitionid>
   <notes>参照: {bende}, {zgike}, {zajba}.</notes>
+  <glossword word="ダンス" />
+  <glossword word="踊る" />
 </valsi>
 <valsi word="danti" type="gismu">
   <rafsi>dan</rafsi>
@@ -4100,10 +4118,10 @@
   <definitionid>39187</definitionid>
   <notes>d_2はポケットのついてある物として『ズボン』や『カバン』など
 ;l_1はひったくり犯／スリ犯</notes>
-  <glossword word="スリをする" sense="物品" />
   <glossword word="ひったくる" sense="物品" />
-  <glossword word="奪う" sense="物品" />
+  <glossword word="スリをする" sense="物品" />
   <glossword word="盗む" sense="物品" />
+  <glossword word="奪う" sense="物品" />
   <glossword word="強奪する" sense="物品" />
 </valsi>
 <valsi word="dasni" type="gismu">
@@ -4479,9 +4497,9 @@
 s1はコンデンサーやバッテリーなど
 d3は交流電源、直流電源、マイナス極、プラス極など
 </notes>
+  <glossword word="充電する" />
   <glossword word="給電する" />
   <glossword word="電力供給する" />
-  <glossword word="充電する" />
 </valsi>
 <valsi unofficial="true" word="didni" type="experimental gismu">
   <user>
@@ -4600,6 +4618,7 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>$x_1$ はラドン (Rn)</definition>
   <definitionid>42255</definitionid>
   <notes>{dirce} {navni}; {ratni}</notes>
+  <glossword word="ラドン" />
   <glossword word="Rn" sense="ラドン" />
   <keyword word="ラドン" place="1" />
 </valsi>
@@ -4663,8 +4682,8 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>$k_1$ は $k_2$ （内容）・ $k_3$ （出版社）・ $k_4$ （読者）の日刊紙</definition>
   <definitionid>19770</definitionid>
   <notes>{djedi} {karni}</notes>
-  <glossword word="日刊紙" />
   <glossword word="新聞" sense="日刊紙" />
+  <glossword word="日刊紙" />
 </valsi>
 <valsi word="djica" type="gismu">
   <rafsi>dji</rafsi>
@@ -4719,7 +4738,6 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definitionid>20646</definitionid>
   <notes>心態詞（談話系）；「鷹揚に言えば」「広い意味では」 「ti claxu lo stizu gi&apos;e do&apos;a relxilma&apos;e／これ、サドルが無いけど、まあ自転車と呼んで良いだろう」 ・読み方： ドハ  ・関連語： {dunda}</notes>
   <glossword word="気前が良い" />
-  <glossword word="寛大" />
   <glossword word="寛大" sense="心が広い" />
   <glossword word="広義" />
 </valsi>
@@ -4733,8 +4751,8 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definitionid>20647</definitionid>
   <notes>心態詞（談話系）； 「けちな言い方をすれば」「狭い意味では」「ti claxu lo jabre gi&apos;e do&apos;anai na relxilma&apos;e／これ、ブレーキが無いぞ、こんなの自転車とは言えない」 ・読み方： ドハナイ</notes>
   <glossword word="吝嗇" sense="けち" />
-  <glossword word="狭義" />
   <glossword word="偏狭" sense="心が狭い" />
+  <glossword word="狭義" />
 </valsi>
 <valsi word="do'e" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -4845,9 +4863,7 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>$c_1=j_1$は水素爆弾</definition>
   <definitionid>36703</definitionid>
   <notes>水素爆弾は核融合による爆発をするので、わざわざ起爆方法を明示するためのPS j2は不要だと考えて削除した。</notes>
-  <glossword word="爆弾" />
   <glossword word="水素爆弾" sense="爆弾" />
-  <glossword word="水素" sense="化学" />
 </valsi>
 <valsi word="drudi" type="gismu">
   <rafsi>rud</rafsi>
@@ -5199,6 +5215,7 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>自由 （ ei 義務 - einai 自由）</definition>
   <definitionid>42057</definitionid>
   <notes>心態詞； それが義務ではない／そうである必要はないと見なす気持 「.einai do mi spuda／返信してくれなくても良い」「.ei nai do tolnurcni／怖がらなくても良い」 ・読み方： エイナイ  ・関連語： {zifre}</notes>
+  <glossword word="自由" />
 </valsi>
 <valsi word="enai" type="cmavo-compound">
   <selmaho>A*</selmaho>
@@ -5319,16 +5336,16 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>$l_1=f_1$ は $l_2=t_1$ （土地）を $l_3$ （方法）で、 $f_2$ （命題）を発見しながら探検する</definition>
   <definitionid>19729</definitionid>
   <notes>{facki} {tumla} {litru}</notes>
-  <glossword word="探険" sense="陸地の探険" />
+  <glossword word="実地踏査" sense="陸地の探険" />
   <glossword word="探検" sense="陸地の探検" />
+  <glossword word="探検家" sense="陸地の探検" />
+  <glossword word="探索" sense="陸地の探検" />
+  <glossword word="冒険" sense="陸地の探検" />
   <glossword word="踏査" sense="陸地の探検" />
   <glossword word="探査" sense="陸地の探検" />
   <glossword word="検分" sense="陸地の探検" />
-  <glossword word="実地踏査" sense="陸地の探険" />
-  <glossword word="探検家" sense="陸地の探検" />
-  <glossword word="探索" sense="陸地の探検" />
+  <glossword word="探険" sense="陸地の探険" />
   <glossword word="調査" sense="陸地の探険" />
-  <glossword word="冒険" sense="陸地の探検" />
 </valsi>
 <valsi word="falnu" type="gismu">
   <rafsi>fan</rafsi>
@@ -5340,7 +5357,7 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definitionid>39514</definitionid>
   <notes>$x_2$ は空気・太陽風など。 「lo se blozeile&apos;a cu te falnu／海賊船が帆走する」 ・大意： 帆走 ・読み方： ファルゥヌ  ・関連語： {bloti}</notes>
   <keyword word="帆" place="1" />
-  <keyword word="帆走" place="3" />
+  <keyword word="帆走" place="2" />
 </valsi>
 <valsi word="famti" type="gismu">
   <user>
@@ -5378,6 +5395,7 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definitionid>42252</definitionid>
   <notes>{fange} {navni}; {ratni}</notes>
   <glossword word="Xe" sense="キセノン" />
+  <glossword word="キセノン" />
   <keyword word="キセノン" place="1" />
 </valsi>
 <valsi word="fanmo" type="gismu">
@@ -5426,9 +5444,9 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>$c_1$は $c_2=f_2$(原題／原典)を $c_3=f_1$(翻訳者)が $f_3$(原語)から $f_4$(翻訳先言語)へ翻訳した本／翻訳書／訳書</definition>
   <definitionid>39132</definitionid>
   <notes>f5,c4,c5は消去した</notes>
-  <glossword word="翻訳書" />
   <glossword word="訳本" />
   <glossword word="訳書" />
+  <glossword word="翻訳書" />
 </valsi>
 <valsi word="fanza" type="gismu">
   <rafsi>faz</rafsi>
@@ -5463,6 +5481,8 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <notes>動作主がいる場合は lujvo で: falcru か falri&apos;a。
 参照: {lafti}, {cpare}
 , {klama}, {sfubu}.</notes>
+  <glossword word="落ちる" />
+  <glossword word="落下" />
 </valsi>
 <valsi word="farna" type="gismu">
   <rafsi>far</rafsi>
@@ -5888,8 +5908,8 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>$b_1$ は $b_2$ （構成員）・ $b_3$ （引率者／党首／代表）の、 $j_2$ （領域）の政体に影響を及ぼすための議会政党</definition>
   <definitionid>19565</definitionid>
   <notes>{flalu} {jecyxlube&apos;e} {jecta} {xlura} {bende}</notes>
-  <glossword word="政党" sense="議会政党" />
   <glossword word="議会政党" />
+  <glossword word="政党" sense="議会政党" />
 </valsi>
 <valsi word="flakamni" type="lujvo">
   <user>
@@ -5899,6 +5919,8 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>$k_1=f_5$ は、 $f_1$ （法律／条令）を制定するための $k_3=f_3$ （共同体）の議会</definition>
   <definitionid>19561</definitionid>
   <notes>{flalu} {kamni}</notes>
+  <glossword word="議案" />
+  <glossword word="議会" />
   <glossword word="審議" />
   <keyword word="議会" place="1" />
   <keyword word="議案" place="2" />
@@ -6080,6 +6102,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>p_3には電話の宛先も。f_2には電話会社や回線名など。
 同じような意味のlujvoに{fongau}がある。
 ;p_3が受信者ならば、『p_1はp_3に電話をかける』</notes>
+  <glossword word="電話する" sense="通信" />
 </valsi>
 <valsi word="fonxa" type="gismu">
   <rafsi>fon</rafsi>
@@ -6108,6 +6131,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   </user>
   <definition>$x_1$ は $x_2$ （種類）のイチゴ</definition>
   <definitionid>16886</definitionid>
+  <glossword word="イチゴ" />
   <keyword word="イチゴ" place="1" />
 </valsi>
 <valsi word="fraso" type="gismu">
@@ -6922,12 +6946,12 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>18470</definitionid>
   <notes>比喩的に「（対称物の）合体」の意も。「マウンティング」は{cpanygle}。
 関連語：{cinse}, {pinji}, {plibu}, {vibna}, {vlagi}, {mabla}, {speni} </notes>
-  <glossword word="性交" />
+  <glossword word="交尾" />
   <glossword word="セックス" sense="性交" />
   <glossword word="やる" sense="性交" />
-  <glossword word="交尾" />
   <glossword word="エッチ" sense="性交" />
   <glossword word="つがう" />
+  <glossword word="性交" />
 </valsi>
 <valsi word="gleve'u" type="lujvo">
   <user>
@@ -6939,13 +6963,13 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>関連語：{gletu}, {vecnu}, {vibna}, {pinji}, {xangle}, {molgle}, {gaxygle}
 </notes>
   <glossword word="ばいしゅんふ" sense="売春婦" />
-  <glossword word="娼婦" />
-  <glossword word="売春" />
   <glossword word="ばいしゅん" sense="売春" />
-  <glossword word="男娼" />
   <glossword word="だんしょう" sense="男娼" />
   <glossword word="しょうふ" sense="娼婦" />
+  <glossword word="男娼" />
+  <glossword word="娼婦" />
   <glossword word="売春婦" />
+  <glossword word="売春" />
   <keyword word="売春婦・男娼" place="1" />
   <keyword word="買春者" place="2" />
   <keyword word="売春・買春の代償・値段" place="3" />
@@ -7264,6 +7288,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ はコード ISO-3166 CN (China) の、 $x_2$ （民衆）からなる国（中国）</definition>
   <definitionid>19815</definitionid>
   <notes>{jugygu&apos;e} {djunguos} {xa&apos;anzu}</notes>
+  <glossword word="中国" />
   <keyword word="中国" place="1" />
   <keyword word="中国人" place="2" />
 </valsi>
@@ -7276,8 +7301,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>19811</definitionid>
   <notes>{pongu&apos;e}</notes>
   <glossword word="にほん" sense="日本" />
-  <glossword word="にっぽん" sense="日本" />
+  <glossword word="日本" />
   <glossword word="ニッポン" sense="日本" />
+  <glossword word="にっぽん" sense="日本" />
   <keyword word="日本" place="1" />
   <keyword word="日本人" place="2" />
 </valsi>
@@ -7340,6 +7366,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は$x_2$という種/品種の雁/鵞鳥である</definition>
   <definitionid>15740</definitionid>
   <notes>参照: {cipni}.</notes>
+  <glossword word="ガチョウ" />
+  <glossword word="雁" />
+  <glossword word="鵞鳥" />
+  <glossword word="ガン" sense="鳥" />
 </valsi>
 <valsi word="gunta" type="gismu">
   <rafsi>gut</rafsi>
@@ -7472,8 +7502,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>喝采 （ i&apos;e 喝采 - i&apos;ecu&apos;i 保留 - i&apos;enai 非難）</definition>
   <definitionid>15796</definitionid>
   <notes>心態詞； それの良さを認めて支持／擁護する気持； 良さを内面的に味わう i&apos;o と異なる「いいねぇ」「いけー！（応援）」「そうだそうだ（擁護）」「.i&apos;e do xautce gunka／素晴らしい、本当によくやった」 ・読み方： イヘ  ・関連語： {zanru}</notes>
-  <glossword word="是認" />
   <glossword word="承認" />
+  <glossword word="是認" />
   <glossword word="認める" />
   <glossword word="喝采" />
 </valsi>
@@ -7617,8 +7647,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>賛成 （ ie 賛成 - ienai 不賛成）</definition>
   <definitionid>15795</definitionid>
   <notes>心態詞； それに賛同する気持 「.ie ta melbi／そうだね、それは綺麗だ」 ・読み方： イェ ・関連語： {tugni}</notes>
-  <glossword word="賛成" />
   <glossword word="同意" />
+  <glossword word="賛成" />
 </valsi>
 <valsi word="ienai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -7775,8 +7805,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>15798</definitionid>
   <notes>心態詞； それにたいする愛好が充溢している情況； 愛する気持 「.iu do melbi／綺麗だよ、ハニー」 ・読み方： ユ ・関連語： {prami}, {pendo}</notes>
   <glossword word="愛情" />
-  <glossword word="愛好" />
   <glossword word="好む" />
+  <glossword word="愛好" />
 </valsi>
 <valsi word="iunai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -7849,9 +7879,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>つまり</definition>
   <definitionid>42091</definitionid>
   <notes>心態詞（認識系）；論理・法則・体系に照らし合わせて必然的 「つまり」「要するに」「したがって」「za&apos;a carvi cladu .i ja&apos;o carvi carmi／雨音がうるさいな。つまり雨が激しいということだ」 ・読み方： ジャホ  ・関連語： {selni&apos;i}, {ni&apos;ikri}</notes>
-  <glossword word="要するに" />
   <glossword word="したがって" />
   <glossword word="つまり" />
+  <glossword word="要するに" />
 </valsi>
 <valsi word="jabre" type="gismu">
   <user>
@@ -7880,8 +7910,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1=p_1$ は手順 $x_2=p_3$ に従って使われる油性ペン／マーカー</definition>
   <definitionid>41852</definitionid>
   <notes>{djacu} {renvi} {penbi}</notes>
-  <glossword word="マーカー" sense="ペン" />
   <glossword word="油性ペン" />
+  <glossword word="マーカー" sense="ペン" />
 </valsi>
 <valsi word="jadni" type="gismu">
   <rafsi>jad</rafsi>
@@ -8082,10 +8112,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>19752</definitionid>
   <notes>{djacu} {sabji} {tubnu}</notes>
   <glossword word="給水管" />
-  <glossword word="水道管" sense="上水道や中水道の水道管" />
   <glossword word="上水道" sense="水道管" />
-  <glossword word="給水設備" sense="給水管" />
   <glossword word="中水道" sense="水道管" />
+  <glossword word="水道管" sense="上水道や中水道の水道管" />
+  <glossword word="給水設備" sense="給水管" />
 </valsi>
 <valsi word="jaursabytu'uvro" type="lujvo">
   <user>
@@ -8142,7 +8172,6 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <keyword word="生まれたもの" place="1" />
   <keyword word="産みの親" place="2" />
   <keyword word="生年月日" place="3" sense="誕生日" />
-  <keyword word="生年月日" place="3" />
   <keyword word="出生時刻" place="4" sense="誕生時刻" />
   <keyword word="出生地" place="5" sense="出身地" />
 </valsi>
@@ -8308,9 +8337,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>真実 （ je&apos;u 真実 - je&apos;unai 虚偽）</definition>
   <definitionid>20648</definitionid>
   <notes>心態詞（談話系）「je&apos;u pei／まじで？」「je&apos;u zukte tu&apos;a lo nabmi .i po&apos;o na sanji lo si&apos;o bevri ri ti／本当に宿題やりました。持ってくるのを忘れただけです。」「.ue mi pu krici lo du&apos;u do se bloti lo je&apos;u te falnu／えっ、あなたが乗ってきたボートが本当に帆で動いていると思い込んでいたよ」 ・読み方： ジェフ  ・関連語： {jetnu}; {je&apos;unai}, {da&apos;i}, {da&apos;inai}</notes>
+  <glossword word="事実" sense="嘘ではない" />
   <glossword word="真実" />
   <glossword word="本当" />
-  <glossword word="事実" sense="嘘ではない" />
 </valsi>
 <valsi word="je'unai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -8321,8 +8350,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>虚偽 （ je&apos;u 真実 - je&apos;unai 虚偽）</definition>
   <definitionid>20649</definitionid>
   <notes>心態詞（談話系）「mi terpa lo titrmandiu .i ca terpa lo carmi tcati je&apos;unai／まんじゅう怖い。今は濃いお茶が怖い（嘘）。」 いわゆる（真実はそうではない）「le je&apos;unai palci cu xanri le menli poi na jimpe le manku sevzi／いわゆる悪というのは、暗黒の自己を理解できない心が見る幻だ」 ・読み方： ジェフナイ ・関連語： {jitfa}; {je&apos;u}, {da&apos;i}, {da&apos;inai}</notes>
-  <glossword word="虚偽" />
   <glossword word="嘘" />
+  <glossword word="虚偽" />
   <glossword word="いわゆる" sense="非真実" />
 </valsi>
 <valsi word="jecra'a" type="lujvo">
@@ -8355,6 +8384,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$b_1$ は $b_2$ （職員）の $j_2$ （行政領域）の役所</definition>
   <definitionid>19571</definitionid>
   <notes>{jecta} {briju}</notes>
+  <glossword word="役所" />
   <keyword word="役所" place="1" />
   <keyword word="役所の職員" place="2" />
   <keyword word="役所の行政区域" place="3" />
@@ -8367,9 +8397,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$b_1$ は $b_2$ （構成員）・ $b_3$ （引率者／党首／代表）の、 $j_2$ （領域）の政体に影響を及ぼすための政治団体／圧力団体／利益団体</definition>
   <definitionid>19563</definitionid>
   <notes>{jecta} {xlura} {bende}</notes>
-  <glossword word="圧力団体" />
   <glossword word="政治団体" />
   <glossword word="利益団体" />
+  <glossword word="圧力団体" />
 </valsi>
 <valsi word="jeftu" type="gismu">
   <rafsi>jef</rafsi>
@@ -8935,9 +8965,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1=v_1=c_1$ は $x_2=j_2$ に漬けた保存食</definition>
   <definitionid>42437</definitionid>
   <notes>$x_2=j_2$ は塩 (= {silna})・酢 (= {slami})・アルコール (= {xalka})・砂糖 (= {sakta})・蜂蜜 (= {bicysakta})・醤油 (= {sobysanso})・味噌 (= {furso&apos;epesxu})・麹 (= {mledi} {pesxu}) など。 {jinru} {vitno} {cidja}, {slamystogau}.</notes>
-  <glossword word="ピクルス" />
   <glossword word="なれずし" />
   <glossword word="漬物" />
+  <glossword word="ピクルス" />
 </valsi>
 <valsi word="jisra" type="gismu">
   <user>
@@ -8958,8 +8988,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>39678</definitionid>
   <notes>・大意： 偽（ぎ） ・読み方： ジトファ  ・語呂合わせ： 偽のジト目ファン ・関連語： {je&apos;unai}, {fatci}, {stace}, {jetnu}, {cfika}
 </notes>
-  <glossword word="虚構" sense="真ではない" />
   <glossword word="嘘" sense="真ではない" />
+  <glossword word="虚構" sense="真ではない" />
   <keyword word="偽" place="1" sense="真ではない" />
 </valsi>
 <valsi word="jitro" type="gismu">
@@ -9163,9 +9193,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>提言</definition>
   <definitionid>42092</definitionid>
   <notes>心態詞（認識系）； 発言／表現が何らかの認識基盤にもとづいていることを念押しする「言っておくけど」「ju&apos;a ba&apos;e ro da cu se senpi／全てが疑わしいと言える」 ・読み方： ジュハ  ・関連語： {xusra}</notes>
-  <glossword word="宣言" />
   <glossword word="言っておくけど" />
   <glossword word="提言" />
+  <glossword word="宣言" />
 </valsi>
 <valsi word="ju'e" type="cmavo">
   <selmaho>JOI</selmaho>
@@ -9216,9 +9246,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>確信 （ ju&apos;o 確信 - ju&apos;ocu&apos;i 不確信 - ju&apos;onai 不可能）</definition>
   <definitionid>42093</definitionid>
   <notes>心態詞（修飾系）； それについてよく知っている／確信できる「確かに」「まちがいなく」「lo xalka cu pe&apos;a selklaku je&apos;i kau cniselva&apos;u .i ju&apos;o naje／酒は涙か溜息か、――たしかに溜息だよ。」（山頭火『行乞記（二）』） ・読み方： ジュホ  ・関連語： {birti}, {cumki}</notes>
-  <glossword word="確信" />
   <glossword word="確かに" />
   <glossword word="まちがいなく" />
+  <glossword word="確信" />
 </valsi>
 <valsi word="ju'ocu'i" type="cmavo-compound">
   <selmaho>UI*5</selmaho>
@@ -9231,6 +9261,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>心態詞（修飾系）； それについて定かなところはわからない／確信できない「ju&apos;ocu&apos;i mi ga ca&apos;o litru ginai ka&apos;e te pemrxaiku／私は旅に出てゐなければ句は出来ないのかも知れない」（山頭火『行乞記（二）』） ・読み方： ジュホシュヒ</notes>
   <glossword word="わからない" />
   <glossword word="不確信" />
+  <glossword word="かもしれない" />
 </valsi>
 <valsi word="ju'onai" type="cmavo-compound">
   <selmaho>UI*5</selmaho>
@@ -9241,8 +9272,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>不可能 （ ju&apos;o 確信 - ju&apos;ocu&apos;i 不確信 - ju&apos;onai 不可能）</definition>
   <definitionid>42095</definitionid>
   <notes>心態詞（修飾系）； それについて不可能であると確信する 「ありえない」 ・読み方： ジュホナイ</notes>
-  <glossword word="無知" />
   <glossword word="不可能" />
+  <glossword word="ありえない" />
 </valsi>
 <valsi word="ju'u" type="cmavo">
   <selmaho>VUhU2</selmaho>
@@ -9469,12 +9500,13 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$r_1$ は $r_2$ （障害）のために $r_3=k_2$ （事）が制限される障害者</definition>
   <definitionid>19644</definitionid>
   <notes>{kakne} {rinju} {tolka&apos;e} {xadri&apos;u} {menri&apos;u} {menbi&apos;a}</notes>
-  <glossword word="障碍者" />
-  <glossword word="障がいのある人" />
   <glossword word="障がいのある方" />
-  <glossword word="障がい者" />
-  <glossword word="障害児" sense="障害者" />
   <glossword word="障がい児" sense="障がい者" />
+  <glossword word="障がい者" />
+  <glossword word="障がいのある人" />
+  <glossword word="障害児" sense="障害者" />
+  <glossword word="障碍者" />
+  <glossword word="障害者" />
   <keyword word="障害者" place="1" />
   <keyword word="障害" place="2" sense="身体障害、知的障害又は精神障害" />
   <keyword word="制限対象" place="3" sense="身体障害、知的障害又は精神障害があるため制限を受ける事" />
@@ -9509,6 +9541,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42096</definitionid>
   <notes>心態詞（認識系）； 社会の慣習・伝承・常識に基づいて知っている；「ka&apos;u lo nu lo cticinza gau sanli ne&apos;i lo risykabri cu na se curmi／お茶碗にお箸を立てるのはいけないことよ」 ・読み方： カフ ・関連語： {kluju&apos;o} </notes>
   <glossword word="文化的知識" />
+  <glossword word="常識" />
 </valsi>
 <valsi word="kabri" type="gismu">
   <user>
@@ -9660,8 +9693,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   </user>
   <definition>$r_1$は$r_2=k_1$(熱)を保つ/保温する/保熱する</definition>
   <definitionid>36712</definitionid>
-  <glossword word="保つ" sense="熱" />
   <glossword word="保温する" sense="熱" />
+  <glossword word="保つ" sense="熱" />
   <glossword word="保熱する" sense="熱" />
 </valsi>
 <valsi word="kamju" type="gismu">
@@ -10158,8 +10191,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ は $x_2$ の面でインターネット／サイバースペースに関連する</definition>
   <definitionid>42622</definitionid>
   <notes>xorxesが提案. 3文字 rafsi は -kib-. 関連語 : {mujysamseltcana}.</notes>
-  <glossword word="インターネット" />
   <glossword word="サイバースペース" />
+  <glossword word="インターネット" />
 </valsi>
 <valsi word="kibyse'u" type="lujvo">
   <user>
@@ -10213,6 +10246,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は$x_2$の箇所で鋭利である</definition>
   <definitionid>15735</definitionid>
   <notes>参照: {balre}, {dakfu}, {jesni}.</notes>
+  <glossword word="鋭い" />
+  <glossword word="鋭利" />
 </valsi>
 <valsi word="kisto" type="gismu">
   <rafsi>kis</rafsi>
@@ -10262,11 +10297,11 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ は行く／来る、 $x_2$ （終点）に向かって、 $x_3$ （起点）から、 $x_4$ （経路）を通って、 $x_5$ (移動手段／乗り物）を使って</definition>
   <definitionid>18473</definitionid>
   <notes>～へ～から「旅行する」、「移動する」という意味もある。 x1 は「旅行者」。 x4 は集合としては少なくとも経路を限定できるような地点を含む。関連語： {cadzu}, {bajra}, {marce}, {vofli}, {litru}, {muvdu}, {cpare}, cmavo の ka&apos;a, {pluta}, {bevri}, {farlu}, {limna}, {vitke}.</notes>
+  <glossword word="旅行者" sense="移動して来る／行く人" />
   <glossword word="いく" sense="行く" />
-  <glossword word="行く" />
   <glossword word="くる" sense="来る" />
   <glossword word="来る" />
-  <glossword word="旅行者" sense="移動して来る／行く人" />
+  <glossword word="行く" />
   <keyword word="移動者／旅行者" place="1" />
   <keyword word="到着地" place="2" />
   <keyword word="出発地" place="3" />
@@ -10672,10 +10707,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>しかしながら</definition>
   <definitionid>20676</definitionid>
   <notes>心態詞（談話系）； しかし／だが／ところが／それでも「tu&apos;a da se tirna je ku&apos;i na&apos;e se viska／声はすれども姿は見えず」 ・読み方： クヒ  ・関連語： {karbi}, {dukti}, {nalpanra}</notes>
-  <glossword word="でも" />
-  <glossword word="しかし" />
-  <glossword word="ところが" />
   <glossword word="だが" />
+  <glossword word="でも" />
+  <glossword word="ところが" />
+  <glossword word="しかし" />
 </valsi>
 <valsi word="ku'o" type="cmavo">
   <selmaho>KUhO</selmaho>
@@ -10866,10 +10901,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>蓋然性 （ la&apos;a 蓋然性 - la&apos;anai ありそうもない）</definition>
   <definitionid>20677</definitionid>
   <notes>心態詞（談話系）； 事物が真でありうる「la&apos;a mi se xebni／私、嫌われているのかも。」 ・読み方： ルァハ  ・関連語： {lakne}</notes>
-  <glossword word="もしかして" />
   <glossword word="かもしれない" />
-  <glossword word="蓋然性" />
   <glossword word="たぶん" />
+  <glossword word="もしかして" />
+  <glossword word="蓋然性" />
 </valsi>
 <valsi word="la'anai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -10880,10 +10915,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>ありそうもない （ la&apos;a 蓋然性 - la&apos;anai ありそうもない）</definition>
   <definitionid>20678</definitionid>
   <notes>心態詞（談話系）； 事物が真でありそうもない「la&apos;anai do se xebni／あなたが嫌われているはずがない。」 ・読み方： ルァハナイ</notes>
-  <glossword word="ありえない" />
-  <glossword word="まさか" sense="ありそうもない" />
-  <glossword word="まさか" sense="ありえない" />
   <glossword word="ありそうもない" />
+  <glossword word="まさか" sense="ありそうもない" />
 </valsi>
 <valsi word="la'e" type="cmavo">
   <selmaho>LAhE</selmaho>
@@ -10993,8 +11026,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$m_1$ は $m_2=d_1=l_2$ （運搬物）を $m_3=d_2$ （クレーン）で吊り上げる $m_4$ （原動力）の移動式クレーン（運搬機）</definition>
   <definitionid>19697</definitionid>
   <notes>{lafti} {dandu} {marce} {lafydadykarce} {lafydadblo}</notes>
-  <glossword word="クレーン" sense="移動式クレーン（運搬機）" />
   <glossword word="移動式クレーン" sense="運搬機" />
+  <glossword word="クレーン" sense="移動式クレーン（運搬機）" />
 </valsi>
 <valsi word="lafydadykarce" type="lujvo">
   <user>
@@ -11004,13 +11037,13 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$k_1$ は $k_2=d_1=l_2$ （運搬物）をクレーンで吊り上げる $k_3$ （原動力）のクレーン車</definition>
   <definitionid>19699</definitionid>
   <notes>{lafti} {dandu} {karce} {lafydadma&apos;e}</notes>
+  <glossword word="トラック搭載型クレーン" />
+  <glossword word="ラフテレーンクレーン" />
   <glossword word="クレーン車" />
+  <glossword word="クローラークレーン" />
+  <glossword word="トラッククレーン" />
   <glossword word="クレーン" sense="クレーン車" />
   <glossword word="オールテレーンクレーン" />
-  <glossword word="トラッククレーン" />
-  <glossword word="ラフテレーンクレーン" />
-  <glossword word="トラック搭載型クレーン" />
-  <glossword word="クローラークレーン" />
   <glossword word="ホイールクレーン" />
 </valsi>
 <valsi word="lai" type="cmavo">
@@ -11061,6 +11094,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は土地$x_2$にある湖/沼/池である</definition>
   <definitionid>15741</definitionid>
   <notes>参照: {daplu}, {djacu}, {rirxe}, {xamsi}, {zbani}.</notes>
+  <glossword word="湖" />
+  <glossword word="沼" />
+  <glossword word="池" />
 </valsi>
 <valsi word="lamji" type="gismu">
   <rafsi>lam</rafsi>
@@ -11167,6 +11203,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$m_1$ は美術品 $m_2=l_1$ を展示する $m_3$ （所）の美術館／アートギャラリー</definition>
   <definitionid>41859</definitionid>
   <notes>{larcu} {muzga}</notes>
+  <glossword word="美術館" />
   <glossword word="アートギャラリー" />
 </valsi>
 <valsi word="lasna" type="gismu">
@@ -11235,6 +11272,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42246</definitionid>
   <notes>{lazni} {navni}; {ratni}</notes>
   <glossword word="Ar" sense="アルゴン" />
+  <glossword word="アルゴン" />
   <keyword word="アルゴン" place="1" />
 </valsi>
 <valsi word="lazyzukykei" type="lujvo">
@@ -11363,6 +11401,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は$x_2$の焦点を対象$x_3$に合わせる、手段/材料が$x_4$のレンズ/ガラス[焦点を合わせる機能をもった形/物]である</definition>
   <definitionid>15752</definitionid>
   <notes>参照: {kacma}, {minra}.</notes>
+  <glossword word="レンズ" />
 </valsi>
 <valsi word="lenku" type="gismu">
   <rafsi>lek</rafsi>
@@ -11383,6 +11422,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は$x_2$の点で遅い</definition>
   <definitionid>15747</definitionid>
   <notes>参照: {clira}.</notes>
+  <glossword word="遅い" />
 </valsi>
 <valsi word="lerfu" type="gismu">
   <rafsi>ler</rafsi>
@@ -12283,6 +12323,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>39847</definitionid>
   <notes>・大意： カラス麦 ・読み方： マヴジ  ・関連語： {gurni}
 </notes>
+  <glossword word="カラスムギ" sense="穀粒" />
   <glossword word="オート" sense="穀粒" />
   <keyword word="カラスムギ" place="1" sense="穀粒" />
 </valsi>
@@ -12296,6 +12337,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>39848</definitionid>
   <notes>・大意： 小麦 ・読み方： マクゥリ  ・関連語： {gurni}
 </notes>
+  <glossword word="コムギ" sense="穀粒" />
   <glossword word="小麦" sense="穀粒" />
   <keyword word="コムギ" place="1" sense="穀粒" />
 </valsi>
@@ -12412,7 +12454,11 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は$x_2$にとって、$x_3$の面が$x_4$という審美的理由で美しい</definition>
   <definitionid>15714</definitionid>
   <notes>参照: {pluka}, {xamgu}</notes>
+  <glossword word="みめよい" />
+  <glossword word="美しい" />
+  <glossword word="ハンサムな" />
   <glossword word="優雅な" />
+  <glossword word="かわいい" />
 </valsi>
 <valsi word="meljo" type="gismu">
   <rafsi>mej</rafsi>
@@ -12433,10 +12479,11 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>19652</definitionid>
   <notes>{menli} {bilma} {ka&apos;enri&apos;u}</notes>
   <glossword word="精神障碍者" />
-  <glossword word="精神障がい者" />
-  <glossword word="精神障がいのある人" />
-  <glossword word="精神障がいのある方" />
+  <glossword word="精神障害者" />
   <glossword word="精神障害" />
+  <glossword word="精神障がい者" />
+  <glossword word="精神障がいのある方" />
+  <glossword word="精神障がいのある人" />
   <keyword word="精神障害者" place="1" />
   <keyword word="精神疾患" place="2" />
   <keyword word="症状" place="3" sense="精神疾患による症状" />
@@ -12459,12 +12506,13 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$r_1=m_2$ は $r_2$ （障害）のために $r_3$ が制限される知的障害者</definition>
   <definitionid>19648</definitionid>
   <notes>{menli} {rinju} {ka&apos;enri&apos;u}</notes>
+  <glossword word="知的障害児" sense="知的障害者" />
   <glossword word="知的障がいのある人" />
   <glossword word="知的障がいのある方" />
-  <glossword word="知的障碍者" />
-  <glossword word="知的障がい者" />
   <glossword word="知的障がい児" sense="知的障がい者" />
-  <glossword word="知的障害児" sense="知的障害者" />
+  <glossword word="知的障がい者" />
+  <glossword word="知的障害者" />
+  <glossword word="知的障碍者" />
   <keyword word="知的障害者" place="1" />
   <keyword word="知的障害" place="2" />
   <keyword word="制限対象" place="3" sense="知的障害があるため制限を受ける事" />
@@ -12602,9 +12650,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$xu_1=m_4$ は $xu_2$ （薬の種類）の $m_3$ （病気／怪我）のための医薬品</definition>
   <definitionid>19776</definitionid>
   <notes>{mikce} {xukmi}</notes>
-  <glossword word="薬" sense="医薬品" />
-  <glossword word="医薬品" />
   <glossword word="薬品" sense="医薬品" />
+  <glossword word="医薬品" />
+  <glossword word="薬" sense="医薬品" />
 </valsi>
 <valsi word="midju" type="gismu">
   <rafsi>mij</rafsi>
@@ -12686,6 +12734,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は$x_2$のための/の機能を持った機械である; [自動化された機器で、直接的なコントロールはない]</definition>
   <definitionid>15753</definitionid>
   <notes>又は 機構/メカニズム; 行為者/力によって発動/引きがねを引かれるが、あとは自動的に動作する機会; 自分自身に作用する場合は、自主独立体(= {zukte})である. 参照: {cabra}, {matra}, {tutci}, {zukte}, {pilno}, {skami}.</notes>
+  <glossword word="機械" />
 </valsi>
 <valsi word="minli" type="gismu">
   <user>
@@ -12726,6 +12775,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42249</definitionid>
   <notes>{mipri} {navni}; {ratni}</notes>
   <glossword word="Kr" sense="クリプトン" />
+  <glossword word="クリプトン" />
   <keyword word="クリプトン" place="1" />
 </valsi>
 <valsi word="mipri" type="gismu">
@@ -12807,6 +12857,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は品種$x_2$の猫である; (形容詞) $x_1$は猫のようだ</definition>
   <definitionid>15808</definitionid>
   <notes>参照: {cinfo}, {tirxu}, {gerku}.</notes>
+  <glossword word="猫" />
 </valsi>
 <valsi word="mleca" type="gismu">
   <rafsi>mec</rafsi>
@@ -13016,6 +13067,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>・大意： ライ麦 ・読み方： ムラジ  ・関連語： {gurni}
 </notes>
   <glossword word="ライ麦" sense="穀粒" />
+  <glossword word="ライムギ" sense="穀粒" />
   <keyword word="ライムギ" place="1" sense="穀粒" />
 </valsi>
 <valsi word="mrena'u" type="lujvo">
@@ -13216,6 +13268,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42543</definitionid>
   <notes>{mu} {valsi} {bi} {linji}; {mumvlavonli&apos;i}, {zelvlavonli&apos;i}, {zelvlabivli&apos;i}</notes>
   <keyword word="五言律詩" place="1" />
+  <keyword word="平仄" place="2" />
+  <keyword word="韻" place="3" />
 </valsi>
 <valsi word="mumvlavonli'i" type="lujvo">
   <user>
@@ -13298,6 +13352,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は$x_2$の点でとても$x_3$[極端性の方向]である</definition>
   <definitionid>15745</definitionid>
   <notes>もしくは、大変、かなり、大いに、尋常でなく、激しく、並外れて、きわめて． 参照: {milxe}, {traji}, {banli}, {carmi}, {nutli}, {traji}.</notes>
+  <glossword word="とても" />
 </valsi>
 <valsi word="muvdu" type="gismu">
   <rafsi>muv</rafsi>
@@ -13309,6 +13364,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>物体$x_1$が終着点/受け手$x_2$に向かって起点/点$x_3$から軌道/道筋$x_4$を通って動く</definition>
   <definitionid>15748</definitionid>
   <notes>参照: {rinci}, {benji}, {klama}, {litru}, {cliva}, {fatri}; {dunda}, {benji}, {preja}, {bevri}, {vimcu}</notes>
+  <glossword word="動く" />
 </valsi>
 <valsi word="muvyca'e" type="lujvo">
   <user>
@@ -13330,12 +13386,12 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$l_1$ は $l_2=m_1$ （対象本体）を、 $m_2$ （終点）に $m_3$ （始点）から $m_4$ （経路）にわたって動かして引く</definition>
   <definitionid>19693</definitionid>
   <notes>引く「対象箇所」（ lacpu3 ）は di&apos;o によって表せる ; {muvdu} {lacpu}</notes>
-  <glossword word="引いて動かす" />
-  <glossword word="動かして引く" />
-  <glossword word="引き動かす" />
   <glossword word="動かし引っ張る" />
-  <glossword word="動かして引っ張る" />
   <glossword word="引っ張って動かす" />
+  <glossword word="動かして引っ張る" />
+  <glossword word="動かして引く" />
+  <glossword word="引いて動かす" />
+  <glossword word="引き動かす" />
 </valsi>
 <valsi word="muvzva" type="lujvo">
   <user>
@@ -13358,8 +13414,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>39896</definitionid>
   <notes>・大意： 博物館 ・読み方： ムズガ  ・語呂合わせ： 博物館でむずがゆい, museum, guan(館) ・関連語： {citri}
 </notes>
-  <glossword word="博物館" />
   <glossword word="美術館" />
+  <glossword word="博物館" />
 </valsi>
 <valsi word="muzyku'a" type="lujvo">
   <user>
@@ -13369,8 +13425,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1=k_1$ は $x_2=m_2$ を展示するギャラリー／展示室</definition>
   <definitionid>41862</definitionid>
   <notes>{muzga} {kumfa}</notes>
-  <glossword word="展示室" />
   <glossword word="ギャラリー" sense="部屋" />
+  <glossword word="展示室" />
 </valsi>
 <valsi word="my" type="cmavo">
   <selmaho>BY2</selmaho>
@@ -13423,8 +13479,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>メタ言語否定</definition>
   <definitionid>20668</definitionid>
   <notes>心態詞（談話系）； 命題を否定せずに心態面における否定を表す； 肯定文でも使える「na&apos;i mi pu viska／いや、私は見ました」 ・読み方： ナヒ  ・関連語： {naldra}, {nalmapti}</notes>
-  <glossword word="とんでもない" sense="正しくない" />
   <glossword word="否定" sense="メタ言語" />
+  <glossword word="とんでもない" sense="正しくない" />
 </valsi>
 <valsi word="na'o" type="cmavo">
   <selmaho>TAhE</selmaho>
@@ -13534,8 +13590,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1=d_1$は$x_2=d_2$(日)の$x_4=g_2$(仕事)をする$x_3=g_1$(労働者)の休業日/非番</definition>
   <definitionid>36675</definitionid>
   <notes>d_3は不要であると考えて消去しました(和訳)</notes>
-  <glossword word="運休日" />
   <glossword word="休業日" />
+  <glossword word="運休日" />
   <glossword word="非労働日" />
 </valsi>
 <valsi word="namcu" type="gismu">
@@ -13648,9 +13704,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ （事／経験）は $x_2$ （者）に感覚機能 $x_3$ に関して条件 $x_4$ の下で未視感 (jamais-vu) を与える</definition>
   <definitionid>42602</definitionid>
   <notes>$x_1$ が物である場合は jai narprugastcica; {pu}{nai}, {ganse} {tcica}; {gastcica}, {prugastcica}</notes>
-  <glossword word="未視感" sense="jamais-vu" />
   <glossword word="ジャメヴュ" sense="jamais-vu" />
   <glossword word="ジャメヴ" sense="jamais-vu" />
+  <glossword word="未視感" sense="jamais-vu" />
 </valsi>
 <valsi word="natfe" type="gismu">
   <rafsi>naf</rafsi>
@@ -13693,15 +13749,11 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>19681</definitionid>
   <notes>{nanmu} {speni}</notes>
   <glossword word="主人" sense="男性配偶者" />
-  <glossword word="亭主" />
-  <glossword word="夫" />
-  <glossword word="旦那" />
-  <glossword word="主人" />
-  <glossword word="だんな" />
-  <glossword word="男性配偶者" />
   <glossword word="亭主" sense="男性配偶者" />
   <glossword word="だんな" sense="男性配偶者" />
   <glossword word="旦那" sense="男性配偶者" />
+  <glossword word="男性配偶者" />
+  <glossword word="夫" />
 </valsi>
 <valsi word="navni" type="gismu">
   <user>
@@ -13734,6 +13786,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は$x_2$の鼻で、鼻孔/鼻腔は$x_3$である</definition>
   <definitionid>15749</definitionid>
   <notes>参照: {degji}, {panci}, {sumne}, {tance}.</notes>
+  <glossword word="鼻" />
 </valsi>
 <valsi word="ne" type="cmavo">
   <selmaho>GOI</selmaho>
@@ -13940,15 +13993,15 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$s_1=n_1$ は $s_2$ にとっての $s_3$ （法律／慣習）での女性配偶者</definition>
   <definitionid>19683</definitionid>
   <notes>{ninmu} {speni}</notes>
-  <glossword word="妻" />
-  <glossword word="嫁" sense="女性配偶者" />
-  <glossword word="奥様" sense="女性配偶者" />
-  <glossword word="奥さん" sense="女性配偶者" />
-  <glossword word="女性配偶者" />
   <glossword word="カミさん" sense="女性配偶者" />
   <glossword word="女房" />
-  <glossword word="ヨメ" sense="女性配偶者" />
   <glossword word="家内" sense="女性配偶者" />
+  <glossword word="妻" />
+  <glossword word="女性配偶者" />
+  <glossword word="奥さん" sense="女性配偶者" />
+  <glossword word="奥様" sense="女性配偶者" />
+  <glossword word="嫁" sense="女性配偶者" />
+  <glossword word="ヨメ" sense="女性配偶者" />
 </valsi>
 <valsi word="ninmu" type="gismu">
   <rafsi>nim</rafsi>
@@ -13970,6 +14023,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42243</definitionid>
   <notes>{cnino} {navni}; {ratni}</notes>
   <glossword word="Ne" sense="ネオン" />
+  <glossword word="ネオン" />
   <keyword word="ネオン" place="1" />
 </valsi>
 <valsi word="nirna" type="gismu">
@@ -14097,6 +14151,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は主題$x_2$に関する、著者$x_3$によって所期の受け手$x_4$に向けられたメッセージ/通知/メモである</definition>
   <definitionid>15754</definitionid>
   <notes>主題が簡潔で、単一であるまたは同一視できるものであることに重点を置く ({xatra}と対照すると: notci では単一またはまとまった主題に重点が置かれ、受け手は明瞭に定められていない - 実際、所期の、である. {xatra}は一つに定まった主題は必要ない - 対応する場所には&apos;内容&apos;が入る); 注意/メモ/覚書(= {mojnoi}). 参照: {xatra}, {nuzba}, {mrilu}, {morji}.</notes>
+  <glossword word="通知" />
+  <glossword word="メッセージ" />
 </valsi>
 <valsi word="nu" type="cmavo">
   <rafsi>nun</rafsi>
@@ -14215,10 +14271,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$n_1$ は $ku_1$ による $ka_1$ の健康管理／医療／保健／衛生</definition>
   <definitionid>19789</definitionid>
   <notes>x2 と x3 は同一でありうる。; {nu} {kanro} {kurji}</notes>
-  <glossword word="医療" sense="健康管理" />
-  <glossword word="健康管理" />
   <glossword word="衛生" sense="健康管理" />
   <glossword word="保健" sense="健康管理" />
+  <glossword word="医療" sense="健康管理" />
+  <glossword word="健康管理" />
 </valsi>
 <valsi word="nunka'okujbriju" type="lujvo">
   <user>
@@ -14228,6 +14284,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$b_1$ は $b_2$ （職員）の保健所</definition>
   <definitionid>19573</definitionid>
   <notes>{nunka&apos;oku&apos;i} {briju} {kanro} {kurji}</notes>
+  <glossword word="保健所" />
   <keyword word="保健所" place="1" />
   <keyword word="保健所の職員" place="2" />
 </valsi>
@@ -14333,8 +14390,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>恥辱 （ o&apos;a 誇り - o&apos;acu&apos;i 謙遜 - o&apos;anai 恥辱）</definition>
   <definitionid>42107</definitionid>
   <notes>心態詞； それを恥じる気持「.o&apos;anai muvdu frili cinmo／動き易い心を恥ぢる」（山頭火『行乞記（二）』）「.o&apos;a nai srera mrilu lo prami xatra ba&apos;e lo mriste／ああっ、間違えてラブレターの宛先をメーリングリストにしちゃった」  ・読み方： オハナイ ・関連語： {ckeji}</notes>
-  <glossword word="恥すかしい" />
   <glossword word="恥辱" />
+  <glossword word="恥すかしい" />
 </valsi>
 <valsi word="o'e" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -14346,8 +14403,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42108</definitionid>
   <notes>心態詞； それを身近に感じる気持； なれなれしい気持 「.o&apos;e mi do ba kansa lo nu vitke lo mikce／病院に行くの、付き添ってあげる」 ・読み方： オヘ  ・関連語： {cnijbi}, {cnikansa}</notes>
   <glossword word="親しみ" />
-  <glossword word="身近" />
   <glossword word="親近" />
+  <glossword word="身近" />
 </valsi>
 <valsi word="o'enai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -14393,9 +14450,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>寛容 （ o&apos;o 寛容 - o&apos;ocu&apos;i 辛抱 - o&apos;onai 憤怒）</definition>
   <definitionid>42113</definitionid>
   <notes>心態詞； 一般には反感の的となるそれにたいして寛大に許容する気持 「.o&apos;o ko za&apos;u re&apos;u troci／構いません、もう一度やってみてください」・読み方： オホ  ・関連語： {xendo}, {de&apos;acni}</notes>
-  <glossword word="寛容" />
-  <glossword word="構わない" sense="寛容" />
   <glossword word="許容" />
+  <glossword word="寛容" />
+  <glossword word="寛大" />
+  <glossword word="構わない" sense="寛容" />
 </valsi>
 <valsi word="o'ocu'i" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -14440,8 +14498,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>平静 （ o&apos;u くつろぎ - o&apos;ucu&apos;i 平静 - o&apos;unai 緊張）</definition>
   <definitionid>42117</definitionid>
   <notes>心態詞； 緊張を覚えない情況 「.o&apos;u cu&apos;i mi pu tinbe lo selfla／私は法に従ったまでだ」  ・読み方： オフシュヒ ・関連語： {cnilanxe}</notes>
-  <glossword word="平静" />
   <glossword word="平常心" />
+  <glossword word="平静" />
   <glossword word="落ち着く" />
 </valsi>
 <valsi word="o'unai" type="cmavo-compound">
@@ -14454,8 +14512,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42118</definitionid>
   <notes>心態詞； 緊張に見舞われる情況； ストレスを感じる 「.o&apos;u nai le mi bersa cu zvati ma／大変だ、私の息子はどこ？」 ・読み方： オフナイ ・関連語： {dunku}</notes>
   <glossword word="心配" />
-  <glossword word="緊張" />
   <glossword word="ストレス" sense="心" />
+  <glossword word="緊張" />
 </valsi>
 <valsi word="obu" type="bu-letteral">
   <selmaho>BY*</selmaho>
@@ -14476,8 +14534,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>不快 （ oi 不快 - oinai 快適）</definition>
   <definitionid>15799</definitionid>
   <notes>心態詞； それにたいする不快や不満を感じて訴えたい気持「おいおい」「.oi mi cortu le kanla／ううっ、目が痛い」 ・読み方： オイ  ・関連語： {pante}</notes>
-  <glossword word="不快" />
   <glossword word="不満" />
+  <glossword word="不快" />
 </valsi>
 <valsi word="oinai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -14635,6 +14693,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>35319</definitionid>
   <notes>スポーツ面においての審判、法律面においての審判を問わない</notes>
   <glossword word="審判" />
+  <glossword word="判決" />
 </valsi>
 <valsi word="pajnyjalge" type="lujvo">
   <user>
@@ -14654,10 +14713,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$d_1$ は $d_2$ （素材）のズボンつり／サスペンダー</definition>
   <definitionid>19746</definitionid>
   <notes>{palku} {dandu} {dasri}</notes>
-  <glossword word="ズボン吊り" />
+  <glossword word="吊りバンド" />
   <glossword word="ズボンつり" />
   <glossword word="サスペンダー" />
-  <glossword word="吊りバンド" />
+  <glossword word="ズボン吊り" />
 </valsi>
 <valsi word="palci" type="gismu">
   <rafsi>pac</rafsi>
@@ -14841,6 +14900,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は$x_2$の父である; $x_1$は$x_2$をもうける/を生ませる/に対して父らしく振舞う; [必ずしも生物学上の父とは限らない]</definition>
   <definitionid>15751</definitionid>
   <notes>参照: {mamta}, {rirni}, {rorci}, {tarbi}, {dzena}, {famti}, {panzi}, {bersa}, {sovda}.</notes>
+  <glossword word="父親" />
 </valsi>
 <valsi word="patlu" type="gismu">
   <user>
@@ -14870,8 +14930,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>？マーク （ pau ？マーク - paunai 修辞的疑問）</definition>
   <definitionid>42122</definitionid>
   <notes>心態詞（談話系）； 左隣の語に係る； どこにでも投入できる「pau do ze&apos;u lo nicte cu gunka tezu&apos;e lo nu ti xu mulno／あなたが夜中ずっと働いたのは、 *これ* を仕上げるためだったのですか？」「pau pei／ご質問は？」 ・読み方： パウ  ・関連語： {preti}</notes>
-  <glossword word="疑問符" />
   <glossword word="？" />
+  <glossword word="疑問符" />
 </valsi>
 <valsi word="paunai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -15651,6 +15711,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$j_1$ は $j_2=c_2$ （商品／サービス）を生産するための資本．</definition>
   <definitionid>16914</definitionid>
   <notes>cf. {cupra}, {zbasu}, {jdini}.</notes>
+  <glossword word="資本" />
   <keyword word="資本" place="1" />
 </valsi>
 <valsi word="prali" type="gismu">
@@ -15673,6 +15734,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は$x_2$（もの/状態）に対して愛情/愛着を感じる</definition>
   <definitionid>15721</definitionid>
   <notes>参照: {cinmo}, {xebni}, {nelci}, {djica}, {sinma}, {pluka}, {kurji}, {pendo}, {speni}</notes>
+  <glossword word="愛情" />
 </valsi>
 <valsi word="prane" type="gismu">
   <rafsi>pa&apos;e</rafsi>
@@ -15715,6 +15777,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$（引用文）は、主題$x_2$に関する、質問者$x_3$により聞き手$x_4$に向けられた質問である</definition>
   <definitionid>15719</definitionid>
   <notes>参照: {nabmi}, {danfu}, {ciksi}, {frati}, {spuda}, {cpedu}</notes>
+  <glossword word="問い" />
+  <glossword word="質問" />
 </valsi>
 <valsi word="prevrici" type="lujvo">
   <user>
@@ -15734,8 +15798,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1=pi_1$ はモチーフ$x_2=pi_2=pr_1$の作者$x_3=pi_3$による肖像</definition>
   <definitionid>41865</definitionid>
   <notes>{vi&apos;a} {prexra} で肖像画; {vi&apos;u} {prexra} で立体像。 cf. {prenu} {pixra}</notes>
-  <glossword word="彫像" />
   <glossword word="肖像画" />
+  <glossword word="彫像" />
   <glossword word="肖像" />
   <glossword word="塑像" />
 </valsi>
@@ -15798,8 +15862,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ （事／経験）は $x_2$ （者）に感覚機能 $x_3$ に関して条件 $x_4$ の下で既視感 (déjà-vu) を与える</definition>
   <definitionid>42598</definitionid>
   <notes>$x_1$ が物である場合は jai prugastcica; {pu} {ganse} {tcica}; {gastcica}, {narprugastcica}</notes>
-  <glossword word="既視感" sense="déjà-vu" />
   <glossword word="デジャヴュ" sense="déjà-vu" />
+  <glossword word="既視感" sense="déjà-vu" />
   <glossword word="デジャヴ" sense="déjà-vu" />
 </valsi>
 <valsi word="pruni" type="gismu">
@@ -15966,6 +16030,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は材料$x_2$でできた粉である</definition>
   <definitionid>15731</definitionid>
   <notes>参照: {pulce}, {zalvi}.</notes>
+  <glossword word="粉末" />
+  <glossword word="粉" />
 </valsi>
 <valsi word="py" type="cmavo">
   <selmaho>BY2</selmaho>
@@ -16284,10 +16350,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>36702</definitionid>
   <notes>原子による爆弾というだけで、爆発原理が核分裂か核融合かの区別はしない
 </notes>
-  <glossword word="原子爆弾" sense="爆弾" />
-  <glossword word="爆発" sense="化学" />
-  <glossword word="原子" sense="化学" />
   <glossword word="核" sense="化学" />
+  <glossword word="原子爆弾" sense="爆弾" />
 </valsi>
 <valsi word="rau" type="cmavo">
   <selmaho>PA4</selmaho>
@@ -16456,12 +16520,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>38143</definitionid>
   <notes>殺される者と殺す者は、両方ともヒト。 {remna} {se} {catra}; {remcatra}</notes>
   <glossword word="被害者" sense="殺人" />
-  <keyword word="害者" place="1" sense="殺人" />
-  <keyword word="殺す" place="1" sense="人" />
-  <keyword word="殺害" place="2" />
-  <keyword word="殺害する" place="2" />
-  <keyword word="殺人する" place="3" />
-  <keyword word="殺人" place="3" />
+  <keyword word="害者" place="1" sense="殺人被害者" />
+  <keyword word="人殺し" place="2" sense="加害者" />
+  <keyword word="手口" place="3" sense="殺人" />
 </valsi>
 <valsi word="renro" type="gismu">
   <rafsi>rer</rafsi>
@@ -16503,10 +16564,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$c_1$ は $c_2$ （者／宗教）の、 $c_3$ （領域）をつかさどる竜の神／龍神／ドラゴンの神</definition>
   <definitionid>19713</definitionid>
   <notes>{respa} {cevni} {resycrida}</notes>
-  <glossword word="竜" sense="神" />
-  <glossword word="龍" sense="神" />
   <glossword word="ドラゴン" sense="神" />
   <glossword word="龍神" />
+  <glossword word="龍" sense="神" />
+  <glossword word="竜" sense="神" />
 </valsi>
 <valsi word="resycrida" type="lujvo">
   <user>
@@ -16516,8 +16577,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$c_1$ は $c_2$ （物語）の竜／龍／ドラゴン</definition>
   <definitionid>19778</definitionid>
   <notes>{respa} {crida} {resycei}</notes>
-  <glossword word="竜" sense="想像上の動物" />
   <glossword word="ドラゴン" sense="想像上の動物" />
+  <glossword word="竜" sense="想像上の動物" />
   <glossword word="龍" sense="想像上の動物" />
 </valsi>
 <valsi word="ri" type="cmavo">
@@ -16722,6 +16783,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>・大意： 米 ・読み方： リスミ  ・関連語： {gurni}
 </notes>
   <glossword word="米" sense="穀粒" />
+  <glossword word="コメ" sense="穀粒" />
   <keyword word="コメ" place="1" sense="穀粒" />
 </valsi>
 <valsi word="risna" type="gismu">
@@ -16761,8 +16823,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$c_1=r_1$ は $c_2=r_2$ から $c_3$ （経路）を通って逃げる</definition>
   <definitionid>19780</definitionid>
   <notes>{rivbi} {cliva}</notes>
-  <glossword word="逃亡" sense="避けて去る" />
   <glossword word="逃げる" sense="避けて離れる" />
+  <glossword word="逃亡" sense="避けて去る" />
   <glossword word="のがれる" sense="避けて離れる" />
 </valsi>
 <valsi word="ro" type="cmavo">
@@ -16920,6 +16982,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$はタイプ/成分が$x_2$の、場所$x_3$でとれた岩石である/でできている/を含む</definition>
   <definitionid>15750</definitionid>
   <notes>$x_2$: $x_2$を含むも可, 完全な記述でなくてもよい. 参照: {kunra}, {jemna}, {canre}.</notes>
+  <glossword word="岩石" />
+  <glossword word="岩" />
+  <glossword word="石" />
 </valsi>
 <valsi word="rolstire'e" type="lujvo">
   <user>
@@ -16929,8 +16994,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$s_1=t_1$ は $t_2$ （荷／客）・ $t_3$ （線路網／軌道）・ $t_4$ （原動力）の 各駅停車の 列車／鉄道／電車／汽車／地下鉄</definition>
   <definitionid>18292</definitionid>
   <notes>Cf. {ro}, {sisti}, {trene}.</notes>
-  <glossword word="鈍行" sense="列車" />
   <glossword word="各駅停車" sense="列車" />
+  <glossword word="鈍行" sense="列車" />
 </valsi>
 <valsi word="romge" type="gismu">
   <rafsi>rog</rafsi>
@@ -17126,10 +17191,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   </user>
   <definition>$x_1$は$x_2$(金額)コード ISO 4217 JPY の通貨</definition>
   <definitionid>36714</definitionid>
+  <glossword word="日本円" sense="金融" />
+  <glossword word="日本円" sense="通貨" />
   <glossword word="日本円" sense="貨幣" />
   <glossword word="日本円" sense="日本" />
-  <glossword word="日本円" sense="通貨" />
-  <glossword word="日本円" sense="金融" />
   <glossword word="日本円" sense="金銭" />
 </valsi>
 <valsi word="rusko" type="gismu">
@@ -17583,8 +17648,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42150</definitionid>
   <notes>心態詞（修飾系）； 自分以外のものに頼らずにやっていけるという気持 ・読み方： セハ  ・関連語： {sezysei}, {kantcu}</notes>
   <glossword word="自立" />
-  <glossword word="自己充足" />
   <glossword word="独立" />
+  <glossword word="自己充足" />
 </valsi>
 <valsi word="se'anai" type="cmavo-compound">
   <selmaho>UI*5</selmaho>
@@ -17638,9 +17703,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>内面的知</definition>
   <definitionid>42155</definitionid>
   <notes>心態詞（認識系）； 自分個人の内面的な経験（夢／勘／悟り等から知っている） ・読み方： セホ  ・関連語： {senva}</notes>
-  <glossword word="勘" />
   <glossword word="悟り" />
   <glossword word="内面的知" />
+  <glossword word="勘" />
 </valsi>
 <valsi word="se'u" type="cmavo">
   <selmaho>SEhU</selmaho>
@@ -18001,8 +18066,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ は $x_2$ （情報）を表す selbri のタグ</definition>
   <definitionid>42276</definitionid>
   <notes>{selbri} {tcita}; {se} {bridi}.</notes>
-  <glossword word="タグ" sense="述語のタグ" />
   <glossword word="述語のタグ" />
+  <glossword word="タグ" sense="述語のタグ" />
 </valsi>
 <valsi word="selci" type="gismu">
   <rafsi>sle</rafsi>
@@ -18056,6 +18121,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
 &quot;暗号化すること&quot;ならば{nunselmifybi&apos;o}
 &quot;復号化すること&quot;ならば{nuntolselmifybi&apos;o}</notes>
   <glossword word="暗号化する" sense="暗号" />
+  <glossword word="暗号文" sense="暗号" />
+  <glossword word="平文" sense="暗号" />
 </valsi>
 <valsi word="selsrodi'i" type="lujvo">
   <user>
@@ -18064,8 +18131,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   </user>
   <definition>$s1$ は $s_2=j_1$ （お金）を $s3$ （容器/空間）に貯金する/貯蓄する</definition>
   <definitionid>35306</definitionid>
-  <glossword word="貯蓄する" />
   <glossword word="貯金する" />
+  <glossword word="貯蓄する" />
 </valsi>
 <valsi word="sema'e" type="cmavo-compound">
   <selmaho>BAI*</selmaho>
@@ -18590,6 +18657,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$k_1=s_3$ は $k_2$ （相手）と $s_1$ （理念）を $s_2$ についての理念として共有する同志</definition>
   <definitionid>19558</definitionid>
   <notes>{sidbo} {kansa}</notes>
+  <glossword word="同志" />
   <keyword word="同志" place="1" />
 </valsi>
 <valsi word="siclu" type="gismu">
@@ -18828,8 +18896,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$s_1=c_1$は$s_2$（生成者）の$c_2$（公開鍵）と対をなす秘密鍵</definition>
   <definitionid>38689</definitionid>
   <notes>$c_2$は$s_2$（生成者）の$s_1$（秘密鍵）と対をなす公開鍵</notes>
-  <glossword word="秘密鍵" sense="暗号" />
   <glossword word="公開鍵" sense="暗号" />
+  <glossword word="秘密鍵" sense="暗号" />
 </valsi>
 <valsi word="sivypalku" type="lujvo">
   <user>
@@ -18839,27 +18907,23 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$p_1=s_1$ は $p_2$ （素材）の下着のパンツ、パンティー、ショーツ、トランクス、ブリーフ、ボクサーパンツ</definition>
   <definitionid>19739</definitionid>
   <notes>{sivni} {palku}</notes>
-  <glossword word="パンツ" sense="下着" />
-  <glossword word="ももひき" sense="下着" />
-  <glossword word="ボクサーパンツ" sense="下着" />
-  <glossword word="ブリーフ" sense="下着" />
-  <glossword word="パッチ" sense="下着" />
-  <glossword word="パンティ" sense="下着" />
-  <glossword word="スパッツ" sense="下着" />
-  <glossword word="ステテコ" />
-  <glossword word="ショーツ" sense="下着" />
-  <glossword word="猿股" />
-  <glossword word="ズロース" sense="下着" />
-  <glossword word="パンティー" sense="下着" />
-  <glossword word="股引" sense="下着" />
-  <glossword word="トランクス" sense="下着" />
-  <glossword word="申又" />
   <glossword word="ぱっち" sense="下着" />
-  <glossword word="ズボン下" />
-  <glossword word="猿股" sense="下着" />
+  <glossword word="ももひき" sense="下着" />
+  <glossword word="ショーツ" sense="下着" />
   <glossword word="ステテコ" sense="下着" />
-  <glossword word="申又" sense="下着" />
+  <glossword word="スパッツ" sense="下着" />
   <glossword word="ズボン下" sense="下着" />
+  <glossword word="ズロース" sense="下着" />
+  <glossword word="トランクス" sense="下着" />
+  <glossword word="パッチ" sense="下着" />
+  <glossword word="パンツ" sense="下着" />
+  <glossword word="パンティ" sense="下着" />
+  <glossword word="パンティー" sense="下着" />
+  <glossword word="ブリーフ" sense="下着" />
+  <glossword word="ボクサーパンツ" sense="下着" />
+  <glossword word="股引" sense="下着" />
+  <glossword word="申又" sense="下着" />
+  <glossword word="猿股" sense="下着" />
 </valsi>
 <valsi word="skaci" type="gismu">
   <user>
@@ -19305,6 +19369,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>・大意： 大豆 ・読み方： ソブデ  ・関連語： {dembi}, {gurni}
 </notes>
   <glossword word="大豆" sense="豆粒" />
+  <glossword word="ダイズ" sense="豆粒" />
   <keyword word="ダイズ" place="1" sense="豆粒" />
 </valsi>
 <valsi word="sodna" type="gismu">
@@ -19355,6 +19420,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42240</definitionid>
   <notes>{solri} {navni}; {ratni}</notes>
   <glossword word="He" sense="ヘリウム" />
+  <glossword word="ヘリウム" />
   <keyword word="ヘリウム" place="1" />
 </valsi>
 <valsi word="solri" type="gismu">
@@ -19388,6 +19454,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は軍隊$x_2$に属する軍人/兵士/戦士である</definition>
   <definitionid>15734</definitionid>
   <notes>参照: {bilni}, {damba}, {jenmi}, {xarci}, {pulji}.</notes>
+  <glossword word="武士" />
+  <glossword word="軍人" />
+  <glossword word="兵士" />
+  <glossword word="戦士" />
 </valsi>
 <valsi word="sorcu" type="gismu">
   <rafsi>soc</rafsi>
@@ -19411,6 +19481,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>「zumri／トウモロコシ属」と異なる。砂糖やアルコールの原料。飼料。 ・大意： モロコシ ・読み方： ソルグ  ・関連語： {gurni}
 </notes>
   <glossword word="蜀黍" sense="穀粒" />
+  <glossword word="モロコシ" sense="穀粒" />
   <keyword word="モロコシ" place="1" sense="穀粒" />
 </valsi>
 <valsi word="sorprekarce" type="lujvo">
@@ -19999,8 +20070,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ は $x_2$ （情報）を表す sumti のタグ</definition>
   <definitionid>42275</definitionid>
   <notes>{sumti} {tcita}</notes>
-  <glossword word="タグ" sense="項のタグ" />
   <glossword word="項のタグ" />
+  <glossword word="タグ" sense="項のタグ" />
 </valsi>
 <valsi word="sumti" type="gismu">
   <rafsi>sum</rafsi>
@@ -20134,8 +20205,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42160</definitionid>
   <notes>心態詞（談話系）；「ところで」「la .lojban. co&apos;a se finti de&apos;i li pasobize pi&apos;e pi&apos;e .i ta&apos;o li pasobize cu cinono moi mulna&apos;usle／ロジバンの開発は1987年に始まった。ところで1987は300番目の素数だ」 ・読み方： タホ  ・関連語： {denpa}, {cneterta&apos;a}</notes>
   <glossword word="余談" />
-  <glossword word="逸脱" />
   <glossword word="ところで" />
+  <glossword word="逸脱" />
 </valsi>
 <valsi word="ta'onai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -20512,8 +20583,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$p_1$ は $p_2=t_1$ （市）の町村区</definition>
   <definitionid>19569</definitionid>
   <notes>{tcadu} {pagbu}</notes>
-  <glossword word="村" sense="町村区" />
   <glossword word="町" sense="町村区" />
+  <glossword word="村" sense="町村区" />
   <glossword word="町村区" />
 </valsi>
 <valsi word="tcati" type="gismu">
@@ -20934,6 +21005,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$は時刻/出来事$x_2$から始まり時刻/出来事$x_3$で終わる時間/間隔/期間である</definition>
   <definitionid>15733</definitionid>
   <notes>参照: {cacra}, {cedra}, {citsi}, {ranji}, {tcika}, {junla}, {renvi}.</notes>
+  <glossword word="期間" />
+  <glossword word="時間" />
+  <glossword word="間隔" />
 </valsi>
 <valsi word="teme'a" type="cmavo-compound">
   <selmaho>BAI*</selmaho>
@@ -21094,8 +21168,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_{1}$ は $x_{2}$ 次元多面体 $x_{3}$ の $x_{4}$ （デフォルトで $x_{2}$-1）次元辺； $x_{4}$=1 のとき $x_{1}$ は稜； $x_{4}$=0 のとき $x_{1}$ は頂点</definition>
   <definitionid>41306</definitionid>
   <notes>{te} {kubli}, {cimde}</notes>
-  <glossword word="稜" sense="多面体の" />
   <glossword word="頂点" sense="多面体の" />
+  <glossword word="稜" sense="多面体の" />
   <glossword word="辺" sense="多面体の" />
   <glossword word="面" sense="多面体の" />
 </valsi>
@@ -21109,7 +21183,6 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>m_3にはRSAやElGamalやRijndaelなどのアルゴリズム名
 公開鍵暗号方式であっても、秘密鍵か公開鍵かの区別はないペア鍵
 また、暗号化のための鍵か、復号のための鍵かも区別しない</notes>
-  <glossword word="暗号鍵" sense="暗号" />
   <glossword word="鍵" sense="暗号" />
 </valsi>
 <valsi word="terpa" type="gismu">
@@ -21243,10 +21316,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>伝聞</definition>
   <definitionid>42164</definitionid>
   <notes>心態詞（認識系）；「～らしいよ」 ・読み方： ティヘ  ・関連語： {tirna}, {sitna}, {tcidu}</notes>
-  <glossword word="そうだ" sense="伝聞" />
-  <glossword word="見聞" />
-  <glossword word="らしい" sense="伝聞" />
   <glossword word="伝聞" />
+  <glossword word="らしい" sense="伝聞" />
+  <glossword word="そうだ" sense="伝聞" />
 </valsi>
 <valsi word="ti'i" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -21395,6 +21467,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>38713</definitionid>
   <notes>インターネット経由の動画配信も。間連語： {cradi}, {skina}, {vidni}, {benji}, {tcana}</notes>
   <glossword word="放送" sense="映像通信" />
+  <glossword word="放送局" sense="映像通信" />
   <keyword word="放送局" place="1" sense="映像通信" />
   <keyword word="番組" place="2" sense="映像通信" />
   <keyword word="チャンネル" place="3" sense="映像通信" />
@@ -21544,8 +21617,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>36711</definitionid>
   <notes>暗号化の真逆であるが、「復号化」でなく、「復号」が本来暗号学上の用語としては正しい</notes>
   <glossword word="暗号文" sense="暗号" />
-  <glossword word="平文" sense="暗号" />
   <glossword word="復号する" sense="暗号" />
+  <glossword word="平文" sense="暗号" />
 </valsi>
 <valsi word="tolxarna'u" type="lujvo">
   <user>
@@ -21555,6 +21628,7 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ は実数</definition>
   <definitionid>41841</definitionid>
   <notes>同じ意味の lujvo として {mrena&apos;u} もある。 ・関連語： {to&apos;e} {xanri} {namcu}, {mrena&apos;u}; {xarna&apos;u}, {lujna&apos;u}; {ka&apos;o}</notes>
+  <glossword word="実数" sense="複素数" />
 </valsi>
 <valsi word="tonga" type="gismu">
   <rafsi>tog</rafsi>
@@ -21679,8 +21753,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$s_1$ は $t_1$ （統治者）・ $t_2$ （民衆／領土）の統治の $s_3$ （思想家）による政治思想／政治理念／イデオロギー</definition>
   <definitionid>19792</definitionid>
   <notes>{turni} {sidbo}</notes>
-  <glossword word="政治理念" />
   <glossword word="イデオロギー" sense="政治理念" />
+  <glossword word="政治理念" />
   <glossword word="政治思想" />
 </valsi>
 <valsi word="tsakura" type="fu'ivla">
@@ -21907,8 +21981,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$c_1$ は $c_2=t_1$ （足）の $t_2$ （足の本体）の足首</definition>
   <definitionid>19689</definitionid>
   <notes>{tuple} {cnebo}</notes>
-  <glossword word="足首" />
   <glossword word="踝" sense="足首" />
+  <glossword word="足首" />
   <glossword word="くるぶし" sense="足首" />
 </valsi>
 <valsi word="turni" type="gismu">
@@ -22014,9 +22088,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>愉快 （ u&apos;i 愉快 - u&apos;inai 退屈）</definition>
   <definitionid>15804</definitionid>
   <notes>心態詞； それをおもしろく感じて愉しさを覚える気持 「u&apos;i tu zerle&apos;a lo dakli be loi ckopalku .i ku&apos;i lo jdini cu nenri ti／はは、あいつオムツのカバンを盗んで行った、金はこっちに入ってるのに」 ・読み方： ウヒ  ・関連語： {selzdi}, {selxajmi}, {xalbo}</notes>
+  <glossword word="愉快" />
   <glossword word="楽しい" />
   <glossword word="面白い" />
-  <glossword word="愉快" />
 </valsi>
 <valsi word="u'inai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -22049,8 +22123,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>内気 （ u&apos;o 勇気 - u&apos;ocu&apos;i 内気 - u&apos;onai 臆病）</definition>
   <definitionid>42179</definitionid>
   <notes>心態詞； それについて果敢となれず、おそるおそるとしか取り組めない／対応できない気持 「.u&apos;o cu&apos;i xu mi zifre lo nu stali／えーっと、このままここにいて良いのかな？」  ・読み方： ウホシュヒ ・関連語： {jikterpa}</notes>
-  <glossword word="内気" />
   <glossword word="おそるおそる" />
+  <glossword word="内気" />
 </valsi>
 <valsi word="u'onai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -22072,8 +22146,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>後悔 （ u&apos;u 後悔 - u&apos;ucu&apos;i 潔白 - u&apos;unai 悪意）</definition>
   <definitionid>15806</definitionid>
   <notes>心態詞； 既に起きた／行為したそれを悔やみ、取り消したいと思う気持 「.u&apos;u mi pu na jundi／申し訳ない、不注意でした」 ・読み方： ウフ  ・関連語： {xenru}, {zugycni}</notes>
-  <glossword word="後悔" />
   <glossword word="遺憾" />
+  <glossword word="後悔" />
   <glossword word="残念" />
 </valsi>
 <valsi word="u'ucu'i" type="cmavo-compound">
@@ -22085,8 +22159,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>潔白 （ u&apos;u 後悔 - u&apos;ucu&apos;i 潔白 - u&apos;unai 悪意）</definition>
   <definitionid>42182</definitionid>
   <notes>心態詞； 既成のそれについて、自分は潔白だと思う気持 「私のせいではない」「.u&apos;u cu&apos;i mi zukte no da／無実だ、私は何もしていない」 ・読み方： ウフシュヒ  ・関連語： {nalselra&apos;u}</notes>
-  <glossword word="潔白" />
   <glossword word="無実" />
+  <glossword word="潔白" />
 </valsi>
 <valsi word="u'unai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -22108,8 +22182,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>発見 （ ua 発見 - uanai 模索）</definition>
   <definitionid>15800</definitionid>
   <notes>心態詞； 新しく知った／見つけた／気づいた気持 「.ua ba&apos;e ta do mensi／へえ、あれがお姉さん／妹さんか」・読み方： ワ ・関連語： {facki}</notes>
-  <glossword word="気づく" />
   <glossword word="発見" />
+  <glossword word="気づく" />
 </valsi>
 <valsi word="uanai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -22142,8 +22216,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>15801</definitionid>
   <notes>心態詞； 予期していなかったそれに驚く気持 「.ue ta lenku／ひぃっ、冷たい！」 ・読み方： ウェ ・関連語： {selspaji}</notes>
   <glossword word="びっくりする" />
-  <glossword word="驚く" />
   <glossword word="驚嘆" />
+  <glossword word="驚く" />
 </valsi>
 <valsi word="uecu'i" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -22177,8 +22251,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>幸福 （ ui 幸福 - uinai 悲嘆）</definition>
   <definitionid>15803</definitionid>
   <notes>心態詞； それについて嬉しさや幸せを感じる気持 「.ui mi co&apos;a se panzi／パパに／ママになりました！」 ・読み方： ウィ ・関連語： {gleki}</notes>
-  <glossword word="幸せ" />
   <glossword word="幸福" />
+  <glossword word="幸せ" />
 </valsi>
 <valsi word="uinai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -22200,9 +22274,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>完全 （ uo 完全 - uonai 不完全）</definition>
   <definitionid>42176</definitionid>
   <notes>心態詞； それについて完全／完了を感じる気持； 終わった、出来た、十分であることにたいする気持「ba&apos;o bevri lo velmikce .uo／薬を持ってきたからもう大丈夫」 ・読み方： ウォ ・関連語： {mulno}, {mansa}, {fanmo}, {snada}</notes>
-  <glossword word="完了" />
   <glossword word="完全" />
   <glossword word="完成" />
+  <glossword word="完了" />
 </valsi>
 <valsi word="uonai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -22213,10 +22287,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>不完全 （ uo 完全 - uonai 不完全）</definition>
   <definitionid>42177</definitionid>
   <notes>心態詞； それが不完全／不十分／未了であると感じる気持 「.uo nai do tu na ru&apos;e darxi／おしい、もう少しであれを打つところだった」 ・読み方： ウォナイ ・関連語： {fliba}</notes>
-  <glossword word="未了" />
-  <glossword word="未完成" />
-  <glossword word="不十分" />
   <glossword word="不完全" />
+  <glossword word="未了" />
+  <glossword word="不十分" />
+  <glossword word="未完成" />
 </valsi>
 <valsi word="uu" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -22282,8 +22356,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>換言 （ va&apos;i 換言 - va&apos;inai 他に言いようがない）</definition>
   <definitionid>20674</definitionid>
   <notes>心態詞（談話系）；「言い換えると」「ti na drani .i va&apos;i do srera／それは違う。つまり、あなたの誤解だ。」 ・読み方： ヴァヒ  ・関連語： {cneselsku}</notes>
-  <glossword word="別の言葉で言えば" />
   <glossword word="換言" />
+  <glossword word="別の言葉で言えば" />
   <glossword word="言い換えると" />
 </valsi>
 <valsi word="va'inai" type="cmavo-compound">
@@ -22295,8 +22369,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>他に言いようがない （ va&apos;i 換言 - va&apos;inai 他に言いようがない）</definition>
   <definitionid>20675</definitionid>
   <notes>心態詞（談話系）；「お言葉を返すようですが」「va&apos;inai do go&apos;i／お言葉を返すようですが、それはあなたの方です。」「va&apos;inai go&apos;i ra&apos;o／それはこっちのセリフだ。」 ・読み方： ヴァヒナイ</notes>
-  <glossword word="お言葉を返すようですが" />
   <glossword word="他に言いようがない" />
+  <glossword word="お言葉を返すようですが" />
 </valsi>
 <valsi word="va'o" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -22541,11 +22615,11 @@ x4 は x2 （品）を売る際の x3 から受け取る額／が支払う額（
 x2 は特定の「品物」、あるいは群（集まり）としての「品物」、あるいは「～という事」、あるいは「～という性質」。
 品物の所有関係を表現する。（明晰に言うには posyve&apos;u, posyselve&apos;u ）
 関連語：{canja}, {dunda}, {janta}, {pleji}, {jerna}, {kargu}, {prali}, {zarci}, {vamji}, {jdima}（売り手がつける値段）, {fepni}, {friti}, {jerna}, {rupnu}</notes>
-  <glossword word="はんばい" sense="販売" />
   <glossword word="売買" />
-  <glossword word="販売" />
-  <glossword word="うる" sense="売る" />
   <glossword word="売る" />
+  <glossword word="はんばい" sense="販売" />
+  <glossword word="うる" sense="売る" />
+  <glossword word="販売" />
   <glossword word="販売員" />
   <keyword word="売り手／販売員" place="1" />
   <keyword word="品物／商品" place="2" />
@@ -22711,8 +22785,8 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>$k_1$ は $k_2=v_1$ （子供）を保育する</definition>
   <definitionid>19795</definitionid>
   <notes>{verba} {kurji}</notes>
-  <glossword word="保育" />
   <glossword word="保育士" />
+  <glossword word="保育" />
 </valsi>
 <valsi word="verku'istu" type="lujvo">
   <user>
@@ -22722,6 +22796,7 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>$s_1$ は $s_2=k_2=v_1$ （子供）の、 $k_1$ （保育士）の保育所</definition>
   <definitionid>19640</definitionid>
   <notes>{verba} {kurji} {stuzi}</notes>
+  <glossword word="保育所" />
   <glossword word="保育園" />
   <keyword word="保育所" place="1" />
   <keyword word="保育所の子供" place="2" />
@@ -22888,10 +22963,10 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definitionid>19800</definitionid>
   <notes>{vikmi} {kumfa}</notes>
   <glossword word="化粧室" sense="トイレの部屋" />
-  <glossword word="お手洗い" sense="トイレの部屋" />
-  <glossword word="便所" />
   <glossword word="厠" />
+  <glossword word="お手洗い" sense="トイレの部屋" />
   <glossword word="トイレ" sense="トイレの部屋" />
+  <glossword word="便所" />
 </valsi>
 <valsi word="vimsivypalku" type="lujvo">
   <user>
@@ -22901,10 +22976,10 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>$p_1=s_1$ は $p_2$ （素材）のオムツ</definition>
   <definitionid>19742</definitionid>
   <notes>{vikmi} {sivypalku} {sivni} {palku}</notes>
-  <glossword word="オムツ" />
   <glossword word="おむつ" />
-  <glossword word="おしめ" />
+  <glossword word="オムツ" />
   <glossword word="オシメ" />
+  <glossword word="おしめ" />
 </valsi>
 <valsi word="vindu" type="gismu">
   <rafsi>vid</rafsi>
@@ -22954,8 +23029,8 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>$p_1=v_1$(ウイルス/病原体)は$p_2=v_2$に感染する</definition>
   <definitionid>42523</definitionid>
   <notes>parjiは試験的gismu {parji}{vidru}</notes>
-  <glossword word="感染" sense="医学" />
   <glossword word="罹患" sense="医学" />
+  <glossword word="感染" sense="医学" />
 </valsi>
 <valsi word="viska" type="gismu">
   <rafsi>vis</rafsi>
@@ -23129,6 +23204,7 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>$x_1$は$x_2$の声/話す時の音である</definition>
   <definitionid>15737</definitionid>
   <notes>参照: {sance}, {tirna}, {bacru}, {fepri}, {krixa}, {cmoni}</notes>
+  <glossword word="声" />
 </valsi>
 <valsi unofficial="true" word="volve" type="experimental gismu">
   <user>
@@ -23137,6 +23213,13 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   </user>
   <definition>$x_1$ は $x_2$  に $x_3$ から戻る</definition>
   <definitionid>52841</definitionid>
+  <glossword word="戻る" />
+  <glossword word="かえる" sense="帰る" />
+  <glossword word="もどる" sense="戻る" />
+  <glossword word="帰る" />
+  <keyword word="戻る者" place="1" />
+  <keyword word="戻る後の状態／状況" place="2" />
+  <keyword word="戻る前の状態／状況" place="3" />
 </valsi>
 <valsi word="volvygau" type="lujvo">
   <user>
@@ -23146,6 +23229,8 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>$g_1$ は $v_1$ （対象）を $v_2$ に $v_3$ から戻す／返す</definition>
   <definitionid>52836</definitionid>
   <notes>さんによる {volve} の再定義（ x1 は x2 に x3 から戻る）に拠る。; {volve} {gasnu}</notes>
+  <glossword word="返す" />
+  <glossword word="戻す" />
 </valsi>
 <valsi word="vorme" type="gismu">
   <rafsi>vor</rafsi>
@@ -23376,10 +23461,11 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definitionid>19646</definitionid>
   <notes>{xadni} {rinju} {ka&apos;enri&apos;u}</notes>
   <glossword word="身体障がい者" />
-  <glossword word="身体障がい児" sense="身体障がい者" />
-  <glossword word="身体障害児" sense="身体障害者" />
-  <glossword word="身体障がいのある方" />
   <glossword word="身体障碍者" />
+  <glossword word="身体障害者" />
+  <glossword word="身体障害児" sense="身体障害者" />
+  <glossword word="身体障がい児" sense="身体障がい者" />
+  <glossword word="身体障がいのある方" />
   <glossword word="身体障がいのある人" />
   <keyword word="身体障害者" place="1" />
   <keyword word="身体障害" place="2" />
@@ -23413,8 +23499,8 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definitionid>41175</definitionid>
   <notes>試験的 cmavo。「lo pulji cu bajra jersi lo zerle&apos;a i xai tatpi／警官が泥棒を追いかけた。両者とも疲れた。」 ・読み方： クァイ ・関連語：{ra}, {ri}, {ru}</notes>
   <glossword word="彼ら" />
-  <glossword word="皆" />
   <glossword word="両者" />
+  <glossword word="皆" />
 </valsi>
 <valsi word="xajmi" type="gismu">
   <rafsi>xam</rafsi>
@@ -23483,10 +23569,10 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definitionid>36681</definitionid>
   <notes>「まあまあである」は {mlixau}, {norxau}, {xaurselcru}。
 {melbi}, {xlali}, {vrude}, {zabna}も見よ。</notes>
-  <glossword word="良い" />
-  <glossword word="役に立つ" />
-  <glossword word="すてきだ" />
   <glossword word="よい" />
+  <glossword word="すてきだ" />
+  <glossword word="役に立つ" />
+  <glossword word="良い" />
   <keyword word="利益" place="1" />
 </valsi>
 <valsi word="xampo" type="gismu">
@@ -23529,12 +23615,12 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>$s_1$ は互いに手をつなぐ／握手する</definition>
   <definitionid>19803</definitionid>
   <notes>{xance} {jgari} {simxu}</notes>
-  <glossword word="手を取り合う" />
   <glossword word="手をつなぐ" />
-  <glossword word="握手" />
+  <glossword word="手を取り合う" />
   <glossword word="手を取る" sense="手を取り合う" />
-  <glossword word="手を握る" sense="手を握り合う" />
   <glossword word="手を握り合う" />
+  <glossword word="手を握る" sense="手を握り合う" />
+  <glossword word="握手" />
 </valsi>
 <valsi word="xanka" type="gismu">
   <user>
@@ -23555,9 +23641,9 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definitionid>40330</definitionid>
   <notes>・大意： 想像 ・読み方： クァンリ  ・語呂合わせ： ＜半分理解＞,想像を管理, xuan(幻), unreal ・関連語： {da&apos;i}, {fatci}, {senva}, {sucta}, {zasti}, {cfika}, {dacti}, {menli}, {sidbo}
 </notes>
-  <glossword word="架空" />
   <glossword word="幻" />
   <glossword word="幻想" />
+  <glossword word="架空" />
   <keyword word="非現実" place="1" />
   <keyword word="想像する" place="2" sense="空想" />
 </valsi>
@@ -23723,6 +23809,7 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>$x_1$は$x_2$の顎である</definition>
   <definitionid>15746</definitionid>
   <notes>参照: {stedu}.</notes>
+  <glossword word="顎" />
 </valsi>
 <valsi unofficial="true" word="xei" type="experimental cmavo">
   <selmaho>PA2</selmaho>
@@ -23952,6 +24039,7 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>$x_1$は$x_2$の点でキリスト教/キリスト教の文化/キリスト教国に属する</definition>
   <definitionid>15742</definitionid>
   <notes>参照: {jegvo}, {lijda}.</notes>
+  <glossword word="キリスト教" />
 </valsi>
 <valsi word="xruba" type="gismu">
   <rafsi>xub</rafsi>
@@ -23981,14 +24069,14 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>$k_1=xr_1$ は $k_2=xr_2$ （元の所）へ $k_3=xr_3$ から $k_4$ （経路）を通り $k_5$ （手段）で戻る</definition>
   <definitionid>18474</definitionid>
   <notes>xorxes さんによる {xruti} の再定義（ x1 は x2 に x3 から戻る）に拠る。 ; {xruti} {klama}</notes>
+  <glossword word="もどる" sense="戻る、戻っていく／戻ってくる" />
+  <glossword word="かえる" sense="帰る、帰っていく／帰ってくる" />
   <glossword word="戻る" sense="戻っていく／戻ってくる" />
+  <glossword word="戻ってくる" />
+  <glossword word="戻っていく" />
   <glossword word="帰る" sense="帰っていく／帰ってくる" />
   <glossword word="帰ってくる" />
   <glossword word="帰っていく" />
-  <glossword word="戻ってくる" />
-  <glossword word="かえる" sense="帰る、帰っていく／帰ってくる" />
-  <glossword word="もどる" sense="戻る、戻っていく／戻ってくる" />
-  <glossword word="戻っていく" />
 </valsi>
 <valsi word="xrula" type="gismu">
   <rafsi>rul</rafsi>
@@ -24280,9 +24368,9 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>$x_1$ （宿泊者）は $x_2$ （宿泊施設／場所）に泊まる／一時滞在する</definition>
   <definitionid>41295</definitionid>
   <notes>{zasni} {xabju}; {vitke}</notes>
-  <glossword word="泊まる" />
-  <glossword word="滞在" />
   <glossword word="宿泊" />
+  <glossword word="滞在" />
+  <glossword word="泊まる" />
   <keyword word="宿泊者" place="1" />
 </valsi>
 <valsi word="zau" type="cmavo">
@@ -24458,6 +24546,8 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definitionid>42547</definitionid>
   <notes>{ze} {valsi} {bi} {linji}; {mumvlavonli&apos;i}, {zelvlavonli&apos;i}, {mumvlabivli&apos;i}</notes>
   <keyword word="七言律詩" place="1" />
+  <keyword word="平仄" place="2" />
+  <keyword word="韻" place="3" />
 </valsi>
 <valsi word="zelvlavonli'i" type="lujvo">
   <user>
@@ -24468,6 +24558,8 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definitionid>42539</definitionid>
   <notes>{ze} {valsi} {vo} {linji}; {mumvlavonli&apos;i}, {mumvlabivli&apos;i}, {zelvlabivli&apos;i}</notes>
   <keyword word="七言絶句" place="1" />
+  <keyword word="平仄" place="2" />
+  <keyword word="韻" place="3" />
 </valsi>
 <valsi word="zenba" type="gismu">
   <rafsi>zen</rafsi>
@@ -24575,6 +24667,7 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>$x_1$は鉛である/を含んでいる/でできている; [比喩: 硬い金属]</definition>
   <definitionid>15739</definitionid>
   <notes>参照: {jinme}.</notes>
+  <glossword word="鉛" />
 </valsi>
 <valsi word="zirpu" type="gismu">
   <rafsi>zir</rafsi>
@@ -24776,8 +24869,8 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definition>もう一方で （ zu&apos;u 一方で - zu&apos;unai もう一方で）</definition>
   <definitionid>42191</definitionid>
   <notes>心態詞（談話系）「zu&apos;unai sei carvi citsi lo djacu cu dukse／もう一方で、雨期には水が過剰」 ・読み方： ズフナイ</notes>
-  <glossword word="他方で" />
   <glossword word="もう一方で" />
+  <glossword word="他方で" />
 </valsi>
 <valsi word="zukte" type="gismu">
   <rafsi>zuk</rafsi>
@@ -24801,6 +24894,7 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <notes>・大意： トウモロコシ ・読み方： ズムリ  ・語呂合わせ： ＜ずんずんレフトに＞ ・関連語： {gurni}
 </notes>
   <glossword word="玉蜀黍" sense="穀粒" />
+  <glossword word="トウモロコシ" sense="穀粒" />
   <keyword word="トウモロコシ" place="1" sense="穀粒" />
 </valsi>
 <valsi word="zungi" type="gismu">
@@ -24865,912 +24959,912 @@ x2 は特定の「品物」、あるいは群（集まり）としての「品�
   <definitionid>40904</definitionid>
   <notes>・読み方： ゾァ</notes>
 </valsi>
-</direction><direction from="日本語" to="lojban"><nlword word="バス" sense="乗り物" valsi="sorprekarce" />
-<nlword word="Ne" sense="ネオン" valsi="ninynavni" />
-<nlword word="ネオン" valsi="ninynavni" place="1" />
-<nlword word="クレーン" sense="移動式クレーン（運搬機）" valsi="lafydadma&apos;e" />
-<nlword word="移動式クレーン" sense="運搬機" valsi="lafydadma&apos;e" />
-<nlword word="稜" sense="多面体の" valsi="terkubli" />
-<nlword word="頂点" sense="多面体の" valsi="terkubli" />
-<nlword word="辺" sense="多面体の" valsi="terkubli" />
-<nlword word="面" sense="多面体の" valsi="terkubli" />
-<nlword word="愛情" valsi="iu" />
-<nlword word="愛好" valsi="iu" />
-<nlword word="好む" valsi="iu" />
-<nlword word="弁当" sense="食品" valsi="cidjrbentou" />
-<nlword word="酷虐" valsi="uunai" />
-<nlword word="軽蔑" valsi="ionai" />
-<nlword word="略" sense="省略" valsi="li&apos;o" />
-<nlword word="凹凸" valsi="bonsfe" />
-<nlword word="デコボコ" valsi="bonsfe" />
-<nlword word="Kr" sense="クリプトン" valsi="mipnavni" />
-<nlword word="クリプトン" valsi="mipnavni" place="1" />
+</direction><direction from="日本語" to="lojban"><nlword word="注目" valsi="a&apos;a" />
+<nlword word="謹聴" valsi="a&apos;a" />
+<nlword word="無愛想" valsi="a&apos;acu&apos;i" />
+<nlword word="無頓着" valsi="a&apos;acu&apos;i" />
+<nlword word="忌避" valsi="a&apos;anai" />
+<nlword word="注意" valsi="a&apos;e" />
+<nlword word="警戒" valsi="a&apos;e" />
+<nlword word="消耗" valsi="a&apos;enai" />
+<nlword word="努力" valsi="a&apos;i" />
+<nlword word="余裕" valsi="a&apos;icu&apos;i" />
+<nlword word="休息" valsi="a&apos;inai" />
+<nlword word="希望" valsi="a&apos;o" />
+<nlword word="絶望" valsi="a&apos;onai" />
 <nlword word="興味" valsi="a&apos;u" />
 <nlword word="関心" valsi="a&apos;u" />
-<nlword word="無頓着" valsi="a&apos;acu&apos;i" />
-<nlword word="無愛想" valsi="a&apos;acu&apos;i" />
-<nlword word="一般には" valsi="su&apos;a" />
-<nlword word="鈴" sense="丸い鈴" valsi="jabyboi" />
-<nlword word="もう感じず" valsi="bu&apos;onai" />
-<nlword word="弱" valsi="ru&apos;e" />
-<nlword word="ごめんなさい" sense="許しを請う" valsi="fau&apos;u" />
-<nlword word="許して" valsi="fau&apos;u" />
-<nlword word="ごめん" sense="許しを請う" valsi="fau&apos;u" />
-<nlword word="一方で" valsi="zu&apos;u" />
-<nlword word="架空" valsi="xanri" />
-<nlword word="幻" valsi="xanri" />
-<nlword word="幻想" valsi="xanri" />
-<nlword word="非現実" valsi="xanri" place="1" />
-<nlword word="想像する" sense="空想" valsi="xanri" place="2" />
-<nlword word="罪" valsi="vu&apos;enai" />
-<nlword word="穢れ" valsi="vu&apos;enai" />
-<nlword word="覚悟" valsi="uenai" />
-<nlword word="説明" valsi="ciksi" />
-<nlword word="解説" valsi="ciksi" />
-<nlword word="弁明" valsi="ciksi" />
-<nlword word="トレーニング" valsi="crezenzu&apos;e" />
-<nlword word="訓練" valsi="crezenzu&apos;e" />
-<nlword word="けいこ" sense="稽古" valsi="crezenzu&apos;e" />
-<nlword word="おさらい" sense="練習" valsi="crezenzu&apos;e" />
-<nlword word="習練" valsi="crezenzu&apos;e" />
-<nlword word="修練" valsi="crezenzu&apos;e" />
-<nlword word="練磨" valsi="crezenzu&apos;e" />
-<nlword word="演習" valsi="crezenzu&apos;e" />
-<nlword word="稽古" valsi="crezenzu&apos;e" />
-<nlword word="練習" valsi="crezenzu&apos;e" />
-<nlword word="鍛える" sense="練習する" valsi="crezenzu&apos;e" />
-<nlword word="鍛錬" valsi="crezenzu&apos;e" />
-<nlword word="調練" valsi="crezenzu&apos;e" />
-<nlword word="反社会的" valsi="ro&apos;anai" />
-<nlword word="快適" valsi="oinai" />
-<nlword word="受容" valsi="i&apos;a" />
-<nlword word="はんばい" sense="販売" valsi="vecnu" />
-<nlword word="売買" valsi="vecnu" />
-<nlword word="販売" valsi="vecnu" />
-<nlword word="うる" sense="売る" valsi="vecnu" />
-<nlword word="売る" valsi="vecnu" />
-<nlword word="販売員" valsi="vecnu" />
-<nlword word="売り手／販売員" valsi="vecnu" place="1" />
-<nlword word="品物／商品" valsi="vecnu" place="2" />
-<nlword word="買い手／購入者" valsi="vecnu" place="3" />
-<nlword word="費用（額）／出費（額）" valsi="vecnu" place="4" />
-<nlword word="感じ始め" valsi="bu&apos;o" />
-<nlword word="魚" valsi="finpe" />
-<nlword word="本当" sense="仮ではない" valsi="fatci" />
-<nlword word="実際" sense="現実" valsi="fatci" />
-<nlword word="現実" valsi="fatci" place="1" />
-<nlword word="追加" valsi="jmina" />
-<nlword word="加える" valsi="jmina" place="1" />
-<nlword word="出ていく" valsi="barkla" />
-<nlword word="出て行く" valsi="barkla" />
-<nlword word="出る" sense="外へ出る" valsi="barkla" />
-<nlword word="外出" sense="外へ出る" valsi="barkla" />
-<nlword word="出て来る" valsi="barkla" />
-<nlword word="出てくる" valsi="barkla" />
-<nlword word="退出" sense="外へ出る" valsi="barkla" />
-<nlword word="外出者" valsi="barkla" place="1" />
-<nlword word="外出起点" valsi="barkla" place="2" />
-<nlword word="外出経路" valsi="barkla" place="3" />
-<nlword word="外出方法" valsi="barkla" place="4" />
-<nlword word="仮定" sense="非現実" valsi="da&apos;i" />
-<nlword word="仮定" valsi="da&apos;i" />
-<nlword word="悲嘆" valsi="uinai" />
-<nlword word="余談" valsi="ta&apos;o" />
-<nlword word="逸脱" valsi="ta&apos;o" />
-<nlword word="ところで" valsi="ta&apos;o" />
-<nlword word="絵本" valsi="xracku" />
-<nlword word="シャツ" valsi="creka" />
-<nlword word="にほんご" valsi="banjupunu" />
-<nlword word="日本語" valsi="banjupunu" />
-<nlword word="公正" valsi="pa&apos;e" />
-<nlword word="公平" valsi="pa&apos;e" />
-<nlword word="ライ麦" sense="穀粒" valsi="mraji" />
-<nlword word="ライムギ" sense="穀粒" valsi="mraji" place="1" />
-<nlword word="オムツ" valsi="vimsivypalku" />
-<nlword word="おむつ" valsi="vimsivypalku" />
-<nlword word="おしめ" valsi="vimsivypalku" />
-<nlword word="オシメ" valsi="vimsivypalku" />
-<nlword word="特に" valsi="ra&apos;u" />
-<nlword word="圧力団体" valsi="jecyxlube&apos;e" />
-<nlword word="政治団体" valsi="jecyxlube&apos;e" />
-<nlword word="利益団体" valsi="jecyxlube&apos;e" />
-<nlword word="くつろぎ" valsi="o&apos;u" />
-<nlword word="実際" valsi="da&apos;inai" />
-<nlword word="事実" valsi="da&apos;inai" />
-<nlword word="事実" sense="仮ではない" valsi="da&apos;inai" />
-<nlword word="蜂蜜" valsi="bicysakta" place="1" />
-<nlword word="困難" valsi="fu&apos;inai" />
-<nlword word="標準" valsi="cnano" />
-<nlword word="平均値" valsi="cnano" place="1" />
-<nlword word="修辞的疑問" valsi="paunai" />
-<nlword word="提案" valsi="e&apos;u" />
-<nlword word="お言葉を返すようですが" valsi="va&apos;inai" />
-<nlword word="他に言いようがない" valsi="va&apos;inai" />
-<nlword word="辞する" sense="外へ去る" valsi="barli&apos;a" />
-<nlword word="退室" sense="外へ去る" valsi="barli&apos;a" />
-<nlword word="去る" sense="外へ離れる" valsi="barli&apos;a" />
-<nlword word="退席" sense="外へ去る" valsi="barli&apos;a" />
-<nlword word="退出" sense="外へ去る" valsi="barli&apos;a" />
-<nlword word="ピクルス" valsi="jirvi&apos;odja" />
-<nlword word="なれずし" valsi="jirvi&apos;odja" />
-<nlword word="漬物" valsi="jirvi&apos;odja" />
-<nlword word="秘密鍵" sense="暗号" valsi="sivyckiku" />
-<nlword word="公開鍵" sense="暗号" valsi="sivyckiku" />
-<nlword word="同感" valsi="cnijbi" />
-<nlword word="前にも言ったが" valsi="ke&apos;u" />
-<nlword word="だってば" valsi="ke&apos;u" />
-<nlword word="反復" valsi="ke&apos;u" />
-<nlword word="簡単" valsi="fu&apos;i" />
-<nlword word="長男" valsi="pavmoibe&apos;a" />
-<nlword word="とんでもない" sense="正しくない" valsi="na&apos;i" />
-<nlword word="否定" sense="メタ言語" valsi="na&apos;i" />
-<nlword word="全容" valsi="to&apos;unai" />
-<nlword word="気前が良い" valsi="do&apos;a" />
-<nlword word="寛大" valsi="do&apos;a" />
-<nlword word="寛大" sense="心が広い" valsi="do&apos;a" />
-<nlword word="広義" valsi="do&apos;a" />
-<nlword word="運休日" valsi="nalgundei" />
-<nlword word="休業日" valsi="nalgundei" />
-<nlword word="非労働日" valsi="nalgundei" />
-<nlword word="無作為" valsi="cunso" />
-<nlword word="ランダム" valsi="cunso" />
-<nlword word="タグ" sense="述語のタグ" valsi="selbritcita" />
-<nlword word="述語のタグ" valsi="selbritcita" />
-<nlword word="簡潔" valsi="sa&apos;u" />
-<nlword word="それとなく" valsi="li&apos;anai" />
-<nlword word="そこはかとなく" valsi="li&apos;anai" />
-<nlword word="真偽質問" valsi="xu" />
-<nlword word="勇気" valsi="u&apos;o" />
-<nlword word="パン" sense="食品" valsi="nanba" place="1" />
-<nlword word="主人" sense="男性配偶者" valsi="nauspe" />
-<nlword word="亭主" valsi="nauspe" />
-<nlword word="夫" valsi="nauspe" />
-<nlword word="旦那" valsi="nauspe" />
-<nlword word="主人" valsi="nauspe" />
-<nlword word="だんな" valsi="nauspe" />
-<nlword word="男性配偶者" valsi="nauspe" />
-<nlword word="亭主" sense="男性配偶者" valsi="nauspe" />
-<nlword word="だんな" sense="男性配偶者" valsi="nauspe" />
-<nlword word="旦那" sense="男性配偶者" valsi="nauspe" />
-<nlword word="暗号文" sense="暗号" valsi="tolmifybi&apos;o" />
-<nlword word="平文" sense="暗号" valsi="tolmifybi&apos;o" />
-<nlword word="復号する" sense="暗号" valsi="tolmifybi&apos;o" />
-<nlword word="銀行員" valsi="baxseljibri" />
-<nlword word="既知" valsi="i&apos;u" />
-<nlword word="信念" valsi="ia" />
-<nlword word="シート" valsi="boxfo" />
-<nlword word="シーツ" valsi="boxfo" />
-<nlword word="枚" valsi="boxfo" />
-<nlword word="理解" sense="逐語的" valsi="ki&apos;anai" />
-<nlword word="虚構" sense="真ではない" valsi="jitfa" />
-<nlword word="嘘" sense="真ではない" valsi="jitfa" />
-<nlword word="偽" sense="真ではない" valsi="jitfa" place="1" />
-<nlword word="無理数" sense="実数" valsi="tolfrinyna&apos;u" />
-<nlword word="だって" sense="追加" valsi="ji&apos;a" />
-<nlword word="も" sense="追加" valsi="ji&apos;a" />
-<nlword word="製本" valsi="ckupra" />
-<nlword word="出版" sense="製本" valsi="ckupra" />
-<nlword word="放任" valsi="e&apos;inai" />
-<nlword word="地上" valsi="dergapru" />
-<nlword word="オート" sense="穀粒" valsi="mavji" />
-<nlword word="カラスムギ" sense="穀粒" valsi="mavji" place="1" />
-<nlword word="確信" valsi="ju&apos;o" />
-<nlword word="確かに" valsi="ju&apos;o" />
-<nlword word="まちがいなく" valsi="ju&apos;o" />
-<nlword word="社交" valsi="ro&apos;a" />
-<nlword word="守勢" valsi="le&apos;onai" />
-<nlword word="上位" valsi="ga&apos;i" />
-<nlword word="講義" valsi="nunctu" />
-<nlword word="授業" valsi="nunctu" />
-<nlword word="授業／講義" valsi="nunctu" place="1" />
-<nlword word="授業／講義の教員／教師／講師" valsi="nunctu" place="2" />
-<nlword word="授業／講義の学生／生徒／受講者" valsi="nunctu" place="3" />
-<nlword word="授業／講義で教わること" sense="授業の命題" valsi="nunctu" place="4" />
-<nlword word="授業科目／講義科目" sense="授業の題目" valsi="nunctu" place="5" />
-<nlword word="授業方法／講義方法" valsi="nunctu" place="6" />
-<nlword word="解放" sense="心態" valsi="ri&apos;e" />
-<nlword word="絶望" valsi="a&apos;onai" />
+<nlword word="無関心" valsi="a&apos;ucu&apos;i" />
 <nlword word="反感" valsi="a&apos;unai" place="1" />
-<nlword word="化粧室" sense="トイレの部屋" valsi="vimku&apos;a" />
-<nlword word="お手洗い" sense="トイレの部屋" valsi="vimku&apos;a" />
-<nlword word="便所" valsi="vimku&apos;a" />
-<nlword word="厠" valsi="vimku&apos;a" />
-<nlword word="トイレ" sense="トイレの部屋" valsi="vimku&apos;a" />
-<nlword word="医療" sense="健康管理" valsi="nunka&apos;oku&apos;i" />
-<nlword word="健康管理" valsi="nunka&apos;oku&apos;i" />
-<nlword word="衛生" sense="健康管理" valsi="nunka&apos;oku&apos;i" />
-<nlword word="保健" sense="健康管理" valsi="nunka&apos;oku&apos;i" />
-<nlword word="ままごと" sense="遊び" valsi="lazyzukykei" />
-<nlword word="余裕" valsi="a&apos;icu&apos;i" />
-<nlword word="潔白" valsi="u&apos;ucu&apos;i" />
-<nlword word="無実" valsi="u&apos;ucu&apos;i" />
 <nlword word="志向" valsi="ai" />
-<nlword word="ばいしゅんふ" sense="売春婦" valsi="gleve&apos;u" />
-<nlword word="娼婦" valsi="gleve&apos;u" />
-<nlword word="売春" valsi="gleve&apos;u" />
-<nlword word="ばいしゅん" sense="売春" valsi="gleve&apos;u" />
-<nlword word="男娼" valsi="gleve&apos;u" />
-<nlword word="だんしょう" sense="男娼" valsi="gleve&apos;u" />
-<nlword word="しょうふ" sense="娼婦" valsi="gleve&apos;u" />
-<nlword word="売春婦" valsi="gleve&apos;u" />
-<nlword word="売春婦・男娼" valsi="gleve&apos;u" place="1" />
-<nlword word="買春者" valsi="gleve&apos;u" place="2" />
-<nlword word="売春・買春の代償・値段" valsi="gleve&apos;u" place="3" />
-<nlword word="誇り" valsi="o&apos;a" />
-<nlword word="加害者" sense="殺人" valsi="remcatra" />
-<nlword word="人殺し" sense="加害者" valsi="remcatra" place="1" />
-<nlword word="害者" sense="殺人被害者" valsi="remcatra" place="2" />
-<nlword word="手口" sense="殺人" valsi="remcatra" place="3" />
-<nlword word="展示室" valsi="muzyku&apos;a" />
-<nlword word="ギャラリー" sense="部屋" valsi="muzyku&apos;a" />
-<nlword word="精確" valsi="sa&apos;e" />
-<nlword word="本当" sense="嘘ではない" valsi="jetnu" />
-<nlword word="真" sense="偽ではない" valsi="jetnu" place="1" />
-<nlword word="臆病" valsi="u&apos;onai" />
-<nlword word="例示終わり" valsi="mu&apos;anai" />
-<nlword word="など" sense="例示終わり" valsi="mu&apos;anai" />
-<nlword word="欠如" valsi="be&apos;u" />
-<nlword word="新情報" valsi="bi&apos;u" />
-<nlword word="薬" sense="医薬品" valsi="micyxu&apos;i" />
-<nlword word="医薬品" valsi="micyxu&apos;i" />
-<nlword word="薬品" sense="医薬品" valsi="micyxu&apos;i" />
+<nlword word="不断" valsi="aicu&apos;i" />
+<nlword word="無為" valsi="ainai" />
+<nlword word="欲望" valsi="au" />
+<nlword word="欲求" valsi="au" />
+<nlword word="無欲求" valsi="aucu&apos;i" />
+<nlword word="抵抗" valsi="aunai" />
+<nlword word="予期" valsi="ba&apos;a" />
+<nlword word="経験" valsi="ba&apos;acu&apos;i" />
+<nlword word="回想" valsi="ba&apos;anai" />
+<nlword word="大袈裟" valsi="ba&apos;u" />
+<nlword word="誇張" valsi="ba&apos;u" />
+<nlword word="ちょうど" valsi="ba&apos;ucu&apos;i" />
+<nlword word="まさに" valsi="ba&apos;ucu&apos;i" />
+<nlword word="的確" valsi="ba&apos;ucu&apos;i" />
+<nlword word="控えめ" valsi="ba&apos;unai" />
+<nlword word="バナナ" valsi="badna" />
+<nlword word="かけくらべ" valsi="bajyjvi" />
+<nlword word="かけっこ" valsi="bajyjvi" />
+<nlword word="マラソン" valsi="bajyjvi" />
+<nlword word="中距離走" valsi="bajyjvi" />
+<nlword word="徒競走" valsi="bajyjvi" />
+<nlword word="短距離走" valsi="bajyjvi" />
+<nlword word="長距離走" valsi="bajyjvi" />
 <nlword word="バルコニー" valsi="balni" />
 <nlword word="ベランダ" valsi="balni" />
 <nlword word="張り出し" sense="構造" valsi="balni" />
-<nlword word="軽率" valsi="o&apos;inai" />
-<nlword word="いいから" sense="軽率" valsi="o&apos;inai" />
-<nlword word="焦る" valsi="o&apos;inai" />
-<nlword word="例えば" valsi="mu&apos;a" />
-<nlword word="小麦" sense="穀粒" valsi="maxri" />
-<nlword word="コムギ" sense="穀粒" valsi="maxri" place="1" />
-<nlword word="マラソン" valsi="bajyjvi" />
-<nlword word="徒競走" valsi="bajyjvi" />
-<nlword word="かけくらべ" valsi="bajyjvi" />
-<nlword word="長距離走" valsi="bajyjvi" />
-<nlword word="かけっこ" valsi="bajyjvi" />
-<nlword word="中距離走" valsi="bajyjvi" />
-<nlword word="短距離走" valsi="bajyjvi" />
-<nlword word="徳" valsi="vu&apos;e" />
-<nlword word="誉れ" valsi="vu&apos;e" />
-<nlword word="うってかわって" valsi="si&apos;anai" />
-<nlword word="爆弾" valsi="drojbama" />
-<nlword word="水素爆弾" sense="爆弾" valsi="drojbama" />
-<nlword word="水素" sense="化学" valsi="drojbama" />
-<nlword word="桜" valsi="tsakura" />
-<nlword word="サクラ" sense="桜" valsi="tsakura" />
-<nlword word="さくら" sense="桜" valsi="tsakura" />
-<nlword word="逃亡" sense="避けて去る" valsi="rivli&apos;a" />
-<nlword word="逃げる" sense="避けて離れる" valsi="rivli&apos;a" />
-<nlword word="のがれる" sense="避けて離れる" valsi="rivli&apos;a" />
-<nlword word="同様に" valsi="ra&apos;ucu&apos;i" />
-<nlword word="不快" valsi="oi" />
-<nlword word="不満" valsi="oi" />
-<nlword word="役所" valsi="jecybriju" place="1" />
-<nlword word="役所の職員" valsi="jecybriju" place="2" />
-<nlword word="役所の行政区域" valsi="jecybriju" place="3" />
-<nlword word="肯定" sense="メタ言語" valsi="jo&apos;a" />
-<nlword word="そのとおり" sense="正しい" valsi="jo&apos;a" />
-<nlword word="提供" valsi="e&apos;onai" />
-<nlword word="警告" valsi="e&apos;unai" />
-<nlword word="押し流す" valsi="fleca&apos;e" place="1" />
-<nlword word="流される" valsi="fleca&apos;e" place="2" />
-<nlword word="ついでながら" valsi="ra&apos;unai" />
-<nlword word="着る" sense="着ている" valsi="dasni" />
-<nlword word="非難" valsi="i&apos;enai" />
-<nlword word="コンビニ" valsi="filzai" />
-<nlword word="コンビニエンスストア" valsi="filzai" />
-<nlword word="保育" valsi="verku&apos;i" />
-<nlword word="保育士" valsi="verku&apos;i" />
-<nlword word="不賛成" valsi="ienai" />
-<nlword word="暗号化する" sense="暗号" valsi="selmifybi&apos;o" />
-<nlword word="バナナ" valsi="badna" />
-<nlword word="厳密" valsi="sa&apos;unai" />
-<nlword word="書いて表現する" valsi="ci&apos;asku" />
-<nlword word="文章表現" sense="書いて表現する" valsi="ci&apos;asku" />
-<nlword word="給電する" valsi="dicysabji" />
-<nlword word="電力供給する" valsi="dicysabji" />
-<nlword word="充電する" valsi="dicysabji" />
-<nlword word="厳粛" valsi="zo&apos;onai" />
-<nlword word="同様" valsi="si&apos;a" />
-<nlword word="大衆" valsi="prevrici" />
-<nlword word="知的" valsi="ro&apos;e" />
-<nlword word="精神的" valsi="ro&apos;e" />
-<nlword word="体系" valsi="ciste" />
-<nlword word="システム" valsi="ciste" place="1" />
-<nlword word="性的" valsi="ro&apos;u" />
-<nlword word="自由" valsi="zifre" />
-<nlword word="じゆう" sense="自由" valsi="zifre" />
-<nlword word="無関心" valsi="a&apos;ucu&apos;i" />
-<nlword word="ペン" valsi="penbi" />
-<nlword word="筆" valsi="penbi" />
-<nlword word="造成" sense="tanru" valsi="ta&apos;unai" />
+<nlword word="ショッピングセンター" valsi="balzai" />
+<nlword word="ショッピングモール" valsi="balzai" />
+<nlword word="スーパー" sense="量販店" valsi="balzai" />
+<nlword word="スーパーセンター" valsi="balzai" />
+<nlword word="スーパーマーケット" valsi="balzai" />
+<nlword word="ゼネラルマーチャンダイズストア" valsi="balzai" />
+<nlword word="ディスカウントショップ" valsi="balzai" />
+<nlword word="デパート" valsi="balzai" />
+<nlword word="デパートメントストア" valsi="balzai" />
+<nlword word="ホームセンター" valsi="balzai" />
+<nlword word="百貨店" valsi="balzai" />
+<nlword word="総合スーパー" valsi="balzai" />
+<nlword word="にほんご" valsi="banjupunu" />
+<nlword word="日本語" valsi="banjupunu" />
+<nlword word="出ていく" valsi="barkla" />
+<nlword word="出てくる" valsi="barkla" />
+<nlword word="出て来る" valsi="barkla" />
+<nlword word="出て行く" valsi="barkla" />
+<nlword word="出る" sense="外へ出る" valsi="barkla" />
+<nlword word="外出" sense="外へ出る" valsi="barkla" />
+<nlword word="外出方法" valsi="barkla" place="4" />
+<nlword word="外出経路" valsi="barkla" place="3" />
+<nlword word="外出者" valsi="barkla" place="1" />
+<nlword word="外出起点" valsi="barkla" place="2" />
+<nlword word="退出" sense="外へ出る" valsi="barkla" />
+<nlword word="去る" sense="外へ離れる" valsi="barli&apos;a" />
+<nlword word="辞する" sense="外へ去る" valsi="barli&apos;a" />
+<nlword word="退出" sense="外へ去る" valsi="barli&apos;a" />
+<nlword word="退室" sense="外へ去る" valsi="barli&apos;a" />
+<nlword word="退席" sense="外へ去る" valsi="barli&apos;a" />
+<nlword word="オオムギ" sense="穀粒" valsi="bavmi" place="1" />
+<nlword word="大麦" sense="穀粒" valsi="bavmi" />
+<nlword word="麦湯" valsi="bavmyckafi" />
+<nlword word="麦茶" valsi="bavmyckafi" />
+<nlword word="銀行員" valsi="baxseljibri" />
+<nlword word="欠如" valsi="be&apos;u" />
+<nlword word="有" valsi="be&apos;ucu&apos;i" />
+<nlword word="充溢" valsi="be&apos;unai" />
+<nlword word="北風" valsi="berbi&apos;e" />
+<nlword word="新情報" valsi="bi&apos;u" />
+<nlword word="古情報" valsi="bi&apos;unai" />
+<nlword word="蜂蜜" valsi="bicysakta" place="1" />
+<nlword word="デコボコ" valsi="bonsfe" />
+<nlword word="凹凸" valsi="bonsfe" />
 <nlword word="ボトル" valsi="botpi" />
 <nlword word="瓶" valsi="botpi" />
-<nlword word="平静" valsi="o&apos;ucu&apos;i" />
-<nlword word="平常心" valsi="o&apos;ucu&apos;i" />
-<nlword word="落ち着く" valsi="o&apos;ucu&apos;i" />
+<nlword word="シーツ" valsi="boxfo" />
+<nlword word="シート" valsi="boxfo" />
+<nlword word="枚" valsi="boxfo" />
+<nlword word="3階" sense="述語論理" valsi="bu&apos;ai" />
+<nlword word="高階" sense="述語論理" valsi="bu&apos;ai" />
+<nlword word="感じ始め" valsi="bu&apos;o" />
 <nlword word="まだ感じて" valsi="bu&apos;ocu&apos;i" />
-<nlword word="でも" valsi="ku&apos;i" />
-<nlword word="しかし" valsi="ku&apos;i" />
-<nlword word="ところが" valsi="ku&apos;i" />
-<nlword word="だが" valsi="ku&apos;i" />
-<nlword word="サーバ" sense="インターネット" valsi="kibyse&apos;u" place="1" />
-<nlword word="クライアント" sense="インターネット" valsi="kibyse&apos;u" place="2" />
-<nlword word="サービス" sense="インターネット" valsi="kibyse&apos;u" place="3" />
-<nlword word="精神障碍者" valsi="menbi&apos;a" />
-<nlword word="精神障がい者" valsi="menbi&apos;a" />
-<nlword word="精神障がいのある人" valsi="menbi&apos;a" />
-<nlword word="精神障がいのある方" valsi="menbi&apos;a" />
-<nlword word="精神障害" valsi="menbi&apos;a" />
-<nlword word="精神障害者" valsi="menbi&apos;a" place="1" />
-<nlword word="精神疾患" valsi="menbi&apos;a" place="2" />
-<nlword word="症状" sense="精神疾患による症状" valsi="menbi&apos;a" place="3" />
-<nlword word="間接疑問" valsi="kau" />
-<nlword word="回想" valsi="ba&apos;anai" />
-<nlword word="スリをする" sense="物品" valsi="daskyle&apos;a" />
-<nlword word="ひったくる" sense="物品" valsi="daskyle&apos;a" />
-<nlword word="奪う" sense="物品" valsi="daskyle&apos;a" />
-<nlword word="盗む" sense="物品" valsi="daskyle&apos;a" />
-<nlword word="強奪する" sense="物品" valsi="daskyle&apos;a" />
-<nlword word="弁当" sense="容器" valsi="tanxebentou" />
-<nlword word="表現" sense="文字列" valsi="sedu&apos;u" />
-<nlword word="給水管" valsi="jaursabytu&apos;u" />
-<nlword word="水道管" sense="上水道や中水道の水道管" valsi="jaursabytu&apos;u" />
-<nlword word="上水道" sense="水道管" valsi="jaursabytu&apos;u" />
-<nlword word="給水設備" sense="給水管" valsi="jaursabytu&apos;u" />
-<nlword word="中水道" sense="水道管" valsi="jaursabytu&apos;u" />
-<nlword word="贔屓" valsi="pa&apos;enai" />
-<nlword word="偏見" valsi="pa&apos;enai" />
-<nlword word="米" sense="穀粒" valsi="rismi" />
-<nlword word="コメ" sense="穀粒" valsi="rismi" place="1" />
+<nlword word="もう感じず" valsi="bu&apos;onai" />
+<nlword word="定義" valsi="ca&apos;e" />
 <nlword word="今日" valsi="cabdei" />
 <nlword word="同日" valsi="cabdei" />
 <nlword word="本日" valsi="cabdei" />
-<nlword word="わからない" valsi="ju&apos;ocu&apos;i" />
-<nlword word="不確信" valsi="ju&apos;ocu&apos;i" />
-<nlword word="叱責" valsi="i&apos;anai" />
-<nlword word="平凡" valsi="u&apos;enai" />
-<nlword word="身体障がい者" valsi="xadri&apos;u" />
-<nlword word="身体障がい児" sense="身体障がい者" valsi="xadri&apos;u" />
-<nlword word="身体障害児" sense="身体障害者" valsi="xadri&apos;u" />
-<nlword word="身体障がいのある方" valsi="xadri&apos;u" />
-<nlword word="身体障碍者" valsi="xadri&apos;u" />
-<nlword word="身体障がいのある人" valsi="xadri&apos;u" />
-<nlword word="身体障害者" valsi="xadri&apos;u" place="1" />
-<nlword word="身体障害" valsi="xadri&apos;u" place="2" />
-<nlword word="制限対象" sense="身体障害があるため制限を受ける事" valsi="xadri&apos;u" place="3" />
-<nlword word="別の言葉で言えば" valsi="va&apos;i" />
-<nlword word="換言" valsi="va&apos;i" />
-<nlword word="言い換えると" valsi="va&apos;i" />
-<nlword word="もしかして" valsi="la&apos;a" />
-<nlword word="かもしれない" valsi="la&apos;a" />
-<nlword word="蓋然性" valsi="la&apos;a" />
-<nlword word="たぶん" valsi="la&apos;a" />
-<nlword word="内気" valsi="u&apos;ocu&apos;i" />
-<nlword word="おそるおそる" valsi="u&apos;ocu&apos;i" />
-<nlword word="禁欲的" valsi="ro&apos;unai" />
-<nlword word="彼ら" valsi="xai" />
-<nlword word="皆" valsi="xai" />
-<nlword word="両者" valsi="xai" />
-<nlword word="竜" sense="神" valsi="resycei" />
-<nlword word="龍" sense="神" valsi="resycei" />
-<nlword word="ドラゴン" sense="神" valsi="resycei" />
-<nlword word="龍神" valsi="resycei" />
-<nlword word="サロペット" valsi="cutygaipalku" />
-<nlword word="オーバーオール" valsi="cutygaipalku" />
+<nlword word="烈" valsi="cai" />
+<nlword word="文章表現" sense="書いて表現する" valsi="ci&apos;asku" />
+<nlword word="書いて表現する" valsi="ci&apos;asku" />
+<nlword word="革命" valsi="ci&apos;ernunbi&apos;o" />
+<nlword word="弁当" sense="食品" valsi="cidjrbentou" />
+<nlword word="弁明" valsi="ciksi" />
+<nlword word="解説" valsi="ciksi" />
+<nlword word="説明" valsi="ciksi" />
+<nlword word="やっとこ" valsi="cinza" />
+<nlword word="ピンセット" valsi="cinza" />
+<nlword word="ペンチ" valsi="cinza" />
+<nlword word="洗濯バサミ" valsi="cinza" />
+<nlword word="箸" valsi="cinza" />
+<nlword word="システム" valsi="ciste" place="1" />
+<nlword word="体系" valsi="ciste" />
+<nlword word="出版" sense="製本" valsi="ckupra" />
+<nlword word="製本" valsi="ckupra" />
+<nlword word="山" valsi="cmana" place="1" />
+<nlword word="平均値" valsi="cnano" place="1" />
+<nlword word="標準" valsi="cnano" />
+<nlword word="同感" valsi="cnijbi" />
+<nlword word="共感" valsi="cnikansa" />
+<nlword word="ラジオ" sense="受信機" valsi="cradi" place="4" />
+<nlword word="周波数" sense="無線放送／無線通信" valsi="cradi" place="3" />
+<nlword word="放送" sense="無線放送" valsi="cradi" />
+<nlword word="放送内容／信号内容" sense="無線放送／無線通信" valsi="cradi" place="2" />
+<nlword word="放送局" sense="無線放送" valsi="cradi" place="1" />
+<nlword word="無線通信" valsi="cradi" />
+<nlword word="シャツ" valsi="creka" />
+<nlword word="おさらい" sense="練習" valsi="crezenzu&apos;e" />
+<nlword word="けいこ" sense="稽古" valsi="crezenzu&apos;e" />
+<nlword word="トレーニング" valsi="crezenzu&apos;e" />
+<nlword word="修練" valsi="crezenzu&apos;e" />
+<nlword word="演習" valsi="crezenzu&apos;e" />
+<nlword word="稽古" valsi="crezenzu&apos;e" />
+<nlword word="練磨" valsi="crezenzu&apos;e" />
+<nlword word="練習" valsi="crezenzu&apos;e" />
+<nlword word="習練" valsi="crezenzu&apos;e" />
+<nlword word="訓練" valsi="crezenzu&apos;e" />
+<nlword word="調練" valsi="crezenzu&apos;e" />
+<nlword word="鍛える" sense="練習する" valsi="crezenzu&apos;e" />
+<nlword word="鍛錬" valsi="crezenzu&apos;e" />
+<nlword word="中性" sense="尺度" valsi="cu&apos;i" />
+<nlword word="キビ" sense="穀粒" valsi="cunmi" place="1" />
+<nlword word="黍" sense="穀粒" valsi="cunmi" />
+<nlword word="ランダム" valsi="cunso" />
+<nlword word="無作為" valsi="cunso" />
+<nlword word="サンダル" valsi="cutci" />
+<nlword word="靴" valsi="cutci" />
 <nlword word="つなぎ" sense="オーバーオール" valsi="cutygaipalku" />
-<nlword word="政治的" sense="政体に関わるもの" valsi="jecra&apos;a" />
-<nlword word="政治" sense="政体に関わるもの" valsi="jecra&apos;a" />
-<nlword word="既視感" sense="déjà-vu" valsi="prugastcica" />
-<nlword word="デジャヴュ" sense="déjà-vu" valsi="prugastcica" />
-<nlword word="デジャヴ" sense="déjà-vu" valsi="prugastcica" />
-<nlword word="隔絶" valsi="o&apos;enai" />
-<nlword word="安全" valsi="iinai" />
-<nlword word="努力" valsi="a&apos;i" />
-<nlword word="日刊紙" valsi="djekarni" />
+<nlword word="オーバーオール" valsi="cutygaipalku" />
+<nlword word="サロペット" valsi="cutygaipalku" />
+<nlword word="仮定" sense="非現実" valsi="da&apos;i" />
+<nlword word="仮定" valsi="da&apos;i" />
+<nlword word="事実" sense="仮ではない" valsi="da&apos;inai" />
+<nlword word="事実" valsi="da&apos;inai" />
+<nlword word="実際" valsi="da&apos;inai" />
+<nlword word="答え" valsi="danfu" />
+<nlword word="ひったくる" sense="物品" valsi="daskyle&apos;a" />
+<nlword word="スリをする" sense="物品" valsi="daskyle&apos;a" />
+<nlword word="奪う" sense="物品" valsi="daskyle&apos;a" />
+<nlword word="強奪する" sense="物品" valsi="daskyle&apos;a" />
+<nlword word="盗む" sense="物品" valsi="daskyle&apos;a" />
+<nlword word="着る" sense="着ている" valsi="dasni" />
+<nlword word="地上" valsi="dergapru" />
+<nlword word="充電する" valsi="dicysabji" />
+<nlword word="給電する" valsi="dicysabji" />
+<nlword word="電力供給する" valsi="dicysabji" />
+<nlword word="Rn" sense="ラドン" valsi="dircynavni" />
+<nlword word="ラドン" valsi="dircynavni" place="1" />
 <nlword word="新聞" sense="日刊紙" valsi="djekarni" />
-<nlword word="複素数" valsi="lujna&apos;u" />
+<nlword word="日刊紙" valsi="djekarni" />
+<nlword word="寛大" valsi="do&apos;a" />
+<nlword word="寛大" sense="心が広い" valsi="do&apos;a" />
+<nlword word="広義" valsi="do&apos;a" />
+<nlword word="気前が良い" valsi="do&apos;a" />
+<nlword word="偏狭" sense="心が狭い" valsi="do&apos;anai" />
 <nlword word="吝嗇" sense="けち" valsi="do&apos;anai" />
 <nlword word="狭義" valsi="do&apos;anai" />
-<nlword word="偏狭" sense="心が狭い" valsi="do&apos;anai" />
-<nlword word="要するに" valsi="ja&apos;o" />
-<nlword word="したがって" valsi="ja&apos;o" />
-<nlword word="つまり" valsi="ja&apos;o" />
-<nlword word="政治理念" valsi="trusi&apos;o" />
-<nlword word="イデオロギー" sense="政治理念" valsi="trusi&apos;o" />
-<nlword word="政治思想" valsi="trusi&apos;o" />
-<nlword word="強" valsi="sai" />
-<nlword word="不断" valsi="aicu&apos;i" />
-<nlword word="命令" valsi="ko&apos;oi" />
-<nlword word="有" valsi="be&apos;ucu&apos;i" />
-<nlword word="未視感" sense="jamais-vu" valsi="narprugastcica" />
-<nlword word="ジャメヴュ" sense="jamais-vu" valsi="narprugastcica" />
-<nlword word="ジャメヴ" sense="jamais-vu" valsi="narprugastcica" />
-<nlword word="自閉症" valsi="jikmenbi&apos;a" />
-<nlword word="自閉症の者" valsi="jikmenbi&apos;a" place="1" />
-<nlword word="分類" sense="自閉症の分類" valsi="jikmenbi&apos;a" place="2" />
-<nlword word="症状" sense="自閉症の症状" valsi="jikmenbi&apos;a" place="3" />
-<nlword word="審判" valsi="pajnjalge" />
-<nlword word="奨励" valsi="e&apos;e" />
-<nlword word="大麦" sense="穀粒" valsi="bavmi" />
-<nlword word="オオムギ" sense="穀粒" valsi="bavmi" place="1" />
-<nlword word="保育園" valsi="verku&apos;istu" />
-<nlword word="保育所" valsi="verku&apos;istu" place="1" />
-<nlword word="保育所の子供" valsi="verku&apos;istu" place="2" />
-<nlword word="保育所の保育士" valsi="verku&apos;istu" place="3" />
-<nlword word="抑制" sense="心態" valsi="ri&apos;enai" />
-<nlword word="未知" valsi="i&apos;unai" />
-<nlword word="錯覚" valsi="gastcica" place="1" />
-<nlword word="錯覚する" valsi="gastcica" place="2" />
-<nlword word="誇張" valsi="ba&apos;u" />
-<nlword word="大袈裟" valsi="ba&apos;u" />
-<nlword word="嫉妬" valsi="i&apos;onai" />
-<nlword word="料理する" valsi="jukpa" />
-<nlword word="料理人" valsi="jukpa" place="1" />
-<nlword word="料理" sense="料理の結果、できたもの" valsi="jukpa" place="2" />
-<nlword word="レシピ" sense="料理" valsi="jukpa" place="3" />
-<nlword word="蜀黍" sense="穀粒" valsi="sorgu" />
-<nlword word="モロコシ" sense="穀粒" valsi="sorgu" place="1" />
-<nlword word="有理数" sense="実数" valsi="frinyna&apos;u" />
-<nlword word="放送" sense="映像通信" valsi="tivni" />
-<nlword word="放送局" sense="映像通信" valsi="tivni" place="1" />
-<nlword word="番組" sense="映像通信" valsi="tivni" place="2" />
-<nlword word="チャンネル" sense="映像通信" valsi="tivni" place="3" />
-<nlword word="テレビ" sense="受信機" valsi="tivni" place="4" />
-<nlword word="答え" valsi="danfu" />
-<nlword word="抵抗" valsi="aunai" />
-<nlword word="保健所" valsi="nunka&apos;okujbriju" place="1" />
-<nlword word="保健所の職員" valsi="nunka&apos;okujbriju" place="2" />
-<nlword word="寛容" valsi="o&apos;o" />
-<nlword word="構わない" sense="寛容" valsi="o&apos;o" />
-<nlword word="許容" valsi="o&apos;o" />
-<nlword word="定義" valsi="ca&apos;e" />
-<nlword word="タメ" valsi="ga&apos;icu&apos;i" />
-<nlword word="損失" valsi="u&apos;anai" />
-<nlword word="注意" valsi="a&apos;e" />
-<nlword word="警戒" valsi="a&apos;e" />
-<nlword word="要請" valsi="e&apos;o" />
-<nlword word="にほん" sense="日本" valsi="gugdejupu" />
-<nlword word="にっぽん" sense="日本" valsi="gugdejupu" />
-<nlword word="ニッポン" sense="日本" valsi="gugdejupu" />
-<nlword word="日本" valsi="gugdejupu" place="1" />
-<nlword word="日本人" valsi="gugdejupu" place="2" />
-<nlword word="虚偽" valsi="je&apos;unai" />
-<nlword word="嘘" valsi="je&apos;unai" />
-<nlword word="いわゆる" sense="非真実" valsi="je&apos;unai" />
-<nlword word="観察" valsi="za&apos;a" />
-<nlword word="クレーン車" valsi="lafydadykarce" />
-<nlword word="クレーン" sense="クレーン車" valsi="lafydadykarce" />
-<nlword word="オールテレーンクレーン" valsi="lafydadykarce" />
-<nlword word="トラッククレーン" valsi="lafydadykarce" />
-<nlword word="ラフテレーンクレーン" valsi="lafydadykarce" />
-<nlword word="トラック搭載型クレーン" valsi="lafydadykarce" />
-<nlword word="クローラークレーン" valsi="lafydadykarce" />
-<nlword word="ホイールクレーン" valsi="lafydadykarce" />
-<nlword word="実数" sense="複素数" valsi="mrena&apos;u" />
-<nlword word="忌避" valsi="a&apos;anai" />
-<nlword word="他人本位" valsi="se&apos;inai" />
-<nlword word="判決" valsi="pajnyjalge" />
-<nlword word="アートギャラリー" valsi="larmuzga" />
+<nlword word="水素" sense="化学" valsi="drojbama" />
+<nlword word="水素爆弾" sense="爆弾" valsi="drojbama" />
+<nlword word="爆弾" valsi="drojbama" />
+<nlword word="許可" valsi="e&apos;a" />
 <nlword word="禁止" valsi="e&apos;anai" />
-<nlword word="悪意" valsi="u&apos;unai" />
-<nlword word="中国" valsi="gugdecunu" place="1" />
-<nlword word="中国人" valsi="gugdecunu" place="2" />
-<nlword word="社会主義" sense="生産手段共有化の思想" valsi="gubgudytrusi&apos;o" />
-<nlword word="共産主義" sense="生産手段共有化の思想" valsi="gubgudytrusi&apos;o" />
-<nlword word="共産主義／社会主義" sense="生産手段共有化の思想" valsi="gubgudytrusi&apos;o" place="1" />
-<nlword word="共産主義／社会主義により統治される民衆／領土" sense="生産手段共有化の思想により統治される民衆／領土" valsi="gubgudytrusi&apos;o" place="2" />
-<nlword word="共産主義者／社会主義者" sense="生産手段共有化の思想家" valsi="gubgudytrusi&apos;o" place="3" />
-<nlword word="冗談" valsi="zo&apos;o" />
+<nlword word="奨励" valsi="e&apos;e" />
+<nlword word="阻止" valsi="e&apos;enai" />
+<nlword word="制約" valsi="e&apos;i" />
+<nlword word="放任" valsi="e&apos;inai" />
+<nlword word="要請" valsi="e&apos;o" />
+<nlword word="提供" valsi="e&apos;onai" />
+<nlword word="提案" valsi="e&apos;u" />
+<nlword word="放棄" valsi="e&apos;ucu&apos;i" />
+<nlword word="警告" valsi="e&apos;unai" />
+<nlword word="義務" valsi="ei" />
+<nlword word="冒険" sense="陸地の探検" valsi="faktumli&apos;u" />
+<nlword word="実地踏査" sense="陸地の探険" valsi="faktumli&apos;u" />
+<nlword word="探査" sense="陸地の探検" valsi="faktumli&apos;u" />
+<nlword word="探検" sense="陸地の探検" valsi="faktumli&apos;u" />
+<nlword word="探検家" sense="陸地の探検" valsi="faktumli&apos;u" />
+<nlword word="探索" sense="陸地の探検" valsi="faktumli&apos;u" />
+<nlword word="探険" sense="陸地の探険" valsi="faktumli&apos;u" />
+<nlword word="検分" sense="陸地の探検" valsi="faktumli&apos;u" />
+<nlword word="調査" sense="陸地の探険" valsi="faktumli&apos;u" />
+<nlword word="踏査" sense="陸地の探検" valsi="faktumli&apos;u" />
+<nlword word="帆" valsi="falnu" place="1" />
+<nlword word="帆走" valsi="falnu" place="3" />
+<nlword word="Xe" sense="キセノン" valsi="fangynavni" />
+<nlword word="キセノン" valsi="fangynavni" place="1" />
+<nlword word="翻訳書" valsi="fanvycukta" />
+<nlword word="訳書" valsi="fanvycukta" />
+<nlword word="訳本" valsi="fanvycukta" />
+<nlword word="実際" sense="現実" valsi="fatci" />
+<nlword word="本当" sense="仮ではない" valsi="fatci" />
+<nlword word="現実" valsi="fatci" place="1" />
+<nlword word="ごめん" sense="許しを請う" valsi="fau&apos;u" />
+<nlword word="ごめんなさい" sense="許しを請う" valsi="fau&apos;u" />
+<nlword word="許して" valsi="fau&apos;u" />
+<nlword word="コンビニ" valsi="filzai" />
+<nlword word="コンビニエンスストア" valsi="filzai" />
+<nlword word="魚" valsi="finpe" />
+<nlword word="政党" sense="議会政党" valsi="flajecyxlube&apos;e" />
+<nlword word="議会政党" valsi="flajecyxlube&apos;e" />
 <nlword word="審議" valsi="flakamni" />
 <nlword word="議会" valsi="flakamni" place="1" />
 <nlword word="議案" valsi="flakamni" place="2" />
-<nlword word="イタチ" valsi="mustlei" />
-<nlword word="麦湯" valsi="bavmyckafi" />
-<nlword word="麦茶" valsi="bavmyckafi" />
-<nlword word="びっくりする" valsi="ue" />
-<nlword word="驚く" valsi="ue" />
-<nlword word="驚嘆" valsi="ue" />
-<nlword word="五言絶句" valsi="mumvlavonli&apos;i" place="1" />
-<nlword word="平仄" valsi="mumvlavonli&apos;i" place="2" />
-<nlword word="韻" valsi="mumvlavonli&apos;i" place="3" />
-<nlword word="常識" valsi="kaurselju&apos;o" />
-<nlword word="七言律詩" valsi="zelvlabivli&apos;i" place="1" />
-<nlword word="特殊化" valsi="su&apos;anai" />
-<nlword word="懐疑" valsi="iacu&apos;i" />
-<nlword word="非精神的" valsi="ro&apos;enai" />
-<nlword word="いく" sense="行く" valsi="klama" />
-<nlword word="行く" valsi="klama" />
-<nlword word="くる" sense="来る" valsi="klama" />
-<nlword word="来る" valsi="klama" />
-<nlword word="旅行者" sense="移動して来る／行く人" valsi="klama" />
-<nlword word="移動者／旅行者" valsi="klama" place="1" />
-<nlword word="到着地" valsi="klama" place="2" />
-<nlword word="出発地" valsi="klama" place="3" />
-<nlword word="経路" sense="移動の経路" valsi="klama" place="4" />
-<nlword word="移動手段／乗り物" valsi="klama" place="5" />
-<nlword word="無欲求" valsi="aucu&apos;i" />
-<nlword word="無知" valsi="ju&apos;onai" />
-<nlword word="不可能" valsi="ju&apos;onai" />
-<nlword word="放棄" valsi="e&apos;ucu&apos;i" />
-<nlword word="蛇口" sense="水道の蛇口" valsi="jaursabytu&apos;uvro" />
-<nlword word="優雅な" valsi="melbi" />
-<nlword word="古情報" valsi="bi&apos;unai" />
-<nlword word="退屈" valsi="u&apos;inai" />
-<nlword word="真実" valsi="je&apos;u" />
-<nlword word="本当" valsi="je&apos;u" />
-<nlword word="事実" sense="嘘ではない" valsi="je&apos;u" />
-<nlword word="西風" valsi="sicybi&apos;e" />
-<nlword word="自己本位" valsi="se&apos;i" />
-<nlword word="ありえない" valsi="la&apos;anai" />
-<nlword word="まさか" sense="ありそうもない" valsi="la&apos;anai" />
-<nlword word="まさか" sense="ありえない" valsi="la&apos;anai" />
-<nlword word="ありそうもない" valsi="la&apos;anai" />
-<nlword word="資本" valsi="pracmu" place="1" />
-<nlword word="辛抱" valsi="o&apos;ocu&apos;i" />
-<nlword word="我慢" valsi="o&apos;ocu&apos;i" />
-<nlword word="良い" valsi="xamgu" />
-<nlword word="役に立つ" valsi="xamgu" />
-<nlword word="すてきだ" valsi="xamgu" />
-<nlword word="よい" valsi="xamgu" />
-<nlword word="利益" valsi="xamgu" place="1" />
-<nlword word="思いやり" valsi="pesku&apos;i" />
-<nlword word="疑問符" valsi="pau" />
-<nlword word="？" valsi="pau" />
-<nlword word="洗う" valsi="lumci" place="1" />
-<nlword word="汚れもの" sense="洗う対象" valsi="lumci" place="2" />
-<nlword word="汚れ" sense="洗い落とされるもの" valsi="lumci" place="3" />
-<nlword word="革命" valsi="ci&apos;ernunbi&apos;o" />
-<nlword word="攻勢" valsi="le&apos;o" />
-<nlword word="罵倒" valsi="le&apos;o" />
-<nlword word="獰猛" valsi="le&apos;o" />
-<nlword word="崇拝" valsi="re&apos;e" />
-<nlword word="無為" valsi="ainai" />
-<nlword word="自立" valsi="se&apos;a" />
-<nlword word="自己充足" valsi="se&apos;a" />
-<nlword word="独立" valsi="se&apos;a" />
-<nlword word="楽しい" valsi="u&apos;i" />
-<nlword word="面白い" valsi="u&apos;i" />
-<nlword word="愉快" valsi="u&apos;i" />
-<nlword word="七言絶句" valsi="zelvlavonli&apos;i" place="1" />
-<nlword word="動かして押す" valsi="muvyca&apos;e" />
-<nlword word="押して動かす" valsi="muvyca&apos;e" />
-<nlword word="押し動かす" valsi="muvyca&apos;e" />
-<nlword word="展開" sense="tanru" valsi="ta&apos;u" />
-<nlword word="連帯" valsi="i&apos;i" />
-<nlword word="親しみ" valsi="o&apos;e" />
-<nlword word="身近" valsi="o&apos;e" />
-<nlword word="親近" valsi="o&apos;e" />
+<nlword word="押し流す" valsi="fleca&apos;e" place="1" />
+<nlword word="流される" valsi="fleca&apos;e" place="2" />
+<nlword word="電話する" sense="通信" valsi="fongau" />
+<nlword word="イチゴ" valsi="fragari" place="1" />
+<nlword word="有理数" sense="実数" valsi="frinyna&apos;u" />
+<nlword word="簡単" valsi="fu&apos;i" />
+<nlword word="困難" valsi="fu&apos;inai" />
+<nlword word="上位" valsi="ga&apos;i" />
+<nlword word="タメ" valsi="ga&apos;icu&apos;i" />
 <nlword word="下位" valsi="ga&apos;inai" />
-<nlword word="完了" valsi="uo" />
-<nlword word="完全" valsi="uo" />
-<nlword word="完成" valsi="uo" />
-<nlword word="哀憫" valsi="uu" />
-<nlword word="同情" valsi="uu" />
-<nlword word="哀れむ" valsi="uu" />
-<nlword word="欲求" valsi="au" />
-<nlword word="欲望" valsi="au" />
-<nlword word="編集挿入" valsi="sa&apos;a" />
-<nlword word="鑑賞" valsi="i&apos;o" />
-<nlword word="義務" valsi="ei" />
-<nlword word="3階" sense="述語論理" valsi="bu&apos;ai" />
-<nlword word="高階" sense="述語論理" valsi="bu&apos;ai" />
-<nlword word="泊まる" valsi="zasxa&apos;u" />
-<nlword word="滞在" valsi="zasxa&apos;u" />
-<nlword word="宿泊" valsi="zasxa&apos;u" />
-<nlword word="宿泊者" valsi="zasxa&apos;u" place="1" />
-<nlword word="賛成" valsi="ie" />
-<nlword word="同意" valsi="ie" />
-<nlword word="考え" valsi="pe&apos;i" />
-<nlword word="思考" valsi="pe&apos;i" />
-<nlword word="意見" valsi="pe&apos;i" />
-<nlword word="宣言" valsi="ju&apos;a" />
-<nlword word="言っておくけど" valsi="ju&apos;a" />
-<nlword word="提言" valsi="ju&apos;a" />
-<nlword word="貴ガス" valsi="navni" />
-<nlword word="大豆" sense="豆粒" valsi="sobde" />
-<nlword word="ダイズ" sense="豆粒" valsi="sobde" place="1" />
-<nlword word="北風" valsi="berbi&apos;e" />
-<nlword word="非身体的" valsi="ro&apos;onai" />
-<nlword word="無情" valsi="ro&apos;inai" />
-<nlword word="恥すかしい" valsi="o&apos;anai" />
-<nlword word="恥辱" valsi="o&apos;anai" />
-<nlword word="獲得" valsi="u&apos;a" />
-<nlword word="日本円" sense="貨幣" valsi="rupnujupuje" />
-<nlword word="日本円" sense="日本" valsi="rupnujupuje" />
-<nlword word="日本円" sense="通貨" valsi="rupnujupuje" />
-<nlword word="日本円" sense="金融" valsi="rupnujupuje" />
-<nlword word="日本円" sense="金銭" valsi="rupnujupuje" />
-<nlword word="暗号鍵" sense="暗号" valsi="termifckiku" />
-<nlword word="鍵" sense="暗号" valsi="termifckiku" />
-<nlword word="烈" valsi="cai" />
-<nlword word="是認" valsi="i&apos;e" />
-<nlword word="承認" valsi="i&apos;e" />
-<nlword word="認める" valsi="i&apos;e" />
+<nlword word="錯覚" valsi="gastcica" place="1" />
+<nlword word="錯覚する" valsi="gastcica" place="2" />
+<nlword word="不特定の感情" valsi="ge&apos;e" />
+<nlword word="不特定の態度" valsi="ge&apos;e" />
+<nlword word="つがう" valsi="gletu" />
+<nlword word="やる" sense="性交" valsi="gletu" />
+<nlword word="エッチ" sense="性交" valsi="gletu" />
+<nlword word="セックス" sense="性交" valsi="gletu" />
+<nlword word="交尾" valsi="gletu" />
+<nlword word="性交" valsi="gletu" />
+<nlword word="しょうふ" sense="娼婦" valsi="gleve&apos;u" />
+<nlword word="だんしょう" sense="男娼" valsi="gleve&apos;u" />
+<nlword word="ばいしゅん" sense="売春" valsi="gleve&apos;u" />
+<nlword word="ばいしゅんふ" sense="売春婦" valsi="gleve&apos;u" />
+<nlword word="売春" valsi="gleve&apos;u" />
+<nlword word="売春・買春の代償・値段" valsi="gleve&apos;u" place="3" />
+<nlword word="売春婦" valsi="gleve&apos;u" />
+<nlword word="売春婦・男娼" valsi="gleve&apos;u" place="1" />
+<nlword word="娼婦" valsi="gleve&apos;u" />
+<nlword word="男娼" valsi="gleve&apos;u" />
+<nlword word="買春者" valsi="gleve&apos;u" place="2" />
+<nlword word="共産主義" sense="生産手段共有化の思想" valsi="gubgudytrusi&apos;o" />
+<nlword word="共産主義者／社会主義者" sense="生産手段共有化の思想家" valsi="gubgudytrusi&apos;o" place="3" />
+<nlword word="共産主義／社会主義" sense="生産手段共有化の思想" valsi="gubgudytrusi&apos;o" place="1" />
+<nlword word="共産主義／社会主義により統治される民衆／領土" sense="生産手段共有化の思想により統治される民衆／領土" valsi="gubgudytrusi&apos;o" place="2" />
+<nlword word="社会主義" sense="生産手段共有化の思想" valsi="gubgudytrusi&apos;o" />
+<nlword word="中国" valsi="gugdecunu" place="1" />
+<nlword word="中国人" valsi="gugdecunu" place="2" />
+<nlword word="にっぽん" sense="日本" valsi="gugdejupu" />
+<nlword word="にほん" sense="日本" valsi="gugdejupu" />
+<nlword word="ニッポン" sense="日本" valsi="gugdejupu" />
+<nlword word="日本" valsi="gugdejupu" place="1" />
+<nlword word="日本人" valsi="gugdejupu" place="2" />
+<nlword word="受容" valsi="i&apos;a" />
+<nlword word="叱責" valsi="i&apos;anai" />
 <nlword word="喝采" valsi="i&apos;e" />
-<nlword word="無線通信" valsi="cradi" />
-<nlword word="放送" sense="無線放送" valsi="cradi" />
-<nlword word="放送局" sense="無線放送" valsi="cradi" place="1" />
-<nlword word="放送内容／信号内容" sense="無線放送／無線通信" valsi="cradi" place="2" />
-<nlword word="周波数" sense="無線放送／無線通信" valsi="cradi" place="3" />
-<nlword word="ラジオ" sense="受信機" valsi="cradi" place="4" />
-<nlword word="他方で" valsi="zu&apos;unai" />
-<nlword word="もう一方で" valsi="zu&apos;unai" />
-<nlword word="戻る" sense="戻っていく／戻ってくる" valsi="xrukla" />
-<nlword word="帰る" sense="帰っていく／帰ってくる" valsi="xrukla" />
-<nlword word="帰ってくる" valsi="xrukla" />
-<nlword word="帰っていく" valsi="xrukla" />
-<nlword word="戻ってくる" valsi="xrukla" />
-<nlword word="かえる" sense="帰る、帰っていく／帰ってくる" valsi="xrukla" />
-<nlword word="もどる" sense="戻る、戻っていく／戻ってくる" valsi="xrukla" />
-<nlword word="戻っていく" valsi="xrukla" />
-<nlword word="手を取り合う" valsi="xanjaisi&apos;u" />
-<nlword word="手をつなぐ" valsi="xanjaisi&apos;u" />
-<nlword word="握手" valsi="xanjaisi&apos;u" />
-<nlword word="手を取る" sense="手を取り合う" valsi="xanjaisi&apos;u" />
-<nlword word="手を握る" sense="手を握り合う" valsi="xanjaisi&apos;u" />
-<nlword word="手を握り合う" valsi="xanjaisi&apos;u" />
-<nlword word="内部" valsi="nenri" />
-<nlword word="中" valsi="nenri" place="1" />
-<nlword word="内蔵する" valsi="nenri" place="2" />
-<nlword word="東風" valsi="sunbi&apos;e" />
-<nlword word="文化的知識" valsi="ka&apos;u" />
-<nlword word="ちょうど" valsi="ba&apos;ucu&apos;i" />
-<nlword word="的確" valsi="ba&apos;ucu&apos;i" />
-<nlword word="まさに" valsi="ba&apos;ucu&apos;i" />
-<nlword word="注目" valsi="a&apos;a" />
-<nlword word="謹聴" valsi="a&apos;a" />
-<nlword word="村" sense="町村区" valsi="tcapau" />
-<nlword word="町" sense="町村区" valsi="tcapau" />
-<nlword word="町村区" valsi="tcapau" />
-<nlword word="ある数" valsi="xo&apos;e" />
-<nlword word="不特定の数" valsi="xo&apos;e" />
-<nlword word="妻" valsi="nimspe" />
-<nlword word="嫁" sense="女性配偶者" valsi="nimspe" />
-<nlword word="奥様" sense="女性配偶者" valsi="nimspe" />
-<nlword word="奥さん" sense="女性配偶者" valsi="nimspe" />
-<nlword word="女性配偶者" valsi="nimspe" />
-<nlword word="カミさん" sense="女性配偶者" valsi="nimspe" />
-<nlword word="女房" valsi="nimspe" />
-<nlword word="ヨメ" sense="女性配偶者" valsi="nimspe" />
-<nlword word="家内" sense="女性配偶者" valsi="nimspe" />
-<nlword word="帆" valsi="falnu" place="1" />
-<nlword word="帆走" valsi="falnu" place="3" />
-<nlword word="気づく" valsi="ua" />
-<nlword word="発見" valsi="ua" />
-<nlword word="畏敬" valsi="u&apos;e" />
-<nlword word="博物館" valsi="muzga" />
-<nlword word="美術館" valsi="muzga" />
-<nlword word="前提" valsi="ru&apos;a" />
-<nlword word="ズボン吊り" valsi="pakydadysri" />
-<nlword word="ズボンつり" valsi="pakydadysri" />
-<nlword word="サスペンダー" valsi="pakydadysri" />
-<nlword word="吊りバンド" valsi="pakydadysri" />
-<nlword word="許可" valsi="e&apos;a" />
-<nlword word="竜" sense="想像上の動物" valsi="resycrida" />
-<nlword word="ドラゴン" sense="想像上の動物" valsi="resycrida" />
-<nlword word="龍" sense="想像上の動物" valsi="resycrida" />
-<nlword word="無抵抗" sense="攻撃" valsi="le&apos;ocu&apos;i" />
-<nlword word="勘" valsi="se&apos;o" />
-<nlword word="悟り" valsi="se&apos;o" />
-<nlword word="内面的知" valsi="se&apos;o" />
-<nlword word="例を挙げるまでもなく" valsi="mu&apos;acu&apos;i" />
-<nlword word="明らかに" valsi="li&apos;a" />
-<nlword word="手短" valsi="to&apos;u" />
-<nlword word="心配" valsi="o&apos;unai" />
-<nlword word="緊張" valsi="o&apos;unai" />
-<nlword word="ストレス" sense="心" valsi="o&apos;unai" />
+<nlword word="承認" valsi="i&apos;e" />
+<nlword word="是認" valsi="i&apos;e" />
+<nlword word="認める" valsi="i&apos;e" />
+<nlword word="保留" valsi="i&apos;ecu&apos;i" />
+<nlword word="非難" valsi="i&apos;enai" />
+<nlword word="連帯" valsi="i&apos;i" />
+<nlword word="内密" valsi="i&apos;inai" />
+<nlword word="鑑賞" valsi="i&apos;o" />
+<nlword word="嫉妬" valsi="i&apos;onai" />
+<nlword word="既知" valsi="i&apos;u" />
+<nlword word="未知" valsi="i&apos;unai" />
+<nlword word="信念" valsi="ia" />
+<nlword word="懐疑" valsi="iacu&apos;i" />
+<nlword word="不信" valsi="ianai" />
+<nlword word="同意" valsi="ie" />
+<nlword word="賛成" valsi="ie" />
+<nlword word="不賛成" valsi="ienai" />
+<nlword word="恐怖" valsi="ii" />
+<nlword word="安全" valsi="iinai" />
+<nlword word="尊敬" valsi="io" />
+<nlword word="軽蔑" valsi="ionai" />
+<nlword word="好む" valsi="iu" />
+<nlword word="愛好" valsi="iu" />
+<nlword word="愛情" valsi="iu" />
 <nlword word="憎悪" valsi="iunai" />
-<nlword word="鈍行" sense="列車" valsi="rolstire&apos;e" />
-<nlword word="各駅停車" sense="列車" valsi="rolstire&apos;e" />
-<nlword word="南風" valsi="nanbi&apos;e" />
-<nlword word="不精確" valsi="sa&apos;enai" />
-<nlword word="謙遜" valsi="o&apos;acu&apos;i" />
-<nlword word="自問自答" valsi="sezreispu" />
-<nlword word="生まれ" valsi="jbena" />
+<nlword word="したがって" valsi="ja&apos;o" />
+<nlword word="つまり" valsi="ja&apos;o" />
+<nlword word="要するに" valsi="ja&apos;o" />
+<nlword word="鈴" sense="丸い鈴" valsi="jabyboi" />
+<nlword word="マーカー" sense="ペン" valsi="jacre&apos;ipenbi" />
+<nlword word="油性ペン" valsi="jacre&apos;ipenbi" />
+<nlword word="上水道" sense="水道管" valsi="jaursabytu&apos;u" />
+<nlword word="中水道" sense="水道管" valsi="jaursabytu&apos;u" />
+<nlword word="水道管" sense="上水道や中水道の水道管" valsi="jaursabytu&apos;u" />
+<nlword word="給水管" valsi="jaursabytu&apos;u" />
+<nlword word="給水設備" sense="給水管" valsi="jaursabytu&apos;u" />
+<nlword word="蛇口" sense="水道の蛇口" valsi="jaursabytu&apos;uvro" />
 <nlword word="出生" valsi="jbena" />
+<nlword word="出生地" sense="出身地" valsi="jbena" place="5" />
+<nlword word="出生時刻" sense="誕生時刻" valsi="jbena" place="4" />
+<nlword word="生まれ" valsi="jbena" />
 <nlword word="生まれたもの" valsi="jbena" place="1" />
-<nlword word="産みの親" valsi="jbena" place="2" />
 <nlword word="生年月日" sense="誕生日" valsi="jbena" place="3" />
 <nlword word="生年月日" valsi="jbena" place="3" />
-<nlword word="出生時刻" sense="誕生時刻" valsi="jbena" place="4" />
-<nlword word="出生地" sense="出身地" valsi="jbena" place="5" />
-<nlword word="インターネット" valsi="kibro" />
-<nlword word="サイバースペース" valsi="kibro" />
-<nlword word="電話する" sense="通信" valsi="fongau" />
-<nlword word="無動揺" valsi="uecu&apos;i" />
-<nlword word="平然" valsi="uecu&apos;i" />
-<nlword word="心態疑問" valsi="pei" />
-<nlword word="二重丸" valsi="relcuktai" place="1" />
-<nlword word="パンツ" sense="下着" valsi="sivypalku" />
-<nlword word="ももひき" sense="下着" valsi="sivypalku" />
-<nlword word="ボクサーパンツ" sense="下着" valsi="sivypalku" />
-<nlword word="ブリーフ" sense="下着" valsi="sivypalku" />
-<nlword word="パッチ" sense="下着" valsi="sivypalku" />
-<nlword word="パンティ" sense="下着" valsi="sivypalku" />
-<nlword word="スパッツ" sense="下着" valsi="sivypalku" />
-<nlword word="ステテコ" valsi="sivypalku" />
-<nlword word="ショーツ" sense="下着" valsi="sivypalku" />
-<nlword word="猿股" valsi="sivypalku" />
-<nlword word="ズロース" sense="下着" valsi="sivypalku" />
-<nlword word="パンティー" sense="下着" valsi="sivypalku" />
-<nlword word="股引" sense="下着" valsi="sivypalku" />
-<nlword word="トランクス" sense="下着" valsi="sivypalku" />
-<nlword word="申又" valsi="sivypalku" />
-<nlword word="ぱっち" sense="下着" valsi="sivypalku" />
-<nlword word="ズボン下" valsi="sivypalku" />
-<nlword word="猿股" sense="下着" valsi="sivypalku" />
-<nlword word="ステテコ" sense="下着" valsi="sivypalku" />
-<nlword word="申又" sense="下着" valsi="sivypalku" />
-<nlword word="ズボン下" sense="下着" valsi="sivypalku" />
-<nlword word="タグ" sense="項のタグ" valsi="sumtcita" />
-<nlword word="項のタグ" valsi="sumtcita" />
-<nlword word="模索" valsi="uanai" />
-<nlword word="不信" valsi="ianai" />
-<nlword word="貯蓄する" valsi="selsrodi&apos;i" />
-<nlword word="貯金する" valsi="selsrodi&apos;i" />
-<nlword word="希望" valsi="a&apos;o" />
-<nlword word="同じく" valsi="mi&apos;u" />
-<nlword word="同上" valsi="mi&apos;u" />
-<nlword word="感染" sense="医学" valsi="virparji" />
-<nlword word="罹患" sense="医学" valsi="virparji" />
-<nlword word="Ar" sense="アルゴン" valsi="laznynavni" />
-<nlword word="アルゴン" valsi="laznynavni" place="1" />
-<nlword word="ほんの" valsi="po&apos;o" />
-<nlword word="だけ" valsi="po&apos;o" />
-<nlword word="たった" sense="これだけ" valsi="po&apos;o" />
-<nlword word="用心" valsi="o&apos;i" />
-<nlword word="経験" valsi="ba&apos;acu&apos;i" />
-<nlword word="翻訳書" valsi="fanvycukta" />
-<nlword word="訳本" valsi="fanvycukta" />
-<nlword word="訳書" valsi="fanvycukta" />
-<nlword word="引いて動かす" valsi="muvycpu" />
-<nlword word="動かして引く" valsi="muvycpu" />
-<nlword word="引き動かす" valsi="muvycpu" />
-<nlword word="動かし引っ張る" valsi="muvycpu" />
-<nlword word="動かして引っ張る" valsi="muvycpu" />
-<nlword word="引っ張って動かす" valsi="muvycpu" />
-<nlword word="原子爆弾" sense="爆弾" valsi="ratyjbama" />
-<nlword word="爆発" sense="化学" valsi="ratyjbama" />
-<nlword word="原子" sense="化学" valsi="ratyjbama" />
-<nlword word="核" sense="化学" valsi="ratyjbama" />
-<nlword word="憤怒" valsi="o&apos;onai" />
-<nlword word="ペンチ" valsi="cinza" />
-<nlword word="洗濯バサミ" valsi="cinza" />
-<nlword word="やっとこ" valsi="cinza" />
-<nlword word="箸" valsi="cinza" />
-<nlword word="ピンセット" valsi="cinza" />
-<nlword word="He" sense="ヘリウム" valsi="solnavni" />
-<nlword word="ヘリウム" valsi="solnavni" place="1" />
+<nlword word="産みの親" valsi="jbena" place="2" />
+<nlword word="事実" sense="嘘ではない" valsi="je&apos;u" />
+<nlword word="本当" valsi="je&apos;u" />
+<nlword word="真実" valsi="je&apos;u" />
+<nlword word="いわゆる" sense="非真実" valsi="je&apos;unai" />
+<nlword word="嘘" valsi="je&apos;unai" />
+<nlword word="虚偽" valsi="je&apos;unai" />
+<nlword word="政治" sense="政体に関わるもの" valsi="jecra&apos;a" />
+<nlword word="政治的" sense="政体に関わるもの" valsi="jecra&apos;a" />
+<nlword word="役所" valsi="jecybriju" place="1" />
+<nlword word="役所の職員" valsi="jecybriju" place="2" />
+<nlword word="役所の行政区域" valsi="jecybriju" place="3" />
+<nlword word="利益団体" valsi="jecyxlube&apos;e" />
+<nlword word="圧力団体" valsi="jecyxlube&apos;e" />
+<nlword word="政治団体" valsi="jecyxlube&apos;e" />
+<nlword word="本当" sense="嘘ではない" valsi="jetnu" />
+<nlword word="真" sense="偽ではない" valsi="jetnu" place="1" />
+<nlword word="だって" sense="追加" valsi="ji&apos;a" />
+<nlword word="も" sense="追加" valsi="ji&apos;a" />
+<nlword word="分類" sense="自閉症の分類" valsi="jikmenbi&apos;a" place="2" />
+<nlword word="症状" sense="自閉症の症状" valsi="jikmenbi&apos;a" place="3" />
+<nlword word="自閉症" valsi="jikmenbi&apos;a" />
+<nlword word="自閉症の者" valsi="jikmenbi&apos;a" place="1" />
+<nlword word="なれずし" valsi="jirvi&apos;odja" />
+<nlword word="ピクルス" valsi="jirvi&apos;odja" />
+<nlword word="漬物" valsi="jirvi&apos;odja" />
+<nlword word="偽" sense="真ではない" valsi="jitfa" place="1" />
+<nlword word="嘘" sense="真ではない" valsi="jitfa" />
+<nlword word="虚構" sense="真ではない" valsi="jitfa" />
+<nlword word="加える" valsi="jmina" place="1" />
+<nlword word="追加" valsi="jmina" />
+<nlword word="そのとおり" sense="正しい" valsi="jo&apos;a" />
+<nlword word="肯定" sense="メタ言語" valsi="jo&apos;a" />
+<nlword word="宣言" valsi="ju&apos;a" />
+<nlword word="提言" valsi="ju&apos;a" />
+<nlword word="言っておくけど" valsi="ju&apos;a" />
+<nlword word="まちがいなく" valsi="ju&apos;o" />
+<nlword word="確かに" valsi="ju&apos;o" />
+<nlword word="確信" valsi="ju&apos;o" />
+<nlword word="わからない" valsi="ju&apos;ocu&apos;i" />
+<nlword word="不確信" valsi="ju&apos;ocu&apos;i" />
+<nlword word="不可能" valsi="ju&apos;onai" />
+<nlword word="無知" valsi="ju&apos;onai" />
+<nlword word="レシピ" sense="料理" valsi="jukpa" place="3" />
+<nlword word="料理" sense="料理の結果、できたもの" valsi="jukpa" place="2" />
+<nlword word="料理する" valsi="jukpa" />
+<nlword word="料理人" valsi="jukpa" place="1" />
+<nlword word="制限対象" sense="身体障害、知的障害又は精神障害があるため制限を受ける事" valsi="ka&apos;enri&apos;u" place="3" />
+<nlword word="障がいのある人" valsi="ka&apos;enri&apos;u" />
+<nlword word="障がいのある方" valsi="ka&apos;enri&apos;u" />
+<nlword word="障がい児" sense="障がい者" valsi="ka&apos;enri&apos;u" />
+<nlword word="障がい者" valsi="ka&apos;enri&apos;u" />
+<nlword word="障害" sense="身体障害、知的障害又は精神障害" valsi="ka&apos;enri&apos;u" place="2" />
+<nlword word="障害児" sense="障害者" valsi="ka&apos;enri&apos;u" />
+<nlword word="障害者" valsi="ka&apos;enri&apos;u" place="1" />
+<nlword word="障碍者" valsi="ka&apos;enri&apos;u" />
+<nlword word="文化的知識" valsi="ka&apos;u" />
+<nlword word="写真" valsi="kacmyxra" />
 <nlword word="保つ" sense="熱" valsi="kamglara&apos;e" />
 <nlword word="保温する" sense="熱" valsi="kamglara&apos;e" />
 <nlword word="保熱する" sense="熱" valsi="kamglara&apos;e" />
-<nlword word="依存" valsi="se&apos;anai" />
-<nlword word="不特定の感情" valsi="ge&apos;e" />
-<nlword word="不特定の態度" valsi="ge&apos;e" />
-<nlword word="Rn" sense="ラドン" valsi="dircynavni" />
-<nlword word="ラドン" valsi="dircynavni" place="1" />
-<nlword word="障碍者" valsi="ka&apos;enri&apos;u" />
-<nlword word="障がいのある人" valsi="ka&apos;enri&apos;u" />
-<nlword word="障がいのある方" valsi="ka&apos;enri&apos;u" />
-<nlword word="障がい者" valsi="ka&apos;enri&apos;u" />
-<nlword word="障害児" sense="障害者" valsi="ka&apos;enri&apos;u" />
-<nlword word="障がい児" sense="障がい者" valsi="ka&apos;enri&apos;u" />
-<nlword word="障害者" valsi="ka&apos;enri&apos;u" place="1" />
-<nlword word="障害" sense="身体障害、知的障害又は精神障害" valsi="ka&apos;enri&apos;u" place="2" />
-<nlword word="制限対象" sense="身体障害、知的障害又は精神障害があるため制限を受ける事" valsi="ka&apos;enri&apos;u" place="3" />
-<nlword word="回帰" valsi="ta&apos;onai" />
-<nlword word="閑話休題" valsi="ta&apos;onai" />
-<nlword word="黍" sense="穀粒" valsi="cunmi" />
-<nlword word="キビ" sense="穀粒" valsi="cunmi" place="1" />
-<nlword word="充溢" valsi="be&apos;unai" />
-<nlword word="玉蜀黍" sense="穀粒" valsi="zumri" />
-<nlword word="トウモロコシ" sense="穀粒" valsi="zumri" place="1" />
-<nlword word="阻止" valsi="e&apos;enai" />
-<nlword word="百貨店" valsi="balzai" />
-<nlword word="デパートメントストア" valsi="balzai" />
-<nlword word="ホームセンター" valsi="balzai" />
-<nlword word="スーパーマーケット" valsi="balzai" />
-<nlword word="ショッピングセンター" valsi="balzai" />
-<nlword word="ディスカウントショップ" valsi="balzai" />
-<nlword word="スーパー" sense="量販店" valsi="balzai" />
-<nlword word="デパート" valsi="balzai" />
-<nlword word="ショッピングモール" valsi="balzai" />
-<nlword word="総合スーパー" valsi="balzai" />
-<nlword word="ゼネラルマーチャンダイズストア" valsi="balzai" />
-<nlword word="スーパーセンター" valsi="balzai" />
-<nlword word="幸せ" valsi="ui" />
-<nlword word="幸福" valsi="ui" />
-<nlword word="存在" sense="議論領域内" valsi="su&apos;oi" />
-<nlword word="被害者" sense="殺人" valsi="remselcatra" />
-<nlword word="害者" sense="殺人" valsi="remselcatra" place="1" />
-<nlword word="殺す" sense="人" valsi="remselcatra" place="1" />
-<nlword word="殺害" valsi="remselcatra" place="2" />
-<nlword word="殺害する" valsi="remselcatra" place="2" />
-<nlword word="殺人する" valsi="remselcatra" place="3" />
-<nlword word="殺人" valsi="remselcatra" place="3" />
-<nlword word="冒涜" valsi="re&apos;enai" />
-<nlword word="全" sense="議論領域内" valsi="ro&apos;oi" />
-<nlword word="共感" valsi="cnikansa" />
-<nlword word="彫像" valsi="prexra" />
-<nlword word="肖像画" valsi="prexra" />
-<nlword word="肖像" valsi="prexra" />
-<nlword word="塑像" valsi="prexra" />
-<nlword word="感情" valsi="ro&apos;i" />
-<nlword word="身体的" valsi="ro&apos;o" />
-<nlword word="郵便局" valsi="mribriju" place="1" />
-<nlword word="郵便局員" valsi="mribriju" place="2" />
-<nlword word="中性" sense="尺度" valsi="cu&apos;i" />
+<nlword word="間接疑問" valsi="kau" />
+<nlword word="常識" valsi="kaurselju&apos;o" />
+<nlword word="だってば" valsi="ke&apos;u" />
+<nlword word="前にも言ったが" valsi="ke&apos;u" />
+<nlword word="反復" valsi="ke&apos;u" />
+<nlword word="それで" sense="展開" valsi="ke&apos;unai" />
+<nlword word="困惑" sense="逐語的" valsi="ki&apos;a" />
+<nlword word="理解" sense="逐語的" valsi="ki&apos;anai" />
+<nlword word="インターネット" valsi="kibro" />
+<nlword word="サイバースペース" valsi="kibro" />
+<nlword word="クライアント" sense="インターネット" valsi="kibyse&apos;u" place="2" />
+<nlword word="サーバ" sense="インターネット" valsi="kibyse&apos;u" place="1" />
+<nlword word="サービス" sense="インターネット" valsi="kibyse&apos;u" place="3" />
+<nlword word="いく" sense="行く" valsi="klama" />
+<nlword word="くる" sense="来る" valsi="klama" />
+<nlword word="出発地" valsi="klama" place="3" />
+<nlword word="到着地" valsi="klama" place="2" />
+<nlword word="旅行者" sense="移動して来る／行く人" valsi="klama" />
+<nlword word="来る" valsi="klama" />
+<nlword word="移動手段／乗り物" valsi="klama" place="5" />
+<nlword word="移動者／旅行者" valsi="klama" place="1" />
+<nlword word="経路" sense="移動の経路" valsi="klama" place="4" />
+<nlword word="行く" valsi="klama" />
+<nlword word="命令" valsi="ko&apos;oi" />
+<nlword word="しかし" valsi="ku&apos;i" />
+<nlword word="だが" valsi="ku&apos;i" />
+<nlword word="でも" valsi="ku&apos;i" />
+<nlword word="ところが" valsi="ku&apos;i" />
+<nlword word="かもしれない" valsi="la&apos;a" />
+<nlword word="たぶん" valsi="la&apos;a" />
+<nlword word="もしかして" valsi="la&apos;a" />
+<nlword word="蓋然性" valsi="la&apos;a" />
+<nlword word="ありえない" valsi="la&apos;anai" />
+<nlword word="ありそうもない" valsi="la&apos;anai" />
+<nlword word="まさか" sense="ありそうもない" valsi="la&apos;anai" />
+<nlword word="まさか" sense="ありえない" valsi="la&apos;anai" />
+<nlword word="クレーン船" valsi="lafydadblo" />
+<nlword word="クレーン" sense="移動式クレーン（運搬機）" valsi="lafydadma&apos;e" />
+<nlword word="移動式クレーン" sense="運搬機" valsi="lafydadma&apos;e" />
+<nlword word="オールテレーンクレーン" valsi="lafydadykarce" />
+<nlword word="クレーン" sense="クレーン車" valsi="lafydadykarce" />
+<nlword word="クレーン車" valsi="lafydadykarce" />
+<nlword word="クローラークレーン" valsi="lafydadykarce" />
+<nlword word="トラッククレーン" valsi="lafydadykarce" />
+<nlword word="トラック搭載型クレーン" valsi="lafydadykarce" />
+<nlword word="ホイールクレーン" valsi="lafydadykarce" />
+<nlword word="ラフテレーンクレーン" valsi="lafydadykarce" />
+<nlword word="アートギャラリー" valsi="larmuzga" />
+<nlword word="Ar" sense="アルゴン" valsi="laznynavni" />
+<nlword word="アルゴン" valsi="laznynavni" place="1" />
+<nlword word="ままごと" sense="遊び" valsi="lazyzukykei" />
+<nlword word="攻勢" valsi="le&apos;o" />
+<nlword word="獰猛" valsi="le&apos;o" />
+<nlword word="罵倒" valsi="le&apos;o" />
+<nlword word="無抵抗" sense="攻撃" valsi="le&apos;ocu&apos;i" />
+<nlword word="守勢" valsi="le&apos;onai" />
+<nlword word="明らかに" valsi="li&apos;a" />
+<nlword word="そこはかとなく" valsi="li&apos;anai" />
+<nlword word="それとなく" valsi="li&apos;anai" />
+<nlword word="略" sense="省略" valsi="li&apos;o" />
+<nlword word="複素数" valsi="lujna&apos;u" />
+<nlword word="汚れ" sense="洗い落とされるもの" valsi="lumci" place="3" />
+<nlword word="汚れもの" sense="洗う対象" valsi="lumci" place="2" />
+<nlword word="洗う" valsi="lumci" place="1" />
+<nlword word="ジャンクフード" valsi="maldja" />
+<nlword word="オート" sense="穀粒" valsi="mavji" />
+<nlword word="カラスムギ" sense="穀粒" valsi="mavji" place="1" />
+<nlword word="コムギ" sense="穀粒" valsi="maxri" place="1" />
+<nlword word="小麦" sense="穀粒" valsi="maxri" />
+<nlword word="優雅な" valsi="melbi" />
+<nlword word="症状" sense="精神疾患による症状" valsi="menbi&apos;a" place="3" />
+<nlword word="精神疾患" valsi="menbi&apos;a" place="2" />
+<nlword word="精神障がいのある人" valsi="menbi&apos;a" />
+<nlword word="精神障がいのある方" valsi="menbi&apos;a" />
+<nlword word="精神障がい者" valsi="menbi&apos;a" />
+<nlword word="精神障害" valsi="menbi&apos;a" />
+<nlword word="精神障害者" valsi="menbi&apos;a" place="1" />
+<nlword word="精神障碍者" valsi="menbi&apos;a" />
+<nlword word="制限対象" sense="知的障害があるため制限を受ける事" valsi="menri&apos;u" place="3" />
 <nlword word="知的障がいのある人" valsi="menri&apos;u" />
 <nlword word="知的障がいのある方" valsi="menri&apos;u" />
-<nlword word="知的障碍者" valsi="menri&apos;u" />
-<nlword word="知的障がい者" valsi="menri&apos;u" />
 <nlword word="知的障がい児" sense="知的障がい者" valsi="menri&apos;u" />
+<nlword word="知的障がい者" valsi="menri&apos;u" />
+<nlword word="知的障害" valsi="menri&apos;u" place="2" />
 <nlword word="知的障害児" sense="知的障害者" valsi="menri&apos;u" />
 <nlword word="知的障害者" valsi="menri&apos;u" place="1" />
-<nlword word="知的障害" valsi="menri&apos;u" place="2" />
-<nlword word="制限対象" sense="知的障害があるため制限を受ける事" valsi="menri&apos;u" place="3" />
-<nlword word="マーカー" sense="ペン" valsi="jacre&apos;ipenbi" />
-<nlword word="油性ペン" valsi="jacre&apos;ipenbi" />
-<nlword word="困惑" sense="逐語的" valsi="ki&apos;a" />
-<nlword word="クレーン船" valsi="lafydadblo" />
-<nlword word="性交" valsi="gletu" />
-<nlword word="セックス" sense="性交" valsi="gletu" />
-<nlword word="やる" sense="性交" valsi="gletu" />
-<nlword word="交尾" valsi="gletu" />
-<nlword word="エッチ" sense="性交" valsi="gletu" />
-<nlword word="つがう" valsi="gletu" />
-<nlword word="イチゴ" valsi="fragari" place="1" />
-<nlword word="後悔" valsi="u&apos;u" />
-<nlword word="遺憾" valsi="u&apos;u" />
-<nlword word="残念" valsi="u&apos;u" />
-<nlword word="探険" sense="陸地の探険" valsi="faktumli&apos;u" />
-<nlword word="探検" sense="陸地の探検" valsi="faktumli&apos;u" />
-<nlword word="踏査" sense="陸地の探検" valsi="faktumli&apos;u" />
-<nlword word="探査" sense="陸地の探検" valsi="faktumli&apos;u" />
-<nlword word="検分" sense="陸地の探検" valsi="faktumli&apos;u" />
-<nlword word="実地踏査" sense="陸地の探険" valsi="faktumli&apos;u" />
-<nlword word="探検家" sense="陸地の探検" valsi="faktumli&apos;u" />
-<nlword word="探索" sense="陸地の探検" valsi="faktumli&apos;u" />
-<nlword word="調査" sense="陸地の探険" valsi="faktumli&apos;u" />
-<nlword word="冒険" sense="陸地の探検" valsi="faktumli&apos;u" />
-<nlword word="未了" valsi="uonai" />
-<nlword word="未完成" valsi="uonai" />
-<nlword word="不十分" valsi="uonai" />
-<nlword word="不完全" valsi="uonai" />
-<nlword word="予期" valsi="ba&apos;a" />
-<nlword word="ジャンクフード" valsi="maldja" />
-<nlword word="内密" valsi="i&apos;inai" />
-<nlword word="不活性気体" sense="不活性ガス" valsi="tolfragapci" />
-<nlword word="それで" sense="展開" valsi="ke&apos;unai" />
-<nlword word="ザラザラ" valsi="rufsfe" />
-<nlword word="写真" valsi="kacmyxra" />
-<nlword word="山" valsi="cmana" place="1" />
-<nlword word="制約" valsi="e&apos;i" />
-<nlword word="そうだ" sense="伝聞" valsi="ti&apos;e" />
-<nlword word="見聞" valsi="ti&apos;e" />
-<nlword word="らしい" sense="伝聞" valsi="ti&apos;e" />
-<nlword word="伝聞" valsi="ti&apos;e" />
-<nlword word="消耗" valsi="a&apos;enai" />
-<nlword word="長女" valsi="pavmoiti&apos;u" />
-<nlword word="保留" valsi="i&apos;ecu&apos;i" />
-<nlword word="恐怖" valsi="ii" />
-<nlword word="靴" valsi="cutci" />
-<nlword word="サンダル" valsi="cutci" />
+<nlword word="知的障碍者" valsi="menri&apos;u" />
+<nlword word="同じく" valsi="mi&apos;u" />
+<nlword word="同上" valsi="mi&apos;u" />
+<nlword word="医薬品" valsi="micyxu&apos;i" />
+<nlword word="薬" sense="医薬品" valsi="micyxu&apos;i" />
+<nlword word="薬品" sense="医薬品" valsi="micyxu&apos;i" />
+<nlword word="Kr" sense="クリプトン" valsi="mipnavni" />
+<nlword word="クリプトン" valsi="mipnavni" place="1" />
+<nlword word="ライムギ" sense="穀粒" valsi="mraji" place="1" />
+<nlword word="ライ麦" sense="穀粒" valsi="mraji" />
+<nlword word="実数" sense="複素数" valsi="mrena&apos;u" />
+<nlword word="郵便局" valsi="mribriju" place="1" />
+<nlword word="郵便局員" valsi="mribriju" place="2" />
+<nlword word="例えば" valsi="mu&apos;a" />
+<nlword word="例を挙げるまでもなく" valsi="mu&apos;acu&apos;i" />
+<nlword word="など" sense="例示終わり" valsi="mu&apos;anai" />
+<nlword word="例示終わり" valsi="mu&apos;anai" />
+<nlword word="五言律詩" valsi="mumvlabivli&apos;i" place="1" />
+<nlword word="五言絶句" valsi="mumvlavonli&apos;i" place="1" />
+<nlword word="平仄" valsi="mumvlavonli&apos;i" place="2" />
+<nlword word="韻" valsi="mumvlavonli&apos;i" place="3" />
+<nlword word="イタチ" valsi="mustlei" />
+<nlword word="動かして押す" valsi="muvyca&apos;e" />
+<nlword word="押して動かす" valsi="muvyca&apos;e" />
+<nlword word="押し動かす" valsi="muvyca&apos;e" />
+<nlword word="動かして引く" valsi="muvycpu" />
+<nlword word="動かして引っ張る" valsi="muvycpu" />
+<nlword word="動かし引っ張る" valsi="muvycpu" />
+<nlword word="引いて動かす" valsi="muvycpu" />
+<nlword word="引き動かす" valsi="muvycpu" />
+<nlword word="引っ張って動かす" valsi="muvycpu" />
 <nlword word="うろつく" valsi="muvzva" />
 <nlword word="徘徊" valsi="muvzva" />
-<nlword word="控えめ" valsi="ba&apos;unai" />
+<nlword word="博物館" valsi="muzga" />
+<nlword word="美術館" valsi="muzga" />
+<nlword word="ギャラリー" sense="部屋" valsi="muzyku&apos;a" />
+<nlword word="展示室" valsi="muzyku&apos;a" />
+<nlword word="とんでもない" sense="正しくない" valsi="na&apos;i" />
+<nlword word="否定" sense="メタ言語" valsi="na&apos;i" />
+<nlword word="休業日" valsi="nalgundei" />
+<nlword word="運休日" valsi="nalgundei" />
+<nlword word="非労働日" valsi="nalgundei" />
+<nlword word="パン" sense="食品" valsi="nanba" place="1" />
+<nlword word="南風" valsi="nanbi&apos;e" />
+<nlword word="ジャメヴ" sense="jamais-vu" valsi="narprugastcica" />
+<nlword word="ジャメヴュ" sense="jamais-vu" valsi="narprugastcica" />
+<nlword word="未視感" sense="jamais-vu" valsi="narprugastcica" />
+<nlword word="だんな" valsi="nauspe" />
+<nlword word="だんな" sense="男性配偶者" valsi="nauspe" />
+<nlword word="主人" valsi="nauspe" />
+<nlword word="主人" sense="男性配偶者" valsi="nauspe" />
+<nlword word="亭主" valsi="nauspe" />
+<nlword word="亭主" sense="男性配偶者" valsi="nauspe" />
+<nlword word="夫" valsi="nauspe" />
+<nlword word="旦那" sense="男性配偶者" valsi="nauspe" />
+<nlword word="旦那" valsi="nauspe" />
+<nlword word="男性配偶者" valsi="nauspe" />
+<nlword word="貴ガス" valsi="navni" />
+<nlword word="中" valsi="nenri" place="1" />
+<nlword word="内蔵する" valsi="nenri" place="2" />
+<nlword word="内部" valsi="nenri" />
+<nlword word="カミさん" sense="女性配偶者" valsi="nimspe" />
+<nlword word="ヨメ" sense="女性配偶者" valsi="nimspe" />
+<nlword word="奥さん" sense="女性配偶者" valsi="nimspe" />
+<nlword word="奥様" sense="女性配偶者" valsi="nimspe" />
+<nlword word="女性配偶者" valsi="nimspe" />
+<nlword word="女房" valsi="nimspe" />
+<nlword word="妻" valsi="nimspe" />
+<nlword word="嫁" sense="女性配偶者" valsi="nimspe" />
+<nlword word="家内" sense="女性配偶者" valsi="nimspe" />
+<nlword word="Ne" sense="ネオン" valsi="ninynavni" />
+<nlword word="ネオン" valsi="ninynavni" place="1" />
+<nlword word="授業" valsi="nunctu" />
+<nlword word="授業方法／講義方法" valsi="nunctu" place="6" />
+<nlword word="授業科目／講義科目" sense="授業の題目" valsi="nunctu" place="5" />
+<nlword word="授業／講義" valsi="nunctu" place="1" />
+<nlword word="授業／講義で教わること" sense="授業の命題" valsi="nunctu" place="4" />
+<nlword word="授業／講義の学生／生徒／受講者" valsi="nunctu" place="3" />
+<nlword word="授業／講義の教員／教師／講師" valsi="nunctu" place="2" />
+<nlword word="講義" valsi="nunctu" />
+<nlword word="保健" sense="健康管理" valsi="nunka&apos;oku&apos;i" />
+<nlword word="健康管理" valsi="nunka&apos;oku&apos;i" />
+<nlword word="医療" sense="健康管理" valsi="nunka&apos;oku&apos;i" />
+<nlword word="衛生" sense="健康管理" valsi="nunka&apos;oku&apos;i" />
+<nlword word="保健所" valsi="nunka&apos;okujbriju" place="1" />
+<nlword word="保健所の職員" valsi="nunka&apos;okujbriju" place="2" />
+<nlword word="誇り" valsi="o&apos;a" />
+<nlword word="謙遜" valsi="o&apos;acu&apos;i" />
+<nlword word="恥すかしい" valsi="o&apos;anai" />
+<nlword word="恥辱" valsi="o&apos;anai" />
+<nlword word="親しみ" valsi="o&apos;e" />
+<nlword word="親近" valsi="o&apos;e" />
+<nlword word="身近" valsi="o&apos;e" />
+<nlword word="隔絶" valsi="o&apos;enai" />
+<nlword word="用心" valsi="o&apos;i" />
+<nlword word="いいから" sense="軽率" valsi="o&apos;inai" />
+<nlword word="焦る" valsi="o&apos;inai" />
+<nlword word="軽率" valsi="o&apos;inai" />
+<nlword word="寛容" valsi="o&apos;o" />
+<nlword word="構わない" sense="寛容" valsi="o&apos;o" />
+<nlword word="許容" valsi="o&apos;o" />
+<nlword word="我慢" valsi="o&apos;ocu&apos;i" />
+<nlword word="辛抱" valsi="o&apos;ocu&apos;i" />
+<nlword word="憤怒" valsi="o&apos;onai" />
+<nlword word="くつろぎ" valsi="o&apos;u" />
+<nlword word="平常心" valsi="o&apos;ucu&apos;i" />
+<nlword word="平静" valsi="o&apos;ucu&apos;i" />
+<nlword word="落ち着く" valsi="o&apos;ucu&apos;i" />
+<nlword word="ストレス" sense="心" valsi="o&apos;unai" />
+<nlword word="心配" valsi="o&apos;unai" />
+<nlword word="緊張" valsi="o&apos;unai" />
+<nlword word="不快" valsi="oi" />
+<nlword word="不満" valsi="oi" />
+<nlword word="快適" valsi="oinai" />
+<nlword word="公平" valsi="pa&apos;e" />
+<nlword word="公正" valsi="pa&apos;e" />
+<nlword word="偏見" valsi="pa&apos;enai" />
+<nlword word="贔屓" valsi="pa&apos;enai" />
+<nlword word="審判" valsi="pajnjalge" />
+<nlword word="判決" valsi="pajnyjalge" />
+<nlword word="サスペンダー" valsi="pakydadysri" />
+<nlword word="ズボンつり" valsi="pakydadysri" />
+<nlword word="ズボン吊り" valsi="pakydadysri" />
+<nlword word="吊りバンド" valsi="pakydadysri" />
+<nlword word="疑問符" valsi="pau" />
+<nlword word="？" valsi="pau" />
+<nlword word="修辞的疑問" valsi="paunai" />
+<nlword word="長男" valsi="pavmoibe&apos;a" />
+<nlword word="長女" valsi="pavmoiti&apos;u" />
+<nlword word="思考" valsi="pe&apos;i" />
+<nlword word="意見" valsi="pe&apos;i" />
+<nlword word="考え" valsi="pe&apos;i" />
+<nlword word="心態疑問" valsi="pei" />
+<nlword word="ペン" valsi="penbi" />
+<nlword word="筆" valsi="penbi" />
+<nlword word="思いやり" valsi="pesku&apos;i" />
+<nlword word="たった" sense="これだけ" valsi="po&apos;o" />
+<nlword word="だけ" valsi="po&apos;o" />
+<nlword word="ほんの" valsi="po&apos;o" />
+<nlword word="資本" valsi="pracmu" place="1" />
+<nlword word="大衆" valsi="prevrici" />
+<nlword word="塑像" valsi="prexra" />
+<nlword word="彫像" valsi="prexra" />
+<nlword word="肖像" valsi="prexra" />
+<nlword word="肖像画" valsi="prexra" />
+<nlword word="デジャヴ" sense="déjà-vu" valsi="prugastcica" />
+<nlword word="デジャヴュ" sense="déjà-vu" valsi="prugastcica" />
+<nlword word="既視感" sense="déjà-vu" valsi="prugastcica" />
+<nlword word="特に" valsi="ra&apos;u" />
+<nlword word="同様に" valsi="ra&apos;ucu&apos;i" />
+<nlword word="ついでながら" valsi="ra&apos;unai" />
+<nlword word="原子" sense="化学" valsi="ratyjbama" />
+<nlword word="原子爆弾" sense="爆弾" valsi="ratyjbama" />
+<nlword word="核" sense="化学" valsi="ratyjbama" />
+<nlword word="爆発" sense="化学" valsi="ratyjbama" />
+<nlword word="崇拝" valsi="re&apos;e" />
+<nlword word="冒涜" valsi="re&apos;enai" />
+<nlword word="二重丸" valsi="relcuktai" place="1" />
+<nlword word="人殺し" sense="加害者" valsi="remcatra" place="1" />
+<nlword word="加害者" sense="殺人" valsi="remcatra" />
+<nlword word="害者" sense="殺人被害者" valsi="remcatra" place="2" />
+<nlword word="手口" sense="殺人" valsi="remcatra" place="3" />
+<nlword word="害者" sense="殺人" valsi="remselcatra" place="1" />
+<nlword word="殺す" sense="人" valsi="remselcatra" place="1" />
+<nlword word="殺人" valsi="remselcatra" place="3" />
+<nlword word="殺人する" valsi="remselcatra" place="3" />
+<nlword word="殺害" valsi="remselcatra" place="2" />
+<nlword word="殺害する" valsi="remselcatra" place="2" />
+<nlword word="被害者" sense="殺人" valsi="remselcatra" />
+<nlword word="ドラゴン" sense="神" valsi="resycei" />
+<nlword word="竜" sense="神" valsi="resycei" />
+<nlword word="龍" sense="神" valsi="resycei" />
+<nlword word="龍神" valsi="resycei" />
+<nlword word="ドラゴン" sense="想像上の動物" valsi="resycrida" />
+<nlword word="竜" sense="想像上の動物" valsi="resycrida" />
+<nlword word="龍" sense="想像上の動物" valsi="resycrida" />
+<nlword word="解放" sense="心態" valsi="ri&apos;e" />
+<nlword word="抑制" sense="心態" valsi="ri&apos;enai" />
+<nlword word="コメ" sense="穀粒" valsi="rismi" place="1" />
+<nlword word="米" sense="穀粒" valsi="rismi" />
+<nlword word="のがれる" sense="避けて離れる" valsi="rivli&apos;a" />
+<nlword word="逃げる" sense="避けて離れる" valsi="rivli&apos;a" />
+<nlword word="逃亡" sense="避けて去る" valsi="rivli&apos;a" />
+<nlword word="社交" valsi="ro&apos;a" />
+<nlword word="反社会的" valsi="ro&apos;anai" />
+<nlword word="知的" valsi="ro&apos;e" />
+<nlword word="精神的" valsi="ro&apos;e" />
+<nlword word="非精神的" valsi="ro&apos;enai" />
+<nlword word="感情" valsi="ro&apos;i" />
+<nlword word="無情" valsi="ro&apos;inai" />
+<nlword word="身体的" valsi="ro&apos;o" />
+<nlword word="全" sense="議論領域内" valsi="ro&apos;oi" />
+<nlword word="非身体的" valsi="ro&apos;onai" />
+<nlword word="性的" valsi="ro&apos;u" />
+<nlword word="禁欲的" valsi="ro&apos;unai" />
+<nlword word="各駅停車" sense="列車" valsi="rolstire&apos;e" />
+<nlword word="鈍行" sense="列車" valsi="rolstire&apos;e" />
+<nlword word="前提" valsi="ru&apos;a" />
+<nlword word="弱" valsi="ru&apos;e" />
+<nlword word="ザラザラ" valsi="rufsfe" />
+<nlword word="日本円" sense="金銭" valsi="rupnujupuje" />
+<nlword word="日本円" sense="金融" valsi="rupnujupuje" />
+<nlword word="日本円" sense="貨幣" valsi="rupnujupuje" />
+<nlword word="日本円" sense="通貨" valsi="rupnujupuje" />
+<nlword word="日本円" sense="日本" valsi="rupnujupuje" />
+<nlword word="編集挿入" valsi="sa&apos;a" />
+<nlword word="精確" valsi="sa&apos;e" />
+<nlword word="不精確" valsi="sa&apos;enai" />
+<nlword word="簡潔" valsi="sa&apos;u" />
+<nlword word="厳密" valsi="sa&apos;unai" />
+<nlword word="強" valsi="sai" />
+<nlword word="独立" valsi="se&apos;a" />
+<nlword word="自己充足" valsi="se&apos;a" />
+<nlword word="自立" valsi="se&apos;a" />
+<nlword word="依存" valsi="se&apos;anai" />
+<nlword word="自己本位" valsi="se&apos;i" />
+<nlword word="他人本位" valsi="se&apos;inai" />
+<nlword word="内面的知" valsi="se&apos;o" />
+<nlword word="勘" valsi="se&apos;o" />
+<nlword word="悟り" valsi="se&apos;o" />
+<nlword word="表現" sense="文字列" valsi="sedu&apos;u" />
+<nlword word="タグ" sense="述語のタグ" valsi="selbritcita" />
+<nlword word="述語のタグ" valsi="selbritcita" />
+<nlword word="暗号化する" sense="暗号" valsi="selmifybi&apos;o" />
+<nlword word="貯蓄する" valsi="selsrodi&apos;i" />
+<nlword word="貯金する" valsi="selsrodi&apos;i" />
+<nlword word="自問自答" valsi="sezreispu" />
+<nlword word="同様" valsi="si&apos;a" />
+<nlword word="うってかわって" valsi="si&apos;anai" />
 <nlword word="同志" valsi="sibykansa" place="1" />
-<nlword word="休息" valsi="a&apos;inai" />
-<nlword word="五言律詩" valsi="mumvlabivli&apos;i" place="1" />
-<nlword word="Xe" sense="キセノン" valsi="fangynavni" />
-<nlword word="キセノン" valsi="fangynavni" place="1" />
-<nlword word="尊敬" valsi="io" />
-<nlword word="政党" sense="議会政党" valsi="flajecyxlube&apos;e" />
-<nlword word="議会政党" valsi="flajecyxlube&apos;e" />
+<nlword word="西風" valsi="sicybi&apos;e" />
+<nlword word="公開鍵" sense="暗号" valsi="sivyckiku" />
+<nlword word="秘密鍵" sense="暗号" valsi="sivyckiku" />
+<nlword word="ぱっち" sense="下着" valsi="sivypalku" />
+<nlword word="ももひき" sense="下着" valsi="sivypalku" />
+<nlword word="ショーツ" sense="下着" valsi="sivypalku" />
+<nlword word="ステテコ" valsi="sivypalku" />
+<nlword word="ステテコ" sense="下着" valsi="sivypalku" />
+<nlword word="スパッツ" sense="下着" valsi="sivypalku" />
+<nlword word="ズボン下" valsi="sivypalku" />
+<nlword word="ズボン下" sense="下着" valsi="sivypalku" />
+<nlword word="ズロース" sense="下着" valsi="sivypalku" />
+<nlword word="トランクス" sense="下着" valsi="sivypalku" />
+<nlword word="パッチ" sense="下着" valsi="sivypalku" />
+<nlword word="パンツ" sense="下着" valsi="sivypalku" />
+<nlword word="パンティ" sense="下着" valsi="sivypalku" />
+<nlword word="パンティー" sense="下着" valsi="sivypalku" />
+<nlword word="ブリーフ" sense="下着" valsi="sivypalku" />
+<nlword word="ボクサーパンツ" sense="下着" valsi="sivypalku" />
+<nlword word="猿股" valsi="sivypalku" />
+<nlword word="猿股" sense="下着" valsi="sivypalku" />
+<nlword word="申又" sense="下着" valsi="sivypalku" />
+<nlword word="申又" valsi="sivypalku" />
+<nlword word="股引" sense="下着" valsi="sivypalku" />
+<nlword word="ダイズ" sense="豆粒" valsi="sobde" place="1" />
+<nlword word="大豆" sense="豆粒" valsi="sobde" />
+<nlword word="He" sense="ヘリウム" valsi="solnavni" />
+<nlword word="ヘリウム" valsi="solnavni" place="1" />
+<nlword word="モロコシ" sense="穀粒" valsi="sorgu" place="1" />
+<nlword word="蜀黍" sense="穀粒" valsi="sorgu" />
+<nlword word="バス" sense="乗り物" valsi="sorprekarce" />
+<nlword word="一般には" valsi="su&apos;a" />
+<nlword word="特殊化" valsi="su&apos;anai" />
+<nlword word="存在" sense="議論領域内" valsi="su&apos;oi" />
+<nlword word="タグ" sense="項のタグ" valsi="sumtcita" />
+<nlword word="項のタグ" valsi="sumtcita" />
+<nlword word="東風" valsi="sunbi&apos;e" />
+<nlword word="ところで" valsi="ta&apos;o" />
+<nlword word="余談" valsi="ta&apos;o" />
+<nlword word="逸脱" valsi="ta&apos;o" />
+<nlword word="回帰" valsi="ta&apos;onai" />
+<nlword word="閑話休題" valsi="ta&apos;onai" />
+<nlword word="展開" sense="tanru" valsi="ta&apos;u" />
+<nlword word="造成" sense="tanru" valsi="ta&apos;unai" />
+<nlword word="弁当" sense="容器" valsi="tanxebentou" />
+<nlword word="村" sense="町村区" valsi="tcapau" />
+<nlword word="町" sense="町村区" valsi="tcapau" />
+<nlword word="町村区" valsi="tcapau" />
+<nlword word="稜" sense="多面体の" valsi="terkubli" />
+<nlword word="辺" sense="多面体の" valsi="terkubli" />
+<nlword word="面" sense="多面体の" valsi="terkubli" />
+<nlword word="頂点" sense="多面体の" valsi="terkubli" />
+<nlword word="暗号鍵" sense="暗号" valsi="termifckiku" />
+<nlword word="鍵" sense="暗号" valsi="termifckiku" />
+<nlword word="そうだ" sense="伝聞" valsi="ti&apos;e" />
+<nlword word="らしい" sense="伝聞" valsi="ti&apos;e" />
+<nlword word="伝聞" valsi="ti&apos;e" />
+<nlword word="見聞" valsi="ti&apos;e" />
+<nlword word="チャンネル" sense="映像通信" valsi="tivni" place="3" />
+<nlword word="テレビ" sense="受信機" valsi="tivni" place="4" />
+<nlword word="放送" sense="映像通信" valsi="tivni" />
+<nlword word="放送局" sense="映像通信" valsi="tivni" place="1" />
+<nlword word="番組" sense="映像通信" valsi="tivni" place="2" />
+<nlword word="手短" valsi="to&apos;u" />
+<nlword word="全容" valsi="to&apos;unai" />
+<nlword word="不活性気体" sense="不活性ガス" valsi="tolfragapci" />
+<nlword word="無理数" sense="実数" valsi="tolfrinyna&apos;u" />
+<nlword word="平文" sense="暗号" valsi="tolmifybi&apos;o" />
+<nlword word="復号する" sense="暗号" valsi="tolmifybi&apos;o" />
+<nlword word="暗号文" sense="暗号" valsi="tolmifybi&apos;o" />
+<nlword word="イデオロギー" sense="政治理念" valsi="trusi&apos;o" />
+<nlword word="政治思想" valsi="trusi&apos;o" />
+<nlword word="政治理念" valsi="trusi&apos;o" />
+<nlword word="さくら" sense="桜" valsi="tsakura" />
+<nlword word="サクラ" sense="桜" valsi="tsakura" />
+<nlword word="桜" valsi="tsakura" />
+<nlword word="くるぶし" sense="足首" valsi="tupne&apos;o" />
 <nlword word="足首" valsi="tupne&apos;o" />
 <nlword word="踝" sense="足首" valsi="tupne&apos;o" />
-<nlword word="くるぶし" sense="足首" valsi="tupne&apos;o" />
+<nlword word="獲得" valsi="u&apos;a" />
+<nlword word="損失" valsi="u&apos;anai" />
+<nlword word="畏敬" valsi="u&apos;e" />
+<nlword word="平凡" valsi="u&apos;enai" />
+<nlword word="愉快" valsi="u&apos;i" />
+<nlword word="楽しい" valsi="u&apos;i" />
+<nlword word="面白い" valsi="u&apos;i" />
+<nlword word="退屈" valsi="u&apos;inai" />
+<nlword word="勇気" valsi="u&apos;o" />
+<nlword word="おそるおそる" valsi="u&apos;ocu&apos;i" />
+<nlword word="内気" valsi="u&apos;ocu&apos;i" />
+<nlword word="臆病" valsi="u&apos;onai" />
+<nlword word="後悔" valsi="u&apos;u" />
+<nlword word="残念" valsi="u&apos;u" />
+<nlword word="遺憾" valsi="u&apos;u" />
+<nlword word="潔白" valsi="u&apos;ucu&apos;i" />
+<nlword word="無実" valsi="u&apos;ucu&apos;i" />
+<nlword word="悪意" valsi="u&apos;unai" />
+<nlword word="気づく" valsi="ua" />
+<nlword word="発見" valsi="ua" />
+<nlword word="模索" valsi="uanai" />
+<nlword word="びっくりする" valsi="ue" />
+<nlword word="驚く" valsi="ue" />
+<nlword word="驚嘆" valsi="ue" />
+<nlword word="平然" valsi="uecu&apos;i" />
+<nlword word="無動揺" valsi="uecu&apos;i" />
+<nlword word="覚悟" valsi="uenai" />
+<nlword word="幸せ" valsi="ui" />
+<nlword word="幸福" valsi="ui" />
+<nlword word="悲嘆" valsi="uinai" />
+<nlword word="完了" valsi="uo" />
+<nlword word="完全" valsi="uo" />
+<nlword word="完成" valsi="uo" />
+<nlword word="不十分" valsi="uonai" />
+<nlword word="不完全" valsi="uonai" />
+<nlword word="未了" valsi="uonai" />
+<nlword word="未完成" valsi="uonai" />
+<nlword word="同情" valsi="uu" />
+<nlword word="哀れむ" valsi="uu" />
+<nlword word="哀憫" valsi="uu" />
+<nlword word="酷虐" valsi="uunai" />
+<nlword word="別の言葉で言えば" valsi="va&apos;i" />
+<nlword word="換言" valsi="va&apos;i" />
+<nlword word="言い換えると" valsi="va&apos;i" />
+<nlword word="お言葉を返すようですが" valsi="va&apos;inai" />
+<nlword word="他に言いようがない" valsi="va&apos;inai" />
+<nlword word="うる" sense="売る" valsi="vecnu" />
+<nlword word="はんばい" sense="販売" valsi="vecnu" />
+<nlword word="品物／商品" valsi="vecnu" place="2" />
+<nlword word="売り手／販売員" valsi="vecnu" place="1" />
+<nlword word="売る" valsi="vecnu" />
+<nlword word="売買" valsi="vecnu" />
+<nlword word="販売" valsi="vecnu" />
+<nlword word="販売員" valsi="vecnu" />
+<nlword word="買い手／購入者" valsi="vecnu" place="3" />
+<nlword word="費用（額）／出費（額）" valsi="vecnu" place="4" />
+<nlword word="保育" valsi="verku&apos;i" />
+<nlword word="保育士" valsi="verku&apos;i" />
+<nlword word="保育園" valsi="verku&apos;istu" />
+<nlword word="保育所" valsi="verku&apos;istu" place="1" />
+<nlword word="保育所の保育士" valsi="verku&apos;istu" place="3" />
+<nlword word="保育所の子供" valsi="verku&apos;istu" place="2" />
+<nlword word="お手洗い" sense="トイレの部屋" valsi="vimku&apos;a" />
+<nlword word="トイレ" sense="トイレの部屋" valsi="vimku&apos;a" />
+<nlword word="便所" valsi="vimku&apos;a" />
+<nlword word="化粧室" sense="トイレの部屋" valsi="vimku&apos;a" />
+<nlword word="厠" valsi="vimku&apos;a" />
+<nlword word="おしめ" valsi="vimsivypalku" />
+<nlword word="おむつ" valsi="vimsivypalku" />
+<nlword word="オシメ" valsi="vimsivypalku" />
+<nlword word="オムツ" valsi="vimsivypalku" />
+<nlword word="感染" sense="医学" valsi="virparji" />
+<nlword word="罹患" sense="医学" valsi="virparji" />
+<nlword word="徳" valsi="vu&apos;e" />
+<nlword word="誉れ" valsi="vu&apos;e" />
+<nlword word="穢れ" valsi="vu&apos;enai" />
+<nlword word="罪" valsi="vu&apos;enai" />
+<nlword word="制限対象" sense="身体障害があるため制限を受ける事" valsi="xadri&apos;u" place="3" />
+<nlword word="身体障がいのある人" valsi="xadri&apos;u" />
+<nlword word="身体障がいのある方" valsi="xadri&apos;u" />
+<nlword word="身体障がい児" sense="身体障がい者" valsi="xadri&apos;u" />
+<nlword word="身体障がい者" valsi="xadri&apos;u" />
+<nlword word="身体障害" valsi="xadri&apos;u" place="2" />
+<nlword word="身体障害児" sense="身体障害者" valsi="xadri&apos;u" />
+<nlword word="身体障害者" valsi="xadri&apos;u" place="1" />
+<nlword word="身体障碍者" valsi="xadri&apos;u" />
+<nlword word="両者" valsi="xai" />
+<nlword word="彼ら" valsi="xai" />
+<nlword word="皆" valsi="xai" />
+<nlword word="すてきだ" valsi="xamgu" />
+<nlword word="よい" valsi="xamgu" />
+<nlword word="利益" valsi="xamgu" place="1" />
+<nlword word="役に立つ" valsi="xamgu" />
+<nlword word="良い" valsi="xamgu" />
+<nlword word="手をつなぐ" valsi="xanjaisi&apos;u" />
+<nlword word="手を取り合う" valsi="xanjaisi&apos;u" />
+<nlword word="手を取る" sense="手を取り合う" valsi="xanjaisi&apos;u" />
+<nlword word="手を握り合う" valsi="xanjaisi&apos;u" />
+<nlword word="手を握る" sense="手を握り合う" valsi="xanjaisi&apos;u" />
+<nlword word="握手" valsi="xanjaisi&apos;u" />
+<nlword word="幻" valsi="xanri" />
+<nlword word="幻想" valsi="xanri" />
+<nlword word="想像する" sense="空想" valsi="xanri" place="2" />
+<nlword word="架空" valsi="xanri" />
+<nlword word="非現実" valsi="xanri" place="1" />
+<nlword word="ある数" valsi="xo&apos;e" />
+<nlword word="不特定の数" valsi="xo&apos;e" />
+<nlword word="絵本" valsi="xracku" />
+<nlword word="かえる" sense="帰る、帰っていく／帰ってくる" valsi="xrukla" />
+<nlword word="もどる" sense="戻る、戻っていく／戻ってくる" valsi="xrukla" />
+<nlword word="帰っていく" valsi="xrukla" />
+<nlword word="帰ってくる" valsi="xrukla" />
+<nlword word="帰る" sense="帰っていく／帰ってくる" valsi="xrukla" />
+<nlword word="戻っていく" valsi="xrukla" />
+<nlword word="戻ってくる" valsi="xrukla" />
+<nlword word="戻る" sense="戻っていく／戻ってくる" valsi="xrukla" />
+<nlword word="真偽質問" valsi="xu" />
+<nlword word="観察" valsi="za&apos;a" />
+<nlword word="宿泊" valsi="zasxa&apos;u" />
+<nlword word="宿泊者" valsi="zasxa&apos;u" place="1" />
+<nlword word="泊まる" valsi="zasxa&apos;u" />
+<nlword word="滞在" valsi="zasxa&apos;u" />
+<nlword word="七言律詩" valsi="zelvlabivli&apos;i" place="1" />
+<nlword word="七言絶句" valsi="zelvlavonli&apos;i" place="1" />
+<nlword word="じゆう" sense="自由" valsi="zifre" />
+<nlword word="自由" valsi="zifre" />
+<nlword word="冗談" valsi="zo&apos;o" />
+<nlword word="厳粛" valsi="zo&apos;onai" />
+<nlword word="一方で" valsi="zu&apos;u" />
+<nlword word="もう一方で" valsi="zu&apos;unai" />
+<nlword word="他方で" valsi="zu&apos;unai" />
+<nlword word="トウモロコシ" sense="穀粒" valsi="zumri" place="1" />
+<nlword word="玉蜀黍" sense="穀粒" valsi="zumri" />
 </direction></dictionary>
 
 

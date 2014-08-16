@@ -30,6 +30,7 @@
   <definition>$x_1$ estas banano/bananarbo [frukto/planto] de speco/raso $x_2$</definition>
   <definitionid>2441</definitionid>
   <notes>Vidu ankaŭ&quot;grute&quot;.</notes>
+  <glossword word="banano" />
   <keyword word="banano" place="1" />
   <keyword word="banana speco" place="2" />
 </valsi>
@@ -502,6 +503,7 @@
   <definition>$x_{1}$ portas/trenas/transportas ŝarĝon/kargon $x_{2}$ al $x_{3}$ de $x_{4}$ tra vojo $x_{5}$; $x_{1}$ estas portisto</definition>
   <definitionid>2831</definitionid>
   <notes>Aliproprigo el $x_2$ al $x_3$ estas implicita.  Vidu ankaŭ {marce}, {muvdu}, {benji}, {klama}.</notes>
+  <glossword word="porti" />
 </valsi>
 <valsi word="bi" type="cmavo">
   <rafsi>biv</rafsi>
@@ -1014,6 +1016,7 @@
   <definition>$x_1$ estas nebulo el $x_2$ kovranta $x_3$-on</definition>
   <definitionid>15311</definitionid>
   <notes>{bumru} {gapci}</notes>
+  <glossword word="nebulo" />
 </valsi>
 <valsi word="bumru" type="gismu">
   <rafsi>bum</rafsi>
@@ -1024,7 +1027,7 @@
   <definition>$x_{1}$ estas nebula/kovrita de vaporo de likvo $x_{2}$</definition>
   <definitionid>2877</definitionid>
   <notes>Vidu ankaŭ {djacu}, {carvi}, {danmo}, {lunsa}, {tcima}, {gapci}.</notes>
-  <glossword word="nebulo" />
+  <glossword word="nebula" />
 </valsi>
 <valsi word="bunda" type="gismu">
   <rafsi>bud</rafsi>
@@ -1100,6 +1103,7 @@
   <definition>$x_{1}$ estas nuna je/dum/samtempa kun $x_{2}$</definition>
   <definitionid>2883</definitionid>
   <notes>(defaŭlte $x_2$ estas la nuno, rezultante en:) $x_1$ okazas nun; nur tempa rilato, samtempeco ne signifas ke unu okazo ne etendiĝas en la pasintecon aŭ ontecon de la alia. Vidu ankaŭ {zvati}, {balvi}, {purci}, cmavo {ca}, cmavo {ca&apos;a}.</notes>
+  <glossword word="nun" />
 </valsi>
 <valsi word="cabra" type="gismu">
   <rafsi>ca&apos;a</rafsi>
@@ -2105,6 +2109,10 @@
   </user>
   <definition>$x_1$ estas ŝlosilo por ŝloso $x_2$ kaj havas proprojn $x_3$</definition>
   <definitionid>2448</definitionid>
+  <glossword word="ŝlosilo" />
+  <keyword word="ŝlosilo" place="1" />
+  <keyword word="ŝloso" place="2" />
+  <keyword word="ŝlosilaj proproj" place="3" />
 </valsi>
 <valsi word="ckilu" type="gismu">
   <rafsi>ci&apos;u</rafsi>
@@ -2867,6 +2875,7 @@
   <definition>$x_{1}$ estas pura/unusubstanca/absoluta/simpla en eco $x_{2}$ (ka)</definition>
   <definitionid>3044</definitionid>
   <notes>$x_1$ estas simple/pure/senmodere/sole $x_2$.  Vidu ankaŭ {prane}, {jinsa}, {manfo}, {sampu}, {sepli}, {traji}, {lumci}, {xukmi}.</notes>
+  <glossword word="pura" />
 </valsi>
 <valsi word="cusku" type="gismu">
   <rafsi>cus</rafsi>
@@ -4022,8 +4031,6 @@
   <definition>Pardonon!/Pardonu min!/Mi pardonpetas!</definition>
   <definitionid>42549</definitionid>
   <notes>vd. {fraxu}, {u&apos;u}.</notes>
-  <glossword word="Pardonu min!" />
-  <glossword word="Pardonon!" />
   <glossword word="Pardonu min!" sense="vokativo" />
   <glossword word="Pardonon!" sense="vokativo" />
 </valsi>
@@ -7225,6 +7232,7 @@
   <definitionid>36733</definitionid>
   <notes>Kp. {kulnrkurdi}, {bangrkurdi}, {xazdo}, {tu&apos;urki}, {rakso}.</notes>
   <glossword word="kurda" />
+  <keyword word="kurda" place="1" />
 </valsi>
 <valsi word="kubli" type="gismu">
   <rafsi>kub</rafsi>
@@ -8265,6 +8273,7 @@
   <definition>$x_1$ estas marcipano/enhavas marcipanon de speco/marko $x_2$</definition>
   <definitionid>20644</definitionid>
   <notes>Vidu ankaŭ {titspi}, {smela}.</notes>
+  <glossword word="marcipano" />
   <keyword word="marcipano" place="1" />
   <keyword word="marcipanspeco" place="2" />
 </valsi>
@@ -9536,8 +9545,8 @@
   <definition>$x_1$ montras norvegan kulturon/naciecon/lingvon laŭ aspekto $x_2$</definition>
   <definitionid>18080</definitionid>
   <notes>Neoficiala radiko</notes>
-  <glossword word="norvega" sense="popolo" />
   <glossword word="Norvegio" sense="lando" />
+  <glossword word="norvega" sense="popolo" />
 </valsi>
 <valsi word="notci" type="gismu">
   <rafsi>not</rafsi>
@@ -10481,6 +10490,7 @@
   <definition>$x_{1}$ amas $x_{2}$-on (objekto/stato)</definition>
   <definitionid>3725</definitionid>
   <notes>Ankaŭ: $x_1$ estas ama al $x_2$, $x_1$ estas amanto de $x_2$ (unu senco), $x_2$ estas amata de $x_1$ (= selpa&apos;i por reordigitaj {lokoj}).  Vidu ankaŭ {cinmo}, {xebni}, {nelci}, {djica}, {sinma}, {pluka}, {kurji}, {pendo}, {speni}.</notes>
+  <glossword word="ami" />
 </valsi>
 <valsi word="prane" type="gismu">
   <rafsi>pa&apos;e</rafsi>
@@ -10758,6 +10768,7 @@
   <definition>$x_{1}$ estas trans/aliflanke de breĉo/limo $x_{2}$ ekde $x_{3}$</definition>
   <definitionid>3751</definitionid>
   <notes>ĝuste trans limo/breĉo, ĝenerale je distanco kiel eble plej mallonga trans la limo.  Vidu ankaŭ {dukti}, {kuspe}, {bancu}, {kruca}, {cripu}, {pagre}.</notes>
+  <glossword word="trans" />
 </valsi>
 <valsi word="rakso" type="gismu">
   <user>
@@ -14804,6 +14815,7 @@
   <definition>$x_1$ (aganto) redonas $x_2$-on al elira/antaŭa stato $x_3$ elde $x_4$; $x_2$ revenas/reiras al $x_3$ de $x_4$</definition>
   <definitionid>52840</definitionid>
   <notes>x3 povas esti loko aŭ homo aŭ okazo/situacio; tiu lasta povas ankaŭ esti esprimata per {krefu} aŭ {rapli} kaj kaŭzativo kiel {rinka}/{rikygau})). Vidu ankaŭ {benji}, {krefu}, {rapli}, {rinka}.</notes>
+  <glossword word="redoni" />
 </valsi>
 <valsi word="vorme" type="gismu">
   <rafsi>vor</rafsi>
@@ -14926,6 +14938,7 @@
   <definition>$x_1$ estas Hansa/Hansana/apartenas al la Hansa Ligo laŭ aspekto $x_2$</definition>
   <definitionid>20642</definitionid>
   <notes>Vidu ankaŭ {canja}, {bijgri}, {bloti}, {dotco}, {baurnudusu}.</notes>
+  <glossword word="Hansa" />
   <keyword word="Hansa" place="1" />
 </valsi>
 <valsi word="xabju" type="gismu">
@@ -16019,1463 +16032,1463 @@
   <notes>Momenta pozicio de movebla objekto/ago.  (kp. precipe stuzi por esenca/nealiigebla loko, jbini, nenri, se vasru, cpana, diklo, jibni, cabna, lamji, tcini, xabju, jmive, jundi, vitke)</notes>
   <glossword word="ĉeesti" />
 </valsi>
-</direction><direction from="Esperanto" to="lojban"><nlword word="intesto" valsi="canti" />
-<nlword word="kompleta" valsi="mulno" />
-<nlword word="detrui" valsi="daspo" />
-<nlword word="aĉa" valsi="mabla" />
-<nlword word="konfuzi" valsi="cfipu" />
-<nlword word="trinkejo" valsi="barja" />
-<nlword word="fiŝo" valsi="finpe" />
-<nlword word="tragedia" valsi="betri" />
-<nlword word="arbo" valsi="tricu" />
-<nlword word="varii" valsi="cenba" />
-<nlword word="sulfuro" valsi="sliri" />
-<nlword word="patro" valsi="patfu" />
-<nlword word="fadeno" valsi="cilta" />
-<nlword word="truo" valsi="kevna" />
-<nlword word="averti" valsi="kajde" />
-<nlword word="traduki" valsi="fanva" />
-<nlword word="kaŭĉuko" valsi="ckabu" />
-<nlword word="sekalo" valsi="mraji" />
-<nlword word="tirkesto" valsi="dacru" />
-<nlword word="motivo" valsi="mukti" />
-<nlword word="specifa" valsi="steci" />
-<nlword word="spico" valsi="tsapi" />
-<nlword word="brulaĵo" valsi="livla" />
-<nlword word="grimaci" valsi="frumu" />
-<nlword word="scii" valsi="djuno" />
-<nlword word="oro" valsi="solji" />
-<nlword word="meti" valsi="punji" />
-<nlword word="suko" valsi="jisra" />
-<nlword word="iraka" valsi="rakso" />
-<nlword word="kristana" valsi="xriso" />
-<nlword word="eksplodi" valsi="spoja" />
-<nlword word="aldoni" valsi="jmina" />
-<nlword word="4-a revicigo" valsi="ve" />
-<nlword word="ekgrupigo" valsi="ke" />
-<nlword word="hufo" valsi="sufti" />
-<nlword word="uzino" valsi="fanri" />
-<nlword word="insulo" valsi="daplu" />
-<nlword word="genuo" valsi="cidni" />
-<nlword word="grasa" valsi="plana" />
-<nlword word="metalo" valsi="jinme" />
-<nlword word="ĝi-8" valsi="fo&apos;i" />
-<nlword word="nomo" valsi="cmene" />
-<nlword word="gudro" valsi="tarla" />
-<nlword word="ŝultro" valsi="janco" />
-<nlword word="permesi" valsi="curmi" />
-<nlword word="neĝo" valsi="snime" />
-<nlword word="aparta" valsi="sepli" />
-<nlword word="pantalono" valsi="palku" />
-<nlword word="urbo" valsi="tcadu" />
-<nlword word="kristalo" valsi="krili" />
-<nlword word="lino" valsi="matli" />
-<nlword word="taŭgi" valsi="mapti" />
-<nlword word="radiko" valsi="genja" />
-<nlword word="cilindro" valsi="slanu" />
-<nlword word="plasto" valsi="slasi" />
-<nlword word="kirli" valsi="jicla" />
-<nlword word="hebrea" valsi="xebro" />
-<nlword word="horo [kioma]" valsi="tcika" />
-<nlword word="flanko" valsi="mlana" />
-<nlword word="biero" valsi="birje" />
-<nlword word="egali" valsi="dunli" />
-<nlword word="kompati" valsi="kecti" />
-<nlword word="danĝera" valsi="ckape" />
-<nlword word="kolo" valsi="cnebo" />
-<nlword word="saŭco" valsi="sanso" />
-<nlword word="ŝimo" valsi="mledi" />
-<nlword word="banano" valsi="badna" place="1" />
+</direction><direction from="Esperanto" to="lojban"><nlword word="klerismo" valsi="aufklerunge" />
+<nlword word="eldiranto" valsi="bacru" place="1" />
+<nlword word="eldiri" valsi="bacru" />
+<nlword word="eldiro" valsi="bacru" place="2" />
 <nlword word="banana speco" valsi="badna" place="2" />
-<nlword word="preni" valsi="lebna" />
-<nlword word="lando" valsi="gugde" />
-<nlword word="ŝelo" valsi="calku" />
-<nlword word="rivero" valsi="rirxe" />
-<nlword word="fikcio" valsi="cfika" />
-<nlword word="skio" valsi="skiji" />
-<nlword word="konuso" valsi="konju" />
-<nlword word="alĝeria" valsi="jerxo" />
-<nlword word="ataki" valsi="gunta" />
-<nlword word="fekunda" valsi="ferti" />
-<nlword word="interrompi" valsi="dicra" />
-<nlword word="ĉiam" valsi="ze&apos;e" />
-<nlword word="brizo" valsi="brife" />
-<nlword word="ido" valsi="panzi" />
-<nlword word="mezo" valsi="midju" />
-<nlword word="surfaco" valsi="sefta" />
-<nlword word="tulipo" valsi="tujli" />
-<nlword word="preter" valsi="zo&apos;a" />
-<nlword word="kaŭzi" valsi="rinka" />
-<nlword word="tegmento" valsi="drudi" />
-<nlword word="greno" valsi="gurni" />
-<nlword word="turniĝi" valsi="carna" />
-<nlword word="tago" valsi="donri" />
-<nlword word="boli" valsi="febvi" />
-<nlword word="fojoj" valsi="roi" />
-<nlword word="elasta" valsi="pruni" />
-<nlword word="vulpo" valsi="lorxu" />
-<nlword word="talenta" valsi="stati" />
-<nlword word="dekstra" valsi="pritu" />
-<nlword word="bezoni" valsi="nitcu" />
-<nlword word="grado" valsi="gradu" />
-<nlword word="ironio" valsi="ranxi" />
-<nlword word="aŭtoritato" valsi="catni" />
-<nlword word="predikata varianto 4" valsi="brodo" />
-<nlword word="sorgo" valsi="sorgu" />
-<nlword word="freŝa" valsi="vifne" />
-<nlword word="sovaĝa" valsi="cilce" />
-<nlword word="malamiko" valsi="bradi" />
-<nlword word="eniri" valsi="nerkla" />
-<nlword word="embrio" valsi="tarbi" />
-<nlword word="modifi" valsi="galfi" />
-<nlword word="lumo" valsi="gusni" />
-<nlword word="ĉemizo" valsi="creka" />
-<nlword word="aviadilo" valsi="vinji" />
-<nlword word="nombri" valsi="kancu" />
-<nlword word="multa" valsi="mutce" />
-<nlword word="diplomato" valsi="jansu" />
-<nlword word="vagino" valsi="vibna" />
-<nlword word="pli" valsi="zmadu" />
-<nlword word="tritiko" valsi="maxri" />
-<nlword word="distri" valsi="zdile" />
-<nlword word="studi" valsi="tadni" />
-<nlword word="vitro" valsi="blaci" />
-<nlword word="karbo" valsi="kolme" />
-<nlword word="regi" valsi="jitro" />
-<nlword word="saŭdaraba" valsi="sadjo" />
-<nlword word="limo" valsi="jimte" />
-<nlword word="purpura" valsi="zirpu" />
-<nlword word="viskoza" valsi="viknu" />
-<nlword word="perdi" valsi="cirko" />
-<nlword word="porko" valsi="xarju" />
-<nlword word="kreto" valsi="bakri" />
-<nlword word="generi" valsi="rorci" />
-<nlword word="abstraktilo de kvanto" valsi="ni" />
-<nlword word="eksponencialo" valsi="tenfa" />
-<nlword word="inversa" valsi="fatne" />
-<nlword word="forko" valsi="forca" />
-<nlword word="antaŭurbo" valsi="jarbu" />
-<nlword word="preskaŭ ĉiu" valsi="so&apos;a" />
-<nlword word="anuso" valsi="ganxo" />
-<nlword word="marcipano" valsi="marsipane" place="1" />
-<nlword word="marcipanspeco" valsi="marsipane" place="2" />
-<nlword word="ebla" valsi="cumki" />
-<nlword word="ampero" valsi="xampo" />
-<nlword word="ŝuldi" valsi="dejni" />
-<nlword word="plani" valsi="platu" />
-<nlword word="unuforma" valsi="manfo" />
-<nlword word="kloro" valsi="kliru" />
-<nlword word="araneo" valsi="jukni" />
-<nlword word="sono" valsi="sance" />
-<nlword word="malplena" valsi="kunti" />
-<nlword word="rigida" valsi="tinsa" />
-<nlword word="balkono" valsi="balni" />
-<nlword word="interesi" valsi="cinri" />
-<nlword word="ekvilibra" valsi="lanxe" />
-<nlword word="gaja" valsi="gleki" />
-<nlword word="pisti" valsi="zalvi" />
-<nlword word="profito" valsi="prali" />
-<nlword word="prezo" valsi="jdima" />
-<nlword word="ripari" valsi="cikre" />
-<nlword word="pulmo" valsi="fepri" />
-<nlword word="malriĉa" valsi="pindi" />
-<nlword word="certa" valsi="birti" />
-<nlword word="papilio" valsi="toldi" />
-<nlword word="religio" valsi="lijda" />
-<nlword word="pliiĝi" valsi="zenba" />
-<nlword word="sezono" valsi="citsi" />
-<nlword word="serpento" valsi="since" />
-<nlword word="solviĝi" valsi="runta" />
-<nlword word="kun" valsi="kansa" />
-<nlword word="sufiĉa" valsi="banzu" />
-<nlword word="somero" valsi="crisa" />
-<nlword word="sub" valsi="cnita" />
-<nlword word="poemo" valsi="pemci" />
-<nlword word="atenti" valsi="jundi" />
-<nlword word="vertikala" valsi="sraji" />
-<nlword word="malseka" valsi="cilmo" />
-<nlword word="poŝo" valsi="daski" />
-<nlword word="are kun" valsi="ce" />
-<nlword word="tajdo" valsi="ctaru" />
-<nlword word="1E9 giga-" valsi="gigdo" />
-<nlword word="prizorgi" valsi="kurji" />
-<nlword word="nodo" valsi="jgena" />
-<nlword word="diferenci" valsi="frica" />
-<nlword word="iu selbri 1" valsi="bu&apos;a" />
-<nlword word="puni" valsi="sfasa" />
-<nlword word="danci" valsi="dansu" />
-<nlword word="folio" valsi="pezli" />
-<nlword word="ne" valsi="na" />
-<nlword word="polinezia" valsi="polno" />
-<nlword word="botelo" valsi="botpi" />
-<nlword word="ĉielo" valsi="tsani" />
-<nlword word="plonĝi" valsi="sfubu" />
-<nlword word="pubo" valsi="plibu" />
-<nlword word="meksika" valsi="mexno" />
-<nlword word="nova" valsi="cnino" />
-<nlword word="disvastiĝi" valsi="preja" />
-<nlword word="meleagro" valsi="xruki" />
-<nlword word="dramo" valsi="draci" />
-<nlword word="maldekstra" valsi="zunle" />
-<nlword word="veturilo" valsi="marce" />
-<nlword word="MEX matematika esprimo" valsi="mekso" />
-<nlword word="doloriĝi" valsi="cortu" />
-<nlword word="kato" valsi="mlatu" />
-<nlword word="4 kvar" valsi="vo" />
-<nlword word="bileto" valsi="pikta" />
-<nlword word="homo" valsi="remna" />
-<nlword word="estinta" valsi="purci" />
-<nlword word="najlo" valsi="dinko" />
-<nlword word="stari" valsi="sanli" />
-<nlword word="rizo" valsi="rismi" />
-<nlword word="mejlo" valsi="minli" />
-<nlword word="mineralo" valsi="kunra" />
-<nlword word="glata" valsi="xutla" />
-<nlword word="mano" valsi="xance" />
-<nlword word="petrolo" valsi="ctile" />
-<nlword word="branĉo" valsi="jimca" />
-<nlword word="ĉasi" valsi="kalte" />
-<nlword word="pakistana" valsi="kisto" />
-<nlword word="ligilo" valsi="bo" />
-<nlword word="sandviĉo" valsi="snuji" />
-<nlword word="abstraktilo de punkt-okazo" valsi="mu&apos;e" />
-<nlword word="salo" valsi="silna" />
-<nlword word="cedi" valsi="randa" />
-<nlword word="seka" valsi="sudga" />
-<nlword word="povi" valsi="kakne" />
-<nlword word="vulvo" valsi="vlagi" />
-<nlword word="tono" valsi="tonga" />
-<nlword word="amelo" valsi="jalna" />
-<nlword word="0 nul" valsi="no" />
-<nlword word="membro" valsi="cmima" />
-<nlword word="fari" valsi="gasnu" />
-<nlword word="logiko" valsi="logji" />
-<nlword word="servi" valsi="selfu" />
-<nlword word="1E6 mega-" valsi="megdo" />
-<nlword word="milda" valsi="milxe" />
-<nlword word="brava" valsi="virnu" />
-<nlword word="ekzemplo" valsi="mupli" />
-<nlword word="kromo [elemento]" valsi="romge" />
-<nlword word="kapo" valsi="stedu" />
-<nlword word="monato" valsi="masti" />
-<nlword word="konita" valsi="slabu" />
-<nlword word="proksima" valsi="jibni" />
-<nlword word="infano" valsi="verba" />
-<nlword word="preciza" valsi="satci" />
-<nlword word="kunigita" valsi="jorne" />
-<nlword word="brusto" valsi="cutne" />
-<nlword word="harmonia" valsi="sarxe" />
-<nlword word="perlabori" valsi="jerna" />
-<nlword word="sitelo" valsi="baktu" />
-<nlword word="armeo" valsi="jenmi" />
-<nlword word="ekster" valsi="bartu" />
-<nlword word="valoro" valsi="vamji" />
-<nlword word="pleniĝi" valsi="tisna" />
-<nlword word="krajono" valsi="pinsi" />
-<nlword word="gramatiko" valsi="gerna" />
-<nlword word="trumpeto" valsi="tabra" />
-<nlword word="jaro" valsi="nanca" />
-<nlword word="kulero" valsi="smuci" />
-<nlword word="amaso" valsi="derxi" />
-<nlword word="konduti" valsi="tarti" />
-<nlword word="karto" valsi="karda" />
-<nlword word="iĝi" valsi="binxo" />
-<nlword word="tranĉaĵo" valsi="panlo" />
-<nlword word="sur" valsi="cpana" />
-<nlword word="detalo" valsi="tcila" />
-<nlword word="intensa" valsi="carmi" />
-<nlword word="afikso" valsi="rafsi" />
-<nlword word="ĝusta" valsi="drani" />
-<nlword word="labori" valsi="gunka" />
-<nlword word="efektive" valsi="ca&apos;a" />
-<nlword word="foriri" valsi="cliva" />
-<nlword word="malbona" valsi="xlali" />
-<nlword word="kosmospaco" valsi="kensa" />
-<nlword word="varma" valsi="glare" />
-<nlword word="brita" valsi="brito" />
-<nlword word="tereno" valsi="tumla" />
-<nlword word="surprizi" valsi="spaji" />
-<nlword word="loĵbana" valsi="lojbo" />
-<nlword word="rando" valsi="korbi" />
-<nlword word="azeno" valsi="xasli" />
-<nlword word="ŝovi" valsi="catke" />
-<nlword word="malaj-indonezia" valsi="baxso" />
-<nlword word="decimala" valsi="saclu" />
-<nlword word="pato" valsi="tansi" />
-<nlword word="plumo" valsi="pimlu" />
-<nlword word="mordi" valsi="batci" />
-<nlword word="naĝi" valsi="limna" />
-<nlword word="vakso" valsi="lakse" />
-<nlword word="tranĉilo" valsi="dakfu" />
-<nlword word="specio" valsi="jutsi" />
-<nlword word="mesaĝo" valsi="notci" />
-<nlword word="modelo" valsi="morna" />
-<nlword word="klerismo" valsi="aufklerunge" />
-<nlword word="sama" valsi="mintu" />
-<nlword word="malstrikta" valsi="kluza" />
-<nlword word="ĝi-6" valsi="fo&apos;a" />
-<nlword word="ino" valsi="fetsi" />
-<nlword word="semajno" valsi="jeftu" />
-<nlword word="malo" valsi="dukti" />
-<nlword word="vosto" valsi="rebla" />
-<nlword word="okulo" valsi="kanla" />
-<nlword word="kelkaj" valsi="so&apos;o" />
-<nlword word="korpo" valsi="xadni" />
-<nlword word="saĝa" valsi="prije" />
-<nlword word="fremda" valsi="fange" />
-<nlword word="3-a revicigo" valsi="te" />
-<nlword word="paralela" valsi="panra" />
-<nlword word="10 deka-" valsi="dekto" />
-<nlword word="rikolti" valsi="crepu" />
-<nlword word="zinko" valsi="zinki" />
-<nlword word="ĉie" valsi="ve&apos;e" />
-<nlword word="mallarĝa" valsi="jarki" />
-<nlword word="usona" valsi="merko" />
-<nlword word="nuda" valsi="lunbe" />
-<nlword word="ŝafo" valsi="lanme" />
-<nlword word="nokto" valsi="nicte" />
-<nlword word="libro" valsi="cukta" />
-<nlword word="karakteriziĝi" valsi="ckaji" />
-<nlword word="virino" valsi="ninmu" />
-<nlword word="kvieta" valsi="cando" />
-<nlword word="maŝo" valsi="clupa" />
-<nlword word="erari" valsi="srera" />
-<nlword word="bido" valsi="bidju" />
-<nlword word="hispana" valsi="spano" />
-<nlword word="komuna" valsi="kampu" />
-<nlword word="provizora" valsi="zasni" />
-<nlword word="ilo" valsi="tutci" />
-<nlword word="natrio" valsi="sodna" />
-<nlword word="templo" valsi="malsi" />
-<nlword word="krusto" valsi="pilka" />
-<nlword word="malantaŭ" valsi="trixe" />
-<nlword word="konstanta" valsi="stodi" />
-<nlword word="perfekta" valsi="prane" />
-<nlword word="manĝi" valsi="citka" />
-<nlword word="sinuso" valsi="sinso" />
-<nlword word="kudri" valsi="fenso" />
-<nlword word="voĉo" valsi="voksa" />
-<nlword word="senlima" valsi="cimni" />
-<nlword word="fromaĝo" valsi="cirla" />
-<nlword word="kontentigi" valsi="mansa" />
-<nlword word="evolui" valsi="farvi" />
-<nlword word="elteni" valsi="renvi" />
-<nlword word="jehovisma" valsi="jegvo" />
-<nlword word="makulo" valsi="cfila" />
-<nlword word="matematiko" valsi="cmaci" />
-<nlword word="tuŝi" valsi="pencu" />
-<nlword word="adreso" valsi="judri" />
-<nlword word="imposto" valsi="cteki" />
-<nlword word="frikcio" valsi="mosra" />
-<nlword word="kruela" valsi="kusru" />
-<nlword word="kurbo" valsi="kruvi" />
-<nlword word="gajni" valsi="jinga" />
-<nlword word="mia" valsi="memimoi" />
-<nlword word="neŭtrala" valsi="nutli" />
-<nlword word="paniki" valsi="xalni" />
-<nlword word=".01 centi-" valsi="centi" />
-<nlword word="knabo" valsi="nanla" />
-<nlword word="respondeca" valsi="fuzme" />
-<nlword word="tamburo" valsi="damri" />
-<nlword word="patrino" valsi="mamta" />
-<nlword word="enmeti" valsi="setca" />
-<nlword word="gliti" valsi="sakli" />
-<nlword word="ne-" valsi="na&apos;e" />
-<nlword word="tolo" valsi="bukpu" />
-<nlword word="novaĵo" valsi="nuzba" />
-<nlword word="libia" valsi="libjo" />
-<nlword word="reprezenti" valsi="krati" />
-<nlword word="lingvo" valsi="bangu" />
-<nlword word="muro" valsi="bitmu" />
-<nlword word="plejmultaj" valsi="so&apos;e" />
-<nlword word="memori" valsi="morji" />
-<nlword word="grava" valsi="vajni" />
-<nlword word="industrio" valsi="gundi" />
-<nlword word="1E-18 ato-" valsi="xatsi" />
-<nlword word="peti" valsi="cpedu" />
-<nlword word="egale ĉu aŭ ne (tanru)" valsi="ju" />
-<nlword word="legomo" valsi="stagi" />
-<nlword word="ĉapo" valsi="mapku" />
-<nlword word="oficejo" valsi="briju" />
-<nlword word="apogi" valsi="sarji" />
-<nlword word="monto" valsi="cmana" />
-<nlword word="sperti" valsi="lifri" />
-<nlword word="alĝustigi" valsi="stika" />
-<nlword word="rekta" valsi="sirji" />
-<nlword word="kanti" valsi="sanga" />
-<nlword word="nemateria" valsi="mucti" />
-<nlword word="ukrainan" valsi="vukro" />
-<nlword word="eviti" valsi="rivbi" />
-<nlword word="malfrua" valsi="lerci" />
-<nlword word="interpunkcii" valsi="pandi" />
-<nlword word="gluti" valsi="tunlo" />
-<nlword word="silenta" valsi="smaji" />
-<nlword word="kremo" valsi="kruji" />
-<nlword word="frua" valsi="clira" />
-<nlword word="alkalo" valsi="jilka" />
-<nlword word="argumento" valsi="sumti" />
-<nlword word="sango" valsi="ciblu" />
-<nlword word="moroka" valsi="morko" />
-<nlword word="Svedujo" valsi="sferies" />
-<nlword word="peza" valsi="tilju" />
-<nlword word=".001 mili-" valsi="milti" />
-<nlword word="nordo" valsi="berti" />
-<nlword word="angulo [dudimensia]" valsi="jganu" />
-<nlword word="urso" valsi="cribe" />
-<nlword word="leĝo" valsi="flalu" />
-<nlword word="steradiano" valsi="stero" />
-<nlword word="maizo" valsi="zumri" />
-<nlword word="ŝajni" valsi="simlu" />
-<nlword word="atendi" valsi="denpa" />
-<nlword word="nespecifa bridi" valsi="co&apos;e" />
-<nlword word="muŝo" valsi="sfani" />
-<nlword word="alkoholo" valsi="xalka" />
-<nlword word="mal-" valsi="to&apos;e" />
-<nlword word="bloko" valsi="bliku" />
-<nlword word="poluri" valsi="spali" />
-<nlword word="lito" valsi="ckana" />
-<nlword word="ekscii" valsi="facki" />
-<nlword word="sukcesi" valsi="snada" />
-<nlword word="flago" valsi="lanci" />
-<nlword word="reagi" valsi="frati" />
-<nlword word="nevica interspaco" valsi="bi&apos;i" />
-<nlword word="horloĝo" valsi="junla" />
-<nlword word="predikata varianto 3" valsi="brodi" />
-<nlword word="persono" valsi="prenu" />
-<nlword word="ankoraŭ" valsi="za&apos;o" />
-<nlword word="kuri" valsi="bajra" />
-<nlword word="egipta" valsi="misro" />
-<nlword word="abstraktilo de ago" valsi="zu&apos;o" />
-<nlword word="kubuto" valsi="gutci" />
-<nlword word="arĝento" valsi="rijno" />
-<nlword word="plumbo" valsi="cnisa" />
-<nlword word="ekrano" valsi="vidni" />
-<nlword word="ebeno" valsi="plita" />
-<nlword word="moralo" valsi="marde" />
-<nlword word="serioza" valsi="junri" />
-<nlword word="reteni" valsi="ralte" />
-<nlword word="nerealigita potencialo" valsi="nu&apos;o" />
-<nlword word="tiu" valsi="ta" />
-<nlword word="abelo" valsi="bifce" />
-<nlword word="frazo" valsi="jufra" />
-<nlword word="bruli" valsi="jelca" />
-<nlword word="renkonti" valsi="penmi" />
-<nlword word="polvo" valsi="pulce" />
-<nlword word="jako" valsi="kosta" />
-<nlword word="2 du" valsi="re" />
-<nlword word="apud" valsi="lamji" />
-<nlword word="latina" valsi="latmo" />
-<nlword word="posedi" valsi="ponse" />
-<nlword word="interŝanĝi" valsi="canja" />
-<nlword word="dividi" valsi="fendi" />
-<nlword word="nefunkcianta" valsi="spofu" />
-<nlword word="fumo" valsi="danmo" />
-<nlword word="superi" valsi="bancu" />
-<nlword word="dato" valsi="detri" />
-<nlword word="ŝvito" valsi="xasne" />
-<nlword word="piediri" valsi="cadzu" />
-<nlword word="grati" valsi="sraku" />
-<nlword word="stulta" valsi="bebna" />
-<nlword word="premi" valsi="danre" />
-<nlword word="kanabo" valsi="marna" />
-<nlword word="vera" valsi="jetnu" />
-<nlword word="dika" valsi="rotsu" />
-<nlword word="1E-9 nano-" valsi="nanvi" />
-<nlword word="lakto" valsi="ladru" />
-<nlword word="angulo [tridimensia]" valsi="kojna" />
-<nlword word="soifi" valsi="taske" />
-<nlword word="kelvino" valsi="kelvo" />
-<nlword word="objekto" valsi="dacti" />
-<nlword word="abstraktaĵo" valsi="sucta" />
-<nlword word="rato" valsi="ratcu" />
-<nlword word="menso" valsi="menli" />
-<nlword word="unio" valsi="jo&apos;e" />
-<nlword word="kaj (tanru)" valsi="je" />
-<nlword word="malpeza" valsi="linto" />
-<nlword word="aŭ (tanru)" valsi="ja" />
-<nlword word="aserti" valsi="xusra" />
-<nlword word="malrapida" valsi="masno" />
-<nlword word="vigla" valsi="cikna" />
-<nlword word="rimarko" valsi="pinka" />
-<nlword word="deklivo" valsi="salpo" />
-<nlword word="pulio" valsi="pulni" />
-<nlword word="magia" valsi="makfa" />
-<nlword word="1E12 tera-" valsi="terto" />
-<nlword word="levi" valsi="lafti" />
-<nlword word="punkto" valsi="mokca" />
-<nlword word="pordo" valsi="vorme" />
-<nlword word="frakcio" valsi="frinu" />
-<nlword word="emfazi" valsi="basna" />
-<nlword word="bovo" valsi="bakni" />
-<nlword word="fingro" valsi="degji" />
-<nlword word="planedo" valsi="plini" />
-<nlword word="reflekti" valsi="minra" />
-<nlword word="vidaĵo" valsi="jvinu" />
-<nlword word="nikelo" valsi="nikle" />
-<nlword word="robo" valsi="pastu" />
-<nlword word="kulturo" valsi="kulnu" />
-<nlword word="aŭdaci" valsi="darsi" />
-<nlword word="resti" valsi="stali" />
-<nlword word="loka" valsi="diklo" />
-<nlword word="ligi" valsi="lasna" />
-<nlword word="blua" valsi="blanu" />
-<nlword word="nobela" valsi="nobli" />
-<nlword word="heredi" valsi="cerda" />
-<nlword word="ornami" valsi="jadni" />
-<nlword word="forta" valsi="tsali" />
-<nlword word="seksa" valsi="cinse" />
-<nlword word="favora" valsi="zabna" />
-<nlword word="koloro" valsi="skari" />
-<nlword word="ĉeno" valsi="linsi" />
-<nlword word="pinto" valsi="jipno" />
-<nlword word="observi" valsi="zgana" />
-<nlword word="loĝi" valsi="xabju" />
-<nlword word="kupro" valsi="tunka" />
-<nlword word="neregula" valsi="vitci" />
-<nlword word="malglata" valsi="rufsu" />
-<nlword word="kemiaĵo" valsi="xukmi" />
-<nlword word="implici" valsi="nibli" />
-<nlword word="kajuto" valsi="sabnu" />
-<nlword word="akvo" valsi="djacu" />
-<nlword word="tangento" valsi="tanjo" />
-<nlword word="maksimume" valsi="su&apos;e" />
-<nlword word="pezo" valsi="junta" />
-<nlword word="lanĉi" valsi="cecla" />
-<nlword word="velo" valsi="falnu" />
-<nlword word="plori" valsi="klaku" />
-<nlword word="listo" valsi="liste" />
-<nlword word="azia" valsi="xazdo" />
-<nlword word="printempo" valsi="vensa" />
-<nlword word="silabo" valsi="slaka" />
-<nlword word="birdo" valsi="cipni" />
-<nlword word="piedo" valsi="jamfu" />
-<nlword word="telero" valsi="palta" />
-<nlword word="kverko" valsi="cindu" />
-<nlword word="melono" valsi="guzme" />
-<nlword word="edzo" valsi="speni" />
-<nlword word="tie" valsi="va" />
-<nlword word="rara" valsi="rirci" />
-<nlword word="teo" valsi="tcati" />
-<nlword word="nazo" valsi="nazbi" />
-<nlword word="froti" valsi="satre" />
-<nlword word="klara" valsi="klina" />
-<nlword word="nervoza" valsi="xanka" />
-<nlword word="motoro" valsi="matra" />
-<nlword word="sensi" valsi="ganse" />
-<nlword word="grupo" valsi="girzu" />
-<nlword word="teksi" valsi="jivbu" />
-<nlword word="pulvoro" valsi="purmo" />
-<nlword word="pumpilo" valsi="pambe" />
-<nlword word="respondo" valsi="danfu" />
-<nlword word="kolumo" valsi="karli" />
-<nlword word="ĉevalo" valsi="xirma" />
-<nlword word="lavi" valsi="lumci" />
-<nlword word="ludi" valsi="kelci" />
-<nlword word="vorto al lerfu" valsi="bu" />
-<nlword word="pasporto" valsi="jaspu" />
-<nlword word="estrado" valsi="tsina" />
-<nlword word="pomo" valsi="plise" />
-<nlword word="rimo" valsi="rimni" />
-<nlword word="racia" valsi="racli" />
-<nlword word="supo" valsi="stasu" />
-<nlword word="funto" valsi="bunda" />
-<nlword word="porĉiama" valsi="vitno" />
-<nlword word="5 kvin" valsi="mu" />
-<nlword word="vomi" valsi="vamtu" />
-<nlword word="severa" valsi="jursa" />
-<nlword word="kruro" valsi="tuple" />
-<nlword word="muso" valsi="smacu" />
-<nlword word="fieri" valsi="jgira" />
-<nlword word="fali" valsi="farlu" />
-<nlword word="kreski" valsi="banro" />
-<nlword word="tro" valsi="dukse" />
-<nlword word="preta" valsi="bredi" />
-<nlword word="instrui" valsi="ctuca" />
-<nlword word="kinaĵo" valsi="skina" />
-<nlword word="cervo" valsi="mirli" />
-<nlword word="ĉirkaŭi" valsi="sruri" />
-<nlword word="artikolo" valsi="gadri" />
-<nlword word="prezenti" valsi="tigni" />
-<nlword word="kuraci" valsi="mikce" />
-<nlword word="verda" valsi="crino" />
-<nlword word="aparato" valsi="cabra" />
-<nlword word="ĉeesti" valsi="zvati" />
-<nlword word="sulko" valsi="skuro" />
-<nlword word="dubi" valsi="senpi" />
-<nlword word="krucproduto" valsi="pi&apos;u" />
-<nlword word="fluto" valsi="flani" />
-<nlword word="sen" valsi="claxu" />
-<nlword word="strikta" valsi="tagji" />
-<nlword word="fino de grupigo" valsi="ke&apos;e" />
-<nlword word="informo" valsi="datni" />
-<nlword word="gusto" valsi="vrusi" />
-<nlword word="interagi" valsi="jikca" />
-<nlword word="akso" valsi="jendu" />
-<nlword word="krii" valsi="krixa" />
-<nlword word="bebo" valsi="cifnu" />
-<nlword word="hajlo" valsi="bratu" />
-<nlword word="kontraŭi" valsi="fapro" />
-<nlword word="riĉa" valsi="ricfu" />
-<nlword word="profunda" valsi="condi" />
-<nlword word="dreniĝi" valsi="rinci" />
-<nlword word="1E-21 zepto-" valsi="zepti" />
-<nlword word="sumo" valsi="sumji" />
-<nlword word="lenso" valsi="lenjo" />
-<nlword word="5-a revicigo" valsi="xe" />
-<nlword word="multaj" valsi="so&apos;i" />
-<nlword word="veni" valsi="klama" />
-<nlword word="praulo" valsi="dzena" />
-<nlword word="serĉi" valsi="sisku" />
-<nlword word="ovo" valsi="sovda" />
-<nlword word="kompleksa" valsi="pluja" />
-<nlword word="oscili" valsi="slilu" />
-<nlword word="flosi" valsi="fulta" />
-<nlword word="danki" valsi="ckire" />
-<nlword word="inter" valsi="jbini" />
-<nlword word="hazarda" valsi="cunso" />
-<nlword word="nun" valsi="ca" />
-<nlword word="rideti" valsi="cisma" />
-<nlword word="rekompenci" valsi="cnemu" />
-<nlword word="graso" valsi="grasu" />
-<nlword word="skribi" valsi="ciska" />
-<nlword word="deziri" valsi="djica" />
-<nlword word="rilata" valsi="ckini" />
-<nlword word="stato" valsi="tcini" />
-<nlword word="aŭdi" valsi="tirna" />
-<nlword word="bongusta" valsi="kukte" />
-<nlword word="tuko" valsi="boxfo" />
-<nlword word="pugo" valsi="zargu" />
-<nlword word="reciprokantaj" valsi="simxu" />
-<nlword word="ĉifaĵo" valsi="cinje" />
-<nlword word="maŝino" valsi="minji" />
-<nlword word="rapida" valsi="sutra" />
-<nlword word="diskuti" valsi="casnu" />
-<nlword word="insekto" valsi="cinki" />
-<nlword word="fuksia" valsi="nukni" />
-<nlword word="devi" valsi="bilga" />
-<nlword word="forkonsumi" valsi="xaksu" />
-<nlword word="super" valsi="gapru" />
-<nlword word="faldi" valsi="polje" />
-<nlword word="laŭta" valsi="cladu" />
-<nlword word="ruliĝi" valsi="gunro" />
-<nlword word="mamo" valsi="tatru" />
-<nlword word="filo" valsi="bersa" />
-<nlword word="sapo" valsi="zbabu" />
-<nlword word="delikata" valsi="ralci" />
-<nlword word="funkciigi" valsi="sazri" />
-<nlword word="masto" sense="de ŝipo" valsi="mastla" />
-<nlword word="vino" valsi="vanju" />
-<nlword word="tero" valsi="terdi" />
-<nlword word="kasavo" valsi="samcu" />
-<nlword word="afrika" valsi="friko" />
-<nlword word="parto" valsi="pagbu" />
-<nlword word="kalkuli" valsi="kanji" />
-<nlword word="atendi" sense="antaŭvidi" valsi="kanpe" />
-<nlword word="greka" valsi="xelso" />
-<nlword word="ĉiu krom" valsi="da&apos;a" />
-<nlword word="1E-12 piko-" valsi="picti" />
-<nlword word="vergo" valsi="grana" />
-<nlword word="dio" valsi="cevni" />
-<nlword word="bengala" valsi="bengo" />
-<nlword word="malprofunda" valsi="caxno" />
-<nlword word="gitaro" valsi="jgita" />
-<nlword word="disjunkcio" valsi="vlina" />
-<nlword word="argentina" valsi="gento" />
-<nlword word="semida" valsi="semto" />
-<nlword word="fosi" valsi="kakpa" />
-<nlword word="registro" valsi="vreji" />
-<nlword word="unukornulo" valsi="pavyseljirna" />
-<nlword word="gemo" valsi="jemna" />
-<nlword word="ebena" valsi="pinta" />
-<nlword word="artefarita" valsi="rutni" />
-<nlword word="vojo" valsi="dargu" />
-<nlword word="kvociento" valsi="dilcu" />
-<nlword word="knabino" valsi="nixli" />
-<nlword word="sonorilo" valsi="janbe" />
-<nlword word="elefanto" valsi="xanto" />
-<nlword word="vivi" valsi="jmive" />
-<nlword word="ordinara" valsi="fadni" />
-<nlword word="fermita" valsi="ganlo" />
-<nlword word="kredi" valsi="krici" />
-<nlword word="puto" valsi="jinto" />
-<nlword word="mateno" valsi="cerni" />
-<nlword word="malsukcesi" valsi="fliba" />
-<nlword word="papero" valsi="pelji" />
-<nlword word="malforta" valsi="ruble" />
-<nlword word="angori" valsi="dunku" />
-<nlword word="bronzo" valsi="ransu" />
-<nlword word="tiu for" valsi="tu" />
-<nlword word="arto" valsi="larcu" />
-<nlword word="kapti" valsi="kavbu" />
-<nlword word="tabulo" valsi="tanbo" />
-<nlword word="ŝati" valsi="nelci" />
-<nlword word="vi" valsi="do" />
-<nlword word="urdua" valsi="xurdo" />
-<nlword word="argilo" valsi="kliti" />
-<nlword word="tranĉi" valsi="katna" />
-<nlword word="kolektiĝi" valsi="jmaji" />
-<nlword word="hinda" valsi="xindo" />
-<nlword word="bluverda" valsi="cicna" />
-<nlword word="ombrelo" valsi="santa" />
-<nlword word="ŝveliĝo" valsi="punli" />
-<nlword word="esti" valsi="du" />
-<nlword word="ŝaŭmo" valsi="fonmo" />
-<nlword word="predikata varianto 1" valsi="broda" />
-<nlword word="predikata varianto 5" valsi="brodu" />
-<nlword word="oranĝa" valsi="narju" />
-<nlword word="epoko" valsi="cedra" />
-<nlword word="mono" valsi="jdini" />
-<nlword word="paŝi" valsi="stapa" />
-<nlword word="procedo" valsi="pruce" />
-<nlword word="ekskrecii" valsi="vikmi" />
-<nlword word="kompari" valsi="karbi" />
-<nlword word="spaco" valsi="canlu" />
-<nlword word="taso" valsi="kabri" />
-<nlword word="minuto" valsi="mentu" />
-<nlword word="jupo" valsi="skaci" />
-<nlword word="muelejo" valsi="molki" />
-<nlword word="vica selbri" valsi="moi" />
-<nlword word="regulo" valsi="javni" />
-<nlword word="armilo" valsi="xarci" />
-<nlword word="maro" valsi="xamsi" />
-<nlword word="islama" valsi="muslo" />
-<nlword word="salato" valsi="salta" />
-<nlword word="ĉiu" valsi="ro" />
-<nlword word="alta" valsi="galtu" />
-<nlword word="problemo" valsi="nabmi" />
-<nlword word="humila" valsi="cumla" />
-<nlword word="estonta" valsi="balvi" />
-<nlword word="gefrato" valsi="tunba" />
-<nlword word="potenca" valsi="vlipa" />
-<nlword word="libana" valsi="lubno" />
-<nlword word="scienco" valsi="saske" />
-<nlword word="malhela" valsi="manku" />
-<nlword word="malpliiĝi" valsi="jdika" />
-<nlword word="alumeto" valsi="sacki" />
-<nlword word="malsata" valsi="xagji" />
-<nlword word="aŭtomata" valsi="zmiku" />
-<nlword word="ĉi tie" valsi="vi" />
-<nlword word="abstraktilo de sperto" valsi="li&apos;i" />
-<nlword word="sendi" valsi="benji" />
-<nlword word="tondilo" valsi="jinci" />
-<nlword word="stano" valsi="tinci" />
-<nlword word="ŝraŭbo" valsi="klupe" />
-<nlword word="butero" valsi="matne" />
-<nlword word="vundi" valsi="xrani" />
-<nlword word="1E18 eksa-" valsi="xexso" />
-<nlword word="legi" valsi="tcidu" />
-<nlword word="suĉi" valsi="sakci" />
-<nlword word="sablo" valsi="canre" />
-<nlword word="diversa" valsi="vrici" />
-<nlword word="nitrogeno" valsi="trano" />
-<nlword word="jordania" valsi="jordo" />
-<nlword word="nesto" valsi="zdani" />
-<nlword word="gepatro" valsi="rirni" />
-<nlword word="mola" valsi="ranti" />
-<nlword word="likva" valsi="litki" />
-<nlword word="metodo" valsi="tadji" />
-<nlword word="karbono" valsi="tabno" />
-<nlword word="mamulo" valsi="mabru" />
-<nlword word="bedaŭri" valsi="xenru" />
-<nlword word="naskiĝi" valsi="jbena" />
-<nlword word="pikanta" valsi="cpina" />
-<nlword word="frunto" valsi="mebri" />
-<nlword word="fulmo" valsi="lindi" />
-<nlword word="eŭropa" valsi="ropno" />
-<nlword word="glacio" valsi="bisli" />
-<nlword word="griza" valsi="grusi" />
-<nlword word="nuliga sumti" valsi="zi&apos;o" />
-<nlword word="tekseco" valsi="tengu" />
-<nlword word="fakto" valsi="fatci" />
-<nlword word="osto" valsi="bongu" />
-<nlword word="estimi" valsi="sinma" />
-<nlword word="1E15 peta-" valsi="petso" />
-<nlword word="gelatenaĵo" valsi="jduli" />
-<nlword word="1 unu" valsi="pa" />
-<nlword word="sorbi" valsi="cokcu" />
-<nlword word="kotono" valsi="mapni" />
-<nlword word="uzi" valsi="pilno" />
-<nlword word="viando" valsi="rectu" />
-<nlword word="ampleksi" valsi="kuspe" />
-<nlword word="plato" valsi="tapla" />
-<nlword word="malliberulo" valsi="pinfu" />
-<nlword word="ladskatolo" valsi="lante" />
-<nlword word="klingo" valsi="balre" />
-<nlword word="ponto" valsi="cripu" />
-<nlword word="malaperi" valsi="canci" />
-<nlword word="strukturo" valsi="stura" />
-<nlword word="citro" valsi="nimre" />
-<nlword word="floro" valsi="xrula" />
-<nlword word="sojo" valsi="sobde" />
-<nlword word="kuiri" valsi="jukpa" />
-<nlword word="kvadrato" valsi="kurfa" />
-<nlword word="kamelo" valsi="kumte" />
-<nlword word="energio" valsi="nejni" />
-<nlword word="cendo" valsi="fepni" />
-<nlword word="kuzo" valsi="tamne" />
-<nlword word="scivoli" valsi="kucli" />
-<nlword word="speso" valsi="rupnu" />
-<nlword word="predikata varianto 2" valsi="brode" />
-<nlword word="pediko" valsi="civla" />
-<nlword word="viro" valsi="nanmu" />
-<nlword word="pano" valsi="nanba" />
-<nlword word="aŭtuno" valsi="critu" />
-<nlword word="depreni" valsi="vimcu" />
-<nlword word="banko" valsi="banxa" />
-<nlword word="planto" valsi="spati" />
-<nlword word="malproksima" valsi="darno" />
-<nlword word="testo" valsi="cipra" />
-<nlword word="jetaĵo" valsi="danti" />
-<nlword word="pagi" valsi="pleji" />
-<nlword word="ekzisti" valsi="zasti" />
-<nlword word="reokazi" valsi="krefu" />
-<nlword word="kandelao" valsi="delno" />
-<nlword word="buŝo" valsi="moklu" />
-<nlword word="porti" valsi="dasni" />
-<nlword word="poŝti" valsi="mrilu" />
-<nlword word="araba" valsi="xrabo" />
-<nlword word="mergiĝi" valsi="jinru" />
-<nlword word="ĉifraĵo" valsi="mifra" />
-<nlword word="manĝaĵo" valsi="sanmi" />
-<nlword word="flari" valsi="sumne" />
-<nlword word="ŝnuro" valsi="skori" />
-<nlword word="sakuro" valsi="tsakura" />
-<nlword word="kondensiĝi" valsi="lunsa" />
-<nlword word="universo" valsi="munje" />
-<nlword word="respondi" valsi="spuda" />
-<nlword word="generacio" valsi="rorlei" />
-<nlword word="gasto" valsi="vitke" />
-<nlword word="palestina" valsi="filso" />
-<nlword word="cepo" valsi="sluni" />
-<nlword word="bazo" valsi="jicmu" />
-<nlword word="hotelo" valsi="xotli" />
-<nlword word="norvega" sense="popolo" valsi="norgo" />
-<nlword word="Norvegio" sense="lando" valsi="norgo" />
-<nlword word="angla" valsi="glico" />
-<nlword word="ĝardeno" valsi="purdi" />
-<nlword word="malsana" valsi="bilma" />
-<nlword word="arko" valsi="bargu" />
-<nlword word="ideo" valsi="sidbo" />
-<nlword word="kojno" valsi="cfine" />
-<nlword word="ĉaro" valsi="carce" />
-<nlword word="lerni" valsi="cilre" />
-<nlword word="diri" valsi="cusku" />
-<nlword word="kurda" valsi="ku&apos;urdi" />
-<nlword word="piki" valsi="tunta" />
-<nlword word="streĉiĝi" valsi="tcena" />
-<nlword word="1000 kilo-" valsi="kilto" />
-<nlword word="citi" valsi="sitna" />
-<nlword word="slava" valsi="slovo" />
-<nlword word="malfermita" valsi="kalri" />
-<nlword word="bazaro" valsi="zarci" />
-<nlword word="helpi" valsi="sidju" />
-<nlword word="nutraĵo" valsi="cidja" />
-<nlword word="seĝo" valsi="stizu" />
-<nlword word="frustriĝi" valsi="steba" />
-<nlword word="baleno" valsi="balnema" />
-<nlword word="fino" valsi="fanmo" />
-<nlword word="malebligi" valsi="fanta" />
-<nlword word="ofico" valsi="jibri" />
-<nlword word="mortinta" valsi="morsi" />
-<nlword word="paca" valsi="panpi" />
-<nlword word="ringo" valsi="djine" />
-<nlword word="roko" valsi="rokci" />
-<nlword word="acido" valsi="slami" />
-<nlword word="ridi" valsi="cmila" />
-<nlword word="solida" valsi="sligu" />
-<nlword word="enhavi" valsi="vasru" />
-<nlword word="kopio" valsi="fukpi" />
-<nlword word="koiti" valsi="gletu" />
-<nlword word="9 naŭ" valsi="so" />
-<nlword word="ĉesi" valsi="sisti" />
-<nlword word="terpomo" valsi="patlu" />
-<nlword word="fagopiro" valsi="xruba" />
-<nlword word="sonĝi" valsi="senva" />
-<nlword word="sekretigi" valsi="mipri" />
-<nlword word="komenciĝi" valsi="cfari" />
-<nlword word="haro" valsi="kerfa" />
-<nlword word="frukto" valsi="grute" />
-<nlword word="maldika" valsi="cinla" />
-<nlword word="radiano" valsi="radno" />
-<nlword word="100 hekto-" valsi="xecto" />
-<nlword word="alia" valsi="drata" />
-<nlword word="gvidi" valsi="gidva" />
-<nlword word="aŭto" valsi="karce" />
-<nlword word="ŝtalo" valsi="gasta" />
-<nlword word="moki" valsi="ckasu" />
-<nlword word="ĉi tiu" valsi="ti" />
-<nlword word="malica" valsi="palci" />
-<nlword word="asekuri" valsi="binra" />
-<nlword word="vintro" valsi="dunra" />
-<nlword word="abstraktilo de okazo" valsi="nu" />
-<nlword word="poŝtoficejo" valsi="mribriju" place="1" />
-<nlword word="poŝtoficisto" valsi="mribriju" place="2" />
-<nlword word="supozi" valsi="sruma" />
-<nlword word="juĝi" valsi="pajni" />
-<nlword word="ventro" valsi="betfu" />
-<nlword word="malfacila" valsi="nandu" />
-<nlword word="maltrans" valsi="zo&apos;i" />
-<nlword word="sanskrita" valsi="srito" />
+<nlword word="banano" valsi="badna" place="1" />
 <nlword word="malĝoja" valsi="badri" />
 <nlword word="malĝojanto" valsi="badri" place="1" />
 <nlword word="malĝojiĝanto" valsi="badri" place="2" />
-<nlword word="ĝentila" valsi="clite" />
-<nlword word="mapo" valsi="cartu" />
-<nlword word="miksaĵo" valsi="mixre" />
-<nlword word="elektro" valsi="dikca" />
-<nlword word="tusi" valsi="kafke" />
-<nlword word="orelo" valsi="kerlo" />
-<nlword word="simila" valsi="simsa" />
-<nlword word="brako" valsi="birka" />
-<nlword word="aprobi" valsi="zanru" />
-<nlword word="satelito" valsi="mluni" />
-<nlword word="ombro" valsi="ctino" />
-<nlword word="konsenti" valsi="tugni" />
-<nlword word="paroli" valsi="tavla" />
-<nlword word="finiĝante" valsi="co&apos;u" />
-<nlword word="vestaĵo" valsi="taxfu" />
-<nlword word="predikato" valsi="bridi" />
-<nlword word="distribuiĝi" valsi="fatri" />
-<nlword word="koro" valsi="risna" />
-<nlword word="sorto" valsi="dimna" />
-<nlword word="rubo" valsi="festi" />
-<nlword word="rezulti" valsi="jalge" />
-<nlword word="sekundo" valsi="snidu" />
-<nlword word="la stereotipa" valsi="le&apos;e" />
-<nlword word="germana" valsi="dotco" />
-<nlword word="vizaĝo" valsi="flira" />
-<nlword word="rifo" valsi="jmifa" />
-<nlword word="blanka" valsi="blabi" />
-<nlword word="skala mezpunkta ne" valsi="no&apos;e" />
-<nlword word="regula" valsi="dikni" />
-<nlword word="publika" valsi="gubni" />
-<nlword word="nukso" valsi="narge" />
-<nlword word="skatolo" valsi="tanxe" />
-<nlword word="libera" valsi="zifre" />
-<nlword word="montri" valsi="jarco" />
-<nlword word="kampara" valsi="nurma" />
-<nlword word="stelo" valsi="tarci" />
-<nlword word="abstraktilo de koncepto" valsi="si&apos;o" />
-<nlword word="kafo" valsi="ckafi" />
-<nlword word="sekura" valsi="snura" />
-<nlword word="organizi" valsi="ganzu" />
-<nlword word="detenita" valsi="rinju" />
-<nlword word="kolizii" valsi="janli" />
-<nlword word="presaĵo" valsi="prina" />
-<nlword word="radikvorto" valsi="gismu" />
-<nlword word="lago" valsi="lalxu" />
-<nlword word="influi" valsi="xlura" />
-<nlword word="urino" valsi="pinca" />
-<nlword word="modifita predikato" valsi="tanru" />
-<nlword word="neono" valsi="navni" />
-<nlword word="plena" valsi="culno" />
-<nlword word="dolĉa" valsi="titla" />
-<nlword word="falsa" valsi="jitfa" />
-<nlword word="viruso" valsi="vidru" />
+<nlword word="kuri" valsi="bajra" />
+<nlword word="pako" valsi="bakfu" />
+<nlword word="bovo" valsi="bakni" />
+<nlword word="kreto" valsi="bakri" />
+<nlword word="sitelo" valsi="baktu" />
 <nlword word="bulbo" valsi="balji" />
-<nlword word="brasiko" valsi="kobli" />
-<nlword word="petegi" valsi="pikci" />
-<nlword word="provizi" valsi="sabji" />
-<nlword word="vakcino" valsi="jinku" />
-<nlword word="en" valsi="nenri" />
-<nlword word="piro" valsi="perli" />
-<nlword word="hepato" valsi="livga" />
-<nlword word="frivola" valsi="xalbo" />
-<nlword word="tempo" valsi="temci" />
-<nlword word="testiko" valsi="ganti" />
-<nlword word="sana" valsi="kanro" />
-<nlword word="obei" valsi="tinbe" />
-<nlword word="abstraktilo de eco" valsi="ka" />
-<nlword word="abstraktilo nespecifa" valsi="su&apos;u" />
-<nlword word="redoni" valsi="xruti" />
-<nlword word="vic-" valsi="vipsi" />
-<nlword word="formo" valsi="tarmi" />
-<nlword word="regi [homojn: vidu jitro]" valsi="turni" />
-<nlword word="freneza" valsi="fenki" />
-<nlword word="funkcio [matematika]" valsi="fancu" />
-<nlword word="kvanto" valsi="klani" />
-<nlword word="miri" valsi="manci" />
-<nlword word="dento" valsi="denci" />
-<nlword word="lipo" valsi="ctebi" />
-<nlword word="ĝi-7" valsi="fo&apos;e" />
-<nlword word="lano" valsi="sunla" />
+<nlword word="baleno" valsi="balnema" />
+<nlword word="balkono" valsi="balni" />
+<nlword word="klingo" valsi="balre" />
+<nlword word="estonta" valsi="balvi" />
+<nlword word="superi" valsi="bancu" />
+<nlword word="defendi" valsi="bandu" />
+<nlword word="amfibio" valsi="banfi" />
+<nlword word="lingvo" valsi="bangu" />
+<nlword word="grandioza" valsi="banli" />
+<nlword word="kreski" valsi="banro" />
+<nlword word="banko" valsi="banxa" />
+<nlword word="sufiĉa" valsi="banzu" />
+<nlword word="devigi" valsi="bapli" />
+<nlword word="granda" valsi="barda" />
+<nlword word="arko" valsi="bargu" />
+<nlword word="trinkejo" valsi="barja" />
+<nlword word="eliri" valsi="barkla" />
+<nlword word="marko" valsi="barna" />
+<nlword word="ekster" valsi="bartu" />
+<nlword word="emfazi" valsi="basna" />
+<nlword word="anstataŭi" valsi="basti" />
+<nlword word="mordi" valsi="batci" />
+<nlword word="butono" valsi="batke" />
+<nlword word="hordeo" valsi="bavmi" />
+<nlword word="malaj-indonezia" valsi="baxso" />
+<nlword word="stulta" valsi="bebna" />
+<nlword word="nordamerika" valsi="bemro" />
+<nlword word="bando" valsi="bende" />
+<nlword word="bengala" valsi="bengo" />
+<nlword word="sendi" valsi="benji" />
+<nlword word="filo" valsi="bersa" />
+<nlword word="nordo" valsi="berti" />
+<nlword word="cerbo" valsi="besna" />
+<nlword word="ventro" valsi="betfu" />
+<nlword word="tragedia" valsi="betri" />
 <nlword word="8 ok" valsi="bi" />
-<nlword word="abstraktilo de vereco-valoro" valsi="jei" />
-<nlword word="rakedo" valsi="jakne" />
-<nlword word="doni" valsi="dunda" />
-<nlword word="luno" valsi="lunra" />
-<nlword word="altiri" valsi="trina" />
-<nlword word="firma" valsi="jdari" />
-<nlword word="analizi" valsi="lanli" />
-<nlword word="fonto" valsi="krasi" />
-<nlword word="litero" valsi="lerfu" />
-<nlword word="fendo" valsi="fenra" />
-<nlword word="trans" valsi="ze&apos;o" />
-<nlword word="vorto" valsi="valsi" />
-<nlword word="historio" valsi="citri" />
-<nlword word="anaso" valsi="datka" />
-<nlword word="klarigi" valsi="ciksi" />
-<nlword word="virseksa" valsi="nakni" />
-<nlword word="juna" valsi="citno" />
-<nlword word="sodakvo" valsi="sodva" />
-<nlword word="kapitano" valsi="jatna" />
-<nlword word="kuseno" valsi="kicne" />
-<nlword word="bona" valsi="xamgu" />
-<nlword word="herbo" valsi="srasu" />
-<nlword word="ŝtuparo" valsi="serti" />
-<nlword word="teni" valsi="jgari" />
-<nlword word="semo" valsi="tsiju" />
-<nlword word="intersekcio" valsi="ku&apos;a" />
-<nlword word="planko" valsi="loldi" />
-<nlword word="fandiĝi" valsi="runme" />
+<nlword word="nevica interspaco" valsi="bi&apos;i" />
+<nlword word="bido" valsi="bidju" />
+<nlword word="abelo" valsi="bifce" />
+<nlword word="vipo" valsi="bikla" />
+<nlword word="devi" valsi="bilga" />
+<nlword word="malsana" valsi="bilma" />
+<nlword word="militeca" valsi="bilni" />
+<nlword word="indonezia" valsi="bindo" />
+<nlword word="asekuri" valsi="binra" />
+<nlword word="iĝi" valsi="binxo" />
+<nlword word="biero" valsi="birje" />
+<nlword word="brako" valsi="birka" />
+<nlword word="certa" valsi="birti" />
+<nlword word="glacio" valsi="bisli" />
+<nlword word="muro" valsi="bitmu" />
+<nlword word="blanka" valsi="blabi" />
+<nlword word="vitro" valsi="blaci" />
+<nlword word="blua" valsi="blanu" />
+<nlword word="bloko" valsi="bliku" />
+<nlword word="boato" valsi="bloti" />
+<nlword word="ligilo" valsi="bo" />
+<nlword word="pilko" valsi="bolci" />
+<nlword word="osto" valsi="bongu" />
+<nlword word="botelo" valsi="botpi" />
+<nlword word="tuko" valsi="boxfo" />
+<nlword word="ondo" valsi="boxna" />
+<nlword word="malamiko" valsi="bradi" />
+<nlword word="hajlo" valsi="bratu" />
+<nlword word="brazila" valsi="brazo" />
+<nlword word="preta" valsi="bredi" />
+<nlword word="predikato" valsi="bridi" />
+<nlword word="brizo" valsi="brife" />
+<nlword word="oficejo" valsi="briju" />
+<nlword word="brita" valsi="brito" />
+<nlword word="predikata varianto 1" valsi="broda" />
+<nlword word="predikata varianto 2" valsi="brode" />
+<nlword word="predikata varianto 3" valsi="brodi" />
+<nlword word="predikata varianto 4" valsi="brodo" />
+<nlword word="predikata varianto 5" valsi="brodu" />
+<nlword word="frato" valsi="bruna" />
+<nlword word="vorto al lerfu" valsi="bu" />
+<nlword word="iu selbri 1" valsi="bu&apos;a" />
+<nlword word="budhisma" valsi="budjo" />
+<nlword word="tolo" valsi="bukpu" />
+<nlword word="nebulo" valsi="bumru" />
+<nlword word="funto" valsi="bunda" />
+<nlword word="bruna" valsi="bunre" />
+<nlword word="broso" valsi="burcu" />
+<nlword word="embarasita" valsi="burna" />
+<nlword word="nun" valsi="ca" />
+<nlword word="efektive" valsi="ca&apos;a" />
+<nlword word="aparato" valsi="cabra" />
+<nlword word="horo" valsi="cacra" />
+<nlword word="piediri" valsi="cadzu" />
+<nlword word="ofta" valsi="cafne" />
+<nlword word="ĉokolado" valsi="cakla" />
+<nlword word="ŝelo" valsi="calku" />
+<nlword word="malaperi" valsi="canci" />
+<nlword word="kvieta" valsi="cando" />
+<nlword word="bieno" valsi="cange" />
+<nlword word="interŝanĝi" valsi="canja" />
+<nlword word="fenestro" valsi="canko" />
+<nlword word="spaco" valsi="canlu" />
+<nlword word="ŝovelilo" valsi="canpa" />
+<nlword word="sablo" valsi="canre" />
+<nlword word="intesto" valsi="canti" />
+<nlword word="ĉaro" valsi="carce" />
+<nlword word="intensa" valsi="carmi" />
+<nlword word="turniĝi" valsi="carna" />
+<nlword word="mapo" valsi="cartu" />
+<nlword word="pluvi" valsi="carvi" />
+<nlword word="diskuti" valsi="casnu" />
+<nlword word="ŝovi" valsi="catke" />
+<nlword word="rigardi" valsi="catlu" />
+<nlword word="aŭtoritato" valsi="catni" />
+<nlword word="mortigi" valsi="catra" />
+<nlword word="malprofunda" valsi="caxno" />
+<nlword word="are kun" valsi="ce" />
+<nlword word="elcento" valsi="ce&apos;i" />
 <nlword word="sinsekve kun" valsi="ce&apos;o" />
-<nlword word="signo" valsi="sinxa" />
-<nlword word="Pardonu min!" valsi="fau&apos;u" />
+<nlword word="lanĉi" valsi="cecla" />
+<nlword word="komunumo" valsi="cecmu" />
+<nlword word="epoko" valsi="cedra" />
+<nlword word="varii" valsi="cenba" />
+<nlword word="sankta" valsi="censa" />
+<nlword word=".01 centi-" valsi="centi" />
+<nlword word="heredi" valsi="cerda" />
+<nlword word="mateno" valsi="cerni" />
+<nlword word="spertulo" valsi="certu" />
+<nlword word="dio" valsi="cevni" />
+<nlword word="komenciĝi" valsi="cfari" />
+<nlword word="fikcio" valsi="cfika" />
+<nlword word="makulo" valsi="cfila" />
+<nlword word="kojno" valsi="cfine" />
+<nlword word="konfuzi" valsi="cfipu" />
+<nlword word="3 tri" valsi="ci" />
+<nlword word="sango" valsi="ciblu" />
+<nlword word="bluverda" valsi="cicna" />
+<nlword word="nutraĵo" valsi="cidja" />
+<nlword word="genuo" valsi="cidni" />
+<nlword word="hidrogeno" valsi="cidro" />
+<nlword word="bebo" valsi="cifnu" />
+<nlword word="glando" valsi="cigla" />
+<nlword word="vigla" valsi="cikna" />
+<nlword word="ripari" valsi="cikre" />
+<nlword word="klarigi" valsi="ciksi" />
+<nlword word="sovaĝa" valsi="cilce" />
+<nlword word="malseka" valsi="cilmo" />
+<nlword word="lerni" valsi="cilre" />
+<nlword word="fadeno" valsi="cilta" />
+<nlword word="dimensio" valsi="cimde" />
+<nlword word="senlima" valsi="cimni" />
+<nlword word="kisi" valsi="cinba" />
+<nlword word="kverko" valsi="cindu" />
+<nlword word="leono" valsi="cinfo" />
+<nlword word="ĉifaĵo" valsi="cinje" />
+<nlword word="insekto" valsi="cinki" />
+<nlword word="maldika" valsi="cinla" />
+<nlword word="emociiĝi" valsi="cinmo" />
+<nlword word="interesi" valsi="cinri" />
+<nlword word="seksa" valsi="cinse" />
+<nlword word="farbo" valsi="cinta" />
+<nlword word="prenilo" valsi="cinza" />
+<nlword word="birdo" valsi="cipni" />
+<nlword word="testo" valsi="cipra" />
+<nlword word="perdi" valsi="cirko" />
+<nlword word="fromaĝo" valsi="cirla" />
+<nlword word="skribi" valsi="ciska" />
+<nlword word="rideti" valsi="cisma" />
+<nlword word="sistemo" valsi="ciste" />
+<nlword word="manĝi" valsi="citka" />
+<nlword word="juna" valsi="citno" />
+<nlword word="historio" valsi="citri" />
+<nlword word="sezono" valsi="citsi" />
+<nlword word="pediko" valsi="civla" />
+<nlword word="stranga" valsi="cizra" />
+<nlword word="kaŭĉuko" valsi="ckabu" />
+<nlword word="kafo" valsi="ckafi" />
+<nlword word="karakteriziĝi" valsi="ckaji" />
+<nlword word="lito" valsi="ckana" />
+<nlword word="danĝera" valsi="ckape" />
+<nlword word="moki" valsi="ckasu" />
+<nlword word="honti" valsi="ckeji" />
+<nlword word="skalo" valsi="ckilu" />
+<nlword word="rilata" valsi="ckini" />
+<nlword word="danki" valsi="ckire" />
+<nlword word="lernejo" valsi="ckule" />
+<nlword word="konifero" valsi="ckunu" />
+<nlword word="laŭta" valsi="cladu" />
+<nlword word="longa" valsi="clani" />
+<nlword word="sen" valsi="claxu" />
+<nlword word="musko" valsi="clika" />
+<nlword word="frua" valsi="clira" />
+<nlword word="ĝentila" valsi="clite" />
+<nlword word="foriri" valsi="cliva" />
+<nlword word="maŝo" valsi="clupa" />
+<nlword word="matematiko" valsi="cmaci" />
+<nlword word="malgranda" valsi="cmalu" />
+<nlword word="monto" valsi="cmana" />
+<nlword word="strukturvorto" valsi="cmavo" />
+<nlword word="nomo" valsi="cmene" />
+<nlword word="ridi" valsi="cmila" />
+<nlword word="membro" valsi="cmima" />
+<nlword word="ĝemi" valsi="cmoni" />
+<nlword word="mezkvanto" valsi="cnano" />
+<nlword word="kolo" valsi="cnebo" />
+<nlword word="rekompenci" valsi="cnemu" />
+<nlword word="neta" valsi="cnici" />
+<nlword word="nova" valsi="cnino" />
+<nlword word="plumbo" valsi="cnisa" />
+<nlword word="sub" valsi="cnita" />
+<nlword word="renversita tanru" valsi="co" />
+<nlword word="ek-" valsi="co&apos;a" />
+<nlword word="nespecifa bridi" valsi="co&apos;e" />
+<nlword word="finiĝante" valsi="co&apos;u" />
+<nlword word="saluton" valsi="coi" />
+<nlword word="sorbi" valsi="cokcu" />
+<nlword word="profunda" valsi="condi" />
+<nlword word="doloriĝi" valsi="cortu" />
+<nlword word="akiri" valsi="cpacu" />
+<nlword word="sur" valsi="cpana" />
+<nlword word="grimpi" valsi="cpare" />
+<nlword word="peti" valsi="cpedu" />
+<nlword word="pikanta" valsi="cpina" />
+<nlword word="radio" valsi="cradi" />
+<nlword word="fronta" valsi="crane" />
+<nlword word="ĉemizo" valsi="creka" />
+<nlword word="rikolti" valsi="crepu" />
+<nlword word="urso" valsi="cribe" />
+<nlword word="feo" valsi="crida" />
+<nlword word="verda" valsi="crino" />
+<nlword word="ponto" valsi="cripu" />
+<nlword word="somero" valsi="crisa" />
+<nlword word="aŭtuno" valsi="critu" />
+<nlword word="tajdo" valsi="ctaru" />
+<nlword word="lipo" valsi="ctebi" />
+<nlword word="imposto" valsi="cteki" />
+<nlword word="petrolo" valsi="ctile" />
+<nlword word="ombro" valsi="ctino" />
+<nlword word="instrui" valsi="ctuca" />
+<nlword word="ronda" valsi="cukla" />
+<nlword word="libro" valsi="cukta" />
+<nlword word="plena" valsi="culno" />
+<nlword word="ebla" valsi="cumki" />
+<nlword word="humila" valsi="cumla" />
+<nlword word="milio" valsi="cunmi" />
+<nlword word="hazarda" valsi="cunso" />
+<nlword word="afero" valsi="cuntu" />
+<nlword word="produkti" valsi="cupra" />
+<nlword word="permesi" valsi="curmi" />
+<nlword word="vermo" valsi="curnu" />
+<nlword word="diri" valsi="cusku" />
+<nlword word="ŝuo" valsi="cutci" />
+<nlword word="brusto" valsi="cutne" />
+<nlword word="io 1" valsi="da" />
+<nlword word="ĉiu krom" valsi="da&apos;a" />
+<nlword word="tirkesto" valsi="dacru" />
+<nlword word="objekto" valsi="dacti" />
+<nlword word="taoisma" valsi="dadjo" />
+<nlword word="tranĉilo" valsi="dakfu" />
+<nlword word="sako" valsi="dakli" />
+<nlword word="batali" valsi="damba" />
+<nlword word="tamburo" valsi="damri" />
+<nlword word="pendi" valsi="dandu" />
+<nlword word="respondo" valsi="danfu" />
+<nlword word="besto" valsi="danlu" />
+<nlword word="fumo" valsi="danmo" />
+<nlword word="premi" valsi="danre" />
+<nlword word="danci" valsi="dansu" />
+<nlword word="jetaĵo" valsi="danti" />
+<nlword word="insulo" valsi="daplu" />
+<nlword word="malbeni" valsi="dapma" />
+<nlword word="vojo" valsi="dargu" />
+<nlword word="debati" valsi="darlu" />
+<nlword word="malproksima" valsi="darno" />
+<nlword word="aŭdaci" valsi="darsi" />
+<nlword word="frapi" valsi="darxi" />
+<nlword word="poŝo" valsi="daski" />
+<nlword word="porti" valsi="dasni" />
+<nlword word="detrui" valsi="daspo" />
+<nlword word="strio" valsi="dasri" />
+<nlword word="anaso" valsi="datka" />
+<nlword word="informo" valsi="datni" />
+<nlword word=".1 deci-" valsi="decti" />
+<nlword word="fingro" valsi="degji" />
+<nlword word="ŝuldi" valsi="dejni" />
+<nlword word="galono" valsi="dekpu" />
+<nlword word="10 deka-" valsi="dekto" />
+<nlword word="kandelao" valsi="delno" />
+<nlword word="fabo" valsi="dembi" />
+<nlword word="dento" valsi="denci" />
+<nlword word="densa" valsi="denmi" />
+<nlword word="atendi" valsi="denpa" />
+<nlword word="grundo" valsi="dertu" />
+<nlword word="amaso" valsi="derxi" />
+<nlword word="tremi" valsi="desku" />
+<nlword word="dato" valsi="detri" />
+<nlword word="interrompi" valsi="dicra" />
+<nlword word="elektro" valsi="dikca" />
+<nlword word="loka" valsi="diklo" />
+<nlword word="regula" valsi="dikni" />
+<nlword word="kvociento" valsi="dilcu" />
+<nlword word="nubo" valsi="dilnu" />
+<nlword word="sorto" valsi="dimna" />
+<nlword word="konstruaĵo" valsi="dinju" />
+<nlword word="najlo" valsi="dinko" />
+<nlword word="kara" valsi="dirba" />
+<nlword word="radii" valsi="dirce" />
+<nlword word="guto" valsi="dirgo" />
+<nlword word="malalta" valsi="dizlo" />
+<nlword word="akvo" valsi="djacu" />
+<nlword word="tagnokto" valsi="djedi" />
+<nlword word="deziri" valsi="djica" />
+<nlword word="ringo" valsi="djine" />
+<nlword word="scii" valsi="djuno" />
+<nlword word="vi" valsi="do" />
+<nlword word="tago" valsi="donri" />
+<nlword word="germana" valsi="dotco" />
+<nlword word="dramo" valsi="draci" />
+<nlword word="ĝusta" valsi="drani" />
+<nlword word="alia" valsi="drata" />
+<nlword word="tegmento" valsi="drudi" />
+<nlword word="esti" valsi="du" />
+<nlword word="abstraktilo de bridi" valsi="du&apos;u" />
+<nlword word="logaritmo" valsi="dugri" />
+<nlword word="tro" valsi="dukse" />
+<nlword word="malo" valsi="dukti" />
+<nlword word="doni" valsi="dunda" />
+<nlword word="frostiĝi" valsi="dunja" />
+<nlword word="angori" valsi="dunku" />
+<nlword word="egali" valsi="dunli" />
+<nlword word="vintro" valsi="dunra" />
+<nlword word="praulo" valsi="dzena" />
+<nlword word="antarktika" valsi="dzipo" />
+<nlword word="ekscii" valsi="facki" />
+<nlword word="ordinara" valsi="fadni" />
+<nlword word="fajro" valsi="fagri" />
+<nlword word="velo" valsi="falnu" />
+<nlword word="onklo" valsi="famti" />
+<nlword word="funkcio [matematika]" valsi="fancu" />
+<nlword word="fremda" valsi="fange" />
+<nlword word="fino" valsi="fanmo" />
+<nlword word="uzino" valsi="fanri" />
+<nlword word="malebligi" valsi="fanta" />
+<nlword word="traduki" valsi="fanva" />
+<nlword word="ĝeni" valsi="fanza" />
+<nlword word="kontraŭi" valsi="fapro" />
+<nlword word="fali" valsi="farlu" />
+<nlword word="direkto" valsi="farna" />
+<nlword word="evolui" valsi="farvi" />
+<nlword word="okazi" valsi="fasnu" />
+<nlword word="fakto" valsi="fatci" />
+<nlword word="inversa" valsi="fatne" />
+<nlword word="distribuiĝi" valsi="fatri" />
+<nlword word="Pardonon!" sense="vokativo" valsi="fau&apos;u" />
 <nlword word="Pardonon!" valsi="fau&apos;u" />
 <nlword word="Pardonu min!" sense="vokativo" valsi="fau&apos;u" />
-<nlword word="Pardonon!" sense="vokativo" valsi="fau&apos;u" />
-<nlword word="konscia" valsi="sanji" />
-<nlword word="malrekta" valsi="korcu" />
-<nlword word="sukero" valsi="sakta" />
-<nlword word="amfibio" valsi="banfi" />
-<nlword word="duono" valsi="xadba" />
-<nlword word="budhisma" valsi="budjo" />
-<nlword word="renversita tanru" valsi="co" />
-<nlword word="1E-24 jokto-" valsi="gocti" />
-<nlword word="amiko" valsi="pendo" />
-<nlword word="ŝtrumpeto" valsi="smoka" />
-<nlword word="pleto" valsi="palne" />
-<nlword word="peco" valsi="spisa" />
-<nlword word="trajno" valsi="trene" />
-<nlword word="okazi" valsi="fasnu" />
-<nlword word="obstina" valsi="xarnu" />
-<nlword word="referenco" valsi="manri" />
-<nlword word="emociiĝi" valsi="cinmo" />
-<nlword word="granda" valsi="barda" />
-<nlword word="stango" valsi="garna" />
-<nlword word="strio" valsi="dasri" />
-<nlword word="produkti" valsi="cupra" />
-<nlword word="bela" valsi="melbi" />
-<nlword word="organo" valsi="rango" />
-<nlword word="haveno" valsi="marbi" />
-<nlword word="ĵeti" valsi="renro" />
-<nlword word="mi" valsi="mi" />
-<nlword word="komitato" valsi="kamni" />
-<nlword word="konstruas" valsi="zbasu" />
-<nlword word="flugi" valsi="vofli" />
-<nlword word="mezuri" valsi="merli" />
-<nlword word="ĝemi" valsi="cmoni" />
-<nlword word="spiralo" valsi="sarlu" />
-<nlword word="tiri" valsi="lacpu" />
-<nlword word="makzelo" valsi="xedja" />
-<nlword word="sibli" valsi="siclu" />
-<nlword word="abstraktilo de procedo" valsi="pu&apos;u" />
-<nlword word="subita" valsi="suksa" />
-<nlword word="kompanio" valsi="kagni" />
-<nlword word="musko" valsi="clika" />
-<nlword word="matraco" valsi="matci" />
-<nlword word="semi" valsi="sombo" />
-<nlword word="ligno" valsi="mudri" />
-<nlword word="vendi" valsi="vecnu" />
-<nlword word="kraĉi" valsi="sputu" />
-<nlword word="blato" valsi="jalra" />
-<nlword word="opinii" valsi="jinvi" />
-<nlword word="hundo" valsi="gerku" />
-<nlword word="figura" valsi="pe&apos;a" />
-<nlword word="ĉefa" valsi="ralju" />
-<nlword word="algluiĝi" valsi="snipa" />
-<nlword word="silko" valsi="silka" />
-<nlword word="kampo" valsi="foldi" />
-<nlword word="mallonga" valsi="tordu" />
-<nlword word="opo" valsi="mei" />
-<nlword word="gimnastiki" valsi="zajba" />
-<nlword word="malhelpi" valsi="zunti" />
-<nlword word="pilko" valsi="bolci" />
-<nlword word="kutimo" valsi="tcaci" />
-<nlword word="ĉokolado" valsi="cakla" />
-<nlword word="simpla" valsi="sampu" />
-<nlword word="ŝuo" valsi="cutci" />
-<nlword word="plugi" valsi="plixa" />
-<nlword word="veneno" valsi="vindu" />
-<nlword word="sofo" valsi="sfofa" />
-<nlword word="embarasita" valsi="burna" />
-<nlword word="keramiko" valsi="staku" />
-<nlword word="realigita potencialo" valsi="pu&apos;i" />
-<nlword word="moviĝi" valsi="muvdu" />
-<nlword word="parko" valsi="panka" />
-<nlword word="ŝalmo" valsi="xagri" />
-<nlword word="pigra" valsi="lazni" />
-<nlword word="eliri" valsi="barkla" />
-<nlword word="esenca" valsi="jinzi" />
-<nlword word="kara" valsi="dirba" />
-<nlword word="ĉelo" valsi="selci" />
-<nlword word="fronta" valsi="crane" />
-<nlword word="figo" valsi="figre" />
-<nlword word="hidrargo" valsi="margu" />
-<nlword word="mortigi" valsi="catra" />
-<nlword word="ripetiĝi" valsi="rapli" />
-<nlword word="guto" valsi="dirgo" />
-<nlword word="grundo" valsi="dertu" />
-<nlword word="priskribi" valsi="skicu" />
-<nlword word="tomato" valsi="tamca" />
-<nlword word="marko" valsi="barna" />
-<nlword word="terni" valsi="senci" />
-<nlword word="akiri" valsi="cpacu" />
-<nlword word="komune kun" valsi="jo&apos;u" />
-<nlword word="krepusko" valsi="murse" />
-<nlword word="kanada" valsi="kadno" />
-<nlword word="skrapi" valsi="guska" />
-<nlword word="lernejo" valsi="ckule" />
-<nlword word="postkuri" valsi="jersi" />
-<nlword word="multipliko" valsi="pilji" />
-<nlword word="hispanamerika" valsi="xispo" />
-<nlword word="esperi" valsi="pacna" />
-<nlword word="magneta" valsi="maksi" />
-<nlword word="batali" valsi="damba" />
-<nlword word="radii" valsi="dirce" />
-<nlword word="rito" valsi="ritli" />
-<nlword word="piedestalo" valsi="zbepi" />
-<nlword word="bremsi" valsi="jabre" />
-<nlword word="kancero" valsi="kenra" />
-<nlword word="abstraktilo de stato" valsi="za&apos;i" />
-<nlword word="venĝi" valsi="venfu" />
-<nlword word="butono" valsi="batke" />
-<nlword word="sudamerika" valsi="ketco" />
-<nlword word="probabla" valsi="lakne" />
-<nlword word="latuno" valsi="lastu" />
-<nlword word="provi" valsi="troci" />
-<nlword word="bombo" valsi="jbama" />
-<nlword word="bruo" valsi="savru" />
-<nlword word="nacio" valsi="natmi" />
-<nlword word="broso" valsi="burcu" />
-<nlword word="meblo" valsi="nilce" />
-<nlword word="laca" valsi="tatpi" />
-<nlword word=".1 deci-" valsi="decti" />
-<nlword word="leono" valsi="cinfo" />
-<nlword word="krimo" valsi="zekri" />
-<nlword word="vidi" valsi="viska" />
-<nlword word="stacio" valsi="tcana" />
-<nlword word="suno" valsi="solri" />
-<nlword word="farbo" valsi="cinta" />
-<nlword word="levilo" valsi="vraga" />
-<nlword word="proporcio" valsi="parbi" />
-<nlword word="rusa" valsi="rusko" />
-<nlword word="eldiri" valsi="bacru" />
-<nlword word="eldiranto" valsi="bacru" place="1" />
-<nlword word="eldiro" valsi="bacru" place="2" />
-<nlword word="gramo" valsi="grake" />
-<nlword word="spaca movo" valsi="mo&apos;i" />
-<nlword word="sako" valsi="dakli" />
-<nlword word="konto" valsi="janta" />
-<nlword word="ĉambro" valsi="kumfa" />
-<nlword word="tablo" valsi="jubme" />
-<nlword word="malpli" valsi="mleca" />
-<nlword word="tigro" valsi="tirxu" />
-<nlword word="saluton" valsi="coi" />
-<nlword word="fajro" valsi="fagri" />
-<nlword word="natura" valsi="rarna" />
-<nlword word="frapi" valsi="darxi" />
-<nlword word="afero" valsi="cuntu" />
-<nlword word="piano" valsi="pipno" />
-<nlword word="decidi" valsi="jdice" />
-<nlword word="felo" valsi="skapi" />
-<nlword word="pinglo" valsi="pijne" />
-<nlword word="nubo" valsi="dilnu" />
-<nlword word="atomo" valsi="ratni" />
-<nlword word="tordiĝi" valsi="torni" />
-<nlword word="malbeni" valsi="dapma" />
-<nlword word="direkto" valsi="farna" />
-<nlword word="kune kun" valsi="joi" />
-<nlword word="triki" valsi="nivji" />
-<nlword word="onklo" valsi="famti" />
-<nlword word="salti" valsi="plipe" />
-<nlword word="klaso" valsi="klesi" />
-<nlword word="6 ses" valsi="xa" />
-<nlword word="ŝoki" valsi="jenca" />
-<nlword word="1E24 jota-" valsi="gotro" />
-<nlword word="utero" valsi="gutra" />
-<nlword word="hordeo" valsi="bavmi" />
-<nlword word="akra" valsi="kinli" />
-<nlword word="tendaro" valsi="ginka" />
-<nlword word="flava" valsi="pelxu" />
-<nlword word="rakonto" valsi="lisri" />
-<nlword word="tabako" valsi="tanko" />
-<nlword word="dimensio" valsi="cimde" />
-<nlword word="la tipa" valsi="lo&apos;e" />
-<nlword word="tigo" valsi="stani" />
-<nlword word="ruĝa" valsi="xunre" />
-<nlword word="komunumo" valsi="cecmu" />
-<nlword word="koko" valsi="jipci" />
-<nlword word="larĝa" valsi="ganra" />
-<nlword word="kolono" valsi="kamju" />
-<nlword word="litro" valsi="litce" />
-<nlword word="multekosta" valsi="kargu" />
-<nlword word="teritorio" valsi="tutra" />
-<nlword word="mezkvanto" valsi="cnano" />
-<nlword word="densa" valsi="denmi" />
-<nlword word="malaja" valsi="meljo" />
-<nlword word="reveni" valsi="volve" />
-<nlword word="nebulo" valsi="bumru" />
-<nlword word="linio" valsi="linji" />
-<nlword word="dikfingro" valsi="tamji" />
-<nlword word="glando" valsi="cigla" />
-<nlword word="senti kulpon" valsi="zungi" />
-<nlword word="rado" valsi="xislu" />
-<nlword word="komputilo" valsi="skami" />
-<nlword word="negi" valsi="natfe" />
-<nlword word="konkuri" valsi="jivna" />
-<nlword word="odoro" valsi="panci" />
-<nlword word="kuniklo" valsi="ractu" />
-<nlword word="cerbo" valsi="besna" />
-<nlword word="proponi" valsi="stidi" />
-<nlword word="indonezia" valsi="bindo" />
-<nlword word="proteino" valsi="lanbi" />
-<nlword word="ungo" valsi="jgalu" />
-<nlword word="signifo" valsi="smuni" />
-<nlword word="grammolekulo" valsi="molro" />
-<nlword word="letero" valsi="xatra" />
-<nlword word="feo" valsi="crida" />
-<nlword word="medio" valsi="vanbi" />
-<nlword word="kruciĝi" valsi="kruca" />
-<nlword word="via" valsi="medomoi" />
-<nlword word="bruna" valsi="bunre" />
-<nlword word="fino de abstraktaĵo" valsi="kei" />
-<nlword word="filino" valsi="tixnu" />
-<nlword word="lotuso" valsi="latna" />
-<nlword word="antarktika" valsi="dzipo" />
-<nlword word="necesa" valsi="sarcu" />
-<nlword word="televido" valsi="tivni" />
-<nlword word="pluvo" valsi="sicpi" />
-<nlword word="bieno" valsi="cange" />
-<nlword word="breto" valsi="kajna" />
-<nlword word="envii" valsi="jilra" />
-<nlword word="reptilio" valsi="respa" />
-<nlword word="plaĉi" valsi="pluka" />
-<nlword word="longa" valsi="clani" />
-<nlword word="promesi" valsi="nupre" />
-<nlword word="grimpi" valsi="cpare" />
-<nlword word="pensi" valsi="pensi" />
-<nlword word="fabo" valsi="dembi" />
-<nlword word="ofta" valsi="cafne" />
-<nlword word="tavolo" valsi="senta" />
-<nlword word="korbo" valsi="lanka" />
-<nlword word="malmultaj" valsi="so&apos;u" />
-<nlword word="frakasi" valsi="marxa" />
-<nlword word="tie for" valsi="vu" />
-<nlword word="kamerao" valsi="kacma" />
-<nlword word="kvantumo" valsi="kantu" />
-<nlword word="korko" valsi="korka" />
-<nlword word="kolera" valsi="fengu" />
-<nlword word="fekaĵo" valsi="kalci" />
-<nlword word="almenaŭ" valsi="su&apos;o" />
-<nlword word="seruro" valsi="stela" />
-<nlword word="demando" valsi="preti" />
-<nlword word="sistemo" valsi="ciste" />
-<nlword word="pala" valsi="kandi" />
-<nlword word="oferi" valsi="friti" />
-<nlword word="materio" valsi="marji" />
-<nlword word="pluvi" valsi="carvi" />
-<nlword word="poto" valsi="patxu" />
-<nlword word="nigra" valsi="xekri" />
-<nlword word="senti komforton" valsi="kufra" />
-<nlword word="akreo" valsi="kramu" />
-<nlword word="ritmo" valsi="rilti" />
-<nlword word="temi" valsi="srana" />
-<nlword word="flugilo" valsi="nalci" />
-<nlword word="tremi" valsi="desku" />
-<nlword word="vetero" valsi="tcima" />
-<nlword word="pozicio" valsi="stuzi" />
-<nlword word="kune" valsi="gunma" />
-<nlword word="skalo" valsi="ckilu" />
-<nlword word="io 1" valsi="da" />
-<nlword word="nordamerika" valsi="bemro" />
-<nlword word="lupo" valsi="labno" />
-<nlword word="auŝtralia" valsi="sralo" />
-<nlword word="dormi" valsi="sipna" />
-<nlword word="ronda" valsi="cukla" />
-<nlword word="putri" valsi="fusra" />
-<nlword word="pardoni" valsi="fraxu" />
-<nlword word="metro" valsi="mitre" />
-<nlword word="elcento" valsi="ce&apos;i" />
-<nlword word="rigardi" valsi="catlu" />
-<nlword word="ganto" valsi="gluta" />
-<nlword word="boato" valsi="bloti" />
-<nlword word="malgranda" valsi="cmalu" />
-<nlword word="vipo" valsi="bikla" />
-<nlword word="japana" valsi="ponjo" />
-<nlword word="restoracio" valsi="gusta" />
-<nlword word="streĉita" valsi="trati" />
-<nlword word="reto" valsi="julne" />
-<nlword word="timi" valsi="terpa" />
-<nlword word="hospitalo" valsi="spita" />
-<nlword word="facila" valsi="frili" />
-<nlword word="debati" valsi="darlu" />
-<nlword word="defii" valsi="talsa" />
-<nlword word="taoisma" valsi="dadjo" />
-<nlword word="rozo" valsi="rozgu" />
-<nlword word="matura" valsi="makcu" />
-<nlword word="decimala punkto/komo" valsi="pi" />
-<nlword word="bero" valsi="jbari" />
-<nlword word="kuŝi" valsi="vreta" />
-<nlword word="anstataŭi" valsi="basti" />
-<nlword word="festi" valsi="salci" />
-<nlword word="ŝprucaĵo" valsi="jetce" />
-<nlword word="defendi" valsi="bandu" />
-<nlword word="kapro" valsi="kanba" />
-<nlword word="trapasi" valsi="pagre" />
-<nlword word="2-a revicigo" valsi="se" />
-<nlword word="akcidenta" valsi="snuti" />
-<nlword word="perturbi" valsi="raktu" />
-<nlword word="bando" valsi="bende" />
-<nlword word="muskolo" valsi="sluji" />
-<nlword word="neta" valsi="cnici" />
-<nlword word="franca" valsi="fraso" />
-<nlword word="ĵurnalo" valsi="karni" />
-<nlword word="prenilo" valsi="cinza" />
-<nlword word="investi" valsi="zivle" />
-<nlword word="perforto" valsi="vlile" />
-<nlword word="kompreni" valsi="jimpe" />
-<nlword word="golfo" valsi="zbani" />
-<nlword word="aero" valsi="vacri" />
-<nlword word="vespero" valsi="vanci" />
-<nlword word="privata" valsi="sivni" />
-<nlword word="tro malmultaj" valsi="mo&apos;a" />
-<nlword word="policano" valsi="pulji" />
-<nlword word="oksigeno" valsi="kijno" />
-<nlword word="hoko" valsi="genxu" />
-<nlword word="frostiĝi" valsi="dunja" />
-<nlword word="ŝovelilo" valsi="canpa" />
-<nlword word="spertulo" valsi="certu" />
-<nlword word="strato" valsi="klaji" />
-<nlword word="familio" valsi="lanzu" />
-<nlword word="kaoso" valsi="kalsa" />
-<nlword word="militi" valsi="jamna" />
-<nlword word="muziko" valsi="zgike" />
-<nlword word="lango" valsi="tance" />
-<nlword word="malstreĉiĝi" valsi="surla" />
-<nlword word="gorĝo" valsi="galxe" />
-<nlword word="prozo" valsi="prosa" />
-<nlword word="hidrogeno" valsi="cidro" />
-<nlword word="tubo" valsi="tubnu" />
-<nlword word="inko" valsi="xinmo" />
-<nlword word="aveno" valsi="mavji" />
-<nlword word="saluti" valsi="rinsa" />
-<nlword word="frato" valsi="bruna" />
-<nlword word="pura" valsi="jinsa" />
-<nlword word="plumo [skribilo]" valsi="penbi" />
-<nlword word="korno" valsi="jirna" />
-<nlword word="forno" valsi="toknu" />
-<nlword word="soldato" valsi="sonci" />
-<nlword word="oriento" valsi="stuna" />
-<nlword word="trinki" valsi="pinxe" />
-<nlword word="antaŭi" valsi="lidne" />
-<nlword word="vojaĝi" valsi="litru" />
-<nlword word="kanalo" valsi="naxle" />
-<nlword word="fratino" valsi="mensi" />
-<nlword word="amara" valsi="kurki" />
-<nlword word="pendi" valsi="dandu" />
-<nlword word="se kaj nur se (tanru)" valsi="jo" />
-<nlword word="kisi" valsi="cinba" />
-<nlword word="telefono" valsi="fonxa" />
-<nlword word="muzeo" valsi="muzga" />
-<nlword word="galono" valsi="dekpu" />
-<nlword word="neaŭtomata" valsi="macnu" />
-<nlword word="devigi" valsi="bapli" />
-<nlword word="konstruaĵo" valsi="dinju" />
-<nlword word="afabla" valsi="xendo" />
-<nlword word="nervo" valsi="nirna" />
-<nlword word="mito" valsi="ranmi" />
-<nlword word="kunmetaĵo" valsi="lujvo" />
-<nlword word="ŝtato" valsi="jecta" />
-<nlword word="konjunkcio" valsi="kanxe" />
-<nlword word="malami" valsi="xebni" />
-<nlword word="ĝermo" valsi="jurme" />
-<nlword word="malvarma" valsi="lenku" />
-<nlword word="kurteno" valsi="murta" />
-<nlword word="geno" valsi="jgina" />
-<nlword word="piedfrapi" valsi="tikpa" />
-<nlword word="sponĝo" valsi="panje" />
-<nlword word="3 tri" valsi="ci" />
-<nlword word="bildo" valsi="pixra" />
-<nlword word="formiko" valsi="manti" />
-<nlword word="stranga" valsi="cizra" />
-<nlword word="honesta" valsi="stace" />
-<nlword word="sudo" valsi="snanu" />
-<nlword word="kovrilo" valsi="gacri" />
-<nlword word="grandioza" valsi="banli" />
-<nlword word="naŭziga" valsi="rigni" />
-<nlword word="1E-6 mikro-" valsi="mikri" />
-<nlword word="militeca" valsi="bilni" />
-<nlword word="trompi" valsi="tcica" />
-<nlword word="simio" valsi="smani" />
-<nlword word="skota" valsi="skoto" />
-<nlword word="radio" valsi="cradi" />
-<nlword word="alkoholaĵo" valsi="jikru" />
-<nlword word="agi" valsi="zukte" />
-<nlword word="okcidento" valsi="stici" />
-<nlword word="malalta" valsi="dizlo" />
-<nlword word="soveta" valsi="softo" />
-<nlword word="besto" valsi="danlu" />
-<nlword word="honti" valsi="ckeji" />
-<nlword word="fluo" valsi="flecu" />
-<nlword word="1E21 zeta-" valsi="zetro" />
-<nlword word="mem" valsi="sevzi" />
-<nlword word="sankta" valsi="censa" />
-<nlword word="abstraktilo de bridi" valsi="du&apos;u" />
-<nlword word="kialo" valsi="krinu" />
-<nlword word="ajlo" valsi="sunga" />
-<nlword word="ek-" valsi="co&apos;a" />
-<nlword word="ĉina" valsi="jungo" />
-<nlword word="etikedo" valsi="tcita" />
-<nlword word="cigaro" valsi="sigja" />
-<nlword word="Hansa" valsi="xa&apos;anze" place="1" />
-<nlword word="plej" valsi="traji" />
-<nlword word="fero" valsi="tirse" />
-<nlword word="nombro" valsi="namcu" />
-<nlword word="kadro" valsi="greku" />
-<nlword word="ĝeni" valsi="fanza" />
-<nlword word="virta" valsi="vrude" />
-<nlword word="vermo" valsi="curnu" />
-<nlword word="konifero" valsi="ckunu" />
-<nlword word="milio" valsi="cunmi" />
-<nlword word="kubo" valsi="kubli" />
-<nlword word="nadlo" valsi="jesni" />
-<nlword word="pako" valsi="bakfu" />
-<nlword word="strukturvorto" valsi="cmavo" />
-<nlword word="peniso" valsi="pinji" />
-<nlword word="kurso" valsi="pluta" />
-<nlword word="7 sep" valsi="ze" />
-<nlword word="ansero" valsi="gunse" />
-<nlword word="logaritmo" valsi="dugri" />
-<nlword word="Pekino" valsi="pekin" />
+<nlword word="Pardonu min!" valsi="fau&apos;u" />
+<nlword word="boli" valsi="febvi" />
 <nlword word="1E-15 femto-" valsi="femti" />
-<nlword word="martelo" valsi="mruli" />
-<nlword word="sinsekvo" valsi="porsi" />
-<nlword word="daŭri" valsi="ranji" />
+<nlword word="dividi" valsi="fendi" />
+<nlword word="kolera" valsi="fengu" />
+<nlword word="freneza" valsi="fenki" />
+<nlword word="fendo" valsi="fenra" />
+<nlword word="kudri" valsi="fenso" />
+<nlword word="cendo" valsi="fepni" />
+<nlword word="pulmo" valsi="fepri" />
+<nlword word="fekunda" valsi="ferti" />
+<nlword word="rubo" valsi="festi" />
+<nlword word="ino" valsi="fetsi" />
+<nlword word="figo" valsi="figre" />
+<nlword word="palestina" valsi="filso" />
+<nlword word="fiŝo" valsi="finpe" />
 <nlword word="verki" valsi="finti" />
-<nlword word="fenestro" valsi="canko" />
-<nlword word="fantazia" valsi="xanri" />
-<nlword word="ondo" valsi="boxna" />
-<nlword word="sidi" valsi="zutse" />
-<nlword word="fidi" valsi="lacri" />
-<nlword word="ordoni" valsi="minde" />
-<nlword word="monero" valsi="sicni" />
-<nlword word="komika" valsi="xajmi" />
-<nlword word="intuicii" valsi="jijnu" />
-<nlword word="horo" valsi="cacra" />
-<nlword word="brazila" valsi="brazo" />
-<nlword word="tagnokto" valsi="djedi" />
+<nlword word="leĝo" valsi="flalu" />
+<nlword word="fluto" valsi="flani" />
+<nlword word="fluo" valsi="flecu" />
+<nlword word="malsukcesi" valsi="fliba" />
+<nlword word="vizaĝo" valsi="flira" />
+<nlword word="ĝi-6" valsi="fo&apos;a" />
+<nlword word="ĝi-7" valsi="fo&apos;e" />
+<nlword word="ĝi-8" valsi="fo&apos;i" />
+<nlword word="kampo" valsi="foldi" />
+<nlword word="ŝaŭmo" valsi="fonmo" />
+<nlword word="telefono" valsi="fonxa" />
+<nlword word="forko" valsi="forca" />
+<nlword word="franca" valsi="fraso" />
+<nlword word="reagi" valsi="frati" />
+<nlword word="pardoni" valsi="fraxu" />
+<nlword word="diferenci" valsi="frica" />
+<nlword word="afrika" valsi="friko" />
+<nlword word="facila" valsi="frili" />
+<nlword word="frakcio" valsi="frinu" />
+<nlword word="oferi" valsi="friti" />
+<nlword word="grimaci" valsi="frumu" />
+<nlword word="kopio" valsi="fukpi" />
+<nlword word="flosi" valsi="fulta" />
 <nlword word="ŝanco" valsi="funca" />
-<nlword word="acida" valsi="slari" />
+<nlword word="putri" valsi="fusra" />
+<nlword word="respondeca" valsi="fuzme" />
+<nlword word="kovrilo" valsi="gacri" />
+<nlword word="artikolo" valsi="gadri" />
+<nlword word="modifi" valsi="galfi" />
+<nlword word="alta" valsi="galtu" />
+<nlword word="gorĝo" valsi="galxe" />
+<nlword word="fermita" valsi="ganlo" />
+<nlword word="larĝa" valsi="ganra" />
+<nlword word="sensi" valsi="ganse" />
+<nlword word="testiko" valsi="ganti" />
+<nlword word="anuso" valsi="ganxo" />
+<nlword word="organizi" valsi="ganzu" />
 <nlword word="gaso" valsi="gapci" />
-<nlword word="siria" valsi="sirxo" />
-<nlword word="provizo" valsi="sorcu" />
-<nlword word="kombilo" valsi="komcu" />
-<nlword word="diveni" valsi="smadi" />
-<nlword word="portugala" valsi="porto" />
-<nlword word="fama" valsi="misno" />
+<nlword word="super" valsi="gapru" />
+<nlword word="stango" valsi="garna" />
+<nlword word="fari" valsi="gasnu" />
+<nlword word="ŝtalo" valsi="gasta" />
+<nlword word="radiko" valsi="genja" />
+<nlword word="argentina" valsi="gento" />
+<nlword word="hoko" valsi="genxu" />
+<nlword word="hundo" valsi="gerku" />
+<nlword word="gramatiko" valsi="gerna" />
+<nlword word="gvidi" valsi="gidva" />
+<nlword word="1E9 giga-" valsi="gigdo" />
+<nlword word="tendaro" valsi="ginka" />
+<nlword word="grupo" valsi="girzu" />
+<nlword word="radikvorto" valsi="gismu" />
+<nlword word="varma" valsi="glare" />
+<nlword word="gaja" valsi="gleki" />
+<nlword word="koiti" valsi="gletu" />
+<nlword word="angla" valsi="glico" />
+<nlword word="ganto" valsi="gluta" />
+<nlword word="1E-24 jokto-" valsi="gocti" />
+<nlword word="1E24 jota-" valsi="gotro" />
+<nlword word="grado" valsi="gradu" />
+<nlword word="gramo" valsi="grake" />
+<nlword word="vergo" valsi="grana" />
+<nlword word="graso" valsi="grasu" />
+<nlword word="kadro" valsi="greku" />
+<nlword word="griza" valsi="grusi" />
+<nlword word="frukto" valsi="grute" />
+<nlword word="publika" valsi="gubni" />
+<nlword word="lando" valsi="gugde" />
+<nlword word="industrio" valsi="gundi" />
+<nlword word="labori" valsi="gunka" />
+<nlword word="kune" valsi="gunma" />
+<nlword word="ruliĝi" valsi="gunro" />
+<nlword word="ansero" valsi="gunse" />
+<nlword word="ataki" valsi="gunta" />
+<nlword word="greno" valsi="gurni" />
+<nlword word="skrapi" valsi="guska" />
+<nlword word="lumo" valsi="gusni" />
+<nlword word="restoracio" valsi="gusta" />
+<nlword word="kubuto" valsi="gutci" />
+<nlword word="utero" valsi="gutra" />
+<nlword word="melono" valsi="guzme" />
+<nlword word="aŭ (tanru)" valsi="ja" />
+<nlword word="bremsi" valsi="jabre" />
+<nlword word="ornami" valsi="jadni" />
+<nlword word="rakedo" valsi="jakne" />
+<nlword word="rezulti" valsi="jalge" />
+<nlword word="amelo" valsi="jalna" />
+<nlword word="blato" valsi="jalra" />
+<nlword word="piedo" valsi="jamfu" />
+<nlword word="militi" valsi="jamna" />
+<nlword word="sonorilo" valsi="janbe" />
+<nlword word="ŝultro" valsi="janco" />
+<nlword word="kolizii" valsi="janli" />
+<nlword word="diplomato" valsi="jansu" />
+<nlword word="konto" valsi="janta" />
+<nlword word="antaŭurbo" valsi="jarbu" />
+<nlword word="montri" valsi="jarco" />
+<nlword word="mallarĝa" valsi="jarki" />
+<nlword word="pasporto" valsi="jaspu" />
+<nlword word="kapitano" valsi="jatna" />
+<nlword word="regulo" valsi="javni" />
+<nlword word="bombo" valsi="jbama" />
+<nlword word="bero" valsi="jbari" />
+<nlword word="naskiĝi" valsi="jbena" />
 <nlword word="prunti" valsi="jbera" />
+<nlword word="inter" valsi="jbini" />
+<nlword word="firma" valsi="jdari" />
+<nlword word="decidi" valsi="jdice" />
+<nlword word="malpliiĝi" valsi="jdika" />
+<nlword word="prezo" valsi="jdima" />
+<nlword word="mono" valsi="jdini" />
+<nlword word="gelatenaĵo" valsi="jduli" />
+<nlword word="kaj (tanru)" valsi="je" />
+<nlword word="ŝtato" valsi="jecta" />
+<nlword word="semajno" valsi="jeftu" />
+<nlword word="jehovisma" valsi="jegvo" />
+<nlword word="abstraktilo de vereco-valoro" valsi="jei" />
+<nlword word="bruli" valsi="jelca" />
+<nlword word="gemo" valsi="jemna" />
+<nlword word="ŝoki" valsi="jenca" />
+<nlword word="akso" valsi="jendu" />
+<nlword word="armeo" valsi="jenmi" />
+<nlword word="perlabori" valsi="jerna" />
+<nlword word="postkuri" valsi="jersi" />
+<nlword word="alĝeria" valsi="jerxo" />
+<nlword word="nadlo" valsi="jesni" />
+<nlword word="ŝprucaĵo" valsi="jetce" />
+<nlword word="vera" valsi="jetnu" />
+<nlword word="ungo" valsi="jgalu" />
+<nlword word="angulo [dudimensia]" valsi="jganu" />
+<nlword word="teni" valsi="jgari" />
+<nlword word="nodo" valsi="jgena" />
+<nlword word="geno" valsi="jgina" />
+<nlword word="fieri" valsi="jgira" />
+<nlword word="gitaro" valsi="jgita" />
+<nlword word="proksima" valsi="jibni" />
+<nlword word="ofico" valsi="jibri" />
+<nlword word="kirli" valsi="jicla" />
+<nlword word="bazo" valsi="jicmu" />
+<nlword word="intuicii" valsi="jijnu" />
+<nlword word="interagi" valsi="jikca" />
+<nlword word="alkoholaĵo" valsi="jikru" />
+<nlword word="alkalo" valsi="jilka" />
+<nlword word="envii" valsi="jilra" />
+<nlword word="branĉo" valsi="jimca" />
+<nlword word="kompreni" valsi="jimpe" />
+<nlword word="limo" valsi="jimte" />
+<nlword word="tondilo" valsi="jinci" />
+<nlword word="gajni" valsi="jinga" />
+<nlword word="vakcino" valsi="jinku" />
+<nlword word="metalo" valsi="jinme" />
+<nlword word="mergiĝi" valsi="jinru" />
+<nlword word="pura" valsi="jinsa" />
+<nlword word="puto" valsi="jinto" />
+<nlword word="opinii" valsi="jinvi" />
+<nlword word="esenca" valsi="jinzi" />
+<nlword word="koko" valsi="jipci" />
+<nlword word="pinto" valsi="jipno" />
+<nlword word="korno" valsi="jirna" />
+<nlword word="suko" valsi="jisra" />
+<nlword word="falsa" valsi="jitfa" />
+<nlword word="regi" valsi="jitro" />
+<nlword word="teksi" valsi="jivbu" />
+<nlword word="konkuri" valsi="jivna" />
+<nlword word="kolektiĝi" valsi="jmaji" />
+<nlword word="rifo" valsi="jmifa" />
+<nlword word="aldoni" valsi="jmina" />
+<nlword word="vivi" valsi="jmive" />
+<nlword word="se kaj nur se (tanru)" valsi="jo" />
+<nlword word="unio" valsi="jo&apos;e" />
+<nlword word="komune kun" valsi="jo&apos;u" />
+<nlword word="kune kun" valsi="joi" />
+<nlword word="jordania" valsi="jordo" />
+<nlword word="kunigita" valsi="jorne" />
+<nlword word="egale ĉu aŭ ne (tanru)" valsi="ju" />
+<nlword word="tablo" valsi="jubme" />
+<nlword word="adreso" valsi="judri" />
+<nlword word="frazo" valsi="jufra" />
+<nlword word="araneo" valsi="jukni" />
+<nlword word="kuiri" valsi="jukpa" />
+<nlword word="reto" valsi="julne" />
+<nlword word="atenti" valsi="jundi" />
+<nlword word="ĉina" valsi="jungo" />
+<nlword word="horloĝo" valsi="junla" />
+<nlword word="serioza" valsi="junri" />
+<nlword word="pezo" valsi="junta" />
+<nlword word="ĝermo" valsi="jurme" />
+<nlword word="severa" valsi="jursa" />
+<nlword word="specio" valsi="jutsi" />
+<nlword word="vidaĵo" valsi="jvinu" />
+<nlword word="abstraktilo de eco" valsi="ka" />
+<nlword word="taso" valsi="kabri" />
+<nlword word="kamerao" valsi="kacma" />
+<nlword word="kanada" valsi="kadno" />
+<nlword word="tusi" valsi="kafke" />
+<nlword word="kompanio" valsi="kagni" />
+<nlword word="averti" valsi="kajde" />
+<nlword word="breto" valsi="kajna" />
+<nlword word="povi" valsi="kakne" />
+<nlword word="fosi" valsi="kakpa" />
+<nlword word="fekaĵo" valsi="kalci" />
+<nlword word="malfermita" valsi="kalri" />
+<nlword word="kaoso" valsi="kalsa" />
+<nlword word="ĉasi" valsi="kalte" />
+<nlword word="kolono" valsi="kamju" />
+<nlword word="komitato" valsi="kamni" />
+<nlword word="komuna" valsi="kampu" />
+<nlword word="kapro" valsi="kanba" />
+<nlword word="nombri" valsi="kancu" />
+<nlword word="pala" valsi="kandi" />
+<nlword word="kalkuli" valsi="kanji" />
+<nlword word="okulo" valsi="kanla" />
+<nlword word="atendi" sense="antaŭvidi" valsi="kanpe" />
+<nlword word="sana" valsi="kanro" />
+<nlword word="kun" valsi="kansa" />
+<nlword word="kvantumo" valsi="kantu" />
+<nlword word="konjunkcio" valsi="kanxe" />
+<nlword word="kompari" valsi="karbi" />
+<nlword word="aŭto" valsi="karce" />
+<nlword word="karto" valsi="karda" />
+<nlword word="multekosta" valsi="kargu" />
+<nlword word="kolumo" valsi="karli" />
+<nlword word="ĵurnalo" valsi="karni" />
+<nlword word="tranĉi" valsi="katna" />
+<nlword word="kapti" valsi="kavbu" />
+<nlword word="ekgrupigo" valsi="ke" />
+<nlword word="fino de grupigo" valsi="ke&apos;e" />
+<nlword word="kompati" valsi="kecti" />
+<nlword word="fino de abstraktaĵo" valsi="kei" />
+<nlword word="ludi" valsi="kelci" />
+<nlword word="kelvino" valsi="kelvo" />
+<nlword word="kancero" valsi="kenra" />
+<nlword word="kosmospaco" valsi="kensa" />
+<nlword word="haro" valsi="kerfa" />
+<nlword word="orelo" valsi="kerlo" />
+<nlword word="sudamerika" valsi="ketco" />
+<nlword word="truo" valsi="kevna" />
+<nlword word="kuseno" valsi="kicne" />
+<nlword word="oksigeno" valsi="kijno" />
+<nlword word="1000 kilo-" valsi="kilto" />
+<nlword word="akra" valsi="kinli" />
+<nlword word="pakistana" valsi="kisto" />
+<nlword word="strato" valsi="klaji" />
+<nlword word="plori" valsi="klaku" />
+<nlword word="veni" valsi="klama" />
+<nlword word="kvanto" valsi="klani" />
+<nlword word="klaso" valsi="klesi" />
+<nlword word="klara" valsi="klina" />
+<nlword word="kloro" valsi="kliru" />
+<nlword word="argilo" valsi="kliti" />
+<nlword word="ŝraŭbo" valsi="klupe" />
+<nlword word="malstrikta" valsi="kluza" />
+<nlword word="brasiko" valsi="kobli" />
+<nlword word="angulo [tridimensia]" valsi="kojna" />
+<nlword word="karbo" valsi="kolme" />
+<nlword word="kombilo" valsi="komcu" />
+<nlword word="konuso" valsi="konju" />
+<nlword word="rando" valsi="korbi" />
+<nlword word="malrekta" valsi="korcu" />
+<nlword word="korko" valsi="korka" />
+<nlword word="jako" valsi="kosta" />
+<nlword word="akreo" valsi="kramu" />
+<nlword word="fonto" valsi="krasi" />
+<nlword word="reprezenti" valsi="krati" />
+<nlword word="reokazi" valsi="krefu" />
+<nlword word="kredi" valsi="krici" />
+<nlword word="kristalo" valsi="krili" />
+<nlword word="kialo" valsi="krinu" />
+<nlword word="krii" valsi="krixa" />
+<nlword word="kruciĝi" valsi="kruca" />
+<nlword word="kremo" valsi="kruji" />
+<nlword word="kurbo" valsi="kruvi" />
+<nlword word="intersekcio" valsi="ku&apos;a" />
+<nlword word="kurda" valsi="ku&apos;urdi" />
+<nlword word="kubo" valsi="kubli" />
+<nlword word="scivoli" valsi="kucli" />
+<nlword word="senti komforton" valsi="kufra" />
+<nlword word="bongusta" valsi="kukte" />
+<nlword word="kulturo" valsi="kulnu" />
+<nlword word="ĉambro" valsi="kumfa" />
+<nlword word="kamelo" valsi="kumte" />
+<nlword word="mineralo" valsi="kunra" />
+<nlword word="malplena" valsi="kunti" />
+<nlword word="kvadrato" valsi="kurfa" />
+<nlword word="prizorgi" valsi="kurji" />
+<nlword word="amara" valsi="kurki" />
+<nlword word="ampleksi" valsi="kuspe" />
+<nlword word="kruela" valsi="kusru" />
+<nlword word="lupo" valsi="labno" />
+<nlword word="tiri" valsi="lacpu" />
+<nlword word="fidi" valsi="lacri" />
+<nlword word="lakto" valsi="ladru" />
+<nlword word="levi" valsi="lafti" />
+<nlword word="probabla" valsi="lakne" />
+<nlword word="vakso" valsi="lakse" />
+<nlword word="lago" valsi="lalxu" />
+<nlword word="apud" valsi="lamji" />
+<nlword word="proteino" valsi="lanbi" />
+<nlword word="flago" valsi="lanci" />
+<nlword word="korbo" valsi="lanka" />
+<nlword word="analizi" valsi="lanli" />
+<nlword word="ŝafo" valsi="lanme" />
+<nlword word="ladskatolo" valsi="lante" />
+<nlword word="ekvilibra" valsi="lanxe" />
+<nlword word="familio" valsi="lanzu" />
+<nlword word="arto" valsi="larcu" />
+<nlword word="ligi" valsi="lasna" />
+<nlword word="latuno" valsi="lastu" />
+<nlword word="latina" valsi="latmo" />
+<nlword word="lotuso" valsi="latna" />
+<nlword word="pigra" valsi="lazni" />
+<nlword word="la stereotipa" valsi="le&apos;e" />
+<nlword word="preni" valsi="lebna" />
+<nlword word="lenso" valsi="lenjo" />
+<nlword word="malvarma" valsi="lenku" />
+<nlword word="malfrua" valsi="lerci" />
+<nlword word="litero" valsi="lerfu" />
+<nlword word="abstraktilo de sperto" valsi="li&apos;i" />
+<nlword word="libia" valsi="libjo" />
+<nlword word="antaŭi" valsi="lidne" />
+<nlword word="sperti" valsi="lifri" />
+<nlword word="religio" valsi="lijda" />
+<nlword word="naĝi" valsi="limna" />
+<nlword word="fulmo" valsi="lindi" />
+<nlword word="linio" valsi="linji" />
+<nlword word="ĉeno" valsi="linsi" />
+<nlword word="malpeza" valsi="linto" />
+<nlword word="rakonto" valsi="lisri" />
+<nlword word="listo" valsi="liste" />
+<nlword word="litro" valsi="litce" />
+<nlword word="likva" valsi="litki" />
+<nlword word="vojaĝi" valsi="litru" />
+<nlword word="hepato" valsi="livga" />
+<nlword word="brulaĵo" valsi="livla" />
+<nlword word="la tipa" valsi="lo&apos;e" />
+<nlword word="logiko" valsi="logji" />
+<nlword word="loĵbana" valsi="lojbo" />
+<nlword word="planko" valsi="loldi" />
+<nlword word="vulpo" valsi="lorxu" />
+<nlword word="libana" valsi="lubno" />
+<nlword word="kunmetaĵo" valsi="lujvo" />
+<nlword word="lavi" valsi="lumci" />
+<nlword word="nuda" valsi="lunbe" />
+<nlword word="luno" valsi="lunra" />
+<nlword word="kondensiĝi" valsi="lunsa" />
+<nlword word="aĉa" valsi="mabla" />
+<nlword word="mamulo" valsi="mabru" />
+<nlword word="neaŭtomata" valsi="macnu" />
+<nlword word="matura" valsi="makcu" />
+<nlword word="magia" valsi="makfa" />
+<nlword word="magneta" valsi="maksi" />
+<nlword word="templo" valsi="malsi" />
+<nlword word="patrino" valsi="mamta" />
+<nlword word="miri" valsi="manci" />
+<nlword word="unuforma" valsi="manfo" />
+<nlword word="malhela" valsi="manku" />
+<nlword word="referenco" valsi="manri" />
+<nlword word="kontentigi" valsi="mansa" />
+<nlword word="formiko" valsi="manti" />
+<nlword word="ĉapo" valsi="mapku" />
+<nlword word="kotono" valsi="mapni" />
+<nlword word="taŭgi" valsi="mapti" />
+<nlword word="haveno" valsi="marbi" />
+<nlword word="veturilo" valsi="marce" />
+<nlword word="moralo" valsi="marde" />
+<nlword word="hidrargo" valsi="margu" />
+<nlword word="materio" valsi="marji" />
+<nlword word="kanabo" valsi="marna" />
+<nlword word="marcipano" valsi="marsipane" place="1" />
+<nlword word="marcipanspeco" valsi="marsipane" place="2" />
+<nlword word="frakasi" valsi="marxa" />
+<nlword word="malrapida" valsi="masno" />
+<nlword word="monato" valsi="masti" />
+<nlword word="masto" sense="de ŝipo" valsi="mastla" />
+<nlword word="matraco" valsi="matci" />
+<nlword word="lino" valsi="matli" />
+<nlword word="butero" valsi="matne" />
+<nlword word="motoro" valsi="matra" />
+<nlword word="aveno" valsi="mavji" />
+<nlword word="tritiko" valsi="maxri" />
+<nlword word="frunto" valsi="mebri" />
+<nlword word="via" valsi="medomoi" />
+<nlword word="1E6 mega-" valsi="megdo" />
+<nlword word="opo" valsi="mei" />
+<nlword word="MEX matematika esprimo" valsi="mekso" />
+<nlword word="bela" valsi="melbi" />
+<nlword word="malaja" valsi="meljo" />
+<nlword word="mia" valsi="memimoi" />
+<nlword word="menso" valsi="menli" />
+<nlword word="fratino" valsi="mensi" />
+<nlword word="minuto" valsi="mentu" />
+<nlword word="usona" valsi="merko" />
+<nlword word="mezuri" valsi="merli" />
+<nlword word="meksika" valsi="mexno" />
+<nlword word="mi" valsi="mi" />
+<nlword word="mezo" valsi="midju" />
+<nlword word="ĉifraĵo" valsi="mifra" />
+<nlword word="kuraci" valsi="mikce" />
+<nlword word="1E-6 mikro-" valsi="mikri" />
+<nlword word=".001 mili-" valsi="milti" />
+<nlword word="milda" valsi="milxe" />
+<nlword word="ordoni" valsi="minde" />
+<nlword word="maŝino" valsi="minji" />
+<nlword word="mejlo" valsi="minli" />
+<nlword word="reflekti" valsi="minra" />
+<nlword word="sama" valsi="mintu" />
+<nlword word="sekretigi" valsi="mipri" />
+<nlword word="cervo" valsi="mirli" />
+<nlword word="fama" valsi="misno" />
+<nlword word="egipta" valsi="misro" />
+<nlword word="metro" valsi="mitre" />
+<nlword word="miksaĵo" valsi="mixre" />
+<nlword word="flanko" valsi="mlana" />
+<nlword word="kato" valsi="mlatu" />
+<nlword word="malpli" valsi="mleca" />
+<nlword word="ŝimo" valsi="mledi" />
+<nlword word="satelito" valsi="mluni" />
+<nlword word="tro malmultaj" valsi="mo&apos;a" />
+<nlword word="spaca movo" valsi="mo&apos;i" />
+<nlword word="vica selbri" valsi="moi" />
+<nlword word="punkto" valsi="mokca" />
+<nlword word="buŝo" valsi="moklu" />
+<nlword word="muelejo" valsi="molki" />
+<nlword word="grammolekulo" valsi="molro" />
+<nlword word="memori" valsi="morji" />
+<nlword word="moroka" valsi="morko" />
+<nlword word="modelo" valsi="morna" />
+<nlword word="mortinta" valsi="morsi" />
+<nlword word="frikcio" valsi="mosra" />
+<nlword word="sekalo" valsi="mraji" />
+<nlword word="poŝtoficejo" valsi="mribriju" place="1" />
+<nlword word="poŝtoficisto" valsi="mribriju" place="2" />
+<nlword word="poŝti" valsi="mrilu" />
+<nlword word="martelo" valsi="mruli" />
+<nlword word="5 kvin" valsi="mu" />
+<nlword word="abstraktilo de punkt-okazo" valsi="mu&apos;e" />
+<nlword word="nemateria" valsi="mucti" />
+<nlword word="ligno" valsi="mudri" />
+<nlword word="motivo" valsi="mukti" />
+<nlword word="kompleta" valsi="mulno" />
+<nlword word="universo" valsi="munje" />
+<nlword word="ekzemplo" valsi="mupli" />
+<nlword word="krepusko" valsi="murse" />
+<nlword word="kurteno" valsi="murta" />
+<nlword word="islama" valsi="muslo" />
+<nlword word="multa" valsi="mutce" />
+<nlword word="moviĝi" valsi="muvdu" />
+<nlword word="muzeo" valsi="muzga" />
+<nlword word="ne" valsi="na" />
+<nlword word="ne-" valsi="na&apos;e" />
+<nlword word="problemo" valsi="nabmi" />
+<nlword word="virseksa" valsi="nakni" />
+<nlword word="flugilo" valsi="nalci" />
+<nlword word="nombro" valsi="namcu" />
+<nlword word="pano" valsi="nanba" />
+<nlword word="jaro" valsi="nanca" />
+<nlword word="malfacila" valsi="nandu" />
+<nlword word="knabo" valsi="nanla" />
+<nlword word="viro" valsi="nanmu" />
+<nlword word="1E-9 nano-" valsi="nanvi" />
+<nlword word="nukso" valsi="narge" />
+<nlword word="oranĝa" valsi="narju" />
+<nlword word="negi" valsi="natfe" />
+<nlword word="nacio" valsi="natmi" />
+<nlword word="neono" valsi="navni" />
+<nlword word="kanalo" valsi="naxle" />
+<nlword word="nazo" valsi="nazbi" />
+<nlword word="energio" valsi="nejni" />
+<nlword word="ŝati" valsi="nelci" />
+<nlword word="en" valsi="nenri" />
+<nlword word="eniri" valsi="nerkla" />
+<nlword word="abstraktilo de kvanto" valsi="ni" />
+<nlword word="implici" valsi="nibli" />
+<nlword word="nokto" valsi="nicte" />
+<nlword word="nikelo" valsi="nikle" />
+<nlword word="meblo" valsi="nilce" />
+<nlword word="citro" valsi="nimre" />
+<nlword word="virino" valsi="ninmu" />
+<nlword word="nervo" valsi="nirna" />
+<nlword word="bezoni" valsi="nitcu" />
+<nlword word="triki" valsi="nivji" />
+<nlword word="knabino" valsi="nixli" />
+<nlword word="0 nul" valsi="no" />
+<nlword word="skala mezpunkta ne" valsi="no&apos;e" />
+<nlword word="nobela" valsi="nobli" />
+<nlword word="Norvegio" sense="lando" valsi="norgo" />
+<nlword word="norvega" sense="popolo" valsi="norgo" />
+<nlword word="mesaĝo" valsi="notci" />
+<nlword word="abstraktilo de okazo" valsi="nu" />
+<nlword word="nerealigita potencialo" valsi="nu&apos;o" />
+<nlword word="fuksia" valsi="nukni" />
+<nlword word="promesi" valsi="nupre" />
+<nlword word="kampara" valsi="nurma" />
+<nlword word="neŭtrala" valsi="nutli" />
+<nlword word="novaĵo" valsi="nuzba" />
+<nlword word="1 unu" valsi="pa" />
+<nlword word="esperi" valsi="pacna" />
+<nlword word="parto" valsi="pagbu" />
+<nlword word="trapasi" valsi="pagre" />
+<nlword word="juĝi" valsi="pajni" />
+<nlword word="malica" valsi="palci" />
+<nlword word="pantalono" valsi="palku" />
+<nlword word="pleto" valsi="palne" />
+<nlword word="telero" valsi="palta" />
+<nlword word="pumpilo" valsi="pambe" />
+<nlword word="odoro" valsi="panci" />
+<nlword word="interpunkcii" valsi="pandi" />
+<nlword word="sponĝo" valsi="panje" />
+<nlword word="parko" valsi="panka" />
+<nlword word="tranĉaĵo" valsi="panlo" />
+<nlword word="paca" valsi="panpi" />
+<nlword word="paralela" valsi="panra" />
 <nlword word="protesti" valsi="pante" />
+<nlword word="ido" valsi="panzi" />
+<nlword word="proporcio" valsi="parbi" />
+<nlword word="robo" valsi="pastu" />
+<nlword word="patro" valsi="patfu" />
+<nlword word="terpomo" valsi="patlu" />
+<nlword word="poto" valsi="patxu" />
+<nlword word="unukornulo" valsi="pavyseljirna" />
+<nlword word="figura" valsi="pe&apos;a" />
+<nlword word="Pekino" valsi="pekin" />
+<nlword word="papero" valsi="pelji" />
+<nlword word="flava" valsi="pelxu" />
+<nlword word="poemo" valsi="pemci" />
+<nlword word="plumo [skribilo]" valsi="penbi" />
+<nlword word="tuŝi" valsi="pencu" />
+<nlword word="amiko" valsi="pendo" />
+<nlword word="renkonti" valsi="penmi" />
+<nlword word="pensi" valsi="pensi" />
+<nlword word="piro" valsi="perli" />
+<nlword word="1E15 peta-" valsi="petso" />
+<nlword word="folio" valsi="pezli" />
+<nlword word="decimala punkto/komo" valsi="pi" />
+<nlword word="krucproduto" valsi="pi&apos;u" />
+<nlword word="1E-12 piko-" valsi="picti" />
+<nlword word="pinglo" valsi="pijne" />
+<nlword word="petegi" valsi="pikci" />
+<nlword word="bileto" valsi="pikta" />
+<nlword word="multipliko" valsi="pilji" />
+<nlword word="krusto" valsi="pilka" />
+<nlword word="uzi" valsi="pilno" />
+<nlword word="plumo" valsi="pimlu" />
+<nlword word="urino" valsi="pinca" />
+<nlword word="malriĉa" valsi="pindi" />
+<nlword word="malliberulo" valsi="pinfu" />
+<nlword word="peniso" valsi="pinji" />
+<nlword word="rimarko" valsi="pinka" />
+<nlword word="krajono" valsi="pinsi" />
+<nlword word="ebena" valsi="pinta" />
+<nlword word="trinki" valsi="pinxe" />
+<nlword word="piano" valsi="pipno" />
+<nlword word="bildo" valsi="pixra" />
+<nlword word="grasa" valsi="plana" />
+<nlword word="plani" valsi="platu" />
+<nlword word="pagi" valsi="pleji" />
+<nlword word="pubo" valsi="plibu" />
+<nlword word="planedo" valsi="plini" />
+<nlword word="salti" valsi="plipe" />
+<nlword word="pomo" valsi="plise" />
+<nlword word="ebeno" valsi="plita" />
+<nlword word="plugi" valsi="plixa" />
+<nlword word="kompleksa" valsi="pluja" />
+<nlword word="plaĉi" valsi="pluka" />
+<nlword word="kurso" valsi="pluta" />
+<nlword word="faldi" valsi="polje" />
+<nlword word="polinezia" valsi="polno" />
+<nlword word="japana" valsi="ponjo" />
+<nlword word="posedi" valsi="ponse" />
+<nlword word="sinsekvo" valsi="porsi" />
+<nlword word="portugala" valsi="porto" />
+<nlword word="profito" valsi="prali" />
+<nlword word="perfekta" valsi="prane" />
+<nlword word="disvastiĝi" valsi="preja" />
+<nlword word="persono" valsi="prenu" />
+<nlword word="demando" valsi="preti" />
+<nlword word="saĝa" valsi="prije" />
+<nlword word="presaĵo" valsi="prina" />
+<nlword word="dekstra" valsi="pritu" />
+<nlword word="prozo" valsi="prosa" />
+<nlword word="procedo" valsi="pruce" />
+<nlword word="elasta" valsi="pruni" />
+<nlword word="realigita potencialo" valsi="pu&apos;i" />
+<nlword word="abstraktilo de procedo" valsi="pu&apos;u" />
+<nlword word="polvo" valsi="pulce" />
+<nlword word="policano" valsi="pulji" />
+<nlword word="pulio" valsi="pulni" />
+<nlword word="meti" valsi="punji" />
+<nlword word="ŝveliĝo" valsi="punli" />
+<nlword word="estinta" valsi="purci" />
+<nlword word="ĝardeno" valsi="purdi" />
+<nlword word="pulvoro" valsi="purmo" />
+<nlword word="racia" valsi="racli" />
+<nlword word="kuniklo" valsi="ractu" />
+<nlword word="radiano" valsi="radno" />
+<nlword word="afikso" valsi="rafsi" />
+<nlword word="iraka" valsi="rakso" />
+<nlword word="perturbi" valsi="raktu" />
+<nlword word="delikata" valsi="ralci" />
+<nlword word="ĉefa" valsi="ralju" />
+<nlword word="reteni" valsi="ralte" />
+<nlword word="cedi" valsi="randa" />
+<nlword word="organo" valsi="rango" />
+<nlword word="daŭri" valsi="ranji" />
+<nlword word="mito" valsi="ranmi" />
+<nlword word="bronzo" valsi="ransu" />
+<nlword word="mola" valsi="ranti" />
+<nlword word="ironio" valsi="ranxi" />
+<nlword word="ripetiĝi" valsi="rapli" />
+<nlword word="natura" valsi="rarna" />
+<nlword word="rato" valsi="ratcu" />
+<nlword word="atomo" valsi="ratni" />
+<nlword word="2 du" valsi="re" />
+<nlword word="vosto" valsi="rebla" />
+<nlword word="viando" valsi="rectu" />
+<nlword word="homo" valsi="remna" />
+<nlword word="ĵeti" valsi="renro" />
+<nlword word="elteni" valsi="renvi" />
+<nlword word="reptilio" valsi="respa" />
+<nlword word="riĉa" valsi="ricfu" />
+<nlword word="naŭziga" valsi="rigni" />
+<nlword word="arĝento" valsi="rijno" />
+<nlword word="ritmo" valsi="rilti" />
+<nlword word="rimo" valsi="rimni" />
+<nlword word="dreniĝi" valsi="rinci" />
+<nlword word="detenita" valsi="rinju" />
+<nlword word="kaŭzi" valsi="rinka" />
+<nlword word="saluti" valsi="rinsa" />
+<nlword word="rara" valsi="rirci" />
+<nlword word="gepatro" valsi="rirni" />
+<nlword word="rivero" valsi="rirxe" />
+<nlword word="rizo" valsi="rismi" />
+<nlword word="koro" valsi="risna" />
+<nlword word="rito" valsi="ritli" />
+<nlword word="eviti" valsi="rivbi" />
+<nlword word="ĉiu" valsi="ro" />
+<nlword word="fojoj" valsi="roi" />
+<nlword word="roko" valsi="rokci" />
+<nlword word="kromo [elemento]" valsi="romge" />
+<nlword word="eŭropa" valsi="ropno" />
+<nlword word="generi" valsi="rorci" />
+<nlword word="generacio" valsi="rorlei" />
+<nlword word="dika" valsi="rotsu" />
+<nlword word="rozo" valsi="rozgu" />
+<nlword word="malforta" valsi="ruble" />
+<nlword word="malglata" valsi="rufsu" />
+<nlword word="fandiĝi" valsi="runme" />
+<nlword word="solviĝi" valsi="runta" />
+<nlword word="speso" valsi="rupnu" />
+<nlword word="rusa" valsi="rusko" />
+<nlword word="artefarita" valsi="rutni" />
+<nlword word="provizi" valsi="sabji" />
+<nlword word="kajuto" valsi="sabnu" />
+<nlword word="alumeto" valsi="sacki" />
+<nlword word="decimala" valsi="saclu" />
+<nlword word="saŭdaraba" valsi="sadjo" />
+<nlword word="suĉi" valsi="sakci" />
+<nlword word="gliti" valsi="sakli" />
+<nlword word="sukero" valsi="sakta" />
+<nlword word="festi" valsi="salci" />
+<nlword word="deklivo" valsi="salpo" />
+<nlword word="salato" valsi="salta" />
+<nlword word="kasavo" valsi="samcu" />
+<nlword word="simpla" valsi="sampu" />
+<nlword word="sono" valsi="sance" />
+<nlword word="kanti" valsi="sanga" />
+<nlword word="konscia" valsi="sanji" />
+<nlword word="stari" valsi="sanli" />
+<nlword word="manĝaĵo" valsi="sanmi" />
+<nlword word="saŭco" valsi="sanso" />
+<nlword word="ombrelo" valsi="santa" />
+<nlword word="necesa" valsi="sarcu" />
+<nlword word="apogi" valsi="sarji" />
+<nlword word="spiralo" valsi="sarlu" />
+<nlword word="harmonia" valsi="sarxe" />
+<nlword word="scienco" valsi="saske" />
+<nlword word="preciza" valsi="satci" />
+<nlword word="froti" valsi="satre" />
+<nlword word="bruo" valsi="savru" />
+<nlword word="funkciigi" valsi="sazri" />
+<nlword word="2-a revicigo" valsi="se" />
+<nlword word="surfaco" valsi="sefta" />
+<nlword word="ĉelo" valsi="selci" />
+<nlword word="servi" valsi="selfu" />
+<nlword word="semida" valsi="semto" />
+<nlword word="terni" valsi="senci" />
+<nlword word="dubi" valsi="senpi" />
+<nlword word="tavolo" valsi="senta" />
+<nlword word="sonĝi" valsi="senva" />
+<nlword word="aparta" valsi="sepli" />
+<nlword word="ŝtuparo" valsi="serti" />
+<nlword word="enmeti" valsi="setca" />
+<nlword word="mem" valsi="sevzi" />
+<nlword word="muŝo" valsi="sfani" />
+<nlword word="puni" valsi="sfasa" />
+<nlword word="Svedujo" valsi="sferies" />
+<nlword word="sofo" valsi="sfofa" />
+<nlword word="plonĝi" valsi="sfubu" />
+<nlword word="abstraktilo de koncepto" valsi="si&apos;o" />
+<nlword word="sibli" valsi="siclu" />
+<nlword word="monero" valsi="sicni" />
+<nlword word="pluvo" valsi="sicpi" />
+<nlword word="ideo" valsi="sidbo" />
+<nlword word="helpi" valsi="sidju" />
+<nlword word="cigaro" valsi="sigja" />
+<nlword word="silko" valsi="silka" />
+<nlword word="salo" valsi="silna" />
+<nlword word="ŝajni" valsi="simlu" />
+<nlword word="simila" valsi="simsa" />
+<nlword word="reciprokantaj" valsi="simxu" />
+<nlword word="serpento" valsi="since" />
+<nlword word="estimi" valsi="sinma" />
+<nlword word="sinuso" valsi="sinso" />
+<nlword word="signo" valsi="sinxa" />
+<nlword word="dormi" valsi="sipna" />
+<nlword word="rekta" valsi="sirji" />
+<nlword word="siria" valsi="sirxo" />
+<nlword word="serĉi" valsi="sisku" />
+<nlword word="ĉesi" valsi="sisti" />
+<nlword word="citi" valsi="sitna" />
+<nlword word="privata" valsi="sivni" />
+<nlword word="jupo" valsi="skaci" />
+<nlword word="komputilo" valsi="skami" />
+<nlword word="felo" valsi="skapi" />
+<nlword word="koloro" valsi="skari" />
+<nlword word="priskribi" valsi="skicu" />
+<nlword word="skio" valsi="skiji" />
+<nlword word="kinaĵo" valsi="skina" />
+<nlword word="ŝnuro" valsi="skori" />
+<nlword word="skota" valsi="skoto" />
+<nlword word="sulko" valsi="skuro" />
+<nlword word="konita" valsi="slabu" />
+<nlword word="silabo" valsi="slaka" />
+<nlword word="acido" valsi="slami" />
+<nlword word="cilindro" valsi="slanu" />
+<nlword word="acida" valsi="slari" />
+<nlword word="plasto" valsi="slasi" />
+<nlword word="solida" valsi="sligu" />
+<nlword word="oscili" valsi="slilu" />
+<nlword word="sulfuro" valsi="sliri" />
+<nlword word="slava" valsi="slovo" />
+<nlword word="muskolo" valsi="sluji" />
+<nlword word="cepo" valsi="sluni" />
+<nlword word="muso" valsi="smacu" />
+<nlword word="diveni" valsi="smadi" />
+<nlword word="silenta" valsi="smaji" />
+<nlword word="simio" valsi="smani" />
+<nlword word="ŝtrumpeto" valsi="smoka" />
+<nlword word="kulero" valsi="smuci" />
+<nlword word="signifo" valsi="smuni" />
+<nlword word="sukcesi" valsi="snada" />
+<nlword word="sudo" valsi="snanu" />
+<nlword word="sekundo" valsi="snidu" />
+<nlword word="neĝo" valsi="snime" />
+<nlword word="algluiĝi" valsi="snipa" />
+<nlword word="sandviĉo" valsi="snuji" />
+<nlword word="sekura" valsi="snura" />
+<nlword word="akcidenta" valsi="snuti" />
+<nlword word="9 naŭ" valsi="so" />
+<nlword word="preskaŭ ĉiu" valsi="so&apos;a" />
+<nlword word="plejmultaj" valsi="so&apos;e" />
+<nlword word="multaj" valsi="so&apos;i" />
+<nlword word="kelkaj" valsi="so&apos;o" />
+<nlword word="malmultaj" valsi="so&apos;u" />
+<nlword word="sojo" valsi="sobde" />
+<nlword word="natrio" valsi="sodna" />
+<nlword word="sodakvo" valsi="sodva" />
+<nlword word="soveta" valsi="softo" />
+<nlword word="oro" valsi="solji" />
+<nlword word="suno" valsi="solri" />
+<nlword word="semi" valsi="sombo" />
+<nlword word="soldato" valsi="sonci" />
+<nlword word="provizo" valsi="sorcu" />
+<nlword word="sorgo" valsi="sorgu" />
+<nlword word="ovo" valsi="sovda" />
+<nlword word="surprizi" valsi="spaji" />
+<nlword word="poluri" valsi="spali" />
+<nlword word="hispana" valsi="spano" />
+<nlword word="planto" valsi="spati" />
+<nlword word="edzo" valsi="speni" />
+<nlword word="peco" valsi="spisa" />
+<nlword word="hospitalo" valsi="spita" />
+<nlword word="nefunkcianta" valsi="spofu" />
+<nlword word="eksplodi" valsi="spoja" />
+<nlword word="respondi" valsi="spuda" />
+<nlword word="kraĉi" valsi="sputu" />
+<nlword word="vertikala" valsi="sraji" />
+<nlword word="grati" valsi="sraku" />
+<nlword word="auŝtralia" valsi="sralo" />
+<nlword word="temi" valsi="srana" />
+<nlword word="herbo" valsi="srasu" />
+<nlword word="erari" valsi="srera" />
+<nlword word="sanskrita" valsi="srito" />
+<nlword word="supozi" valsi="sruma" />
+<nlword word="ĉirkaŭi" valsi="sruri" />
+<nlword word="honesta" valsi="stace" />
+<nlword word="legomo" valsi="stagi" />
+<nlword word="keramiko" valsi="staku" />
+<nlword word="resti" valsi="stali" />
+<nlword word="tigo" valsi="stani" />
+<nlword word="paŝi" valsi="stapa" />
+<nlword word="supo" valsi="stasu" />
+<nlword word="talenta" valsi="stati" />
+<nlword word="frustriĝi" valsi="steba" />
+<nlword word="specifa" valsi="steci" />
+<nlword word="kapo" valsi="stedu" />
+<nlword word="seruro" valsi="stela" />
+<nlword word="steradiano" valsi="stero" />
+<nlword word="okcidento" valsi="stici" />
+<nlword word="proponi" valsi="stidi" />
+<nlword word="alĝustigi" valsi="stika" />
+<nlword word="seĝo" valsi="stizu" />
+<nlword word="konstanta" valsi="stodi" />
+<nlword word="oriento" valsi="stuna" />
+<nlword word="strukturo" valsi="stura" />
+<nlword word="pozicio" valsi="stuzi" />
+<nlword word="maksimume" valsi="su&apos;e" />
+<nlword word="almenaŭ" valsi="su&apos;o" />
+<nlword word="abstraktilo nespecifa" valsi="su&apos;u" />
+<nlword word="abstraktaĵo" valsi="sucta" />
+<nlword word="seka" valsi="sudga" />
+<nlword word="hufo" valsi="sufti" />
+<nlword word="subita" valsi="suksa" />
+<nlword word="sumo" valsi="sumji" />
+<nlword word="flari" valsi="sumne" />
+<nlword word="argumento" valsi="sumti" />
+<nlword word="ajlo" valsi="sunga" />
+<nlword word="lano" valsi="sunla" />
+<nlword word="malstreĉiĝi" valsi="surla" />
+<nlword word="rapida" valsi="sutra" />
+<nlword word="tiu" valsi="ta" />
+<nlword word="karbono" valsi="tabno" />
+<nlword word="trumpeto" valsi="tabra" />
+<nlword word="metodo" valsi="tadji" />
+<nlword word="studi" valsi="tadni" />
+<nlword word="strikta" valsi="tagji" />
+<nlword word="defii" valsi="talsa" />
+<nlword word="tomato" valsi="tamca" />
+<nlword word="dikfingro" valsi="tamji" />
+<nlword word="kuzo" valsi="tamne" />
+<nlword word="tabulo" valsi="tanbo" />
+<nlword word="lango" valsi="tance" />
+<nlword word="tangento" valsi="tanjo" />
+<nlword word="tabako" valsi="tanko" />
+<nlword word="modifita predikato" valsi="tanru" />
+<nlword word="pato" valsi="tansi" />
+<nlword word="skatolo" valsi="tanxe" />
+<nlword word="plato" valsi="tapla" />
+<nlword word="embrio" valsi="tarbi" />
+<nlword word="stelo" valsi="tarci" />
+<nlword word="gudro" valsi="tarla" />
+<nlword word="formo" valsi="tarmi" />
+<nlword word="konduti" valsi="tarti" />
+<nlword word="soifi" valsi="taske" />
+<nlword word="laca" valsi="tatpi" />
+<nlword word="mamo" valsi="tatru" />
+<nlword word="paroli" valsi="tavla" />
+<nlword word="vestaĵo" valsi="taxfu" />
+<nlword word="kutimo" valsi="tcaci" />
+<nlword word="urbo" valsi="tcadu" />
+<nlword word="stacio" valsi="tcana" />
+<nlword word="teo" valsi="tcati" />
+<nlword word="streĉiĝi" valsi="tcena" />
+<nlword word="trompi" valsi="tcica" />
+<nlword word="legi" valsi="tcidu" />
+<nlword word="horo [kioma]" valsi="tcika" />
+<nlword word="detalo" valsi="tcila" />
+<nlword word="vetero" valsi="tcima" />
+<nlword word="stato" valsi="tcini" />
+<nlword word="etikedo" valsi="tcita" />
+<nlword word="3-a revicigo" valsi="te" />
+<nlword word="tempo" valsi="temci" />
+<nlword word="eksponencialo" valsi="tenfa" />
+<nlword word="tekseco" valsi="tengu" />
+<nlword word="tero" valsi="terdi" />
+<nlword word="timi" valsi="terpa" />
+<nlword word="1E12 tera-" valsi="terto" />
+<nlword word="ĉi tiu" valsi="ti" />
+<nlword word="prezenti" valsi="tigni" />
+<nlword word="piedfrapi" valsi="tikpa" />
+<nlword word="peza" valsi="tilju" />
+<nlword word="obei" valsi="tinbe" />
+<nlword word="stano" valsi="tinci" />
+<nlword word="rigida" valsi="tinsa" />
+<nlword word="aŭdi" valsi="tirna" />
+<nlword word="fero" valsi="tirse" />
+<nlword word="tigro" valsi="tirxu" />
+<nlword word="pleniĝi" valsi="tisna" />
+<nlword word="dolĉa" valsi="titla" />
+<nlword word="televido" valsi="tivni" />
+<nlword word="filino" valsi="tixnu" />
+<nlword word="mal-" valsi="to&apos;e" />
+<nlword word="forno" valsi="toknu" />
+<nlword word="papilio" valsi="toldi" />
+<nlword word="tono" valsi="tonga" />
+<nlword word="mallonga" valsi="tordu" />
+<nlword word="tordiĝi" valsi="torni" />
+<nlword word="plej" valsi="traji" />
+<nlword word="nitrogeno" valsi="trano" />
+<nlword word="streĉita" valsi="trati" />
+<nlword word="trajno" valsi="trene" />
+<nlword word="arbo" valsi="tricu" />
+<nlword word="altiri" valsi="trina" />
+<nlword word="malantaŭ" valsi="trixe" />
+<nlword word="provi" valsi="troci" />
+<nlword word="sakuro" valsi="tsakura" />
+<nlword word="forta" valsi="tsali" />
+<nlword word="ĉielo" valsi="tsani" />
+<nlword word="spico" valsi="tsapi" />
+<nlword word="semo" valsi="tsiju" />
+<nlword word="estrado" valsi="tsina" />
+<nlword word="tiu for" valsi="tu" />
+<nlword word="tubo" valsi="tubnu" />
+<nlword word="konsenti" valsi="tugni" />
+<nlword word="tulipo" valsi="tujli" />
+<nlword word="tereno" valsi="tumla" />
+<nlword word="gefrato" valsi="tunba" />
+<nlword word="kupro" valsi="tunka" />
+<nlword word="gluti" valsi="tunlo" />
+<nlword word="piki" valsi="tunta" />
+<nlword word="kruro" valsi="tuple" />
+<nlword word="regi [homojn: vidu jitro]" valsi="turni" />
+<nlword word="ilo" valsi="tutci" />
+<nlword word="teritorio" valsi="tutra" />
+<nlword word="tie" valsi="va" />
+<nlword word="aero" valsi="vacri" />
+<nlword word="grava" valsi="vajni" />
+<nlword word="vorto" valsi="valsi" />
+<nlword word="valoro" valsi="vamji" />
+<nlword word="vomi" valsi="vamtu" />
+<nlword word="medio" valsi="vanbi" />
+<nlword word="vespero" valsi="vanci" />
+<nlword word="vino" valsi="vanju" />
+<nlword word="enhavi" valsi="vasru" />
+<nlword word="4-a revicigo" valsi="ve" />
+<nlword word="ĉie" valsi="ve&apos;e" />
+<nlword word="vendi" valsi="vecnu" />
+<nlword word="venĝi" valsi="venfu" />
+<nlword word="printempo" valsi="vensa" />
+<nlword word="infano" valsi="verba" />
+<nlword word="ĉi tie" valsi="vi" />
+<nlword word="vagino" valsi="vibna" />
+<nlword word="ekrano" valsi="vidni" />
+<nlword word="viruso" valsi="vidru" />
+<nlword word="freŝa" valsi="vifne" />
+<nlword word="ekskrecii" valsi="vikmi" />
+<nlword word="viskoza" valsi="viknu" />
+<nlword word="depreni" valsi="vimcu" />
+<nlword word="veneno" valsi="vindu" />
+<nlword word="aviadilo" valsi="vinji" />
+<nlword word="vic-" valsi="vipsi" />
+<nlword word="brava" valsi="virnu" />
+<nlword word="vidi" valsi="viska" />
+<nlword word="neregula" valsi="vitci" />
+<nlword word="gasto" valsi="vitke" />
+<nlword word="porĉiama" valsi="vitno" />
+<nlword word="vulvo" valsi="vlagi" />
+<nlword word="perforto" valsi="vlile" />
+<nlword word="disjunkcio" valsi="vlina" />
+<nlword word="potenca" valsi="vlipa" />
+<nlword word="4 kvar" valsi="vo" />
+<nlword word="flugi" valsi="vofli" />
+<nlword word="voĉo" valsi="voksa" />
+<nlword word="reveni" valsi="volve" />
+<nlword word="pordo" valsi="vorme" />
+<nlword word="levilo" valsi="vraga" />
+<nlword word="registro" valsi="vreji" />
+<nlword word="kuŝi" valsi="vreta" />
+<nlword word="diversa" valsi="vrici" />
+<nlword word="virta" valsi="vrude" />
+<nlword word="gusto" valsi="vrusi" />
+<nlword word="tie for" valsi="vu" />
+<nlword word="ukrainan" valsi="vukro" />
+<nlword word="6 ses" valsi="xa" />
+<nlword word="Hansa" valsi="xa&apos;anze" place="1" />
+<nlword word="loĝi" valsi="xabju" />
+<nlword word="duono" valsi="xadba" />
+<nlword word="korpo" valsi="xadni" />
+<nlword word="malsata" valsi="xagji" />
+<nlword word="ŝalmo" valsi="xagri" />
+<nlword word="komika" valsi="xajmi" />
+<nlword word="forkonsumi" valsi="xaksu" />
+<nlword word="frivola" valsi="xalbo" />
+<nlword word="alkoholo" valsi="xalka" />
+<nlword word="paniki" valsi="xalni" />
+<nlword word="bona" valsi="xamgu" />
+<nlword word="ampero" valsi="xampo" />
+<nlword word="maro" valsi="xamsi" />
+<nlword word="mano" valsi="xance" />
+<nlword word="nervoza" valsi="xanka" />
+<nlword word="fantazia" valsi="xanri" />
+<nlword word="elefanto" valsi="xanto" />
+<nlword word="armilo" valsi="xarci" />
+<nlword word="porko" valsi="xarju" />
+<nlword word="obstina" valsi="xarnu" />
+<nlword word="azeno" valsi="xasli" />
+<nlword word="ŝvito" valsi="xasne" />
+<nlword word="letero" valsi="xatra" />
+<nlword word="1E-18 ato-" valsi="xatsi" />
+<nlword word="azia" valsi="xazdo" />
+<nlword word="5-a revicigo" valsi="xe" />
+<nlword word="malami" valsi="xebni" />
+<nlword word="hebrea" valsi="xebro" />
+<nlword word="100 hekto-" valsi="xecto" />
+<nlword word="makzelo" valsi="xedja" />
+<nlword word="nigra" valsi="xekri" />
+<nlword word="greka" valsi="xelso" />
+<nlword word="afabla" valsi="xendo" />
+<nlword word="bedaŭri" valsi="xenru" />
+<nlword word="1E18 eksa-" valsi="xexso" />
+<nlword word="hinda" valsi="xindo" />
+<nlword word="inko" valsi="xinmo" />
+<nlword word="ĉevalo" valsi="xirma" />
+<nlword word="rado" valsi="xislu" />
+<nlword word="hispanamerika" valsi="xispo" />
+<nlword word="malbona" valsi="xlali" />
+<nlword word="influi" valsi="xlura" />
+<nlword word="hotelo" valsi="xotli" />
+<nlword word="araba" valsi="xrabo" />
+<nlword word="vundi" valsi="xrani" />
+<nlword word="kristana" valsi="xriso" />
+<nlword word="fagopiro" valsi="xruba" />
+<nlword word="meleagro" valsi="xruki" />
+<nlword word="floro" valsi="xrula" />
+<nlword word="redoni" valsi="xruti" />
+<nlword word="kemiaĵo" valsi="xukmi" />
+<nlword word="ruĝa" valsi="xunre" />
+<nlword word="urdua" valsi="xurdo" />
+<nlword word="aserti" valsi="xusra" />
+<nlword word="glata" valsi="xutla" />
+<nlword word="abstraktilo de stato" valsi="za&apos;i" />
+<nlword word="ankoraŭ" valsi="za&apos;o" />
+<nlword word="favora" valsi="zabna" />
+<nlword word="gimnastiki" valsi="zajba" />
+<nlword word="pisti" valsi="zalvi" />
+<nlword word="aprobi" valsi="zanru" />
+<nlword word="bazaro" valsi="zarci" />
+<nlword word="pugo" valsi="zargu" />
+<nlword word="provizora" valsi="zasni" />
+<nlword word="ekzisti" valsi="zasti" />
+<nlword word="sapo" valsi="zbabu" />
+<nlword word="golfo" valsi="zbani" />
+<nlword word="konstruas" valsi="zbasu" />
+<nlword word="piedestalo" valsi="zbepi" />
+<nlword word="nesto" valsi="zdani" />
+<nlword word="distri" valsi="zdile" />
+<nlword word="7 sep" valsi="ze" />
+<nlword word="ĉiam" valsi="ze&apos;e" />
+<nlword word="trans" valsi="ze&apos;o" />
+<nlword word="krimo" valsi="zekri" />
+<nlword word="pliiĝi" valsi="zenba" />
+<nlword word="1E-21 zepto-" valsi="zepti" />
+<nlword word="1E21 zeta-" valsi="zetro" />
+<nlword word="observi" valsi="zgana" />
+<nlword word="muziko" valsi="zgike" />
+<nlword word="nuliga sumti" valsi="zi&apos;o" />
+<nlword word="libera" valsi="zifre" />
+<nlword word="zinko" valsi="zinki" />
+<nlword word="purpura" valsi="zirpu" />
+<nlword word="investi" valsi="zivle" />
+<nlword word="pli" valsi="zmadu" />
+<nlword word="aŭtomata" valsi="zmiku" />
+<nlword word="preter" valsi="zo&apos;a" />
+<nlword word="maltrans" valsi="zo&apos;i" />
+<nlword word="abstraktilo de ago" valsi="zu&apos;o" />
+<nlword word="agi" valsi="zukte" />
+<nlword word="maizo" valsi="zumri" />
+<nlword word="senti kulpon" valsi="zungi" />
+<nlword word="maldekstra" valsi="zunle" />
+<nlword word="malhelpi" valsi="zunti" />
+<nlword word="sidi" valsi="zutse" />
+<nlword word="ĉeesti" valsi="zvati" />
 </direction></dictionary>
 
 

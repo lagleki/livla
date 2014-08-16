@@ -7,6 +7,7 @@
   </user>
   <definition>立陶宛</definition>
   <definitionid>16733</definitionid>
+  <glossword word="立陶宛" />
 </valsi>
 <valsi word="OTa,uas" type="cmene">
   <user>
@@ -78,8 +79,8 @@
   <definition>态度词：警惕-精疲力尽</definition>
   <definitionid>42461</definitionid>
   <notes>相关{sanji},{cikna},{tatpi}</notes>
-  <glossword word="警惕" />
   <glossword word="警戒" />
+  <glossword word="警惕" />
 </valsi>
 <valsi word="a'i" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -112,8 +113,9 @@
   <definition>$x_1$是$x_2$品种的枫树/槭树</definition>
   <definitionid>16909</definitionid>
   <notes>参见：同义词{ricrxacero}，{na&apos;itsi}（翼果）</notes>
-  <glossword word="枫木" />
+  <glossword word="枫树" />
   <glossword word="槭树" />
+  <glossword word="枫木" />
   <keyword word="枫树" place="1" />
   <keyword word="枫树品种" place="2" />
 </valsi>
@@ -126,8 +128,9 @@
   <definition>态度词：兴趣-无兴趣-反感</definition>
   <definitionid>42464</definitionid>
   <notes>相关{cinri},{selcni}</notes>
-  <glossword word="兴趣" />
   <glossword word="有趣" />
+  <glossword word="兴趣" />
+  <glossword word="反感" />
 </valsi>
 <valsi word="agbakate" type="fu'ivla">
   <user>
@@ -136,6 +139,7 @@
   </user>
   <definition>$x_1$是$x_2$品种的鳄梨（果或果树）</definition>
   <definitionid>16869</definitionid>
+  <glossword word="鳄梨" />
   <keyword word="鳄梨" place="1" />
   <keyword word="鳄梨品种" place="2" />
 </valsi>
@@ -159,6 +163,7 @@
   <definition>$x_1$是用来拼写$x_2$语言的字母表</definition>
   <definitionid>16875</definitionid>
   <notes>参见：{selyle&apos;u}、{fu&apos;arka}、{anbani}、{abgida}、{abjadu}、{snile&apos;u}</notes>
+  <glossword word="字母表" />
   <glossword word="字母" />
   <keyword word="字母表" place="1" />
   <keyword word="用字母来拼写的语言" place="2" />
@@ -171,6 +176,7 @@
   <definition>$x_1$是$x_2$品种的橄榄（或橄榄树）</definition>
   <definitionid>16877</definitionid>
   <glossword word="橄榄树" />
+  <glossword word="橄榄" />
   <keyword word="橄榄" place="1" />
   <keyword word="橄榄品种" place="2" />
 </valsi>
@@ -191,6 +197,7 @@
   <definition>$x_1$是$x_2$品种的鳗鱼/鳝鱼</definition>
   <definitionid>16908</definitionid>
   <notes>参见：同义词{sincykaifi&apos;e}</notes>
+  <glossword word="鳗鱼" />
   <glossword word="鳝鱼" />
   <keyword word="鳗鱼" place="1" />
   <keyword word="鳗鱼品种" place="2" />
@@ -265,7 +272,9 @@
   <definition>$x_1$ 是属于种类 $x_2$ 的香蕉</definition>
   <definitionid>15885</definitionid>
   <notes>参见 {grute}</notes>
+  <glossword word="香蕉" />
   <keyword word="香蕉" place="1" />
+  <keyword word="种类" place="2" />
 </valsi>
 <valsi word="badri" type="gismu">
   <rafsi>dri</rafsi>
@@ -276,16 +285,16 @@
   <definition>$x_1$因为$x_2$（某件事或某种抽象的东西）感到不开心、郁闷、闷闷不乐、沮丧、消沉、灰心丧气、哀愁、悲哀、伤心、悲伤或者悲痛</definition>
   <definitionid>16746</definitionid>
   <notes>参见{klaku}、{gleki}、{betri}、{cinmo}、{junri}、{uinai}</notes>
-  <glossword word="闷闷不乐" />
-  <glossword word="郁闷" />
-  <glossword word="消沉" />
-  <glossword word="悲痛" />
+  <glossword word="悲伤" />
   <glossword word="哀愁" />
   <glossword word="悲哀" />
-  <glossword word="悲伤" />
-  <glossword word="灰心丧气" />
-  <glossword word="伤心" />
   <glossword word="沮丧" />
+  <glossword word="消沉" />
+  <glossword word="灰心丧气" />
+  <glossword word="郁闷" />
+  <glossword word="闷闷不乐" />
+  <glossword word="伤心" />
+  <glossword word="悲痛" />
   <keyword word="不开心的人" place="1" />
   <keyword word="不开心的事" place="2" />
 </valsi>
@@ -299,8 +308,8 @@
   <definitionid>16749</definitionid>
   <notes>参见{cadzu}、{klama}、{litru}、{stapa}、{plipe}、{cpare}</notes>
   <glossword word="走路" />
-  <glossword word="跑步" />
   <glossword word="行走" />
+  <glossword word="跑步" />
   <keyword word="行人" place="1" />
   <keyword word="路面" place="2" />
   <keyword word="走路时用的肢节" place="3" />
@@ -660,6 +669,7 @@
   </user>
   <definition>北京</definition>
   <definitionid>16842</definitionid>
+  <glossword word="北京" />
 </valsi>
 <valsi unofficial="true" word="bekpi" type="experimental gismu">
   <user>
@@ -721,6 +731,7 @@
   <definition>$x_1$ 是 $x_2$ 类型的芳香烃</definition>
   <definitionid>15883</definitionid>
   <glossword word="芳香烃" />
+  <keyword word="芳香烃" place="1" />
   <keyword word="类型" place="2" />
 </valsi>
 <valsi word="bersa" type="gismu">
@@ -901,8 +912,8 @@
   </user>
   <definition>$x_1$ 成为/变为/转换/变形为$x_2$, 在条件$x_3$的情况下.</definition>
   <definitionid>38135</definitionid>
-  <glossword word="变" />
   <glossword word="化" />
+  <glossword word="变" />
   <keyword word="变形物" place="1" />
   <keyword word="变化;变形结果" place="2" />
   <keyword word="变形条件" place="3" />
@@ -1021,6 +1032,7 @@
   <notes>参考:{falnu}, {fulta}, {marce}, {jatna}, {sabnu}.</notes>
   <glossword word="船" />
   <glossword word="舟" />
+  <glossword word=" 艇" />
   <keyword word=" 艇" place="1" />
 </valsi>
 <valsi unofficial="true" word="bluji" type="experimental gismu">
@@ -1443,6 +1455,7 @@
   <definition>香港</definition>
   <definitionid>16756</definitionid>
   <notes>普通话Xianggang的Lojban化</notes>
+  <glossword word="香港" />
 </valsi>
 <valsi word="cange" type="gismu">
   <rafsi>cag</rafsi>
@@ -1613,9 +1626,9 @@
   </user>
   <definition>$x_1$ 瞧/看/审视/盯/瞅/注视 $x_2$.</definition>
   <definitionid>38154</definitionid>
+  <glossword word="瞧" />
   <glossword word="盯" />
   <glossword word="看" />
-  <glossword word="瞧" />
 </valsi>
 <valsi word="catni" type="gismu">
   <rafsi>ca&apos;i</rafsi>
@@ -1757,6 +1770,7 @@
   <definition>$x_1$是(人群/地域)$x_2$的神, 享有领地$x_3$ ; $x_1$是神圣的.</definition>
   <definitionid>38149</definitionid>
   <glossword word="上帝" />
+  <glossword word="神" />
 </valsi>
 <valsi word="cfari" type="gismu">
   <rafsi>cfa</rafsi>
@@ -2106,6 +2120,7 @@
   <notes>参见 {cipra}, {pelji}</notes>
   <glossword word="测试卷" />
   <glossword word="试卷" />
+  <keyword word="试卷" place="1" />
   <keyword word="纸张来源" place="2" />
   <keyword word="被证明状态" place="3" />
   <keyword word="主题" place="4" />
@@ -2137,8 +2152,8 @@
   </user>
   <definition>$x_1$写 $x_2$ 在载体 $x_3$上, 使用工具 $x_4$; $x_1$ 书写的人.</definition>
   <definitionid>38132</definitionid>
-  <glossword word="写" />
   <glossword word="刻" />
+  <glossword word="写" />
 </valsi>
 <valsi word="cisma" type="gismu">
   <user>
@@ -2603,8 +2618,8 @@
   </user>
   <definition>$x_1$ 在$x_2$的直接垂直下方，以参考系$x_3$为基准.</definition>
   <definitionid>38151</definitionid>
-  <glossword word="下面" />
   <glossword word="下" />
+  <glossword word="下面" />
 </valsi>
 <valsi word="cokcu" type="gismu">
   <rafsi>cko</rafsi>
@@ -3401,9 +3416,11 @@
   </user>
   <definition>$x_1$ 是含成分 $x_2$ 的牙膏</definition>
   <definitionid>15875</definitionid>
-  <glossword word="牙膏" />
   <glossword word="牙膏成分" />
   <glossword word="成分" />
+  <glossword word="牙膏" />
+  <keyword word="牙膏" place="1" />
+  <keyword word="成分" place="2" />
 </valsi>
 <valsi word="dertu" type="gismu">
   <rafsi>der</rafsi>
@@ -4072,9 +4089,9 @@
   <definition>对不起, 请原谅我, 抱歉</definition>
   <definitionid>42505</definitionid>
   <notes>{fraxu}, {u&apos;u}.</notes>
+  <glossword word="原谅" />
   <glossword word="对不起" />
   <glossword word="抱歉" />
-  <glossword word="原谅" />
 </valsi>
 <valsi word="febvi" type="gismu">
   <rafsi>feb</rafsi>
@@ -4241,8 +4258,8 @@
   <definition>$x_1$ 发明/创造/构造/创作$x_2$ , 为功能/目的$x_3$, 源自已有元素/主意$x_4$.</definition>
   <definitionid>38157</definitionid>
   <glossword word="创造" />
-  <glossword word="创作" />
   <glossword word="发明" />
+  <glossword word="创作" />
 </valsi>
 <valsi unofficial="true" word="firca" type="experimental gismu">
   <user>
@@ -4792,8 +4809,8 @@
   </user>
   <definition>$x_1$ 乐 $x_2$ (事件/状态).</definition>
   <definitionid>38133</definitionid>
-  <glossword word="乐" />
   <glossword word="高兴" />
+  <glossword word="乐" />
   <glossword word="快乐" />
 </valsi>
 <valsi word="gletu" type="gismu">
@@ -4815,6 +4832,7 @@
   <definition>英语</definition>
   <definitionid>16788</definitionid>
   <notes>专名。参见：{glico}（英格兰）、{bangu}（语言）、{glibau}（英语，属gismu）。</notes>
+  <glossword word="英语" />
   <glossword word="英文" sense="语言" />
 </valsi>
 <valsi word="glibau" type="lujvo">
@@ -4961,6 +4979,7 @@
   </user>
   <definition>广州</definition>
   <definitionid>16945</definitionid>
+  <glossword word="广州" />
 </valsi>
 <valsi word="gubni" type="gismu">
   <rafsi>gub</rafsi>
@@ -5106,8 +5125,8 @@
   </user>
   <definition>$x_1$ [能量]是光/亮照亮$x_2$, 从光源$x_3$发出.</definition>
   <definitionid>38174</definitionid>
-  <glossword word="光" />
   <glossword word="亮" />
+  <glossword word="光" />
 </valsi>
 <valsi word="gusta" type="gismu">
   <user>
@@ -5157,8 +5176,8 @@
   <definitionid>16790</definitionid>
   <notes>犹太教-基督教-伊斯兰教的神名，本是自有永有、成事者的意思。参见：{jegvon}（耶和华，专名）、{cev}（神，专名）、{cevni}（神袛）、{jegvo}（三教共尊的圣经）、{xebro}（希伯来）、{xriso}（基督教）、{muslo}（伊斯兰）。</notes>
   <glossword word="永恒主" />
-  <glossword word="雅威" />
   <glossword word="永为" />
+  <glossword word="雅威" />
 </valsi>
 <valsi word="ieRUcaly'im" type="cmene">
   <user>
@@ -5167,7 +5186,7 @@
   </user>
   <definition>耶路撒冷</definition>
   <definitionid>17770</definitionid>
-  <glossword word="•耶路撒冷" />
+  <glossword word="耶路撒冷" />
 </valsi>
 <valsi word="island" type="cmene">
   <user>
@@ -5455,6 +5474,11 @@
   <definition>$lo_1=li_1$ 是逻辑语词典系统 (jbovlaste)</definition>
   <definitionid>15879</definitionid>
   <notes>一个基于 Web 界面的逻辑语词典编辑系统和它的内容。参见 {lojbo}, {valsi}, {liste}, {vlaste}, {vlacku}</notes>
+  <glossword word="词典" />
+  <glossword word="逻辑语词典系统" />
+  <glossword word="jbovlaste" />
+  <glossword word="逻辑语" />
+  <glossword word="系统" />
 </valsi>
 <valsi word="jdari" type="gismu">
   <rafsi>jar</rafsi>
@@ -5639,6 +5663,7 @@
   <definition>$x_1$在$x_2$方面很阿尔及利亚（体现了阿尔及利亚文化或国民性）</definition>
   <definitionid>16781</definitionid>
   <notes>参见：{friko}（非洲）、{xrabo}（阿拉伯）、{muslo}（伊斯兰）、{fraso}（法兰西）。</notes>
+  <glossword word="阿尔及利亚特色" />
   <keyword word="阿尔及利亚特色" place="1" />
   <keyword word="体现阿尔及利亚特色的方面" place="2" />
 </valsi>
@@ -6140,6 +6165,7 @@
   <definitionid>16878</definitionid>
   <notes>不仅指汉字</notes>
   <glossword word="汉字" />
+  <glossword word="中国字" />
   <keyword word="中国字" place="1" />
   <keyword word="中国字种类" place="2" />
   <keyword word="字义" place="3" />
@@ -6195,6 +6221,8 @@
   <definitionid>15876</definitionid>
   <notes>包括粤、闽、客、湘、赣、北方，等。
 参见： {xazdo}.</notes>
+  <glossword word="中国" />
+  <keyword word="事物" place="1" />
   <keyword word="反映方面" place="2" />
 </valsi>
 <valsi word="junla" type="gismu">
@@ -6307,6 +6335,11 @@
   <definition>$x1$是杯/碗/盅/钵，盛有$x2$，以$x3$为材料制成</definition>
   <definitionid>20435</definitionid>
   <notes>{kabri} 通常用于举起来吃喝，{plata} 不这样使用</notes>
+  <glossword word="杯" />
+  <glossword word="盅" />
+  <glossword word="碗" />
+  <keyword word="用品" place="1" />
+  <keyword word="内容" place="2" />
 </valsi>
 <valsi word="kacma" type="gismu">
   <user>
@@ -6702,6 +6735,7 @@
   <definition>广州</definition>
   <definitionid>16840</definitionid>
   <notes>旧译Canton的英语读法</notes>
+  <glossword word="广州" />
 </valsi>
 <valsi word="kerfa" type="gismu">
   <rafsi>kre</rafsi>
@@ -6834,8 +6868,8 @@
   <definition>$g_1$=$b_1$是$b_2$用来表示/交流$b_3$（不是说的话本身）的巴基斯坦英语说法</definition>
   <definitionid>16798</definitionid>
   <notes>由{kisto}（巴基斯坦）、{glico}（英格兰）、{bangu}（语言）组成。参见：{gliban}（英语，专名）、{glibau}（英语）、{gliglibau}（英国英语）、{merbau}（美国英语）、{kadnyglibau}（加拿大英语）、{sralybau}（澳大利亚英语）、{xinglibau}（印度英语）、{nanfi&apos;oglibau}（南非英语）、{bangrnaidjiria}（尼日利亚英语）等。</notes>
-  <glossword word="巴式英语" />
   <glossword word="巴基斯坦英语" />
+  <glossword word="巴式英语" />
 </valsi>
 <valsi word="klaji" type="gismu">
   <rafsi>laj</rafsi>
@@ -6865,15 +6899,12 @@
   </user>
   <definition>$x_1$ 移动到目的地 $x_2$, 从$x_3$出发, 经过路径$x_4$ ,使用方法/交通工具 $x_5$.</definition>
   <definitionid>38137</definitionid>
-  <glossword word="去" />
   <glossword word="移动" />
+  <glossword word="去" />
   <glossword word="来" />
   <keyword word="行者" place="1" />
   <keyword word="目的地/去处" place="2" />
-  <keyword word="目的地" place="2" />
   <keyword word="出发地/来自" place="3" />
-  <keyword word="出发地" place="3" />
-  <keyword word="路径" place="4" />
   <keyword word="路径/经由" place="4" />
   <keyword word="交通工具/方式" place="5" />
 </valsi>
@@ -7374,8 +7405,8 @@
   <definition>$x_1$依赖/仰仗/信任$x_2$能够确保/维持/带来x3（事件/状态）</definition>
   <definitionid>42445</definitionid>
   <notes>查看{minde},{nitcu},{tinbe}</notes>
-  <glossword word="信任" />
   <glossword word="依赖" />
+  <glossword word="信任" />
 </valsi>
 <valsi word="ladru" type="gismu">
   <rafsi>lad</rafsi>
@@ -7386,8 +7417,8 @@
   <definition>$x_1$是/含有来源于$x_2$的奶/乳；$x_1$是乳制的/乳制品</definition>
   <definitionid>42446</definitionid>
   <notes>查看{lanbi},{mabru},{tatru},{cirla},{kruji}</notes>
-  <glossword word="乳汁" />
   <glossword word="乳制品" />
+  <glossword word="乳汁" />
 </valsi>
 <valsi word="lafti" type="gismu">
   <rafsi>laf</rafsi>
@@ -7441,8 +7472,8 @@
   <definition>$x_1$是湖泊/池塘，位于地点/位置$x_2$</definition>
   <definitionid>42451</definitionid>
   <notes>查看{daplu},{djacu},{rirxe},{xamsi},{zbani}</notes>
-  <glossword word="湖" />
   <glossword word="池" />
+  <glossword word="湖" />
 </valsi>
 <valsi word="lamji" type="gismu">
   <rafsi>lam</rafsi>
@@ -7600,8 +7631,8 @@
   <definition>老挝</definition>
   <definitionid>16802</definitionid>
   <notes>又译“寮国”</notes>
-  <glossword word="老挝" />
   <glossword word="寮国" />
+  <glossword word="老挝" />
 </valsi>
 <valsi word="lazni" type="gismu">
   <user>
@@ -7881,7 +7912,6 @@
   <definition>逻辑语工作者</definition>
   <definitionid>16804</definitionid>
   <notes>这里的“逻辑语”指Loglan，非Lojban。一份早期刊物的名字。又试译为“逻各斯志工”，试以“逻各斯语”对译Loglan，以区分于Lojban惯译的“逻辑语”。</notes>
-  <glossword word="逻辑语工" />
   <glossword word="逻各斯志工" />
   <glossword word="逻辑语工作者" />
 </valsi>
@@ -7903,8 +7933,8 @@
   <definition>逻辑语（又译理语）</definition>
   <definitionid>16806</definitionid>
   <notes>不完全同于其前身Loglan（同样是逻辑语的意思）</notes>
-  <glossword word="理语" />
   <glossword word="逻辑语" />
+  <glossword word="理语" />
 </valsi>
 <valsi word="lojbo" type="gismu">
   <rafsi>lob</rafsi>
@@ -7926,9 +7956,9 @@
   <definition>$x_1$是$x_2$的地板/底/地.</definition>
   <definitionid>38150</definitionid>
   <notes>参考：{bitmu}, {drudi}, {dertu}, {dizlo}, {cnita}, {zbepi}, {sarji}, {serti}.</notes>
+  <glossword word="地板" />
   <glossword word="底" />
   <glossword word="地" />
-  <glossword word="地板" />
 </valsi>
 <valsi word="lorxu" type="gismu">
   <rafsi>lor</rafsi>
@@ -7940,6 +7970,7 @@
   <definition>$x_1$ 是狐 [蓬尾野生犬科动物]，属于种类 $x_2$</definition>
   <definitionid>15881</definitionid>
   <notes>参见 {gerku}。 (不是“狐狸”)</notes>
+  <glossword word="狐" />
   <glossword word="犬科" />
   <keyword word="狐" place="1" />
   <keyword word="种类" place="2" />
@@ -7973,8 +8004,13 @@
   <definition>$x_1$（文本）是有着意义 $x_2$，参数 $x_3$ 的复合谓词，由比喻 $x_4$ 构造</definition>
   <definitionid>15873</definitionid>
   <notes>参见 {stura}, {cmavo}, {gismu}, {rafsi}, {smuni}。</notes>
-  <glossword word="词缀" />
   <glossword word="复合" />
+  <glossword word="谓词" />
+  <glossword word="词缀复合谓词" />
+  <glossword word="词缀" />
+  <keyword word="复合谓词" place="1" />
+  <keyword word="意义" place="2" />
+  <keyword word="参数" place="3" />
   <keyword word="比喻" place="4" />
 </valsi>
 <valsi word="lumci" type="gismu">
@@ -8006,10 +8042,10 @@
   </user>
   <definition>$x_1$ 是月球; $x_1$是行星$x_2$的主要自然卫星.</definition>
   <definitionid>38155</definitionid>
-  <glossword word="月" />
-  <glossword word="卫星" />
-  <glossword word="月亮" />
   <glossword word="月球" />
+  <glossword word="卫星" />
+  <glossword word="月" />
+  <glossword word="月亮" />
 </valsi>
 <valsi word="lunsa" type="gismu">
   <rafsi>lus</rafsi>
@@ -8146,6 +8182,7 @@
   <definition>$x_1$ 是 $x_2$ 种类的芒果</definition>
   <definitionid>15874</definitionid>
   <glossword word="芒果" />
+  <keyword word="芒果" place="1" />
   <keyword word="芒果种类" place="2" />
 </valsi>
 <valsi word="manku" type="gismu">
@@ -8214,8 +8251,8 @@
   <definition>$x_1$适合/是合适的/相配于$x_2$，在性质/表象$x_3$方面。</definition>
   <definitionid>42452</definitionid>
   <notes>查看{satci},{tugni},{sarxe},{drani},{tarmi},{ckini},{mintu}</notes>
-  <glossword word="合适" />
   <glossword word="配" />
+  <glossword word="合适" />
 </valsi>
 <valsi word="marbi" type="gismu">
   <rafsi>mra</rafsi>
@@ -8404,11 +8441,11 @@
   <definition>$x_1$对$x_2$来说、从$x_3$方面来看、按$x_4$标准来评价是美的</definition>
   <definitionid>16725</definitionid>
   <notes>不分男女、人物，所以也是英俊、漂亮、可爱、优雅、优美的意思。参照: {pluka}, {xamgu}</notes>
-  <glossword word="可爱" />
-  <glossword word="英俊" />
   <glossword word="优美" />
-  <glossword word="美丽" />
+  <glossword word="可爱" />
   <glossword word="漂亮" />
+  <glossword word="美丽" />
+  <glossword word="英俊" />
   <keyword word="美人" place="1" />
   <keyword word="欣赏者" place="2" />
   <keyword word="审美角度" place="3" />
@@ -8465,7 +8502,9 @@
   <definition>x1 在方面 x2 从属于美国文化/语言</definition>
   <definitionid>15877</definitionid>
   <notes>参见 {brito}, {bemro}, {ketco}, {xispo}, {glico}</notes>
+  <glossword word="美国" />
   <keyword word="事物" place="1" />
+  <keyword word="从属方面" place="2" />
 </valsi>
 <valsi word="merli" type="gismu">
   <rafsi>mre</rafsi>
@@ -8664,6 +8703,7 @@
   </user>
   <definition>$x_1$是属于$x_2$系统（象形体、圣书体、通俗体等等）里表示$x_3$意思的埃及字符</definition>
   <definitionid>16879</definitionid>
+  <glossword word="埃及文" />
   <keyword word="埃及文" place="1" />
   <keyword word="埃及文种类" place="2" />
   <keyword word="埃及文字义" place="3" />
@@ -8823,11 +8863,11 @@
   <definitionid>16807</definitionid>
   <notes>“莫尔斯”又译“摩斯”，因此又有“摩斯密码”等说法。</notes>
   <glossword word="摩斯密码" />
-  <glossword word="摩斯" />
+  <glossword word="莫尔斯" />
   <glossword word="莫尔斯代码" />
   <glossword word="电报" />
-  <glossword word="莫尔斯" />
   <glossword word="电码" />
+  <glossword word="摩斯" />
 </valsi>
 <valsi word="morsi" type="gismu">
   <rafsi>mro</rafsi>
@@ -8949,6 +8989,8 @@
   <definitionid>42542</definitionid>
   <notes>{mu} {valsi} {bi} {linji}; {mumvlavonli&apos;i}, {zelvlavonli&apos;i}, {zelvlabivli&apos;i}</notes>
   <keyword word="五言律诗" place="1" />
+  <keyword word="平仄" place="2" />
+  <keyword word="押韻" place="3" />
 </valsi>
 <valsi word="mumvlavonli'i" type="lujvo">
   <user>
@@ -8959,6 +9001,7 @@
   <definitionid>42534</definitionid>
   <notes>{mu} {valsi} {vo} {linji}; {zelvlavonli&apos;i}, {mumvlabivli&apos;i}, {zelvlabivli&apos;i}</notes>
   <keyword word="五言绝句" place="1" />
+  <keyword word="平仄" place="2" />
   <keyword word="押韻" place="3" />
 </valsi>
 <valsi word="munje" type="gismu">
@@ -9020,8 +9063,8 @@
   </user>
   <definition>$x_1$ 在属性$x_2$(ka),趋向$x_3$方面超出平常; $x_1$ 在$x_2$上非常$x_3$.</definition>
   <definitionid>38162</definitionid>
-  <glossword word="非常" />
   <glossword word="十分" />
+  <glossword word="非常" />
 </valsi>
 <valsi word="muvdu" type="gismu">
   <rafsi>muv</rafsi>
@@ -9238,8 +9281,8 @@
   <definition>尼德兰</definition>
   <definitionid>16808</definitionid>
   <notes>意为“低地”，即常说的“荷兰”。</notes>
-  <glossword word="荷兰" />
   <glossword word="尼德兰" />
+  <glossword word="荷兰" />
 </valsi>
 <valsi word="nejni" type="gismu">
   <rafsi>nen</rafsi>
@@ -9522,9 +9565,9 @@
   <definition>北约</definition>
   <definitionid>16810</definitionid>
   <notes>即北大西洋公约组织</notes>
-  <glossword word="NATO" />
-  <glossword word="北大西洋公约组织" />
   <glossword word="北约" />
+  <glossword word="北大西洋公约组织" />
+  <glossword word="NATO" />
 </valsi>
 <valsi word="pacna" type="gismu">
   <rafsi>pa&apos;a</rafsi>
@@ -10152,7 +10195,6 @@
   <definitionid>16816</definitionid>
   <notes>一门编程语言，得名自英国喜剧《巨蟒与圣杯》。</notes>
   <glossword word="Python语言" sense="编程语言" />
-  <glossword word="Python" sense="编程语言" />
 </valsi>
 <valsi word="pixra" type="gismu">
   <rafsi>pir</rafsi>
@@ -10271,9 +10313,9 @@
   <definition>$x_1$=$p_2$对$x_2$=$p_1$在$x_3$=$p_3$方面有用</definition>
   <definitionid>16868</definitionid>
   <notes>区分：$x_1$是有用，$x_3$是可用。参见：{selplika&apos;e}。由{pilno}（用）+{xamgu}（好）组合而成。</notes>
+  <glossword word="好使" />
   <glossword word="好用" />
   <glossword word="有用" />
-  <glossword word="好使" />
   <keyword word="用品" place="1" />
   <keyword word="用户" place="2" />
   <keyword word="用途" place="3" />
@@ -10412,8 +10454,8 @@
   <definition>$p_1$=$b_1$是$b_2$用来表达或传达$b_3$（意义，不是指说话用的语句本身）的葡萄牙语说法</definition>
   <definitionid>16755</definitionid>
   <notes>由{bangu}（语言）和Portugal（葡萄牙）结合而成。参见{razbau}（巴西葡语）。</notes>
-  <glossword word="葡语" />
   <glossword word="葡萄牙语" />
+  <glossword word="葡语" />
   <keyword word="葡萄牙语说法" place="1" />
   <keyword word="说葡萄牙语的人" place="2" />
   <keyword word="意思" place="3" sense="语义" />
@@ -11303,6 +11345,7 @@
   <definition>格鲁吉亚</definition>
   <definitionid>16819</definitionid>
   <notes>美国乔治亚州的英文跟格鲁吉亚的英文相同，但是在Lojban里词源词形都完全不同。参见：{kartuli}（格鲁吉亚，属gismu）</notes>
+  <glossword word="格鲁吉亚" />
 </valsi>
 <valsi word="sakci" type="gismu">
   <rafsi>sak</rafsi>
@@ -11597,6 +11640,7 @@
   <definition>$x_1$ 是一首由 $x_2$ 演唱的歌曲，其听众为 $x_3$</definition>
   <definitionid>15920</definitionid>
   <glossword word="歌曲" />
+  <keyword word="歌曲" place="1" />
   <keyword word="歌手" place="2" />
   <keyword word="听众" place="3" />
 </valsi>
@@ -11829,8 +11873,9 @@
   </user>
   <definition>$x_1$ 好像具有特性 $x_2$ ,对观察者 $x_3$而言，在$x_4$的情况下.</definition>
   <definitionid>38152</definitionid>
-  <glossword word="仿佛" />
   <glossword word="好像" />
+  <glossword word="仿佛" />
+  <glossword word="似" />
 </valsi>
 <valsi word="simsa" type="gismu">
   <rafsi>smi</rafsi>
@@ -11841,8 +11886,8 @@
   <definition>$x_1$和$x_2$在特性/数量$x_3$ (ka/ni)上相似; $x_1$看起来象/表现出来和$x_2$相似.</definition>
   <definitionid>38153</definitionid>
   <notes> $x_1$是$x_2$的镜像; $x_1$和$x_2$相似; 参考： {dunli}, {frica}, {mintu}, {panra}, {simlu}, {vrici}.</notes>
-  <glossword word="相像" />
   <glossword word="似" />
+  <glossword word="相像" />
 </valsi>
 <valsi word="simxu" type="gismu">
   <rafsi>sim</rafsi>
@@ -12303,6 +12348,8 @@
   <definition>$x_1$是$x_2$书写系统里表示$x_3$意思的符号</definition>
   <definitionid>16876</definitionid>
   <notes>参见：{jugle&apos;u}、{misryle&apos;u}</notes>
+  <glossword word="符号" />
+  <glossword word="表意文字" />
   <keyword word="符号" place="1" />
   <keyword word="表意文字" place="2" />
   <keyword word="符号意义" place="3" />
@@ -12405,8 +12452,8 @@
   </user>
   <definition>首尔</definition>
   <definitionid>16970</definitionid>
-  <glossword word="汉城" />
   <glossword word="首尔" />
+  <glossword word="汉城" />
 </valsi>
 <valsi word="solji" type="gismu">
   <rafsi>slo</rafsi>
@@ -12647,9 +12694,9 @@
   <definition>$g_1$=$b_1$是$b_2$用来表示/交流$b_3$（不是说的话本身）的澳大利亚英语说法</definition>
   <definitionid>16797</definitionid>
   <notes>由{sralo}（澳大利亚）、{bangu}（语言）组成。参见：{gliban}（英语，专名）、{glibau}（英语）、{gliglibau}（英国英语）、{merbau}（美国英语）、{xinglibau}（印度英语）、{kadnyglibau}（加拿大英语）、{sralybau}（澳大利亚英语）、{kisyglibau}（巴基斯坦英语）、{nanfi&apos;oglibau}（南非英语）、{bangrnaidjiria}（尼日利亚英语）等。</notes>
-  <glossword word="澳式英语" />
   <glossword word="澳洲话" />
   <glossword word="澳大利亚英语" />
+  <glossword word="澳式英语" />
 </valsi>
 <valsi word="srana" type="gismu">
   <rafsi>ra&apos;a</rafsi>
@@ -13018,6 +13065,7 @@
   </user>
   <definition>芬兰</definition>
   <definitionid>16823</definitionid>
+  <glossword word="芬兰" />
 </valsi>
 <valsi word="suomis" type="cmene">
   <user>
@@ -13056,8 +13104,8 @@
   <definition>苏珊</definition>
   <definitionid>16825</definitionid>
   <notes>音译人名，又译“苏姗”</notes>
-  <glossword word="苏珊" sense="音译人名" />
   <glossword word="苏姗" sense="音译人名" />
+  <glossword word="苏珊" sense="音译人名" />
 </valsi>
 <valsi word="tabno" type="gismu">
   <rafsi>tab</rafsi>
@@ -13712,6 +13760,11 @@
   </user>
   <definition>$g_1$ 是来自 $g_3$ 而照射于 $g_2$ 的, 有着 $t_4$ 的激光</definition>
   <definitionid>15950</definitionid>
+  <glossword word="激光" />
+  <keyword word="激光" place="1" />
+  <keyword word="照射目标" place="2" />
+  <keyword word="光源" place="3" />
+  <keyword word="频率" place="4" />
 </valsi>
 <valsi word="toknu" type="gismu">
   <rafsi>tok</rafsi>
@@ -13741,6 +13794,7 @@
   <definition>狂犬病</definition>
   <definitionid>16826</definitionid>
   <notes>参见：{tolvutu}（狂犬病，属gismu）</notes>
+  <glossword word="狂犬病" />
 </valsi>
 <valsi word="tolvutu" type="fu'ivla">
   <user>
@@ -14076,6 +14130,7 @@
   </user>
   <definition>华盛顿</definition>
   <definitionid>16829</definitionid>
+  <glossword word="华盛顿" />
 </valsi>
 <valsi word="ueb" type="cmene">
   <user>
@@ -14086,9 +14141,9 @@
   <definitionid>16830</definitionid>
   <notes>不同于“网页”</notes>
   <glossword word="万维网" />
-  <glossword word="网" sense="信息技术" />
-  <glossword word="网络" sense="信息技术" />
   <glossword word="网路" />
+  <glossword word="网络" sense="信息技术" />
+  <glossword word="网" sense="信息技术" />
 </valsi>
 <valsi word="uikipedias" type="cmene">
   <user>
@@ -14098,8 +14153,8 @@
   <definition>维基百科</definition>
   <definitionid>16831</definitionid>
   <notes>“维基”是一种技术，单用并不专指“维基百科”</notes>
-  <glossword word="维基百科" />
   <glossword word="Wikipedia" />
+  <glossword word="维基百科" />
 </valsi>
 <valsi word="uikis" type="cmene">
   <user>
@@ -14143,6 +14198,10 @@
   <definition>$x_1$ 是有着意义 $x_2$的词，从属于语言 $x_3$ (形容性：$x_1$ 是词)</definition>
   <definitionid>15880</definitionid>
   <notes>参见 {slaka}, {bangu}, {cmavo}, {cmene}, {gismu}, {jufra}, {rafsi}, {smuni}</notes>
+  <glossword word="词" />
+  <keyword word="词" place="1" />
+  <keyword word="词义 ; 意义" place="2" />
+  <keyword word="语言" place="3" />
 </valsi>
 <valsi word="vamji" type="gismu">
   <rafsi>vam</rafsi>
@@ -14829,8 +14888,8 @@
   <definition>$x_{1}$ 在 $x_{2}$方面反映了亚洲语言/文化/地域</definition>
   <definitionid>18452</definitionid>
   <notes>参见 {polno}, {friko}, {jungo}, {rusko}, {ropno}.</notes>
-  <glossword word="亚细亚" />
   <glossword word="亚洲的" />
+  <glossword word="亚细亚" />
   <glossword word="亚洲" />
 </valsi>
 <valsi word="xebni" type="gismu">
@@ -14968,8 +15027,8 @@
   <definition>$x_1$是$x_2$用来表示/交流$x_3$（不是说的话本身）的印度英语说法</definition>
   <definitionid>16801</definitionid>
   <notes>由{xindu}（印度）、{glico}（英格兰）、{bangu}（语言）组成。参见：{gliban}（英语，专名）、{glibau}（英语）、{gliglibau}（英国英语）、{merbau}（美国英语）、{kadnyglibau}（加拿大英语）、{sralybau}（澳大利亚英语）、{kisyglibau}（巴基斯坦英语）、{nanfi&apos;oglibau}（南非英语）、{bangrnaidjiria}（尼日利亚英语）等。</notes>
-  <glossword word="印度英语" />
   <glossword word="印式英语" />
+  <glossword word="印度英语" />
   <keyword word="印度英语说法" place="1" />
   <keyword word="说印度英语的人" place="2" />
   <keyword word="用印度英语来表达的东西" place="3" />
@@ -15044,6 +15103,7 @@
   <definition>香港</definition>
   <definitionid>16835</definitionid>
   <notes>港英拼法Hong Kong的Lojban化。参见：同样是表示香港但是语源不同的专名{cangan}。</notes>
+  <glossword word="香港" />
 </valsi>
 <valsi unofficial="true" word="xorbo" type="experimental gismu">
   <user>
@@ -15392,6 +15452,8 @@
   <definitionid>42546</definitionid>
   <notes>{ze} {valsi} {bi} {linji}; {mumvlavonli&apos;i}, {zelvlavonli&apos;i}, {mumvlabivli&apos;i}</notes>
   <keyword word="七言律诗" place="1" />
+  <keyword word="平仄" place="2" />
+  <keyword word="押韻" place="3" />
 </valsi>
 <valsi word="zelvlavonli'i" type="lujvo">
   <user>
@@ -15402,6 +15464,8 @@
   <definitionid>42538</definitionid>
   <notes>{ze} {valsi} {vo} {linji}; {mumvlavonli&apos;i}, {mumvlabivli&apos;i}, {zelvlabivli&apos;i}</notes>
   <keyword word="七言绝句" place="1" />
+  <keyword word="平仄" place="2" />
+  <keyword word="押韻" place="3" />
 </valsi>
 <valsi word="zenba" type="gismu">
   <rafsi>zen</rafsi>
@@ -15559,8 +15623,8 @@
   <definition>$x_1$感到负罪/悔恨，对于$x_2$(抽象)</definition>
   <definitionid>20495</definitionid>
   <notes>参考cmavo list {u&apos;u}, {cinmo}, {xenru}, {zekri}</notes>
-  <glossword word="负罪感" />
   <glossword word="悔恨" />
+  <glossword word="负罪感" />
 </valsi>
 <valsi word="zunle" type="gismu">
   <rafsi>zul</rafsi>
@@ -15606,385 +15670,385 @@
   <definitionid>20492</definitionid>
   <glossword word="在" />
 </valsi>
-</direction><direction from="中文" to="lojban"><nlword word="津巴布韦" valsi="zimbabues" />
-<nlword word="足球" valsi="tipyboi" />
-<nlword word="苏珊" sense="音译人名" valsi="suzyn" />
-<nlword word="苏姗" sense="音译人名" valsi="suzyn" />
-<nlword word="阿尔及利亚" valsi="djaZAIR" />
-<nlword word="波斯尼亚" valsi="bosnan" />
-<nlword word="写" valsi="ciska" />
-<nlword word="刻" valsi="ciska" />
-<nlword word="大洋洲" sense="大陆" valsi="polno" />
-<nlword word="重庆" valsi="tcunCIN" />
-<nlword word="天津" valsi="tienjin" />
-<nlword word="Nameless" valsi="cmeclax" />
-<nlword word="底" valsi="loldi" />
-<nlword word="地" valsi="loldi" />
-<nlword word="地板" valsi="loldi" />
-<nlword word="眼睛" valsi="kanla" />
+</direction><direction from="中文" to="lojban"><nlword word="渥太华" valsi="OTa,uas" />
+<nlword word="新加坡" valsi="SINgapur" />
 <nlword word="华盛顿" valsi="UAcintyn" />
-<nlword word="圣保罗" valsi="saupaulos" />
-<nlword word="南非英语" valsi="nanfi&apos;oglibau" />
-<nlword word="南非英语说法" valsi="nanfi&apos;oglibau" place="1" />
-<nlword word="说南非英语的人" valsi="nanfi&apos;oglibau" place="2" />
-<nlword word="用南非英语来表达的东西" valsi="nanfi&apos;oglibau" place="3" />
-<nlword word="享受" valsi="zdifri" />
-<nlword word="张" sense="姓氏" valsi="jan" />
-<nlword word="让" sense="音译人名" valsi="jan" />
-<nlword word="多瑙河" valsi="dunav" />
-<nlword word="荷兰" valsi="nederland" />
-<nlword word="尼德兰" valsi="nederland" />
+<nlword word="弗兰德斯" valsi="VLANDeren" />
+<nlword word="或" valsi="a" />
+<nlword word="专心" valsi="a&apos;a" />
+<nlword word="刻意" valsi="a&apos;a" />
 <nlword word="警惕" valsi="a&apos;e" />
 <nlword word="警戒" valsi="a&apos;e" />
-<nlword word="JCB" sense="人名缩写" valsi="jycybyb" />
-<nlword word="变" valsi="binxo" />
-<nlword word="化" valsi="binxo" />
-<nlword word="变形物" valsi="binxo" place="1" />
-<nlword word="变化;变形结果" valsi="binxo" place="2" />
-<nlword word="变形条件" valsi="binxo" place="3" />
-<nlword word="天使" valsi="angeli" />
-<nlword word="巴西" valsi="brazilias" />
-<nlword word="华沙" valsi="varcavas" />
-<nlword word="克罗地亚" valsi="xrvatsk" />
-<nlword word="黄热病" valsi="pelglar" />
-<nlword word="纽约" valsi="nu,IORK" />
-<nlword word="•耶路撒冷" valsi="ieRUcaly&apos;im" />
-<nlword word="普朗克" valsi="plank" />
-<nlword word="刻意" valsi="a&apos;a" />
-<nlword word="专心" valsi="a&apos;a" />
-<nlword word="格鲁吉亚" valsi="kartuli" />
-<nlword word="中国" valsi="djunguos" />
-<nlword word="秘鲁" valsi="peRUV" />
-<nlword word="台北" valsi="taibeis" />
-<nlword word="NATO" valsi="otan" />
-<nlword word="北大西洋公约组织" valsi="otan" />
-<nlword word="北约" valsi="otan" />
-<nlword word="上帝" valsi="cevni" />
-<nlword word="香蕉" valsi="badna" place="1" />
-<nlword word="巴斯克" valsi="auskalerik" />
-<nlword word="服务器" sense="互联网" valsi="kibyse&apos;u" place="1" />
-<nlword word="客户端" sense="互联网" valsi="kibyse&apos;u" place="2" />
-<nlword word="服务" sense="互联网" valsi="kibyse&apos;u" place="3" />
-<nlword word="维基百科" valsi="uikipedias" />
-<nlword word="Wikipedia" valsi="uikipedias" />
-<nlword word="拉，扯，拽，拖" valsi="lacpu" />
-<nlword word="拉" valsi="lacpu" place="1" />
-<nlword word="被拉" valsi="lacpu" place="2" />
-<nlword word="拉的位置" valsi="lacpu" place="3" />
-<nlword word="猫" valsi="mlatu" />
-<nlword word="负罪感" valsi="zungi" />
-<nlword word="悔恨" valsi="zungi" />
-<nlword word="Google" valsi="gugl" />
-<nlword word="谷歌" valsi="gugl" />
-<nlword word="老挝" valsi="laus" />
-<nlword word="寮国" valsi="laus" />
-<nlword word="肯定" valsi="birti" />
-<nlword word="芳香烃" valsi="benzo" />
-<nlword word="类型" valsi="benzo" place="2" />
-<nlword word="伦敦" valsi="lyndyn" />
-<nlword word="大" sense="与“小”相对" valsi="barda" />
-<nlword word="邮局" valsi="mribriju" place="1" />
-<nlword word="邮局员" valsi="mribriju" place="2" />
-<nlword word="犬科" valsi="lorxu" />
-<nlword word="狐" valsi="lorxu" place="1" />
-<nlword word="种类" valsi="lorxu" place="2" />
-<nlword word="去" valsi="klama" />
-<nlword word="移动" valsi="klama" />
-<nlword word="来" valsi="klama" />
-<nlword word="行者" valsi="klama" place="1" />
-<nlword word="目的地/去处" valsi="klama" place="2" />
-<nlword word="目的地" valsi="klama" place="2" />
-<nlword word="出发地/来自" valsi="klama" place="3" />
-<nlword word="出发地" valsi="klama" place="3" />
-<nlword word="路径" valsi="klama" place="4" />
-<nlword word="路径/经由" valsi="klama" place="4" />
-<nlword word="交通工具/方式" valsi="klama" place="5" />
-<nlword word="芒果" valsi="mango" />
-<nlword word="芒果种类" valsi="mango" place="2" />
-<nlword word="理语" valsi="lojban" />
-<nlword word="逻辑语" valsi="lojban" />
-<nlword word="反感" valsi="rigni" />
-<nlword word="作呕" sense="不愉快" valsi="rigni" />
-<nlword word="英语" valsi="glibau" />
-<nlword word="英语说法" valsi="glibau" place="1" />
-<nlword word="说英语的人" valsi="glibau" place="2" />
-<nlword word="用英语来表达的东西" valsi="glibau" place="3" />
-<nlword word="反映方面" valsi="jungo" place="2" />
+<nlword word="努力" valsi="a&apos;i" />
 <nlword word="希望" valsi="a&apos;o" />
 <nlword word="绝望" valsi="a&apos;o" />
-<nlword word="左" valsi="zunle" />
-<nlword word="逻辑语工" valsi="loglytuan" />
-<nlword word="逻各斯志工" valsi="loglytuan" />
-<nlword word="逻辑语工作者" valsi="loglytuan" />
-<nlword word="狂犬病" valsi="tolvutu" />
-<nlword word="狂犬病人" valsi="tolvutu" place="1" />
-<nlword word="狂犬病症状" valsi="tolvutu" place="2" />
-<nlword word="橄榄树" valsi="alzaitu" />
-<nlword word="橄榄" valsi="alzaitu" place="1" />
-<nlword word="橄榄品种" valsi="alzaitu" place="2" />
-<nlword word="创造" valsi="finti" />
-<nlword word="创作" valsi="finti" />
-<nlword word="发明" valsi="finti" />
-<nlword word="愤怒" valsi="fengu" />
-<nlword word="老子" valsi="lauDZIS" />
-<nlword word="可爱" valsi="melbi" />
-<nlword word="英俊" valsi="melbi" />
-<nlword word="优美" valsi="melbi" />
-<nlword word="美丽" valsi="melbi" />
-<nlword word="漂亮" valsi="melbi" />
-<nlword word="美人" valsi="melbi" place="1" />
-<nlword word="欣赏者" valsi="melbi" place="2" />
-<nlword word="审美角度" valsi="melbi" place="3" />
-<nlword word="审美标准" valsi="melbi" place="4" />
-<nlword word="包装" valsi="bakfu" />
-<nlword word="包裹" valsi="bakfu" place="1" />
-<nlword word="所包装的物品" valsi="bakfu" place="2" />
-<nlword word="包装用品" valsi="bakfu" place="3" />
-<nlword word="语言" valsi="bangu" />
-<nlword word="香港" valsi="xyngon" />
-<nlword word="尼日利亚话" valsi="bangrnaidjiria" />
-<nlword word="尼日利亚英语" valsi="bangrnaidjiria" />
-<nlword word="尼日利亚英语说法" valsi="bangrnaidjiria" place="1" />
-<nlword word="说尼日利亚英语的人" valsi="bangrnaidjiria" place="2" />
-<nlword word="用尼日利亚英语来表达的东西" valsi="bangrnaidjiria" place="3" />
-<nlword word="可口可乐" valsi="kokaKOlys" />
-<nlword word="非常" valsi="mutce" />
-<nlword word="十分" valsi="mutce" />
-<nlword word="春" sense="季节" valsi="vensa" />
-<nlword word="印度尼西亚" valsi="bidgug" />
-<nlword word="印尼" valsi="bidgug" />
-<nlword word="丹麦" valsi="danmark" />
-<nlword word="五言律诗" valsi="mumvlabivli&apos;i" place="1" />
-<nlword word="乳汁" valsi="ladru" />
-<nlword word="乳制品" valsi="ladru" />
-<nlword word="波兰" valsi="polskas" />
-<nlword word="盯" valsi="catlu" />
-<nlword word="看" valsi="catlu" />
-<nlword word="瞧" valsi="catlu" />
-<nlword word="汉城" valsi="sol" />
-<nlword word="首尔" valsi="sol" />
-<nlword word="湖" valsi="lalxu" />
-<nlword word="池" valsi="lalxu" />
-<nlword word="瑞士" valsi="xelvet" />
-<nlword word="蓝色" valsi="blanu" />
-<nlword word="蓝色的东西" valsi="blanu" place="1" />
+<nlword word="枫木" valsi="a&apos;orne" />
+<nlword word="枫树" valsi="a&apos;orne" place="1" />
+<nlword word="枫树品种" valsi="a&apos;orne" place="2" />
+<nlword word="槭树" valsi="a&apos;orne" />
+<nlword word="兴趣" valsi="a&apos;u" />
+<nlword word="有趣" valsi="a&apos;u" />
 <nlword word="鳄梨" valsi="agbakate" place="1" />
 <nlword word="鳄梨品种" valsi="agbakate" place="2" />
-<nlword word="巴比伦" valsi="babilon" />
-<nlword word="孟买" valsi="mumbais" />
-<nlword word="罗宾" sense="音译人名" valsi="robin" />
-<nlword word="劳动" valsi="gunka" />
-<nlword word="工作" valsi="gunka" />
-<nlword word="工人/劳动者" valsi="gunka" place="1" />
-<nlword word="活动内容" valsi="gunka" place="2" />
-<nlword word="工作对象" valsi="gunka" place="3" />
-<nlword word="光" valsi="gusni" />
-<nlword word="亮" valsi="gusni" />
-<nlword word="努力" valsi="a&apos;i" />
-<nlword word="文莱" valsi="bruNAIS" />
-<nlword word="弗兰德斯" valsi="VLANDeren" />
-<nlword word="月" valsi="lunra" />
-<nlword word="卫星" valsi="lunra" />
-<nlword word="月亮" valsi="lunra" />
-<nlword word="月球" valsi="lunra" />
-<nlword word="说" sense="告诉" valsi="tavla" />
-<nlword word="基督" valsi="xrison" />
-<nlword word="或" valsi="a" />
-<nlword word="阿尔巴尼亚" valsi="ckiipyris" />
-<nlword word="北京" valsi="pekin" />
-<nlword word="闷闷不乐" valsi="badri" />
-<nlword word="郁闷" valsi="badri" />
-<nlword word="消沉" valsi="badri" />
-<nlword word="悲痛" valsi="badri" />
-<nlword word="哀愁" valsi="badri" />
-<nlword word="悲哀" valsi="badri" />
-<nlword word="悲伤" valsi="badri" />
-<nlword word="灰心丧气" valsi="badri" />
-<nlword word="伤心" valsi="badri" />
-<nlword word="沮丧" valsi="badri" />
-<nlword word="不开心的人" valsi="badri" place="1" />
-<nlword word="不开心的事" valsi="badri" place="2" />
-<nlword word="巴式英语" valsi="kisyglibau" />
-<nlword word="巴基斯坦英语" valsi="kisyglibau" />
-<nlword word="日本" valsi="nipon" />
-<nlword word="合适" valsi="mapti" />
-<nlword word="配" valsi="mapti" />
-<nlword word="ASCII" valsi="asycy&apos;i&apos;is" />
-<nlword word="葡语" valsi="potybau" />
-<nlword word="葡萄牙语" valsi="potybau" />
-<nlword word="葡萄牙语说法" valsi="potybau" place="1" />
-<nlword word="说葡萄牙语的人" valsi="potybau" place="2" />
-<nlword word="意思" sense="语义" valsi="potybau" place="3" />
-<nlword word="词缀" valsi="lujvo" />
-<nlword word="复合" valsi="lujvo" />
-<nlword word="比喻" valsi="lujvo" place="4" />
-<nlword word="共笔" valsi="uikis" />
-<nlword word="维基" valsi="uikis" />
-<nlword word="罗马" valsi="romas" />
-<nlword word="信任" valsi="lacri" />
-<nlword word="依赖" valsi="lacri" />
-<nlword word="上海" valsi="canxais" />
-<nlword word="临近" valsi="lamji" />
-<nlword word="紧靠" valsi="lamji" />
-<nlword word="太平洋" valsi="pasifik" />
-<nlword word="在" valsi="zvati" />
-<nlword word="立法" valsi="flari&apos;a" />
-<nlword word="阿尔及利亚特色" valsi="jerxo" place="1" />
-<nlword word="体现阿尔及利亚特色的方面" valsi="jerxo" place="2" />
-<nlword word="多伦多" valsi="tyrontos" />
-<nlword word="白俄罗斯" valsi="blabruk" />
-<nlword word="说出" valsi="bacru" />
-<nlword word="说" valsi="bacru" />
-<nlword word="说话者" valsi="bacru" place="1" />
-<nlword word="说话内容" valsi="bacru" place="2" />
-<nlword word="澳式英语" valsi="sralybau" />
-<nlword word="澳洲话" valsi="sralybau" />
-<nlword word="澳大利亚英语" valsi="sralybau" />
-<nlword word="对不起" valsi="fau&apos;u" />
-<nlword word="抱歉" valsi="fau&apos;u" />
-<nlword word="原谅" valsi="fau&apos;u" />
-<nlword word="赢" valsi="jinga" />
-<nlword word="立陶宛" valsi="lietuvos" />
 <nlword word="打算" valsi="ai" />
 <nlword word="拒绝" valsi="ai" />
-<nlword word="乐" valsi="gleki" />
-<nlword word="高兴" valsi="gleki" />
-<nlword word="快乐" valsi="gleki" />
-<nlword word="疟疾" valsi="paludizm" />
-<nlword word="芬兰" valsi="suomis" />
-<nlword word="七言律诗" valsi="zelvlabivli&apos;i" place="1" />
-<nlword word="奥地利" valsi="osteraix" />
-<nlword word="法律" valsi="flalu" />
-<nlword word="回转13位" valsi="carpacib" />
-<nlword word="13位转字法" valsi="carpacib" />
-<nlword word="ROT-13" valsi="carpacib" />
-<nlword word="埃及文" valsi="misryle&apos;u" place="1" />
-<nlword word="埃及文种类" valsi="misryle&apos;u" place="2" />
-<nlword word="埃及文字义" valsi="misryle&apos;u" place="3" />
-<nlword word="意大利" valsi="italian" />
-<nlword word="逻辑鲍勃" sense="绰号" valsi="lojbab" />
-<nlword word="冰岛" valsi="island" />
-<nlword word="吉奥提" valsi="djiotis" />
-<nlword word="洛杉矶" valsi="losanjylys" />
-<nlword word="下面" valsi="cnita" />
-<nlword word="下" valsi="cnita" />
-<nlword word="船" valsi="bloti" />
-<nlword word="舟" valsi="bloti" />
-<nlword word=" 艇" valsi="bloti" place="1" />
-<nlword word="台湾" valsi="tai,UAN" />
-<nlword word="马德里" valsi="madRID" />
-<nlword word="可能" valsi="lakne" />
-<nlword word="亚细亚" valsi="xazdo" />
-<nlword word="亚洲的" valsi="xazdo" />
-<nlword word="亚洲" valsi="xazdo" />
-<nlword word="特隆赫姆" sense="音译地名" valsi="troneim" />
-<nlword word="特伦汗" sense="音译地名" valsi="troneim" />
-<nlword word="英国英语" valsi="gliglibau" />
-<nlword word="英国英语说法" valsi="gliglibau" place="1" />
-<nlword word="说英国英语的人" valsi="gliglibau" place="2" />
-<nlword word="用英国英语来表达的东西" valsi="gliglibau" place="3" />
-<nlword word="我們" valsi="mi&apos;ai" />
 <nlword word="字母" valsi="alfabeta" />
 <nlword word="字母表" valsi="alfabeta" place="1" />
 <nlword word="用字母来拼写的语言" valsi="alfabeta" place="2" />
-<nlword word="歌曲" valsi="selsa&apos;a" />
-<nlword word="歌手" valsi="selsa&apos;a" place="2" />
-<nlword word="听众" valsi="selsa&apos;a" place="3" />
+<nlword word="橄榄" valsi="alzaitu" place="1" />
+<nlword word="橄榄品种" valsi="alzaitu" place="2" />
+<nlword word="橄榄树" valsi="alzaitu" />
+<nlword word="天使" valsi="angeli" />
+<nlword word="鳗鱼" valsi="angila" place="1" />
+<nlword word="鳗鱼品种" valsi="angila" place="2" />
+<nlword word="鳝鱼" valsi="angila" />
+<nlword word="北冰洋" valsi="arktik" />
+<nlword word="ASCII" valsi="asycy&apos;i&apos;is" />
+<nlword word="巴斯克" valsi="auskalerik" />
+<nlword word="巴比伦" valsi="babilon" />
+<nlword word="说" valsi="bacru" />
+<nlword word="说出" valsi="bacru" />
+<nlword word="说话内容" valsi="bacru" place="2" />
+<nlword word="说话者" valsi="bacru" place="1" />
+<nlword word="香蕉" valsi="badna" place="1" />
+<nlword word="不开心的事" valsi="badri" place="2" />
+<nlword word="不开心的人" valsi="badri" place="1" />
+<nlword word="伤心" valsi="badri" />
+<nlword word="哀愁" valsi="badri" />
+<nlword word="悲伤" valsi="badri" />
+<nlword word="悲哀" valsi="badri" />
+<nlword word="悲痛" valsi="badri" />
+<nlword word="沮丧" valsi="badri" />
+<nlword word="消沉" valsi="badri" />
+<nlword word="灰心丧气" valsi="badri" />
+<nlword word="郁闷" valsi="badri" />
+<nlword word="闷闷不乐" valsi="badri" />
+<nlword word="步态" valsi="bajra" place="4" />
+<nlword word="行人" valsi="bajra" place="1" />
+<nlword word="行走" valsi="bajra" />
+<nlword word="走路" valsi="bajra" />
+<nlword word="走路时用的肢节" valsi="bajra" place="3" />
+<nlword word="跑步" valsi="bajra" />
+<nlword word="路面" valsi="bajra" place="2" />
+<nlword word="包装" valsi="bakfu" />
+<nlword word="包装用品" valsi="bakfu" place="3" />
+<nlword word="包裹" valsi="bakfu" place="1" />
+<nlword word="所包装的物品" valsi="bakfu" place="2" />
+<nlword word="尼日利亚英语" valsi="bangrnaidjiria" />
+<nlword word="尼日利亚英语说法" valsi="bangrnaidjiria" place="1" />
+<nlword word="尼日利亚话" valsi="bangrnaidjiria" />
+<nlword word="用尼日利亚英语来表达的东西" valsi="bangrnaidjiria" place="3" />
+<nlword word="说尼日利亚英语的人" valsi="bangrnaidjiria" place="2" />
 <nlword word="朝鲜语" valsi="bangrxangu" />
-<nlword word="七言绝句" valsi="zelvlavonli&apos;i" place="1" />
-<nlword word="仿佛" valsi="simlu" />
-<nlword word="好像" valsi="simlu" />
-<nlword word="过家家" valsi="lazyzukykei" />
-<nlword word="耶和华" valsi="jegvon" />
-<nlword word="爷火华" valsi="jegvon" />
-<nlword word="摩斯密码" valsi="mors" />
-<nlword word="摩斯" valsi="mors" />
-<nlword word="莫尔斯代码" valsi="mors" />
-<nlword word="电报" valsi="mors" />
-<nlword word="莫尔斯" valsi="mors" />
-<nlword word="电码" valsi="mors" />
-<nlword word="西藏" valsi="pyd" />
-<nlword word="吐蕃" valsi="pyd" />
-<nlword word="广州" valsi="guonJAUS" />
+<nlword word="语言" valsi="bangu" />
+<nlword word=" 足 " valsi="banzu" />
+<nlword word="大" sense="与“小”相对" valsi="barda" />
+<nlword word="巴塞罗那" valsi="barselonas" />
+<nlword word="类型" valsi="benzo" place="2" />
+<nlword word="芳香烃" valsi="benzo" />
+<nlword word="印尼" valsi="bidgug" />
+<nlword word="印度尼西亚" valsi="bidgug" />
+<nlword word="化" valsi="binxo" />
+<nlword word="变" valsi="binxo" />
+<nlword word="变化;变形结果" valsi="binxo" place="2" />
+<nlword word="变形条件" valsi="binxo" place="3" />
+<nlword word="变形物" valsi="binxo" place="1" />
+<nlword word="肯定" valsi="birti" />
+<nlword word="白俄罗斯" valsi="blabruk" />
+<nlword word="蓝色" valsi="blanu" />
+<nlword word="蓝色的东西" valsi="blanu" place="1" />
+<nlword word=" 艇" valsi="bloti" place="1" />
+<nlword word="舟" valsi="bloti" />
+<nlword word="船" valsi="bloti" />
+<nlword word="波斯尼亚" valsi="bosnan" />
+<nlword word="巴西" valsi="brazilias" />
+<nlword word="文莱" valsi="bruNAIS" />
+<nlword word="柏林" valsi="byLIN" />
+<nlword word="上海" valsi="canxais" />
+<nlword word="13位转字法" valsi="carpacib" />
+<nlword word="ROT-13" valsi="carpacib" />
+<nlword word="回转13位" valsi="carpacib" />
+<nlword word="盯" valsi="catlu" />
+<nlword word="看" valsi="catlu" />
+<nlword word="瞧" valsi="catlu" />
+<nlword word="神" valsi="cev" />
+<nlword word="上帝" valsi="cevni" />
+<nlword word="新疆" valsi="cinJIAN" />
+<nlword word="主题" valsi="cipyple" place="4" />
+<nlword word="测试卷" valsi="cipyple" />
+<nlword word="纸张来源" valsi="cipyple" place="2" />
+<nlword word="被证明状态" valsi="cipyple" place="3" />
+<nlword word="试卷" valsi="cipyple" />
+<nlword word="写" valsi="ciska" />
+<nlword word="刻" valsi="ciska" />
+<nlword word="阿尔巴尼亚" valsi="ckiipyris" />
+<nlword word="Nameless" valsi="cmeclax" />
+<nlword word="下" valsi="cnita" />
+<nlword word="下面" valsi="cnita" />
+<nlword word="丹麦" valsi="danmark" />
+<nlword word="成分" valsi="denpesxu" />
 <nlword word="牙膏" valsi="denpesxu" />
 <nlword word="牙膏成分" valsi="denpesxu" />
-<nlword word="成分" valsi="denpesxu" />
-<nlword word="咱們" valsi="mi&apos;o" />
+<nlword word="阿尔及利亚" valsi="djaZAIR" />
+<nlword word="吉奥提" valsi="djiotis" />
+<nlword word="中国" valsi="djunguos" />
+<nlword word="多瑙河" valsi="dunav" />
+<nlword word="南冰洋" valsi="dzip" />
+<nlword word="原谅" valsi="fau&apos;u" />
+<nlword word="对不起" valsi="fau&apos;u" />
+<nlword word="抱歉" valsi="fau&apos;u" />
+<nlword word="愤怒" valsi="fengu" />
+<nlword word="创作" valsi="finti" />
+<nlword word="创造" valsi="finti" />
+<nlword word="发明" valsi="finti" />
+<nlword word="法律" valsi="flalu" />
+<nlword word="立法" valsi="flari&apos;a" />
+<nlword word="乐" valsi="gleki" />
+<nlword word="快乐" valsi="gleki" />
+<nlword word="高兴" valsi="gleki" />
+<nlword word="英文" sense="语言" valsi="gliban" />
+<nlword word="用英语来表达的东西" valsi="glibau" place="3" />
+<nlword word="英语" valsi="glibau" />
+<nlword word="英语说法" valsi="glibau" place="1" />
+<nlword word="说英语的人" valsi="glibau" place="2" />
+<nlword word="用英国英语来表达的东西" valsi="gliglibau" place="3" />
+<nlword word="英国英语" valsi="gliglibau" />
+<nlword word="英国英语说法" valsi="gliglibau" place="1" />
+<nlword word="说英国英语的人" valsi="gliglibau" place="2" />
+<nlword word="Google" valsi="gugl" />
+<nlword word="谷歌" valsi="gugl" />
+<nlword word="劳动" valsi="gunka" />
+<nlword word="工人/劳动者" valsi="gunka" place="1" />
+<nlword word="工作" valsi="gunka" />
+<nlword word="工作对象" valsi="gunka" place="3" />
+<nlword word="活动内容" valsi="gunka" place="2" />
+<nlword word="广州" valsi="guonJAUS" />
+<nlword word="亮" valsi="gusni" />
+<nlword word="光" valsi="gusni" />
+<nlword word="永为" valsi="iaves" />
+<nlword word="永恒主" valsi="iaves" />
+<nlword word="雅威" valsi="iaves" />
+<nlword word="•耶路撒冷" valsi="ieRUcaly&apos;im" />
+<nlword word="冰岛" valsi="island" />
+<nlword word="意大利" valsi="italian" />
+<nlword word="张" sense="姓氏" valsi="jan" />
+<nlword word="让" sense="音译人名" valsi="jan" />
+<nlword word="爷火华" valsi="jegvon" />
+<nlword word="耶和华" valsi="jegvon" />
+<nlword word="体现阿尔及利亚特色的方面" valsi="jerxo" place="2" />
+<nlword word="阿尔及利亚特色" valsi="jerxo" place="1" />
+<nlword word="赢" valsi="jinga" />
+<nlword word="中国字" valsi="jugle&apos;u" place="1" />
+<nlword word="中国字种类" valsi="jugle&apos;u" place="2" />
+<nlword word="字义" valsi="jugle&apos;u" place="3" />
+<nlword word="汉字" valsi="jugle&apos;u" />
+<nlword word="反映方面" valsi="jungo" place="2" />
+<nlword word="JCB" sense="人名缩写" valsi="jycybyb" />
+<nlword word="性质" valsi="ka" />
+<nlword word="特性" valsi="ka" />
+<nlword word="眼睛" valsi="kanla" />
+<nlword word="格鲁吉亚" valsi="kartuli" />
+<nlword word="客户端" sense="互联网" valsi="kibyse&apos;u" place="2" />
+<nlword word="服务" sense="互联网" valsi="kibyse&apos;u" place="3" />
+<nlword word="服务器" sense="互联网" valsi="kibyse&apos;u" place="1" />
+<nlword word="巴基斯坦英语" valsi="kisyglibau" />
+<nlword word="巴式英语" valsi="kisyglibau" />
+<nlword word="交通工具/方式" valsi="klama" place="5" />
+<nlword word="出发地" valsi="klama" place="3" />
+<nlword word="出发地/来自" valsi="klama" place="3" />
+<nlword word="去" valsi="klama" />
+<nlword word="来" valsi="klama" />
+<nlword word="目的地" valsi="klama" place="2" />
+<nlword word="目的地/去处" valsi="klama" place="2" />
+<nlword word="移动" valsi="klama" />
+<nlword word="行者" valsi="klama" place="1" />
+<nlword word="路径" valsi="klama" place="4" />
+<nlword word="路径/经由" valsi="klama" place="4" />
+<nlword word="可口可乐" valsi="kokaKOlys" />
+<nlword word="狼" valsi="labno" />
+<nlword word="拉" valsi="lacpu" place="1" />
+<nlword word="拉的位置" valsi="lacpu" place="3" />
+<nlword word="拉，扯，拽，拖" valsi="lacpu" />
+<nlword word="被拉" valsi="lacpu" place="2" />
+<nlword word="依赖" valsi="lacri" />
+<nlword word="信任" valsi="lacri" />
+<nlword word="乳制品" valsi="ladru" />
+<nlword word="乳汁" valsi="ladru" />
 <nlword word="举" valsi="lafti" />
 <nlword word="支撑" valsi="lafti" />
-<nlword word="南冰洋" valsi="dzip" />
-<nlword word="兴趣" valsi="a&apos;u" />
-<nlword word="有趣" valsi="a&apos;u" />
+<nlword word="可能" valsi="lakne" />
 <nlword word="蜡" valsi="lakse" />
-<nlword word="Python语言" sense="编程语言" valsi="piton" />
-<nlword word="Python" sense="编程语言" valsi="piton" />
+<nlword word="池" valsi="lalxu" />
+<nlword word="湖" valsi="lalxu" />
+<nlword word="临近" valsi="lamji" />
+<nlword word="紧靠" valsi="lamji" />
+<nlword word="蛋白质" valsi="lanbi" />
+<nlword word="老子" valsi="lauDZIS" />
+<nlword word="寮国" valsi="laus" />
+<nlword word="老挝" valsi="laus" />
+<nlword word="过家家" valsi="lazyzukykei" />
+<nlword word="立陶宛" valsi="lietuvos" />
+<nlword word="逻各斯志工" valsi="loglytuan" />
+<nlword word="逻辑语工" valsi="loglytuan" />
+<nlword word="逻辑语工作者" valsi="loglytuan" />
+<nlword word="逻辑鲍勃" sense="绰号" valsi="lojbab" />
+<nlword word="理语" valsi="lojban" />
+<nlword word="逻辑语" valsi="lojban" />
+<nlword word="地" valsi="loldi" />
+<nlword word="地板" valsi="loldi" />
+<nlword word="底" valsi="loldi" />
+<nlword word="犬科" valsi="lorxu" />
+<nlword word="狐" valsi="lorxu" place="1" />
+<nlword word="种类" valsi="lorxu" place="2" />
+<nlword word="洛杉矶" valsi="losanjylys" />
+<nlword word="复合" valsi="lujvo" />
+<nlword word="比喻" valsi="lujvo" place="4" />
+<nlword word="词缀" valsi="lujvo" />
+<nlword word="卫星" valsi="lunra" />
+<nlword word="月" valsi="lunra" />
+<nlword word="月亮" valsi="lunra" />
+<nlword word="月球" valsi="lunra" />
+<nlword word="伦敦" valsi="lyndyn" />
+<nlword word="马德里" valsi="madRID" />
+<nlword word="芒果" valsi="mango" />
+<nlword word="芒果种类" valsi="mango" place="2" />
+<nlword word="合适" valsi="mapti" />
+<nlword word="配" valsi="mapti" />
+<nlword word="优美" valsi="melbi" />
+<nlword word="可爱" valsi="melbi" />
+<nlword word="审美标准" valsi="melbi" place="4" />
+<nlword word="审美角度" valsi="melbi" place="3" />
+<nlword word="欣赏者" valsi="melbi" place="2" />
+<nlword word="漂亮" valsi="melbi" />
+<nlword word="美丽" valsi="melbi" />
+<nlword word="美人" valsi="melbi" place="1" />
+<nlword word="英俊" valsi="melbi" />
+<nlword word="事物" valsi="merko" place="1" />
+<nlword word="我們" valsi="mi&apos;ai" />
+<nlword word="咱們" valsi="mi&apos;o" />
+<nlword word="埃及文" valsi="misryle&apos;u" place="1" />
+<nlword word="埃及文字义" valsi="misryle&apos;u" place="3" />
+<nlword word="埃及文种类" valsi="misryle&apos;u" place="2" />
+<nlword word="猫" valsi="mlatu" />
+<nlword word="摩斯" valsi="mors" />
+<nlword word="摩斯密码" valsi="mors" />
+<nlword word="电报" valsi="mors" />
+<nlword word="电码" valsi="mors" />
+<nlword word="莫尔斯" valsi="mors" />
+<nlword word="莫尔斯代码" valsi="mors" />
+<nlword word="邮局" valsi="mribriju" place="1" />
+<nlword word="邮局员" valsi="mribriju" place="2" />
+<nlword word="孟买" valsi="mumbais" />
+<nlword word="五言律诗" valsi="mumvlabivli&apos;i" place="1" />
 <nlword word="五言绝句" valsi="mumvlavonli&apos;i" place="1" />
 <nlword word="押韻" valsi="mumvlavonli&apos;i" place="3" />
-<nlword word="坐" valsi="zutse" />
-<nlword word="印度英语" valsi="xinglibau" />
-<nlword word="印式英语" valsi="xinglibau" />
-<nlword word="印度英语说法" valsi="xinglibau" place="1" />
-<nlword word="说印度英语的人" valsi="xinglibau" place="2" />
-<nlword word="用印度英语来表达的东西" valsi="xinglibau" place="3" />
-<nlword word="特性" valsi="ka" />
-<nlword word="性质" valsi="ka" />
-<nlword word="柏林" valsi="byLIN" />
+<nlword word="十分" valsi="mutce" />
+<nlword word="非常" valsi="mutce" />
+<nlword word="南非英语" valsi="nanfi&apos;oglibau" />
+<nlword word="南非英语说法" valsi="nanfi&apos;oglibau" place="1" />
+<nlword word="用南非英语来表达的东西" valsi="nanfi&apos;oglibau" place="3" />
+<nlword word="说南非英语的人" valsi="nanfi&apos;oglibau" place="2" />
+<nlword word="尼德兰" valsi="nederland" />
+<nlword word="荷兰" valsi="nederland" />
+<nlword word="日本" valsi="nipon" />
+<nlword word="挪威" valsi="noreg" />
+<nlword word="纽约" valsi="nu,IORK" />
+<nlword word="奥地利" valsi="osteraix" />
+<nlword word="NATO" valsi="otan" />
+<nlword word="北大西洋公约组织" valsi="otan" />
+<nlword word="北约" valsi="otan" />
+<nlword word="疟疾" valsi="paludizm" />
+<nlword word="太平洋" valsi="pasifik" />
+<nlword word="秘鲁" valsi="peRUV" />
+<nlword word="北京" valsi="pekin" />
+<nlword word="黄热病" valsi="pelglar" />
+<nlword word="Python" sense="编程语言" valsi="piton" />
+<nlword word="Python语言" sense="编程语言" valsi="piton" />
+<nlword word="普朗克" valsi="plank" />
+<nlword word="好使" valsi="plixau" />
+<nlword word="好用" valsi="plixau" />
+<nlword word="有用" valsi="plixau" />
+<nlword word="用品" valsi="plixau" place="1" />
+<nlword word="用户" valsi="plixau" place="2" />
+<nlword word="用途" valsi="plixau" place="3" />
+<nlword word="大洋洲" sense="大陆" valsi="polno" />
+<nlword word="波兰" valsi="polskas" />
+<nlword word="意思" sense="语义" valsi="potybau" place="3" />
+<nlword word="葡萄牙语" valsi="potybau" />
+<nlword word="葡萄牙语说法" valsi="potybau" place="1" />
+<nlword word="葡语" valsi="potybau" />
+<nlword word="说葡萄牙语的人" valsi="potybau" place="2" />
+<nlword word="吐蕃" valsi="pyd" />
+<nlword word="西藏" valsi="pyd" />
+<nlword word="作呕" sense="不愉快" valsi="rigni" />
+<nlword word="反感" valsi="rigni" />
+<nlword word="因" valsi="rinka" />
+<nlword word="罗宾" sense="音译人名" valsi="robin" />
+<nlword word="罗马" valsi="romas" />
+<nlword word="圣保罗" valsi="saupaulos" />
+<nlword word="听众" valsi="selsa&apos;a" place="3" />
+<nlword word="歌手" valsi="selsa&apos;a" place="2" />
+<nlword word="歌曲" valsi="selsa&apos;a" />
+<nlword word="瑞典" valsi="sferies" />
+<nlword word="仿佛" valsi="simlu" />
+<nlword word="好像" valsi="simlu" />
+<nlword word="似" valsi="simsa" />
+<nlword word="相像" valsi="simsa" />
+<nlword word="符号" valsi="snile&apos;u" place="1" />
+<nlword word="符号意义" valsi="snile&apos;u" place="3" />
+<nlword word="表意文字" valsi="snile&apos;u" place="2" />
+<nlword word="汉城" valsi="sol" />
+<nlword word="首尔" valsi="sol" />
+<nlword word="澳大利亚英语" valsi="sralybau" />
+<nlword word="澳式英语" valsi="sralybau" />
+<nlword word="澳洲话" valsi="sralybau" />
+<nlword word="芬兰" valsi="suomis" />
+<nlword word="苏姗" sense="音译人名" valsi="suzyn" />
+<nlword word="苏珊" sense="音译人名" valsi="suzyn" />
+<nlword word="台湾" valsi="tai,UAN" />
+<nlword word="台北" valsi="taibeis" />
+<nlword word="说" sense="告诉" valsi="tavla" />
+<nlword word="重庆" valsi="tcunCIN" />
+<nlword word="天津" valsi="tienjin" />
+<nlword word="足球" valsi="tipyboi" />
+<nlword word="狂犬病" valsi="tolvutu" />
+<nlword word="狂犬病人" valsi="tolvutu" place="1" />
+<nlword word="狂犬病症状" valsi="tolvutu" place="2" />
+<nlword word="特伦汗" sense="音译地名" valsi="troneim" />
+<nlword word="特隆赫姆" sense="音译地名" valsi="troneim" />
+<nlword word="多伦多" valsi="tyrontos" />
 <nlword word="万维网" valsi="ueb" />
 <nlword word="网" sense="信息技术" valsi="ueb" />
 <nlword word="网络" sense="信息技术" valsi="ueb" />
 <nlword word="网路" valsi="ueb" />
-<nlword word="因" valsi="rinka" />
-<nlword word="渥太华" valsi="OTa,uas" />
-<nlword word="鳝鱼" valsi="angila" />
-<nlword word="鳗鱼" valsi="angila" place="1" />
-<nlword word="鳗鱼品种" valsi="angila" place="2" />
-<nlword word="巴塞罗那" valsi="barselonas" />
-<nlword word="汉字" valsi="jugle&apos;u" />
-<nlword word="中国字" valsi="jugle&apos;u" place="1" />
-<nlword word="中国字种类" valsi="jugle&apos;u" place="2" />
-<nlword word="字义" valsi="jugle&apos;u" place="3" />
-<nlword word="狼" valsi="labno" />
-<nlword word="瑞典" valsi="sferies" />
-<nlword word="事物" valsi="merko" place="1" />
-<nlword word="走路" valsi="bajra" />
-<nlword word="跑步" valsi="bajra" />
-<nlword word="行走" valsi="bajra" />
-<nlword word="行人" valsi="bajra" place="1" />
-<nlword word="路面" valsi="bajra" place="2" />
-<nlword word="走路时用的肢节" valsi="bajra" place="3" />
-<nlword word="步态" valsi="bajra" place="4" />
-<nlword word="好用" valsi="plixau" />
-<nlword word="有用" valsi="plixau" />
-<nlword word="好使" valsi="plixau" />
-<nlword word="用品" valsi="plixau" place="1" />
-<nlword word="用户" valsi="plixau" place="2" />
-<nlword word="用途" valsi="plixau" place="3" />
-<nlword word="英文" sense="语言" valsi="gliban" />
-<nlword word="测试卷" valsi="cipyple" />
-<nlword word="试卷" valsi="cipyple" />
-<nlword word="纸张来源" valsi="cipyple" place="2" />
-<nlword word="被证明状态" valsi="cipyple" place="3" />
-<nlword word="主题" valsi="cipyple" place="4" />
-<nlword word="枫木" valsi="a&apos;orne" />
-<nlword word="槭树" valsi="a&apos;orne" />
-<nlword word="枫树" valsi="a&apos;orne" place="1" />
-<nlword word="枫树品种" valsi="a&apos;orne" place="2" />
-<nlword word="永恒主" valsi="iaves" />
-<nlword word="雅威" valsi="iaves" />
-<nlword word="永为" valsi="iaves" />
-<nlword word="神" valsi="cev" />
-<nlword word="蛋白质" valsi="lanbi" />
-<nlword word="北冰洋" valsi="arktik" />
+<nlword word="Wikipedia" valsi="uikipedias" />
+<nlword word="维基百科" valsi="uikipedias" />
+<nlword word="共笔" valsi="uikis" />
+<nlword word="维基" valsi="uikis" />
+<nlword word="华沙" valsi="varcavas" />
+<nlword word="春" sense="季节" valsi="vensa" />
+<nlword word="亚洲" valsi="xazdo" />
+<nlword word="亚洲的" valsi="xazdo" />
+<nlword word="亚细亚" valsi="xazdo" />
+<nlword word="瑞士" valsi="xelvet" />
 <nlword word="印度洋" valsi="xin" />
-<nlword word=" 足 " valsi="banzu" />
-<nlword word="挪威" valsi="noreg" />
-<nlword word="相像" valsi="simsa" />
-<nlword word="似" valsi="simsa" />
-<nlword word="符号" valsi="snile&apos;u" place="1" />
-<nlword word="表意文字" valsi="snile&apos;u" place="2" />
-<nlword word="符号意义" valsi="snile&apos;u" place="3" />
-<nlword word="新疆" valsi="cinJIAN" />
-<nlword word="新加坡" valsi="SINgapur" />
+<nlword word="印度英语" valsi="xinglibau" />
+<nlword word="印度英语说法" valsi="xinglibau" place="1" />
+<nlword word="印式英语" valsi="xinglibau" />
+<nlword word="用印度英语来表达的东西" valsi="xinglibau" place="3" />
+<nlword word="说印度英语的人" valsi="xinglibau" place="2" />
+<nlword word="基督" valsi="xrison" />
+<nlword word="克罗地亚" valsi="xrvatsk" />
+<nlword word="香港" valsi="xyngon" />
+<nlword word="享受" valsi="zdifri" />
+<nlword word="七言律诗" valsi="zelvlabivli&apos;i" place="1" />
+<nlword word="七言绝句" valsi="zelvlavonli&apos;i" place="1" />
+<nlword word="津巴布韦" valsi="zimbabues" />
+<nlword word="悔恨" valsi="zungi" />
+<nlword word="负罪感" valsi="zungi" />
+<nlword word="左" valsi="zunle" />
+<nlword word="坐" valsi="zutse" />
+<nlword word="在" valsi="zvati" />
 </direction></dictionary>
 
 

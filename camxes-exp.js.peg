@@ -260,7 +260,9 @@ sumti_6 = expr:(ZO_clause free* / ZOI_clause free* / ZOhOI_clause free* / LOhU_c
 
 li_clause = expr:(LI_clause free* mex LOhO_elidible free*) {return _node("li_clause", expr); }
 
-sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1) {return _node("sumti_tail", expr); }
+//// sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1) {return _node("sumti_tail", expr); }
+//// EXP-MODIF: allow {lo mi e do vu'o noi brodi cu broda} (instead of the previous string)
+sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1 / sumti sumti_tail_1) {return _node("sumti_tail", expr); }
 
 sumti_tail_1 = expr:(selbri relative_clauses? / quantifier selbri relative_clauses? / quantifier sumti) {return _node("sumti_tail_1", expr);}
 
@@ -1773,7 +1775,7 @@ KEI = &cmavo expr:( k e i ) &post_word {return ["KEI", _join(expr)];}
 KI = &cmavo expr:( k i ) &post_word {return ["KI", _join(expr)];}
 
 //// EXP-ADD: xai
-KOhA = &cmavo expr:( d a h u / d a h e / d i h u / d i h e / d e h u / d e h e / d e i / d o h i / m i h o / m a h a / m i h a / d o h o / k o h a / f o h u / k o h e / k o h i / k o h o / k o h u / f o h a / f o h e / f o h i / f o h o / v o h a / v o h e / v o h i / v o h o / v o h u / r u / r i / r a / t a / t u / t i / z i h o / k e h a / m a / z u h i / z o h e / c e h u / d a / d e / d i / k o / m i / d o / x a i) &post_word { return ["KOhA", _join(expr)];}
+KOhA = &cmavo expr:( d a h u / d a h e / d i h u / d i h e / d e h u / d e h e / d e i / d o h i / m i h o / m i h a i / m a h a / m i h a / d o h o / k o h a / f o h u / k o h e / k o h i / k o h o / k o h u / f o h a / f o h e / f o h i / f o h o / v o h a / v o h e / v o h i / v o h o / v o h u / r u / r i / r a / t a / t u / t i / z i h o / k e h a / m a / z u h i / z o h e / c e h u / d a / d e / d i / k o / m i / d o / x a i) &post_word { return ["KOhA", _join(expr)];}
 
 KU = &cmavo expr:( k u ) &post_word {return ["KU", _join(expr)];}
 
@@ -1869,8 +1871,8 @@ SEhU = &cmavo expr:( s e h u ) &post_word {return ["SEhU", _join(expr)];}
 SI = &cmavo expr:( s i ) &post_word {return ["SI", _join(expr)];}
 
 SOI = &cmavo expr:( s o i / x o i / f i h o i ) &post_word {return ["SOI", _join(expr)];}
-
-SU = &cmavo expr:( s u ) &post_word {return ["SU", _join(expr)];}
+//exp. grammar: move {li'o} to SA
+SU = &cmavo expr:( s u / l i h o i ) &post_word {return ["SU", _join(expr)];}
 
 TAhE = &cmavo expr:( r u h i / t a h e / d i h i / n a h o ) &post_word {return ["TAhE", _join(expr)];}
 

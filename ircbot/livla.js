@@ -646,7 +646,7 @@ var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
 var retur='y no da jai se facki';
 var xmlDoc = libxmljs.parseXml(content);
 var items = [
-	["lu","<"],["li'u",">"],["lo","what-is"],["nu","an-event"],["i","."],["zo","the-word"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],
+	["lu","<"],["li'u",">"],["lo","the"],["nu","event-of"],["i","."],["zo","the-word"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
 	["mi","me"]//dont copy
 	];
 lin=lin.toLowerCase();

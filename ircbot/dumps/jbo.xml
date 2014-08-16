@@ -471,7 +471,6 @@
   <definition>$x_1$ se lidne $x_2$ lo&apos;e temci porsi .i $x_1$ se purci $x_2$</definition>
   <definitionid>2689</definitionid>
   <notes>{lidne}; {purci}; {cabna}</notes>
-  <glossword word="balvi" />
 </valsi>
 <valsi word="balzai" type="lujvo">
   <user>
@@ -519,7 +518,6 @@
   </user>
   <definition>$x_1$ zmadu lo cnano be $x_2$ bei $x_3$ be&apos;o $x_2$ noi cimde $x_1$</definition>
   <definitionid>14904</definitionid>
-  <glossword word="barda" />
 </valsi>
 <valsi word="barkalri" type="lujvo">
   <user>
@@ -567,8 +565,8 @@
   <definition>$x_1$ marce $x_2$ no&apos;u so&apos;i prenu $x_3$ boi $x_4$</definition>
   <definitionid>19258</definitionid>
   <notes>mintu zo {sorprema&apos;e} gi&apos;e se cmima zo {sorprekarce} .i basfa gi&apos;u pilno lo dargu</notes>
-  <glossword word="sorprema&apos;e" />
   <glossword word="basfa" />
+  <glossword word="sorprema&apos;e" />
 </valsi>
 <valsi word="basysi'u" type="lujvo">
   <user>
@@ -789,7 +787,6 @@
   </user>
   <definition>$x_1$ nakni gi&apos;e se rirni $x_2$</definition>
   <definitionid>14891</definitionid>
-  <glossword word="bersa" />
 </valsi>
 <valsi word="bevri" type="gismu">
   <rafsi>bev</rafsi>
@@ -800,7 +797,6 @@
   </user>
   <definition>$x_1$ jgari ja se cpana ja marce $x_2$ gi&apos;e gasnu lo nu $x_2$ muvdu $x_3$ boi $x_4$ boi $x_5$</definition>
   <definitionid>15073</definitionid>
-  <glossword word="bevri" />
 </valsi>
 <valsi word="bi" type="cmavo">
   <rafsi>biv</rafsi>
@@ -938,7 +934,6 @@
   <definition>$x_1$ skari lo&apos;e cnino snime .a lo&apos;e ladru .a lo&apos;e gusni poi mixre ji&apos;ipirosi&apos;e lo&apos;e boxna clani poi ka&apos;e se viska be lo&apos;e remna</definition>
   <definitionid>13375</definitionid>
   <notes>{skari}; {snime}; {ladru}</notes>
-  <glossword word="blabi" />
 </valsi>
 <valsi word="blacybo'i" type="lujvo">
   <user>
@@ -965,7 +960,6 @@
   <definition>$x_1$ skari lo&apos;e klina tsani .a lo&apos;e gusni poi jbini lo&apos;e crino ku joi lo&apos;e zirpu le ka boxna clani</definition>
   <definitionid>13356</definitionid>
   <notes>{skari}</notes>
-  <glossword word="blanu" />
 </valsi>
 <valsi word="blefa'u" type="lujvo">
   <user>
@@ -1068,7 +1062,6 @@
   <definition>$x_1$ sligu $x_2$ gi&apos;e ba&apos;o dunja gi&apos;e carvi fi lo varsenta</definition>
   <definitionid>15070</definitionid>
   <notes>{carvi}, {snime}, {sicpi}</notes>
-  <glossword word="bratu" />
 </valsi>
 <valsi word="bratybakfu" type="lujvo">
   <user>
@@ -1125,7 +1118,6 @@
   <definition>pamoi brika&apos;i .i ka&apos;e se snigau sepi&apos;o zo cei</definition>
   <definitionid>13681</definitionid>
   <notes>{snigau} {brika&apos;i}; {cei}</notes>
-  <glossword word="broda" />
 </valsi>
 <valsi word="brode" type="gismu">
   <rafsi>bo&apos;e</rafsi>
@@ -1136,7 +1128,6 @@
   <definition>remoi brika&apos;i .i ka&apos;e se snigau sepi&apos;o zo cei</definition>
   <definitionid>13682</definitionid>
   <notes>{snigau} {brika&apos;i}</notes>
-  <glossword word="brode" />
 </valsi>
 <valsi word="brodi" type="gismu">
   <user>
@@ -1146,7 +1137,6 @@
   <definition>cimoi brika&apos;i .i ka&apos;e se snigau sepi&apos;o zo cei</definition>
   <definitionid>13683</definitionid>
   <notes>{snigau} {brika&apos;i}; {cei}</notes>
-  <glossword word="brodi" />
 </valsi>
 <valsi word="brodo" type="gismu">
   <user>
@@ -1156,7 +1146,6 @@
   <definition>vomoi brika&apos;i .i ka&apos;e se snigau sepi&apos;o zo cei</definition>
   <definitionid>13684</definitionid>
   <notes>{snigau} {brika&apos;i}; {cei}</notes>
-  <glossword word="brodo" />
 </valsi>
 <valsi word="brodu" type="gismu">
   <user>
@@ -1166,7 +1155,6 @@
   <definition>mumoi brika&apos;i .i ka&apos;e se snigau sepi&apos;o zo cei</definition>
   <definitionid>13685</definitionid>
   <notes>{snigau} {brika&apos;i}; {cei}</notes>
-  <glossword word="brodu" />
 </valsi>
 <valsi word="bruna" type="gismu">
   <rafsi>bun</rafsi>
@@ -1177,7 +1165,6 @@
   </user>
   <definition>$x_1$ nakni gi&apos;e tunba $x_2$ boi $x_3$</definition>
   <definitionid>14892</definitionid>
-  <glossword word="bruna" />
 </valsi>
 <valsi word="bu" type="cmavo">
   <rafsi>bus</rafsi>
@@ -1413,7 +1400,6 @@
   </user>
   <definition>$x_1$ dunli $x_2$ le ka ce&apos;u fasnu ca makau</definition>
   <definitionid>2541</definitionid>
-  <glossword word="cabna" />
 </valsi>
 <valsi word="cacysku" type="lujvo">
   <user>
@@ -1517,7 +1503,6 @@
   </user>
   <definition>joi gi $x_1$ cpacu $x_3$ boi $x_4$ gi $x_4$ cpacu $x_2$ boi $x_1$</definition>
   <definitionid>15054</definitionid>
-  <glossword word="canja" />
 </valsi>
 <valsi word="cau" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -1547,7 +1532,6 @@
   </user>
   <definition>$x_1$ cmalu $x_2$ noi farna $x_1$ boi $x_3$ ku&apos;o $x_4$</definition>
   <definitionid>14913</definitionid>
-  <glossword word="caxno" />
 </valsi>
 <valsi word="ce" type="cmavo">
   <rafsi>cec</rafsi>
@@ -1593,8 +1577,8 @@
   <definition>namcu .i tcita le li&apos;erla&apos;i namcu le du&apos;u sinxa lo centi be le namcu</definition>
   <definitionid>13782</definitionid>
   <notes>{namcu}; {centi}; {cenlai}</notes>
-  <glossword word="ce&apos;i" />
   <glossword word="%" />
+  <glossword word="ce&apos;i" />
 </valsi>
 <valsi word="ce'o" type="cmavo">
   <rafsi>ce&apos;o</rafsi>
@@ -1646,6 +1630,7 @@
   <definition>$x_1$ gunta $x_2$ $x_3$ se pi&apos;o $x_4$ poi ke&apos;a cecla $x_5$ $x_6$</definition>
   <definitionid>15406</definitionid>
   <notes>zbasu fi zo cecla ce&apos;o zo gunta</notes>
+  <glossword word="celgunta" />
   <keyword word="celgunta" place="1" />
   <keyword word="se celgunta" place="2" />
 </valsi>
@@ -1675,6 +1660,9 @@
   </user>
   <definition>$g_1$ gasnu lo nu $c_1$ cfari</definition>
   <definitionid>15396</definitionid>
+  <glossword word="cfagau" />
+  <keyword word="gasnu" place="1" />
+  <keyword word="cfari" place="2" />
 </valsi>
 <valsi word="cfapru" type="lujvo">
   <user>
@@ -1703,8 +1691,8 @@
   </user>
   <definition>namcu .i sumji li re li pa .i se li&apos;erla&apos;i li re lei kancu namcu</definition>
   <definitionid>2549</definitionid>
-  <glossword word="3" />
   <glossword word="ci" />
+  <glossword word="3" />
 </valsi>
 <valsi word="ci'asku" type="lujvo">
   <user>
@@ -1812,7 +1800,6 @@
   </user>
   <definition>$x_1$ cmalu $x_2$ noi cmarai cimde $x_1$ ku&apos;o $x_3$</definition>
   <definitionid>14909</definitionid>
-  <glossword word="cinla" />
 </valsi>
 <valsi word="cipcta" type="lujvo">
   <user>
@@ -1855,7 +1842,6 @@
   </user>
   <definition>$x_1$ nilce fi lo ka $x3$ vreta ce&apos;u kei gi&apos;e te marji fi $x_2$</definition>
   <definitionid>14919</definitionid>
-  <glossword word="ckana" />
 </valsi>
 <valsi word="ckilu" type="gismu">
   <rafsi>ci&apos;u</rafsi>
@@ -1920,7 +1906,6 @@
   </user>
   <definition>$x_1$ barda $x_2$ noi brarai cimde $x_1$ ku&apos;o $x_3$ </definition>
   <definitionid>14906</definitionid>
-  <glossword word="clani" />
 </valsi>
 <valsi word="clatre" type="lujvo">
   <user>
@@ -1958,7 +1943,6 @@
   </user>
   <definition>$x_1$ sisti lo nu $x_1$ zvati $x_2$ kei fe&apos;e ca&apos;o $x_3$ i $x_1$ muvdu zi&apos;o $x_2$ boi $x_3$</definition>
   <definitionid>15049</definitionid>
-  <glossword word="cliva" />
 </valsi>
 <valsi word="clugau" type="lujvo">
   <user>
@@ -1995,7 +1979,6 @@
   </user>
   <definition>$x_1$ mleca lo cnano be $x_2$ bei $x_3$ be&apos;o $x_2$ noi cimde $x_1$</definition>
   <definitionid>14905</definitionid>
-  <glossword word="cmalu" />
 </valsi>
 <valsi word="cmatce" type="lujvo">
   <user>
@@ -2171,7 +2154,6 @@
   </user>
   <definition>$x_1$ barda $x_2$ noi farna $x_1$ boi $x_3$ ku&apos;o $x_4$</definition>
   <definitionid>14912</definitionid>
-  <glossword word="condi" />
 </valsi>
 <valsi word="cpacu" type="gismu">
   <rafsi>cpa</rafsi>
@@ -2267,7 +2249,6 @@
   <definition>$x_1$ skari lo&apos;e banro je vifne srasu .a lo&apos;e gusni poi jbini lo&apos;e blanu ku joi lo&apos;e pelxu le ka boxna clani </definition>
   <definitionid>13372</definitionid>
   <notes>{skari}; {srasu}; {blanu}; {pelxu}</notes>
-  <glossword word="crino" />
 </valsi>
 <valsi word="ctikabri" type="lujvo">
   <user>
@@ -2841,7 +2822,6 @@
   <definition>$x_1$ te fatri $x_3$ boi $x_2$ .i $x_1$ nu&apos;a fe&apos;i $x_2$ boi $x_3$</definition>
   <definitionid>13950</definitionid>
   <notes>{fatri}; {fe&apos;i}</notes>
-  <glossword word="dilcu" />
 </valsi>
 <valsi word="dincfu" type="lujvo">
   <user>
@@ -3164,7 +3144,6 @@
   <definition>$x_2$ tenfa $x_3$ boi $x_1$ .i $x_1$ nu&apos;a de&apos;o $x_2$ boi $x_3$</definition>
   <definitionid>13956</definitionid>
   <notes>{tenfa}; {de&apos;o}</notes>
-  <glossword word="dugri" />
 </valsi>
 <valsi word="dukse" type="gismu">
   <rafsi>dus</rafsi>
@@ -3176,7 +3155,6 @@
   <definition>$x_1$ zmadu lo banzu $x_2$ ma&apos;i $x_3$ .i $x_1$ zmadu lo mansa be $x_3$ bei $x_2$</definition>
   <definitionid>13833</definitionid>
   <notes>{banzu}, {zmadu}; {du&apos;e}</notes>
-  <glossword word="dukse" />
 </valsi>
 <valsi word="dunda" type="gismu">
   <rafsi>dud</rafsi>
@@ -3187,7 +3165,6 @@
   </user>
   <definition>$x_1$ noi tolcau $x_2$ cu gasnu lo nu $x_3$ co&apos;a tolcau $x_2$</definition>
   <definitionid>15053</definitionid>
-  <glossword word="dunda" />
 </valsi>
 <valsi word="dunli" type="gismu">
   <rafsi>dun</rafsi>
@@ -3472,7 +3449,6 @@
   </user>
   <definition>$x_1$ dunli $x_2$ lo ka makau lanzu ce&apos;u $x_3$ kei gi&apos;e lidne $x_2$ lo ka ce&apos;u cmima lo xokaumoi rorlei</definition>
   <definitionid>14896</definitionid>
-  <glossword word="famti" />
 </valsi>
 <valsi word="fangynavni" type="lujvo">
   <user>
@@ -4029,8 +4005,8 @@
   <definition>xamoi lerfu le lojbo</definition>
   <definitionid>13505</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="F" />
   <glossword word="fy" />
+  <glossword word="F" />
 </valsi>
 <valsi word="ga" type="cmavo">
   <selmaho>GA</selmaho>
@@ -4232,7 +4208,6 @@
   </user>
   <definition>$x_1$ barda $x_2$ noi remoi cimde $x_1$ ku&apos;o $x_3$</definition>
   <definitionid>14911</definitionid>
-  <glossword word="ganra" />
 </valsi>
 <valsi word="gantre" type="lujvo">
   <user>
@@ -4752,8 +4727,8 @@
   <definition>zemoi lerfu le lojbo</definition>
   <definitionid>13506</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="G" />
   <glossword word="gy" />
+  <glossword word="G" />
 </valsi>
 <valsi word="i" type="cmavo">
   <selmaho>I</selmaho>
@@ -4928,8 +4903,8 @@
   <definition>bimoi lerfu le lojbo</definition>
   <definitionid>13510</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="I" />
   <glossword word="ibu" />
+  <glossword word="I" />
 </valsi>
 <valsi word="ie" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -5215,7 +5190,6 @@
   </user>
   <definition>$x_1$ cmalu $x_2$ noi remoi cimde $x_1$ ku&apos;o $x_3$</definition>
   <definitionid>14910</definitionid>
-  <glossword word="jarki" />
 </valsi>
 <valsi word="jau" type="cmavo">
   <selmaho>PA2</selmaho>
@@ -5574,6 +5548,12 @@
   <definition>$x_1=j_1=c_1$ cusku $x_2=c_2$ noi vo&apos;a jinvi la&apos;e ke&apos;a $x_3=j_3$ $x_6=j_4$ ku&apos;o $x_4=c_3$ $x_5=c_4$</definition>
   <definitionid>15364</definitionid>
   <glossword word="ji&apos;isku" />
+  <keyword word="jinvi" place="1" />
+  <keyword word="se cusku" place="2" />
+  <keyword word="te jinvi" place="3" />
+  <keyword word="te cusku" place="4" />
+  <keyword word="ve cusku" place="5" />
+  <keyword word="ve jinvi" place="6" />
 </valsi>
 <valsi word="ji'o" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -5716,7 +5696,6 @@
   </user>
   <definition>$x_1$ dunda $x_2$ boi $x_3$ ja&apos;e $x_4$ i $x_1$ gasnu lo nu $x_3$ zenba fi $x_2$ ja&apos;e $x_4$</definition>
   <definitionid>15057</definitionid>
-  <glossword word="jmina" />
 </valsi>
 <valsi word="jo" type="cmavo">
   <rafsi>jov</rafsi>
@@ -5991,8 +5970,8 @@
   <definition>somoi lerfu le lojbo</definition>
   <definitionid>13507</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="J" />
   <glossword word="jy" />
+  <glossword word="J" />
 </valsi>
 <valsi word="ka" type="cmavo">
   <rafsi>kam</rafsi>
@@ -6164,7 +6143,6 @@
   </user>
   <definition>$x_1$ joi $x_2$ lifri $x_3$</definition>
   <definitionid>14903</definitionid>
-  <glossword word="kansa" />
 </valsi>
 <valsi word="kansi'u" type="lujvo">
   <user>
@@ -6459,7 +6437,6 @@
   </user>
   <definition>$x_1$ klani lo pilji be $x_2$ bei li geici be&apos;o $x_3$</definition>
   <definitionid>14915</definitionid>
-  <glossword word="kilto" />
 </valsi>
 <valsi word="kinpei" type="lujvo">
   <user>
@@ -6538,6 +6515,7 @@
   </user>
   <definition>$s_1$ saske $s_2=k_1$ noi kulnu</definition>
   <definitionid>2537</definitionid>
+  <glossword word="kluske" />
 </valsi>
 <valsi word="ko" type="cmavo">
   <selmaho>KOhA3</selmaho>
@@ -6801,6 +6779,7 @@
   <definition>$t_1$ tenfa $t_2$ li re</definition>
   <definitionid>13751</definitionid>
   <notes>{kurfa} {tenfa}</notes>
+  <glossword word="kurtenfa" />
 </valsi>
 <valsi word="kustru" type="lujvo">
   <user>
@@ -6820,8 +6799,8 @@
   <definition>panomoi lerfu le lojbo</definition>
   <definitionid>13509</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="K" />
   <glossword word="ky" />
+  <glossword word="K" />
 </valsi>
 <valsi word="la" type="cmavo">
   <selmaho>LA</selmaho>
@@ -6853,8 +6832,8 @@
   <definition>jbocme fi&apos;o nafte&apos;i lo karsnarfa&apos;o .i lo za&apos;u pa cmene cu se jdijimte lo depybu&apos;i</definition>
   <definitionid>57054</definitionid>
   <notes>.i ji&apos;a pilno ka&apos;e fi lo sitsku be lo zunsnafamme&apos;e</notes>
-  <glossword word="jbome&apos;e" sense="karsnarfa&apos;o" />
   <glossword word="lojbo cmene" sense="kalri sance fanmo" />
+  <glossword word="jbome&apos;e" sense="karsnarfa&apos;o" />
 </valsi>
 <valsi word="la'e" type="cmavo">
   <selmaho>LAhE</selmaho>
@@ -7156,7 +7135,6 @@
   <definition>$x_1$ gasnu lo nu $x_2$ sisti lo nu $x_2$ zvati $x_3$ i $x_1$ gasnu lo nu ge $x_1$ co&apos;a ponse $x_2$  gi $x_3$ co&apos;u ponse $x_2$</definition>
   <definitionid>15052</definitionid>
   <notes>{vimcu}, {cpacu}</notes>
-  <glossword word="lebna" />
 </valsi>
 <valsi word="lei" type="cmavo">
   <selmaho>LE</selmaho>
@@ -7180,7 +7158,6 @@
   <definitionid>13903</definitionid>
   <notes>{sinxa} {selci}; {abu}, {by}, {cy}, {dy}, {ebu}, {fy}, {gy}, {ibu}, {jy}, {ky}, {ly}, {my}, {ny}, {obu}, {py}, {ry}, {sy}, {ty}, {ubu}, {vy}, {xy}, {ybu}, {zy}, {y&apos;y}; {ga&apos;e}, {to&apos;a}, {lo&apos;a}, {ge&apos;o}, {je&apos;o}, {jo&apos;o}, {ru&apos;o}, {se&apos;e}, {na&apos;a}; {tau}, {zai}, {ce&apos;a}, {lau}; {tei}, {foi}
  </notes>
-  <glossword word="lerfu" />
 </valsi>
 <valsi word="lerpoi" type="lujvo">
   <user>
@@ -7308,7 +7285,6 @@
   </user>
   <definition>$x_1$ pilno fe&apos;e ca&apos;o $x_2$ boi $x_3$ lo nu $x_1$ cenba lo ka ce&apos;u zvati makau i $x_1$ klama zi&apos;o zi&apos;o $x_2$ boi $x_3$</definition>
   <definitionid>15048</definitionid>
-  <glossword word="litru" />
 </valsi>
 <valsi word="lo" type="cmavo">
   <selmaho>LE</selmaho>
@@ -7980,6 +7956,7 @@
   </user>
   <definition>mi jo&apos;u do</definition>
   <definitionid>38025</definitionid>
+  <glossword word="mi&apos;o" />
 </valsi>
 <valsi word="mi'u" type="cmavo">
   <selmaho>UI3b</selmaho>
@@ -10503,7 +10480,9 @@
   </user>
   <definition>$x_1$ prami ja gasfri be lo tsali cinmo nu sezypevdu&apos;a do&apos;e $x_2$</definition>
   <definitionid>2512</definitionid>
+  <glossword word="prami" />
   <keyword word="prami" place="1" />
+  <keyword word="selprami" place="2" />
 </valsi>
 <valsi word="prevrici" type="lujvo">
   <user>
@@ -10858,8 +10837,8 @@
   </user>
   <definition>namcu .i sumji li pa li pa .i se li&apos;erla&apos;i li pa lei kancu namcu</definition>
   <definitionid>2548</definitionid>
-  <glossword word="2" />
   <glossword word="re" />
+  <glossword word="2" />
 </valsi>
 <valsi word="re'a" type="cmavo">
   <selmaho>VUhU4</selmaho>
@@ -11557,8 +11536,8 @@
   <definition>paxamoi lerfu le lojbo</definition>
   <definitionid>13517</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="R" />
   <glossword word="ry" />
+  <glossword word="R" />
 </valsi>
 <valsi word="sa" type="cmavo">
   <selmaho>SA</selmaho>
@@ -11687,8 +11666,9 @@
   <definition>$g1$ gasnu lonu $g1=c1$ na catni $c2$ to lo skami toi $c3$ to lo selci&apos;a be lo samplicme toi</definition>
   <definitionid>38165</definitionid>
   <notes>Cf. {gasnu}, {catni}, {skami}, {sampli}, {japyvla}</notes>
-  <keyword word="user" place="1" sense="computer user" />
-  <keyword word="username" place="3" />
+  <glossword word="log out" sense="rescind access to a computer system" />
+  <keyword word="user" place="1" sense="computer" />
+  <keyword word="computer" place="2" />
   <keyword word="username" place="3" sense="computer" />
 </valsi>
 <valsi word="sampre" type="lujvo">
@@ -11963,6 +11943,8 @@
   </user>
   <definition>$f_2$ se fanmo $f_1$</definition>
   <definitionid>15360</definitionid>
+  <keyword word="se fanmo" place="1" />
+  <keyword word="fanmo" place="2" />
 </valsi>
 <valsi word="selfargau" type="lujvo">
   <user>
@@ -11997,6 +11979,10 @@
   </user>
   <definition>$n_2$ se nupre $n_1$ $n_3$</definition>
   <definitionid>15356</definitionid>
+  <glossword word="selnu&apos;e" />
+  <keyword word="se nupre" place="1" />
+  <keyword word="nupre" place="2" />
+  <keyword word="te nupre" place="3" />
 </valsi>
 <valsi word="selpa'imle" type="lujvo">
   <user>
@@ -12565,8 +12551,8 @@
   </user>
   <definition>namcu .i sumji li bi li pa .i se li&apos;erla&apos;i li bi lei kancu namcu</definition>
   <definitionid>2570</definitionid>
-  <glossword word="9" />
   <glossword word="so" />
+  <glossword word="9" />
 </valsi>
 <valsi word="so'a" type="cmavo">
   <rafsi>soj</rafsi>
@@ -12657,8 +12643,8 @@
   <definition>.i lo ka solgu&apos;idicyborprami&apos;i cu ka ko&apos;a ko&apos;e ce&apos;ai ko&apos;a goi $x_1$ minji lo ka ce&apos;u tejaite cupra lo dikca lo gusni be ko&apos;a bei lo solri fai ko&apos;e goi $x_2$</definition>
   <definitionid>38163</definitionid>
   <notes>.i zo {minji} .e zo {cupra} .e zo {dikca} .e zo {gusni} .e zo {solri} zo&apos;u .e&apos;u zgana</notes>
-  <glossword word="solri ke dikca cupra minji" sense="minji lo ka cupra lo dikca" />
   <glossword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" />
+  <glossword word="solri ke dikca cupra minji" sense="minji lo ka cupra lo dikca" />
 </valsi>
 <valsi word="solgusli'i" type="lujvo">
   <user>
@@ -12776,6 +12762,9 @@
   <definition>$x_1$ gasnu lo nu $x_2$ daspo $x_3$</definition>
   <definitionid>15404</definitionid>
   <notes>zbasu fi zo daspo ce&apos;o zo gasnu</notes>
+  <glossword word="spogau" />
+  <keyword word="spogau" place="1" />
+  <keyword word="se spogau" place="2" />
 </valsi>
 <valsi word="spusku" type="lujvo">
   <user>
@@ -13045,7 +13034,6 @@
   <definitionid>42272</definitionid>
   <notes>{sumti} {tcita}</notes>
   <keyword word="sumti tcita" place="1" />
-  <keyword word="tcita sumti" place="2" />
 </valsi>
 <valsi word="sunbi'e" type="lujvo">
   <user>
@@ -13125,8 +13113,8 @@
   <definition>pazemoi lerfu le lojbo</definition>
   <definitionid>13518</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="sy" />
   <glossword word="S" />
+  <glossword word="sy" />
 </valsi>
 <valsi word="ta" type="cmavo">
   <rafsi>taz</rafsi>
@@ -14068,6 +14056,9 @@
   </user>
   <definition>$s_1$ to&apos;e snuti $s_2$ .ije va&apos;i $s_2$ zukte $s_1$ zo&apos;e</definition>
   <definitionid>15418</definitionid>
+  <glossword word="tolsnuti" />
+  <keyword word="snuti" place="1" />
+  <keyword word="se snuti" place="2" />
 </valsi>
 <valsi word="toltankomo" type="fu'ivla">
   <user>
@@ -14226,8 +14217,8 @@
   <definitionid>53187</definitionid>
   <notes>ko catlu fe ji&apos;a zo {cliva} fa&apos;u zo {klama} fa&apos;u zo {tolyli&apos;a}</notes>
   <glossword word="to&apos;e cliva" />
-  <glossword word="tsuku" />
   <glossword word="tolyli&apos;a" />
+  <glossword word="tsuku" />
 </valsi>
 <valsi word="tsustani" type="lujvo">
   <user>
@@ -14321,6 +14312,7 @@
   <definition>$x_1$ birka $x_2$ gi&apos;e tubnu da poi mapti $x_2$ gi&apos;e so&apos;e roi skina ku&apos;o de poi mapti $x_2$ gi&apos;e so&apos;e roi ciblu ja rectu</definition>
   <definitionid>15402</definitionid>
   <notes>zbasu fi zo {tubnu} ce&apos;o zo {birka}</notes>
+  <glossword word="tu&apos;urbirka" />
   <keyword word="tu&apos;urbirka" place="1" />
   <keyword word="se tu&apos;urbirka" place="2" />
 </valsi>
@@ -15074,6 +15066,7 @@
   </user>
   <definition>$x_1$ lebna $x_2$ boi $x_3$ ja&apos;e $x_4$ i $x_1$ gasnu lo nu $x_3$ jdika fi $x_2$ ja&apos;e $x_4$</definition>
   <definitionid>15056</definitionid>
+  <glossword word="vimcu" />
 </valsi>
 <valsi word="vimku'a" type="lujvo">
   <user>
@@ -15165,8 +15158,8 @@
   </user>
   <definition>namcu .i sumji li ci li pa .i se li&apos;erla&apos;i li ci lei kancu namcu</definition>
   <definitionid>2550</definitionid>
-  <glossword word="4" />
   <glossword word="vo" />
+  <glossword word="4" />
 </valsi>
 <valsi word="vo'a" type="cmavo">
   <selmaho>KOhA4</selmaho>
@@ -15395,8 +15388,8 @@
   <definition>renomoi lerfu le lojbo</definition>
   <definitionid>13520</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="vy" />
   <glossword word="V" />
+  <glossword word="vy" />
 </valsi>
 <valsi word="xa" type="cmavo">
   <rafsi>xav</rafsi>
@@ -15407,8 +15400,8 @@
   </user>
   <definition>namcu .i sumji li mu li pa .i se li&apos;erla&apos;i li mu lei kancu namcu</definition>
   <definitionid>2567</definitionid>
-  <glossword word="6" />
   <glossword word="xa" />
+  <glossword word="6" />
 </valsi>
 <valsi word="xa'ardakli" type="lujvo">
   <user>
@@ -15748,6 +15741,7 @@
   </user>
   <definition>$x_1$ gasnu lo nu $x_2$ jai se krefu fai lo nu $x_3$ tcini jo nai vanbi $x_2$ kei noi ke&apos;a basti lo nu $x_4$ tcini jo nai vanbi $x_2$</definition>
   <definitionid>52779</definitionid>
+  <glossword word="xruti" />
 </valsi>
 <valsi word="xu" type="cmavo">
   <selmaho>UI6</selmaho>
@@ -15790,8 +15784,8 @@
   <definition>repamoi lerfu le lojbo</definition>
   <definitionid>13521</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="X" />
   <glossword word="xy" />
+  <glossword word="X" />
 </valsi>
 <valsi word="y" type="cmavo">
   <selmaho>Y</selmaho>
@@ -16024,8 +16018,8 @@
   </user>
   <definition>namcu .i sumji li xa li pa .i se li&apos;erla&apos;i li xa lei kancu namcu</definition>
   <definitionid>2568</definitionid>
-  <glossword word="7" />
   <glossword word="ze" />
+  <glossword word="7" />
 </valsi>
 <valsi word="ze'a" type="cmavo">
   <selmaho>ZEhA</selmaho>
@@ -16296,6 +16290,7 @@
   <definition>$x_1$ jai se krefu fai lo nu $x_2$ tcini jo nai vanbi $x_1$ kei noi ke&apos;a basti lo nu $x_3$ tcini jo nai vanbi $x_1$</definition>
   <definitionid>52832</definitionid>
   <notes>ko catlu fe ji&apos;a zo {xrugau} .e zo {xruti} .e zo {krefu} .e zo {rapli} .e zo {rinka}</notes>
+  <glossword word="zilxru" />
 </valsi>
 <valsi word="zilxrugau" type="lujvo">
   <user>
@@ -16304,6 +16299,7 @@
   </user>
   <definition>$x_1$ $x_2$ $x_3$ $x_4$ xruti</definition>
   <definitionid>52833</definitionid>
+  <glossword word="xruti" />
 </valsi>
 <valsi word="zilzba" type="lujvo">
   <user>
@@ -16579,1130 +16575,1130 @@
   <glossword word="zy" />
   <glossword word="Z" />
 </valsi>
-</direction><direction from="lojban" to="lojban"><nlword word="einai" valsi="einai" />
-<nlword word="ji&apos;e" valsi="ji&apos;e" />
-<nlword word="ve&apos;e" valsi="ve&apos;e" />
-<nlword word="se" valsi="se" />
-<nlword word="fai" valsi="fai" />
-<nlword word="nonmau" valsi="nonmau" />
-<nlword word="di&apos;i" valsi="di&apos;i" />
-<nlword word="berbi&apos;e" valsi="berbi&apos;e" />
-<nlword word="relnacmei" valsi="relnacmei" />
-<nlword word="terjonma&apos;o" valsi="terjonma&apos;o" />
-<nlword word="brili&apos;e" valsi="brili&apos;e" />
-<nlword word="fu&apos;i" valsi="fu&apos;i" />
-<nlword word="ri&apos;e" valsi="ri&apos;e" />
-<nlword word="i&apos;ecu&apos;i" valsi="i&apos;ecu&apos;i" />
-<nlword word="va&apos;e" valsi="va&apos;e" />
-<nlword word="ro&apos;a" valsi="ro&apos;a" />
-<nlword word="ze&apos;i" valsi="ze&apos;i" />
-<nlword word="nau" valsi="nau" />
-<nlword word="i&apos;enai" valsi="i&apos;enai" />
-<nlword word="sumti tcita" valsi="sumtcita" place="1" />
-<nlword word="tcita sumti" valsi="sumtcita" place="2" />
-<nlword word="prevrici" valsi="prevrici" />
-<nlword word="cu&apos;u" valsi="cu&apos;u" />
-<nlword word="pe&apos;o" valsi="pe&apos;o" />
-<nlword word="noryragve" valsi="noryragve" />
-<nlword word="ta&apos;u" valsi="ta&apos;u" />
-<nlword word="na&apos;o" valsi="na&apos;o" />
-<nlword word="ma&apos;u" valsi="ma&apos;u" />
-<nlword word="vy" valsi="vy" />
-<nlword word="V" valsi="vy" />
-<nlword word="ai" valsi="ai" />
-<nlword word="o&apos;a" valsi="o&apos;a" />
-<nlword word="na&apos;u" valsi="na&apos;u" />
-<nlword word="memjdika" valsi="memjdika" />
-<nlword word="fo&apos;o" valsi="fo&apos;o" />
-<nlword word="re&apos;e" valsi="re&apos;e" />
-<nlword word="a" valsi="a" />
-<nlword word="ta&apos;a" valsi="ta&apos;a" />
-<nlword word="tei" valsi="tei" />
-<nlword word="bi&apos;e" valsi="bi&apos;e" />
-<nlword word="brode" valsi="brode" />
-<nlword word="xrugau" valsi="xrugau" />
-<nlword word="co" valsi="co" />
-<nlword word="dai" valsi="dai" />
-<nlword word="si&apos;a" valsi="si&apos;a" />
-<nlword word="ije" valsi="ije" />
-<nlword word="na&apos;a" valsi="na&apos;a" />
-<nlword word="6" valsi="xa" />
-<nlword word="xa" valsi="xa" />
-<nlword word="litru" valsi="litru" />
-<nlword word="u&apos;anai" valsi="u&apos;anai" />
-<nlword word="si&apos;i" valsi="si&apos;i" />
-<nlword word="fa" valsi="fa" />
-<nlword word="nalzungi" valsi="nalzungi" />
-<nlword word="sorselsmu" valsi="sorselsmu" />
-<nlword word="ru" valsi="ru" />
-<nlword word="setca" valsi="setca" />
-<nlword word="xadri&apos;u" valsi="xadri&apos;u" />
-<nlword word="vau" valsi="vau" />
-<nlword word="i&apos;u" valsi="i&apos;u" />
-<nlword word="mi&apos;i" valsi="mi&apos;i" />
-<nlword word="li&apos;a" valsi="li&apos;a" />
-<nlword word="li&apos;u" valsi="li&apos;u" />
-<nlword word="ga&apos;a" valsi="ga&apos;a" />
-<nlword word="ke" valsi="ke" />
-<nlword word="seltenfa" valsi="seltenfa" />
-<nlword word="ca&apos;o" valsi="ca&apos;o" />
-<nlword word="lau" valsi="lau" />
-<nlword word="zi&apos;o" valsi="zi&apos;o" />
-<nlword word="po&apos;i" valsi="po&apos;i" />
-<nlword word="fo&apos;i" valsi="fo&apos;i" />
-<nlword word="bersa" valsi="bersa" />
-<nlword word="a&apos;u" valsi="a&apos;u" />
-<nlword word="tcidu lo se cusku" valsi="selskutidmulbi&apos;o" />
-<nlword word="tolkri" valsi="tolkri" />
-<nlword word="ga&apos;u" valsi="ga&apos;u" />
+</direction><direction from="lojban" to="lojban"><nlword word="a" valsi="a" />
+<nlword word="a&apos;a" valsi="a&apos;a" />
+<nlword word="a&apos;acu&apos;i" valsi="a&apos;acu&apos;i" />
+<nlword word="a&apos;anai" valsi="a&apos;anai" />
 <nlword word="a&apos;e" valsi="a&apos;e" />
-<nlword word="sedyta&apos;u" valsi="sedyta&apos;u" />
-<nlword word="sfofa" valsi="sfofa" />
-<nlword word="pi&apos;o" valsi="pi&apos;o" />
-<nlword word="pilji" valsi="pilji" />
-<nlword word="skubancu" valsi="skubancu" />
-<nlword word="ija" valsi="ija" />
-<nlword word="xadzengu&apos;a" valsi="xadzengu&apos;a" />
-<nlword word="zai" valsi="zai" />
-<nlword word="juvykanxe" valsi="juvykanxe" />
-<nlword word="ri&apos;i" valsi="ri&apos;i" />
-<nlword word="cusku lo preti" valsi="retsku" />
-<nlword word="retsku" valsi="retsku" />
-<nlword word="G" valsi="gy" />
-<nlword word="gy" valsi="gy" />
-<nlword word="nacmeimei" valsi="nacmeimei" />
-<nlword word="so&apos;o" valsi="so&apos;o" />
-<nlword word="so&apos;e" valsi="so&apos;e" />
-<nlword word="camtoi" valsi="camtoi" />
-<nlword word="fu&apos;a" valsi="fu&apos;a" />
-<nlword word="na&apos;e" valsi="na&apos;e" />
-<nlword word="soirsai" valsi="soirsai" />
-<nlword word="ienai" valsi="ienai" />
-<nlword word="ma&apos;e" valsi="ma&apos;e" />
-<nlword word="fa&apos;i" valsi="fa&apos;i" />
-<nlword word="simxu" sense="namcu pe&apos;a" valsi="namcixu" />
-<nlword word="dafyfa&apos;i" valsi="dafyfa&apos;i" />
-<nlword word="iinai" valsi="iinai" />
-<nlword word="ba&apos;acu&apos;i" valsi="ba&apos;acu&apos;i" />
-<nlword word="crino" valsi="crino" />
-<nlword word="be&apos;u" valsi="be&apos;u" />
-<nlword word="remnkimi" valsi="remnkimi" />
-<nlword word="uo" valsi="uo" />
-<nlword word="ku&apos;o" valsi="ku&apos;o" />
-<nlword word="gi" valsi="gi" />
-<nlword word="za&apos;u" valsi="za&apos;u" />
-<nlword word="vi&apos;i" valsi="vi&apos;i" />
-<nlword word="kai" valsi="kai" />
-<nlword word="zvada&apos;o" valsi="zvada&apos;o" />
-<nlword word="namcu" valsi="namcu" />
-<nlword word="akti" sense="minji" valsi="mi&apos;irkai" />
-<nlword word="ki&apos;e" valsi="ki&apos;e" />
-<nlword word="crezenzu&apos;e" valsi="crenzue" />
-<nlword word="bavykri" valsi="bavykri" />
-<nlword word="pe&apos;a" valsi="pe&apos;a" />
-<nlword word="ke&apos;usku" valsi="ke&apos;usku" />
-<nlword word="koizva" valsi="koizva" />
-<nlword word="a&apos;inai" valsi="a&apos;inai" />
-<nlword word="bi&apos;o" valsi="bi&apos;o" />
-<nlword word="sezbanzu" valsi="sezbanzu" />
-<nlword word="remsmi" valsi="remsmi" />
-<nlword word="gu" valsi="gu" />
-<nlword word="vo&apos;i" valsi="vo&apos;i" />
-<nlword word="gi&apos;o" valsi="gi&apos;o" />
-<nlword word="zo&apos;i" valsi="zo&apos;i" />
-<nlword word="mo&apos;i" valsi="mo&apos;i" />
-<nlword word="no&apos;u" valsi="no&apos;u" />
-<nlword word="ba&apos;o" valsi="ba&apos;o" />
-<nlword word="sei" valsi="sei" />
-<nlword word="ri&apos;u" valsi="ri&apos;u" />
-<nlword word="snigau" valsi="snigau" />
-<nlword word="lu&apos;o" valsi="lu&apos;o" />
-<nlword word="nai" valsi="nai" />
-<nlword word="snicne" valsi="snicne" />
-<nlword word="ca" valsi="ca" />
-<nlword word="u&apos;inai" valsi="u&apos;inai" />
-<nlword word="ge&apos;u" valsi="ge&apos;u" />
-<nlword word="zoi" valsi="zoi" />
-<nlword word="tu&apos;urbirka" valsi="tu&apos;urbirka" place="1" />
-<nlword word="se tu&apos;urbirka" valsi="tu&apos;urbirka" place="2" />
-<nlword word="sepi&apos;o" valsi="sepi&apos;o" />
-<nlword word="o&apos;onai" valsi="o&apos;onai" />
-<nlword word="ro&apos;i" valsi="ro&apos;i" />
-<nlword word="memymau" valsi="memymau" />
-<nlword word="terkruca" valsi="terkruca" />
-<nlword word="I" valsi="ibu" />
-<nlword word="ibu" valsi="ibu" />
-<nlword word="poi" valsi="poi" />
-<nlword word="ce&apos;o" valsi="ce&apos;o" />
-<nlword word="li" valsi="li" />
-<nlword word="jungau" valsi="jungau" />
-<nlword word="norpa&apos;i" valsi="norpa&apos;i" />
-<nlword word="ci&apos;u" valsi="ci&apos;u" />
-<nlword word="brodo" valsi="brodo" />
-<nlword word="mu&apos;a" valsi="mu&apos;a" />
-<nlword word="po&apos;u" valsi="po&apos;u" />
-<nlword word="ta&apos;o" valsi="ta&apos;o" />
-<nlword word="seltinynalka&apos;e" valsi="seltinynalka&apos;e" />
-<nlword word="U" valsi="ubu" />
-<nlword word="ubu" valsi="ubu" />
-<nlword word="jo&apos;a" valsi="jo&apos;a" />
-<nlword word="ga&apos;ormolsa&apos;a" valsi="ga&apos;ormolsa&apos;a" />
-<nlword word="ke&apos;u" valsi="ke&apos;u" />
-<nlword word="nu&apos;u" valsi="nu&apos;u" />
-<nlword word="ji" valsi="ji" />
-<nlword word="cmalu" valsi="cmalu" />
-<nlword word="le&apos;e" valsi="le&apos;e" />
-<nlword word="ri" valsi="ri" />
-<nlword word="i&apos;inai" valsi="i&apos;inai" />
-<nlword word="nalju&apos;i" valsi="nalju&apos;i" />
-<nlword word="za&apos;e" valsi="za&apos;e" />
-<nlword word="ke&apos;o" valsi="ke&apos;o" />
-<nlword word="cu&apos;o" valsi="cu&apos;o" />
-<nlword word="to&apos;o" valsi="to&apos;o" />
-<nlword word="li&apos;e" valsi="li&apos;e" />
-<nlword word="tanru lujvo" sense="tanru kelci ke lujvo" valsi="tau&apos;o" />
-<nlword word="taujvo" sense="taurkaikemjvo" valsi="tau&apos;o" />
-<nlword word="to&apos;e" valsi="to&apos;e" />
-<nlword word="jabyboi" valsi="jabyboi" />
-<nlword word="rei" valsi="rei" />
-<nlword word="da&apos;o" valsi="da&apos;o" />
-<nlword word="mekfancu" valsi="mekfancu" />
-<nlword word="T" valsi="ty" />
-<nlword word="ty" valsi="ty" />
-<nlword word="tolke&apos;i" valsi="tolke&apos;i" />
-<nlword word="me" valsi="me" />
-<nlword word="nonseltai" valsi="nonseltai" />
-<nlword word="ganra" valsi="ganra" />
-<nlword word="mekna&apos;u" valsi="mekna&apos;u" />
-<nlword word="nunka&apos;okujbriju" valsi="nunka&apos;okujbriju" />
-<nlword word="a&apos;ucu&apos;i" valsi="a&apos;ucu&apos;i" />
-<nlword word="di&apos;a" valsi="di&apos;a" />
-<nlword word="mo&apos;u" valsi="mo&apos;u" />
-<nlword word="pu&apos;e" valsi="pu&apos;e" />
-<nlword word="ii" valsi="ii" />
-<nlword word="sumka&apos;i" valsi="sumka&apos;i" />
-<nlword word="sibykansa" valsi="sibykansa" />
-<nlword word="be&apos;e" valsi="be&apos;e" />
-<nlword word="te&apos;a" valsi="te&apos;a" />
-<nlword word="gugdecunu" valsi="gugdecunu" />
-<nlword word="fe&apos;i" valsi="fe&apos;i" />
-<nlword word="lerfu" valsi="lerfu" />
-<nlword word="dukse" valsi="dukse" />
-<nlword word="jikmenbi&apos;a" valsi="jikmenbi&apos;a" />
-<nlword word="mijgresirji" valsi="mijgresirji" />
-<nlword word="kacmyxra" valsi="kacmyxra" />
-<nlword word="muvdu" valsi="muvdu" />
-<nlword word="i&apos;a" valsi="i&apos;a" />
-<nlword word="larpra" valsi="larpra" />
-<nlword word="iacu&apos;i" valsi="iacu&apos;i" />
-<nlword word="le&apos;i" valsi="le&apos;i" />
-<nlword word="kilto" valsi="kilto" />
-<nlword word="di" valsi="di" />
-<nlword word="loi" valsi="loi" />
-<nlword word="jo&apos;o" valsi="jo&apos;o" />
-<nlword word="zilkancu" valsi="zilkancu" />
-<nlword word="cnijbi" valsi="cnijbi" />
-<nlword word="by" valsi="by" />
-<nlword word="B" valsi="by" />
-<nlword word="xrukla" valsi="xrukla" />
-<nlword word="jo" valsi="jo" />
-<nlword word="rivli&apos;a" valsi="rivli&apos;a" />
-<nlword word="sau" valsi="sau" />
-<nlword word="dugri" valsi="dugri" />
-<nlword word="ve&apos;o" valsi="ve&apos;o" />
-<nlword word="ce&apos;e" valsi="ce&apos;e" />
-<nlword word="vi" valsi="vi" />
-<nlword word="bu&apos;o" valsi="bu&apos;o" />
-<nlword word="du&apos;i" valsi="du&apos;i" />
-<nlword word="fo&apos;a" valsi="fo&apos;a" />
-<nlword word="nanbi&apos;e" valsi="nanbi&apos;e" />
-<nlword word="verku&apos;istu" valsi="verku&apos;istu" />
-<nlword word="po" valsi="po" />
-<nlword word="ta&apos;i" valsi="ta&apos;i" />
-<nlword word="ga&apos;o" valsi="ga&apos;o" />
-<nlword word="u&apos;i" valsi="u&apos;i" />
-<nlword word="sorprekarce" valsi="sorprekarce" />
-<nlword word="memimoi" valsi="memimoi" />
-<nlword word="vimku&apos;a" valsi="vimku&apos;a" />
-<nlword word="o&apos;u" valsi="o&apos;u" />
-<nlword word="bu&apos;i" valsi="bu&apos;i" />
-<nlword word="lu&apos;i" valsi="lu&apos;i" />
-<nlword word="stakrportcelanu" valsi="stakrportcelanu" />
-<nlword word="tefpi&apos;i" valsi="tefpi&apos;i" />
-<nlword word="solnuntolcanci" valsi="solnuntolcanci" />
-<nlword word="bevri" valsi="bevri" />
-<nlword word="memyme&apos;a" valsi="memyme&apos;a" />
-<nlword word="ca&apos;a" valsi="ca&apos;a" />
-<nlword word="zvati" valsi="zvati" />
-<nlword word="vai" valsi="vai" />
-<nlword word="zvajbi" valsi="zvajbi" />
-<nlword word="lo&apos;a" valsi="lo&apos;a" />
-<nlword word="basysi&apos;u" valsi="basysi&apos;u" />
-<nlword word="rolju&apos;o" valsi="rolju&apos;o" />
-<nlword word="soi" valsi="soi" />
-<nlword word="ti&apos;u" valsi="ti&apos;u" />
-<nlword word="cpitepygau" valsi="cpitepygau" />
-<nlword word="na&apos;azma" valsi="na&apos;azma" />
-<nlword word="famti" valsi="famti" />
-<nlword word="mo&apos;ibu&apos;u" valsi="mo&apos;ibu&apos;u" />
-<nlword word="jo&apos;i" valsi="jo&apos;i" />
-<nlword word="mi&apos;e" valsi="mi&apos;e" />
-<nlword word="tolsi&apos;a" valsi="tolsi&apos;a" />
-<nlword word="e&apos;e" valsi="e&apos;e" />
-<nlword word="ge&apos;o" valsi="ge&apos;o" />
-<nlword word="zi&apos;e" valsi="zi&apos;e" />
-<nlword word="ki" valsi="ki" />
+<nlword word="a&apos;enai" valsi="a&apos;enai" />
 <nlword word="a&apos;i" valsi="a&apos;i" />
-<nlword word="ji&apos;a" valsi="ji&apos;a" />
-<nlword word="ra&apos;a" valsi="ra&apos;a" />
-<nlword word="to&apos;e melbi" valsi="fegli" />
-<nlword word="re&apos;o" valsi="re&apos;o" />
-<nlword word="so&apos;u" valsi="so&apos;u" />
-<nlword word="fe&apos;u" valsi="fe&apos;u" />
-<nlword word="prali" valsi="prali" />
-<nlword word="si&apos;au" valsi="si&apos;au" />
-<nlword word="zo" valsi="zo" />
-<nlword word="go" valsi="go" />
-<nlword word="zerfuzyxu&apos;a" valsi="zerfuzyxu&apos;a" />
-<nlword word="jonsumji" valsi="jonsumji" />
-<nlword word="go&apos;u" valsi="go&apos;u" />
-<nlword word="sa" valsi="sa" />
-<nlword word="4" valsi="vo" />
-<nlword word="vo" valsi="vo" />
-<nlword word="ku&apos;i" valsi="ku&apos;i" />
-<nlword word="koi" valsi="koi" />
-<nlword word="ka&apos;u" valsi="ka&apos;u" />
-<nlword word="ra&apos;e" valsi="ra&apos;e" />
-<nlword word="ju" valsi="ju" />
-<nlword word="e&apos;enai" valsi="e&apos;enai" />
-<nlword word="nu&apos;e" valsi="nu&apos;e" />
-<nlword word="ru&apos;i" valsi="ru&apos;i" />
-<nlword word="muljbi" valsi="muljbi" />
-<nlword word="trusi&apos;o" valsi="trusi&apos;o" />
-<nlword word="filzai" valsi="filzai" />
-<nlword word="ka&apos;a" valsi="ka&apos;a" />
-<nlword word="lebna" valsi="lebna" />
-<nlword word="kansa" valsi="kansa" />
-<nlword word="lo&apos;o" valsi="lo&apos;o" />
-<nlword word="ja&apos;a" valsi="ja&apos;a" />
-<nlword word="lairka&apos;e" valsi="lairka&apos;e" />
-<nlword word="ta&apos;e" valsi="ta&apos;e" />
-<nlword word="sa&apos;u" valsi="sa&apos;u" />
-<nlword word="stuzi" valsi="stuzi" />
-<nlword word="toldji" valsi="toldji" />
-<nlword word="la&apos;u" valsi="la&apos;u" />
-<nlword word="du&apos;u" valsi="du&apos;u" />
-<nlword word="io" valsi="io" />
-<nlword word="pau" valsi="pau" />
-<nlword word="tapflifa&apos;u" valsi="tapflifa&apos;u" />
-<nlword word="nu&apos;o" valsi="nu&apos;o" />
-<nlword word="gi&apos;e" valsi="gi&apos;e" />
-<nlword word="mo&apos;e" valsi="mo&apos;e" />
-<nlword word="bu" valsi="bu" />
-<nlword word="pavmoiti&apos;u" valsi="pavmoiti&apos;u" />
-<nlword word="tolprali" valsi="tolprali" />
-<nlword word="te" valsi="te" />
-<nlword word="ce&apos;a" valsi="ce&apos;a" />
-<nlword word="va&apos;o" valsi="va&apos;o" />
-<nlword word="mu&apos;o" valsi="mu&apos;o" />
-<nlword word="ra&apos;irsumji" valsi="ra&apos;irsumji" />
-<nlword word="mi&apos;u" valsi="mi&apos;u" />
-<nlword word="sujysi&apos;u" valsi="sujysi&apos;u" />
-<nlword word="vonca&apos;u" valsi="vonca&apos;u" />
-<nlword word="so&apos;a" valsi="so&apos;a" />
-<nlword word="ije&apos;i" valsi="ije&apos;i" />
-<nlword word="bi&apos;u" valsi="bi&apos;u" />
-<nlword word="memyze&apos;a" valsi="memyze&apos;a" />
-<nlword word="oinai" valsi="oinai" />
-<nlword word="nonme&apos;a" valsi="nonme&apos;a" />
-<nlword word="glepe&apos;o" valsi="glepe&apos;o" />
-<nlword word="o&apos;anai" valsi="o&apos;anai" />
-<nlword word="ga&apos;i" valsi="ga&apos;i" />
-<nlword word="ve&apos;a" valsi="ve&apos;a" />
-<nlword word="sa&apos;o" valsi="sa&apos;o" />
-<nlword word="ke&apos;a" valsi="ke&apos;a" />
-<nlword word="su&apos;a" valsi="su&apos;a" />
-<nlword word="vo&apos;e" valsi="vo&apos;e" />
-<nlword word="gai" valsi="gai" />
-<nlword word="cenlai" valsi="cenlai" />
-<nlword word="selsumji" valsi="selsumji" />
-<nlword word="gau" valsi="gau" />
-<nlword word="ra&apos;i" valsi="ra&apos;i" />
-<nlword word="ny" valsi="ny" />
-<nlword word="N" valsi="ny" />
-<nlword word="pavdilcu" valsi="pavdilcu" />
-<nlword word="sezyskinoi" valsi="sezyskinoi" place="1" />
-<nlword word="pa" valsi="pa" />
-<nlword word="1" valsi="pa" />
-<nlword word="tolzau" valsi="tolzau" />
-<nlword word="xracku" valsi="xracku" />
-<nlword word="u&apos;onai" valsi="u&apos;onai" />
-<nlword word="da&apos;a" valsi="da&apos;a" />
-<nlword word="vi&apos;e" valsi="vi&apos;e" />
-<nlword word="ke&apos;e" valsi="ke&apos;e" />
-<nlword word="pu&apos;u" valsi="pu&apos;u" />
-<nlword word="ui" valsi="ui" />
-<nlword word="tolragve" valsi="tolragve" />
-<nlword word="brodu" valsi="brodu" />
-<nlword word="vu" valsi="vu" />
-<nlword word="zei" valsi="zei" />
-<nlword word="sicpi" valsi="sicpi" />
-<nlword word="zernalfu&apos;e" valsi="zernalfu&apos;e" />
-<nlword word="tolju&apos;i" valsi="tolju&apos;i" />
-<nlword word="bei" valsi="bei" />
-<nlword word="ge" valsi="ge" />
-<nlword word="ko&apos;a" valsi="ko&apos;a" />
-<nlword word="ca&apos;a zilpilno" valsi="akti" />
-<nlword word="pavyseljirna" valsi="pavyseljirna" />
-<nlword word="go&apos;e" valsi="go&apos;e" />
-<nlword word="me&apos;o" valsi="me&apos;o" />
-<nlword word="calcma" valsi="calcma" />
-<nlword word="la" valsi="la" />
-<nlword word="mau" valsi="mau" />
-<nlword word="ze&apos;u" valsi="ze&apos;u" />
-<nlword word="dilcu" valsi="dilcu" />
-<nlword word="ri&apos;o" valsi="ri&apos;o" />
-<nlword word="fei" valsi="fei" />
-<nlword word="za&apos;i" valsi="za&apos;i" />
-<nlword word="nalmu&apos;o" valsi="nalmu&apos;o" />
-<nlword word="ve&apos;u" valsi="ve&apos;u" />
-<nlword word="va&apos;a" valsi="va&apos;a" />
-<nlword word="da&apos;e" valsi="da&apos;e" />
-<nlword word="sudysrasu" valsi="sudysrasu" />
-<nlword word="uunai" valsi="uunai" />
-<nlword word="sy" valsi="sy" />
-<nlword word="S" valsi="sy" />
-<nlword word="vu&apos;i" valsi="vu&apos;i" />
-<nlword word="zilkai" valsi="zilkai" />
-<nlword word="cinla" valsi="cinla" />
-<nlword word="da" valsi="da" />
-<nlword word="je" valsi="je" />
-<nlword word="lo&apos;e" valsi="lo&apos;e" />
-<nlword word="o&apos;o" valsi="o&apos;o" />
-<nlword word="ckupra" valsi="ckupra" />
-<nlword word="tu" valsi="tu" />
-<nlword word="aucu&apos;i" valsi="aucu&apos;i" />
+<nlword word="a&apos;icu&apos;i" valsi="a&apos;icu&apos;i" />
+<nlword word="a&apos;inai" valsi="a&apos;inai" />
+<nlword word="a&apos;o" valsi="a&apos;o" />
+<nlword word="a&apos;onai" valsi="a&apos;onai" />
+<nlword word="a&apos;u" valsi="a&apos;u" />
+<nlword word="a&apos;ucu&apos;i" valsi="a&apos;ucu&apos;i" />
+<nlword word="a&apos;unai" valsi="a&apos;unai" />
 <nlword word="A" valsi="abu" />
 <nlword word="abu" valsi="abu" />
-<nlword word="sa&apos;a" valsi="sa&apos;a" />
-<nlword word="lo&apos;i" valsi="lo&apos;i" />
-<nlword word="nonkansa" valsi="nonkansa" />
-<nlword word="tolri&apos;ugau" valsi="tolri&apos;ugau" />
-<nlword word="telcaugau" valsi="telcaugau" />
-<nlword word="seltelgau" valsi="seltelgau" />
-<nlword word="bu&apos;e" valsi="bu&apos;e" />
-<nlword word="zmanei" valsi="zmanei" />
-<nlword word="fu" valsi="fu" />
-<nlword word="ma&apos;i" valsi="ma&apos;i" />
-<nlword word="canja" valsi="canja" />
-<nlword word="ja&apos;e" valsi="ja&apos;e" />
-<nlword word="zy" valsi="zy" />
-<nlword word="Z" valsi="zy" />
-<nlword word="pe&apos;i" valsi="pe&apos;i" />
-<nlword word="ie" valsi="ie" />
-<nlword word="zu&apos;unai" valsi="zu&apos;unai" />
-<nlword word="zu" valsi="zu" />
-<nlword word="iucu&apos;i" valsi="iucu&apos;i" />
-<nlword word="cai" valsi="cai" />
-<nlword word="le&apos;u" valsi="le&apos;u" />
-<nlword word="zu&apos;e" valsi="zu&apos;e" />
-<nlword word="ru&apos;a" valsi="ru&apos;a" />
-<nlword word="kalri" valsi="kalri" />
-<nlword word="gu&apos;e" valsi="gu&apos;e" />
-<nlword word="ci&apos;asku" valsi="ci&apos;asku" />
-<nlword word="jbome&apos;e" sense="karsnarfa&apos;o" valsi="la&apos;ai" />
-<nlword word="lojbo cmene" sense="kalri sance fanmo" valsi="la&apos;ai" />
-<nlword word="selte&apos;i" valsi="selte&apos;i" />
-<nlword word="balzai" valsi="balzai" />
-<nlword word="darsygau" valsi="darsygau" />
-<nlword word="nacnilbra" valsi="nacnilbra" />
-<nlword word="fi&apos;u" valsi="fi&apos;u" />
-<nlword word="voi" valsi="voi" />
-<nlword word="purci" valsi="purci" />
-<nlword word="nunka&apos;oku&apos;i" valsi="nunka&apos;oku&apos;i" />
-<nlword word="di&apos;e" valsi="di&apos;e" />
-<nlword word="me&apos;u" valsi="me&apos;u" />
-<nlword word="bi" valsi="bi" />
-<nlword word="8" valsi="bi" />
-<nlword word="za&apos;a" valsi="za&apos;a" />
-<nlword word="zu&apos;u" valsi="zu&apos;u" />
-<nlword word="ne&apos;i" valsi="ne&apos;i" />
-<nlword word="ca&apos;u" valsi="ca&apos;u" />
-<nlword word="kansi&apos;u" valsi="kansi&apos;u" />
-<nlword word="to" valsi="to" />
-<nlword word="la&apos;a" valsi="la&apos;a" />
-<nlword word="so&apos;i" valsi="so&apos;i" />
-<nlword word="jei" valsi="jei" />
-<nlword word="nu&apos;a" valsi="nu&apos;a" />
-<nlword word="co&apos;u" valsi="co&apos;u" />
-<nlword word="ka&apos;e" valsi="ka&apos;e" />
-<nlword word="no&apos;i" valsi="no&apos;i" />
-<nlword word="R" valsi="ry" />
-<nlword word="ry" valsi="ry" />
-<nlword word="rorci" valsi="rorci" />
-<nlword word="ve&apos;i" valsi="ve&apos;i" />
-<nlword word="pavzilcatra" valsi="pavzilcatra" />
-<nlword word="fe&apos;a" valsi="fe&apos;a" />
-<nlword word="se&apos;e" valsi="se&apos;e" />
-<nlword word="e&apos;a" valsi="e&apos;a" />
-<nlword word="pakydadysri" valsi="pakydadysri" />
-<nlword word="xabmau" valsi="xabmau" />
-<nlword word="do" valsi="do" />
-<nlword word="ka&apos;o" valsi="ka&apos;o" />
-<nlword word="fi" valsi="fi" />
-<nlword word="ge&apos;i" valsi="ge&apos;i" />
-<nlword word="resycei" valsi="resycei" />
-<nlword word="re&apos;u" valsi="re&apos;u" />
-<nlword word="ko&apos;i" valsi="ko&apos;i" />
-<nlword word="lafydadma&apos;e" valsi="lafydadma&apos;e" />
-<nlword word="narju" valsi="narju" />
-<nlword word="su&apos;e" valsi="su&apos;e" />
-<nlword word="simsumji" valsi="simsumji" />
-<nlword word="bu&apos;u" valsi="bu&apos;u" />
-<nlword word="kei" valsi="kei" />
-<nlword word="gu&apos;o" valsi="gu&apos;o" />
-<nlword word="ga&apos;e" valsi="ga&apos;e" />
-<nlword word="mu&apos;u" valsi="mu&apos;u" />
-<nlword word="tai" valsi="tai" />
-<nlword word="sivypalku" valsi="sivypalku" />
-<nlword word="ba&apos;anai" valsi="ba&apos;anai" />
-<nlword word="cnida&apos;o" valsi="cnida&apos;o" />
-<nlword word="kakydirgo" valsi="kakydirgo" />
-<nlword word="i&apos;unai" valsi="i&apos;unai" />
-<nlword word="su&apos;o" valsi="su&apos;o" />
-<nlword word="ki&apos;a" valsi="ki&apos;a" />
-<nlword word="E" valsi="ebu" />
-<nlword word="ebu" valsi="ebu" />
-<nlword word="ka&apos;enri&apos;u" valsi="ka&apos;enri&apos;u" />
-<nlword word="blabi" valsi="blabi" />
-<nlword word="sorprema&apos;e" valsi="basfa" />
-<nlword word="basfa" valsi="basfa" />
-<nlword word="ko" valsi="ko" />
-<nlword word="selfa&apos;a" valsi="selfa&apos;a" />
-<nlword word="mi&apos;ai" valsi="mi&apos;ai" />
-<nlword word="larmuzga" valsi="larmuzga" />
-<nlword word="co&apos;e" valsi="co&apos;e" />
-<nlword word="go&apos;o" valsi="go&apos;o" />
-<nlword word="a&apos;anai" valsi="a&apos;anai" />
-<nlword word="du&apos;e" valsi="du&apos;e" />
-<nlword word="bau" valsi="bau" />
-<nlword word="as little as possible" valsi="toltankomo" />
-<nlword word="jai" valsi="jai" />
-<nlword word="pa&apos;e" valsi="pa&apos;e" />
-<nlword word="joi" valsi="joi" />
-<nlword word="o&apos;e" valsi="o&apos;e" />
-<nlword word="ma&apos;a" valsi="ma&apos;a" />
-<nlword word="na&apos;asmi" valsi="na&apos;asmi" />
-<nlword word="la&apos;e" valsi="la&apos;e" />
-<nlword word="cu&apos;a" valsi="cu&apos;a" />
-<nlword word="rai" valsi="rai" />
-<nlword word="momlai" valsi="momlai" />
-<nlword word="nibli" valsi="nibli" />
-<nlword word="fa&apos;e" valsi="fa&apos;e" />
-<nlword word="fampi&apos;i" valsi="fampi&apos;i" />
-<nlword word="u&apos;o" valsi="u&apos;o" />
-<nlword word="xanjaisi&apos;u" valsi="xanjaisi&apos;u" />
-<nlword word="ckaji" valsi="me&apos;au" />
-<nlword word="vu&apos;e" valsi="vu&apos;e" />
-<nlword word="noltruti&apos;u" valsi="noltruti&apos;u" />
-<nlword word="pi&apos;i" valsi="pi&apos;i" />
-<nlword word="ijo" valsi="ijo" />
-<nlword word="sumji" valsi="sumji" />
-<nlword word="tavysi&apos;u" valsi="tavysi&apos;u" />
-<nlword word="rinsa" valsi="rinsa" />
-<nlword word="pi&apos;a" valsi="pi&apos;a" />
-<nlword word="miss" sense="lacking" valsi="caudri" />
-<nlword word="uanai" valsi="uanai" />
-<nlword word="blanu" valsi="blanu" />
-<nlword word="u&apos;ucu&apos;i" valsi="u&apos;ucu&apos;i" />
-<nlword word="a&apos;icu&apos;i" valsi="a&apos;icu&apos;i" />
-<nlword word="pi&apos;e" valsi="pi&apos;e" />
-<nlword word="ro" valsi="ro" />
-<nlword word="mu&apos;e" valsi="mu&apos;e" />
-<nlword word="tunba" valsi="tunba" />
-<nlword word="cibnacmei" valsi="cibnacmei" />
-<nlword word="cfapru" valsi="cfapru" />
-<nlword word="de&apos;u" valsi="de&apos;u" />
-<nlword word="tordu" valsi="tordu" />
-<nlword word="co&apos;o" valsi="co&apos;o" />
-<nlword word="u&apos;unai" valsi="u&apos;unai" />
-<nlword word="pa&apos;o" valsi="pa&apos;o" />
-<nlword word="boi" valsi="boi" />
-<nlword word="lu&apos;a" valsi="lu&apos;a" />
-<nlword word="po&apos;o" valsi="po&apos;o" />
-<nlword word="co&apos;i" valsi="co&apos;i" />
-<nlword word="lardai" valsi="lardai" />
-<nlword word="de&apos;o" valsi="de&apos;o" />
-<nlword word="zdazva" valsi="zdazva" />
-<nlword word="stizu" valsi="stizu" />
-<nlword word="pu" valsi="pu" />
-<nlword word="ianai" valsi="ianai" />
-<nlword word="cabjbi" valsi="cabjbi" />
-<nlword word="zukte" valsi="zukte" />
-<nlword word="fo&apos;e" valsi="fo&apos;e" />
-<nlword word="pu&apos;a" valsi="pu&apos;a" />
-<nlword word="jarki" valsi="jarki" />
-<nlword word="mulbi&apos;o" valsi="mulbi&apos;o" />
-<nlword word="xeka&apos;a" valsi="xeka&apos;a" />
-<nlword word="ke&apos;i" valsi="ke&apos;i" />
-<nlword word="y" valsi="y" />
-<nlword word="no&apos;e" valsi="no&apos;e" />
-<nlword word="nimspe" valsi="nimspe" />
+<nlword word="ai" valsi="ai" />
+<nlword word="aicu&apos;i" valsi="aicu&apos;i" />
+<nlword word="ainai" valsi="ainai" />
+<nlword word="ca&apos;a zilpilno" valsi="akti" />
 <nlword word="tricu" valsi="arce" />
-<nlword word="F" valsi="fy" />
-<nlword word="fy" valsi="fy" />
-<nlword word="xajre&apos;u" sense="xarju rectu" valsi="xajbefre&apos;u" />
-<nlword word="ju&apos;e" valsi="ju&apos;e" />
-<nlword word="nonselji&apos;u" valsi="nonselji&apos;u" />
-<nlword word="mo" valsi="mo" />
-<nlword word="jecybriju" valsi="jecybriju" />
-<nlword word="to&apos;e cliva" valsi="tsuku" />
-<nlword word="tsuku" valsi="tsuku" />
-<nlword word="tolyli&apos;a" valsi="tsuku" />
+<nlword word="au" valsi="au" />
+<nlword word="au&apos;u" sense="u&apos;unai" valsi="au&apos;u" />
+<nlword word="citmle" sense="u&apos;unai" valsi="au&apos;u" />
+<nlword word="aucu&apos;i" valsi="aucu&apos;i" />
+<nlword word="aunai" valsi="aunai" />
+<nlword word="ba" valsi="ba" />
+<nlword word="ba&apos;a" valsi="ba&apos;a" />
+<nlword word="ba&apos;acu&apos;i" valsi="ba&apos;acu&apos;i" />
+<nlword word="ba&apos;anai" valsi="ba&apos;anai" />
+<nlword word="ba&apos;e" valsi="ba&apos;e" />
+<nlword word="ba&apos;i" valsi="ba&apos;i" />
+<nlword word="ba&apos;o" valsi="ba&apos;o" />
+<nlword word="ba&apos;u" valsi="ba&apos;u" />
+<nlword word="bai" valsi="bai" />
+<nlword word="bajyjvi" valsi="bajyjvi" />
+<nlword word="balvi" valsi="balvi" />
+<nlword word="balzai" valsi="balzai" />
+<nlword word="banjupunu" valsi="banjupunu" />
+<nlword word="barda" valsi="barda" />
+<nlword word="barku&apos;e" valsi="barku&apos;e" />
+<nlword word="barli&apos;a" valsi="barli&apos;a" />
+<nlword word="basfa" valsi="basfa" />
+<nlword word="sorprema&apos;e" valsi="basfa" />
+<nlword word="basysi&apos;u" valsi="basysi&apos;u" />
+<nlword word="bau" valsi="bau" />
+<nlword word="bavmyckafi" valsi="bavmyckafi" />
+<nlword word="bavykri" valsi="bavykri" />
+<nlword word="be" valsi="be" />
+<nlword word="be&apos;a" valsi="be&apos;a" />
+<nlword word="be&apos;au" valsi="be&apos;au" />
+<nlword word="be&apos;e" valsi="be&apos;e" />
+<nlword word="be&apos;i" valsi="be&apos;i" />
 <nlword word="be&apos;o" valsi="be&apos;o" />
+<nlword word="be&apos;u" valsi="be&apos;u" />
+<nlword word="bei" valsi="bei" />
+<nlword word="berbi&apos;e" valsi="berbi&apos;e" />
+<nlword word="bersa" valsi="bersa" />
+<nlword word="bevri" valsi="bevri" />
+<nlword word="8" valsi="bi" />
+<nlword word="bi" valsi="bi" />
+<nlword word="bi&apos;e" valsi="bi&apos;e" />
+<nlword word="bi&apos;i" valsi="bi&apos;i" />
+<nlword word="bi&apos;o" valsi="bi&apos;o" />
+<nlword word="bi&apos;u" valsi="bi&apos;u" />
+<nlword word="blabi" valsi="blabi" />
+<nlword word="blanu" valsi="blanu" />
+<nlword word="blucri" valsi="blucri" />
+<nlword word="bo" valsi="bo" />
+<nlword word="boi" valsi="boi" />
+<nlword word="blanu fa&apos;u crino pu fa&apos;u ba febu" sense="lo skari pe la .gydman." valsi="brano" />
+<nlword word="bratu" valsi="bratu" />
+<nlword word="brika&apos;i" valsi="brika&apos;i" />
+<nlword word="brili&apos;e" valsi="brili&apos;e" />
+<nlword word="broda" valsi="broda" />
+<nlword word="brode" valsi="brode" />
+<nlword word="brodi" valsi="brodi" />
+<nlword word="brodo" valsi="brodo" />
+<nlword word="brodu" valsi="brodu" />
+<nlword word="bruna" valsi="bruna" />
+<nlword word="bu" valsi="bu" />
+<nlword word="bu&apos;a" valsi="bu&apos;a" />
+<nlword word="bu&apos;e" valsi="bu&apos;e" />
+<nlword word="bu&apos;i" valsi="bu&apos;i" />
+<nlword word="bu&apos;o" valsi="bu&apos;o" />
+<nlword word="bu&apos;u" valsi="bu&apos;u" />
+<nlword word="bukprgingamu" valsi="bukprgingamu" />
+<nlword word="B" valsi="by" />
+<nlword word="by" valsi="by" />
+<nlword word="ca" valsi="ca" />
+<nlword word="ca&apos;a" valsi="ca&apos;a" />
+<nlword word="ca&apos;e" valsi="ca&apos;e" />
+<nlword word="ca&apos;i" valsi="ca&apos;i" />
+<nlword word="ca&apos;o" valsi="ca&apos;o" />
+<nlword word="ca&apos;u" valsi="ca&apos;u" />
+<nlword word="cabda&apos;o" valsi="cabda&apos;o" />
+<nlword word="cabjbi" valsi="cabjbi" />
+<nlword word="cabna" valsi="cabna" />
+<nlword word="cai" valsi="cai" />
+<nlword word="calbra" valsi="calbra" />
+<nlword word="calcma" valsi="calcma" />
+<nlword word="camtoi" valsi="camtoi" />
+<nlword word="canja" valsi="canja" />
+<nlword word="cau" valsi="cau" />
+<nlword word="miss" sense="lacking" valsi="caudri" />
+<nlword word="caxno" valsi="caxno" />
+<nlword word="ce" valsi="ce" />
+<nlword word="ce&apos;a" valsi="ce&apos;a" />
+<nlword word="ce&apos;e" valsi="ce&apos;e" />
+<nlword word="%" valsi="ce&apos;i" />
+<nlword word="ce&apos;i" valsi="ce&apos;i" />
+<nlword word="ce&apos;o" valsi="ce&apos;o" />
+<nlword word="ce&apos;u" valsi="ce&apos;u" />
+<nlword word="cei" valsi="cei" />
+<nlword word="celgunta" valsi="celgunta" place="1" />
+<nlword word="se celgunta" valsi="celgunta" place="2" />
+<nlword word="cenlai" valsi="cenlai" />
+<nlword word="cfapru" valsi="cfapru" />
 <nlword word="3" valsi="ci" />
 <nlword word="ci" valsi="ci" />
-<nlword word="pi&apos;u" valsi="pi&apos;u" />
-<nlword word="ni&apos;e" valsi="ni&apos;e" />
-<nlword word="simbasygau" valsi="simbasygau" />
-<nlword word="tu&apos;e" valsi="tu&apos;e" />
+<nlword word="ci&apos;asku" valsi="ci&apos;asku" />
+<nlword word="ci&apos;e" valsi="ci&apos;e" />
+<nlword word="ci&apos;i" valsi="ci&apos;i" />
+<nlword word="ci&apos;o" valsi="ci&apos;o" />
+<nlword word="ci&apos;u" valsi="ci&apos;u" />
+<nlword word="cibnacmei" valsi="cibnacmei" />
+<nlword word="cinla" valsi="cinla" />
+<nlword word="ckana" valsi="ckana" />
+<nlword word="ckupra" valsi="ckupra" />
+<nlword word="clani" valsi="clani" />
+<nlword word="crino fa&apos;u blanu pu fa&apos;u ba febu" sense="lo skari pe la .gydman." valsi="clinu" />
+<nlword word="cliva" valsi="cliva" />
+<nlword word="cmalu" valsi="cmalu" />
 <nlword word="cneparbi" valsi="cneparbi" />
-<nlword word="nilbra" valsi="nilbra" />
-<nlword word="be&apos;au" valsi="be&apos;au" />
-<nlword word="ti&apos;e" valsi="ti&apos;e" />
-<nlword word="refcfa" valsi="refcfa" />
-<nlword word="ne" valsi="ne" />
-<nlword word="bratu" valsi="bratu" />
-<nlword word="e&apos;u" valsi="e&apos;u" />
-<nlword word="ua" valsi="ua" />
-<nlword word="je&apos;o" valsi="je&apos;o" />
-<nlword word="lafydadykarce" valsi="lafydadykarce" />
-<nlword word="i&apos;anai" valsi="i&apos;anai" />
-<nlword word="jetlai" valsi="jetlai" />
+<nlword word="cnida&apos;o" valsi="cnida&apos;o" />
+<nlword word="cnijbi" valsi="cnijbi" />
+<nlword word="cnikansa" valsi="cnikansa" />
+<nlword word="co" valsi="co" />
+<nlword word="co&apos;a" valsi="co&apos;a" />
+<nlword word="co&apos;e" valsi="co&apos;e" />
+<nlword word="co&apos;i" valsi="co&apos;i" />
+<nlword word="co&apos;o" valsi="co&apos;o" />
+<nlword word="co&apos;u" valsi="co&apos;u" />
+<nlword word="coi" valsi="coi" />
+<nlword word="condi" valsi="condi" />
+<nlword word="cpesi&apos;u" valsi="cpesi&apos;u" />
+<nlword word="cpetinbe" valsi="cpetinbe" />
+<nlword word="cpezu&apos;e" valsi="cpezu&apos;e" />
+<nlword word="cpitepygau" valsi="cpitepygau" />
+<nlword word="crelai" valsi="crelai" />
+<nlword word="crezenzu&apos;e" valsi="crenzue" />
+<nlword word="crino" valsi="crino" />
+<nlword word="cu" valsi="cu" />
+<nlword word="cu&apos;a" valsi="cu&apos;a" />
+<nlword word="cu&apos;e" valsi="cu&apos;e" />
+<nlword word="cu&apos;i" valsi="cu&apos;i" />
+<nlword word="cu&apos;o" valsi="cu&apos;o" />
+<nlword word="cu&apos;u" valsi="cu&apos;u" />
+<nlword word="cusku&apos;i" valsi="cusku&apos;i" />
+<nlword word="cutygaipalku" valsi="cutygaipalku" />
+<nlword word="C" valsi="cy" />
+<nlword word="cy" valsi="cy" />
+<nlword word="da" valsi="da" />
+<nlword word="da&apos;a" valsi="da&apos;a" />
+<nlword word="da&apos;e" valsi="da&apos;e" />
+<nlword word="da&apos;i" valsi="da&apos;i" />
+<nlword word="da&apos;o" valsi="da&apos;o" />
+<nlword word="da&apos;u" valsi="da&apos;u" />
+<nlword word="dafyfa&apos;i" valsi="dafyfa&apos;i" />
+<nlword word="dai" valsi="dai" />
+<nlword word="darsygau" valsi="darsygau" />
+<nlword word="datmau" valsi="datmau" />
+<nlword word="dau" valsi="dau" />
+<nlword word="de" valsi="de" />
+<nlword word="de&apos;a" valsi="de&apos;a" />
+<nlword word="de&apos;e" valsi="de&apos;e" />
+<nlword word="de&apos;i" valsi="de&apos;i" />
+<nlword word="de&apos;o" valsi="de&apos;o" />
+<nlword word="de&apos;u" valsi="de&apos;u" />
+<nlword word="dei" valsi="dei" />
 <nlword word="dergapru" valsi="dergapru" />
-<nlword word="do&apos;e" valsi="do&apos;e" />
-<nlword word="se&apos;a" valsi="se&apos;a" />
+<nlword word="di" valsi="di" />
+<nlword word="di&apos;a" valsi="di&apos;a" />
+<nlword word="di&apos;e" valsi="di&apos;e" />
+<nlword word="di&apos;i" valsi="di&apos;i" />
+<nlword word="di&apos;o" valsi="di&apos;o" />
+<nlword word="di&apos;u" valsi="di&apos;u" />
+<nlword word="dilcu" valsi="dilcu" />
+<nlword word="ditcma" valsi="ditcma" />
 <nlword word="ditybra" valsi="ditybra" />
-<nlword word="user" sense="computer user" valsi="samnarca&apos;igau" place="1" />
-<nlword word="username" valsi="samnarca&apos;igau" place="3" />
-<nlword word="username" sense="computer" valsi="samnarca&apos;igau" place="3" />
-<nlword word="u&apos;u" valsi="u&apos;u" />
+<nlword word="djekarni" valsi="djekarni" />
+<nlword word="do" valsi="do" />
+<nlword word="do&apos;a" valsi="do&apos;a" />
+<nlword word="do&apos;e" valsi="do&apos;e" />
+<nlword word="do&apos;i" valsi="do&apos;i" />
+<nlword word="do&apos;o" valsi="do&apos;o" />
+<nlword word="do&apos;u" valsi="do&apos;u" />
+<nlword word="doi" valsi="doi" />
+<nlword word="du" valsi="du" />
+<nlword word="du&apos;a" valsi="du&apos;a" />
+<nlword word="du&apos;e" valsi="du&apos;e" />
+<nlword word="du&apos;i" valsi="du&apos;i" />
+<nlword word="du&apos;o" valsi="du&apos;o" />
+<nlword word="du&apos;u" valsi="du&apos;u" />
+<nlword word="dubju&apos;o" valsi="dubju&apos;o" />
+<nlword word="dugri" valsi="dugri" />
+<nlword word="dukse" valsi="dukse" />
+<nlword word="dunda" valsi="dunda" />
+<nlword word="D" valsi="dy" />
+<nlword word="dy" valsi="dy" />
+<nlword word="e" valsi="e" />
+<nlword word="e&apos;a" valsi="e&apos;a" />
+<nlword word="e&apos;anai" valsi="e&apos;anai" />
+<nlword word="e&apos;e" valsi="e&apos;e" />
+<nlword word="e&apos;enai" valsi="e&apos;enai" />
+<nlword word="e&apos;i" valsi="e&apos;i" />
+<nlword word="e&apos;o" valsi="e&apos;o" />
+<nlword word="e&apos;u" valsi="e&apos;u" />
+<nlword word="E" valsi="ebu" />
+<nlword word="ebu" valsi="ebu" />
+<nlword word="ei" valsi="ei" />
+<nlword word="einai" valsi="einai" />
+<nlword word="fa" valsi="fa" />
+<nlword word="fa&apos;a" valsi="fa&apos;a" />
+<nlword word="fa&apos;e" valsi="fa&apos;e" />
+<nlword word="fa&apos;i" valsi="fa&apos;i" />
+<nlword word="fa&apos;o" valsi="fa&apos;o" />
+<nlword word="fa&apos;orma&apos;o" valsi="fa&apos;orma&apos;o" />
+<nlword word="fa&apos;u" valsi="fa&apos;u" />
+<nlword word="fai" valsi="fai" />
+<nlword word="faktumli&apos;u" valsi="faktumli&apos;u" />
+<nlword word="fampi&apos;i" valsi="fampi&apos;i" />
+<nlword word="famti" valsi="famti" />
+<nlword word="fardukti" valsi="fardukti" />
+<nlword word="fau" valsi="fau" />
+<nlword word="faurmidju" valsi="faurmidju" />
+<nlword word="fe" valsi="fe" />
+<nlword word="fe&apos;a" valsi="fe&apos;a" />
+<nlword word="fe&apos;e" valsi="fe&apos;e" />
+<nlword word="fe&apos;i" valsi="fe&apos;i" />
+<nlword word="fe&apos;o" valsi="fe&apos;o" />
+<nlword word="fe&apos;u" valsi="fe&apos;u" />
+<nlword word="to&apos;e melbi" valsi="fegli" />
+<nlword word="fei" valsi="fei" />
+<nlword word="kakne" sense="lo ka jai si&apos;u farvi" valsi="ferti" />
+<nlword word="fi" valsi="fi" />
+<nlword word="fi&apos;a" valsi="fi&apos;a" />
+<nlword word="fi&apos;e" valsi="fi&apos;e" />
+<nlword word="fi&apos;i" valsi="fi&apos;i" />
+<nlword word="fi&apos;o" valsi="fi&apos;o" />
+<nlword word="fi&apos;u" valsi="fi&apos;u" />
+<nlword word="filzai" valsi="filzai" />
+<nlword word="flajecyxlube&apos;e" valsi="flajecyxlube&apos;e" />
+<nlword word="flakamni" valsi="flakamni" />
+<nlword word="fo" valsi="fo" />
+<nlword word="fo&apos;a" valsi="fo&apos;a" />
+<nlword word="fo&apos;e" valsi="fo&apos;e" />
+<nlword word="fo&apos;i" valsi="fo&apos;i" />
+<nlword word="fo&apos;o" valsi="fo&apos;o" />
+<nlword word="fo&apos;u" valsi="fo&apos;u" />
+<nlword word="foi" valsi="foi" />
+<nlword word="fu" valsi="fu" />
+<nlword word="fu&apos;a" valsi="fu&apos;a" />
+<nlword word="fu&apos;e" valsi="fu&apos;e" />
+<nlword word="fu&apos;i" valsi="fu&apos;i" />
+<nlword word="fu&apos;o" valsi="fu&apos;o" />
+<nlword word="fu&apos;u" valsi="fu&apos;u" />
+<nlword word="F" valsi="fy" />
+<nlword word="fy" valsi="fy" />
+<nlword word="ga" valsi="ga" />
+<nlword word="ga&apos;a" valsi="ga&apos;a" />
+<nlword word="ga&apos;e" valsi="ga&apos;e" />
+<nlword word="ga&apos;i" valsi="ga&apos;i" />
+<nlword word="ga&apos;o" valsi="ga&apos;o" />
+<nlword word="ga&apos;ormolsa&apos;a" valsi="ga&apos;ormolsa&apos;a" />
+<nlword word="ga&apos;u" valsi="ga&apos;u" />
+<nlword word="gafygau" valsi="gafygau" />
+<nlword word="gai" valsi="gai" />
+<nlword word="ganlo" valsi="ganlo" />
+<nlword word="ganra" valsi="ganra" />
+<nlword word="gau" valsi="gau" />
+<nlword word="ge" valsi="ge" />
+<nlword word="ge&apos;a" valsi="ge&apos;a" />
+<nlword word="ge&apos;e" valsi="ge&apos;e" />
+<nlword word="ge&apos;i" valsi="ge&apos;i" />
+<nlword word="ge&apos;o" valsi="ge&apos;o" />
+<nlword word="ge&apos;u" valsi="ge&apos;u" />
+<nlword word="gei" valsi="gei" />
+<nlword word="gi" valsi="gi" />
+<nlword word="gi&apos;a" valsi="gi&apos;a" />
+<nlword word="gi&apos;e" valsi="gi&apos;e" />
+<nlword word="gi&apos;i" valsi="gi&apos;i" />
+<nlword word="gi&apos;o" valsi="gi&apos;o" />
+<nlword word="gi&apos;u" valsi="gi&apos;u" />
+<nlword word="glepe&apos;o" valsi="glepe&apos;o" />
+<nlword word="go" valsi="go" />
+<nlword word="go&apos;a" valsi="go&apos;a" />
+<nlword word="go&apos;e" valsi="go&apos;e" />
+<nlword word="go&apos;i" valsi="go&apos;i" />
+<nlword word="go&apos;o" valsi="go&apos;o" />
+<nlword word="go&apos;u" valsi="go&apos;u" />
+<nlword word="goi" valsi="goi" />
+<nlword word="gu" valsi="gu" />
+<nlword word="gu&apos;a" valsi="gu&apos;a" />
+<nlword word="gu&apos;e" valsi="gu&apos;e" />
+<nlword word="gu&apos;i" valsi="gu&apos;i" />
+<nlword word="gu&apos;o" valsi="gu&apos;o" />
+<nlword word="gu&apos;u" valsi="gu&apos;u" />
+<nlword word="gubgudytrusi&apos;o" valsi="gubgudytrusi&apos;o" />
+<nlword word="gugdecunu" valsi="gugdecunu" />
+<nlword word="gugdejupu" valsi="gugdejupu" />
+<nlword word="G" valsi="gy" />
+<nlword word="gy" valsi="gy" />
+<nlword word="i" valsi="i" />
+<nlword word="i&apos;a" valsi="i&apos;a" />
+<nlword word="i&apos;anai" valsi="i&apos;anai" />
+<nlword word="i&apos;e" valsi="i&apos;e" />
+<nlword word="i&apos;ecu&apos;i" valsi="i&apos;ecu&apos;i" />
+<nlword word="i&apos;enai" valsi="i&apos;enai" />
+<nlword word="i&apos;i" valsi="i&apos;i" />
+<nlword word="i&apos;inai" valsi="i&apos;inai" />
+<nlword word="i&apos;o" valsi="i&apos;o" />
+<nlword word="i&apos;onai" valsi="i&apos;onai" />
+<nlword word="i&apos;u" valsi="i&apos;u" />
+<nlword word="i&apos;unai" valsi="i&apos;unai" />
+<nlword word="ia" valsi="ia" />
+<nlword word="iacu&apos;i" valsi="iacu&apos;i" />
+<nlword word="ianai" valsi="ianai" />
+<nlword word="I" valsi="ibu" />
+<nlword word="ibu" valsi="ibu" />
+<nlword word="ie" valsi="ie" />
+<nlword word="ienai" valsi="ienai" />
+<nlword word="ii" valsi="ii" />
+<nlword word="iinai" valsi="iinai" />
+<nlword word="ija" valsi="ija" />
+<nlword word="ije" valsi="ije" />
+<nlword word="ije&apos;i" valsi="ije&apos;i" />
+<nlword word="ijo" valsi="ijo" />
+<nlword word="iju" valsi="iju" />
+<nlword word="io" valsi="io" />
+<nlword word="ionai" valsi="ionai" />
+<nlword word="iu" valsi="iu" />
+<nlword word="iucu&apos;i" valsi="iucu&apos;i" />
+<nlword word="iunai" valsi="iunai" />
+<nlword word="ja" valsi="ja" />
+<nlword word="ja&apos;a" valsi="ja&apos;a" />
+<nlword word="ja&apos;e" valsi="ja&apos;e" />
+<nlword word="ja&apos;i" valsi="ja&apos;i" />
+<nlword word="ja&apos;o" valsi="ja&apos;o" />
+<nlword word="jabyboi" valsi="jabyboi" />
+<nlword word="jai" valsi="jai" />
+<nlword word="jarki" valsi="jarki" />
+<nlword word="jau" valsi="jau" />
+<nlword word="jaursabytu&apos;u" valsi="jaursabytu&apos;u" />
+<nlword word="jaursabytu&apos;uvro" valsi="jaursabytu&apos;uvro" />
+<nlword word="je" valsi="je" />
+<nlword word="je&apos;a" valsi="je&apos;a" />
+<nlword word="je&apos;e" valsi="je&apos;e" />
+<nlword word="je&apos;i" valsi="je&apos;i" />
+<nlword word="je&apos;o" valsi="je&apos;o" />
+<nlword word="je&apos;u" valsi="je&apos;u" />
+<nlword word="jecybriju" valsi="jecybriju" />
+<nlword word="jecyxlube&apos;e" valsi="jecyxlube&apos;e" />
+<nlword word="jei" valsi="jei" />
+<nlword word="jetlai" valsi="jetlai" />
+<nlword word="ji" valsi="ji" />
+<nlword word="ji&apos;a" valsi="ji&apos;a" />
+<nlword word="ji&apos;e" valsi="ji&apos;e" />
+<nlword word="ji&apos;i" valsi="ji&apos;i" />
+<nlword word="ji&apos;isku" valsi="ji&apos;isku" />
+<nlword word="ji&apos;o" valsi="ji&apos;o" />
+<nlword word="ji&apos;u" valsi="ji&apos;u" />
+<nlword word="jifkritrazu&apos;e" valsi="jifkritrazu&apos;e" />
+<nlword word="jifyjunxu&apos;a" valsi="jifyjunxu&apos;a" />
+<nlword word="jikmenbi&apos;a" valsi="jikmenbi&apos;a" />
+<nlword word="jmina" valsi="jmina" />
+<nlword word="jo" valsi="jo" />
+<nlword word="jo&apos;a" valsi="jo&apos;a" />
+<nlword word="jo&apos;e" valsi="jo&apos;e" />
+<nlword word="jo&apos;i" valsi="jo&apos;i" />
+<nlword word="jo&apos;o" valsi="jo&apos;o" />
+<nlword word="jo&apos;u" valsi="jo&apos;u" />
+<nlword word="joi" valsi="joi" />
+<nlword word="jonma&apos;o" valsi="jonma&apos;o" />
+<nlword word="jonsi&apos;u" valsi="jonsi&apos;u" />
+<nlword word="jonsumji" valsi="jonsumji" />
+<nlword word="ju" valsi="ju" />
+<nlword word="ju&apos;a" valsi="ju&apos;a" />
+<nlword word="ju&apos;e" valsi="ju&apos;e" />
+<nlword word="ju&apos;i" valsi="ju&apos;i" />
+<nlword word="ju&apos;o" valsi="ju&apos;o" />
+<nlword word="ju&apos;u" valsi="ju&apos;u" />
+<nlword word="judgau" valsi="judgau" />
+<nlword word="jufmei" valsi="jufmei" />
+<nlword word="jungau" valsi="jungau" />
+<nlword word="juvykanxe" valsi="juvykanxe" />
 <nlword word="J" valsi="jy" />
 <nlword word="jy" valsi="jy" />
 <nlword word="ka" valsi="ka" />
-<nlword word="te&apos;e" valsi="te&apos;e" />
-<nlword word="vo&apos;a" valsi="vo&apos;a" />
-<nlword word="sa&apos;i" valsi="sa&apos;i" />
-<nlword word="la&apos;o" valsi="la&apos;o" />
-<nlword word="cu" valsi="cu" />
-<nlword word="faktumli&apos;u" valsi="faktumli&apos;u" />
-<nlword word="ja&apos;i" valsi="ja&apos;i" />
+<nlword word="ka&apos;a" valsi="ka&apos;a" />
+<nlword word="ka&apos;e" valsi="ka&apos;e" />
+<nlword word="ka&apos;enri&apos;u" valsi="ka&apos;enri&apos;u" />
 <nlword word="ka&apos;i" valsi="ka&apos;i" />
-<nlword word="fa&apos;o" valsi="fa&apos;o" />
-<nlword word="de&apos;e" valsi="de&apos;e" />
-<nlword word="toltu&apos;i" valsi="toltu&apos;i" />
-<nlword word="X" valsi="xy" />
-<nlword word="xy" valsi="xy" />
-<nlword word="ra" valsi="ra" />
-<nlword word="ze&apos;o" valsi="ze&apos;o" />
-<nlword word="tolcru" valsi="tolcru" />
-<nlword word="lu&apos;u" valsi="lu&apos;u" />
-<nlword word="u&apos;ocu&apos;i" valsi="u&apos;ocu&apos;i" />
-<nlword word="naldji" valsi="naldji" />
-<nlword word="lafydadblo" valsi="lafydadblo" />
-<nlword word="xunre" valsi="xunre" />
-<nlword word="sumgadri" valsi="sumgadri" />
-<nlword word="ji&apos;o" valsi="ji&apos;o" />
-<nlword word="je&apos;i" valsi="je&apos;i" />
-<nlword word="medomoi" valsi="medomoi" />
-<nlword word="tu&apos;u" valsi="tu&apos;u" />
-<nlword word="toldicra" valsi="toldicra" />
-<nlword word="pinblo" valsi="pinblo" />
-<nlword word="gu&apos;u" valsi="gu&apos;u" />
-<nlword word="bi&apos;i" valsi="bi&apos;i" />
-<nlword word="krafamtei" valsi="krafamtei" />
-<nlword word="fu&apos;e" valsi="fu&apos;e" />
-<nlword word="suzroi" valsi="suzroi" />
-<nlword word="ba" valsi="ba" />
-<nlword word="ro&apos;e" valsi="ro&apos;e" />
-<nlword word="dei" valsi="dei" />
-<nlword word="crino fa&apos;u blanu pu fa&apos;u ba febu" sense="lo skari pe la .gydman." valsi="clinu" />
-<nlword word="bai" valsi="bai" />
-<nlword word="xai" valsi="xai" />
-<nlword word="be&apos;a" valsi="be&apos;a" />
-<nlword word="goi" valsi="goi" />
-<nlword word="bavmyckafi" valsi="bavmyckafi" />
-<nlword word="lo zukte je litru" sense="lo ka ce&apos;u muvdu" valsi="klama" place="1" />
-<nlword word="lo stuzi" sense="lo ka muvdu ce&apos;u" valsi="klama" place="2" />
-<nlword word="lo stuzi" sense="lo ka muvdu fi ce&apos;u" valsi="klama" place="3" />
-<nlword word="lo pluta je se litru" sense="lo ka muvdu fo ce&apos;u" valsi="klama" place="4" />
-<nlword word="lo marce je te litru" sense="lo ka ce&apos;u marce lo klama lo ve klama" valsi="klama" place="5" />
-<nlword word="rolselsumji" valsi="rolselsumji" />
-<nlword word="a&apos;acu&apos;i" valsi="a&apos;acu&apos;i" />
-<nlword word="na&apos;i" valsi="na&apos;i" />
-<nlword word="zu&apos;i" valsi="zu&apos;i" />
-<nlword word="speli&apos;u" valsi="speli&apos;u" />
-<nlword word="norzau" valsi="norzau" />
-<nlword word="clani" valsi="clani" />
-<nlword word="ba&apos;i" valsi="ba&apos;i" />
-<nlword word="bruna" valsi="bruna" />
-<nlword word="zo&apos;e" valsi="zo&apos;e" />
-<nlword word="ti" valsi="ti" />
-<nlword word="snisimsumji" valsi="snisimsumji" />
-<nlword word="pai" valsi="pai" />
-<nlword word="cpetinbe" valsi="cpetinbe" />
-<nlword word="gi&apos;a" valsi="gi&apos;a" />
-<nlword word="u&apos;enai" valsi="u&apos;enai" />
-<nlword word="7" valsi="ze" />
-<nlword word="ze" valsi="ze" />
-<nlword word="tolpa&apos;a" valsi="tolpa&apos;a" />
-<nlword word="pavzildau" valsi="pavzildau" />
-<nlword word="cnikansa" valsi="cnikansa" />
-<nlword word="verclibau" valsi="verclibau" />
-<nlword word="toi" valsi="toi" />
-<nlword word="to&apos;i" valsi="to&apos;i" />
-<nlword word="va&apos;i" valsi="va&apos;i" />
-<nlword word="jecyxlube&apos;e" valsi="jecyxlube&apos;e" />
-<nlword word="plika&apos;e" valsi="plika&apos;e" />
-<nlword word="ju&apos;a" valsi="ju&apos;a" />
-<nlword word="zo&apos;u" valsi="zo&apos;u" />
-<nlword word="fa&apos;a" valsi="fa&apos;a" />
-<nlword word="flakamni" valsi="flakamni" />
-<nlword word="fi&apos;a" valsi="fi&apos;a" />
-<nlword word="pairnu&apos;i" valsi="pairnu&apos;i" />
-<nlword word="to&apos;a" valsi="to&apos;a" />
-<nlword word="si&apos;o" valsi="si&apos;o" />
-<nlword word="ia" valsi="ia" />
-<nlword word="de&apos;i" valsi="de&apos;i" />
-<nlword word="cliva" valsi="cliva" />
-<nlword word="bo" valsi="bo" />
-<nlword word="mulfa&apos;o" valsi="mulfa&apos;o" />
-<nlword word="mo&apos;a" valsi="mo&apos;a" />
-<nlword word="pei" valsi="pei" />
-<nlword word="fi&apos;o" valsi="fi&apos;o" />
-<nlword word="ju&apos;u" valsi="ju&apos;u" />
-<nlword word="condi" valsi="condi" />
-<nlword word="je&apos;a" valsi="je&apos;a" />
-<nlword word="senpi" valsi="senpi" />
-<nlword word="toldu&apos;e" valsi="toldu&apos;e" />
-<nlword word="ainai" valsi="ainai" />
-<nlword word="nonselsmu" valsi="nonselsmu" />
-<nlword word="ri&apos;a" valsi="ri&apos;a" />
-<nlword word="la&apos;erlai" valsi="la&apos;erlai" />
-<nlword word="mamta" valsi="mamta" />
-<nlword word="ci&apos;i" valsi="ci&apos;i" />
-<nlword word="e&apos;i" valsi="e&apos;i" />
-<nlword word="ba&apos;u" valsi="ba&apos;u" />
-<nlword word="do&apos;o" valsi="do&apos;o" />
-<nlword word="o&apos;i" valsi="o&apos;i" />
-<nlword word="cutygaipalku" valsi="cutygaipalku" />
-<nlword word="fe&apos;o" valsi="fe&apos;o" />
-<nlword word="ce&apos;u" valsi="ce&apos;u" />
-<nlword word="lai" valsi="lai" />
-<nlword word="la&apos;erji&apos;i" valsi="la&apos;erji&apos;i" />
-<nlword word="du&apos;a" valsi="du&apos;a" />
-<nlword word="tixnu" valsi="tixnu" />
-<nlword word="au" valsi="au" />
-<nlword word="tenfa" valsi="tenfa" />
-<nlword word="le&apos;a" valsi="le&apos;a" />
-<nlword word="zerfu&apos;e" valsi="zerfu&apos;e" />
-<nlword word="vi&apos;u" valsi="vi&apos;u" />
-<nlword word="mrodimna" valsi="mrodimna" />
-<nlword word="fo&apos;u" valsi="fo&apos;u" />
-<nlword word="toldarsi" valsi="toldarsi" />
-<nlword word="djekarni" valsi="djekarni" />
-<nlword word="de" valsi="de" />
-<nlword word="na" valsi="na" />
-<nlword word="ma" valsi="ma" />
-<nlword word="ku&apos;e" valsi="ku&apos;e" />
-<nlword word="moi" valsi="moi" />
-<nlword word="faurmidju" valsi="faurmidju" />
-<nlword word="ja" valsi="ja" />
-<nlword word="muvycpu" valsi="muvycpu" />
-<nlword word="si&apos;u" valsi="si&apos;u" />
-<nlword word="tupne&apos;o" valsi="tupne&apos;o" />
-<nlword word="pe&apos;e" valsi="pe&apos;e" />
-<nlword word="po&apos;e" valsi="po&apos;e" />
-<nlword word="i&apos;i" valsi="i&apos;i" />
-<nlword word="nonjdi" valsi="nonjdi" />
-<nlword word="selbri tcita" valsi="selbritcita" place="1" />
-<nlword word="sunbi&apos;e" valsi="sunbi&apos;e" />
-<nlword word="xo" valsi="xo" />
-<nlword word="jaursabytu&apos;uvro" valsi="jaursabytu&apos;uvro" />
+<nlword word="ka&apos;o" valsi="ka&apos;o" />
+<nlword word="ka&apos;u" valsi="ka&apos;u" />
+<nlword word="kacmyxra" valsi="kacmyxra" />
+<nlword word="kai" valsi="kai" />
+<nlword word="kakydirgo" valsi="kakydirgo" />
+<nlword word="kalri" valsi="kalri" />
+<nlword word="kamre li dau te&apos;a dau bi&apos;ete&apos;a re" valsi="kamrngogolo" />
+<nlword word="kansa" valsi="kansa" />
+<nlword word="kansi&apos;u" valsi="kansi&apos;u" />
 <nlword word="kau" valsi="kau" />
-<nlword word="ko&apos;u" valsi="ko&apos;u" />
-<nlword word="solri ke dikca cupra minji" sense="minji lo ka cupra lo dikca" valsi="solgu&apos;idicyborprami&apos;i" />
-<nlword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" valsi="solgu&apos;idicyborprami&apos;i" />
-<nlword word="uu" valsi="uu" />
-<nlword word="fa&apos;u" valsi="fa&apos;u" />
-<nlword word="rinju&apos;o" valsi="rinju&apos;o" />
-<nlword word="mo&apos;o" valsi="mo&apos;o" />
-<nlword word="zanvi&apos;e" valsi="zanvi&apos;e" />
-<nlword word="tersei" valsi="tersei" />
-<nlword word="zilxru" valsi="volve" />
-<nlword word="volve" valsi="volve" />
-<nlword word="judgau" valsi="judgau" />
-<nlword word="ru&apos;o" valsi="ru&apos;o" />
-<nlword word="ba&apos;a" valsi="ba&apos;a" />
-<nlword word="cmeme" sense="pa nalsmucme" valsi="ra&apos;ai" />
-<nlword word="ragve" valsi="ragve" />
-<nlword word="tu&apos;a" valsi="tu&apos;a" />
-<nlword word="a&apos;enai" valsi="a&apos;enai" />
-<nlword word="flajecyxlube&apos;e" valsi="flajecyxlube&apos;e" />
-<nlword word="selba&apos;agau" valsi="selba&apos;agau" />
-<nlword word="kucycuk" valsi="kucycuk" />
-<nlword word="banjupunu" valsi="banjupunu" />
-<nlword word="a&apos;a" valsi="a&apos;a" />
-<nlword word="mulcabna" valsi="mulcabna" />
-<nlword word="barli&apos;a" valsi="barli&apos;a" />
-<nlword word="cu&apos;i" valsi="cu&apos;i" />
-<nlword word="pelxu" valsi="pelxu" />
-<nlword word="ju&apos;i" valsi="ju&apos;i" />
-<nlword word="mu&apos;i" valsi="mu&apos;i" />
-<nlword word="pe&apos;u" valsi="pe&apos;u" />
-<nlword word="pa&apos;a" valsi="pa&apos;a" />
-<nlword word="ze&apos;a" valsi="ze&apos;a" />
-<nlword word="L" valsi="ly" />
-<nlword word="ly" valsi="ly" />
-<nlword word="mei" valsi="mei" />
-<nlword word="aunai" valsi="aunai" />
-<nlword word="rolnonvlina" valsi="rolnonvlina" />
-<nlword word="ionai" valsi="ionai" />
-<nlword word="fi&apos;i" valsi="fi&apos;i" />
-<nlword word="do&apos;i" valsi="do&apos;i" />
-<nlword word="le&apos;o" valsi="le&apos;o" />
-<nlword word="noi" valsi="noi" />
-<nlword word="vo&apos;o" valsi="vo&apos;o" />
-<nlword word="jo&apos;e" valsi="jo&apos;e" />
-<nlword word="nalgrici&apos;e" sense="ficybi&apos;o" valsi="ke&apos;ai" />
+<nlword word="ke" valsi="ke" />
+<nlword word="ke&apos;a" valsi="ke&apos;a" />
 <nlword word="na&apos;e girzu ciste" sense="frica binxo" valsi="ke&apos;ai" />
-<nlword word="5" valsi="mu" />
-<nlword word="mu" valsi="mu" />
-<nlword word="ra&apos;o" valsi="ra&apos;o" />
-<nlword word="ce" valsi="ce" />
-<nlword word="tau" valsi="tau" />
-<nlword word="ca&apos;i" valsi="ca&apos;i" />
-<nlword word="i&apos;o" valsi="i&apos;o" />
-<nlword word="te&apos;o" valsi="te&apos;o" />
-<nlword word="e&apos;anai" valsi="e&apos;anai" />
-<nlword word="gei" valsi="gei" />
-<nlword word="e" valsi="e" />
-<nlword word="a&apos;unai" valsi="a&apos;unai" />
-<nlword word="soryroi" valsi="soryroi" />
-<nlword word="obu" valsi="obu" />
-<nlword word="O" valsi="obu" />
-<nlword word="barda" valsi="barda" />
-<nlword word="fardukti" valsi="fardukti" />
-<nlword word="o" valsi="o" />
-<nlword word="cau" valsi="cau" />
-<nlword word="i&apos;onai" valsi="i&apos;onai" />
-<nlword word="cei" valsi="cei" />
-<nlword word="vo&apos;u" valsi="vo&apos;u" />
-<nlword word="tolzdi" valsi="tolzdi" />
-<nlword word="je&apos;u" valsi="je&apos;u" />
-<nlword word="ci&apos;o" valsi="ci&apos;o" />
-<nlword word="zilpa&apos;a" valsi="zilpa&apos;a" />
-<nlword word="rorlei" valsi="rorlei" />
-<nlword word="brodi" valsi="brodi" />
-<nlword word="sai" valsi="sai" />
-<nlword word="zo&apos;o" valsi="zo&apos;o" />
-<nlword word="2" valsi="re" />
-<nlword word="re" valsi="re" />
-<nlword word="de&apos;a" valsi="de&apos;a" />
-<nlword word="no&apos;o" valsi="no&apos;o" />
-<nlword word="micyxu&apos;i" valsi="micyxu&apos;i" />
-<nlword word="mupli" valsi="mupli" />
-<nlword word="ti&apos;i" valsi="ti&apos;i" />
-<nlword word="jifyjunxu&apos;a" valsi="jifyjunxu&apos;a" />
-<nlword word="ca&apos;e" valsi="ca&apos;e" />
-<nlword word="mecyjavdu&apos;i" valsi="mecyjavdu&apos;i" />
-<nlword word="zu&apos;o" valsi="zu&apos;o" />
-<nlword word="K" valsi="ky" />
-<nlword word="ky" valsi="ky" />
-<nlword word="simxu" sense="ro" valsi="rolsixu" />
-<nlword word="jau" valsi="jau" />
-<nlword word="mi" valsi="mi" />
-<nlword word="ki&apos;o" valsi="ki&apos;o" />
-<nlword word="sezybitygau" valsi="sezybitygau" />
-<nlword word="fe&apos;e" valsi="fe&apos;e" />
-<nlword word="nonselsumji" valsi="nonselsumji" />
-<nlword word="uenai" valsi="uenai" />
-<nlword word="barku&apos;e" valsi="barku&apos;e" />
-<nlword word="me&apos;a" valsi="me&apos;a" />
+<nlword word="nalgrici&apos;e" sense="ficybi&apos;o" valsi="ke&apos;ai" />
+<nlword word="ke&apos;e" valsi="ke&apos;e" />
 <nlword word="pritu girzu ciste" sense="frica binxo" valsi="ke&apos;ei" />
 <nlword word="pritugrici&apos;e" sense="ficybi&apos;o" valsi="ke&apos;ei" />
-<nlword word="vi&apos;a" valsi="vi&apos;a" />
-<nlword word="be" valsi="be" />
-<nlword word="su&apos;i" valsi="su&apos;i" />
-<nlword word="blucri" valsi="blucri" />
-<nlword word="cusku&apos;i" valsi="cusku&apos;i" />
-<nlword word="balvi" valsi="balvi" />
-<nlword word="ni&apos;u" valsi="ni&apos;u" />
-<nlword word="li&apos;o" valsi="li&apos;o" />
-<nlword word="o&apos;acu&apos;i" valsi="o&apos;acu&apos;i" />
-<nlword word="ma&apos;o" valsi="ma&apos;o" />
-<nlword word="snuti" valsi="snuti" />
-<nlword word="Y" valsi="ybu" />
-<nlword word="ybu" valsi="ybu" />
-<nlword word="fau" valsi="fau" />
-<nlword word="zilzba" valsi="zilzba" />
-<nlword word="gu&apos;i" valsi="gu&apos;i" />
-<nlword word="sumsmi" valsi="sumsmi" />
-<nlword word="C" valsi="cy" />
-<nlword word="cy" valsi="cy" />
-<nlword word="M" valsi="my" />
-<nlword word="my" valsi="my" />
-<nlword word="ni&apos;a" valsi="ni&apos;a" />
-<nlword word="za" valsi="za" />
-<nlword word="klagi&apos;a" valsi="klagi&apos;a" />
-<nlword word="ko&apos;e" valsi="ko&apos;e" />
-<nlword word="prami" valsi="prami" place="1" />
-<nlword word="le" valsi="le" />
-<nlword word="go&apos;i" valsi="go&apos;i" />
-<nlword word="ce&apos;i" valsi="ce&apos;i" />
-<nlword word="%" valsi="ce&apos;i" />
-<nlword word="nalzaucru" valsi="nalzaucru" />
-<nlword word="pe" valsi="pe" />
-<nlword word="ci&apos;e" valsi="ci&apos;e" />
-<nlword word="jmina" valsi="jmina" />
-<nlword word="skudji" valsi="skudji" />
-<nlword word="za&apos;o" valsi="za&apos;o" />
-<nlword word="i" valsi="i" />
-<nlword word="xebe&apos;i" valsi="xebe&apos;i" />
-<nlword word="sicybi&apos;e" valsi="sicybi&apos;e" />
-<nlword word="tu&apos;i" valsi="tu&apos;i" />
-<nlword word="ku&apos;a" valsi="ku&apos;a" />
-<nlword word="fu&apos;o" valsi="fu&apos;o" />
-<nlword word="gi&apos;i" valsi="gi&apos;i" />
-<nlword word="seba&apos;i" valsi="seba&apos;i" />
-<nlword word="doi" valsi="doi" />
-<nlword word="ji&apos;i" valsi="ji&apos;i" />
-<nlword word="patfu" valsi="patfu" />
-<nlword word="e&apos;o" valsi="e&apos;o" />
-<nlword word="bukprgingamu" valsi="bukprgingamu" />
-<nlword word="a&apos;onai" valsi="a&apos;onai" />
-<nlword word="rau" valsi="rau" />
-<nlword word="parbi" valsi="parbi" />
-<nlword word="su" valsi="su" />
-<nlword word="re&apos;a" valsi="re&apos;a" />
-<nlword word="zildau" valsi="zildau" />
-<nlword word="xe" valsi="xe" />
 <nlword word="zulgrici&apos;e" sense="ficybi&apos;o" valsi="ke&apos;ei&apos;a" />
 <nlword word="zunle girzu ciste" sense="frica binxo" valsi="ke&apos;ei&apos;a" />
-<nlword word="ru&apos;e" valsi="ru&apos;e" />
-<nlword word="ta" valsi="ta" />
-<nlword word="tamne" valsi="tamne" />
-<nlword word="selvisnalka&apos;e" valsi="selvisnalka&apos;e" />
-<nlword word="u&apos;e" valsi="u&apos;e" />
-<nlword word="menbi&apos;a" valsi="menbi&apos;a" />
-<nlword word="zifcru" valsi="zifcru" />
-<nlword word="se&apos;i" valsi="se&apos;i" />
-<nlword word="nalci&apos;i" valsi="nalci&apos;i" />
-<nlword word="pu&apos;o" valsi="pu&apos;o" />
-<nlword word="sa&apos;e" valsi="sa&apos;e" />
-<nlword word="ge&apos;a" valsi="ge&apos;a" />
-<nlword word="ra&apos;abri" valsi="ra&apos;abri" />
+<nlword word="ke&apos;i" valsi="ke&apos;i" />
+<nlword word="ke&apos;o" valsi="ke&apos;o" />
+<nlword word="ke&apos;u" valsi="ke&apos;u" />
+<nlword word="ke&apos;usku" valsi="ke&apos;usku" />
+<nlword word="kei" valsi="kei" />
+<nlword word="ki" valsi="ki" />
+<nlword word="ki&apos;a" valsi="ki&apos;a" />
+<nlword word="ki&apos;e" valsi="ki&apos;e" />
+<nlword word="ki&apos;i" valsi="ki&apos;i" />
+<nlword word="ki&apos;o" valsi="ki&apos;o" />
+<nlword word="ki&apos;otre" valsi="ki&apos;otre" />
+<nlword word="ki&apos;u" valsi="ki&apos;u" />
+<nlword word="kilto" valsi="kilto" />
+<nlword word="klagi&apos;a" valsi="klagi&apos;a" />
+<nlword word="lo marce je te litru" sense="lo ka ce&apos;u marce lo klama lo ve klama" valsi="klama" place="5" />
+<nlword word="lo pluta je se litru" sense="lo ka muvdu fo ce&apos;u" valsi="klama" place="4" />
+<nlword word="lo stuzi" sense="lo ka muvdu fi ce&apos;u" valsi="klama" place="3" />
+<nlword word="lo stuzi" sense="lo ka muvdu ce&apos;u" valsi="klama" place="2" />
+<nlword word="lo zukte je litru" sense="lo ka ce&apos;u muvdu" valsi="klama" place="1" />
 <nlword word="to clear" valsi="kligau" />
-<nlword word="cpesi&apos;u" valsi="cpesi&apos;u" />
-<nlword word="ne&apos;u" valsi="ne&apos;u" />
-<nlword word="su&apos;u" valsi="su&apos;u" />
-<nlword word="portcelanu" valsi="portcelanu" />
-<nlword word="lu" valsi="lu" />
-<nlword word="ditcma" valsi="ditcma" />
-<nlword word="jifkritrazu&apos;e" valsi="jifkritrazu&apos;e" />
-<nlword word="nacmei" valsi="nacmei" />
-<nlword word="aicu&apos;i" valsi="aicu&apos;i" />
-<nlword word="dunda" valsi="dunda" />
-<nlword word="re&apos;i" valsi="re&apos;i" />
+<nlword word="ko" valsi="ko" />
+<nlword word="ko&apos;a" valsi="ko&apos;a" />
+<nlword word="ko&apos;e" valsi="ko&apos;e" />
+<nlword word="ko&apos;i" valsi="ko&apos;i" />
+<nlword word="ko&apos;o" valsi="ko&apos;o" />
+<nlword word="ko&apos;u" valsi="ko&apos;u" />
+<nlword word="koi" valsi="koi" />
+<nlword word="koizva" valsi="koizva" />
+<nlword word="krafamtei" valsi="krafamtei" />
+<nlword word="ku" valsi="ku" />
+<nlword word="ku&apos;a" valsi="ku&apos;a" />
+<nlword word="ku&apos;e" valsi="ku&apos;e" />
+<nlword word="ku&apos;i" valsi="ku&apos;i" />
+<nlword word="ku&apos;o" valsi="ku&apos;o" />
 <nlword word="ku&apos;u" valsi="ku&apos;u" />
-<nlword word="jo&apos;u" valsi="jo&apos;u" />
-<nlword word="crelai" valsi="crelai" />
+<nlword word="kucycuk" valsi="kucycuk" />
+<nlword word="K" valsi="ky" />
+<nlword word="ky" valsi="ky" />
+<nlword word="la" valsi="la" />
+<nlword word="la&apos;a" valsi="la&apos;a" />
+<nlword word="jbome&apos;e" sense="karsnarfa&apos;o" valsi="la&apos;ai" />
+<nlword word="lojbo cmene" sense="kalri sance fanmo" valsi="la&apos;ai" />
+<nlword word="la&apos;e" valsi="la&apos;e" />
+<nlword word="la&apos;erji&apos;i" valsi="la&apos;erji&apos;i" />
+<nlword word="la&apos;erlai" valsi="la&apos;erlai" />
+<nlword word="la&apos;i" valsi="la&apos;i" />
+<nlword word="la&apos;o" valsi="la&apos;o" />
+<nlword word="la&apos;u" valsi="la&apos;u" />
+<nlword word="lafydadblo" valsi="lafydadblo" />
+<nlword word="lafydadma&apos;e" valsi="lafydadma&apos;e" />
+<nlword word="lafydadykarce" valsi="lafydadykarce" />
+<nlword word="lai" valsi="lai" />
+<nlword word="lairka&apos;e" valsi="lairka&apos;e" />
+<nlword word="lardai" valsi="lardai" />
+<nlword word="larmuzga" valsi="larmuzga" />
+<nlword word="larpra" valsi="larpra" />
+<nlword word="lau" valsi="lau" />
+<nlword word="le" valsi="le" />
+<nlword word="le&apos;a" valsi="le&apos;a" />
+<nlword word="le&apos;e" valsi="le&apos;e" />
+<nlword word="le&apos;i" valsi="le&apos;i" />
+<nlword word="le&apos;o" valsi="le&apos;o" />
+<nlword word="le&apos;u" valsi="le&apos;u" />
+<nlword word="lebna" valsi="lebna" />
+<nlword word="lei" valsi="lei" />
+<nlword word="lerfu" valsi="lerfu" />
+<nlword word="li" valsi="li" />
+<nlword word="li&apos;a" valsi="li&apos;a" />
+<nlword word="li&apos;e" valsi="li&apos;e" />
+<nlword word="li&apos;erla&apos;i" valsi="li&apos;erla&apos;i" />
+<nlword word="li&apos;i" valsi="li&apos;i" />
+<nlword word="li&apos;o" valsi="li&apos;o" />
+<nlword word="li&apos;u" valsi="li&apos;u" />
+<nlword word="litru" valsi="litru" />
+<nlword word="lo" valsi="lo" />
+<nlword word="lo&apos;a" valsi="lo&apos;a" />
+<nlword word="lo&apos;e" valsi="lo&apos;e" />
+<nlword word="lo&apos;i" valsi="lo&apos;i" />
+<nlword word="lo&apos;o" valsi="lo&apos;o" />
+<nlword word="lo&apos;u" valsi="lo&apos;u" />
+<nlword word="loi" valsi="loi" />
+<nlword word="lu" valsi="lu" />
+<nlword word="lu&apos;a" valsi="lu&apos;a" />
+<nlword word="lu&apos;e" valsi="lu&apos;e" />
+<nlword word="lu&apos;i" valsi="lu&apos;i" />
+<nlword word="lu&apos;o" valsi="lu&apos;o" />
+<nlword word="lu&apos;u" valsi="lu&apos;u" />
+<nlword word="L" valsi="ly" />
+<nlword word="ly" valsi="ly" />
+<nlword word="ma" valsi="ma" />
+<nlword word="ma&apos;a" valsi="ma&apos;a" />
+<nlword word="ma&apos;e" valsi="ma&apos;e" />
+<nlword word="ma&apos;i" valsi="ma&apos;i" />
+<nlword word="ma&apos;o" valsi="ma&apos;o" />
+<nlword word="ma&apos;u" valsi="ma&apos;u" />
+<nlword word="mai" valsi="mai" />
+<nlword word="mamta" valsi="mamta" />
+<nlword word="mau" valsi="mau" />
+<nlword word="me" valsi="me" />
+<nlword word="me&apos;a" valsi="me&apos;a" />
+<nlword word="ckaji" valsi="me&apos;au" />
+<nlword word="me&apos;e" valsi="me&apos;e" />
+<nlword word="me&apos;i" valsi="me&apos;i" />
+<nlword word="me&apos;o" valsi="me&apos;o" />
+<nlword word="me&apos;u" valsi="me&apos;u" />
+<nlword word="mecyjavdu&apos;i" valsi="mecyjavdu&apos;i" />
+<nlword word="medomoi" valsi="medomoi" />
+<nlword word="mei" valsi="mei" />
+<nlword word="mekfancu" valsi="mekfancu" />
+<nlword word="mekna&apos;u" valsi="mekna&apos;u" />
+<nlword word="meksu&apos;i" valsi="meksu&apos;i" />
+<nlword word="memimoi" valsi="memimoi" />
+<nlword word="memjdika" valsi="memjdika" />
+<nlword word="memymau" valsi="memymau" />
+<nlword word="memyme&apos;a" valsi="memyme&apos;a" />
+<nlword word="memyze&apos;a" valsi="memyze&apos;a" />
+<nlword word="menbi&apos;a" valsi="menbi&apos;a" />
+<nlword word="menri&apos;u" valsi="menri&apos;u" />
+<nlword word="mi" valsi="mi" />
+<nlword word="mi&apos;a" valsi="mi&apos;a" />
+<nlword word="mi&apos;ai" valsi="mi&apos;ai" />
+<nlword word="mi&apos;e" valsi="mi&apos;e" />
+<nlword word="mi&apos;i" valsi="mi&apos;i" />
+<nlword word="akti" sense="minji" valsi="mi&apos;irkai" />
+<nlword word="mi&apos;u" valsi="mi&apos;u" />
+<nlword word="micyxu&apos;i" valsi="micyxu&apos;i" />
+<nlword word="mijgresirji" valsi="mijgresirji" />
+<nlword word="mijravysirji" valsi="mijravysirji" />
+<nlword word="mo" valsi="mo" />
+<nlword word="mo&apos;a" valsi="mo&apos;a" />
+<nlword word="mo&apos;e" valsi="mo&apos;e" />
+<nlword word="mo&apos;i" valsi="mo&apos;i" />
+<nlword word="mo&apos;ibu&apos;u" valsi="mo&apos;ibu&apos;u" />
+<nlword word="mo&apos;o" valsi="mo&apos;o" />
+<nlword word="mo&apos;u" valsi="mo&apos;u" />
+<nlword word="moi" valsi="moi" />
+<nlword word="momlai" valsi="momlai" />
+<nlword word="mrobi&apos;o" valsi="mrobi&apos;o" />
+<nlword word="mrodimna" valsi="mrodimna" />
+<nlword word="5" valsi="mu" />
+<nlword word="mu" valsi="mu" />
+<nlword word="mu&apos;a" valsi="mu&apos;a" />
+<nlword word="mu&apos;e" valsi="mu&apos;e" />
+<nlword word="mu&apos;i" valsi="mu&apos;i" />
+<nlword word="mu&apos;o" valsi="mu&apos;o" />
+<nlword word="mu&apos;u" valsi="mu&apos;u" />
+<nlword word="mulbacysta" valsi="mulbacysta" />
+<nlword word="mulbi&apos;o" valsi="mulbi&apos;o" />
+<nlword word="mulcabna" valsi="mulcabna" />
+<nlword word="mulfa&apos;o" valsi="mulfa&apos;o" />
+<nlword word="muljbi" valsi="muljbi" />
+<nlword word="mupli" valsi="mupli" />
+<nlword word="mutce" valsi="mutce" />
+<nlword word="muvdu" valsi="muvdu" />
+<nlword word="muvyca&apos;e" valsi="muvyca&apos;e" />
+<nlword word="muvycpu" valsi="muvycpu" />
+<nlword word="M" valsi="my" />
+<nlword word="my" valsi="my" />
+<nlword word="na" valsi="na" />
+<nlword word="na&apos;a" valsi="na&apos;a" />
+<nlword word="na&apos;asmi" valsi="na&apos;asmi" />
+<nlword word="na&apos;azma" valsi="na&apos;azma" />
+<nlword word="na&apos;e" valsi="na&apos;e" />
+<nlword word="na&apos;i" valsi="na&apos;i" />
+<nlword word="na&apos;o" valsi="na&apos;o" />
+<nlword word="na&apos;u" valsi="na&apos;u" />
+<nlword word="nacmei" valsi="nacmei" />
+<nlword word="nacmeimei" valsi="nacmeimei" />
+<nlword word="nacnilbra" valsi="nacnilbra" />
+<nlword word="nadmau" valsi="nadmau" />
+<nlword word="nai" valsi="nai" />
+<nlword word="nalci&apos;i" valsi="nalci&apos;i" />
+<nlword word="naldji" valsi="naldji" />
+<nlword word="nalju&apos;i" valsi="nalju&apos;i" />
+<nlword word="nalmu&apos;o" valsi="nalmu&apos;o" />
+<nlword word="nalxe&apos;u" valsi="nalxe&apos;u" />
+<nlword word="nalzaucru" valsi="nalzaucru" />
+<nlword word="nalzungi" valsi="nalzungi" />
+<nlword word="simxu" sense="namcu pe&apos;a" valsi="namcixu" />
+<nlword word="namcu" valsi="namcu" />
+<nlword word="nanbi&apos;e" valsi="nanbi&apos;e" />
+<nlword word="narju" valsi="narju" />
+<nlword word="nau" valsi="nau" />
+<nlword word="nauspe" valsi="nauspe" />
+<nlword word="ne" valsi="ne" />
+<nlword word="ne&apos;a" valsi="ne&apos;a" />
+<nlword word="ne&apos;i" valsi="ne&apos;i" />
+<nlword word="ne&apos;o" valsi="ne&apos;o" />
+<nlword word="ne&apos;u" valsi="ne&apos;u" />
+<nlword word="nei" valsi="nei" />
+<nlword word="nencladakyxa&apos;i" valsi="nencladakyxa&apos;i" />
+<nlword word="ni" valsi="ni" />
+<nlword word="ni&apos;a" valsi="ni&apos;a" />
+<nlword word="ni&apos;e" valsi="ni&apos;e" />
+<nlword word="ni&apos;i" valsi="ni&apos;i" />
+<nlword word="ni&apos;o" valsi="ni&apos;o" />
+<nlword word="ni&apos;u" valsi="ni&apos;u" />
+<nlword word="nibli" valsi="nibli" />
+<nlword word="nilbra" valsi="nilbra" />
+<nlword word="nimspe" valsi="nimspe" />
+<nlword word="no" valsi="no" />
+<nlword word="no&apos;a" valsi="no&apos;a" />
+<nlword word="no&apos;e" valsi="no&apos;e" />
+<nlword word="no&apos;i" valsi="no&apos;i" />
+<nlword word="no&apos;o" valsi="no&apos;o" />
+<nlword word="no&apos;u" valsi="no&apos;u" />
+<nlword word="noi" valsi="noi" />
+<nlword word="noltruti&apos;u" valsi="noltruti&apos;u" />
+<nlword word="nonjdi" valsi="nonjdi" />
+<nlword word="nonkansa" valsi="nonkansa" />
+<nlword word="nonmau" valsi="nonmau" />
+<nlword word="nonme&apos;a" valsi="nonme&apos;a" />
+<nlword word="nonseka" valsi="nonseka" />
+<nlword word="nonselji&apos;u" valsi="nonselji&apos;u" />
+<nlword word="nonselkansa" valsi="nonselkansa" />
+<nlword word="nonselsmu" valsi="nonselsmu" />
+<nlword word="nonselsumji" valsi="nonselsumji" />
+<nlword word="nonseltai" valsi="nonseltai" />
+<nlword word="norpa&apos;i" valsi="norpa&apos;i" />
+<nlword word="noryragve" valsi="noryragve" />
+<nlword word="norzau" valsi="norzau" />
+<nlword word="nu" valsi="nu" />
+<nlword word="nu&apos;a" valsi="nu&apos;a" />
+<nlword word="nu&apos;e" valsi="nu&apos;e" />
+<nlword word="nu&apos;i" valsi="nu&apos;i" />
+<nlword word="nu&apos;o" valsi="nu&apos;o" />
+<nlword word="nu&apos;u" valsi="nu&apos;u" />
+<nlword word="nunctu" valsi="nunctu" />
+<nlword word="nunka&apos;oku&apos;i" valsi="nunka&apos;oku&apos;i" />
+<nlword word="nunka&apos;okujbriju" valsi="nunka&apos;okujbriju" />
+<nlword word="N" valsi="ny" />
+<nlword word="ny" valsi="ny" />
+<nlword word="o" valsi="o" />
+<nlword word="o&apos;a" valsi="o&apos;a" />
+<nlword word="o&apos;acu&apos;i" valsi="o&apos;acu&apos;i" />
+<nlword word="o&apos;anai" valsi="o&apos;anai" />
+<nlword word="o&apos;e" valsi="o&apos;e" />
+<nlword word="o&apos;enai" valsi="o&apos;enai" />
+<nlword word="o&apos;i" valsi="o&apos;i" />
+<nlword word="o&apos;o" valsi="o&apos;o" />
+<nlword word="o&apos;onai" valsi="o&apos;onai" />
+<nlword word="o&apos;u" valsi="o&apos;u" />
+<nlword word="O" valsi="obu" />
+<nlword word="obu" valsi="obu" />
+<nlword word="odbenu" valsi="odbenu" />
+<nlword word="oi" valsi="oi" />
+<nlword word="oinai" valsi="oinai" />
+<nlword word="1" valsi="pa" />
+<nlword word="pa" valsi="pa" />
+<nlword word="pa&apos;a" valsi="pa&apos;a" />
+<nlword word="pa&apos;e" valsi="pa&apos;e" />
+<nlword word="pa&apos;i" valsi="pa&apos;i" />
+<nlword word="pa&apos;o" valsi="pa&apos;o" />
+<nlword word="pa&apos;u" valsi="pa&apos;u" />
+<nlword word="pai" valsi="pai" />
+<nlword word="pairnu&apos;i" valsi="pairnu&apos;i" />
+<nlword word="pakydadysri" valsi="pakydadysri" />
+<nlword word="pampe&apos;o" valsi="pampe&apos;o" />
+<nlword word="pamsi&apos;u" valsi="pamsi&apos;u" />
+<nlword word="parbi" valsi="parbi" />
+<nlword word="patfu" valsi="patfu" />
+<nlword word="pau" valsi="pau" />
+<nlword word="pavdilcu" valsi="pavdilcu" />
+<nlword word="pavmoibe&apos;a" valsi="pavmoibe&apos;a" />
+<nlword word="pavmoiti&apos;u" valsi="pavmoiti&apos;u" />
+<nlword word="pavyseljirna" valsi="pavyseljirna" />
+<nlword word="pavzilcatra" valsi="pavzilcatra" />
+<nlword word="pavzildau" valsi="pavzildau" />
+<nlword word="pe" valsi="pe" />
+<nlword word="pe&apos;a" valsi="pe&apos;a" />
+<nlword word="pe&apos;e" valsi="pe&apos;e" />
+<nlword word="pe&apos;i" valsi="pe&apos;i" />
+<nlword word="pe&apos;o" valsi="pe&apos;o" />
+<nlword word="pe&apos;u" valsi="pe&apos;u" />
+<nlword word="pei" valsi="pei" />
+<nlword word="pelxu" valsi="pelxu" />
+<nlword word="pi" valsi="pi" />
+<nlword word="pi&apos;a" valsi="pi&apos;a" />
+<nlword word="pi&apos;e" valsi="pi&apos;e" />
+<nlword word="pi&apos;i" valsi="pi&apos;i" />
+<nlword word="pi&apos;o" valsi="pi&apos;o" />
+<nlword word="pi&apos;u" valsi="pi&apos;u" />
+<nlword word="pilji" valsi="pilji" />
+<nlword word="pinblo" valsi="pinblo" />
+<nlword word="plika&apos;e" valsi="plika&apos;e" />
+<nlword word="po" valsi="po" />
+<nlword word="po&apos;e" valsi="po&apos;e" />
+<nlword word="po&apos;i" valsi="po&apos;i" />
+<nlword word="po&apos;o" valsi="po&apos;o" />
+<nlword word="po&apos;u" valsi="po&apos;u" />
+<nlword word="poi" valsi="poi" />
+<nlword word="portcelanu" valsi="portcelanu" />
+<nlword word="prali" valsi="prali" />
+<nlword word="prami" valsi="prami" place="1" />
+<nlword word="prevrici" valsi="prevrici" />
+<nlword word="pu" valsi="pu" />
+<nlword word="pu&apos;a" valsi="pu&apos;a" />
+<nlword word="pu&apos;e" valsi="pu&apos;e" />
+<nlword word="pu&apos;i" valsi="pu&apos;i" />
+<nlword word="pu&apos;o" valsi="pu&apos;o" />
+<nlword word="pu&apos;u" valsi="pu&apos;u" />
+<nlword word="punji" valsi="punji" />
+<nlword word="purci" valsi="purci" />
+<nlword word="P" valsi="py" />
+<nlword word="py" valsi="py" />
+<nlword word="ra" valsi="ra" />
+<nlword word="ra&apos;a" valsi="ra&apos;a" />
+<nlword word="ra&apos;abri" valsi="ra&apos;abri" />
+<nlword word="cmeme" sense="pa nalsmucme" valsi="ra&apos;ai" />
+<nlword word="ra&apos;e" valsi="ra&apos;e" />
+<nlword word="ra&apos;i" valsi="ra&apos;i" />
+<nlword word="ra&apos;irsumji" valsi="ra&apos;irsumji" />
+<nlword word="ra&apos;o" valsi="ra&apos;o" />
+<nlword word="ra&apos;u" valsi="ra&apos;u" />
+<nlword word="ragve" valsi="ragve" />
+<nlword word="rai" valsi="rai" />
+<nlword word="rau" valsi="rau" />
+<nlword word="2" valsi="re" />
+<nlword word="re" valsi="re" />
+<nlword word="re&apos;a" valsi="re&apos;a" />
+<nlword word="re&apos;e" valsi="re&apos;e" />
+<nlword word="re&apos;i" valsi="re&apos;i" />
+<nlword word="re&apos;o" valsi="re&apos;o" />
+<nlword word="re&apos;u" valsi="re&apos;u" />
+<nlword word="refcfa" valsi="refcfa" />
+<nlword word="refcfari&apos;a" valsi="refcfari&apos;a" />
+<nlword word="rei" valsi="rei" />
+<nlword word="relnacmei" valsi="relnacmei" />
+<nlword word="remnkimi" valsi="remnkimi" />
+<nlword word="remsmi" valsi="remsmi" />
+<nlword word="resycei" valsi="resycei" />
+<nlword word="resycrida" valsi="resycrida" />
+<nlword word="cusku lo preti" valsi="retsku" />
+<nlword word="retsku" valsi="retsku" />
+<nlword word="ri" valsi="ri" />
+<nlword word="ri&apos;a" valsi="ri&apos;a" />
+<nlword word="ri&apos;e" valsi="ri&apos;e" />
+<nlword word="ri&apos;i" valsi="ri&apos;i" />
+<nlword word="ri&apos;o" valsi="ri&apos;o" />
+<nlword word="ri&apos;u" valsi="ri&apos;u" />
+<nlword word="rinju&apos;o" valsi="rinju&apos;o" />
+<nlword word="rinsa" valsi="rinsa" />
+<nlword word="rirni" valsi="rirni" />
+<nlword word="rivli&apos;a" valsi="rivli&apos;a" />
+<nlword word="ro" valsi="ro" />
+<nlword word="ro&apos;a" valsi="ro&apos;a" />
+<nlword word="ro&apos;e" valsi="ro&apos;e" />
+<nlword word="ro&apos;i" valsi="ro&apos;i" />
+<nlword word="ro&apos;o" valsi="ro&apos;o" />
+<nlword word="ro&apos;u" valsi="ro&apos;u" />
+<nlword word="roi" valsi="roi" />
+<nlword word="rolju&apos;o" valsi="rolju&apos;o" />
+<nlword word="rolnonvlina" valsi="rolnonvlina" />
+<nlword word="rolselsumji" valsi="rolselsumji" />
+<nlword word="simxu" sense="ro" valsi="rolsixu" />
+<nlword word="rorci" valsi="rorci" />
+<nlword word="rorlei" valsi="rorlei" />
+<nlword word="rotsu" valsi="rotsu" />
+<nlword word="ru" valsi="ru" />
+<nlword word="ru&apos;a" valsi="ru&apos;a" />
+<nlword word="ru&apos;e" valsi="ru&apos;e" />
+<nlword word="ru&apos;i" valsi="ru&apos;i" />
+<nlword word="ru&apos;o" valsi="ru&apos;o" />
+<nlword word="ru&apos;u" valsi="ru&apos;u" />
+<nlword word="R" valsi="ry" />
+<nlword word="ry" valsi="ry" />
+<nlword word="sa" valsi="sa" />
+<nlword word="sa&apos;a" valsi="sa&apos;a" />
+<nlword word="sa&apos;e" valsi="sa&apos;e" />
+<nlword word="sa&apos;i" valsi="sa&apos;i" />
+<nlword word="sa&apos;o" valsi="sa&apos;o" />
+<nlword word="sa&apos;u" valsi="sa&apos;u" />
+<nlword word="sai" valsi="sai" />
+<nlword word="user" sense="computer user" valsi="samnarca&apos;igau" place="1" />
+<nlword word="username" sense="computer" valsi="samnarca&apos;igau" place="3" />
+<nlword word="username" valsi="samnarca&apos;igau" place="3" />
+<nlword word="sau" valsi="sau" />
+<nlword word="se" valsi="se" />
+<nlword word="se&apos;a" valsi="se&apos;a" />
+<nlword word="se&apos;e" valsi="se&apos;e" />
+<nlword word="se&apos;i" valsi="se&apos;i" />
+<nlword word="se&apos;o" valsi="se&apos;o" />
+<nlword word="se&apos;u" valsi="se&apos;u" />
+<nlword word="seba&apos;i" valsi="seba&apos;i" />
+<nlword word="sedyta&apos;u" valsi="sedyta&apos;u" />
+<nlword word="sei" valsi="sei" />
+<nlword word="selba&apos;agau" valsi="selba&apos;agau" />
+<nlword word="selbri tcita" valsi="selbritcita" place="1" />
+<nlword word="selcmipi&apos;i" valsi="selcmipi&apos;i" />
+<nlword word="selfa&apos;a" valsi="selfa&apos;a" />
+<nlword word="tcidu lo se cusku" valsi="selskutidmulbi&apos;o" />
+<nlword word="selsumji" valsi="selsumji" />
+<nlword word="selte&apos;i" valsi="selte&apos;i" />
+<nlword word="seltelgau" valsi="seltelgau" />
+<nlword word="seltenfa" valsi="seltenfa" />
+<nlword word="seltinynalka&apos;e" valsi="seltinynalka&apos;e" />
+<nlword word="selvisnalka&apos;e" valsi="selvisnalka&apos;e" />
+<nlword word="senpi" valsi="senpi" />
+<nlword word="sepi&apos;o" valsi="sepi&apos;o" />
+<nlword word="setca" valsi="setca" />
+<nlword word="sezbanzu" valsi="sezbanzu" />
+<nlword word="sezybitygau" valsi="sezybitygau" />
+<nlword word="sezyskinoi" valsi="sezyskinoi" place="1" />
+<nlword word="sferies" valsi="sferies" />
+<nlword word="sfofa" valsi="sfofa" />
+<nlword word="si" valsi="si" />
+<nlword word="si&apos;a" valsi="si&apos;a" />
+<nlword word="si&apos;au" valsi="si&apos;au" />
+<nlword word="si&apos;e" valsi="si&apos;e" />
+<nlword word="si&apos;i" valsi="si&apos;i" />
+<nlword word="si&apos;o" valsi="si&apos;o" />
+<nlword word="si&apos;u" valsi="si&apos;u" />
+<nlword word="sibykansa" valsi="sibykansa" />
+<nlword word="sicpi" valsi="sicpi" />
+<nlword word="sicybi&apos;e" valsi="sicybi&apos;e" />
+<nlword word="simbasti" valsi="simbasti" />
+<nlword word="simbasygau" valsi="simbasygau" />
+<nlword word="simsumji" valsi="simsumji" />
+<nlword word="sivypalku" valsi="sivypalku" />
+<nlword word="skubancu" valsi="skubancu" />
+<nlword word="skudji" valsi="skudji" />
+<nlword word="smaji" valsi="smaji" />
+<nlword word="snicne" valsi="snicne" />
+<nlword word="snigau" valsi="snigau" />
+<nlword word="snisimsumji" valsi="snisimsumji" />
+<nlword word="snuti" valsi="snuti" />
 <nlword word="9" valsi="so" />
 <nlword word="so" valsi="so" />
-<nlword word="mutce" valsi="mutce" />
-<nlword word="muvyca&apos;e" valsi="muvyca&apos;e" />
-<nlword word="pavmoibe&apos;a" valsi="pavmoibe&apos;a" />
-<nlword word="be&apos;i" valsi="be&apos;i" />
-<nlword word="no&apos;a" valsi="no&apos;a" />
-<nlword word="nencladakyxa&apos;i" valsi="nencladakyxa&apos;i" />
-<nlword word="tolna&apos;e" valsi="tolna&apos;e" />
-<nlword word="pu&apos;i" valsi="pu&apos;i" />
-<nlword word="nauspe" valsi="nauspe" />
-<nlword word="mi&apos;a" valsi="mi&apos;a" />
-<nlword word="fi&apos;e" valsi="fi&apos;e" />
-<nlword word="meksu&apos;i" valsi="meksu&apos;i" />
-<nlword word="u&apos;a" valsi="u&apos;a" />
-<nlword word="jufmei" valsi="jufmei" />
-<nlword word="te&apos;u" valsi="te&apos;u" />
-<nlword word="zmajavdu&apos;i" valsi="zmajavdu&apos;i" />
-<nlword word="va" valsi="va" />
-<nlword word="nonselkansa" valsi="nonselkansa" />
-<nlword word="si&apos;e" valsi="si&apos;e" />
-<nlword word="li&apos;erla&apos;i" valsi="li&apos;erla&apos;i" />
-<nlword word="ni" valsi="ni" />
-<nlword word="cabna" valsi="cabna" />
-<nlword word="caxno" valsi="caxno" />
-<nlword word="tolcfa" valsi="tolcfa" />
-<nlword word="xekri" valsi="xekri" />
-<nlword word="da&apos;i" valsi="da&apos;i" />
-<nlword word="lu&apos;e" valsi="lu&apos;e" />
-<nlword word="verku&apos;i" valsi="verku&apos;i" />
-<nlword word="vu&apos;u" valsi="vu&apos;u" />
-<nlword word="pa&apos;i" valsi="pa&apos;i" />
-<nlword word="ko&apos;o" valsi="ko&apos;o" />
-<nlword word="iju" valsi="iju" />
-<nlword word="ro&apos;o" valsi="ro&apos;o" />
-<nlword word="nalxe&apos;u" valsi="nalxe&apos;u" />
-<nlword word="cabda&apos;o" valsi="cabda&apos;o" />
-<nlword word="vimsivypalku" valsi="vimsivypalku" />
-<nlword word="punji" valsi="punji" />
-<nlword word="ja&apos;o" valsi="ja&apos;o" />
-<nlword word="tamsmi" valsi="tamsmi" />
-<nlword word="fu&apos;u" valsi="fu&apos;u" />
-<nlword word="uinai" valsi="uinai" />
-<nlword word="rirni" valsi="rirni" />
-<nlword word="rotsu" valsi="rotsu" />
-<nlword word="ckana" valsi="ckana" />
-<nlword word="ge&apos;e" valsi="ge&apos;e" />
-<nlword word="nu" valsi="nu" />
-<nlword word="lo" valsi="lo" />
-<nlword word="spusku" valsi="spusku" />
-<nlword word="roi" valsi="roi" />
-<nlword word="la&apos;i" valsi="la&apos;i" />
-<nlword word="dau" valsi="dau" />
-<nlword word="ki&apos;i" valsi="ki&apos;i" />
-<nlword word="smaji" valsi="smaji" />
-<nlword word="resycrida" valsi="resycrida" />
-<nlword word="cu&apos;e" valsi="cu&apos;e" />
-<nlword word="simbasti" valsi="simbasti" />
-<nlword word="zau" valsi="zau" />
-<nlword word="vei" valsi="vei" />
-<nlword word="pa&apos;u" valsi="pa&apos;u" />
-<nlword word="ba&apos;e" valsi="ba&apos;e" />
-<nlword word="celgunta" valsi="celgunta" place="1" />
-<nlword word="se celgunta" valsi="celgunta" place="2" />
-<nlword word="dubju&apos;o" valsi="dubju&apos;o" />
-<nlword word="gu&apos;a" valsi="gu&apos;a" />
-<nlword word="toldarsygau" valsi="toldarsygau" />
-<nlword word="li&apos;i" valsi="li&apos;i" />
-<nlword word="do&apos;a" valsi="do&apos;a" />
-<nlword word="ki&apos;otre" valsi="ki&apos;otre" />
-<nlword word="tcanylu&apos;a" valsi="tcanylu&apos;a" />
-<nlword word="broda" valsi="broda" />
-<nlword word="si" valsi="si" />
-<nlword word="du" valsi="du" />
-<nlword word="ti&apos;a" valsi="ti&apos;a" />
-<nlword word="ji&apos;isku" valsi="ji&apos;isku" />
-<nlword word="tu&apos;o" valsi="tu&apos;o" />
-<nlword word="uonai" valsi="uonai" />
-<nlword word="citmle" sense="u&apos;unai" valsi="au&apos;u" />
-<nlword word="au&apos;u" sense="u&apos;unai" valsi="au&apos;u" />
-<nlword word="jonma&apos;o" valsi="jonma&apos;o" />
-<nlword word="tolrinsa" valsi="tolrinsa" />
-<nlword word="cpezu&apos;e" valsi="cpezu&apos;e" />
-<nlword word="da&apos;u" valsi="da&apos;u" />
-<nlword word="fo" valsi="fo" />
-<nlword word="pi" valsi="pi" />
-<nlword word="gubgudytrusi&apos;o" valsi="gubgudytrusi&apos;o" />
-<nlword word="menri&apos;u" valsi="menri&apos;u" />
-<nlword word="uecu&apos;i" valsi="uecu&apos;i" />
-<nlword word="lo&apos;u" valsi="lo&apos;u" />
-<nlword word="bajyjvi" valsi="bajyjvi" />
-<nlword word="ne&apos;o" valsi="ne&apos;o" />
-<nlword word="zo&apos;a" valsi="zo&apos;a" />
-<nlword word="oi" valsi="oi" />
-<nlword word="datmau" valsi="datmau" />
-<nlword word="pamsi&apos;u" valsi="pamsi&apos;u" />
-<nlword word="blanu fa&apos;u crino pu fa&apos;u ba febu" sense="lo skari pe la .gydman." valsi="brano" />
-<nlword word="zu&apos;a" valsi="zu&apos;a" />
-<nlword word="mijravysirji" valsi="mijravysirji" />
-<nlword word="ga" valsi="ga" />
-<nlword word="ki&apos;u" valsi="ki&apos;u" />
-<nlword word="vu&apos;o" valsi="vu&apos;o" />
-<nlword word="nunctu" valsi="nunctu" />
-<nlword word="me&apos;e" valsi="me&apos;e" />
-<nlword word="mai" valsi="mai" />
-<nlword word="nadmau" valsi="nadmau" />
-<nlword word="ku" valsi="ku" />
-<nlword word="vu&apos;a" valsi="vu&apos;a" />
-<nlword word="go&apos;a" valsi="go&apos;a" />
-<nlword word="bu&apos;a" valsi="bu&apos;a" />
-<nlword word="sumpoi" valsi="sumpoi" />
-<nlword word="nonseka" valsi="nonseka" />
-<nlword word="zi" valsi="zi" />
-<nlword word="brika&apos;i" valsi="brika&apos;i" />
-<nlword word="gugdejupu" valsi="gugdejupu" />
-<nlword word="ze&apos;e" valsi="ze&apos;e" />
-<nlword word="coi" valsi="coi" />
-<nlword word="lei" valsi="lei" />
-<nlword word="ganlo" valsi="ganlo" />
-<nlword word="xu" valsi="xu" />
-<nlword word="i&apos;e" valsi="i&apos;e" />
-<nlword word="zilfanva" valsi="zilfanva" />
-<nlword word="di&apos;o" valsi="di&apos;o" />
-<nlword word="sferies" valsi="sferies" />
-<nlword word="ni&apos;i" valsi="ni&apos;i" />
-<nlword word="ti&apos;o" valsi="ti&apos;o" />
-<nlword word="toltce" valsi="toltce" />
-<nlword word=".urli jungau" valsi="uebjugau" />
-<nlword word="se&apos;u" valsi="se&apos;u" />
-<nlword word="mulbacysta" valsi="mulbacysta" />
-<nlword word="calbra" valsi="calbra" />
-<nlword word="iunai" valsi="iunai" />
-<nlword word="ne&apos;a" valsi="ne&apos;a" />
-<nlword word="di&apos;u" valsi="di&apos;u" />
-<nlword word="se&apos;o" valsi="se&apos;o" />
+<nlword word="so&apos;a" valsi="so&apos;a" />
+<nlword word="so&apos;e" valsi="so&apos;e" />
+<nlword word="so&apos;i" valsi="so&apos;i" />
+<nlword word="so&apos;o" valsi="so&apos;o" />
+<nlword word="so&apos;u" valsi="so&apos;u" />
+<nlword word="soi" valsi="soi" />
+<nlword word="soirsai" valsi="soirsai" />
+<nlword word="solri ke dikca cupra minji" sense="minji lo ka cupra lo dikca" valsi="solgu&apos;idicyborprami&apos;i" />
+<nlword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" valsi="solgu&apos;idicyborprami&apos;i" />
+<nlword word="solnuntolcanci" valsi="solnuntolcanci" />
 <nlword word="sorju&apos;o" valsi="sorju&apos;o" />
-<nlword word="varmuvgau" valsi="varmuvgau" />
-<nlword word="visycu&apos;i" valsi="visycu&apos;i" />
-<nlword word="iu" valsi="iu" />
-<nlword word="ru&apos;u" valsi="ru&apos;u" />
-<nlword word="me&apos;i" valsi="me&apos;i" />
-<nlword word="o&apos;enai" valsi="o&apos;enai" />
-<nlword word="y&apos;y" valsi="y&apos;y" />
-<nlword word="refcfari&apos;a" valsi="refcfari&apos;a" />
-<nlword word="co&apos;a" valsi="co&apos;a" />
-<nlword word="xei" valsi="xei" />
+<nlword word="sorprekarce" valsi="sorprekarce" />
+<nlword word="sorselsmu" valsi="sorselsmu" />
+<nlword word="soryroi" valsi="soryroi" />
 <nlword word="sotroi" valsi="sotroi" />
-<nlword word="jaursabytu&apos;u" valsi="jaursabytu&apos;u" />
-<nlword word="ni&apos;o" valsi="ni&apos;o" />
-<nlword word="xi" valsi="xi" />
+<nlword word="speli&apos;u" valsi="speli&apos;u" />
+<nlword word="spusku" valsi="spusku" />
+<nlword word="stakrportcelanu" valsi="stakrportcelanu" />
+<nlword word="stizu" valsi="stizu" />
+<nlword word="stuzi" valsi="stuzi" />
+<nlword word="su" valsi="su" />
+<nlword word="su&apos;a" valsi="su&apos;a" />
+<nlword word="su&apos;e" valsi="su&apos;e" />
+<nlword word="su&apos;i" valsi="su&apos;i" />
+<nlword word="su&apos;o" valsi="su&apos;o" />
+<nlword word="su&apos;u" valsi="su&apos;u" />
+<nlword word="sudysrasu" valsi="sudysrasu" />
+<nlword word="sujysi&apos;u" valsi="sujysi&apos;u" />
+<nlword word="sumgadri" valsi="sumgadri" />
+<nlword word="sumji" valsi="sumji" />
+<nlword word="sumka&apos;i" valsi="sumka&apos;i" />
+<nlword word="sumpoi" valsi="sumpoi" />
+<nlword word="sumsmi" valsi="sumsmi" />
+<nlword word="sumti tcita" valsi="sumtcita" place="1" />
+<nlword word="tcita sumti" valsi="sumtcita" place="2" />
+<nlword word="sunbi&apos;e" valsi="sunbi&apos;e" />
+<nlword word="suzroi" valsi="suzroi" />
+<nlword word="S" valsi="sy" />
+<nlword word="sy" valsi="sy" />
+<nlword word="ta" valsi="ta" />
+<nlword word="ta&apos;a" valsi="ta&apos;a" />
+<nlword word="ta&apos;e" valsi="ta&apos;e" />
+<nlword word="ta&apos;i" valsi="ta&apos;i" />
+<nlword word="ta&apos;o" valsi="ta&apos;o" />
+<nlword word="ta&apos;u" valsi="ta&apos;u" />
+<nlword word="tai" valsi="tai" />
+<nlword word="tamne" valsi="tamne" />
+<nlword word="tamsmi" valsi="tamsmi" />
+<nlword word="tapflifa&apos;u" valsi="tapflifa&apos;u" />
+<nlword word="tau" valsi="tau" />
+<nlword word="tanru lujvo" sense="tanru kelci ke lujvo" valsi="tau&apos;o" />
+<nlword word="taujvo" sense="taurkaikemjvo" valsi="tau&apos;o" />
+<nlword word="tavysi&apos;u" valsi="tavysi&apos;u" />
+<nlword word="tcanylu&apos;a" valsi="tcanylu&apos;a" />
 <nlword word="tcapau" valsi="tcapau" />
-<nlword word="fe" valsi="fe" />
-<nlword word="ei" valsi="ei" />
-<nlword word="pampe&apos;o" valsi="pampe&apos;o" />
-<nlword word="ro&apos;u" valsi="ro&apos;u" />
-<nlword word="odbenu" valsi="odbenu" />
-<nlword word="D" valsi="dy" />
-<nlword word="dy" valsi="dy" />
-<nlword word="py" valsi="py" />
-<nlword word="P" valsi="py" />
-<nlword word="nu&apos;i" valsi="nu&apos;i" />
-<nlword word="do&apos;u" valsi="do&apos;u" />
-<nlword word="gafygau" valsi="gafygau" />
-<nlword word="foi" valsi="foi" />
-<nlword word="no" valsi="no" />
-<nlword word="a&apos;o" valsi="a&apos;o" />
-<nlword word="vi&apos;o" valsi="vi&apos;o" />
-<nlword word="gi&apos;u" valsi="gi&apos;u" />
-<nlword word="xabme&apos;a" valsi="xabme&apos;a" />
-<nlword word="kamre li dau te&apos;a dau bi&apos;ete&apos;a re" valsi="kamrngogolo" />
-<nlword word="selcmipi&apos;i" valsi="selcmipi&apos;i" />
-<nlword word="fa&apos;orma&apos;o" valsi="fa&apos;orma&apos;o" />
-<nlword word="ue" valsi="ue" />
-<nlword word="nei" valsi="nei" />
-<nlword word="ji&apos;u" valsi="ji&apos;u" />
-<nlword word="ra&apos;u" valsi="ra&apos;u" />
-<nlword word="kakne" sense="lo ka jai si&apos;u farvi" valsi="ferti" />
-<nlword word="jonsi&apos;u" valsi="jonsi&apos;u" />
-<nlword word="u" valsi="u" />
-<nlword word="ju&apos;o" valsi="ju&apos;o" />
-<nlword word="mrobi&apos;o" valsi="mrobi&apos;o" />
-<nlword word="va&apos;u" valsi="va&apos;u" />
+<nlword word="te" valsi="te" />
+<nlword word="te&apos;a" valsi="te&apos;a" />
+<nlword word="te&apos;e" valsi="te&apos;e" />
+<nlword word="te&apos;o" valsi="te&apos;o" />
+<nlword word="te&apos;u" valsi="te&apos;u" />
+<nlword word="tefpi&apos;i" valsi="tefpi&apos;i" />
+<nlword word="tei" valsi="tei" />
+<nlword word="telcaugau" valsi="telcaugau" />
+<nlword word="tenfa" valsi="tenfa" />
+<nlword word="terjonma&apos;o" valsi="terjonma&apos;o" />
+<nlword word="terkruca" valsi="terkruca" />
+<nlword word="tersei" valsi="tersei" />
+<nlword word="ti" valsi="ti" />
+<nlword word="ti&apos;a" valsi="ti&apos;a" />
+<nlword word="ti&apos;e" valsi="ti&apos;e" />
+<nlword word="ti&apos;i" valsi="ti&apos;i" />
+<nlword word="ti&apos;o" valsi="ti&apos;o" />
+<nlword word="ti&apos;u" valsi="ti&apos;u" />
+<nlword word="tixnu" valsi="tixnu" />
+<nlword word="to" valsi="to" />
+<nlword word="to&apos;a" valsi="to&apos;a" />
+<nlword word="to&apos;e" valsi="to&apos;e" />
+<nlword word="to&apos;i" valsi="to&apos;i" />
+<nlword word="to&apos;o" valsi="to&apos;o" />
+<nlword word="toi" valsi="toi" />
+<nlword word="tolcfa" valsi="tolcfa" />
+<nlword word="tolcru" valsi="tolcru" />
+<nlword word="toldarsi" valsi="toldarsi" />
+<nlword word="toldarsygau" valsi="toldarsygau" />
+<nlword word="toldicra" valsi="toldicra" />
+<nlword word="toldji" valsi="toldji" />
+<nlword word="toldu&apos;e" valsi="toldu&apos;e" />
+<nlword word="tolju&apos;i" valsi="tolju&apos;i" />
+<nlword word="tolke&apos;i" valsi="tolke&apos;i" />
+<nlword word="tolkri" valsi="tolkri" />
+<nlword word="tolna&apos;e" valsi="tolna&apos;e" />
+<nlword word="tolpa&apos;a" valsi="tolpa&apos;a" />
+<nlword word="tolprali" valsi="tolprali" />
+<nlword word="tolragve" valsi="tolragve" />
+<nlword word="tolri&apos;ugau" valsi="tolri&apos;ugau" />
+<nlword word="tolrinsa" valsi="tolrinsa" />
+<nlword word="tolsi&apos;a" valsi="tolsi&apos;a" />
+<nlword word="as little as possible" valsi="toltankomo" />
+<nlword word="toltce" valsi="toltce" />
+<nlword word="toltu&apos;i" valsi="toltu&apos;i" />
 <nlword word="tolvri" valsi="tolvri" />
-<nlword word="du&apos;o" valsi="du&apos;o" />
+<nlword word="tolzau" valsi="tolzau" />
+<nlword word="tolzdi" valsi="tolzdi" />
+<nlword word="tordu" valsi="tordu" />
+<nlword word="trusi&apos;o" valsi="trusi&apos;o" />
+<nlword word="to&apos;e cliva" valsi="tsuku" />
+<nlword word="tolyli&apos;a" valsi="tsuku" />
+<nlword word="tsuku" valsi="tsuku" />
+<nlword word="tu" valsi="tu" />
+<nlword word="tu&apos;a" valsi="tu&apos;a" />
+<nlword word="tu&apos;e" valsi="tu&apos;e" />
+<nlword word="tu&apos;i" valsi="tu&apos;i" />
+<nlword word="tu&apos;o" valsi="tu&apos;o" />
+<nlword word="tu&apos;u" valsi="tu&apos;u" />
+<nlword word="se tu&apos;urbirka" valsi="tu&apos;urbirka" place="2" />
+<nlword word="tu&apos;urbirka" valsi="tu&apos;urbirka" place="1" />
+<nlword word="tunba" valsi="tunba" />
+<nlword word="tupne&apos;o" valsi="tupne&apos;o" />
+<nlword word="T" valsi="ty" />
+<nlword word="ty" valsi="ty" />
+<nlword word="u" valsi="u" />
+<nlword word="u&apos;a" valsi="u&apos;a" />
+<nlword word="u&apos;anai" valsi="u&apos;anai" />
+<nlword word="u&apos;e" valsi="u&apos;e" />
+<nlword word="u&apos;enai" valsi="u&apos;enai" />
+<nlword word="u&apos;i" valsi="u&apos;i" />
+<nlword word="u&apos;inai" valsi="u&apos;inai" />
+<nlword word="u&apos;o" valsi="u&apos;o" />
+<nlword word="u&apos;ocu&apos;i" valsi="u&apos;ocu&apos;i" />
+<nlword word="u&apos;onai" valsi="u&apos;onai" />
+<nlword word="u&apos;u" valsi="u&apos;u" />
+<nlword word="u&apos;ucu&apos;i" valsi="u&apos;ucu&apos;i" />
+<nlword word="u&apos;unai" valsi="u&apos;unai" />
+<nlword word="ua" valsi="ua" />
+<nlword word="uanai" valsi="uanai" />
+<nlword word="U" valsi="ubu" />
+<nlword word="ubu" valsi="ubu" />
+<nlword word="ue" valsi="ue" />
+<nlword word=".urli jungau" valsi="uebjugau" />
+<nlword word="uecu&apos;i" valsi="uecu&apos;i" />
+<nlword word="uenai" valsi="uenai" />
+<nlword word="ui" valsi="ui" />
+<nlword word="uinai" valsi="uinai" />
+<nlword word="uo" valsi="uo" />
+<nlword word="uonai" valsi="uonai" />
+<nlword word="uu" valsi="uu" />
+<nlword word="uunai" valsi="uunai" />
+<nlword word="va" valsi="va" />
+<nlword word="va&apos;a" valsi="va&apos;a" />
+<nlword word="va&apos;e" valsi="va&apos;e" />
+<nlword word="va&apos;i" valsi="va&apos;i" />
+<nlword word="va&apos;o" valsi="va&apos;o" />
+<nlword word="va&apos;u" valsi="va&apos;u" />
+<nlword word="vai" valsi="vai" />
+<nlword word="varmuvgau" valsi="varmuvgau" />
+<nlword word="vau" valsi="vau" />
 <nlword word="ve" valsi="ve" />
-<nlword word="je&apos;e" valsi="je&apos;e" />
+<nlword word="ve&apos;a" valsi="ve&apos;a" />
+<nlword word="ve&apos;e" valsi="ve&apos;e" />
+<nlword word="ve&apos;i" valsi="ve&apos;i" />
+<nlword word="ve&apos;o" valsi="ve&apos;o" />
+<nlword word="ve&apos;u" valsi="ve&apos;u" />
+<nlword word="vei" valsi="vei" />
+<nlword word="verclibau" valsi="verclibau" />
+<nlword word="verku&apos;i" valsi="verku&apos;i" />
+<nlword word="verku&apos;istu" valsi="verku&apos;istu" />
+<nlword word="vi" valsi="vi" />
+<nlword word="vi&apos;a" valsi="vi&apos;a" />
+<nlword word="vi&apos;e" valsi="vi&apos;e" />
+<nlword word="vi&apos;i" valsi="vi&apos;i" />
+<nlword word="vi&apos;o" valsi="vi&apos;o" />
+<nlword word="vi&apos;u" valsi="vi&apos;u" />
+<nlword word="vimku&apos;a" valsi="vimku&apos;a" />
+<nlword word="vimsivypalku" valsi="vimsivypalku" />
+<nlword word="visycu&apos;i" valsi="visycu&apos;i" />
+<nlword word="4" valsi="vo" />
+<nlword word="vo" valsi="vo" />
+<nlword word="vo&apos;a" valsi="vo&apos;a" />
+<nlword word="vo&apos;e" valsi="vo&apos;e" />
+<nlword word="vo&apos;i" valsi="vo&apos;i" />
+<nlword word="vo&apos;o" valsi="vo&apos;o" />
+<nlword word="vo&apos;u" valsi="vo&apos;u" />
+<nlword word="voi" valsi="voi" />
+<nlword word="volve" valsi="volve" />
+<nlword word="zilxru" valsi="volve" />
+<nlword word="vonca&apos;u" valsi="vonca&apos;u" />
+<nlword word="vu" valsi="vu" />
+<nlword word="vu&apos;a" valsi="vu&apos;a" />
+<nlword word="vu&apos;e" valsi="vu&apos;e" />
+<nlword word="vu&apos;i" valsi="vu&apos;i" />
+<nlword word="vu&apos;o" valsi="vu&apos;o" />
+<nlword word="vu&apos;u" valsi="vu&apos;u" />
+<nlword word="V" valsi="vy" />
+<nlword word="vy" valsi="vy" />
+<nlword word="6" valsi="xa" />
+<nlword word="xa" valsi="xa" />
+<nlword word="xabmau" valsi="xabmau" />
+<nlword word="xabme&apos;a" valsi="xabme&apos;a" />
+<nlword word="xadri&apos;u" valsi="xadri&apos;u" />
+<nlword word="xadzengu&apos;a" valsi="xadzengu&apos;a" />
+<nlword word="xai" valsi="xai" />
+<nlword word="xajre&apos;u" sense="xarju rectu" valsi="xajbefre&apos;u" />
+<nlword word="xanjaisi&apos;u" valsi="xanjaisi&apos;u" />
+<nlword word="xe" valsi="xe" />
+<nlword word="xebe&apos;i" valsi="xebe&apos;i" />
+<nlword word="xei" valsi="xei" />
+<nlword word="xeka&apos;a" valsi="xeka&apos;a" />
+<nlword word="xekri" valsi="xekri" />
+<nlword word="xi" valsi="xi" />
+<nlword word="xo" valsi="xo" />
+<nlword word="xracku" valsi="xracku" />
+<nlword word="xrugau" valsi="xrugau" />
+<nlword word="xrukla" valsi="xrukla" />
+<nlword word="xu" valsi="xu" />
+<nlword word="xunre" valsi="xunre" />
+<nlword word="X" valsi="xy" />
+<nlword word="xy" valsi="xy" />
+<nlword word="y" valsi="y" />
+<nlword word="y&apos;y" valsi="y&apos;y" />
+<nlword word="Y" valsi="ybu" />
+<nlword word="ybu" valsi="ybu" />
+<nlword word="za" valsi="za" />
+<nlword word="za&apos;a" valsi="za&apos;a" />
+<nlword word="za&apos;e" valsi="za&apos;e" />
+<nlword word="za&apos;i" valsi="za&apos;i" />
+<nlword word="za&apos;o" valsi="za&apos;o" />
+<nlword word="za&apos;u" valsi="za&apos;u" />
+<nlword word="zai" valsi="zai" />
+<nlword word="zanvi&apos;e" valsi="zanvi&apos;e" />
+<nlword word="zau" valsi="zau" />
+<nlword word="zdazva" valsi="zdazva" />
+<nlword word="7" valsi="ze" />
+<nlword word="ze" valsi="ze" />
+<nlword word="ze&apos;a" valsi="ze&apos;a" />
+<nlword word="ze&apos;e" valsi="ze&apos;e" />
+<nlword word="ze&apos;i" valsi="ze&apos;i" />
+<nlword word="ze&apos;o" valsi="ze&apos;o" />
+<nlword word="ze&apos;u" valsi="ze&apos;u" />
+<nlword word="zei" valsi="zei" />
+<nlword word="zerfu&apos;e" valsi="zerfu&apos;e" />
+<nlword word="zerfuzyxu&apos;a" valsi="zerfuzyxu&apos;a" />
+<nlword word="zernalfu&apos;e" valsi="zernalfu&apos;e" />
+<nlword word="zi" valsi="zi" />
+<nlword word="zi&apos;e" valsi="zi&apos;e" />
+<nlword word="zi&apos;o" valsi="zi&apos;o" />
+<nlword word="zifcru" valsi="zifcru" />
+<nlword word="zildau" valsi="zildau" />
+<nlword word="zilfanva" valsi="zilfanva" />
+<nlword word="zilkai" valsi="zilkai" />
+<nlword word="zilkancu" valsi="zilkancu" />
+<nlword word="zilpa&apos;a" valsi="zilpa&apos;a" />
+<nlword word="zilzba" valsi="zilzba" />
+<nlword word="zmajavdu&apos;i" valsi="zmajavdu&apos;i" />
+<nlword word="zmanei" valsi="zmanei" />
+<nlword word="zo" valsi="zo" />
+<nlword word="zo&apos;a" valsi="zo&apos;a" />
+<nlword word="zo&apos;e" valsi="zo&apos;e" />
+<nlword word="zo&apos;i" valsi="zo&apos;i" />
+<nlword word="zo&apos;o" valsi="zo&apos;o" />
+<nlword word="zo&apos;u" valsi="zo&apos;u" />
+<nlword word="zoi" valsi="zoi" />
+<nlword word="zu" valsi="zu" />
+<nlword word="zu&apos;a" valsi="zu&apos;a" />
+<nlword word="zu&apos;e" valsi="zu&apos;e" />
+<nlword word="zu&apos;i" valsi="zu&apos;i" />
+<nlword word="zu&apos;o" valsi="zu&apos;o" />
+<nlword word="zu&apos;u" valsi="zu&apos;u" />
+<nlword word="zu&apos;unai" valsi="zu&apos;unai" />
+<nlword word="zukte" valsi="zukte" />
+<nlword word="zvada&apos;o" valsi="zvada&apos;o" />
+<nlword word="zvajbi" valsi="zvajbi" />
+<nlword word="zvati" valsi="zvati" />
+<nlword word="Z" valsi="zy" />
+<nlword word="zy" valsi="zy" />
 </direction></dictionary>
 
 

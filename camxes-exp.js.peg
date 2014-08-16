@@ -264,7 +264,7 @@ li_clause = expr:(LI_clause free* mex LOhO_elidible free*) {return _node("li_cla
 //// EXP-MODIF: allow {lo mi e do vu'o noi brodi cu broda} (instead of the previous string)
 sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1 / sumti sumti_tail_1) {return _node("sumti_tail", expr); }
 
-sumti_tail_1 = expr:(selbri relative_clauses? / quantifier selbri relative_clauses? / quantifier sumti) {return _node("sumti_tail_1", expr);}
+sumti_tail_1 = expr:(quantifier? selbri relative_clauses? / quantifier sumti) {return _node("sumti_tail_1", expr);}
 
 //// EXP-MODIF: merging ZIhE with JA/JOI + Forethought relative clause connective
 relative_clauses = expr:(relative_clause ((ZIhE_clause / joik) free* relative_clause)* / gek relative_clauses gik relative_clauses) {return _node("relative_clauses", expr); }

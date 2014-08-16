@@ -149,7 +149,7 @@ statement = expr:(statement_1 / prenex statement) {return _node("statement", exp
 
 statement_1 = expr:(statement_2 (I_clause joik_jek statement_2?)*) {return _node("statement_1", expr);}
 
-statement_2 = expr:(statement_3 (I_clause (jek / joik)? stag? BO_clause free* statement_2)? / statement_3 (I_clause (jek / joik)? stag? BO_clause free*)?) {return _node("statement_2", expr);}
+statement_2 = expr:(statement_3 (I_clause (jek / joik)? stag? BO_clause free* statement_2?)?) {return _node("statement_2", expr);}
 
 statement_3 = expr:(sentence / tag? TUhE_clause free* text_1 TUhU_elidible free*) {return _node("statement_3", expr);}
 
@@ -428,7 +428,7 @@ space = expr:(VA_clause space_offset* space_interval? (MOhI_clause space_offset)
 
 space_offset = expr:(FAhA_clause NAI_clause? VA_clause?) {return _node("space_offset", expr); }
 
-space_interval = expr:((VEhA_clause / VIhA_clause / VEhA_clause VIhA_clause) (FAhA_clause NAI_clause?)? space_int_props / (VEhA_clause / VIhA_clause / VEhA_clause VIhA_clause) (FAhA_clause NAI_clause?)? / space_int_props) {return _node("space_interval", expr); }
+space_interval = expr:((VEhA_clause VIhA_clause?/ VIhA_clause) (FAhA_clause NAI_clause?)? space_int_props / (VEhA_clause / VIhA_clause / VEhA_clause VIhA_clause) (FAhA_clause NAI_clause?)? / space_int_props) {return _node("space_interval", expr); }
 
 space_int_props = expr:((FEhE_clause interval_property)+) {return _node("space_int_props", expr); }
 

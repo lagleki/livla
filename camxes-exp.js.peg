@@ -442,7 +442,7 @@ joik_ek_sa = expr:(joik_ek_1 (!joik_ek_1 (sa_word / SA_clause !joik_ek_1 ) )* SA
 joik_jek = expr:(joik free* / jek free*) {return _node("joik_jek", expr); }
 
 //// EXP-MODIF: Implementation of gaJA
-gek = expr:(gak SE_clause? joik_jek  / SE_clause? GA_clause free* / joik GI_clause free* / stag gik ) {return _node("gek", expr); }
+gek = expr:(gak SE_clause? joik_jek / SE_clause? GA_clause free* / joik GI_clause free* / stag gik) {return _node("gek", expr); }
 
 //// EXP-ADD: GAJA
 gak = expr:(ga_clause free*) {return _node("gak", expr); }
@@ -1362,8 +1362,9 @@ KUhOI_pre = pre_clause KUhOI spaces?
 KUhOI_post = post_clause
 
 ga_clause = pre:ga_pre post:ga_post {return _node2("ga_clause", pre, post); }
-ga_pre = pre_clause g a spaces?
+ga_pre = pre_clause ga_word spaces?
 ga_post = post_clause
+ga_word = &cmavo expr:( g a ) &post_word {return ["ga_word", _join(expr)];}
 
 
 // ___ MORPHOLOGY ___

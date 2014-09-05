@@ -257,8 +257,8 @@
   </user>
   <definition>cnima&apos;o .i citmle u&apos;unai     .i kansa zo nai poi na&apos;e citmle u&apos;unaicu&apos;i     .i kansa zo cu&apos;i poi to&apos;e citmle u&apos;u</definition>
   <definitionid>57085</definitionid>
-  <glossword word="citmle" sense="u&apos;unai" />
   <glossword word="au&apos;u" sense="u&apos;unai" />
+  <glossword word="citmle" sense="u&apos;unai" />
 </valsi>
 <valsi word="aucu'i" type="cmavo-compound">
   <selmaho>UI*</selmaho>
@@ -1577,8 +1577,8 @@
   <definition>namcu .i tcita le li&apos;erla&apos;i namcu le du&apos;u sinxa lo centi be le namcu</definition>
   <definitionid>13782</definitionid>
   <notes>{namcu}; {centi}; {cenlai}</notes>
-  <glossword word="%" />
   <glossword word="ce&apos;i" />
+  <glossword word="%" />
 </valsi>
 <valsi word="ce'o" type="cmavo">
   <rafsi>ce&apos;o</rafsi>
@@ -4569,6 +4569,16 @@
   <notes>{logji} {jonma&apos;o}; {tanru} {vlina}</notes>
   <glossword word="gu&apos;a" />
 </valsi>
+<valsi unofficial="true" word="gu'au" type="experimental cmavo">
+  <selmaho>BAI</selmaho>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>fi&apos;o gunma</definition>
+  <definitionid>57257</definitionid>
+  <glossword word="fi&apos;o gunma" />
+</valsi>
 <valsi word="gu'e" type="cmavo">
   <selmaho>GUhA</selmaho>
   <user>
@@ -6249,8 +6259,8 @@
   <definition>frica binxo lo zulgrici&apos;e pe tanru ja lujvo</definition>
   <definitionid>57057</definitionid>
   <notes>zo ke&apos;ei&apos;a se rafsi la kex. .i xruti frica binxo to balvi lo be zo ke&apos;ei frica binxo lo prutigrici&apos;e .ija balvi lo be zo ke&apos;ai frica binxo lo nalgrici&apos;e toi</notes>
-  <glossword word="zulgrici&apos;e" sense="ficybi&apos;o" />
   <glossword word="zunle girzu ciste" sense="frica binxo" />
+  <glossword word="zulgrici&apos;e" sense="ficybi&apos;o" />
 </valsi>
 <valsi word="ke'i" type="cmavo">
   <selmaho>GAhO</selmaho>
@@ -6832,8 +6842,8 @@
   <definition>jbocme fi&apos;o nafte&apos;i lo karsnarfa&apos;o .i lo za&apos;u pa cmene cu se jdijimte lo depybu&apos;i</definition>
   <definitionid>57054</definitionid>
   <notes>.i ji&apos;a pilno ka&apos;e fi lo sitsku be lo zunsnafamme&apos;e</notes>
-  <glossword word="lojbo cmene" sense="kalri sance fanmo" />
   <glossword word="jbome&apos;e" sense="karsnarfa&apos;o" />
+  <glossword word="lojbo cmene" sense="kalri sance fanmo" />
 </valsi>
 <valsi word="la'e" type="cmavo">
   <selmaho>LAhE</selmaho>
@@ -12643,8 +12653,8 @@
   <definition>.i lo ka solgu&apos;idicyborprami&apos;i cu ka ko&apos;a ko&apos;e ce&apos;ai ko&apos;a goi $x_1$ minji lo ka ce&apos;u tejaite cupra lo dikca lo gusni be ko&apos;a bei lo solri fai ko&apos;e goi $x_2$</definition>
   <definitionid>38163</definitionid>
   <notes>.i zo {minji} .e zo {cupra} .e zo {dikca} .e zo {gusni} .e zo {solri} zo&apos;u .e&apos;u zgana</notes>
-  <glossword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" />
   <glossword word="solri ke dikca cupra minji" sense="minji lo ka cupra lo dikca" />
+  <glossword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" />
 </valsi>
 <valsi word="solgusli'i" type="lujvo">
   <user>
@@ -16879,6 +16889,7 @@
 <nlword word="goi" valsi="goi" />
 <nlword word="gu" valsi="gu" />
 <nlword word="gu&apos;a" valsi="gu&apos;a" />
+<nlword word="fi&apos;o gunma" valsi="gu&apos;au" />
 <nlword word="gu&apos;e" valsi="gu&apos;e" />
 <nlword word="gu&apos;i" valsi="gu&apos;i" />
 <nlword word="gu&apos;o" valsi="gu&apos;o" />
@@ -17371,8 +17382,8 @@
 <nlword word="sa&apos;u" valsi="sa&apos;u" />
 <nlword word="sai" valsi="sai" />
 <nlword word="user" sense="computer user" valsi="samnarca&apos;igau" place="1" />
-<nlword word="username" sense="computer" valsi="samnarca&apos;igau" place="3" />
 <nlword word="username" valsi="samnarca&apos;igau" place="3" />
+<nlword word="username" sense="computer" valsi="samnarca&apos;igau" place="3" />
 <nlword word="sau" valsi="sau" />
 <nlword word="se" valsi="se" />
 <nlword word="se&apos;a" valsi="se&apos;a" />

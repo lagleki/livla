@@ -223,27 +223,28 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	switch(true) {
 	case text.indexOf("cipra: ") == '0': text = text.substr(7);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
 	case text.indexOf('mensi: ko ningau lo nei') == '0': updatexmldumps();clientmensi.say(sendTo, 'vi\'o minde .i lo datni mo\'u se ningau mi');break;
-	case text.indexOf('guaspi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
+	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
-	case text.indexOf('frame: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','frame'));break;
-	case text.indexOf('jbo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(4),'jbo'));break;
-	case text.indexOf('en: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'en'));break;
-	case text.indexOf('ru: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ru'));break;
-	case text.indexOf('es: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'es'));break;
-	case text.indexOf('fr: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr'));break;
-	case text.indexOf('ja: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ja'));break;
-	case text.indexOf('de: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'de'));break;
-	case text.indexOf('eo: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
-	case text.indexOf('zh: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'zh'));break;
-	case text.indexOf('en-simple: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'en-simple'));break;
-	case text.indexOf('selmaho: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
-	case text.indexOf('finti: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','finti'));break;
-	case text.indexOf('rafsi: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
-	case text.indexOf('toki: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(5),'toki'));break;
-	case text.indexOf('laadan: ') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'laadan'));break;
-	case text.indexOf('gloss: ') == '0': clientmensi.say(sendTo, gloso(text.substr(6),''));break;
-	case text.indexOf('loi: ') == '0': clientmensi.say(sendTo, loglo(text.substr(4),''));break;
-	case text.indexOf('coi: ') == '0': clientmensi.say(sendTo, loglo(text.substr(4),'coi'));break;
+	case text.indexOf('frame:/full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(11),'en','framemulno'));break;
+	case text.indexOf('frame:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','frame'));break;
+	case text.indexOf('jbo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(4),'jbo'));break;
+	case text.indexOf('en:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'en'));break;
+	case text.indexOf('ru:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ru'));break;
+	case text.indexOf('es:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'es'));break;
+	case text.indexOf('fr:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr'));break;
+	case text.indexOf('ja:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ja'));break;
+	case text.indexOf('de:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'de'));break;
+	case text.indexOf('eo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
+	case text.indexOf('zh:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'zh'));break;
+	case text.indexOf('en-simple:') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'en-simple'));break;
+	case text.indexOf('selmaho:') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
+	case text.indexOf('finti:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','finti'));break;
+	case text.indexOf('rafsi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
+	case text.indexOf('toki:') == '0': clientmensi.say(sendTo, vlaste(text.substr(5),'toki'));break;
+	case text.indexOf('laadan:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'laadan'));break;
+	case text.indexOf('gloss:') == '0': clientmensi.say(sendTo, gloso(text.substr(6),''));break;
+	case text.indexOf('loi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),''));break;
+	case text.indexOf('coi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),'coi'));break;
  	case text=='mensi: io': clientmensi.say(sendTo, io());break;
  	case text=='mensi: help': clientmensi.say(sendTo, sidju());break;
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
@@ -394,6 +395,7 @@ lin=lin.toLowerCase().trim();
 var ret;
 	switch(true) {
 		case lin.substr(0,5).trim()=="/full": ret=mulno(lin.substr(6).trim(),lng);break;
+		case lin.substr(0,6).trim()=="/valsi": ret=valsicmene(lin.substr(7).trim(),lng);break;
 		case raf=='raf': ret=rafsi(lin.replace(/[^a-z'\.]/g,''));break;
 		case raf=='selmaho': ret=selmaho(lin.replace(/[^a-z'\.\*0-9]/g,''));break;
 		case raf=='finti': ret=finti(lin.replace(/[^a-z'\.\*0-9]/g,''));break;
@@ -646,14 +648,20 @@ var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
 var retur='y no da jai se facki';
 var xmlDoc = libxmljs.parseXml(content);
 var items = [
-	["lu","<"],["li'u",">"],["lo","the"],["nu","event-of"],["i","."],["zo","the-word"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
-	["mi","me"]//dont copy
+	["lu","<"],["li'u",">"],["lo","the"],["nu","event-of"],["i","."],["zo","the-word:"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
+	["na","not"],["na'e","not"],["nai","-not"],["bo","-|-"],["sai","!"],["cai","!!!"],["nelci","fond-of"],["ka","being"],["tu'a","about"],
+	["za'a","as-I-ca-see"],["za'adai","as-you-can-see"],["pu","in-past"],["ba","in-future"],["vau","]"],["doi","oh"],["uinai","unfortunately"],["u'u","sorry"],
+	["ko","do-it-so-that-you"],["da","X"],["de","Y"],["di","Z"],["poi","that"],["noi",",which"],["me","among"],["cu",":"],
+	["fa","(1:)"],["fe","(2:)"],["fi","(3:)"],["fo","(4:)"],["fu","(5:)"],
+	//["bakni","is-a-cow"],
+	["pe'i","in-my-opinion"],["ui","yay"],["uinai","unfortunately"],
+	["mi","I"]//dont copy
 	];
 lin=lin.toLowerCase();
 	var i,myregexp,j;
 	try{
 		//from lojban to gloso
-		lin=run_camxes(lin.replace(/[^a-z'\. ]/g,''),5).replace(/[^a-z'\. ]/g,'').trim().split(" ");
+		lin=run_camxes(lin.replace(/[^a-z'\. ]/g,''),5).replace(/[^a-z'\. ]/g,'').trim().replace(/ ([nd]ai)( |$)/img,"$1$2").split(" ");
 		for (i=0;i<lin.length;i++){
 					for (j=0;j<items.length;j++){
 						myregexp = new RegExp("^"+items[j][0]+"$", "gim");
@@ -668,4 +676,28 @@ lin=lin.toLowerCase();
 		lin=lin.join(" ").replace(/ /gm,"* ").replace(/$/gm,"*").replace(/A\*/gm,"");
 	}catch(err){lin='O_0';}
 	return lin;
+};
+
+var valsicmene = function (lin,lng)
+{
+lin=lin.replace(/\"/g,'');var xo;
+var libxmljs = require("libxmljs");
+var fs = require("fs"),path = require("path-extra");
+var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
+var retur='y no da jai se facki';
+var xmlDoc = libxmljs.parseXml(content);
+var coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
+var stra=[];
+	for (var i=0;i<coun.length;i++)
+	{
+		stra.push(coun[i].attr("word").value());
+	}
+xo=stra.length;
+try{stra.splice(30);}catch(err){}
+if (stra.length>=30){stra.push("...");}
+var gag=stra.join(", ").trim();
+if (stra.length==1){gag = tordu(gag,lng);}
+if (stra.length>1){gag = xo + " da jai se facki: " + gag;}
+if(gag===''){gag='y no da jai se facki';}
+return gag;
 };

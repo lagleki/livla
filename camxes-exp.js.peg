@@ -1850,7 +1850,7 @@ NIhO = &cmavo expr:( n i h o / n o h i ) &post_word {return ["NIhO", _join(expr)
 NOI = &cmavo expr:( v o i / n o i / p o i ) &post_word {return ["NOI", _join(expr)];}
 
 //// EXP-ADD: poi'i, kai'u
-NU = &cmavo expr:( n i / d u h u / s i h o / n u / l i h i / k a / j e i / s u h u / z u h o / m u h e / p u h u / z a h i / p o i h i / k a i h u ) &post_word {return ["NU", _join(expr)];}
+NU = &cmavo expr:(p o i h i / k a i h u / n i / d u h u / s i h o / n u / l i h i / k a / j e i / s u h u / z u h o / m u h e / p u h u / z a h i ) &post_word {return ["NU", _join(expr)];}
 
 NUhA = &cmavo expr:( n u h a ) &post_word {return ["NUhA", _join(expr)];}
 

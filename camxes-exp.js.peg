@@ -1707,8 +1707,8 @@ CEhE = &cmavo expr:( c e h e ) &post_word {return ["CEhE", _join(expr)];}
 
 CO = &cmavo expr:( c o ) &post_word {return ["CO", _join(expr)];}
 
-//// EXP-ADD: di'ai, co'oi, ki'ai
-COI = &cmavo expr:( d i h a i / c o h o i / k i h a i / j u h i / c o i / f i h i / t a h a / m u h o / f e h o / c o h o / p e h u / k e h o / n u h e / r e h i / b e h e / j e h e / m i h e / k i h e / v i h o ) &post_word {return ["COI", _join(expr)];}
+//// EXP-ADD: di'ai, co'oi, ki'ai, sa'ei
+COI = &cmavo expr:( d i h a i / c o h o i / k i h a i / s a h e i / j u h i / c o i / f i h i / t a h a / m u h o / f e h o / c o h o / p e h u / k e h o / n u h e / r e h i / b e h e / j e h e / m i h e / k i h e / v i h o ) &post_word {return ["COI", _join(expr)];}
 
 CU = &cmavo expr:( c u ) &post_word {return ["CU", _join(expr)];}
 
@@ -1840,7 +1840,8 @@ NIhO = &cmavo expr:( n i h o / n o h i ) &post_word {return ["NIhO", _join(expr)
 
 NOI = &cmavo expr:( v o i / n o i / p o i ) &post_word {return ["NOI", _join(expr)];}
 
-NU = &cmavo expr:( n i / d u h u / s i h o / n u / l i h i / k a / j e i / s u h u / z u h o / m u h e / p u h u / z a h i ) &post_word {return ["NU", _join(expr)];}
+//// EXP-ADD: poi'i, kai'u
+NU = &cmavo expr:( n i / d u h u / s i h o / n u / l i h i / k a / j e i / s u h u / z u h o / m u h e / p u h u / z a h i / p o i h i / k a i h u ) &post_word {return ["NU", _join(expr)];}
 
 NUhA = &cmavo expr:( n u h a ) &post_word {return ["NUhA", _join(expr)];}
 
@@ -1859,7 +1860,8 @@ PU = &cmavo expr:( b a / p u / c a ) &post_word {return ["PU", _join(expr)];}
 
 RAhO = &cmavo expr:( r a h o ) &post_word {return ["RAhO", _join(expr)];}
 
-ROI = &cmavo expr:( r e h u / r o i ) &post_word {return ["ROI", _join(expr)];}
+//// EXP-ADD: mu'ei
+ROI = &cmavo expr:( r e h u / r o i / m u h e i ) &post_word {return ["ROI", _join(expr)];}
 
 SA = &cmavo expr:( s a ) &post_word {return ["SA", _join(expr)];}
 
@@ -1872,6 +1874,7 @@ SEhU = &cmavo expr:( s e h u ) &post_word {return ["SEhU", _join(expr)];}
 SI = &cmavo expr:( s i ) &post_word {return ["SI", _join(expr)];}
 
 SOI = &cmavo expr:( s o i / x o i / f i h o i ) &post_word {return ["SOI", _join(expr)];}
+
 //exp. grammar: move {li'o} to SA
 SU = &cmavo expr:( s u / l i h o i ) &post_word {return ["SU", _join(expr)];}
 

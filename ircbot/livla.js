@@ -1,9 +1,9 @@
 //livla bot
 var s,t,notci,notcijudri;
 var tato= require('./tatoeba.js');
-var interv=900000;
+var interv=300000;
 var interm=2900;
-var chan='#lojban,#ckule,#jbopre';
+var chan='#lojban,#ckule';
 var livlytcan='##jboselbau';
 var asker='livla';
 var replier='mensi';
@@ -61,12 +61,12 @@ clientmensi.addListener('message', function(from, to, text, message) {
 	});
 
 ///end notci
-
 var updatexmldumps = function () {
 var err;
 try{
 	var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple"];
 	var request = require("request"); var body;
+	fs = require("fs"),path = require("path-extra");
 	request = request.defaults({jar: true});
 	var jar = request.jar();
 	var cookie = request.cookie("jbovlastesessionid=MTg6MzIwOmdsZWtpOjE0MDQyODk5NDE%3D");
@@ -78,11 +78,35 @@ try{
 				if(err) {
 					console.log(err);
 				} else {
-					fs = require("fs"),path = require("path-extra");
 					var content = fs.writeFile(path.join(__dirname,"dumps",thisa + ".xml"),body, function(err) {
-					if(err) {console.log(err);} else {console.log(thisa + ' updated');}
+					if(err) {console.log(err);} else {console.log(thisa + ' updated');
+						//now generate readable html pages base on xml dumps
+						/*var libxmljs = require("libxmljs");
+						var xmlDoc = libxmljs.parseXml(body);
+						var gchild='';
+							try{var ali = xmlDoc.find("/dictionary/direction[1]/valsi");
+							var stra=[];
+							for (var i=0;i<ali.length;i++)
+							{
+								var lin=ali[i].attr("word").value();
+									var gchild='';
+									//try{gchild +='[' + xmlDoc.get("/dictionary/direction[1]/valsi[@word,\""+lin+"\"]/selmaho[1]").text()+'] ';}catch(err){}
+									//try{gchild += xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"\"]/definition[1]").text();}catch(err){}
+									//try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text();}catch(err){}
+									//try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/user[1]/username[1]").text();}catch(err){}
+									gchild = "<p><b>" + lin + "</b> = " + gchild.replace(/[\$_`\{\}]/g,'') + "</p>";
+									stra.push(gchild);
+							}
+							gag="<html><body>\n"+stra.join("\n").trim()+"\n</body></html>";
+							var contenti = fs.writeFile(path.join(__dirname,"dumps",thisa + ".html"),gag, function(err) {});
+							
+							}catch(err){}*/
+							//end generating html exports
+							
+					}
 					});
 				}
+				
 			}); 
 	});
 	body="";
@@ -91,6 +115,7 @@ try{
 
 setInterval(function(){updatexmldumps()}, 43200000); //update logs once a djedi
 
+var camxesoff = require('../camxes.js');
 var camxes = require('../camxes-exp.js');
 var camxes_pre = require('../camxes_preproc.js');
 var camxes_post = require('../camxes_postproc.js');
@@ -111,6 +136,23 @@ function run_camxes(input, mode) {
 	result = camxes_pre.preprocessing(input);
 	try {
 	  result = camxes.parse(result);
+	} catch (e) {
+		result = e;
+		syntax_error = true;
+	}
+	if (!syntax_error) {
+		result = JSON.stringify(result, undefined, 2);
+		result = camxes_post.postprocessing(result, mode);
+	}
+	return result;
+}
+
+function run_camxesoff(input, mode) {
+	var result;
+	var syntax_error = false;
+	result = camxes_pre.preprocessing(input);
+	try {
+	  result = camxesoff.parse(result);
 	} catch (e) {
 		result = e;
 		syntax_error = true;
@@ -193,15 +235,27 @@ var processormensi = function(clientmensi, from, to, text, message) {
   }
   if (1==1) {  //sendTo == to Public
   	//notci functions first:
-	if (text.indexOf('mensi: tell ') == '0'){
+	if (text.indexOf(replier+': tell ') == '0'){
 		text = text.substr(12).trim().replace("\\t"," ").replace(" ","\t");
 		switch(true) {
 		case from.match(text.substr(0, text.indexOf('\t')))!==null: clientmensi.say(sendTo,from+": e'u do cusku di'u lo nei si'unai");break;
 		case text.substr(0, text.indexOf('\t'))==replier: clientmensi.say(sendTo,from+": xu do je'a jinvi lodu'u mi bebna i oi");break;
 		default:
-		notci.push(from + "\t" + text);clientmensi.say(sendTo,from+": mi ba benji di'u ba lo nu la'o gy."+text.substr(0, text.indexOf('\t'))+".gy. di'a cusku da");
+		var d = new Date();notci.push(from + "\t" + text + ' | ' + d.toISOString());clientmensi.say(sendTo,from+": mi ba benji di'u ba lo nu la'o gy."+text.substr(0, text.indexOf('\t'))+".gy. di'a cusku da");
 		var fs = require("fs");
 		fs.writeFile(notcijudri, notci.join("\n"),function(err) {});break;
+		}
+	}
+  	//notci functions in lojban as an alternative:
+	if (text.indexOf(replier+': doi ') == '0'){
+		text = text.substr(11).trim().replace("\\t"," ").replace(" ","\t");
+		switch(true) {
+		case from.match(text.substr(0, text.indexOf('\t')))!==null: clientmensi.say(sendTo,from+": e'u do cusku di'u lo nei si'unai");break;
+		case text.substr(0, text.indexOf('\t'))==replier: clientmensi.say(sendTo,from+": xu do je'a jinvi lodu'u mi bebna i oi");break;
+		default:
+		var ds = new Date();notci.push(from + "\t" + text + ' | ' + ds.toISOString());clientmensi.say(sendTo,from+": mi ba benji di'u ba lo nu la'o gy."+text.substr(0, text.indexOf('\t'))+".gy. di'a cusku da");
+		var fsi = require("fs");
+		fsi.writeFile(notcijudri, notci.join("\n"),function(err) {});break;
 		}
 	}
 	//now send back part
@@ -214,15 +268,21 @@ var processormensi = function(clientmensi, from, to, text, message) {
 			cmenepagbu=notci[l].split("\t");
 			clientmensi.say(sendTo,from + ": cu'u la'o gy." + cmenepagbu[0] + ".gy.: "+cmenepagbu[2]+"");
 			notci.splice(l,1);l=l-1;
-			var fs = require("fs");
-			fs.writeFile(notcijudri, notci.join("\n"));
+			var fso = require("fs");
+			fso.writeFile(notcijudri, notci.join("\n"));
 		}
 	}
 	// 
 	///
 	switch(true) {
-	case text.indexOf("cipra: ") == '0': text = text.substr(7);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
-	case text.indexOf('mensi: ko ningau lo nei') == '0': updatexmldumps();clientmensi.say(sendTo, 'vi\'o minde .i lo datni mo\'u se ningau mi');break;
+	case text.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;
+	case text.indexOf("lujvo:") == '0': clientmensi.say(sendTo, lujvosplit(text.substr(6),'en'));break;
+	case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
+	case text.indexOf("`:") == '0': text = text.substr(2);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
+	case text.indexOf("':") == '0': text = text.substr(2);ret = extract_mode(text);clientmensi.say(sendTo, run_camxesoff(ret[0], ret[1]));break;
+	case text.indexOf("exp:") == '0': text = text.substr(4);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
+	case text.indexOf("off:") == '0': text = text.substr(4);ret = extract_mode(text);clientmensi.say(sendTo, run_camxesoff(ret[0], ret[1]));break;
+	case text.indexOf(replier + ': ko ningau lo nei') == '0': updatexmldumps();clientmensi.say(sendTo, 'vi\'o minde .i lo datni mo\'u se ningau mi');break;
 	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
 	case text.indexOf('frame:/full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(11),'en','framemulno'));break;
@@ -245,11 +305,12 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('gloss:') == '0': clientmensi.say(sendTo, gloso(text.substr(6),''));break;
 	case text.indexOf('loi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),''));break;
 	case text.indexOf('coi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),'coi'));break;
- 	case text=='mensi: io': clientmensi.say(sendTo, io());break;
- 	case text=='mensi: help': clientmensi.say(sendTo, sidju());break;
+ 	case text==replier+': io': clientmensi.say(sendTo, io());break;
+ 	case text==replier+': help': clientmensi.say(sendTo, sidju());break;
+	case text.indexOf("rot13:") == '0': clientmensi.say(sendTo, rotpaci(text.substr(6)));break;
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
- 	case text.indexOf(prereplier + 's ') == '0': clientmensi.say(sendTo, "Tatoeba" + sisku(text.substr(prereplier.length+1).trim()));break;
+ 	case text.indexOf('Tatoeba:') == '0': clientmensi.say(sendTo, sisku(text.substr(8).trim()));break;
  	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
  	case text.indexOf(prereplier + 'xu do') == '0': 
  	case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {clientmensi.say(sendTo, from + mireturn());}, interm );break;
@@ -297,11 +358,11 @@ var sisku = function (lin)
 s="";
 i=0;
 while (s.indexOf(lin) <0 && i<20000){
-s=tato.tatoebaprocessing("");
+s=tato.tatoebaprocessing();
 i++;//in case we found nothing exit
 }
 if (s==="" && i<20000){s=": e'u do sisku tu'a lo nalkunti uenzi";}
-if (i>=20000){s=": no da jai se facki";}
+if (i>=20000){s="no da se tolcri";}
 return s;
 };
 
@@ -419,7 +480,7 @@ try{gchild +='[' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\"
 try{gchild += xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/definition[1]").text();}catch(err){}
 try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text();}catch(err){}
 try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/user[1]/username[1]").text();}catch(err){}
-if (gchild===''){return mulno(lin,lng);}else{return lin + " = " + gchild.replace(/[\$_`\{\}]/g,'');}
+if (gchild===''){return mulno(lin,lng);}else{gchild=gchild.replace(/[\$_`\{\}]/g,'').substring(0,1500);if (gchild.length>=1500){gchild+=' [trimmed]'} return lin + " = " + gchild.replace(/[\$_`\{\}]/g,'');}
 };
 
 var mulno = function (lin,lng)
@@ -428,7 +489,7 @@ lin=lin.replace(/\"/g,'');var xo;
 var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-var retur='y no da jai se facki';
+var retur='y no da se tolcri';
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./definition,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\") or contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\") or contains(translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 var stra=[];
@@ -441,8 +502,8 @@ try{stra.splice(30);}catch(err){}
 if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
-if (stra.length>1){gag = xo + " da jai se facki: " + gag;}
-if(gag===''){gag='y no da jai se facki';}
+if (stra.length>1){gag = xo + " da se tolcri: " + gag;}
+if(gag===''){gag='y no da se tolcri';}
 return gag;
 };
 
@@ -468,7 +529,7 @@ switch(true){
 case (ien!=='') && (gag !==''): gag=ien.concat(" |||| cmavo: ").concat(gag);break;
 case (ien==='') && (gag !==''): gag="cmavo: " + gag;break;
 case (ien!=='') && (gag ===''): gag=ien;break;
-case (ien==='') && (rev ===''): gag='y no da jai se facki';break;
+case (ien==='') && (rev ===''): gag='y no da se tolcri';break;
 }
 return gag;
 };
@@ -480,17 +541,26 @@ var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
-var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]").join (' .e zo\'oi ');
+var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]");
+if (coun.length===0)
+{
+try{coun=xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text(); var tmp=coun.replace(/^.*?-([a-z']+)-.*/,'$1');if (tmp!==coun){coun=tmp;}else{coun='';}}catch(err){coun='';}
+}
+else{coun=coun.join (' .e zo\'oi ');}
+if (coun!==''){coun='zo\'oi ' + coun + ' rafsi zo ' + lin;}
+
 var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
+//now try -raf- in notes
+if (typeof rev==='undefined'){rev =  xmlDoc.get("/dictionary/direction[1]/valsi[contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\"-"+lin+"-\")]");}
 //now try to add a vowel:
 if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[starts-with(@word,\""+lin+"\")]");}
-if (coun!==''){coun='zo\'oi ' + coun + ' rafsi zo ' + lin;}
-if (typeof rev!=='undefined'){rev='zo ' + rev.attr("word").value() + ' se rafsi zo\'oi '+lin;}else{rev='';}
+
+if (typeof rev!=='undefined' && rev.attr("word").value()!==lin){rev='zo ' + rev.attr("word").value() + ' se rafsi zo\'oi '+lin;}else{rev='';}
 switch(true){
 case (coun!=='') && (rev !==''): gag=coun.concat(" .i ").concat(rev);break;
 case (coun==='') && (rev !==''): gag=rev;break;
 case (coun!=='') && (rev ===''): gag=coun;break;
-case (coun==='') && (rev ===''): gag='y no da jai se facki';break;
+case (coun==='') && (rev ===''): gag='y no da se tolcri';break;
 }
 return gag;
 };
@@ -502,7 +572,7 @@ return '.io';
 
 var sidju = function ()
 {
-return "Typing in the chat \"rafsi: pof\" will return \"spofu\". \"rafsi: spofu\" will return \"pof po\'u\". Typing \"selmaho: ui\" will return \"UI\". Typing \"mensi: s klama\" will return a random sentence (with its number) from Tatoeba containing \"klama\" sequence.";
+return "Typing in the chat \"rafsi: pof\" will return \"spofu\". \"rafsi: spofu\" will return \"pof po\'u\". Typing \"selmaho: ui\" will return \"UI\". Typing \"Tatoeba: klama\" will return a random sentence (with its number) from Tatoeba containing \"klama\" sequence.";
 };
 
 var frame = function (lin)
@@ -524,7 +594,7 @@ for (var i=0;i<arrf.length;i++)
 	break;}
 }
 
-if (gag!==''){return gag;}else{return 'no da jai se facki'}
+if (gag!==''){return gag;}else{return 'no da se tolcri'}
 };
 
 var framemulno = function (lin)
@@ -544,11 +614,11 @@ for (var i=0;i<arrf.length;i++)
 			stra.push(si.attr("name").value());
 		}
 }
-	try{stra.splice(30);}catch(err){}
-	if (stra.length>=30){stra.push("...");}
+	try{stra.splice(40);}catch(err){}
+	if (stra.length>=40){stra.push("...");}
 	gag=stra.join(", ").trim();
 	if (stra.length==1){gag = frame(stra[0]);}
-	if (gag!==''){return gag;}else{return 'no da jai se facki'}
+	if (gag!==''){return gag;}else{return 'no da se tolcri'}
 return gag;
 };
 
@@ -619,7 +689,7 @@ lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-var retur='y no da jai se facki';
+var retur='y no da se tolcri';
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./user/username,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 var stra=[];
@@ -632,8 +702,8 @@ try{stra.splice(30);}catch(err){}
 if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
-if (stra.length>1){gag = cnt + " da jai se facki: " + gag;}
-if(gag===''){gag='y no da jai se facki';}
+if (stra.length>1){gag = cnt + " da se tolcri: " + gag;}
+if(gag===''){gag='y no da se tolcri';}
 return gag;
 };
 
@@ -645,7 +715,7 @@ lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-var retur='y no da jai se facki';
+var retur='y no da se tolcri';
 var xmlDoc = libxmljs.parseXml(content);
 var items = [
 	["lu","<"],["li'u",">"],["lo","the"],["nu","event-of"],["i","."],["zo","the-word:"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
@@ -655,6 +725,7 @@ var items = [
 	["fa","(1:)"],["fe","(2:)"],["fi","(3:)"],["fo","(4:)"],["fu","(5:)"],
 	//["bakni","is-a-cow"],
 	["pe'i","in-my-opinion"],["ui","yay"],["uinai","unfortunately"],
+	["xu","is-it-true-that"],["ka'e","possibly-can"],
 	["mi","I"]//dont copy
 	];
 lin=lin.toLowerCase();
@@ -684,7 +755,7 @@ lin=lin.replace(/\"/g,'');var xo;
 var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-var retur='y no da jai se facki';
+var retur='y no da se tolcri';
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 var stra=[];
@@ -697,7 +768,35 @@ try{stra.splice(30);}catch(err){}
 if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
-if (stra.length>1){gag = xo + " da jai se facki: " + gag;}
-if(gag===''){gag='y no da jai se facki';}
+if (stra.length>1){gag = xo + " da se tolcri: " + gag;}
+if(gag===''){gag='y no da se tolcri';}
 return gag;
 };
+
+var lujvosplit = function (lin,lng)
+{
+var gag='';
+try{
+console.log('parsing ' + lin);
+lin = camxes_pre.preprocessing(lin);
+gag=camxes.parse(lin,'lujvo')}catch(e){}
+return gag;
+};
+
+var rotpaci = function (lin)
+{
+return lin.trim().replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});
+};
+
+//Stanford NLP
+//var StanfordSimpleNLP = require('stanford-simple-nlp');
+//var stanfordSimpleNLP = new StanfordSimpleNLP.StanfordSimpleNLP();
+//stanfordSimpleNLP.loadPipelineSync();
+
+var stnlp = function(lin,sendTo)
+{
+	stanfordSimpleNLP.process(lin, function(err, result) {
+		clientmensi.say(sendTo, JSON.stringify(result));
+		});
+};
+

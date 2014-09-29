@@ -64,7 +64,7 @@ clientmensi.addListener('message', function(from, to, text, message) {
 var updatexmldumps = function () {
 var err;
 try{
-	var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple"];
+	var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple","fr-facile"];
 	var request = require("request"); var body;
 	fs = require("fs"),path = require("path-extra");
 	request = request.defaults({jar: true});
@@ -75,34 +75,10 @@ try{
 		jar.setCookie(cookie, uri);
 			request({uri: uri,method: "GET",jar: jar}, function(err, response, body) {
 				//write body to file
-				if(err) {
-					console.log(err);
-				} else {
+				if(err) {console.log(err);}
+				else {
 					var content = fs.writeFile(path.join(__dirname,"dumps",thisa + ".xml"),body, function(err) {
 					if(err) {console.log(err);} else {console.log(thisa + ' updated');
-						//now generate readable html pages base on xml dumps
-						/*var libxmljs = require("libxmljs");
-						var xmlDoc = libxmljs.parseXml(body);
-						var gchild='';
-							try{var ali = xmlDoc.find("/dictionary/direction[1]/valsi");
-							var stra=[];
-							for (var i=0;i<ali.length;i++)
-							{
-								var lin=ali[i].attr("word").value();
-									var gchild='';
-									//try{gchild +='[' + xmlDoc.get("/dictionary/direction[1]/valsi[@word,\""+lin+"\"]/selmaho[1]").text()+'] ';}catch(err){}
-									//try{gchild += xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"\"]/definition[1]").text();}catch(err){}
-									//try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text();}catch(err){}
-									//try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/user[1]/username[1]").text();}catch(err){}
-									gchild = "<p><b>" + lin + "</b> = " + gchild.replace(/[\$_`\{\}]/g,'') + "</p>";
-									stra.push(gchild);
-							}
-							gag="<html><body>\n"+stra.join("\n").trim()+"\n</body></html>";
-							var contenti = fs.writeFile(path.join(__dirname,"dumps",thisa + ".html"),gag, function(err) {});
-							
-							}catch(err){}*/
-							//end generating html exports
-							
 					}
 					});
 				}
@@ -110,10 +86,25 @@ try{
 			}); 
 	});
 	body="";
+	langs.forEach(function(thisa) {//now update pdf
+		var uri="http://jbovlaste.lojban.org/export/latex-export.html?lang="+thisa;
+		jar.setCookie(cookie, uri);
+			request({uri: uri,method: "GET",jar: jar}, function(err, response, body) {
+				if(err) {console.log(err);}
+				else{
+					var content=body.replace(/\n/igm,'').replace(/.*<a href=\"(\/jbovlaste_export\/.*?\/.*?\.pdf)\">.*/igm,"http://jbovlaste.lojban.org$1");//now get the pdf itself
+					uri=content;console.log(content);
+						var http = require('http');
+						content = fs.createWriteStream(path.join(__dirname,"dumps","lojban-" + thisa + ".pdf"));
+						var request = http.get(uri, function(response) {
+						response.pipe(content);});
+				}
+			});
+	});
 }catch(err){console.log('Error when autoupdating: ' + err);}
 };
 
-setInterval(function(){updatexmldumps()}, 43200000); //update logs once a djedi
+setInterval(function(){updatexmldumps()}, 86400000); //update logs once a djedi
 
 var camxesoff = require('../camxes.js');
 var camxes = require('../camxes-exp.js');
@@ -297,6 +288,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('eo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
 	case text.indexOf('zh:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'zh'));break;
 	case text.indexOf('en-simple:') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'en-simple'));break;
+        case text.indexOf('fr-facile:') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'fr-facile'));break;
 	case text.indexOf('selmaho:') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
 	case text.indexOf('finti:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','finti'));break;
 	case text.indexOf('rafsi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
@@ -480,7 +472,7 @@ try{gchild +='[' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\"
 try{gchild += xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/definition[1]").text();}catch(err){}
 try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text();}catch(err){}
 try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/user[1]/username[1]").text();}catch(err){}
-if (gchild===''){return mulno(lin,lng);}else{gchild=gchild.replace(/[\$_`\{\}]/g,'').substring(0,1500);if (gchild.length>=1500){gchild+=' [trimmed]'} return lin + " = " + gchild.replace(/[\$_`\{\}]/g,'');}
+if (gchild===''){return mulno(lin,lng);}else{gchild=gchild.replace(/[\$_`\{\}]/g,'').substring(0,1000);if (gchild.length>=1000){gchild+=' [mo\'u se katna] http://jbovlaste.lojban.org/dict/'+ lin;} return lin + " = " + gchild.replace(/[\$_`\{\}]/g,'');}
 };
 
 var mulno = function (lin,lng)
@@ -581,7 +573,7 @@ var lng="en",gag='';
 var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path-extra");
 
-var arrf=fs.readdirSync(path.join(__dirname,"../../../files/frame")).filter(function(file) { return file.substr(-4) === '.xml'; });
+var arrf=fs.readdirSync(path.join(__dirname,"../../../files/fndata-1.5/frame")).filter(function(file) { return file.substr(-4) === '.xml'; });
 
 for (var i=0;i<arrf.length;i++)
 {
@@ -632,7 +624,7 @@ lin=lin.toLowerCase().trim();
 	["ma","hu"],["mo","he"],["xu","ei"],
 	["ri'a","kou"],	["mu'a","moi"],	["ki'u","rau"],	["ni'i","soa"],
 	["su'o","su"],["pa","ne"],["re","to"],["ci","te"],["vo","fo"],["mu","fe"],["xa","so"],["ze","se"],["bi","vo"],["so","ve"],["no","ni"],
-	["pu","pa"],["ca","na"],["ba","fa"],["zi","zi"],["za","za"],["zu","zu"],
+	["pu","pa"],["ca","na"],["ba","fa"],["zi","zi"],["za","za"],["zu","zu"],["ka'e","gau"],
 	["pu ca'o","pia"],["ca ca'o","nia"],["ba ca'o","fia"],
 	["pu ta'e","pua"],["ca ta'e","nua"],["ba ta'e","fua"],
 	["vi","vi"],["va","va"],["vu","vu"],

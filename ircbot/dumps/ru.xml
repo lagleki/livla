@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="jbovlaste.xsl"?>
 <dictionary>
 <direction from="lojban" to="Русский"><valsi word="a" type="cmavo">
   <selmaho>A</selmaho>
@@ -64,8 +65,8 @@
   <definitionid>42532</definitionid>
   <notes>Ср. {e&apos;u} - &apos;совет, предложение&apos;. Пример: {a&apos;ei} {klama} - &apos;давайте пойдём, айда!&apos;</notes>
   <glossword word="побуждение" sense="междометие" />
-  <glossword word="айда" />
   <glossword word="призыв" sense="междометие" />
+  <glossword word="айда" />
 </valsi>
 <valsi word="a'enai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -271,6 +272,33 @@
   <glossword word="функционирующий" />
   <glossword word="активный" />
 </valsi>
+<valsi word="alekSEIS" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Алексей (русское мужское имя)</definition>
+  <definitionid>57417</definitionid>
+  <glossword word="Алексей" sense="русское мужское имя" />
+</valsi>
+<valsi word="aleksandras" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Александра (русское женское имя)</definition>
+  <definitionid>57415</definitionid>
+  <glossword word="Александра" sense="русское женское имя" />
+</valsi>
+<valsi word="aleksandyr" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Александр (русское мужское имя)</definition>
+  <definitionid>57416</definitionid>
+  <glossword word="Александр" sense="русское мужское имя" />
+</valsi>
 <valsi word="algoritma" type="fu'ivla">
   <user>
     <username>gleki</username>
@@ -280,6 +308,33 @@
   <definitionid>52885</definitionid>
   <notes>См. {tadji}</notes>
   <glossword word="алгоритм" />
+</valsi>
+<valsi word="alinas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Алина (русское женское имя)</definition>
+  <definitionid>57418</definitionid>
+  <glossword word="Алина" sense="русское женское имя" />
+</valsi>
+<valsi word="alionas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Алёна (русское женское имя)</definition>
+  <definitionid>57419</definitionid>
+  <glossword word="Алёна" sense="русское женское имя" />
+</valsi>
+<valsi word="alisas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Алиса (русское женское имя)</definition>
+  <definitionid>57420</definitionid>
+  <glossword word="Алиса" sense="русское женское имя" />
 </valsi>
 <valsi word="alpaka" type="fu'ivla">
   <user>
@@ -321,6 +376,33 @@
   <notes>Как часть лимбической системы ({menbenci&apos;e}, {besrlimbo}), она выполняет главную роль в обработке и памяти эмоциональных реакций. См. {besna}.</notes>
   <glossword word="миндалина" sense="часть мозга" />
 </valsi>
+<valsi word="anas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Анна (русское женское имя)</definition>
+  <definitionid>57485</definitionid>
+  <glossword word="Анна" sense="русское женское имя" />
+</valsi>
+<valsi word="anastasi,as" type="cmene">
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Анастасия (русское женское имя)</definition>
+  <definitionid>57513</definitionid>
+  <glossword word="Анастасия" sense="русское женское имя" />
+</valsi>
+<valsi word="andREIS" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Андрей (русское мужское имя)</definition>
+  <definitionid>57421</definitionid>
+  <glossword word="Андрей" sense="русское мужское имя" />
+</valsi>
 <valsi word="angeli" type="fu'ivla">
   <user>
     <username>gleki</username>
@@ -329,6 +411,15 @@
   <definition>$x_1$ - ангел/ангелы.</definition>
   <definitionid>37925</definitionid>
   <glossword word="ангел" />
+</valsi>
+<valsi word="angelinas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Ангелина (русское женское имя)</definition>
+  <definitionid>57422</definitionid>
+  <glossword word="Ангелина" sense="русское женское имя" />
 </valsi>
 <valsi word="anste" type="fu'ivla">
   <user>
@@ -358,6 +449,24 @@
   <definition>$x_1$ производит звук чихания $x_2$; апчхи!</definition>
   <definitionid>56761</definitionid>
 </valsi>
+<valsi word="arTIOM" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Артём (русское мужское имя)</definition>
+  <definitionid>57424</definitionid>
+  <glossword word="Артём" sense="русское мужское имя" />
+</valsi>
+<valsi word="arTUR" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Артур (русское мужское имя)</definition>
+  <definitionid>57425</definitionid>
+  <glossword word="Артур" sense="русское мужское имя" />
+</valsi>
 <valsi word="arda" type="fu'ivla">
   <user>
     <username>gleki</username>
@@ -367,6 +476,15 @@
   <definitionid>38585</definitionid>
   <notes>См. также {cipni}, {nebyplovoicpi}</notes>
   <glossword word="цапля" />
+</valsi>
+<valsi word="arinas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Арина (русское женское имя)</definition>
+  <definitionid>57423</definitionid>
+  <glossword word="Арина" sense="русское женское имя" />
 </valsi>
 <valsi word="arxivo" type="fu'ivla">
   <user>
@@ -397,9 +515,9 @@
   <definition>$x_1$ - это позиция тела/поза/стойка/асана тела $x_2$, характеризуемая свойством/(множеством) свойств $x_3$ (ka).</definition>
   <definitionid>42367</definitionid>
   <notes>См. se {morna}</notes>
+  <glossword word="асана" />
   <glossword word="поза" sense="тела" />
   <glossword word="стойка" />
-  <glossword word="асана" />
   <keyword word="поза" place="1" sense="тела" />
   <keyword word="принимать позу" place="2" sense="тела" />
 </valsi>
@@ -645,9 +763,9 @@
   <definitionid>15834</definitionid>
   <notes>См. {klaku} (плакать/рыдать), {gleki} (радоваться), {betri} (трагедия), {cinmo} (эмоция), {junri} (серьезный)</notes>
   <glossword word="печальный" />
+  <glossword word="расстроенный" sense="подавленный" />
   <glossword word="подавленный" sense="расстроенный" />
   <glossword word="огорченный" />
-  <glossword word="расстроенный" sense="подавленный" />
   <keyword word="печальный" place="1" />
   <keyword word="причина" place="2" sense="расстройства, огорчения" />
 </valsi>
@@ -751,14 +869,12 @@
 </valsi>
 <valsi word="balji" type="gismu">
   <user>
-    <username>shintyakov</username>
-    <realname>Dmitry Shintyakov</realname>
+    <username>gleki2</username>
+    <realname>Antony</realname>
   </user>
-  <definition>$x_1$ — клубень растения $x_2$</definition>
-  <definitionid>16334</definitionid>
-  <notes>Метафора: круглый, выпуклый
-См. также {punli} (выступ), {batke} (кнопка)</notes>
-  <glossword word="клубень" />
+  <definition>$x_1$ — луковица растения $x_2$</definition>
+  <definitionid>35338</definitionid>
+  <notes>См. {spati} - &apos;растение&apos;</notes>
   <glossword word="луковица" />
   <keyword word="луковица" place="1" />
 </valsi>
@@ -1451,8 +1567,8 @@
   <definition>$x_1$ - это летучая мышь (порядок Chiroptera) вида $x_2$</definition>
   <definitionid>56566</definitionid>
   <notes>См. {mabru}, {vofli}</notes>
-  <glossword word="летучая мышь" />
   <glossword word="Chiroptera" />
+  <glossword word="летучая мышь" />
 </valsi>
 <valsi word="bicysakta" type="lujvo">
   <user>
@@ -1751,17 +1867,18 @@
   <definition>$x_1$ — синий/голубой/лазурный (о цвете); $x_1$ синеет</definition>
   <definitionid>35389</definitionid>
   <notes>{skari} (иметь цвет), {blabi} (белый), {xekri} (черный), {zirpu} (сиреневый), {kandi} (тусклый), {carmi} (интенсивный), {cicna} (бирюзовый)</notes>
-  <glossword word="синеть" />
   <glossword word="синий" />
+  <glossword word="синеть" />
   <keyword word="синий" place="1" />
 </valsi>
-<valsi unofficial="true" word="bliardo" type="obsolete fu'ivla">
+<valsi word="bliiardo" type="fu'ivla">
   <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
   </user>
-  <definition>$x_1$ - это биллиард (игра), характеризуемый characterized by $x_2$</definition>
-  <definitionid>38011</definitionid>
+  <definition>$x_1$ - это биллиард, бильярд (игра), характеризуемая $x_2$</definition>
+  <definitionid>57265</definitionid>
+  <notes>См. {kelci}</notes>
   <glossword word="бильярд" />
   <glossword word="биллиард" />
 </valsi>
@@ -1802,6 +1919,15 @@
   <definition>соединитель короткой сферы действия; соединяет различные конструкции с кратчайшей сферой действия и правой группировкой</definition>
   <definitionid>36966</definitionid>
   <glossword word="связка короткой сферы действия" />
+</valsi>
+<valsi word="boRIS" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Борис (русское мужское имя)</definition>
+  <definitionid>57426</definitionid>
+  <glossword word="Борис" sense="русское мужское имя" />
 </valsi>
 <valsi word="boi" type="cmavo">
   <selmaho>BOI</selmaho>
@@ -2022,9 +2148,9 @@
   <definition>$v_1$ - это глагол/ морфологически определнное слово-предикат, выражающее отношение $b_2$ в языке $v_3$.</definition>
   <definitionid>42529</definitionid>
   <notes>Происходит от слов {bridi} и {valsi}, с удалением $b_3$, так как мы говорим об отношениеях независимо от конкретных аргументов. В ложбане такие слова должны оканчиваться на гласную и содержать согласный кластер среди первых 5 букв (не считая &apos;y&apos;).</notes>
-  <glossword word="сказуемое" sense="одно слово" />
   <glossword word="глагол" sense="одно слово" />
   <glossword word="предикат" sense="одно слово" />
+  <glossword word="сказуемое" sense="одно слово" />
 </valsi>
 <valsi word="bruna" type="gismu">
   <rafsi>bun</rafsi>
@@ -2154,8 +2280,8 @@
   <definition>$x_1$ это гинем/гринсбон (хлопчатобумажная ткань с ткацким рисунком </definition>
   <definitionid>38016</definitionid>
   <notes>Se  also {bukpu}</notes>
-  <glossword word="гринсбон" sense="ткань" />
   <glossword word="гинем" sense="ткань" />
+  <glossword word="гринсбон" sense="ткань" />
 </valsi>
 <valsi word="bukpu" type="gismu">
   <rafsi>buk</rafsi>
@@ -2310,8 +2436,8 @@
   </user>
   <definition>контур интервала события: в течение ...; прогрессивный вид, изображающий действие в процессе его осуществления во времени; продолжающееся во время                                    |-----|</definition>
   <definitionid>36982</definitionid>
-  <glossword word="продолжающееся" />
   <glossword word="прогрессивный вид" sense="грамматика" />
+  <glossword word="продолжающееся" />
 </valsi>
 <valsi word="ca'u" type="cmavo">
   <selmaho>FAhA2</selmaho>
@@ -2481,8 +2607,8 @@
   <definitionid>56622</definitionid>
   <notes>Слово-{u&apos;ivla}.  Может включать шампуни, муссы и гели для головы, средства от облысения, краску для волос и дажу пену для бритья. Однако, это должно быть вещество, которое наносят на волосы непостоянно, а не применяется к голове только первоначально того, чтобы изменить их для последующего использования (такие как обжимные щипцы, бигуди и т.п. не являются {campu}). Другими словами, {campu} остается на волосах или промывается, для того, чтобы он сработал. Волосы не обязательно должны относиться к человеку, принадлежать верхней части головы или даже быть &quot;реальными&quot;/биологическими для носителя волос - эти характеристики могут быть определены в x2. См.  {krevelylu&apos;i}, {kerfrcampu} (синоним слова {campu})</notes>
   <glossword word="шампунь" />
-  <glossword word="гель для волос" />
   <glossword word="краска для волос" />
+  <glossword word="гель для волос" />
 </valsi>
 <valsi word="canci" type="gismu">
   <user>
@@ -3198,8 +3324,8 @@
   <definition>$x_1$ (знание) - это наука о предмете $x_2$, основанная на научном методе $x_3$</definition>
   <definitionid>57147</definitionid>
   <notes>Специфично для научного метода получения информации. См. {saske}.</notes>
-  <glossword word="научное знание" />
   <glossword word="наука" sense="свод знаний" />
+  <glossword word="научное знание" />
   <keyword word="наука" place="1" />
   <keyword word="предмет науки" place="2" />
   <keyword word="научный метод" place="3" sense="в строгом смысле" />
@@ -3823,8 +3949,8 @@
   <definition>$x_1$ связан с/ассоциируется с $x_2$ отношением/связью $x_3$; $x_1$ находится в отношении $x_3$ к $x_2$; между $x_1$ и $x_2$ существует связь/отношение $x_3$</definition>
   <definitionid>35504</definitionid>
   <notes>{ki&apos;i}, {ponse} (владеть), {srana} (иметь отношение [к чему-либо]), {steci} (специфика), {mapti} (подходить), {sarxe} (гармонировать), {fange} (чужой [неродной])</notes>
-  <glossword word="ассоциирующийся с" />
   <glossword word="относящийся к" />
+  <glossword word="ассоциирующийся с" />
   <keyword word="относящийся к" place="1" />
 </valsi>
 <valsi word="ckire" type="gismu">
@@ -4807,8 +4933,8 @@
   <definition>$x_1$ высказывает/сообщает/выражает/говорит $x_2$ (sedu&apos;u/текст/lu&apos;e-концепцию аудитории $x_3$ посредством/способом $x_4$</definition>
   <definitionid>35567</definitionid>
   <notes>{bacru} (произносить), {tavla} (говорить [о чем-либо]), {casnu} (обсуждать), {spuda} (отвечать [реагировать]), {cu&apos;u}, {bangu} (язык [лингвистический]), {dapma} (проклинать), {jufra} (фраза), {pinka} (комментарий)</notes>
-  <glossword word="сказать" />
   <glossword word="высказывать" />
+  <glossword word="сказать" />
   <keyword word="высказывающий" place="1" />
 </valsi>
 <valsi word="cutci" type="gismu">
@@ -4962,6 +5088,15 @@
   <definitionid>37034</definitionid>
   <glossword word="высказывание ранее" />
 </valsi>
+<valsi word="daNIL" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Данил (русское мужское имя)</definition>
+  <definitionid>57427</definitionid>
+  <glossword word="Данил" sense="русское мужское имя" />
+</valsi>
 <valsi word="dacru" type="gismu">
   <rafsi>dac</rafsi>
   <user>
@@ -5018,8 +5153,8 @@
   <definition>модификатор междометия: предполагаемая эмоция - фактическая эмоция</definition>
   <definitionid>38582</definitionid>
   <notes>Используется для эмоций, которые не являются фактом, например, рассуждая о гипотетических событиях. la&apos;a ui dai&apos;i mi ba te dunda lo karce lo mi patfu - Мне, наверное, подарит автомобиль мой дед, и я буду счастлив из-за этого, если это случится.</notes>
-  <glossword word="нефактическая эмоция" />
   <glossword word="предполагаемая эмоция" />
+  <glossword word="нефактическая эмоция" />
 </valsi>
 <valsi word="dakfu" type="gismu">
   <rafsi>dak</rafsi>
@@ -5201,6 +5336,15 @@
   <notes>Регулярно используемая, обустроенная для езды поверхность {naxle} (канал), {tcana} (станция), {pluta} (путь), {klaji} (улица)</notes>
   <glossword word="дорога" />
   <keyword word="дорога" place="1" />
+</valsi>
+<valsi word="darias" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Дарья (русское женское имя)</definition>
+  <definitionid>57428</definitionid>
+  <glossword word="Дарья" sense="русское женское имя" />
 </valsi>
 <valsi word="darlu" type="gismu">
   <rafsi>dau</rafsi>
@@ -5402,6 +5546,15 @@
   <definition>pro-sumti: недавнее высказывание</definition>
   <definitionid>37042</definitionid>
   <glossword word="недавнее высказывание" />
+</valsi>
+<valsi word="deNIS" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Денис (русское мужское имя)</definition>
+  <definitionid>57429</definitionid>
+  <glossword word="Денис" sense="русское мужское имя" />
 </valsi>
 <valsi word="decti" type="gismu">
   <rafsi>dec</rafsi>
@@ -5631,8 +5784,8 @@
   <definition>звательная частица: доброе пожелание - проклятие</definition>
   <definitionid>37895</definitionid>
   <notes>Используется для выражения пожеланий/проклятий. См. также {dimna}, {dapma}, {ki&apos;e}, {doi}</notes>
-  <glossword word="желаю тебе" />
   <glossword word="удачи!" />
+  <glossword word="желаю тебе" />
 </valsi>
 <valsi word="di'e" type="cmavo">
   <selmaho>KOhA2</selmaho>
@@ -5929,6 +6082,15 @@
   <glossword word="знать (факт)" />
   <keyword word="знающий (факт)" place="1" />
   <keyword word="известное" place="2" />
+</valsi>
+<valsi word="dmitris" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Дмитрий (русское мужское имя)</definition>
+  <definitionid>57430</definitionid>
+  <glossword word="Дмитрий" sense="русское мужское имя" />
 </valsi>
 <valsi word="do" type="cmavo">
   <rafsi>don</rafsi>
@@ -6588,9 +6750,9 @@
   <definition>$x_1$ - это архитектор/дизайнер/инженер $x_2$ (чего)</definition>
   <definitionid>38116</definitionid>
   <notes>См. также {zbaske}, {skezu&apos;e}</notes>
-  <glossword word="дизайнер" />
-  <glossword word="инженер" />
   <glossword word="архитектор" />
+  <glossword word="инженер" />
+  <glossword word="дизайнер" />
   <keyword word="инженер" place="1" />
 </valsi>
 <valsi word="engranaje" type="fu'ivla">
@@ -6643,8 +6805,8 @@
   <definition>$x_1$ - это эфир/эфирный (всемирная среда)</definition>
   <definitionid>38018</definitionid>
   <notes>От латинского &quot;aetherius&quot; и греческого &quot;αἰθήρ&quot;. Промежуточная среда, заполняющая всю пустоту над сферой земли.</notes>
-  <glossword word="эфирный" sense="философия" />
   <glossword word="эфир" sense="философия" />
+  <glossword word="эфирный" sense="философия" />
 </valsi>
 <valsi word="fa" type="cmavo">
   <selmaho>FA</selmaho>
@@ -7428,6 +7590,15 @@
   <glossword word="изобретать" />
   <keyword word="изобретающий" place="1" />
 </valsi>
+<valsi word="fiodor" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Фёдор (русское мужское имя)</definition>
+  <definitionid>57431</definitionid>
+  <glossword word="Фёдор" sense="русское мужское имя" />
+</valsi>
 <valsi word="fipma'i" type="lujvo">
   <user>
     <username>gleki</username>
@@ -7445,8 +7616,8 @@
   <definition>$x_1$ флиртует, заигрывает с $x_2$ путём $x_3$ (событие)</definition>
   <definitionid>52886</definitionid>
   <notes>См. {cinse}, {pamta&apos;a}, {cinjikca}, {mletritra}, {gletu}</notes>
-  <glossword word="флиртовать" />
   <glossword word="заигрывать" sense="флиртовать" />
+  <glossword word="флиртовать" />
 </valsi>
 <valsi word="flalu" type="gismu">
   <rafsi>fla</rafsi>
@@ -7659,8 +7830,8 @@
   <definition>$x_1$ - клубника/земляника вида/разновидности $x_2$.</definition>
   <definitionid>37952</definitionid>
   <notes>См. также {frambesi}, {grute}, {jbari}, {rozgu}.</notes>
-  <glossword word="клубника" />
   <glossword word="земляника" />
+  <glossword word="клубника" />
 </valsi>
 <valsi word="fraso" type="gismu">
   <rafsi>fas</rafsi>
@@ -8072,6 +8243,15 @@
   <keyword word="изменяемое" place="2" />
   <keyword word="во что изменяется" place="3" />
 </valsi>
+<valsi word="galinas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Галина (русское женское имя)</definition>
+  <definitionid>57432</definitionid>
+  <glossword word="Галина" sense="русское женское имя" />
+</valsi>
 <valsi word="galtu" type="gismu">
   <rafsi>gal</rafsi>
   <rafsi>ga&apos;u</rafsi>
@@ -8309,6 +8489,15 @@
   <definition>сдвигает буквенные символы в греческий алфавит</definition>
   <definitionid>37131</definitionid>
   <glossword word="сдвиг в греческий алфавит" />
+</valsi>
+<valsi word="ge'orgis" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Георгий (русское мужское имя)</definition>
+  <definitionid>57484</definitionid>
+  <glossword word="Георгий" sense="русское мужское имя" />
 </valsi>
 <valsi word="ge'u" type="cmavo">
   <selmaho>GEhU</selmaho>
@@ -8709,8 +8898,8 @@
   <definition>$x_1$ - это латимерия/целакант/гомбесса вида $x_2$.</definition>
   <definitionid>39130</definitionid>
   <notes>См. {finpe}, {finprkoilakanto}</notes>
-  <glossword word="латимерия" />
   <glossword word="целакант" />
+  <glossword word="латимерия" />
 </valsi>
 <valsi word="gonai" type="cmavo-compound">
   <selmaho>GA*</selmaho>
@@ -8741,8 +8930,8 @@
   <definition>$x_1$ — это величина/значение/градус шкалы/системы отсчёта $x_2$ ({si&apos;o}) для измерения свойства $x_3$</definition>
   <definitionid>35738</definitionid>
   <notes>Также: уровень/балл/очки; x3 — измерение (длина/ширина/высота). См. {ckilu} (шкала), {kantu} (квант), {kelvo} (кельвин), {merli} (измерять), {ranti} (мягкий), {selci} (неделимая частица)</notes>
-  <glossword word="величина, значение" sense="на шкале" />
   <glossword word="градус" />
+  <glossword word="величина, значение" sense="на шкале" />
   <keyword word="градус" place="1" />
 </valsi>
 <valsi word="grake" type="gismu">
@@ -8791,6 +8980,16 @@
   <glossword word="жир" />
   <keyword word="жир" place="1" />
 </valsi>
+<valsi word="gratule" type="fu'ivla">
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>$x_1$ поздравляет $x_2$ с $x_3$ (событие, свойство от $x_2$)</definition>
+  <definitionid>57533</definitionid>
+  <notes>See {salci}</notes>
+  <glossword word="поздравлять" />
+</valsi>
 <valsi word="gredile" type="fu'ivla">
   <user>
     <username>gleki</username>
@@ -8799,8 +8998,8 @@
   <definition>$x_1$ - это сетка/решётка/координатная сетка, состоящая из линий $x_2$</definition>
   <definitionid>38955</definitionid>
   <notes>См. также {cartu}, {pinpau}, {rajypau}, {kamju}</notes>
-  <glossword word="решётка" />
   <glossword word="сетка" />
+  <glossword word="решётка" />
 </valsi>
 <valsi word="greku" type="gismu">
   <rafsi>rek</rafsi>
@@ -8813,6 +9012,15 @@
   <notes>{korbi} (край), {stura} (структура [чего-либо]), {tsina} (подмостки), {bongu} (кость)</notes>
   <glossword word="рама" />
   <keyword word="рама" place="1" />
+</valsi>
+<valsi word="grigoris" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Григорий (русское мужское имя)</definition>
+  <definitionid>57433</definitionid>
+  <glossword word="Григорий" sense="русское мужское имя" />
 </valsi>
 <valsi word="grusi" type="gismu">
   <rafsi>rus</rafsi>
@@ -8834,8 +9042,8 @@
   <definition>$d_1$ - это лапша/паста/макароны (в форме ленты/вереёвки/червячка), сделанные $d_2=g_1$</definition>
   <definitionid>40518</definitionid>
   <notes>См. {gurni}, {skori}, {grusko}, {grutu&apos;u}, {grudakli}, {grubo&apos;o}</notes>
-  <glossword word="паста" sense="макароны" />
   <glossword word="лапша" sense="макароны" />
+  <glossword word="паста" sense="макароны" />
   <glossword word="макароны" />
 </valsi>
 <valsi word="grute" type="gismu">
@@ -9278,6 +9486,15 @@
   <notes>См. также {slabu}, {nalni&apos;o}, {kufra}.</notes>
   <glossword word="загадочность" />
 </valsi>
+<valsi word="i,osif" type="cmene">
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Иосиф (русское мужское имя)</definition>
+  <definitionid>57514</definitionid>
+  <glossword word="Иосиф" sense="русское мужское имя" />
+</valsi>
 <valsi word="ia" type="cmavo">
   <selmaho>UI1</selmaho>
   <user>
@@ -9319,6 +9536,15 @@
   <notes>См. также {krici}, {jinvi}.</notes>
   <glossword word="неверие" />
 </valsi>
+<valsi word="ianas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Яна (русское женское имя)</definition>
+  <definitionid>57434</definitionid>
+  <glossword word="Яна" sense="русское женское имя" />
+</valsi>
 <valsi word="ibu" type="bu-letteral">
   <selmaho>BY*</selmaho>
   <user>
@@ -9340,6 +9566,24 @@
   <notes>См. также {tugni}.</notes>
   <glossword word="согласие" />
 </valsi>
+<valsi word="ieGOR" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Егор (русское мужское имя)</definition>
+  <definitionid>57435</definitionid>
+  <glossword word="Егор" sense="русское мужское имя" />
+</valsi>
+<valsi word="ielenas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Елена (русское женское имя)</definition>
+  <definitionid>57436</definitionid>
+  <glossword word="Елена" sense="русское женское имя" />
+</valsi>
 <valsi word="ienai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
   <user>
@@ -9351,6 +9595,24 @@
   <notes>См. также {tugni}.</notes>
   <glossword word="несогласие" />
 </valsi>
+<valsi word="ievgenias" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Евгения (русское женское имя)</definition>
+  <definitionid>57437</definitionid>
+  <glossword word="Евгения" sense="русское женское имя" />
+</valsi>
+<valsi word="ievgenis" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Евгений (русское мужское имя)</definition>
+  <definitionid>57438</definitionid>
+  <glossword word="Евгений" sense="русское мужское имя" />
+</valsi>
 <valsi word="iglu" type="fu'ivla">
   <user>
     <username>gleki</username>
@@ -9360,6 +9622,15 @@
   <definitionid>38712</definitionid>
   <notes>См. также {dinju}, {bisli}, {inuit}</notes>
   <glossword word="иглу" />
+</valsi>
+<valsi word="igor" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Игорь (русское мужское имя)</definition>
+  <definitionid>57439</definitionid>
+  <glossword word="Игорь" sense="русское мужское имя" />
 </valsi>
 <valsi word="ii" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -9463,6 +9734,15 @@
   <definitionid>36868</definitionid>
   <glossword word="&quot;так-или-не-так&quot; для предложения" />
 </valsi>
+<valsi word="ilIAS" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Илья (русское мужское имя)</definition>
+  <definitionid>57440</definitionid>
+  <glossword word="Илья" sense="русское мужское имя" />
+</valsi>
 <valsi word="impetu" type="fu'ivla">
   <user>
     <username>gleki</username>
@@ -9543,12 +9823,21 @@
   <definitionid>38161</definitionid>
   <notes>При необходимости для никнейма (имени) нужно добавить {me&apos;e}, для сервера - fi&apos;o {tcana}. $x_2$ стирается с помощью {zi&apos;o}, если канала нет.</notes>
   <glossword word="пользователь" sense="IRC" />
-  <glossword word="IRC" sense="активность" />
   <glossword word="сеть" sense="IRC" />
+  <glossword word="IRC" sense="активность" />
   <glossword word="канал" sense="IRC" />
   <keyword word="IRC-пользователь" place="1" />
   <keyword word="IRC-канал" place="2" />
   <keyword word="IRC-сеть" place="3" />
+</valsi>
+<valsi word="irinas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Ирина (русское женское имя)</definition>
+  <definitionid>57441</definitionid>
+  <glossword word="Ирина" sense="русское женское имя" />
 </valsi>
 <valsi word="islam" type="cmene">
   <user>
@@ -9568,9 +9857,9 @@
   <definition>$x_1$ относится к Исландии/исландской культуре/национальности/языку в аспекте $x_2$.</definition>
   <definitionid>41833</definitionid>
   <notes>См. {no&apos;ordo}, {island}</notes>
-  <glossword word="исландский" sense="страна" />
-  <glossword word="исландский" sense="культура" />
   <glossword word="исландский" sense="язык" />
+  <glossword word="исландский" sense="культура" />
+  <glossword word="исландский" sense="страна" />
 </valsi>
 <valsi word="itkuile" type="fu'ivla">
   <user>
@@ -9603,6 +9892,15 @@
   <notes>См. также {prami}.</notes>
   <glossword word="нет любви" />
 </valsi>
+<valsi word="iulias" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Юлия (русское женское имя)</definition>
+  <definitionid>57442</definitionid>
+  <glossword word="Юлия" sense="русское женское имя" />
+</valsi>
 <valsi word="iunai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
   <user>
@@ -9613,6 +9911,15 @@
   <definitionid>36874</definitionid>
   <notes>См. также {prami}.</notes>
   <glossword word="ненависть" />
+</valsi>
+<valsi word="iuris" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Юрий (русское мужское имя)</definition>
+  <definitionid>57443</definitionid>
+  <glossword word="Юрий" sense="русское мужское имя" />
 </valsi>
 <valsi word="ja" type="cmavo">
   <rafsi>jav</rafsi>
@@ -9728,8 +10035,8 @@
   <definition>$x_1$ — украшение/орнамент/отделка $x_2$ (чье/чего); $x_1$ (объект) украшает/декорирует/отделывает $x_2$; $x_2$ разукрашен/отделан</definition>
   <definitionid>35761</definitionid>
   <notes>разукрашен/отделан: {selja&apos;i}. См. также {jemna} (самоцвет), {dirba} (милый), {batke} (кнопка)</notes>
-  <glossword word="украшение" />
   <glossword word="украшать" />
+  <glossword word="украшение" />
   <keyword word="украшающий" place="1" />
 </valsi>
 <valsi word="jai" type="cmavo">
@@ -10306,8 +10613,8 @@
   </user>
   <definition>$x_1$ - это конец недели/уик-энд недели $x_2$</definition>
   <definitionid>42455</definitionid>
-  <glossword word="конец недели" sense="суббота, воскресенье" />
   <glossword word="уик-энд" sense="выходные дни" />
+  <glossword word="конец недели" sense="суббота, воскресенье" />
 </valsi>
 <valsi word="jegvo" type="gismu">
   <rafsi>jeg</rafsi>
@@ -11856,8 +12163,8 @@
   <definition>$x_1$ - это товарищ/соратник/компаньон/напарник/партнёр $x_2$ (кого), связанный $x_3$ (ka, чем)</definition>
   <definitionid>38173</definitionid>
   <notes>Отличается от {pendo} беспристрастностью, связанностью благодаря x3. Отличается от {kansa} наличием привязанности и эмпатии.</notes>
-  <glossword word="товарищ" />
   <glossword word="соратник" />
+  <glossword word="товарищ" />
   <glossword word="напарник" />
   <glossword word="компаньон" />
 </valsi>
@@ -12018,9 +12325,9 @@
   <definition>$x_1$ - это красный стручковый перец (чили)/паприка (Capsicum) вида/разновидности $x_2$.</definition>
   <definitionid>39080</definitionid>
   <notes>См. также {cpina}, {spatrpiperi}, {tamca}, {patlu}, {tanko}, {mlongena}</notes>
-  <glossword word="Capsicum" />
-  <glossword word="красный стручковый пере чили" />
   <glossword word="паприка" />
+  <glossword word="красный стручковый пере чили" />
+  <glossword word="Capsicum" />
 </valsi>
 <valsi word="karbi" type="gismu">
   <rafsi>kab</rafsi>
@@ -12067,6 +12374,15 @@
   <glossword word="дорогой (дорогостоящий)" />
   <keyword word="дорогой (дорогостоящий)" place="1" />
 </valsi>
+<valsi word="karinas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Карина (русское женское имя)</definition>
+  <definitionid>57444</definitionid>
+  <glossword word="Карина" sense="русское женское имя" />
+</valsi>
 <valsi word="karkaju" type="fu'ivla">
   <user>
     <username>gleki</username>
@@ -12085,10 +12401,10 @@
   <definition>$x_1$ — пояс/воротник/повязка/манжета/ожерелье/галстук/ошейник вокруг $x_2$, сделанный из материала $x_3$</definition>
   <definitionid>35891</definitionid>
   <notes>См. сфинктер {sruri} (окружать), {djine} (кольцо)</notes>
-  <glossword word="галстук" />
   <glossword word="пояс" />
-  <glossword word="ожерелье" />
+  <glossword word="галстук" />
   <glossword word="воротник" />
+  <glossword word="ожерелье" />
   <keyword word="пояс" place="1" />
 </valsi>
 <valsi word="karnavali" type="fu'ivla">
@@ -12332,6 +12648,16 @@
   <glossword word="космос" />
   <keyword word="космос" place="1" />
 </valsi>
+<valsi word="kentauru" type="fu'ivla">
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>$x_1$ - это кентавр, человек-лошадь</definition>
+  <definitionid>57541</definitionid>
+  <notes>См. {xirma}, {remna}</notes>
+  <glossword word="кентавр" sense="человек-лошадь" />
+</valsi>
 <valsi word="kerfa" type="gismu">
   <rafsi>kre</rafsi>
   <user>
@@ -12515,6 +12841,15 @@
   <definition>модальный предлог от krinu, 1-ое место                            несмотря на причину, ...</definition>
   <definitionid>37236</definitionid>
 </valsi>
+<valsi word="kiRIL" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Кирилл (русское мужское имя)</definition>
+  <definitionid>57445</definitionid>
+  <glossword word="Кирилл" sense="русское мужское имя" />
+</valsi>
 <valsi unofficial="true" word="kibro" type="experimental gismu">
   <user>
     <username>gleki</username>
@@ -12523,8 +12858,8 @@
   <definition>$x_1$ принадлежит интернету/киберпространству в аспекте $x_2$.</definition>
   <definitionid>42616</definitionid>
   <notes>Предложено автором xorxes. Краткое rafsi - &apos;-kib-&apos;. Ср. {mujysamseltcana}.</notes>
-  <glossword word="интернет" />
   <glossword word="киберпространство" />
+  <glossword word="интернет" />
   <keyword word="интернет" place="1" />
 </valsi>
 <valsi word="kicne" type="gismu">
@@ -12785,10 +13120,10 @@
   <definition>междометие-рассуждение: императив/повеление/повелительное наклонение/гортатив/настоятельное наклонение</definition>
   <definitionid>37911</definitionid>
   <notes>``{ko}&apos;&apos; - это краткая форма от &apos;&apos;{do} {ko&apos;oi}&apos;&apos;; более широкий термин по сравнению с {au}, {a&apos;o}, {e&apos;o}, {e&apos;u}, {e&apos;a}, {ei}; См. также {minde}, {cpedu}, {curmi}, {pacna}, {stidi}, {djica}, {bilga}</notes>
-  <glossword word="императив" />
   <glossword word="гортатив" />
-  <glossword word="настоятельное наклонение" />
   <glossword word="повелительное наклонение" />
+  <glossword word="императив" />
+  <glossword word="настоятельное наклонение" />
 </valsi>
 <valsi word="ko'u" type="cmavo">
   <selmaho>KOhA4</selmaho>
@@ -12925,6 +13260,15 @@
   <notes>Эллипс (коническое сечение): {konclupa} {jesni} (игла [форма, не орудие]), {djine} (кольцо), {sovda} (яйцо), {kojna} (угол [телесный]), {jganu} (угол)</notes>
   <glossword word="конус" />
   <keyword word="конус" place="1" />
+</valsi>
+<valsi word="konstanTIN" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Константин (русское мужское имя)</definition>
+  <definitionid>57446</definitionid>
+  <glossword word="Константин" sense="русское мужское имя" />
 </valsi>
 <valsi word="korbi" type="gismu">
   <rafsi>kor</rafsi>
@@ -13182,6 +13526,15 @@
   <keyword word="имеющее изгиб" place="2" />
   <keyword word="участок изгиба" place="3" />
 </valsi>
+<valsi word="ksenias" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Ксения (русское женское имя)</definition>
+  <definitionid>57447</definitionid>
+  <glossword word="Ксения" sense="русское женское имя" />
+</valsi>
 <valsi word="ku" type="cmavo">
   <selmaho>KU</selmaho>
   <user>
@@ -13225,7 +13578,7 @@
   <glossword word="однако" />
 </valsi>
 <valsi word="ku'inai" type="cmavo-compound">
-  <selmaho>UI3b</selmaho>
+  <selmaho>UI*3b</selmaho>
   <user>
     <username>gleki</username>
     <realname>gleki</realname>
@@ -13695,8 +14048,8 @@
   <definition>$x_1$ - старый/пожилой [относительно длинный в истёкшей длительности] по стандарту $x_2$</definition>
   <definitionid>36674</definitionid>
   <notes>(= {tolci&apos;o}) см. {citno}, {slabu}</notes>
-  <glossword word="старый" />
   <glossword word="пожилой" />
+  <glossword word="старый" />
 </valsi>
 <valsi word="lalxu" type="gismu">
   <rafsi>la&apos;u</rafsi>
@@ -14043,11 +14396,11 @@
   <notes>Конструкция {lo&apos;ai} ... {sa&apos;ai} ... {le&apos;ai} просит слушателя заменить текст после {lo&apos;ai} текстом после {sa&apos;ai}.  Порядок {sa&apos;ai} ... {lo&apos;ai} ... {le&apos;ai} также разрешается. Могут быть опущены одна или обе части. Когда опускаются обе части, слово {le&apos;ai} само по себе означает, что была сделана ошибка, оставляя все детали выводимыми только из контекста.
 
 Также возможно присоединять слова группы SAI к конструкции le&apos;ai: le&apos;ai {dai} (или le&apos;ai {da&apos;oi} ko&apos;a) означает, что кто-то другой сделал ошибку; le&apos;ai {pei} спрашивает, сделал ли кто-то другой ошибку; а {sai}, {ru&apos;e} и {cu&apos;i} могуть быть использованы, что обозначить важность замены. Более того, le&apos;ai {nai} может быть использовано, что явно отрицать ошибки, вместо того, чтобы признать их (сравни слово &quot;sic&quot;).</notes>
-  <glossword word="окончание цитирования ошибочного текста" />
-  <glossword word="индикатор ошибки" />
-  <glossword word="окончание заменяющего цитирования" />
-  <glossword word="прошу прощения" sense="после произнесения ошибочного текста" />
   <glossword word="sic" />
+  <glossword word="окончание заменяющего цитирования" />
+  <glossword word="индикатор ошибки" />
+  <glossword word="окончание цитирования ошибочного текста" />
+  <glossword word="прошу прощения" sense="после произнесения ошибочного текста" />
 </valsi>
 <valsi word="le'e" type="cmavo">
   <rafsi>lem</rafsi>
@@ -14262,6 +14615,15 @@
   <definitionid>37284</definitionid>
   <glossword word="вон того" />
 </valsi>
+<valsi word="lev" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Лев (русское мужское имя)</definition>
+  <definitionid>57448</definitionid>
+  <glossword word="Лев" sense="русское мужское имя" />
+</valsi>
 <valsi word="leva" type="cmavo-compound">
   <selmaho>LE*</selmaho>
   <user>
@@ -14375,6 +14737,15 @@
   <glossword word="ливийский" />
   <keyword word="ливийский" place="1" />
 </valsi>
+<valsi word="lidias" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Лидия (русское женское имя)</definition>
+  <definitionid>57449</definitionid>
+  <glossword word="Лидия" sense="русское женское имя" />
+</valsi>
 <valsi word="lidne" type="gismu">
   <rafsi>li&apos;e</rafsi>
   <user>
@@ -14415,6 +14786,15 @@
   <keyword word="религия" place="1" />
   <keyword word="верующий" place="2" />
   <keyword word="верования (обряды)" place="3" />
+</valsi>
+<valsi word="lilias" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Лилия (русское женское имя)</definition>
+  <definitionid>57450</definitionid>
+  <glossword word="Лилия" sense="русское женское имя" />
 </valsi>
 <valsi word="limna" type="gismu">
   <rafsi>lim</rafsi>
@@ -14552,6 +14932,24 @@
   <keyword word="путешествующий" place="1" />
   <keyword word="маршрут путушествия" place="2" />
   <keyword word="средство передвижения" place="3" />
+</valsi>
+<valsi word="liuBOF" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Любовь (русское женское имя)</definition>
+  <definitionid>57451</definitionid>
+  <glossword word="Любовь" sense="русское женское имя" />
+</valsi>
+<valsi word="liudmilas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Людмила (русское женское имя)</definition>
+  <definitionid>57452</definitionid>
+  <glossword word="Людмила" sense="русское женское имя" />
 </valsi>
 <valsi word="livga" type="gismu">
   <user>
@@ -15222,9 +15620,9 @@
   <definition>$x_1$ - пушистый, воздушный, мягкий, нежный по текстуре и состоящий из $x_2$</definition>
   <definitionid>56596</definitionid>
   <notes>Зрительно и тактильно. Частые (но не обязательные) примеры: податливый, пористый, пенистый, &quot;мягкий, как подушка&quot;, &quot;ватообразный&quot;, &quot;как шерсть&quot;. Может иметь фрактальную природу. Не обязательно волосатый или пушистый, но должен быть мягким, не щетинистым (что подразумевает жесткость и твердость). См. {palpi}, {ranti}, {rufsu}, {xutla}, {panje}, {dilnu}, {mapni}, {sunla}, {fonmo}, {jduli}, {pesxu}, {marji}.</notes>
-  <glossword word="воздушный" sense="по текстуре" />
-  <glossword word="пушистый" sense="по текстуре" />
   <glossword word="ватообразный" sense="по текстуре" />
+  <glossword word="пушистый" sense="по текстуре" />
+  <glossword word="воздушный" sense="по текстуре" />
 </valsi>
 <valsi word="mapti" type="gismu">
   <rafsi>mat</rafsi>
@@ -15278,6 +15676,15 @@
   <glossword word="мораль" />
   <keyword word="мораль" place="1" />
 </valsi>
+<valsi word="margaritas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Маргарита (русское женское имя)</definition>
+  <definitionid>57453</definitionid>
+  <glossword word="Маргарита" sense="русское женское имя" />
+</valsi>
 <valsi word="margu" type="gismu">
   <rafsi>mag</rafsi>
   <user>
@@ -15289,6 +15696,15 @@
   <notes>Метафора: жидкий металл, градусник {jinme} (металл)</notes>
   <glossword word="ртуть" />
   <keyword word="ртуть" place="1" />
+</valsi>
+<valsi word="mariias" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Мария (русское женское имя)</definition>
+  <definitionid>57489</definitionid>
+  <glossword word="Мария" sense="русское женское имя" />
 </valsi>
 <valsi word="marji" type="gismu">
   <rafsi>maj</rafsi>
@@ -15425,6 +15841,15 @@
   <definition>$x_1$ - это июнь/6-ой месяц года $x_2$ по календарю $x_3$</definition>
   <definitionid>39219</definitionid>
   <notes>См. {masti}, {pavrelmasti}, {nanca}</notes>
+</valsi>
+<valsi word="matyVEIS" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Матвей (русское мужское имя)</definition>
+  <definitionid>57488</definitionid>
+  <glossword word="Матвей" sense="русское мужское имя" />
 </valsi>
 <valsi word="mau" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -15564,9 +15989,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$s_1$ - супруг сестры $m_2$ (кого) согласно закону/обычаю/традиции/системе/соглашению $sp_3$.</definition>
   <definitionid>38708</definitionid>
   <notes>Опущено $x_4=s_2=m_1$. См. также {speni}, {bunspe}, {tubyspe}.</notes>
+  <glossword word="муж сестры" />
   <glossword word="зять" sense="муж сестры" />
   <glossword word="свояк" sense="муж сестры жены" />
-  <glossword word="муж сестры" />
 </valsi>
 <valsi word="me'o" type="cmavo">
   <selmaho>LI</selmaho>
@@ -15587,8 +16012,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>не-ложбанский глагол</definition>
   <definitionid>37947</definitionid>
   <notes>Быстрый способ заимствования иностранных слов в ложбан. Также известен как &quot;стадия-0 fu&apos;ivla&quot;. Эквивалентен {me&apos;au} {la&apos;e} {zo&apos;oi}.</notes>
-  <glossword word="не-ложбанский глагол" />
   <glossword word="заимствованный глагол" />
+  <glossword word="не-ложбанский глагол" />
 </valsi>
 <valsi word="me'u" type="cmavo">
   <selmaho>MEhU</selmaho>
@@ -16054,6 +16479,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <notes>См. {kilto} - &apos;кило&apos;, {centi} - &apos;санти&apos;, {decti} - &apos;десятый [доля 1/10]&apos;, {dekto} - &apos;дека&apos;, {femti} - &apos;фемто&apos;, {gigdo} - &apos;гига&apos;, {gocti} - &apos;йокто&apos;, {gotro} - &apos;йотта&apos;, {gutci} - &apos;измеряться [в футах/дюймах и пр.]&apos;, {litce} - &apos;литр&apos;, {megdo} - &apos;мега&apos;, {mikri} - &apos;микро&apos;, {milti} - &apos;милли&apos;, {minli} - &apos;миля&apos;, {nanvi} - &apos;нано&apos;, {petso} - &apos;пета&apos;, {picti} - &apos;пико&apos;, {terto} - &apos;тера&apos;, {xatsi} - &apos;атто&apos;, {xecto} - &apos;гекто&apos;, {xexso} - &apos;экса&apos;, {zepti} - &apos;зепто&apos;, {zetro} - &apos;зетта&apos;</notes>
   <glossword word="метр" />
   <keyword word="метр" place="1" />
+</valsi>
+<valsi word="mixa,IL" type="cmene">
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Михаил (русское мужское имя)</definition>
+  <definitionid>57511</definitionid>
+  <glossword word="Михаил" sense="русское мужское имя" />
 </valsi>
 <valsi word="mixre" type="gismu">
   <rafsi>mix</rafsi>
@@ -17116,6 +17550,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <glossword word="гренки" />
   <glossword word="гренок" />
 </valsi>
+<valsi word="nadejdas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Надежда (русское женское имя)</definition>
+  <definitionid>57454</definitionid>
+  <glossword word="Надежда" sense="русское женское имя" />
+</valsi>
 <valsi word="nagi'a" type="cmavo-compound">
   <selmaho>GIhA*</selmaho>
   <user>
@@ -17401,8 +17844,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   </user>
   <definition>маркёр неограничивающей придаточной фразы: что, кстати, связано с ...</definition>
   <definitionid>37394</definitionid>
-  <glossword word="о" sense="(ком/чём)" />
   <glossword word="второстепенная фраза" />
+  <glossword word="о" sense="(ком/чём)" />
 </valsi>
 <valsi word="ne'a" type="cmavo">
   <selmaho>FAhA3</selmaho>
@@ -17632,6 +18075,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <glossword word="ночь" />
   <keyword word="ночь" place="1" />
 </valsi>
+<valsi word="nikitas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Никита (русское мужское имя)</definition>
+  <definitionid>57455</definitionid>
+  <glossword word="Никита" sense="русское мужское имя" />
+</valsi>
 <valsi word="nikle" type="gismu">
   <rafsi>nik</rafsi>
   <user>
@@ -17643,6 +18095,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <notes>{jinme} (металл)</notes>
   <glossword word="никель" />
   <keyword word="никель" place="1" />
+</valsi>
+<valsi word="nikoLAIS" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Николай (русское мужское имя)</definition>
+  <definitionid>57456</definitionid>
+  <glossword word="Николай" sense="русское мужское имя" />
 </valsi>
 <valsi word="nilce" type="gismu">
   <rafsi>ni&apos;e</rafsi>
@@ -18272,6 +18733,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <notes>См. также {surla}, {cnilanxe}, {dunku}.</notes>
   <glossword word="стресс" />
 </valsi>
+<valsi word="oLEG" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Олег (русское мужское имя)</definition>
+  <definitionid>57458</definitionid>
+  <glossword word="Олег" sense="русское мужское имя" />
+</valsi>
 <valsi word="obu" type="bu-letteral">
   <selmaho>BY*</selmaho>
   <user>
@@ -18374,6 +18844,24 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>междометие: жалоба в секусальном аспекте</definition>
   <definitionid>36897</definitionid>
   <glossword word="сексуальная жалоба" />
+</valsi>
+<valsi word="oksanas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Оксана (русское женское имя)</definition>
+  <definitionid>57457</definitionid>
+  <glossword word="Оксана" sense="русское женское имя" />
+</valsi>
+<valsi word="olgas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Ольга (русское женское имя)</definition>
+  <definitionid>57459</definitionid>
+  <glossword word="Ольга" sense="русское женское имя" />
 </valsi>
 <valsi word="omle" type="fu'ivla">
   <user>
@@ -18696,6 +19184,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definitionid>37440</definitionid>
   <glossword word="одиночный" />
 </valsi>
+<valsi word="pamniarkovni" type="fu'ivla">
+  <user>
+    <username>Kijdenvoot</username>
+    <realname>Sergey</realname>
+  </user>
+  <definition>$x_1$ - рассудительный, но с узким кругозором</definition>
+  <definitionid>57369</definitionid>
+  <notes>См. {stati}, {na} {certu}</notes>
+</valsi>
 <valsi word="pamo'o" type="cmavo-compound">
   <selmaho>MAI*</selmaho>
   <user>
@@ -18782,8 +19279,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ — ломоть/ломтик/стружка (тонкая плоская порция) $x_2$ (чего: масса)</definition>
   <definitionid>36148</definitionid>
   <notes>См. также {pagbu} (часть), {spisa} (кусок), {nanba} (хлеб)</notes>
-  <glossword word="стружка" />
   <glossword word="ломоть" />
+  <glossword word="стружка" />
 </valsi>
 <valsi word="pano" type="cmavo-compound">
   <selmaho>PA*</selmaho>
@@ -19036,6 +19533,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definitionid>37455</definitionid>
   <glossword word="риторический вопрос" />
 </valsi>
+<valsi word="pavel" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Павел (русское мужское имя)</definition>
+  <definitionid>57460</definitionid>
+  <glossword word="Павел" sense="русское мужское имя" />
+</valsi>
 <valsi word="pavmasti" type="lujvo">
   <user>
     <username>gleki</username>
@@ -19044,8 +19550,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ - это январь/первый месяц года $x_2$ по календарю $x_3$.</definition>
   <definitionid>39131</definitionid>
   <notes>См. {relmasti}, {cibmasti}, {vonmasti}, {mumymasti}, {xavmasti}, {zelmasti}, {bivmasti}, {sozymasti}, {pavnonmasti}, {pavypavmasti}, {pavrelmasti}, {nanca}, {kanbyma&apos;i}.</notes>
-  <glossword word="январь" />
   <glossword word="нисан" />
+  <glossword word="январь" />
 </valsi>
 <valsi word="pavnonmasti" type="lujvo">
   <user>
@@ -19209,8 +19715,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ — желтый/золотистый (о цвете); $x_1$ желтеет</definition>
   <definitionid>36160</definitionid>
   <notes>{skari} (иметь цвет), {blabi} (белый), {xekri} (черный), {kandi} (тусклый), {carmi} (интенсивный), {narju} (оранжевый), {solji} (золото)</notes>
-  <glossword word="желтеть" />
   <glossword word="желтый" />
+  <glossword word="желтеть" />
   <keyword word="желтый" place="1" />
 </valsi>
 <valsi word="pemci" type="gismu">
@@ -19617,9 +20123,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ (тело) мочится/выделяет мочу/сикает/писает/ссыт</definition>
   <definitionid>52651</definitionid>
   <notes>zi&apos;evla из {pincyvi&apos;i}</notes>
-  <glossword word="ссать" />
-  <glossword word="мочиться" />
   <glossword word="писать" sense="выделять мочу" />
+  <glossword word="мочиться" />
+  <glossword word="ссать" />
 </valsi>
 <valsi word="pindi" type="gismu">
   <rafsi>pid</rafsi>
@@ -19707,6 +20213,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <glossword word="пить" />
   <keyword word="пить" place="1" />
   <keyword word="жидкость, которую пьют" place="2" />
+</valsi>
+<valsi word="piotyr" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Пётр (русское мужское имя)</definition>
+  <definitionid>57461</definitionid>
+  <glossword word="Пётр" sense="русское мужское имя" />
 </valsi>
 <valsi word="pipno" type="gismu">
   <rafsi>pi&apos;o</rafsi>
@@ -20080,8 +20595,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ проявляет пошлые, &apos;низкие&apos;, осмеиваемые и морально презираемые, низкопробные, вульгарные, неоригинальные, банальные качества согласно $x_2$ (кому) в аспекте $x_3$; $x_1$ - пошлый/ пошляк/ пошлячка / проявляет пошлость</definition>
   <definitionid>39127</definitionid>
   <notes>См. {mabla}</notes>
-  <glossword word="пошлый" />
   <glossword word="пошлость" />
+  <glossword word="пошлый" />
 </valsi>
 <valsi word="poi" type="cmavo">
   <selmaho>NOI</selmaho>
@@ -20092,6 +20607,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>ограничивающее придаточное предложение; присоединяет к sumti придаточное bridi с информацией, идентифицирующей эту sumti</definition>
   <definitionid>37490</definitionid>
   <glossword word="ограничивающее придаточное предложение" />
+</valsi>
+<valsi word="polinas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Полина (русское женское имя)</definition>
+  <definitionid>57462</definitionid>
+  <glossword word="Полина" sense="русское женское имя" />
 </valsi>
 <valsi word="polje" type="gismu">
   <rafsi>plo</rafsi>
@@ -20118,18 +20642,6 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <notes>{sralo} (австралийский), {daplu} (остров), {xamsi} (море)</notes>
   <glossword word="полинезийский" />
   <keyword word="полинезийский" place="1" />
-</valsi>
-<valsi word="pomjiarkovni" type="fu'ivla">
-  <user>
-    <username>krtisfranks</username>
-    <realname>Curtis W Franks</realname>
-  </user>
-  <definition>$x_1$ - рассудительный, но с узким кругозором</definition>
-  <definitionid>57164</definitionid>
-  <notes>См. {stati}, {na} {certu}</notes>
-  <glossword word="узким кругозором рассудительный" />
-  <glossword word="узким кругозором" sense="рассудительный" />
-  <glossword word="рассудительный" sense="узким кругозором" />
 </valsi>
 <valsi word="ponjo" type="gismu">
   <rafsi>pon</rafsi>
@@ -20708,8 +21220,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definitionid>44254</definitionid>
   <notes>См. {zgike}, {sanga}, {tcidu}</notes>
   <glossword word="читать рэп" />
-  <glossword word="петь рэп" />
   <glossword word="рэппер" />
+  <glossword word="петь рэп" />
   <keyword word="рэппер" place="1" />
 </valsi>
 <valsi word="ra'e" type="cmavo">
@@ -20784,6 +21296,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>междометие-рассуждение: главным образом, особенно, в основном, преимущественно - равно, в равной степени - кстати</definition>
   <definitionid>37517</definitionid>
   <notes>См. также {ralju}, {vajni}.</notes>
+</valsi>
+<valsi word="ra,isas" type="cmene">
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Раиса (русское женское имя)</definition>
+  <definitionid>57512</definitionid>
+  <glossword word="Раиса" sense="русское женское имя" />
 </valsi>
 <valsi word="racli" type="gismu">
   <user>
@@ -21563,8 +22084,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ - америндский/индейский/относящийся к культуре/языку американских индейцев в аспекте $x_2$</definition>
   <definitionid>38706</definitionid>
   <notes>См. также {abniena}, {niengatu}, {nienke&apos;a}, {ancinabe}, {tsalagi}, {siksika}.</notes>
-  <glossword word="индейский" sense="американские индейцы" />
   <glossword word="америндский" />
+  <glossword word="индейский" sense="американские индейцы" />
 </valsi>
 <valsi word="rinju" type="gismu">
   <rafsi>ri&apos;u</rafsi>
@@ -21814,6 +22335,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <notes>См. также {cinse}.</notes>
   <glossword word="отрицая сексуальный аспект" />
 </valsi>
+<valsi word="roMAN" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Роман (русское мужское имя)</definition>
+  <definitionid>57463</definitionid>
+  <glossword word="Роман" sense="русское мужское имя" />
+</valsi>
 <valsi word="roda" type="cmavo-compound">
   <selmaho>KOhA*</selmaho>
   <user>
@@ -21880,8 +22410,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ относится к цыганской/Романи культуре/национальности/языку в аспекте $x_2$</definition>
   <definitionid>39206</definitionid>
   <notes>См. {kulnu}, {xindo}</notes>
-  <glossword word="романи" />
   <glossword word="цыган" />
+  <glossword word="романи" />
   <glossword word="цыганский" />
   <keyword word="цыганский" place="1" />
 </valsi>
@@ -22102,6 +22632,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <glossword word="доллар/рубль" />
   <keyword word="стоить" place="1" />
   <keyword word="денежная система" place="3" />
+</valsi>
+<valsi word="rusLAN" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Руслан (русское мужское имя)</definition>
+  <definitionid>57464</definitionid>
+  <glossword word="Руслан" sense="русское мужское имя" />
 </valsi>
 <valsi word="rusko" type="gismu">
   <rafsi>ruk</rafsi>
@@ -22392,9 +22931,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ - это лосось/форель/сёмга вида $x_2$.</definition>
   <definitionid>39114</definitionid>
   <notes>См. {finpe}, {sperlanu}</notes>
-  <glossword word="форель" />
   <glossword word="сёмга" />
   <glossword word="лосось" />
+  <glossword word="форель" />
 </valsi>
 <valsi word="salpo" type="gismu">
   <rafsi>sa&apos;o</rafsi>
@@ -22744,6 +23283,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>опускаемый терминатор: завершает междометие-рассуждение в виде bridi или математическое старшинство;обычно опускаемо</definition>
   <definitionid>37589</definitionid>
   <glossword word="завершает междометие-рассуждение в виде bridi" />
+</valsi>
+<valsi word="seMION" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Семён (русское мужское имя)</definition>
+  <definitionid>57465</definitionid>
+  <glossword word="Семён" sense="русское мужское имя" />
 </valsi>
 <valsi word="seba'i" type="cmavo-compound">
   <selmaho>BAI*</selmaho>
@@ -23149,6 +23697,17 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definitionid>37626</definitionid>
   <glossword word="как категория ...(чего)" />
 </valsi>
+<valsi word="selfamti" type="lujvo">
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>$x_1$ - это племянник/племянница $x_2$ (кого) по виду рлдства $x_3$</definition>
+  <definitionid>57286</definitionid>
+  <notes>См. {famti}, {tixnu}, {bersa}, {tunba}</notes>
+  <glossword word="племянник" />
+  <glossword word="племянница" />
+</valsi>
 <valsi word="selfu" type="gismu">
   <rafsi>sef</rafsi>
   <rafsi>se&apos;u</rafsi>
@@ -23424,6 +23983,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>модальный предлог от pruce, 2-е место (расход)                   перерабатывая/производя из исходного материала/данных, ...</definition>
   <definitionid>37645</definitionid>
   <glossword word="перерабатывая из" />
+</valsi>
+<valsi word="serGEIS" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Сергей (русское мужское имя)</definition>
+  <definitionid>57466</definitionid>
+  <glossword word="Сергей" sense="русское мужское имя" />
 </valsi>
 <valsi word="sera'a" type="cmavo-compound">
   <selmaho>BAI*</selmaho>
@@ -23932,9 +24500,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ - это обыкновенный удав/констриктор (род Boa) вида $x_2$</definition>
   <definitionid>41515</definitionid>
   <notes>См. {since}</notes>
-  <glossword word="удав обыкновенный" />
-  <glossword word="констриктор" sense="змея" />
   <glossword word="Boa" sense="змея" />
+  <glossword word="констриктор" sense="змея" />
+  <glossword word="удав обыкновенный" />
 </valsi>
 <valsi word="sinma" type="gismu">
   <rafsi>si&apos;a</rafsi>
@@ -24149,8 +24717,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$s_1$ - это макрель/скумбрия вида $s_2$.</definition>
   <definitionid>39129</definitionid>
   <notes>См. {finpe}, {finprtuna}</notes>
-  <glossword word="скумбрия" />
   <glossword word="макрель" />
+  <glossword word="скумбрия" />
 </valsi>
 <valsi word="skori" type="gismu">
   <rafsi>sko</rafsi>
@@ -24296,6 +24864,16 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <keyword word="колеблющийся" place="1" />
   <keyword word="частота колебания" place="2" />
 </valsi>
+<valsi word="slinkui" type="fu'ivla">
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>$x_1$ - это игрушка-слинки</definition>
+  <definitionid>57259</definitionid>
+  <notes>См. {kelci}. Это слово дало название slinku&apos;i-тесту.</notes>
+  <glossword word="слинки" sense="игрушка" />
+</valsi>
 <valsi word="sliri" type="gismu">
   <user>
     <username>gleki2</username>
@@ -24419,10 +24997,10 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definitionid>36755</definitionid>
   <notes>{zirsmela} для сливы, {xunsmela} для вишни, {najysmela} для персика, {pelsmela} для абрикоса, {ri&apos;orsmela} для миндаля, {blasmela} для тёрна.
 Ср. {rutrprunu}, {ricrprunu}, {flaume}, {persika}, {rutrceraso}, {birkoku}, {frambesi}, {fragari}, {plise}, {perli}, {rozgu}</notes>
-  <glossword word="слива" sense="плод" />
-  <glossword word="тёрн" sense="плод" />
-  <glossword word="миндаль" sense="плод" />
   <glossword word="абрикос" sense="плод" />
+  <glossword word="тёрн" sense="плод" />
+  <glossword word="слива" sense="плод" />
+  <glossword word="миндаль" sense="плод" />
   <glossword word="вишня" sense="плод" />
   <glossword word="персик" sense="плод" />
 </valsi>
@@ -24509,6 +25087,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <notes>{berti} (север), {stuna} (восток), {stici} (запад), {farna} (направление)</notes>
   <glossword word="юг" />
   <keyword word="юг" place="1" />
+</valsi>
+<valsi word="snejanas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Снежана (русское женское имя)</definition>
+  <definitionid>57467</definitionid>
+  <glossword word="Снежана" sense="русское женское имя" />
 </valsi>
 <valsi word="snidu" type="gismu">
   <rafsi>nid</rafsi>
@@ -24902,8 +25489,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definitionid>38714</definitionid>
   <notes>Шуточное слово. В основном используется в tanru {kinda} {sorta}</notes>
   <glossword word="как бы" />
-  <glossword word="как будто" />
   <glossword word="вроде как" />
+  <glossword word="как будто" />
 </valsi>
 <valsi word="sosoce'i" type="cmavo-compound">
   <selmaho>PA*</selmaho>
@@ -25034,9 +25621,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   </user>
   <definition>$x_1$ принадлежит языку/культуре эсперанто в аспекте $x_2$</definition>
   <definitionid>38707</definitionid>
-  <glossword word="эсперантский" />
   <glossword word="эсперанто" />
   <glossword word="эсперантистский" />
+  <glossword word="эсперантский" />
 </valsi>
 <valsi word="spisa" type="gismu">
   <rafsi>spi</rafsi>
@@ -25319,6 +25906,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <notes>Метафора: опора {tuple} (нога), {mudri} (древесина)</notes>
   <glossword word="стебель" />
   <keyword word="стебель" place="1" />
+</valsi>
+<valsi word="stanisLAF" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Станислав (русское мужское имя)</definition>
+  <definitionid>57468</definitionid>
+  <glossword word="Станислав" sense="русское мужское имя" />
 </valsi>
 <valsi word="stapa" type="gismu">
   <rafsi>tap</rafsi>
@@ -25740,8 +26336,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ (текст) — это sumti (аргумент, имя существительное/местоимение/имя собственное) от сказуемого-selbri $x_2$ (текст), заполняющее место/падеж $x_3$</definition>
   <definitionid>36447</definitionid>
   <notes>См. {bridi} - &apos;глагольная фраза&apos;, {darlu} - &apos;отстаивать позицию&apos;, {gismu} - &apos;корневое слово&apos;</notes>
-  <glossword word="существительное  / местоимение  / имя собственное" />
   <glossword word="аргумент сказуемого" />
+  <glossword word="существительное  / местоимение  / имя собственное" />
   <keyword word="аргумент сказуемого" place="1" />
 </valsi>
 <valsi word="sunga" type="gismu">
@@ -25802,6 +26398,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>буквенный символ для s</definition>
   <definitionid>37696</definitionid>
   <glossword word="s" />
+</valsi>
+<valsi word="syvetlanas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Светлана (русское женское имя)</definition>
+  <definitionid>57486</definitionid>
+  <glossword word="Светлана" sense="русское женское имя" />
 </valsi>
 <valsi word="ta" type="cmavo">
   <rafsi>taz</rafsi>
@@ -25985,8 +26590,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>преобразует следующую cmevla или zoi-цитату в феномим (фразу, которая имитирует определённую физическую форму или движение).</definition>
   <definitionid>37954</definitionid>
   <notes>Идеофон. Более широкий термин по сравнению с {ci&apos;oi} и {sa&apos;ei}. См. также {tai}, {tamsmi}, {ki&apos;ai}. Примеры в некоторых языках. jpn: しーん (shiin): беззвучно. kor: 슬슬 (seul-seul): мягко, нежно. nep: हत्तपत्त (hattapatta): немедленно.</notes>
-  <glossword word="имитация формы или движения" sense="идеофон" />
   <glossword word="феномим" sense="идеофон" />
+  <glossword word="имитация формы или движения" sense="идеофон" />
 </valsi>
 <valsi word="talsa" type="gismu">
   <rafsi>tal</rafsi>
@@ -26221,6 +26826,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <notes>См. {smaka}, {vrusi}, {kukte}, {krumami}, {sodna}</notes>
   <glossword word="вкус" sense="ощущение" />
   <keyword word="вкус" place="1" sense="ощущение" />
+</valsi>
+<valsi word="tatianas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Татьяна (русское женское имя)</definition>
+  <definitionid>57469</definitionid>
+  <glossword word="Татьяна" sense="русское женское имя" />
 </valsi>
 <valsi word="tatpi" type="gismu">
   <rafsi>ta&apos;i</rafsi>
@@ -27200,6 +27814,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <glossword word="тяжёлый" />
   <keyword word="тяжёлый" place="1" />
 </valsi>
+<valsi word="timoFEIS" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Тимофей (русское мужское имя)</definition>
+  <definitionid>57470</definitionid>
+  <glossword word="Тимофей" sense="русское мужское имя" />
+</valsi>
 <valsi word="tinbe" type="gismu">
   <rafsi>tib</rafsi>
   <user>
@@ -27486,8 +28109,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ способен выполнять функции/готов к использованию для $x_2$; $x_1$ - операбельный, несломанный, работоспособный</definition>
   <definitionid>42271</definitionid>
   <notes>См. также {ka&apos;e} se {pilno}, {spofu}</notes>
-  <glossword word="работоспособный" />
   <glossword word="операбельный" />
+  <glossword word="работоспособный" />
 </valsi>
 <valsi word="tolylau" type="lujvo">
   <user>
@@ -27497,9 +28120,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ - тихий/слабый/мягкий/негромкий/приглушённый звук в точке наблюдения $x_2$ согласно стандарту $x_3$; $x_1$ производит мало шума</definition>
   <definitionid>42221</definitionid>
   <notes>&quot;Бесшумный&quot; - это {smaji}, в то время как tolylau относится к небольшому количеству звука. Подобным образом, &quot;абсолютно шумный&quot; - это {tolsma}, громче, чем {cladu}. {smaji} &lt; {tolylau} &lt; {cladu} &lt; {tolsma}.</notes>
-  <glossword word="негромкий" />
-  <glossword word="слабый" sense="звук" />
   <glossword word="тихий" />
+  <glossword word="слабый" sense="звук" />
+  <glossword word="негромкий" />
 </valsi>
 <valsi word="tonga" type="gismu">
   <rafsi>tog</rafsi>
@@ -28172,10 +28795,10 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ принадлежит к Всемирной паутине/веб/WWW/world wide web в аспекте $x_2$.</definition>
   <definitionid>38048</definitionid>
   <notes>См. также {ueb}, {kibro}, {kibypapri}, {kibyca&apos;o}.</notes>
-  <glossword word="WWW" />
   <glossword word="world wide web" />
   <glossword word="Всемирная паутина" />
   <glossword word="веб" />
+  <glossword word="WWW" />
   <keyword word="Всемирная паутина" place="1" />
   <keyword word="аспект Всемирной паутины" place="2" />
 </valsi>
@@ -28253,6 +28876,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <glossword word="вики" />
   <glossword word="вики-сайт" />
 </valsi>
+<valsi word="ulianas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Ульяна (русское женское имя)</definition>
+  <definitionid>57471</definitionid>
+  <glossword word="Ульяна" sense="русское женское имя" />
+</valsi>
 <valsi word="ulmu" type="fu'ivla">
   <user>
     <username>glekiponjo</username>
@@ -28291,8 +28923,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ - это URL/адрес веб-страницы/ресурса/файла $x_2$.</definition>
   <definitionid>38606</definitionid>
   <notes>Слово очень схоже с &quot;{judri} fi lo {uebre} se .u lo {kibro}&quot;.</notes>
-  <glossword word="URL" />
   <glossword word="ссылка" sense="интернет" />
+  <glossword word="URL" />
 </valsi>
 <valsi word="uu" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -28388,6 +29020,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definitionid>37787</definitionid>
   <glossword word="имея выгоду от ..." />
 </valsi>
+<valsi word="vaDIM" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Вадим (русское мужское имя)</definition>
+  <definitionid>57472</definitionid>
+  <glossword word="Вадим" sense="русское мужское имя" />
+</valsi>
 <valsi word="vacri" type="gismu">
   <rafsi>var</rafsi>
   <user>
@@ -28424,6 +29065,42 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <glossword word="важный (значительный)" />
   <keyword word="важный (значительный)" place="1" />
   <keyword word="тот, для кого важно" place="2" />
+</valsi>
+<valsi word="valenTIN" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Валентин (русское мужское имя)</definition>
+  <definitionid>57475</definitionid>
+  <glossword word="Валентин" sense="русское мужское имя" />
+</valsi>
+<valsi word="valentinas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Валентина (русское женское имя)</definition>
+  <definitionid>57473</definitionid>
+  <glossword word="Валентина" sense="русское женское имя" />
+</valsi>
+<valsi word="valerias" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Валерия (русское женское имя)</definition>
+  <definitionid>57476</definitionid>
+  <glossword word="Валерия" sense="русское женское имя" />
+</valsi>
+<valsi word="valeris" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Валерий (русское мужское имя)</definition>
+  <definitionid>57477</definitionid>
+  <glossword word="Валерий" sense="русское мужское имя" />
 </valsi>
 <valsi word="valsi" type="gismu">
   <rafsi>val</rafsi>
@@ -28511,6 +29188,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <notes>{barja} (бар), {birje} (пиво), {xalka} (алкоголь), {jikru} (крепкий спиртной напиток), {fusra} (гнить)</notes>
   <glossword word="вино" />
   <keyword word="вино" place="1" />
+</valsi>
+<valsi word="varvaras" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Варвара (русское женское имя)</definition>
+  <definitionid>57478</definitionid>
+  <glossword word="Варвара" sense="русское женское имя" />
 </valsi>
 <valsi word="vasru" type="gismu">
   <rafsi>vas</rafsi>
@@ -28816,6 +29502,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definitionid>37809</definitionid>
   <glossword word="самый среди ..." />
 </valsi>
+<valsi word="veras" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Вера (русское женское имя)</definition>
+  <definitionid>57479</definitionid>
+  <glossword word="Вера" sense="русское женское имя" />
+</valsi>
 <valsi word="verba" type="gismu">
   <rafsi>ver</rafsi>
   <rafsi>ve&apos;a</rafsi>
@@ -28870,8 +29565,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   </user>
   <definition>sumti-вопрос, спрашивающий насчёт местоположения: у/близ кого/чего? где?</definition>
   <definitionid>37813</definitionid>
-  <glossword word="где?" />
   <glossword word="близ чего?" />
+  <glossword word="где?" />
 </valsi>
 <valsi word="vi'a" type="cmavo">
   <selmaho>VIhA</selmaho>
@@ -28999,6 +29694,24 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <glossword word="вязкий" />
   <keyword word="вязкий" place="1" />
 </valsi>
+<valsi word="viktor" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Виктор (русское мужское имя)</definition>
+  <definitionid>57480</definitionid>
+  <glossword word="Виктор" sense="русское мужское имя" />
+</valsi>
+<valsi word="viktorias" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Виктория (русское женское имя)</definition>
+  <definitionid>57481</definitionid>
+  <glossword word="Виктория" sense="русское женское имя" />
+</valsi>
 <valsi word="vimcu" type="gismu">
   <rafsi>vic</rafsi>
   <rafsi>vi&apos;u</rafsi>
@@ -29112,6 +29825,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <notes>Также: выносливый, прочный {stodi} (постоянный), {cimni} (бесконечный), {zasni} (временный), {manfo} (однородный), {stali} (оставаться)</notes>
   <glossword word="длительный" />
   <keyword word="длительный" place="1" />
+</valsi>
+<valsi word="vladimir" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Владимир (русское мужское имя)</definition>
+  <definitionid>57482</definitionid>
+  <glossword word="Владимир" sense="русское мужское имя" />
 </valsi>
 <valsi word="vlagi" type="gismu">
   <rafsi>lag</rafsi>
@@ -30238,8 +30960,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definitionid>37914</definitionid>
   <notes>Нет хорошего междометия для выражения сарказма. Выбрано из-за сходства с {zo&apos;o}.</notes>
   <glossword word="саркастически" sense="иронично говоря" />
-  <glossword word="искренне" sense="прямо, открыто" />
   <glossword word="саркастически" sense="шутливо, не взаправду" />
+  <glossword word="искренне" sense="прямо, открыто" />
 </valsi>
 <valsi unofficial="true" word="xorbo" type="experimental gismu">
   <user>
@@ -30544,9 +31266,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>$x_1$ is благоприятный/великолепный/&apos;классный&apos;/превосходный/первоклассный/выдающийся/отличный/замечательный/славный/похвальный/очаровательный/симпатичный/достойный похвал/высококачественный/высокого качества/&apos;клёвый&apos;/крутой в свойстве $x_2$ согласно стандарту $x_3$; $x_1$ - потрясный в аспекте $x_2$ согласно $x_3$ (кому/чему)</definition>
   <definitionid>36640</definitionid>
   <notes>См. {banli} - &apos;роскошный&apos;, {funca} - &apos;зависеть от удачи&apos;, {mabla} - &apos;негативный (о значении/смысле слова), {xamgu} - &apos;хороший&apos;, {vrude} - &apos;праведный&apos;. Старое определение слова: $x_1$ — позитивное/одобрительное/благоприятное значение/употребление/коннотация (слов) $x_2$, используемое $x_3$ (кем)</notes>
-  <glossword word="превосходный" />
   <glossword word="&apos;классное&apos;" />
   <glossword word="первоклассный" />
+  <glossword word="превосходный" />
 </valsi>
 <valsi word="zai" type="cmavo">
   <selmaho>LAU</selmaho>
@@ -31058,6 +31780,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <keyword word="свободный (вольный)" place="1" />
   <keyword word="то, чем волен быть" place="2" />
 </valsi>
+<valsi word="zinaidas" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Зинаида (русское женское имя)</definition>
+  <definitionid>57483</definitionid>
+  <glossword word="Зинаида" sense="русское женское имя" />
+</valsi>
 <valsi word="zinki" type="gismu">
   <rafsi>zin</rafsi>
   <rafsi>zi&apos;i</rafsi>
@@ -31244,6 +31975,15 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
   <definition>отделяет цитату, содержащую не-ложбанский текст; с результатом обращаются как с блоком текста</definition>
   <definitionid>37886</definitionid>
   <glossword word="не-ложбанская цитата" />
+</valsi>
+<valsi word="zoias" type="cmene">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>Зоя (русское женское имя)</definition>
+  <definitionid>57487</definitionid>
+  <glossword word="Зоя" sense="русское женское имя" />
 </valsi>
 <valsi word="zu" type="cmavo">
   <selmaho>ZI</selmaho>
@@ -31460,15 +32200,28 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="аксолотль" sense="Ambystoma mexicanum" valsi="akcoloti" />
 <nlword word="активный" valsi="akti" />
 <nlword word="функционирующий" valsi="akti" />
+<nlword word="Алексей" sense="русское мужское имя" valsi="alekSEIS" />
+<nlword word="Александра" sense="русское женское имя" valsi="aleksandras" />
+<nlword word="Александр" sense="русское мужское имя" valsi="aleksandyr" />
 <nlword word="алгоритм" valsi="algoritma" />
+<nlword word="Алина" sense="русское женское имя" valsi="alinas" />
+<nlword word="Алёна" sense="русское женское имя" valsi="alionas" />
+<nlword word="Алиса" sense="русское женское имя" valsi="alisas" />
 <nlword word="альпака" valsi="alpaka" />
 <nlword word="&apos;скорая помощь&apos;" sense="машина" valsi="ambulance" />
 <nlword word="амфора" valsi="amfora" />
 <nlword word="миндалина" sense="часть мозга" valsi="amgidala" />
+<nlword word="Анна" sense="русское женское имя" valsi="anas" />
+<nlword word="Анастасия" sense="русское женское имя" valsi="anastasi,as" />
+<nlword word="Андрей" sense="русское мужское имя" valsi="andREIS" />
 <nlword word="ангел" valsi="angeli" />
+<nlword word="Ангелина" sense="русское женское имя" valsi="angelinas" />
 <nlword word="Angst" sense="отчаяние" valsi="anste" />
 <nlword word="анод" valsi="anxodi" />
+<nlword word="Артём" sense="русское мужское имя" valsi="arTIOM" />
+<nlword word="Артур" sense="русское мужское имя" valsi="arTUR" />
 <nlword word="цапля" valsi="arda" />
+<nlword word="Арина" sense="русское женское имя" valsi="arinas" />
 <nlword word="архив" valsi="arxivo" place="1" />
 <nlword word="енот" sense="животное" valsi="arxokuna" />
 <nlword word="асана" valsi="asna" />
@@ -31517,8 +32270,6 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="ванна" valsi="baktu" />
 <nlword word="ведро" valsi="baktu" place="1" />
 <nlword word="корыто" valsi="baktu" />
-<nlword word="клубень" valsi="balji" />
-<nlword word="луковица" valsi="balji" place="1" />
 <nlword word="настоящий кит" valsi="balnema" />
 <nlword word="балкон" valsi="balni" place="1" />
 <nlword word="лезвие" valsi="balre" place="1" />
@@ -31651,12 +32402,13 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="стекло" valsi="blaci" />
 <nlword word="синеть" valsi="blanu" />
 <nlword word="синий" valsi="blanu" place="1" />
-<nlword word="биллиард" valsi="bliardo" />
-<nlword word="бильярд" valsi="bliardo" />
+<nlword word="биллиард" valsi="bliiardo" />
+<nlword word="бильярд" valsi="bliiardo" />
 <nlword word="блок" valsi="bliku" />
 <nlword word="материал глыбы" valsi="bliku" place="2" />
 <nlword word="корабль" valsi="bloti" />
 <nlword word="связка короткой сферы действия" valsi="bo" />
+<nlword word="Борис" sense="русское мужское имя" valsi="boRIS" />
 <nlword word="завершает строку из цифр или букв" valsi="boi" />
 <nlword word="мокрица свёртывающаяся" valsi="boirlokra" />
 <nlword word="материал шара" valsi="bolci" place="2" />
@@ -32020,6 +32772,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="фактически" valsi="da&apos;inai" />
 <nlword word="отменяет pro-назначения" valsi="da&apos;o" />
 <nlword word="высказывание ранее" valsi="da&apos;u" />
+<nlword word="Данил" sense="русское мужское имя" valsi="daNIL" />
 <nlword word="выдвижной ящик" valsi="dacru" place="1" />
 <nlword word="материальный объект" valsi="dacti" place="1" />
 <nlword word="даоистский" valsi="dadjo" />
@@ -32049,6 +32802,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="проклинать" valsi="dapma" />
 <nlword word="проклинающий" valsi="dapma" place="1" />
 <nlword word="дорога" valsi="dargu" place="1" />
+<nlword word="Дарья" sense="русское женское имя" valsi="darias" />
 <nlword word="приводить доводы" valsi="darlu" />
 <nlword word="приводящий доводы" valsi="darlu" place="1" />
 <nlword word="точка зрения" valsi="darlu" place="2" />
@@ -32074,6 +32828,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="датируемое..." valsi="de&apos;i" />
 <nlword word="логарифм" valsi="de&apos;o" />
 <nlword word="недавнее высказывание" valsi="de&apos;u" />
+<nlword word="Денис" sense="русское мужское имя" valsi="deNIS" />
 <nlword word="0.1" valsi="decti" />
 <nlword word="палец" valsi="degji" />
 <nlword word="это высказывание" valsi="dei" />
@@ -32132,6 +32887,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="знать (факт)" valsi="djuno" />
 <nlword word="знающий (факт)" valsi="djuno" place="1" />
 <nlword word="известное" valsi="djuno" place="2" />
+<nlword word="Дмитрий" sense="русское мужское имя" valsi="dmitris" />
 <nlword word="ты" valsi="do" />
 <nlword word="щедро" valsi="do&apos;a" />
 <nlword word="скупо" valsi="do&apos;anai" />
@@ -32296,6 +33052,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="рыба" valsi="finpe" place="1" />
 <nlword word="изобретать" valsi="finti" />
 <nlword word="изобретающий" valsi="finti" place="1" />
+<nlword word="Фёдор" sense="русское мужское имя" valsi="fiodor" />
 <nlword word="заигрывать" sense="флиртовать" valsi="firca" />
 <nlword word="флиртовать" valsi="firca" />
 <nlword word="закон" valsi="flalu" place="1" />
@@ -32374,6 +33131,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="изменяемое" valsi="galfi" place="2" />
 <nlword word="изменять" valsi="galfi" />
 <nlword word="изменяющий" valsi="galfi" place="1" />
+<nlword word="Галина" sense="русское женское имя" valsi="galinas" />
 <nlword word="вверху" valsi="galtu" />
 <nlword word="горло" valsi="galxe" place="1" />
 <nlword word="предваряющее &quot;только если&quot;" valsi="ganai" />
@@ -32400,6 +33158,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="неуказанная эмоция" valsi="ge&apos;e" />
 <nlword word="предваряющий &quot;вопрос относительно связи&quot;" valsi="ge&apos;i" />
 <nlword word="сдвиг в греческий алфавит" valsi="ge&apos;o" />
+<nlword word="Георгий" sense="русское мужское имя" valsi="ge&apos;orgis" />
 <nlword word="экспоненциальное представление" valsi="gei" />
 <nlword word="корень (растения)" valsi="genja" place="1" />
 <nlword word="аргентинский" valsi="gento" />
@@ -32453,9 +33212,11 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="палка" valsi="grana" />
 <nlword word="гранат" sense="плод" valsi="granate" />
 <nlword word="жир" valsi="grasu" />
+<nlword word="поздравлять" valsi="gratule" />
 <nlword word="решётка" valsi="gredile" />
 <nlword word="сетка" valsi="gredile" />
 <nlword word="рама" valsi="greku" place="1" />
+<nlword word="Григорий" sense="русское мужское имя" valsi="grigoris" />
 <nlword word="серый" valsi="grusi" place="1" />
 <nlword word="лапша" sense="макароны" valsi="grusri" />
 <nlword word="макароны" valsi="grusri" />
@@ -32508,13 +33269,20 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="зависть" valsi="i&apos;onai" />
 <nlword word="осведомлённость" valsi="i&apos;u" />
 <nlword word="загадочность" valsi="i&apos;unai" />
+<nlword word="Иосиф" sense="русское мужское имя" valsi="i,osif" />
 <nlword word="вера" valsi="ia" />
 <nlword word="скептицизм" valsi="iacu&apos;i" />
 <nlword word="неверие" valsi="ianai" />
+<nlword word="Яна" sense="русское женское имя" valsi="ianas" />
 <nlword word="i" valsi="ibu" />
 <nlword word="согласие" valsi="ie" />
+<nlword word="Егор" sense="русское мужское имя" valsi="ieGOR" />
+<nlword word="Елена" sense="русское женское имя" valsi="ielenas" />
 <nlword word="несогласие" valsi="ienai" />
+<nlword word="Евгения" sense="русское женское имя" valsi="ievgenias" />
+<nlword word="Евгений" sense="русское мужское имя" valsi="ievgenis" />
 <nlword word="иглу" valsi="iglu" />
+<nlword word="Игорь" sense="русское мужское имя" valsi="igor" />
 <nlword word="страх" valsi="ii" />
 <nlword word="безопасность" valsi="iinai" />
 <nlword word="&quot;или&quot; для предложения" valsi="ija" />
@@ -32525,6 +33293,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="&quot;если-и-только-если&quot; для предложения" valsi="ijo" />
 <nlword word="&quot;исключающее или&quot; для предложения" valsi="ijonai" />
 <nlword word="&quot;так-или-не-так&quot; для предложения" valsi="iju" />
+<nlword word="Илья" sense="русское мужское имя" valsi="ilIAS" />
 <nlword word="момент" sense="количество движения" valsi="impetu" />
 <nlword word="&quot;только если&quot; для предложения" valsi="inaja" />
 <nlword word="уважение" valsi="io" />
@@ -32540,14 +33309,17 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="канал" sense="IRC" valsi="irci" />
 <nlword word="пользователь" sense="IRC" valsi="irci" />
 <nlword word="сеть" sense="IRC" valsi="irci" />
+<nlword word="Ирина" sense="русское женское имя" valsi="irinas" />
 <nlword word="ислам" valsi="islam" />
-<nlword word="исландский" sense="страна" valsi="islenska" />
-<nlword word="исландский" sense="язык" valsi="islenska" />
 <nlword word="исландский" sense="культура" valsi="islenska" />
+<nlword word="исландский" sense="язык" valsi="islenska" />
+<nlword word="исландский" sense="страна" valsi="islenska" />
 <nlword word="ифкуильский" valsi="itkuile" />
 <nlword word="любовь" valsi="iu" />
 <nlword word="нет любви" valsi="iucu&apos;i" />
+<nlword word="Юлия" sense="русское женское имя" valsi="iulias" />
 <nlword word="ненависть" valsi="iunai" />
+<nlword word="Юрий" sense="русское мужское имя" valsi="iuris" />
 <nlword word="&quot;или&quot; для tanru" valsi="ja" />
 <nlword word="подтверждает bridi" valsi="ja&apos;a" />
 <nlword word="поэтому в результате" valsi="ja&apos;e" />
@@ -32856,6 +33628,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="автомобиль" valsi="karce" />
 <nlword word="карточка" valsi="karda" />
 <nlword word="дорогой (дорогостоящий)" valsi="kargu" place="1" />
+<nlword word="Карина" sense="русское женское имя" valsi="karinas" />
 <nlword word="росомаха" valsi="karkaju" />
 <nlword word="воротник" valsi="karli" />
 <nlword word="галстук" valsi="karli" />
@@ -32895,6 +33668,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="больной раком" valsi="kenra" place="2" />
 <nlword word="рак (болезнь)" valsi="kenra" place="1" />
 <nlword word="космос" valsi="kensa" place="1" />
+<nlword word="кентавр" sense="человек-лошадь" valsi="kentauru" />
 <nlword word="волос" valsi="kerfa" />
 <nlword word="участок, покрытый волосами" valsi="kerfa" place="3" />
 <nlword word="ухо" valsi="kerlo" />
@@ -32914,6 +33688,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="запятая чисел" valsi="ki&apos;o" />
 <nlword word="из-за обоснования" valsi="ki&apos;u" />
 <nlword word="что является обоснованием?" valsi="ki&apos;u ma" />
+<nlword word="Кирилл" sense="русское мужское имя" valsi="kiRIL" />
 <nlword word="интернет" valsi="kibro" place="1" />
 <nlword word="киберпространство" valsi="kibro" />
 <nlword word="подушка" valsi="kicne" place="1" />
@@ -32965,6 +33740,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="CD" sense="компакт-диск" valsi="kompadi" />
 <nlword word="компакт-диск" valsi="kompadi" />
 <nlword word="конус" valsi="konju" place="1" />
+<nlword word="Константин" sense="русское мужское имя" valsi="konstanTIN" />
 <nlword word="грань" valsi="korbi" />
 <nlword word="согнутый" valsi="korcu" />
 <nlword word="дерево, имеющее кору" valsi="korka" place="2" />
@@ -33003,6 +33779,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="изгиб" valsi="kruvi" />
 <nlword word="имеющее изгиб" valsi="kruvi" place="2" />
 <nlword word="участок изгиба" valsi="kruvi" place="3" />
+<nlword word="Ксения" sense="русское женское имя" valsi="ksenias" />
 <nlword word="окончание sumti" valsi="ku" />
 <nlword word="пересечение" valsi="ku&apos;a" />
 <nlword word="окончание mex-предваряющей мысли" valsi="ku&apos;e" />
@@ -33161,6 +33938,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="того" valsi="leta" />
 <nlword word="этого" valsi="leti" />
 <nlword word="вон того" valsi="letu" />
+<nlword word="Лев" sense="русское мужское имя" valsi="lev" />
 <nlword word="вон тот вон там" valsi="levu" />
 <nlword word="число ..." valsi="li" />
 <nlword word="очевидно, несомненно" valsi="li&apos;a" />
@@ -33170,6 +33948,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="опущенный текст" valsi="li&apos;o" />
 <nlword word="конец цитаты" valsi="li&apos;u" />
 <nlword word="ливийский" valsi="libjo" />
+<nlword word="Лидия" sense="русское женское имя" valsi="lidias" />
 <nlword word="предшествовать" valsi="lidne" />
 <nlword word="предшествующий" valsi="lidne" place="1" />
 <nlword word="то, чему предшествует" valsi="lidne" place="2" />
@@ -33179,6 +33958,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="верования (обряды)" valsi="lijda" place="3" />
 <nlword word="верующий" valsi="lijda" place="2" />
 <nlword word="религия" valsi="lijda" place="1" />
+<nlword word="Лилия" sense="русское женское имя" valsi="lilias" />
 <nlword word="в чем плывут" valsi="limna" place="2" />
 <nlword word="плыть" valsi="limna" />
 <nlword word="молния" valsi="lindi" place="1" />
@@ -33197,6 +33977,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="путешествовать" valsi="litru" />
 <nlword word="путешествующий" valsi="litru" place="1" />
 <nlword word="средство передвижения" valsi="litru" place="3" />
+<nlword word="Любовь" sense="русское женское имя" valsi="liuBOF" />
+<nlword word="Людмила" sense="русское женское имя" valsi="liudmilas" />
 <nlword word="печень" valsi="livga" place="1" />
 <nlword word="топливо" valsi="livla" />
 <nlword word="действительно является..." valsi="lo" />
@@ -33284,7 +34066,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="поверхность для транспортного средства" valsi="marce" place="3" />
 <nlword word="транспортное средство" valsi="marce" />
 <nlword word="мораль" valsi="marde" />
+<nlword word="Маргарита" sense="русское женское имя" valsi="margaritas" />
 <nlword word="ртуть" valsi="margu" place="1" />
+<nlword word="Мария" sense="русское женское имя" valsi="mariias" />
 <nlword word="материя (вещество)" valsi="marji" place="1" />
 <nlword word="конопля" valsi="marna" />
 <nlword word="марципан" valsi="marsipane" place="1" />
@@ -33300,6 +34084,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="лён" valsi="matli" place="1" />
 <nlword word="масло" valsi="matne" place="1" />
 <nlword word="двигатель" valsi="matra" />
+<nlword word="Матвей" sense="русское мужское имя" valsi="matyVEIS" />
 <nlword word="которого превышает" valsi="mau" />
 <nlword word="более сильная эмоция" valsi="mau&apos;i" />
 <nlword word="вид овса" valsi="mavji" place="2" />
@@ -33380,6 +34165,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="знаменитый" valsi="misno" />
 <nlword word="египетский" valsi="misro" place="1" />
 <nlword word="метр" valsi="mitre" />
+<nlword word="Михаил" sense="русское мужское имя" valsi="mixa,IL" />
 <nlword word="компоненты смеси" valsi="mixre" place="2" />
 <nlword word="смесь" valsi="mixre" />
 <nlword word="сбоку" valsi="mlana" place="1" />
@@ -33493,6 +34279,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="проблема" valsi="nabmi" place="1" />
 <nlword word="гренки" valsi="nabrkruto" />
 <nlword word="гренок" valsi="nabrkruto" />
+<nlword word="Надежда" sense="русское женское имя" valsi="nadejdas" />
 <nlword word="&quot;только если&quot; для bridi" valsi="nagi&apos;a" />
 <nlword word="отрицает последнее bridi" valsi="nago&apos;i" />
 <nlword word="отрицает последнее слово" valsi="nai" />
@@ -33550,7 +34337,9 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="влечь за собой" valsi="nibli" />
 <nlword word="неизбежно следуемое" valsi="nibli" place="2" />
 <nlword word="ночь" valsi="nicte" place="1" />
+<nlword word="Никита" sense="русское мужское имя" valsi="nikitas" />
 <nlword word="никель" valsi="nikle" place="1" />
+<nlword word="Николай" sense="русское мужское имя" valsi="nikoLAIS" />
 <nlword word="мебель" valsi="nilce" />
 <nlword word="функция мебели" valsi="nilce" place="3" />
 <nlword word="вид цитруса" valsi="nimre" place="2" />
@@ -33624,6 +34413,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="расслабление" valsi="o&apos;u" />
 <nlword word="спокойствие" valsi="o&apos;ucu&apos;i" />
 <nlword word="стресс" valsi="o&apos;unai" />
+<nlword word="Олег" sense="русское мужское имя" valsi="oLEG" />
 <nlword word="o" valsi="obu" />
 <nlword word="морж" valsi="odbenu" place="1" />
 <nlword word="жалоба" valsi="oi" />
@@ -33634,6 +34424,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="тревожность" valsi="oiro&apos;i" />
 <nlword word="физическая боль" valsi="oiro&apos;o" />
 <nlword word="сексуальная жалоба" valsi="oiro&apos;u" />
+<nlword word="Оксана" sense="русское женское имя" valsi="oksanas" />
+<nlword word="Ольга" sense="русское женское имя" valsi="olgas" />
 <nlword word="омлет" valsi="omle" />
 <nlword word="&quot;исключающее или&quot; для sumti" valsi="onai" />
 <nlword word="ондатра" valsi="ondatra" />
@@ -33711,6 +34503,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="содержимое горшка" valsi="patxu" place="2" />
 <nlword word="вопрос следует" valsi="pau" />
 <nlword word="риторический вопрос" valsi="paunai" />
+<nlword word="Павел" sense="русское мужское имя" valsi="pavel" />
 <nlword word="нисан" valsi="pavmasti" />
 <nlword word="январь" valsi="pavmasti" />
 <nlword word="14" valsi="pavo" />
@@ -33796,6 +34589,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="горизонтальный" valsi="pinta" place="1" />
 <nlword word="жидкость, которую пьют" valsi="pinxe" place="2" />
 <nlword word="пить" valsi="pinxe" place="1" />
+<nlword word="Пётр" sense="русское мужское имя" valsi="piotyr" />
 <nlword word="фортепиано" valsi="pipno" />
 <nlword word="пятая часть" valsi="piresi&apos;e" />
 <nlword word="все из" valsi="piro" />
@@ -33847,14 +34641,12 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="пошлость" valsi="pocli" />
 <nlword word="пошлый" valsi="pocli" />
 <nlword word="ограничивающее придаточное предложение" valsi="poi" />
+<nlword word="Полина" sense="русское женское имя" valsi="polinas" />
 <nlword word="складки" valsi="polje" place="3" />
 <nlword word="складываемое" valsi="polje" place="2" />
 <nlword word="складывать" valsi="polje" />
 <nlword word="складывающий" valsi="polje" place="1" />
 <nlword word="полинезийский" valsi="polno" />
-<nlword word="рассудительный" sense="узким кругозором" valsi="pomjiarkovni" />
-<nlword word="узким кругозором" sense="рассудительный" valsi="pomjiarkovni" />
-<nlword word="узким кругозором рассудительный" valsi="pomjiarkovni" />
 <nlword word="японский" valsi="ponjo" />
 <nlword word="владеть" valsi="ponse" />
 <nlword word="владеющий" valsi="ponse" place="1" />
@@ -33932,6 +34724,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="цитирование одного слова как rafsi" valsi="ra&apos;oi" />
 <nlword word="главным образом" valsi="ra&apos;u" />
 <nlword word="в равной степени" valsi="ra&apos;ucu&apos;i" />
+<nlword word="Раиса" sense="русское женское имя" valsi="ra,isas" />
 <nlword word="разумный" valsi="racli" />
 <nlword word="заяц" valsi="ractu" />
 <nlword word="радиан" valsi="radno" />
@@ -34062,6 +34855,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="отрицая физический аспект" valsi="ro&apos;onai" />
 <nlword word="сексуально" valsi="ro&apos;u" />
 <nlword word="отрицая сексуальный аспект" valsi="ro&apos;unai" />
+<nlword word="Роман" sense="русское мужское имя" valsi="roMAN" />
 <nlword word="каждый" valsi="roda" />
 <nlword word="количественный интервал" valsi="roi" />
 <nlword word="камень" valsi="rokci" />
@@ -34098,6 +34892,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="денежная система" valsi="rupnu" place="3" />
 <nlword word="доллар/рубль" valsi="rupnu" />
 <nlword word="стоить" valsi="rupnu" place="1" />
+<nlword word="Руслан" sense="русское мужское имя" valsi="rusLAN" />
 <nlword word="русский" valsi="rusko" place="1" />
 <nlword word="искусственный" valsi="rutni" />
 <nlword word="r" valsi="ry" />
@@ -34185,6 +34980,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="ориентированно на других" valsi="se&apos;inai" />
 <nlword word="мне открылось" valsi="se&apos;o" />
 <nlword word="завершает междометие-рассуждение в виде bridi" valsi="se&apos;u" />
+<nlword word="Семён" sense="русское мужское имя" valsi="seMION" />
 <nlword word="вместо" valsi="seba&apos;i" />
 <nlword word="принуждающе приводящее к" valsi="sebai" />
 <nlword word="на языке (кого)" valsi="sebau" />
@@ -34224,6 +35020,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="измеряемое ...(чем)" valsi="sela&apos;u" />
 <nlword word="клетка (биол.)/атом" valsi="selci" place="1" />
 <nlword word="как категория ...(чего)" valsi="sele&apos;a" />
+<nlword word="племянник" valsi="selfamti" />
+<nlword word="племянница" valsi="selfamti" />
 <nlword word="оказывать услугу" valsi="selfu" />
 <nlword word="оказывающий услугу" valsi="selfu" place="1" />
 <nlword word="которому предшествует" valsi="seli&apos;e" />
@@ -34253,6 +35051,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="последовательно по правилам" valsi="sepo&apos;i" />
 <nlword word="чтобы было приятно ...(кому)" valsi="sepu&apos;a" />
 <nlword word="перерабатывая из" valsi="sepu&apos;e" />
+<nlword word="Сергей" sense="русское мужское имя" valsi="serGEIS" />
 <nlword word="касательно" valsi="sera&apos;a" />
 <nlword word="как начало ...(чего)" valsi="sera&apos;i" />
 <nlword word="самый в" valsi="serai" />
@@ -34358,6 +35157,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="колеблющийся" valsi="slilu" place="1" />
 <nlword word="осциллировать" valsi="slilu" />
 <nlword word="частота колебания" valsi="slilu" place="2" />
+<nlword word="слинки" sense="игрушка" valsi="slinkui" />
 <nlword word="сера" valsi="sliri" place="1" />
 <nlword word="славянский" valsi="slovo" place="1" />
 <nlword word="мышца" valsi="sluji" place="1" />
@@ -34387,6 +35187,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="успешно достигаемое" valsi="snada" place="2" />
 <nlword word="успешный" valsi="snada" place="1" />
 <nlword word="юг" valsi="snanu" place="1" />
+<nlword word="Снежана" sense="русское женское имя" valsi="snejanas" />
 <nlword word="секунда" valsi="snidu" place="1" />
 <nlword word="снег" valsi="snime" place="1" />
 <nlword word="прилипать" valsi="snipa" />
@@ -34491,6 +35292,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="оставаться" valsi="stali" />
 <nlword word="остающийся" valsi="stali" place="1" />
 <nlword word="стебель" valsi="stani" place="1" />
+<nlword word="Станислав" sense="русское мужское имя" valsi="stanisLAF" />
 <nlword word="ступать по" valsi="stapa" />
 <nlword word="ступающий по" valsi="stapa" place="1" />
 <nlword word="состав супа" valsi="stasu" place="2" />
@@ -34548,6 +35350,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="отдыхающий" valsi="surla" place="1" />
 <nlword word="быстрый" valsi="sutra" />
 <nlword word="s" valsi="sy" />
+<nlword word="Светлана" sense="русское женское имя" valsi="syvetlanas" />
 <nlword word="то там" valsi="ta" />
 <nlword word="тот там" valsi="ta" />
 <nlword word="прерывание" valsi="ta&apos;a" />
@@ -34598,6 +35401,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="жаждущий" valsi="taske" place="1" />
 <nlword word="особенность" sense="манера" valsi="tasmi" />
 <nlword word="вкус" sense="ощущение" valsi="tasta" place="1" />
+<nlword word="Татьяна" sense="русское женское имя" valsi="tatianas" />
 <nlword word="утомлённый" valsi="tatpi" />
 <nlword word="грудь (сосок)" valsi="tatru" />
 <nlword word="меняет регистр следующего символа" valsi="tau" />
@@ -34702,6 +35506,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="пинающий" valsi="tikpa" place="1" />
 <nlword word="то, что пинают" valsi="tikpa" place="2" />
 <nlword word="тяжёлый" valsi="tilju" place="1" />
+<nlword word="Тимофей" sense="русское мужское имя" valsi="timoFEIS" />
 <nlword word="кому подчиняются" valsi="tinbe" place="2" />
 <nlword word="подчиняться" valsi="tinbe" />
 <nlword word="покорный" valsi="tinbe" place="1" />
@@ -34841,6 +35646,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="несчастье" valsi="uinai" />
 <nlword word="вики" valsi="uitki" />
 <nlword word="вики-сайт" valsi="uitki" />
+<nlword word="Ульяна" sense="русское женское имя" valsi="ulianas" />
 <nlword word="полнота" valsi="uo" />
 <nlword word="неполнота" valsi="uonai" />
 <nlword word="URL" valsi="urli" />
@@ -34854,11 +35660,16 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="теми же словами" valsi="va&apos;inai" />
 <nlword word="в условиях" valsi="va&apos;o" />
 <nlword word="имея выгоду от ..." valsi="va&apos;u" />
+<nlword word="Вадим" sense="русское мужское имя" valsi="vaDIM" />
 <nlword word="воздух" valsi="vacri" />
 <nlword word="состав воздуха" valsi="vacri" place="3" />
 <nlword word="шестнадцатиричная цифра F" valsi="vai" />
 <nlword word="важный (значительный)" valsi="vajni" place="1" />
 <nlword word="тот, для кого важно" valsi="vajni" place="2" />
+<nlword word="Валентин" sense="русское мужское имя" valsi="valenTIN" />
+<nlword word="Валентина" sense="русское женское имя" valsi="valentinas" />
+<nlword word="Валерия" sense="русское женское имя" valsi="valerias" />
+<nlword word="Валерий" sense="русское мужское имя" valsi="valeris" />
 <nlword word="значение слова" valsi="valsi" place="2" />
 <nlword word="слово" valsi="valsi" place="1" />
 <nlword word="имещее стоимость" valsi="vamji" place="2" />
@@ -34871,6 +35682,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="вечер" valsi="vanci" />
 <nlword word="пиздец" sense="неприятная ситуация" valsi="vandani" />
 <nlword word="вино" valsi="vanju" place="1" />
+<nlword word="Варвара" sense="русское женское имя" valsi="varvaras" />
 <nlword word="вмещающий" valsi="vasru" place="1" />
 <nlword word="содержать" valsi="vasru" />
 <nlword word="содержимое" valsi="vasru" place="2" />
@@ -34910,6 +35722,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="будучи подобным согласно стандарту ..." valsi="vepa&apos;a" />
 <nlword word="проходя через стадии" valsi="vepu&apos;e" />
 <nlword word="самый среди ..." valsi="verai" />
+<nlword word="Вера" sense="русское женское имя" valsi="veras" />
 <nlword word="возраст ребёнка" valsi="verba" place="2" />
 <nlword word="ребёнок" valsi="verba" />
 <nlword word="похожий в аспекте" valsi="vetai" />
@@ -34933,6 +35746,8 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="выделять" valsi="vikmi" />
 <nlword word="выделяющий" valsi="vikmi" place="1" />
 <nlword word="вязкий" valsi="viknu" place="1" />
+<nlword word="Виктор" sense="русское мужское имя" valsi="viktor" />
+<nlword word="Виктория" sense="русское женское имя" valsi="viktorias" />
 <nlword word="остаток" valsi="vimcu" place="3" />
 <nlword word="у кого отнимают" valsi="vimcu" place="2" />
 <nlword word="удалять" valsi="vimcu" />
@@ -34949,6 +35764,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="гость" valsi="vitke" place="1" />
 <nlword word="у кого гостят" valsi="vitke" place="2" />
 <nlword word="длительный" valsi="vitno" place="1" />
+<nlword word="Владимир" sense="русское мужское имя" valsi="vladimir" />
 <nlword word="влагалище (женское)" valsi="vlagi" />
 <nlword word="бурный" valsi="vlile" place="1" />
 <nlword word="дизъюнкция" valsi="vlina" place="1" />
@@ -35181,6 +35997,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="несуществующее место bridi" valsi="zi&apos;o" />
 <nlword word="свободный (вольный)" valsi="zifre" place="1" />
 <nlword word="то, чем волен быть" valsi="zifre" place="2" />
+<nlword word="Зинаида" sense="русское женское имя" valsi="zinaidas" />
 <nlword word="цинк" valsi="zinki" />
 <nlword word="сиреневый" valsi="zirpu" />
 <nlword word="во что инвестируют" valsi="zivle" place="3" />
@@ -35203,6 +36020,7 @@ See also {mau&apos;i}, {dau&apos;i}, {sai}</notes>
 <nlword word="серьёзно" valsi="zo&apos;onai" />
 <nlword word="конец темы, начало ремы" valsi="zo&apos;u" />
 <nlword word="не-ложбанская цитата" valsi="zoi" />
+<nlword word="Зоя" sense="русское женское имя" valsi="zoias" />
 <nlword word="длительное время" valsi="zu" />
 <nlword word="слева от" valsi="zu&apos;a" />
 <nlword word="с деятелем" valsi="zu&apos;e" />

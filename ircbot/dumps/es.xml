@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="jbovlaste.xsl"?>
 <dictionary>
 <direction from="lojban" to="Español"><valsi word="a" type="cmavo">
   <selmaho>A</selmaho>
@@ -5715,8 +5716,8 @@
   <definition>$x_1$ es una cantidad de francio (Fr)</definition>
   <definitionid>13585</definitionid>
   <notes>Ver también {fraso}, {sodna}</notes>
-  <glossword word="francio" />
   <glossword word="Fr" />
+  <glossword word="francio" />
 </valsi>
 <valsi word="fatci" type="gismu">
   <rafsi>fac</rafsi>
@@ -12516,8 +12517,8 @@
   </user>
   <definition>$x_1$ es tuyo entre $x_3$ por regla/relación $x_3$; $x_1$ es tu $x_3$ por regla/relación $x_3$; </definition>
   <definitionid>13698</definitionid>
-  <glossword word="tu" />
   <glossword word="tuyo" />
+  <glossword word="tu" />
 </valsi>
 <valsi word="megdo" type="gismu">
   <rafsi>meg</rafsi>
@@ -12582,8 +12583,8 @@
   </user>
   <definition>$x_1$ es mío entre $x_2$ por regla/relación $x_3$; $x_1$ es mi $x_2$ por regla/relación $x_3$</definition>
   <definitionid>13694</definitionid>
-  <glossword word="mío" />
   <glossword word="mi" />
+  <glossword word="mío" />
 </valsi>
 <valsi word="menli" type="gismu">
   <rafsi>men</rafsi>
@@ -13889,8 +13890,8 @@
   <definition>$x_1$ es el valor absoluto/norma de $x_2$</definition>
   <definitionid>13961</definitionid>
   <notes>Ver también {cu&apos;a}</notes>
-  <glossword word="norma" sense="valor absoluto" />
   <glossword word="valor absoluto" />
+  <glossword word="norma" sense="valor absoluto" />
 </valsi>
 <valsi word="nagi'a" type="cmavo-compound">
   <selmaho>GIhA*</selmaho>
@@ -14585,26 +14586,6 @@
   <definition>$x_1$ está solo/solitrario/sin compañía en situación/condición/emprendimiento $x_2$</definition>
   <definitionid>15244</definitionid>
   <glossword word="solo" />
-</valsi>
-<valsi word="nonmau" type="lujvo">
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>$x_1$ es positivo/mayor que cero en propiedad $x_2$ en cantidad $x_3$</definition>
-  <definitionid>13866</definitionid>
-  <notes>Ver también {ma&apos;u}</notes>
-  <glossword word="positivo" />
-</valsi>
-<valsi word="nonme'a" type="lujvo">
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>$x_1$ es negativo/menor que cero en propiedad $x_2$ en cantidad $x_3$</definition>
-  <definitionid>13869</definitionid>
-  <notes>Ver también {ni&apos;u}</notes>
-  <glossword word="negativo" />
 </valsi>
 <valsi word="nonseldi'a" type="lujvo">
   <user>
@@ -22543,8 +22524,8 @@
   </user>
   <definition>pro-sumti: éste/ésta/esto; demostrativo inmediato; indica algo cercano a quien habla</definition>
   <definitionid>6232</definitionid>
-  <glossword word="esto" />
   <glossword word="éste" />
+  <glossword word="esto" />
 </valsi>
 <valsi word="ti'a" type="cmavo">
   <selmaho>FAhA2</selmaho>
@@ -23109,8 +23090,8 @@
   </user>
   <definition>pro-sumti: aquél/aquélla/aquello; demostrativo distante; indica algo alejado de quien habla y quien escucha</definition>
   <definitionid>6231</definitionid>
-  <glossword word="aquello" />
   <glossword word="aquél" />
+  <glossword word="aquello" />
 </valsi>
 <valsi word="tu'a" type="cmavo">
   <selmaho>LAhE</selmaho>
@@ -25493,8 +25474,8 @@
   </user>
   <definition>aspecto verbal: continuando mas allá del final natural de la acción; superfective  |     ----&gt;</definition>
   <definitionid>7750</definitionid>
-  <glossword word="todavía" />
   <glossword word="superfectivo" />
+  <glossword word="todavía" />
 </valsi>
 <valsi word="za'u" type="cmavo">
   <selmaho>PA3</selmaho>
@@ -27006,8 +26987,8 @@
 <nlword word="gancho" valsi="genxu" />
 <nlword word="can" sense="animal" valsi="gerku" />
 <nlword word="especie" sense="de perro" valsi="gerku" />
-<nlword word="perro" sense="animal" valsi="gerku" />
 <nlword word="perro" valsi="gerku" />
+<nlword word="perro" sense="animal" valsi="gerku" />
 <nlword word="raza" sense="de perro" valsi="gerku" />
 <nlword word="gramatica" valsi="gerna" />
 <nlword word="medial de conectivo" valsi="gi" />
@@ -27767,8 +27748,6 @@
 <nlword word="cláusula incidental" valsi="noi" />
 <nlword word="sección 0" valsi="nomo&apos;o" />
 <nlword word="solo" valsi="nonkansa" />
-<nlword word="positivo" valsi="nonmau" />
-<nlword word="negativo" valsi="nonme&apos;a" />
 <nlword word="gratis" valsi="nonseldi&apos;a" />
 <nlword word="nunca" valsi="noroi" />
 <nlword word="apático" valsi="norpa&apos;i" />

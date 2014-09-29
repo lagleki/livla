@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="jbovlaste.xsl"?>
 <dictionary>
-<direction from="lojban" to="Simple English"><valsi word="ambito" type="fu'ivla">
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>$x_1$ (thing) is a scope of influence of $x_2$ (thing)</definition>
-  <definitionid>57017</definitionid>
-  <notes>See {se} {kuspe}</notes>
-  <glossword word="scope" sense="influence" />
-</valsi>
-<valsi word="anli" type="fu'ivla">
+<direction from="lojban" to="Simple English"><valsi word="anli" type="fu'ivla">
   <user>
     <username>gleki</username>
     <realname>gleki</realname>
@@ -5659,8 +5650,8 @@
   <definition>$x_1$ is occupied, interested, has a role in $x_2$ (property)</definition>
   <definitionid>56809</definitionid>
   <notes>Often corresponds to English suffix &quot;-ist&quot;. See {se} {cuntu}, {se} {jibri}</notes>
-  <glossword word="-ist" />
   <glossword word="have occupation" />
+  <glossword word="-ist" />
 </valsi>
 <valsi word="jabre" type="gismu">
   <user>
@@ -8505,8 +8496,8 @@
   </user>
   <definition>$x_1$ is a lily of species/strain $x_2$</definition>
   <definitionid>55301</definitionid>
-  <glossword word="$x_1$ is a lily of species/strain $x_2$" />
-  <keyword word="$x_1$ is a lily of species/strain $x_2$" place="1" />
+  <glossword word="lily" />
+  <keyword word="lily" place="1" />
 </valsi>
 <valsi word="lenjo" type="gismu">
   <rafsi>len</rafsi>
@@ -8567,8 +8558,8 @@
   </user>
   <definition>$x_1$ is a length of chain with links or rings $x_2$</definition>
   <definitionid>56627</definitionid>
-  <glossword word="link of a chain" />
   <glossword word="chain" />
+  <glossword word="link of a chain" />
   <keyword word="chain" place="1" />
   <keyword word="link of a chain" place="2" />
 </valsi>
@@ -8913,6 +8904,20 @@
   <keyword word="a site of condensation" place="2" />
   <keyword word="a temperature of condensation" place="3" />
   <keyword word="a pressure of condensation" place="4" />
+</valsi>
+<valsi word="mabla" type="gismu">
+  <rafsi>mal</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>$x_1$ is shitty, awful, low-quality in property $x_2$ by standard $x_3$</definition>
+  <definitionid>55333</definitionid>
+  <notes>Bloody (British sense), fucking, shit, goddamn. See also {zabna}, {xlali}, {palci}, {dapma}</notes>
+  <glossword word="shitty" />
+  <keyword word="shitty" place="1" />
+  <keyword word="property of awfullness" place="2" />
+  <keyword word="standard of awfullness" place="3" />
 </valsi>
 <valsi word="mabru" type="gismu">
   <rafsi>mab</rafsi>
@@ -11219,8 +11224,8 @@
   </user>
   <definition>$x_1$ is flat or horizontal in frame of reference $x_2$</definition>
   <definitionid>55518</definitionid>
-  <glossword word="horizontal" />
   <glossword word="something level" />
+  <glossword word="horizontal" />
   <keyword word="something level" place="1" />
   <keyword word="a frame of reference of levelness" place="2" />
 </valsi>
@@ -12127,16 +12132,6 @@
   <glossword word="a reptile" />
   <keyword word="a reptile" place="1" />
   <keyword word="a species of reptile" place="2" />
-</valsi>
-<valsi word="retsku" type="lujvo">
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>$x_1$ asks question $x_2$ (sedu&apos;u/text) to $x_3$</definition>
-  <definitionid>56445</definitionid>
-  <notes>See {cusku}, {spusku}, {spuda}, {piksku}, {xu}, {ma}, {mo}, {xo}</notes>
-  <glossword word="ask" sense="ask a question" />
 </valsi>
 <valsi word="ricfu" type="gismu">
   <rafsi>rif</rafsi>
@@ -14553,8 +14548,8 @@
   <definition>$x_1$ is enough in $x_2$ (ka/ni) for purpose $x_3$ (nu) to take place</definition>
   <definitionid>56275</definitionid>
   <notes>Sufficient, enough. See {dukse}</notes>
-  <glossword word="sufficient" />
   <glossword word="enough" />
+  <glossword word="sufficient" />
 </valsi>
 <valsi word="sufti" type="gismu">
   <rafsi>sfu</rafsi>
@@ -15828,6 +15823,17 @@
   <keyword word="territory" place="1" />
   <keyword word="a controller of territory" place="2" />
 </valsi>
+<valsi word="upsi" type="fu'ivla">
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>$x_1$ acknowledges making mistake $x_2$ (property of x1)</definition>
+  <definitionid>57354</definitionid>
+  <notes>{sei} {upsi} = &apos;Oops! Whoops!&apos; See {srera}, {randa}, {jinvi}</notes>
+  <glossword word="feel oops" />
+  <glossword word="feel whoops" />
+</valsi>
 <valsi word="vacri" type="gismu">
   <rafsi>var</rafsi>
   <user>
@@ -17083,6 +17089,21 @@
   <glossword word="something smooth" />
   <keyword word="something smooth" place="1" />
 </valsi>
+<valsi word="zabna" type="gismu">
+  <rafsi>zan</rafsi>
+  <rafsi>za&apos;a</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>$x_1$ is likable, cool in property $x_2$ by standard $x_3$</definition>
+  <definitionid>55984</definitionid>
+  <notes>See also {mabla}, {xamgu}, {funca}, {vrude}, {banli}.</notes>
+  <glossword word="favorable" />
+  <keyword word="favorable" place="1" />
+  <keyword word="property of coolness" place="2" />
+  <keyword word="standard of coolness" place="3" />
+</valsi>
 <valsi word="zajba" type="gismu">
   <rafsi>zaj</rafsi>
   <user>
@@ -17497,8 +17518,7 @@
   <keyword word="something which is present" place="1" />
   <keyword word="a location something is present at" place="2" />
 </valsi>
-</direction><direction from="Simple English" to="lojban"><nlword word="scope" sense="influence" valsi="ambito" />
-<nlword word="ring" valsi="anli" />
+</direction><direction from="Simple English" to="lojban"><nlword word="ring" valsi="anli" />
 <nlword word="ASCII character" valsi="aski" />
 <nlword word="ASCII text" valsi="aski" />
 <nlword word="text to be encoded to ASCII" valsi="aski" />
@@ -19300,6 +19320,7 @@
 <nlword word="something from which something is taken" valsi="lebna" place="3" />
 <nlword word="something taken" valsi="lebna" place="2" />
 <nlword word="$x_1$ is a lily of species/strain $x_2$" valsi="lelxe" />
+<nlword word="lily" valsi="lelxe" place="1" />
 <nlword word="a focus of a lens" valsi="lenjo" place="3" />
 <nlword word="a lens" valsi="lenjo" />
 <nlword word="a material of a lens" valsi="lenjo" place="4" />
@@ -19385,6 +19406,12 @@
 <nlword word="a site of condensation" valsi="lunsa" place="2" />
 <nlword word="a temperature of condensation" valsi="lunsa" place="3" />
 <nlword word="something condensing" valsi="lunsa" />
+<nlword word="a derogater" valsi="mabla" place="3" />
+<nlword word="a derogative form" valsi="mabla" />
+<nlword word="property of awfullness" valsi="mabla" place="2" />
+<nlword word="shitty" valsi="mabla" place="1" />
+<nlword word="something derogated" valsi="mabla" place="2" />
+<nlword word="standard of awfullness" valsi="mabla" place="3" />
 <nlword word="a mammal" valsi="mabru" />
 <nlword word="a species of mammal" valsi="mabru" place="2" />
 <nlword word="a manual condition" valsi="macnu" place="3" />
@@ -20044,7 +20071,6 @@
 <nlword word="something survived" valsi="renvi" place="2" />
 <nlword word="a reptile" valsi="respa" />
 <nlword word="a species of reptile" valsi="respa" place="2" />
-<nlword word="ask" sense="ask a question" valsi="retsku" />
 <nlword word="something in which something is rich" valsi="ricfu" place="2" />
 <nlword word="something rich" valsi="ricfu" />
 <nlword word="a condition of disgust" valsi="rigni" place="3" />
@@ -20805,6 +20831,8 @@
 <nlword word="a tool" valsi="tutci" />
 <nlword word="a controller of territory" valsi="tutra" place="2" />
 <nlword word="territory" valsi="tutra" />
+<nlword word="feel oops" valsi="upsi" />
+<nlword word="feel whoops" valsi="upsi" />
 <nlword word="a composition of air" valsi="vacri" place="3" />
 <nlword word="a planet with air" valsi="vacri" place="2" />
 <nlword word="a quantity of air" valsi="vacri" />
@@ -21061,6 +21089,12 @@
 <nlword word="a claim" valsi="xusra" place="2" />
 <nlword word="a claimant" valsi="xusra" />
 <nlword word="something smooth" valsi="xutla" />
+<nlword word="a favourable sense" valsi="zabna" />
+<nlword word="favorable" valsi="zabna" place="1" />
+<nlword word="property of coolness" valsi="zabna" place="2" />
+<nlword word="something using a favourable sense" valsi="zabna" place="3" />
+<nlword word="something with a favourable sense" valsi="zabna" place="2" />
+<nlword word="standard of coolness" valsi="zabna" place="3" />
 <nlword word="a gymnast" valsi="zajba" />
 <nlword word="a gymnastic feat" valsi="zajba" place="2" />
 <nlword word="a grinder" valsi="zalvi" />

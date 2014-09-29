@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="jbovlaste.xsl"?>
 <dictionary>
 <direction from="lojban" to="lojban"><valsi word="a" type="cmavo">
   <selmaho>A</selmaho>
@@ -257,8 +258,8 @@
   </user>
   <definition>cnima&apos;o .i citmle u&apos;unai     .i kansa zo nai poi na&apos;e citmle u&apos;unaicu&apos;i     .i kansa zo cu&apos;i poi to&apos;e citmle u&apos;u</definition>
   <definitionid>57085</definitionid>
-  <glossword word="au&apos;u" sense="u&apos;unai" />
   <glossword word="citmle" sense="u&apos;unai" />
+  <glossword word="au&apos;u" sense="u&apos;unai" />
 </valsi>
 <valsi word="aucu'i" type="cmavo-compound">
   <selmaho>UI*</selmaho>
@@ -482,6 +483,15 @@
   <notes>{banli} {zarci}</notes>
   <glossword word="balzai" />
 </valsi>
+<valsi word="banbau" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1$ bangu $x_2$ $x_3$ poi ke&apos;a bangu</definition>
+  <definitionid>57529</definitionid>
+  <notes>.e&apos;u ko tcidu la&apos;e zo {bangu}</notes>
+</valsi>
 <valsi word="banjupunu" type="fu'ivla">
   <user>
     <username>junpen</username>
@@ -565,8 +575,8 @@
   <definition>$x_1$ marce $x_2$ no&apos;u so&apos;i prenu $x_3$ boi $x_4$</definition>
   <definitionid>19258</definitionid>
   <notes>mintu zo {sorprema&apos;e} gi&apos;e se cmima zo {sorprekarce} .i basfa gi&apos;u pilno lo dargu</notes>
-  <glossword word="basfa" />
   <glossword word="sorprema&apos;e" />
+  <glossword word="basfa" />
 </valsi>
 <valsi word="basysi'u" type="lujvo">
   <user>
@@ -908,6 +918,15 @@
   <definition>$ba_1$ barja $ba_2=bi_1$ po&apos;u loi birje ku $ba_3$</definition>
   <definitionid>44290</definitionid>
 </valsi>
+<valsi word="birtu'ucaucreka" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$cl_1=cr_1$ creka $cr_2$ gi&apos;e birtu&apos;ucau</definition>
+  <definitionid>57299</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {birtu&apos;ucau} .e zo {creka}</notes>
+</valsi>
 <valsi word="bisma'a" type="lujvo">
   <user>
     <username>arj</username>
@@ -1108,6 +1127,14 @@
   <definition>$x_1$ prenu gi&apos;e se xadni lo se cusku no&apos;u lu&apos;e lo bridi</definition>
   <definitionid>56991</definitionid>
   <notes>{bridi} {prenu}</notes>
+</valsi>
+<valsi word="brirei" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$c_1$ preti lo bridi ku $c_3$ $c_4$</definition>
+  <definitionid>57302</definitionid>
 </valsi>
 <valsi word="broda" type="gismu">
   <rafsi>rod</rafsi>
@@ -1400,6 +1427,15 @@
   </user>
   <definition>$x_1$ dunli $x_2$ le ka ce&apos;u fasnu ca makau</definition>
   <definitionid>2541</definitionid>
+</valsi>
+<valsi word="cacryminli" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>$x_1$ $x_2$ pi&apos;ai cacra minli te&apos;ai ni&apos;u pa</definition>
+  <definitionid>57292</definitionid>
+  <notes>ko viska zo {pi&apos;ai} .e zo {te&apos;ai} .e zo {cacra} .e zo {minli}</notes>
 </valsi>
 <valsi word="cacysku" type="lujvo">
   <user>
@@ -1826,6 +1862,15 @@
   <definition>$x_1$ cizra $x_2$ $x_3$ tai lo cfika be fi la&apos;o dy.Franz Kafka.dy.</definition>
   <definitionid>52936</definitionid>
 </valsi>
+<valsi word="ckabycupsri" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$d_1=cl_1=ck_1$ loi ckabu cu dasri gi&apos;e clupa</definition>
+  <definitionid>57309</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {cupsri}</notes>
+</valsi>
 <valsi word="ckagai" type="lujvo">
   <user>
     <username>vensa</username>
@@ -2133,6 +2178,15 @@
   <notes>{fanmo}; {tolcfa}</notes>
   <glossword word="co&apos;u" />
 </valsi>
+<valsi word="co'urji'e" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$j_1$ co&apos;u jmive $j_2$</definition>
+  <definitionid>57506</definitionid>
+  <notes>.e&apos;u ko tcidu la&apos;e zo {co&apos;u} .e zo {jmive} .e zo {morsi}</notes>
+</valsi>
 <valsi word="coi" type="cmavo">
   <selmaho>COI</selmaho>
   <user>
@@ -2338,6 +2392,14 @@
   </user>
   <definition>$x_1$ se cimde re da ije lo jimte be $x_1$ cu manfo lo ka ce&apos;u sepli lo midju be $x_1$ makau</definition>
   <definitionid>15100</definitionid>
+</valsi>
+<valsi word="cupsri" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$d_1=c_1$ $d_2=c_2$ dasri gi&apos;e clupa</definition>
+  <definitionid>57306</definitionid>
 </valsi>
 <valsi word="cuska'i" type="lujvo">
   <user>
@@ -2609,6 +2671,15 @@
   <notes>lujvo fo lu {drata} {zmadu} li&apos;u .i ji&apos;a zgana zo {xabmau}</notes>
   <glossword word="datmau" />
 </valsi>
+<valsi word="datnydatni" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1$ datni $x_2$ po&apos;u lo datni ge&apos;u $x_3$</definition>
+  <definitionid>57398</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {datni}</notes>
+</valsi>
 <valsi word="dau" type="cmavo">
   <selmaho>PA2</selmaho>
   <user>
@@ -2696,6 +2767,14 @@
   <notes>{nau} {selsku} {sumka&apos;i}</notes>
   <glossword word="dei" />
 </valsi>
+<valsi word="dekydugri" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$du_1$ dugri $du_2$ li pano</definition>
+  <definitionid>57391</definitionid>
+</valsi>
 <valsi word="demsilka" type="lujvo">
   <user>
     <username>vensa</username>
@@ -2730,6 +2809,15 @@
   <definitionid>19694</definitionid>
   <notes>{dertu} {gapru}</notes>
   <glossword word="dergapru" />
+</valsi>
+<valsi word="detke'u" type="lujvo">
+  <user>
+    <username>gusnikantu</username>
+    <realname>guskant</realname>
+  </user>
+  <definition>$x_1$ noi detri cu krefu lo detri be $x_2$ noi pamoi gi&apos;e fasnu ku&apos;o $x_3$ noi namcu ku&apos;o $x_4$ noi te detri be fi vo&apos;a ku&apos;o $x_5$ noi ve detri be fo vo&apos;a</definition>
+  <definitionid>57276</definitionid>
+  <notes>.i {detri} zei {krefu} .i lo se krefu cu panra lo detri be $x_2$ gi&apos;e ku&apos;i gau na&apos;e cmima lo terbri tezu&apos;e lo nu sampu .i $x_5=d_4$ ka&apos;e se smuni lo ciste be fo lo ka krefu .i mu&apos;a lo pa djedi po&apos;e lo pa jeftu jonai masti ge&apos;u .e lo pa djedi jonai masti po&apos;e lo pa nanca ge&apos;u .e lo pa nanca po&apos;e loi panono nanca mu&apos;anai</notes>
 </valsi>
 <valsi word="di" type="cmavo">
   <selmaho>KOhA1</selmaho>
@@ -3094,6 +3182,15 @@
   <notes>{bridi}</notes>
   <glossword word="du&apos;u" />
 </valsi>
+<valsi word="dubji'isre" type="lujvo">
+  <user>
+    <username>selpahi</username>
+    <realname>Miles Forster</realname>
+  </user>
+  <definition>$x_1$ srera lo ka ce&apos;u jinvi lo du&apos;u $x_2$ du $x_3$</definition>
+  <definitionid>57539</definitionid>
+  <glossword word="dubji&apos;isre" />
+</valsi>
 <valsi word="dubju'o" type="lujvo">
   <user>
     <username>selpahi</username>
@@ -3195,8 +3292,8 @@
   <definition>vomoi lerfu le lojbo</definition>
   <definitionid>13504</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="D" />
   <glossword word="dy" />
+  <glossword word="D" />
 </valsi>
 <valsi word="e" type="cmavo">
   <selmaho>A</selmaho>
@@ -4005,8 +4102,8 @@
   <definition>xamoi lerfu le lojbo</definition>
   <definitionid>13505</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="fy" />
   <glossword word="F" />
+  <glossword word="fy" />
 </valsi>
 <valsi word="ga" type="cmavo">
   <selmaho>GA</selmaho>
@@ -4913,8 +5010,8 @@
   <definition>bimoi lerfu le lojbo</definition>
   <definitionid>13510</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="ibu" />
   <glossword word="I" />
+  <glossword word="ibu" />
 </valsi>
 <valsi word="ie" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -5613,6 +5710,14 @@
   <definitionid>41997</definitionid>
   <glossword word="jifkritrazu&apos;e" />
 </valsi>
+<valsi word="jifmlu" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$s_1$ simlu $s_2$ $s_3$ $s_4$ .i ku&apos;i lo du&apos;u lo go&apos;i ku ckaji lo se go&apos;i cu jitfa $j_2$</definition>
+  <definitionid>57311</definitionid>
+</valsi>
 <valsi word="jifyjunxu'a" type="lujvo">
   <user>
     <username>selpahi</username>
@@ -5697,6 +5802,15 @@
   </user>
   <definition>$x1$ taxfu $x2$ lonu $x2$ stodi loka $x2$ jinsa $x3$</definition>
   <definitionid>32193</definitionid>
+</valsi>
+<valsi word="jmatamji" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$t_1$ tamji $t_2=j_1$ po&apos;u lo jamfu lo $t_3=j_2$.</definition>
+  <definitionid>57388</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {xantamji} .e zo {tamji}.</notes>
 </valsi>
 <valsi word="jmina" type="gismu">
   <rafsi>min</rafsi>
@@ -6106,6 +6220,15 @@
   <notes>{ckaji}</notes>
   <glossword word="kai" />
 </valsi>
+<valsi word="kaidza" type="lujvo">
+  <user>
+    <username>djeikyb</username>
+    <realname>Jacob Thomas Errington</realname>
+  </user>
+  <definition>.i lo ka kaidza cu ka ko&apos;a ko&apos;e ce&apos;ai vei mo&apos;e ko&apos;a goi $x_1$ da zo&apos;u da me&apos;au ko&apos;e goi $x_2$</definition>
+  <definitionid>57290</definitionid>
+  <notes>.i selbri fi&apos;o smuni zo&apos;e ne zo da .i mu&apos;a go li ro kaidza lo ka ce&apos;u broda gi ro da zo&apos;u da broda .i zo kaidza mintu zo {dzadza}</notes>
+</valsi>
 <valsi word="kakydirgo" type="lujvo">
   <user>
     <username>selpahi</username>
@@ -6225,6 +6348,14 @@
   <glossword word="nalgrici&apos;e" sense="ficybi&apos;o" />
   <glossword word="na&apos;e girzu ciste" sense="frica binxo" />
 </valsi>
+<valsi word="ke'atci" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$t_1$ tutci lo&apos;e nu ke&apos;a gasnu lo nu kevna</definition>
+  <definitionid>57313</definitionid>
+</valsi>
 <valsi word="ke'e" type="cmavo">
   <rafsi>kep</rafsi>
   <rafsi>ke&apos;e</rafsi>
@@ -6259,8 +6390,8 @@
   <definition>frica binxo lo zulgrici&apos;e pe tanru ja lujvo</definition>
   <definitionid>57057</definitionid>
   <notes>zo ke&apos;ei&apos;a se rafsi la kex. .i xruti frica binxo to balvi lo be zo ke&apos;ei frica binxo lo prutigrici&apos;e .ija balvi lo be zo ke&apos;ai frica binxo lo nalgrici&apos;e toi</notes>
-  <glossword word="zunle girzu ciste" sense="frica binxo" />
   <glossword word="zulgrici&apos;e" sense="ficybi&apos;o" />
+  <glossword word="zunle girzu ciste" sense="frica binxo" />
 </valsi>
 <valsi word="ke'i" type="cmavo">
   <selmaho>GAhO</selmaho>
@@ -6438,6 +6569,15 @@
   <definitionid>2660</definitionid>
   <notes>{krinu}</notes>
   <glossword word="ki&apos;u" />
+</valsi>
+<valsi word="kicymatci" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$m_1=k_2$ matci gi&apos;e se kicne $k_1$</definition>
+  <definitionid>57319</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {matci} .e zo {kicne}</notes>
 </valsi>
 <valsi word="kilto" type="gismu">
   <rafsi>ki&apos;o</rafsi>
@@ -6809,8 +6949,8 @@
   <definition>panomoi lerfu le lojbo</definition>
   <definitionid>13509</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="ky" />
   <glossword word="K" />
+  <glossword word="ky" />
 </valsi>
 <valsi word="la" type="cmavo">
   <selmaho>LA</selmaho>
@@ -6842,8 +6982,8 @@
   <definition>jbocme fi&apos;o nafte&apos;i lo karsnarfa&apos;o .i lo za&apos;u pa cmene cu se jdijimte lo depybu&apos;i</definition>
   <definitionid>57054</definitionid>
   <notes>.i ji&apos;a pilno ka&apos;e fi lo sitsku be lo zunsnafamme&apos;e</notes>
-  <glossword word="jbome&apos;e" sense="karsnarfa&apos;o" />
   <glossword word="lojbo cmene" sense="kalri sance fanmo" />
+  <glossword word="jbome&apos;e" sense="karsnarfa&apos;o" />
 </valsi>
 <valsi word="la'e" type="cmavo">
   <selmaho>LAhE</selmaho>
@@ -7486,8 +7626,8 @@
   <definition>papamoi lerfu le lojbo</definition>
   <definitionid>13513</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="L" />
   <glossword word="ly" />
+  <glossword word="L" />
 </valsi>
 <valsi word="ma" type="cmavo">
   <selmaho>KOhA</selmaho>
@@ -7997,6 +8137,15 @@
   <notes>{mikce} {xukmi}</notes>
   <glossword word="micyxu&apos;i" />
 </valsi>
+<valsi word="mifnrotpaci" type="fu'ivla">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1$ mifra $x_2$ la&apos;o gy.ROT-13.gy.</definition>
+  <definitionid>57270</definitionid>
+  <notes>zo mifnrotpaci mitsmuvla zo {rotpaci}</notes>
+</valsi>
 <valsi word="mijgresirji" type="lujvo">
   <user>
     <username>xorxes</username>
@@ -8016,6 +8165,14 @@
   <definitionid>13872</definitionid>
   <notes>{midju} {ragve} {sirji}; {mijgresirji}</notes>
   <glossword word="mijravysirji" />
+</valsi>
+<valsi word="mikybontoknu" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>$x_1$ toknu $x_2$ sepi&apos;o lo boxna be lo dicma bei fu lo klanrxertsi be li so gei ji&apos;irepivomu ge&apos;a pano</definition>
+  <definitionid>57283</definitionid>
 </valsi>
 <valsi word="mintu" type="gismu">
   <rafsi>mit</rafsi>
@@ -8251,8 +8408,8 @@
   </user>
   <definition>namcu .i sumji li vo li pa .i se li&apos;erla&apos;i li vo lei kancu namcu</definition>
   <definitionid>2566</definitionid>
-  <glossword word="5" />
   <glossword word="mu" />
+  <glossword word="5" />
 </valsi>
 <valsi word="mu'a" type="cmavo">
   <selmaho>UI3</selmaho>
@@ -9695,8 +9852,8 @@
   <definition>pavomoi lerfu le lojbo</definition>
   <definitionid>13511</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="obu" />
   <glossword word="O" />
+  <glossword word="obu" />
 </valsi>
 <valsi word="odbenu" type="fu'ivla">
   <user>
@@ -9933,6 +10090,15 @@
   <definitionid>13799</definitionid>
   <notes>{pa} zei {dilcu}; {fa&apos;i}</notes>
   <glossword word="pavdilcu" />
+</valsi>
+<valsi word="pavmeidza" type="lujvo">
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>$x_1$ suzmeidza lo ka  ce&apos;u ckaji $x_2$ gi&apos;e pavmei</definition>
+  <definitionid>57294</definitionid>
+  <notes>srana valsi fa zo {suzmeidza}</notes>
 </valsi>
 <valsi word="pavmoibe'a" type="lujvo">
   <user>
@@ -10320,6 +10486,14 @@
   <definitionid>53201</definitionid>
   <notes>.e&apos;u ko tcidu tu&apos;a zo {plebo&apos;o}</notes>
 </valsi>
+<valsi word="pleke'atci" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$t_1$ tutci lo&apos;e nu ke&apos;a gasnu lo nu kevna lo&apos;e pelji</definition>
+  <definitionid>57316</definitionid>
+</valsi>
 <valsi word="plika'e" type="lujvo">
   <user>
     <username>kpreid</username>
@@ -10362,6 +10536,15 @@
   </user>
   <definition>$v_1$ valsi $v_2=x_1=p_2$ noi ke&apos;a $x_2=p_1$ plixau $p_3$ ku&apos;o $v_3$</definition>
   <definitionid>20286</definitionid>
+</valsi>
+<valsi word="plopijnytci" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$t_1$ tutci lo&apos;e nu plopijne</definition>
+  <definitionid>57322</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {plopijne} .e zo {tutci}</notes>
 </valsi>
 <valsi word="po" type="cmavo">
   <selmaho>GOI</selmaho>
@@ -10493,6 +10676,15 @@
   <glossword word="prami" />
   <keyword word="prami" place="1" />
   <keyword word="selprami" place="2" />
+</valsi>
+<valsi word="predatni" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$d_1$ datni $d_2=p_1$ po&apos;u lo prenu ge&apos;u $d_3$</definition>
+  <definitionid>57402</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {datni} .e zo {prenu}</notes>
 </valsi>
 <valsi word="prevrici" type="lujvo">
   <user>
@@ -10847,8 +11039,8 @@
   </user>
   <definition>namcu .i sumji li pa li pa .i se li&apos;erla&apos;i li pa lei kancu namcu</definition>
   <definitionid>2548</definitionid>
-  <glossword word="re" />
   <glossword word="2" />
+  <glossword word="re" />
 </valsi>
 <valsi word="re'a" type="cmavo">
   <selmaho>VUhU4</selmaho>
@@ -11079,8 +11271,8 @@
   <definition>$x_1$ cusku $x_2$ noi preti $x_3$ boi $x_1$ boi $x_4$ ku&apos;o $x_4$ boi $x_5$</definition>
   <definitionid>20393</definitionid>
   <notes>ko catlu fe ji&apos;a zo {cusku} je zo {spusku} je zo {spuda} je zo {preti}</notes>
-  <glossword word="cusku lo preti" />
   <glossword word="retsku" />
+  <glossword word="cusku lo preti" />
 </valsi>
 <valsi word="ri" type="cmavo">
   <selmaho>KOhA5</selmaho>
@@ -11418,6 +11610,15 @@
   <definitionid>14897</definitionid>
   <glossword word="rorlei" />
 </valsi>
+<valsi word="rotpaci" type="fu'ivla">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1$ mifra $x_2$ la&apos;o gy.ROT-13.gy.</definition>
+  <definitionid>57271</definitionid>
+  <notes>zo rotpaci mitsmuvla zo {mifnrotpaci}</notes>
+</valsi>
 <valsi word="rotsu" type="gismu">
   <rafsi>rot</rafsi>
   <rafsi>tsu</rafsi>
@@ -11546,8 +11747,8 @@
   <definition>paxamoi lerfu le lojbo</definition>
   <definitionid>13517</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="ry" />
   <glossword word="R" />
+  <glossword word="ry" />
 </valsi>
 <valsi word="sa" type="cmavo">
   <selmaho>SA</selmaho>
@@ -12002,6 +12203,15 @@
   <definition>$x1$ melbi $x2$ $x3$ $x4$ gi&apos;e se prami $x2$</definition>
   <definitionid>32350</definitionid>
 </valsi>
+<valsi word="selru'eca'a" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$c_1$ cabra lo&apos;e nu ke&apos;a selpruce kei ku $c_3$</definition>
+  <definitionid>57325</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {teryru&apos;eca&apos;a}</notes>
+</valsi>
 <valsi word="selsi'acau" type="lujvo">
   <user>
     <username>vensa</username>
@@ -12353,6 +12563,15 @@
   <notes>{stici} {brife}</notes>
   <glossword word="sicybi&apos;e" />
 </valsi>
+<valsi word="sijypi'e" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$p_1=s_3$ plipe $p_2$ $p_3$ $p_4$ $p_5=s_1$ po&apos;u lo skiji</definition>
+  <definitionid>57406</definitionid>
+  <notes>.e&apos;u ko tdicu tu&apos;a zo {skiji} .e zo {plipe}</notes>
+</valsi>
 <valsi word="simbasti" type="lujvo">
   <user>
     <username>xorxes</username>
@@ -12653,8 +12872,8 @@
   <definition>.i lo ka solgu&apos;idicyborprami&apos;i cu ka ko&apos;a ko&apos;e ce&apos;ai ko&apos;a goi $x_1$ minji lo ka ce&apos;u tejaite cupra lo dikca lo gusni be ko&apos;a bei lo solri fai ko&apos;e goi $x_2$</definition>
   <definitionid>38163</definitionid>
   <notes>.i zo {minji} .e zo {cupra} .e zo {dikca} .e zo {gusni} .e zo {solri} zo&apos;u .e&apos;u zgana</notes>
-  <glossword word="solri ke dikca cupra minji" sense="minji lo ka cupra lo dikca" />
   <glossword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" />
+  <glossword word="solri ke dikca cupra minji" sense="minji lo ka cupra lo dikca" />
 </valsi>
 <valsi word="solgusli'i" type="lujvo">
   <user>
@@ -12784,6 +13003,15 @@
   <definition>$x_1$ cusku $x_2$ boi $x_3$ boi $x_4$ .i $x_1$ spuda $x_3$ lo nu go&apos;i</definition>
   <definitionid>39200</definitionid>
   <glossword word="spusku" />
+</valsi>
+<valsi word="sriba'axi'a" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>xirma fa $xi_1=b_2$ poi vo&apos;a rarna sriba&apos;a ke&apos;a po&apos;u $d_1=b_1$</definition>
+  <definitionid>57516</definitionid>
+  <notes>.e&apos;u ko tcidu la&apos;e zo {sriba&apos;a} .e zo {xirma} .e zo {xirnzebra} .e zo {xirnkuaga} .e zo {xirngrevii}</notes>
 </valsi>
 <valsi word="stakrportcelanu" type="fu'ivla">
   <user>
@@ -13024,6 +13252,14 @@
   <definitionid>13780</definitionid>
   <notes>{sumti} {porsi}; {ce&apos;e}, {nu&apos;i}</notes>
   <glossword word="sumpoi" />
+</valsi>
+<valsi word="sumrei" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$p_1$ preti lo du&apos;u makau sumti ku $p_3$ $p_4$</definition>
+  <definitionid>57331</definitionid>
 </valsi>
 <valsi word="sumsmi" type="lujvo">
   <user>
@@ -13333,8 +13569,18 @@
   </user>
   <definition>lo lamjvo cu ckaji lo tanru .i lo tersumsu&apos;a pe le lujvo cu mintu lo fanmo ke rafsi jonai gismu</definition>
   <definitionid>57059</definitionid>
-  <glossword word="tanru lujvo" sense="tanru kelci ke lujvo" />
   <glossword word="taujvo" sense="taurkaikemjvo" />
+  <glossword word="tanru lujvo" sense="tanru kelci ke lujvo" />
+</valsi>
+<valsi unofficial="true" word="tau'u" type="experimental cmavo">
+  <selmaho>PA5</selmaho>
+  <user>
+    <username>ues</username>
+    <realname>Wesley Wilson</realname>
+  </user>
+  <definition>namcu fa li re pi&apos;i pai .e li ji&apos;i xa pi re bi ci pa lo&apos;o</definition>
+  <definitionid>57397</definitionid>
+  <glossword word="tau&apos;u" sense="re pi&apos;i pai" />
 </valsi>
 <valsi word="tavysi'u" type="lujvo">
   <user>
@@ -13477,6 +13723,15 @@
   <notes>{lerfu} {porsi} {krasi}; {foi}</notes>
   <glossword word="tei" />
 </valsi>
+<valsi word="teijbi" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$j_1=t_2$ jibni $j_2=t_3$ lo ni ce&apos;u temci vo&apos;a vo&apos;e</definition>
+  <definitionid>57364</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {jibni} .e zo {temci} .e zo {zi}.</notes>
+</valsi>
 <valsi word="telcaugau" type="lujvo">
   <user>
     <username>selpahi</username>
@@ -13485,6 +13740,15 @@
   <definition>$x_1$ gasnu lo nu $x_2$ claxu $x_3$ noi stela lo nei $x_4$</definition>
   <definitionid>38052</definitionid>
   <glossword word="telcaugau" />
+</valsi>
+<valsi word="temda'o" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$d_1=t_2$ darno $d_2=t_3$ lo ni ce&apos;u temci vo&apos;a vo&apos;e</definition>
+  <definitionid>57356</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {darno} .e zo {temci} .e zo {zu}.</notes>
 </valsi>
 <valsi word="temli'u" type="lujvo">
   <user>
@@ -13572,6 +13836,15 @@
   <definitionid>13185</definitionid>
   <notes>{te} {sepli}; {vi}, {va}, {vu}</notes>
   <glossword word="tersei" />
+</valsi>
+<valsi word="teryru'eca'a" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$c_1$ cabra lo&apos;e nu ke&apos;a terpruce kei ku $c_3$</definition>
+  <definitionid>57328</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {selru&apos;eca&apos;a}</notes>
 </valsi>
 <valsi word="terzbipu'i" type="lujvo">
   <user>
@@ -13824,6 +14097,15 @@
   <definition>$c_1$ to&apos;e cilce</definition>
   <definitionid>42490</definitionid>
 </valsi>
+<valsi word="tolcimni" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$c_1$ to&apos;e cimni $c_2$ $c_3$</definition>
+  <definitionid>57409</definitionid>
+  <notes>.e&apos;u ko tdidu zo {to&apos;e} .e zo {cimni}</notes>
+</valsi>
 <valsi word="tolcru" type="lujvo">
   <user>
     <username>xorxes</username>
@@ -13916,7 +14198,7 @@
   </user>
   <definition>$x_1$ mrena&apos;u gi&apos;enai du su&apos;o frinu be lo mulna&apos;u bei lo mulna&apos;u</definition>
   <definitionid>41847</definitionid>
-  <notes>{to&apos;e} {frinu} {namcu}; {frinyna&apos;u}, {xarna&apos;u}, {tolxarna&apos;u}, {mrena&apos;u}, {lujna&apos;u}</notes>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {to&apos;e} .e zo {frinu} .e zo {namcu} .e zo {frinyna&apos;u} .e zo {xarna&apos;u} .e zo {tolxarna&apos;u} .e zo {mrena&apos;u} .e zo {lujna&apos;u}</notes>
 </valsi>
 <valsi word="tolgeitce" type="lujvo">
   <user>
@@ -14105,7 +14387,7 @@
   </user>
   <definition>$x_1$ to&apos;e tugni $x_2$ boi $x_3$ boi $x_4$</definition>
   <definitionid>14119</definitionid>
-  <notes>{to&apos;e} {tugni}; {ienai}</notes>
+  <notes>.e&apos;u ko tcidu la&apos;e zo {to&apos;e} .e zo {tugni} .e lu {ienai} li&apos;u</notes>
   <glossword word="toltu&apos;i" />
 </valsi>
 <valsi word="tolvri" type="lujvo">
@@ -14152,7 +14434,7 @@
   </user>
   <definition>$x_1$ to&apos;e zdile $x_2$ boi $x_3$</definition>
   <definitionid>14151</definitionid>
-  <notes>{to&apos;e} {zdile}; {u&apos;inai}</notes>
+  <notes>.e&apos;u ko tcidu la&apos;e zo {to&apos;e} .e zo {zdile} .e lu {u&apos;inai} li&apos;u</notes>
   <glossword word="tolzdi" />
 </valsi>
 <valsi word="torbrato'a" type="lujvo">
@@ -14227,8 +14509,8 @@
   <definitionid>53187</definitionid>
   <notes>ko catlu fe ji&apos;a zo {cliva} fa&apos;u zo {klama} fa&apos;u zo {tolyli&apos;a}</notes>
   <glossword word="to&apos;e cliva" />
-  <glossword word="tolyli&apos;a" />
   <glossword word="tsuku" />
+  <glossword word="tolyli&apos;a" />
 </valsi>
 <valsi word="tsustani" type="lujvo">
   <user>
@@ -14574,8 +14856,8 @@
   <definition>pasomoi lerfu le lojbo</definition>
   <definitionid>13512</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="U" />
   <glossword word="ubu" />
+  <glossword word="U" />
 </valsi>
 <valsi word="ubutycys zei cacra" type="zei-lujvo">
   <user>
@@ -14947,6 +15229,14 @@
   <notes>{mekso} {krasi}; {ve&apos;o}</notes>
   <glossword word="vei" />
 </valsi>
+<valsi word="velcradyjunla" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$j_1=c_4$ junla fo lo nu vo&apos;a velcradi fa $c_1$</definition>
+  <definitionid>57333</definitionid>
+</valsi>
 <valsi word="velripyzbe" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -15168,8 +15458,8 @@
   </user>
   <definition>namcu .i sumji li ci li pa .i se li&apos;erla&apos;i li ci lei kancu namcu</definition>
   <definitionid>2550</definitionid>
-  <glossword word="vo" />
   <glossword word="4" />
+  <glossword word="vo" />
 </valsi>
 <valsi word="vo'a" type="cmavo">
   <selmaho>KOhA4</selmaho>
@@ -15264,8 +15554,8 @@
   <definition>$x_1$ $x_2$ $x_3$ zilxru .i $x_1$ jai se krefu fai lo nu $x_2$ tcini jo nai vanbi $x_1$ kei noi ke&apos;a basti lo nu $x_3$ tcini jo nai vanbi $x_1$</definition>
   <definitionid>52834</definitionid>
   <notes>ko catlu fe ji&apos;a zo {di&apos;a} .e zo {zilxru} .e zo {xruti} .e zo {krefu} .e zo {rapli} .e zo {rinka}</notes>
-  <glossword word="zilxru" />
   <glossword word="volve" />
+  <glossword word="zilxru" />
 </valsi>
 <valsi word="vonca'u" type="lujvo">
   <user>
@@ -15398,8 +15688,8 @@
   <definition>renomoi lerfu le lojbo</definition>
   <definitionid>13520</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="V" />
   <glossword word="vy" />
+  <glossword word="V" />
 </valsi>
 <valsi word="xa" type="cmavo">
   <rafsi>xav</rafsi>
@@ -15410,8 +15700,8 @@
   </user>
   <definition>namcu .i sumji li mu li pa .i se li&apos;erla&apos;i li mu lei kancu namcu</definition>
   <definitionid>2567</definitionid>
-  <glossword word="xa" />
   <glossword word="6" />
+  <glossword word="xa" />
 </valsi>
 <valsi word="xa'ardakli" type="lujvo">
   <user>
@@ -15557,6 +15847,15 @@
   <definitionid>15292</definitionid>
   <notes>{xance} {klani}</notes>
 </valsi>
+<valsi word="xantamji" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$t_1$ tamji $t_2=xa_1$ po&apos;u lo xance lo $t_3=xa_2$.</definition>
+  <definitionid>57385</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {jmatamji} .e zo {tamji}.</notes>
+</valsi>
 <valsi word="xavdei" type="lujvo">
   <user>
     <username>guskant</username>
@@ -15641,6 +15940,33 @@
   <definition>te jorne lo namcu ja lerpoi le li&apos;erla&apos;i terge&apos;a</definition>
   <definitionid>13704</definitionid>
   <glossword word="xi" />
+</valsi>
+<valsi word="xirngrevii" type="fu'ivla">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1$ xirma la&apos;o jutsi.Equus grevyi.jutsi.</definition>
+  <definitionid>57525</definitionid>
+  <notes>.e&apos;u ko tcidu la&apos;e zo {sriba&apos;axi&apos;a}</notes>
+</valsi>
+<valsi word="xirnkuaga" type="fu'ivla">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1$ xirma la&apos;o jutsi.Equus quagga.jutsi.</definition>
+  <definitionid>57522</definitionid>
+  <notes>.e&apos;u ko tcidu la&apos;e zo {sriba&apos;axi&apos;a}</notes>
+</valsi>
+<valsi word="xirnzebra" type="fu'ivla">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1$ xirma la&apos;o jutsi.Equus zebra.jutsi.</definition>
+  <definitionid>57519</definitionid>
+  <notes>.e&apos;u ko tcidu la&apos;e zo {sriba&apos;axi&apos;a}</notes>
 </valsi>
 <valsi word="xismalsi" type="lujvo">
   <user>
@@ -15794,8 +16120,8 @@
   <definition>repamoi lerfu le lojbo</definition>
   <definitionid>13521</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="xy" />
   <glossword word="X" />
+  <glossword word="xy" />
 </valsi>
 <valsi word="y" type="cmavo">
   <selmaho>Y</selmaho>
@@ -15828,8 +16154,8 @@
   <definition>reremoi lerfu le lojbo</definition>
   <definitionid>13618</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="Y" />
   <glossword word="ybu" />
+  <glossword word="Y" />
 </valsi>
 <valsi word="za" type="cmavo">
   <selmaho>ZI</selmaho>
@@ -16028,8 +16354,8 @@
   </user>
   <definition>namcu .i sumji li xa li pa .i se li&apos;erla&apos;i li xa lei kancu namcu</definition>
   <definitionid>2568</definitionid>
-  <glossword word="ze" />
   <glossword word="7" />
+  <glossword word="ze" />
 </valsi>
 <valsi word="ze'a" type="cmavo">
   <selmaho>ZEhA</selmaho>
@@ -16789,6 +17115,7 @@
 <nlword word="du&apos;i" valsi="du&apos;i" />
 <nlword word="du&apos;o" valsi="du&apos;o" />
 <nlword word="du&apos;u" valsi="du&apos;u" />
+<nlword word="dubji&apos;isre" valsi="dubji&apos;isre" />
 <nlword word="dubju&apos;o" valsi="dubju&apos;o" />
 <nlword word="dugri" valsi="dugri" />
 <nlword word="dukse" valsi="dukse" />
@@ -17488,6 +17815,7 @@
 <nlword word="tau" valsi="tau" />
 <nlword word="tanru lujvo" sense="tanru kelci ke lujvo" valsi="tau&apos;o" />
 <nlword word="taujvo" sense="taurkaikemjvo" valsi="tau&apos;o" />
+<nlword word="tau&apos;u" sense="re pi&apos;i pai" valsi="tau&apos;u" />
 <nlword word="tavysi&apos;u" valsi="tavysi&apos;u" />
 <nlword word="tcanylu&apos;a" valsi="tcanylu&apos;a" />
 <nlword word="tcapau" valsi="tcapau" />

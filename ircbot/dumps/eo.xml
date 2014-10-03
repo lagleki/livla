@@ -16398,10 +16398,10 @@
 <nlword word="fakto" valsi="fatci" />
 <nlword word="inversa" valsi="fatne" />
 <nlword word="distribuiĝi" valsi="fatri" />
-<nlword word="Pardonon!" sense="vokativo" valsi="fau&apos;u" />
 <nlword word="Pardonon!" valsi="fau&apos;u" />
-<nlword word="Pardonu min!" valsi="fau&apos;u" />
+<nlword word="Pardonon!" sense="vokativo" valsi="fau&apos;u" />
 <nlword word="Pardonu min!" sense="vokativo" valsi="fau&apos;u" />
+<nlword word="Pardonu min!" valsi="fau&apos;u" />
 <nlword word="boli" valsi="febvi" />
 <nlword word="1E-15 femto-" valsi="femti" />
 <nlword word="dividi" valsi="fendi" />

@@ -258,8 +258,8 @@
   </user>
   <definition>cnima&apos;o .i citmle u&apos;unai     .i kansa zo nai poi na&apos;e citmle u&apos;unaicu&apos;i     .i kansa zo cu&apos;i poi to&apos;e citmle u&apos;u</definition>
   <definitionid>57085</definitionid>
-  <glossword word="citmle" sense="u&apos;unai" />
   <glossword word="au&apos;u" sense="u&apos;unai" />
+  <glossword word="citmle" sense="u&apos;unai" />
 </valsi>
 <valsi word="aucu'i" type="cmavo-compound">
   <selmaho>UI*</selmaho>
@@ -575,8 +575,8 @@
   <definition>$x_1$ marce $x_2$ no&apos;u so&apos;i prenu $x_3$ boi $x_4$</definition>
   <definitionid>19258</definitionid>
   <notes>mintu zo {sorprema&apos;e} gi&apos;e se cmima zo {sorprekarce} .i basfa gi&apos;u pilno lo dargu</notes>
-  <glossword word="sorprema&apos;e" />
   <glossword word="basfa" />
+  <glossword word="sorprema&apos;e" />
 </valsi>
 <valsi word="basysi'u" type="lujvo">
   <user>
@@ -12872,8 +12872,8 @@
   <definition>.i lo ka solgu&apos;idicyborprami&apos;i cu ka ko&apos;a ko&apos;e ce&apos;ai ko&apos;a goi $x_1$ minji lo ka ce&apos;u tejaite cupra lo dikca lo gusni be ko&apos;a bei lo solri fai ko&apos;e goi $x_2$</definition>
   <definitionid>38163</definitionid>
   <notes>.i zo {minji} .e zo {cupra} .e zo {dikca} .e zo {gusni} .e zo {solri} zo&apos;u .e&apos;u zgana</notes>
-  <glossword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" />
   <glossword word="solri ke dikca cupra minji" sense="minji lo ka cupra lo dikca" />
+  <glossword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" />
 </valsi>
 <valsi word="solgusli'i" type="lujvo">
   <user>
@@ -13569,8 +13569,8 @@
   </user>
   <definition>lo lamjvo cu ckaji lo tanru .i lo tersumsu&apos;a pe le lujvo cu mintu lo fanmo ke rafsi jonai gismu</definition>
   <definitionid>57059</definitionid>
-  <glossword word="taujvo" sense="taurkaikemjvo" />
   <glossword word="tanru lujvo" sense="tanru kelci ke lujvo" />
+  <glossword word="taujvo" sense="taurkaikemjvo" />
 </valsi>
 <valsi unofficial="true" word="tau'u" type="experimental cmavo">
   <selmaho>PA5</selmaho>
@@ -14270,7 +14270,7 @@
   </user>
   <definition>$x_1$ to&apos;e natfe $x_2$ boi $x_3$</definition>
   <definitionid>14061</definitionid>
-  <notes>{to&apos;e} {natfe}; {ja&apos;a}</notes>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {to&apos;e} .e zo {natfe} .e zo {ja&apos;a}</notes>
   <glossword word="tolna&apos;e" />
 </valsi>
 <valsi word="tolpa'a" type="lujvo">
@@ -14508,9 +14508,9 @@
   <definition>$x_1$ tolyli&apos;a $x_2$ $x_3$</definition>
   <definitionid>53187</definitionid>
   <notes>ko catlu fe ji&apos;a zo {cliva} fa&apos;u zo {klama} fa&apos;u zo {tolyli&apos;a}</notes>
+  <glossword word="tolyli&apos;a" />
   <glossword word="to&apos;e cliva" />
   <glossword word="tsuku" />
-  <glossword word="tolyli&apos;a" />
 </valsi>
 <valsi word="tsustani" type="lujvo">
   <user>
@@ -17351,8 +17351,8 @@
 <nlword word="klagi&apos;a" valsi="klagi&apos;a" />
 <nlword word="lo marce je te litru" sense="lo ka ce&apos;u marce lo klama lo ve klama" valsi="klama" place="5" />
 <nlword word="lo pluta je se litru" sense="lo ka muvdu fo ce&apos;u" valsi="klama" place="4" />
-<nlword word="lo stuzi" sense="lo ka muvdu fi ce&apos;u" valsi="klama" place="3" />
 <nlword word="lo stuzi" sense="lo ka muvdu ce&apos;u" valsi="klama" place="2" />
+<nlword word="lo stuzi" sense="lo ka muvdu fi ce&apos;u" valsi="klama" place="3" />
 <nlword word="lo zukte je litru" sense="lo ka ce&apos;u muvdu" valsi="klama" place="1" />
 <nlword word="to clear" valsi="kligau" />
 <nlword word="ko" valsi="ko" />
@@ -17709,8 +17709,8 @@
 <nlword word="sa&apos;u" valsi="sa&apos;u" />
 <nlword word="sai" valsi="sai" />
 <nlword word="user" sense="computer user" valsi="samnarca&apos;igau" place="1" />
-<nlword word="username" valsi="samnarca&apos;igau" place="3" />
 <nlword word="username" sense="computer" valsi="samnarca&apos;igau" place="3" />
+<nlword word="username" valsi="samnarca&apos;igau" place="3" />
 <nlword word="sau" valsi="sau" />
 <nlword word="se" valsi="se" />
 <nlword word="se&apos;a" valsi="se&apos;a" />

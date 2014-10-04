@@ -45,22 +45,24 @@ clientmensi.addListener('message', function(from, to, text, message) {
 });
 
 //prepare notci functions
+	// We use synchronous calls as it is not a problem to block for a short
+	// time at initialisation, and it makes the code more straightforward.
 	var fs = require("fs"),path = require("path-extra");
 	notcijudri=path.join(path.homedir(),".livla","notci.txt");
-	fs.exists(notcijudri, function(exists) {
-	if (!exists){
-	    fs.writeFile(notcijudri, "", function(err) {
-		    if(err) {
-		        console.log(err);
-		    } else {
-		        console.log("The notci.txt file was saved!");
-		    }
-	    });
+	// create notcijudri directory if needed
+	try {
+		fs.mkdirSync(path.join(path.homedir(),".livla"));
+	} catch (e) {
+		if (typeof(e.code) == "undefined" || e.code != 'EEXIST') {
+			throw(e);
+		}
 	}
-	notci = fs.readFileSync(notcijudri,'utf8').split("\n");//split notci
-	});
-
+	// create notcijudri file if it did not exist.
+	fs.appendFileSync(notcijudri, ""); 
+	// put each line of "notci.txt" as an array in notci
+	notci = fs.readFileSync(notcijudri,'utf8').split("\n");
 ///end notci
+
 var updatexmldumps = function () {
 var err;
 try{

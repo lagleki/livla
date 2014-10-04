@@ -252,6 +252,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	//now send back part
 	for (var l=0;l<notci.length;l++){
 		//sendTo
+		if (notci[l].length == 0) continue; // prevent a crash if the line is empty
 		var cmenepagbu=notci[l].split("\t");//.substr(0, notci[l].indexOf('\t'));
 		var sem = new RegExp(cmenepagbu[1].toLowerCase(), "gim");
 		if (from.match(sem)!==null)

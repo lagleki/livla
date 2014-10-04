@@ -458,7 +458,7 @@ return ret;
 };
 
 
-var tordu = function (lin,lng)
+var tordu = function (lin,lng,flag)
 {
 lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
@@ -470,7 +470,27 @@ try{gchild +='[' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\"
 try{gchild += xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/definition[1]").text();}catch(err){}
 try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text();}catch(err){}
 try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/user[1]/username[1]").text();}catch(err){}
-if (gchild===''){return mulno(lin,lng);}else{gchild=gchild.replace(/[\{\}_\$]/igm,"").replace(/`/g,"'").substring(0,1000);if (gchild.length>=1000){gchild+=' [mo\'u se katna] http://jbovlaste.lojban.org/dict/'+ lin;} return lin + " = " + gchild;}
+
+if (gchild===''){if (flag!==1){
+	if (xulujvo(lin)===true){
+		var f=tri(katna(lin),1,lng);
+		if (f!==''){return f;}else{
+		return "[< "+katna(lin)+"] "+mulno(lin,lng);
+		}
+	}else{
+		return mulno(lin,lng);
+		}
+	}else{
+		return '';
+		}
+	}else{
+		gchild=gchild.replace(/[\{\}_\$]/igm,"").replace(/`/g,"'").substring(0,1000);
+		if (gchild.length>=1000){
+			gchild+=' [mo\'u se katna] http://jbovlaste.lojban.org/dict/'+ lin;
+			}
+		if (xulujvo(lin)===true){lin+=" [< "+katna(lin)+"]";}
+		return lin + " = " + gchild;
+	}
 };
 
 var mulno = function (lin,lng)
@@ -479,7 +499,6 @@ lin=lin.replace(/\"/g,'');var xo;
 var libxmljs = require("libxmljs");
 var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-var retur='y no da se tolcri';
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./definition,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\") or contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\") or contains(translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 var stra=[];
@@ -493,7 +512,7 @@ if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
 if (stra.length>1){gag = xo + " da se tolcri: " + gag;}
-if(gag===''){gag='y no da se tolcri';}
+if(gag===''){gag='lo nu mulno sisku zo\'u: y no da se tolcri';}
 return gag;
 };
 
@@ -795,7 +814,7 @@ var C="("+"[bcdfgjklmnprstvxz]"+")";
 var V="("+"[aeiou]"+")";
 var Vy="("+"[aeiouy]"+")";
 var CC="("+"[bcfgkmpsvx][lr]|[td]r|[cs][pftkmn]|[jz][bvdgm]|t[cs]|d[jz]"+")";
-var C_C="("+"[bdgjvzcfkpstx][lrmn]|[lrn][bdgjvzcfkpstx]|[dgjvz]|d[bgjvz]|g[bdjvz]|j[bdgv]|v[bdgjz]|z[bdgv]|c[fkpt]|f[ckpstx]|k[cfpst]|p[cfkstx]|s[fkptx]|t[cfkpsx]|x[fpst]|l[rmn]|r[lmn]|m[lrnbdgjvcfkpstx]|n[lrm]"+")";
+var C_C="("+"[bdgjvzcfkpstx][lrmn]|[lrn][bdgjvzcfkpstx]|b[dgjvz]|d[bgjvz]|g[bdjvz]|j[bdgv]|v[bdgjz]|z[bdgv]|c[fkpt]|f[ckpstx]|k[cfpst]|p[cfkstx]|s[fkptx]|t[cfkpsx]|x[fpst]|l[rmn]|r[lmn]|m[lrnbdgjvcfkpstx]|n[lrm]"+")";
 var CxC="("+"[lmnr][bcdfgjkpstvx]|l[mnrz]|mn|n[lmrz]|r[lmnz]|b[dgjmnvz]|d[bglmnv]|g[bdjmnvz]|[jz][lnr]|v[bdgjmnz]|f[ckmnpstx]|k[cfmnpst]|p[cfkmnstx]|sx|t[fklmnpx]|x[fmnpst]"+")";
 var CyC="("+"("+C+")\\2|[bdgjvz][cfkpstx]|[cfkpstx][bdgjvz]|[cjsz]{2,2}|[ck]x|x[ck]|mz"+")";
 var CCV="("+CC+V+")";
@@ -805,6 +824,10 @@ var gism="("+CC+V+C+"|"+C+V+C_C+")";
 
 var xugismu = function (inp){
 	var myreg = new RegExp("^"+gism+V+"$", "gm");
+	if((inp.match(myreg)||[]).length==1){return true;}else{return false;}
+};
+var xulujvo = function (inp){
+	var myreg = new RegExp("^"+CVV+CCV+"$|^(?:"+CVV+"(?:r(?!r)|n(?=r))|"+CCV+"|"+CVC+"y?|"+gism+"y)(?:"+CVV+"|"+CCV+"|"+CVC+"y?|"+gism+"y)*(?:"+CVV+"|"+CCV+"|"+gism+V+")$", "gm");
 	if((inp.match(myreg)||[]).length==1){return true;}else{return false;}
 };
 //now split
@@ -817,8 +840,7 @@ var jvokatna = function (lujvoi){
 	tmp=tmp.replace(myregexpi,"$1 ");
 	tmp=tmp.replace(/y/g," ");
 	tmp=tmp.replace(/ +/g," ");
-	console.log(tmp);
-	return tmp;
+	return tmp.trim();
 };
 var rafyjongau = function (raf){//join given rafsi into a lujvo
 	var lujvo='';
@@ -827,7 +849,9 @@ var rafyjongau = function (raf){//join given rafsi into a lujvo
 	var lihenraf='';
 	for (var i=0; i<raf.length;i++){
 		var my = new RegExp("^"+gism+"$", "gm");
-		if (raf[i].match(my)!==null){raf[i]=raf[i]+'y';}
+		if ((raf[i].match(my)||[]).length===1 && i!=raf.length-1){
+			raf[i]=raf[i]+'y';
+		}
 		if (lihenraf!==''){
 			var pa=lihenraf.substr(lihenraf.length-1);
 			var re=raf[i].substr(0,1);
@@ -839,7 +863,7 @@ var rafyjongau = function (raf){//join given rafsi into a lujvo
 		{
 			my = new RegExp("^"+CVV+"$", "gm");
 			var myt = new RegExp("^"+CCV+"$", "gm");
-			if (raf[i].match(my)!==null && (raf.length>2 || (raf[1].match(myt)!==null))){
+			if ((raf[i].match(my)||[]).length===1 && (raf.length>2 || ((raf[1].match(myt)||[]).length===0))){
 				if (raf[1].substr(0,1)=='r'){raf[i]=raf[i]+'n';}else{raf[i]=raf[i]+'r';}
 			}
 		}
@@ -847,6 +871,7 @@ var rafyjongau = function (raf){//join given rafsi into a lujvo
 		lujvo=lujvo+raf[i];
 		
 	}
+	
 	// tosmabru test
 	var myg = new RegExp("^("+CVC+"+)(?:("+C+")"+V+CC+V+"|("+C+")"+V+C+"y.+)$","m");
 	if (lujvo.match(myg)!==null){
@@ -925,15 +950,26 @@ if (coun.length===0)
 try{coun=xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text(); var tmp=coun.replace(/^.*?-([a-z']+)-.*/,'$1');if (tmp!==coun){coun=tmp;}else{coun='';}}catch(err){coun='';}
 }
 else{coun=coun.join (' ');}
-if (xugismu(lin)===true){coun=coun.split(" ");if (last!==1){if(lin.substr(0,4)!=="brod"){coun.push(lin.substr(0,4));}}else{coun.push(lin.substr(0,5));}coun=coun.join(" ").trim();}
+if (xugismu(lin)===true){
+	coun=coun.split(" ");
+	if (last!==1){
+		if(lin.substr(0,4)!=="brod"){
+			coun.push(lin.substr(0,4));
+		}
+	}else{
+		coun.push(lin.substr(0,5));
+	}
+	coun=coun.join(" ").trim();
+}
 return coun;
 //if it's a gismu then add full 5-letter rafsi for it
 };
 
 //NOW TRY TO OUTPUT SCORE LUJVO FROM GIVEN GISMU (OR OTHER VALSI)
-var tri=function(inp){
+var tri=function(inp,flag,lng){
+	if (typeof lng==='undefined'){lng='en';}
 	//inp is a space separate string
-	var ar=inp.split(" ");
+	var ar=inp.trim().split(" ");
 	for(var l=0;l<ar.length;l++){
 		if (l==ar.length-1){
 		ar[l]=rafsiselfu(ar[l],1).split(" ");}else{
@@ -958,6 +994,12 @@ var tri=function(inp){
 	{
 		si+=sey[i][1] + "["+sey[i][2]+"] ";
 	}
+	var tor='';
+	for (i=0;i<cart.length;i++)
+	{
+		tor=tordu(sey[i][1],lng,1);
+		if (tor!=='' && (xulujvo(sey[i][1])===true)){break;}
+	}
 	//console.log(sey);
 	//{throw new Error('============');}
 
@@ -969,5 +1011,34 @@ var tri=function(inp){
         return (a[2] < b[2]) ? -1 : 1;
     }
 	}
-	return si.trim().split(" ").join(", ");
+	si=si.trim().split(" ").splice(0,5).join(", ");
+	if (tor!==''){si+=" ["+tor+"]";}
+	if (flag===1){si=tor;}
+	return si;
+};
+
+var selrafsi = function (lin)
+{
+var lng="en",gag;
+var libxmljs = require("libxmljs");
+var fs = require("fs"),path = require("path-extra");
+var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
+var xmlDoc = libxmljs.parseXml(content);
+
+var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
+//now try -raf- in notes
+if (typeof rev==='undefined'){rev =  xmlDoc.get("/dictionary/direction[1]/valsi[contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\"-"+lin+"-\")]");}
+//now try to add a vowel
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[starts-with(@word,\""+lin+"\")]");}
+if (typeof rev!=='undefined'){rev=rev.attr("word").value();}else{rev='';}
+return rev;
+};
+
+var katna= function(lin,flag){
+if (xulujvo(lin)!==true){return 'na lujvo';}
+	lin=jvokatna(lin).split(" ");
+	for (var o=0;o<lin.length;o++){
+		lin[o]=selrafsi(lin[o]);
+	}
+	return lin.join(" ");
 };

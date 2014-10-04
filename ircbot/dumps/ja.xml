@@ -20408,6 +20408,15 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>40215</definitionid>
   <notes>・大意： いとこ ・読み方： タムネ  ・語呂合わせ： いとこ見た胸 ・関連語： {dzena}, {famti}, {mensi}, {bruna}, {tunba}</notes>
 </valsi>
+<valsi word="tamsmi" type="lujvo">
+  <user>
+    <username>cogas</username>
+    <realname>Shotaro</realname>
+  </user>
+  <definition>$x_1$ は $x_2$ という形状をしており、$x_3$ と $x_4$（性質）の点で似ている</definition>
+  <definitionid>60441</definitionid>
+  <notes>英語定義に準拠。jbo定義によれば、「x1 は x2 と、それが x3（性質）を具現しているという点で似ている」。・関連語：{simsa}, {tarmi}</notes>
+</valsi>
 <valsi word="tanbo" type="gismu">
   <rafsi>ta&apos;o</rafsi>
   <user>
@@ -20531,9 +20540,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
     <username>glekiponjo</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
-  <definition>$x_1$ （観念／性質）は $x_2$ の形状／形態／形式／仕様</definition>
+  <definition>$x_1$ （観念／性質）は $x_2$ の形状／形態／形式／仕様； $x_2$の形状／形態／形式／仕様は$x_1$ （観念／性質）を具現している。</definition>
   <definitionid>40480</definitionid>
-  <notes>x1は観念的で、その性質を具現しているのが x2 。「キラキラの（x1）の指輪（ x2 ）」。 ・大意： 形 ・読み方： タルミ  ・語呂合わせ： tai(態), form, たるみのある形 ・関連語： {nejni}, {morna}; {te} {marji}, {tapla}, {bliku}, {kubli}, {kurfa}, {cukla}, {mapti}, {morna}, {sarlu}</notes>
+  <notes>x1は観念的で、その性質を具現しているのが x2 。「キラキラの（x1）の指輪（ x2 ）」。 ・大意： 形 ・読み方： タルミ  ・語呂合わせ： tai(態), form, たるみのある形 ・関連語： {nejni}, {morna}; {te} {marji}, {tapla}, {bliku}, {kubli}, {kurfa}, {cukla}, {mapti}, {morna}, {sarlu}
+</notes>
 </valsi>
 <valsi word="tarti" type="gismu">
   <rafsi>tra</rafsi>

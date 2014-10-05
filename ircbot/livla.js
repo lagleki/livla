@@ -3,7 +3,7 @@ var s,t,notci,notcijudri;
 var tato= require('./tatoeba.js');
 var interv=300000;
 var interm=2900;
-var tcan='#lojban,#ckule,#khanat';
+var tcan='#lojban,#ckule';
 var livlytcan='##jboselbau';//where la livla talks to la mensi 
 var asker='livla';
 var replier='mensi';
@@ -529,7 +529,7 @@ var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]");
 if (typeof coun!=='undefined'){ien='.i lu ' + lin + ' li\'u cmavo zo\'oi ' + coun.text();}
-	try{var ali = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./selmaho,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
+	try{var ali = xmlDoc.find("/dictionary/direction[1]/valsi[starts-with(translate(./selmaho,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 	var stra=[];
 	for (var i=0;i<ali.length;i++)
 	{
@@ -542,7 +542,7 @@ switch(true){
 case (ien!=='') && (gag !==''): gag=ien.concat(" |||| cmavo: ").concat(gag);break;
 case (ien==='') && (gag !==''): gag="cmavo: " + gag;break;
 case (ien!=='') && (gag ===''): gag=ien;break;
-case (ien==='') && (rev ===''): gag='y no da se tolcri';break;
+case (ien==='') && (gag ===''): gag='y no da se tolcri';break;
 }
 return gag;
 };

@@ -254,7 +254,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	//now send back part
 	for (var l=0;l<notci.length;l++){
 		//sendTo
-		if (notci[l].length == 0) continue; // prevent a crash if the line is empty
+		if (notci[l].length === 0) continue; // prevent a crash if the line is empty
 		var cmenepagbu=notci[l].split("\t");//.substr(0, notci[l].indexOf('\t'));
 		var sem = new RegExp(cmenepagbu[1].toLowerCase(), "gim");
 		if (from.match(sem)!==null)
@@ -273,6 +273,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf("lujvo:") == '0': clientmensi.say(sendTo, tri(text.substr(6)));break;
 	case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
 	case text.indexOf("exp:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
+	case text.indexOf("k:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, run_camxes(text, 3));break;
 	case text.indexOf("off:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxesoff(ret[0], ret[1]));break;
 	case text.indexOf(replier + ': ko ningau') == '0': setTimeout(function() {updatexmldumps();clientmensi.say(sendTo,'mi ca ca\'o ningau lo nei i ko ca troci lo ka pilno mi');},1); break;
 	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;

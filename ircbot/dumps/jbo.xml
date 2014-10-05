@@ -927,6 +927,14 @@
   <definitionid>57299</definitionid>
   <notes>.e&apos;u ko tcidu tu&apos;a zo {birtu&apos;ucau} .e zo {creka}</notes>
 </valsi>
+<valsi word="bislunsa" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>$x_1$ bisli gi&apos;e lunsa $x_2$ boi $x_3$ boi $x_4$</definition>
+  <definitionid>60450</definitionid>
+</valsi>
 <valsi word="bisma'a" type="lujvo">
   <user>
     <username>arj</username>

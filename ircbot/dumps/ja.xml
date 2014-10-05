@@ -5912,6 +5912,14 @@ d3は交流電源、直流電源、マイナス極、プラス極など
 </notes>
   <glossword word="魚" />
 </valsi>
+<valsi word="finprplekoglosu" type="fu'ivla">
+  <user>
+    <username>cogas</username>
+    <realname>Shotaro</realname>
+  </user>
+  <definition>$x_1$ は $x_2$ （種）のアユ属 （genus Plecoglossus）</definition>
+  <definitionid>60446</definitionid>
+</valsi>
 <valsi word="finti" type="gismu">
   <rafsi>fin</rafsi>
   <rafsi>fi&apos;i</rafsi>
@@ -8892,9 +8900,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
     <username>glekiponjo</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
-  <definition>$x_1$ は $x_2$ （利益）を $x_3$ （競合相手）から $x_4$ （試合）において勝ち取る；  $x_1$ は $x_3$ に勝利する</definition>
+  <definition>$x_1$ は $x_2$ （利益）を $x_3$ （競合相手／敗者）から $x_4$ （試合）において勝ち取る；  $x_1$ は $x_3$ に勝利する；　$x_3$ は $x_1$に敗北する</definition>
   <definitionid>39668</definitionid>
-  <notes>・大意： 勝つ ・読み方： ジンガ  ・語呂合わせ： 現地人が勝つ ・関連語： {cirko}, {jivna}, {talsa}, {cnemu}, {prali}, {pleji}, {sfasa}, {jdima}, {jerna}, {bradi}, {kargu}, {kelci}</notes>
+  <notes>・大意： 勝つ ・読み方： ジンガ  ・語呂合わせ： 現地人が勝つ ・関連語： {cirko}, {jivna}, {talsa}, {cnemu}, {prali}, {pleji}, {sfasa}, {jdima}, {jerna}, {bradi}, {kargu}, {kelci}
+</notes>
 </valsi>
 <valsi word="jinku" type="gismu">
   <user>
@@ -20784,6 +20793,16 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>～の境界で／～に際して ： 間制詞（空間・方向）；</definition>
   <definitionid>40877</definitionid>
   <notes>・読み方： テヘ</notes>
+</valsi>
+<valsi unofficial="true" word="te'i'o" type="experimental cmavo">
+  <selmaho>UI3b</selmaho>
+  <user>
+    <username>cogas</username>
+    <realname>Shotaro</realname>
+  </user>
+  <definition>特定的 （te&apos;i&apos;o 特定的 - te&apos;i&apos;onai 不特定的）</definition>
+  <definitionid>60448</definitionid>
+  <notes>心態詞（談話系）直前の語／構造（普通は項）に対して、その指示対象が話者にとって特定的であるという態度を表す。 ・関連語：{steci},{sanji}</notes>
 </valsi>
 <valsi word="te'o" type="cmavo">
   <selmaho>PA5</selmaho>

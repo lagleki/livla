@@ -18,6 +18,12 @@ var camxes = require('../camxes.js');
 var camxes_pre = require('../camxes_preproc.js');
 var camxes_post = require('../camxes_postproc.js');
 
+var regexps = {
+  coi:  new RegExp("(^| )coi la .?"  + config.nick + ".?"),
+  juhi: new RegExp("(^| )ju'i la .?" + config.nick + ".?"),
+  kihe: new RegExp("(^| )ki'e la .?" + config.nick + ".?")
+}
+
 var processor = function(client, from, to, text, message) {
   if (!text) return;
   var sendTo = from; // send privately
@@ -25,15 +31,15 @@ var processor = function(client, from, to, text, message) {
     sendTo = to; // send publicly
   }
   if (sendTo == to) {  // Public
-    if (text.indexOf("camxes: ") == '0') {
-      text = text.substr(8);
+    if (text.indexOf(config.nick + ": ") == '0') {
+      text = text.substr(config.nick.length + 2);
       var ret = extract_mode(text);
       client.say(sendTo, run_camxes(ret[0], ret[1]));
-    } else if (text.search(/(^| )coi la .?camxes.?/) >= 0) {
+    } else if (text.search(regexps.coi) >= 0) {
       client.say(sendTo, "coi");
-    } else if (text.search(/(^| )ju'i la .?camxes.?/) >= 0) {
+    } else if (text.search(regexps.juhi) >= 0) {
       client.say(sendTo, "re'i");
-    } else if (text.search(/(^| )ki'e la .?camxes.?/) >= 0) {
+    } else if (text.search(regexps.kihe) >= 0) {
       client.say(sendTo, "je'e fi'i");
     }
   } else {  // Private

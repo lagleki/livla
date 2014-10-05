@@ -21,9 +21,6 @@ You may want to modify `config` and `configmensi`. Actually, they both connect
 to “#gleki” as well as “livlytcan”. Gleki is the original author of the script
 and use this channel to do his testing. You can remove his hardcoded channel.
 
-Also, it seems that `livlytcan` and, in fact, the asker itself, may not be
-required to use the script, at least at a basic level.
-
 I currently tested this configuration without crash:
 
 ```javascript
@@ -31,8 +28,7 @@ var config = {
   server: 'irc.freenode.net',
   nick: asker,
   options: {
-    channels: [], // note the empty array, “asker” will not connect
-                  // anywhere
+    channels: [livlytcan],
     debug: false,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
     messageSplit: 276
@@ -43,7 +39,7 @@ var configmensi = {
   server: 'irc.freenode.net',
   nick: replier,
   options: {
-    channels: [tcan], // Only connect to configured channels.
+    channels: [tcan, livlytcan],
     debug: false,
     messageSplit: 276,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots'

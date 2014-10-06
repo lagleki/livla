@@ -3,7 +3,7 @@ var s,t,notci,notcijudri;
 var tato= require('./tatoeba.js');
 var interv=300000;
 var interm=2900;
-var tcan='#lojban,#ckule';
+var tcan='#lojban,#ckule,#khanat';
 var livlytcan='##jboselbau';//where la livla talks to la mensi 
 var asker='livla';
 var replier='mensi';
@@ -273,6 +273,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf("lujvo:") == '0': clientmensi.say(sendTo, tri(text.substr(6)));break;
 	case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
 	case text.indexOf("exp:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
+	case text.indexOf("f:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, xufuhivla(text));break;
 	case text.indexOf("k:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, run_camxes(text, 3));break;
 	case text.indexOf("off:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxesoff(ret[0], ret[1]));break;
 	case text.indexOf(replier + ': ko ningau') == '0': setTimeout(function() {updatexmldumps();clientmensi.say(sendTo,'mi ca ca\'o ningau lo nei i ko ca troci lo ka pilno mi');},1); break;
@@ -838,6 +839,9 @@ var xulujvo = function (inp){
 	var myreg = new RegExp("^"+CVV+CCV+"$|^(?:"+CVV+"(?:r(?!r)|n(?=r))|"+CCV+"|"+CVC+"y?|"+gism+"y)(?:"+CVV+"|"+CCV+"|"+CVC+"y?|"+gism+"y)*(?:"+CVV+"|"+CCV+"|"+gism+V+")$", "gm");
 	if((inp.match(myreg)||[]).length==1){return true;}else{return false;}
 };
+var xufuhivla = function (inp){
+	if (run_camxes(inp, 3).substr(0,7)==="(CU [Z:"){return true;}else{return false;}
+};
 //now split
 var jvokatna = function (lujvoi){
 	var tmp;
@@ -1019,7 +1023,9 @@ var tri=function(inp,flag,lng){
         return (a[2] < b[2]) ? -1 : 1;
     }
 	}
-	si=si.trim().split(" ").splice(0,5).join(", ");
+	si=si.trim().split(" ").splice(0,5);
+	if (si.length>=5){si.push("...");}
+	si=si.join(", ");
 	if (tor!==''){si+=" ["+tor+"]";}
 	if (flag===1){si=tor;}
 	return si;

@@ -20,8 +20,8 @@
   <definition>謹聴／注目 （a&apos;a 謹聴／注目 - a&apos;acu&apos;i 無頓着／無愛想 - a&apos;anai 忌避）</definition>
   <definitionid>42011</definitionid>
   <notes>心態詞； 丁寧に扱う／対応する気持； 警戒を表す a&apos;e や用心を表す o&apos;i と異なる「.a&apos;a do .io na citka lo rectu／肉は召し上がらないのですね」「.a&apos;a .i ko di&apos;a co&apos;e .i ba ku ma fasnu／なるほど、それで、その後どうなったの？」 ・読み方： アハ  ・関連語： {jundi}, {re&apos;i}</notes>
-  <glossword word="注目" />
   <glossword word="謹聴" />
+  <glossword word="注目" />
 </valsi>
 <valsi word="a'acu'i" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -32,8 +32,8 @@
   <definition>無頓着／無愛想 （ a&apos;a 謹聴／注目 - a&apos;acu&apos;i 無頓着／無愛想 - a&apos;anai 忌避）</definition>
   <definitionid>42012</definitionid>
   <notes>心態詞； 懇ろさを欠いた気持； 気に留めない情況「zo&apos;e .a&apos;acu&apos;i pu ca&apos;o klama／誰だか気に留めなかったが、来ていた人はいた」「.a&apos;a cu&apos;i ko denpa lo nu mi mulgau ti／ちょっとこれ終わるまで待ってて」 ・読み方： アハシュヒ ・関連語： {nalju&apos;i}, {re&apos;i} {nai}</notes>
-  <glossword word="無愛想" />
   <glossword word="無頓着" />
+  <glossword word="無愛想" />
 </valsi>
 <valsi word="a'anai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -327,8 +327,8 @@
   <definition>誇張 （ ba&apos;u 誇張 - ba&apos;ucu&apos;i 的確 - ba&apos;unai 控えめ）</definition>
   <definitionid>20633</definitionid>
   <notes>心態詞「blabi kerfa me ci ki&apos;o pavnongutci ba&apos;u／白髪三千丈」 ・読み方： バフ  ・関連語： {satci}, {dukse}</notes>
-  <glossword word="大袈裟" />
   <glossword word="誇張" />
+  <glossword word="大袈裟" />
 </valsi>
 <valsi word="ba'ucu'i" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -339,8 +339,8 @@
   <definition>的確 （ ba&apos;u 誇張 - ba&apos;ucu&apos;i 的確 - ba&apos;unai 控えめ）</definition>
   <definitionid>20634</definitionid>
   <notes>心態詞「ba&apos;ucu&apos;i lo ni finpe kei pu ni birka clani ／魚はちょうど腕の長さほどあった。」 ・読み方： バフシュヒ</notes>
-  <glossword word="まさに" />
   <glossword word="的確" />
+  <glossword word="まさに" />
   <glossword word="ちょうど" />
 </valsi>
 <valsi word="ba'unai" type="cmavo-compound">
@@ -415,13 +415,13 @@
   <definition>$j_1=b_1$ は $j_2$ （相手）と $j_3$ （事／レース）で $j_4$ （賞）を競って $b_2$ （競技用トラック）を $b_3$ （足）で $b_4$ （調子／足取り）で走って競走する</definition>
   <definitionid>19755</definitionid>
   <notes>{bajra} {jivna}</notes>
-  <glossword word="長距離走" />
   <glossword word="かけっこ" />
-  <glossword word="かけくらべ" />
-  <glossword word="徒競走" />
-  <glossword word="マラソン" />
-  <glossword word="中距離走" />
   <glossword word="短距離走" />
+  <glossword word="中距離走" />
+  <glossword word="長距離走" />
+  <glossword word="マラソン" />
+  <glossword word="徒競走" />
+  <glossword word="かけくらべ" />
 </valsi>
 <valsi word="bakfu" type="gismu">
   <rafsi>baf</rafsi>
@@ -511,18 +511,18 @@
   <definition>$z_1$ は $z_2$ （品物）を売る $z_3$ （経営者）のスーパー（量販店）／デパート </definition>
   <definitionid>19705</definitionid>
   <notes>{banli} {zarci}</notes>
-  <glossword word="ゼネラルマーチャンダイズストア" />
-  <glossword word="スーパーセンター" />
-  <glossword word="ホームセンター" />
-  <glossword word="ショッピングモール" />
-  <glossword word="スーパー" sense="量販店" />
-  <glossword word="デパート" />
-  <glossword word="百貨店" />
-  <glossword word="デパートメントストア" />
-  <glossword word="ディスカウントショップ" />
   <glossword word="スーパーマーケット" />
   <glossword word="総合スーパー" />
+  <glossword word="ゼネラルマーチャンダイズストア" />
   <glossword word="ショッピングセンター" />
+  <glossword word="ホームセンター" />
+  <glossword word="ショッピングモール" />
+  <glossword word="スーパーセンター" />
+  <glossword word="デパートメントストア" />
+  <glossword word="ディスカウントショップ" />
+  <glossword word="百貨店" />
+  <glossword word="デパート" />
+  <glossword word="スーパー" sense="量販店" />
 </valsi>
 <valsi word="bancu" type="gismu">
   <rafsi>bac</rafsi>
@@ -664,13 +664,13 @@
   <definition>$k_1$ は $k_3$ （起点）から $k_4$ （経路）・ $k_5$ （方法）で外へ出る</definition>
   <definitionid>19757</definitionid>
   <notes>{bartu} {klama}</notes>
-  <glossword word="退出" sense="外へ出る" />
+  <glossword word="出て来る" />
   <glossword word="出る" sense="外へ出る" />
   <glossword word="外出" sense="外へ出る" />
   <glossword word="出ていく" />
   <glossword word="出て行く" />
   <glossword word="出てくる" />
-  <glossword word="出て来る" />
+  <glossword word="退出" sense="外へ出る" />
   <keyword word="外出者" place="1" />
   <keyword word="外出起点" place="2" />
   <keyword word="外出経路" place="3" />
@@ -767,8 +767,8 @@
   <definitionid>39262</definitionid>
   <notes>・大意： 大麦 ・読み方： バヴミ  ・語呂合わせ： ＜場でヴォミット＞, mai（麦）, barley ・関連語： {gurni}
 </notes>
-  <glossword word="オオムギ" sense="穀粒" />
   <glossword word="大麦" sense="穀粒" />
+  <glossword word="オオムギ" sense="穀粒" />
   <keyword word="オオムギ" place="1" sense="穀粒" />
 </valsi>
 <valsi word="bavmyckafi" type="lujvo">
@@ -779,8 +779,8 @@
   <definition>$c_1$ は $b_2$ （大麦の種類）の麦茶</definition>
   <definitionid>19748</definitionid>
   <notes>{bavmi} {ckafi}</notes>
-  <glossword word="麦湯" />
   <glossword word="麦茶" />
+  <glossword word="麦湯" />
 </valsi>
 <valsi word="baxseljibri" type="lujvo">
   <user>
@@ -1336,8 +1336,8 @@
   <definition>$b_1=s_1$ は $b_2=s_2$（もの）・ $s_3$（側）・ $s_4$（境）・ $b_3$（波形）・ $b_4$（波長）・ $b_5$（周波数）のデコボコ面</definition>
   <definitionid>18299</definitionid>
   <notes>Cf. {boxna}, {sefta}</notes>
-  <glossword word="デコボコ" />
   <glossword word="凹凸" />
+  <glossword word="デコボコ" />
 </valsi>
 <valsi word="botpi" type="gismu">
   <rafsi>bot</rafsi>
@@ -1350,10 +1350,10 @@
   <definitionid>39294</definitionid>
   <notes>閉じられる容器全般。 ・大意： 瓶 ・読み方： ボトピ  ・語呂合わせ： ＜ボトルぴったり＞,  bottle, pin(瓶)  ・関連語： {baktu}, {lante}, {patxu}, {tansi}, {tanxe}, {vasru}, {gacri}
 </notes>
+  <glossword word="容器" />
   <glossword word="ボトル" />
   <glossword word="瓶" />
   <glossword word="壷" />
-  <glossword word="容器" />
 </valsi>
 <valsi word="boxfo" type="gismu">
   <rafsi>bof</rafsi>
@@ -1367,8 +1367,8 @@
   <notes>的確な日本語訳は存在しない。「枚」で数えられる形状のもの。「紙」「箔」「敷物」「毛布」「アルミホイル」「サランラップ」などの上位概念。 ・大意： シーツ ・読み方： ボクゥフォ  ・語呂合わせ： ＜坊主の不法＞, bo(箔), foil ・関連語： {plita}, {cinje}, {polje}, {slasi}, {tinci}
 </notes>
   <glossword word="シート" />
-  <glossword word="シーツ" />
   <glossword word="枚" />
+  <glossword word="シーツ" />
 </valsi>
 <valsi word="boxna" type="gismu">
   <rafsi>bon</rafsi>
@@ -1780,9 +1780,9 @@
   <definitionid>38565</definitionid>
   <notes>;$d_1=c_1$は今日/本日
 (英語定義から和訳)</notes>
-  <glossword word="同日" />
-  <glossword word="本日" />
   <glossword word="今日" />
+  <glossword word="本日" />
+  <glossword word="同日" />
 </valsi>
 <valsi word="cabna" type="gismu">
   <rafsi>cab</rafsi>
@@ -1904,11 +1904,11 @@
   <definitionid>39318</definitionid>
   <notes>$x_{1}$, $x_{4}$ として「所有権を交換する者」という sumti を引き出す（意味論的により厳密に言うなら {posycanja}）。 やりとりされる費用と価格の違いについては {jdima} の注を参照。 ・大意： 交換 ・読み方： シャンジャ  ・語呂合わせ： exchage ・関連語： {dunda}, {friti}, {vecnu}, {zarci}, {jdini}, {pleji}, {jdima}, {jerna}, {kargu}; {jdima}, {banxa}, {cirko}, {dunda}, {janta}, {kargu}, {prali}, {sfasa}, {zivle}
 </notes>
-  <glossword word="投機家" />
-  <glossword word="貿易業者" />
-  <glossword word="交換" sense="所有権の取引" />
   <glossword word="相場師" />
+  <glossword word="貿易業者" />
   <glossword word="物々交換" />
+  <glossword word="投機家" />
+  <glossword word="交換" sense="所有権の取引" />
 </valsi>
 <valsi word="canko" type="gismu">
   <rafsi>ca&apos;o</rafsi>
@@ -2323,8 +2323,8 @@
   <definition>$cu_1=ci_1$ は $cu_2=ci_2$ （文字列／内容）を $cu_3$ （読み手）に向けて $ci_3$ （媒体）に $ci_4$ （道具）で書いて表現する</definition>
   <definitionid>19764</definitionid>
   <notes>{ciska} {cusku}</notes>
-  <glossword word="文章表現" sense="書いて表現する" />
   <glossword word="書いて表現する" />
+  <glossword word="文章表現" sense="書いて表現する" />
 </valsi>
 <valsi word="ci'e" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -2658,11 +2658,11 @@
   <definitionid>39372</definitionid>
   <notes>「箸」「やっとこ」「ピンセット」「ペンチ」など。 ・大意： 箸 ・読み方： シンザ  ・語呂合わせ： 新参者 ・関連語： {tutci}
 </notes>
-  <glossword word="ピンセット" />
-  <glossword word="やっとこ" />
-  <glossword word="洗濯バサミ" />
-  <glossword word="ペンチ" />
   <glossword word="箸" />
+  <glossword word="やっとこ" />
+  <glossword word="ピンセット" />
+  <glossword word="ペンチ" />
+  <glossword word="洗濯バサミ" />
 </valsi>
 <valsi word="cipni" type="gismu">
   <rafsi>cpi</rafsi>
@@ -2951,8 +2951,8 @@
   <definition>$cup_1$ は $cup_2=cuk_1$ （本）を $cup_3$ （過程）によって出版する／製本する</definition>
   <definitionid>19767</definitionid>
   <notes>{cukta} {cupra}</notes>
-  <glossword word="製本" />
   <glossword word="出版" sense="製本" />
+  <glossword word="製本" />
 </valsi>
 <valsi word="cladu" type="gismu">
   <rafsi>lau</rafsi>
@@ -3380,8 +3380,8 @@
   <definitionid>39420</definitionid>
   <notes>「ラジオ」「モールス信号」など。 ・大意： 無線通信 ・読み方： シラディ  ・語呂合わせ： radio, cain(線) ・関連語： {tivni}, {benji}, {tcana}
 </notes>
-  <glossword word="放送局" sense="無線放送" />
   <glossword word="放送" sense="無線放送" />
+  <glossword word="放送局" sense="無線放送" />
   <glossword word="無線通信" />
   <keyword word="放送局" place="1" sense="無線放送" />
   <keyword word="放送内容／信号内容" place="2" sense="無線放送／無線通信" />
@@ -3408,9 +3408,9 @@
   <definitionid>39422</definitionid>
   <notes>スリーブやボタンの有無は問わない。「シャツ」「ブラウス」「カーディガン」なども。 ・大意： 上着 ・読み方： シレカ  ・関連語： {taxfu}
 </notes>
+  <glossword word="上着" />
   <glossword word="ブラウス" />
   <glossword word="シャツ" />
-  <glossword word="上着" />
 </valsi>
 <valsi word="crepu" type="gismu">
   <rafsi>rep</rafsi>
@@ -3430,19 +3430,19 @@
   <definition>$zu_1=ze_1$ は $zu_2=c_2$ （事／行為）の練習をする</definition>
   <definitionid>19768</definitionid>
   <notes>{certu} {zenba} {zukte} {rapcreze&apos;a} {xadyplijvi}</notes>
-  <glossword word="トレーニング" />
-  <glossword word="鍛錬" />
-  <glossword word="習練" />
+  <glossword word="けいこ" sense="稽古" />
   <glossword word="練磨" />
   <glossword word="調練" />
   <glossword word="鍛える" sense="練習する" />
-  <glossword word="練習" />
-  <glossword word="訓練" />
-  <glossword word="修練" />
-  <glossword word="稽古" />
-  <glossword word="けいこ" sense="稽古" />
-  <glossword word="おさらい" sense="練習" />
+  <glossword word="習練" />
+  <glossword word="鍛錬" />
   <glossword word="演習" />
+  <glossword word="トレーニング" />
+  <glossword word="おさらい" sense="練習" />
+  <glossword word="稽古" />
+  <glossword word="修練" />
+  <glossword word="訓練" />
+  <glossword word="練習" />
 </valsi>
 <valsi word="cribe" type="gismu">
   <rafsi>rib</rafsi>
@@ -3772,9 +3772,9 @@
   <definitionid>40402</definitionid>
   <notes>「ブーツ (={tupcutci})」「サンダル」「下駄」「草履」も。 ・大意： 靴 ・読み方： シュチ ・語呂合わせ： シュー小さい ・関連語： {smoka}, {taxfu}, {skiji}
 </notes>
+  <glossword word="サンダル" />
   <glossword word="ブーツ" />
   <glossword word="靴" />
-  <glossword word="サンダル" />
 </valsi>
 <valsi word="cutne" type="gismu">
   <rafsi>cut</rafsi>
@@ -3794,8 +3794,8 @@
   <definition>$p_1=g_1$ は $p_2$ （素材）のオーバーオール</definition>
   <definitionid>19744</definitionid>
   <notes>{cutne} {gacri} {palku}</notes>
-  <glossword word="サロペット" />
   <glossword word="オーバーオール" />
+  <glossword word="サロペット" />
   <glossword word="つなぎ" sense="オーバーオール" />
 </valsi>
 <valsi word="cuxna" type="gismu">
@@ -3861,8 +3861,8 @@
   <definition>非現実 （ da&apos;i 非現実 - da&apos;inai 現実）</definition>
   <definitionid>20638</definitionid>
   <notes>心態詞（談話系）； 「もし~なら」「仮に～」「da&apos;i trina lo nalglico selbangu／非英語話者を惹きつけられたらなあ」「lonu da&apos;i la betis. klama le te salci cu vajni lenu la bil. gleki／ビルが喜ぶには、ベティがパーティに来ることが重要だった（実際には来なかった）」「lo li&apos;i pu da&apos;i lifri／既視体験」 ・読み方： ダヒ  ・関連語： {xanri}, {sruma}; {da&apos;inai}, {je&apos;u}, {je&apos;unai}</notes>
-  <glossword word="仮定" sense="非現実" />
   <glossword word="非現実" />
+  <glossword word="仮定" sense="非現実" />
 </valsi>
 <valsi word="da'inai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -3873,8 +3873,8 @@
   <definition>現実 （ da&apos;i 非現実 - da&apos;inai 現実）</definition>
   <definitionid>20639</definitionid>
   <notes>心態詞（談話系）； 「実際～」「本当に～」「da&apos;inai fatci nanba .i e&apos;u ko citka／本物のパンです。どうぞ召し上がれ。」「le si&apos;o sidju cu cinri mi .i ku&apos;i da&apos;inai du&apos;eda cuntu mi／援助には興味あるけど、実際にはやることが多すぎてね」 ・読み方： ダヒナイ ・関連語： {fatci}; {da&apos;i}, {je&apos;u}, {je&apos;unai}</notes>
-  <glossword word="事実" sense="仮ではない" />
   <glossword word="実際" />
+  <glossword word="事実" sense="仮ではない" />
   <glossword word="現実" />
 </valsi>
 <valsi word="da'u" type="cmavo">
@@ -3988,8 +3988,8 @@
   <notes>・大意： 答 ・読み方： ダンフゥ  ・関連語： {ciksi}, {frati}, {preti}, {nabmi}, {spuda}（答える）, {cpedu}
 </notes>
   <glossword word="返事" />
-  <glossword word="答え" />
   <glossword word="解答" />
+  <glossword word="答え" />
   <keyword word="解答" place="1" />
   <keyword word="質問" place="2" />
 </valsi>
@@ -4136,10 +4136,10 @@
   <notes>d_2はポケットのついてある物として『ズボン』や『カバン』など
 ;l_1はひったくり犯／スリ犯</notes>
   <glossword word="ひったくる" sense="物品" />
-  <glossword word="強奪する" sense="物品" />
-  <glossword word="スリをする" sense="物品" />
   <glossword word="盗む" sense="物品" />
   <glossword word="奪う" sense="物品" />
+  <glossword word="強奪する" sense="物品" />
+  <glossword word="スリをする" sense="物品" />
 </valsi>
 <valsi word="dasni" type="gismu">
   <rafsi>das</rafsi>
@@ -4421,12 +4421,12 @@
   <definition>日付 [日、週、月、年] $x_1=d_1=k_1$ は、 最初の事象 $x_2=d_2$ の日付 [日、週、月、年] の繰り返し／再来、 $x_3=k_3$回目の、 所（標準時の基準など） $x_4=d_3$、 暦 $x_5=d_4$ の。</definition>
   <definitionid>57279</definitionid>
   <notes>{detri} zei {krefu}。 krefu_2 は最初の事象の日付に対応するが、簡単のため、その場所をテルブリに含めていない。 $x_5=d_4$ で繰り返しのシステムを表せる：週／月の中の日；年の中の日／月；世紀の中の年など。 例） li renopavo pi&apos;e pano pi&apos;e re detke&apos;u lo nu la gandis noi banli cu jbena kei li pavomu zo&apos;e lo pa nanca be fi la gregoris （グレゴリオ暦の年で数えると、2014年10月2日はマハトマ・ガンディーの145回目の誕生日だ。）／ li pasoxaso detke&apos;u lo nu la gandis noi banli cu jbena kei li pa zo&apos;e loi panono nanca be fi la gregoris （グレゴリオ暦の世紀で数えると、1969年はマハトマ・ガンディーの生誕100周年だ。）／ li reci detke&apos;u lo nu lo mamymamta cu mrobi&apos;o kei zo&apos;e zo&apos;e lo pa masti be fi la gregoris （グレゴリオ暦の月で数えると、23日は祖母の月命日だ。）／ lo vondei cu detke&apos;u tu&apos;a lo festi zo&apos;e lo vi tcadu lo jeftu be fi la gregoris （グレゴリオ暦の曜日で数えると、この町の木曜日はゴミの日だ。）／ lo pendo lacpu djedi cu detke&apos;u lo nu lo morsi jelgau stuzi cu cando kei zi&apos;o lo ponjo lo ponjo ke xamei jeftu （日本の六曜で友引は日本の火葬場が休みの日だ。）</notes>
-  <glossword word="回忌" />
-  <glossword word="命日" />
-  <glossword word="周年" />
-  <glossword word="周忌" />
-  <glossword word="誕生日" />
   <glossword word="記念日" />
+  <glossword word="回忌" />
+  <glossword word="誕生日" />
+  <glossword word="周忌" />
+  <glossword word="周年" />
+  <glossword word="命日" />
 </valsi>
 <valsi word="detri" type="gismu">
   <rafsi>det</rafsi>
@@ -4529,9 +4529,9 @@
 s1はコンデンサーやバッテリーなど
 d3は交流電源、直流電源、マイナス極、プラス極など
 </notes>
-  <glossword word="充電する" />
-  <glossword word="給電する" />
   <glossword word="電力供給する" />
+  <glossword word="給電する" />
+  <glossword word="充電する" />
 </valsi>
 <valsi unofficial="true" word="didni" type="experimental gismu">
   <user>
@@ -4650,8 +4650,8 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>$x_1$ はラドン (Rn)</definition>
   <definitionid>42255</definitionid>
   <notes>{dirce} {navni}; {ratni}</notes>
-  <glossword word="Rn" sense="ラドン" />
   <glossword word="ラドン" />
+  <glossword word="Rn" sense="ラドン" />
   <keyword word="ラドン" place="1" />
 </valsi>
 <valsi word="dirgo" type="gismu">
@@ -4769,9 +4769,9 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>広義 （ do&apos;a 広義 - do&apos;anai 狭義）</definition>
   <definitionid>20646</definitionid>
   <notes>心態詞（談話系）；「鷹揚に言えば」「広い意味では」 「ti claxu lo stizu gi&apos;e do&apos;a relxilma&apos;e／これ、サドルが無いけど、まあ自転車と呼んで良いだろう」 ・読み方： ドハ  ・関連語： {dunda}</notes>
-  <glossword word="気前が良い" />
-  <glossword word="寛大" sense="心が広い" />
   <glossword word="広義" />
+  <glossword word="寛大" sense="心が広い" />
+  <glossword word="気前が良い" />
 </valsi>
 <valsi word="do'anai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -4782,8 +4782,8 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>狭義 （ do&apos;a 広義 - do&apos;anai 狭義）</definition>
   <definitionid>20647</definitionid>
   <notes>心態詞（談話系）； 「けちな言い方をすれば」「狭い意味では」「ti claxu lo jabre gi&apos;e do&apos;anai na relxilma&apos;e／これ、ブレーキが無いぞ、こんなの自転車とは言えない」 ・読み方： ドハナイ</notes>
-  <glossword word="偏狭" sense="心が狭い" />
   <glossword word="狭義" />
+  <glossword word="偏狭" sense="心が狭い" />
   <glossword word="吝嗇" sense="けち" />
 </valsi>
 <valsi word="do'e" type="cmavo">
@@ -5368,16 +5368,16 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>$l_1=f_1$ は $l_2=t_1$ （土地）を $l_3$ （方法）で、 $f_2$ （命題）を発見しながら探検する</definition>
   <definitionid>19729</definitionid>
   <notes>{facki} {tumla} {litru}</notes>
-  <glossword word="実地踏査" sense="陸地の探険" />
   <glossword word="調査" sense="陸地の探険" />
-  <glossword word="探検" sense="陸地の探検" />
-  <glossword word="探索" sense="陸地の探検" />
-  <glossword word="冒険" sense="陸地の探検" />
-  <glossword word="踏査" sense="陸地の探検" />
   <glossword word="探査" sense="陸地の探検" />
   <glossword word="検分" sense="陸地の探検" />
   <glossword word="探険" sense="陸地の探険" />
+  <glossword word="実地踏査" sense="陸地の探険" />
+  <glossword word="探検" sense="陸地の探検" />
   <glossword word="探検家" sense="陸地の探検" />
+  <glossword word="探索" sense="陸地の探検" />
+  <glossword word="冒険" sense="陸地の探検" />
+  <glossword word="踏査" sense="陸地の探検" />
 </valsi>
 <valsi word="falnu" type="gismu">
   <rafsi>fan</rafsi>
@@ -5426,8 +5426,8 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>$x_1$ はキセノン (Xe)</definition>
   <definitionid>42252</definitionid>
   <notes>{fange} {navni}; {ratni}</notes>
-  <glossword word="Xe" sense="キセノン" />
   <glossword word="キセノン" />
+  <glossword word="Xe" sense="キセノン" />
   <keyword word="キセノン" place="1" />
 </valsi>
 <valsi word="fanmo" type="gismu">
@@ -5476,9 +5476,9 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>$c_1$は $c_2=f_2$(原題／原典)を $c_3=f_1$(翻訳者)が $f_3$(原語)から $f_4$(翻訳先言語)へ翻訳した本／翻訳書／訳書</definition>
   <definitionid>39132</definitionid>
   <notes>f5,c4,c5は消去した</notes>
-  <glossword word="訳本" />
   <glossword word="訳書" />
   <glossword word="翻訳書" />
+  <glossword word="訳本" />
 </valsi>
 <valsi word="fanza" type="gismu">
   <rafsi>faz</rafsi>
@@ -5600,9 +5600,9 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>ごめんなさい</definition>
   <definitionid>42506</definitionid>
   <notes>{fraxu}, {u&apos;u}</notes>
-  <glossword word="許して" />
   <glossword word="ごめん" sense="許しを請う" />
   <glossword word="ごめんなさい" sense="許しを請う" />
+  <glossword word="許して" />
 </valsi>
 <valsi word="fe" type="cmavo">
   <selmaho>FA</selmaho>
@@ -5948,8 +5948,8 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definition>$b_1$ は $b_2$ （構成員）・ $b_3$ （引率者／党首／代表）の、 $j_2$ （領域）の政体に影響を及ぼすための議会政党</definition>
   <definitionid>19565</definitionid>
   <notes>{flalu} {jecyxlube&apos;e} {jecta} {xlura} {bende}</notes>
-  <glossword word="議会政党" />
   <glossword word="政党" sense="議会政党" />
+  <glossword word="議会政党" />
 </valsi>
 <valsi word="flakamni" type="lujvo">
   <user>
@@ -5960,8 +5960,8 @@ d3は交流電源、直流電源、マイナス極、プラス極など
   <definitionid>19561</definitionid>
   <notes>{flalu} {kamni}</notes>
   <glossword word="議会" />
-  <glossword word="議案" />
   <glossword word="審議" />
+  <glossword word="議案" />
   <keyword word="議会" place="1" />
   <keyword word="議案" place="2" />
 </valsi>
@@ -6986,12 +6986,12 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>39583</definitionid>
   <notes>比喩的に「（対称物の）合体」も。 {cpanygle}=マウンティング. ・大意： 性交 ・読み方： グルェトゥ  ・関連語： {cinse}, {pinji}, {plibu}, {vibna}, {vlagi}, {mabla}, {speni}
 </notes>
-  <glossword word="交尾" />
-  <glossword word="セックス" sense="性交" />
+  <glossword word="性交" />
   <glossword word="つがう" />
   <glossword word="やる" sense="性交" />
-  <glossword word="性交" />
   <glossword word="エッチ" sense="性交" />
+  <glossword word="セックス" sense="性交" />
+  <glossword word="交尾" />
 </valsi>
 <valsi word="gleve'u" type="lujvo">
   <user>
@@ -7002,14 +7002,14 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>18469</definitionid>
   <notes>関連語：{gletu}, {vecnu}, {vibna}, {pinji}, {xangle}, {molgle}, {gaxygle}
 </notes>
-  <glossword word="ばいしゅんふ" sense="売春婦" />
-  <glossword word="しょうふ" sense="娼婦" />
-  <glossword word="だんしょう" sense="男娼" />
-  <glossword word="売春婦" />
-  <glossword word="売春" />
   <glossword word="ばいしゅん" sense="売春" />
-  <glossword word="男娼" />
+  <glossword word="ばいしゅんふ" sense="売春婦" />
+  <glossword word="だんしょう" sense="男娼" />
+  <glossword word="しょうふ" sense="娼婦" />
+  <glossword word="売春" />
+  <glossword word="売春婦" />
   <glossword word="娼婦" />
+  <glossword word="男娼" />
   <keyword word="売春婦・男娼" place="1" />
   <keyword word="買春者" place="2" />
   <keyword word="売春・買春の代償・値段" place="3" />
@@ -7342,10 +7342,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ はコード ISO-3166 JP (Japan) の、 $x_2$ （民衆）からなる国（日本）</definition>
   <definitionid>19811</definitionid>
   <notes>{pongu&apos;e}</notes>
-  <glossword word="にっぽん" sense="日本" />
   <glossword word="にほん" sense="日本" />
-  <glossword word="ニッポン" sense="日本" />
   <glossword word="日本" />
+  <glossword word="ニッポン" sense="日本" />
+  <glossword word="にっぽん" sense="日本" />
   <keyword word="日本" place="1" />
   <keyword word="日本人" place="2" />
 </valsi>
@@ -7409,10 +7409,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>39602</definitionid>
   <notes>・大意： 鴨 ・読み方： グンセ  ・関連語： {cipni}
 </notes>
-  <glossword word="ガチョウ" />
   <glossword word="鵞鳥" />
   <glossword word="雁" />
   <glossword word="ガン" sense="鳥" />
+  <glossword word="ガチョウ" />
 </valsi>
 <valsi word="gunta" type="gismu">
   <rafsi>gut</rafsi>
@@ -7545,10 +7545,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>喝采 （ i&apos;e 喝采 - i&apos;ecu&apos;i 保留 - i&apos;enai 非難）</definition>
   <definitionid>15796</definitionid>
   <notes>心態詞； それの良さを認めて支持／擁護する気持； 良さを内面的に味わう i&apos;o と異なる「いいねぇ」「いけー！（応援）」「そうだそうだ（擁護）」「.i&apos;e do xautce gunka／素晴らしい、本当によくやった」 ・読み方： イヘ  ・関連語： {zanru}</notes>
-  <glossword word="承認" />
   <glossword word="喝采" />
   <glossword word="認める" />
   <glossword word="是認" />
+  <glossword word="承認" />
 </valsi>
 <valsi word="i'ecu'i" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -7847,9 +7847,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>愛好 （ iu 愛好 - iunai 憎悪）</definition>
   <definitionid>15798</definitionid>
   <notes>心態詞； それにたいする愛好が充溢している情況； 愛する気持 「.iu do melbi／綺麗だよ、ハニー」 ・読み方： ユ ・関連語： {prami}, {pendo}</notes>
+  <glossword word="愛好" />
   <glossword word="好む" />
   <glossword word="愛情" />
-  <glossword word="愛好" />
 </valsi>
 <valsi word="iunai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -7922,9 +7922,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>つまり</definition>
   <definitionid>42091</definitionid>
   <notes>心態詞（認識系）；論理・法則・体系に照らし合わせて必然的 「つまり」「要するに」「したがって」「za&apos;a carvi cladu .i ja&apos;o carvi carmi／雨音がうるさいな。つまり雨が激しいということだ」 ・読み方： ジャホ  ・関連語： {selni&apos;i}, {ni&apos;ikri}</notes>
+  <glossword word="したがって" />
   <glossword word="要するに" />
   <glossword word="つまり" />
-  <glossword word="したがって" />
 </valsi>
 <valsi word="jabre" type="gismu">
   <user>
@@ -7953,8 +7953,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1=p_1$ は手順 $x_2=p_3$ に従って使われる油性ペン／マーカー</definition>
   <definitionid>41852</definitionid>
   <notes>{djacu} {renvi} {penbi}</notes>
-  <glossword word="油性ペン" />
   <glossword word="マーカー" sense="ペン" />
+  <glossword word="油性ペン" />
 </valsi>
 <valsi word="jadni" type="gismu">
   <rafsi>jad</rafsi>
@@ -8154,11 +8154,11 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$t_1$ は $t_2$ （素材）の、上水道や中水道の水道管／給水管</definition>
   <definitionid>19752</definitionid>
   <notes>{djacu} {sabji} {tubnu}</notes>
-  <glossword word="給水設備" sense="給水管" />
-  <glossword word="中水道" sense="水道管" />
   <glossword word="上水道" sense="水道管" />
-  <glossword word="水道管" sense="上水道や中水道の水道管" />
+  <glossword word="中水道" sense="水道管" />
+  <glossword word="給水設備" sense="給水管" />
   <glossword word="給水管" />
+  <glossword word="水道管" sense="上水道や中水道の水道管" />
 </valsi>
 <valsi word="jaursabytu'uvro" type="lujvo">
   <user>
@@ -8286,8 +8286,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>量 $x_{1}$ は商品 $x_{2}$ の、買い手 $x_{3}$ に対して売り手 $x_{4}$ が設定した価格／値段</definition>
   <definitionid>39633</definitionid>
   <notes>$x_{2}$ は物や事象、性質など。 商品の所有権という概念から、 $x_{1}$ として「所有権の価格」、 $x_{2}$ として「所有権が移る商品」という sumti を引き出す（意味論的により厳密に言うなら {posydi&apos;a}, {posyseldi&apos;a}）。 jdima の価格 $x_{1}$ は売り手 $x_{4}$ が決めるのに対して、 {friti} の条件 $x_{4}$ は受け取る者が決めても良い。 jdima の価格 $x_{1}$ は、実際の取引価格・費用に等しいとは限らない。 実際の取引価格・費用は {vecnu} の $x_{4}$ や {canja} の $x_{2}$, $x_{3}$ に相当する。 またこれらの概念は、価値を表す {vamji} とは直接関係ない。 ・大意： 価格 ・読み方： ジディマ  ・関連語： {canja}, {friti}, {janta}, {jdini}, {kargu}, {pleji}, {dapma}; 「価値」は {vamji}; 実際の取引価格・費用は ve {vecnu}; {canja}, {fepni}, {jerna}, {jinga}, {prali}, {rupnu}, {sfasa}, {vamji}</notes>
-  <glossword word="値段" />
   <glossword word="価格" />
+  <glossword word="値段" />
 </valsi>
 <valsi word="jdini" type="gismu">
   <rafsi>din</rafsi>
@@ -8382,9 +8382,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>真実 （ je&apos;u 真実 - je&apos;unai 虚偽）</definition>
   <definitionid>20648</definitionid>
   <notes>心態詞（談話系）「je&apos;u pei／まじで？」「je&apos;u zukte tu&apos;a lo nabmi .i po&apos;o na sanji lo si&apos;o bevri ri ti／本当に宿題やりました。持ってくるのを忘れただけです。」「.ue mi pu krici lo du&apos;u do se bloti lo je&apos;u te falnu／えっ、あなたが乗ってきたボートが本当に帆で動いていると思い込んでいたよ」 ・読み方： ジェフ  ・関連語： {jetnu}; {je&apos;unai}, {da&apos;i}, {da&apos;inai}</notes>
-  <glossword word="事実" sense="嘘ではない" />
   <glossword word="本当" />
   <glossword word="真実" />
+  <glossword word="事実" sense="嘘ではない" />
 </valsi>
 <valsi word="je'unai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -8395,9 +8395,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>虚偽 （ je&apos;u 真実 - je&apos;unai 虚偽）</definition>
   <definitionid>20649</definitionid>
   <notes>心態詞（談話系）「mi terpa lo titrmandiu .i ca terpa lo carmi tcati je&apos;unai／まんじゅう怖い。今は濃いお茶が怖い（嘘）。」 いわゆる（真実はそうではない）「le je&apos;unai palci cu xanri le menli poi na jimpe le manku sevzi／いわゆる悪というのは、暗黒の自己を理解できない心が見る幻だ」 ・読み方： ジェフナイ ・関連語： {jitfa}; {je&apos;u}, {da&apos;i}, {da&apos;inai}</notes>
-  <glossword word="虚偽" />
   <glossword word="いわゆる" sense="非真実" />
   <glossword word="嘘" />
+  <glossword word="虚偽" />
 </valsi>
 <valsi word="jecra'a" type="lujvo">
   <user>
@@ -8407,8 +8407,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$s_1$ は $j_2$ （領域）の政体に関わるもの／政治的なもの</definition>
   <definitionid>19771</definitionid>
   <notes>{jecta} {srana}</notes>
-  <glossword word="政治" sense="政体に関わるもの" />
   <glossword word="政治的" sense="政体に関わるもの" />
+  <glossword word="政治" sense="政体に関わるもの" />
 </valsi>
 <valsi word="jecta" type="gismu">
   <rafsi>jec</rafsi>
@@ -8442,9 +8442,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$b_1$ は $b_2$ （構成員）・ $b_3$ （引率者／党首／代表）の、 $j_2$ （領域）の政体に影響を及ぼすための政治団体／圧力団体／利益団体</definition>
   <definitionid>19563</definitionid>
   <notes>{jecta} {xlura} {bende}</notes>
-  <glossword word="利益団体" />
-  <glossword word="政治団体" />
   <glossword word="圧力団体" />
+  <glossword word="政治団体" />
+  <glossword word="利益団体" />
 </valsi>
 <valsi word="jeftu" type="gismu">
   <rafsi>jef</rafsi>
@@ -8691,8 +8691,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>追加</definition>
   <definitionid>20650</definitionid>
   <notes>心態詞（談話系）「～も」「～だって」「lo smani ji&apos;a sai cu farlu fi lo tricu／猿も木から落ちる」 ・読み方： ジハ  ・関連語： {jmina}</notes>
-  <glossword word="も" sense="追加" />
   <glossword word="だって" sense="追加" />
+  <glossword word="も" sense="追加" />
 </valsi>
 <valsi word="ji'e" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -9011,8 +9011,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1=v_1=c_1$ は $x_2=j_2$ に漬けた保存食</definition>
   <definitionid>42437</definitionid>
   <notes>$x_2=j_2$ は塩 (= {silna})・酢 (= {slami})・アルコール (= {xalka})・砂糖 (= {sakta})・蜂蜜 (= {bicysakta})・醤油 (= {sobysanso})・味噌 (= {furso&apos;epesxu})・麹 (= {mledi} {pesxu}) など。 {jinru} {vitno} {cidja}, {slamystogau}.</notes>
-  <glossword word="なれずし" />
   <glossword word="漬物" />
+  <glossword word="なれずし" />
   <glossword word="ピクルス" />
 </valsi>
 <valsi word="jisra" type="gismu">
@@ -9034,8 +9034,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>39678</definitionid>
   <notes>・大意： 偽（ぎ） ・読み方： ジトファ  ・語呂合わせ： 偽のジト目ファン ・関連語： {je&apos;unai}, {fatci}, {stace}, {jetnu}, {cfika}
 </notes>
-  <glossword word="虚構" sense="真ではない" />
   <glossword word="嘘" sense="真ではない" />
+  <glossword word="虚構" sense="真ではない" />
   <keyword word="偽" place="1" sense="真ではない" />
 </valsi>
 <valsi word="jitro" type="gismu">
@@ -9239,9 +9239,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>提言</definition>
   <definitionid>42092</definitionid>
   <notes>心態詞（認識系）； 発言／表現が何らかの認識基盤にもとづいていることを念押しする「言っておくけど」「ju&apos;a ba&apos;e ro da cu se senpi／全てが疑わしいと言える」 ・読み方： ジュハ  ・関連語： {xusra}</notes>
-  <glossword word="言っておくけど" />
   <glossword word="提言" />
   <glossword word="宣言" />
+  <glossword word="言っておくけど" />
 </valsi>
 <valsi word="ju'e" type="cmavo">
   <selmaho>JOI</selmaho>
@@ -9305,9 +9305,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>不確信 （ ju&apos;o 確信 - ju&apos;ocu&apos;i 不確信 - ju&apos;onai 不可能）</definition>
   <definitionid>42094</definitionid>
   <notes>心態詞（修飾系）； それについて定かなところはわからない／確信できない「ju&apos;ocu&apos;i mi ga ca&apos;o litru ginai ka&apos;e te pemrxaiku／私は旅に出てゐなければ句は出来ないのかも知れない」（山頭火『行乞記（二）』） ・読み方： ジュホシュヒ</notes>
+  <glossword word="かもしれない" />
   <glossword word="わからない" />
   <glossword word="不確信" />
-  <glossword word="かもしれない" />
 </valsi>
 <valsi word="ju'onai" type="cmavo-compound">
   <selmaho>UI*5</selmaho>
@@ -9318,8 +9318,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>不可能 （ ju&apos;o 確信 - ju&apos;ocu&apos;i 不確信 - ju&apos;onai 不可能）</definition>
   <definitionid>42095</definitionid>
   <notes>心態詞（修飾系）； それについて不可能であると確信する 「ありえない」 ・読み方： ジュホナイ</notes>
-  <glossword word="ありえない" />
   <glossword word="不可能" />
+  <glossword word="ありえない" />
 </valsi>
 <valsi word="ju'u" type="cmavo">
   <selmaho>VUhU2</selmaho>
@@ -9547,13 +9547,13 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$r_1$ は $r_2$ （障害）のために $r_3=k_2$ （事）が制限される障害者</definition>
   <definitionid>19644</definitionid>
   <notes>{kakne} {rinju} {tolka&apos;e} {xadri&apos;u} {menri&apos;u} {menbi&apos;a}</notes>
-  <glossword word="障がいのある方" />
   <glossword word="障がいのある人" />
+  <glossword word="障がいのある方" />
   <glossword word="障がい児" sense="障がい者" />
-  <glossword word="障碍者" />
-  <glossword word="障害者" />
-  <glossword word="障害児" sense="障害者" />
   <glossword word="障がい者" />
+  <glossword word="障害児" sense="障害者" />
+  <glossword word="障害者" />
+  <glossword word="障碍者" />
   <keyword word="障害者" place="1" />
   <keyword word="障害" place="2" sense="身体障害、知的障害又は精神障害" />
   <keyword word="制限対象" place="3" sense="身体障害、知的障害又は精神障害があるため制限を受ける事" />
@@ -9587,8 +9587,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>文化的知識</definition>
   <definitionid>42096</definitionid>
   <notes>心態詞（認識系）； 社会の慣習・伝承・常識に基づいて知っている；「ka&apos;u lo nu lo cticinza gau sanli ne&apos;i lo risykabri cu na se curmi／お茶碗にお箸を立てるのはいけないことよ」 ・読み方： カフ ・関連語： {kluju&apos;o} </notes>
-  <glossword word="文化的知識" />
   <glossword word="常識" />
+  <glossword word="文化的知識" />
 </valsi>
 <valsi word="kabri" type="gismu">
   <user>
@@ -9741,8 +9741,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$r_1$は$r_2=k_1$(熱)を保つ/保温する/保熱する</definition>
   <definitionid>36712</definitionid>
   <glossword word="保つ" sense="熱" />
-  <glossword word="保熱する" sense="熱" />
   <glossword word="保温する" sense="熱" />
+  <glossword word="保熱する" sense="熱" />
 </valsi>
 <valsi word="kamju" type="gismu">
   <user>
@@ -10029,8 +10029,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>20672</definitionid>
   <notes>心態詞（談話系）； 以前に言ったことを再び持ち出す「ke&apos;u lo catni cmetcita cu sarcu／身分証明書が必要だってば」 ・読み方： ケフ  ・関連語： {refbasna}, {krefu}, {rapli}, {velde&apos;a}</notes>
   <glossword word="前にも言ったが" />
-  <glossword word="だってば" />
   <glossword word="反復" />
+  <glossword word="だってば" />
 </valsi>
 <valsi word="ke'unai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -10294,8 +10294,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>39740</definitionid>
   <notes>・大意： 鋭い ・読み方： キンルィ ・語呂合わせ： 鋭い金利 ・関連語： {balre}, {dakfu}, {jesni}
 </notes>
-  <glossword word="鋭い" />
   <glossword word="鋭利" />
+  <glossword word="鋭い" />
 </valsi>
 <valsi word="kisto" type="gismu">
   <rafsi>kis</rafsi>
@@ -10345,11 +10345,11 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ は $x_2$ （終点）に $x_3$ （起点）から $x_4$ （経路）を $x_5$ （方法）で行く／来る</definition>
   <definitionid>40562</definitionid>
   <notes>・大意： 行来 ・読み方： クルァマ  ・語呂合わせ： 来る ・関連語： {cadzu}, {bajra}, {marce}, {vofli}, {litru}, {muvdu}, {cpare}, {ka&apos;a}, {pluta}, {bevri}, {farlu}, {limna}, {vitke}</notes>
+  <glossword word="往来" />
   <glossword word="くる" sense="来る" />
-  <glossword word="いく" sense="行く" />
   <glossword word="行く" />
   <glossword word="来る" />
-  <glossword word="往来" />
+  <glossword word="いく" sense="行く" />
   <keyword word="行く者／来る者" place="1" />
   <keyword word="行き先" place="2" />
   <keyword word="出発地" place="3" />
@@ -10755,8 +10755,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>しかしながら</definition>
   <definitionid>20676</definitionid>
   <notes>心態詞（談話系）； しかし／だが／ところが／それでも「tu&apos;a da se tirna je ku&apos;i na&apos;e se viska／声はすれども姿は見えず」 ・読み方： クヒ  ・関連語： {karbi}, {dukti}, {nalpanra}</notes>
-  <glossword word="しかし" />
   <glossword word="だが" />
+  <glossword word="しかし" />
   <glossword word="ところが" />
   <glossword word="でも" />
 </valsi>
@@ -10949,10 +10949,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>蓋然性 （ la&apos;a 蓋然性 - la&apos;anai ありそうもない）</definition>
   <definitionid>20677</definitionid>
   <notes>心態詞（談話系）； 事物が真でありうる「la&apos;a mi se xebni／私、嫌われているのかも。」 ・読み方： ルァハ  ・関連語： {lakne}</notes>
-  <glossword word="かもしれない" />
   <glossword word="蓋然性" />
-  <glossword word="もしかして" />
+  <glossword word="かもしれない" />
   <glossword word="たぶん" />
+  <glossword word="もしかして" />
 </valsi>
 <valsi word="la'anai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -10963,8 +10963,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>ありそうもない （ la&apos;a 蓋然性 - la&apos;anai ありそうもない）</definition>
   <definitionid>20678</definitionid>
   <notes>心態詞（談話系）； 事物が真でありそうもない「la&apos;anai do se xebni／あなたが嫌われているはずがない。」 ・読み方： ルァハナイ</notes>
-  <glossword word="まさか" sense="ありそうもない" />
   <glossword word="ありそうもない" />
+  <glossword word="まさか" sense="ありそうもない" />
 </valsi>
 <valsi word="la'e" type="cmavo">
   <selmaho>LAhE</selmaho>
@@ -11074,8 +11074,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$m_1$ は $m_2=d_1=l_2$ （運搬物）を $m_3=d_2$ （クレーン）で吊り上げる $m_4$ （原動力）の移動式クレーン（運搬機）</definition>
   <definitionid>19697</definitionid>
   <notes>{lafti} {dandu} {marce} {lafydadykarce} {lafydadblo}</notes>
-  <glossword word="クレーン" sense="移動式クレーン（運搬機）" />
   <glossword word="移動式クレーン" sense="運搬機" />
+  <glossword word="クレーン" sense="移動式クレーン（運搬機）" />
 </valsi>
 <valsi word="lafydadykarce" type="lujvo">
   <user>
@@ -11085,14 +11085,14 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$k_1$ は $k_2=d_1=l_2$ （運搬物）をクレーンで吊り上げる $k_3$ （原動力）のクレーン車</definition>
   <definitionid>19699</definitionid>
   <notes>{lafti} {dandu} {karce} {lafydadma&apos;e}</notes>
-  <glossword word="ホイールクレーン" />
-  <glossword word="トラッククレーン" />
-  <glossword word="クローラークレーン" />
   <glossword word="クレーン車" />
-  <glossword word="クレーン" sense="クレーン車" />
-  <glossword word="オールテレーンクレーン" />
+  <glossword word="クローラークレーン" />
+  <glossword word="トラッククレーン" />
   <glossword word="ラフテレーンクレーン" />
+  <glossword word="ホイールクレーン" />
   <glossword word="トラック搭載型クレーン" />
+  <glossword word="オールテレーンクレーン" />
+  <glossword word="クレーン" sense="クレーン車" />
 </valsi>
 <valsi word="lai" type="cmavo">
   <selmaho>LA</selmaho>
@@ -11384,8 +11384,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42099</definitionid>
   <notes>心態詞（修飾系）； 攻撃的／罵倒的／獰猛な態度 ・読み方： ルェホ  ・関連語： {gunta}, {bandu}</notes>
   <glossword word="獰猛" />
-  <glossword word="攻勢" />
   <glossword word="罵倒" />
+  <glossword word="攻勢" />
 </valsi>
 <valsi word="le'ocu'i" type="cmavo-compound">
   <selmaho>UI*5</selmaho>
@@ -11516,8 +11516,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>それとなく （ li&apos;a 明らかに - li&apos;anai それとなく）</definition>
   <definitionid>20680</definitionid>
   <notes>心態詞（談話系）；「koltarla panci li&apos;o pa&apos;a lo nu badri ku pa&apos;a lo nu sumne ku vau li&apos;anai／コルタアの香の（中略）愁ひつつ、にほひつつ、そこはかとなく」（北原白秋『東京景物詩』） ・読み方： ルィハナイ</notes>
-  <glossword word="そこはかとなく" />
   <glossword word="それとなく" />
+  <glossword word="そこはかとなく" />
 </valsi>
 <valsi word="li'e" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -12388,8 +12388,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>39848</definitionid>
   <notes>・大意： 小麦 ・読み方： マクゥリ  ・関連語： {gurni}
 </notes>
-  <glossword word="コムギ" sense="穀粒" />
   <glossword word="小麦" sense="穀粒" />
+  <glossword word="コムギ" sense="穀粒" />
   <keyword word="コムギ" place="1" sense="穀粒" />
 </valsi>
 <valsi word="me" type="cmavo">
@@ -12509,8 +12509,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <glossword word="美しい" />
   <glossword word="かわいい" />
   <glossword word="みめよい" />
-  <glossword word="ハンサムな" />
   <glossword word="優雅な" />
+  <glossword word="ハンサムな" />
 </valsi>
 <valsi word="meljo" type="gismu">
   <rafsi>mej</rafsi>
@@ -12531,11 +12531,11 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>19652</definitionid>
   <notes>{menli} {bilma} {ka&apos;enri&apos;u}</notes>
   <glossword word="精神障害者" />
-  <glossword word="精神障害" />
-  <glossword word="精神障がい者" />
-  <glossword word="精神障がいのある方" />
-  <glossword word="精神障がいのある人" />
   <glossword word="精神障碍者" />
+  <glossword word="精神障がいのある方" />
+  <glossword word="精神障がい者" />
+  <glossword word="精神障がいのある人" />
+  <glossword word="精神障害" />
   <keyword word="精神障害者" place="1" />
   <keyword word="精神疾患" place="2" />
   <keyword word="症状" place="3" sense="精神疾患による症状" />
@@ -12558,13 +12558,13 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$r_1=m_2$ は $r_2$ （障害）のために $r_3$ が制限される知的障害者</definition>
   <definitionid>19648</definitionid>
   <notes>{menli} {rinju} {ka&apos;enri&apos;u}</notes>
+  <glossword word="知的障害者" />
+  <glossword word="知的障がいのある人" />
+  <glossword word="知的障がいのある方" />
   <glossword word="知的障がい児" sense="知的障がい者" />
   <glossword word="知的障がい者" />
-  <glossword word="知的障がいのある人" />
   <glossword word="知的障害児" sense="知的障害者" />
-  <glossword word="知的障がいのある方" />
   <glossword word="知的障碍者" />
-  <glossword word="知的障害者" />
   <keyword word="知的障害者" place="1" />
   <keyword word="知的障害" place="2" />
   <keyword word="制限対象" place="3" sense="知的障害があるため制限を受ける事" />
@@ -13408,8 +13408,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>x3はプラス／マイナスなど。 ・大意： とても ・読み方： ムチェ ・語呂合わせ： むちぇむちぇ（めちゃめちゃ）凄い, mucho ・関連語： {milxe}, {traji}, {banli}, {carmi}, {nutli}, {traji}
 </notes>
   <glossword word="すごい" />
-  <glossword word="凄い" />
   <glossword word="とても" />
+  <glossword word="凄い" />
 </valsi>
 <valsi word="muvdu" type="gismu">
   <rafsi>muv</rafsi>
@@ -13433,8 +13433,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>19691</definitionid>
   <notes>押す「対象箇所」（ catke3 ）は di&apos;o によって表せる ; {muvdu} {catke}</notes>
   <glossword word="動かして押す" />
-  <glossword word="押し動かす" />
   <glossword word="押して動かす" />
+  <glossword word="押し動かす" />
 </valsi>
 <valsi word="muvycpu" type="lujvo">
   <user>
@@ -13445,11 +13445,11 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>19693</definitionid>
   <notes>引く「対象箇所」（ lacpu3 ）は di&apos;o によって表せる ; {muvdu} {lacpu}</notes>
   <glossword word="引き動かす" />
+  <glossword word="引っ張って動かす" />
+  <glossword word="動かして引く" />
+  <glossword word="引いて動かす" />
   <glossword word="動かして引っ張る" />
   <glossword word="動かし引っ張る" />
-  <glossword word="引っ張って動かす" />
-  <glossword word="引いて動かす" />
-  <glossword word="動かして引く" />
 </valsi>
 <valsi word="muvzva" type="lujvo">
   <user>
@@ -13537,8 +13537,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>メタ言語否定</definition>
   <definitionid>20668</definitionid>
   <notes>心態詞（談話系）； 命題を否定せずに心態面における否定を表す； 肯定文でも使える「na&apos;i mi pu viska／いや、私は見ました」 ・読み方： ナヒ  ・関連語： {naldra}, {nalmapti}</notes>
-  <glossword word="否定" sense="メタ言語" />
   <glossword word="とんでもない" sense="正しくない" />
+  <glossword word="否定" sense="メタ言語" />
 </valsi>
 <valsi word="na'o" type="cmavo">
   <selmaho>TAhE</selmaho>
@@ -13648,9 +13648,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1=d_1$は$x_2=d_2$(日)の$x_4=g_2$(仕事)をする$x_3=g_1$(労働者)の休業日/非番</definition>
   <definitionid>36675</definitionid>
   <notes>d_3は不要であると考えて消去しました(和訳)</notes>
-  <glossword word="休業日" />
   <glossword word="運休日" />
   <glossword word="非労働日" />
+  <glossword word="休業日" />
 </valsi>
 <valsi word="namcu" type="gismu">
   <rafsi>nac</rafsi>
@@ -13762,8 +13762,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ （事／経験）は $x_2$ （者）に感覚機能 $x_3$ に関して条件 $x_4$ の下で未視感 (jamais-vu) を与える</definition>
   <definitionid>42602</definitionid>
   <notes>$x_1$ が物である場合は jai narprugastcica; {pu}{nai}, {ganse} {tcica}; {gastcica}, {prugastcica}</notes>
-  <glossword word="未視感" sense="jamais-vu" />
   <glossword word="ジャメヴ" sense="jamais-vu" />
+  <glossword word="未視感" sense="jamais-vu" />
   <glossword word="ジャメヴュ" sense="jamais-vu" />
 </valsi>
 <valsi word="natfe" type="gismu">
@@ -13806,12 +13806,12 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$s_1=n_1$ は $s_2$ にとっての $s_3$ （法律／慣習）での男性配偶者</definition>
   <definitionid>19681</definitionid>
   <notes>{nanmu} {speni}</notes>
-  <glossword word="主人" sense="男性配偶者" />
-  <glossword word="だんな" sense="男性配偶者" />
   <glossword word="男性配偶者" />
-  <glossword word="旦那" sense="男性配偶者" />
   <glossword word="夫" />
   <glossword word="亭主" sense="男性配偶者" />
+  <glossword word="主人" sense="男性配偶者" />
+  <glossword word="だんな" sense="男性配偶者" />
+  <glossword word="旦那" sense="男性配偶者" />
 </valsi>
 <valsi word="navni" type="gismu">
   <user>
@@ -14052,15 +14052,15 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$s_1=n_1$ は $s_2$ にとっての $s_3$ （法律／慣習）での女性配偶者</definition>
   <definitionid>19683</definitionid>
   <notes>{ninmu} {speni}</notes>
-  <glossword word="奥様" sense="女性配偶者" />
   <glossword word="女性配偶者" />
-  <glossword word="妻" />
   <glossword word="家内" sense="女性配偶者" />
   <glossword word="女房" />
   <glossword word="カミさん" sense="女性配偶者" />
   <glossword word="奥さん" sense="女性配偶者" />
+  <glossword word="奥様" sense="女性配偶者" />
   <glossword word="嫁" sense="女性配偶者" />
   <glossword word="ヨメ" sense="女性配偶者" />
+  <glossword word="妻" />
 </valsi>
 <valsi word="ninmu" type="gismu">
   <rafsi>nim</rafsi>
@@ -14212,9 +14212,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>「xatra」よりも、内容は簡潔で、受け手は不特定。個人的な「メモ」の意で使う場合はx4は無いものとされる。 ・大意： 覚え書き ・読み方： ノチ ・語呂合わせ： nooto ,ノートにちいとメモ ・関連語： {xatra}, {nuzba}, {mrilu}, {morji}
 </notes>
   <glossword word="覚え書き" />
-  <glossword word="メッセージ" />
   <glossword word="通知" />
   <glossword word="メモ" />
+  <glossword word="メッセージ" />
 </valsi>
 <valsi word="nu" type="cmavo">
   <rafsi>nun</rafsi>
@@ -14316,8 +14316,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$n_1$ は $c_1$ （教師）が $c_2$ （生徒）に $c_3$ （命題）・ $c_4$ （題目）を $c_5$ （方法）で教える授業</definition>
   <definitionid>19642</definitionid>
   <notes>{nu} {ctuca}</notes>
-  <glossword word="講義" />
   <glossword word="授業" />
+  <glossword word="講義" />
   <keyword word="授業／講義" place="1" />
   <keyword word="授業／講義の教員／教師／講師" place="2" />
   <keyword word="授業／講義の学生／生徒／受講者" place="3" />
@@ -14334,9 +14334,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>19789</definitionid>
   <notes>x2 と x3 は同一でありうる。; {nu} {kanro} {kurji}</notes>
   <glossword word="健康管理" />
-  <glossword word="医療" sense="健康管理" />
-  <glossword word="保健" sense="健康管理" />
   <glossword word="衛生" sense="健康管理" />
+  <glossword word="保健" sense="健康管理" />
+  <glossword word="医療" sense="健康管理" />
 </valsi>
 <valsi word="nunka'okujbriju" type="lujvo">
   <user>
@@ -14452,8 +14452,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>恥辱 （ o&apos;a 誇り - o&apos;acu&apos;i 謙遜 - o&apos;anai 恥辱）</definition>
   <definitionid>42107</definitionid>
   <notes>心態詞； それを恥じる気持「.o&apos;anai muvdu frili cinmo／動き易い心を恥ぢる」（山頭火『行乞記（二）』）「.o&apos;a nai srera mrilu lo prami xatra ba&apos;e lo mriste／ああっ、間違えてラブレターの宛先をメーリングリストにしちゃった」  ・読み方： オハナイ ・関連語： {ckeji}</notes>
-  <glossword word="恥すかしい" />
   <glossword word="恥辱" />
+  <glossword word="恥すかしい" />
 </valsi>
 <valsi word="o'e" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -14464,9 +14464,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>親近 （ o&apos;e 親近 - o&apos;enai 隔絶）</definition>
   <definitionid>42108</definitionid>
   <notes>心態詞； それを身近に感じる気持； なれなれしい気持 「.o&apos;e mi do ba kansa lo nu vitke lo mikce／病院に行くの、付き添ってあげる」 ・読み方： オヘ  ・関連語： {cnijbi}, {cnikansa}</notes>
+  <glossword word="親しみ" />
   <glossword word="身近" />
   <glossword word="親近" />
-  <glossword word="親しみ" />
 </valsi>
 <valsi word="o'enai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -14512,9 +14512,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>寛容 （ o&apos;o 寛容 - o&apos;ocu&apos;i 辛抱 - o&apos;onai 憤怒）</definition>
   <definitionid>42113</definitionid>
   <notes>心態詞； 一般には反感の的となるそれにたいして寛大に許容する気持 「.o&apos;o ko za&apos;u re&apos;u troci／構いません、もう一度やってみてください」・読み方： オホ  ・関連語： {xendo}, {de&apos;acni}</notes>
-  <glossword word="許容" />
-  <glossword word="寛容" />
   <glossword word="寛大" />
+  <glossword word="寛容" />
+  <glossword word="許容" />
   <glossword word="構わない" sense="寛容" />
 </valsi>
 <valsi word="o'ocu'i" type="cmavo-compound">
@@ -14526,8 +14526,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>辛抱 （ o&apos;o 寛容 - o&apos;ocu&apos;i 辛抱 - o&apos;onai 憤怒）</definition>
   <definitionid>42114</definitionid>
   <notes>心態詞； 積極的に許容はしないが辛抱はしておくという気持「やれやれ、しょうがないなぁ」「.o&apos;o cu&apos;i ma pu mukti fi do／怒らないけど、どういうつもりだったの？」 ・読み方： オホシュヒ  ・関連語： {racli}, {to&apos;ersteba}</notes>
-  <glossword word="我慢" />
   <glossword word="辛抱" />
+  <glossword word="我慢" />
 </valsi>
 <valsi word="o'onai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -14560,9 +14560,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>平静 （ o&apos;u くつろぎ - o&apos;ucu&apos;i 平静 - o&apos;unai 緊張）</definition>
   <definitionid>42117</definitionid>
   <notes>心態詞； 緊張を覚えない情況 「.o&apos;u cu&apos;i mi pu tinbe lo selfla／私は法に従ったまでだ」  ・読み方： オフシュヒ ・関連語： {cnilanxe}</notes>
-  <glossword word="平常心" />
-  <glossword word="平静" />
   <glossword word="落ち着く" />
+  <glossword word="平静" />
+  <glossword word="平常心" />
 </valsi>
 <valsi word="o'unai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -14574,8 +14574,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42118</definitionid>
   <notes>心態詞； 緊張に見舞われる情況； ストレスを感じる 「.o&apos;u nai le mi bersa cu zvati ma／大変だ、私の息子はどこ？」 ・読み方： オフナイ ・関連語： {dunku}</notes>
   <glossword word="緊張" />
-  <glossword word="ストレス" sense="心" />
   <glossword word="心配" />
+  <glossword word="ストレス" sense="心" />
 </valsi>
 <valsi word="obu" type="bu-letteral">
   <selmaho>BY*</selmaho>
@@ -14662,8 +14662,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>偏見 （ pa&apos;e 公平 - pa&apos;enai 偏見）</definition>
   <definitionid>42121</definitionid>
   <notes>心態詞（談話系）；「pa&apos;enai pixra fi lo verba gi&apos;e na condi／所詮、子供の絵だ、深みはない。」「pa&apos;enai do pa moi ro da lo ka melbi／誰が何と言おうと、あなたが一番可愛い。」 ・読み方： パヘナイ</notes>
-  <glossword word="偏見" />
   <glossword word="贔屓" />
+  <glossword word="偏見" />
 </valsi>
 <valsi word="pa'i" type="cmavo">
   <selmaho>VUhU2</selmaho>
@@ -14754,8 +14754,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$p1=j1$は$p2=j2$(審理内容/審判内容)の判決</definition>
   <definitionid>35319</definitionid>
   <notes>スポーツ面においての審判、法律面においての審判を問わない</notes>
-  <glossword word="判決" />
   <glossword word="審判" />
+  <glossword word="判決" />
 </valsi>
 <valsi word="pajnyjalge" type="lujvo">
   <user>
@@ -14775,10 +14775,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$d_1$ は $d_2$ （素材）のズボンつり／サスペンダー</definition>
   <definitionid>19746</definitionid>
   <notes>{palku} {dandu} {dasri}</notes>
-  <glossword word="ズボン吊り" />
-  <glossword word="吊りバンド" />
-  <glossword word="サスペンダー" />
   <glossword word="ズボンつり" />
+  <glossword word="サスペンダー" />
+  <glossword word="吊りバンド" />
+  <glossword word="ズボン吊り" />
 </valsi>
 <valsi word="palci" type="gismu">
   <rafsi>pac</rafsi>
@@ -15067,9 +15067,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>思考</definition>
   <definitionid>42124</definitionid>
   <notes>心態詞（認識系）；「pe&apos;i lo rivli&apos;a cu se tolsi&apos;a／逃げるのは卑怯だと思う」 ・読み方： ペヒ  ・関連語： {jinvi}</notes>
+  <glossword word="意見" />
   <glossword word="考え" />
   <glossword word="思考" />
-  <glossword word="意見" />
 </valsi>
 <valsi word="pe'o" type="cmavo">
   <selmaho>PEhO</selmaho>
@@ -15669,8 +15669,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>42125</definitionid>
   <notes>心態詞（談話系）；「do po&apos;o klama／あなただけが来た」 ・読み方： ポホ  ・関連語： {pamei}, {mulno}, {frica}</notes>
   <glossword word="だけ" />
-  <glossword word="ほんの" />
   <glossword word="たった" sense="これだけ" />
+  <glossword word="ほんの" />
 </valsi>
 <valsi word="po'u" type="cmavo">
   <selmaho>GOI</selmaho>
@@ -15798,8 +15798,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>39997</definitionid>
   <notes>・大意： 愛 ・読み方： プラミ  ・関連語： {cinmo}, {xebni}, {nelci}, {djica}, {sinma}, {pluka}, {kurji}, {pendo}, {speni}
 </notes>
-  <glossword word="愛情" />
   <glossword word="愛する" />
+  <glossword word="愛情" />
 </valsi>
 <valsi word="prane" type="gismu">
   <rafsi>pa&apos;e</rafsi>
@@ -15843,8 +15843,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>40001</definitionid>
   <notes>・大意： 質問 ・読み方： プレティ ・関連語： {nabmi}, {danfu}, {ciksi}, {frati}, {spuda}, {cpedu}
 </notes>
-  <glossword word="問い" />
   <glossword word="質問" />
+  <glossword word="問い" />
 </valsi>
 <valsi word="prevrici" type="lujvo">
   <user>
@@ -15864,10 +15864,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1=pi_1$ はモチーフ$x_2=pi_2=pr_1$の作者$x_3=pi_3$による肖像</definition>
   <definitionid>41865</definitionid>
   <notes>{vi&apos;a} {prexra} で肖像画; {vi&apos;u} {prexra} で立体像。 cf. {prenu} {pixra}</notes>
-  <glossword word="塑像" />
-  <glossword word="肖像" />
-  <glossword word="彫像" />
   <glossword word="肖像画" />
+  <glossword word="塑像" />
+  <glossword word="彫像" />
+  <glossword word="肖像" />
 </valsi>
 <valsi word="prije" type="gismu">
   <rafsi>pij</rafsi>
@@ -15928,9 +15928,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ （事／経験）は $x_2$ （者）に感覚機能 $x_3$ に関して条件 $x_4$ の下で既視感 (déjà-vu) を与える</definition>
   <definitionid>42598</definitionid>
   <notes>$x_1$ が物である場合は jai prugastcica; {pu} {ganse} {tcica}; {gastcica}, {narprugastcica}</notes>
-  <glossword word="既視感" sense="déjà-vu" />
-  <glossword word="デジャヴ" sense="déjà-vu" />
   <glossword word="デジャヴュ" sense="déjà-vu" />
+  <glossword word="デジャヴ" sense="déjà-vu" />
+  <glossword word="既視感" sense="déjà-vu" />
 </valsi>
 <valsi word="pruni" type="gismu">
   <rafsi>pun</rafsi>
@@ -16417,8 +16417,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>36702</definitionid>
   <notes>原子による爆弾というだけで、爆発原理が核分裂か核融合かの区別はしない
 </notes>
-  <glossword word="原子爆弾" sense="爆弾" />
   <glossword word="核" sense="化学" />
+  <glossword word="原子爆弾" sense="爆弾" />
 </valsi>
 <valsi word="rau" type="cmavo">
   <selmaho>PA4</selmaho>
@@ -16631,10 +16631,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$c_1$ は $c_2$ （者／宗教）の、 $c_3$ （領域）をつかさどる竜の神／龍神／ドラゴンの神</definition>
   <definitionid>19713</definitionid>
   <notes>{respa} {cevni} {resycrida}</notes>
-  <glossword word="龍" sense="神" />
   <glossword word="龍神" />
   <glossword word="竜" sense="神" />
   <glossword word="ドラゴン" sense="神" />
+  <glossword word="龍" sense="神" />
 </valsi>
 <valsi word="resycrida" type="lujvo">
   <user>
@@ -16645,8 +16645,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>19778</definitionid>
   <notes>{respa} {crida} {resycei}</notes>
   <glossword word="龍" sense="想像上の動物" />
-  <glossword word="竜" sense="想像上の動物" />
   <glossword word="ドラゴン" sense="想像上の動物" />
+  <glossword word="竜" sense="想像上の動物" />
 </valsi>
 <valsi word="ri" type="cmavo">
   <selmaho>KOhA5</selmaho>
@@ -16890,8 +16890,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$c_1=r_1$ は $c_2=r_2$ から $c_3$ （経路）を通って逃げる</definition>
   <definitionid>19780</definitionid>
   <notes>{rivbi} {cliva}</notes>
-  <glossword word="逃げる" sense="避けて離れる" />
   <glossword word="逃亡" sense="避けて去る" />
+  <glossword word="逃げる" sense="避けて離れる" />
   <glossword word="のがれる" sense="避けて離れる" />
 </valsi>
 <valsi word="ro" type="cmavo">
@@ -16936,8 +16936,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>知的／精神的 （ ro&apos;e 知的／精神的 - ro&apos;enai 非精神的）</definition>
   <definitionid>42136</definitionid>
   <notes>心態詞（修飾系・カテゴリ）； ・読み方： ロヘ  ・関連語： {menli}</notes>
-  <glossword word="知的" />
   <glossword word="精神的" />
+  <glossword word="知的" />
 </valsi>
 <valsi word="ro'enai" type="cmavo-compound">
   <selmaho>UI*4</selmaho>
@@ -17050,9 +17050,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>40053</definitionid>
   <notes>・大意： 岩 ・読み方： ロクシ  ・語呂合わせ： ロック石 ・関連語： {kunra}, {jemna}, {canre}
 </notes>
+  <glossword word="岩" />
   <glossword word="石" />
   <glossword word="岩石" />
-  <glossword word="岩" />
 </valsi>
 <valsi word="rolstire'e" type="lujvo">
   <user>
@@ -17062,8 +17062,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$s_1=t_1$ は $t_2$ （荷／客）・ $t_3$ （線路網／軌道）・ $t_4$ （原動力）の 各駅停車の 列車／鉄道／電車／汽車／地下鉄</definition>
   <definitionid>18292</definitionid>
   <notes>Cf. {ro}, {sisti}, {trene}.</notes>
-  <glossword word="各駅停車" sense="列車" />
   <glossword word="鈍行" sense="列車" />
+  <glossword word="各駅停車" sense="列車" />
 </valsi>
 <valsi word="romge" type="gismu">
   <rafsi>rog</rafsi>
@@ -17259,11 +17259,11 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   </user>
   <definition>$x_1$は$x_2$(金額)コード ISO 4217 JPY の通貨</definition>
   <definitionid>36714</definitionid>
+  <glossword word="日本円" sense="貨幣" />
+  <glossword word="日本円" sense="金融" />
   <glossword word="日本円" sense="日本" />
   <glossword word="日本円" sense="金銭" />
-  <glossword word="日本円" sense="金融" />
   <glossword word="日本円" sense="通貨" />
-  <glossword word="日本円" sense="貨幣" />
 </valsi>
 <valsi word="rusko" type="gismu">
   <rafsi>ruk</rafsi>
@@ -17715,9 +17715,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>自己充足 （ se&apos;a 自己充足 - se&apos;anai 依存）</definition>
   <definitionid>42150</definitionid>
   <notes>心態詞（修飾系）； 自分以外のものに頼らずにやっていけるという気持 ・読み方： セハ  ・関連語： {sezysei}, {kantcu}</notes>
-  <glossword word="独立" />
-  <glossword word="自己充足" />
   <glossword word="自立" />
+  <glossword word="自己充足" />
+  <glossword word="独立" />
 </valsi>
 <valsi word="se'anai" type="cmavo-compound">
   <selmaho>UI*5</selmaho>
@@ -17771,9 +17771,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>内面的知</definition>
   <definitionid>42155</definitionid>
   <notes>心態詞（認識系）； 自分個人の内面的な経験（夢／勘／悟り等から知っている） ・読み方： セホ  ・関連語： {senva}</notes>
-  <glossword word="悟り" />
-  <glossword word="内面的知" />
   <glossword word="勘" />
+  <glossword word="内面的知" />
+  <glossword word="悟り" />
 </valsi>
 <valsi word="se'u" type="cmavo">
   <selmaho>SEhU</selmaho>
@@ -18134,8 +18134,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ は $x_2$ （情報）を表す selbri のタグ</definition>
   <definitionid>42276</definitionid>
   <notes>{selbri} {tcita}; {se} {bridi}.</notes>
-  <glossword word="述語のタグ" />
   <glossword word="タグ" sense="述語のタグ" />
+  <glossword word="述語のタグ" />
 </valsi>
 <valsi word="selci" type="gismu">
   <rafsi>sle</rafsi>
@@ -18188,8 +18188,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>復号は{tolselmifybi&apos;o}
 &quot;暗号化すること&quot;ならば{nunselmifybi&apos;o}
 &quot;復号化すること&quot;ならば{nuntolselmifybi&apos;o}</notes>
-  <glossword word="平文" sense="暗号" />
   <glossword word="暗号文" sense="暗号" />
+  <glossword word="平文" sense="暗号" />
   <glossword word="暗号化する" sense="暗号" />
 </valsi>
 <valsi word="selsrodi'i" type="lujvo">
@@ -18199,8 +18199,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   </user>
   <definition>$s1$ は $s_2=j_1$ （お金）を $s3$ （容器/空間）に貯金する/貯蓄する</definition>
   <definitionid>35306</definitionid>
-  <glossword word="貯金する" />
   <glossword word="貯蓄する" />
+  <glossword word="貯金する" />
 </valsi>
 <valsi word="sema'e" type="cmavo-compound">
   <selmaho>BAI*</selmaho>
@@ -18975,23 +18975,23 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$p_1=s_1$ は $p_2$ （素材）の下着のパンツ、パンティー、ショーツ、トランクス、ブリーフ、ボクサーパンツ</definition>
   <definitionid>19739</definitionid>
   <notes>{sivni} {palku}</notes>
-  <glossword word="パンティー" sense="下着" />
-  <glossword word="ぱっち" sense="下着" />
-  <glossword word="ももひき" sense="下着" />
-  <glossword word="ショーツ" sense="下着" />
-  <glossword word="ステテコ" sense="下着" />
   <glossword word="スパッツ" sense="下着" />
-  <glossword word="ズボン下" sense="下着" />
-  <glossword word="ズロース" sense="下着" />
-  <glossword word="トランクス" sense="下着" />
-  <glossword word="パッチ" sense="下着" />
-  <glossword word="パンツ" sense="下着" />
-  <glossword word="パンティ" sense="下着" />
-  <glossword word="ブリーフ" sense="下着" />
-  <glossword word="ボクサーパンツ" sense="下着" />
-  <glossword word="猿股" sense="下着" />
-  <glossword word="申又" sense="下着" />
+  <glossword word="ステテコ" sense="下着" />
+  <glossword word="ももひき" sense="下着" />
   <glossword word="股引" sense="下着" />
+  <glossword word="申又" sense="下着" />
+  <glossword word="猿股" sense="下着" />
+  <glossword word="ボクサーパンツ" sense="下着" />
+  <glossword word="ブリーフ" sense="下着" />
+  <glossword word="パンティー" sense="下着" />
+  <glossword word="パンティ" sense="下着" />
+  <glossword word="パンツ" sense="下着" />
+  <glossword word="パッチ" sense="下着" />
+  <glossword word="トランクス" sense="下着" />
+  <glossword word="ズロース" sense="下着" />
+  <glossword word="ズボン下" sense="下着" />
+  <glossword word="ぱっち" sense="下着" />
+  <glossword word="ショーツ" sense="下着" />
 </valsi>
 <valsi word="skaci" type="gismu">
   <user>
@@ -19126,9 +19126,12 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
     <username>glekiponjo</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
-  <definition>$x_1$ は $x_2$ （素材）の筒／円柱</definition>
+  <definition>$x_1$ は $x_2$ （素材）の円柱（形状）</definition>
   <definitionid>40135</definitionid>
-  <notes>・大意： 筒 ・読み方： スルァヌ  ・語呂合わせ： cylinder 筒すら抜く ・関連語： {kamju}, {gunro}</notes>
+  <notes>シリンダー. ・大意： 円柱 ・読み方： スルァヌ ・関連語： {kamju}, {gunro}; {tubnu}（管／中空の筒）
+</notes>
+  <glossword word="円柱" sense="形状" />
+  <glossword word="シリンダー" />
 </valsi>
 <valsi word="slari" type="gismu">
   <rafsi>sar</rafsi>
@@ -19487,8 +19490,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ はヘリウム (He)</definition>
   <definitionid>42240</definitionid>
   <notes>{solri} {navni}; {ratni}</notes>
-  <glossword word="ヘリウム" />
   <glossword word="He" sense="ヘリウム" />
+  <glossword word="ヘリウム" />
   <keyword word="ヘリウム" place="1" />
 </valsi>
 <valsi word="solri" type="gismu">
@@ -20139,8 +20142,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ は $x_2$ （情報）を表す sumti のタグ</definition>
   <definitionid>42275</definitionid>
   <notes>{sumti} {tcita}</notes>
-  <glossword word="項のタグ" />
   <glossword word="タグ" sense="項のタグ" />
+  <glossword word="項のタグ" />
 </valsi>
 <valsi word="sumti" type="gismu">
   <rafsi>sum</rafsi>
@@ -20273,8 +20276,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>逸脱 （ ta&apos;o 逸脱 - ta&apos;onai 回帰）</definition>
   <definitionid>42160</definitionid>
   <notes>心態詞（談話系）；「ところで」「la .lojban. co&apos;a se finti de&apos;i li pasobize pi&apos;e pi&apos;e .i ta&apos;o li pasobize cu cinono moi mulna&apos;usle／ロジバンの開発は1987年に始まった。ところで1987は300番目の素数だ」 ・読み方： タホ  ・関連語： {denpa}, {cneterta&apos;a}</notes>
-  <glossword word="逸脱" />
   <glossword word="余談" />
+  <glossword word="逸脱" />
   <glossword word="ところで" />
 </valsi>
 <valsi word="ta'onai" type="cmavo-compound">
@@ -20286,8 +20289,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>回帰 （ ta&apos;o 逸脱 - ta&apos;onai 回帰）</definition>
   <definitionid>42161</definitionid>
   <notes>心態詞（談話系）；「本題に戻りますが」「ta&apos;onai lo la .lojban. gerna poi se favytcini li papino pu&apos;i se finti de&apos;i li pasosoze pi&apos;e pi&apos;e／閑話休題、ロジバン文法ver.1.0は1997年に完成した」 ・読み方： タホナイ</notes>
-  <glossword word="閑話休題" />
   <glossword word="回帰" />
+  <glossword word="閑話休題" />
 </valsi>
 <valsi word="ta'u" type="cmavo">
   <selmaho>UI3a</selmaho>
@@ -20663,8 +20666,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>19569</definitionid>
   <notes>{tcadu} {pagbu}</notes>
   <glossword word="町村区" />
-  <glossword word="村" sense="町村区" />
   <glossword word="町" sense="町村区" />
+  <glossword word="村" sense="町村区" />
 </valsi>
 <valsi word="tcati" type="gismu">
   <user>
@@ -21096,8 +21099,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>「ditcu」と違い、特定の開始時点と終了時点が含意される。 ・大意： 経過時間 ・読み方： テムシ  ・関連語： {ditcu} (継続時間), {cacra}, {cedra}, {citsi}, {ranji}, {tcika}, {junla}, {renvi}
 </notes>
   <glossword word="期間" />
-  <glossword word="時間" />
   <glossword word="間隔" />
+  <glossword word="時間" />
 </valsi>
 <valsi word="teme'a" type="cmavo-compound">
   <selmaho>BAI*</selmaho>
@@ -21258,10 +21261,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_{1}$ は $x_{2}$ 次元多面体 $x_{3}$ の $x_{4}$ （デフォルトで $x_{2}$-1）次元辺； $x_{4}$=1 のとき $x_{1}$ は稜； $x_{4}$=0 のとき $x_{1}$ は頂点</definition>
   <definitionid>41306</definitionid>
   <notes>{te} {kubli}, {cimde}</notes>
-  <glossword word="面" sense="多面体の" />
-  <glossword word="稜" sense="多面体の" />
   <glossword word="頂点" sense="多面体の" />
+  <glossword word="稜" sense="多面体の" />
   <glossword word="辺" sense="多面体の" />
+  <glossword word="面" sense="多面体の" />
 </valsi>
 <valsi word="termifckiku" type="lujvo">
   <user>
@@ -21406,8 +21409,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>伝聞</definition>
   <definitionid>42164</definitionid>
   <notes>心態詞（認識系）；「～らしいよ」 ・読み方： ティヘ  ・関連語： {tirna}, {sitna}, {tcidu}</notes>
-  <glossword word="そうだ" sense="伝聞" />
   <glossword word="伝聞" />
+  <glossword word="そうだ" sense="伝聞" />
   <glossword word="らしい" sense="伝聞" />
 </valsi>
 <valsi word="ti'i" type="cmavo">
@@ -21707,9 +21710,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$m_1=b_1$(暗号文)は$m_2=b_2$(平文)へ$m_3=b_3$(暗号アルゴリズム/暗号方式)によって復号する</definition>
   <definitionid>36711</definitionid>
   <notes>暗号化の真逆であるが、「復号化」でなく、「復号」が本来暗号学上の用語としては正しい</notes>
-  <glossword word="暗号文" sense="暗号" />
   <glossword word="復号する" sense="暗号" />
   <glossword word="平文" sense="暗号" />
+  <glossword word="暗号文" sense="暗号" />
 </valsi>
 <valsi word="tolxarna'u" type="lujvo">
   <user>
@@ -21844,9 +21847,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$s_1$ は $t_1$ （統治者）・ $t_2$ （民衆／領土）の統治の $s_3$ （思想家）による政治思想／政治理念／イデオロギー</definition>
   <definitionid>19792</definitionid>
   <notes>{turni} {sidbo}</notes>
+  <glossword word="政治理念" />
   <glossword word="政治思想" />
   <glossword word="イデオロギー" sense="政治理念" />
-  <glossword word="政治理念" />
 </valsi>
 <valsi word="tsakura" type="fu'ivla">
   <user>
@@ -22072,9 +22075,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$c_1$ は $c_2=t_1$ （足）の $t_2$ （足の本体）の足首</definition>
   <definitionid>19689</definitionid>
   <notes>{tuple} {cnebo}</notes>
-  <glossword word="くるぶし" sense="足首" />
-  <glossword word="踝" sense="足首" />
   <glossword word="足首" />
+  <glossword word="踝" sense="足首" />
+  <glossword word="くるぶし" sense="足首" />
 </valsi>
 <valsi word="turni" type="gismu">
   <rafsi>tru</rafsi>
@@ -22179,8 +22182,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>愉快 （ u&apos;i 愉快 - u&apos;inai 退屈）</definition>
   <definitionid>15804</definitionid>
   <notes>心態詞； それをおもしろく感じて愉しさを覚える気持 「u&apos;i tu zerle&apos;a lo dakli be loi ckopalku .i ku&apos;i lo jdini cu nenri ti／はは、あいつオムツのカバンを盗んで行った、金はこっちに入ってるのに」 ・読み方： ウヒ  ・関連語： {selzdi}, {selxajmi}, {xalbo}</notes>
-  <glossword word="面白い" />
   <glossword word="愉快" />
+  <glossword word="面白い" />
   <glossword word="楽しい" />
 </valsi>
 <valsi word="u'inai" type="cmavo-compound">
@@ -22214,8 +22217,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>内気 （ u&apos;o 勇気 - u&apos;ocu&apos;i 内気 - u&apos;onai 臆病）</definition>
   <definitionid>42179</definitionid>
   <notes>心態詞； それについて果敢となれず、おそるおそるとしか取り組めない／対応できない気持 「.u&apos;o cu&apos;i xu mi zifre lo nu stali／えーっと、このままここにいて良いのかな？」  ・読み方： ウホシュヒ ・関連語： {jikterpa}</notes>
-  <glossword word="内気" />
   <glossword word="おそるおそる" />
+  <glossword word="内気" />
 </valsi>
 <valsi word="u'onai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -22250,8 +22253,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>潔白 （ u&apos;u 後悔 - u&apos;ucu&apos;i 潔白 - u&apos;unai 悪意）</definition>
   <definitionid>42182</definitionid>
   <notes>心態詞； 既成のそれについて、自分は潔白だと思う気持 「私のせいではない」「.u&apos;u cu&apos;i mi zukte no da／無実だ、私は何もしていない」 ・読み方： ウフシュヒ  ・関連語： {nalselra&apos;u}</notes>
-  <glossword word="無実" />
   <glossword word="潔白" />
+  <glossword word="無実" />
 </valsi>
 <valsi word="u'unai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -22273,8 +22276,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>発見 （ ua 発見 - uanai 模索）</definition>
   <definitionid>15800</definitionid>
   <notes>心態詞； 新しく知った／見つけた／気づいた気持 「.ua ba&apos;e ta do mensi／へえ、あれがお姉さん／妹さんか」・読み方： ワ ・関連語： {facki}</notes>
-  <glossword word="気づく" />
   <glossword word="発見" />
+  <glossword word="気づく" />
 </valsi>
 <valsi word="uanai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -22306,9 +22309,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>驚嘆 （ ue 驚嘆 - uecu&apos;i 無動揺 - uenai 覚悟）</definition>
   <definitionid>15801</definitionid>
   <notes>心態詞； 予期していなかったそれに驚く気持 「.ue ta lenku／ひぃっ、冷たい！」 ・読み方： ウェ ・関連語： {selspaji}</notes>
-  <glossword word="びっくりする" />
-  <glossword word="驚く" />
   <glossword word="驚嘆" />
+  <glossword word="驚く" />
+  <glossword word="びっくりする" />
 </valsi>
 <valsi word="uecu'i" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -22380,8 +22383,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <notes>心態詞； それが不完全／不十分／未了であると感じる気持 「.uo nai do tu na ru&apos;e darxi／おしい、もう少しであれを打つところだった」 ・読み方： ウォナイ ・関連語： {fliba}</notes>
   <glossword word="未了" />
   <glossword word="未完成" />
-  <glossword word="不十分" />
   <glossword word="不完全" />
+  <glossword word="不十分" />
 </valsi>
 <valsi word="uu" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -22392,9 +22395,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>哀憫 （ uu 哀憫 - uunai 酷虐）</definition>
   <definitionid>15805</definitionid>
   <notes>心態詞； 苦境にあるそれがかわいそうで哀しむ気持； 自分以外の物／者にたいする憐れみの気持 「.uu mi ba dunda lo boxfo do／かわいそうに、毛布をあげましょう」 ・読み方： ウゥ ・関連語： {kecti}</notes>
-  <glossword word="同情" />
   <glossword word="哀れむ" />
   <glossword word="哀憫" />
+  <glossword word="同情" />
 </valsi>
 <valsi word="uunai" type="cmavo-compound">
   <selmaho>UI*1</selmaho>
@@ -22448,8 +22451,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>20674</definitionid>
   <notes>心態詞（談話系）；「言い換えると」「ti na drani .i va&apos;i do srera／それは違う。つまり、あなたの誤解だ。」 ・読み方： ヴァヒ  ・関連語： {cneselsku}</notes>
   <glossword word="別の言葉で言えば" />
-  <glossword word="言い換えると" />
   <glossword word="換言" />
+  <glossword word="言い換えると" />
 </valsi>
 <valsi word="va'inai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -22700,13 +22703,13 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ （売り手） は $x_2$ （品物やサービス）を $x_3$ （買い手）に $x_4$ の額／費用／出費で売る</definition>
   <definitionid>18471</definitionid>
   <notes>x1 は売り手／販売員。 x3 は x2 （品）を x1 から買う購入者（ terve&apos;u は「買う」になる）。 x4 は x2 （品）を売る際の x3 から受け取る額／が支払う額（ velve&apos;u は「費用である」になる）。 売りに出す（ fitselve&apos;u, selvenfriti ）。 x2 は特定の「品物」、あるいは群（集まり）としての「品物」、あるいは「～という事」、あるいは「～という性質」。  $x_{1}$ として「所有権を手放す者」、 $x_{2}$ として「所有権が移る商品」という sumti を引き出す（意味論的により厳密に言うなら {posyve&apos;u}, {posyselve&apos;u}）。 費用と価格の違いについては {jdima} の注を参照。 ・大意： 売買 ・読み方： ヴェシヌ ・関連語：{canja}, {dunda}, {janta}, {pleji}, {jerna}, {kargu}, {prali}, {zarci}, {vamji}, {jdima}（売り手がつける値段）, {fepni}, {friti}, {jerna}, {rupnu}</notes>
-  <glossword word="購入者" />
-  <glossword word="うる" sense="売る" />
   <glossword word="はんばい" sense="販売" />
   <glossword word="売る" />
   <glossword word="売買" />
   <glossword word="販売" />
   <glossword word="販売員" />
+  <glossword word="購入者" />
+  <glossword word="うる" sense="売る" />
   <keyword word="売り手" place="1" />
   <keyword word="商品" place="2" />
   <keyword word="買い手" place="3" />
@@ -23048,11 +23051,11 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$k_1$ は $v_1$ （排泄者）・ $v_2$ （排泄物）のための $k_2$ （建物／構造）内の $k_3$ （壁／天井／床）で仕切られた便所／トイレの部屋</definition>
   <definitionid>19800</definitionid>
   <notes>{vikmi} {kumfa}</notes>
-  <glossword word="便所" />
-  <glossword word="厠" />
   <glossword word="化粧室" sense="トイレの部屋" />
-  <glossword word="トイレ" sense="トイレの部屋" />
   <glossword word="お手洗い" sense="トイレの部屋" />
+  <glossword word="厠" />
+  <glossword word="便所" />
+  <glossword word="トイレ" sense="トイレの部屋" />
 </valsi>
 <valsi word="vimsivypalku" type="lujvo">
   <user>
@@ -23062,10 +23065,10 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$p_1=s_1$ は $p_2$ （素材）のオムツ</definition>
   <definitionid>19742</definitionid>
   <notes>{vikmi} {sivypalku} {sivni} {palku}</notes>
-  <glossword word="おむつ" />
   <glossword word="おしめ" />
   <glossword word="オシメ" />
   <glossword word="オムツ" />
+  <glossword word="おむつ" />
 </valsi>
 <valsi word="vindu" type="gismu">
   <rafsi>vid</rafsi>
@@ -23115,8 +23118,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$p_1=v_1$(ウイルス/病原体)は$p_2=v_2$に感染する</definition>
   <definitionid>42523</definitionid>
   <notes>parjiは試験的gismu {parji}{vidru}</notes>
-  <glossword word="罹患" sense="医学" />
   <glossword word="感染" sense="医学" />
+  <glossword word="罹患" sense="医学" />
 </valsi>
 <valsi word="viska" type="gismu">
   <rafsi>vis</rafsi>
@@ -23301,8 +23304,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ は $x_2$  に $x_3$ から戻る</definition>
   <definitionid>52841</definitionid>
   <glossword word="帰る" />
-  <glossword word="かえる" sense="帰る" />
   <glossword word="もどる" sense="戻る" />
+  <glossword word="かえる" sense="帰る" />
   <glossword word="戻る" />
   <keyword word="戻る者" place="1" />
   <keyword word="戻る後の状態／状況" place="2" />
@@ -23316,8 +23319,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$g_1$ は $v_1$ （対象）を $v_2$ に $v_3$ から戻す／返す</definition>
   <definitionid>52836</definitionid>
   <notes>さんによる {volve} の再定義（ x1 は x2 に x3 から戻る）に拠る。; {volve} {gasnu}</notes>
-  <glossword word="戻す" />
   <glossword word="返す" />
+  <glossword word="戻す" />
 </valsi>
 <valsi word="vorme" type="gismu">
   <rafsi>vor</rafsi>
@@ -23434,8 +23437,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>罪／穢れ （ vu&apos;e 徳／誉れ - vu&apos;enai 罪／穢れ）</definition>
   <definitionid>42185</definitionid>
   <notes>心態詞（修飾系）； ・読み方： ヴヘナイ</notes>
-  <glossword word="罪" />
   <glossword word="穢れ" />
+  <glossword word="罪" />
 </valsi>
 <valsi word="vu'i" type="cmavo">
   <selmaho>LAhE</selmaho>
@@ -23547,13 +23550,13 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$r_1=xa_2$ は $r_2$ （障害）のために $r_3$ が制限される身体障害者</definition>
   <definitionid>19646</definitionid>
   <notes>{xadni} {rinju} {ka&apos;enri&apos;u}</notes>
-  <glossword word="身体障害児" sense="身体障害者" />
-  <glossword word="身体障がいのある人" />
-  <glossword word="身体障がいのある方" />
-  <glossword word="身体障がい児" sense="身体障がい者" />
-  <glossword word="身体障がい者" />
-  <glossword word="身体障害者" />
   <glossword word="身体障碍者" />
+  <glossword word="身体障害者" />
+  <glossword word="身体障害児" sense="身体障害者" />
+  <glossword word="身体障がい者" />
+  <glossword word="身体障がい児" sense="身体障がい者" />
+  <glossword word="身体障がいのある方" />
+  <glossword word="身体障がいのある人" />
   <keyword word="身体障害者" place="1" />
   <keyword word="身体障害" place="2" />
   <keyword word="制限対象" place="3" sense="身体障害があるため制限を受ける事" />
@@ -23585,9 +23588,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>既出の sumti のいくつか（複数）に取って代わる ： 代詞（sumti）；</definition>
   <definitionid>41175</definitionid>
   <notes>試験的 cmavo。「lo pulji cu bajra jersi lo zerle&apos;a i xai tatpi／警官が泥棒を追いかけた。両者とも疲れた。」 ・読み方： クァイ ・関連語：{ra}, {ri}, {ru}</notes>
-  <glossword word="両者" />
   <glossword word="皆" />
   <glossword word="彼ら" />
+  <glossword word="両者" />
 </valsi>
 <valsi word="xajmi" type="gismu">
   <rafsi>xam</rafsi>
@@ -23656,11 +23659,11 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>40326</definitionid>
   <notes>「まあまあである／可」は {mlixau}, {norxau}, {xaurselcru}. ・大意： 良い ・読み方： クァムグ  ・語呂合わせ： よくかむグッド, xau(好), good,bon ・関連語： {melbi}, {xlali}, {vrude}, {zabna}
 </notes>
+  <glossword word="すてきだ" />
   <glossword word="よい" />
+  <glossword word="役に立つ" />
   <glossword word="可" sense="まあまあである" />
   <glossword word="良い" />
-  <glossword word="役に立つ" />
-  <glossword word="すてきだ" />
 </valsi>
 <valsi word="xampo" type="gismu">
   <rafsi>xap</rafsi>
@@ -23702,12 +23705,12 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$s_1$ は互いに手をつなぐ／握手する</definition>
   <definitionid>19803</definitionid>
   <notes>{xance} {jgari} {simxu}</notes>
+  <glossword word="握手" />
+  <glossword word="手を握る" sense="手を握り合う" />
   <glossword word="手を握り合う" />
   <glossword word="手を取る" sense="手を取り合う" />
-  <glossword word="握手" />
-  <glossword word="手をつなぐ" />
   <glossword word="手を取り合う" />
-  <glossword word="手を握る" sense="手を握り合う" />
+  <glossword word="手をつなぐ" />
 </valsi>
 <valsi word="xanka" type="gismu">
   <user>
@@ -23728,9 +23731,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>40330</definitionid>
   <notes>・大意： 想像 ・読み方： クァンリ  ・語呂合わせ： ＜半分理解＞,想像を管理, xuan(幻), unreal ・関連語： {da&apos;i}, {fatci}, {senva}, {sucta}, {zasti}, {cfika}, {dacti}, {menli}, {sidbo}
 </notes>
+  <glossword word="幻" />
   <glossword word="幻想" />
   <glossword word="架空" />
-  <glossword word="幻" />
   <keyword word="非現実" place="1" />
   <keyword word="想像する" place="2" sense="空想" />
 </valsi>
@@ -24071,8 +24074,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>不特定の数：数量詞；</definition>
   <definitionid>41962</definitionid>
   <notes>「ある数」。 no&apos;o と違い、典型的な数であるとは限らない。 試験的 cmavo。 ・読み方： クォヘ ・関連語： {no&apos;o}, {zo&apos;e}; {tu&apos;o}, {xo}, {co&apos;e}, {do&apos;e}</notes>
-  <glossword word="ある数" />
   <glossword word="不特定の数" />
+  <glossword word="ある数" />
 </valsi>
 <valsi word="xotli" type="gismu">
   <rafsi>xol</rafsi>
@@ -24156,14 +24159,14 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$k_1=xr_1$ は $k_2=xr_2$ （元の所）へ $k_3=xr_3$ から $k_4$ （経路）を通り $k_5$ （手段）で戻る</definition>
   <definitionid>18474</definitionid>
   <notes>xorxes さんによる {xruti} の再定義（ x1 は x2 に x3 から戻る）に拠る。 ; {xruti} {klama}</notes>
-  <glossword word="帰っていく" />
-  <glossword word="帰ってくる" />
-  <glossword word="帰る" sense="帰っていく／帰ってくる" />
+  <glossword word="もどる" sense="戻る、戻っていく／戻ってくる" />
+  <glossword word="かえる" sense="帰る、帰っていく／帰ってくる" />
+  <glossword word="戻る" sense="戻っていく／戻ってくる" />
   <glossword word="戻ってくる" />
   <glossword word="戻っていく" />
-  <glossword word="かえる" sense="帰る、帰っていく／帰ってくる" />
-  <glossword word="もどる" sense="戻る、戻っていく／戻ってくる" />
-  <glossword word="戻る" sense="戻っていく／戻ってくる" />
+  <glossword word="帰る" sense="帰っていく／帰ってくる" />
+  <glossword word="帰ってくる" />
+  <glossword word="帰っていく" />
 </valsi>
 <valsi word="xrula" type="gismu">
   <rafsi>rul</rafsi>
@@ -24455,9 +24458,9 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definition>$x_1$ （宿泊者）は $x_2$ （宿泊施設／場所）に泊まる／一時滞在する</definition>
   <definitionid>41295</definitionid>
   <notes>{zasni} {xabju}; {vitke}</notes>
-  <glossword word="宿泊" />
   <glossword word="泊まる" />
   <glossword word="滞在" />
+  <glossword word="宿泊" />
   <keyword word="宿泊者" place="1" />
 </valsi>
 <valsi word="zau" type="cmavo">
@@ -24742,8 +24745,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
   <definitionid>40380</definitionid>
   <notes>「制限されない」「$x_1$ は自主性がある｣ 「$x_1$ は $x_2$ を随意にできる」 mi zifre lo nu jamfu muvdu 「私は足を自由に動かせる」 ・大意： 自由 ・読み方： ズィフゥレ  ・語呂合わせ： ＜ずい分フレッシュ＞, free ・関連語： {pinfu}, {rinju}, {bilga}, {curmi}, {kakne}, {frili}
 </notes>
-  <glossword word="じゆう" sense="自由" />
   <glossword word="自由" />
+  <glossword word="じゆう" sense="自由" />
 </valsi>
 <valsi word="zinki" type="gismu">
   <rafsi>zin</rafsi>
@@ -25746,11 +25749,11 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
 <nlword word="前提" valsi="ru&apos;a" />
 <nlword word="弱" valsi="ru&apos;e" />
 <nlword word="ザラザラ" valsi="rufsfe" />
-<nlword word="日本円" sense="日本" valsi="rupnujupuje" />
-<nlword word="日本円" sense="通貨" valsi="rupnujupuje" />
-<nlword word="日本円" sense="金融" valsi="rupnujupuje" />
-<nlword word="日本円" sense="貨幣" valsi="rupnujupuje" />
 <nlword word="日本円" sense="金銭" valsi="rupnujupuje" />
+<nlword word="日本円" sense="通貨" valsi="rupnujupuje" />
+<nlword word="日本円" sense="貨幣" valsi="rupnujupuje" />
+<nlword word="日本円" sense="日本" valsi="rupnujupuje" />
+<nlword word="日本円" sense="金融" valsi="rupnujupuje" />
 <nlword word="編集挿入" valsi="sa&apos;a" />
 <nlword word="精確" valsi="sa&apos;e" />
 <nlword word="不精確" valsi="sa&apos;enai" />
@@ -25785,8 +25788,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
 <nlword word="ステテコ" sense="下着" valsi="sivypalku" />
 <nlword word="ステテコ" valsi="sivypalku" />
 <nlword word="スパッツ" sense="下着" valsi="sivypalku" />
-<nlword word="ズボン下" valsi="sivypalku" />
 <nlword word="ズボン下" sense="下着" valsi="sivypalku" />
+<nlword word="ズボン下" valsi="sivypalku" />
 <nlword word="ズロース" sense="下着" valsi="sivypalku" />
 <nlword word="トランクス" sense="下着" valsi="sivypalku" />
 <nlword word="パッチ" sense="下着" valsi="sivypalku" />
@@ -25800,6 +25803,8 @@ BAI類のひとつであるtecu&apos;uを用いて電話の着信者を指定で
 <nlword word="申又" sense="下着" valsi="sivypalku" />
 <nlword word="申又" valsi="sivypalku" />
 <nlword word="股引" sense="下着" valsi="sivypalku" />
+<nlword word="シリンダー" valsi="slanu" />
+<nlword word="円柱" sense="形状" valsi="slanu" />
 <nlword word="ダイズ" sense="豆粒" valsi="sobde" place="1" />
 <nlword word="大豆" sense="豆粒" valsi="sobde" />
 <nlword word="He" sense="ヘリウム" valsi="solnavni" />

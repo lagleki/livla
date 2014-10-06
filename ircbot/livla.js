@@ -58,6 +58,24 @@ function ensureDirExistence(path) {
 	}
 }
 
+// Used to read the content of any file that is located in “~/.livla/”.
+// Return an empty string if the file does not exist.
+function readConfig(filename) {
+	var configDirectory = path.join(path.homedir(),".livla");
+	ensureDirExistence(configDirectory);
+	file = path.join(configDirectory, filename);
+	try {
+		return fs.readFileSync(file,'utf8');
+	} catch (e) {
+		// If we get an “ENOENT” error, we return an empty string.
+		// Other errors are still thrown.
+		if (typeof(e.code) == "undefined" || e.code != 'ENOENT') {
+			throw e;
+		}
+		return "";
+	}
+}
+
 var irc = require('irc');
 var client = new irc.Client(config.server, config.nick, config.options);
 var clientmensi = new irc.Client(configmensi.server, configmensi.nick, configmensi.options);
@@ -71,14 +89,9 @@ clientmensi.addListener('message', function(from, to, text, message) {
 });
 
 //prepare notci functions
-	// We use synchronous calls as it is not a problem to block for a short
-	// time at initialisation, and it makes the code more straightforward.
 	notcijudri=path.join(path.homedir(),".livla","notci.txt");
-	ensureDirExistence(path.join(path.homedir(),".livla"));
-	// create notcijudri file if it did not exist.
-	fs.appendFileSync(notcijudri, ""); 
 	// put each line of "notci.txt" as an array in notci
-	notci = fs.readFileSync(notcijudri,'utf8').split("\n");
+	notci = readConfig("nocti.txt").split("\n");
 ///end notci
 
 var updatexmldumps = function () {

@@ -1,36 +1,112 @@
 //livla bot
+var fs = require("fs"),
+    path = require("path-extra");
 var s,t,notci,notcijudri;
 var tato= require('./tatoeba.js');
 var interv=300000;
 var interm=2900;
+
+// Default configuration, may be modified by “loadConfig”, with the content of
+// “~/.livla/config.json.
 var tcan='#lojban,#ckule';
 var livlytcan='##jboselbau';//where la livla talks to la mensi 
 var asker='livla';
 var replier='mensi';
-var preasker=asker + ': ';
-var prereplier=replier + ': ';
-var said;
+var server='irc.freenode.net';
+// End default configuration
+
+loadConfig();
 var config = {
-  server: 'irc.freenode.net',
+  server: server,
   nick: asker,
   options: {
-    channels: ['#gleki',livlytcan],
+    channels: [livlytcan],
     debug: false,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
     messageSplit: 276
   }
 };
-
 var configmensi = {
-  server: 'irc.freenode.net',
+  server: server,
   nick: replier,
   options: {
-    channels: ['#gleki',livlytcan, tcan],
+    channels: [livlytcan, tcan],
     debug: false,
     messageSplit: 276,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots'
   }
 };
+var preasker=asker + ': ';
+var prereplier=replier + ': ';
+var said;
+
+// Ensure that a path exists, and that it is a dir.
+function ensureDirExistence(path) {
+	// We first try to make a dir. If it was missing, now, it is not
+	// anymore.
+	try {
+		fs.mkdirSync(path);
+	} catch (e) {
+		// If creation of the dir failed, there can be many reasons.
+		// However, if the reason is not “there was already a file
+		// there!”, we don't want to ignore the error, so we throw it
+		// again.
+		if (typeof(e.code) === "undefined" || e.code !== 'EEXIST') {
+			throw e;
+		}
+		// In the case where the path was taken, we want to be sure it
+		// is a directory. If the path existed *and* it is a directory,
+		// all is good.  Otherwise, we would be asking for trouble by
+		// trying to use a file, socket, or whatever as a directory.
+		if (!fs.statSync(path).isDirectory()) {
+			throw new Error("“" + path + "” is not a directory.");
+		}
+	}
+}
+
+// Used to read the content of any file that is located in “~/.livla/”.
+// Return an empty string if the file does not exist.
+function readConfig(filename) {
+	var configDirectory = path.join(path.homedir(),".livla");
+	ensureDirExistence(configDirectory);
+	file = path.join(configDirectory, filename);
+	try {
+		return fs.readFileSync(file,'utf8');
+	} catch (e) {
+		// If we get an “ENOENT” error, we return an empty string.
+		// Other errors are still thrown.
+		if (typeof(e.code) === "undefined" || e.code !== 'ENOENT') {
+			throw e;
+		}
+		return "";
+	}
+}
+
+// Load every line of “~/.livla/notci.txt” into “notci”, as an array. 
+// Define “notcijudri” as the file path that will be used later when we want to
+// save the content of “notci”.
+function loadNotci() {
+	notci = readConfig("notci.txt").split("\n");
+	notcijudri = path.join(path.homedir(),".livla","notci.txt");
+}
+
+// Load the configuration from “~/.livla/config.json”, and modify the default
+// config accordingly.
+function loadConfig() {
+	function either(a, b) {
+		if (typeof(a) === "undefined") return b;
+		return a;
+	}
+	var localConfig = readConfig("config.json");
+	if (localConfig.trim() === "") return; // Empty config, we do nothing.
+	localConfig = JSON.parse(localConfig);
+
+	asker     = either( localConfig.asker,     asker     );
+	replier   = either( localConfig.replier,   replier   );
+	tcan      = either( localConfig.tcan,      tcan      );
+	livlytcan = either( localConfig.livlytcan, livlytcan );
+	server    = either( localConfig.server,    server    );
+}
 
 var irc = require('irc');
 var client = new irc.Client(config.server, config.nick, config.options);
@@ -44,31 +120,13 @@ clientmensi.addListener('message', function(from, to, text, message) {
     processormensi(clientmensi, from, to, text, message);
 });
 
-//prepare notci functions
-	// We use synchronous calls as it is not a problem to block for a short
-	// time at initialisation, and it makes the code more straightforward.
-	var fs = require("fs"),path = require("path-extra");
-	notcijudri=path.join(path.homedir(),".livla","notci.txt");
-	// create notcijudri directory if needed
-	try {
-		fs.mkdirSync(path.join(path.homedir(),".livla"));
-	} catch (e) {
-		if (typeof(e.code) == "undefined" || e.code != 'EEXIST') {
-			throw(e);
-		}
-	}
-	// create notcijudri file if it did not exist.
-	fs.appendFileSync(notcijudri, ""); 
-	// put each line of "notci.txt" as an array in notci
-	notci = fs.readFileSync(notcijudri,'utf8').split("\n");
-///end notci
+loadNotci();
 
 var updatexmldumps = function () {
 var err;
 try{
 	var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple","fr-facile","hu"];
 	var request = require("request"); var body;
-	fs = require("fs"),path = require("path-extra");
 	request = request.defaults({jar: true});
 	var jar = request.jar();
 	var cookie = request.cookie("jbovlastesessionid=MTg6MzIwOmdsZWtpOjE0MDQyODk5NDE%3D");
@@ -235,7 +293,6 @@ var processormensi = function(clientmensi, from, to, text, message) {
 		case text.substr(0, text.indexOf('\t'))==replier: clientmensi.say(sendTo,from+": xu do je'a jinvi lodu'u mi bebna i oi");break;
 		default:
 		var d = new Date();notci.push(from + "\t" + text + ' | ' + d.toISOString());clientmensi.say(sendTo,from+": mi ba benji di'u ba lo nu la'o gy."+text.substr(0, text.indexOf('\t'))+".gy. di'a cusku da");
-		var fs = require("fs");
 		fs.writeFile(notcijudri, notci.join("\n"),function(err) {});break;
 		}
 	}
@@ -247,8 +304,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 		case text.substr(0, text.indexOf('\t'))==replier: clientmensi.say(sendTo,from+": xu do je'a jinvi lodu'u mi bebna i oi");break;
 		default:
 		var ds = new Date();notci.push(from + "\t" + text + ' | ' + ds.toISOString());clientmensi.say(sendTo,from+": mi ba benji di'u ba lo nu la'o gy."+text.substr(0, text.indexOf('\t'))+".gy. di'a cusku da");
-		var fsi = require("fs");
-		fsi.writeFile(notcijudri, notci.join("\n"),function(err) {});break;
+		fs.writeFile(notcijudri, notci.join("\n"),function(err) {});break;
 		}
 	}
 	//now send back part
@@ -262,8 +318,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 			cmenepagbu=notci[l].split("\t");
 			clientmensi.say(sendTo,from + ": cu'u la'o gy." + cmenepagbu[0] + ".gy.: "+cmenepagbu[2]+"");
 			notci.splice(l,1);l=l-1;
-			var fso = require("fs");
-			fso.writeFile(notcijudri, notci.join("\n"));
+			fs.writeFile(notcijudri, notci.join("\n"));
 		}
 	}
 	// 
@@ -466,7 +521,6 @@ var tordu = function (lin,lng,flag)
 {
 lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
 var gchild='';
@@ -501,7 +555,6 @@ var mulno = function (lin,lng)
 {
 lin=lin.replace(/\"/g,'');var xo;
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./definition,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\") or contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\") or contains(translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
@@ -524,7 +577,6 @@ var selmaho = function (lin)
 {
 var lng="en";var gag='';var ien='';
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]");
@@ -551,7 +603,6 @@ var rafsi = function (lin)
 {
 var lng="en",gag;
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]");
@@ -596,7 +647,6 @@ var frame = function (lin)
 {
 var lng="en",gag='';
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path-extra");
 
 var arrf=fs.readdirSync(path.join(__dirname,"../../../files/fndata-1.5/frame")).filter(function(file) { return file.substr(-4) === '.xml'; });
 
@@ -618,7 +668,6 @@ var framemulno = function (lin)
 {
 var lng="en",gag='';
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path-extra");
 var arrf=fs.readdirSync(path.join(__dirname,"../../../files/frame")).filter(function(file) { return file.substr(-4) === '.xml'; });
 var stra=[];
 
@@ -704,7 +753,6 @@ var finti = function (lin)
 var lng="en";
 lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var retur='y no da se tolcri';
 var xmlDoc = libxmljs.parseXml(content);
@@ -730,7 +778,6 @@ var gloso=function(lin,direction)
 var lng="en";
 lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var retur='y no da se tolcri';
 var xmlDoc = libxmljs.parseXml(content);
@@ -770,7 +817,6 @@ var valsicmene = function (lin,lng)
 {
 lin=lin.replace(/\"/g,'');var xo;
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var retur='y no da se tolcri';
 var xmlDoc = libxmljs.parseXml(content);
@@ -949,7 +995,6 @@ var rafsiselfu = function (lin,last)//only from brivla to rafsi, returns a strin
 {
 var lng="en";
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]");
@@ -1029,7 +1074,6 @@ var selrafsi = function (lin)
 {
 var lng="en",gag;
 var libxmljs = require("libxmljs");
-var fs = require("fs"),path = require("path-extra");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
 

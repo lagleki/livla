@@ -6,7 +6,7 @@ var tato= require('./tatoeba.js');
 var interv=300000;
 var interm=2900;
 //<<<<<<< HEAD
-var tcan='#lojban,#ckule,#khanat';
+var tcan='#lojban,#ckule';
 //=======
 
 // Default configuration, may be modified by “loadConfig”, with the content of

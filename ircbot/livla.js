@@ -5,34 +5,40 @@ var s,t,notci,notcijudri;
 var tato= require('./tatoeba.js');
 var interv=300000;
 var interm=2900;
+
+// Default configuration, may be modified by “loadConfig”, with the content of
+// “~/.livla/config.json.
 var tcan='#lojban,#ckule';
 var livlytcan='##jboselbau';//where la livla talks to la mensi 
 var asker='livla';
 var replier='mensi';
-var preasker=asker + ': ';
-var prereplier=replier + ': ';
-var said;
+var server='irc.freenode.net';
+// End default configuration
+
+loadConfig();
 var config = {
-  server: 'irc.freenode.net',
+  server: server,
   nick: asker,
   options: {
-    channels: ['#gleki',livlytcan],
+    channels: [livlytcan],
     debug: false,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
     messageSplit: 276
   }
 };
-
 var configmensi = {
-  server: 'irc.freenode.net',
+  server: server,
   nick: replier,
   options: {
-    channels: ['#gleki',livlytcan, tcan],
+    channels: [livlytcan, tcan],
     debug: false,
     messageSplit: 276,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots'
   }
 };
+var preasker=asker + ': ';
+var prereplier=replier + ': ';
+var said;
 
 // Ensure that a path exists, and that it is a dir.
 function ensureDirExistence(path) {
@@ -84,6 +90,23 @@ function loadNotci() {
 	notcijudri = path.join(path.homedir(),".livla","notci.txt");
 }
 
+// Load the configuration from “~/.livla/config.json”, and modify the default
+// config accordingly.
+function loadConfig() {
+	function either(a, b) {
+		if (typeof(a) === "undefined") return b;
+		return a;
+	}
+	var localConfig = readConfig("config.json");
+	if (localConfig.trim() === "") return; // Empty config, we do nothing.
+	localConfig = JSON.parse(localConfig);
+
+	asker     = either( localConfig.asker,     asker     );
+	replier   = either( localConfig.replier,   replier   );
+	tcan      = either( localConfig.tcan,      tcan      );
+	livlytcan = either( localConfig.livlytcan, livlytcan );
+	server    = either( localConfig.server,    server    );
+}
 
 var irc = require('irc');
 var client = new irc.Client(config.server, config.nick, config.options);

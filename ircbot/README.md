@@ -12,40 +12,38 @@ In order to autoupdate dumps immediately type "mensi: ko ningau lo nei"
 
 ## Configuration:
 
+Configuration is done in “~/.livla/config.json”.
+
+Here is the default configuration:
+
+```json
+{
+        "tcan": "#lojban,#ckule",
+        "livlytcan": "##jboselbau",
+        "server": "irc.freenode.net",
+        "asker": "livla",
+        "replier": "mensi"
+}
+```
+
+Every part of the configuration that is ommitted will be set to these default.
+So, if your configuration file looks like that:
+
+```json
+{
+	"server": "irc.example.com"
+}
+```
+
+Your bot will connect to “#lojban” and “#ckule” of the “irc.example.com”
+instead of those of “irc.freenode.net”.
+
  - `tcan` is the list of channels to which the replier will connect.
  - `livlytcan` is a channel where the asker talks to the replier.
  - `asker` is the name of the asker
  - `replier` is the name of the replier
+ - `server` is the name of the IRC network to which the bot will connect.
 
-You may want to modify `config` and `configmensi`. Actually, they both connect
-to “#gleki” as well as “livlytcan”. Gleki is the original author of the script
-and use this channel to do his testing. You can remove his hardcoded channel.
-
-I currently tested this configuration without crash:
-
-```javascript
-var config = {
-  server: 'irc.freenode.net',
-  nick: asker,
-  options: {
-    channels: [livlytcan],
-    debug: false,
-    realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
-    messageSplit: 276
-  }
-};
-
-var configmensi = {
-  server: 'irc.freenode.net',
-  nick: replier,
-  options: {
-    channels: [tcan, livlytcan],
-    debug: false,
-    messageSplit: 276,
-    realName: 'http://mw.lojban.org/index.php?title=IRC_Bots'
-  }
-};
-```
 
 ## Issues related to the libxmljs installation:
 

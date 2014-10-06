@@ -34,6 +34,30 @@ var configmensi = {
   }
 };
 
+// Ensure that a path exists, and that it is a dir.
+function ensureDirExistence(path) {
+	// We first try to make a dir. If it was missing, now, it is not
+	// anymore.
+	try {
+		fs.mkdirSync(path);
+	} catch (e) {
+		// If creation of the dir failed, there can be many reasons.
+		// However, if the reason is not “there was already a file
+		// there!”, we don't want to ignore the error, so we throw it
+		// again.
+		if (typeof(e.code) === "undefined" || e.code !== 'EEXIST') {
+			throw e;
+		}
+		// In the case where the path was taken, we want to be sure it
+		// is a directory. If the path existed *and* it is a directory,
+		// all is good.  Otherwise, we would be asking for trouble by
+		// trying to use a file, socket, or whatever as a directory.
+		if (!fs.statSync(path).isDirectory()) {
+			throw new Error("“" + path + "” is not a directory.");
+		}
+	}
+}
+
 var irc = require('irc');
 var client = new irc.Client(config.server, config.nick, config.options);
 var clientmensi = new irc.Client(configmensi.server, configmensi.nick, configmensi.options);
@@ -50,14 +74,7 @@ clientmensi.addListener('message', function(from, to, text, message) {
 	// We use synchronous calls as it is not a problem to block for a short
 	// time at initialisation, and it makes the code more straightforward.
 	notcijudri=path.join(path.homedir(),".livla","notci.txt");
-	// create notcijudri directory if needed
-	try {
-		fs.mkdirSync(path.join(path.homedir(),".livla"));
-	} catch (e) {
-		if (typeof(e.code) == "undefined" || e.code != 'EEXIST') {
-			throw(e);
-		}
-	}
+	ensureDirExistence(path.join(path.homedir(),".livla"));
 	// create notcijudri file if it did not exist.
 	fs.appendFileSync(notcijudri, ""); 
 	// put each line of "notci.txt" as an array in notci

@@ -76,6 +76,15 @@ function readConfig(filename) {
 	}
 }
 
+// Load every line of “~/.livla/notci.txt” into “notci”, as an array. 
+// Define “notcijudri” as the file path that will be used later when we want to
+// save the content of “notci”.
+function loadNotci() {
+	notci = readConfig("notci.txt").split("\n");
+	notcijudri = path.join(path.homedir(),".livla","notci.txt");
+}
+
+
 var irc = require('irc');
 var client = new irc.Client(config.server, config.nick, config.options);
 var clientmensi = new irc.Client(configmensi.server, configmensi.nick, configmensi.options);
@@ -88,11 +97,7 @@ clientmensi.addListener('message', function(from, to, text, message) {
     processormensi(clientmensi, from, to, text, message);
 });
 
-//prepare notci functions
-	notcijudri=path.join(path.homedir(),".livla","notci.txt");
-	// put each line of "notci.txt" as an array in notci
-	notci = readConfig("nocti.txt").split("\n");
-///end notci
+loadNotci();
 
 var updatexmldumps = function () {
 var err;

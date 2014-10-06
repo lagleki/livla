@@ -75,7 +75,7 @@ function readConfig(filename) {
 	} catch (e) {
 		// If we get an “ENOENT” error, we return an empty string.
 		// Other errors are still thrown.
-		if (typeof(e.code) == "undefined" || e.code != 'ENOENT') {
+		if (typeof(e.code) === "undefined" || e.code !== 'ENOENT') {
 			throw e;
 		}
 		return "";

@@ -5,14 +5,14 @@ var s,t,notci,notcijudri;
 var tato= require('./tatoeba.js');
 var interv=300000;
 var interm=2900;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 var tcan='#lojban,#ckule,#khanat';
-=======
+//=======
 
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
 var tcan='#lojban,#ckule';
->>>>>>> 10a7da789641dfdc44f9b444f18d61cbf813f2aa
+//>>>>>>> 10a7da789641dfdc44f9b444f18d61cbf813f2aa
 var livlytcan='##jboselbau';//where la livla talks to la mensi 
 var asker='livla';
 var replier='mensi';

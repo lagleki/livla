@@ -10,6 +10,8 @@ Typing in the chat "rafsi: pof" will return "spofu". "rafsi: spofu" will return 
 
 In order to autoupdate dumps immediately type "mensi: ko ningau lo nei"
 
+Some more informations are found [here](http://mw.lojban.org/index.php?title=IRC_Bots#mensi.2C_livla).
+
 ## Configuration:
 
 Configuration is done in “~/.livla/config.json”.

@@ -953,8 +953,8 @@
   </user>
   <definition>$x_1$ is a predicate with relationship $x_2$ among arguments $x_3$</definition>
   <definitionid>54707</definitionid>
-  <glossword word="a predicate text" />
-  <keyword word="a predicate text" place="1" />
+  <glossword word="a predicate" />
+  <keyword word="a predicate" place="1" />
   <keyword word="a predicate relationship" place="2" />
   <keyword word="a predicate argument" place="3" />
 </valsi>
@@ -15831,8 +15831,8 @@
   <definition>$x_1$ acknowledges making mistake $x_2$ (property of x1)</definition>
   <definitionid>57354</definitionid>
   <notes>{sei} {upsi} = &apos;Oops! Whoops!&apos; See {srera}, {randa}, {jinvi}</notes>
-  <glossword word="feel oops" />
   <glossword word="feel whoops" />
+  <glossword word="feel oops" />
 </valsi>
 <valsi word="vacri" type="gismu">
   <rafsi>var</rafsi>
@@ -17552,15 +17552,15 @@
 <nlword word="something to which something is later" valsi="balvi" place="2" />
 <nlword word="something which is later than something" valsi="balvi" />
 <nlword word="bamboo" valsi="bambu" />
-<nlword word="a property exceeded" valsi="bancu" place="4" />
 <nlword word="an exceeded limit" valsi="bancu" place="2" />
 <nlword word="an exceeder" valsi="bancu" />
+<nlword word="a property exceeded" valsi="bancu" place="4" />
 <nlword word="something exceeded" valsi="bancu" place="3" />
 <nlword word="a defender" valsi="bandu" />
 <nlword word="a threat defended" valsi="bandu" place="3" />
 <nlword word="something defended" valsi="bandu" place="2" />
-<nlword word="a species of amphibian" valsi="banfi" place="2" />
 <nlword word="an amphibian" valsi="banfi" />
+<nlword word="a species of amphibian" valsi="banfi" place="2" />
 <nlword word="a language" valsi="bangu" />
 <nlword word="a user of a language" valsi="bangu" place="2" />
 <nlword word="something expressed in a language" valsi="bangu" place="3" />
@@ -17571,8 +17571,8 @@
 <nlword word="a form before growth" valsi="banro" place="3" />
 <nlword word="a growing" valsi="banro" />
 <nlword word="a bank" valsi="banxa" />
-<nlword word="a bank owner or system" valsi="banxa" place="2" />
 <nlword word="a banking function" valsi="banxa" place="3" />
+<nlword word="a bank owner or system" valsi="banxa" place="2" />
 <nlword word="an event&apos;s force" valsi="bapli" />
 <nlword word="something forced to occur" valsi="bapli" place="2" />
 <nlword word="a large" valsi="barda" />
@@ -17636,9 +17636,9 @@
 <nlword word="a sufferer of a tragedy" valsi="betri" place="2" />
 <nlword word="a tragedy" valsi="betri" />
 <nlword word="a transport destination" valsi="bevri" place="3" />
+<nlword word="a transporter" valsi="bevri" />
 <nlword word="a transport origin" valsi="bevri" place="4" />
 <nlword word="a transport route" valsi="bevri" place="5" />
-<nlword word="a transporter" valsi="bevri" />
 <nlword word="something transported" valsi="bevri" place="2" />
 <nlword word="a bead" valsi="bidju" />
 <nlword word="a material of a bead" valsi="bidju" place="2" />
@@ -17700,12 +17700,12 @@
 <nlword word="a material of a sheet" valsi="boxfo" place="2" />
 <nlword word="a sheet" valsi="boxfo" />
 <nlword word="a wave" valsi="boxna" />
-<nlword word="a wave frequency" valsi="boxna" place="5" />
-<nlword word="a wave medium" valsi="boxna" place="2" />
 <nlword word="a waveform" valsi="boxna" place="3" />
+<nlword word="a wave frequency" valsi="boxna" place="5" />
 <nlword word="a wavelength" valsi="boxna" place="4" />
-<nlword word="a struggle between enemies" valsi="bradi" place="3" />
+<nlword word="a wave medium" valsi="boxna" place="2" />
 <nlword word="an enemy" valsi="bradi" />
+<nlword word="a struggle between enemies" valsi="bradi" place="3" />
 <nlword word="something with an enemy" valsi="bradi" place="2" />
 <nlword word="a material of hail" valsi="bratu" place="2" />
 <nlword word="hail" valsi="bratu" />
@@ -17713,6 +17713,7 @@
 <nlword word="something Brazilian" valsi="brazo" />
 <nlword word="something ready" valsi="bredi" />
 <nlword word="something ready for" valsi="bredi" place="2" />
+<nlword word="a predicate" valsi="bridi" place="1" />
 <nlword word="a predicate argument" valsi="bridi" place="3" />
 <nlword word="a predicate relationship" valsi="bridi" place="2" />
 <nlword word="a predicate text" valsi="bridi" />
@@ -17738,9 +17739,9 @@
 <nlword word="a quantity of cloth" valsi="bukpu" />
 <nlword word="a fog&apos;s liquid" valsi="bumru" place="2" />
 <nlword word="something foggy" valsi="bumru" />
+<nlword word="an amount of non-metric weight" valsi="bunda" place="2" />
 <nlword word="a non-metric weight standard" valsi="bunda" place="3" />
 <nlword word="a subunit of a non-metric weight" valsi="bunda" place="4" />
-<nlword word="an amount of non-metric weight" valsi="bunda" place="2" />
 <nlword word="something measured in non-metric weight" valsi="bunda" />
 <nlword word="something brown" valsi="bunre" />
 <nlword word="a brush" valsi="burcu" />
@@ -17794,8 +17795,8 @@
 <nlword word="a carriage" valsi="carce" />
 <nlword word="a carriage&apos;s propulsion" valsi="carce" place="3" />
 <nlword word="something carried by a carriage" valsi="carce" place="2" />
-<nlword word="a property of brightness" valsi="carmi" place="2" />
 <nlword word="an observer of brightness" valsi="carmi" place="3" />
+<nlword word="a property of brightness" valsi="carmi" place="2" />
 <nlword word="something bright" valsi="carmi" />
 <nlword word="a direction of rotation" valsi="carna" place="3" />
 <nlword word="an axis of rotation" valsi="carna" place="2" />
@@ -17876,8 +17877,8 @@
 <nlword word="a limb with a hinged joint" valsi="cidni" place="2" />
 <nlword word="something with a hinged limb" valsi="cidni" place="3" />
 <nlword word="a quantity of hydrogen" valsi="cidro" />
-<nlword word="a species of an infant" valsi="cifnu" place="2" />
 <nlword word="an infant" valsi="cifnu" />
+<nlword word="a species of an infant" valsi="cifnu" place="2" />
 <nlword word="a gland" valsi="cigla" />
 <nlword word="a gland&apos;s secretion" valsi="cigla" place="2" />
 <nlword word="something with a gland" valsi="cigla" place="3" />
@@ -17908,14 +17909,14 @@
 <nlword word="a kissed place" valsi="cinba" place="3" />
 <nlword word="a kisser" valsi="cinba" />
 <nlword word="something kissed" valsi="cinba" place="2" />
-<nlword word="a species of oak" valsi="cindu" place="2" />
 <nlword word="an oak" valsi="cindu" />
+<nlword word="a species of oak" valsi="cindu" place="2" />
 <nlword word="a lion" valsi="cinfo" />
 <nlword word="a species of lion" valsi="cinfo" place="2" />
 <nlword word="a wrinkle" valsi="cinje" />
 <nlword word="something wrinkled" valsi="cinje" place="2" />
-<nlword word="a species of insect" valsi="cinki" place="2" />
 <nlword word="an insect" valsi="cinki" />
+<nlword word="a species of insect" valsi="cinki" place="2" />
 <nlword word="a dimension of thinness" valsi="cinla" place="2" />
 <nlword word="a standard of thinness" valsi="cinla" place="3" />
 <nlword word="something thin" valsi="cinla" place="1" />
@@ -17983,8 +17984,8 @@
 <nlword word="dangerous" valsi="ckape" />
 <nlword word="something dangerous" valsi="ckape" place="1" />
 <nlword word="something in danger" valsi="ckape" place="2" />
-<nlword word="a ridiculer" valsi="ckasu" />
 <nlword word="an act of ridiculing" valsi="ckasu" place="4" />
+<nlword word="a ridiculer" valsi="ckasu" />
 <nlword word="something ridiculed" valsi="ckasu" place="2" />
 <nlword word="something ridiculed about" valsi="ckasu" place="3" />
 <nlword word="a condition of shame" valsi="ckeji" place="2" />
@@ -18002,10 +18003,10 @@
 <nlword word="a reciever of gratefulness" valsi="ckire" place="2" />
 <nlword word="something grateful" valsi="ckire" />
 <nlword word="a location of a school" valsi="ckule" place="2" />
+<nlword word="an operator of a shcool" valsi="ckule" place="5" />
 <nlword word="a pupil of a school" valsi="ckule" place="4" />
 <nlword word="a school" valsi="ckule" />
 <nlword word="a subject taught in a school" valsi="ckule" place="3" />
-<nlword word="an operator of a shcool" valsi="ckule" place="5" />
 <nlword word="a cone of a conifer" valsi="ckunu" place="3" />
 <nlword word="a conifer" valsi="ckunu" />
 <nlword word="a species of conifer" valsi="ckunu" place="2" />
@@ -18051,9 +18052,9 @@
 <nlword word="a moaner" valsi="cmoni" />
 <nlword word="something expressed by a moan" valsi="cmoni" place="3" />
 <nlword word="a average&apos;s property" valsi="cnano" place="2" />
-<nlword word="a set of an average" valsi="cnano" place="3" />
 <nlword word="an average" valsi="cnano" place="1" />
 <nlword word="an average&apos;s standard" valsi="cnano" place="4" />
+<nlword word="a set of an average" valsi="cnano" place="3" />
 <nlword word="a neck" valsi="cnebo" />
 <nlword word="something with a neck" valsi="cnebo" place="2" />
 <nlword word="a reason for a reward" valsi="cnemu" place="3" />
@@ -18063,8 +18064,8 @@
 <nlword word="a property of neatness" valsi="cnici" place="2" />
 <nlword word="something neat" valsi="cnici" />
 <nlword word="a feature of newness" valsi="cnino" place="3" />
-<nlword word="a standard of newness" valsi="cnino" place="4" />
 <nlword word="an observer of newness" valsi="cnino" place="2" />
+<nlword word="a standard of newness" valsi="cnino" place="4" />
 <nlword word="something new" valsi="cnino" place="1" />
 <nlword word="a quantity of lead" valsi="cnisa" />
 <nlword word="a reference frame of beneathness" valsi="cnita" place="3" />
@@ -18096,9 +18097,9 @@
 <nlword word="something requested" valsi="cpedu" place="2" />
 <nlword word="a sense something is pungent to" valsi="cpina" place="2" />
 <nlword word="something pungent" valsi="cpina" />
-<nlword word="a broadcast receiver" valsi="cradi" place="4" />
 <nlword word="a broadcaster" valsi="cradi" />
 <nlword word="a broadcasting station" valsi="cradi" place="3" />
+<nlword word="a broadcast receiver" valsi="cradi" place="4" />
 <nlword word="something broadcast" valsi="cradi" place="2" />
 <nlword word="a reference frame for being in front" valsi="crane" place="3" />
 <nlword word="something in front" valsi="crane" />
@@ -18136,13 +18137,13 @@
 <nlword word="a quantity of petroleum" valsi="ctile" />
 <nlword word="a source of petroleum" valsi="ctile" place="2" />
 <nlword word="a light source making a shadow" valsi="ctino" place="3" />
-<nlword word="a shadow" valsi="ctino" />
 <nlword word="an object with a shadow" valsi="ctino" place="2" />
+<nlword word="a shadow" valsi="ctino" />
 <nlword word="a method of teaching" valsi="ctuca" place="5" />
-<nlword word="a subject taught" valsi="ctuca" place="4" />
-<nlword word="a teacher" valsi="ctuca" />
 <nlword word="an audience of teaching" valsi="ctuca" place="2" />
 <nlword word="an idea taught" valsi="ctuca" place="3" />
+<nlword word="a subject taught" valsi="ctuca" place="4" />
+<nlword word="a teacher" valsi="ctuca" />
 <nlword word="something round" valsi="cukla" />
 <nlword word="a book" valsi="cukta" />
 <nlword word="a book medium" valsi="cukta" place="5" />
@@ -18175,8 +18176,8 @@
 <nlword word="a property of pureness" valsi="curve" place="2" />
 <nlword word="something pure" valsi="curve" />
 <nlword word="a medium for something said" valsi="cusku" place="4" />
-<nlword word="a sayer" valsi="cusku" />
 <nlword word="an audience of something said" valsi="cusku" place="3" />
+<nlword word="a sayer" valsi="cusku" />
 <nlword word="something said" valsi="cusku" place="2" />
 <nlword word="a material of a shoe" valsi="cutci" place="3" />
 <nlword word="a shoe" valsi="cutci" />
@@ -18206,8 +18207,8 @@
 <nlword word="a method of suspension" valsi="dandu" place="3" />
 <nlword word="a suspension support" valsi="dandu" place="2" />
 <nlword word="something suspended" valsi="dandu" />
-<nlword word="a problem with an answer" valsi="danfu" place="2" />
 <nlword word="an answer" valsi="danfu" />
+<nlword word="a problem with an answer" valsi="danfu" place="2" />
 <nlword word="a creature" valsi="danlu" />
 <nlword word="a species of a creature" valsi="danlu" place="2" />
 <nlword word="a source of smoke" valsi="danmo" place="2" />
@@ -18251,12 +18252,12 @@
 <nlword word="a ribbon" valsi="dasri" />
 <nlword word="a duck" valsi="datka" />
 <nlword word="a species of duck" valsi="datka" place="2" />
-<nlword word="a subject of information" valsi="datni" place="2" />
 <nlword word="an information gathering method" valsi="datni" place="3" />
+<nlword word="a subject of information" valsi="datni" place="2" />
 <nlword word="information" valsi="datni" />
 <nlword word="date" valsi="datru" />
-<nlword word="a tenth" valsi="decti" />
 <nlword word="an aspect of a tenth" valsi="decti" place="3" />
+<nlword word="a tenth" valsi="decti" />
 <nlword word="something measured in tenths" valsi="decti" place="2" />
 <nlword word="a finger or toe" valsi="degji" />
 <nlword word="a limb with a finger or toe" valsi="degji" place="2" />
@@ -18265,9 +18266,9 @@
 <nlword word="a debt creditor" valsi="dejni" place="3" />
 <nlword word="a debtor" valsi="dejni" />
 <nlword word="a reason for a debt" valsi="dejni" place="4" />
+<nlword word="an amount of non-metric volume" valsi="dekpu" place="2" />
 <nlword word="a non-metric volume standard" valsi="dekpu" place="3" />
 <nlword word="a subunit of a non-metric volume" valsi="dekpu" place="4" />
-<nlword word="an amount of non-metric volume" valsi="dekpu" place="2" />
 <nlword word="something measured in non-metric volume" valsi="dekpu" />
 <nlword word="an aspect of tens" valsi="dekto" place="3" />
 <nlword word="something measured in tens" valsi="dekto" place="2" />
@@ -18298,8 +18299,8 @@
 <nlword word="a date" valsi="detri" />
 <nlword word="a location of a date" valsi="detri" place="3" />
 <nlword word="an event with a date" valsi="detri" place="2" />
-<nlword word="a reason for interruption" valsi="dicra" place="3" />
 <nlword word="an interrupter" valsi="dicra" />
+<nlword word="a reason for interruption" valsi="dicra" place="3" />
 <nlword word="something interrupted" valsi="dicra" place="2" />
 <nlword word="deducer" valsi="didni" />
 <nlword word="an amount of electricity" valsi="dikca" place="3" />
@@ -18308,8 +18309,8 @@
 <nlword word="a center of locality" valsi="diklo" place="2" />
 <nlword word="a range of locality" valsi="diklo" place="3" />
 <nlword word="something local" valsi="diklo" />
-<nlword word="a property of regularness" valsi="dikni" place="2" />
 <nlword word="an interval of regularness" valsi="dikni" place="3" />
+<nlword word="a property of regularness" valsi="dikni" place="2" />
 <nlword word="something regular" valsi="dikni" />
 <nlword word="a quotient" valsi="dilcu" />
 <nlword word="a quotient&apos;s dividend" valsi="dilcu" place="2" />
@@ -18347,23 +18348,23 @@
 <nlword word="a purpose for a desire" valsi="djica" place="3" />
 <nlword word="something desired" valsi="djica" place="2" />
 <nlword word="a material of a ring" valsi="djine" place="2" />
-<nlword word="a ring" valsi="djine" />
 <nlword word="an inside diameter of a ring" valsi="djine" place="3" />
 <nlword word="an outside diameter of a ring" valsi="djine" place="4" />
+<nlword word="a ring" valsi="djine" />
 <nlword word="a fact known" valsi="djuno" place="2" />
 <nlword word="a knower" valsi="djuno" />
-<nlword word="a subject known" valsi="djuno" place="3" />
 <nlword word="an epistemology of knowing" valsi="djuno" place="4" />
-<nlword word="a day with a daytime" valsi="donri" place="2" />
+<nlword word="a subject known" valsi="djuno" place="3" />
 <nlword word="a daytime" valsi="donri" />
+<nlword word="a day with a daytime" valsi="donri" place="2" />
 <nlword word="a location with a daytime" valsi="donri" place="3" />
 <nlword word="a German aspect" valsi="dotco" place="2" />
 <nlword word="something German" valsi="dotco" />
-<nlword word="a play" valsi="draci" />
-<nlword word="a plot of a play" valsi="draci" place="2" />
 <nlword word="an actor of a play" valsi="draci" place="5" />
 <nlword word="an audience of a play" valsi="draci" place="4" />
 <nlword word="an author of a play" valsi="draci" place="3" />
+<nlword word="a play" valsi="draci" />
+<nlword word="a plot of a play" valsi="draci" place="2" />
 <nlword word="a property of correctness" valsi="drani" place="2" />
 <nlword word="a situation for correctness" valsi="drani" place="3" />
 <nlword word="a standard of correctness" valsi="drani" place="4" />
@@ -18376,13 +18377,13 @@
 <nlword word="a base of a logarithm" valsi="dugri" place="3" />
 <nlword word="a logarithm" valsi="dugri" />
 <nlword word="something with a logarithm" valsi="dugri" place="2" />
-<nlword word="a standard of excess" valsi="dukse" place="3" />
 <nlword word="an excess" valsi="dukse" />
+<nlword word="a standard of excess" valsi="dukse" place="3" />
 <nlword word="excess" valsi="dukse" place="2" />
 <nlword word="something in excess" valsi="dukse" place="1" />
 <nlword word="too much" valsi="dukse" />
-<nlword word="a scale of an opposite" valsi="dukti" place="3" />
 <nlword word="an opposite" valsi="dukti" />
+<nlword word="a scale of an opposite" valsi="dukti" place="3" />
 <nlword word="something with an opposite" valsi="dukti" place="2" />
 <nlword word="a gift" valsi="dunda" place="2" />
 <nlword word="a giver" valsi="dunda" />
@@ -18501,8 +18502,8 @@
 <nlword word="a species of fish" valsi="finpe" place="2" />
 <nlword word="a creater" valsi="finti" />
 <nlword word="a creation" valsi="finti" place="2" />
-<nlword word="a purpose of creation" valsi="finti" place="3" />
 <nlword word="an element in creation" valsi="finti" place="4" />
+<nlword word="a purpose of creation" valsi="finti" place="3" />
 <nlword word="flirter" valsi="firca" />
 <nlword word="a community with a law" valsi="flalu" place="3" />
 <nlword word="a law" valsi="flalu" />
@@ -18559,8 +18560,8 @@
 <nlword word="something receiving offering" valsi="friti" place="3" />
 <nlword word="a frowner" valsi="frumu" />
 <nlword word="a copy" valsi="fukpi" />
-<nlword word="a copy media" valsi="fukpi" place="3" />
 <nlword word="a copying method" valsi="fukpi" place="4" />
+<nlword word="a copy media" valsi="fukpi" place="3" />
 <nlword word="something copied" valsi="fukpi" place="2" />
 <nlword word="a floater" valsi="fulta" />
 <nlword word="something floated on" valsi="fulta" place="2" />
@@ -18572,8 +18573,8 @@
 <nlword word="something holding something responsible" valsi="fuzme" place="3" />
 <nlword word="somethings held responsible" valsi="fuzme" />
 <nlword word="a language of an article" valsi="gadri" place="3" />
-<nlword word="a semantic of an article" valsi="gadri" place="4" />
 <nlword word="an article" valsi="gadri" />
+<nlword word="a semantic of an article" valsi="gadri" place="4" />
 <nlword word="something labelled by an article" valsi="gadri" place="2" />
 <nlword word="a modification result" valsi="galfi" place="3" />
 <nlword word="a modified" valsi="galfi" place="2" />
@@ -18687,17 +18688,17 @@
 <nlword word="an industry" valsi="gundi" />
 <nlword word="something produced by an industry" valsi="gundi" place="2" />
 <nlword word="a work activity" valsi="gunka" place="2" />
-<nlword word="a work goal" valsi="gunka" place="3" />
 <nlword word="a worker" valsi="gunka" />
+<nlword word="a work goal" valsi="gunka" place="3" />
 <nlword word="a component of an aggregate" valsi="gunma" place="2" />
 <nlword word="an aggregate" valsi="gunma" />
+<nlword word="an axle of a roller" valsi="gunro" place="3" />
 <nlword word="a roller" valsi="gunro" />
 <nlword word="a rolling surface" valsi="gunro" place="2" />
-<nlword word="an axle of a roller" valsi="gunro" place="3" />
 <nlword word="a goose" valsi="gunse" />
 <nlword word="a species of goose" valsi="gunse" place="2" />
-<nlword word="an attack goal" valsi="gunta" place="3" />
 <nlword word="an attacker" valsi="gunta" />
+<nlword word="an attack goal" valsi="gunta" place="3" />
 <nlword word="something attacked" valsi="gunta" place="2" />
 <nlword word="a grain" valsi="gurni" />
 <nlword word="a species of grain" valsi="gurni" place="2" />
@@ -18710,17 +18711,17 @@
 <nlword word="a restaurant" valsi="gusta" />
 <nlword word="a restaurant customer" valsi="gusta" place="3" />
 <nlword word="a restaurant food" valsi="gusta" place="2" />
+<nlword word="an amount of non-metric distance" valsi="gutci" place="2" />
 <nlword word="a non-metric short distance standard" valsi="gutci" place="3" />
 <nlword word="a subunit of a non-metric short distance" valsi="gutci" place="4" />
-<nlword word="an amount of non-metric distance" valsi="gutci" place="2" />
 <nlword word="something measured in non-metric short distance" valsi="gutci" />
 <nlword word="a womb" valsi="gutra" />
 <nlword word="something with a womb" valsi="gutra" place="2" />
 <nlword word="a melon" valsi="guzme" />
 <nlword word="a species of melon" valsi="guzme" place="2" />
 <nlword word="infect" valsi="infekte" />
-<nlword word="-ist" valsi="iste" />
 <nlword word="have occupation" valsi="iste" />
+<nlword word="-ist" valsi="iste" />
 <nlword word="a means for braking" valsi="jabre" place="3" />
 <nlword word="something braked" valsi="jabre" place="2" />
 <nlword word="something braking" valsi="jabre" />
@@ -18764,9 +18765,9 @@
 <nlword word="a narrow dimension" valsi="jarki" place="2" />
 <nlword word="a standard of narrowness" valsi="jarki" place="3" />
 <nlword word="something narrow" valsi="jarki" place="1" />
+<nlword word="an activity allowed by a passport" valsi="jaspu" place="4" />
 <nlword word="a passport" valsi="jaspu" />
 <nlword word="a passport issuer" valsi="jaspu" place="3" />
-<nlword word="an activity allowed by a passport" valsi="jaspu" place="4" />
 <nlword word="something with a passport" valsi="jaspu" place="2" />
 <nlword word="a commander" valsi="jatna" />
 <nlword word="something commanded" valsi="jatna" place="2" />
@@ -18814,8 +18815,8 @@
 <nlword word="something lasting weeks" valsi="jeftu" place="1" />
 <nlword word="a Judeo-Christian aspect" valsi="jegvo" place="2" />
 <nlword word="something Judeo-Christian" valsi="jegvo" />
-<nlword word="a temperature at which something burns" valsi="jelca" place="2" />
 <nlword word="an atmosphere in which something burns" valsi="jelca" place="3" />
+<nlword word="a temperature at which something burns" valsi="jelca" place="2" />
 <nlword word="something that burns" valsi="jelca" />
 <nlword word="a gem" valsi="jemna" />
 <nlword word="a gem type" valsi="jemna" place="2" />
@@ -18828,9 +18829,9 @@
 <nlword word="an army" valsi="jenmi" />
 <nlword word="an army function" valsi="jenmi" place="3" />
 <nlword word="something served by an army" valsi="jenmi" place="2" />
+<nlword word="an earner of salary" valsi="jerna" />
 <nlword word="a salaried work" valsi="jerna" place="3" />
 <nlword word="a salary" valsi="jerna" place="2" />
-<nlword word="an earner of salary" valsi="jerna" />
 <nlword word="a chaseer" valsi="jersi" />
 <nlword word="something chased" valsi="jersi" place="2" />
 <nlword word="an Algerian aspect" valsi="jerxo" place="2" />
@@ -18844,9 +18845,9 @@
 <nlword word="something true" valsi="jetnu" />
 <nlword word="a claw" valsi="jgalu" />
 <nlword word="something with a claw" valsi="jgalu" place="2" />
-<nlword word="a vertex of an angle" valsi="jganu" place="2" />
 <nlword word="an angle" valsi="jganu" />
 <nlword word="an angle segment" valsi="jganu" place="3" />
+<nlword word="a vertex of an angle" valsi="jganu" place="2" />
 <nlword word="a holder" valsi="jgari" />
 <nlword word="a location of hold" valsi="jgari" place="4" />
 <nlword word="something held" valsi="jgari" place="2" />
@@ -18884,8 +18885,8 @@
 <nlword word="something envious" valsi="jilra" />
 <nlword word="a branch" valsi="jimca" />
 <nlword word="something with a branch" valsi="jimca" place="2" />
-<nlword word="a subject of something understood" valsi="jimpe" place="3" />
 <nlword word="an understander" valsi="jimpe" />
+<nlword word="a subject of something understood" valsi="jimpe" place="3" />
 <nlword word="something understood" valsi="jimpe" place="2" />
 <nlword word="a limit" valsi="jimte" />
 <nlword word="a property of a limit" valsi="jimte" place="3" />
@@ -18910,9 +18911,9 @@
 <nlword word="a fluid in a well" valsi="jinto" place="2" />
 <nlword word="a location of a well" valsi="jinto" place="3" />
 <nlword word="a well" valsi="jinto" />
+<nlword word="an opinion" valsi="jinvi" place="2" />
 <nlword word="a reason for an opinion" valsi="jinvi" place="4" />
 <nlword word="a subject of an opinion" valsi="jinvi" place="3" />
-<nlword word="an opinion" valsi="jinvi" place="2" />
 <nlword word="something with an opinion" valsi="jinvi" />
 <nlword word="something innate" valsi="jinzi" />
 <nlword word="something with an innate property" valsi="jinzi" place="2" />
@@ -18935,8 +18936,8 @@
 <nlword word="a yarn for weaving" valsi="jivbu" place="3" />
 <nlword word="a competition" valsi="jivna" place="3" />
 <nlword word="a competitor" valsi="jivna" />
-<nlword word="a prize of a competition" valsi="jivna" place="4" />
 <nlword word="an opponent in a competition" valsi="jivna" place="2" />
+<nlword word="a prize of a competition" valsi="jivna" place="4" />
 <nlword word="a location of a gathering" valsi="jmaji" place="2" />
 <nlword word="an origin of a gathering" valsi="jmaji" place="3" />
 <nlword word="something gathering" valsi="jmaji" />
@@ -18957,8 +18958,8 @@
 <nlword word="a material of table" valsi="jubme" place="2" />
 <nlword word="a table" valsi="jubme" />
 <nlword word="a table support" valsi="jubme" place="3" />
-<nlword word="a system defining an address" valsi="judri" place="3" />
 <nlword word="an address" valsi="judri" />
+<nlword word="a system defining an address" valsi="judri" place="3" />
 <nlword word="something with an address" valsi="judri" place="2" />
 <nlword word="a language of a sentence" valsi="jufra" place="3" />
 <nlword word="a sentence" valsi="jufra" />
@@ -19002,16 +19003,16 @@
 <nlword word="a cup" valsi="kabri" />
 <nlword word="a material of a cup" valsi="kabri" place="3" />
 <nlword word="a camera" valsi="kacma" />
-<nlword word="a photographic medium used in a camera" valsi="kacma" place="3" />
 <nlword word="an image type recorded by camera" valsi="kacma" place="2" />
+<nlword word="a photographic medium used in a camera" valsi="kacma" place="3" />
 <nlword word="a Canadian aspect" valsi="kadno" place="2" />
 <nlword word="something Canadian" valsi="kadno" />
 <nlword word="a cougher" valsi="kafke" />
 <nlword word="a coughing orifice" valsi="kafke" place="3" />
 <nlword word="something coughed" valsi="kafke" place="2" />
 <nlword word="a company" valsi="kagni" />
-<nlword word="a purpose of a company" valsi="kagni" place="3" />
 <nlword word="an authority chartering a company" valsi="kagni" place="2" />
+<nlword word="a purpose of a company" valsi="kagni" place="3" />
 <nlword word="a danger warned of" valsi="kajde" place="3" />
 <nlword word="a warner" valsi="kajde" />
 <nlword word="someting warned" valsi="kajde" place="2" />
@@ -19047,10 +19048,10 @@
 <nlword word="Welsh" valsi="kamro" />
 <nlword word="a goat" valsi="kanba" />
 <nlword word="a species of goat" valsi="kanba" place="2" />
-<nlword word="a count result" valsi="kancu" place="3" />
-<nlword word="a count unit" valsi="kancu" place="4" />
 <nlword word="a counted set" valsi="kancu" place="2" />
 <nlword word="a counter" valsi="kancu" />
+<nlword word="a count result" valsi="kancu" place="3" />
+<nlword word="a count unit" valsi="kancu" place="4" />
 <nlword word="a measurer of dimness" valsi="kandi" place="3" />
 <nlword word="a property of dimness" valsi="kandi" place="2" />
 <nlword word="something dim" valsi="kandi" />
@@ -19140,8 +19141,8 @@
 <nlword word="a weeper" valsi="klaku" />
 <nlword word="a destination gone to" valsi="klama" place="2" />
 <nlword word="a method of going" valsi="klama" place="5" />
-<nlword word="a route gone by" valsi="klama" place="4" />
 <nlword word="an origin gone from" valsi="klama" place="3" />
+<nlword word="a route gone by" valsi="klama" place="4" />
 <nlword word="something going" valsi="klama" />
 <nlword word="a measurement scale of a quantity" valsi="klani" place="3" />
 <nlword word="a measurer of a quantity" valsi="klani" place="2" />
@@ -19186,9 +19187,9 @@
 <nlword word="a jacket" valsi="kosta" />
 <nlword word="a material of a jacket" valsi="kosta" place="2" />
 <nlword word="legal or moral right" valsi="krali" />
+<nlword word="an amount of non-metric area" valsi="kramu" place="2" />
 <nlword word="a non-metric area standard" valsi="kramu" place="3" />
 <nlword word="a subunit of a non-metric area" valsi="kramu" place="4" />
-<nlword word="an amount of non-metric area" valsi="kramu" place="2" />
 <nlword word="something measured in non-metric area" valsi="kramu" />
 <nlword word="an origin" valsi="krasi" />
 <nlword word="something with an origin" valsi="krasi" place="2" />
@@ -19202,8 +19203,8 @@
 <nlword word="a subject of a belief" valsi="krici" place="3" />
 <nlword word="something believed" valsi="krici" place="2" />
 <nlword word="a composition of crystal" valsi="krili" place="2" />
-<nlword word="a quantity of crystal" valsi="krili" />
 <nlword word="an arrangement of crystal" valsi="krili" place="3" />
+<nlword word="a quantity of crystal" valsi="krili" />
 <nlword word="a justification" valsi="krinu" />
 <nlword word="something justified" valsi="krinu" place="2" />
 <nlword word="a yelled sound" valsi="krixa" place="2" />
@@ -19319,8 +19320,8 @@
 <nlword word="a taker" valsi="lebna" />
 <nlword word="something from which something is taken" valsi="lebna" place="3" />
 <nlword word="something taken" valsi="lebna" place="2" />
-<nlword word="$x_1$ is a lily of species/strain $x_2$" valsi="lelxe" />
 <nlword word="lily" valsi="lelxe" place="1" />
+<nlword word="$x_1$ is a lily of species/strain $x_2$" valsi="lelxe" />
 <nlword word="a focus of a lens" valsi="lenjo" place="3" />
 <nlword word="a lens" valsi="lenjo" />
 <nlword word="a material of a lens" valsi="lenjo" place="4" />
@@ -19329,8 +19330,8 @@
 <nlword word="something cold" valsi="lenku" place="1" />
 <nlword word="a lateness standard" valsi="lerci" place="2" />
 <nlword word="something late" valsi="lerci" />
-<nlword word="a symbol" valsi="lerfu" />
 <nlword word="an alphabet with a symbol" valsi="lerfu" place="2" />
+<nlword word="a symbol" valsi="lerfu" />
 <nlword word="something represented by a symbol" valsi="lerfu" place="3" />
 <nlword word="chain" valsi="lianzi" place="1" />
 <nlword word="link of a chain" valsi="lianzi" place="2" />
@@ -19393,8 +19394,8 @@
 <nlword word="something Lebanese" valsi="lubno" />
 <nlword word="a compound word" valsi="lujvo" />
 <nlword word="a meaning of a compound word" valsi="lujvo" place="2" />
-<nlword word="a source metaphor of a compound word" valsi="lujvo" place="4" />
 <nlword word="an argument of a compound word" valsi="lujvo" place="3" />
+<nlword word="a source metaphor of a compound word" valsi="lujvo" place="4" />
 <nlword word="a cleaning material for washing" valsi="lumci" place="4" />
 <nlword word="a contaminant removed by washing" valsi="lumci" place="3" />
 <nlword word="a washer" valsi="lumci" />
@@ -19442,8 +19443,8 @@
 <nlword word="a property of satisfaction" valsi="mansa" place="3" />
 <nlword word="something satisfied" valsi="mansa" place="2" />
 <nlword word="something satisfying" valsi="mansa" />
-<nlword word="a species of ant" valsi="manti" place="2" />
 <nlword word="an ant" valsi="manti" />
+<nlword word="a species of ant" valsi="manti" place="2" />
 <nlword word="a hat" valsi="mapku" />
 <nlword word="a material of a hat" valsi="mapku" place="2" />
 <nlword word="a quantity of cotton" valsi="mapni" />
@@ -19457,8 +19458,8 @@
 <nlword word="a surface for a vehicle" valsi="marce" place="3" />
 <nlword word="a vehicle" valsi="marce" />
 <nlword word="something carried by a vehicle" valsi="marce" place="2" />
-<nlword word="a situation with an ethic" valsi="marde" place="3" />
 <nlword word="an ethic" valsi="marde" />
+<nlword word="a situation with an ethic" valsi="marde" place="3" />
 <nlword word="something with an ethic" valsi="marde" place="2" />
 <nlword word="a quantity of mercury" valsi="margu" />
 <nlword word="a composition of matter" valsi="marji" place="2" />
@@ -19492,9 +19493,9 @@
 <nlword word="something with a million" valsi="megdo" place="2" />
 <nlword word="a math expression" valsi="mekso" />
 <nlword word="a math rule" valsi="mekso" place="2" />
-<nlword word="a standard of beauty" valsi="melbi" place="4" />
 <nlword word="an aspect of beauty" valsi="melbi" place="3" />
 <nlword word="an observer of beauty" valsi="melbi" place="2" />
+<nlword word="a standard of beauty" valsi="melbi" place="4" />
 <nlword word="something beautiful" valsi="melbi" />
 <nlword word="a mind" valsi="menli" />
 <nlword word="something with a mind" valsi="menli" place="2" />
@@ -19533,13 +19534,13 @@
 <nlword word="a purpose of a command" valsi="minde" place="3" />
 <nlword word="a function of machine" valsi="minji" place="2" />
 <nlword word="a machine" valsi="minji" />
+<nlword word="an amount of non-metric long distance" valsi="minli" place="2" />
 <nlword word="a non-metric long distance standard" valsi="minli" place="4" />
 <nlword word="a subunit of a non-metric long distance" valsi="minli" place="3" />
-<nlword word="an amount of non-metric long distance" valsi="minli" place="2" />
 <nlword word="something measured in non-metric long distance" valsi="minli" />
 <nlword word="a form of reflection" valsi="minra" place="4" />
-<nlword word="a reflecter" valsi="minra" />
 <nlword word="an observer of a reflection" valsi="minra" place="3" />
+<nlword word="a reflecter" valsi="minra" />
 <nlword word="something reflected" valsi="minra" place="2" />
 <nlword word="a standard for being identical" valsi="mintu" place="3" />
 <nlword word="something identical" valsi="mintu" />
@@ -19566,8 +19567,8 @@
 <nlword word="something to which something is aside" valsi="mlana" place="2" />
 <nlword word="a cat" valsi="mlatu" />
 <nlword word="a species of cat" valsi="mlatu" place="2" />
-<nlword word="a property in which something is less than" valsi="mleca" place="3" />
 <nlword word="an amount something is less than by" valsi="mleca" place="4" />
+<nlword word="a property in which something is less than" valsi="mleca" place="3" />
 <nlword word="something to which something is less than" valsi="mleca" place="2" />
 <nlword word="something which is less than something" valsi="mleca" />
 <nlword word="a mould" valsi="mledi" />
@@ -19576,8 +19577,8 @@
 <nlword word="a characteristic of a moon" valsi="mluni" place="3" />
 <nlword word="an orbital parameter of a moon" valsi="mluni" place="4" />
 <nlword word="something orbited by a moon" valsi="mluni" place="2" />
-<nlword word="a place with an instant" valsi="mokca" place="2" />
 <nlword word="an instant" valsi="mokca" />
+<nlword word="a place with an instant" valsi="mokca" place="2" />
 <nlword word="a mouth" valsi="moklu" />
 <nlword word="something with a mouth" valsi="moklu" place="2" />
 <nlword word="an industrial plant" valsi="molki" />
@@ -19622,8 +19623,8 @@
 <nlword word="a domain of a universe" valsi="munje" place="2" />
 <nlword word="a universe" valsi="munje" />
 <nlword word="a common property of an example" valsi="mupli" place="2" />
-<nlword word="a set with an example" valsi="mupli" place="3" />
 <nlword word="an example" valsi="mupli" />
+<nlword word="a set with an example" valsi="mupli" place="3" />
 <nlword word="a day with twilight" valsi="murse" place="2" />
 <nlword word="a location of twilight" valsi="murse" place="3" />
 <nlword word="twilight" valsi="murse" />
@@ -19632,12 +19633,12 @@
 <nlword word="something obscured by a curtain" valsi="murta" place="2" />
 <nlword word="an Islamic aspect" valsi="muslo" place="2" />
 <nlword word="something Islamic" valsi="muslo" />
-<nlword word="a property of extremeness" valsi="mutce" place="2" />
 <nlword word="an extreme" valsi="mutce" place="3" />
+<nlword word="a property of extremeness" valsi="mutce" place="2" />
 <nlword word="something extreme" valsi="mutce" />
 <nlword word="a destination of movement" valsi="muvdu" place="2" />
-<nlword word="a route of movement" valsi="muvdu" place="4" />
 <nlword word="an origin of movement" valsi="muvdu" place="3" />
+<nlword word="a route of movement" valsi="muvdu" place="4" />
 <nlword word="something moving" valsi="muvdu" />
 <nlword word="a location of a museum" valsi="muzga" place="3" />
 <nlword word="a museum" valsi="muzga" />
@@ -19661,8 +19662,8 @@
 <nlword word="something difficult" valsi="nandu" place="1" />
 <nlword word="something with a difficulty" valsi="nandu" place="2" />
 <nlword word="a boy" valsi="nanla" />
-<nlword word="a standard of boyhood" valsi="nanla" place="3" />
 <nlword word="an age of a boy" valsi="nanla" place="2" />
+<nlword word="a standard of boyhood" valsi="nanla" place="3" />
 <nlword word="a man" valsi="nanmu" />
 <nlword word="a billionth" valsi="nanvi" />
 <nlword word="a billionth aspect" valsi="nanvi" place="3" />
@@ -19693,9 +19694,9 @@
 <nlword word="something liked" valsi="nelci" place="2" />
 <nlword word="something inside of something" valsi="nenri" />
 <nlword word="something with something inside" valsi="nenri" place="2" />
-<nlword word="a rule of an implication" valsi="nibli" place="3" />
 <nlword word="an implication" valsi="nibli" place="2" />
 <nlword word="an implier" valsi="nibli" />
+<nlword word="a rule of an implication" valsi="nibli" place="3" />
 <nlword word="a day with a night" valsi="nicte" place="2" />
 <nlword word="a location of night" valsi="nicte" place="3" />
 <nlword word="a night-time" valsi="nicte" />
@@ -19715,8 +19716,8 @@
 <nlword word="a yarn for knitting" valsi="nivji" place="3" />
 <nlword word="something knitted" valsi="nivji" place="2" />
 <nlword word="a girl" valsi="nixli" />
-<nlword word="a standard of girlhood" valsi="nixli" place="3" />
 <nlword word="an age of a girl" valsi="nixli" place="2" />
+<nlword word="a standard of girlhood" valsi="nixli" place="3" />
 <nlword word="a noble" valsi="nobli" />
 <nlword word="a standard of nobility" valsi="nobli" place="2" />
 <nlword word="Norwegian" valsi="norgo" />
@@ -19744,8 +19745,8 @@
 <nlword word="a part" valsi="pagbu" />
 <nlword word="something with a part" valsi="pagbu" place="2" />
 <nlword word="a destination of penetration" valsi="pagre" place="3" />
-<nlword word="a penetrater" valsi="pagre" />
 <nlword word="an origin of penetration" valsi="pagre" place="4" />
+<nlword word="a penetrater" valsi="pagre" />
 <nlword word="something penetrated" valsi="pagre" place="2" />
 <nlword word="a judge" valsi="pajni" />
 <nlword word="a matter judged" valsi="pajni" place="2" />
@@ -19769,9 +19770,9 @@
 <nlword word="a smell" valsi="panci" />
 <nlword word="something detecting a smell" valsi="panci" place="3" />
 <nlword word="something emitting a smell" valsi="panci" place="2" />
+<nlword word="an effect of punctuation" valsi="pandi" place="4" />
 <nlword word="a punctuater" valsi="pandi" />
 <nlword word="a punctuation" valsi="pandi" place="3" />
-<nlword word="an effect of punctuation" valsi="pandi" place="4" />
 <nlword word="something punctuated" valsi="pandi" place="2" />
 <nlword word="a quantity of sponge" valsi="panje" />
 <nlword word="a manager of a park" valsi="panka" place="2" />
@@ -19809,13 +19810,13 @@
 <nlword word="a paper" valsi="pelji" />
 <nlword word="a source of paper" valsi="pelji" place="2" />
 <nlword word="something yellow" valsi="pelxu" />
+<nlword word="an audience of a poem" valsi="pemci" place="4" />
 <nlword word="a poem" valsi="pemci" />
 <nlword word="a subject of a poem" valsi="pemci" place="2" />
 <nlword word="a writer of a poem" valsi="pemci" place="3" />
-<nlword word="an audience of a poem" valsi="pemci" place="4" />
+<nlword word="an ink application process of a pen" valsi="penbi" place="3" />
 <nlword word="a pen" valsi="penbi" />
 <nlword word="a pen ink" valsi="penbi" place="2" />
-<nlword word="an ink application process of a pen" valsi="penbi" place="3" />
 <nlword word="a location of a touch" valsi="pencu" place="4" />
 <nlword word="a toucher" valsi="pencu" />
 <nlword word="a touching implement" valsi="pencu" place="3" />
@@ -19856,8 +19857,8 @@
 <nlword word="something multiplied by" valsi="pilji" place="3" />
 <nlword word="a crust" valsi="pilka" />
 <nlword word="something with a crust" valsi="pilka" place="2" />
-<nlword word="a purpose something is used for" valsi="pilno" place="3" />
 <nlword word="an user" valsi="pilno" />
+<nlword word="a purpose something is used for" valsi="pilno" place="3" />
 <nlword word="something used" valsi="pilno" place="2" />
 <nlword word="a feather" valsi="pimlu" />
 <nlword word="something with a feather" valsi="pimlu" place="2" />
@@ -19871,9 +19872,9 @@
 <nlword word="a penis" valsi="pinji" />
 <nlword word="something with a penis" valsi="pinji" place="2" />
 <nlword word="a comment" valsi="pinka" />
-<nlword word="a subject of a comment" valsi="pinka" place="2" />
 <nlword word="an audience for a comment" valsi="pinka" place="4" />
 <nlword word="an expresser of a comment" valsi="pinka" place="3" />
+<nlword word="a subject of a comment" valsi="pinka" place="2" />
 <nlword word="a lead of a pencil" valsi="pinsi" place="2" />
 <nlword word="a material of a pencil" valsi="pinsi" place="3" />
 <nlword word="a pencil" valsi="pinsi" />
@@ -19884,9 +19885,9 @@
 <nlword word="a drinking vessel" valsi="pinxe" place="3" />
 <nlword word="something drunk" valsi="pinxe" place="2" />
 <nlword word="a keyboard instrument" valsi="pipno" />
-<nlword word="a picture" valsi="pixra" />
-<nlword word="an art medium of a picture" valsi="pixra" place="4" />
 <nlword word="an artist of a picture" valsi="pixra" place="3" />
+<nlword word="an art medium of a picture" valsi="pixra" place="4" />
+<nlword word="a picture" valsi="pixra" />
 <nlword word="something shown by a picture" valsi="pixra" place="2" />
 <nlword word="an standard of fatness" valsi="plana" place="2" />
 <nlword word="something fat" valsi="plana" />
@@ -19900,16 +19901,16 @@
 <nlword word="a pubic area" valsi="plibu" />
 <nlword word="something with a pubic area" valsi="plibu" place="2" />
 <nlword word="a characteristic of a planet" valsi="plini" place="3" />
-<nlword word="a planet" valsi="plini" />
 <nlword word="an orbital parameter of a planet" valsi="plini" place="4" />
+<nlword word="a planet" valsi="plini" />
 <nlword word="something a planet orbits" valsi="plini" place="2" />
 <nlword word="a destination of a leap" valsi="plipe" place="2" />
 <nlword word="a height of a jump" valsi="plipe" place="4" />
 <nlword word="a leaper" valsi="plipe" />
-<nlword word="a propulsion of a jump" valsi="plipe" place="5" />
 <nlword word="an origin of a leap" valsi="plipe" place="3" />
-<nlword word="a species of apple" valsi="plise" place="2" />
+<nlword word="a propulsion of a jump" valsi="plipe" place="5" />
 <nlword word="an apple" valsi="plise" />
+<nlword word="a species of apple" valsi="plise" place="2" />
 <nlword word="a plane" valsi="plita" />
 <nlword word="a point defining a plane" valsi="plita" place="2" />
 <nlword word="a plough" valsi="plixa" place="3" />
@@ -19925,9 +19926,9 @@
 <nlword word="something pleasant" valsi="pluka" place="1" />
 <nlword word="something pleased" valsi="pluka" place="2" />
 <nlword word="a destination of a route" valsi="pluta" place="2" />
+<nlword word="an origin of a route" valsi="pluta" place="3" />
 <nlword word="a point on a route" valsi="pluta" place="4" />
 <nlword word="a route" valsi="pluta" />
-<nlword word="an origin of a route" valsi="pluta" place="3" />
 <nlword word="vulgar" valsi="pocli" />
 <nlword word="a fold" valsi="polje" place="3" />
 <nlword word="a folder" valsi="polje" />
@@ -19953,16 +19954,16 @@
 <nlword word="something loved" valsi="prami" place="2" />
 <nlword word="a property of perfection" valsi="prane" place="2" />
 <nlword word="something perfect" valsi="prane" />
-<nlword word="a state before spreading" valsi="preja" place="3" />
 <nlword word="an area something is spread over" valsi="preja" place="2" />
+<nlword word="a state before spreading" valsi="preja" place="3" />
 <nlword word="something spread" valsi="preja" />
 <nlword word="a person" valsi="prenu" />
+<nlword word="an audience of a questioner" valsi="preti" place="4" />
 <nlword word="a question" valsi="preti" />
 <nlword word="a questioner" valsi="preti" place="3" />
 <nlword word="a subject of a question" valsi="preti" place="2" />
-<nlword word="an audience of a questioner" valsi="preti" place="4" />
-<nlword word="a subject of wiseness" valsi="prije" place="2" />
 <nlword word="an observer of wiseness" valsi="prije" place="3" />
+<nlword word="a subject of wiseness" valsi="prije" place="2" />
 <nlword word="something wise" valsi="prije" />
 <nlword word="a print" valsi="prina" />
 <nlword word="a printing press" valsi="prina" place="3" />
@@ -19970,9 +19971,9 @@
 <nlword word="a frame of reference in which something is to the right" valsi="pritu" place="3" />
 <nlword word="something to the right of something" valsi="pritu" />
 <nlword word="something to which something is right of" valsi="pritu" place="2" />
-<nlword word="a subject of prose" valsi="prosa" place="2" />
 <nlword word="an audience of prose" valsi="prosa" place="4" />
 <nlword word="an author of prose" valsi="prosa" place="3" />
+<nlword word="a subject of prose" valsi="prosa" place="2" />
 <nlword word="prose" valsi="prosa" />
 <nlword word="a process" valsi="pruce" />
 <nlword word="a process input" valsi="pruce" place="2" />
@@ -19986,8 +19987,8 @@
 <nlword word="a police officer" valsi="pulji" />
 <nlword word="something enforced by police" valsi="pulji" place="2" />
 <nlword word="a function of a pulley" valsi="pulni" place="2" />
-<nlword word="a pulley" valsi="pulni" />
 <nlword word="an axle of a pulley" valsi="pulni" place="3" />
+<nlword word="a pulley" valsi="pulni" />
 <nlword word="a location of placement" valsi="punji" place="3" />
 <nlword word="a placer" valsi="punji" />
 <nlword word="something placed" valsi="punji" place="2" />
@@ -20010,9 +20011,9 @@
 <nlword word="something measured in radians" valsi="radno" place="1" />
 <nlword word="the number of radians" valsi="radno" place="2" />
 <nlword word="a language with an affix" valsi="rafsi" place="4" />
+<nlword word="an affix" valsi="rafsi" />
 <nlword word="a property of an affix" valsi="rafsi" place="3" />
 <nlword word="a word with an affix" valsi="rafsi" place="2" />
-<nlword word="an affix" valsi="rafsi" />
 <nlword word="a boundary" valsi="ragve" place="2" />
 <nlword word="something a boundary is across" valsi="ragve" place="3" />
 <nlword word="something across a boundary" valsi="ragve" />
@@ -20189,8 +20190,8 @@
 <nlword word="something simple" valsi="sampu" />
 <nlword word="a producer of a sound" valsi="sance" place="2" />
 <nlword word="a sound" valsi="sance" />
-<nlword word="a singer" valsi="sanga" />
 <nlword word="an audience of a song" valsi="sanga" place="3" />
+<nlword word="a singer" valsi="sanga" />
 <nlword word="something sung" valsi="sanga" place="2" />
 <nlword word="something aware of something" valsi="sanji" />
 <nlword word="something of which something is aware" valsi="sanji" place="2" />
@@ -20199,12 +20200,12 @@
 <nlword word="a surface stood on" valsi="sanli" place="2" />
 <nlword word="a meal" valsi="sanmi" />
 <nlword word="a meal dish" valsi="sanmi" place="2" />
-<nlword word="a sauce" valsi="sanso" />
 <nlword word="an ingredient of a sauce" valsi="sanso" place="3" />
+<nlword word="a sauce" valsi="sanso" />
 <nlword word="something accompanied by sauce" valsi="sanso" place="2" />
 <nlword word="a material of an umbrella" valsi="santa" place="4" />
-<nlword word="a support of an umbrella" valsi="santa" place="5" />
 <nlword word="an umbrella" valsi="santa" />
+<nlword word="a support of an umbrella" valsi="santa" place="5" />
 <nlword word="something blocked by an umbrella" valsi="santa" place="3" />
 <nlword word="something shielded by an umbrella" valsi="santa" place="2" />
 <nlword word="a condition of necessity" valsi="sarcu" place="3" />
@@ -20230,15 +20231,15 @@
 <nlword word="a stroker" valsi="satre" />
 <nlword word="a stroking implement" valsi="satre" place="3" />
 <nlword word="something stroked" valsi="satre" place="2" />
+<nlword word="an experiencer of a  noise" valsi="savru" place="2" />
 <nlword word="a noise" valsi="savru" />
 <nlword word="a sense a noise is perceived with" valsi="savru" place="3" />
-<nlword word="an experiencer of a  noise" valsi="savru" place="2" />
 <nlword word="a goal of operating something" valsi="sazri" place="3" />
 <nlword word="an operater" valsi="sazri" />
 <nlword word="something operated" valsi="sazri" place="2" />
+<nlword word="an edge of a surface" valsi="sefta" place="4" />
 <nlword word="a side of a surface" valsi="sefta" place="3" />
 <nlword word="a surface" valsi="sefta" />
-<nlword word="an edge of a surface" valsi="sefta" place="4" />
 <nlword word="something with a surface" valsi="sefta" place="2" />
 <nlword word="something indivisible" valsi="selci" />
 <nlword word="something with an indivisible peice" valsi="selci" place="2" />
@@ -20281,8 +20282,8 @@
 <nlword word="something whistled" valsi="siclu" place="2" />
 <nlword word="a coin" valsi="sicni" />
 <nlword word="a composition of a coin" valsi="sicni" place="4" />
-<nlword word="a value of a coin" valsi="sicni" place="3" />
 <nlword word="an issuer of a coin" valsi="sicni" place="2" />
+<nlword word="a value of a coin" valsi="sicni" place="3" />
 <nlword word="an idea" valsi="sidbo" />
 <nlword word="an subject of an idea" valsi="sidbo" place="2" />
 <nlword word="something with an idea" valsi="sidbo" place="3" />
@@ -20298,8 +20299,8 @@
 <nlword word="a quantity of salt" valsi="silna" />
 <nlword word="a source of salt" valsi="silna" place="2" />
 <nlword word="a condition of seeming to have a property" valsi="simlu" place="4" />
-<nlword word="a property which something seems to have" valsi="simlu" place="2" />
 <nlword word="an observer of something seeming to have a property" valsi="simlu" place="3" />
+<nlword word="a property which something seems to have" valsi="simlu" place="2" />
 <nlword word="seem to be" valsi="simlu" />
 <nlword word="something which seems to have a property" valsi="simlu" place="1" />
 <nlword word="the observer of something seeming to have a property" valsi="simlu" place="3" />
@@ -20313,14 +20314,14 @@
 <nlword word="a species of snake" valsi="since" place="2" />
 <nlword word="a respecter" valsi="sinma" />
 <nlword word="something respected" valsi="sinma" place="2" />
-<nlword word="a sine" valsi="sinso" />
 <nlword word="an angle with a sine" valsi="sinso" place="2" />
+<nlword word="a sine" valsi="sinso" />
 <nlword word="a meaning of a sign" valsi="sinxa" place="2" />
-<nlword word="a sign" valsi="sinxa" />
 <nlword word="an observer of a sign" valsi="sinxa" place="3" />
+<nlword word="a sign" valsi="sinxa" />
 <nlword word="something asleep" valsi="sipna" />
-<nlword word="a start point of something straight" valsi="sirji" place="2" />
 <nlword word="an end point of something straight" valsi="sirji" place="3" />
+<nlword word="a start point of something straight" valsi="sirji" place="2" />
 <nlword word="something straight" valsi="sirji" />
 <nlword word="a Syrian aspect" valsi="sirxo" place="2" />
 <nlword word="something Syrian" valsi="sirxo" />
@@ -20354,8 +20355,8 @@
 <nlword word="something skated over" valsi="skiji" place="2" />
 <nlword word="something supported by a skate" valsi="skiji" place="3" />
 <nlword word="a film" valsi="skina" />
-<nlword word="a film plot" valsi="skina" place="2" />
 <nlword word="a film-maker" valsi="skina" place="3" />
+<nlword word="a film plot" valsi="skina" place="2" />
 <nlword word="an audience of a film" valsi="skina" place="4" />
 <nlword word="a material of a rope" valsi="skori" place="2" />
 <nlword word="a rope" valsi="skori" />
@@ -20364,8 +20365,8 @@
 <nlword word="a groove" valsi="skuro" />
 <nlword word="a grooved surface" valsi="skuro" place="2" />
 <nlword word="a feature of familiarity" valsi="slabu" place="3" />
-<nlword word="a standard of familiarity" valsi="slabu" place="4" />
 <nlword word="an observer of familiarity" valsi="slabu" place="2" />
+<nlword word="a standard of familiarity" valsi="slabu" place="4" />
 <nlword word="something familiar" valsi="slabu" place="1" />
 <nlword word="the feature of familiarity" valsi="slabu" place="3" />
 <nlword word="the observer of familiarity" valsi="slabu" place="2" />
@@ -20400,8 +20401,8 @@
 <nlword word="a guess" valsi="smadi" />
 <nlword word="a subject of a guess" valsi="smadi" place="3" />
 <nlword word="something guessed" valsi="smadi" place="2" />
-<nlword word="a standard of silence" valsi="smaji" place="3" />
 <nlword word="an observation point for silence" valsi="smaji" place="2" />
+<nlword word="a standard of silence" valsi="smaji" place="3" />
 <nlword word="something silent" valsi="smaji" />
 <nlword word="the one who feels the taste" valsi="smaka" />
 <nlword word="a monkey" valsi="smani" />
@@ -20449,8 +20450,8 @@
 <nlword word="a sower" valsi="sombo" />
 <nlword word="a sowing location" valsi="sombo" place="3" />
 <nlword word="something sown" valsi="sombo" place="2" />
-<nlword word="a soldier" valsi="sonci" />
 <nlword word="an army with a soldier" valsi="sonci" place="2" />
+<nlword word="a soldier" valsi="sonci" />
 <nlword word="a containment of a stockpile" valsi="sorcu" place="3" />
 <nlword word="a stockpile" valsi="sorcu" />
 <nlword word="something stockpiled" valsi="sorcu" place="2" />
@@ -20476,8 +20477,8 @@
 <nlword word="a portion" valsi="spisa" />
 <nlword word="something portioned" valsi="spisa" place="2" />
 <nlword word="a hospital" valsi="spita" />
-<nlword word="a patient of a hospital" valsi="spita" place="2" />
 <nlword word="an ailment treated at a hospital" valsi="spita" place="3" />
+<nlword word="a patient of a hospital" valsi="spita" place="2" />
 <nlword word="a function broken" valsi="spofu" place="2" />
 <nlword word="a fragment of an explosion" valsi="spoja" place="2" />
 <nlword word="something exploding" valsi="spoja" />
@@ -20497,14 +20498,14 @@
 <nlword word="a grass" valsi="srasu" />
 <nlword word="a species of grass" valsi="srasu" place="2" />
 <nlword word="a condition for an error" valsi="srera" place="3" />
-<nlword word="a standard for an error" valsi="srera" place="4" />
 <nlword word="an error" valsi="srera" place="2" />
+<nlword word="a standard for an error" valsi="srera" place="4" />
 <nlword word="something that errs" valsi="srera" place="1" />
 <nlword word="the error" valsi="srera" place="2" />
 <nlword word="a Sanskrit aspect" valsi="srito" place="2" />
 <nlword word="something Sanskrit" valsi="srito" />
-<nlword word="a topic of assumption" valsi="sruma" place="3" />
 <nlword word="an assumer" valsi="sruma" />
+<nlword word="a topic of assumption" valsi="sruma" place="3" />
 <nlword word="something assumed" valsi="sruma" place="2" />
 <nlword word="a direction of enclosure" valsi="sruri" place="3" />
 <nlword word="something eclosed" valsi="sruri" place="2" />
@@ -20512,9 +20513,9 @@
 <nlword word="a honest" valsi="stace" />
 <nlword word="something about which something is honest" valsi="stace" place="3" />
 <nlword word="something to which something is honest" valsi="stace" place="2" />
-<nlword word="a plant with an edible portion" valsi="stagi" place="3" />
 <nlword word="an edible plant" valsi="stagi" />
 <nlword word="an edible portion of a plant" valsi="stagi" place="2" />
+<nlword word="a plant with an edible portion" valsi="stagi" place="3" />
 <nlword word="a composition of ceramic" valsi="staku" place="3" />
 <nlword word="a form of ceramic" valsi="staku" place="4" />
 <nlword word="a maker of ceramic" valsi="staku" place="2" />
@@ -20547,9 +20548,9 @@
 <nlword word="a reference frame of westness" valsi="stici" place="3" />
 <nlword word="something to which something is west" valsi="stici" place="2" />
 <nlword word="something which is west of something" valsi="stici" />
+<nlword word="an audience of a suggestion" valsi="stidi" place="3" />
 <nlword word="a suggested idea" valsi="stidi" place="2" />
 <nlword word="a suggester" valsi="stidi" />
-<nlword word="an audience of a suggestion" valsi="stidi" place="3" />
 <nlword word="an adjuster" valsi="stika" />
 <nlword word="an amount of adjustment" valsi="stika" place="3" />
 <nlword word="something adjusted" valsi="stika" place="2" />
@@ -20564,8 +20565,8 @@
 <nlword word="something structured" valsi="stura" place="2" />
 <nlword word="a site" valsi="stuzi" />
 <nlword word="something with a site" valsi="stuzi" place="2" />
-<nlword word="a rule of abstraction" valsi="sucta" place="3" />
 <nlword word="an abstraction" valsi="sucta" />
+<nlword word="a rule of abstraction" valsi="sucta" place="3" />
 <nlword word="something abstracted" valsi="sucta" place="2" />
 <nlword word="a liquid something is dry of" valsi="sudga" place="2" />
 <nlword word="something dry" valsi="sudga" />
@@ -20579,9 +20580,9 @@
 <nlword word="something summed with" valsi="sumji" place="3" />
 <nlword word="a smeller" valsi="sumne" />
 <nlword word="something smelled" valsi="sumne" place="2" />
+<nlword word="an argument" valsi="sumti" />
 <nlword word="a place of an argument" valsi="sumti" place="3" />
 <nlword word="a predicate of an argument" valsi="sumti" place="2" />
-<nlword word="an argument" valsi="sumti" />
 <nlword word="a quantity of garlic" valsi="sunga" />
 <nlword word="a species of garlic" valsi="sunga" place="2" />
 <nlword word="a quantity of wool" valsi="sunla" />
@@ -20617,8 +20618,8 @@
 <nlword word="a material of a board" valsi="tanbo" place="2" />
 <nlword word="a tongue" valsi="tance" />
 <nlword word="something with a tongue" valsi="tance" place="2" />
-<nlword word="a tangent" valsi="tanjo" />
 <nlword word="an angle with a tangent" valsi="tanjo" place="2" />
+<nlword word="a tangent" valsi="tanjo" />
 <nlword word="a quantity of tobacco" valsi="tanko" />
 <nlword word="a species of tobacco" valsi="tanko" place="2" />
 <nlword word="as much as possible" valsi="tankomo" />
@@ -20672,16 +20673,16 @@
 <nlword word="custom" sense="habit" valsi="tcaci" />
 <nlword word="something with a custom" valsi="tcaci" place="2" />
 <nlword word="a city" valsi="tcadu" />
+<nlword word="an area of a city" valsi="tcadu" place="2" />
 <nlword word="a political unit of a city" valsi="tcadu" place="3" />
 <nlword word="a region served by a city" valsi="tcadu" place="4" />
-<nlword word="an area of a city" valsi="tcadu" place="2" />
 <nlword word="a network station" valsi="tcana" />
 <nlword word="a network with a station" valsi="tcana" place="2" />
 <nlword word="a leaf of tea" valsi="tcati" place="2" />
 <nlword word="a quantity of tea" valsi="tcati" />
 <nlword word="a dimension of stretchiness" valsi="tcena" place="3" />
-<nlword word="a range of stretchiness" valsi="tcena" place="2" />
 <nlword word="an unstretched range" valsi="tcena" place="4" />
+<nlword word="a range of stretchiness" valsi="tcena" place="2" />
 <nlword word="something stretchy" valsi="tcena" />
 <nlword word="a tricker" valsi="tcica" />
 <nlword word="something that something is tricked into" valsi="tcica" place="3" />
@@ -20703,8 +20704,8 @@
 <nlword word="information on a tag" valsi="tcita" place="3" />
 <nlword word="something with a tag" valsi="tcita" place="2" />
 <nlword word="a finish of an elapse of time" valsi="temci" place="3" />
-<nlword word="a start of an elapse of time" valsi="temci" place="2" />
 <nlword word="an elapse of time" valsi="temci" />
+<nlword word="a start of an elapse of time" valsi="temci" place="2" />
 <nlword word="an exponent" valsi="tenfa" place="3" />
 <nlword word="an exponential base" valsi="tenfa" place="2" />
 <nlword word="something exponential" valsi="tenfa" />
@@ -20717,9 +20718,9 @@
 <nlword word="a trillion" valsi="terto" />
 <nlword word="a trillion aspect" valsi="terto" place="3" />
 <nlword word="something counted in trillions" valsi="terto" place="2" />
+<nlword word="an audience of a performance" valsi="tigni" place="3" />
 <nlword word="a performance" valsi="tigni" place="2" />
 <nlword word="a performer" valsi="tigni" />
-<nlword word="an audience of a performance" valsi="tigni" place="3" />
 <nlword word="a foot used to kick" valsi="tikpa" place="4" />
 <nlword word="a kicker" valsi="tikpa" />
 <nlword word="a location of a kick" valsi="tikpa" place="3" />
@@ -20796,9 +20797,9 @@
 <nlword word="a sky" valsi="tsani" />
 <nlword word="a seasoning" valsi="tsapi" />
 <nlword word="a seasoning flavour" valsi="tsapi" place="2" />
-<nlword word="a seed" valsi="tsiju" />
 <nlword word="an offspring from a seed" valsi="tsiju" place="3" />
 <nlword word="an organism with a seed" valsi="tsiju" place="2" />
+<nlword word="a seed" valsi="tsiju" />
 <nlword word="a location of a platform" valsi="tsina" place="2" />
 <nlword word="a material of a platform" valsi="tsina" place="4" />
 <nlword word="a platform" valsi="tsina" />
@@ -20806,9 +20807,9 @@
 <nlword word="a content of a tube" valsi="tubnu" place="3" />
 <nlword word="a material of a tube" valsi="tubnu" place="2" />
 <nlword word="a tube" valsi="tubnu" />
-<nlword word="a topic of agreement" valsi="tugni" place="4" />
 <nlword word="an agreed view" valsi="tugni" place="3" />
 <nlword word="an agreer" valsi="tugni" />
+<nlword word="a topic of agreement" valsi="tugni" place="4" />
 <nlword word="something agreed with" valsi="tugni" place="2" />
 <nlword word="a species of tulip" valsi="tujli" place="2" />
 <nlword word="a tulip" valsi="tujli" />
@@ -20848,8 +20849,8 @@
 <nlword word="something with a value" valsi="vamji" place="2" />
 <nlword word="a vomiter" valsi="vamtu" />
 <nlword word="vomit" valsi="vamtu" place="2" />
-<nlword word="a part of an environment" valsi="vanbi" />
 <nlword word="an environment" valsi="vanbi" place="2" />
+<nlword word="a part of an environment" valsi="vanbi" />
 <nlword word="a day with an evening" valsi="vanci" place="2" />
 <nlword word="a location of an evening" valsi="vanci" place="3" />
 <nlword word="an evening" valsi="vanci" />
@@ -20864,16 +20865,16 @@
 <nlword word="something sold" valsi="vecnu" place="2" />
 <nlword word="something to which something is sold" valsi="vecnu" place="3" />
 <nlword word="the one who remembers their experience" valsi="vedli" />
+<nlword word="an act of vengeance" valsi="venfu" place="4" />
 <nlword word="a reason for revenge" valsi="venfu" place="3" />
 <nlword word="a taker of revenge" valsi="venfu" />
 <nlword word="a victim of revenge" valsi="venfu" place="2" />
-<nlword word="an act of vengeance" valsi="venfu" place="4" />
 <nlword word="a location of spring" valsi="vensa" place="3" />
 <nlword word="a springtime" valsi="vensa" />
 <nlword word="a year of springtime" valsi="vensa" place="2" />
 <nlword word="a child" valsi="verba" />
-<nlword word="a standard of childhood" valsi="verba" place="3" />
 <nlword word="an age of a child" valsi="verba" place="2" />
+<nlword word="a standard of childhood" valsi="verba" place="3" />
 <nlword word="a vagina" valsi="vibna" />
 <nlword word="something with a vagina" valsi="vibna" place="2" />
 <nlword word="a function of a screen" valsi="vidni" place="2" />
@@ -20883,9 +20884,9 @@
 <nlword word="something susceptible to virus" valsi="vidru" place="3" />
 <nlword word="something fresh" valsi="vifne" />
 <nlword word="a means of excretion" valsi="vikmi" place="4" />
-<nlword word="a source of excreted waste" valsi="vikmi" place="3" />
 <nlword word="an excreted waste" valsi="vikmi" place="2" />
 <nlword word="an excreter of waste" valsi="vikmi" />
+<nlword word="a source of excreted waste" valsi="vikmi" place="3" />
 <nlword word="a condition of thickness" valsi="viknu" place="2" />
 <nlword word="something thick" valsi="viknu" place="1" />
 <nlword word="thick" valsi="viknu" />
@@ -20896,8 +20897,8 @@
 <nlword word="something poisonous" valsi="vindu" />
 <nlword word="something to which something is poisonous" valsi="vindu" place="2" />
 <nlword word="a cargo of an aircraft" valsi="vinji" place="2" />
-<nlword word="a propulsion of an aircraft" valsi="vinji" place="3" />
 <nlword word="an aircraft" valsi="vinji" />
+<nlword word="a propulsion of an aircraft" valsi="vinji" place="3" />
 <nlword word="a subordinate" valsi="vipsi" />
 <nlword word="a subordinate aspect" valsi="vipsi" place="2" />
 <nlword word="something to which something is subordinate" valsi="vipsi" place="3" />
@@ -20937,8 +20938,8 @@
 <nlword word="something divided by a doorway" valsi="vorme" place="2" />
 <nlword word="a fulcrum of a lever" valsi="vraga" place="3" />
 <nlword word="a lever" valsi="vraga" />
-<nlword word="a purpose of a lever" valsi="vraga" place="2" />
 <nlword word="an arm of a lever" valsi="vraga" place="4" />
+<nlword word="a purpose of a lever" valsi="vraga" place="2" />
 <nlword word="a medium of a recording" valsi="vreji" place="4" />
 <nlword word="a record" valsi="vreji" />
 <nlword word="a subject of a recording" valsi="vreji" place="3" />
@@ -20995,8 +20996,8 @@
 <nlword word="something anxious" valsi="xanka" />
 <nlword word="an imaginer" valsi="xanri" place="2" />
 <nlword word="something imagined" valsi="xanri" />
-<nlword word="a species of elephant" valsi="xanto" place="2" />
 <nlword word="an elephant" valsi="xanto" />
+<nlword word="a species of elephant" valsi="xanto" place="2" />
 <nlword word="a weapon" valsi="xarci" />
 <nlword word="a weapon user" valsi="xarci" place="3" />
 <nlword word="something a weapon is used against" valsi="xarci" place="2" />
@@ -21064,8 +21065,8 @@
 <nlword word="an operator of a hotel" valsi="xotli" place="3" />
 <nlword word="an Arabic aspect" valsi="xrabo" place="2" />
 <nlword word="something Arabic" valsi="xrabo" />
-<nlword word="a property of injury" valsi="xrani" place="3" />
 <nlword word="an injury" valsi="xrani" place="4" />
+<nlword word="a property of injury" valsi="xrani" place="3" />
 <nlword word="something causing injury" valsi="xrani" />
 <nlword word="something injured" valsi="xrani" place="2" />
 <nlword word="a Christian aspect" valsi="xriso" place="2" />
@@ -21133,8 +21134,8 @@
 <nlword word="a crime" valsi="zekri" />
 <nlword word="something to which something is a crime" valsi="zekri" place="2" />
 <nlword word="an amount of increase" valsi="zenba" place="3" />
-<nlword word="something in which something increases" valsi="zenba" place="2" />
 <nlword word="something increasing" valsi="zenba" />
+<nlword word="something in which something increases" valsi="zenba" place="2" />
 <nlword word="a 10 to the negative twenty-first" valsi="zepti" />
 <nlword word="a 10 to the negative twenty-first aspect" valsi="zepti" place="3" />
 <nlword word="something with 10 to the negative twenty-firsts" valsi="zepti" place="2" />
@@ -21161,16 +21162,16 @@
 <nlword word="an invester" valsi="zivle" />
 <nlword word="something invested" valsi="zivle" place="2" />
 <nlword word="something invested in" valsi="zivle" place="3" />
-<nlword word="a property of exceeding" valsi="zmadu" place="3" />
 <nlword word="an amount of exceeding" valsi="zmadu" place="4" />
+<nlword word="a property of exceeding" valsi="zmadu" place="3" />
 <nlword word="a condition of automation" valsi="zmiku" place="3" />
 <nlword word="an automatic function" valsi="zmiku" place="2" />
 <nlword word="automatic" valsi="zmiku" />
 <nlword word="something automatic" valsi="zmiku" place="1" />
 <nlword word="the automatic function" valsi="zmiku" place="2" />
+<nlword word="an action taken" valsi="zukte" place="2" />
 <nlword word="a purpose of an action taken" valsi="zukte" place="3" />
 <nlword word="a taker of action" valsi="zukte" />
-<nlword word="an action taken" valsi="zukte" place="2" />
 <nlword word="a quantity of maize" valsi="zumri" />
 <nlword word="a species of maize" valsi="zumri" place="2" />
 <nlword word="a cause of guilt" valsi="zungi" place="2" />

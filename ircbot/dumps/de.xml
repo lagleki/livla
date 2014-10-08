@@ -10,33 +10,6 @@
   <definition>Perspektivum: Aufmerksamkeit - Unaufmerksamkeit - Ausweichen (z.B. einer Diskussion)</definition>
   <definitionid>19095</definitionid>
 </valsi>
-<valsi word="a'i" type="cmavo">
-  <selmaho>UI1</selmaho>
-  <user>
-    <username>majewsky</username>
-    <realname>Stefan Majewsky</realname>
-  </user>
-  <definition>Perspektivum: Aufwand/Mühe - Mühelosigkeit - Untätigkeit/Muße</definition>
-  <definitionid>19099</definitionid>
-</valsi>
-<valsi word="a'o" type="cmavo">
-  <selmaho>UI1</selmaho>
-  <user>
-    <username>majewsky</username>
-    <realname>Stefan Majewsky</realname>
-  </user>
-  <definition>Perspektivum: Hoffnung - Verzweiflung</definition>
-  <definitionid>19100</definitionid>
-</valsi>
-<valsi word="a'u" type="cmavo">
-  <selmaho>UI1</selmaho>
-  <user>
-    <username>majewsky</username>
-    <realname>Stefan Majewsky</realname>
-  </user>
-  <definition>Perspektivum: Interesse - Desinteresse - Abscheu</definition>
-  <definitionid>19102</definitionid>
-</valsi>
 <valsi word="ai" type="cmavo">
   <selmaho>UI1</selmaho>
   <user>
@@ -46,6 +19,15 @@
   <definition>Perspektivum: Absicht/Vorsatz - Unschlüssigkeit - Ablehnung</definition>
   <definitionid>19098</definitionid>
 </valsi>
+<valsi word="a'i" type="cmavo">
+  <selmaho>UI1</selmaho>
+  <user>
+    <username>majewsky</username>
+    <realname>Stefan Majewsky</realname>
+  </user>
+  <definition>Perspektivum: Aufwand/Mühe - Mühelosigkeit - Untätigkeit/Muße</definition>
+  <definitionid>19099</definitionid>
+</valsi>
 <valsi word="anste" type="fu'ivla">
   <user>
     <username>Wuzzy</username>
@@ -54,6 +36,15 @@
   <definition>$x_1$ fühlt Existenzangst.</definition>
   <definitionid>41810</definitionid>
   <notes>Nur ein sumti; um »Angst wegen irgendwas« auszudrücken, benutze {terpa}.</notes>
+</valsi>
+<valsi word="a'o" type="cmavo">
+  <selmaho>UI1</selmaho>
+  <user>
+    <username>majewsky</username>
+    <realname>Stefan Majewsky</realname>
+  </user>
+  <definition>Perspektivum: Hoffnung - Verzweiflung</definition>
+  <definitionid>19100</definitionid>
 </valsi>
 <valsi word="atna" type="fu'ivla">
   <user>
@@ -74,6 +65,15 @@
   </user>
   <definition>Perspektivum: Begehren/Sehnsucht - Gleichgültigkeit - Abneigung/Widerwille</definition>
   <definitionid>19101</definitionid>
+</valsi>
+<valsi word="a'u" type="cmavo">
+  <selmaho>UI1</selmaho>
+  <user>
+    <username>majewsky</username>
+    <realname>Stefan Majewsky</realname>
+  </user>
+  <definition>Perspektivum: Interesse - Desinteresse - Abscheu</definition>
+  <definitionid>19102</definitionid>
 </valsi>
 <valsi word="aufklerunge" type="fu'ivla">
   <user>
@@ -161,8 +161,8 @@
   <definition>$x_{1}$ rennt/läuft auf der Oberfläche $x_{2}$ mit den Gliedmaßen $x_{3}$ in der Gangart $x_{4}$.</definition>
   <definitionid>16246</definitionid>
   <notes>Siehe auch {cadzu}, {klama}, {litru}, {stapa}, {plipe}, {cpare}.</notes>
-  <glossword word="rennen" />
   <glossword word="laufen" />
+  <glossword word="rennen" />
 </valsi>
 <valsi word="bakcmo" type="lujvo">
   <user>
@@ -637,16 +637,6 @@
   <glossword word="Acht" />
   <glossword word="8" />
 </valsi>
-<valsi word="bi'i" type="cmavo">
-  <rafsi>biz</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>nicht-logischer Intervallverbinder: ungeordnet zwischen ... und ... (rafsi repräsentiert ein beliebiges Intervall)</definition>
-  <definitionid>42685</definitionid>
-  <glossword word="ungeordnetes Intervall" />
-</valsi>
 <valsi word="bidju" type="gismu">
   <user>
     <username>gleki</username>
@@ -668,6 +658,16 @@
   <glossword word="Biene" />
   <keyword word="Biene" place="1" />
   <keyword word="Bienengattung" place="2" />
+</valsi>
+<valsi word="bi'i" type="cmavo">
+  <rafsi>biz</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>nicht-logischer Intervallverbinder: ungeordnet zwischen ... und ... (rafsi repräsentiert ein beliebiges Intervall)</definition>
+  <definitionid>42685</definitionid>
+  <glossword word="ungeordnetes Intervall" />
 </valsi>
 <valsi word="bikla" type="gismu">
   <rafsi>bik</rafsi>
@@ -1103,8 +1103,8 @@
   <definitionid>52802</definitionid>
   <notes>Siehe auch: {bratu}, {bakfu}.</notes>
   <glossword word="Grieselkorn" />
-  <glossword word="Graupelkorn" />
   <glossword word="Hagelkorn" />
+  <glossword word="Graupelkorn" />
   <keyword word="Hagelkorn" place="1" />
 </valsi>
 <valsi word="bratycarvi" type="lujvo">
@@ -1146,7 +1146,7 @@
     <username>gleki</username>
     <realname>gleki</realname>
   </user>
-  <definition>$x_1$ (Text) ist eine Prädikat-Beziehung mit Beziehung $x_2$ zwischen Argumenten (Folge/Menge) $x_3$</definition>
+  <definition>$x_1$ (du&apos;u) ist eine Prädikat-Beziehung mit Beziehung $x_2$ zwischen Argumenten (Folge/Menge) $x_3$</definition>
   <definitionid>42711</definitionid>
   <glossword word="Prädikat" />
 </valsi>
@@ -1160,8 +1160,8 @@
   <definition>$x_1$ ist eine Brise/ein Wind/ein Sturm aus der Richtung $x_2$ mit der Geschwindigkeit $x_3$; $x_1$ bläst von $x_2$.</definition>
   <definitionid>16175</definitionid>
   <notes>Siehe auch {tcima}.</notes>
-  <glossword word="Brise" />
   <glossword word="Wind" sense="Brise" />
+  <glossword word="Brise" />
   <keyword word="Windrichtung" place="1" />
   <keyword word="Windgeschwindigkeit" place="2" />
 </valsi>
@@ -1369,17 +1369,6 @@
   <definitionid>42723</definitionid>
   <glossword word="ist wirklich" />
 </valsi>
-<valsi word="ca'orgreku" type="lujvo">
-  <user>
-    <username>Wuzzy</username>
-    <realname>Wuzzy</realname>
-  </user>
-  <definition>$g_1$ ist ein Fenterrahmen des Fensters $g_2=c_1$.</definition>
-  <definitionid>56520</definitionid>
-  <glossword word="Fensterrahmen" />
-  <keyword word="Fensterrahmen" place="1" />
-  <keyword word="Fenster" place="2" />
-</valsi>
 <valsi word="cabna" type="gismu">
   <rafsi>cab</rafsi>
   <user>
@@ -1560,6 +1549,17 @@
   <definitionid>42738</definitionid>
   <glossword word="Eingeweide" />
 </valsi>
+<valsi word="ca'orgreku" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$g_1$ ist ein Fenterrahmen des Fensters $g_2=c_1$.</definition>
+  <definitionid>56520</definitionid>
+  <glossword word="Fensterrahmen" />
+  <keyword word="Fensterrahmen" place="1" />
+  <keyword word="Fenster" place="2" />
+</valsi>
 <valsi word="carce" type="gismu">
   <user>
     <username>gleki</username>
@@ -1680,26 +1680,6 @@
   <definitionid>42750</definitionid>
   <glossword word="in einer Menge mit" />
 </valsi>
-<valsi word="ce'i" type="cmavo">
-  <rafsi>cez</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Zahl/Ziffer: %, Prozentzeichen, Hundertstel</definition>
-  <definitionid>42754</definitionid>
-  <glossword word="Prozent" />
-</valsi>
-<valsi word="ce'o" type="cmavo">
-  <rafsi>ce&apos;o</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>nichtlogische Verbindung: verbindet geordnete Folgen; „und dann“, eine Folge bildend</definition>
-  <definitionid>42758</definitionid>
-  <glossword word="in einer Folge mit" />
-</valsi>
 <valsi word="cecla" type="gismu">
   <rafsi>cel</rafsi>
   <rafsi>ce&apos;a</rafsi>
@@ -1730,6 +1710,16 @@
   <definition>$x_1$ ist eine Ära/Epoche/ein Zeitalter charakterisiert durch $x_2$ (Ereignis/Eigenschaft/Intervall/Idee)</definition>
   <definitionid>42753</definitionid>
   <glossword word="Ära" />
+</valsi>
+<valsi word="ce'i" type="cmavo">
+  <rafsi>cez</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Zahl/Ziffer: %, Prozentzeichen, Hundertstel</definition>
+  <definitionid>42754</definitionid>
+  <glossword word="Prozent" />
 </valsi>
 <valsi word="ceikri" type="lujvo">
   <user>
@@ -1769,6 +1759,16 @@
   <definition>$x_1$ ist ein Hundertstel [1/100; $1×10^{-2}$] von $x_2$ in Dimension/Aspekt $x_3$ (Default: Einheiten)</definition>
   <definitionid>42757</definitionid>
   <glossword word="0,01" />
+</valsi>
+<valsi word="ce'o" type="cmavo">
+  <rafsi>ce&apos;o</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>nichtlogische Verbindung: verbindet geordnete Folgen; „und dann“, eine Folge bildend</definition>
+  <definitionid>42758</definitionid>
+  <glossword word="in einer Folge mit" />
 </valsi>
 <valsi word="cerda" type="gismu">
   <rafsi>ced</rafsi>
@@ -2631,15 +2631,6 @@
   <definitionid>56324</definitionid>
   <glossword word="selma&apos;o &quot;BE&quot;" />
 </valsi>
-<valsi word="cmavrbe'o" type="fu'ivla">
-  <user>
-    <username>glekiponjo</username>
-    <realname>la gleki noi jmina lo ponjo smuni</realname>
-  </user>
-  <definition>$x_1$ ist das selma&apos;o &quot;BEhO&quot;.</definition>
-  <definitionid>56325</definitionid>
-  <glossword word="selma&apos;o &quot;BEhO&quot;" />
-</valsi>
 <valsi word="cmavrbei" type="fu'ivla">
   <user>
     <username>glekiponjo</username>
@@ -2648,6 +2639,15 @@
   <definition>$x_1$ ist das selma&apos;o &quot;BEI&quot;.</definition>
   <definitionid>56326</definitionid>
   <glossword word="selma&apos;o &quot;BEI&quot;" />
+</valsi>
+<valsi word="cmavrbe'o" type="fu'ivla">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ ist das selma&apos;o &quot;BEhO&quot;.</definition>
+  <definitionid>56325</definitionid>
+  <glossword word="selma&apos;o &quot;BEhO&quot;" />
 </valsi>
 <valsi word="cmavrbi'e" type="fu'ivla">
   <user>
@@ -2784,15 +2784,6 @@
   <definitionid>56434</definitionid>
   <glossword word="selma&apos;o &quot;Y&quot;" />
 </valsi>
-<valsi word="cmavrdo'u" type="fu'ivla">
-  <user>
-    <username>glekiponjo</username>
-    <realname>la gleki noi jmina lo ponjo smuni</realname>
-  </user>
-  <definition>$x_1$ ist das selma&apos;o &quot;DOhU&quot;.</definition>
-  <definitionid>56342</definitionid>
-  <glossword word="selma&apos;o &quot;DOhU&quot;" />
-</valsi>
 <valsi word="cmavrdoi" type="fu'ivla">
   <user>
     <username>glekiponjo</username>
@@ -2801,6 +2792,15 @@
   <definition>$x_1$ ist das selma&apos;o &quot;DOI&quot;.</definition>
   <definitionid>56343</definitionid>
   <glossword word="selma&apos;o &quot;DOI&quot;" />
+</valsi>
+<valsi word="cmavrdo'u" type="fu'ivla">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ ist das selma&apos;o &quot;DOhU&quot;.</definition>
+  <definitionid>56342</definitionid>
+  <glossword word="selma&apos;o &quot;DOhU&quot;" />
 </valsi>
 <valsi word="cmavrfa" type="fu'ivla">
   <user>
@@ -2982,15 +2982,6 @@
   <definitionid>56364</definitionid>
   <glossword word="selma&apos;o &quot;JAI&quot;" />
 </valsi>
-<valsi word="cmavrjo'i" type="fu'ivla">
-  <user>
-    <username>glekiponjo</username>
-    <realname>la gleki noi jmina lo ponjo smuni</realname>
-  </user>
-  <definition>$x_1$ ist das selma&apos;o &quot;JOhI&quot;.</definition>
-  <definitionid>56365</definitionid>
-  <glossword word="selma&apos;o &quot;JOhI&quot;" />
-</valsi>
 <valsi word="cmavrjoi" type="fu'ivla">
   <user>
     <username>glekiponjo</username>
@@ -2999,6 +2990,15 @@
   <definition>$x_1$ ist das selma&apos;o &quot;JOI&quot;.</definition>
   <definitionid>56366</definitionid>
   <glossword word="selma&apos;o &quot;JOI&quot;" />
+</valsi>
+<valsi word="cmavrjo'i" type="fu'ivla">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ ist das selma&apos;o &quot;JOhI&quot;.</definition>
+  <definitionid>56365</definitionid>
+  <glossword word="selma&apos;o &quot;JOhI&quot;" />
 </valsi>
 <valsi word="cmavrke" type="fu'ivla">
   <user>
@@ -3108,15 +3108,6 @@
   <definitionid>56378</definitionid>
   <glossword word="selma&apos;o &quot;LE&quot;" />
 </valsi>
-<valsi word="cmavrle'u" type="fu'ivla">
-  <user>
-    <username>glekiponjo</username>
-    <realname>la gleki noi jmina lo ponjo smuni</realname>
-  </user>
-  <definition>$x_1$ ist das selma&apos;o &quot;LEhU&quot;.</definition>
-  <definitionid>56379</definitionid>
-  <glossword word="selma&apos;o &quot;LEhU&quot;" />
-</valsi>
 <valsi word="cmavrlerfu" type="fu'ivla">
   <user>
     <username>glekiponjo</username>
@@ -3125,6 +3116,15 @@
   <definition>$x_1$ ist das selma&apos;o &quot;BY&quot;.</definition>
   <definitionid>56332</definitionid>
   <glossword word="selma&apos;o &quot;BY&quot;" />
+</valsi>
+<valsi word="cmavrle'u" type="fu'ivla">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ ist das selma&apos;o &quot;LEhU&quot;.</definition>
+  <definitionid>56379</definitionid>
+  <glossword word="selma&apos;o &quot;LEhU&quot;" />
 </valsi>
 <valsi word="cmavrli" type="fu'ivla">
   <user>
@@ -3180,15 +3180,6 @@
   <definitionid>56385</definitionid>
   <glossword word="selma&apos;o &quot;LUhU&quot;" />
 </valsi>
-<valsi word="cmavrma'o" type="fu'ivla">
-  <user>
-    <username>glekiponjo</username>
-    <realname>la gleki noi jmina lo ponjo smuni</realname>
-  </user>
-  <definition>$x_1$ ist das selma&apos;o &quot;MAhO&quot;.</definition>
-  <definitionid>56386</definitionid>
-  <glossword word="selma&apos;o &quot;MAhO&quot;" />
-</valsi>
 <valsi word="cmavrmai" type="fu'ivla">
   <user>
     <username>glekiponjo</username>
@@ -3197,6 +3188,15 @@
   <definition>$x_1$ ist das selma&apos;o &quot;MAI&quot;.</definition>
   <definitionid>56387</definitionid>
   <glossword word="selma&apos;o &quot;MAI&quot;" />
+</valsi>
+<valsi word="cmavrma'o" type="fu'ivla">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ ist das selma&apos;o &quot;MAhO&quot;.</definition>
+  <definitionid>56386</definitionid>
+  <glossword word="selma&apos;o &quot;MAhO&quot;" />
 </valsi>
 <valsi word="cmavrme" type="fu'ivla">
   <user>
@@ -3225,15 +3225,6 @@
   <definitionid>56390</definitionid>
   <glossword word="selma&apos;o &quot;MOhE&quot;" />
 </valsi>
-<valsi word="cmavrmo'i" type="fu'ivla">
-  <user>
-    <username>glekiponjo</username>
-    <realname>la gleki noi jmina lo ponjo smuni</realname>
-  </user>
-  <definition>$x_1$ ist das selma&apos;o &quot;MOhI&quot;.</definition>
-  <definitionid>56391</definitionid>
-  <glossword word="selma&apos;o &quot;MOhI&quot;" />
-</valsi>
 <valsi word="cmavrmoi" type="fu'ivla">
   <user>
     <username>glekiponjo</username>
@@ -3242,6 +3233,15 @@
   <definition>$x_1$ ist das selma&apos;o &quot;MOI&quot;.</definition>
   <definitionid>56392</definitionid>
   <glossword word="selma&apos;o &quot;MOI&quot;" />
+</valsi>
+<valsi word="cmavrmo'i" type="fu'ivla">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ ist das selma&apos;o &quot;MOhI&quot;.</definition>
+  <definitionid>56391</definitionid>
+  <glossword word="selma&apos;o &quot;MOhI&quot;" />
 </valsi>
 <valsi word="cmavrna" type="fu'ivla">
   <user>
@@ -3261,15 +3261,6 @@
   <definitionid>56394</definitionid>
   <glossword word="selma&apos;o &quot;NAhE&quot;" />
 </valsi>
-<valsi word="cmavrna'u" type="fu'ivla">
-  <user>
-    <username>glekiponjo</username>
-    <realname>la gleki noi jmina lo ponjo smuni</realname>
-  </user>
-  <definition>$x_1$ ist das selma&apos;o &quot;NAhU&quot;.</definition>
-  <definitionid>56395</definitionid>
-  <glossword word="selma&apos;o &quot;NAhU&quot;" />
-</valsi>
 <valsi word="cmavrnai" type="fu'ivla">
   <user>
     <username>glekiponjo</username>
@@ -3278,6 +3269,15 @@
   <definition>$x_1$ ist das selma&apos;o &quot;NAI&quot;.</definition>
   <definitionid>56396</definitionid>
   <glossword word="selma&apos;o &quot;NAI&quot;" />
+</valsi>
+<valsi word="cmavrna'u" type="fu'ivla">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ ist das selma&apos;o &quot;NAhU&quot;.</definition>
+  <definitionid>56395</definitionid>
+  <glossword word="selma&apos;o &quot;NAhU&quot;" />
 </valsi>
 <valsi word="cmavrni'e" type="fu'ivla">
   <user>
@@ -3396,15 +3396,6 @@
   <definitionid>56411</definitionid>
   <glossword word="selma&apos;o &quot;SE&quot;" />
 </valsi>
-<valsi word="cmavrse'u" type="fu'ivla">
-  <user>
-    <username>glekiponjo</username>
-    <realname>la gleki noi jmina lo ponjo smuni</realname>
-  </user>
-  <definition>$x_1$ ist das selma&apos;o &quot;SEhU&quot;.</definition>
-  <definitionid>56412</definitionid>
-  <glossword word="selma&apos;o &quot;SEhU&quot;" />
-</valsi>
 <valsi word="cmavrsei" type="fu'ivla">
   <user>
     <username>glekiponjo</username>
@@ -3413,6 +3404,15 @@
   <definition>$x_1$ ist das selma&apos;o &quot;SEI&quot;.</definition>
   <definitionid>56413</definitionid>
   <glossword word="selma&apos;o &quot;SEI&quot;" />
+</valsi>
+<valsi word="cmavrse'u" type="fu'ivla">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ ist das selma&apos;o &quot;SEhU&quot;.</definition>
+  <definitionid>56412</definitionid>
+  <glossword word="selma&apos;o &quot;SEhU&quot;" />
 </valsi>
 <valsi word="cmavrsi" type="fu'ivla">
   <user>
@@ -3450,15 +3450,6 @@
   <definitionid>56417</definitionid>
   <glossword word="selma&apos;o &quot;TAhE&quot;" />
 </valsi>
-<valsi word="cmavrte'u" type="fu'ivla">
-  <user>
-    <username>glekiponjo</username>
-    <realname>la gleki noi jmina lo ponjo smuni</realname>
-  </user>
-  <definition>$x_1$ ist das selma&apos;o &quot;TEhU&quot;.</definition>
-  <definitionid>56418</definitionid>
-  <glossword word="selma&apos;o &quot;TEhU&quot;" />
-</valsi>
 <valsi word="cmavrtei" type="fu'ivla">
   <user>
     <username>glekiponjo</username>
@@ -3467,6 +3458,15 @@
   <definition>$x_1$ ist das selma&apos;o &quot;TEI&quot;.</definition>
   <definitionid>56419</definitionid>
   <glossword word="selma&apos;o &quot;TEI&quot;" />
+</valsi>
+<valsi word="cmavrte'u" type="fu'ivla">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ ist das selma&apos;o &quot;TEhU&quot;.</definition>
+  <definitionid>56418</definitionid>
+  <glossword word="selma&apos;o &quot;TEhU&quot;" />
 </valsi>
 <valsi word="cmavrto" type="fu'ivla">
   <user>
@@ -3540,15 +3540,6 @@
   <definitionid>56427</definitionid>
   <glossword word="selma&apos;o &quot;VEhA&quot;" />
 </valsi>
-<valsi word="cmavrve'o" type="fu'ivla">
-  <user>
-    <username>glekiponjo</username>
-    <realname>la gleki noi jmina lo ponjo smuni</realname>
-  </user>
-  <definition>$x_1$ ist das selma&apos;o &quot;VEhO&quot;.</definition>
-  <definitionid>56428</definitionid>
-  <glossword word="selma&apos;o &quot;VEhO&quot;" />
-</valsi>
 <valsi word="cmavrvei" type="fu'ivla">
   <user>
     <username>glekiponjo</username>
@@ -3557,6 +3548,15 @@
   <definition>$x_1$ ist das selma&apos;o &quot;VEI&quot;.</definition>
   <definitionid>56429</definitionid>
   <glossword word="selma&apos;o &quot;VEI&quot;" />
+</valsi>
+<valsi word="cmavrve'o" type="fu'ivla">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ ist das selma&apos;o &quot;VEhO&quot;.</definition>
+  <definitionid>56428</definitionid>
+  <glossword word="selma&apos;o &quot;VEhO&quot;" />
 </valsi>
 <valsi word="cmavrvi'a" type="fu'ivla">
   <user>
@@ -3778,39 +3778,6 @@
   <definitionid>42847</definitionid>
   <glossword word="unspezif Bridi" />
 </valsi>
-<valsi word="co'o" type="cmavo">
-  <selmaho>COI</selmaho>
-  <user>
-    <username>timonator</username>
-    <realname>Timo Paulssen</realname>
-  </user>
-  <definition>Vokativ: Tschüss</definition>
-  <definitionid>16057</definitionid>
-  <glossword word="Tschüss" />
-  <glossword word="Auf Wiedersehen!" />
-  <glossword word="Mach&apos;s gut!" />
-  <glossword word="Leb wohl!" />
-</valsi>
-<valsi word="co'u" type="cmavo">
-  <rafsi>co&apos;u</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Intervall-Ereignisumriss: am Schlusspunkt von … selbst, wenn noch nicht fertig; beendend | &gt;&lt; |</definition>
-  <definitionid>42851</definitionid>
-  <glossword word="Schluss" />
-</valsi>
-<valsi word="co'urji'e" type="lujvo">
-  <user>
-    <username>Wuzzy</username>
-    <realname>Wuzzy</realname>
-  </user>
-  <definition>$j_1$ stirbt / hört auf, zu Leben; lebendig nach Standard $j_2$.</definition>
-  <definitionid>57508</definitionid>
-  <notes>Vgl. {co&apos;u}, {jmive}, {morsi}.</notes>
-  <glossword word="sterben" />
-</valsi>
 <valsi word="coi" type="cmavo">
   <selmaho>COI</selmaho>
   <user>
@@ -3845,6 +3812,19 @@
   <definitionid>42849</definitionid>
   <glossword word="tief" />
 </valsi>
+<valsi word="co'o" type="cmavo">
+  <selmaho>COI</selmaho>
+  <user>
+    <username>timonator</username>
+    <realname>Timo Paulssen</realname>
+  </user>
+  <definition>Vokativ: Tschüss</definition>
+  <definitionid>16057</definitionid>
+  <glossword word="Tschüss" />
+  <glossword word="Auf Wiedersehen!" />
+  <glossword word="Mach&apos;s gut!" />
+  <glossword word="Leb wohl!" />
+</valsi>
 <valsi word="cortu" type="gismu">
   <rafsi>cor</rafsi>
   <rafsi>cro</rafsi>
@@ -3856,6 +3836,26 @@
   <definitionid>16296</definitionid>
   <notes>Siehe auch {cinmo}, {xrani}.</notes>
   <glossword word="Schmerz" />
+</valsi>
+<valsi word="co'u" type="cmavo">
+  <rafsi>co&apos;u</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Intervall-Ereignisumriss: am Schlusspunkt von … selbst, wenn noch nicht fertig; beendend | &gt;&lt; |</definition>
+  <definitionid>42851</definitionid>
+  <glossword word="Schluss" />
+</valsi>
+<valsi word="co'urji'e" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$j_1$ stirbt / hört auf, zu Leben; lebendig nach Standard $j_2$.</definition>
+  <definitionid>57508</definitionid>
+  <notes>Vgl. {co&apos;u}, {jmive}, {morsi}.</notes>
+  <glossword word="sterben" />
 </valsi>
 <valsi word="cpacu" type="gismu">
   <rafsi>cpa</rafsi>
@@ -4267,15 +4267,6 @@
   <definitionid>42887</definitionid>
   <glossword word="alle außer" />
 </valsi>
-<valsi word="da'ergau" type="lujvo">
-  <user>
-    <username>Wuzzy</username>
-    <realname>Wuzzy</realname>
-  </user>
-  <definition>$g_1$ [Person/handelndes Subjekt] wendet physikalische Kraft $d_1$, welche $d_2$ drückt, an.</definition>
-  <definitionid>42312</definitionid>
-  <notes>Siehe auch {selda&apos;ergau}, {da&apos;erzu&apos;e}, {danre}, {gasnu}.</notes>
-</valsi>
 <valsi word="dacru" type="gismu">
   <rafsi>dac</rafsi>
   <user>
@@ -4339,6 +4330,15 @@
   <glossword word="Hängebrücke" />
   <keyword word="Hängebrücke" place="1" />
 </valsi>
+<valsi word="da'ergau" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$g_1$ [Person/handelndes Subjekt] wendet physikalische Kraft $d_1$, welche $d_2$ drückt, an.</definition>
+  <definitionid>42312</definitionid>
+  <notes>Siehe auch {selda&apos;ergau}, {da&apos;erzu&apos;e}, {danre}, {gasnu}.</notes>
+</valsi>
 <valsi word="dagme'esni" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -4347,8 +4347,8 @@
   <definition>$s_1$ ist ein Straßennamensschild, das einen/den Namen $s_2=c_1$ der Straße $c_2=d_1$ – der Name wurde von $c_3$ vergeben – für den Beobachter $s_3$ zeigt.</definition>
   <definitionid>56545</definitionid>
   <notes>Siehe auch: {dagysni}, {cmene}.</notes>
-  <glossword word="Straßennamensschild" />
   <glossword word="Straßenschild" sense="für einen Straßennamen" />
+  <glossword word="Straßennamensschild" />
   <keyword word="Straßennamensschild" place="1" />
   <keyword word="Straßenname" place="2" />
   <keyword word="Straße" place="3" />
@@ -4694,9 +4694,9 @@
   <definition>$du_1$ ist der Zehnerlogarithmus von $du_2$.</definition>
   <definitionid>57390</definitionid>
   <notes>Synonym zu {pavnondugri}. Siehe auch {te&apos;o zei dugri}, {reldugri}, {dugri}.</notes>
-  <glossword word="dekadischer Logarithmus" />
   <glossword word="Briggsscher Logarithmus" />
   <glossword word="Zehnerlogarithmus" />
+  <glossword word="dekadischer Logarithmus" />
   <keyword word="Zehnerlogarithmus" place="1" />
   <keyword word="Numerus" place="2" sense="mathematisch" />
 </valsi>
@@ -5134,16 +5134,6 @@
   <definitionid>44139</definitionid>
   <glossword word="selbe Identität wie" />
 </valsi>
-<valsi word="du'u" type="cmavo">
-  <rafsi>dum</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Abstraktor: Prädikations-/Bridi-Abstraktor; $x_1$ ist die Prädikation [das Bridi], die in Satz $x_2$ ausgedrückt wird</definition>
-  <definitionid>42961</definitionid>
-  <glossword word="Bridi-Abstraktion" />
-</valsi>
 <valsi word="dubyfancu" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -5238,6 +5228,16 @@
   <definition>$x_1$ ist Winter [kalte Jahreszeit] von Jahr $x_2$ in Ort $x_3$</definition>
   <definitionid>42960</definitionid>
   <glossword word="Winter" />
+</valsi>
+<valsi word="du'u" type="cmavo">
+  <rafsi>dum</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Abstraktor: Prädikations-/Bridi-Abstraktor; $x_1$ ist die Prädikation [das Bridi], die in Satz $x_2$ ausgedrückt wird</definition>
+  <definitionid>42961</definitionid>
+  <glossword word="Bridi-Abstraktion" />
 </valsi>
 <valsi word="dzena" type="gismu">
   <rafsi>dze</rafsi>
@@ -5974,16 +5974,6 @@
   <glossword word="Eis am Stiel" />
   <keyword word="Eis am Stiel" place="1" />
 </valsi>
-<valsi word="ga'e zei lerfu" type="zei-lujvo">
-  <user>
-    <username>Wuzzy</username>
-    <realname>Wuzzy</realname>
-  </user>
-  <definition>$x_1$ (»la&apos;e zo«+BY/Wort+»bu«) ist ein Großbuchstabe / eine Majuskel im Alphabet / Zeichensatz $x_2$ darstellend $x_3$.</definition>
-  <definitionid>41754</definitionid>
-  <notes>Siehe auch {ga&apos;e}, {lerfu} und {to&apos;a zei lerfu}.</notes>
-  <glossword word="Großbuchstabe" />
-</valsi>
 <valsi word="gacri" type="gismu">
   <rafsi>gai</rafsi>
   <user>
@@ -6015,6 +6005,16 @@
   <definition>$x_1$ ist ein Artikel/Deskriptor und kennzeichnet Beschreibung $x_2$ (Text) in Sprache $x_3$ mit Semantik $x_3$</definition>
   <definitionid>43033</definitionid>
   <glossword word="Artikel" />
+</valsi>
+<valsi word="ga'e zei lerfu" type="zei-lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1$ (»la&apos;e zo«+BY/Wort+»bu«) ist ein Großbuchstabe / eine Majuskel im Alphabet / Zeichensatz $x_2$ darstellend $x_3$.</definition>
+  <definitionid>41754</definitionid>
+  <notes>Siehe auch {ga&apos;e}, {lerfu} und {to&apos;a zei lerfu}.</notes>
+  <glossword word="Großbuchstabe" />
 </valsi>
 <valsi word="galfi" type="gismu">
   <rafsi>gaf</rafsi>
@@ -7321,10 +7321,10 @@
   <definition>$s_1$ ist eine Alkali-Mangan-Zelle mit Ummantelung $s_3$.</definition>
   <definitionid>42304</definitionid>
   <notes>Siehe auch {jilka}, {dicysro}.</notes>
-  <glossword word="Alkali-Mangan-Zelle" />
+  <glossword word="Zink-Manganoxid-Zelle" />
   <glossword word="Alkali-Mangan-Batterie" />
   <glossword word="Alkaline" />
-  <glossword word="Zink-Manganoxid-Zelle" />
+  <glossword word="Alkali-Mangan-Zelle" />
   <keyword word="Alkali-Mangan-Zelle" place="1" />
 </valsi>
 <valsi word="jilra" type="gismu">
@@ -7644,16 +7644,6 @@
   <definitionid>43175</definitionid>
   <glossword word="Vereinigung" />
 </valsi>
-<valsi word="jo'u" type="cmavo">
-  <rafsi>jo&apos;u</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>nicht-logische Verknüpfung: gemeinsam mit; zusammen mit (unvermischt)</definition>
-  <definitionid>43179</definitionid>
-  <glossword word="gemeinsam mit" />
-</valsi>
 <valsi word="joi" type="cmavo">
   <rafsi>jol</rafsi>
   <rafsi>joi</rafsi>
@@ -7686,6 +7676,16 @@
   <definition>$x_1$ ist verbunden/vereinigt mit $x_2$/angeschlossen an $x_2$ an gemeinsamer Stelle $x_3$; $x_1$ und $x_2$ sind ein Bund/eine Vereinigung</definition>
   <definitionid>43178</definitionid>
   <glossword word="verbunden" />
+</valsi>
+<valsi word="jo'u" type="cmavo">
+  <rafsi>jo&apos;u</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>nicht-logische Verknüpfung: gemeinsam mit; zusammen mit (unvermischt)</definition>
+  <definitionid>43179</definitionid>
+  <glossword word="gemeinsam mit" />
 </valsi>
 <valsi word="ju" type="cmavo">
   <rafsi>juv</rafsi>
@@ -8234,27 +8234,6 @@
   <definitionid>57315</definitionid>
   <notes>Für Locher (für Papier) siehe »{pleke&apos;atci}«.</notes>
 </valsi>
-<valsi word="ke'e" type="cmavo">
-  <rafsi>kep</rafsi>
-  <rafsi>ke&apos;e</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>auslassbares Endzeichen: Ende der Linksgruppierungs-Aufhebung von Tanru (normalerweise auslassbar)</definition>
-  <definitionid>43233</definitionid>
-  <glossword word="Gruppierung beenden" />
-</valsi>
-<valsi word="ke'o" type="cmavo">
-  <selmaho>COI</selmaho>
-  <user>
-    <username>TomSFox</username>
-    <realname>Thomas Vo</realname>
-  </user>
-  <definition>Vokativ: bitte wiederhole.</definition>
-  <definitionid>16286</definitionid>
-  <glossword word="bitte wiederhole" />
-</valsi>
 <valsi word="kecti" type="gismu">
   <rafsi>kec</rafsi>
   <rafsi>ke&apos;i</rafsi>
@@ -8266,6 +8245,17 @@
   <definitionid>16297</definitionid>
   <notes>Siehe auch {cinmo}, {xendo}.</notes>
   <glossword word="Mitleid" />
+</valsi>
+<valsi word="ke'e" type="cmavo">
+  <rafsi>kep</rafsi>
+  <rafsi>ke&apos;e</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>auslassbares Endzeichen: Ende der Linksgruppierungs-Aufhebung von Tanru (normalerweise auslassbar)</definition>
+  <definitionid>43233</definitionid>
+  <glossword word="Gruppierung beenden" />
 </valsi>
 <valsi word="kei" type="cmavo">
   <rafsi>kez</rafsi>
@@ -8327,6 +8317,16 @@
   <definitionid>43238</definitionid>
   <glossword word="Weltraum" />
 </valsi>
+<valsi word="ke'o" type="cmavo">
+  <selmaho>COI</selmaho>
+  <user>
+    <username>TomSFox</username>
+    <realname>Thomas Vo</realname>
+  </user>
+  <definition>Vokativ: bitte wiederhole.</definition>
+  <definitionid>16286</definitionid>
+  <glossword word="bitte wiederhole" />
+</valsi>
 <valsi word="kerfa" type="gismu">
   <rafsi>kre</rafsi>
   <user>
@@ -8369,8 +8369,8 @@
   <definition>$x_1$ ist eine Höhle / ein Loch / eine Einbuchtung in $x_2$; $x_1$ ist konkav innerhalb von $x_2$; $x_2$ ist hohl an $x_1$.</definition>
   <definitionid>16121</definitionid>
   <notes>Auch Grube; Hohl (= {selke&apos;a}). Siehe auch {fenra}, {kunti}, {canlu}, {canko}, {galxe}, {tubnu}.</notes>
-  <glossword word="Höhle" />
   <glossword word="Loch" />
+  <glossword word="Höhle" />
 </valsi>
 <valsi word="kicne" type="gismu">
   <rafsi>kic</rafsi>
@@ -8663,8 +8663,8 @@
   <definition>$x_{1}$ ist eine Kante/ein Rand/eine Grenze von $x_{2}$ neben/angrenzend an $x_{3}$.</definition>
   <definitionid>16124</definitionid>
   <notes>Siehe auch Cmavo-Liste {koi}, {greku}, {mlana}, {jimte}, {ctebi}, {bartu}.</notes>
-  <glossword word="Rand" />
   <glossword word="Kante" />
+  <glossword word="Rand" />
 </valsi>
 <valsi word="korcu" type="gismu">
   <rafsi>kro</rafsi>
@@ -9048,8 +9048,8 @@
   <definition>$p_1$ ist ein Wachsmalstift aus (unter anderem) dem Wachs $p_2=l_1$, zusammengehalten von $p_3$.</definition>
   <definitionid>53024</definitionid>
   <glossword word="Wachsstift" />
-  <glossword word="Wachsmalstift" />
   <glossword word="Wachsmalkreide" />
+  <glossword word="Wachsmalstift" />
   <keyword word="Wachsmalstift" place="1" />
 </valsi>
 <valsi word="lakse" type="gismu">
@@ -9205,9 +9205,9 @@
   </user>
   <definition>$d_1=s_1$ ist ein Plastiksack/Plastikbeutel / eine Platiktüte mit Inhalt $d_2$.</definition>
   <definitionid>53054</definitionid>
+  <glossword word="Plastiksack" />
   <glossword word="Plastikbeutel" />
   <glossword word="Plastiktüte" />
-  <glossword word="Plastiksack" />
   <keyword word="Plastiksack" place="1" />
 </valsi>
 <valsi word="latmo" type="gismu">
@@ -9248,16 +9248,6 @@
   <definitionid>43315</definitionid>
   <glossword word="faul" />
 </valsi>
-<valsi word="le'e" type="cmavo">
-  <rafsi>lem</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>nicht-wahrheitsgetreuer Artikel: Der Stereotyp von denen beschrieben als ...</definition>
-  <definitionid>43317</definitionid>
-  <glossword word="der stereotype" />
-</valsi>
 <valsi word="lebna" type="gismu">
   <rafsi>leb</rafsi>
   <rafsi>le&apos;a</rafsi>
@@ -9268,6 +9258,16 @@
   <definition>$x_1$ nimmt/bekommt $x_2$ (Objekt/Eigenschaft) von $x_3$ (Besitzer)</definition>
   <definitionid>43316</definitionid>
   <glossword word="nehmen" />
+</valsi>
+<valsi word="le'e" type="cmavo">
+  <rafsi>lem</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>nicht-wahrheitsgetreuer Artikel: Der Stereotyp von denen beschrieben als ...</definition>
+  <definitionid>43317</definitionid>
+  <glossword word="der stereotype" />
 </valsi>
 <valsi word="lenjo" type="gismu">
   <rafsi>len</rafsi>
@@ -9353,16 +9353,6 @@
   <definitionid>41769</definitionid>
   <notes>Für $l_1$ ist nur ein Letteral erlaubt. Bitte nicht vergessen, das Wort und das Letteral in »Anführungszeichen« zu setzen! Siehe auch: {lerfu}, {ro}, {moi}, {valsi}, {lerpavmoivla}.</notes>
 </valsi>
-<valsi word="li'i" type="cmavo">
-  <rafsi>liz</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Abstraktion: Erfahrungs-Abstraktion; $x_1$ ist die Erfahrung von $x_2$ von [bridi] (Teilnehmer oder Betrachter)</definition>
-  <definitionid>43326</definitionid>
-  <glossword word="Erfahrungs-Abstraktion" />
-</valsi>
 <valsi word="libjo" type="gismu">
   <rafsi>lib</rafsi>
   <user>
@@ -9393,6 +9383,16 @@
   <definition>$x_1$ [Person/Opfer/Zustand] erlebt/durchlebt/erfährt $x_2$ (Ereignis/Erfahrung); $x_2$ passiert $x_1$</definition>
   <definitionid>43325</definitionid>
   <glossword word="erleben" />
+</valsi>
+<valsi word="li'i" type="cmavo">
+  <rafsi>liz</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Abstraktion: Erfahrungs-Abstraktion; $x_1$ ist die Erfahrung von $x_2$ von [bridi] (Teilnehmer oder Betrachter)</definition>
+  <definitionid>43326</definitionid>
+  <glossword word="Erfahrungs-Abstraktion" />
 </valsi>
 <valsi word="lijda" type="gismu">
   <rafsi>jda</rafsi>
@@ -10466,16 +10466,6 @@
   <definitionid>43419</definitionid>
   <glossword word="zu wenige" />
 </valsi>
-<valsi word="mo'i" type="cmavo">
-  <rafsi>mov</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>markiert Bewegungen in der Raumzeit</definition>
-  <definitionid>43421</definitionid>
-  <glossword word="räumliche Bewegung" />
-</valsi>
 <valsi word="moi" type="cmavo">
   <rafsi>mom</rafsi>
   <rafsi>moi</rafsi>
@@ -10486,6 +10476,16 @@
   <definition>wandelt Zahl in eine Ordnungsbeziehung; $x_1$ ist das (n).te Element von Menge $x_2$ geordnet nach Vorschrift $x_3$</definition>
   <definitionid>43420</definitionid>
   <glossword word="Ordnungsbeziehung" />
+</valsi>
+<valsi word="mo'i" type="cmavo">
+  <rafsi>mov</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>markiert Bewegungen in der Raumzeit</definition>
+  <definitionid>43421</definitionid>
+  <glossword word="räumliche Bewegung" />
 </valsi>
 <valsi word="mokca" type="gismu">
   <rafsi>moc</rafsi>
@@ -10642,16 +10642,6 @@
   <glossword word="Fünf" />
   <glossword word="5" />
 </valsi>
-<valsi word="mu'e" type="cmavo">
-  <rafsi>muf</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Abstraktion: Ausführung (Ereignis) Abstraktion; $x_1$ ist ein Punktereignis/Ausführung von [bridi]</definition>
-  <definitionid>43437</definitionid>
-  <glossword word="Punktereignis-Abstraktion" />
-</valsi>
 <valsi word="mucti" type="gismu">
   <rafsi>mut</rafsi>
   <user>
@@ -10681,6 +10671,16 @@
   <definitionid>53000</definitionid>
   <glossword word="Holzschuh" />
   <keyword word="Holzschuh" place="1" />
+</valsi>
+<valsi word="mu'e" type="cmavo">
+  <rafsi>muf</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Abstraktion: Ausführung (Ereignis) Abstraktion; $x_1$ ist ein Punktereignis/Ausführung von [bridi]</definition>
+  <definitionid>43437</definitionid>
+  <glossword word="Punktereignis-Abstraktion" />
 </valsi>
 <valsi word="mukti" type="gismu">
   <rafsi>muk</rafsi>
@@ -10786,16 +10786,6 @@
   <definitionid>43447</definitionid>
   <glossword word="Bridi-Negation" />
 </valsi>
-<valsi word="na'e" type="cmavo">
-  <rafsi>nal</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Komplement-Negator (skalar); anders als ...; nicht ...; eine Skala oder Menge ist impliziert</definition>
-  <definitionid>43449</definitionid>
-  <glossword word="Komplement-Negation" />
-</valsi>
 <valsi word="nabmi" type="gismu">
   <rafsi>nam</rafsi>
   <user>
@@ -10815,6 +10805,16 @@
   <definitionid>38076</definitionid>
   <glossword word="schwerer" sense="schwieriger" />
   <glossword word="schwieriger" />
+</valsi>
+<valsi word="na'e" type="cmavo">
+  <rafsi>nal</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Komplement-Negator (skalar); anders als ...; nicht ...; eine Skala oder Menge ist impliziert</definition>
+  <definitionid>43449</definitionid>
+  <glossword word="Komplement-Negation" />
 </valsi>
 <valsi word="najnimryjisra" type="lujvo">
   <user>
@@ -11074,17 +11074,6 @@
   <definitionid>43467</definitionid>
   <glossword word="Mengen-Abstraktion" />
 </valsi>
-<valsi word="ni'o" type="cmavo">
-  <selmaho>NIhO</selmaho>
-  <user>
-    <username>timonator</username>
-    <realname>Timo Paulssen</realname>
-  </user>
-  <definition>Diskursiv: Absatz; beginnt ein neues Thema.</definition>
-  <definitionid>16119</definitionid>
-  <glossword word="neues Thema" />
-  <glossword word="Absatz" />
-</valsi>
 <valsi word="nibli" type="gismu">
   <rafsi>nib</rafsi>
   <rafsi>ni&apos;i</rafsi>
@@ -11179,6 +11168,17 @@
   <notes>Wort in Metapher/Beispiel als sexistisch nicht bevorzugt (Benutz {remna} oder {prenu} stattdessen!). Siehe auch {nanmu}, {remna}, {prenu}, {makcu}, {nixli}.</notes>
   <glossword word="Frau" />
 </valsi>
+<valsi word="ni'o" type="cmavo">
+  <selmaho>NIhO</selmaho>
+  <user>
+    <username>timonator</username>
+    <realname>Timo Paulssen</realname>
+  </user>
+  <definition>Diskursiv: Absatz; beginnt ein neues Thema.</definition>
+  <definitionid>16119</definitionid>
+  <glossword word="neues Thema" />
+  <glossword word="Absatz" />
+</valsi>
 <valsi word="nirna" type="gismu">
   <rafsi>nir</rafsi>
   <user>
@@ -11232,17 +11232,6 @@
   <definitionid>16081</definitionid>
   <glossword word="Null" />
 </valsi>
-<valsi word="no'e" type="cmavo">
-  <rafsi>nor</rafsi>
-  <rafsi>no&apos;e</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>mittelwertiger skalarer Negator: neutraler Punkt zwischen je&apos;a und to&apos;e; „eigentlich nicht“</definition>
-  <definitionid>43479</definitionid>
-  <glossword word="skalares mittelwertiges nicht" />
-</valsi>
 <valsi word="nobli" type="gismu">
   <rafsi>nol</rafsi>
   <rafsi>no&apos;i</rafsi>
@@ -11254,6 +11243,17 @@
   <definitionid>43478</definitionid>
   <glossword word="adlig" />
 </valsi>
+<valsi word="no'e" type="cmavo">
+  <rafsi>nor</rafsi>
+  <rafsi>no&apos;e</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>mittelwertiger skalarer Negator: neutraler Punkt zwischen je&apos;a und to&apos;e; „eigentlich nicht“</definition>
+  <definitionid>43479</definitionid>
+  <glossword word="skalares mittelwertiges nicht" />
+</valsi>
 <valsi word="nonmau" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -11262,8 +11262,8 @@
   <definition>$z_1$ (Zahl) ist größer als 0 um Wert $z_4$ (Zahl); $z_1$ ist eine positive Zahl.</definition>
   <definitionid>57379</definitionid>
   <notes>Siehe auch: {nonme&apos;a}, {zmadu}, {no}.</notes>
-  <glossword word="positiv" sense="Mathematik" />
   <glossword word="positive Zahl" />
+  <glossword word="positiv" sense="Mathematik" />
   <keyword word="positive Zahl" place="1" />
 </valsi>
 <valsi word="nonme'a" type="lujvo">
@@ -11274,8 +11274,8 @@
   <definition>$m_1$ (Zahl) ist kleiner als 0 um Wert $m_4$ (Zahl); $m_1$ ist eine negative Zahl.</definition>
   <definitionid>57376</definitionid>
   <notes>Siehe auch: {nonmau}, {mleca}, {no}.</notes>
-  <glossword word="negative Zahl" />
   <glossword word="negativ" sense="Mathematik" />
+  <glossword word="negative Zahl" />
   <keyword word="negative Zahl" place="1" />
 </valsi>
 <valsi word="norlunbe" type="lujvo">
@@ -11339,16 +11339,6 @@
   <definitionid>43481</definitionid>
   <glossword word="Ereignis-Abstraktion" />
 </valsi>
-<valsi word="nu'o" type="cmavo">
-  <rafsi>nu&apos;o</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>modaler Aspekt: kann aber hat/ist nicht; unverwirklichtes Potenzial</definition>
-  <definitionid>43483</definitionid>
-  <glossword word="kann aber ist nicht" />
-</valsi>
 <valsi word="nukni" type="gismu">
   <rafsi>nuk</rafsi>
   <user>
@@ -11358,6 +11348,16 @@
   <definition>$x_1$ ist magenta/pink/purpurn [Farbadjektiv]</definition>
   <definitionid>43482</definitionid>
   <glossword word="Magenta" />
+</valsi>
+<valsi word="nu'o" type="cmavo">
+  <rafsi>nu&apos;o</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>modaler Aspekt: kann aber hat/ist nicht; unverwirklichtes Potenzial</definition>
+  <definitionid>43483</definitionid>
+  <glossword word="kann aber ist nicht" />
 </valsi>
 <valsi word="nupre" type="gismu">
   <rafsi>nup</rafsi>
@@ -11870,16 +11870,6 @@
   <definitionid>43526</definitionid>
   <glossword word="Dezimalpunkt" />
 </valsi>
-<valsi word="pi'u" type="cmavo">
-  <rafsi>piv</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>nicht-logische Verknüpfung: Kreuzprodukt; Kartesisches Produkt von Mengen</definition>
-  <definitionid>43544</definitionid>
-  <glossword word="Kreuzprodukt" />
-</valsi>
 <valsi word="picti" type="gismu">
   <rafsi>pic</rafsi>
   <user>
@@ -12067,6 +12057,16 @@
   <definition>$x_1$ ist ein Klavier/Piano/Cembalo/Keyboard/eine Orgel; ein Musikinstrument mit Tasten</definition>
   <definitionid>43543</definitionid>
   <glossword word="Klavier" />
+</valsi>
+<valsi word="pi'u" type="cmavo">
+  <rafsi>piv</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>nicht-logische Verknüpfung: Kreuzprodukt; Kartesisches Produkt von Mengen</definition>
+  <definitionid>43544</definitionid>
+  <glossword word="Kreuzprodukt" />
 </valsi>
 <valsi word="pixra" type="gismu">
   <rafsi>pir</rafsi>
@@ -12557,16 +12557,6 @@
   <definitionid>43578</definitionid>
   <glossword word="kann und hat" />
 </valsi>
-<valsi word="pu'u" type="cmavo">
-  <rafsi>puv</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Abstraktion: Prozess-(Ereignis-)Abstraktion; $x_1$ ist ein Prozess von [bridi] bestehend aus Phasen $x_2$</definition>
-  <definitionid>43587</definitionid>
-  <glossword word="Prozess-Abstraktion" />
-</valsi>
 <valsi word="pulce" type="gismu">
   <rafsi>puc</rafsi>
   <rafsi>pu&apos;e</rafsi>
@@ -12649,6 +12639,16 @@
   <definitionid>43586</definitionid>
   <glossword word="Pulver" />
 </valsi>
+<valsi word="pu'u" type="cmavo">
+  <rafsi>puv</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Abstraktion: Prozess-(Ereignis-)Abstraktion; $x_1$ ist ein Prozess von [bridi] bestehend aus Phasen $x_2$</definition>
+  <definitionid>43587</definitionid>
+  <glossword word="Prozess-Abstraktion" />
+</valsi>
 <valsi word="racli" type="gismu">
   <user>
     <username>gleki</username>
@@ -12667,8 +12667,8 @@
   <definitionid>16120</definitionid>
   <notes>Siehe auch {mabru}, {kerlo}.</notes>
   <glossword word="Kaninchen" />
-  <glossword word="Karnickel" />
   <glossword word="Hase" />
+  <glossword word="Karnickel" />
 </valsi>
 <valsi word="radno" type="gismu">
   <rafsi>ra&apos;o</rafsi>
@@ -12912,8 +12912,8 @@
   <definition>$d_1$ ist der binäre Logarithmus von $d_2$.</definition>
   <definitionid>42264</definitionid>
   <notes>Siehe auch {pavnondugri}, {te&apos;o zei dugri}, {dugri}.</notes>
-  <glossword word="Zweierlogarithmus" />
   <glossword word="binärer Logarithmus" />
+  <glossword word="Zweierlogarithmus" />
   <keyword word="binärer Logarithmus" place="1" />
   <keyword word="Numerus" place="2" sense="mathematisch" />
 </valsi>
@@ -13536,8 +13536,7 @@
   </user>
   <definition>$x_1=k_2$ ist ein Videospiel auf Platform $x_2=s_1$.</definition>
   <definitionid>44244</definitionid>
-  <notes>Auch: PC-/Computerspiel. x2 kann ein PC, tragbares Gerät, eine Videospielkonsole oder eine Arkade-Maschine sein.
-Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei}).</notes>
+  <notes>Auch: PC-/Computerspiel. x2 kann ein PC, tragbares Gerät, eine Videospielkonsole oder eine Arkade-Maschine sein. Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei}).</notes>
   <glossword word="Videospiel" />
   <glossword word="Computerspiel" />
   <keyword word="Computerspiel" place="1" />
@@ -13949,57 +13948,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>43693</definitionid>
   <glossword word="tauchen" />
 </valsi>
-<valsi word="si'ecna" type="lujvo">
-  <user>
-    <username>Wuzzy</username>
-    <realname>Wuzzy</realname>
-  </user>
-  <definition>$c_1$ ist eine Schneeschaufel.</definition>
-  <definitionid>52932</definitionid>
-  <glossword word="Schneeschaufel" />
-  <keyword word="Schneeschaufel" place="1" />
-</valsi>
-<valsi word="si'ercarvi" type="lujvo">
-  <user>
-    <username>Wuzzy</username>
-    <realname>Wuzzy</realname>
-  </user>
-  <definition>$c_1=s_1$ schneit zu $c_2$ von $c_3$.</definition>
-  <definitionid>52926</definitionid>
-  <notes>Siehe auch: {snime} (für den Schnee als Masse).</notes>
-  <glossword word="schneien" />
-</valsi>
-<valsi word="si'erjoijaucarvi" type="lujvo">
-  <user>
-    <username>Wuzzy</username>
-    <realname>Wuzzy</realname>
-  </user>
-  <definition>$c_1=s_1=d_1$ fällt als Schneeregen zu $c_2$ von $c_3$.</definition>
-  <definitionid>52929</definitionid>
-  <notes>Siehe auch: »{si&apos;ercarvi}« (schneien), »{jaurcarvi}« (regnen [Wasser])</notes>
-  <glossword word="Schneeregen" />
-  <keyword word="Schneeregen" place="1" />
-</valsi>
-<valsi word="si'irvelne'u" type="lujvo">
-  <user>
-    <username>Wuzzy</username>
-    <realname>Wuzzy</realname>
-  </user>
-  <definition>$s_1=c_1$ ist eine Medallie oder ein Orden für $c_2$ vergeben für das/die ungewöhnliche $c_3$ (Ereignis/Eigenschaft) von $c_4$.</definition>
-  <definitionid>41765</definitionid>
-  <notes>Wie auch bei {cnemu} ist hier eine positive oder negative Konnotation der Auszeichnung nicht impliziert. Siehe auch: {sicni} und {ve}.</notes>
-  <glossword word="Medaille" sense="Auszeichnung" />
-</valsi>
-<valsi word="si'o" type="cmavo">
-  <rafsi>siz</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Abstraktion: Idee/Konzept-Abstraktion; $x_1$ ist $x_2$s Konzept von [bridi]</definition>
-  <definitionid>43708</definitionid>
-  <glossword word="Konzept-Abstraktion" />
-</valsi>
 <valsi word="siclu" type="gismu">
   <rafsi>sil</rafsi>
   <user>
@@ -14043,6 +13991,37 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>43697</definitionid>
   <glossword word="helfen" />
 </valsi>
+<valsi word="si'ecna" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$c_1$ ist eine Schneeschaufel.</definition>
+  <definitionid>52932</definitionid>
+  <glossword word="Schneeschaufel" />
+  <keyword word="Schneeschaufel" place="1" />
+</valsi>
+<valsi word="si'ercarvi" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$c_1=s_1$ schneit zu $c_2$ von $c_3$.</definition>
+  <definitionid>52926</definitionid>
+  <notes>Siehe auch: {snime} (für den Schnee als Masse).</notes>
+  <glossword word="schneien" />
+</valsi>
+<valsi word="si'erjoijaucarvi" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$c_1=s_1=d_1$ fällt als Schneeregen zu $c_2$ von $c_3$.</definition>
+  <definitionid>52929</definitionid>
+  <notes>Siehe auch: »{si&apos;ercarvi}« (schneien), »{jaurcarvi}« (regnen [Wasser])</notes>
+  <glossword word="Schneeregen" />
+  <keyword word="Schneeregen" place="1" />
+</valsi>
 <valsi word="sigja" type="gismu">
   <rafsi>sig</rafsi>
   <user>
@@ -14053,6 +14032,16 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>43698</definitionid>
   <glossword word="Zigarette" />
 </valsi>
+<valsi word="si'irvelne'u" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$s_1=c_1$ ist eine Medallie oder ein Orden für $c_2$ vergeben für das/die ungewöhnliche $c_3$ (Ereignis/Eigenschaft) von $c_4$.</definition>
+  <definitionid>41765</definitionid>
+  <notes>Wie auch bei {cnemu} ist hier eine positive oder negative Konnotation der Auszeichnung nicht impliziert. Siehe auch: {sicni} und {ve}.</notes>
+  <glossword word="Medaille" sense="Auszeichnung" />
+</valsi>
 <valsi word="sijypi'e" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -14061,8 +14050,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$p_1=s_3$ skispringt zu $p_2$ von $p_3$ erreichend Höhe $p_4$ angetrieben von/benutzend Skier $p_5=s_1$.</definition>
   <definitionid>57407</definitionid>
   <notes>Vgl. {skiji}, {plipe}.</notes>
-  <glossword word="skispringen" />
   <glossword word="schispringen" />
+  <glossword word="skispringen" />
   <keyword word="Skispringer" place="1" />
   <keyword word="Sprunghöhe" place="4" />
   <keyword word="Skier" place="5" />
@@ -14154,6 +14143,16 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$x_1$ ist ein Zeichen/Symbol/Signal und bedeutet/repräsentiert/bezieht sich auf/kennzeichnet $x_2$ für Betrachter $x_3$</definition>
   <definitionid>43707</definitionid>
   <glossword word="Zeichen" />
+</valsi>
+<valsi word="si'o" type="cmavo">
+  <rafsi>siz</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Abstraktion: Idee/Konzept-Abstraktion; $x_1$ ist $x_2$s Konzept von [bridi]</definition>
+  <definitionid>43708</definitionid>
+  <glossword word="Konzept-Abstraktion" />
 </valsi>
 <valsi word="sipna" type="gismu">
   <rafsi>sip</rafsi>
@@ -14630,47 +14629,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>43757</definitionid>
   <glossword word="fast alle" />
 </valsi>
-<valsi word="so'e" type="cmavo">
-  <rafsi>sop</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Ziffer/Zahl: die meisten</definition>
-  <definitionid>43761</definitionid>
-  <glossword word="die meisten" />
-</valsi>
-<valsi word="so'i" type="cmavo">
-  <rafsi>sor</rafsi>
-  <rafsi>so&apos;i</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Ziffer/Zahl: viele</definition>
-  <definitionid>43763</definitionid>
-  <glossword word="viele" />
-</valsi>
-<valsi word="so'o" type="cmavo">
-  <rafsi>sos</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Ziffer/Zahl: einige</definition>
-  <definitionid>43768</definitionid>
-  <glossword word="einige" />
-</valsi>
-<valsi word="so'u" type="cmavo">
-  <rafsi>sot</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Ziffer/Zahl: wenige</definition>
-  <definitionid>43771</definitionid>
-  <glossword word="wenige" />
-</valsi>
 <valsi word="sobde" type="gismu">
   <rafsi>sob</rafsi>
   <rafsi>so&apos;e</rafsi>
@@ -14701,6 +14659,16 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>43760</definitionid>
   <glossword word="Limonade" />
 </valsi>
+<valsi word="so'e" type="cmavo">
+  <rafsi>sop</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Ziffer/Zahl: die meisten</definition>
+  <definitionid>43761</definitionid>
+  <glossword word="die meisten" />
+</valsi>
 <valsi word="softo" type="gismu">
   <rafsi>sof</rafsi>
   <user>
@@ -14710,6 +14678,17 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$x_1$ repräsentiert das Russische Reich/die UdSSR/ehemalige UdSSR/sowjetische/GUS Kultur/Nationalität in Aspekt $x_2$</definition>
   <definitionid>43762</definitionid>
   <glossword word="sowjetisch" />
+</valsi>
+<valsi word="so'i" type="cmavo">
+  <rafsi>sor</rafsi>
+  <rafsi>so&apos;i</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Ziffer/Zahl: viele</definition>
+  <definitionid>43763</definitionid>
+  <glossword word="viele" />
 </valsi>
 <valsi word="solji" type="gismu">
   <rafsi>slo</rafsi>
@@ -14753,6 +14732,16 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>43767</definitionid>
   <glossword word="Soldat" />
 </valsi>
+<valsi word="so'o" type="cmavo">
+  <rafsi>sos</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Ziffer/Zahl: einige</definition>
+  <definitionid>43768</definitionid>
+  <glossword word="einige" />
+</valsi>
 <valsi word="sorcu" type="gismu">
   <rafsi>soc</rafsi>
   <rafsi>sro</rafsi>
@@ -14782,6 +14771,16 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$x_1$ kennt sich aus mit/weiß viel über $x_2$ basierend auf Epistemologie  $x_3$</definition>
   <definitionid>38067</definitionid>
   <glossword word="sich auskennen" />
+</valsi>
+<valsi word="so'u" type="cmavo">
+  <rafsi>sot</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Ziffer/Zahl: wenige</definition>
+  <definitionid>43771</definitionid>
+  <glossword word="wenige" />
 </valsi>
 <valsi word="sovda" type="gismu">
   <rafsi>sov</rafsi>
@@ -15237,38 +15236,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>43811</definitionid>
   <glossword word="Ort" />
 </valsi>
-<valsi word="su'e" type="cmavo">
-  <rafsi>sup</rafsi>
-  <rafsi>su&apos;e</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Ziffer/Zahl: höchstens (alle); nicht mehr als</definition>
-  <definitionid>43814</definitionid>
-  <glossword word="höchstens" />
-</valsi>
-<valsi word="su'o" type="cmavo">
-  <rafsi>suz</rafsi>
-  <rafsi>su&apos;o</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Ziffer/Zahl: mindestens (wenige); nicht weniger als</definition>
-  <definitionid>43822</definitionid>
-  <glossword word="mindestens" />
-</valsi>
-<valsi word="su'u" type="cmavo">
-  <rafsi>suv</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Abstraktion: allgemeine Abstraktion (wie); $x_1$ ist [bridi] als unspezifische Abstraktion von Typ $x_2$</definition>
-  <definitionid>43825</definitionid>
-  <glossword word="unspezif. Abstraktion" />
-</valsi>
 <valsi word="sucta" type="gismu">
   <rafsi>suc</rafsi>
   <user>
@@ -15300,6 +15267,17 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <glossword word="Trockenzeit" />
   <keyword word="Trockenzeit" place="1" />
   <keyword word="Jahr" place="2" sense="Zeitspanne" />
+</valsi>
+<valsi word="su'e" type="cmavo">
+  <rafsi>sup</rafsi>
+  <rafsi>su&apos;e</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Ziffer/Zahl: höchstens (alle); nicht mehr als</definition>
+  <definitionid>43814</definitionid>
+  <glossword word="höchstens" />
 </valsi>
 <valsi word="sufti" type="gismu">
   <rafsi>sfu</rafsi>
@@ -15371,6 +15349,17 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>43821</definitionid>
   <glossword word="Wolle" />
 </valsi>
+<valsi word="su'o" type="cmavo">
+  <rafsi>suz</rafsi>
+  <rafsi>su&apos;o</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Ziffer/Zahl: mindestens (wenige); nicht weniger als</definition>
+  <definitionid>43822</definitionid>
+  <glossword word="mindestens" />
+</valsi>
 <valsi word="surla" type="gismu">
   <rafsi>sur</rafsi>
   <user>
@@ -15390,8 +15379,18 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$x_1$ ist schnell/rasch/eilig dabei $x_2$ (Ereignis/Zustand) zu tun/sein.</definition>
   <definitionid>16126</definitionid>
   <notes>Siehe auch {masno}.</notes>
-  <glossword word="eilig" />
   <glossword word="schnell" />
+  <glossword word="eilig" />
+</valsi>
+<valsi word="su'u" type="cmavo">
+  <rafsi>suv</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Abstraktion: allgemeine Abstraktion (wie); $x_1$ ist [bridi] als unspezifische Abstraktion von Typ $x_2$</definition>
+  <definitionid>43825</definitionid>
+  <glossword word="unspezif. Abstraktion" />
 </valsi>
 <valsi word="ta" type="cmavo">
   <rafsi>taz</rafsi>
@@ -15923,18 +15922,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>43866</definitionid>
   <glossword word="dritter Tausch" />
 </valsi>
-<valsi word="te'o zei dugri" type="zei-lujvo">
-  <user>
-    <username>Wuzzy</username>
-    <realname>Wuzzy</realname>
-  </user>
-  <definition>$d_1$ ist der natürliche Logarithmus von $d_2$.</definition>
-  <definitionid>42267</definitionid>
-  <notes>Siehe auch {te&apos;o}, {dugri}, {reldugri}, {pavnondugri}.</notes>
-  <glossword word="natürlicher Logarithmus" />
-  <keyword word="natürlicher Logarithmus" place="1" />
-  <keyword word="Numerus" place="2" sense="mathematisch" />
-</valsi>
 <valsi word="teijbi" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -15985,6 +15972,18 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>43869</definitionid>
   <glossword word="Textur" />
 </valsi>
+<valsi word="te'o zei dugri" type="zei-lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$d_1$ ist der natürliche Logarithmus von $d_2$.</definition>
+  <definitionid>42267</definitionid>
+  <notes>Siehe auch {te&apos;o}, {dugri}, {reldugri}, {pavnondugri}.</notes>
+  <glossword word="natürlicher Logarithmus" />
+  <keyword word="natürlicher Logarithmus" place="1" />
+  <keyword word="Numerus" place="2" sense="mathematisch" />
+</valsi>
 <valsi word="terdakyji'o" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -15992,8 +15991,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   </user>
   <definition>$j_1$ ist der Ort [Messerspitze] der Messerklinge $j_2=d_3$ am Punkt $j_3$.</definition>
   <definitionid>53046</definitionid>
-  <glossword word="Ort" sense="Messerspitze" />
   <glossword word="Messerspitze" />
+  <glossword word="Ort" sense="Messerspitze" />
   <keyword word="Ort" place="1" sense="Messerspitze" />
 </valsi>
 <valsi word="terdi" type="gismu">
@@ -16800,9 +16799,9 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$x_1$ beinhält/umschließt $x_2$; $x_1$ ist ein Behälter mit $x_2$ drin.</definition>
   <definitionid>16130</definitionid>
   <notes>[Umschließung muss nicht vollständig sein]; Siehe auch {bartu}, {jbini}, {nenri}, {zvati}, {cpana}, {botpi}, {lanka}.</notes>
+  <glossword word="beinhalten" />
   <glossword word="Behälter" />
   <glossword word="umschließen" />
-  <glossword word="beinhalten" />
   <keyword word="Behälter" place="1" />
 </valsi>
 <valsi word="vasxu" type="gismu">
@@ -17204,8 +17203,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   </user>
   <definition>$b_1$ ist ein Türknauf / eine Türklinke an Türe $b_2=g_1$ und ist aus Material $b_4$.</definition>
   <definitionid>44288</definitionid>
-  <glossword word="Türknauf" />
   <glossword word="Türgriff" />
+  <glossword word="Türknauf" />
   <keyword word="Türgriff" place="1" />
   <keyword word="Tür" place="2" sense="bewegliche Barriere" />
 </valsi>
@@ -17296,9 +17295,9 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>53049</definitionid>
   <notes>Jeder beliebige Beutel oder Sack, in dem mindestens ein Brief enthalten ist, kann hier als Briefsack bzw. -beutel gelten.</notes>
   <glossword word="Briefbeutel" />
-  <glossword word="Postsack" sense="mit Brief" />
-  <glossword word="Postbeutel" sense="mit Brief" />
   <glossword word="Briefsack" />
+  <glossword word="Postbeutel" sense="mit Brief" />
+  <glossword word="Postsack" sense="mit Brief" />
   <keyword word="Briefsack" place="1" />
 </valsi>
 <valsi word="xabju" type="gismu">
@@ -17763,8 +17762,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$x_1$ ist ein Grevyzebra (wissenschaftliche Bezeichnung: »Equus grevyi«).</definition>
   <definitionid>57527</definitionid>
   <notes>Vgl. {sriba&apos;axi&apos;a}.</notes>
-  <glossword word="Equus grevyi" />
   <glossword word="Grevyzebra" sense="Tier der Art Equus grevyi" />
+  <glossword word="Equus grevyi" />
   <keyword word="Grevyzebra" place="1" sense="Tier der Art Equus grevyi" />
 </valsi>
 <valsi word="xirnkuaga" type="fu'ivla">
@@ -17775,8 +17774,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$x_1$ ist ein Steppenzebra (wissenschaftliche Bezeichnung: »Equus quagga«).</definition>
   <definitionid>57524</definitionid>
   <notes>Vgl. {sriba&apos;axi&apos;a}.</notes>
-  <glossword word="Steppenzebra" sense="Tier der Art Equus quagga" />
   <glossword word="Pferdezebra" sense="Tier der Art Equus quagga" />
+  <glossword word="Steppenzebra" sense="Tier der Art Equus quagga" />
   <glossword word="Equus quagga" />
   <keyword word="Steppenzebra" place="1" sense="Tier der Art Equus quagga" />
 </valsi>
@@ -17880,8 +17879,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   </user>
   <definition>$g_1$ ist ein Bilderrahmen (ent-)haltend Bild $g_2=p_1$.</definition>
   <definitionid>56517</definitionid>
-  <glossword word="Bilderrahmen" />
   <glossword word="Bild" />
+  <glossword word="Bilderrahmen" />
   <keyword word="Bilderrahmen" place="1" />
   <keyword word="Bild" place="2" />
 </valsi>
@@ -18001,26 +18000,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>44021</definitionid>
   <glossword word="glatt" />
 </valsi>
-<valsi word="za'i" type="cmavo">
-  <rafsi>zaz</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Abstraktion: Zustand (Ereignis) Abstraktion; $x_1$ ist der andauernde Zustand, dass [bridi] wahr ist</definition>
-  <definitionid>44023</definitionid>
-  <glossword word="Zustandsabstraktion" />
-</valsi>
-<valsi word="za'o" type="cmavo">
-  <rafsi>za&apos;o</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Intervall-Ereignisumriss: setzt zu lang fort nach dem natürlichen Ende von ...; ... |     ----&gt;</definition>
-  <definitionid>44027</definitionid>
-  <glossword word="zu lange" />
-</valsi>
 <valsi word="zabna" type="gismu">
   <rafsi>zan</rafsi>
   <rafsi>za&apos;a</rafsi>
@@ -18031,6 +18010,16 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$x_1$ hat eine(n) positive(n) Nebenbedeutung/Bedeutungsumfang/Assoziation/Sinn $x_2$, verwendet von $x_3$</definition>
   <definitionid>44022</definitionid>
   <glossword word="positiv" sense="Sinn/Interpretation" />
+</valsi>
+<valsi word="za'i" type="cmavo">
+  <rafsi>zaz</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Abstraktion: Zustand (Ereignis) Abstraktion; $x_1$ ist der andauernde Zustand, dass [bridi] wahr ist</definition>
+  <definitionid>44023</definitionid>
+  <glossword word="Zustandsabstraktion" />
 </valsi>
 <valsi word="zajba" type="gismu">
   <rafsi>zaj</rafsi>
@@ -18062,6 +18051,16 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$x_1$ billigt/befürwortet Plan/Aktion $x_2$ (Objekt/Ereignis)</definition>
   <definitionid>44026</definitionid>
   <glossword word="anerkennen" />
+</valsi>
+<valsi word="za'o" type="cmavo">
+  <rafsi>za&apos;o</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Intervall-Ereignisumriss: setzt zu lang fort nach dem natürlichen Ende von ...; ... |     ----&gt;</definition>
+  <definitionid>44027</definitionid>
+  <glossword word="zu lange" />
 </valsi>
 <valsi word="zarci" type="gismu">
   <rafsi>zac</rafsi>
@@ -18153,8 +18152,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$g_1$ ist ein Dachboden/Speicher des Hauses $z_1$, welches von $z_2$ bewohnt wird.</definition>
   <definitionid>41978</definitionid>
   <notes>Siehe auch: {zdani}, {galtu}.</notes>
-  <glossword word="Speicher" sense="Gebäudeteil" />
   <glossword word="Dachboden" />
+  <glossword word="Speicher" sense="Gebäudeteil" />
   <keyword word="Dachboden" place="1" />
   <keyword word="Haus" place="2" sense="Wohngebäude" />
 </valsi>
@@ -18232,17 +18231,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <glossword word="Sieben" />
   <glossword word="7" />
 </valsi>
-<valsi word="ze'o" type="cmavo">
-  <rafsi>zev</rafsi>
-  <rafsi>ze&apos;o</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>räumliche Beziehung/Richtung; über ... hinaus/nach außen/entfernend von ...</definition>
-  <definitionid>44042</definitionid>
-  <glossword word="nach außen" />
-</valsi>
 <valsi word="zekri" type="gismu">
   <rafsi>zer</rafsi>
   <rafsi>zei</rafsi>
@@ -18264,6 +18252,17 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$x_1$ (Opfer) wächst an/steigt/nimmt zu/wird erhöht/erweitert in Eigenschaft/Quantität $x_2$ um Menge $x_3$</definition>
   <definitionid>44041</definitionid>
   <glossword word="zunehmen" />
+</valsi>
+<valsi word="ze'o" type="cmavo">
+  <rafsi>zev</rafsi>
+  <rafsi>ze&apos;o</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>räumliche Beziehung/Richtung; über ... hinaus/nach außen/entfernend von ...</definition>
+  <definitionid>44042</definitionid>
+  <glossword word="nach außen" />
 </valsi>
 <valsi word="zepti" type="gismu">
   <rafsi>zep</rafsi>
@@ -18321,16 +18320,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>44046</definitionid>
   <glossword word="Musik" />
 </valsi>
-<valsi word="zi'o" type="cmavo">
-  <rafsi>zil</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>pro-sumti: füllt einen sumti-Platz und entfernt diesen von der selbri-Platzstruktur; verändert die selbri-Semantik</definition>
-  <definitionid>44049</definitionid>
-  <glossword word="nicht-existierendes es" />
-</valsi>
 <valsi word="zifre" type="gismu">
   <rafsi>zif</rafsi>
   <rafsi>zi&apos;e</rafsi>
@@ -18373,6 +18362,16 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definition>$x_1$ ist eine Menge an/enthält/besteht aus Zink (Zn); [Im übertragenen Sinn: hartes Metall]</definition>
   <definitionid>44048</definitionid>
   <glossword word="Zink" />
+</valsi>
+<valsi word="zi'o" type="cmavo">
+  <rafsi>zil</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>pro-sumti: füllt einen sumti-Platz und entfernt diesen von der selbri-Platzstruktur; verändert die selbri-Semantik</definition>
+  <definitionid>44049</definitionid>
+  <glossword word="nicht-existierendes es" />
 </valsi>
 <valsi word="zirpu" type="gismu">
   <rafsi>zir</rafsi>
@@ -18440,16 +18439,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>44055</definitionid>
   <glossword word="nach innen" />
 </valsi>
-<valsi word="zu'o" type="cmavo">
-  <rafsi>zum</rafsi>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>Abstraktion: Aktivität (Ereignis) Abstraktion; $x_1$ ist eine abstrakte Aktivität/Handlung von [bridi] zusammengesetzt aus $x_2$</definition>
-  <definitionid>44061</definitionid>
-  <glossword word="Aktivität Abstraktion" />
-</valsi>
 <valsi word="zukte" type="gismu">
   <rafsi>zuk</rafsi>
   <rafsi>zu&apos;e</rafsi>
@@ -18513,6 +18502,16 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
   <definitionid>44060</definitionid>
   <glossword word="behindern" />
 </valsi>
+<valsi word="zu'o" type="cmavo">
+  <rafsi>zum</rafsi>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>Abstraktion: Aktivität (Ereignis) Abstraktion; $x_1$ ist eine abstrakte Aktivität/Handlung von [bridi] zusammengesetzt aus $x_2$</definition>
+  <definitionid>44061</definitionid>
+  <glossword word="Aktivität Abstraktion" />
+</valsi>
 <valsi word="zutse" type="gismu">
   <rafsi>zut</rafsi>
   <rafsi>tse</rafsi>
@@ -18575,17 +18574,17 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Bank" valsi="banxa" />
 <nlword word="ausreichen" valsi="banzu" />
 <nlword word="zwingen" valsi="bapli" />
+<nlword word="groß" sense="Ausmaß" valsi="barda" />
 <nlword word="Größenausmaß" valsi="barda" place="2" />
 <nlword word="Größenstandard" valsi="barda" place="3" />
-<nlword word="groß" sense="Ausmaß" valsi="barda" />
 <nlword word="Bogen" valsi="bargu" />
 <nlword word="Bar" valsi="barja" />
 <nlword word="Fleck" valsi="barna" />
 <nlword word="außerhalb" valsi="bartu" />
 <nlword word="betonen" valsi="basna" />
 <nlword word="ersetzen" valsi="basti" />
-<nlword word="Bissstelle" valsi="batci" place="3" />
 <nlword word="beißen" valsi="batci" />
+<nlword word="Bissstelle" valsi="batci" place="3" />
 <nlword word="Knopf" valsi="batke" />
 <nlword word="Gerste" valsi="bavmi" />
 <nlword word="malaiisch-indonesisch" valsi="baxso" />
@@ -18602,10 +18601,10 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="tragen" valsi="bevri" />
 <nlword word="8" valsi="bi" />
 <nlword word="Acht" valsi="bi" />
-<nlword word="ungeordnetes Intervall" valsi="bi&apos;i" />
 <nlword word="Perle" valsi="bidju" />
 <nlword word="Biene" valsi="bifce" place="1" />
 <nlword word="Bienengattung" valsi="bifce" place="2" />
+<nlword word="ungeordnetes Intervall" valsi="bi&apos;i" />
 <nlword word="peitschen" valsi="bikla" />
 <nlword word="verpflichtet" valsi="bilga" />
 <nlword word="krank" valsi="bilma" />
@@ -18677,7 +18676,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Bürste" valsi="burcu" />
 <nlword word="peinlich" valsi="burna" />
 <nlword word="ist wirklich" valsi="ca&apos;a" />
-<nlword word="Fensterrahmen" valsi="ca&apos;orgreku" place="1" />
 <nlword word="jetzt" valsi="cabna" />
 <nlword word="Gerät" valsi="cabra" />
 <nlword word="Stunde" valsi="cacra" />
@@ -18697,6 +18695,7 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Schaufel" valsi="canpa" />
 <nlword word="Sand" valsi="canre" />
 <nlword word="Eingeweide" valsi="canti" />
+<nlword word="Fensterrahmen" valsi="ca&apos;orgreku" place="1" />
 <nlword word="Karren" valsi="carce" />
 <nlword word="leuchtend" valsi="carmi" />
 <nlword word="drehen" valsi="carna" />
@@ -18709,15 +18708,15 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="töten" valsi="catra" />
 <nlword word="seicht" valsi="caxno" />
 <nlword word="in einer Menge mit" valsi="ce" />
-<nlword word="Prozent" valsi="ce&apos;i" />
-<nlword word="in einer Folge mit" valsi="ce&apos;o" />
 <nlword word="abschießen" valsi="cecla" />
 <nlword word="Gemeinschaft" valsi="cecmu" />
 <nlword word="Ära" valsi="cedra" />
+<nlword word="Prozent" valsi="ce&apos;i" />
 <nlword word="an einen Gott glauben" valsi="ceikri" />
 <nlword word="schwanken" valsi="cenba" />
 <nlword word="heilig" valsi="censa" />
 <nlword word="0,01" valsi="centi" />
+<nlword word="in einer Folge mit" valsi="ce&apos;o" />
 <nlword word="Erbe" valsi="cerda" />
 <nlword word="Morgendämmerung" valsi="cermurse" place="1" />
 <nlword word="Morgen" valsi="cerni" />
@@ -18808,8 +18807,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="selma&apos;o &quot;BAhE&quot;" valsi="cmavrba&apos;e" />
 <nlword word="selma&apos;o &quot;BAI&quot;" valsi="cmavrbai" />
 <nlword word="selma&apos;o &quot;BE&quot;" valsi="cmavrbe" />
-<nlword word="selma&apos;o &quot;BEhO&quot;" valsi="cmavrbe&apos;o" />
 <nlword word="selma&apos;o &quot;BEI&quot;" valsi="cmavrbei" />
+<nlword word="selma&apos;o &quot;BEhO&quot;" valsi="cmavrbe&apos;o" />
 <nlword word="selma&apos;o &quot;BIhE&quot;" valsi="cmavrbi&apos;e" />
 <nlword word="selma&apos;o &quot;BIhI&quot;" valsi="cmavrbi&apos;i" />
 <nlword word="selma&apos;o &quot;BO&quot;" valsi="cmavrbo" />
@@ -18825,8 +18824,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="selma&apos;o &quot;CUhE&quot;" valsi="cmavrcu&apos;e" />
 <nlword word="selma&apos;o &quot;DAhO&quot;" valsi="cmavrda&apos;o" />
 <nlword word="selma&apos;o &quot;Y&quot;" valsi="cmavrdepsna" />
-<nlword word="selma&apos;o &quot;DOhU&quot;" valsi="cmavrdo&apos;u" />
 <nlword word="selma&apos;o &quot;DOI&quot;" valsi="cmavrdoi" />
+<nlword word="selma&apos;o &quot;DOhU&quot;" valsi="cmavrdo&apos;u" />
 <nlword word="selma&apos;o &quot;FA&quot;" valsi="cmavrfa" />
 <nlword word="selma&apos;o &quot;FAhA&quot;" valsi="cmavrfa&apos;a" />
 <nlword word="selma&apos;o &quot;FAhO&quot;" valsi="cmavrfa&apos;o" />
@@ -18847,8 +18846,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="selma&apos;o &quot;GUhA&quot;" valsi="cmavrgu&apos;a" />
 <nlword word="selma&apos;o &quot;JA&quot;" valsi="cmavrja" />
 <nlword word="selma&apos;o &quot;JAI&quot;" valsi="cmavrjai" />
-<nlword word="selma&apos;o &quot;JOhI&quot;" valsi="cmavrjo&apos;i" />
 <nlword word="selma&apos;o &quot;JOI&quot;" valsi="cmavrjoi" />
+<nlword word="selma&apos;o &quot;JOhI&quot;" valsi="cmavrjo&apos;i" />
 <nlword word="selma&apos;o &quot;KE&quot;" valsi="cmavrke" />
 <nlword word="selma&apos;o &quot;KEhE&quot;" valsi="cmavrke&apos;e" />
 <nlword word="selma&apos;o &quot;KEI&quot;" valsi="cmavrkei" />
@@ -18861,25 +18860,25 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="selma&apos;o &quot;LAhE&quot;" valsi="cmavrla&apos;e" />
 <nlword word="selma&apos;o &quot;LAU&quot;" valsi="cmavrlau" />
 <nlword word="selma&apos;o &quot;LE&quot;" valsi="cmavrle" />
-<nlword word="selma&apos;o &quot;LEhU&quot;" valsi="cmavrle&apos;u" />
 <nlword word="selma&apos;o &quot;BY&quot;" valsi="cmavrlerfu" />
+<nlword word="selma&apos;o &quot;LEhU&quot;" valsi="cmavrle&apos;u" />
 <nlword word="selma&apos;o &quot;LI&quot;" valsi="cmavrli" />
 <nlword word="selma&apos;o &quot;LIhU&quot;" valsi="cmavrli&apos;u" />
 <nlword word="selma&apos;o &quot;LOhO&quot;" valsi="cmavrlo&apos;o" />
 <nlword word="selma&apos;o &quot;LOhU&quot;" valsi="cmavrlo&apos;u" />
 <nlword word="selma&apos;o &quot;LU&quot;" valsi="cmavrlu" />
 <nlword word="selma&apos;o &quot;LUhU&quot;" valsi="cmavrlu&apos;u" />
-<nlword word="selma&apos;o &quot;MAhO&quot;" valsi="cmavrma&apos;o" />
 <nlword word="selma&apos;o &quot;MAI&quot;" valsi="cmavrmai" />
+<nlword word="selma&apos;o &quot;MAhO&quot;" valsi="cmavrma&apos;o" />
 <nlword word="selma&apos;o &quot;ME&quot;" valsi="cmavrme" />
 <nlword word="selma&apos;o &quot;MEhU&quot;" valsi="cmavrme&apos;u" />
 <nlword word="selma&apos;o &quot;MOhE&quot;" valsi="cmavrmo&apos;e" />
-<nlword word="selma&apos;o &quot;MOhI&quot;" valsi="cmavrmo&apos;i" />
 <nlword word="selma&apos;o &quot;MOI&quot;" valsi="cmavrmoi" />
+<nlword word="selma&apos;o &quot;MOhI&quot;" valsi="cmavrmo&apos;i" />
 <nlword word="selma&apos;o &quot;NA&quot;" valsi="cmavrna" />
 <nlword word="selma&apos;o &quot;NAhE&quot;" valsi="cmavrna&apos;e" />
-<nlword word="selma&apos;o &quot;NAhU&quot;" valsi="cmavrna&apos;u" />
 <nlword word="selma&apos;o &quot;NAI&quot;" valsi="cmavrnai" />
+<nlword word="selma&apos;o &quot;NAhU&quot;" valsi="cmavrna&apos;u" />
 <nlword word="selma&apos;o &quot;NIhE&quot;" valsi="cmavrni&apos;e" />
 <nlword word="selma&apos;o &quot;NIhO&quot;" valsi="cmavrni&apos;o" />
 <nlword word="selma&apos;o &quot;NOI&quot;" valsi="cmavrnoi" />
@@ -18893,14 +18892,14 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="selma&apos;o &quot;PU&quot;" valsi="cmavrpu" />
 <nlword word="selma&apos;o &quot;SA&quot;" valsi="cmavrsa" />
 <nlword word="selma&apos;o &quot;SE&quot;" valsi="cmavrse" />
-<nlword word="selma&apos;o &quot;SEhU&quot;" valsi="cmavrse&apos;u" />
 <nlword word="selma&apos;o &quot;SEI&quot;" valsi="cmavrsei" />
+<nlword word="selma&apos;o &quot;SEhU&quot;" valsi="cmavrse&apos;u" />
 <nlword word="selma&apos;o &quot;SI&quot;" valsi="cmavrsi" />
 <nlword word="selma&apos;o &quot;SOI&quot;" valsi="cmavrsoi" />
 <nlword word="selma&apos;o &quot;SU&quot;" valsi="cmavrsu" />
 <nlword word="selma&apos;o &quot;TAhE&quot;" valsi="cmavrta&apos;e" />
-<nlword word="selma&apos;o &quot;TEhU&quot;" valsi="cmavrte&apos;u" />
 <nlword word="selma&apos;o &quot;TEI&quot;" valsi="cmavrtei" />
+<nlword word="selma&apos;o &quot;TEhU&quot;" valsi="cmavrte&apos;u" />
 <nlword word="selma&apos;o &quot;TO&quot;" valsi="cmavrto" />
 <nlword word="selma&apos;o &quot;TOI&quot;" valsi="cmavrtoi" />
 <nlword word="selma&apos;o &quot;TUhE&quot;" valsi="cmavrtu&apos;e" />
@@ -18909,8 +18908,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="selma&apos;o &quot;VA&quot;" valsi="cmavrva" />
 <nlword word="selma&apos;o &quot;VAU&quot;" valsi="cmavrvau" />
 <nlword word="selma&apos;o &quot;VEhA&quot;" valsi="cmavrve&apos;a" />
-<nlword word="selma&apos;o &quot;VEhO&quot;" valsi="cmavrve&apos;o" />
 <nlword word="selma&apos;o &quot;VEI&quot;" valsi="cmavrvei" />
+<nlword word="selma&apos;o &quot;VEhO&quot;" valsi="cmavrve&apos;o" />
 <nlword word="selma&apos;o &quot;VIhA&quot;" valsi="cmavrvi&apos;a" />
 <nlword word="selma&apos;o &quot;VUhO&quot;" valsi="cmavrvu&apos;o" />
 <nlword word="selma&apos;o &quot;VUhU&quot;" valsi="cmavrvu&apos;u" />
@@ -18933,18 +18932,18 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Tanru-Umstellung" valsi="co" />
 <nlword word="Anfang" valsi="co&apos;a" />
 <nlword word="unspezif Bridi" valsi="co&apos;e" />
-<nlword word="Auf Wiedersehen!" valsi="co&apos;o" />
-<nlword word="Leb wohl!" valsi="co&apos;o" />
-<nlword word="Mach&apos;s gut!" valsi="co&apos;o" />
-<nlword word="Tschüss" valsi="co&apos;o" />
-<nlword word="Schluss" valsi="co&apos;u" />
-<nlword word="sterben" valsi="co&apos;urji&apos;e" />
 <nlword word="Grüß dich!" valsi="coi" />
 <nlword word="Hallo" valsi="coi" />
 <nlword word="Hi" valsi="coi" />
 <nlword word="aufsaugen" valsi="cokcu" />
 <nlword word="tief" valsi="condi" />
+<nlword word="Auf Wiedersehen!" valsi="co&apos;o" />
+<nlword word="Leb wohl!" valsi="co&apos;o" />
+<nlword word="Mach&apos;s gut!" valsi="co&apos;o" />
+<nlword word="Tschüss" valsi="co&apos;o" />
 <nlword word="Schmerz" valsi="cortu" />
+<nlword word="Schluss" valsi="co&apos;u" />
+<nlword word="sterben" valsi="co&apos;urji&apos;e" />
 <nlword word="bekommen" valsi="cpacu" />
 <nlword word="auf sein" valsi="cpana" />
 <nlword word="klettern" valsi="cpare" />
@@ -18980,10 +18979,10 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="erlauben" valsi="curmi" />
 <nlword word="Wurm" valsi="curnu" />
 <nlword word="rein" valsi="curve" />
-<nlword word="Aussage" sense="ausgedrückter Sprachinhalt" valsi="cusku" place="2" />
-<nlword word="Medium" sense="Kommunikationskanal" valsi="cusku" place="4" />
 <nlword word="ausdrücken" sense="eine Bedeutung zum Ausdruck bringen" valsi="cusku" />
+<nlword word="Aussage" sense="ausgedrückter Sprachinhalt" valsi="cusku" place="2" />
 <nlword word="erwähnen" sense="ein Konzept in Sprache einbetten" valsi="cusku" />
+<nlword word="Medium" sense="Kommunikationskanal" valsi="cusku" place="4" />
 <nlword word="sagen" valsi="cusku" />
 <nlword word="Schuh" valsi="cutci" />
 <nlword word="Brust" valsi="cutne" />
@@ -19080,7 +19079,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="richtig" valsi="drani" />
 <nlword word="anderes" valsi="drata" />
 <nlword word="selbe Identität wie" valsi="du" />
-<nlword word="Bridi-Abstraktion" valsi="du&apos;u" />
 <nlword word="identische Abbildung" sense="Mathematik" valsi="dubyfancu" place="1" />
 <nlword word="Logarithmus" valsi="dugri" />
 <nlword word="Überschuss" valsi="dukse" />
@@ -19090,6 +19088,7 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Pein" valsi="dunku" />
 <nlword word="gleich" valsi="dunli" />
 <nlword word="Winter" valsi="dunra" />
+<nlword word="Bridi-Abstraktion" valsi="du&apos;u" />
 <nlword word="Ahne" valsi="dzena" />
 <nlword word="antarktisch" valsi="dzipo" />
 <nlword word="Anzeige" sense="Technik" valsi="ekra" place="1" />
@@ -19116,8 +19115,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Verzeihen Sie bitte!" sense="Vokativ" valsi="fau&apos;u" />
 <nlword word="Verzeihung!" sense="Vokativ" valsi="fau&apos;u" />
 <nlword word="Genervter" valsi="fazgau" place="3" />
-<nlword word="Nerver" valsi="fazgau" place="1" />
 <nlword word="nerven" sense="als handelndes Subjekt" valsi="fazgau" />
+<nlword word="Nerver" valsi="fazgau" place="1" />
 <nlword word="nerviges Ereignis" valsi="fazgau" place="2" />
 <nlword word="sieden" valsi="febvi" />
 <nlword word="1E-15" valsi="femti" />
@@ -19141,10 +19140,10 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Gesetz" valsi="flalu" />
 <nlword word="Flöte" valsi="flani" />
 <nlword word="fließen" valsi="flecu" />
-<nlword word="Versager" valsi="fliba" place="1" />
 <nlword word="fehlschlagen" valsi="fliba" />
 <nlword word="scheitern" valsi="fliba" />
 <nlword word="versagen" valsi="fliba" />
+<nlword word="Versager" valsi="fliba" place="1" />
 <nlword word="Gesicht" valsi="flira" />
 <nlword word="es-6" valsi="fo&apos;a" />
 <nlword word="es-7" valsi="fo&apos;e" />
@@ -19169,11 +19168,11 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="verantwortlich" valsi="fuzme" />
 <nlword word="Eis am Stiel" valsi="ga&apos;arkembisladru" place="1" />
 <nlword word="Stieleis" valsi="ga&apos;arkembisladru" />
-<nlword word="Großbuchstabe" valsi="ga&apos;e zei lerfu" />
 <nlword word="Bedeckung" valsi="gacri" />
 <nlword word="Gasflasche" valsi="gacybo&apos;i" place="1" />
 <nlword word="Ventil" sense="Gasflasche" valsi="gacybo&apos;i" place="3" />
 <nlword word="Artikel" valsi="gadri" />
+<nlword word="Großbuchstabe" valsi="ga&apos;e zei lerfu" />
 <nlword word="verändern" valsi="galfi" />
 <nlword word="hoch" valsi="galtu" />
 <nlword word="Hals" valsi="galxe" />
@@ -19337,10 +19336,10 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="leben" valsi="jmive" />
 <nlword word="Tanru-Wenn" valsi="jo" />
 <nlword word="Vereinigung" valsi="jo&apos;e" />
-<nlword word="gemeinsam mit" valsi="jo&apos;u" />
 <nlword word="in einer Masse mit" valsi="joi" />
 <nlword word="Jordanier" valsi="jordo" />
 <nlword word="verbunden" valsi="jorne" />
+<nlword word="gemeinsam mit" valsi="jo&apos;u" />
 <nlword word="Tanru-Ob" valsi="ju" />
 <nlword word="Tisch" valsi="jubme" />
 <nlword word="Adresse" valsi="judri" />
@@ -19396,15 +19395,15 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="schneiden" valsi="katna" />
 <nlword word="fangen" valsi="kavbu" />
 <nlword word="Gruppierung beginnen" valsi="ke" />
-<nlword word="Gruppierung beenden" valsi="ke&apos;e" />
-<nlword word="bitte wiederhole" valsi="ke&apos;o" />
 <nlword word="Mitleid" valsi="kecti" />
+<nlword word="Gruppierung beenden" valsi="ke&apos;e" />
 <nlword word="Abstraktion beenden" valsi="kei" />
 <nlword word="Ball spielen" valsi="kelboi" />
 <nlword word="spielen" valsi="kelci" />
 <nlword word="Kelvin" valsi="kelvo" />
 <nlword word="Krebs" valsi="kenra" />
 <nlword word="Weltraum" valsi="kensa" />
+<nlword word="bitte wiederhole" valsi="ke&apos;o" />
 <nlword word="Haar" valsi="kerfa" />
 <nlword word="Ohr" valsi="kerlo" />
 <nlword word="Südamerikaner" valsi="ketco" />
@@ -19421,15 +19420,15 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="hinführen" sense="bringen" valsi="klagi&apos;a" />
 <nlword word="Straße" valsi="klaji" />
 <nlword word="weinen" valsi="klaku" />
+<nlword word="bewegen" valsi="klama" />
+<nlword word="gehen" valsi="klama" />
 <nlword word="Herkunft" sense="Ausgangspunkt einer Reise" valsi="klama" place="3" />
+<nlword word="kommen" valsi="klama" />
+<nlword word="reisen" sense="zielgerichtete, meist langstreckige Fortbewegung" valsi="klama" />
 <nlword word="Reisender" valsi="klama" place="1" />
 <nlword word="Vehikel" sense="Transportmittel" valsi="klama" place="5" />
 <nlword word="Weg" sense="Route/Zwischenstation einer Reise" valsi="klama" place="4" />
 <nlword word="Ziel" sense="Endpunkt einer Reise" valsi="klama" place="2" />
-<nlword word="bewegen" valsi="klama" />
-<nlword word="gehen" valsi="klama" />
-<nlword word="kommen" valsi="klama" />
-<nlword word="reisen" sense="zielgerichtete, meist langstreckige Fortbewegung" valsi="klama" />
 <nlword word="Menge" valsi="klani" />
 <nlword word="Klasse" valsi="klesi" />
 <nlword word="transparent" valsi="klina" />
@@ -19510,11 +19509,11 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Plastiktüte" valsi="lasydakli" />
 <nlword word="Latein" valsi="latmo" />
 <nlword word="Lotus" valsi="latna" />
-<nlword word="laut lachen" valsi="laurmi&apos;a" />
 <nlword word="lauthals lachen" valsi="laurmi&apos;a" />
+<nlword word="laut lachen" valsi="laurmi&apos;a" />
 <nlword word="faul" valsi="lazni" />
-<nlword word="der stereotype" valsi="le&apos;e" />
 <nlword word="nehmen" valsi="lebna" />
+<nlword word="der stereotype" valsi="le&apos;e" />
 <nlword word="Linse" valsi="lenjo" />
 <nlword word="kalt" valsi="lenku" />
 <nlword word="spät" valsi="lerci" />
@@ -19522,10 +19521,10 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Alphabet" valsi="lerpoi" place="4" />
 <nlword word="String" sense="Informatik" valsi="lerpoi" />
 <nlword word="Zeichenkette" valsi="lerpoi" place="1" />
-<nlword word="Erfahrungs-Abstraktion" valsi="li&apos;i" />
 <nlword word="Libyer" valsi="libjo" />
 <nlword word="vorangehen" valsi="lidne" />
 <nlword word="erleben" valsi="lifri" />
+<nlword word="Erfahrungs-Abstraktion" valsi="li&apos;i" />
 <nlword word="Religion" valsi="lijda" />
 <nlword word="Kerosin" sense="Treibstoff" valsi="lilrkerozine" place="1" />
 <nlword word="schwimmen" valsi="limna" />
@@ -19606,8 +19605,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="ich" valsi="mi" />
 <nlword word="wir" valsi="mi" />
 <nlword word="Ausgelachter" valsi="mi&apos;arckasu" place="2" />
-<nlword word="Auslacher" valsi="mi&apos;arckasu" place="1" />
 <nlword word="auslachen" valsi="mi&apos;arckasu" />
+<nlword word="Auslacher" valsi="mi&apos;arckasu" place="1" />
 <nlword word="mittig" valsi="midju" />
 <nlword word="Code" valsi="mifra" />
 <nlword word="Arzt" valsi="mikce" />
@@ -19635,8 +19634,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Trabant" valsi="mluni" />
 <nlword word="bridi ?" valsi="mo" />
 <nlword word="zu wenige" valsi="mo&apos;a" />
-<nlword word="räumliche Bewegung" valsi="mo&apos;i" />
 <nlword word="Ordnungsbeziehung" valsi="moi" />
+<nlword word="räumliche Bewegung" valsi="mo&apos;i" />
 <nlword word="Punkt" valsi="mokca" />
 <nlword word="Mund" valsi="moklu" />
 <nlword word="Lippe" sense="des Mundes" valsi="molctebi" place="1" />
@@ -19653,10 +19652,10 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Hammer" valsi="mruli" />
 <nlword word="5" valsi="mu" />
 <nlword word="Fünf" valsi="mu" />
-<nlword word="Punktereignis-Abstraktion" valsi="mu&apos;e" />
 <nlword word="immateriell" valsi="mucti" />
 <nlword word="Holz" valsi="mudri" />
 <nlword word="Holzschuh" valsi="mudycutci" place="1" />
+<nlword word="Punktereignis-Abstraktion" valsi="mu&apos;e" />
 <nlword word="Motiv" valsi="mukti" />
 <nlword word="abgeschlossen" valsi="mulno" />
 <nlword word="Universum" valsi="munje" />
@@ -19666,10 +19665,10 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="islamisch" valsi="muslo" />
 <nlword word="Museum" valsi="muzga" />
 <nlword word="Bridi-Negation" valsi="na" />
-<nlword word="Komplement-Negation" valsi="na&apos;e" />
 <nlword word="Problem" valsi="nabmi" />
 <nlword word="schwerer" sense="schwieriger" valsi="nadmau" />
 <nlword word="schwieriger" valsi="nadmau" />
+<nlword word="Komplement-Negation" valsi="na&apos;e" />
 <nlword word="Orange" sense="Frucht" valsi="najnimryjisra" place="2" />
 <nlword word="Orangensaft" valsi="najnimryjisra" place="1" />
 <nlword word="männlich" valsi="nakni" />
@@ -19696,8 +19695,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="mögen" valsi="nelci" />
 <nlword word="in" valsi="nenri" />
 <nlword word="Mengen-Abstraktion" valsi="ni" />
-<nlword word="Absatz" valsi="ni&apos;o" />
-<nlword word="neues Thema" valsi="ni&apos;o" />
 <nlword word="logisch erfordern" valsi="nibli" />
 <nlword word="Nacht" valsi="nicte" />
 <nlword word="Nickel" sense="Metall" valsi="nikyjinme" place="1" />
@@ -19705,24 +19702,26 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Möbel" valsi="nilce" />
 <nlword word="Mächtigkeit" sense="Mengenlehre" valsi="nilzilcmi" place="1" />
 <nlword word="Frau" valsi="ninmu" />
+<nlword word="Absatz" valsi="ni&apos;o" />
+<nlword word="neues Thema" valsi="ni&apos;o" />
 <nlword word="Nerv" valsi="nirna" />
 <nlword word="brauchen" valsi="nitcu" />
 <nlword word="stricken" valsi="nivji" />
 <nlword word="Mädchen" valsi="nixli" />
 <nlword word="Null" valsi="no" />
-<nlword word="skalares mittelwertiges nicht" valsi="no&apos;e" />
 <nlword word="adlig" valsi="nobli" />
+<nlword word="skalares mittelwertiges nicht" valsi="no&apos;e" />
 <nlword word="positiv" sense="Mathematik" valsi="nonmau" />
 <nlword word="positive Zahl" valsi="nonmau" place="1" />
 <nlword word="negativ" sense="Mathematik" valsi="nonme&apos;a" />
 <nlword word="negative Zahl" valsi="nonme&apos;a" place="1" />
 <nlword word="halbnackt" valsi="norlunbe" place="1" />
-<nlword word="Untoter" valsi="normro" place="1" />
 <nlword word="untot" valsi="normro" />
+<nlword word="Untoter" valsi="normro" place="1" />
 <nlword word="Nachricht" valsi="notci" />
 <nlword word="Ereignis-Abstraktion" valsi="nu" />
-<nlword word="kann aber ist nicht" valsi="nu&apos;o" />
 <nlword word="Magenta" valsi="nukni" />
+<nlword word="kann aber ist nicht" valsi="nu&apos;o" />
 <nlword word="versprechen" valsi="nupre" />
 <nlword word="ländlich" valsi="nurma" />
 <nlword word="neutral" valsi="nutli" />
@@ -19755,9 +19754,9 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Kartoffel" valsi="patlu" />
 <nlword word="Topf" valsi="patxu" />
 <nlword word="Briggsscher Logarithmus" valsi="pavnondugri" />
+<nlword word="dekadischer Logarithmus" valsi="pavnondugri" />
 <nlword word="Numerus" sense="mathematisch" valsi="pavnondugri" place="2" />
 <nlword word="Zehnerlogarithmus" valsi="pavnondugri" place="1" />
-<nlword word="dekadischer Logarithmus" valsi="pavnondugri" />
 <nlword word="Kindeskind" valsi="pazypanzi" />
 <nlword word="Papier" valsi="pelji" />
 <nlword word="Zitrone" valsi="pelnimryjisra" place="2" />
@@ -19778,7 +19777,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Harissa" sense="Würzmittel in Pastenform" valsi="pexrxarisa" place="1" />
 <nlword word="Blatt" valsi="pezli" />
 <nlword word="Dezimalpunkt" valsi="pi" />
-<nlword word="Kreuzprodukt" valsi="pi&apos;u" />
 <nlword word="1E-12" valsi="picti" />
 <nlword word="Pin" valsi="pijne" />
 <nlword word="betteln" valsi="pikci" />
@@ -19797,6 +19795,7 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="eben" valsi="pinta" />
 <nlword word="trinken" valsi="pinxe" />
 <nlword word="Klavier" valsi="pipno" />
+<nlword word="Kreuzprodukt" valsi="pi&apos;u" />
 <nlword word="Bild" valsi="pixra" />
 <nlword word="bauchig" valsi="plana" />
 <nlword word="planen" valsi="platu" />
@@ -19840,7 +19839,6 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="elastisch" valsi="pruni" />
 <nlword word="geistig" valsi="pruxi" />
 <nlword word="kann und hat" valsi="pu&apos;i" />
-<nlword word="Prozess-Abstraktion" valsi="pu&apos;u" />
 <nlword word="Staub" valsi="pulce" />
 <nlword word="Polizist" valsi="pulji" />
 <nlword word="Flaschenzug" valsi="pulni" />
@@ -19849,6 +19847,7 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Vergangenheit" valsi="purci" />
 <nlword word="Garten" valsi="purdi" />
 <nlword word="Pulver" valsi="purmo" />
+<nlword word="Prozess-Abstraktion" valsi="pu&apos;u" />
 <nlword word="vernünftig" valsi="racli" />
 <nlword word="Hase" valsi="ractu" />
 <nlword word="Kaninchen" valsi="ractu" />
@@ -19878,11 +19877,11 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Fleisch" valsi="rectu" />
 <nlword word="Befragter" valsi="reisku" place="3" />
 <nlword word="Frage" valsi="reisku" place="2" />
+<nlword word="fragen" valsi="reisku" />
 <nlword word="Fragesteller" valsi="reisku" place="1" />
 <nlword word="Fragethema" valsi="reisku" place="5" />
-<nlword word="fragen" valsi="reisku" />
-<nlword word="Zweierlogarithmus" valsi="reldugri" />
 <nlword word="binärer Logarithmus" valsi="reldugri" place="1" />
+<nlword word="Zweierlogarithmus" valsi="reldugri" />
 <nlword word="Mensch" valsi="remna" />
 <nlword word="werfen" valsi="renro" />
 <nlword word="überleben" valsi="renvi" />
@@ -19939,13 +19938,13 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Salat" valsi="salta" />
 <nlword word="Kassava" valsi="samcu" />
 <nlword word="Programm" sense="Computer" valsi="sampla" place="2" />
-<nlword word="Programmierer" valsi="sampla" place="1" />
 <nlword word="programmieren" valsi="sampla" />
+<nlword word="Programmierer" valsi="sampla" place="1" />
 <nlword word="schlicht" valsi="sampu" />
 <nlword word="Computerspiel" valsi="samyzilkei" />
 <nlword word="Videospiel" valsi="samyzilkei" />
-<nlword word="Zocker" sense="Videospiele" valsi="samyzilkeikei" place="1" />
 <nlword word="spielen" sense="Videospiele" valsi="samyzilkeikei" />
+<nlword word="Zocker" sense="Videospiele" valsi="samyzilkeikei" place="1" />
 <nlword word="Laut" valsi="sance" />
 <nlword word="singen" valsi="sanga" />
 <nlword word="bewusst" valsi="sanji" />
@@ -19972,35 +19971,34 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="zweifeln" valsi="senpi" />
 <nlword word="Schicht" valsi="senta" />
 <nlword word="Traum" valsi="senva" place="2" />
-<nlword word="Träumer" valsi="senva" place="1" />
 <nlword word="träumen" valsi="senva" />
+<nlword word="Träumer" valsi="senva" place="1" />
 <nlword word="getrennt" valsi="sepli" />
 <nlword word="Treppe" valsi="serti" />
 <nlword word="einfügen" valsi="setca" />
 <nlword word="Selbst" valsi="sevzi" />
-<nlword word="sich vergewissern" valsi="sezybitygau" />
 <nlword word="sicherstellen" sense="vergewissern" valsi="sezybitygau" />
+<nlword word="sich vergewissern" valsi="sezybitygau" />
 <nlword word="vergewissern" valsi="sezybitygau" />
 <nlword word="Fliege" valsi="sfani" />
 <nlword word="bestrafen" valsi="sfasa" />
 <nlword word="Sofa" valsi="sfofa" />
 <nlword word="tauchen" valsi="sfubu" />
-<nlword word="Schneeschaufel" valsi="si&apos;ecna" place="1" />
-<nlword word="schneien" valsi="si&apos;ercarvi" />
-<nlword word="Schneeregen" valsi="si&apos;erjoijaucarvi" place="1" />
-<nlword word="Medaille" sense="Auszeichnung" valsi="si&apos;irvelne&apos;u" />
-<nlword word="Konzept-Abstraktion" valsi="si&apos;o" />
 <nlword word="pfeifen" valsi="siclu" />
 <nlword word="Münze" valsi="sicni" />
 <nlword word="Gedanke" valsi="sidbo" />
 <nlword word="Idee" valsi="sidbo" />
 <nlword word="helfen" valsi="sidju" />
+<nlword word="Schneeschaufel" valsi="si&apos;ecna" place="1" />
+<nlword word="schneien" valsi="si&apos;ercarvi" />
+<nlword word="Schneeregen" valsi="si&apos;erjoijaucarvi" place="1" />
 <nlword word="Zigarette" valsi="sigja" />
+<nlword word="Medaille" sense="Auszeichnung" valsi="si&apos;irvelne&apos;u" />
+<nlword word="schispringen" valsi="sijypi&apos;e" />
 <nlword word="Skier" valsi="sijypi&apos;e" place="5" />
+<nlword word="skispringen" valsi="sijypi&apos;e" />
 <nlword word="Skispringer" valsi="sijypi&apos;e" place="1" />
 <nlword word="Sprunghöhe" valsi="sijypi&apos;e" place="4" />
-<nlword word="schispringen" valsi="sijypi&apos;e" />
-<nlword word="skispringen" valsi="sijypi&apos;e" />
 <nlword word="Seide" valsi="silka" />
 <nlword word="Salz" valsi="silna" />
 <nlword word="scheinen" valsi="simlu" />
@@ -20010,6 +20008,7 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="schätzen" valsi="sinma" />
 <nlword word="Sinus" valsi="sinso" />
 <nlword word="Zeichen" valsi="sinxa" />
+<nlword word="Konzept-Abstraktion" valsi="si&apos;o" />
 <nlword word="schlafen" valsi="sipna" />
 <nlword word="Strecke" valsi="sirji" />
 <nlword word="syrisch" valsi="sirxo" />
@@ -20061,20 +20060,20 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="9" valsi="so" />
 <nlword word="Neun" valsi="so" />
 <nlword word="fast alle" valsi="so&apos;a" />
-<nlword word="die meisten" valsi="so&apos;e" />
-<nlword word="viele" valsi="so&apos;i" />
-<nlword word="einige" valsi="so&apos;o" />
-<nlword word="wenige" valsi="so&apos;u" />
 <nlword word="Soja" valsi="sobde" />
 <nlword word="Natrium" valsi="sodna" />
 <nlword word="Limonade" valsi="sodva" />
+<nlword word="die meisten" valsi="so&apos;e" />
 <nlword word="sowjetisch" valsi="softo" />
+<nlword word="viele" valsi="so&apos;i" />
 <nlword word="Gold" valsi="solji" />
 <nlword word="Sonne" valsi="solri" />
 <nlword word="säen" valsi="sombo" />
 <nlword word="Soldat" valsi="sonci" />
+<nlword word="einige" valsi="so&apos;o" />
 <nlword word="Sorghum" valsi="sorgu" />
 <nlword word="sich auskennen" valsi="sorju&apos;o" />
+<nlword word="wenige" valsi="so&apos;u" />
 <nlword word="Ei" valsi="sovda" />
 <nlword word="Pflanzenöl" valsi="spagrasu" place="1" />
 <nlword word="pflanzliches Öl" valsi="spagrasu" />
@@ -20121,12 +20120,10 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Osten" valsi="stuna" />
 <nlword word="Struktur" valsi="stura" />
 <nlword word="Ort" valsi="stuzi" />
-<nlword word="höchstens" valsi="su&apos;e" />
-<nlword word="mindestens" valsi="su&apos;o" />
-<nlword word="unspezif. Abstraktion" valsi="su&apos;u" />
 <nlword word="abstrakt" valsi="sucta" />
 <nlword word="trocken" valsi="sudga" />
 <nlword word="Trockenzeit" valsi="sudycitsi" place="1" />
+<nlword word="höchstens" valsi="su&apos;e" />
 <nlword word="Huf" valsi="sufti" />
 <nlword word="plötzlich" valsi="suksa" />
 <nlword word="Summe" valsi="sumji" />
@@ -20134,9 +20131,11 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Argument" valsi="sumti" />
 <nlword word="Knoblauch" valsi="sunga" />
 <nlword word="Wolle" valsi="sunla" />
+<nlword word="mindestens" valsi="su&apos;o" />
 <nlword word="entspannen" valsi="surla" />
 <nlword word="eilig" valsi="sutra" />
 <nlword word="schnell" valsi="sutra" />
+<nlword word="unspezif. Abstraktion" valsi="su&apos;u" />
 <nlword word="das dort" valsi="ta" />
 <nlword word="Kohlenstoff" valsi="tabno" />
 <nlword word="Trompete" valsi="tabra" />
@@ -20175,11 +20174,11 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Zitze" valsi="tatru" />
 <nlword word="Milchdrüse" valsi="tatycigla" place="1" />
 <nlword word="Publikum" sense="der durch den Sprecher Angesprochene" valsi="tavla" place="2" />
+<nlword word="reden" valsi="tavla" />
 <nlword word="Sprache" valsi="tavla" place="4" />
+<nlword word="sprechen" valsi="tavla" />
 <nlword word="Sprecher" valsi="tavla" place="1" />
 <nlword word="Thema" sense="einer sprachlichen Ausführung" valsi="tavla" place="3" />
-<nlword word="reden" valsi="tavla" />
-<nlword word="sprechen" valsi="tavla" />
 <nlword word="Kleidung" valsi="taxfu" />
 <nlword word="Brauch" valsi="tcaci" />
 <nlword word="Stadt" valsi="tcadu" />
@@ -20195,18 +20194,18 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Etikett" valsi="tcita" />
 <nlword word="Chihuahua" sense="Hund" valsi="tciuaua" place="1" />
 <nlword word="dritter Tausch" valsi="te" />
-<nlword word="natürlicher Logarithmus" valsi="te&apos;o zei dugri" place="1" />
 <nlword word="Zeit" valsi="temci" />
 <nlword word="Potenz" valsi="tenfa" />
 <nlword word="Textur" valsi="tengu" />
+<nlword word="natürlicher Logarithmus" valsi="te&apos;o zei dugri" place="1" />
 <nlword word="Messerspitze" valsi="terdakyji&apos;o" />
 <nlword word="Ort" sense="Messerspitze" valsi="terdakyji&apos;o" place="1" />
 <nlword word="Erde" valsi="terdi" />
 <nlword word="fürchten" valsi="terpa" />
 <nlword word="1E12" valsi="terto" />
 <nlword word="Ausgabegerät" valsi="teryru&apos;eca&apos;a" place="1" />
-<nlword word="Nasenbohrer" valsi="terzbipu&apos;i" place="1" />
 <nlword word="nasebohren" valsi="terzbipu&apos;i" />
+<nlword word="Nasenbohrer" valsi="terzbipu&apos;i" place="1" />
 <nlword word="dies hier" valsi="ti" />
 <nlword word="aufführen" valsi="tigni" />
 <nlword word="treten" valsi="tikpa" />
@@ -20324,8 +20323,8 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Tür" sense="bewegliche Barriere" valsi="vrogaibatke" place="2" />
 <nlword word="Türgriff" valsi="vrogaibatke" place="1" />
 <nlword word="Türknauf" valsi="vrogaibatke" />
-<nlword word="Türrahmen" valsi="vrogreku" place="1" />
 <nlword word="Türöffnung" valsi="vrogreku" place="2" />
+<nlword word="Türrahmen" valsi="vrogreku" place="1" />
 <nlword word="Tugend" valsi="vrude" />
 <nlword word="Geschmack" valsi="vrusi" />
 <nlword word="dort drüben" valsi="vu" />
@@ -20405,12 +20404,12 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Urdu" valsi="xurdo" />
 <nlword word="behaupten" valsi="xusra" />
 <nlword word="glatt" valsi="xutla" />
-<nlword word="Zustandsabstraktion" valsi="za&apos;i" />
-<nlword word="zu lange" valsi="za&apos;o" />
 <nlword word="positiv" sense="Sinn/Interpretation" valsi="zabna" />
+<nlword word="Zustandsabstraktion" valsi="za&apos;i" />
 <nlword word="Sportler" valsi="zajba" />
 <nlword word="zermahlen" valsi="zalvi" />
 <nlword word="anerkennen" valsi="zanru" />
+<nlword word="zu lange" valsi="za&apos;o" />
 <nlword word="Markt" valsi="zarci" />
 <nlword word="Gesäß" valsi="zargu" />
 <nlword word="temporär" valsi="zasni" />
@@ -20432,35 +20431,35 @@ Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei
 <nlword word="Karussell" sense="Fahrgeschäft" valsi="zdipincarcukla" place="1" />
 <nlword word="7" valsi="ze" />
 <nlword word="Sieben" valsi="ze" />
-<nlword word="nach außen" valsi="ze&apos;o" />
 <nlword word="Verbrechen" valsi="zekri" />
 <nlword word="zunehmen" valsi="zenba" />
+<nlword word="nach außen" valsi="ze&apos;o" />
 <nlword word="1E-21" valsi="zepti" />
 <nlword word="1E21" valsi="zetro" />
 <nlword word="beobachten" valsi="zgana" />
 <nlword word="Musik" valsi="zgike" />
-<nlword word="nicht-existierendes es" valsi="zi&apos;o" />
 <nlword word="frei" valsi="zifre" />
 <nlword word="Spielzeug" valsi="zilkei" place="1" />
 <nlword word="Spielzeugschaufel" valsi="zilkeicna" place="1" />
 <nlword word="Zink" valsi="zinki" />
+<nlword word="nicht-existierendes es" valsi="zi&apos;o" />
 <nlword word="lila" valsi="zirpu" />
 <nlword word="investieren" valsi="zivle" />
 <nlword word="mehr" valsi="zmadu" />
 <nlword word="automatisch" valsi="zmiku" />
 <nlword word="tangential zu" valsi="zo&apos;a" />
 <nlword word="nach innen" valsi="zo&apos;i" />
-<nlword word="Aktivität Abstraktion" valsi="zu&apos;o" />
 <nlword word="handeln" valsi="zukte" />
 <nlword word="linker Arm" sense="Körperteil" valsi="zulbirka" place="1" />
 <nlword word="Mais" valsi="zumri" />
 <nlword word="Schuld" valsi="zungi" />
 <nlword word="links" valsi="zunle" />
 <nlword word="behindern" valsi="zunti" />
+<nlword word="Aktivität Abstraktion" valsi="zu&apos;o" />
 <nlword word="sitzen" valsi="zutse" />
-<nlword word="Ort ; Veranstaltung" sense="räumliche Positionsbestimmung" valsi="zvati" place="2" />
 <nlword word="an" sense="an einem Ort sein/stattfinden" valsi="zvati" />
 <nlword word="auf" sense="auf einer Veranstaltung sein/stattfinden" valsi="zvati" />
+<nlword word="Ort ; Veranstaltung" sense="räumliche Positionsbestimmung" valsi="zvati" place="2" />
 </direction></dictionary>
 
 

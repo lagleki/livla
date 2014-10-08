@@ -516,16 +516,6 @@
   <definitionid>2832</definitionid>
   <glossword word="8 ok" />
 </valsi>
-<valsi word="bi'i" type="cmavo">
-  <rafsi>biz</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>nelogika intervala kunigilo: nevice inter ... kaj ... (rafsi reprezentas ian ajn intervalon)</definition>
-  <definitionid>2835</definitionid>
-  <glossword word="nevica interspaco" />
-</valsi>
 <valsi word="bidju" type="gismu">
   <user>
     <username>xorxes</username>
@@ -546,6 +536,16 @@
   <definitionid>2834</definitionid>
   <notes>Vidu ankaŭ {cinki}, {sfani}, {lakse}.</notes>
   <glossword word="abelo" />
+</valsi>
+<valsi word="bi'i" type="cmavo">
+  <rafsi>biz</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>nelogika intervala kunigilo: nevice inter ... kaj ... (rafsi reprezentas ian ajn intervalon)</definition>
+  <definitionid>2835</definitionid>
+  <glossword word="nevica interspaco" />
 </valsi>
 <valsi word="bikla" type="gismu">
   <rafsi>bik</rafsi>
@@ -854,10 +854,13 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>$x_{1}$ (teksto) estas predikato kun rilato $x_{2}$ inter argumentoj (sinsekvo/aro) $x_{3}$</definition>
+  <definition>$x_{1}$ (du&apos;u) estas predikato kun rilato $x_{2}$ inter argumentoj (sinsekvo/aro) $x_{3}$</definition>
   <definitionid>2863</definitionid>
-  <notes>Ankaŭ: $x_3$ estas rilataj per rilato $x_2$ (= terbri por reordigitaj {lokoj}).  ($x_3$ estas aro komplete specifita); Vidu ankaŭ {sumti}, {fancu}.</notes>
+  <notes>Ankaŭ: $x_3$ estas rilataj per rilato $x_2$ (= terbri por reordigitaj lokoj).  ($x_3$ estas aro komplete specifita); Vidu ankaŭ {sumti}, {fancu}.</notes>
   <glossword word="predikato" />
+  <keyword word="predikato" place="1" />
+  <keyword word="predikata rilato" place="2" />
+  <keyword word="argumentoj" place="3" sense="aro" />
 </valsi>
 <valsi word="brife" type="gismu">
   <rafsi>bif</rafsi>
@@ -1399,28 +1402,6 @@
   <notes>Vidu ankaŭ {cmima}, cmavo {ce&apos;o}.</notes>
   <glossword word="are kun" />
 </valsi>
-<valsi word="ce'i" type="cmavo">
-  <rafsi>cez</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>cifero/nombro: % simbolo de elcento, centonoj</definition>
-  <definitionid>2914</definitionid>
-  <notes>Vidu ankaŭ {saclu}, {centi}, {parbi}, {frinu}.</notes>
-  <glossword word="elcento" />
-</valsi>
-<valsi word="ce'o" type="cmavo">
-  <rafsi>ce&apos;o</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>nelogika kunigilo: konjunkcio; kaj, sinsekve kun, formanta sinsekvon</definition>
-  <definitionid>2918</definitionid>
-  <notes>Vidu ankaŭ {porsi}, cmavo {ce}.</notes>
-  <glossword word="sinsekve kun" />
-</valsi>
 <valsi word="cecla" type="gismu">
   <rafsi>cel</rafsi>
   <rafsi>ce&apos;a</rafsi>
@@ -1455,6 +1436,17 @@
   <notes>(intervalo $x_2$ estu la difinaj limoj; se temas pri nur karakteriza periodo, oni esprimu la naturon de la intervalon per abstrakta bridi, aŭ la intervalon oni marku per tu&apos;a; $x_2$ ankaŭ povas esti karakterizaj objektoj aŭ praktikoj de la epoko, se markita per tu&apos;a); Vidu ankaŭ {ranji}, {temci}, {citsi}.</notes>
   <glossword word="epoko" />
 </valsi>
+<valsi word="ce'i" type="cmavo">
+  <rafsi>cez</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>cifero/nombro: % simbolo de elcento, centonoj</definition>
+  <definitionid>2914</definitionid>
+  <notes>Vidu ankaŭ {saclu}, {centi}, {parbi}, {frinu}.</notes>
+  <glossword word="elcento" />
+</valsi>
 <valsi word="cenba" type="gismu">
   <rafsi>cne</rafsi>
   <user>
@@ -1487,6 +1479,17 @@
   <definitionid>2917</definitionid>
   <notes>(kp. grake, mitre, snidu, stero, delno, molro, kelvo, xampo, gradu. litce, merli, decti, dekto, femti, gigdo, gocti, gotro, kilto, megdo, mikri, milti, nanvi, petso, picti, terto, xatsi, xecto, xexso, zepti, zetro)</notes>
   <glossword word=".01 centi-" />
+</valsi>
+<valsi word="ce'o" type="cmavo">
+  <rafsi>ce&apos;o</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>nelogika kunigilo: konjunkcio; kaj, sinsekve kun, formanta sinsekvon</definition>
+  <definitionid>2918</definitionid>
+  <notes>Vidu ankaŭ {porsi}, cmavo {ce}.</notes>
+  <glossword word="sinsekve kun" />
 </valsi>
 <valsi word="cerda" type="gismu">
   <rafsi>ced</rafsi>
@@ -2462,17 +2465,6 @@
   <definitionid>3007</definitionid>
   <glossword word="nespecifa bridi" />
 </valsi>
-<valsi word="co'u" type="cmavo">
-  <rafsi>co&apos;u</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>intervala konturo de okazo: finiĝante (eĉ se ne kompleta)                     |  &gt;&lt; |</definition>
-  <definitionid>3011</definitionid>
-  <notes>Finiĝante (= co&apos;u(r)-).  Vidu ankaŭ {sisti}, {fanmo}.</notes>
-  <glossword word="finiĝante" />
-</valsi>
 <valsi word="coi" type="cmavo">
   <selmaho>COI</selmaho>
   <user>
@@ -2518,6 +2510,17 @@
   <definitionid>3010</definitionid>
   <notes>Vidu ankaŭ {cinmo}, {xrani}.</notes>
   <glossword word="doloriĝi" />
+</valsi>
+<valsi word="co'u" type="cmavo">
+  <rafsi>co&apos;u</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>intervala konturo de okazo: finiĝante (eĉ se ne kompleta)                     |  &gt;&lt; |</definition>
+  <definitionid>3011</definitionid>
+  <notes>Finiĝante (= co&apos;u(r)-).  Vidu ankaŭ {sisti}, {fanmo}.</notes>
+  <glossword word="finiĝante" />
 </valsi>
 <valsi word="cpacu" type="gismu">
   <rafsi>cpa</rafsi>
@@ -3677,17 +3680,6 @@
   <notes>Estas tre malloĵbaneca traduki la ĝeneralan &apos;esti&apos; per ĉi tiu vorto.  Vidu ankaŭ {mintu}.</notes>
   <glossword word="esti" />
 </valsi>
-<valsi word="du'u" type="cmavo">
-  <rafsi>dum</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>abstraktilo de predikato/bridi: $x_{1}$ estas predikato [bridi] esprimita en frazo $x_{2}$</definition>
-  <definitionid>3126</definitionid>
-  <notes>Vidu ankaŭ {mintu}, {dunli}.</notes>
-  <glossword word="abstraktilo de bridi" />
-</valsi>
 <valsi word="dugri" type="gismu">
   <rafsi>dug</rafsi>
   <user>
@@ -3779,6 +3771,17 @@
   <definitionid>3125</definitionid>
   <notes>Vidu ankaŭ {citsi}, {crisa}, {critu}, {vensa}.</notes>
   <glossword word="vintro" />
+</valsi>
+<valsi word="du'u" type="cmavo">
+  <rafsi>dum</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>abstraktilo de predikato/bridi: $x_{1}$ estas predikato [bridi] esprimita en frazo $x_{2}$</definition>
+  <definitionid>3126</definitionid>
+  <notes>Vidu ankaŭ {mintu}, {dunli}.</notes>
+  <glossword word="abstraktilo de bridi" />
 </valsi>
 <valsi word="dzena" type="gismu">
   <rafsi>dze</rafsi>
@@ -6094,16 +6097,6 @@
   <definitionid>3334</definitionid>
   <glossword word="unio" />
 </valsi>
-<valsi word="jo'u" type="cmavo">
-  <rafsi>jo&apos;u</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>nelogika kunigilo: konjunkcio; kaj, komune kun</definition>
-  <definitionid>3338</definitionid>
-  <glossword word="komune kun" />
-</valsi>
 <valsi word="joi" type="cmavo">
   <rafsi>jol</rafsi>
   <rafsi>joi</rafsi>
@@ -6138,6 +6131,16 @@
   <definitionid>3337</definitionid>
   <notes>Ankaŭ: kunligitaj/kunfiksitaj per ligilo/alfiksilo $x_3$; ligilo/alfiksilo (= {jo&apos;etci}, {jonvelyla&apos;a}); trajno, sinsekvo de ligitaj objektoj (= jonpoi; porjo&apos;e por unuopa objekto ligita al sinsekvo).  Vidu ankaŭ {lasna}, {fenso}, {kansa}, {pencu}, {penmi}.</notes>
   <glossword word="kunigita" />
+</valsi>
+<valsi word="jo'u" type="cmavo">
+  <rafsi>jo&apos;u</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>nelogika kunigilo: konjunkcio; kaj, komune kun</definition>
+  <definitionid>3338</definitionid>
+  <glossword word="komune kun" />
 </valsi>
 <valsi word="ju" type="cmavo">
   <rafsi>juv</rafsi>
@@ -6695,18 +6698,6 @@
   <notes>Vidu ankaŭ cmavo {ke&apos;e}.</notes>
   <glossword word="ekgrupigo" />
 </valsi>
-<valsi word="ke'e" type="cmavo">
-  <rafsi>kep</rafsi>
-  <rafsi>ke&apos;e</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>eliziebla finilo: fino de grupigo de tanru (kutime eliziebla)</definition>
-  <definitionid>3392</definitionid>
-  <notes>Vidu ankaŭ cmavo {ke}.</notes>
-  <glossword word="fino de grupigo" />
-</valsi>
 <valsi word="kecti" type="gismu">
   <rafsi>kec</rafsi>
   <rafsi>ke&apos;i</rafsi>
@@ -6718,6 +6709,18 @@
   <definitionid>3391</definitionid>
   <notes>Vidu ankaŭ {cinmo}, {xendo}.</notes>
   <glossword word="kompati" />
+</valsi>
+<valsi word="ke'e" type="cmavo">
+  <rafsi>kep</rafsi>
+  <rafsi>ke&apos;e</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>eliziebla finilo: fino de grupigo de tanru (kutime eliziebla)</definition>
+  <definitionid>3392</definitionid>
+  <notes>Vidu ankaŭ cmavo {ke}.</notes>
+  <glossword word="fino de grupigo" />
 </valsi>
 <valsi word="kei" type="cmavo">
   <rafsi>kez</rafsi>
@@ -7224,17 +7227,6 @@
   <definitionid>3437</definitionid>
   <glossword word="intersekcio" />
 </valsi>
-<valsi word="ku'urdi" type="fu'ivla">
-  <user>
-    <username>iesk</username>
-    <realname>iesk</realname>
-  </user>
-  <definition>$x_1$ montras kurdan kulturon/naciecon/lingvon laŭ aspekto $x_2$.</definition>
-  <definitionid>36733</definitionid>
-  <notes>Kp. {kulnrkurdi}, {bangrkurdi}, {xazdo}, {tu&apos;urki}, {rakso}.</notes>
-  <glossword word="kurda" />
-  <keyword word="kurda" place="1" />
-</valsi>
 <valsi word="kubli" type="gismu">
   <rafsi>kub</rafsi>
   <user>
@@ -7388,6 +7380,17 @@
   <definitionid>3451</definitionid>
   <notes>Vidu ankaŭ {xendo}, {jursa}.</notes>
   <glossword word="kruela" />
+</valsi>
+<valsi word="ku'urdi" type="fu'ivla">
+  <user>
+    <username>iesk</username>
+    <realname>iesk</realname>
+  </user>
+  <definition>$x_1$ montras kurdan kulturon/naciecon/lingvon laŭ aspekto $x_2$.</definition>
+  <definitionid>36733</definitionid>
+  <notes>Kp. {kulnrkurdi}, {bangrkurdi}, {xazdo}, {tu&apos;urki}, {rakso}.</notes>
+  <glossword word="kurda" />
+  <keyword word="kurda" place="1" />
 </valsi>
 <valsi word="labno" type="gismu">
   <user>
@@ -7636,16 +7639,6 @@
   <notes>Vidu ankaŭ {nejni}, {vreta}, {gunka}.</notes>
   <glossword word="pigra" />
 </valsi>
-<valsi word="le'e" type="cmavo">
-  <rafsi>lem</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>nevereca priskribilo: la stereotipo de tiuj priskribataj kiel ...</definition>
-  <definitionid>3476</definitionid>
-  <glossword word="la stereotipa" />
-</valsi>
 <valsi word="lebna" type="gismu">
   <rafsi>leb</rafsi>
   <rafsi>le&apos;a</rafsi>
@@ -7657,6 +7650,16 @@
   <definitionid>3475</definitionid>
   <notes>Ankaŭ: konfiski, alproprigi.  Vole akiri tiel ke $x_1$ gajnas posedon; $x_3$ estas posedanto kaj ne nur fonto, forproprigo estas implicita.  (kp. punji, cpacu kie volo aŭ antaŭa posedo ne nepre estas implicitaj, vimcu por forigo kie $x_1$ ne nepre gajnas posedon, canci, cliva)</notes>
   <glossword word="preni" />
+</valsi>
+<valsi word="le'e" type="cmavo">
+  <rafsi>lem</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>nevereca priskribilo: la stereotipo de tiuj priskribataj kiel ...</definition>
+  <definitionid>3476</definitionid>
+  <glossword word="la stereotipa" />
 </valsi>
 <valsi word="lenjo" type="gismu">
   <rafsi>len</rafsi>
@@ -7704,17 +7707,6 @@
   <notes>Ankaŭ: $x_1$ glifo, runo, karaktro (ankaŭ me&apos;o BY/vorto-bu), $x_2$ simbolaro; (adjektivo:) $x_1$ estas alfabeta/simbola; sinxa estas pli ĝenerala simbolo.  Vidu ankaŭ {mifra}, {namcu}, {sinxa}, {pandi}.</notes>
   <glossword word="litero" />
 </valsi>
-<valsi word="li'i" type="cmavo">
-  <rafsi>liz</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>abstraktilo de sperto: $x_{1}$ estas la sperto de partoprenanto/observanto $x_{2}$ de [bridi]</definition>
-  <definitionid>3484</definitionid>
-  <notes>Vidu ankaŭ {lifri}.</notes>
-  <glossword word="abstraktilo de sperto" />
-</valsi>
 <valsi word="libjo" type="gismu">
   <rafsi>lib</rafsi>
   <user>
@@ -7748,6 +7740,17 @@
   <definitionid>3483</definitionid>
   <notes>Ankaŭ: havi (okazojn/spertojn); (adjektivo:) $x_1$ estas empiria; sugestas pasivan aperton sed ne ekscludas activan (per zukte) intencon; meritita sperto: rekompenco aŭ puno (=jernyfri, zanjernyfri, maljernyfri).  Vidu ankaŭ cmavo {ri&apos;i}, {jmive}, {fasnu}, {renvi}.</notes>
   <glossword word="sperti" />
+</valsi>
+<valsi word="li'i" type="cmavo">
+  <rafsi>liz</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>abstraktilo de sperto: $x_{1}$ estas la sperto de partoprenanto/observanto $x_{2}$ de [bridi]</definition>
+  <definitionid>3484</definitionid>
+  <notes>Vidu ankaŭ {lifri}.</notes>
+  <glossword word="abstraktilo de sperto" />
 </valsi>
 <valsi word="lijda" type="gismu">
   <rafsi>jda</rafsi>
@@ -8803,16 +8806,6 @@
   <definitionid>3576</definitionid>
   <glossword word="tro malmultaj" />
 </valsi>
-<valsi word="mo'i" type="cmavo">
-  <rafsi>mov</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>indikas movojn en la spaco-tempo</definition>
-  <definitionid>3578</definitionid>
-  <glossword word="spaca movo" />
-</valsi>
 <valsi word="moi" type="cmavo">
   <rafsi>mom</rafsi>
   <rafsi>moi</rafsi>
@@ -8824,6 +8817,16 @@
   <definitionid>3577</definitionid>
   <notes>($x_2$ estas komplete specifita aro)</notes>
   <glossword word="vica selbri" />
+</valsi>
+<valsi word="mo'i" type="cmavo">
+  <rafsi>mov</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>indikas movojn en la spaco-tempo</definition>
+  <definitionid>3578</definitionid>
+  <glossword word="spaca movo" />
 </valsi>
 <valsi word="mokca" type="gismu">
   <rafsi>moc</rafsi>
@@ -8980,16 +8983,6 @@
   <definitionid>3591</definitionid>
   <glossword word="5 kvin" />
 </valsi>
-<valsi word="mu'e" type="cmavo">
-  <rafsi>muf</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>abstraktilo de punkt-okazo: $x_{1}$ estas la okazo-kiel-punkto de [bridi]</definition>
-  <definitionid>3594</definitionid>
-  <glossword word="abstraktilo de punkt-okazo" />
-</valsi>
 <valsi word="mucti" type="gismu">
   <rafsi>mut</rafsi>
   <user>
@@ -9011,6 +9004,16 @@
   <definitionid>3593</definitionid>
   <notes>Vidu ankaŭ {tricu}, {stani}.</notes>
   <glossword word="ligno" />
+</valsi>
+<valsi word="mu'e" type="cmavo">
+  <rafsi>muf</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>abstraktilo de punkt-okazo: $x_{1}$ estas la okazo-kiel-punkto de [bridi]</definition>
+  <definitionid>3594</definitionid>
+  <glossword word="abstraktilo de punkt-okazo" />
 </valsi>
 <valsi word="mukti" type="gismu">
   <rafsi>muk</rafsi>
@@ -9136,16 +9139,6 @@
   <definitionid>3605</definitionid>
   <glossword word="ne" />
 </valsi>
-<valsi word="na'e" type="cmavo">
-  <rafsi>nal</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>skala negilo: alia ol ...; ne-...; implicita skalo aŭ aro</definition>
-  <definitionid>3607</definitionid>
-  <glossword word="ne-" />
-</valsi>
 <valsi word="nabmi" type="gismu">
   <rafsi>nam</rafsi>
   <user>
@@ -9156,6 +9149,16 @@
   <definitionid>3606</definitionid>
   <notes>Ankaŭ: $x_1$ bezonas konsideradon de $x_2$.  Vidu ankaŭ {preti}, {danfu}, {ciksi}, {jijnu}, {jinvi}, {nandu}, {pensi}, {sidbo}, {spuda}.</notes>
   <glossword word="problemo" />
+</valsi>
+<valsi word="na'e" type="cmavo">
+  <rafsi>nal</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>skala negilo: alia ol ...; ne-...; implicita skalo aŭ aro</definition>
+  <definitionid>3607</definitionid>
+  <glossword word="ne-" />
 </valsi>
 <valsi word="nakni" type="gismu">
   <rafsi>nak</rafsi>
@@ -9514,18 +9517,6 @@
   <notes>Nenio (= nomei, sed ankaŭ nozu&apos;i).</notes>
   <glossword word="0 nul" />
 </valsi>
-<valsi word="no'e" type="cmavo">
-  <rafsi>nor</rafsi>
-  <rafsi>no&apos;e</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>skala negilo: neŭtrala punkto inter je&apos;a kaj to&apos;e; ne vere</definition>
-  <definitionid>3640</definitionid>
-  <notes>Vidu ankaŭ {nutli}, {midju}, {milxe}, cmavo {na&apos;e}, {to&apos;e}.</notes>
-  <glossword word="skala mezpunkta ne" />
-</valsi>
 <valsi word="nobli" type="gismu">
   <rafsi>nol</rafsi>
   <rafsi>no&apos;i</rafsi>
@@ -9537,6 +9528,18 @@
   <definitionid>3639</definitionid>
   <notes>Ankaŭ: altklasa; alta/malalta loĵbane estas malbonaj metaforoj; rimarku ke normo $x_2$ aplikiĝas kiam la titolo/nobeleco estas ne vaste rekonita an la kulturo/socio; ĉi tio inkluzivus memalprenitajn titolojn. Vidu ankaŭ {banli}.</notes>
   <glossword word="nobela" />
+</valsi>
+<valsi word="no'e" type="cmavo">
+  <rafsi>nor</rafsi>
+  <rafsi>no&apos;e</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>skala negilo: neŭtrala punkto inter je&apos;a kaj to&apos;e; ne vere</definition>
+  <definitionid>3640</definitionid>
+  <notes>Vidu ankaŭ {nutli}, {midju}, {milxe}, cmavo {na&apos;e}, {to&apos;e}.</notes>
+  <glossword word="skala mezpunkta ne" />
 </valsi>
 <valsi unofficial="true" word="norgo" type="experimental gismu">
   <user>
@@ -9572,17 +9575,6 @@
   <notes>Vidu ankaŭ {fasnu}.</notes>
   <glossword word="abstraktilo de okazo" />
 </valsi>
-<valsi word="nu'o" type="cmavo">
-  <rafsi>nu&apos;o</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>modala aspekto: nerealigita potenciala okazo</definition>
-  <definitionid>3644</definitionid>
-  <notes>Vidu ankaŭ {kakne}.</notes>
-  <glossword word="nerealigita potencialo" />
-</valsi>
 <valsi word="nukni" type="gismu">
   <rafsi>nuk</rafsi>
   <user>
@@ -9593,6 +9585,17 @@
   <definitionid>3643</definitionid>
   <notes>Vidu ankaŭ {skari}, {blabi}, {xekri}, {kandi}, {carmi}, {xunre}, {zirpu}.</notes>
   <glossword word="fuksia" />
+</valsi>
+<valsi word="nu'o" type="cmavo">
+  <rafsi>nu&apos;o</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>modala aspekto: nerealigita potenciala okazo</definition>
+  <definitionid>3644</definitionid>
+  <notes>Vidu ankaŭ {kakne}.</notes>
+  <glossword word="nerealigita potencialo" />
 </valsi>
 <valsi word="nupre" type="gismu">
   <rafsi>nup</rafsi>
@@ -9918,7 +9921,7 @@
   <notes>En figura parolo, metaforoj povas arbitre ignori ellasitaj argumentolokoj.</notes>
   <glossword word="figura" />
 </valsi>
-<valsi word="pekin" type="cmene">
+<valsi word="pekin" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -10061,16 +10064,6 @@
   <definition>cifero/nombro: nombrobaza punkto/komo; defaŭlte decimala</definition>
   <definitionid>3686</definitionid>
   <glossword word="decimala punkto/komo" />
-</valsi>
-<valsi word="pi'u" type="cmavo">
-  <rafsi>piv</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>nelogika kunigilo: krucproduto; kartezia produto de aroj</definition>
-  <definitionid>3704</definitionid>
-  <glossword word="krucproduto" />
 </valsi>
 <valsi word="picti" type="gismu">
   <rafsi>pic</rafsi>
@@ -10255,6 +10248,16 @@
   <definitionid>3703</definitionid>
   <notes>Vidu ankaŭ {zgike}.</notes>
   <glossword word="piano" />
+</valsi>
+<valsi word="pi'u" type="cmavo">
+  <rafsi>piv</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>nelogika kunigilo: krucproduto; kartezia produto de aroj</definition>
+  <definitionid>3704</definitionid>
+  <glossword word="krucproduto" />
 </valsi>
 <valsi word="pixra" type="gismu">
   <rafsi>pir</rafsi>
@@ -10617,17 +10620,6 @@
   <notes>Vidu ankaŭ {kakne}.</notes>
   <glossword word="realigita potencialo" />
 </valsi>
-<valsi word="pu'u" type="cmavo">
-  <rafsi>puv</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>abstraktilo de procedo: $x_{1}$ estas procedo de [bridi] procedanta laŭ etapoj $x_{2}$</definition>
-  <definitionid>3746</definitionid>
-  <notes>Vidu ankaŭ {pruce}.</notes>
-  <glossword word="abstraktilo de procedo" />
-</valsi>
 <valsi word="pulce" type="gismu">
   <rafsi>puc</rafsi>
   <rafsi>pu&apos;e</rafsi>
@@ -10717,6 +10709,17 @@
   <definitionid>3745</definitionid>
   <notes>Faruno (= {grupu&apos;o}, {xripu&apos;o}).  Vidu ankaŭ {pulce}, {zalvi}.</notes>
   <glossword word="pulvoro" />
+</valsi>
+<valsi word="pu'u" type="cmavo">
+  <rafsi>puv</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>abstraktilo de procedo: $x_{1}$ estas procedo de [bridi] procedanta laŭ etapoj $x_{2}$</definition>
+  <definitionid>3746</definitionid>
+  <notes>Vidu ankaŭ {pruce}.</notes>
+  <glossword word="abstraktilo de procedo" />
 </valsi>
 <valsi word="racli" type="gismu">
   <user>
@@ -11858,7 +11861,7 @@
   <notes>Ankaŭ: skurĝi, korekti (unu senco).  Vidu ankaŭ {cnemu}, {pleji}, {venfu}, {zekri}, {canja}, {dunda}, {jdima}, {jerna}, {kargu}, {prali}, {dapma}, {cirko}, {jinga}.</notes>
   <glossword word="puni" />
 </valsi>
-<valsi word="sferies" type="cmene">
+<valsi word="sferies" type="cmevla">
   <user>
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
@@ -11889,17 +11892,6 @@
   <definitionid>3851</definitionid>
   <notes>Vidu ankaŭ {farlu}, {farlu}.</notes>
   <glossword word="plonĝi" />
-</valsi>
-<valsi word="si'o" type="cmavo">
-  <rafsi>siz</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>abstraktilo de ideo/koncepto: $x_{1}$ estas la koncepto de $x_{2}$ de [bridi]</definition>
-  <definitionid>3866</definitionid>
-  <notes>Vidu ankaŭ {sidbo}.</notes>
-  <glossword word="abstraktilo de koncepto" />
 </valsi>
 <valsi word="siclu" type="gismu">
   <rafsi>sil</rafsi>
@@ -12063,6 +12055,17 @@
   <definitionid>3865</definitionid>
   <notes>Ankaŭ: $x_1$ signas $x_2$-on; (adjektivo:) $x_1$ estas signifa/grava; signali agon (= {sniti&apos;i}), kunsignifo (= se {sibyti&apos;isni}, {sibyti&apos;ismu}).  Vidu ankaŭ {lerfu}, {tcita}, {barna}, {mifra}, {smuni}.</notes>
   <glossword word="signo" />
+</valsi>
+<valsi word="si'o" type="cmavo">
+  <rafsi>siz</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>abstraktilo de ideo/koncepto: $x_{1}$ estas la koncepto de $x_{2}$ de [bridi]</definition>
+  <definitionid>3866</definitionid>
+  <notes>Vidu ankaŭ {sidbo}.</notes>
+  <glossword word="abstraktilo de koncepto" />
 </valsi>
 <valsi word="sipna" type="gismu">
   <rafsi>sip</rafsi>
@@ -12563,47 +12566,6 @@
   <definitionid>3912</definitionid>
   <glossword word="preskaŭ ĉiu" />
 </valsi>
-<valsi word="so'e" type="cmavo">
-  <rafsi>sop</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>cifero/nombro: plejmultaj</definition>
-  <definitionid>3916</definitionid>
-  <glossword word="plejmultaj" />
-</valsi>
-<valsi word="so'i" type="cmavo">
-  <rafsi>sor</rafsi>
-  <rafsi>so&apos;i</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>cifero/nombro: multaj</definition>
-  <definitionid>3918</definitionid>
-  <glossword word="multaj" />
-</valsi>
-<valsi word="so'o" type="cmavo">
-  <rafsi>sos</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>cifero/nombro: kelkaj</definition>
-  <definitionid>3923</definitionid>
-  <glossword word="kelkaj" />
-</valsi>
-<valsi word="so'u" type="cmavo">
-  <rafsi>sot</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>cifero/nombro: malmultaj</definition>
-  <definitionid>3926</definitionid>
-  <glossword word="malmultaj" />
-</valsi>
 <valsi word="sobde" type="gismu">
   <rafsi>sob</rafsi>
   <rafsi>so&apos;e</rafsi>
@@ -12637,6 +12599,16 @@
   <notes>Vidu ankaŭ {jilka}, {jinme}.</notes>
   <glossword word="sodakvo" />
 </valsi>
+<valsi word="so'e" type="cmavo">
+  <rafsi>sop</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>cifero/nombro: plejmultaj</definition>
+  <definitionid>3916</definitionid>
+  <glossword word="plejmultaj" />
+</valsi>
 <valsi word="softo" type="gismu">
   <rafsi>sof</rafsi>
   <user>
@@ -12647,6 +12619,17 @@
   <definitionid>3917</definitionid>
   <notes>Vidu ankaŭ {rusko}, {vukro}, {slovo}.</notes>
   <glossword word="soveta" />
+</valsi>
+<valsi word="so'i" type="cmavo">
+  <rafsi>sor</rafsi>
+  <rafsi>so&apos;i</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>cifero/nombro: multaj</definition>
+  <definitionid>3918</definitionid>
+  <glossword word="multaj" />
 </valsi>
 <valsi word="solji" type="gismu">
   <rafsi>slo</rafsi>
@@ -12694,6 +12677,16 @@
   <notes>Vidu ankaŭ {bilni}, {damba}, {jenmi}, {xarci}, {pulji}.</notes>
   <glossword word="soldato" />
 </valsi>
+<valsi word="so'o" type="cmavo">
+  <rafsi>sos</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>cifero/nombro: kelkaj</definition>
+  <definitionid>3923</definitionid>
+  <glossword word="kelkaj" />
+</valsi>
 <valsi word="sorcu" type="gismu">
   <rafsi>soc</rafsi>
   <rafsi>sro</rafsi>
@@ -12716,6 +12709,16 @@
   <definitionid>3925</definitionid>
   <notes>Vidu ankaŭ {gurni}.</notes>
   <glossword word="sorgo" />
+</valsi>
+<valsi word="so'u" type="cmavo">
+  <rafsi>sot</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>cifero/nombro: malmultaj</definition>
+  <definitionid>3926</definitionid>
+  <glossword word="malmultaj" />
 </valsi>
 <valsi word="sovda" type="gismu">
   <rafsi>sov</rafsi>
@@ -13180,40 +13183,6 @@
   <notes>ĝenerale uzita por kutime senmovaj objektoj/okazoj, por doni iliaj &apos;konstantaj&apos; lokoj.  Vidu ankaŭ cmavo {tu&apos;i}, {jmive}, {diklo}, {zvati}, {tcini}, {xabju}, {jibni}, {judri}, {lamji}, {mokca}, {stali}.</notes>
   <glossword word="pozicio" />
 </valsi>
-<valsi word="su'e" type="cmavo">
-  <rafsi>sup</rafsi>
-  <rafsi>su&apos;e</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>cifero/nombro: maksimume (ĉiu); ne pli ol</definition>
-  <definitionid>3971</definitionid>
-  <glossword word="maksimume" />
-</valsi>
-<valsi word="su'o" type="cmavo">
-  <rafsi>suz</rafsi>
-  <rafsi>su&apos;o</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>cifero/nombro: almenaŭ (iu); ne malpli ol</definition>
-  <definitionid>3979</definitionid>
-  <notes>Vidu ankaŭ {cmalu}, {mleca}.</notes>
-  <glossword word="almenaŭ" />
-</valsi>
-<valsi word="su'u" type="cmavo">
-  <rafsi>suv</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>abstraktilo ĝenerala ne specifa: $x_{1}$ estas [bridi] kiel nespecifa abstraktaĵo de tipo $x_{2}$</definition>
-  <definitionid>3982</definitionid>
-  <notes>Vidu ankaŭ {sucta}.</notes>
-  <glossword word="abstraktilo nespecifa" />
-</valsi>
 <valsi word="sucta" type="gismu">
   <rafsi>suc</rafsi>
   <user>
@@ -13235,6 +13204,17 @@
   <definitionid>3970</definitionid>
   <notes>Vidu ankaŭ {cilmo}, {litki}, {runta}.</notes>
   <glossword word="seka" />
+</valsi>
+<valsi word="su'e" type="cmavo">
+  <rafsi>sup</rafsi>
+  <rafsi>su&apos;e</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>cifero/nombro: maksimume (ĉiu); ne pli ol</definition>
+  <definitionid>3971</definitionid>
+  <glossword word="maksimume" />
 </valsi>
 <valsi word="sufti" type="gismu">
   <rafsi>sfu</rafsi>
@@ -13313,6 +13293,18 @@
   <notes>Vidu ankaŭ {kosta}, {kumte}, {lanme}, {kanba}, {bukpu}, {kerfa}.</notes>
   <glossword word="lano" />
 </valsi>
+<valsi word="su'o" type="cmavo">
+  <rafsi>suz</rafsi>
+  <rafsi>su&apos;o</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>cifero/nombro: almenaŭ (iu); ne malpli ol</definition>
+  <definitionid>3979</definitionid>
+  <notes>Vidu ankaŭ {cmalu}, {mleca}.</notes>
+  <glossword word="almenaŭ" />
+</valsi>
 <valsi word="surla" type="gismu">
   <rafsi>sur</rafsi>
   <user>
@@ -13334,6 +13326,17 @@
   <definitionid>3981</definitionid>
   <notes>Vidu ankaŭ {masno}.</notes>
   <glossword word="rapida" />
+</valsi>
+<valsi word="su'u" type="cmavo">
+  <rafsi>suv</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>abstraktilo ĝenerala ne specifa: $x_{1}$ estas [bridi] kiel nespecifa abstraktaĵo de tipo $x_{2}$</definition>
+  <definitionid>3982</definitionid>
+  <notes>Vidu ankaŭ {sucta}.</notes>
+  <glossword word="abstraktilo nespecifa" />
 </valsi>
 <valsi word="ta" type="cmavo">
   <rafsi>taz</rafsi>
@@ -14486,17 +14489,6 @@
   <definitionid>4087</definitionid>
   <glossword word="4-a revicigo" />
 </valsi>
-<valsi word="ve'e" type="cmavo">
-  <rafsi>ve&apos;e</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>loka intervalo: ĉie, la tuta spaco (rafsi reprezentas ian ajn spacan intervalon)</definition>
-  <definitionid>4089</definitionid>
-  <notes> at   0</notes>
-  <glossword word="ĉie" />
-</valsi>
 <valsi word="vecnu" type="gismu">
   <rafsi>ven</rafsi>
   <rafsi>ve&apos;u</rafsi>
@@ -14508,6 +14500,17 @@
   <definitionid>4088</definitionid>
   <notes>$x_1$ estas vendisto; $x_3$ aĉetas $x_2$-on de $x_1$ (= terve&apos;u por reordigitaj {termoj}); $x_4$ estas la prezo de $x_2$ por $x_3$ (= velve&apos;u por reordigitaj {termoj}); por vendado (= {fitselve&apos;u}, {selvenfriti}); $x_2$ povas esti specifa objekto, varo, okazo, aŭ eco; pedante, por objektoj/varoj, ĉi tio estas sumti-levado el posedo de la objekto/varo (= {posyve&apos;u}, posyselve&apos;u por neambigua {semantiko}).  (kp. canja, dunda, janta, pleji, jerna, kargu, prali, zarci, vamji, jdima; see note at jdima on cost/price/value distinction, fepni, friti, jerna, rupnu)</notes>
   <glossword word="vendi" />
+</valsi>
+<valsi word="ve'e" type="cmavo">
+  <rafsi>ve&apos;e</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>loka intervalo: ĉie, la tuta spaco (rafsi reprezentas ian ajn spacan intervalon)</definition>
+  <definitionid>4089</definitionid>
+  <notes> at   0</notes>
+  <glossword word="ĉie" />
 </valsi>
 <valsi word="venfu" type="gismu">
   <rafsi>vef</rafsi>
@@ -15557,28 +15560,6 @@
   <notes>Vidu ankaŭ {plita}, {rufsu}, {tengu}, {dikni}, {pinta}, {sakli}, {spali}.</notes>
   <glossword word="glata" />
 </valsi>
-<valsi word="za'i" type="cmavo">
-  <rafsi>zaz</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>abstraktilo de stato: $x_{1}$ estas kontinua stato de [bridi]</definition>
-  <definitionid>4182</definitionid>
-  <notes>Vidu ankaŭ {zasni}, {zasti}, {tcini}.</notes>
-  <glossword word="abstraktilo de stato" />
-</valsi>
-<valsi word="za'o" type="cmavo">
-  <rafsi>za&apos;o</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>intervala konturo de okazo: kontinuante post la kompleto; superfektivo            |    ----&gt;</definition>
-  <definitionid>4186</definitionid>
-  <notes>Vidu ankaŭ {dukse}.</notes>
-  <glossword word="ankoraŭ" />
-</valsi>
 <valsi word="zabna" type="gismu">
   <rafsi>zan</rafsi>
   <rafsi>za&apos;a</rafsi>
@@ -15590,6 +15571,17 @@
   <definitionid>4181</definitionid>
   <notes>Vidu ankaŭ {funca}, {mabla}, {xamgu}, {vrude}.</notes>
   <glossword word="favora" />
+</valsi>
+<valsi word="za'i" type="cmavo">
+  <rafsi>zaz</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>abstraktilo de stato: $x_{1}$ estas kontinua stato de [bridi]</definition>
+  <definitionid>4182</definitionid>
+  <notes>Vidu ankaŭ {zasni}, {zasti}, {tcini}.</notes>
+  <glossword word="abstraktilo de stato" />
 </valsi>
 <valsi word="zajba" type="gismu">
   <rafsi>zaj</rafsi>
@@ -15624,6 +15616,17 @@
   <definitionid>4185</definitionid>
   <notes>Vidu ankaŭ cmavo {zau}, {natfe}.</notes>
   <glossword word="aprobi" />
+</valsi>
+<valsi word="za'o" type="cmavo">
+  <rafsi>za&apos;o</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>intervala konturo de okazo: kontinuante post la kompleto; superfektivo            |    ----&gt;</definition>
+  <definitionid>4186</definitionid>
+  <notes>Vidu ankaŭ {dukse}.</notes>
+  <glossword word="ankoraŭ" />
 </valsi>
 <valsi word="zarci" type="gismu">
   <rafsi>zac</rafsi>
@@ -15757,17 +15760,6 @@
   <definitionid>4198</definitionid>
   <glossword word="ĉiam" />
 </valsi>
-<valsi word="ze'o" type="cmavo">
-  <rafsi>zev</rafsi>
-  <rafsi>ze&apos;o</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>loka rilato/direkto; trans/pli malproksime ol...</definition>
-  <definitionid>4201</definitionid>
-  <glossword word="trans" />
-</valsi>
 <valsi word="zekri" type="gismu">
   <rafsi>zer</rafsi>
   <rafsi>zei</rafsi>
@@ -15791,6 +15783,17 @@
   <definitionid>4200</definitionid>
   <notes>Vidu ankaŭ {jdika}, {zmadu}, {banro}, {jmina}.</notes>
   <glossword word="pliiĝi" />
+</valsi>
+<valsi word="ze'o" type="cmavo">
+  <rafsi>zev</rafsi>
+  <rafsi>ze&apos;o</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>loka rilato/direkto; trans/pli malproksime ol...</definition>
+  <definitionid>4201</definitionid>
+  <glossword word="trans" />
 </valsi>
 <valsi word="zepti" type="gismu">
   <rafsi>zep</rafsi>
@@ -15837,16 +15840,6 @@
   <notes>Okazo $x_2$ povas esti homo ludanta instrumenton, kantanta, muzika fonto funkcianta/vibranta, ktp.; instrumento (= {zgica&apos;a}); ludi instrumenton (= {zgica&apos;apli}, {zgiterca&apos;a}, {selzgigau}, {selzgizu&apos;e}); kanto (= {sagzgi}, {selsa&apos;a}); voĉo, uzita muzike (= {zgivo&apos;a}); componita muziko (= {finzgi}).  Vidu ankaŭ {damri}, {dansu}, {flani}, {janbe}, {jgita}, {pipno}, {rilti}, {tabra}, {tonga}, {xagri}, {siclu}.</notes>
   <glossword word="muziko" />
 </valsi>
-<valsi word="zi'o" type="cmavo">
-  <rafsi>zil</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>pro-sumti: forstrekas lokon de sumti el la strukturo de selbri; ŝanĝas semantikon de selbri</definition>
-  <definitionid>4208</definitionid>
-  <glossword word="nuliga sumti" />
-</valsi>
 <valsi word="zifre" type="gismu">
   <rafsi>zif</rafsi>
   <rafsi>zi&apos;e</rafsi>
@@ -15870,6 +15863,16 @@
   <definitionid>4207</definitionid>
   <notes>Vidu ankaŭ {jinme}.</notes>
   <glossword word="zinko" />
+</valsi>
+<valsi word="zi'o" type="cmavo">
+  <rafsi>zil</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>pro-sumti: forstrekas lokon de sumti el la strukturo de selbri; ŝanĝas semantikon de selbri</definition>
+  <definitionid>4208</definitionid>
+  <glossword word="nuliga sumti" />
 </valsi>
 <valsi word="zirpu" type="gismu">
   <rafsi>zir</rafsi>
@@ -15942,17 +15945,6 @@
   <notes>Vidu ankaŭ {nenri}, {setca}.</notes>
   <glossword word="maltrans" />
 </valsi>
-<valsi word="zu'o" type="cmavo">
-  <rafsi>zum</rafsi>
-  <user>
-    <username>xorxes</username>
-    <realname>Jorge Llambias</realname>
-  </user>
-  <definition>abstraktilo de ago: $x_{1}$ estas ago de [bridi] fare de $x_{2}$</definition>
-  <definitionid>4220</definitionid>
-  <notes>Vidu ankaŭ {zukte}.</notes>
-  <glossword word="abstraktilo de ago" />
-</valsi>
 <valsi word="zukte" type="gismu">
   <rafsi>zuk</rafsi>
   <rafsi>zu&apos;e</rafsi>
@@ -16009,6 +16001,17 @@
   <definitionid>4219</definitionid>
   <notes>                   a   39     Ne nepre kaŭzanta ĉeson. Vidu ankaŭ {fanta}, {dicra}, {fliba}, {fanza}, {raktu}, {klina}, {bandu}, {cfipu}, {ganlo}.</notes>
   <glossword word="malhelpi" />
+</valsi>
+<valsi word="zu'o" type="cmavo">
+  <rafsi>zum</rafsi>
+  <user>
+    <username>xorxes</username>
+    <realname>Jorge Llambias</realname>
+  </user>
+  <definition>abstraktilo de ago: $x_{1}$ estas ago de [bridi] fare de $x_{2}$</definition>
+  <definitionid>4220</definitionid>
+  <notes>Vidu ankaŭ {zukte}.</notes>
+  <glossword word="abstraktilo de ago" />
 </valsi>
 <valsi word="zutse" type="gismu">
   <rafsi>zut</rafsi>
@@ -16084,9 +16087,9 @@
 <nlword word="ventro" valsi="betfu" />
 <nlword word="tragedia" valsi="betri" />
 <nlword word="8 ok" valsi="bi" />
-<nlword word="nevica interspaco" valsi="bi&apos;i" />
 <nlword word="bido" valsi="bidju" />
 <nlword word="abelo" valsi="bifce" />
+<nlword word="nevica interspaco" valsi="bi&apos;i" />
 <nlword word="vipo" valsi="bikla" />
 <nlword word="devi" valsi="bilga" />
 <nlword word="malsana" valsi="bilma" />
@@ -16114,6 +16117,8 @@
 <nlword word="hajlo" valsi="bratu" />
 <nlword word="brazila" valsi="brazo" />
 <nlword word="preta" valsi="bredi" />
+<nlword word="argumentoj" sense="aro" valsi="bridi" place="3" />
+<nlword word="predikata rilato" valsi="bridi" place="2" />
 <nlword word="predikato" valsi="bridi" />
 <nlword word="brizo" valsi="brife" />
 <nlword word="oficejo" valsi="briju" />
@@ -16162,14 +16167,14 @@
 <nlword word="mortigi" valsi="catra" />
 <nlword word="malprofunda" valsi="caxno" />
 <nlword word="are kun" valsi="ce" />
-<nlword word="elcento" valsi="ce&apos;i" />
-<nlword word="sinsekve kun" valsi="ce&apos;o" />
 <nlword word="lanĉi" valsi="cecla" />
 <nlword word="komunumo" valsi="cecmu" />
 <nlword word="epoko" valsi="cedra" />
+<nlword word="elcento" valsi="ce&apos;i" />
 <nlword word="varii" valsi="cenba" />
 <nlword word="sankta" valsi="censa" />
 <nlword word=".01 centi-" valsi="centi" />
+<nlword word="sinsekve kun" valsi="ce&apos;o" />
 <nlword word="heredi" valsi="cerda" />
 <nlword word="mateno" valsi="cerni" />
 <nlword word="spertulo" valsi="certu" />
@@ -16258,11 +16263,11 @@
 <nlword word="renversita tanru" valsi="co" />
 <nlword word="ek-" valsi="co&apos;a" />
 <nlword word="nespecifa bridi" valsi="co&apos;e" />
-<nlword word="finiĝante" valsi="co&apos;u" />
 <nlword word="saluton" valsi="coi" />
 <nlword word="sorbi" valsi="cokcu" />
 <nlword word="profunda" valsi="condi" />
 <nlword word="doloriĝi" valsi="cortu" />
+<nlword word="finiĝante" valsi="co&apos;u" />
 <nlword word="akiri" valsi="cpacu" />
 <nlword word="sur" valsi="cpana" />
 <nlword word="grimpi" valsi="cpare" />
@@ -16367,7 +16372,6 @@
 <nlword word="alia" valsi="drata" />
 <nlword word="tegmento" valsi="drudi" />
 <nlword word="esti" valsi="du" />
-<nlword word="abstraktilo de bridi" valsi="du&apos;u" />
 <nlword word="logaritmo" valsi="dugri" />
 <nlword word="tro" valsi="dukse" />
 <nlword word="malo" valsi="dukti" />
@@ -16376,6 +16380,7 @@
 <nlword word="angori" valsi="dunku" />
 <nlword word="egali" valsi="dunli" />
 <nlword word="vintro" valsi="dunra" />
+<nlword word="abstraktilo de bridi" valsi="du&apos;u" />
 <nlword word="praulo" valsi="dzena" />
 <nlword word="antarktika" valsi="dzipo" />
 <nlword word="ekscii" valsi="facki" />
@@ -16588,10 +16593,10 @@
 <nlword word="vivi" valsi="jmive" />
 <nlword word="se kaj nur se (tanru)" valsi="jo" />
 <nlword word="unio" valsi="jo&apos;e" />
-<nlword word="komune kun" valsi="jo&apos;u" />
 <nlword word="kune kun" valsi="joi" />
 <nlword word="jordania" valsi="jordo" />
 <nlword word="kunigita" valsi="jorne" />
+<nlword word="komune kun" valsi="jo&apos;u" />
 <nlword word="egale ĉu aŭ ne (tanru)" valsi="ju" />
 <nlword word="tablo" valsi="jubme" />
 <nlword word="adreso" valsi="judri" />
@@ -16644,8 +16649,8 @@
 <nlword word="tranĉi" valsi="katna" />
 <nlword word="kapti" valsi="kavbu" />
 <nlword word="ekgrupigo" valsi="ke" />
-<nlword word="fino de grupigo" valsi="ke&apos;e" />
 <nlword word="kompati" valsi="kecti" />
+<nlword word="fino de grupigo" valsi="ke&apos;e" />
 <nlword word="fino de abstraktaĵo" valsi="kei" />
 <nlword word="ludi" valsi="kelci" />
 <nlword word="kelvino" valsi="kelvo" />
@@ -16691,7 +16696,6 @@
 <nlword word="kremo" valsi="kruji" />
 <nlword word="kurbo" valsi="kruvi" />
 <nlword word="intersekcio" valsi="ku&apos;a" />
-<nlword word="kurda" valsi="ku&apos;urdi" />
 <nlword word="kubo" valsi="kubli" />
 <nlword word="scivoli" valsi="kucli" />
 <nlword word="senti komforton" valsi="kufra" />
@@ -16706,6 +16710,7 @@
 <nlword word="amara" valsi="kurki" />
 <nlword word="ampleksi" valsi="kuspe" />
 <nlword word="kruela" valsi="kusru" />
+<nlword word="kurda" valsi="ku&apos;urdi" />
 <nlword word="lupo" valsi="labno" />
 <nlword word="tiri" valsi="lacpu" />
 <nlword word="fidi" valsi="lacri" />
@@ -16729,16 +16734,16 @@
 <nlword word="latina" valsi="latmo" />
 <nlword word="lotuso" valsi="latna" />
 <nlword word="pigra" valsi="lazni" />
-<nlword word="la stereotipa" valsi="le&apos;e" />
 <nlword word="preni" valsi="lebna" />
+<nlword word="la stereotipa" valsi="le&apos;e" />
 <nlword word="lenso" valsi="lenjo" />
 <nlword word="malvarma" valsi="lenku" />
 <nlword word="malfrua" valsi="lerci" />
 <nlword word="litero" valsi="lerfu" />
-<nlword word="abstraktilo de sperto" valsi="li&apos;i" />
 <nlword word="libia" valsi="libjo" />
 <nlword word="antaŭi" valsi="lidne" />
 <nlword word="sperti" valsi="lifri" />
+<nlword word="abstraktilo de sperto" valsi="li&apos;i" />
 <nlword word="religio" valsi="lijda" />
 <nlword word="naĝi" valsi="limna" />
 <nlword word="fulmo" valsi="lindi" />
@@ -16836,8 +16841,8 @@
 <nlword word="ŝimo" valsi="mledi" />
 <nlword word="satelito" valsi="mluni" />
 <nlword word="tro malmultaj" valsi="mo&apos;a" />
-<nlword word="spaca movo" valsi="mo&apos;i" />
 <nlword word="vica selbri" valsi="moi" />
+<nlword word="spaca movo" valsi="mo&apos;i" />
 <nlword word="punkto" valsi="mokca" />
 <nlword word="buŝo" valsi="moklu" />
 <nlword word="muelejo" valsi="molki" />
@@ -16853,9 +16858,9 @@
 <nlword word="poŝti" valsi="mrilu" />
 <nlword word="martelo" valsi="mruli" />
 <nlword word="5 kvin" valsi="mu" />
-<nlword word="abstraktilo de punkt-okazo" valsi="mu&apos;e" />
 <nlword word="nemateria" valsi="mucti" />
 <nlword word="ligno" valsi="mudri" />
+<nlword word="abstraktilo de punkt-okazo" valsi="mu&apos;e" />
 <nlword word="motivo" valsi="mukti" />
 <nlword word="kompleta" valsi="mulno" />
 <nlword word="universo" valsi="munje" />
@@ -16867,8 +16872,8 @@
 <nlword word="moviĝi" valsi="muvdu" />
 <nlword word="muzeo" valsi="muzga" />
 <nlword word="ne" valsi="na" />
-<nlword word="ne-" valsi="na&apos;e" />
 <nlword word="problemo" valsi="nabmi" />
+<nlword word="ne-" valsi="na&apos;e" />
 <nlword word="virseksa" valsi="nakni" />
 <nlword word="flugilo" valsi="nalci" />
 <nlword word="nombro" valsi="namcu" />
@@ -16901,14 +16906,14 @@
 <nlword word="triki" valsi="nivji" />
 <nlword word="knabino" valsi="nixli" />
 <nlword word="0 nul" valsi="no" />
-<nlword word="skala mezpunkta ne" valsi="no&apos;e" />
 <nlword word="nobela" valsi="nobli" />
-<nlword word="Norvegio" sense="lando" valsi="norgo" />
+<nlword word="skala mezpunkta ne" valsi="no&apos;e" />
 <nlword word="norvega" sense="popolo" valsi="norgo" />
+<nlword word="Norvegio" sense="lando" valsi="norgo" />
 <nlword word="mesaĝo" valsi="notci" />
 <nlword word="abstraktilo de okazo" valsi="nu" />
-<nlword word="nerealigita potencialo" valsi="nu&apos;o" />
 <nlword word="fuksia" valsi="nukni" />
+<nlword word="nerealigita potencialo" valsi="nu&apos;o" />
 <nlword word="promesi" valsi="nupre" />
 <nlword word="kampara" valsi="nurma" />
 <nlword word="neŭtrala" valsi="nutli" />
@@ -16952,7 +16957,6 @@
 <nlword word="1E15 peta-" valsi="petso" />
 <nlword word="folio" valsi="pezli" />
 <nlword word="decimala punkto/komo" valsi="pi" />
-<nlword word="krucproduto" valsi="pi&apos;u" />
 <nlword word="1E-12 piko-" valsi="picti" />
 <nlword word="pinglo" valsi="pijne" />
 <nlword word="petegi" valsi="pikci" />
@@ -16970,6 +16974,7 @@
 <nlword word="ebena" valsi="pinta" />
 <nlword word="trinki" valsi="pinxe" />
 <nlword word="piano" valsi="pipno" />
+<nlword word="krucproduto" valsi="pi&apos;u" />
 <nlword word="bildo" valsi="pixra" />
 <nlword word="grasa" valsi="plana" />
 <nlword word="plani" valsi="platu" />
@@ -17001,7 +17006,6 @@
 <nlword word="procedo" valsi="pruce" />
 <nlword word="elasta" valsi="pruni" />
 <nlword word="realigita potencialo" valsi="pu&apos;i" />
-<nlword word="abstraktilo de procedo" valsi="pu&apos;u" />
 <nlword word="polvo" valsi="pulce" />
 <nlword word="policano" valsi="pulji" />
 <nlword word="pulio" valsi="pulni" />
@@ -17010,6 +17014,7 @@
 <nlword word="estinta" valsi="purci" />
 <nlword word="ĝardeno" valsi="purdi" />
 <nlword word="pulvoro" valsi="purmo" />
+<nlword word="abstraktilo de procedo" valsi="pu&apos;u" />
 <nlword word="racia" valsi="racli" />
 <nlword word="kuniklo" valsi="ractu" />
 <nlword word="radiano" valsi="radno" />
@@ -17116,7 +17121,6 @@
 <nlword word="Svedujo" valsi="sferies" />
 <nlword word="sofo" valsi="sfofa" />
 <nlword word="plonĝi" valsi="sfubu" />
-<nlword word="abstraktilo de koncepto" valsi="si&apos;o" />
 <nlword word="sibli" valsi="siclu" />
 <nlword word="monero" valsi="sicni" />
 <nlword word="pluvo" valsi="sicpi" />
@@ -17132,6 +17136,7 @@
 <nlword word="estimi" valsi="sinma" />
 <nlword word="sinuso" valsi="sinso" />
 <nlword word="signo" valsi="sinxa" />
+<nlword word="abstraktilo de koncepto" valsi="si&apos;o" />
 <nlword word="dormi" valsi="sipna" />
 <nlword word="rekta" valsi="sirji" />
 <nlword word="siria" valsi="sirxo" />
@@ -17178,20 +17183,20 @@
 <nlword word="akcidenta" valsi="snuti" />
 <nlword word="9 naŭ" valsi="so" />
 <nlword word="preskaŭ ĉiu" valsi="so&apos;a" />
-<nlword word="plejmultaj" valsi="so&apos;e" />
-<nlword word="multaj" valsi="so&apos;i" />
-<nlword word="kelkaj" valsi="so&apos;o" />
-<nlword word="malmultaj" valsi="so&apos;u" />
 <nlword word="sojo" valsi="sobde" />
 <nlword word="natrio" valsi="sodna" />
 <nlword word="sodakvo" valsi="sodva" />
+<nlword word="plejmultaj" valsi="so&apos;e" />
 <nlword word="soveta" valsi="softo" />
+<nlword word="multaj" valsi="so&apos;i" />
 <nlword word="oro" valsi="solji" />
 <nlword word="suno" valsi="solri" />
 <nlword word="semi" valsi="sombo" />
 <nlword word="soldato" valsi="sonci" />
+<nlword word="kelkaj" valsi="so&apos;o" />
 <nlword word="provizo" valsi="sorcu" />
 <nlword word="sorgo" valsi="sorgu" />
+<nlword word="malmultaj" valsi="so&apos;u" />
 <nlword word="ovo" valsi="sovda" />
 <nlword word="surprizi" valsi="spaji" />
 <nlword word="poluri" valsi="spali" />
@@ -17234,11 +17239,9 @@
 <nlword word="oriento" valsi="stuna" />
 <nlword word="strukturo" valsi="stura" />
 <nlword word="pozicio" valsi="stuzi" />
-<nlword word="maksimume" valsi="su&apos;e" />
-<nlword word="almenaŭ" valsi="su&apos;o" />
-<nlword word="abstraktilo nespecifa" valsi="su&apos;u" />
 <nlword word="abstraktaĵo" valsi="sucta" />
 <nlword word="seka" valsi="sudga" />
+<nlword word="maksimume" valsi="su&apos;e" />
 <nlword word="hufo" valsi="sufti" />
 <nlword word="subita" valsi="suksa" />
 <nlword word="sumo" valsi="sumji" />
@@ -17246,8 +17249,10 @@
 <nlword word="argumento" valsi="sumti" />
 <nlword word="ajlo" valsi="sunga" />
 <nlword word="lano" valsi="sunla" />
+<nlword word="almenaŭ" valsi="su&apos;o" />
 <nlword word="malstreĉiĝi" valsi="surla" />
 <nlword word="rapida" valsi="sutra" />
+<nlword word="abstraktilo nespecifa" valsi="su&apos;u" />
 <nlword word="tiu" valsi="ta" />
 <nlword word="karbono" valsi="tabno" />
 <nlword word="trumpeto" valsi="tabra" />
@@ -17353,8 +17358,8 @@
 <nlword word="vino" valsi="vanju" />
 <nlword word="enhavi" valsi="vasru" />
 <nlword word="4-a revicigo" valsi="ve" />
-<nlword word="ĉie" valsi="ve&apos;e" />
 <nlword word="vendi" valsi="vecnu" />
+<nlword word="ĉie" valsi="ve&apos;e" />
 <nlword word="venĝi" valsi="venfu" />
 <nlword word="printempo" valsi="vensa" />
 <nlword word="infano" valsi="verba" />
@@ -17448,12 +17453,12 @@
 <nlword word="urdua" valsi="xurdo" />
 <nlword word="aserti" valsi="xusra" />
 <nlword word="glata" valsi="xutla" />
-<nlword word="abstraktilo de stato" valsi="za&apos;i" />
-<nlword word="ankoraŭ" valsi="za&apos;o" />
 <nlword word="favora" valsi="zabna" />
+<nlword word="abstraktilo de stato" valsi="za&apos;i" />
 <nlword word="gimnastiki" valsi="zajba" />
 <nlword word="pisti" valsi="zalvi" />
 <nlword word="aprobi" valsi="zanru" />
+<nlword word="ankoraŭ" valsi="za&apos;o" />
 <nlword word="bazaro" valsi="zarci" />
 <nlword word="pugo" valsi="zargu" />
 <nlword word="provizora" valsi="zasni" />
@@ -17466,28 +17471,28 @@
 <nlword word="distri" valsi="zdile" />
 <nlword word="7 sep" valsi="ze" />
 <nlword word="ĉiam" valsi="ze&apos;e" />
-<nlword word="trans" valsi="ze&apos;o" />
 <nlword word="krimo" valsi="zekri" />
 <nlword word="pliiĝi" valsi="zenba" />
+<nlword word="trans" valsi="ze&apos;o" />
 <nlword word="1E-21 zepto-" valsi="zepti" />
 <nlword word="1E21 zeta-" valsi="zetro" />
 <nlword word="observi" valsi="zgana" />
 <nlword word="muziko" valsi="zgike" />
-<nlword word="nuliga sumti" valsi="zi&apos;o" />
 <nlword word="libera" valsi="zifre" />
 <nlword word="zinko" valsi="zinki" />
+<nlword word="nuliga sumti" valsi="zi&apos;o" />
 <nlword word="purpura" valsi="zirpu" />
 <nlword word="investi" valsi="zivle" />
 <nlword word="pli" valsi="zmadu" />
 <nlword word="aŭtomata" valsi="zmiku" />
 <nlword word="preter" valsi="zo&apos;a" />
 <nlword word="maltrans" valsi="zo&apos;i" />
-<nlword word="abstraktilo de ago" valsi="zu&apos;o" />
 <nlword word="agi" valsi="zukte" />
 <nlword word="maizo" valsi="zumri" />
 <nlword word="senti kulpon" valsi="zungi" />
 <nlword word="maldekstra" valsi="zunle" />
 <nlword word="malhelpi" valsi="zunti" />
+<nlword word="abstraktilo de ago" valsi="zu&apos;o" />
 <nlword word="sidi" valsi="zutse" />
 <nlword word="ĉeesti" valsi="zvati" />
 </direction></dictionary>

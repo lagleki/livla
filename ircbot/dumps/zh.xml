@@ -1,55 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="jbovlaste.xsl"?>
 <dictionary>
-<direction from="lojban" to="中文"><valsi word="LIEtuvas" type="cmene">
-  <user>
-    <username>Totemz</username>
-    <realname>Tuteng</realname>
-  </user>
-  <definition>立陶宛</definition>
-  <definitionid>16733</definitionid>
-  <glossword word="立陶宛" />
-</valsi>
-<valsi word="OTa,uas" type="cmene">
-  <user>
-    <username>Totemz</username>
-    <realname>Tuteng</realname>
-  </user>
-  <definition>渥太华</definition>
-  <definitionid>16864</definitionid>
-  <glossword word="渥太华" />
-</valsi>
-<valsi word="SINgapur" type="cmene">
-  <user>
-    <username>Totemz</username>
-    <realname>Tuteng</realname>
-  </user>
-  <definition>新加坡</definition>
-  <definitionid>16734</definitionid>
-  <notes>简称“新”；又译“星加坡”，简称“星”。</notes>
-  <glossword word="新加坡" />
-</valsi>
-<valsi word="UAcintyn" type="cmene">
-  <user>
-    <username>Totemz</username>
-    <realname>Tuteng</realname>
-  </user>
-  <definition>华盛顿</definition>
-  <definitionid>16967</definitionid>
-  <glossword word="华盛顿" />
-</valsi>
-<valsi word="VLANDeren" type="cmene">
-  <user>
-    <username>Totemz</username>
-    <realname>Tuteng</realname>
-  </user>
-  <definition>佛兰德斯</definition>
-  <definitionid>16735</definitionid>
-  <notes>中世纪欧洲一伯爵领地, 包括现比利时的东佛兰德省和西佛兰德省以及法国北部部分地区
-</notes>
-  <glossword word="弗兰德斯" />
-</valsi>
-<valsi word="a" type="cmavo">
+<direction from="lojban" to="中文"><valsi word="a" type="cmavo">
   <selmaho>A</selmaho>
   <user>
     <username>panabsent</username>
@@ -83,56 +35,6 @@
   <glossword word="警戒" />
   <glossword word="警惕" />
 </valsi>
-<valsi word="a'i" type="cmavo">
-  <selmaho>UI1</selmaho>
-  <user>
-    <username>panabsent</username>
-    <realname>Panabsent</realname>
-  </user>
-  <definition>态度词：努力-没有特别努力-停止/休息</definition>
-  <definitionid>42462</definitionid>
-  <notes>相关{gunka},{troci}</notes>
-  <glossword word="努力" />
-</valsi>
-<valsi word="a'o" type="cmavo">
-  <selmaho>UI1</selmaho>
-  <user>
-    <username>panabsent</username>
-    <realname>Panabsent</realname>
-  </user>
-  <definition>态度词：希望-绝望</definition>
-  <definitionid>42463</definitionid>
-  <notes>相关{pacna}</notes>
-  <glossword word="希望" />
-  <glossword word="绝望" />
-</valsi>
-<valsi word="a'orne" type="fu'ivla">
-  <user>
-    <username>Totemz</username>
-    <realname>Tuteng</realname>
-  </user>
-  <definition>$x_1$是$x_2$品种的枫树/槭树</definition>
-  <definitionid>16909</definitionid>
-  <notes>参见：同义词{ricrxacero}，{na&apos;itsi}（翼果）</notes>
-  <glossword word="枫树" />
-  <glossword word="槭树" />
-  <glossword word="枫木" />
-  <keyword word="枫树" place="1" />
-  <keyword word="枫树品种" place="2" />
-</valsi>
-<valsi word="a'u" type="cmavo">
-  <selmaho>UI1</selmaho>
-  <user>
-    <username>panabsent</username>
-    <realname>Panabsent</realname>
-  </user>
-  <definition>态度词：兴趣-无兴趣-反感</definition>
-  <definitionid>42464</definitionid>
-  <notes>相关{cinri},{selcni}</notes>
-  <glossword word="有趣" />
-  <glossword word="兴趣" />
-  <glossword word="反感" />
-</valsi>
 <valsi word="agbakate" type="fu'ivla">
   <user>
     <username>Totemz</username>
@@ -155,6 +57,17 @@
   <notes>相关{termu&apos;i},{terzu&apos;e},{seljdi}</notes>
   <glossword word="打算" />
   <glossword word="拒绝" />
+</valsi>
+<valsi word="a'i" type="cmavo">
+  <selmaho>UI1</selmaho>
+  <user>
+    <username>panabsent</username>
+    <realname>Panabsent</realname>
+  </user>
+  <definition>态度词：努力-没有特别努力-停止/休息</definition>
+  <definitionid>42462</definitionid>
+  <notes>相关{gunka},{troci}</notes>
+  <glossword word="努力" />
 </valsi>
 <valsi word="alfabeta" type="fu'ivla">
   <user>
@@ -203,7 +116,33 @@
   <keyword word="鳗鱼" place="1" />
   <keyword word="鳗鱼品种" place="2" />
 </valsi>
-<valsi word="arktik" type="cmene">
+<valsi word="a'o" type="cmavo">
+  <selmaho>UI1</selmaho>
+  <user>
+    <username>panabsent</username>
+    <realname>Panabsent</realname>
+  </user>
+  <definition>态度词：希望-绝望</definition>
+  <definitionid>42463</definitionid>
+  <notes>相关{pacna}</notes>
+  <glossword word="希望" />
+  <glossword word="绝望" />
+</valsi>
+<valsi word="a'orne" type="fu'ivla">
+  <user>
+    <username>Totemz</username>
+    <realname>Tuteng</realname>
+  </user>
+  <definition>$x_1$是$x_2$品种的枫树/槭树</definition>
+  <definitionid>16909</definitionid>
+  <notes>参见：同义词{ricrxacero}，{na&apos;itsi}（翼果）</notes>
+  <glossword word="枫树" />
+  <glossword word="槭树" />
+  <glossword word="枫木" />
+  <keyword word="枫树" place="1" />
+  <keyword word="枫树品种" place="2" />
+</valsi>
+<valsi word="arktik" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -212,7 +151,7 @@
   <definitionid>16736</definitionid>
   <glossword word="北冰洋" />
 </valsi>
-<valsi word="asycy'i'is" type="cmene">
+<valsi word="asycy'i'is" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -232,7 +171,20 @@
   <definitionid>42466</definitionid>
   <notes>相关{djica}</notes>
 </valsi>
-<valsi word="auskalerik" type="cmene">
+<valsi word="a'u" type="cmavo">
+  <selmaho>UI1</selmaho>
+  <user>
+    <username>panabsent</username>
+    <realname>Panabsent</realname>
+  </user>
+  <definition>态度词：兴趣-无兴趣-反感</definition>
+  <definitionid>42464</definitionid>
+  <notes>相关{cinri},{selcni}</notes>
+  <glossword word="有趣" />
+  <glossword word="兴趣" />
+  <glossword word="反感" />
+</valsi>
+<valsi word="auskalerik" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -242,7 +194,7 @@
   <notes>和西班牙紧密相关的一个自治地区</notes>
   <glossword word="巴斯克" />
 </valsi>
-<valsi word="babilon" type="cmene">
+<valsi word="babilon" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -569,7 +521,7 @@
   <definitionid>53280</definitionid>
   <notes>图案标记={ba&apos;armo&apos;a}；参见 {sinxa}, {pixra}, {se} {ciska}, {se} {prina}</notes>
 </valsi>
-<valsi word="barselonas" type="cmene">
+<valsi word="barselonas" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -663,7 +615,7 @@
   <definitionid>53288</definitionid>
   <notes>参见 {fenki}, {xajmi}, {prije}, {fliba}.</notes>
 </valsi>
-<valsi word="beiDJIN" type="cmene">
+<valsi word="beiDJIN" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -815,7 +767,7 @@
   <definitionid>53299</definitionid>
   <notes>暗示了所有权是从$x_2$转移到$x_3$的，参见 {marce}, {muvdu}, {benji}, {klama}</notes>
 </valsi>
-<valsi word="bidgug" type="cmene">
+<valsi word="bidgug" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -980,7 +932,7 @@
   <definitionid>53314</definitionid>
   <notes>可以用来形容其他颜色词，表示淡化的含义，如：粉红={labyxu&apos;e}/{xunblabi}；参见{kandi}, {skari}, {xekri}, {grusi}, {kandi}, {manku}, {carmi}, {bakri}, {blanu}, {bunre}, {cicna}, {crino}, {narju}, {nukni}, {pelxu}, {xunre}, {zirpu}.</notes>
 </valsi>
-<valsi word="blabruk" type="cmene">
+<valsi word="blabruk" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -1067,7 +1019,7 @@
   <definitionid>53321</definitionid>
   <notes>软骨={ranbo&apos;u}；骷髅骨={bogygreku}；参见{greku}, {denci}, {jirna}, {sarji}.</notes>
 </valsi>
-<valsi word="bosnan" type="cmene">
+<valsi word="bosnan" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -1128,7 +1080,7 @@
   <definitionid>53326</definitionid>
   <notes>指物质本身，而不是下冰雹的过程；参见 {carvi}, {snime}, {bisli}, {tcima}.</notes>
 </valsi>
-<valsi word="brazilias" type="cmene">
+<valsi word="brazilias" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -1164,7 +1116,7 @@
     <username>gleki</username>
     <realname>gleki</realname>
   </user>
-  <definition>$x_1$（文本）是含有联系/关系$x_2$的谓语关系，基于论据$x_3$（集合/序列）</definition>
+  <definition>$x_1$（du&apos;u）是含有联系/关系$x_2$的谓语关系，基于论据$x_3$（集合/序列）</definition>
   <definitionid>53329</definitionid>
   <notes>也指：$x_3$（完整序列）是以关系$x_2$联系的；参见 {sumti}, {fancu}.</notes>
 </valsi>
@@ -1251,15 +1203,6 @@
   <definition>$x_1$是第五个可被分配的谓词变量（上下文决定位置结构）</definition>
   <definitionid>56037</definitionid>
 </valsi>
-<valsi word="bruNAIS" type="cmene">
-  <user>
-    <username>Totemz</username>
-    <realname>Tuteng</realname>
-  </user>
-  <definition>文莱</definition>
-  <definitionid>16744</definitionid>
-  <glossword word="文莱" />
-</valsi>
 <valsi word="bruna" type="gismu">
   <rafsi>bun</rafsi>
   <rafsi>bu&apos;a</rafsi>
@@ -1270,6 +1213,15 @@
   <definition>$x_1$是$x_2$的兄弟，依据标准/关系$x_3$（不必要是生理学上的兄弟关系）</definition>
   <definitionid>53333</definitionid>
   <notes>参见 {mensi}, {tunba}, {tamne}, {famti}, {bersa}.</notes>
+</valsi>
+<valsi word="bruNAIS" type="cmevla">
+  <user>
+    <username>Totemz</username>
+    <realname>Tuteng</realname>
+  </user>
+  <definition>文莱</definition>
+  <definitionid>16744</definitionid>
+  <glossword word="文莱" />
 </valsi>
 <valsi word="budjo" type="gismu">
   <rafsi>buj</rafsi>
@@ -1343,7 +1295,7 @@
   <definitionid>53340</definitionid>
   <notes>参见 {cinmo}.</notes>
 </valsi>
-<valsi word="byLIN" type="cmene">
+<valsi word="byLIN" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -1448,7 +1400,7 @@
   <definitionid>53350</definitionid>
   <notes>指动作；参见 {surla}.</notes>
 </valsi>
-<valsi word="cangan" type="cmene">
+<valsi word="cangan" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -1528,7 +1480,7 @@
   <definitionid>53357</definitionid>
   <notes>可比喻：处理中心；参见 {betfu}.</notes>
 </valsi>
-<valsi word="canxais" type="cmene">
+<valsi word="canxais" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -1567,7 +1519,7 @@
   <definitionid>53360</definitionid>
   <notes>旋转= {jincarna}； 参见 {gunro}, {jendu}. 由 Robin Lee Powell 提出的{carna}d的新定义与其旧定义方向兼容：$x_1$绕转轴$x_2$转动，在方向$x_3$上</notes>
 </valsi>
-<valsi word="carpacib" type="cmene">
+<valsi word="carpacib" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -1751,7 +1703,7 @@
   <definitionid>53377</definitionid>
   <notes>也指足以胜任的，熟练的； 参见 {djuno}, {stati}, {kakne}.</notes>
 </valsi>
-<valsi word="cev" type="cmene">
+<valsi word="cev" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -1979,15 +1931,6 @@
   <definitionid>53399</definitionid>
   <notes>永久的= {cimnytei}， 不朽的/永恒的= {cimnyteikai}/{temcimni}). 参见 {vitno}, {renvi}, {munje}, {fanmo}, {sisti}.</notes>
 </valsi>
-<valsi word="cinJIAN" type="cmene">
-  <user>
-    <username>Totemz</username>
-    <realname>Tuteng</realname>
-  </user>
-  <definition>新疆</definition>
-  <definitionid>16963</definitionid>
-  <glossword word="新疆" />
-</valsi>
 <valsi word="cinba" type="gismu">
   <user>
     <username>gleki</username>
@@ -2024,6 +1967,15 @@
   <definition>$x_1$是纹/痕/皱褶，位于$x_2$上</definition>
   <definitionid>53403</definitionid>
   <notes>参见 {korcu}, {polje}, {boxfo}, {boxna}.</notes>
+</valsi>
+<valsi word="cinJIAN" type="cmevla">
+  <user>
+    <username>Totemz</username>
+    <realname>Tuteng</realname>
+  </user>
+  <definition>新疆</definition>
+  <definitionid>16963</definitionid>
+  <glossword word="新疆" />
 </valsi>
 <valsi word="cinki" type="gismu">
   <user>
@@ -2305,7 +2257,7 @@
   <definitionid>53430</definitionid>
   <notes>参见 {cinmo}.</notes>
 </valsi>
-<valsi word="ckiipyris" type="cmene">
+<valsi word="ckiipyris" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -2494,7 +2446,7 @@
   <definitionid>53448</definitionid>
   <notes>$x_4$可能指特定的用法（嵌入语言中某位置）或一个语言的整体化描述；$x_3$和$x_4$可能只是指特定表达中的结构词用法的例证； 表示物体对象的结构词列表= {loi} {ma&apos;oste}； 指示内涵结构结构词列表= {ma&apos;orpoi}/ {ma&apos;orselcmi}/{ma&apos;orselste}；参见 {gismu}, {lujvo}, {gerna}, {smuni}, {valsi}.</notes>
 </valsi>
-<valsi word="cmeclax" type="cmene">
+<valsi word="cmeclax" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -3123,7 +3075,7 @@
   <definitionid>53509</definitionid>
   <notes>参见 {banfi}, {cinki}, {cipni}, {finpe}, {jukni}, {respa}, {since}, {mabru}, {bakni}.</notes>
 </valsi>
-<valsi word="danmark" type="cmene">
+<valsi word="danmark" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -3613,16 +3565,6 @@
   <definitionid>53556</definitionid>
   <notes>也指：下面的；$x_3$通常是0标线以上的基准线，或也可是0标线本身；参见 {cnita}, {galtu}, {gapru}, {farna}, {loldi}.</notes>
 </valsi>
-<valsi word="djaZAIR" type="cmene">
-  <user>
-    <username>Totemz</username>
-    <realname>Tuteng</realname>
-  </user>
-  <definition>阿尔及利亚</definition>
-  <definitionid>16780</definitionid>
-  <notes>来自国名的阿拉伯语读法“贾扎伊尔”，意为岛屿。参见：{jerxo}（关于阿尔及利亚的gismu）。</notes>
-  <glossword word="阿尔及利亚" />
-</valsi>
 <valsi word="djacu" type="gismu">
   <rafsi>jac</rafsi>
   <rafsi>jau</rafsi>
@@ -3633,6 +3575,16 @@
   <definition>$x_1$是水/水一般的</definition>
   <definitionid>53557</definitionid>
   <notes>水生的/水栖的= {jaupli}；参见 {lalxu}, {rirxe}, {xamsi}, {limna}, {litki}, {lumci}, {bumru}, {jinto}.</notes>
+</valsi>
+<valsi word="djaZAIR" type="cmevla">
+  <user>
+    <username>Totemz</username>
+    <realname>Tuteng</realname>
+  </user>
+  <definition>阿尔及利亚</definition>
+  <definitionid>16780</definitionid>
+  <notes>来自国名的阿拉伯语读法“贾扎伊尔”，意为岛屿。参见：{jerxo}（关于阿尔及利亚的gismu）。</notes>
+  <glossword word="阿尔及利亚" />
 </valsi>
 <valsi word="djedi" type="gismu">
   <rafsi>dje</rafsi>
@@ -3665,7 +3617,7 @@
   <definitionid>53560</definitionid>
   <notes>椭圆= {jincla}；用于各种近似圆的环状物体，甚至不必是闭合的，如：螺旋； 腰带/环带= {jinsru}；参见 {clupa}, {cukla}, {dasri}, {karli}, {sovda}, {sruri}, {konju}.</notes>
 </valsi>
-<valsi word="djiotis" type="cmene">
+<valsi word="djiotis" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -3675,7 +3627,7 @@
   <notes>一个意为光线的印度常见名字</notes>
   <glossword word="吉奥提" />
 </valsi>
-<valsi word="djunguos" type="cmene">
+<valsi word="djunguos" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -3788,7 +3740,7 @@
   <definitionid>53570</definitionid>
   <notes>参见 {ranxi}, {ragve}, {fatne}.</notes>
 </valsi>
-<valsi word="dunav" type="cmene">
+<valsi word="dunav" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -3860,7 +3812,7 @@
   <definitionid>53576</definitionid>
   <notes>参见 {patfu}, {rirni}, {tamne}.</notes>
 </valsi>
-<valsi word="dzip" type="cmene">
+<valsi word="dzip" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -4825,7 +4777,7 @@
   <definitionid>53666</definitionid>
   <notes>其中$x_1$与$x_2$是可互换的；骑式性交= {cpanygle}；参见 {cinse}, {pinji}, {plibu}, {vibna}, {vlagi}, {mabla}, {speni}.</notes>
 </valsi>
-<valsi word="gliban" type="cmene">
+<valsi word="gliban" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -4973,7 +4925,7 @@
   <definitionid>53677</definitionid>
   <notes>参见 {badna}, {dembi}, {figre}, {guzme}, {narge}, {perli}, {pilka}, {plise}, {spati}, {stagi}, {tamca}, {tsiju}, {tarbi}, {panzi}, {rorci}, te {pruce}, {jbari}, {nimre}.</notes>
 </valsi>
-<valsi unofficial="true" word="guanJOUS" type="obsolete cmene">
+<valsi unofficial="true" word="guanJOUS" type="obsolete cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -5003,7 +4955,7 @@
   <definitionid>53679</definitionid>
   <notes>也指：国内的/国家的；参见 {turni}, {natmi}, {jecta}, {tumla}, {tutra}, {lanci}.</notes>
 </valsi>
-<valsi word="gugl" type="cmene">
+<valsi word="gugl" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -5087,7 +5039,7 @@
   <definitionid>53686</definitionid>
   <notes>参见 {bradi}, {damba}, {darxi}, {jamna}, {jenca}, {jursa}.</notes>
 </valsi>
-<valsi word="guonJAUS" type="cmene">
+<valsi word="guonJAUS" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -5168,7 +5120,7 @@
   <definitionid>53693</definitionid>
   <notes>参见 {grute}.</notes>
 </valsi>
-<valsi word="iaves" type="cmene">
+<valsi word="iaves" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -5180,7 +5132,7 @@
   <glossword word="永为" />
   <glossword word="雅威" />
 </valsi>
-<valsi word="ieRUcaly'im" type="cmene">
+<valsi word="ieRUcaly'im" type="cmevla">
   <user>
     <username>totus</username>
     <realname>Andrew Piekarski</realname>
@@ -5189,7 +5141,7 @@
   <definitionid>17770</definitionid>
   <glossword word="耶路撒冷" />
 </valsi>
-<valsi word="island" type="cmene">
+<valsi word="island" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -5198,7 +5150,7 @@
   <definitionid>16791</definitionid>
   <glossword word="冰岛" />
 </valsi>
-<valsi word="italian" type="cmene">
+<valsi word="italian" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -5287,7 +5239,7 @@
   <definitionid>53701</definitionid>
   <notes>参见 {bradi}, {gunta}, {panpi}, {damba}, {darlu}.</notes>
 </valsi>
-<valsi word="jan" type="cmene">
+<valsi word="jan" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -5574,7 +5526,7 @@
   <definitionid>53726</definitionid>
   <notes>参见 {lijda}, {muslo}, {dadjo}, {xriso}.</notes>
 </valsi>
-<valsi word="jegvon" type="cmene">
+<valsi word="jegvon" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -5913,9 +5865,7 @@
   </user>
   <definition>$x_{1}$ (人/团队) 赢得/获胜/获(奖) $x_{2}$ 从(对手) $x_{3}$  手中 在竞争 $x_{4}$.</definition>
   <definitionid>16621</definitionid>
-  <notes>$x_1$ 是胜利者/获胜者; $_x2$ 奖品/战利品（物质或精神上或象征）; $_x3$ 是对手，可以是任何与$_x1$争夺$_x2$的; $_x2$ 可以是特别的物品，一件事，一场比赛，又或者是女朋友，等等。
-参见： {cirko}, {jivna}, {talsa}, {cnemu},{prali}, {pleji},{sfasa}, {jdima}, {jerna}, {bradi}, {kargu},{kelci}.
-</notes>
+  <notes>$x_1$ 是胜利者/获胜者; $_x2$ 奖品/战利品（物质或精神上或象征）; $_x3$ 是对手，可以是任何与$_x1$争夺$_x2$的; $_x2$ 可以是特别的物品，一件事，一场比赛，又或者是女朋友，等等。 参见： {cirko}, {jivna}, {talsa}, {cnemu},{prali}, {pleji},{sfasa}, {jdima}, {jerna}, {bradi}, {kargu},{kelci}.</notes>
   <glossword word="赢" />
 </valsi>
 <valsi word="jinku" type="gismu">
@@ -6220,8 +6170,7 @@
   </user>
   <definition>$x_1$ 在 $x_2$ 方面 反映中国文化/语言</definition>
   <definitionid>15876</definitionid>
-  <notes>包括粤、闽、客、湘、赣、北方，等。
-参见： {xazdo}.</notes>
+  <notes>包括粤、闽、客、湘、赣、北方，等。 参见： {xazdo}.</notes>
   <glossword word="中国" />
   <keyword word="事物" place="1" />
   <keyword word="反映方面" place="2" />
@@ -6306,7 +6255,7 @@
   <definitionid>53795</definitionid>
   <notes>参见 {catlu}, {kanla}, {viska}, {canko}, {jarco}.</notes>
 </valsi>
-<valsi word="jycybyb" type="cmene">
+<valsi word="jycybyb" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -6728,7 +6677,7 @@
   <definitionid>53834</definitionid>
   <notes>参见 {canlu}, {munje}, {terdi}, {tsani}.</notes>
 </valsi>
-<valsi word="kenton" type="cmene">
+<valsi word="kenton" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -7002,7 +6951,7 @@
   <definitionid>53856</definitionid>
   <notes>也指：顶点； 有的角存在三维空间且不具有顶点，因为其在角边上不连续，比如被截去顶点的角；参见 {jipno}, {konju}, {bliku}, {fanmo}, {jganu}, {krasi}.</notes>
 </valsi>
-<valsi word="kokaKOlys" type="cmene">
+<valsi word="kokaKOlys" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -7614,7 +7563,7 @@
   <definitionid>53913</definitionid>
   <notes>参见 {budjo}, {censa}, {lijda}, {spati}.</notes>
 </valsi>
-<valsi word="lauDZIS" type="cmene">
+<valsi word="lauDZIS" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -7624,7 +7573,7 @@
   <notes>中国古代哲学家“李耳”，不同于表示自称的“老子”</notes>
   <glossword word="老子" />
 </valsi>
-<valsi word="laus" type="cmene">
+<valsi word="laus" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -7736,7 +7685,16 @@
   <definitionid>53922</definitionid>
   <notes>也指： $x_1$之前的/先驱；$x_1$带领/作为领头人/指导； $x_2$之后的/尾随的 ；参见 {li&apos;e}, {balvi}, {ralju}, {rebla}, {purci}用于时间序列, {jersi}, {porsi}, {jatna}, {farna}.</notes>
 </valsi>
-<valsi word="lietuvos" type="cmene">
+<valsi word="LIEtuvas" type="cmevla">
+  <user>
+    <username>Totemz</username>
+    <realname>Tuteng</realname>
+  </user>
+  <definition>立陶宛</definition>
+  <definitionid>16733</definitionid>
+  <glossword word="立陶宛" />
+</valsi>
+<valsi word="lietuvos" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -7905,7 +7863,7 @@
   <definitionid>53938</definitionid>
   <notes>参见 {lojbo}</notes>
 </valsi>
-<valsi word="loglytuan" type="cmene">
+<valsi word="loglytuan" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -7916,7 +7874,7 @@
   <glossword word="逻各斯志工" />
   <glossword word="逻辑语工作者" />
 </valsi>
-<valsi word="lojbab" type="cmene">
+<valsi word="lojbab" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -7926,7 +7884,7 @@
   <notes>专指Bob LeChevalier君</notes>
   <glossword word="逻辑鲍勃" sense="绰号" />
 </valsi>
-<valsi word="lojban" type="cmene">
+<valsi word="lojban" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -7976,7 +7934,7 @@
   <keyword word="狐" place="1" />
   <keyword word="种类" place="2" />
 </valsi>
-<valsi word="losanjylys" type="cmene">
+<valsi word="losanjylys" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -8058,7 +8016,7 @@
   <definitionid>53947</definitionid>
   <notes>参见 {cilmo}, {dunja}, {febvi}, {runme}, {bumru}.</notes>
 </valsi>
-<valsi word="lyndyn" type="cmene">
+<valsi word="lyndyn" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -8097,7 +8055,7 @@
   <definitionid>53950</definitionid>
   <notes>参见 {zmiku}, {jitro}.</notes>
 </valsi>
-<valsi word="madRID" type="cmene">
+<valsi word="madRID" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -8537,16 +8495,6 @@
   <definitionid>57158</definitionid>
   <glossword word="我們" />
 </valsi>
-<valsi word="mi'o" type="cmavo">
-  <selmaho>KOhA3</selmaho>
-  <user>
-    <username>gleki</username>
-    <realname>gleki</realname>
-  </user>
-  <definition>咱們</definition>
-  <definitionid>57157</definitionid>
-  <glossword word="咱們" />
-</valsi>
 <valsi word="midju" type="gismu">
   <rafsi>mij</rafsi>
   <user>
@@ -8657,6 +8605,16 @@
   <definition>$x_1$与$x_2$是相同的/等同的/一样的，基于标准$x_3$；$x_1$与$x_2$是可互易的</definition>
   <definitionid>54001</definitionid>
   <notes>参见 {panra}, {satci}, {mapti}, {simsa}, {drata}, {dunli}, {du}, {simxu}</notes>
+</valsi>
+<valsi word="mi'o" type="cmavo">
+  <selmaho>KOhA3</selmaho>
+  <user>
+    <username>gleki</username>
+    <realname>gleki</realname>
+  </user>
+  <definition>咱們</definition>
+  <definitionid>57157</definitionid>
+  <glossword word="咱們" />
 </valsi>
 <valsi word="mipri" type="gismu">
   <rafsi>mip</rafsi>
@@ -8855,7 +8813,7 @@
   <definitionid>54019</definitionid>
   <notes>$x_3$是$x_1$的模范/模型/模式= {termontai}/{termonsi&apos;o}； 图像= {gusmo&apos;a}, {nenmo&apos;a}, {dairmo&apos;a}, {selylenmo&apos;a}, {selmirmo&apos;a}, {velmirmo&apos;a}；这里将-mo&apos;a改为-tai时，是表示概念上的；参见 {ciste}, {ganzu}, {marji}, {slilu}, {stura}, {tarmi}, {boxna}, {cimde}, {gidva}, {jimpe}, {rilti}.</notes>
 </valsi>
-<valsi word="mors" type="cmene">
+<valsi word="mors" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -8972,7 +8930,7 @@
   <definitionid>54028</definitionid>
   <notes>也指：完美的/完全的/整体的；参见 {fanmo}, {culno}, {pagbu}, {xadba}, {prane}, {jalge}, {sumji}, {munje}, {sisti}, {xadni}.</notes>
 </valsi>
-<valsi word="mumbais" type="cmene">
+<valsi word="mumbais" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -9274,7 +9232,7 @@
   <definitionid>54053</definitionid>
   <notes>也指：关于鼻的；参见 {degji}, {panci}, {sumne}, {tance}.</notes>
 </valsi>
-<valsi word="nederland" type="cmene">
+<valsi word="nederland" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -9378,15 +9336,14 @@
   <definitionid>54062</definitionid>
   <notes>参见 {nanmu}, {remna}, {prenu}, {makcu}, {nixli}.</notes>
 </valsi>
-<valsi word="nipon" type="cmene">
+<valsi word="nipon" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
   </user>
   <definition>日本</definition>
   <definitionid>16854</definitionid>
-  <notes>参加：{ponjo}、{pongu&apos;e}
-</notes>
+  <notes>参加：{ponjo}、{pongu&apos;e}</notes>
   <glossword word="日本" />
 </valsi>
 <valsi word="nirna" type="gismu">
@@ -9441,7 +9398,7 @@
   <definitionid>54067</definitionid>
   <notes>也指：上层阶级；默认为$x_2$是社会/文化基础，当是其它基础时（如：自认为高贵），需要指明；参见 {banli}.</notes>
 </valsi>
-<valsi word="noreg" type="cmene">
+<valsi word="noreg" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -9470,7 +9427,7 @@
   <definitionid>54068</definitionid>
   <notes>强调简洁的，单一的或可识别的主题；接受者是弱定义的，只是说明了目标接受者而非实际接受者； {xatra}不具有单一主题而是包含内容；备忘录= {mojnoi}；参见 {xatra}, {nuzba}, {mrilu}, {morji}.</notes>
 </valsi>
-<valsi word="nu,IORK" type="cmene">
+<valsi word="nu,IORK" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -9549,7 +9506,7 @@
   <definitionid>54075</definitionid>
   <notes>参见 {glico}, {sralo}.</notes>
 </valsi>
-<valsi word="osteraix" type="cmene">
+<valsi word="osteraix" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -9558,7 +9515,7 @@
   <definitionid>16814</definitionid>
   <glossword word="奥地利" />
 </valsi>
-<valsi word="otan" type="cmene">
+<valsi word="otan" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -9569,6 +9526,15 @@
   <glossword word="北约" />
   <glossword word="北大西洋公约组织" />
   <glossword word="NATO" />
+</valsi>
+<valsi word="OTa,uas" type="cmevla">
+  <user>
+    <username>Totemz</username>
+    <realname>Tuteng</realname>
+  </user>
+  <definition>渥太华</definition>
+  <definitionid>16864</definitionid>
+  <glossword word="渥太华" />
 </valsi>
 <valsi word="pacna" type="gismu">
   <rafsi>pa&apos;a</rafsi>
@@ -9667,7 +9633,7 @@
   <definitionid>54085</definitionid>
   <notes>参见 {ckana}, {palne}, {kabri}, {tansi}, {ckana}.</notes>
 </valsi>
-<valsi word="paludizm" type="cmene">
+<valsi word="paludizm" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -9809,7 +9775,7 @@
   <definitionid>54099</definitionid>
   <notes>参见 {civla}, {cipnrkuku}, {xidnora}</notes>
 </valsi>
-<valsi word="pasifik" type="cmene">
+<valsi word="pasifik" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -9858,17 +9824,7 @@
   <definitionid>54103</definitionid>
   <notes>参见 {tansi}, {palne}, {baktu}, {botpi}</notes>
 </valsi>
-<valsi word="peRUV" type="cmene">
-  <user>
-    <username>Totemz</username>
-    <realname>Tuteng</realname>
-  </user>
-  <definition>秘鲁</definition>
-  <definitionid>16813</definitionid>
-  <notes>注意“秘”不读mì而读bì</notes>
-  <glossword word="秘鲁" />
-</valsi>
-<valsi word="pekin" type="cmene">
+<valsi word="pekin" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -9878,7 +9834,7 @@
   <notes>威妥玛拼音Peking的Lojban化</notes>
   <glossword word="北京" />
 </valsi>
-<valsi word="pelglar" type="cmene">
+<valsi word="pelglar" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -9980,6 +9936,16 @@
   <definition>$x_1$是梨，属于品种/种类$x_2$</definition>
   <definitionid>54112</definitionid>
   <notes>参见 {grute}.</notes>
+</valsi>
+<valsi word="peRUV" type="cmevla">
+  <user>
+    <username>Totemz</username>
+    <realname>Tuteng</realname>
+  </user>
+  <definition>秘鲁</definition>
+  <definitionid>16813</definitionid>
+  <notes>注意“秘”不读mì而读bì</notes>
+  <glossword word="秘鲁" />
 </valsi>
 <valsi word="pesxu" type="gismu">
   <rafsi>pex</rafsi>
@@ -10187,7 +10153,7 @@
   <definitionid>54133</definitionid>
   <notes>参见 {zgike}.</notes>
 </valsi>
-<valsi word="piton" type="cmene">
+<valsi word="piton" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -10217,7 +10183,7 @@
   <definitionid>54135</definitionid>
   <notes>参见 {cinla}, {rotsu}, {barda}, {punli}, {grasu}.</notes>
 </valsi>
-<valsi word="plank" type="cmene">
+<valsi word="plank" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -10383,7 +10349,7 @@
   <notes>参见 {sralo}, {daplu}, {xamsi}.</notes>
   <glossword word="大洋洲" sense="大陆" />
 </valsi>
-<valsi word="polskas" type="cmene">
+<valsi word="polskas" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -10678,7 +10644,7 @@
   <definitionid>54174</definitionid>
   <notes>面粉/谷粉/麦粉= {grupu&apos;o}, {xripu&apos;o}；参见 {pulce}, {zalvi}.</notes>
 </valsi>
-<valsi word="pyd" type="cmene">
+<valsi word="pyd" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -11127,7 +11093,7 @@
   <definitionid>54217</definitionid>
   <notes>也指：绕行/避让；（$x_1$通常是物体，也可能是事件）；参见 {bandu}, {fanta}, se {jersi}, {sisku}, {kalte}, {fapro}.</notes>
 </valsi>
-<valsi word="robin" type="cmene">
+<valsi word="robin" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -11147,7 +11113,7 @@
   <definitionid>54218</definitionid>
   <notes>物质构成中需包含$x_2$，但$x_2$位不需要指明全部构成；参见 {kunra}, {jemna}, {canre}.</notes>
 </valsi>
-<valsi word="romas" type="cmene">
+<valsi word="romas" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -11338,7 +11304,7 @@
   <definitionid>54236</definitionid>
   <notes>参见 {xrabo}.</notes>
 </valsi>
-<valsi word="sakartulos" type="cmene">
+<valsi word="sakartulos" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -11572,7 +11538,7 @@
   <definitionid>54258</definitionid>
   <notes>爱抚= {pamsa&apos;e}；参见 {mosra}, {pencu}.</notes>
 </valsi>
-<valsi word="saupaulos" type="cmene">
+<valsi word="saupaulos" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -11766,7 +11732,7 @@
   <definitionid>54275</definitionid>
   <notes>也指：责罚/惩戒；$x_4$罚金；参见 {cnemu}, {pleji}, {venfu}, {zekri}, {canja}, {dunda}, {jdima}, {jerna}, {kargu}, {prali}, {dapma}, {cirko}, {jinga}.</notes>
 </valsi>
-<valsi word="sferies" type="cmene">
+<valsi word="sferies" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -11909,6 +11875,16 @@
   <definition>$x_1$是蛇，属于品种/种类$x_2$</definition>
   <definitionid>54288</definitionid>
   <notes>参见 {curnu}, {danlu}, {respa}, {vindu}.</notes>
+</valsi>
+<valsi word="SINgapur" type="cmevla">
+  <user>
+    <username>Totemz</username>
+    <realname>Tuteng</realname>
+  </user>
+  <definition>新加坡</definition>
+  <definitionid>16734</definitionid>
+  <notes>简称“新”；又译“星加坡”，简称“星”。</notes>
+  <glossword word="新加坡" />
 </valsi>
 <valsi word="sinma" type="gismu">
   <rafsi>si&apos;a</rafsi>
@@ -12446,7 +12422,7 @@
   <definitionid>54341</definitionid>
   <notes>参见 {rusko}, {vukro}, {slovo}.</notes>
 </valsi>
-<valsi word="sol" type="cmene">
+<valsi word="sol" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -13059,7 +13035,7 @@
   <definitionid>54399</definitionid>
   <notes>参见 {kosta}, {kumte}, {lanme}, {kanba}, {bukpu}, {kerfa}.</notes>
 </valsi>
-<valsi word="suomen" type="cmene">
+<valsi word="suomen" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -13068,7 +13044,7 @@
   <definitionid>16823</definitionid>
   <glossword word="芬兰" />
 </valsi>
-<valsi word="suomis" type="cmene">
+<valsi word="suomis" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -13097,7 +13073,7 @@
   <definitionid>54401</definitionid>
   <notes>参见 {masno}.</notes>
 </valsi>
-<valsi word="suzyn" type="cmene">
+<valsi word="suzyn" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -13156,16 +13132,7 @@
   <definitionid>54406</definitionid>
   <notes>参见 {trati}, {jarki}, {kluza}, {rinju}.</notes>
 </valsi>
-<valsi unofficial="true" word="tai,UAN" type="obsolete cmene">
-  <user>
-    <username>Totemz</username>
-    <realname>Tuteng</realname>
-  </user>
-  <definition>台湾</definition>
-  <definitionid>16850</definitionid>
-  <glossword word="台湾" />
-</valsi>
-<valsi word="taibeis" type="cmene">
+<valsi word="taibeis" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -13173,6 +13140,15 @@
   <definition>台北</definition>
   <definitionid>16852</definitionid>
   <glossword word="台北" />
+</valsi>
+<valsi unofficial="true" word="tai,UAN" type="obsolete cmevla">
+  <user>
+    <username>Totemz</username>
+    <realname>Tuteng</realname>
+  </user>
+  <definition>台湾</definition>
+  <definitionid>16850</definitionid>
+  <glossword word="台湾" />
 </valsi>
 <valsi unofficial="true" word="taksi" type="experimental gismu">
   <user>
@@ -13404,9 +13380,7 @@
   </user>
   <definition>$x_{1}$ 用 $x_{4}$（语言）来说 $x_{3}$这件事给 $x_{2}$ 听</definition>
   <definitionid>18454</definitionid>
-  <notes>并不限于口头演讲
-
-参见：{bacru}, cusku for actual expression, {casnu}, {darlu}, {skicu}, {ciksi}, {bangu}.</notes>
+  <notes>并不限于口头演讲 参见：{bacru}, cusku for actual expression, {casnu}, {darlu}, {skicu}, {ciksi}, {bangu}.</notes>
   <glossword word="说" sense="告诉" />
 </valsi>
 <valsi word="taxfu" type="gismu">
@@ -13536,7 +13510,7 @@
   <definitionid>54443</definitionid>
   <notes>参见 {sinxa}, {cmene}, {judri}.</notes>
 </valsi>
-<valsi word="tcunCIN" type="cmene">
+<valsi word="tcunCIN" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -13608,7 +13582,7 @@
   <definitionid>54449</definitionid>
   <notes>参见 {grake}, {mitre}, {snidu}, {stero}, {delno}, {molro}, {kelvo}, {xampo}, {gradu}, {litce}, {merli}, {centi}, {decti}, {dekto}, {femti}, {gigdo}, {gocti}, {gotro}, {kilto}, {megdo}, {mikri}, {milti}, {nanvi}, {petso}, {picti}, {xatsi}, {xecto}, {xexso}, {zepti}, {zetro}.</notes>
 </valsi>
-<valsi word="tienjin" type="cmene">
+<valsi word="tienjin" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -13787,7 +13761,7 @@
   <definitionid>54464</definitionid>
   <notes>参见 {cinki}.</notes>
 </valsi>
-<valsi word="tolvut" type="cmene">
+<valsi word="tolvut" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -13923,7 +13897,7 @@
   <definitionid>54475</definitionid>
   <notes>也指：试验；参见 {fliba}, {snada}, {cipra}.</notes>
 </valsi>
-<valsi word="troneim" type="cmene">
+<valsi word="troneim" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -14115,7 +14089,7 @@
   <definitionid>54492</definitionid>
   <notes>参见 {catni}, {turni}, {jecta}, {gugde}, {ponse}, {steci}, {tumla}.</notes>
 </valsi>
-<valsi word="tyrontos" type="cmene">
+<valsi word="tyrontos" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -14124,7 +14098,7 @@
   <definitionid>16867</definitionid>
   <glossword word="多伦多" />
 </valsi>
-<valsi word="uacintyn" type="cmene">
+<valsi word="uacintyn" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -14133,7 +14107,16 @@
   <definitionid>16829</definitionid>
   <glossword word="华盛顿" />
 </valsi>
-<valsi word="ueb" type="cmene">
+<valsi word="UAcintyn" type="cmevla">
+  <user>
+    <username>Totemz</username>
+    <realname>Tuteng</realname>
+  </user>
+  <definition>华盛顿</definition>
+  <definitionid>16967</definitionid>
+  <glossword word="华盛顿" />
+</valsi>
+<valsi word="ueb" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -14146,7 +14129,7 @@
   <glossword word="网络" sense="信息技术" />
   <glossword word="网" sense="信息技术" />
 </valsi>
-<valsi word="uikipedias" type="cmene">
+<valsi word="uikipedias" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -14157,7 +14140,7 @@
   <glossword word="Wikipedia" />
   <glossword word="维基百科" />
 </valsi>
-<valsi word="uikis" type="cmene">
+<valsi word="uikis" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -14263,7 +14246,7 @@
   <definitionid>54500</definitionid>
   <notes>参见 {barja}, {birje}, {xalka}, {jikru}, {fusra}.</notes>
 </valsi>
-<valsi word="varcavas" type="cmene">
+<valsi word="varcavas" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -14508,6 +14491,16 @@
   <definition>$x_1$是$x_2$的阴户（身体部位）</definition>
   <definitionid>54523</definitionid>
   <notes>参见 {cinse}, {gletu}, {pinji}, {plibu}, {vibna}, {mabla}.</notes>
+</valsi>
+<valsi word="VLANDeren" type="cmevla">
+  <user>
+    <username>Totemz</username>
+    <realname>Tuteng</realname>
+  </user>
+  <definition>佛兰德斯</definition>
+  <definitionid>16735</definitionid>
+  <notes>中世纪欧洲一伯爵领地, 包括现比利时的东佛兰德省和西佛兰德省以及法国北部部分地区</notes>
+  <glossword word="弗兰德斯" />
 </valsi>
 <valsi word="vlile" type="gismu">
   <rafsi>vil</rafsi>
@@ -14958,7 +14951,7 @@
   <definitionid>54567</definitionid>
   <notes>参见 {latmo}, {ropno}.</notes>
 </valsi>
-<valsi word="xelvet" type="cmene">
+<valsi word="xelvet" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -15000,7 +14993,7 @@
   <definitionid>54570</definitionid>
   <notes>参见 {grake}, {mitre}, {snidu}, {stero}, {delno}, {molro}, {kelvo}, {xampo}, {gradu}. {litce}, {merli}, {centi}, {decti}, {dekto}, {femti}, {gigdo}, {gocti}, {gotro}, {kilto}, {megdo}, {mikri}, {milti}, {nanvi}, {petso}, {picti}, {terto}, {xatsi}, {xecto}, {zepti}, {zetro}.</notes>
 </valsi>
-<valsi word="xin" type="cmene">
+<valsi word="xin" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -15096,7 +15089,7 @@
   <definitionid>54577</definitionid>
   <notes>$x_4$是诱人的；$x_3$可能是行为，状态或试图进入某行为/状态的尝试；参见 {djica}, {mukti}, {trina}, {jitro}, {sazri}, {tcica}, {xance}, {stidi}, {kajde}, {maksi}.</notes>
 </valsi>
-<valsi word="xonkon" type="cmene">
+<valsi word="xonkon" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -15157,7 +15150,7 @@
   <definitionid>54581</definitionid>
   <notes>参见 {jegvo}, {lijda}.</notes>
 </valsi>
-<valsi word="xrison" type="cmene">
+<valsi word="xrison" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -15206,7 +15199,7 @@
   <definitionid>54585</definitionid>
   <notes>也指：$x_2$撤退/返回到$x_3$；$x_3$可能指位置/人/事件/情形/状态；“后者”可以用{krefu}或{rapli}表示；而其原因可以使用{rinka}/{rikygau}；参见 {benji}, {krefu}, {rapli}, {rinka}；特别备注：注意该词的两个版本的不同定义</notes>
 </valsi>
-<valsi word="xrvatsk" type="cmene">
+<valsi word="xrvatsk" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -15269,7 +15262,7 @@
   <definitionid>54590</definitionid>
   <notes>参见 {plita}, {rufsu}, {tengu}, {dikni}, {pinta}, {sakli}, {spali}.</notes>
 </valsi>
-<valsi word="xyngon" type="cmene">
+<valsi word="xyngon" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -15531,7 +15524,7 @@
   <definitionid>54611</definitionid>
   <notes>也指：不受拘束的，独立的，由意志自由的；参见 {pinfu}, {rinju}, {bilga}, {curmi}, {kakne}, {frili}.</notes>
 </valsi>
-<valsi word="zimbabues" type="cmene">
+<valsi word="zimbabues" type="cmevla">
   <user>
     <username>Totemz</username>
     <realname>Tuteng</realname>
@@ -15671,28 +15664,16 @@
   <definitionid>20492</definitionid>
   <glossword word="在" />
 </valsi>
-</direction><direction from="中文" to="lojban"><nlword word="渥太华" valsi="OTa,uas" />
-<nlword word="新加坡" valsi="SINgapur" />
-<nlword word="华盛顿" valsi="UAcintyn" />
-<nlword word="弗兰德斯" valsi="VLANDeren" />
-<nlword word="或" valsi="a" />
+</direction><direction from="中文" to="lojban"><nlword word="或" valsi="a" />
 <nlword word="专心" valsi="a&apos;a" />
 <nlword word="刻意" valsi="a&apos;a" />
 <nlword word="警惕" valsi="a&apos;e" />
 <nlword word="警戒" valsi="a&apos;e" />
-<nlword word="努力" valsi="a&apos;i" />
-<nlword word="希望" valsi="a&apos;o" />
-<nlword word="绝望" valsi="a&apos;o" />
-<nlword word="枫木" valsi="a&apos;orne" />
-<nlword word="枫树" valsi="a&apos;orne" place="1" />
-<nlword word="枫树品种" valsi="a&apos;orne" place="2" />
-<nlword word="槭树" valsi="a&apos;orne" />
-<nlword word="兴趣" valsi="a&apos;u" />
-<nlword word="有趣" valsi="a&apos;u" />
 <nlword word="鳄梨" valsi="agbakate" place="1" />
 <nlword word="鳄梨品种" valsi="agbakate" place="2" />
 <nlword word="打算" valsi="ai" />
 <nlword word="拒绝" valsi="ai" />
+<nlword word="努力" valsi="a&apos;i" />
 <nlword word="字母" valsi="alfabeta" />
 <nlword word="字母表" valsi="alfabeta" place="1" />
 <nlword word="用字母来拼写的语言" valsi="alfabeta" place="2" />
@@ -15703,8 +15684,16 @@
 <nlword word="鳗鱼" valsi="angila" place="1" />
 <nlword word="鳗鱼品种" valsi="angila" place="2" />
 <nlword word="鳝鱼" valsi="angila" />
+<nlword word="希望" valsi="a&apos;o" />
+<nlword word="绝望" valsi="a&apos;o" />
+<nlword word="枫木" valsi="a&apos;orne" />
+<nlword word="枫树" valsi="a&apos;orne" place="1" />
+<nlword word="枫树品种" valsi="a&apos;orne" place="2" />
+<nlword word="槭树" valsi="a&apos;orne" />
 <nlword word="北冰洋" valsi="arktik" />
 <nlword word="ASCII" valsi="asycy&apos;i&apos;is" />
+<nlword word="兴趣" valsi="a&apos;u" />
+<nlword word="有趣" valsi="a&apos;u" />
 <nlword word="巴斯克" valsi="auskalerik" />
 <nlword word="巴比伦" valsi="babilon" />
 <nlword word="说" valsi="bacru" />
@@ -15758,9 +15747,9 @@
 <nlword word="白俄罗斯" valsi="blabruk" />
 <nlword word="蓝色" valsi="blanu" />
 <nlword word="蓝色的东西" valsi="blanu" place="1" />
-<nlword word=" 艇" valsi="bloti" place="1" />
 <nlword word="舟" valsi="bloti" />
 <nlword word="船" valsi="bloti" />
+<nlword word=" 艇" valsi="bloti" place="1" />
 <nlword word="波斯尼亚" valsi="bosnan" />
 <nlword word="巴西" valsi="brazilias" />
 <nlword word="文莱" valsi="bruNAIS" />
@@ -15868,8 +15857,8 @@
 <nlword word="可口可乐" valsi="kokaKOlys" />
 <nlword word="狼" valsi="labno" />
 <nlword word="拉" valsi="lacpu" place="1" />
-<nlword word="拉的位置" valsi="lacpu" place="3" />
 <nlword word="拉，扯，拽，拖" valsi="lacpu" />
+<nlword word="拉的位置" valsi="lacpu" place="3" />
 <nlword word="被拉" valsi="lacpu" place="2" />
 <nlword word="依赖" valsi="lacri" />
 <nlword word="信任" valsi="lacri" />
@@ -15958,11 +15947,12 @@
 <nlword word="NATO" valsi="otan" />
 <nlword word="北大西洋公约组织" valsi="otan" />
 <nlword word="北约" valsi="otan" />
+<nlword word="渥太华" valsi="OTa,uas" />
 <nlword word="疟疾" valsi="paludizm" />
 <nlword word="太平洋" valsi="pasifik" />
-<nlword word="秘鲁" valsi="peRUV" />
 <nlword word="北京" valsi="pekin" />
 <nlword word="黄热病" valsi="pelglar" />
+<nlword word="秘鲁" valsi="peRUV" />
 <nlword word="Python" sense="编程语言" valsi="piton" />
 <nlword word="Python语言" sense="编程语言" valsi="piton" />
 <nlword word="普朗克" valsi="plank" />
@@ -15995,6 +15985,7 @@
 <nlword word="好像" valsi="simlu" />
 <nlword word="似" valsi="simsa" />
 <nlword word="相像" valsi="simsa" />
+<nlword word="新加坡" valsi="SINgapur" />
 <nlword word="符号" valsi="snile&apos;u" place="1" />
 <nlword word="符号意义" valsi="snile&apos;u" place="3" />
 <nlword word="表意文字" valsi="snile&apos;u" place="2" />
@@ -16006,8 +15997,8 @@
 <nlword word="芬兰" valsi="suomis" />
 <nlword word="苏姗" sense="音译人名" valsi="suzyn" />
 <nlword word="苏珊" sense="音译人名" valsi="suzyn" />
-<nlword word="台湾" valsi="tai,UAN" />
 <nlword word="台北" valsi="taibeis" />
+<nlword word="台湾" valsi="tai,UAN" />
 <nlword word="说" sense="告诉" valsi="tavla" />
 <nlword word="重庆" valsi="tcunCIN" />
 <nlword word="天津" valsi="tienjin" />
@@ -16018,6 +16009,7 @@
 <nlword word="特伦汗" sense="音译地名" valsi="troneim" />
 <nlword word="特隆赫姆" sense="音译地名" valsi="troneim" />
 <nlword word="多伦多" valsi="tyrontos" />
+<nlword word="华盛顿" valsi="UAcintyn" />
 <nlword word="万维网" valsi="ueb" />
 <nlword word="网" sense="信息技术" valsi="ueb" />
 <nlword word="网络" sense="信息技术" valsi="ueb" />
@@ -16028,6 +16020,7 @@
 <nlword word="维基" valsi="uikis" />
 <nlword word="华沙" valsi="varcavas" />
 <nlword word="春" sense="季节" valsi="vensa" />
+<nlword word="弗兰德斯" valsi="VLANDeren" />
 <nlword word="亚洲" valsi="xazdo" />
 <nlword word="亚洲的" valsi="xazdo" />
 <nlword word="亚细亚" valsi="xazdo" />

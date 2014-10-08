@@ -1,10 +1,11 @@
 //livla bot
 var fs = require("fs"),
-    path = require("path-extra");
+path = require("path-extra");
 var s,t,notci,notcijudri;
 var tato= require('./tatoeba.js');
 var interv=300000;
 var interm=2900;
+fram="../../../files/fndata-1.5/frame";
 //<<<<<<< HEAD
 var tcan='#lojban,#ckule';
 //=======
@@ -356,7 +357,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('rafsi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
 	case text.indexOf('toki:') == '0': clientmensi.say(sendTo, vlaste(text.substr(5),'toki'));break;
 	case text.indexOf('laadan:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'laadan'));break;
-	case text.indexOf('gloss:') == '0': clientmensi.say(sendTo, gloso(text.substr(6),''));break;
+	case text.indexOf('gloss:') == '0': clientmensi.say(sendTo, gloso(text.substr(6),'en'));break;
 	case text.indexOf('loi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),''));break;
 	case text.indexOf('coi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),'coi'));break;
  	case text==replier+': io': clientmensi.say(sendTo, io());break;
@@ -536,9 +537,9 @@ try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@wo
 
 if (gchild===''){if (flag!==1){
 	if (xulujvo(lin)===true){
-		var f=tri(katna(lin),1,lng);
+		var f=tri(katna(lin,lng),1,lng);
 		if (f!==''){return f;}else{
-		return "[< "+katna(lin)+"] "+mulno(lin,lng);
+		return "[< "+katna(lin,lng)+"] "+mulno(lin,lng);
 		}
 	}else{
 		return mulno(lin,lng);
@@ -551,7 +552,7 @@ if (gchild===''){if (flag!==1){
 		if (gchild.length>=1000){
 			gchild+=' [mo\'u se katna] http://jbovlaste.lojban.org/dict/'+ lin;
 			}
-		if (xulujvo(lin)===true){lin+=" [< "+katna(lin)+"]";}
+		if (xulujvo(lin)===true){lin+=" [< "+katna(lin,lng)+"]";}
 		return lin + " = " + gchild;
 	}
 };
@@ -653,11 +654,11 @@ var frame = function (lin)
 var lng="en",gag='';
 var libxmljs = require("libxmljs");
 
-var arrf=fs.readdirSync(path.join(__dirname,"../../../files/fndata-1.5/frame")).filter(function(file) { return file.substr(-4) === '.xml'; });
+var arrf=fs.readdirSync(path.join(__dirname,fram)).filter(function(file) { return file.substr(-4) === '.xml'; });
 
 for (var i=0;i<arrf.length;i++)
 {
-	var content = fs.readFileSync(path.join(__dirname,"../../../files/frame",arrf[i]),'utf8').replace(/xmlns=\"/g,'mlns=\"');
+	var content = fs.readFileSync(path.join(__dirname,fram,arrf[i]),'utf8').replace(/xmlns=\"/g,'mlns=\"');
 	var xmlDoc = libxmljs.parseXml(content);
 	var si = xmlDoc.get("/frame[translate(@name,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/definition[1]/text()");
 	if (typeof si !=='undefined'){gag= si.toString().replace(/&lt;.*?&gt;/g,'');
@@ -673,12 +674,12 @@ var framemulno = function (lin)
 {
 var lng="en",gag='';
 var libxmljs = require("libxmljs");
-var arrf=fs.readdirSync(path.join(__dirname,"../../../files/frame")).filter(function(file) { return file.substr(-4) === '.xml'; });
+var arrf=fs.readdirSync(path.join(__dirname,fram)).filter(function(file) { return file.substr(-4) === '.xml'; });
 var stra=[];
 
 for (var i=0;i<arrf.length;i++)
 {
-	var content = fs.readFileSync(path.join(__dirname,"../../../files/frame",arrf[i]),'utf8').replace(/xmlns=\"/g,'mlns=\"');
+	var content = fs.readFileSync(path.join(__dirname,fram,arrf[i]),'utf8').replace(/xmlns=\"/g,'mlns=\"');
 	var xmlDoc = libxmljs.parseXml(content);
 	var si = xmlDoc.get("/frame[contains(translate(./definition,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 		if (typeof si !=='undefined'){
@@ -778,35 +779,47 @@ return gag;
 };
 
 
-var gloso=function(lin,direction)
+var gloso=function(lin,lng)
 {
-var lng="en";
+//var lng="en";
 lin=lin.replace(/\"/g,'');
 var libxmljs = require("libxmljs");
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var retur='y no da se tolcri';
 var xmlDoc = libxmljs.parseXml(content);
 var items = [
-	["lu","<"],["li'u",">"],["lo","the"],["nu","event-of"],["i","."],["zo","the-word:"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
-	["na","not"],["na'e","not"],["nai","-not"],["bo","-|-"],["sai","!"],["cai","!!!"],["nelci","fond-of"],["ka","being"],["tu'a","about"],
+	["lo","the"],["nu","event-of"],["zo","the-word:"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
+	["na","not"],["na'e","not"],["nai","-not"],["nelci","fond-of"],["ka","being"],["tu'a","about"],
 	["za'a","as-I-ca-see"],["za'adai","as-you-can-see"],["pu","in-past"],["ba","in-future"],["vau","]"],["doi","oh"],["uinai","unfortunately"],["u'u","sorry"],
-	["ko","do-it-so-that-you"],["da","X"],["de","Y"],["di","Z"],["poi","that"],["noi",",which"],["me","among"],["cu",":"],
-	["fa","(1:)"],["fe","(2:)"],["fi","(3:)"],["fo","(4:)"],["fu","(5:)"],
+	["ko","do-it-so-that-you"],["poi","that"],["noi",",which"],["me","among"],
 	//["bakni","is-a-cow"],
 	["pe'i","in-my-opinion"],["ui","yay"],["uinai","unfortunately"],
+	["ju","whether-or-not"],["gu","whether-or-not"],["gi'u","whether-or-not"],["u","whether-or-not"],
 	["xu","is-it-true-that"],["ka'e","possibly-can"],
 	["mi","I"]//dont copy
 	];
+var itemsu = [//universal glosses
+	["lu","<"],["li'u",">"],["i","."],["bo","-|-"],["sai","!"],["cai","!!!"],["na'e","!"],["da","X"],["de","Y"],["di","Z"],["cu",":"],["jo","⇔"],
+	["fa","(1:)"],["fe","(2:)"],["fi","(3:)"],["fo","(4:)"],["fu","(5:)"],
+	["na","!"]];
 lin=lin.toLowerCase();
 	var i,myregexp,j;
 	try{
 		//from lojban to gloso
 		lin=run_camxes(lin.replace(/[^a-z'\. ]/g,''),5).replace(/[^a-z'\. ]/g,'').trim().replace(/ ([nd]ai)( |$)/img,"$1$2").split(" ");
 		for (i=0;i<lin.length;i++){
+					if (lng==='en'){//items are only for English. Think of some universla items.
 					for (j=0;j<items.length;j++){
 						myregexp = new RegExp("^"+items[j][0]+"$", "gim");
 						if (lin[i].match(myregexp)!==null){
 							lin[i]=items[j][1].replace(/$/gm,"A");
+						}
+					}
+					}
+					for (j=0;j<itemsu.length;j++){//universal items, actually should use them later
+						myregexp = new RegExp("^"+itemsu[j][0]+"$", "gim");
+						if (lin[i].match(myregexp)!==null){
+							lin[i]=itemsu[j][1].replace(/$/gm,"A");
 						}
 					}
 			var cnt = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin[i].toUpperCase()+"\",\""+lin[i]+"\")=\""+lin[i]+"\"]/glossword[1]");
@@ -1096,15 +1109,20 @@ if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[r
 if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"i\"]");}
 if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"o\"]");}
 if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"u\"]");}
-if (typeof rev!=='undefined'){rev=rev.attr("word").value();}else{rev='';}
+//may be it's already a word? then just return it.
+if (typeof rev!=='undefined'){rev=rev.attr("word").value();}else{rev=lin;}
 return rev;
 };
 
-var katna= function(lin,flag){
+var katna= function(lin,lng){
 if (xulujvo(lin)!==true){return 'na lujvo';}
 	lin=jvokatna(lin).split(" ");
 	for (var o=0;o<lin.length;o++){
 		lin[o]=selrafsi(lin[o]);
 	}
-	return lin.join(" ");
+	lin = lin.join(" ");
+	lin = lin + " ≈ " + gloso(lin,lng);
+	return lin;
 };
+
+

@@ -28,9 +28,7 @@
   </user>
   <definition>$x_1$ prononce/dit/émet le son (avec sa bouche) $x_2$</definition>
   <definitionid>13792</definitionid>
-  <notes>N&apos;implique pas de volonté de communiquer ni la présence d&apos;une audience.
-«Dire» se dit plutôt {cusku}.
-Voir également {krixa}, {cusku}, {casnu}, {tavla}, {voksa}, {pinka}.</notes>
+  <notes>N&apos;implique pas de volonté de communiquer ni la présence d&apos;une audience. «Dire» se dit plutôt {cusku}. Voir également {krixa}, {cusku}, {casnu}, {tavla}, {voksa}, {pinka}.</notes>
   <glossword word="émettre" sense="émettre un son avec la bouche" />
   <glossword word="prononcer" />
   <keyword word="émetteur" place="1" sense="celui qui émet un son avec sa bouche" />
@@ -900,7 +898,7 @@ Voir également {krixa}, {cusku}, {casnu}, {tavla}, {voksa}, {pinka}.</notes>
   <definitionid>14470</definitionid>
   <glossword word="carcajou" />
 </valsi>
-<valsi word="kenyDAS" type="cmene">
+<valsi word="kenyDAS" type="cmevla">
   <user>
     <username>totus</username>
     <realname>Andrew Piekarski</realname>
@@ -1378,10 +1376,10 @@ Voir également {krixa}, {cusku}, {casnu}, {tavla}, {voksa}, {pinka}.</notes>
 </direction><direction from="Français" to="lojban"><nlword word="dattier" sense="fruit/arbre" valsi="altamru" />
 <nlword word="palmier dattier" sense="fruit/arbre" valsi="altamru" />
 <nlword word="anguille" sense="animal" valsi="angila" />
-<nlword word="prononcer" valsi="bacru" />
-<nlword word="son" sense="son émis avec la bouche" valsi="bacru" place="2" />
 <nlword word="émetteur" sense="celui qui émet un son avec sa bouche" valsi="bacru" place="1" />
 <nlword word="émettre" sense="émettre un son avec la bouche" valsi="bacru" />
+<nlword word="prononcer" valsi="bacru" />
+<nlword word="son" sense="son émis avec la bouche" valsi="bacru" place="2" />
 <nlword word="banane" sense="banane fruit ou banane plantain (utilisée comme un légume)" valsi="badna" place="1" />
 <nlword word="espèce de banane" sense="espèce de la banane ; par exemple : Gros Michel (Canaries), Grande Naine (Cameroun, Antilles), Payo (Antilles, Amérique centrale), Cavendish (Côte-d&apos;Ivoire)" valsi="badna" place="2" />
 <nlword word="déprimé" valsi="badri" />
@@ -1397,8 +1395,8 @@ Voir également {krixa}, {cusku}, {casnu}, {tavla}, {voksa}, {pinka}.</notes>
 <nlword word="bosse" valsi="balji" />
 <nlword word="bulbe" valsi="balji" />
 <nlword word="balcon" valsi="balni" />
-<nlword word="rebord" valsi="balni" />
 <nlword word="étagère" valsi="balni" />
+<nlword word="rebord" valsi="balni" />
 <nlword word="lame" sense="d&apos;un couteau" valsi="balre" />
 <nlword word="après" sense="le temps" valsi="balvi" />
 <nlword word="futur" valsi="balvi" />
@@ -1435,9 +1433,9 @@ Voir également {krixa}, {cusku}, {casnu}, {tavla}, {voksa}, {pinka}.</notes>
 <nlword word="dehors" valsi="bartu" />
 <nlword word="extérieur" valsi="bartu" />
 <nlword word="mettre de l&apos;emphase" valsi="basna" />
+<nlword word="échanger" sense="mutuellement" valsi="basti" />
 <nlword word="remplacer" valsi="basti" />
 <nlword word="se substituer" valsi="basti" />
-<nlword word="échanger" sense="mutuellement" valsi="basti" />
 <nlword word="mordre" valsi="batci" />
 <nlword word="pincer" valsi="batci" />
 <nlword word="bouton" valsi="batke" />
@@ -1448,10 +1446,10 @@ Voir également {krixa}, {cusku}, {casnu}, {tavla}, {voksa}, {pinka}.</notes>
 <nlword word="bête" sense="idiot" valsi="bebna" />
 <nlword word="idiot" valsi="bebna" />
 <nlword word="nord-américain" valsi="bemro" />
+<nlword word="équipe" valsi="bende" />
 <nlword word="gang" valsi="bende" />
 <nlword word="groupe" valsi="bende" />
 <nlword word="leader" valsi="bende" place="3" />
-<nlword word="équipe" valsi="bende" />
 <nlword word="bengale" valsi="bengo" />
 <nlword word="envoyer" valsi="benji" />
 <nlword word="transférer" valsi="benji" />
@@ -1475,16 +1473,16 @@ Voir également {krixa}, {cusku}, {casnu}, {tavla}, {voksa}, {pinka}.</notes>
 <nlword word="quitter" valsi="cliva" />
 <nlword word="s&apos;éloigner" valsi="cliva" />
 <nlword word="petit" valsi="cmalu" />
+<nlword word="étiquette" valsi="cmene" />
 <nlword word="nom" valsi="cmene" />
 <nlword word="titre" valsi="cmene" />
-<nlword word="étiquette" valsi="cmene" />
 <nlword word="audience" sense="receveur de l&apos;information" valsi="cusku" place="3" />
 <nlword word="dire" valsi="cusku" />
 <nlword word="expression" sense="information exprimée" valsi="cusku" place="2" />
 <nlword word="exprimer" valsi="cusku" />
 <nlword word="exprimeur" valsi="cusku" place="1" />
-<nlword word="mentionner" valsi="cusku" />
 <nlword word="médium" sense="format de communication" valsi="cusku" place="4" />
+<nlword word="mentionner" valsi="cusku" />
 <nlword word="arachide" valsi="derdembi" />
 <nlword word="cacahuète" valsi="derdembi" place="1" />
 <nlword word="anniversaire" valsi="detke&apos;u" />
@@ -1539,9 +1537,9 @@ Voir également {krixa}, {cusku}, {casnu}, {tavla}, {voksa}, {pinka}.</notes>
 <nlword word="employé des postes" valsi="mribriju" place="2" />
 <nlword word="poste" sense="bureau de poste" valsi="mribriju" />
 <nlword word="jamais-senti" valsi="narprugastcica" />
+<nlword word="jamais-vécu" valsi="narprugastcica" />
 <nlword word="jamais-visité" valsi="narprugastcica" />
 <nlword word="jamais-vu" valsi="narprugastcica" />
-<nlword word="jamais-vécu" valsi="narprugastcica" />
 <nlword word="adorer" valsi="nelci" />
 <nlword word="apprécier" valsi="nelci" />
 <nlword word="entrer" valsi="nerkla" />
@@ -1557,9 +1555,9 @@ Voir également {krixa}, {cusku}, {casnu}, {tavla}, {voksa}, {pinka}.</notes>
 <nlword word="capital" sense="facteurs du production" valsi="pracmu" place="1" />
 <nlword word="personne" valsi="prenu" />
 <nlword word="déjà-senti" valsi="prugastcica" />
+<nlword word="déjà-vécu" valsi="prugastcica" />
 <nlword word="déjà-visité" valsi="prugastcica" />
 <nlword word="déjà-vu" valsi="prugastcica" />
-<nlword word="déjà-vécu" valsi="prugastcica" />
 <nlword word="lapin" valsi="ractu" />
 <nlword word="cause" valsi="rinka" />
 <nlword word="fois" sense="nom commun" valsi="roi" />

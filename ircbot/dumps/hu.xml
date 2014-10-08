@@ -789,7 +789,7 @@
     <username>kapos</username>
     <realname>Kaposvri Tams</realname>
   </user>
-  <definition>$x_1$ (szöveg) hozzárendelő kapcsolat $x_2$ összefüggés és $x_3$ bővítmény(ek) között</definition>
+  <definition>$x_1$ (du&apos;u) hozzárendelő kapcsolat $x_2$ összefüggés és $x_3$ bővítmény(ek) között</definition>
   <definitionid>33984</definitionid>
   <notes>$x_3$ bővítmények $x_2$ összefüggésben állnak egymással az $x_1$ tőmondatban (Lásd még: {sumti}, {fancu})</notes>
   <glossword word="tőmondat/állítás" />
@@ -4759,7 +4759,7 @@
   <notes>(Lásd még: {grute})</notes>
   <glossword word="dinnye" />
 </valsi>
-<valsi word="italian" type="cmene">
+<valsi word="italian" type="cmevla">
   <user>
     <username>darves</username>
     <realname>HeliodoR</realname>

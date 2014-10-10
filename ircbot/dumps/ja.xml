@@ -596,9 +596,9 @@
     <username>glekiponjo</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
-  <definition>$x_1$ は $x_2$ （性質）に関して、 $x_3$ （基準）で大きい</definition>
+  <definition>$x_1$ は $x_2$ （性質）に関して、 $x_3$ （比較対象）の中で大きい</definition>
   <definitionid>39254</definitionid>
-  <notes>「lo&apos;i ratcu cu barda／鼠の集合は大きい、鼠はたくさんいる」「le barda naje cmalu ba&apos;ambyta&apos;e cu se dunda pe&apos;u／大きいつづらではなく、小さいつづらをください」 ・大意： 大きい ・読み方： バルダ  ・語呂合わせ： ＜バー大規模＞ ・関連語： {banli}, {clani}, {ganra}, {condi}, {plana}, {cmalu}, {rotsu}, {banro}, {xanto}</notes>
+  <notes>x3は群れでも集合でもよい。；「lo&apos;i ratcu cu barda／鼠の集合は大きい、鼠はたくさんいる」「le barda naje cmalu ba&apos;ambyta&apos;e cu se dunda pe&apos;u／大きいつづらではなく、小さいつづらをください」 ・大意： 大きい ・読み方： バルダ  ・語呂合わせ： ＜バー大規模＞ ・関連語： {banli}, {clani}, {ganra}, {condi}, {plana}, {cmalu}, {rotsu}, {banro}, {xanto}</notes>
 </valsi>
 <valsi word="bargu" type="gismu">
   <rafsi>bag</rafsi>
@@ -3041,9 +3041,9 @@
     <username>glekiponjo</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
-  <definition>$x_1$ は $x_2$ （性質）に関して、 $x_3$ （照合枠）において小さい</definition>
+  <definition>$x_1$ は $x_2$ （性質）に関して、 $x_3$ （比較対象）の中で小さい</definition>
   <definitionid>39402</definitionid>
-  <notes>「le barda naje cmalu ba&apos;ambyta&apos;e cu se dunda pe&apos;u／大きいつづらではなく、小さいつづらをください」 ・大意： 小さい ・読み方： シマルゥ  ・語呂合わせ： ciau(小), cmall, 絞まる ・関連語： {caxno}, {cinla}, {jarki}, {tordu}, {barda}</notes>
+  <notes>x3は群れでも集合でもよい。；「le barda naje cmalu ba&apos;ambyta&apos;e cu se dunda pe&apos;u／大きいつづらではなく、小さいつづらをください」 ・大意： 小さい ・読み方： シマルゥ  ・語呂合わせ： ciau(小), cmall, 絞まる ・関連語： {caxno}, {cinla}, {jarki}, {tordu}, {barda}</notes>
 </valsi>
 <valsi word="cmana" type="gismu">
   <rafsi>ma&apos;a</rafsi>

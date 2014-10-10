@@ -167,6 +167,7 @@ try{
 			});
 	});
 }catch(err){console.log('Error when autoupdating: ' + err);}
+sutsisningau();
 };
 
 setInterval(function(){updatexmldumps()}, 86400000); //update logs once a djedi
@@ -779,7 +780,7 @@ return gag;
 };
 
 
-var gloso=function(lin,lng)
+var gloso=function(lin,lng,check)
 {
 //var lng="en";
 lin=lin.replace(/\"/g,'');
@@ -806,7 +807,9 @@ lin=lin.toLowerCase();
 	var i,myregexp,j;
 	try{
 		//from lojban to gloso
-		lin=run_camxes(lin.replace(/[^a-z'\. ]/g,''),5).replace(/[^a-z'\. ]/g,'').trim().replace(/ ([nd]ai)( |$)/img,"$1$2").split(" ");
+		
+		if (check!==1){lin=run_camxes(lin.replace(/[^a-z'\. ]/g,''),5);}
+		lin=lin.replace(/[^a-z'\. ]/g,'').trim().replace(/ ([nd]ai)( |$)/img,"$1$2").split(" ");
 		for (i=0;i<lin.length;i++){
 					if (lng==='en'){//items are only for English. Think of some universla items.
 					for (j=0;j<items.length;j++){
@@ -822,6 +825,7 @@ lin=lin.toLowerCase();
 							lin[i]=itemsu[j][1].replace(/$/gm,"A");
 						}
 					}
+	console.log(lin[i]);
 			var cnt = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin[i].toUpperCase()+"\",\""+lin[i]+"\")=\""+lin[i]+"\"]/glossword[1]");
 			if (typeof cnt==='undefined'){cnt = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin[i].toUpperCase()+"\",\""+lin[i]+"\")=\""+lin[i]+"\"]/keyword[@place=\"1\"]");}//try keyword
 			if (typeof cnt!=='undefined'){lin[i]=cnt.attr("word").value().replace(/ /gm,"-").replace(/$/gm,"A");}
@@ -1104,25 +1108,63 @@ var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
 //now try -raf- in notes
 if (typeof rev==='undefined'){rev =  xmlDoc.get("/dictionary/direction[1]/valsi[contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\"-"+lin+"-\")]");}
 //now try to add a vowel
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"a\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"e\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"i\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"o\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"u\"]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"a\"]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"e\"]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"i\"]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\"]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\"]");}
 //may be it's already a word? then just return it.
 if (typeof rev!=='undefined'){rev=rev.attr("word").value();}else{rev=lin;}
 return rev;
 };
 
 var katna= function(lin,lng){
-if (xulujvo(lin)!==true){return 'na lujvo';}
+//if (xulujvo(lin)!==true){return 'na lujvo';}
 	lin=jvokatna(lin).split(" ");
 	for (var o=0;o<lin.length;o++){
 		lin[o]=selrafsi(lin[o]);
 	}
 	lin = lin.join(" ");
-	lin = lin + " ≈ " + gloso(lin,lng);
+	lin = lin + " ≈ " + gloso(lin,lng,1);
 	return lin;
 };
 
+
+var sutsisningau = function(lng){//write a new file parsed.js that would be used by sutsis.
+lng="en";
+var libxmljs = require("libxmljs");
+var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
+var xmlDoc = libxmljs.parseXml(content);
+//first get what we need
+var pars='var documentStore = {';
+//now scan for every word
+var rev = xmlDoc.find("/dictionary/direction[1]/valsi");//array of all words
+	for (var i=0;i<rev.length;i++) {
+		var hi=rev[i].attr("word").value();
+		pars+="\""+hi+"\":{\"word\":\""+hi+"\"";
+		try{pars+=",\"type\":\""+rev[i].attr("type").value()+"\"";}catch(err){}
+		try{pars+=",\"definition\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")+"\"";}catch(err){}
+		try{pars+=",\"notes\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'")+"\"";}catch(err){}
+		var ra=rev[i].find("rafsi//text()[1]").join("\",\"");
+		if (ra.length!==0){pars+=",\"rafsi\":[\""+ra+"\"]";}else{pars+=",\"rafsi\":[]";}
+		pars+="}";
+		if (i<rev.length-1){pars+=",\n";}
+	}
+	pars+="};\n";
+rev = xmlDoc.find("/dictionary/direction[2]/nlword");//array of all words
+var nl='var literals = {';
+	for (i=0;i<rev.length;i++) {
+		nl+="\""+rev[i].attr("word").value().replace(/"/g,"'").replace(/\\/g,"\\")+"\":[\""+rev[i].attr("valsi").value().replace(/"/g,"'").replace(/\\/g,"\\")+"\"]";
+		nl+="";
+		if (i<rev.length-1){nl+=",\n";}
+	}
+	nl+="};\n";
+	pars+=nl;
+
+//now write to parsed.js. "body" is what to write.
+	content = fs.writeFile(path.join(__dirname,"../../sutsis/data","parsed-"+lng + ".js"),pars, function(err) {
+	if(err) {console.log(err);} else {console.log( + ' updated');
+	}
+	});
+};
 

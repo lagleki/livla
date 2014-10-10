@@ -1,3 +1,10 @@
+// camxes.js.peg
+// Copyright (c) 2013, 2014 Masato Hagiwara
+// https://github.com/mhagiwara/camxes.js
+//
+// camxes.js can be used, modified, and re-distributed under MIT license.
+// See LICENSE for the details.
+
 // This is a Parsing Expression Grammar for Lojban.
 // See http://www.pdos.lcs.mit.edu/~baford/packrat/
 // 

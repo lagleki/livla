@@ -8,8 +8,8 @@
   </user>
   <definition>$x_1$ est une palmier dattier/dattier/Phoenix dactylifera L. (arbre ou fruit) de l&apos;espèce / variété $x_2$.</definition>
   <definitionid>56800</definitionid>
-  <glossword word="palmier dattier" sense="fruit/arbre" />
   <glossword word="dattier" sense="fruit/arbre" />
+  <glossword word="palmier dattier" sense="fruit/arbre" />
 </valsi>
 <valsi word="angila" type="fu'ivla">
   <user>
@@ -799,8 +799,8 @@
   </user>
   <definition>$x_1$ est un chien(ne) de l&apos;espèce / la race $x_2$</definition>
   <definitionid>56798</definitionid>
-  <glossword word="chien" sense="animal" />
   <glossword word="race" sense="de chien(ne)" />
+  <glossword word="chien" sense="animal" />
   <glossword word="chienne" sense="animal" />
 </valsi>
 <valsi word="gleki" type="gismu">
@@ -987,9 +987,9 @@
   <definition>$x_1$ est une quantité de duvet / peluche / bourre qui a / est de la composition / la structure / caractérisation / substance $x_2$ ; $x_1$ est  pelucheux / duveteux  / moelleux / aéré / flou dans la texture.</definition>
   <definitionid>56599</definitionid>
   <notes>Visuel et tactile. x1 est probablement un peu malléable, mais ce mot n&apos;a pas de telles implications en soi; porosité ou moussité est pas non plus implicite. Pourraient également inclure &quot;moelleux&quot;, &quot;comme le coton&quot;, &quot;comme la laine&quot;; une nature fractale pourrait être présent. Pour flou: il n&apos;est pas nécessairement poilu ou velu, mais doit être doux; pas hérissé (ce qui implique la rigidité, raideur, et dureté). Voyez aussi: {ranti}, {rufsu}, {xutla}, {panje}, {dilnu}, {mapni}, {sunla}, {fonmo}, {jduli}, {pesxu}, {marji}.</notes>
+  <glossword word="duveteux" sense="moelleux, pelucheux" />
   <glossword word="bourre" sense="duvet, peluche" />
   <glossword word="duvet" sense="peluche, bourre" />
-  <glossword word="duveteux" sense="moelleux, pelucheux" />
   <glossword word="moelleux" sense="duveteux" />
   <glossword word="peluche" sense="duvet" />
   <glossword word="pelucheux" sense="duveteux, moelleux" />
@@ -1047,10 +1047,10 @@
   <definition>$x_1$ (événement) cause un jamais-vu/jamais-senti/jamais-vécu/jamais-visité à $x_2$ (personne) dans le sens $x_3$ dans les conditions $x_4$</definition>
   <definitionid>42601</definitionid>
   <notes>jai narprugastcica pour un objet $x_1$; {pu}{nai}, {ganse} {tcica}; {gastcica}, {prugastcica}</notes>
-  <glossword word="jamais-senti" />
-  <glossword word="jamais-visité" />
-  <glossword word="jamais-vu" />
   <glossword word="jamais-vécu" />
+  <glossword word="jamais-vu" />
+  <glossword word="jamais-visité" />
+  <glossword word="jamais-senti" />
 </valsi>
 <valsi word="nelci" type="gismu">
   <rafsi>nel</rafsi>
@@ -1177,10 +1177,10 @@
   <definition>$x_1$ (événement) cause un déjà-vu/déjà-senti/déjà-vécu/déjà-visité à $x_2$ (personne) dans le sens $x_3$ dans les conditions $x_4$</definition>
   <definitionid>42597</definitionid>
   <notes>jai prugastcica pour un objet $x_1$; {pu} {ganse} {tcica}; {gastcica}, {narprugastcica}</notes>
+  <glossword word="déjà-vécu" />
   <glossword word="déjà-senti" />
   <glossword word="déjà-visité" />
   <glossword word="déjà-vu" />
-  <glossword word="déjà-vécu" />
 </valsi>
 <valsi word="ractu" type="gismu">
   <user>
@@ -1213,6 +1213,16 @@
   <definition>Nom qui se joint à un adjectif numéral pour indiquer qu’un fait s’est produit ou s’est répété; Par défaut dix fois.</definition>
   <definitionid>42259</definitionid>
   <glossword word="fois" sense="nom commun" />
+</valsi>
+<valsi word="selbrisle" type="lujvo">
+  <user>
+    <username>gusnikantu</username>
+    <realname>guskant</realname>
+  </user>
+  <definition>$x_1$ est une unité de tanru.</definition>
+  <definitionid>60502</definitionid>
+  <notes>{selbri} {selci}</notes>
+  <keyword word="unité de tanru" place="1" />
 </valsi>
 <valsi word="selklucipra" type="lujvo">
   <user>
@@ -1561,6 +1571,7 @@
 <nlword word="lapin" valsi="ractu" />
 <nlword word="cause" valsi="rinka" />
 <nlword word="fois" sense="nom commun" valsi="roi" />
+<nlword word="unité de tanru" valsi="selbrisle" place="1" />
 <nlword word="examen de culture" valsi="selklucipra" />
 <nlword word="dormir" valsi="sipna" />
 <nlword word="ordinateur" valsi="skami" />

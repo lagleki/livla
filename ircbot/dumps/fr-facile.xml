@@ -17992,6 +17992,16 @@
   <definition>$x_1$ est la relation du prédicat $x_2$ avec les arguments $x_3$</definition>
   <definitionid>59349</definitionid>
 </valsi>
+<valsi word="selbrisle" type="lujvo">
+  <user>
+    <username>gusnikantu</username>
+    <realname>guskant</realname>
+  </user>
+  <definition>$x_1$ est une unité de tanru.</definition>
+  <definitionid>60503</definitionid>
+  <notes>{selbri} {selci}</notes>
+  <keyword word="unité de tanru" place="1" />
+</valsi>
 <valsi word="selci" type="gismu">
   <rafsi>sle</rafsi>
   <user>
@@ -24765,6 +24775,7 @@
 </valsi>
 </direction><direction from="Français facile" to="lojban"><nlword word="bombardier" valsi="bamvinji" place="1" />
 <nlword word="aboyer" sense="chien" valsi="gercmo" />
+<nlword word="unité de tanru" valsi="selbrisle" place="1" />
 </direction></dictionary>
 
 

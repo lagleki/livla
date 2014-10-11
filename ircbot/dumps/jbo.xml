@@ -280,8 +280,8 @@
   </user>
   <definition>cnima&apos;o .i citmle u&apos;unai     .i kansa zo nai poi na&apos;e citmle u&apos;unaicu&apos;i     .i kansa zo cu&apos;i poi to&apos;e citmle u&apos;u</definition>
   <definitionid>57085</definitionid>
-  <glossword word="au&apos;u" sense="u&apos;unai" />
   <glossword word="citmle" sense="u&apos;unai" />
+  <glossword word="au&apos;u" sense="u&apos;unai" />
 </valsi>
 <valsi word="ba" type="cmavo">
   <selmaho>PU</selmaho>
@@ -544,8 +544,8 @@
   <definition>$x_1$ marce $x_2$ no&apos;u so&apos;i prenu $x_3$ boi $x_4$</definition>
   <definitionid>19258</definitionid>
   <notes>mintu zo {sorprema&apos;e} gi&apos;e se cmima zo {sorprekarce} .i basfa gi&apos;u pilno lo dargu</notes>
-  <glossword word="basfa" />
   <glossword word="sorprema&apos;e" />
+  <glossword word="basfa" />
 </valsi>
 <valsi word="basysi'u" type="lujvo">
   <user>
@@ -676,7 +676,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>te jorne lo sumti lo brivla ja&apos;e lo cnino brivla</definition>
+  <definition>te jorne lo sumti lo selbrisle ja&apos;e lo cnino selbrisle</definition>
   <definitionid>13625</definitionid>
   <notes>{bei}, {be&apos;o}</notes>
   <glossword word="be" />
@@ -720,7 +720,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>te jorne lo su&apos;oremoi sumti lo brivla ja&apos;e lo cnino brivla</definition>
+  <definition>te jorne lo su&apos;oremoi sumti lo selbrisle ja&apos;e lo cnino selbrisle</definition>
   <definitionid>13626</definitionid>
   <notes>{be}, {be&apos;o}</notes>
   <glossword word="bei" />
@@ -1231,7 +1231,7 @@
     <username>gusnikantu</username>
     <realname>guskant</realname>
   </user>
-  <definition>galfi lo bridi lo logji lairka&apos;e brivla</definition>
+  <definition>galfi lu&apos;e lo bridi lo logji lairka&apos;e selbrisle</definition>
   <definitionid>43008</definitionid>
   <notes>.i mu&apos;a lu su&apos;o bu&apos;ai xe&apos;u kei su&apos;o bu&apos;a ro da zo&apos;u bu&apos;ai da bu&apos;a li&apos;u .i ko sitna zo {su&apos;u} .e zo {bu&apos;a} .e zo {xe&apos;u}</notes>
 </valsi>
@@ -1632,8 +1632,8 @@
   <definition>namcu .i tcita le li&apos;erla&apos;i namcu le du&apos;u sinxa lo centi be le namcu</definition>
   <definitionid>13782</definitionid>
   <notes>{namcu}; {centi}; {cenlai}</notes>
-  <glossword word="ce&apos;i" />
   <glossword word="%" />
+  <glossword word="ce&apos;i" />
 </valsi>
 <valsi word="ceikri" type="lujvo">
   <user>
@@ -2386,7 +2386,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo namcu lo brivla .i $x_1$ zilpa&apos;a le namcu va&apos;o $x_2$ .i $x_1$ la&apos;erlai le namcu $x_2$</definition>
+  <definition>galfi lu&apos;e lo namcu lo selbrisle .i $x_1$ zilpa&apos;a le namcu va&apos;o $x_2$ .i $x_1$ la&apos;erlai le namcu $x_2$</definition>
   <definitionid>13787</definitionid>
   <notes>{zilpa&apos;a}, {la&apos;erlai}</notes>
   <glossword word="cu&apos;o" />
@@ -2447,8 +2447,8 @@
   <definition>cimoi lerfu le lojbo</definition>
   <definitionid>13502</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="C" />
   <glossword word="cy" />
+  <glossword word="C" />
 </valsi>
 <valsi word="da" type="cmavo">
   <rafsi>dav</rafsi>
@@ -2859,6 +2859,15 @@
   <definitionid>2553</definitionid>
   <notes>{zi} {selyli&apos;e} {selsku} {sumka&apos;i}</notes>
   <glossword word="di&apos;e" />
+</valsi>
+<valsi word="dignocklaji" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>$x_1$ me la&apos;o gy. Diagon Alley .gy.</definition>
+  <definitionid>60508</definitionid>
+  <notes>la&apos;o gy. Diagon Alley .gy. klaji va&apos;o lo munje be lo xarfi&apos;a ckupoi be me&apos;e la .xaris.potr. no&apos;u la&apos;o gy. Harry Potter .gy. bei fi&apos;e la .djykyraulin. no&apos;u la&apos;o gy. J. K. Rowling .gy.</notes>
 </valsi>
 <valsi word="di'i" type="cmavo">
   <selmaho>TAhE</selmaho>
@@ -3286,7 +3295,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo bridi lo brivla .i $x_1$ bridi gi&apos;e se sinxa lu&apos;e le bridi .i $x_2$ selsku gi&apos;e sinxa le bridi</definition>
+  <definition>galfi lu&apos;e lo bridi lo selbrisle .i $x_1$ bridi gi&apos;e se sinxa lu&apos;e le bridi .i $x_2$ selsku gi&apos;e sinxa le bridi</definition>
   <definitionid>13647</definitionid>
   <notes>{bridi}</notes>
   <glossword word="du&apos;u" />
@@ -3345,8 +3354,8 @@
   <definition>mumoi lerfu le lojbo</definition>
   <definitionid>13508</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="ebu" />
   <glossword word="E" />
+  <glossword word="ebu" />
 </valsi>
 <valsi word="e'e" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -5193,7 +5202,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>tcita lo bridi le du&apos;u sinxa le tolna&apos;e be ri</definition>
+  <definition>tcita lu&apos;e lo bridi le du&apos;u sinxa le tolna&apos;e be la&apos;e ri</definition>
   <definitionid>14060</definitionid>
   <notes>{tolna&apos;e}; {na}</notes>
   <glossword word="ja&apos;a" />
@@ -5244,7 +5253,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>tcita lo brivla le du&apos;u le pamoi sumti cu simbasti lo sumti be fi lo na&apos;e namcu</definition>
+  <definition>tcita lo selbrisle le du&apos;u le pamoi sumti cu simbasti lo sumti be fi lo na&apos;e namcu</definition>
   <definitionid>13670</definitionid>
   <notes>{fai}</notes>
   <glossword word="jai" />
@@ -5461,7 +5470,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>tcita lo brivla le du&apos;u tolna&apos;e le du&apos;u makau smuni</definition>
+  <definition>tcita lo selbrisle le du&apos;u tolna&apos;e le du&apos;u makau smuni</definition>
   <definitionid>14063</definitionid>
   <glossword word="je&apos;a" />
 </valsi>
@@ -5522,7 +5531,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo bridi lo brivla .i $x_1$ se jetlai le bridi $x_2$</definition>
+  <definition>galfi lu&apos;e lo bridi lo selbrisle .i $x_1$ se jetlai le bridi $x_2$</definition>
   <definitionid>13993</definitionid>
   <notes>{jetlai}</notes>
   <glossword word="jei" />
@@ -6112,7 +6121,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo bridi lo brivla .i $x_1$ selkai gi&apos;e se sinxa lu&apos;e le bridi</definition>
+  <definition>galfi lu&apos;e lo bridi lo selbrisle .i $x_1$ selkai gi&apos;e se sinxa lu&apos;e le bridi</definition>
   <definitionid>13645</definitionid>
   <notes>{selkai}</notes>
   <glossword word="ka" />
@@ -6398,8 +6407,8 @@
   <definition>frica binxo lo zulgrici&apos;e pe tanru ja lujvo</definition>
   <definitionid>57057</definitionid>
   <notes>zo ke&apos;ei&apos;a se rafsi la kex. .i xruti frica binxo to balvi lo be zo ke&apos;ei frica binxo lo prutigrici&apos;e .ija balvi lo be zo ke&apos;ai frica binxo lo nalgrici&apos;e toi</notes>
-  <glossword word="zunle girzu ciste" sense="frica binxo" />
   <glossword word="zulgrici&apos;e" sense="ficybi&apos;o" />
+  <glossword word="zunle girzu ciste" sense="frica binxo" />
 </valsi>
 <valsi word="kei" type="cmavo">
   <rafsi>kez</rafsi>
@@ -6957,8 +6966,8 @@
   <definition>panomoi lerfu le lojbo</definition>
   <definitionid>13509</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="ky" />
   <glossword word="K" />
+  <glossword word="ky" />
 </valsi>
 <valsi word="la" type="cmavo">
   <selmaho>LA</selmaho>
@@ -7380,7 +7389,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo bridi lo brivla .i $x_1$ se lifri $x_2$ gi&apos;e se sinxa lu&apos;e le bridi</definition>
+  <definition>galfi lu&apos;e lo bridi lo selbrisle .i $x_1$ se lifri $x_2$ gi&apos;e se sinxa lu&apos;e le bridi</definition>
   <definitionid>13649</definitionid>
   <notes>{lifri}</notes>
   <glossword word="li&apos;i" />
@@ -7393,6 +7402,14 @@
   <definition>$x_1$ nilcla $x_2$ poi ke&apos;a linji $x_3$ ku&apos;o zu&apos;i $x_4$</definition>
   <definitionid>20544</definitionid>
   <notes>pa da no&apos;u zu&apos;i ka&apos;e se clani lo linji</notes>
+</valsi>
+<valsi word="likcri" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>$x_1=c_1$ cirko $x_2=c_2=l_1$ noi litki $x_4=l_2$ ku&apos;o $x_3=c_3$</definition>
+  <definitionid>60510</definitionid>
 </valsi>
 <valsi word="linji" type="gismu">
   <rafsi>lij</rafsi>
@@ -7633,8 +7650,8 @@
   <definition>papamoi lerfu le lojbo</definition>
   <definitionid>13513</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="ly" />
   <glossword word="L" />
+  <glossword word="ly" />
 </valsi>
 <valsi word="ma" type="cmavo">
   <selmaho>KOhA</selmaho>
@@ -7790,7 +7807,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi le se li&apos;erla&apos;i sumti lo brivla .i $x_1$ se sinxa le sumti</definition>
+  <definition>galfi le se li&apos;erla&apos;i sumti lo selbrisle .i $x_1$ se sinxa le sumti</definition>
   <definitionid>13637</definitionid>
   <glossword word="me" />
 </valsi>
@@ -7854,7 +7871,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo namcu lo brivla .i $x_1$ gunma gi&apos;e zilkancu le namcu</definition>
+  <definition>galfi lu&apos;e lo namcu lo selbrisle .i $x_1$ gunma gi&apos;e zilkancu le namcu</definition>
   <definitionid>13650</definitionid>
   <notes>{zilkancu} {gunma}; {moi}, {si&apos;e}, {va&apos;e}</notes>
   <glossword word="mei" />
@@ -8276,7 +8293,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo namcu lo brivla .i $x_1$ cmima $x_2$ noi porsi $x_3$ ku&apos;o gi&apos;e ckini le namcu $x_3$</definition>
+  <definition>galfi lu&apos;e lo namcu lo selbrisle .i $x_1$ cmima $x_2$ noi porsi $x_3$ ku&apos;o gi&apos;e ckini le namcu $x_3$</definition>
   <definitionid>13691</definitionid>
   <notes>{porsi}; {mei}, {si&apos;e}, {va&apos;e}; {mai}, {mo&apos;o}, {re&apos;u}</notes>
   <glossword word="moi" />
@@ -8415,8 +8432,8 @@
   </user>
   <definition>namcu .i sumji li vo li pa .i se li&apos;erla&apos;i li vo lei kancu namcu</definition>
   <definitionid>2566</definitionid>
-  <glossword word="5" />
   <glossword word="mu" />
+  <glossword word="5" />
 </valsi>
 <valsi word="mu'a" type="cmavo">
   <selmaho>UI3</selmaho>
@@ -8444,7 +8461,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>.i galfi lo bridi lo brivla .i $x_1$ mokca fasnu gi&apos;e se sinxa lu&apos;e le bridi</definition>
+  <definition>galfi lu&apos;e lo bridi lo selbrisle .i $x_1$ mokca fasnu gi&apos;e se sinxa lu&apos;e le bridi</definition>
   <definitionid>13659</definitionid>
   <notes>{mokca} {fasnu}</notes>
   <glossword word="mu&apos;e" />
@@ -8665,7 +8682,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>tcita lo bridi le du&apos;u sinxa le natfe be ri</definition>
+  <definition>tcita lu&apos;e lo bridi le du&apos;u sinxa le natfe be la&apos;e ri</definition>
   <definitionid>14000</definitionid>
   <notes>{bridi} {natfe}; {ja&apos;a}</notes>
   <glossword word="na" />
@@ -8762,7 +8779,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo brivla lo drata </definition>
+  <definition>galfi lo selbrisle lo drata </definition>
   <definitionid>14003</definitionid>
   <notes>{brivla} {drata}</notes>
   <glossword word="na&apos;e" />
@@ -9152,7 +9169,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo bridi lo brivla .i $x_1$ klani fi $x_2$ gi&apos;e se sinxa lu&apos;e le bridi</definition>
+  <definition>galfi lu&apos;e lo bridi lo selbrisle .i $x_1$ klani fi $x_2$ gi&apos;e se sinxa lu&apos;e le bridi</definition>
   <definitionid>13648</definitionid>
   <notes>{klani}</notes>
   <glossword word="ni" />
@@ -9326,7 +9343,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo brivla lo nutli be tu&apos;a zo je&apos;a bi&apos;i zo to&apos;e</definition>
+  <definition>galfi lo selbrisle lu&apos;e lo nutli be tu&apos;a zo je&apos;a bi&apos;i zo to&apos;e</definition>
   <definitionid>14002</definitionid>
   <notes>{brivla} {nutli}</notes>
   <glossword word="no&apos;e" />
@@ -9578,7 +9595,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo bridi lo brivla .i $x_1$ fasnu gi&apos;e se sinxa lu&apos;e le bridi</definition>
+  <definition>galfi lu&apos;e lo bridi lo selbrisle .i $x_1$ fasnu gi&apos;e se sinxa lu&apos;e le bridi</definition>
   <definitionid>13646</definitionid>
   <notes>{fasnu}</notes>
   <glossword word="nu" />
@@ -9589,7 +9606,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo mekfancu lo brivla</definition>
+  <definition>galfi lu&apos;e lo mekfancu lo selbrisle</definition>
   <definitionid>13895</definitionid>
   <notes>{mekfancu} {brivla} {galfi}; {na&apos;u}</notes>
   <glossword word="nu&apos;a" />
@@ -9737,8 +9754,8 @@
   <definition>pacimoi lerfu le lojbo</definition>
   <definitionid>13515</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="N" />
   <glossword word="ny" />
+  <glossword word="N" />
 </valsi>
 <valsi word="o" type="cmavo">
   <selmaho>A</selmaho>
@@ -9793,8 +9810,8 @@
   <definition>pavomoi lerfu le lojbo</definition>
   <definitionid>13511</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="O" />
   <glossword word="obu" />
+  <glossword word="O" />
 </valsi>
 <valsi word="odbenu" type="fu'ivla">
   <user>
@@ -9921,8 +9938,8 @@
   </user>
   <definition>namcu i kantu lo&apos;e ve kancu</definition>
   <definitionid>2547</definitionid>
-  <glossword word="pa" />
   <glossword word="1" />
+  <glossword word="pa" />
 </valsi>
 <valsi word="pa'a" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -10857,7 +10874,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo bridi lo brivla .i $x_1$ pruce fo $x_2$ gi&apos;e se sinxa lu&apos;e le bridi</definition>
+  <definition>galfi lu&apos;e lo bridi lo selbrisle .i $x_1$ pruce fo $x_2$ gi&apos;e se sinxa lu&apos;e le bridi</definition>
   <definitionid>13656</definitionid>
   <notes>{pruce}</notes>
   <glossword word="pu&apos;u" />
@@ -11267,8 +11284,8 @@
   <definition>$x_1$ cusku $x_2$ noi preti $x_3$ boi $x_1$ boi $x_4$ ku&apos;o $x_4$ boi $x_5$</definition>
   <definitionid>20393</definitionid>
   <notes>ko catlu fe ji&apos;a zo {cusku} je zo {spusku} je zo {spuda} je zo {preti}</notes>
-  <glossword word="retsku" />
   <glossword word="cusku lo preti" />
+  <glossword word="retsku" />
 </valsi>
 <valsi word="re'u" type="cmavo">
   <selmaho>ROI</selmaho>
@@ -11754,8 +11771,8 @@
   <definition>paxamoi lerfu le lojbo</definition>
   <definitionid>13517</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="R" />
   <glossword word="ry" />
+  <glossword word="R" />
 </valsi>
 <valsi word="sa" type="cmavo">
   <selmaho>SA</selmaho>
@@ -11989,7 +12006,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>tcita lo brivla le du&apos;u le pamoi sumti cu simbasti le remoi sumti</definition>
+  <definition>tcita lo selbrisle le du&apos;u le pamoi sumti cu simbasti le remoi sumti</definition>
   <definitionid>13666</definitionid>
   <notes>{te}, {ve}, {xe}, {jai}</notes>
   <glossword word="se" />
@@ -12075,6 +12092,15 @@
   <definition>$x_1$ gasnu lo nu $x_2$ se barna  $x_3$ boi $x_4$</definition>
   <definitionid>38005</definitionid>
   <glossword word="selba&apos;agau" />
+</valsi>
+<valsi word="selbrisle" type="lujvo">
+  <user>
+    <username>gusnikantu</username>
+    <realname>guskant</realname>
+  </user>
+  <definition>$x_1$ selci lo sinxa be lo selbri</definition>
+  <definitionid>60500</definitionid>
+  <notes>.i lu {selbri} {selci} li&apos;u veljvo</notes>
 </valsi>
 <valsi word="selbritcita" type="lujvo">
   <user>
@@ -12507,7 +12533,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo namcu lo brivla .i $x_1$ pagbu $x_2$ ije le namcu cu frinu le se klani be $x_1$ le se klani be $x_2$</definition>
+  <definition>galfi lu&apos;e lo namcu lo selbrisle .i $x_1$ pagbu $x_2$ ije le namcu cu frinu le se klani be $x_1$ le se klani be $x_2$</definition>
   <definitionid>13901</definitionid>
   <notes>{frinu}; {mei}, {moi}, {va&apos;e}</notes>
   <glossword word="si&apos;e" />
@@ -12593,7 +12619,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo bridi lo brivla .i $x_1$ sidbo fi $x_2$ gi&apos;e se sinxa lu&apos;e le bridi</definition>
+  <definition>galfi lu&apos;e lo bridi lo selbrisle .i $x_1$ sidbo fi $x_2$ gi&apos;e se sinxa lu&apos;e le bridi</definition>
   <definitionid>13719</definitionid>
   <notes>{sidbo}</notes>
   <glossword word="si&apos;o" />
@@ -12855,8 +12881,8 @@
   <definition>.i lo ka solgu&apos;idicyborprami&apos;i cu ka ko&apos;a ko&apos;e ce&apos;ai ko&apos;a goi $x_1$ minji lo ka ce&apos;u tejaite cupra lo dikca lo gusni be ko&apos;a bei lo solri fai ko&apos;e goi $x_2$</definition>
   <definitionid>38163</definitionid>
   <notes>.i zo {minji} .e zo {cupra} .e zo {dikca} .e zo {gusni} .e zo {solri} zo&apos;u .e&apos;u zgana</notes>
-  <glossword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" />
   <glossword word="solri ke dikca cupra minji" sense="minji lo ka cupra lo dikca" />
+  <glossword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" />
 </valsi>
 <valsi word="solgusli'i" type="lujvo">
   <user>
@@ -13343,7 +13369,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo bridi lo brivla .i $x_1$ sucta le bridi $x_2$</definition>
+  <definition>galfi lu&apos;e lo bridi lo selbrisle .i $x_1$ sucta le bridi $x_2$</definition>
   <definitionid>13984</definitionid>
   <notes>{sucta}</notes>
   <glossword word="su&apos;u" />
@@ -13652,7 +13678,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>tcita lo brivla le du&apos;u le pamoi sumti cu simbasti le cimoi sumti</definition>
+  <definition>tcita lo selbrisle le du&apos;u le pamoi sumti cu simbasti le cimoi sumti</definition>
   <definitionid>13667</definitionid>
   <notes>{se}, {ve}, {xe}, {jai}</notes>
   <glossword word="te" />
@@ -14021,7 +14047,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo brivla lo dukti be ri bei le ka makau smuni ce&apos;u</definition>
+  <definition>galfi lo selbrisle lu&apos;e lo dukti be la&apos;e ri bei le ka makau smuni ce&apos;u</definition>
   <definitionid>14001</definitionid>
   <notes>{brivla} {dukti}</notes>
   <glossword word="to&apos;e" />
@@ -14515,9 +14541,9 @@
   <definition>$x_1$ tolyli&apos;a $x_2$ $x_3$</definition>
   <definitionid>53187</definitionid>
   <notes>ko catlu fe ji&apos;a zo {cliva} fa&apos;u zo {klama} fa&apos;u zo {tolyli&apos;a}</notes>
+  <glossword word="tolyli&apos;a" />
   <glossword word="to&apos;e cliva" />
   <glossword word="tsuku" />
-  <glossword word="tolyli&apos;a" />
 </valsi>
 <valsi word="tsustani" type="lujvo">
   <user>
@@ -14686,8 +14712,8 @@
   <definition>pabimoi lerfu le lojbo</definition>
   <definitionid>13519</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="ty" />
   <glossword word="T" />
+  <glossword word="ty" />
 </valsi>
 <valsi word="u" type="cmavo">
   <selmaho>A</selmaho>
@@ -15036,7 +15062,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo namcu lo brivla .i $x_1$ klani le namcu $x_2$ noi ckilu</definition>
+  <definition>galfi lu&apos;e lo namcu lo selbrisle .i $x_1$ klani le namcu $x_2$ noi ckilu</definition>
   <definitionid>13938</definitionid>
   <notes>{ckilu}; {mei}, {moi}, {si&apos;e}</notes>
   <glossword word="va&apos;e" />
@@ -15154,7 +15180,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>tcita lo brivla le du&apos;u le pamoi sumti cu simbasti le vomoi sumti</definition>
+  <definition>tcita lo selbrisle le du&apos;u le pamoi sumti cu simbasti le vomoi sumti</definition>
   <definitionid>13668</definitionid>
   <notes>{se}, {te}, {xe}, {jai}</notes>
   <glossword word="ve" />
@@ -15465,8 +15491,8 @@
   </user>
   <definition>namcu .i sumji li ci li pa .i se li&apos;erla&apos;i li ci lei kancu namcu</definition>
   <definitionid>2550</definitionid>
-  <glossword word="vo" />
   <glossword word="4" />
+  <glossword word="vo" />
 </valsi>
 <valsi word="vo'a" type="cmavo">
   <selmaho>KOhA4</selmaho>
@@ -15539,8 +15565,8 @@
   <definition>$x_1$ $x_2$ $x_3$ zilxru .i $x_1$ jai se krefu fai lo nu $x_2$ tcini jo nai vanbi $x_1$ kei noi ke&apos;a basti lo nu $x_3$ tcini jo nai vanbi $x_1$</definition>
   <definitionid>52834</definitionid>
   <notes>ko catlu fe ji&apos;a zo {di&apos;a} .e zo {zilxru} .e zo {xruti} .e zo {krefu} .e zo {rapli} .e zo {rinka}</notes>
-  <glossword word="volve" />
   <glossword word="zilxru" />
+  <glossword word="volve" />
 </valsi>
 <valsi word="vonca'u" type="lujvo">
   <user>
@@ -15695,8 +15721,8 @@
   <definition>renomoi lerfu le lojbo</definition>
   <definitionid>13520</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="V" />
   <glossword word="vy" />
+  <glossword word="V" />
 </valsi>
 <valsi word="xa" type="cmavo">
   <rafsi>xav</rafsi>
@@ -15707,8 +15733,8 @@
   </user>
   <definition>namcu .i sumji li mu li pa .i se li&apos;erla&apos;i li mu lei kancu namcu</definition>
   <definitionid>2567</definitionid>
-  <glossword word="xa" />
   <glossword word="6" />
+  <glossword word="xa" />
 </valsi>
 <valsi word="xa'ardakli" type="lujvo">
   <user>
@@ -15879,7 +15905,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>tcita lo brivla le du&apos;u le pamoi sumti cu simbasti le mumoi sumti</definition>
+  <definition>tcita lo selbrisle le du&apos;u le pamoi sumti cu simbasti le mumoi sumti</definition>
   <definitionid>13669</definitionid>
   <notes>{se}, {te}, {ve}, {jai}</notes>
   <glossword word="xe" />
@@ -15934,7 +15960,7 @@
     <username>gusnikantu</username>
     <realname>guskant</realname>
   </user>
-  <definition>brika&apos;i .ije se lidne lo galfi be lo go&apos;i bei lo brivla</definition>
+  <definition>brika&apos;i .ije se lidne lo galfi be lo go&apos;i bei lo selbrisle</definition>
   <definitionid>43009</definitionid>
   <notes>.i ko sitna zo {ce&apos;u} .e zo {bu&apos;ai}</notes>
 </valsi>
@@ -16127,8 +16153,8 @@
   <definition>repamoi lerfu le lojbo</definition>
   <definitionid>13521</definitionid>
   <notes>{lerfu}</notes>
-  <glossword word="xy" />
   <glossword word="X" />
+  <glossword word="xy" />
 </valsi>
 <valsi word="y" type="cmavo">
   <selmaho>Y</selmaho>
@@ -16215,7 +16241,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo bridi lo brivla .i $x_1$ tcini gi&apos;e se sinxa lu&apos;e le bridi</definition>
+  <definition>galfi lu&apos;e lo bridi lo selbrisle .i $x_1$ tcini gi&apos;e se sinxa lu&apos;e le bridi</definition>
   <definitionid>13657</definitionid>
   <notes>{tcini}</notes>
   <glossword word="za&apos;i" />
@@ -16361,8 +16387,8 @@
   </user>
   <definition>namcu .i sumji li xa li pa .i se li&apos;erla&apos;i li xa lei kancu namcu</definition>
   <definitionid>2568</definitionid>
-  <glossword word="7" />
   <glossword word="ze" />
+  <glossword word="7" />
 </valsi>
 <valsi word="ze'a" type="cmavo">
   <selmaho>ZEhA</selmaho>
@@ -16842,7 +16868,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>galfi lo bridi lo brivla .i $x_1$ selzu&apos;e gi&apos;e se sinxa lu&apos;e le bridi</definition>
+  <definition>galfi lu&apos;e lo bridi lo selbrisle .i $x_1$ selzu&apos;e gi&apos;e se sinxa lu&apos;e le bridi</definition>
   <definitionid>13658</definitionid>
   <notes>{selzu&apos;e}</notes>
   <glossword word="zu&apos;o" />
@@ -17714,8 +17740,8 @@
 <nlword word="sai" valsi="sai" />
 <nlword word="sa&apos;i" valsi="sa&apos;i" />
 <nlword word="user" sense="computer user" valsi="samnarca&apos;igau" place="1" />
-<nlword word="username" valsi="samnarca&apos;igau" place="3" />
 <nlword word="username" sense="computer" valsi="samnarca&apos;igau" place="3" />
+<nlword word="username" valsi="samnarca&apos;igau" place="3" />
 <nlword word="sa&apos;o" valsi="sa&apos;o" />
 <nlword word="sau" valsi="sau" />
 <nlword word="sa&apos;u" valsi="sa&apos;u" />

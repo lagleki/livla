@@ -158,7 +158,7 @@ try{
 				if(err) {console.log(err);}
 				else{
 					var content=body.replace(/\n/igm,'').replace(/.*<a href=\"(\/jbovlaste_export\/.*?\/.*?\.pdf)\">.*/igm,"http://jbovlaste.lojban.org$1");//now get the pdf itself
-					uri=content;console.log(content);
+					uri=content;
 						var http = require('http');
 						content = fs.createWriteStream(path.join(__dirname,"dumps","lojban-" + thisa + ".pdf"));
 						var request = http.get(uri, function(response) {
@@ -167,7 +167,7 @@ try{
 			});
 	});
 }catch(err){console.log('Error when autoupdating: ' + err);}
-sutsisningau();
+//sutsisningau("en");
 };
 
 setInterval(function(){updatexmldumps()}, 86400000); //update logs once a djedi
@@ -825,7 +825,6 @@ lin=lin.toLowerCase();
 							lin[i]=itemsu[j][1].replace(/$/gm,"A");
 						}
 					}
-	console.log(lin[i]);
 			var cnt = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin[i].toUpperCase()+"\",\""+lin[i]+"\")=\""+lin[i]+"\"]/glossword[1]");
 			if (typeof cnt==='undefined'){cnt = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin[i].toUpperCase()+"\",\""+lin[i]+"\")=\""+lin[i]+"\"]/keyword[@place=\"1\"]");}//try keyword
 			if (typeof cnt!=='undefined'){lin[i]=cnt.attr("word").value().replace(/ /gm,"-").replace(/$/gm,"A");}
@@ -913,7 +912,7 @@ var xufuhivla = function (inp){
 var jvokatna = function (lujvoi){
 	var tmp;
 	tmp=lujvoi.toLowerCase().replace(/[^a-z']/img,"");
-	var myregexp = new RegExp("("+CVV+")[rn]", "gm");
+	var myregexp = new RegExp("^("+CVV+")[rn]", "gm");
 	var myregexpi = new RegExp("("+gism+V+"$|"+gism+"(?=y)|" + CVV + "|" +CCV + "|" + CVC + ")","g");
 	tmp=tmp.replace(myregexp,"$1 ");
 	tmp=tmp.replace(myregexpi,"$1 ");
@@ -988,7 +987,6 @@ reg = new RegExp ("^"+CCV+"$","g"); if (ar[i].match(reg)!==null){ r += 7;}
 reg = new RegExp ("^"+C + "(?:[aeo]i|au)$","g"); if (ar[i].match(reg)!==null){ r += 8;}
 }
 vowels=(lujvo.match(/[aeiouAEIOU]/gm)||[]).length;
-//console.log(l+"|"+a+"|"+h+"|"+r+"|"+vowels);
 return (1000 * l) - (500 * a) + (100 * h) - (10 * r) - vowels;
 };
 
@@ -1061,7 +1059,6 @@ var tri=function(inp,flag,lng){
 	var sey =[];
 	for (var i = 0; i < cart.length; i++)
 	{
-		//console.log(rafyjongau(cart[i].split(" ")));
 		sey.push([cart[i]]);
 		sey[i].push(rafyjongau(cart[i].split(" ")));
 		sey[i].push(jvomre(sey[i][1]));
@@ -1078,7 +1075,6 @@ var tri=function(inp,flag,lng){
 		tor=tordu(sey[i][1],lng,1);
 		if (tor!=='' && (xulujvo(sey[i][1])===true)){break;}
 	}
-	//console.log(sey);
 	//{throw new Error('============');}
 
 	function sortFunction(a, b) {
@@ -1130,15 +1126,13 @@ var katna= function(lin,lng){
 };
 
 
-var sutsisningau = function(lng){//write a new file parsed.js that would be used by sutsis.
+var sutsisningau = function(lng){//write a new file parsed.js that would be used by sutsis
 lng="en";
 var libxmljs = require("libxmljs");
-var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
+var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
 var xmlDoc = libxmljs.parseXml(content);
-//first get what we need
 var pars='var documentStore = {';
-//now scan for every word
-var rev = xmlDoc.find("/dictionary/direction[1]/valsi");//array of all words
+var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 	for (var i=0;i<rev.length;i++) {
 		var hi=rev[i].attr("word").value();
 		pars+="\""+hi+"\":{\"word\":\""+hi+"\"";
@@ -1151,7 +1145,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");//array of all words
 		if (i<rev.length-1){pars+=",\n";}
 	}
 	pars+="};\n";
-rev = xmlDoc.find("/dictionary/direction[2]/nlword");//array of all words
+rev = xmlDoc.find("/dictionary/direction[2]/nlword");
 var nl='var literals = {';
 	for (i=0;i<rev.length;i++) {
 		nl+="\""+rev[i].attr("word").value().replace(/"/g,"'").replace(/\\/g,"\\")+"\":[\""+rev[i].attr("valsi").value().replace(/"/g,"'").replace(/\\/g,"\\")+"\"]";
@@ -1160,11 +1154,12 @@ var nl='var literals = {';
 	}
 	nl+="};\n";
 	pars+=nl;
-
-//now write to parsed.js. "body" is what to write.
-	content = fs.writeFile(path.join(__dirname,"../../sutsis/data","parsed-"+lng + ".js"),pars, function(err) {
+console.log(path.join(__dirname,"../i/data","parsed-"+lng + ".js")
+);
+	content = fs.writeFile(path.join(__dirname,"../i/data","parsed-"+lng + ".js"),pars, function(err) {
 	if(err) {console.log(err);} else {console.log( + ' updated');
 	}
 	});
 };
 
+//sutsisningau();

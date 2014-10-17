@@ -4203,7 +4203,7 @@
     <username>kapos</username>
     <realname>Kaposvri Tams</realname>
   </user>
-  <definition>$x_1$ ajtó/átjáró/kapu zárva/csukva van, meggátolva a be-/átjutásban $x_2$-t, $x_3$ módon</definition>
+  <definition>$x_1$ ajtó/átjáró/kapu zárva/csukva van, meggátolva a be-/átjutásban $x_2$-hez $x_3$-nak (egy áthaladó)</definition>
   <definitionid>34293</definitionid>
   <notes>(Lásd még: {kalri}, {pagre}, {canko}, {vorme}, {zunti})</notes>
   <glossword word="zárt" />
@@ -5998,7 +5998,7 @@
     <username>kapos</username>
     <realname>Kaposvri Tams</realname>
   </user>
-  <definition>$x_1$ (ajtó/kapu/átjáró) nyitva van/nyitható, ezáltal hozzáférést/átjutást biztosítva $x_2$-hez $x_3$-nak</definition>
+  <definition>$x_1$ (ajtó/kapu/átjáró) nyitva van/nyitható, ezáltal hozzáférést/átjutást biztosítva $x_2$-hez $x_3$-nak (egy áthaladó)</definition>
   <definitionid>34455</definitionid>
   <notes>(Lásd még: {ganlo}, {pagre}, {canko}, {vorme})</notes>
   <glossword word="nyitott" />

@@ -4985,7 +4985,7 @@
   <glossword word="something closed" />
   <keyword word="something closed" place="1" />
   <keyword word="something inaccessible due to closure" place="2" />
-  <keyword word="something that causes closure" place="3" />
+  <keyword word="something that is blocked due to closure" place="3" />
 </valsi>
 <valsi word="ganra" type="gismu">
   <rafsi>gan</rafsi>
@@ -7078,12 +7078,12 @@
     <username>gleki</username>
     <realname>gleki</realname>
   </user>
-  <definition>$x_1$ is open to $x_2$ by $x_3$</definition>
+  <definition>$x_1$ is open, giving access to $x_2$ of $x_3$</definition>
   <definitionid>55187</definitionid>
   <glossword word="something open" />
   <keyword word="something open" place="1" />
-  <keyword word="something given access to open portal" place="2" />
-  <keyword word="something allowing access to open portal" place="3" />
+  <keyword word="something reachable through open portal" place="2" />
+  <keyword word="something being given access by open portal" place="3" />
 </valsi>
 <valsi word="kalsa" type="gismu">
   <rafsi>kas</rafsi>
@@ -8250,8 +8250,8 @@
   </user>
   <definition>$x_1$ is probable, likely</definition>
   <definitionid>55281</definitionid>
-  <glossword word="likely" />
   <glossword word="probable" />
+  <glossword word="likely" />
   <keyword word="something probable" place="1" />
 </valsi>
 <valsi word="lakse" type="gismu">
@@ -8897,7 +8897,7 @@
     <username>gleki</username>
     <realname>gleki</realname>
   </user>
-  <definition>$x_1$ condenses into $x_2$ at temperature $x_3$ and pressure $x_4$</definition>
+  <definition>$x_1$ condenses on $x_2$ at temperature $x_3$ and pressure $x_4$</definition>
   <definitionid>55332</definitionid>
   <glossword word="something condensing" />
   <keyword word="something condensing" place="1" />
@@ -15831,8 +15831,8 @@
   <definition>$x_1$ acknowledges making mistake $x_2$ (property of x1)</definition>
   <definitionid>57354</definitionid>
   <notes>{sei} {upsi} = &apos;Oops! Whoops!&apos; See {srera}, {randa}, {jinvi}</notes>
-  <glossword word="feel whoops" />
   <glossword word="feel oops" />
+  <glossword word="feel whoops" />
 </valsi>
 <valsi word="vacri" type="gismu">
   <rafsi>var</rafsi>
@@ -18587,6 +18587,7 @@
 <nlword word="something closed" valsi="ganlo" />
 <nlword word="something inaccessible due to closure" valsi="ganlo" place="2" />
 <nlword word="something that causes closure" valsi="ganlo" place="3" />
+<nlword word="something that is blocked due to closure" valsi="ganlo" place="3" />
 <nlword word="a dimension of broadness" valsi="ganra" place="2" />
 <nlword word="a standard of broadness" valsi="ganra" place="3" />
 <nlword word="something broad" valsi="ganra" place="1" />
@@ -19031,8 +19032,11 @@
 <nlword word="excrement" valsi="kalci" />
 <nlword word="something producing excrement" valsi="kalci" place="2" />
 <nlword word="something allowing access to open portal" valsi="kalri" place="3" />
+<nlword word="something being given access by open portal" valsi="kalri" place="3" />
+<nlword word="something given access by open portal" valsi="kalri" place="3" />
 <nlword word="something given access to open portal" valsi="kalri" place="2" />
 <nlword word="something open" valsi="kalri" />
+<nlword word="something reachable through open portal" valsi="kalri" place="2" />
 <nlword word="a chaotic property" valsi="kalsa" place="2" />
 <nlword word="something chaotic" valsi="kalsa" />
 <nlword word="a hunter" valsi="kalte" />

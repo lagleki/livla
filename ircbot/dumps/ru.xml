@@ -204,8 +204,8 @@
   <definition>$x_1$ выполняет функции/выполняет операцию $x_2$; $x_1$ - функционирующий, действующий, активный, работает</definition>
   <definitionid>39111</definitionid>
   <notes>См. также {ca&apos;a} se {pilno}, {tolspofu}</notes>
-  <glossword word="активный" />
   <glossword word="функционирующий" />
+  <glossword word="активный" />
 </valsi>
 <valsi word="aleksandras" type="cmevla">
   <user>
@@ -783,8 +783,8 @@
   <definition>$x_1$ — корова/бык/теленок вида/породы $x_2$</definition>
   <definitionid>16331</definitionid>
   <notes>{danlu} (животное)</notes>
-  <glossword word="бык" />
   <glossword word="корова" />
+  <glossword word="бык" />
   <keyword word="корова" place="1" />
   <keyword word="порода" place="2" />
 </valsi>
@@ -1843,8 +1843,8 @@
   <definition>$x_1$ — белый/очень светло окрашенный (о цвете); $x_1$ белеет</definition>
   <definitionid>35387</definitionid>
   <notes>Бледные оттенки других цветов образуются словосочетаниями с [blabi], напр. розовый: {labyxu&apos;e}, {xunblabi}, тогда как «бледный» в смысле «тусклый, малоинтенсивный» будет {kandi} {skari} (иметь цвет), {xekri} (черный), {grusi} (серый [цвет]), {kandi} (тусклый), {manku} (темный), {carmi} (интенсивный), {bakri} (мел), {blanu} (синий), {bunre} (коричневый), {cicna} (бирюзовый), {crino} (зеленый), {narju} (оранжевый), {nukni} (пурпурный), {pelxu} (желтый), {xunre} (красный), {zirpu} (сиреневый)</notes>
-  <glossword word="белый" />
   <glossword word="белеть" />
+  <glossword word="белый" />
   <keyword word="белый" place="1" />
 </valsi>
 <valsi word="blaci" type="gismu">
@@ -1867,8 +1867,8 @@
   <definition>$x_1$ — синий/голубой/лазурный (о цвете); $x_1$ синеет</definition>
   <definitionid>35389</definitionid>
   <notes>{skari} (иметь цвет), {blabi} (белый), {xekri} (черный), {zirpu} (сиреневый), {kandi} (тусклый), {carmi} (интенсивный), {cicna} (бирюзовый)</notes>
-  <glossword word="синий" />
   <glossword word="синеть" />
+  <glossword word="синий" />
   <keyword word="синий" place="1" />
 </valsi>
 <valsi word="bliiardo" type="fu'ivla">
@@ -1962,8 +1962,8 @@
   <definition>$x_1$ - это электрическая лампочка, лампа накаливания</definition>
   <definitionid>57248</definitionid>
   <notes>герметически закрытый стеклянный сосуд (обычно грушевидной формы), служащий для освещения электричеством </notes>
-  <glossword word="лампочка" sense="электрическая" />
   <glossword word="лампа накаливания" />
+  <glossword word="лампочка" sense="электрическая" />
 </valsi>
 <valsi word="bongu" type="gismu">
   <rafsi>bog</rafsi>
@@ -2148,9 +2148,9 @@
   <definition>$v_1$ - это глагол/ морфологически определнное слово-предикат, выражающее отношение $b_2$ в языке $v_3$.</definition>
   <definitionid>42529</definitionid>
   <notes>Происходит от слов {bridi} и {valsi}, с удалением $b_3$, так как мы говорим об отношениеях независимо от конкретных аргументов. В ложбане такие слова должны оканчиваться на гласную и содержать согласный кластер среди первых 5 букв (не считая &apos;y&apos;).</notes>
-  <glossword word="предикат" sense="одно слово" />
   <glossword word="сказуемое" sense="одно слово" />
   <glossword word="глагол" sense="одно слово" />
+  <glossword word="предикат" sense="одно слово" />
 </valsi>
 <valsi word="bruna" type="gismu">
   <rafsi>bun</rafsi>
@@ -2229,8 +2229,8 @@
   <definition>$x_1$ это гинем/гринсбон (хлопчатобумажная ткань с ткацким рисунком </definition>
   <definitionid>38016</definitionid>
   <notes>Se  also {bukpu}</notes>
-  <glossword word="гинем" sense="ткань" />
   <glossword word="гринсбон" sense="ткань" />
+  <glossword word="гинем" sense="ткань" />
 </valsi>
 <valsi word="bukpu" type="gismu">
   <rafsi>buk</rafsi>
@@ -2585,8 +2585,8 @@
   <definition>$x_1$ - это шампунь, средство, чистящее волосы или ухаживающее за волосами, имеющая цель $x_2$ (свойство)</definition>
   <definitionid>56622</definitionid>
   <notes>Слово-{u&apos;ivla}.  Может включать шампуни, муссы и гели для головы, средства от облысения, краску для волос и дажу пену для бритья. Однако, это должно быть вещество, которое наносят на волосы непостоянно, а не применяется к голове только первоначально того, чтобы изменить их для последующего использования (такие как обжимные щипцы, бигуди и т.п. не являются {campu}). Другими словами, {campu} остается на волосах или промывается, для того, чтобы он сработал. Волосы не обязательно должны относиться к человеку, принадлежать верхней части головы или даже быть &quot;реальными&quot;/биологическими для носителя волос - эти характеристики могут быть определены в x2. См.  {krevelylu&apos;i}, {kerfrcampu} (синоним слова {campu})</notes>
-  <glossword word="гель для волос" />
   <glossword word="шампунь" />
+  <glossword word="гель для волос" />
   <glossword word="краска для волос" />
 </valsi>
 <valsi word="canci" type="gismu">
@@ -2706,8 +2706,8 @@
   </user>
   <definition>контур интервала события: в течение ...; прогрессивный вид, изображающий действие в процессе его осуществления во времени; продолжающееся во время                                    |-----|</definition>
   <definitionid>36982</definitionid>
-  <glossword word="продолжающееся" />
   <glossword word="прогрессивный вид" sense="грамматика" />
+  <glossword word="продолжающееся" />
 </valsi>
 <valsi word="capu'o" type="cmavo-compound">
   <selmaho>ZAhO*</selmaho>
@@ -3949,8 +3949,8 @@
   <definition>$x_1$ связан с/ассоциируется с $x_2$ отношением/связью $x_3$; $x_1$ находится в отношении $x_3$ к $x_2$; между $x_1$ и $x_2$ существует связь/отношение $x_3$</definition>
   <definitionid>35504</definitionid>
   <notes>{ki&apos;i}, {ponse} (владеть), {srana} (иметь отношение [к чему-либо]), {steci} (специфика), {mapti} (подходить), {sarxe} (гармонировать), {fange} (чужой [неродной])</notes>
-  <glossword word="ассоциирующийся с" />
   <glossword word="относящийся к" />
+  <glossword word="ассоциирующийся с" />
   <keyword word="относящийся к" place="1" />
 </valsi>
 <valsi word="ckire" type="gismu">
@@ -4392,9 +4392,9 @@
   <definition>чао!; комбинация {coi} и {co&apos;o}, обозначающая либо приветствие, либо прощание в зависимости от контекста.</definition>
   <definitionid>38045</definitionid>
   <notes>Скалярно отрицаемые формы этого слова очевидно идентичны его положительной форме. См. также {coi}, {co&apos;o}, {rinsa}, {tolrinsa}.</notes>
+  <glossword word="салют" sense="приветствие/прощание" />
   <glossword word="чао" />
   <glossword word="привет/пока" />
-  <glossword word="салют" sense="приветствие/прощание" />
 </valsi>
 <valsi word="cortu" type="gismu">
   <rafsi>cor</rafsi>
@@ -4532,8 +4532,8 @@
   <definitionid>38102</definitionid>
   <notes>Это zi&apos;evla, сделанная из crezenzu&apos;e</notes>
   <glossword word="практиковаться" />
-  <glossword word="тренироваться" />
   <glossword word="упражняться" />
+  <glossword word="тренироваться" />
 </valsi>
 <valsi word="crepu" type="gismu">
   <rafsi>rep</rafsi>
@@ -4582,8 +4582,8 @@
   <definition>$x_1$ — зелёный (о цвете); $x_1$ зеленеет</definition>
   <definitionid>35545</definitionid>
   <notes>{skari} (иметь цвет), {blabi} (белый), {xekri} (черный), {kandi} (тусклый), {carmi} (интенсивный), {cicna} (бирюзовый)</notes>
-  <glossword word="зеленеть" />
   <glossword word="зелёный" />
+  <glossword word="зеленеть" />
   <keyword word="зелёный" place="1" />
 </valsi>
 <valsi word="cripu" type="gismu">
@@ -5113,8 +5113,8 @@
   <definition>модификатор междометия: предполагаемая эмоция - фактическая эмоция</definition>
   <definitionid>38582</definitionid>
   <notes>Используется для эмоций, которые не являются фактом, например, рассуждая о гипотетических событиях. la&apos;a ui dai&apos;i mi ba te dunda lo karce lo mi patfu - Мне, наверное, подарит автомобиль мой дед, и я буду счастлив из-за этого, если это случится.</notes>
-  <glossword word="нефактическая эмоция" />
   <glossword word="предполагаемая эмоция" />
+  <glossword word="нефактическая эмоция" />
 </valsi>
 <valsi word="da'inai" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -5158,9 +5158,9 @@
   <definition>$x_1$ - это стадо/стая/прайд животных $x_2$</definition>
   <definitionid>56673</definitionid>
   <notes>См. {danlu}, {gunma}</notes>
-  <glossword word="стая" sense="группа птиц, зверей" />
-  <glossword word="стадо" sense="группа зверей" />
   <glossword word="прайд" sense="семейная стая львов" />
+  <glossword word="стадо" sense="группа зверей" />
+  <glossword word="стая" sense="группа птиц, зверей" />
 </valsi>
 <valsi word="damba" type="gismu">
   <rafsi>dab</rafsi>
@@ -5383,8 +5383,8 @@
   <definition>$x_1$ ударяет/бьет $x_2$ орудием/частью тела $x_3$ в $x_4$ (куда: место)</definition>
   <definitionid>35591</definitionid>
   <notes>{bikla} (дергаться), {gunta} (нападать), {jenca} (потрясать [ошеломлять]), {tunta} (колоть), {tikpa} (пинать), {janli} (ударяться), {jgari} (держать), {pencu} (трогать)</notes>
-  <glossword word="ударять" />
   <glossword word="бить" />
+  <glossword word="ударять" />
   <keyword word="ударяющий" place="1" />
 </valsi>
 <valsi word="daski" type="gismu">
@@ -6695,9 +6695,9 @@
   <definition>$x_1$ - это архитектор/дизайнер/инженер $x_2$ (чего)</definition>
   <definitionid>38116</definitionid>
   <notes>См. также {zbaske}, {skezu&apos;e}</notes>
+  <glossword word="дизайнер" />
   <glossword word="инженер" />
   <glossword word="архитектор" />
-  <glossword word="дизайнер" />
   <keyword word="инженер" place="1" />
 </valsi>
 <valsi word="engranaje" type="fu'ivla">
@@ -6772,8 +6772,8 @@
   <definition>$x_1$ - это эфир/эфирный (всемирная среда)</definition>
   <definitionid>38018</definitionid>
   <notes>От латинского &quot;aetherius&quot; и греческого &quot;αἰθήρ&quot;. Промежуточная среда, заполняющая всю пустоту над сферой земли.</notes>
-  <glossword word="эфир" sense="философия" />
   <glossword word="эфирный" sense="философия" />
+  <glossword word="эфир" sense="философия" />
 </valsi>
 <valsi word="e'u" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -7830,8 +7830,8 @@
   <definition>$x_1$ - клубника/земляника вида/разновидности $x_2$.</definition>
   <definitionid>37952</definitionid>
   <notes>См. также {frambesi}, {grute}, {jbari}, {rozgu}.</notes>
-  <glossword word="клубника" />
   <glossword word="земляника" />
+  <glossword word="клубника" />
 </valsi>
 <valsi word="fraso" type="gismu">
   <rafsi>fas</rafsi>
@@ -8281,12 +8281,12 @@
     <username>gleki2</username>
     <realname>Antony</realname>
   </user>
-  <definition>$x_1$ (проход/путь) закрыт/перекрыт, предотвращая доступ к $x_2$ из $x_3$</definition>
+  <definition>$x_1$ (проход/путь) закрыт/перекрыт, не давая доступа к $x_2$ $x_3$ (кому)</definition>
   <definitionid>35710</definitionid>
-  <notes>Ср. дверь, возможно также полупроницаемая мембрана {kalri} (открытый), {pagre} (проникать [проходить сквозь]), {canko} (окно), {vorme} (дверь), {zunti} (мешать [препятствовать])</notes>
+  <notes>Также &apos;дверь&apos;, &apos;полупроницаемая мембрана&apos;. См. {kalri} - &apos;открытый&apos;, {pagre} - &apos;проникать (проходить сквозь)&apos;, {canko} - &apos;окно&apos;, {vorme} - &apos;дверь&apos;, {zunti} - &apos;мешать (препятствовать)&apos;</notes>
   <glossword word="перекрытый" />
   <keyword word="перекрытый" place="1" />
-  <keyword word="доступ" place="2" />
+  <keyword word="недоступное место" place="2" />
 </valsi>
 <valsi word="ganra" type="gismu">
   <rafsi>gan</rafsi>
@@ -8392,7 +8392,8 @@
   </user>
   <definition>$x_1$ — рельс/балка/перекладина/штанга/перила, поддерживающая/удерживающая $x_2$, из материала $x_3$</definition>
   <definitionid>35718</definitionid>
-  <notes>{kamju} (колонна [столб]), {grana} (прут), {tutci} (инструмент)</notes>
+  <notes>См. {kamju} - &apos;колонна (столб)&apos;, {grana} - &apos;прут&apos;, {tutci} - &apos;инструмент&apos;</notes>
+  <glossword word="перила" />
   <glossword word="рельс" />
   <keyword word="рельс" place="1" />
 </valsi>
@@ -8720,11 +8721,11 @@
     <username>gleki2</username>
     <realname>Antony</realname>
   </user>
-  <definition>$x_1$ — gismu (корневое слово/радикал Ложбана), выражающий отношение $x_2$ между аргументами $x_3$, с rafsi $x_4$ (словообразующими формами)</definition>
+  <definition>$x_1$ — gismu (корневой глагол ложбана), выражающий отношение $x_2$ между аргументами $x_3$, с аффиксами $x_4$</definition>
   <definitionid>35730</definitionid>
-  <notes>Cписок gismu: как физический объект: ({loi}) {gi&apos;uste}, как мысленный конструкт (например, при предложении добавить новый gismu к списку gismu): {gimpoi}, {gimselcmi}, {gimselste} {cmavo} (), {cmene} (имя), {lujvo} (), {smuni} (значение [смысл]), {sumti} (), {tanru} (), {valsi} (слово)</notes>
-  <glossword word="корневое слово" />
-  <keyword word="корневое слово" place="1" />
+  <notes>{loi} {gi&apos;uste} - &apos;список gismu как физический объект&apos;, {gimpoi}, {gimselcmi}, {gimselste} - &apos;как мысленный конструкт (например, при предложении добавить новый gismu к списку gismu)&apos;. См. {cmavo} - &apos;грамматическая частица&apos;, {cmene} - &apos;имя&apos;, {lujvo} - &apos;глагол из аффиксов&apos;, {smuni} - &apos;значение (смысл)&apos;, {sumti} - &apos;аргумент сказуемого&apos;, {tanru} - &apos;составной глагол&apos;, {valsi} - &apos;слово&apos;</notes>
+  <glossword word="корневой глагол" />
+  <keyword word="корневой глагол" place="1" />
 </valsi>
 <valsi word="gi'u" type="cmavo">
   <selmaho>GIhA</selmaho>
@@ -8878,8 +8879,8 @@
   <definition>$x_1$ - это латимерия/целакант/гомбесса вида $x_2$.</definition>
   <definitionid>39130</definitionid>
   <notes>См. {finpe}, {finprkoilakanto}</notes>
-  <glossword word="целакант" />
   <glossword word="латимерия" />
+  <glossword word="целакант" />
 </valsi>
 <valsi word="gonai" type="cmavo-compound">
   <selmaho>GA*</selmaho>
@@ -8998,8 +8999,8 @@
   <definition>$x_1$ - это сетка/решётка/координатная сетка, состоящая из линий $x_2$</definition>
   <definitionid>38955</definitionid>
   <notes>См. также {cartu}, {pinpau}, {rajypau}, {kamju}</notes>
-  <glossword word="решётка" />
   <glossword word="сетка" />
+  <glossword word="решётка" />
 </valsi>
 <valsi word="greku" type="gismu">
   <rafsi>rek</rafsi>
@@ -9800,10 +9801,10 @@
   <definition>$x_1$ - это IRC-пользователь канала $x_2$ в сети $x_3$; $x_1$ чатится в IRC-канале $x_2$ в сети $x_3$</definition>
   <definitionid>38161</definitionid>
   <notes>При необходимости для никнейма (имени) нужно добавить {me&apos;e}, для сервера - fi&apos;o {tcana}. $x_2$ стирается с помощью {zi&apos;o}, если канала нет.</notes>
-  <glossword word="пользователь" sense="IRC" />
-  <glossword word="IRC" sense="активность" />
-  <glossword word="канал" sense="IRC" />
   <glossword word="сеть" sense="IRC" />
+  <glossword word="пользователь" sense="IRC" />
+  <glossword word="канал" sense="IRC" />
+  <glossword word="IRC" sense="активность" />
   <keyword word="IRC-пользователь" place="1" />
   <keyword word="IRC-канал" place="2" />
   <keyword word="IRC-сеть" place="3" />
@@ -9836,8 +9837,8 @@
   <definitionid>41833</definitionid>
   <notes>См. {no&apos;ordo}, {island}</notes>
   <glossword word="исландский" sense="язык" />
-  <glossword word="исландский" sense="страна" />
   <glossword word="исландский" sense="культура" />
+  <glossword word="исландский" sense="страна" />
 </valsi>
 <valsi word="itkuile" type="fu'ivla">
   <user>
@@ -10571,8 +10572,8 @@
   </user>
   <definition>$x_1$ - это конец недели/уик-энд недели $x_2$</definition>
   <definitionid>42455</definitionid>
-  <glossword word="уик-энд" sense="выходные дни" />
   <glossword word="конец недели" sense="суббота, воскресенье" />
+  <glossword word="уик-энд" sense="выходные дни" />
 </valsi>
 <valsi word="jegvo" type="gismu">
   <rafsi>jeg</rafsi>
@@ -10888,8 +10889,8 @@
   <definition>междометие-рассуждение: дополнительно, тоже (вдобавок)</definition>
   <definitionid>37182</definitionid>
   <notes>См. также {jmina}.</notes>
-  <glossword word="в дополнение" />
   <glossword word="тоже" sense="вдобавок" />
+  <glossword word="в дополнение" />
 </valsi>
 <valsi word="jibni" type="gismu">
   <rafsi>jbi</rafsi>
@@ -12060,11 +12061,12 @@
     <username>gleki2</username>
     <realname>Antony</realname>
   </user>
-  <definition>$x_1$ (проход/путь) открыт, позволяя проход/доступ к $x_2$ через $x_3$</definition>
+  <definition>$x_1$ (проход/путь) открыт, давая доступ к $x_2$ $x_3$ (чему)</definition>
   <definitionid>35872</definitionid>
-  <notes>Например, дверь {ganlo} (закрытый), {pagre} (проникать [проходить сквозь]), {canko} (окно), {vorme} (дверь)</notes>
-  <glossword word="открытый (доступный)" />
-  <keyword word="открытый (доступный)" place="1" />
+  <notes>Например, дверь. См. {ganlo} - &apos;закрытый&apos;, {pagre} - &apos;проникать (проходить сквозь)&apos;, {canko} - &apos;окно&apos;, {vorme} - &apos;дверь&apos;</notes>
+  <glossword word="открытый" sense="доступный" />
+  <keyword word="открытый" place="1" sense="доступный" />
+  <keyword word="доступное место" place="2" />
 </valsi>
 <valsi word="kalsa" type="gismu">
   <rafsi>kas</rafsi>
@@ -12133,9 +12135,9 @@
   <definitionid>38173</definitionid>
   <notes>Отличается от {pendo} беспристрастностью, связанностью благодаря x3. Отличается от {kansa} наличием привязанности и эмпатии.</notes>
   <glossword word="товарищ" />
-  <glossword word="соратник" />
   <glossword word="компаньон" />
   <glossword word="напарник" />
+  <glossword word="соратник" />
 </valsi>
 <valsi word="kanba" type="gismu">
   <user>
@@ -12313,9 +12315,9 @@
   <definition>$x_1$ - это красный стручковый перец (чили)/паприка (Capsicum) вида/разновидности $x_2$.</definition>
   <definitionid>39080</definitionid>
   <notes>См. также {cpina}, {spatrpiperi}, {tamca}, {patlu}, {tanko}, {mlongena}</notes>
-  <glossword word="паприка" />
   <glossword word="красный стручковый пере чили" />
   <glossword word="Capsicum" />
+  <glossword word="паприка" />
 </valsi>
 <valsi word="karbi" type="gismu">
   <rafsi>kab</rafsi>
@@ -12389,9 +12391,9 @@
   <definition>$x_1$ — пояс/воротник/повязка/манжета/ожерелье/галстук/ошейник вокруг $x_2$, сделанный из материала $x_3$</definition>
   <definitionid>35891</definitionid>
   <notes>См. сфинктер {sruri} (окружать), {djine} (кольцо)</notes>
-  <glossword word="пояс" />
-  <glossword word="галстук" />
   <glossword word="ожерелье" />
+  <glossword word="галстук" />
+  <glossword word="пояс" />
   <glossword word="воротник" />
   <keyword word="пояс" place="1" />
 </valsi>
@@ -13210,8 +13212,8 @@
   </user>
   <definition>$x_1$ - это CD/компакт-диск, хранящий информацию/с содержимым $x_2$</definition>
   <definitionid>41412</definitionid>
-  <glossword word="CD" sense="компакт-диск" />
   <glossword word="компакт-диск" />
+  <glossword word="CD" sense="компакт-диск" />
 </valsi>
 <valsi word="konju" type="gismu">
   <rafsi>kon</rafsi>
@@ -13254,10 +13256,10 @@
   <definition>междометие-рассуждение: императив/повеление/повелительное наклонение/гортатив/настоятельное наклонение</definition>
   <definitionid>37911</definitionid>
   <notes>``{ko}&apos;&apos; - это краткая форма от &apos;&apos;{do} {ko&apos;oi}&apos;&apos;; более широкий термин по сравнению с {au}, {a&apos;o}, {e&apos;o}, {e&apos;u}, {e&apos;a}, {ei}; См. также {minde}, {cpedu}, {curmi}, {pacna}, {stidi}, {djica}, {bilga}</notes>
+  <glossword word="повелительное наклонение" />
+  <glossword word="настоятельное наклонение" />
   <glossword word="императив" />
   <glossword word="гортатив" />
-  <glossword word="настоятельное наклонение" />
-  <glossword word="повелительное наклонение" />
 </valsi>
 <valsi word="korbi" type="gismu">
   <rafsi>kor</rafsi>
@@ -13648,8 +13650,8 @@
   <definition>междометие-рассуждение: в соответствии с этим; ожидаемо, как и ожидалось</definition>
   <definitionid>53123</definitionid>
   <notes>Используется, чтобы делать заключения о соответствующем сказанному раннее в отличие от {ku&apos;i} - &apos;однако, но, в отличие от&apos;</notes>
-  <glossword word="в соответствии с этим" />
   <glossword word="как и ожидалось" sense="ожидаемо" />
+  <glossword word="в соответствии с этим" />
 </valsi>
 <valsi word="kukte" type="gismu">
   <rafsi>kuk</rafsi>
@@ -14025,8 +14027,8 @@
   <definition>$x_1$ - старый/пожилой [относительно длинный в истёкшей длительности] по стандарту $x_2$</definition>
   <definitionid>36674</definitionid>
   <notes>(= {tolci&apos;o}) см. {citno}, {slabu}</notes>
-  <glossword word="старый" />
   <glossword word="пожилой" />
+  <glossword word="старый" />
 </valsi>
 <valsi word="lalxu" type="gismu">
   <rafsi>la&apos;u</rafsi>
@@ -14321,10 +14323,10 @@
   <definition>замена недавнего ошибочного произнесённого текста</definition>
   <definitionid>37924</definitionid>
   <notes>Конструкция {lo&apos;ai} ... {sa&apos;ai} ... {le&apos;ai} просит слушателя заменить текст после {lo&apos;ai} текстом после {sa&apos;ai}.  Порядок {sa&apos;ai} ... {lo&apos;ai} ... {le&apos;ai} также разрешается. Могут быть опущены одна или обе части. Когда опускаются обе части, слово {le&apos;ai} само по себе означает, что была сделана ошибка, оставляя все детали выводимыми только из контекста. Также возможно присоединять слова группы SAI к конструкции le&apos;ai: le&apos;ai {dai} (или le&apos;ai {da&apos;oi} ko&apos;a) означает, что кто-то другой сделал ошибку; le&apos;ai {pei} спрашивает, сделал ли кто-то другой ошибку; а {sai}, {ru&apos;e} и {cu&apos;i} могуть быть использованы, что обозначить важность замены. Более того, le&apos;ai {nai} может быть использовано, что явно отрицать ошибки, вместо того, чтобы признать их (сравни слово &quot;sic&quot;).</notes>
-  <glossword word="индикатор ошибки" />
+  <glossword word="окончание цитирования ошибочного текста" />
   <glossword word="прошу прощения" sense="после произнесения ошибочного текста" />
   <glossword word="sic" />
-  <glossword word="окончание цитирования ошибочного текста" />
+  <glossword word="индикатор ошибки" />
   <glossword word="окончание заменяющего цитирования" />
 </valsi>
 <valsi word="lebna" type="gismu">
@@ -15202,13 +15204,13 @@
     <username>gleki2</username>
     <realname>Antony</realname>
   </user>
-  <definition>$x_1$ — lujvo (составное слово) со значением $x_2$ и аргументами $x_3$, построенное из selbri $x_4$</definition>
+  <definition>$x_1$ - lujvo (глагол из аффиксов) со значением $x_2$ и аргументами $x_3$, построенное из selbri $x_4$</definition>
   <definitionid>36004</definitionid>
-  <notes>{stura} (структура [чего-либо]), {cmavo} (), {gismu} (), {rafsi} (аффикс), {smuni} (значение [смысл])</notes>
-  <glossword word="составное слово из аффиксов" />
-  <keyword word="составное слово из аффиксов" place="1" />
-  <keyword word="значение составного слова из аффиксов" place="2" />
-  <keyword word="аргументы составного слова из аффиксов" place="3" />
+  <notes>См. {stura} - &apos;структура (чего-либо)&apos;, {cmavo} - &apos;грамматическая частица&apos;, {gismu} - &apos;корневой глагол&apos;, {rafsi} - &apos;аффикс&apos;, {smuni} - &apos;значение (смысл)&apos;</notes>
+  <glossword word="глагол из аффиксов" />
+  <keyword word="глагол из аффиксов" place="1" />
+  <keyword word="значение глагола из аффиксов" place="2" />
+  <keyword word="аргументы глагола из аффиксов" place="3" />
 </valsi>
 <valsi word="lumci" type="gismu">
   <rafsi>lum</rafsi>
@@ -15332,8 +15334,8 @@
   <definition>$x_1$ - отвратительный/отталкивающий/противный/омерзительный/мерзкий/поганый/гадкий/дерьмовый/дрянной/паршивый/посредственный/низкокачественный/низкого качества в свойстве $x_2$ согласно стандарту $x_3$; $x_1$ - отвратительный в аспекте $x_2$ согласно $x_3$.</definition>
   <definitionid>36009</definitionid>
   <notes>См. также {palci} (дурной), {dapma} (проклинать), {xlali} (плохой), {zabna} (одобрительный), {funca} (зависеть от удачи), {ganti} (яичко [анатомия]), {ganxo} (задний проход), {gletu} (совокупляться), {gutra} (матка [анатомия]), {kalci} (кал), {pinca} (моча), {pinji} (пенис), {plibu} (лобок), {vibna} (влагалище), {vlagi} (вульва), {zargu} (ягодица). Старое определение данного слова: $x_1$ — негативное/неодобрительное/неблагоприятное/{уничижительное/бранное} значение/употребление/коннотация (слов) $x_2$, используемое $x_3$ (кем).</notes>
-  <glossword word="противный" />
   <glossword word="отвратительный" />
+  <glossword word="противный" />
 </valsi>
 <valsi word="mabru" type="gismu">
   <rafsi>mab</rafsi>
@@ -15606,8 +15608,8 @@
   <definitionid>56596</definitionid>
   <notes>Зрительно и тактильно. Частые (но не обязательные) примеры: податливый, пористый, пенистый, &quot;мягкий, как подушка&quot;, &quot;ватообразный&quot;, &quot;как шерсть&quot;. Может иметь фрактальную природу. Не обязательно волосатый или пушистый, но должен быть мягким, не щетинистым (что подразумевает жесткость и твердость). См. {palpi}, {ranti}, {rufsu}, {xutla}, {panje}, {dilnu}, {mapni}, {sunla}, {fonmo}, {jduli}, {pesxu}, {marji}.</notes>
   <glossword word="ватообразный" sense="по текстуре" />
-  <glossword word="воздушный" sense="по текстуре" />
   <glossword word="пушистый" sense="по текстуре" />
+  <glossword word="воздушный" sense="по текстуре" />
 </valsi>
 <valsi word="mapti" type="gismu">
   <rafsi>mat</rafsi>
@@ -16026,8 +16028,8 @@
   <definitionid>38708</definitionid>
   <notes>Опущено $x_4=s_2=m_1$. См. также {speni}, {bunspe}, {tubyspe}.</notes>
   <glossword word="зять" sense="муж сестры" />
-  <glossword word="муж сестры" />
   <glossword word="свояк" sense="муж сестры жены" />
+  <glossword word="муж сестры" />
 </valsi>
 <valsi word="mekso" type="gismu">
   <rafsi>mek</rafsi>
@@ -16125,8 +16127,8 @@
   <definition>не-ложбанский глагол</definition>
   <definitionid>37947</definitionid>
   <notes>Быстрый способ заимствования иностранных слов в ложбан. Также известен как &quot;стадия-0 fu&apos;ivla&quot;. Эквивалентен {me&apos;au} {la&apos;e} {zo&apos;oi}.</notes>
-  <glossword word="заимствованный глагол" />
   <glossword word="не-ложбанский глагол" />
+  <glossword word="заимствованный глагол" />
 </valsi>
 <valsi word="merko" type="gismu">
   <rafsi>mer</rafsi>
@@ -17846,8 +17848,8 @@
   </user>
   <definition>маркёр неограничивающей придаточной фразы: что, кстати, связано с ...</definition>
   <definitionid>37394</definitionid>
-  <glossword word="о" sense="(ком/чём)" />
   <glossword word="второстепенная фраза" />
+  <glossword word="о" sense="(ком/чём)" />
 </valsi>
 <valsi word="ne'a" type="cmavo">
   <selmaho>FAhA3</selmaho>
@@ -18303,8 +18305,8 @@
   <definition>Мадам/Леди</definition>
   <definitionid>38718</definitionid>
   <notes>См. также {nobli}, {ninmu}, {nol}, {nolnaum}.</notes>
-  <glossword word="леди" sense="родоспецифичное почтительное обращение" />
   <glossword word="мадам" sense="родоспецифичное почтительное обращение" />
+  <glossword word="леди" sense="родоспецифичное почтительное обращение" />
 </valsi>
 <valsi word="nomo'o" type="cmavo-compound">
   <selmaho>MAI*</selmaho>
@@ -19123,8 +19125,8 @@
   <definition>$x_1$ пальпирует/чувствует $x_2$ (структуру поверхности)</definition>
   <definitionid>42421</definitionid>
   <notes>См. {pencu}, {tengu}, {sefta}, {ganse}</notes>
-  <glossword word="пальпировать" />
   <glossword word="чувствовать структуру поверхности" />
+  <glossword word="пальпировать" />
 </valsi>
 <valsi word="palta" type="gismu">
   <user>
@@ -19699,8 +19701,8 @@
   <definition>$x_1$ — желтый/золотистый (о цвете); $x_1$ желтеет</definition>
   <definitionid>36160</definitionid>
   <notes>{skari} (иметь цвет), {blabi} (белый), {xekri} (черный), {kandi} (тусклый), {carmi} (интенсивный), {narju} (оранжевый), {solji} (золото)</notes>
-  <glossword word="желтый" />
   <glossword word="желтеть" />
+  <glossword word="желтый" />
   <keyword word="желтый" place="1" />
 </valsi>
 <valsi word="pemci" type="gismu">
@@ -19991,8 +19993,8 @@
   <definition>$x_1$ комментирует/делает комментарий/даёт комментарий $x_2$ (sedu&apos;u/текст/lu&apos;e-концепцию) аудитории $x_3$ посредством/способом $x_4$</definition>
   <definitionid>42001</definitionid>
   <notes>См. {cusku}, {reisku}, {spusku}, {pinka}</notes>
-  <glossword word="комментировать" />
   <glossword word="давать комментарий" />
+  <glossword word="комментировать" />
 </valsi>
 <valsi word="pikta" type="gismu">
   <user>
@@ -20107,8 +20109,8 @@
   <definitionid>52651</definitionid>
   <notes>zi&apos;evla из {pincyvi&apos;i}</notes>
   <glossword word="мочиться" />
-  <glossword word="ссать" />
   <glossword word="писать" sense="выделять мочу" />
+  <glossword word="ссать" />
 </valsi>
 <valsi word="pindi" type="gismu">
   <rafsi>pid</rafsi>
@@ -20547,8 +20549,8 @@
   <definition>$x_1$ проявляет пошлые, &apos;низкие&apos;, осмеиваемые и морально презираемые, низкопробные, вульгарные, неоригинальные, банальные качества согласно $x_2$ (кому) в аспекте $x_3$; $x_1$ - пошлый/ пошляк/ пошлячка / проявляет пошлость</definition>
   <definitionid>39127</definitionid>
   <notes>См. {mabla}</notes>
-  <glossword word="пошлость" />
   <glossword word="пошлый" />
+  <glossword word="пошлость" />
 </valsi>
 <valsi word="po'e" type="cmavo">
   <selmaho>GOI</selmaho>
@@ -20814,9 +20816,9 @@
     <username>gleki2</username>
     <realname>Antony</realname>
   </user>
-  <definition>$x_1$ — отпечаток/след/оттиск в/на поверхности $x_2$, сделанный/оставленный инструментом/объектом $x_3$</definition>
+  <definition>$x_1$ — отпечаток/след/оттиск/тату в/на поверхности $x_2$, сделанный/оставленный инструментом/объектом $x_3$</definition>
   <definitionid>36215</definitionid>
-  <notes>{cukta} (книга), {papri} (страница), {pelji} (бумага), {pixra} (картина), {ciska} (писать), {danre} (давить), {barna} (пятно)</notes>
+  <notes>См. {cukta} - &apos;книга&apos;, {papri} - &apos;страница&apos;, {pelji} - &apos;бумага&apos;, {pixra} - &apos;картина&apos;, {ciska} - &apos;писать&apos;, {danre} - &apos;давить&apos;, {barna} - &apos;пятно&apos;</notes>
   <glossword word="отпечаток" />
   <keyword word="отпечаток" place="1" />
 </valsi>
@@ -21224,8 +21226,8 @@
   <definitionid>44254</definitionid>
   <notes>См. {zgike}, {sanga}, {tcidu}</notes>
   <glossword word="рэппер" />
-  <glossword word="петь рэп" />
   <glossword word="читать рэп" />
+  <glossword word="петь рэп" />
   <keyword word="рэппер" place="1" />
 </valsi>
 <valsi word="racli" type="gismu">
@@ -21900,8 +21902,8 @@
   <definition>$x_1$ задаёт вопрос $x_2$, адресуя его $x_3$ (кому) с помощью средства $x_4$, о $x_5$ (ком/чём);$x_1$ спрашивает</definition>
   <definitionid>56442</definitionid>
   <notes>См. {cusku}, {spusku}, {spuda}</notes>
-  <glossword word="задавать вопрос" />
   <glossword word="спрашивать" />
+  <glossword word="задавать вопрос" />
   <keyword word="спрашивающий" place="1" />
 </valsi>
 <valsi word="re'u" type="cmavo">
@@ -22792,8 +22794,8 @@
   <definition>преобразует следующую за ним cmevla или zoi-цитату в звукоподражательное слово/ономатопею/звукоподражание. (бам! бабах! юрк! и т.п.)</definition>
   <definitionid>37950</definitionid>
   <notes>Более узкое по значению слово, чем {tai&apos;i}. См. также {sance}, {ci&apos;oi}, {ki&apos;ai}.</notes>
-  <glossword word="звукоподражание" />
   <glossword word="ономатопея" />
+  <glossword word="звукоподражание" />
 </valsi>
 <valsi word="sa'emau'i" type="cmavo-compound">
   <selmaho>UI*3</selmaho>
@@ -22903,9 +22905,9 @@
   <definition>$x_1$ - это лосось/форель/сёмга вида $x_2$.</definition>
   <definitionid>39114</definitionid>
   <notes>См. {finpe}, {sperlanu}</notes>
+  <glossword word="лосось" />
   <glossword word="сёмга" />
   <glossword word="форель" />
-  <glossword word="лосось" />
 </valsi>
 <valsi word="salpo" type="gismu">
   <rafsi>sa&apos;o</rafsi>
@@ -23036,9 +23038,9 @@
   <definition>$x_1$ — соус/подлива/глазурь для употребления с $x_2$, содержащий $x_3$</definition>
   <definitionid>36303</definitionid>
   <notes>$x_2$ входит в $x_1$, есть компонент/ингредиент соуса $x_1$. См. {sanmi} - &apos;трапеза&apos;, {mixre} - &apos;смесь&apos;, {stasu} - &apos;суп&apos;</notes>
-  <glossword word="соус" />
-  <glossword word="подлива" />
   <glossword word="глазурь" />
+  <glossword word="подлива" />
+  <glossword word="соус" />
   <keyword word="соус" place="1" />
 </valsi>
 <valsi word="santa" type="gismu">
@@ -23681,8 +23683,8 @@
   <definition>$x_1$ - это племянник/племянница $x_2$ (кого) по виду рлдства $x_3$</definition>
   <definitionid>57286</definitionid>
   <notes>См. {famti}, {tixnu}, {bersa}, {tunba}</notes>
-  <glossword word="племянник" />
   <glossword word="племянница" />
+  <glossword word="племянник" />
 </valsi>
 <valsi word="selfu" type="gismu">
   <rafsi>sef</rafsi>
@@ -24486,8 +24488,8 @@
   <definitionid>41515</definitionid>
   <notes>См. {since}</notes>
   <glossword word="удав обыкновенный" />
-  <glossword word="Boa" sense="змея" />
   <glossword word="констриктор" sense="змея" />
+  <glossword word="Boa" sense="змея" />
 </valsi>
 <valsi word="sinma" type="gismu">
   <rafsi>si&apos;a</rafsi>
@@ -24980,8 +24982,8 @@
   <definition>$x_1$ чувствует вкус $x_2$ (какой)</definition>
   <definitionid>42420</definitionid>
   <notes>См. {tasta}, {vrusi}, {ganse}, {palpi}, {viska}</notes>
-  <glossword word="чувствовать вкус" />
   <glossword word="смаковать" />
+  <glossword word="чувствовать вкус" />
 </valsi>
 <valsi word="smani" type="gismu">
   <user>
@@ -25002,12 +25004,12 @@
   <definition>$x_1$ - это слива/персик/вишня/абрикос/миндаль/тёрн [плод] (род Prunus) вида/разновидности $x_2$</definition>
   <definitionid>36755</definitionid>
   <notes>{zirsmela} для сливы, {xunsmela} для вишни, {najysmela} для персика, {pelsmela} для абрикоса, {ri&apos;orsmela} для миндаля, {blasmela} для тёрна. Ср. {rutrprunu}, {ricrprunu}, {flaume}, {persika}, {rutrceraso}, {birkoku}, {frambesi}, {fragari}, {plise}, {perli}, {rozgu}</notes>
-  <glossword word="вишня" sense="плод" />
-  <glossword word="слива" sense="плод" />
-  <glossword word="тёрн" sense="плод" />
   <glossword word="миндаль" sense="плод" />
-  <glossword word="абрикос" sense="плод" />
+  <glossword word="тёрн" sense="плод" />
+  <glossword word="слива" sense="плод" />
   <glossword word="персик" sense="плод" />
+  <glossword word="вишня" sense="плод" />
+  <glossword word="абрикос" sense="плод" />
 </valsi>
 <valsi word="smetana" type="fu'ivla">
   <user>
@@ -25473,8 +25475,8 @@
   <definitionid>38714</definitionid>
   <notes>Шуточное слово. В основном используется в tanru {kinda} {sorta}</notes>
   <glossword word="вроде как" />
-  <glossword word="как будто" />
   <glossword word="как бы" />
+  <glossword word="как будто" />
 </valsi>
 <valsi word="sosoce'i" type="cmavo-compound">
   <selmaho>PA*</selmaho>
@@ -25626,8 +25628,8 @@
   </user>
   <definition>$x_1$ принадлежит языку/культуре эсперанто в аспекте $x_2$</definition>
   <definitionid>38707</definitionid>
-  <glossword word="эсперантистский" />
   <glossword word="эсперанто" />
+  <glossword word="эсперантистский" />
   <glossword word="эсперантский" />
 </valsi>
 <valsi word="spisa" type="gismu">
@@ -26543,8 +26545,8 @@
   <definition>преобразует следующую cmevla или zoi-цитату в феномим (фразу, которая имитирует определённую физическую форму или движение).</definition>
   <definitionid>37954</definitionid>
   <notes>Идеофон. Более широкий термин по сравнению с {ci&apos;oi} и {sa&apos;ei}. См. также {tai}, {tamsmi}, {ki&apos;ai}. Примеры в некоторых языках. jpn: しーん (shiin): беззвучно. kor: 슬슬 (seul-seul): мягко, нежно. nep: हत्तपत्त (hattapatta): немедленно.</notes>
-  <glossword word="феномим" sense="идеофон" />
   <glossword word="имитация формы или движения" sense="идеофон" />
+  <glossword word="феномим" sense="идеофон" />
 </valsi>
 <valsi word="ta'i ma" type="cmavo-compound">
   <selmaho>BAI*</selmaho>
@@ -27056,8 +27058,8 @@
   <definition>$x_1$ это гуппи/моллинезия/пецилия/Poecilia вида $x_2$</definition>
   <definitionid>38047</definitionid>
   <notes>См. также {finpe}</notes>
-  <glossword word="моллинезия" />
   <glossword word="пецилия" />
+  <glossword word="моллинезия" />
   <glossword word="гуппи" />
 </valsi>
 <valsi word="tcinciia" type="fu'ivla">
@@ -27454,8 +27456,8 @@
   </user>
   <definition>модальный предлог от mukti, 3-е место                            будучи мотивом для ...(кого)</definition>
   <definitionid>37742</definitionid>
-  <glossword word="будучи мотивом для ...(кого)" />
   <glossword word="намеренно" />
+  <glossword word="будучи мотивом для ...(кого)" />
 </valsi>
 <valsi word="temu'u" type="cmavo-compound">
   <selmaho>BAI*</selmaho>
@@ -28037,8 +28039,8 @@
   <definition>$c_1$ - приручённый/&apos;домашний&apos;/не-дикий</definition>
   <definitionid>42483</definitionid>
   <notes>См. {to&apos;e} {cilce}</notes>
-  <glossword word="домашний" sense="антоним к слову &apos;дикий&apos;" />
   <glossword word="приручённый" />
+  <glossword word="домашний" sense="антоним к слову &apos;дикий&apos;" />
 </valsi>
 <valsi word="tolcri" type="lujvo">
   <user>
@@ -28093,9 +28095,9 @@
   <definition>$x_1$ - тихий/слабый/мягкий/негромкий/приглушённый звук в точке наблюдения $x_2$ согласно стандарту $x_3$; $x_1$ производит мало шума</definition>
   <definitionid>42221</definitionid>
   <notes>&quot;Бесшумный&quot; - это {smaji}, в то время как tolylau относится к небольшому количеству звука. Подобным образом, &quot;абсолютно шумный&quot; - это {tolsma}, громче, чем {cladu}. {smaji} &lt; {tolylau} &lt; {cladu} &lt; {tolsma}.</notes>
-  <glossword word="негромкий" />
   <glossword word="слабый" sense="звук" />
   <glossword word="тихий" />
+  <glossword word="негромкий" />
 </valsi>
 <valsi word="tonga" type="gismu">
   <rafsi>tog</rafsi>
@@ -28179,8 +28181,8 @@
   <definition>$x_1$ - самый; $x_1$ крайне $x_2$ (какой); $x_1$ проявляет крайнюю/экстремальную степень выраженности/интенсивности свойства $x_2$ (ka) среди $x_3$ (множества)</definition>
   <definitionid>36516</definitionid>
   <notes>x4 - то же самое, что и x3. Контрастирует скорее с {milxe} и {mutce}, чем с {mleca} и {zmadu}. См. предлог {rai}, {jimte} - &apos;граница&apos;, {milxe} - &apos;умеренный&apos;, {mutce} - &apos;очень&apos;, {banli} - &apos;великий&apos;, {curve} - &apos;чистый&apos;, {fanmo} - &apos;конец&apos;, {krasi} - &apos;источник (начало)&apos;, {manfo} - &apos;однородный&apos;, {prane} - &apos;совершенный&apos;</notes>
-  <glossword word="самый" />
   <glossword word="крайний (экстремальный)" />
+  <glossword word="самый" />
   <keyword word="самый" place="1" />
 </valsi>
 <valsi word="trano" type="gismu">
@@ -28428,8 +28430,8 @@
   <definition>$x_1$ твитит/отправляет/размещает твиты $x_2$ (текст/sedu&apos;u/массив с картинками/и т.п.) с тэгами $x_3$ а адресатом $x_4$.</definition>
   <definitionid>38549</definitionid>
   <notes>{zi&apos;o} разумеется возможно для x3 и x4. См. также {cusku}.</notes>
-  <glossword word="твитить" />
   <glossword word="отправлять в твиттер" />
+  <glossword word="твитить" />
 </valsi>
 <valsi word="tujli" type="gismu">
   <rafsi>tuj</rafsi>
@@ -28690,8 +28692,8 @@
   <notes>См. также {ueb}, {kibro}, {kibypapri}, {kibyca&apos;o}.</notes>
   <glossword word="world wide web" />
   <glossword word="Всемирная паутина" />
-  <glossword word="веб" />
   <glossword word="WWW" />
+  <glossword word="веб" />
   <keyword word="Всемирная паутина" place="1" />
   <keyword word="аспект Всемирной паутины" place="2" />
 </valsi>
@@ -31229,8 +31231,8 @@
   <definition>$x_1$ is благоприятный/великолепный/&apos;классный&apos;/превосходный/первоклассный/выдающийся/отличный/замечательный/славный/похвальный/очаровательный/симпатичный/достойный похвал/высококачественный/высокого качества/&apos;клёвый&apos;/крутой в свойстве $x_2$ согласно стандарту $x_3$; $x_1$ - потрясный в аспекте $x_2$ согласно $x_3$ (кому/чему)</definition>
   <definitionid>36640</definitionid>
   <notes>См. {banli} - &apos;роскошный&apos;, {funca} - &apos;зависеть от удачи&apos;, {mabla} - &apos;негативный (о значении/смысле слова), {xamgu} - &apos;хороший&apos;, {vrude} - &apos;праведный&apos;. Старое определение слова: $x_1$ — позитивное/одобрительное/благоприятное значение/употребление/коннотация (слов) $x_2$, используемое $x_3$ (кем)</notes>
-  <glossword word="превосходный" />
   <glossword word="первоклассный" />
+  <glossword word="превосходный" />
   <glossword word="&apos;классное&apos;" />
 </valsi>
 <valsi word="za'e" type="cmavo">
@@ -33139,6 +33141,7 @@
 <nlword word="горло" valsi="galxe" place="1" />
 <nlword word="предваряющее &quot;только если&quot;" valsi="ganai" />
 <nlword word="доступ" valsi="ganlo" place="2" />
+<nlword word="недоступное место" valsi="ganlo" place="2" />
 <nlword word="перекрытый" valsi="ganlo" place="1" />
 <nlword word="широкий" valsi="ganra" place="1" />
 <nlword word="чувствовать боль" valsi="ganse" />
@@ -33152,6 +33155,7 @@
 <nlword word="газ" valsi="gapci" place="1" />
 <nlword word="надоедать" valsi="gapru" />
 <nlword word="надоедающий" valsi="gapru" place="1" />
+<nlword word="перила" valsi="garna" />
 <nlword word="рельс" valsi="garna" />
 <nlword word="агент" valsi="gasnu" place="1" />
 <nlword word="вызывать" valsi="gasnu" />
@@ -33188,6 +33192,7 @@
 <nlword word="&quot;исключающее или&quot; для bridi" valsi="gi&apos;onai" />
 <nlword word="группа" valsi="girzu" place="1" />
 <nlword word="корневое слово" valsi="gismu" place="1" />
+<nlword word="корневой глагол" valsi="gismu" place="1" />
 <nlword word="&quot;так-или-не-так&quot; для bridi" valsi="gi&apos;u" />
 <nlword word="тёплый" valsi="glare" place="1" />
 <nlword word="причина радости" valsi="gleki" place="2" />
@@ -33315,8 +33320,8 @@
 <nlword word="Ирина" sense="русское женское имя" valsi="irinas" />
 <nlword word="ислам" valsi="islam" />
 <nlword word="исландский" sense="страна" valsi="islenska" />
-<nlword word="исландский" sense="культура" valsi="islenska" />
 <nlword word="исландский" sense="язык" valsi="islenska" />
+<nlword word="исландский" sense="культура" valsi="islenska" />
 <nlword word="ифкуильский" valsi="itkuile" />
 <nlword word="любовь" valsi="iu" />
 <nlword word="осведомлённость" valsi="i&apos;u" />
@@ -33544,9 +33549,9 @@
 <nlword word="часовой механизм" valsi="junla" place="4" />
 <nlword word="часы (хронометр)" valsi="junla" place="1" />
 <nlword word="серьёзное" sense="случай, событие" valsi="junri" place="2" />
-<nlword word="серьёзный" sense="о персоне" valsi="junri" place="1" />
 <nlword word="серьёзный" valsi="junri" />
 <nlword word="серьёзный" sense="случай, событие" valsi="junri" place="2" />
+<nlword word="серьёзный" sense="о персоне" valsi="junri" place="1" />
 <nlword word="вес" valsi="junta" place="1" />
 <nlword word="гравитационное или другое силовое поле" valsi="junta" place="3" />
 <nlword word="уверенность" valsi="ju&apos;o" />
@@ -33595,6 +33600,8 @@
 <nlword word="инструмент выкапывания" valsi="kakpa" place="4" />
 <nlword word="экскременты" valsi="kalci" place="1" />
 <nlword word="зрачок" valsi="kalpupila" />
+<nlword word="доступное место" valsi="kalri" place="2" />
+<nlword word="открытый" sense="доступный" valsi="kalri" place="1" />
 <nlword word="открытый (доступный)" valsi="kalri" place="1" />
 <nlword word="хаотичный" valsi="kalsa" place="1" />
 <nlword word="охотиться на" valsi="kalte" />
@@ -34006,9 +34013,15 @@
 <nlword word="ливанский" valsi="lubno" />
 <nlword word="символ для ..." valsi="lu&apos;e" />
 <nlword word="множество из ..." valsi="lu&apos;i" />
+<nlword word="аргументы глагола из аффиксов" valsi="lujvo" place="3" />
+<nlword word="аргументы составного глагола из аффиксов" valsi="lujvo" place="3" />
 <nlword word="аргументы составного слова из аффиксов" valsi="lujvo" place="3" />
+<nlword word="глагол из аффиксов" valsi="lujvo" place="1" />
+<nlword word="значение глагола из аффиксов" valsi="lujvo" place="2" />
+<nlword word="значение составного глагола из аффиксов" valsi="lujvo" place="2" />
 <nlword word="значение составного слова из аффиксов" valsi="lujvo" place="2" />
 <nlword word="составное слово из аффиксов" valsi="lujvo" />
+<nlword word="составной глагол из аффиксов" valsi="lujvo" place="1" />
 <nlword word="моющее средство" valsi="lumci" place="4" />
 <nlword word="мыть" valsi="lumci" place="1" />
 <nlword word="отмываемая грязь" valsi="lumci" place="3" />
@@ -35902,8 +35915,8 @@
 <nlword word="сколько-то" sense="неуказанное число" valsi="xo&apos;e" />
 <nlword word="xo&apos;i" valsi="xo&apos;i" />
 <nlword word="искренне" sense="прямо, открыто" valsi="xo&apos;o" />
-<nlword word="саркастически" sense="иронично говоря" valsi="xo&apos;o" />
 <nlword word="саркастически" sense="шутливо, не взаправду" valsi="xo&apos;o" />
+<nlword word="саркастически" sense="иронично говоря" valsi="xo&apos;o" />
 <nlword word="хорбан" valsi="xorbo" />
 <nlword word="гостиница" valsi="xotli" />
 <nlword word="управляющий гостиницы" valsi="xotli" place="3" />

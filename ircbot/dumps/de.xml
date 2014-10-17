@@ -1103,8 +1103,8 @@
   <definitionid>52802</definitionid>
   <notes>Siehe auch: {bratu}, {bakfu}.</notes>
   <glossword word="Grieselkorn" />
-  <glossword word="Hagelkorn" />
   <glossword word="Graupelkorn" />
+  <glossword word="Hagelkorn" />
   <keyword word="Hagelkorn" place="1" />
 </valsi>
 <valsi word="bratycarvi" type="lujvo">
@@ -4326,8 +4326,8 @@
   </user>
   <definition>$c_1=d_1$ ist eine Brücke, die von $d_2$ am Aufhängepunkt bzw. an den Aufhängepunkten $d_3$ aufgehängt ist.</definition>
   <definitionid>52969</definitionid>
-  <glossword word="hängende Brücke" />
   <glossword word="Hängebrücke" />
+  <glossword word="hängende Brücke" />
   <keyword word="Hängebrücke" place="1" />
 </valsi>
 <valsi word="da'ergau" type="lujvo">
@@ -4694,8 +4694,8 @@
   <definition>$du_1$ ist der Zehnerlogarithmus von $du_2$.</definition>
   <definitionid>57390</definitionid>
   <notes>Synonym zu {pavnondugri}. Siehe auch {te&apos;o zei dugri}, {reldugri}, {dugri}.</notes>
-  <glossword word="Briggsscher Logarithmus" />
   <glossword word="Zehnerlogarithmus" />
+  <glossword word="Briggsscher Logarithmus" />
   <glossword word="dekadischer Logarithmus" />
   <keyword word="Zehnerlogarithmus" place="1" />
   <keyword word="Numerus" place="2" sense="mathematisch" />
@@ -5970,8 +5970,8 @@
   </user>
   <definition>$x_1$ ist ein Eis am Stiel mit Eiskrem $x_2=b_1=l_1$ und Stiel $x_3=g_1$.</definition>
   <definitionid>56459</definitionid>
-  <glossword word="Stieleis" />
   <glossword word="Eis am Stiel" />
+  <glossword word="Stieleis" />
   <keyword word="Eis am Stiel" place="1" />
 </valsi>
 <valsi word="gacri" type="gismu">
@@ -6053,7 +6053,7 @@
     <username>gleki</username>
     <realname>gleki</realname>
   </user>
-  <definition>$x_1$ (Portal/Durchgang/Eingang) ist geschlossen/zu/nicht offen und versperrt den Zugang zu $x_2$ durch $x_3$</definition>
+  <definition>$x_1$ (Portal/Durchgang/Eingang) ist geschlossen/zu/nicht offen und versperrt den Zugang zu $x_2$ für $x_3$ (Hinübergehenden)</definition>
   <definitionid>43037</definitionid>
   <glossword word="geschlossen" />
 </valsi>
@@ -6849,6 +6849,17 @@
   <glossword word="regnen" sense="Wasser" />
   <keyword word="Regenwasser" place="1" />
 </valsi>
+<valsi word="jaurgapci" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=g_1=d_1$ ist Wasserdampf [gasförmiges Wasser] unter Bedingungen $x_2=g_3$.</definition>
+  <definitionid>60522</definitionid>
+  <notes>$x_2$ beinhaltet Temperatur und Druck. Vgl. {djacu}, {gapci}.</notes>
+  <glossword word="Wasserdampf" sense="gasförmiges Wasser" />
+  <keyword word="Wasserdampf" place="1" sense="gasförmiges Wasser" />
+</valsi>
 <valsi word="javni" type="gismu">
   <rafsi>jva</rafsi>
   <user>
@@ -7322,9 +7333,9 @@
   <definitionid>42304</definitionid>
   <notes>Siehe auch {jilka}, {dicysro}.</notes>
   <glossword word="Zink-Manganoxid-Zelle" />
-  <glossword word="Alkali-Mangan-Batterie" />
-  <glossword word="Alkaline" />
   <glossword word="Alkali-Mangan-Zelle" />
+  <glossword word="Alkaline" />
+  <glossword word="Alkali-Mangan-Batterie" />
   <keyword word="Alkali-Mangan-Zelle" place="1" />
 </valsi>
 <valsi word="jilra" type="gismu">
@@ -7989,7 +8000,7 @@
     <username>gleki</username>
     <realname>gleki</realname>
   </user>
-  <definition>(Portal/Durchgang/Eingang) ist offen/geöffnet und lässt einen Durchgang zu $x_2$ für $x_3$</definition>
+  <definition>(Portal/Durchgang/Eingang) ist offen/geöffnet und lässt einen Durchgang zu $x_2$ für $x_3$ (Hinübergehenden)</definition>
   <definitionid>43208</definitionid>
   <glossword word="offen" />
 </valsi>
@@ -9048,8 +9059,8 @@
   <definition>$p_1$ ist ein Wachsmalstift aus (unter anderem) dem Wachs $p_2=l_1$, zusammengehalten von $p_3$.</definition>
   <definitionid>53024</definitionid>
   <glossword word="Wachsstift" />
-  <glossword word="Wachsmalkreide" />
   <glossword word="Wachsmalstift" />
+  <glossword word="Wachsmalkreide" />
   <keyword word="Wachsmalstift" place="1" />
 </valsi>
 <valsi word="lakse" type="gismu">
@@ -9205,8 +9216,8 @@
   </user>
   <definition>$d_1=s_1$ ist ein Plastiksack/Plastikbeutel / eine Platiktüte mit Inhalt $d_2$.</definition>
   <definitionid>53054</definitionid>
-  <glossword word="Plastiksack" />
   <glossword word="Plastikbeutel" />
+  <glossword word="Plastiksack" />
   <glossword word="Plastiktüte" />
   <keyword word="Plastiksack" place="1" />
 </valsi>
@@ -9328,8 +9339,8 @@
   <definition>$p_1$ (zoi-Zitat oder Sequenz aus Buchstaben/Zeichen) ist eine Zeichenkette, die nach Regel $p_2$ auf die unsortierte Menge aus Buchstaben/Zeichen $p_3=l_1$ im Zeichensatz $l_2$ sortiert sind.</definition>
   <definitionid>44206</definitionid>
   <notes>$p_3=l_1$ ist eine Untermenge von $l_2$.</notes>
-  <glossword word="String" sense="Informatik" />
   <glossword word="Zeichenkette" />
+  <glossword word="String" sense="Informatik" />
   <keyword word="Zeichenkette" place="1" />
   <keyword word="-" place="2" />
   <keyword word="-" place="3" />
@@ -10978,6 +10989,17 @@
   <definitionid>52823</definitionid>
   <glossword word="ungehorsam" />
 </valsi>
+<valsi word="naryremda'u" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$d_1=r_1$ ist ein Tier / eine Kreatur der Art $d_2$ und kein Mensch; $d_1=r_1$ ist ein nicht-menschliches Tier.</definition>
+  <definitionid>60549</definitionid>
+  <notes>Umgangssprachlich ist »Tier« im Deutschen manchmal so gemeint, dass Menschen von der Definition ausgeschlossen sind. Die korrekte Übersetzung davon ist demnach »naryremda&apos;u« statt »{danlu}«. Siehe auch {na}, {remna}.</notes>
+  <glossword word="nichtmenschliches Tier" />
+  <keyword word="nichtmenschliches Tier" place="1" />
+</valsi>
 <valsi word="natfe" type="gismu">
   <rafsi>naf</rafsi>
   <rafsi>na&apos;e</rafsi>
@@ -11262,8 +11284,8 @@
   <definition>$z_1$ (Zahl) ist größer als 0 um Wert $z_4$ (Zahl); $z_1$ ist eine positive Zahl.</definition>
   <definitionid>57379</definitionid>
   <notes>Siehe auch: {nonme&apos;a}, {zmadu}, {no}.</notes>
-  <glossword word="positive Zahl" />
   <glossword word="positiv" sense="Mathematik" />
+  <glossword word="positive Zahl" />
   <keyword word="positive Zahl" place="1" />
 </valsi>
 <valsi word="nonme'a" type="lujvo">
@@ -11684,9 +11706,9 @@
   <definition>$d_1$ ist der Zehnerlogarithmus von $d_2$.</definition>
   <definitionid>42261</definitionid>
   <notes>Synonym zu {dekydugri}. Siehe auch {te&apos;o zei dugri}, {reldugri}, {dugri}.</notes>
-  <glossword word="Briggsscher Logarithmus" />
-  <glossword word="Zehnerlogarithmus" />
   <glossword word="dekadischer Logarithmus" />
+  <glossword word="Zehnerlogarithmus" />
+  <glossword word="Briggsscher Logarithmus" />
   <keyword word="Zehnerlogarithmus" place="1" />
   <keyword word="Numerus" place="2" sense="mathematisch" />
 </valsi>
@@ -12116,8 +12138,8 @@
   </user>
   <definition>$d_1=p_1$ ist eine Papiertasche/-tüte/ein -sack mit Inhalt $d_2$.</definition>
   <definitionid>53030</definitionid>
-  <glossword word="Papiertüte" />
   <glossword word="Papiertasche" />
+  <glossword word="Papiertüte" />
   <keyword word="Papiertasche" place="1" />
 </valsi>
 <valsi word="pleji" type="gismu">
@@ -12912,8 +12934,8 @@
   <definition>$d_1$ ist der binäre Logarithmus von $d_2$.</definition>
   <definitionid>42264</definitionid>
   <notes>Siehe auch {pavnondugri}, {te&apos;o zei dugri}, {dugri}.</notes>
-  <glossword word="binärer Logarithmus" />
   <glossword word="Zweierlogarithmus" />
+  <glossword word="binärer Logarithmus" />
   <keyword word="binärer Logarithmus" place="1" />
   <keyword word="Numerus" place="2" sense="mathematisch" />
 </valsi>
@@ -17294,9 +17316,9 @@
   <definition>$d_1$ ist ein Briefsack/Briefbeutel mit Brief(en) $d_2=xa_1$, und aus dem Material $d_3$.</definition>
   <definitionid>53049</definitionid>
   <notes>Jeder beliebige Beutel oder Sack, in dem mindestens ein Brief enthalten ist, kann hier als Briefsack bzw. -beutel gelten.</notes>
-  <glossword word="Briefbeutel" />
-  <glossword word="Briefsack" />
   <glossword word="Postbeutel" sense="mit Brief" />
+  <glossword word="Briefsack" />
+  <glossword word="Briefbeutel" />
   <glossword word="Postsack" sense="mit Brief" />
   <keyword word="Briefsack" place="1" />
 </valsi>
@@ -17762,8 +17784,8 @@
   <definition>$x_1$ ist ein Grevyzebra (wissenschaftliche Bezeichnung: »Equus grevyi«).</definition>
   <definitionid>57527</definitionid>
   <notes>Vgl. {sriba&apos;axi&apos;a}.</notes>
-  <glossword word="Grevyzebra" sense="Tier der Art Equus grevyi" />
   <glossword word="Equus grevyi" />
+  <glossword word="Grevyzebra" sense="Tier der Art Equus grevyi" />
   <keyword word="Grevyzebra" place="1" sense="Tier der Art Equus grevyi" />
 </valsi>
 <valsi word="xirnkuaga" type="fu'ivla">
@@ -17774,9 +17796,9 @@
   <definition>$x_1$ ist ein Steppenzebra (wissenschaftliche Bezeichnung: »Equus quagga«).</definition>
   <definitionid>57524</definitionid>
   <notes>Vgl. {sriba&apos;axi&apos;a}.</notes>
-  <glossword word="Pferdezebra" sense="Tier der Art Equus quagga" />
   <glossword word="Steppenzebra" sense="Tier der Art Equus quagga" />
   <glossword word="Equus quagga" />
+  <glossword word="Pferdezebra" sense="Tier der Art Equus quagga" />
   <keyword word="Steppenzebra" place="1" sense="Tier der Art Equus quagga" />
 </valsi>
 <valsi word="xirnzebra" type="fu'ivla">
@@ -17787,8 +17809,8 @@
   <definition>$x_1$ ist ein Bergzebra (wissenschaftliche Bezeichnung: »Equus zebra«).</definition>
   <definitionid>57521</definitionid>
   <notes>Vgl. {sriba&apos;axi&apos;a}.</notes>
-  <glossword word="Equus zebra" />
   <glossword word="Bergzebra" sense="Tier der Art Equus zebra" />
+  <glossword word="Equus zebra" />
   <keyword word="Bergzebra" place="1" sense="Tier der Art Equus zebra" />
 </valsi>
 <valsi word="xislu" type="gismu">
@@ -18152,8 +18174,8 @@
   <definition>$g_1$ ist ein Dachboden/Speicher des Hauses $z_1$, welches von $z_2$ bewohnt wird.</definition>
   <definitionid>41978</definitionid>
   <notes>Siehe auch: {zdani}, {galtu}.</notes>
-  <glossword word="Dachboden" />
   <glossword word="Speicher" sense="Gebäudeteil" />
+  <glossword word="Dachboden" />
   <keyword word="Dachboden" place="1" />
   <keyword word="Haus" place="2" sense="Wohngebäude" />
 </valsi>
@@ -19015,8 +19037,8 @@
 <nlword word="Flugkörper" valsi="danti" />
 <nlword word="Insel" valsi="daplu" />
 <nlword word="verfluchen" valsi="dapma" />
-<nlword word="Fluch" sense="Schicksal" valsi="dapsku" place="5" />
 <nlword word="Fluch" sense="Text zum Verfluchen von jemanden oder etwas" valsi="dapsku" place="2" />
+<nlword word="Fluch" sense="Schicksal" valsi="dapsku" place="5" />
 <nlword word="Verflucher" valsi="dapsku" place="1" />
 <nlword word="Verfluchter" valsi="dapsku" place="3" />
 <nlword word="Straße" sense="Weg" valsi="dargu" />
@@ -19194,8 +19216,8 @@
 <nlword word="Grammatik" valsi="gerna" />
 <nlword word="Führer" valsi="gidva" />
 <nlword word="1E9" valsi="gigdo" />
-<nlword word="Lager" sense="vorübergehender Wohnort" valsi="ginka" />
 <nlword word="Lager" valsi="ginka" />
+<nlword word="Lager" sense="vorübergehender Wohnort" valsi="ginka" />
 <nlword word="Gruppe" valsi="girzu" />
 <nlword word="Stammwort" valsi="gismu" />
 <nlword word="heiß" valsi="glare" />
@@ -19257,6 +19279,7 @@
 <nlword word="Kapitän" valsi="jatna" />
 <nlword word="Regenwasser" valsi="jaurcarvi" place="1" />
 <nlword word="regnen" sense="Wasser" valsi="jaurcarvi" />
+<nlword word="Wasserdampf" sense="gasförmiges Wasser" valsi="jaurgapci" place="1" />
 <nlword word="Regel" valsi="javni" />
 <nlword word="Bombe" valsi="jbama" />
 <nlword word="Beere" valsi="jbari" />
@@ -19685,6 +19708,7 @@
 <nlword word="Nuss" valsi="narge" />
 <nlword word="orange" sense="Farbe" valsi="narju" />
 <nlword word="ungehorsam" valsi="nartinbe" />
+<nlword word="nichtmenschliches Tier" valsi="naryremda&apos;u" place="1" />
 <nlword word="widersprechen" sense="logisch" valsi="natfe" />
 <nlword word="Nation" valsi="natmi" />
 <nlword word="Neon" valsi="navni" />

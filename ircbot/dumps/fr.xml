@@ -8,8 +8,8 @@
   </user>
   <definition>$x_1$ est une palmier dattier/dattier/Phoenix dactylifera L. (arbre ou fruit) de l&apos;espèce / variété $x_2$.</definition>
   <definitionid>56800</definitionid>
-  <glossword word="palmier dattier" sense="fruit/arbre" />
   <glossword word="dattier" sense="fruit/arbre" />
+  <glossword word="palmier dattier" sense="fruit/arbre" />
 </valsi>
 <valsi word="angila" type="fu'ivla">
   <user>
@@ -53,8 +53,8 @@
   <definition>$x_1$ est triste/déprimé à propos de $x_2$ (abstrait)</definition>
   <definitionid>20615</definitionid>
   <notes>Voir aussi {klaku}, {gleki}, {betri}, {cinmo}, {junri}.</notes>
-  <glossword word="triste" />
   <glossword word="déprimé" />
+  <glossword word="triste" />
   <glossword word="malheureux" sense="triste" />
 </valsi>
 <valsi word="bajra" type="gismu">
@@ -89,8 +89,8 @@
   <definition>$x_1$ est un(e) vache/boeuf d&apos;espèce $x_2$.</definition>
   <definitionid>20618</definitionid>
   <notes>Voir également, {danlu}.</notes>
-  <glossword word="boeuf" />
   <glossword word="vache" />
+  <glossword word="boeuf" />
 </valsi>
 <valsi word="bakri" type="gismu">
   <user>
@@ -155,9 +155,9 @@
   <definition>$x_1$ est dans le futur de/plus tard que/après $x_2$, en ordre chronologique; $x_2$ est premier; $x_1$ est deuxième.</definition>
   <definitionid>20624</definitionid>
   <notes>Aussi &quot;suite&quot;, &quot;succéder&quot;, &quot;successeur&quot;, &quot;suivre&quot;, &quot;venir après&quot;. Ne peut s&apos;utiliser que pour l&apos;ordre temporel. A la particularité d&apos;être comme l&apos;aoriste grec, que les deux évènements peuvent être simultanés pendant une partie de leur durée, tant que x1 est au moins en partie dans le futur de x2. La valeur de x2 par defaut est le référentiel spacio-temporel actuel: le présent. Voir également {linde}, {cabna}, {purci}, {farna}.</notes>
-  <glossword word="après" sense="le temps" />
-  <glossword word="futur" />
   <glossword word="plus tard" />
+  <glossword word="futur" />
+  <glossword word="après" sense="le temps" />
 </valsi>
 <valsi word="bancu" type="gismu">
   <rafsi>bac</rafsi>
@@ -179,9 +179,9 @@
   <definition>$x_1$ (évènement) défend/protège $x_2$ (objet/état) du danger/péril $x_3$ (évènement)</definition>
   <definitionid>20626</definitionid>
   <notes>Aussi &quot;sécuriser&quot;; x1 résiste à x3; Couvert protecteur/bouclier (= {badgai}); Voir également {ckape}, {fanta}, {fapro}, {marbi}, {rivbi}, {zunti}, {snura}, {binra}, {lunbe}, {pulji}.</notes>
-  <glossword word="protéger" />
-  <glossword word="défendre" />
   <glossword word="sécuriser" />
+  <glossword word="défendre" />
+  <glossword word="protéger" />
 </valsi>
 <valsi word="banfi" type="gismu">
   <user>
@@ -205,8 +205,8 @@
   <definitionid>20628</definitionid>
   <notes>Voir également {tance}, {cusku}, {ve} {tavla}, {valsi}, {gerna}, {jufra}, {natmi}, {slaka}.</notes>
   <glossword word="langage" />
-  <glossword word="langue" />
   <glossword word="dialecte" />
+  <glossword word="langue" />
 </valsi>
 <valsi word="banli" type="gismu">
   <rafsi>bal</rafsi>
@@ -218,9 +218,9 @@
   <definition>$x_1$ est grand/grandiose/magnifique/formidable dans la dimension/au niveau de $x_2$ (ka) selon le standard $x_3$.</definition>
   <definitionid>20629</definitionid>
   <notes>Indique une grandeur subjective, comparée à la grandeur objective exprimée par {barda}. Synonyme de: extraordinaire, illustre, impressionnant, auguste, spécial, majestueux, dintingué, splendide, imposant. Implique généralement {zabna}, mais l&apos;utilisation de {mabla} peut entraîner une très différente signification. Voir également {barda}, {nobli}, {se} {sinma}, {pluja}, {misno}, {vajni}, {fasnu}, {cizra}.</notes>
+  <glossword word="grandiose" />
   <glossword word="magnifique" />
   <glossword word="formidable" />
-  <glossword word="grandiose" />
 </valsi>
 <valsi word="banro" type="gismu">
   <rafsi>ba&apos;o</rafsi>
@@ -231,9 +231,9 @@
   <definition>$x_1$ grandit/grossit/croît, atteignant la forme/taille $x_2$ depuis la forme/grandeur initiale $x_3$</definition>
   <definitionid>20630</definitionid>
   <notes>Aussi &quot;développer&quot;; x1 devient plus large/plus grand/plus imposant [développement croissant]. Voir également {farvi}, {zenba}, {jmina}, {barda}, {makcu}, {ferti}.</notes>
+  <glossword word="grandir" />
   <glossword word="croître" />
   <glossword word="se développer" />
-  <glossword word="grandir" />
 </valsi>
 <valsi word="banxa" type="gismu">
   <rafsi>bax</rafsi>
@@ -244,8 +244,8 @@
   <definition>$x_1$ est une banque appartenant à/utilisant le système $x_2$, pour la fonction bancaire $x_3$ (évènement).</definition>
   <definitionid>20631</definitionid>
   <notes>Voir également {sorcu}, {zarci}, {canja}, {kagni}.</notes>
-  <glossword word="institution financiaire" />
   <glossword word="banque" />
+  <glossword word="institution financiaire" />
 </valsi>
 <valsi word="banzu" type="gismu">
   <rafsi>baz</rafsi>
@@ -324,8 +324,8 @@
   <definition>$x_1$ est/sont une/des marque(s)/tache(s) sur $x_2$, de matériau $x_3$.</definition>
   <definitionid>20657</definitionid>
   <notes>{ba&apos;armo&apos;a} pour la forme/le motif des marques. Voir également {sinxa}, {pixra}, {se} {ciska}, {se} {prina}.</notes>
-  <glossword word="marque" />
   <glossword word="tache" />
+  <glossword word="marque" />
 </valsi>
 <valsi word="bartu" type="gismu">
   <rafsi>bar</rafsi>
@@ -336,8 +336,8 @@
   <definition>$x_1$ est à l&apos;extérieur de $x_2$.</definition>
   <definitionid>20658</definitionid>
   <notes>Voir également {jibni}, {nenri}, {sruri}, {lamji}, {korbi}, {calku}, {vasru}.</notes>
-  <glossword word="dehors" />
   <glossword word="extérieur" />
+  <glossword word="dehors" />
 </valsi>
 <valsi word="basna" type="gismu">
   <user>
@@ -358,9 +358,9 @@
   <definition>$x_1$ remplace/est un substitut pour/au lieu de $x_2$, lorsque $x_3$ (circonstance).</definition>
   <definitionid>20660</definitionid>
   <notes>Aussi, &quot;x1 échange de place avec x2&quot;. Voir également {binra}, {ba&apos;i}.</notes>
+  <glossword word="se substituer" />
   <glossword word="échanger" sense="mutuellement" />
   <glossword word="remplacer" />
-  <glossword word="se substituer" />
 </valsi>
 <valsi word="batci" type="gismu">
   <rafsi>bat</rafsi>
@@ -371,8 +371,8 @@
   <definition>$x_1$ mord/pince $x_2$ à (spécifique) $x_3$ avec (dents/doigts) $x_4$.</definition>
   <definitionid>20661</definitionid>
   <notes>&quot;Mordre au travers de&quot; = {ka&apos;arbatci}, {batygre}; &quot;pincer&quot; = {cinzybatci}; Voir également {denci}, {jgalu}, {guska}, {citka}.</notes>
-  <glossword word="pincer" />
   <glossword word="mordre" />
+  <glossword word="pincer" />
 </valsi>
 <valsi word="batke" type="gismu">
   <user>
@@ -450,8 +450,8 @@
   <definitionid>20685</definitionid>
   <notes>x1 est une masse. x2 est un ensemble complètement spécifié. Aussi, &quot;orchestre&quot;: {zgibe&apos;e}, {balzgibe&apos;e}; &quot;entreprise&quot;, pas nécessairement une corporation: {cajbe&apos;e}, {venbe&apos;e}. Voir également {gunma}, {girzu}, {dansu}, {jatna}, {jitro}, {kagni}, {kamni}, {minde}, {ralju}, {cecmu}, {gidva}.</notes>
   <glossword word="équipe" />
-  <glossword word="groupe" />
   <glossword word="gang" />
+  <glossword word="groupe" />
   <keyword word="leader" place="1" />
 </valsi>
 <valsi word="bengo" type="gismu">
@@ -500,8 +500,8 @@
   <definition>$x_1$ est au nord de/septentional à $x_2$ selon le référentiel $x_3$.</definition>
   <definitionid>20694</definitionid>
   <notes>Voir également {snanu}, {stici}, {stuna}, {farna}.</notes>
-  <glossword word="nord" />
   <glossword word="septentional" />
+  <glossword word="nord" />
 </valsi>
 <valsi word="besna" type="gismu">
   <rafsi>ben</rafsi>
@@ -569,8 +569,8 @@
   </user>
   <definition>$x_1$ regarde / observe $x_2$</definition>
   <definitionid>20498</definitionid>
-  <glossword word="regarder" />
   <glossword word="observer" />
+  <glossword word="regarder" />
 </valsi>
 <valsi word="citka" type="gismu">
   <rafsi>cti</rafsi>
@@ -637,8 +637,8 @@
   <definition>$x_1$ (zo / li&apos;u) [une citation] est le nom / titre / étiquette que porte $x_2$ utilisé par $x_3$ [une personne/communauté]</definition>
   <definitionid>20586</definitionid>
   <glossword word="étiquette" />
-  <glossword word="nom" />
   <glossword word="titre" />
+  <glossword word="nom" />
 </valsi>
 <valsi word="cusku" type="gismu">
   <rafsi>cus</rafsi>
@@ -678,9 +678,9 @@
   <definition>La date [jour,semaine,mois,an] $x_1=d_1=k_1$ est la répétition de la date [jour,semaine,mois,an] du premier évènement $x_2=d_2$, pour la $x_3=k_3$-ème, à l&apos;endroit $x_4=d_3$, selon le calendrier $x_5=d_4$.</definition>
   <definitionid>57278</definitionid>
   <notes>{detri} zei {krefu}. krefu_2 correspond à la date du premier évènement, mais la place est omise pour la simplicité. $x_5=d_4$ peut indiquer le système de la répétition: un jour de la semaine/du mois; un jour/mois de l&apos;an (anniversaire); un an du centenaire etc. ex.) li renopavo pi&apos;e pano pi&apos;e re detke&apos;u lo nu la gandis noi banli cu jbena kei li pavomu zo&apos;e lo pa nanca be fi la gregoris (Le 2 octobre 2014 est le 145e anniversaire de la naissance de Mahatma Gandhi compté selon l&apos;an du calendrier grégorien.)</notes>
+  <glossword word="millénaire" />
   <glossword word="anniversaire" />
   <glossword word="centenaire" />
-  <glossword word="millénaire" />
 </valsi>
 <valsi unofficial="true" word="digno" type="experimental gismu">
   <user>
@@ -701,8 +701,8 @@
   </user>
   <definition>$x_1$ sait $x_2$ (du&apos;u) sur le sujet / domaine $x_3$ par épistémologie $x_4$</definition>
   <definitionid>20501</definitionid>
-  <glossword word="connaître" />
   <glossword word="savoir" />
+  <glossword word="connaître" />
 </valsi>
 <valsi word="drani" type="gismu">
   <rafsi>dra</rafsi>
@@ -712,9 +712,9 @@
   </user>
   <definition>$x_1$ est correct / juste / parfait sous l&apos;aspect (ka) $x_2$ dans la situation / le contexte $x_3$ d&apos;après $x_4$ (norme / standard)</definition>
   <definitionid>20584</definitionid>
-  <glossword word="parfait" />
-  <glossword word="correct" />
   <glossword word="juste" />
+  <glossword word="correct" />
+  <glossword word="parfait" />
 </valsi>
 <valsi word="drata" type="gismu">
   <rafsi>dat</rafsi>
@@ -725,8 +725,8 @@
   <definition>$x_1$ n&apos;est pas la même chose que / est différent de $x_2$ d&apos;après $x_3$ (norme/standard)</definition>
   <definitionid>20589</definitionid>
   <glossword word="autre" />
-  <glossword word="différent" />
   <glossword word="pas la même chose" />
+  <glossword word="différent" />
 </valsi>
 <valsi word="ernace" type="fu'ivla">
   <user>
@@ -756,8 +756,8 @@
   </user>
   <definition>$x_1$ (personne) est fou/dérangé selon le standard $x_2$</definition>
   <definitionid>53191</definitionid>
-  <glossword word="dérangé" />
   <glossword word="fou" sense="personne" />
+  <glossword word="dérangé" />
 </valsi>
 <valsi word="fragari" type="fu'ivla">
   <user>
@@ -777,8 +777,8 @@
   </user>
   <definition>$x_1$ [entité capable d&apos;exercer un choix librement] est la cause de / fait en sorte que se produise $x_2$</definition>
   <definitionid>20583</definitionid>
-  <glossword word="causer" />
   <glossword word="faire en sorte" />
+  <glossword word="causer" />
 </valsi>
 <valsi word="gastcica" type="lujvo">
   <user>
@@ -876,8 +876,8 @@
   </user>
   <definition>$x_1$ est attentif / prête attention à $x_2$</definition>
   <definitionid>32225</definitionid>
-  <glossword word="prêter attention" />
   <glossword word="attentif" />
+  <glossword word="prêter attention" />
 </valsi>
 <valsi word="kamxada" type="fu'ivla">
   <user>
@@ -930,6 +930,17 @@
   <definitionid>42257</definitionid>
   <notes>Voir aussi {badri}, {krixa}.</notes>
   <glossword word="pleurer" />
+</valsi>
+<valsi unofficial="true" word="ko'oi" type="experimental cmavo">
+  <selmaho>UI6</selmaho>
+  <user>
+    <username>gusnikantu</username>
+    <realname>guskant</realname>
+  </user>
+  <definition>impératif d&apos;attitude</definition>
+  <definitionid>60517</definitionid>
+  <notes>``{ko}&apos;&apos; est une abréviation de &apos;&apos;{do} {ko&apos;oi}&apos;&apos;; sens large que les mots {au}, {a&apos;o}, {e&apos;o}, {e&apos;u}, {e&apos;a}, {ei}; {minde}, {cpedu}, {curmi}, {pacna}, {stidi}, {djica}, {bilga}</notes>
+  <glossword word="impératif" sense="d&apos;attitude" />
 </valsi>
 <valsi word="korgretro" type="lujvo">
   <user>
@@ -987,12 +998,12 @@
   <definition>$x_1$ est une quantité de duvet / peluche / bourre qui a / est de la composition / la structure / caractérisation / substance $x_2$ ; $x_1$ est  pelucheux / duveteux  / moelleux / aéré / flou dans la texture.</definition>
   <definitionid>56599</definitionid>
   <notes>Visuel et tactile. x1 est probablement un peu malléable, mais ce mot n&apos;a pas de telles implications en soi; porosité ou moussité est pas non plus implicite. Pourraient également inclure &quot;moelleux&quot;, &quot;comme le coton&quot;, &quot;comme la laine&quot;; une nature fractale pourrait être présent. Pour flou: il n&apos;est pas nécessairement poilu ou velu, mais doit être doux; pas hérissé (ce qui implique la rigidité, raideur, et dureté). Voyez aussi: {ranti}, {rufsu}, {xutla}, {panje}, {dilnu}, {mapni}, {sunla}, {fonmo}, {jduli}, {pesxu}, {marji}.</notes>
-  <glossword word="bourre" sense="duvet, peluche" />
   <glossword word="duvet" sense="peluche, bourre" />
   <glossword word="duveteux" sense="moelleux, pelucheux" />
   <glossword word="moelleux" sense="duveteux" />
   <glossword word="peluche" sense="duvet" />
   <glossword word="pelucheux" sense="duveteux, moelleux" />
+  <glossword word="bourre" sense="duvet, peluche" />
 </valsi>
 <valsi word="melbi" type="gismu">
   <rafsi>mel</rafsi>
@@ -1003,9 +1014,9 @@
   </user>
   <definition>$x_1$ (objet/idée) est beau pour $x_2$ (observateur) selon $x_3$ (norme/standard)</definition>
   <definitionid>36677</definitionid>
-  <glossword word="belle" />
-  <glossword word="beau" />
   <glossword word="joli" />
+  <glossword word="beau" />
+  <glossword word="belle" />
 </valsi>
 <valsi word="mlongena" type="fu'ivla">
   <user>
@@ -1061,8 +1072,8 @@
   </user>
   <definition>$x_1$ adore / apprécie fortement $x_2$ [un objet / un état]</definition>
   <definitionid>20496</definitionid>
-  <glossword word="apprécier" />
   <glossword word="adorer" />
+  <glossword word="apprécier" />
 </valsi>
 <valsi word="nerkla" type="lujvo">
   <user>
@@ -1111,8 +1122,8 @@
   </user>
   <definition>$x_1$ est l&apos;ami de $x_2$</definition>
   <definitionid>32232</definitionid>
-  <glossword word="amitié" />
   <glossword word="ami" />
+  <glossword word="amitié" />
 </valsi>
 <valsi word="pensi" type="gismu">
   <rafsi>pes</rafsi>
@@ -1123,8 +1134,8 @@
   </user>
   <definition>$x_1$ penser / réfléchir au concept / sujet $x_2$</definition>
   <definitionid>20588</definitionid>
-  <glossword word="réfléchir" />
   <glossword word="penser" />
+  <glossword word="réfléchir" />
 </valsi>
 <valsi word="pilno" type="gismu">
   <rafsi>pli</rafsi>
@@ -1178,9 +1189,9 @@
   <definitionid>42597</definitionid>
   <notes>jai prugastcica pour un objet $x_1$; {pu} {ganse} {tcica}; {gastcica}, {narprugastcica}</notes>
   <glossword word="déjà-senti" />
-  <glossword word="déjà-visité" />
   <glossword word="déjà-vu" />
   <glossword word="déjà-vécu" />
+  <glossword word="déjà-visité" />
 </valsi>
 <valsi word="ractu" type="gismu">
   <user>
@@ -1210,9 +1221,19 @@
     <username>JeromeJ</username>
     <realname>Jrme J</realname>
   </user>
-  <definition>Nom qui se joint à un adjectif numéral pour indiquer qu’un fait s’est produit ou s’est répété; Par défaut dix fois.</definition>
+  <definition>Nom qui se joint à un adjectif numéral pour indiquer qu’un fait s’est produit ou s’est répété; Par défaut de temps.</definition>
   <definitionid>42259</definitionid>
   <glossword word="fois" sense="nom commun" />
+</valsi>
+<valsi word="selbrisle" type="lujvo">
+  <user>
+    <username>gusnikantu</username>
+    <realname>guskant</realname>
+  </user>
+  <definition>$x_1$ est une unité de tanru.</definition>
+  <definitionid>60502</definitionid>
+  <notes>{selbri} {selci}</notes>
+  <keyword word="unité de tanru" place="1" />
 </valsi>
 <valsi word="selklucipra" type="lujvo">
   <user>
@@ -1322,8 +1343,8 @@
   </user>
   <definition>$x_1$ habite / réside / demeure au domicile / foyer / nid $x_2$</definition>
   <definitionid>32227</definitionid>
-  <glossword word="habiter" />
   <glossword word="résider" />
+  <glossword word="habiter" />
 </valsi>
 <valsi word="xanto" type="gismu">
   <user>
@@ -1333,8 +1354,8 @@
   <definition>$x_1$ est un éléphant d&apos;espèce $x_2$</definition>
   <definitionid>14471</definitionid>
   <notes>voir aussi {mabru}, {barda}</notes>
-  <glossword word="éléphant" />
   <glossword word="espèce d&apos;éléphant" />
+  <glossword word="éléphant" />
 </valsi>
 <valsi word="xruba" type="gismu">
   <rafsi>xub</rafsi>
@@ -1346,9 +1367,9 @@
   <definitionid>15787</definitionid>
   <glossword word="rhubarbe" />
   <glossword word="sarrasin" />
-  <glossword word="parelle" />
-  <glossword word="oseille" />
   <glossword word="polygonacée" />
+  <glossword word="oseille" />
+  <glossword word="parelle" />
 </valsi>
 <valsi word="zdani" type="gismu">
   <rafsi>zda</rafsi>
@@ -1520,6 +1541,7 @@
 <nlword word="Canada" valsi="kenyDAS" />
 <nlword word="serveur" sense="Internet" valsi="kibyse&apos;u" place="1" />
 <nlword word="pleurer" valsi="klaku" />
+<nlword word="impératif" sense="d&apos;attitude" valsi="ko&apos;oi" />
 <nlword word="douane" valsi="korgretro" />
 <nlword word="justifier" valsi="krinu" />
 <nlword word="courbaril" valsi="kurbarile" />
@@ -1561,6 +1583,7 @@
 <nlword word="lapin" valsi="ractu" />
 <nlword word="cause" valsi="rinka" />
 <nlword word="fois" sense="nom commun" valsi="roi" />
+<nlword word="unité de tanru" valsi="selbrisle" place="1" />
 <nlword word="examen de culture" valsi="selklucipra" />
 <nlword word="dormir" valsi="sipna" />
 <nlword word="ordinateur" valsi="skami" />

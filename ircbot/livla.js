@@ -1046,12 +1046,11 @@ return coun;
 
 //NOW TRY TO OUTPUT SCORE LUJVO FROM GIVEN GISMU (OR OTHER VALSI)
 var triz=function(inp,flag,lng,xmlDoc){
+if (typeof lng==='undefined'){lng='en';}
 if (typeof xmlDoc==='undefined'){
 	var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 	xmlDoc = libxmljs.parseXml(content);
 }
-	if (typeof lng==='undefined'){lng='en';}
-	//inp is a space separate string
 	var ar=inp.trim().split(" ");
 	for(var l=0;l<ar.length;l++){
 		if (l==ar.length-1){
@@ -1123,7 +1122,6 @@ return rev;
 };
 
 var katna= function(lin,lng,flag,xmlDoc){
-//if (xulujvo(lin)!==true){return 'na lujvo';}
 	lin=jvokatna(lin).split(" ");
 	for (var o=0;o<lin.length;o++){
 		lin[o]=selrafsi(lin[o],xmlDoc);
@@ -1170,4 +1168,3 @@ console.log(path.join(__dirname,"../i/data","parsed-"+lng + ".js")
 };
 
 //sutsisningau();
-tordu("farvygau","en");

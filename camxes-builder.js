@@ -11,7 +11,7 @@ var buffer = new Buffer('var camxes = ');
 fs.writeSync(fd, buffer, 0, buffer.length);
 buffer = new Buffer(camxes.toSource());
 fs.writeSync(fd, buffer, 0, buffer.length);
-buffer = new Buffer('\n\nmodule.exports = camxes;');
+buffer = new Buffer('\n\nmodule.exports = camxes;\n\nterm = process.argv[2];\nparsed = camxes.parse(term);\nconsole.log(JSON.stringify(parsed));\n\n');
 fs.writeSync(fd, buffer, 0, buffer.length);
 fs.close(fd);
 

@@ -343,7 +343,7 @@ links_start = expr:(BEI_clause) {return ["links_start", expr];}
 
 //// EXP-MODIF: Making bare mex a legal quantifier (without vei)
 //// REVERTED
-quantifier = expr:(number !MOI_clause BOI_elidible free* / VEI_clause free* mex VEhO_elidible free*) {return _node("quantifier", expr); }
+quantifier = expr:(number BOI_elidible free* / VEI_clause free* mex VEhO_elidible free*) {return _node("quantifier", expr); }
 
 //;mex = mex_1 (operator mex_1)* / rp_clause
 

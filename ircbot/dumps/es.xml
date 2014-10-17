@@ -160,8 +160,8 @@
   </user>
   <definition>$x_1$ es una hierba de los dientes/paracress de la especie/variedad $x_2$</definition>
   <definitionid>18106</definitionid>
-  <glossword word="paracress" />
   <glossword word="hierba de los dientes" />
+  <glossword word="paracress" />
 </valsi>
 <valsi word="alba'aka" type="fu'ivla">
   <user>
@@ -1204,8 +1204,8 @@
   </user>
   <definition>dígito/número: 8 (dígito) (ocho)</definition>
   <definitionid>7382</definitionid>
-  <glossword word="ocho" />
   <glossword word="8" />
+  <glossword word="ocho" />
 </valsi>
 <valsi word="bidju" type="gismu">
   <user>
@@ -1414,8 +1414,8 @@
   </user>
   <definition>$x_1$ es un albaricoque/damasco de especie/variedad $x_2$</definition>
   <definitionid>15020</definitionid>
-  <glossword word="damasco" />
   <glossword word="albaricoque" />
+  <glossword word="damasco" />
 </valsi>
 <valsi word="birti" type="gismu">
   <rafsi>bit</rafsi>
@@ -2092,8 +2092,8 @@
   <definition>$cm_1$ is una geometría que describe a $cm_2=ca_1=t_1$ objeto geometrico.</definition>
   <definitionid>17499</definitionid>
   <notes>Hecho con {canlu}, {tarmi}, {cmaci}</notes>
-  <glossword word="geometria" />
   <glossword word="geometría" />
+  <glossword word="geometria" />
   <keyword word="geometría" place="1" />
   <keyword word="objeto geométrico" place="2" />
 </valsi>
@@ -2563,8 +2563,8 @@
   </user>
   <definition>dígito/número: 3 (dígito) (tres)</definition>
   <definitionid>4419</definitionid>
-  <glossword word="3" />
   <glossword word="tres" />
+  <glossword word="3" />
 </valsi>
 <valsi word="cibjgacmaci" type="lujvo">
   <user>
@@ -3678,8 +3678,8 @@
   </user>
   <definition>$x_1$ practica/se ejercita/se entrena/ensaya para/en acción/evento/función $x_2$</definition>
   <definitionid>16011</definitionid>
-  <glossword word="ensayar" />
   <glossword word="practicar" />
+  <glossword word="ensayar" />
 </valsi>
 <valsi word="cribe" type="gismu">
   <rafsi>rib</rafsi>
@@ -3762,9 +3762,9 @@
   </user>
   <definition>$x_1$ es un pucuyo/chotacabras/guabairo de especie $x_2$</definition>
   <definitionid>15696</definitionid>
-  <glossword word="guabairo" />
   <glossword word="pucuyo" />
   <glossword word="chotacabras" />
+  <glossword word="guabairo" />
 </valsi>
 <valsi word="cteki" type="gismu">
   <rafsi>tek</rafsi>
@@ -4488,8 +4488,8 @@
   <definition>$x_1$ se compone de denim de material / composición $x_2$; $x_1$ contiene denim del tipo $x_2$; $x_1$ es una cantidad de dril de algodón (el material de tela de mezclilla/pantalones vaqueros); $x_1$ es denim [tipo de tejido / material].</definition>
   <definitionid>56620</definitionid>
   <notes>Confer: {bukpu}, {bluji}</notes>
-  <glossword word="denim" sense="material" />
   <glossword word="mezclilla" sense="tejido / material" />
+  <glossword word="denim" sense="material" />
   <glossword word=" dril de algodón" sense="material de tela de mezclilla / pantalones vaqueros" />
 </valsi>
 <valsi word="degji" type="gismu">
@@ -6339,8 +6339,8 @@
   </user>
   <definition>$x_1$ es una fresa/frutilla de especie/variedad $x_2$</definition>
   <definitionid>15024</definitionid>
-  <glossword word="fresa" />
   <glossword word="frutilla" />
+  <glossword word="fresa" />
 </valsi>
 <valsi word="frambesi" type="fu'ivla">
   <user>
@@ -6349,9 +6349,9 @@
   </user>
   <definition>$x_1$ es una frambuesa/zarzamora/zarza de especie/variedad $x_2$</definition>
   <definitionid>15025</definitionid>
+  <glossword word="zarzamora" />
   <glossword word="frambuesa" />
   <glossword word="zarza" />
-  <glossword word="zarzamora" />
 </valsi>
 <valsi word="fraso" type="gismu">
   <rafsi>fas</rafsi>
@@ -6708,7 +6708,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>$x_{1}$ está cerrado/clausurado</definition>
+  <definition>$x_{1}$ está cerrado/clausurado a lado $x_{2}$ por paseante $x_{3}$</definition>
   <definitionid>4687</definitionid>
   <notes>Ver también {kalri}.</notes>
 </valsi>
@@ -7339,8 +7339,8 @@
   </user>
   <definition>$x_1$ es una ananá/piña de la especie/variedad $x_2$.</definition>
   <definitionid>18143</definitionid>
-  <glossword word="piña" sense="fruta" />
   <glossword word="ananá" />
+  <glossword word="piña" sense="fruta" />
 </valsi>
 <valsi word="gu" type="cmavo">
   <selmaho>GA</selmaho>
@@ -8863,8 +8863,8 @@
   <definition>$x_1$ es una cantidad de niobio (Nb)</definition>
   <definitionid>13587</definitionid>
   <notes>Ver también {jinme}</notes>
-  <glossword word="Nb" />
   <glossword word="niobio" />
+  <glossword word="Nb" />
 </valsi>
 <valsi word="jinru" type="gismu">
   <rafsi>jir</rafsi>
@@ -9618,7 +9618,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>$x_{1}$ está abierto</definition>
+  <definition>$x_{1}$ está abierto a lado $x_{2}$ por paseante $x_{3}$</definition>
   <definitionid>4858</definitionid>
   <notes>Ver también {ganlo}.</notes>
 </valsi>
@@ -10514,8 +10514,8 @@
   </user>
   <definition>$x_1$ es un hámster / miembro de la subfamilia de roedores Cricetinae, de la variedad / (sub)taxón / especie / género / raza $x_2$</definition>
   <definitionid>56805</definitionid>
-  <glossword word="Cricetinae" sense="subfamilia de roedores" />
   <glossword word="hámster" sense="miembro de la subfamilia de roedores Cricetinae" />
+  <glossword word="Cricetinae" sense="subfamilia de roedores" />
 </valsi>
 <valsi word="krili" type="gismu">
   <user>
@@ -12221,11 +12221,11 @@
   <definition>$x_1$ es una cantidad de pelusa de composición / estructura / caracterización / sustancia $x_2$ ; $x_1$ es mullido / aireado / suave / borroso en la textura</definition>
   <definitionid>56600</definitionid>
   <notes>Visual y táctil. Es posiblemente maleable, pero esta palabra no tiene tales implicaciones inherentemente; del mismo modo, porosidad o espumosidad no están implicados. El significado también puede incluir &quot;acolchada&quot;, &quot;como el algodón&quot;, y &quot;como la lana&quot;; una naturaleza fractal puede estar presente. Para borrosidad: no es necesariamente peludo, pero debe ser suave; no cerdoso o erizado (que implica rigidez y dureza). Vea usted también: {ranti}, {rufsu}, {xutla}, {panje}, {dilnu}, {mapni}, {sunla}, {fonmo}, {jduli}, {pesxu}, {marji}.</notes>
-  <glossword word="suave" sense="pelusa" />
-  <glossword word="pelusa" />
-  <glossword word="mullido" sense="pelusa" />
   <glossword word="aireado" sense="pelusa; no necesariamente espumosa" />
   <glossword word="borroso" sense="suave, pelusa, mullido; no necesariamente peludo; no cerdoso o erizado" />
+  <glossword word="suave" sense="pelusa" />
+  <glossword word="mullido" sense="pelusa" />
+  <glossword word="pelusa" />
 </valsi>
 <valsi word="mapti" type="gismu">
   <rafsi>mat</rafsi>
@@ -12466,8 +12466,8 @@
   </user>
   <definition>$x_1$ es tuyo entre $x_3$ por regla/relación $x_3$; $x_1$ es tu $x_3$ por regla/relación $x_3$; </definition>
   <definitionid>13698</definitionid>
-  <glossword word="tuyo" />
   <glossword word="tu" />
+  <glossword word="tuyo" />
 </valsi>
 <valsi word="me'e" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -12519,8 +12519,8 @@
   </user>
   <definition>dígito/número: menor que; no todo (me&apos;i[ro])</definition>
   <definitionid>7394</definitionid>
-  <glossword word="no todo" />
   <glossword word="menor que" />
+  <glossword word="no todo" />
 </valsi>
 <valsi word="mekso" type="gismu">
   <rafsi>mek</rafsi>
@@ -12563,8 +12563,8 @@
   </user>
   <definition>$x_1$ es mío entre $x_2$ por regla/relación $x_3$; $x_1$ es mi $x_2$ por regla/relación $x_3$</definition>
   <definitionid>13694</definitionid>
-  <glossword word="mi" />
   <glossword word="mío" />
+  <glossword word="mi" />
 </valsi>
 <valsi word="menli" type="gismu">
   <rafsi>men</rafsi>
@@ -13456,8 +13456,8 @@
   </user>
   <definition>dígito/número: 5 (dígito) (cinco)</definition>
   <definitionid>7379</definitionid>
-  <glossword word="cinco" />
   <glossword word="5" />
+  <glossword word="cinco" />
 </valsi>
 <valsi word="mu'a" type="cmavo">
   <selmaho>UI3</selmaho>
@@ -14315,8 +14315,8 @@
   </user>
   <definition>$x_1$ is ñengatú/tupí/guaraní en el aspecto $x_2$</definition>
   <definitionid>18122</definitionid>
-  <glossword word="ñengatú" />
   <glossword word="guaraní" />
+  <glossword word="ñengatú" />
   <glossword word="tupí" />
 </valsi>
 <valsi word="ni'i" type="cmavo">
@@ -14614,9 +14614,9 @@
   <definition>$x_1$ es indiferente/apático/desapasionado hacia/con $x_2$</definition>
   <definitionid>14131</definitionid>
   <notes>Ver también {iucu&apos;i}</notes>
+  <glossword word="desapasionado" />
   <glossword word="apático" />
   <glossword word="indiferente" />
-  <glossword word="desapasionado" />
 </valsi>
 <valsi word="notci" type="gismu">
   <rafsi>not</rafsi>
@@ -15068,8 +15068,8 @@
   </user>
   <definition>dígito/número: 1 (dígito) (uno)</definition>
   <definitionid>5140</definitionid>
-  <glossword word="1" />
   <glossword word="uno" />
+  <glossword word="1" />
 </valsi>
 <valsi word="pa'a" type="cmavo">
   <selmaho>BAI</selmaho>
@@ -16061,8 +16061,8 @@
   </user>
   <definition>$x_1$ es una foca/león marino/morsa de especie $x_2$</definition>
   <definitionid>15034</definitionid>
-  <glossword word="foca" />
   <glossword word="león marino" />
+  <glossword word="foca" />
   <glossword word="morsa" />
 </valsi>
 <valsi word="pinsi" type="gismu">
@@ -16518,8 +16518,8 @@
   <definitionid>17292</definitionid>
   <notes>Formado con {cupra}, {jicmu}. Ver también. {cupra}, {zbasu}, {jdini}.</notes>
   <glossword word="medio de producción" />
-  <glossword word="medios de producción" />
   <glossword word="capital" sense="medios de producción" />
+  <glossword word="medios de producción" />
 </valsi>
 <valsi word="prali" type="gismu">
   <rafsi>pal</rafsi>
@@ -16607,10 +16607,10 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>$x_{1}$ imprime/estampa/tatúa $x_{2}$ sobre $x_{3}$ con prensa/impresora/instrumento $x_{4}$</definition>
+  <definition>$x_{1}$ es una impresión/estampado/tatuaje/imagen/huella sobre $x_{2}$ con prensa/impresora/instrumento $x_{3}$</definition>
   <definitionid>5224</definitionid>
   <notes>Ver también {guska},  {ciska}.</notes>
-  <glossword word="imprimir" />
+  <glossword word="impresión" />
 </valsi>
 <valsi word="pritu" type="gismu">
   <user>
@@ -17888,8 +17888,8 @@
   </user>
   <definition>convierte número en modificador de intervalo cuantificado; por defecto temporal</definition>
   <definitionid>7443</definitionid>
-  <glossword word="veces" />
   <glossword word="tiempo verbal cuantificado" />
+  <glossword word="veces" />
 </valsi>
 <valsi word="ro'i" type="cmavo">
   <selmaho>UI4</selmaho>
@@ -17931,8 +17931,8 @@
   <definition>$x_1$ es una cantidad de litio (Li)</definition>
   <definitionid>13584</definitionid>
   <notes>Ver {rokci}, {sodna}</notes>
-  <glossword word="litio" />
   <glossword word="Li" />
+  <glossword word="litio" />
 </valsi>
 <valsi word="romai" type="cmavo-compound">
   <selmaho>MAI*</selmaho>
@@ -18397,8 +18397,8 @@
   </user>
   <definition>$x_1$ es un salmón/trucha de especie $x_2$</definition>
   <definitionid>15037</definitionid>
-  <glossword word="trucha" />
   <glossword word="salmón" />
+  <glossword word="trucha" />
 </valsi>
 <valsi word="salpo" type="gismu">
   <rafsi>sa&apos;o</rafsi>
@@ -18449,9 +18449,9 @@
   <definition>$p_1$ es un proceso de una computadora con la entrada (input) $p_2$ y con resultado $p_3$, pasando por los estados/etapas $p_4$, en la computadora $s_1$.</definition>
   <definitionid>18104</definitionid>
   <notes>Ver también {skami} and {pruce}.</notes>
-  <glossword word="programa" sense="programa de computadora" />
-  <glossword word="proceso de computadora" />
   <glossword word="proceso" sense="proceso de computadora" />
+  <glossword word="proceso de computadora" />
+  <glossword word="programa" sense="programa de computadora" />
 </valsi>
 <valsi word="sance" type="gismu">
   <rafsi>sna</rafsi>
@@ -20466,8 +20466,8 @@
   </user>
   <definition>$x_1$ es potasio (K)</definition>
   <definitionid>14563</definitionid>
-  <glossword word="K" sense="elemento" />
   <glossword word="potasio" />
+  <glossword word="K" sense="elemento" />
 </valsi>
 <valsi word="sodva" type="gismu">
   <rafsi>sod</rafsi>
@@ -20581,8 +20581,8 @@
   <definition>$x_1$ es una cantidad de helio (He)</definition>
   <definitionid>13586</definitionid>
   <notes>Ver también {solri}, {navni}</notes>
-  <glossword word="helio" />
   <glossword word="He" />
+  <glossword word="helio" />
 </valsi>
 <valsi word="solri" type="gismu">
   <rafsi>sol</rafsi>
@@ -21410,8 +21410,8 @@
   </user>
   <definition>pro-sumti: ése/ésa/eso; demostrativo cercano; indica algo cercano a quien escucha</definition>
   <definitionid>6230</definitionid>
-  <glossword word="ése" />
   <glossword word="eso" />
+  <glossword word="ése" />
 </valsi>
 <valsi word="ta'a" type="cmavo">
   <selmaho>COI</selmaho>
@@ -22833,8 +22833,8 @@
   <definition>$x_1$ es un perjuicio/pérdida contra $x_2$ ocasionado por evento $x_3$</definition>
   <definitionid>13379</definitionid>
   <notes>Ver también {prali}</notes>
-  <glossword word="perjuicio" />
   <glossword word="pérdida" sense="perjuicio" />
+  <glossword word="perjuicio" />
 </valsi>
 <valsi word="tolsi'a" type="lujvo">
   <user>
@@ -23090,8 +23090,8 @@
   </user>
   <definition>pro-sumti: aquél/aquélla/aquello; demostrativo distante; indica algo alejado de quien habla y quien escucha</definition>
   <definitionid>6231</definitionid>
-  <glossword word="aquél" />
   <glossword word="aquello" />
+  <glossword word="aquél" />
 </valsi>
 <valsi word="tu'a" type="cmavo">
   <selmaho>LAhE</selmaho>
@@ -23535,8 +23535,8 @@
   </user>
   <definition>$x_1$ es un roble/zumaque de especie/variedad $x_2$</definition>
   <definitionid>15043</definitionid>
-  <glossword word="roble" />
   <glossword word="zumaque" />
+  <glossword word="roble" />
 </valsi>
 <valsi word="uu" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -24351,8 +24351,8 @@
   </user>
   <definition>dígito/número: 4 (dígito) (cuatro)</definition>
   <definitionid>7378</definitionid>
-  <glossword word="cuatro" />
   <glossword word="4" />
+  <glossword word="cuatro" />
 </valsi>
 <valsi word="vo'a" type="cmavo">
   <selmaho>KOhA4</selmaho>
@@ -24673,8 +24673,8 @@
   </user>
   <definition>dígito/número: 6 (dígito) (seis)</definition>
   <definitionid>7380</definitionid>
-  <glossword word="seis" />
   <glossword word="6" />
+  <glossword word="seis" />
 </valsi>
 <valsi word="xabju" type="gismu">
   <rafsi>xa&apos;u</rafsi>
@@ -24927,8 +24927,8 @@
   </user>
   <definition>$x_1$ es una alcachofa/alcaucil de especie/variedad</definition>
   <definitionid>15044</definitionid>
-  <glossword word="alcachofa" />
   <glossword word="alcaucil" />
+  <glossword word="alcachofa" />
 </valsi>
 <valsi word="xarju" type="gismu">
   <rafsi>xaj</rafsi>
@@ -25674,8 +25674,8 @@
   </user>
   <definition>dígito/número: 7 (dígito) (siete)</definition>
   <definitionid>7381</definitionid>
-  <glossword word="siete" />
   <glossword word="7" />
+  <glossword word="siete" />
 </valsi>
 <valsi word="ze'a" type="cmavo">
   <selmaho>ZEhA</selmaho>
@@ -26986,8 +26986,8 @@
 <nlword word="cambio a griego" valsi="ge&apos;o" />
 <nlword word="can" sense="animal" valsi="gerku" />
 <nlword word="especie" sense="de perro" valsi="gerku" />
-<nlword word="perro" valsi="gerku" />
 <nlword word="perro" sense="animal" valsi="gerku" />
+<nlword word="perro" valsi="gerku" />
 <nlword word="raza" sense="de perro" valsi="gerku" />
 <nlword word="gramatica" valsi="gerna" />
 <nlword word="fin de frase relativa" valsi="ge&apos;u" />
@@ -27946,6 +27946,7 @@
 <nlword word="expandirse" valsi="preja" />
 <nlword word="persona" valsi="prenu" />
 <nlword word="sabio" valsi="prije" />
+<nlword word="impresión" valsi="prina" />
 <nlword word="imprimir" valsi="prina" />
 <nlword word="derecha" valsi="pritu" />
 <nlword word="prosa" valsi="prosa" />

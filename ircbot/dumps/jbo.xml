@@ -280,8 +280,8 @@
   </user>
   <definition>cnima&apos;o .i citmle u&apos;unai     .i kansa zo nai poi na&apos;e citmle u&apos;unaicu&apos;i     .i kansa zo cu&apos;i poi to&apos;e citmle u&apos;u</definition>
   <definitionid>57085</definitionid>
-  <glossword word="citmle" sense="u&apos;unai" />
   <glossword word="au&apos;u" sense="u&apos;unai" />
+  <glossword word="citmle" sense="u&apos;unai" />
 </valsi>
 <valsi word="ba" type="cmavo">
   <selmaho>PU</selmaho>
@@ -544,8 +544,8 @@
   <definition>$x_1$ marce $x_2$ no&apos;u so&apos;i prenu $x_3$ boi $x_4$</definition>
   <definitionid>19258</definitionid>
   <notes>mintu zo {sorprema&apos;e} gi&apos;e se cmima zo {sorprekarce} .i basfa gi&apos;u pilno lo dargu</notes>
-  <glossword word="sorprema&apos;e" />
   <glossword word="basfa" />
+  <glossword word="sorprema&apos;e" />
 </valsi>
 <valsi word="basysi'u" type="lujvo">
   <user>
@@ -819,6 +819,15 @@
   <definitionid>2569</definitionid>
   <glossword word="8" />
   <glossword word="bi" />
+</valsi>
+<valsi unofficial="true" word="bi'ai" type="experimental cmavo">
+  <selmaho>CAhA</selmaho>
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>sumtcita lo ka ce&apos;u ce&apos;u se narfaunarcu&apos;i</definition>
+  <definitionid>60529</definitionid>
 </valsi>
 <valsi word="bicysakta" type="lujvo">
   <user>
@@ -1097,7 +1106,7 @@
   </user>
   <definition>$ba_1=br_1$ bakfu loi bratu</definition>
   <definitionid>52801</definitionid>
-  <notes>.e&apos;u ko catlu tu&apos;a zo {bratu} .e zo {bakfu}</notes>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {bratu} .e zo {bakfu}</notes>
 </valsi>
 <valsi word="bratycarvi" type="lujvo">
   <user>
@@ -1905,6 +1914,14 @@
   <definition>$x_1$ manri $x_2$ lo nu karbi lo klani lo gradu $x_2$</definition>
   <definitionid>15821</definitionid>
   <notes>{manri}, {karbi}, {klani}, {gradu}</notes>
+</valsi>
+<valsi word="ckupoi" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>$x_1=p_1$ porsi fi $x_2=c_1=p_3$ noi cukta</definition>
+  <definitionid>60513</definitionid>
 </valsi>
 <valsi word="ckupra" type="lujvo">
   <user>
@@ -2776,6 +2793,15 @@
   </user>
   <definition>$b_1$ burcu lo nu lumci lo denci kei $b_3$</definition>
   <definitionid>52780</definitionid>
+</valsi>
+<valsi word="denpa bu" type="bu-letteral">
+  <selmaho>BY*</selmaho>
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>lu denpa bu li&apos;u bu&apos;ivla zoi ly...ly.</definition>
+  <definitionid>60523</definitionid>
 </valsi>
 <valsi word="de'o" type="cmavo">
   <selmaho>VUhU3</selmaho>
@@ -4270,7 +4296,7 @@
     <username>selpahi</username>
     <realname>Miles Forster</realname>
   </user>
-  <definition>lo nu zi&apos;o pagre $x_1$ boi (to noi vorme toi) $x_2$ boi $x_3$ cu se zunti zi&apos;o zi&apos;o</definition>
+  <definition>lo nu pagre $x_1$ boi (to noi vorme toi) $x_2$ fa $x_3$ fo zi&apos;o cu se zunti zi&apos;o zi&apos;o</definition>
   <definitionid>41648</definitionid>
   <notes>ko catlu fe ji&apos;a zo {kalri} .e zo {pagre} .e zo {canko} .e zo {vorme} .e zo {zunti}</notes>
   <glossword word="ganlo" />
@@ -6015,6 +6041,14 @@
   <notes>{doi}, {judgau}</notes>
   <glossword word="ju&apos;i" />
 </valsi>
+<valsi word="juknyxarju" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>$x_1$ ckaji ro selkai be lo jukni xarju</definition>
+  <definitionid>60552</definitionid>
+</valsi>
 <valsi word="jungau" type="lujvo">
   <user>
     <username>xorxes</username>
@@ -6240,7 +6274,7 @@
     <username>selpahi</username>
     <realname>Miles Forster</realname>
   </user>
-  <definition>lo nu zi&apos;o pagre $x_1$ boi (to noi vorme toi) $x_2$ boi $x_3$ cu nalselzu&apos;i zi&apos;o zi&apos;o</definition>
+  <definition>lo nu pagre $x_1$ boi (to noi vorme toi) $x_2$ fa $x_3$ fo zi&apos;o cu nalselzu&apos;i zi&apos;o zi&apos;o</definition>
   <definitionid>41649</definitionid>
   <notes>ko catlu fe ji&apos;a zo {ganlo} .e zo {pagre} .e zo {canko} .e zo {vorme} .e zo {nalselzu&apos;i}</notes>
   <glossword word="kalri" />
@@ -6407,8 +6441,8 @@
   <definition>frica binxo lo zulgrici&apos;e pe tanru ja lujvo</definition>
   <definitionid>57057</definitionid>
   <notes>zo ke&apos;ei&apos;a se rafsi la kex. .i xruti frica binxo to balvi lo be zo ke&apos;ei frica binxo lo prutigrici&apos;e .ija balvi lo be zo ke&apos;ai frica binxo lo nalgrici&apos;e toi</notes>
-  <glossword word="zulgrici&apos;e" sense="ficybi&apos;o" />
   <glossword word="zunle girzu ciste" sense="frica binxo" />
+  <glossword word="zulgrici&apos;e" sense="ficybi&apos;o" />
 </valsi>
 <valsi word="kei" type="cmavo">
   <rafsi>kez</rafsi>
@@ -6999,8 +7033,8 @@
   <definition>jbocme fi&apos;o nafte&apos;i lo karsnarfa&apos;o .i lo za&apos;u pa cmene cu se jdijimte lo depybu&apos;i</definition>
   <definitionid>57054</definitionid>
   <notes>.i ji&apos;a pilno ka&apos;e fi lo sitsku be lo zunsnafamme&apos;e</notes>
-  <glossword word="lojbo cmene" sense="kalri sance fanmo" />
   <glossword word="jbome&apos;e" sense="karsnarfa&apos;o" />
+  <glossword word="lojbo cmene" sense="kalri sance fanmo" />
 </valsi>
 <valsi word="la'e" type="cmavo">
   <selmaho>LAhE</selmaho>
@@ -7941,7 +7975,7 @@
     <username>Ilmen</username>
     <realname>Ilmen</realname>
   </user>
-  <definition>$x_1$ me $x_2$ mei $x_3$ boi $x_4$</definition>
+  <definition>$x_1$ me $x_2$ mei $x_3$</definition>
   <definitionid>56585</definitionid>
 </valsi>
 <valsi word="memymau" type="lujvo">
@@ -9009,6 +9043,15 @@
   </user>
   <definition>$t_1$ na tinbe $t_2$ $t_3$</definition>
   <definitionid>52821</definitionid>
+</valsi>
+<valsi word="naryremda'u" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$d_1=r_1$ na remna gi&apos;e danlu $d_2$</definition>
+  <definitionid>60547</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {na} .e zo {remna} .e zo {danlu}</notes>
 </valsi>
 <valsi word="nau" type="cmavo">
   <selmaho>CUhE</selmaho>
@@ -11284,8 +11327,8 @@
   <definition>$x_1$ cusku $x_2$ noi preti $x_3$ boi $x_1$ boi $x_4$ ku&apos;o $x_4$ boi $x_5$</definition>
   <definitionid>20393</definitionid>
   <notes>ko catlu fe ji&apos;a zo {cusku} je zo {spusku} je zo {spuda} je zo {preti}</notes>
-  <glossword word="cusku lo preti" />
   <glossword word="retsku" />
+  <glossword word="cusku lo preti" />
 </valsi>
 <valsi word="re'u" type="cmavo">
   <selmaho>ROI</selmaho>
@@ -12512,7 +12555,7 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>$x_1$ litki $x_2$ gi&apos;e ba&apos;o lunba lo vacri gi&apos;e carvi fi lo varsenta</definition>
+  <definition>$x_1$ litki $x_2$ gi&apos;e ba&apos;o lunsa lo vacri gi&apos;e carvi fi lo varsenta</definition>
   <definitionid>15069</definitionid>
   <notes>{bratu}, {snime}, {carvi}</notes>
   <glossword word="sicpi" />
@@ -12734,6 +12777,15 @@
   <definitionid>35302</definitionid>
   <notes>.i .e&apos;u do catlu ge zo&apos;e ne zo {cusku} gi zo&apos;e ne zo {spuda}</notes>
 </valsi>
+<valsi word="slaka bu" type="bu-letteral">
+  <selmaho>BY*</selmaho>
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>lu slaka bu li&apos;u bu&apos;ivla zoi ly.,.ly.</definition>
+  <definitionid>60525</definitionid>
+</valsi>
 <valsi word="smaji" type="gismu">
   <rafsi>sma</rafsi>
   <user>
@@ -12881,8 +12933,8 @@
   <definition>.i lo ka solgu&apos;idicyborprami&apos;i cu ka ko&apos;a ko&apos;e ce&apos;ai ko&apos;a goi $x_1$ minji lo ka ce&apos;u tejaite cupra lo dikca lo gusni be ko&apos;a bei lo solri fai ko&apos;e goi $x_2$</definition>
   <definitionid>38163</definitionid>
   <notes>.i zo {minji} .e zo {cupra} .e zo {dikca} .e zo {gusni} .e zo {solri} zo&apos;u .e&apos;u zgana</notes>
-  <glossword word="solri ke dikca cupra minji" sense="minji lo ka cupra lo dikca" />
   <glossword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" />
+  <glossword word="solri ke dikca cupra minji" sense="minji lo ka cupra lo dikca" />
 </valsi>
 <valsi word="solgusli'i" type="lujvo">
   <user>
@@ -14541,8 +14593,8 @@
   <definition>$x_1$ tolyli&apos;a $x_2$ $x_3$</definition>
   <definitionid>53187</definitionid>
   <notes>ko catlu fe ji&apos;a zo {cliva} fa&apos;u zo {klama} fa&apos;u zo {tolyli&apos;a}</notes>
-  <glossword word="tolyli&apos;a" />
   <glossword word="to&apos;e cliva" />
+  <glossword word="tolyli&apos;a" />
   <glossword word="tsuku" />
 </valsi>
 <valsi word="tsustani" type="lujvo">

@@ -20,8 +20,8 @@
   <definition>态度词：刻意-不刻意-避免</definition>
   <definitionid>42460</definitionid>
   <notes>也可指“专心”。相关{jundi},{rivbi}</notes>
-  <glossword word="专心" />
   <glossword word="刻意" />
+  <glossword word="专心" />
 </valsi>
 <valsi word="a'e" type="cmavo">
   <selmaho>UI1</selmaho>
@@ -77,8 +77,8 @@
   <definition>$x_1$是用来拼写$x_2$语言的字母表</definition>
   <definitionid>16875</definitionid>
   <notes>参见：{selyle&apos;u}、{fu&apos;arka}、{anbani}、{abgida}、{abjadu}、{snile&apos;u}</notes>
-  <glossword word="字母" />
   <glossword word="字母表" />
+  <glossword word="字母" />
   <keyword word="字母表" place="1" />
   <keyword word="用字母来拼写的语言" place="2" />
 </valsi>
@@ -89,8 +89,8 @@
   </user>
   <definition>$x_1$是$x_2$品种的橄榄（或橄榄树）</definition>
   <definitionid>16877</definitionid>
-  <glossword word="橄榄树" />
   <glossword word="橄榄" />
+  <glossword word="橄榄树" />
   <keyword word="橄榄" place="1" />
   <keyword word="橄榄品种" place="2" />
 </valsi>
@@ -111,8 +111,8 @@
   <definition>$x_1$是$x_2$品种的鳗鱼/鳝鱼</definition>
   <definitionid>16908</definitionid>
   <notes>参见：同义词{sincykaifi&apos;e}</notes>
-  <glossword word="鳗鱼" />
   <glossword word="鳝鱼" />
+  <glossword word="鳗鱼" />
   <keyword word="鳗鱼" place="1" />
   <keyword word="鳗鱼品种" place="2" />
 </valsi>
@@ -125,8 +125,8 @@
   <definition>态度词：希望-绝望</definition>
   <definitionid>42463</definitionid>
   <notes>相关{pacna}</notes>
-  <glossword word="绝望" />
   <glossword word="希望" />
+  <glossword word="绝望" />
 </valsi>
 <valsi word="a'orne" type="fu'ivla">
   <user>
@@ -136,9 +136,9 @@
   <definition>$x_1$是$x_2$品种的枫树/槭树</definition>
   <definitionid>16909</definitionid>
   <notes>参见：同义词{ricrxacero}，{na&apos;itsi}（翼果）</notes>
-  <glossword word="槭树" />
-  <glossword word="枫木" />
   <glossword word="枫树" />
+  <glossword word="枫木" />
+  <glossword word="槭树" />
   <keyword word="枫树" place="1" />
   <keyword word="枫树品种" place="2" />
 </valsi>
@@ -180,9 +180,9 @@
   <definition>态度词：兴趣-无兴趣-反感</definition>
   <definitionid>42464</definitionid>
   <notes>相关{cinri},{selcni}</notes>
-  <glossword word="有趣" />
   <glossword word="反感" />
   <glossword word="兴趣" />
+  <glossword word="有趣" />
 </valsi>
 <valsi word="auskalerik" type="cmevla">
   <user>
@@ -238,16 +238,16 @@
   <definition>$x_1$因为$x_2$（某件事或某种抽象的东西）感到不开心、郁闷、闷闷不乐、沮丧、消沉、灰心丧气、哀愁、悲哀、伤心、悲伤或者悲痛</definition>
   <definitionid>16746</definitionid>
   <notes>参见{klaku}、{gleki}、{betri}、{cinmo}、{junri}、{uinai}</notes>
-  <glossword word="灰心丧气" />
+  <glossword word="郁闷" />
+  <glossword word="哀愁" />
+  <glossword word="悲伤" />
+  <glossword word="悲哀" />
+  <glossword word="沮丧" />
+  <glossword word="消沉" />
   <glossword word="悲痛" />
   <glossword word="伤心" />
+  <glossword word="灰心丧气" />
   <glossword word="闷闷不乐" />
-  <glossword word="郁闷" />
-  <glossword word="消沉" />
-  <glossword word="沮丧" />
-  <glossword word="悲哀" />
-  <glossword word="悲伤" />
-  <glossword word="哀愁" />
   <keyword word="不开心的人" place="1" />
   <keyword word="不开心的事" place="2" />
 </valsi>
@@ -260,9 +260,9 @@
   <definition>$x_1$在$x_2$路面上用身体上的$x_3$以$x_4$的步态走路或跑步</definition>
   <definitionid>16749</definitionid>
   <notes>参见{cadzu}、{klama}、{litru}、{stapa}、{plipe}、{cpare}</notes>
-  <glossword word="跑步" />
   <glossword word="行走" />
   <glossword word="走路" />
+  <glossword word="跑步" />
   <keyword word="行人" place="1" />
   <keyword word="路面" place="2" />
   <keyword word="走路时用的肢节" place="3" />
@@ -403,8 +403,8 @@
   <definition>$x_1$是$x_2$用来表示/交流$x_3$（不是说的话本身）的尼日利亚英语说法</definition>
   <definitionid>16800</definitionid>
   <notes>由{bangu}（语言）、{naidjiria}（尼日利亚）组成。参见：{gliban}（英语，专名）、{glibau}（英语）、{gliglibau}（英国英语）、{merbau}（美国英语）、{xinglibau}（印度英语）、{kadnyglibau}（加拿大英语）、{sralybau}（澳大利亚英语）、{kisyglibau}（巴基斯坦英语）、{nanfi&apos;oglibau}（南非英语）、{bangrnaidjiria}（尼日利亚英语）等。</notes>
-  <glossword word="尼日利亚英语" />
   <glossword word="尼日利亚话" />
+  <glossword word="尼日利亚英语" />
   <keyword word="尼日利亚英语说法" place="1" />
   <keyword word="说尼日利亚英语的人" place="2" />
   <keyword word="用尼日利亚英语来表达的东西" place="3" />
@@ -775,8 +775,8 @@
   <definition>印度尼西亚</definition>
   <definitionid>16741</definitionid>
   <notes>简称“印尼”</notes>
-  <glossword word="印度尼西亚" />
   <glossword word="印尼" />
+  <glossword word="印度尼西亚" />
 </valsi>
 <valsi word="bidju" type="gismu">
   <user>
@@ -983,9 +983,9 @@
   <definition>$x_1$ 是 艇/舟/船/载具 ,承载$x_2$, 由 $x_3$推进.</definition>
   <definitionid>38136</definitionid>
   <notes>参考:{falnu}, {fulta}, {marce}, {jatna}, {sabnu}.</notes>
+  <glossword word="船" />
   <glossword word=" 艇" />
   <glossword word="舟" />
-  <glossword word="船" />
   <keyword word=" 艇" place="1" />
 </valsi>
 <valsi unofficial="true" word="bluji" type="experimental gismu">
@@ -1527,8 +1527,8 @@
   <definition>ROT-13</definition>
   <definitionid>16759</definitionid>
   <notes>回转13位，指一种对26个英文字母进行简单变换加密的办法，不妨译为13位转字法。</notes>
-  <glossword word="ROT-13" />
   <glossword word="回转13位" />
+  <glossword word="ROT-13" />
   <glossword word="13位转字法" />
 </valsi>
 <valsi word="cartu" type="gismu">
@@ -3369,9 +3369,9 @@
   </user>
   <definition>$x_1$ 是含成分 $x_2$ 的牙膏</definition>
   <definitionid>15875</definitionid>
+  <glossword word="牙膏成分" />
   <glossword word="牙膏" />
   <glossword word="成分" />
-  <glossword word="牙膏成分" />
   <keyword word="牙膏" place="1" />
   <keyword word="成分" place="2" />
 </valsi>
@@ -4042,9 +4042,9 @@
   <definition>对不起, 请原谅我, 抱歉</definition>
   <definitionid>42505</definitionid>
   <notes>{fraxu}, {u&apos;u}.</notes>
-  <glossword word="抱歉" />
   <glossword word="对不起" />
   <glossword word="原谅" />
+  <glossword word="抱歉" />
 </valsi>
 <valsi word="febvi" type="gismu">
   <rafsi>feb</rafsi>
@@ -4525,9 +4525,13 @@
     <username>gleki</username>
     <realname>gleki</realname>
   </user>
-  <definition>入口/通道/门$x_1$是关闭的/不开放的/不可通行的，通道原本通向$x_2$，关闭通道的装置/结构为$x_3$</definition>
+  <definition>入口/通道/门$x_1$是关闭的/不开放的/不可通行的，通道原本通向$x_2$，对通过者$x_3$</definition>
   <definitionid>53643</definitionid>
   <notes>通道也可能指半透膜；参见 {kalri}, {pagre}, {canko}, {vorme}, {zunti}.</notes>
+  <glossword word="关闭" />
+  <keyword word="关闭的" place="1" />
+  <keyword word="达不到的" place="2" sense="关闭" />
+  <keyword word="通不過的" place="3" sense="关闭" />
 </valsi>
 <valsi word="ganra" type="gismu">
   <rafsi>gan</rafsi>
@@ -4785,8 +4789,8 @@
   <definition>英语</definition>
   <definitionid>16788</definitionid>
   <notes>专名。参见：{glico}（英格兰）、{bangu}（语言）、{glibau}（英语，属gismu）。</notes>
-  <glossword word="英语" />
   <glossword word="英文" sense="语言" />
+  <glossword word="英语" />
 </valsi>
 <valsi word="glibau" type="lujvo">
   <user>
@@ -5078,8 +5082,8 @@
   </user>
   <definition>$x_1$ [能量]是光/亮照亮$x_2$, 从光源$x_3$发出.</definition>
   <definitionid>38174</definitionid>
-  <glossword word="光" />
   <glossword word="亮" />
+  <glossword word="光" />
 </valsi>
 <valsi word="gusta" type="gismu">
   <user>
@@ -5129,8 +5133,8 @@
   <definitionid>16790</definitionid>
   <notes>犹太教-基督教-伊斯兰教的神名，本是自有永有、成事者的意思。参见：{jegvon}（耶和华，专名）、{cev}（神，专名）、{cevni}（神袛）、{jegvo}（三教共尊的圣经）、{xebro}（希伯来）、{xriso}（基督教）、{muslo}（伊斯兰）。</notes>
   <glossword word="雅威" />
-  <glossword word="永为" />
   <glossword word="永恒主" />
+  <glossword word="永为" />
 </valsi>
 <valsi word="ieRUcaly'im" type="cmevla">
   <user>
@@ -5427,10 +5431,10 @@
   <definition>$lo_1=li_1$ 是逻辑语词典系统 (jbovlaste)</definition>
   <definitionid>15879</definitionid>
   <notes>一个基于 Web 界面的逻辑语词典编辑系统和它的内容。参见 {lojbo}, {valsi}, {liste}, {vlaste}, {vlacku}</notes>
-  <glossword word="系统" />
-  <glossword word="jbovlaste" />
-  <glossword word="逻辑语" />
   <glossword word="词典" />
+  <glossword word="逻辑语" />
+  <glossword word="jbovlaste" />
+  <glossword word="系统" />
   <glossword word="逻辑语词典系统" />
 </valsi>
 <valsi word="jdari" type="gismu">
@@ -6115,8 +6119,8 @@
   <definition>$x_1$是属于$x_2$系统（繁体字、简化字、注音符号等等）里表示$x_3$意思的中国字符</definition>
   <definitionid>16878</definitionid>
   <notes>不仅指汉字</notes>
-  <glossword word="中国字" />
   <glossword word="汉字" />
+  <glossword word="中国字" />
   <keyword word="中国字" place="1" />
   <keyword word="中国字种类" place="2" />
   <keyword word="字义" place="3" />
@@ -6274,8 +6278,8 @@
   </user>
   <definition>特性/性质指示; $x_1$ 是[bridi]表现出的性质/特性 .</definition>
   <definitionid>38148</definitionid>
-  <glossword word="特性" />
   <glossword word="性质" />
+  <glossword word="特性" />
 </valsi>
 <valsi word="kabri" type="gismu">
   <user>
@@ -6285,9 +6289,9 @@
   <definition>$x1$是杯/碗/盅/钵，盛有$x2$，以$x3$为材料制成</definition>
   <definitionid>20435</definitionid>
   <notes>{kabri} 通常用于举起来吃喝，{plata} 不这样使用</notes>
-  <glossword word="碗" />
   <glossword word="盅" />
   <glossword word="杯" />
+  <glossword word="碗" />
   <keyword word="用品" place="1" />
   <keyword word="内容" place="2" />
 </valsi>
@@ -6849,8 +6853,8 @@
   </user>
   <definition>$x_1$ 移动到目的地 $x_2$, 从$x_3$出发, 经过路径$x_4$ ,使用方法/交通工具 $x_5$.</definition>
   <definitionid>38137</definitionid>
-  <glossword word="移动" />
   <glossword word="去" />
+  <glossword word="移动" />
   <glossword word="来" />
   <keyword word="行者" place="1" />
   <keyword word="目的地/去处" place="2" />
@@ -7355,8 +7359,8 @@
   <definition>$x_1$依赖/仰仗/信任$x_2$能够确保/维持/带来x3（事件/状态）</definition>
   <definitionid>42445</definitionid>
   <notes>查看{minde},{nitcu},{tinbe}</notes>
-  <glossword word="信任" />
   <glossword word="依赖" />
+  <glossword word="信任" />
 </valsi>
 <valsi word="ladru" type="gismu">
   <rafsi>lad</rafsi>
@@ -7367,8 +7371,8 @@
   <definition>$x_1$是/含有来源于$x_2$的奶/乳；$x_1$是乳制的/乳制品</definition>
   <definitionid>42446</definitionid>
   <notes>查看{lanbi},{mabru},{tatru},{cirla},{kruji}</notes>
-  <glossword word="乳汁" />
   <glossword word="乳制品" />
+  <glossword word="乳汁" />
 </valsi>
 <valsi word="lafti" type="gismu">
   <rafsi>laf</rafsi>
@@ -7929,8 +7933,8 @@
   <definition>$x_1$ 是狐 [蓬尾野生犬科动物]，属于种类 $x_2$</definition>
   <definitionid>15881</definitionid>
   <notes>参见 {gerku}。 (不是“狐狸”)</notes>
-  <glossword word="犬科" />
   <glossword word="狐" />
+  <glossword word="犬科" />
   <keyword word="狐" place="1" />
   <keyword word="种类" place="2" />
 </valsi>
@@ -7963,10 +7967,10 @@
   <definition>$x_1$（文本）是有着意义 $x_2$，参数 $x_3$ 的复合谓词，由比喻 $x_4$ 构造</definition>
   <definitionid>15873</definitionid>
   <notes>参见 {stura}, {cmavo}, {gismu}, {rafsi}, {smuni}。</notes>
-  <glossword word="复合" />
-  <glossword word="谓词" />
-  <glossword word="词缀复合谓词" />
   <glossword word="词缀" />
+  <glossword word="谓词" />
+  <glossword word="复合" />
+  <glossword word="词缀复合谓词" />
   <keyword word="复合谓词" place="1" />
   <keyword word="意义" place="2" />
   <keyword word="参数" place="3" />
@@ -8400,11 +8404,11 @@
   <definition>$x_1$对$x_2$来说、从$x_3$方面来看、按$x_4$标准来评价是美的</definition>
   <definitionid>16725</definitionid>
   <notes>不分男女、人物，所以也是英俊、漂亮、可爱、优雅、优美的意思。参照: {pluka}, {xamgu}</notes>
-  <glossword word="可爱" />
   <glossword word="优美" />
-  <glossword word="英俊" />
-  <glossword word="美丽" />
+  <glossword word="可爱" />
   <glossword word="漂亮" />
+  <glossword word="美丽" />
+  <glossword word="英俊" />
   <keyword word="美人" place="1" />
   <keyword word="欣赏者" place="2" />
   <keyword word="审美角度" place="3" />
@@ -8821,12 +8825,12 @@
   <definition>莫尔斯、莫尔斯代码、电报、电码</definition>
   <definitionid>16807</definitionid>
   <notes>“莫尔斯”又译“摩斯”，因此又有“摩斯密码”等说法。</notes>
-  <glossword word="电码" />
-  <glossword word="摩斯密码" />
-  <glossword word="莫尔斯" />
   <glossword word="莫尔斯代码" />
+  <glossword word="莫尔斯" />
   <glossword word="电报" />
+  <glossword word="电码" />
   <glossword word="摩斯" />
+  <glossword word="摩斯密码" />
 </valsi>
 <valsi word="morsi" type="gismu">
   <rafsi>mro</rafsi>
@@ -9022,8 +9026,8 @@
   </user>
   <definition>$x_1$ 在属性$x_2$(ka),趋向$x_3$方面超出平常; $x_1$ 在$x_2$上非常$x_3$.</definition>
   <definitionid>38162</definitionid>
-  <glossword word="十分" />
   <glossword word="非常" />
+  <glossword word="十分" />
 </valsi>
 <valsi word="muvdu" type="gismu">
   <rafsi>muv</rafsi>
@@ -9524,8 +9528,8 @@
   <definitionid>16810</definitionid>
   <notes>即北大西洋公约组织</notes>
   <glossword word="NATO" />
-  <glossword word="北大西洋公约组织" />
   <glossword word="北约" />
+  <glossword word="北大西洋公约组织" />
 </valsi>
 <valsi word="OTa,uas" type="cmevla">
   <user>
@@ -11596,9 +11600,9 @@
   <definition>$x_1$是$x_2$的基本组成单元 （$x_1$不可分，如：细胞/原子等）</definition>
   <definitionid>54262</definitionid>
   <notes>$x_2$通常具有团体属性；参见 {kantu}, {ratni}, {gradu}</notes>
+  <glossword word="不可分" />
   <glossword word="基本组成单元" />
   <glossword word="原子" />
-  <glossword word="不可分" />
   <glossword word="细胞" />
 </valsi>
 <valsi word="selfu" type="gismu">
@@ -12338,8 +12342,8 @@
   <definition>$x_1$是$x_2$书写系统里表示$x_3$意思的符号</definition>
   <definitionid>16876</definitionid>
   <notes>参见：{jugle&apos;u}、{misryle&apos;u}</notes>
-  <glossword word="符号" />
   <glossword word="表意文字" />
+  <glossword word="符号" />
   <keyword word="符号" place="1" />
   <keyword word="表意文字" place="2" />
   <keyword word="符号意义" place="3" />
@@ -12442,8 +12446,8 @@
   </user>
   <definition>首尔</definition>
   <definitionid>16970</definitionid>
-  <glossword word="首尔" />
   <glossword word="汉城" />
+  <glossword word="首尔" />
 </valsi>
 <valsi word="solji" type="gismu">
   <rafsi>slo</rafsi>
@@ -13094,8 +13098,8 @@
   <definition>苏珊</definition>
   <definitionid>16825</definitionid>
   <notes>音译人名，又译“苏姗”</notes>
-  <glossword word="苏姗" sense="音译人名" />
   <glossword word="苏珊" sense="音译人名" />
+  <glossword word="苏姗" sense="音译人名" />
 </valsi>
 <valsi word="tabno" type="gismu">
   <rafsi>tab</rafsi>
@@ -14895,8 +14899,8 @@
   <definition>$x_{1}$ 在 $x_{2}$方面反映了亚洲语言/文化/地域</definition>
   <definitionid>18452</definitionid>
   <notes>参见 {polno}, {friko}, {jungo}, {rusko}, {ropno}.</notes>
-  <glossword word="亚洲的" />
   <glossword word="亚洲" />
+  <glossword word="亚洲的" />
   <glossword word="亚细亚" />
 </valsi>
 <valsi word="xebni" type="gismu">
@@ -15034,8 +15038,8 @@
   <definition>$x_1$是$x_2$用来表示/交流$x_3$（不是说的话本身）的印度英语说法</definition>
   <definitionid>16801</definitionid>
   <notes>由{xindu}（印度）、{glico}（英格兰）、{bangu}（语言）组成。参见：{gliban}（英语，专名）、{glibau}（英语）、{gliglibau}（英国英语）、{merbau}（美国英语）、{kadnyglibau}（加拿大英语）、{sralybau}（澳大利亚英语）、{kisyglibau}（巴基斯坦英语）、{nanfi&apos;oglibau}（南非英语）、{bangrnaidjiria}（尼日利亚英语）等。</notes>
-  <glossword word="印式英语" />
   <glossword word="印度英语" />
+  <glossword word="印式英语" />
   <keyword word="印度英语说法" place="1" />
   <keyword word="说印度英语的人" place="2" />
   <keyword word="用印度英语来表达的东西" place="3" />
@@ -15806,6 +15810,10 @@
 <nlword word="发明" valsi="finti" />
 <nlword word="法律" valsi="flalu" />
 <nlword word="立法" valsi="flari&apos;a" />
+<nlword word="关闭" valsi="ganlo" />
+<nlword word="关闭的" valsi="ganlo" place="1" />
+<nlword word="达不到的" sense="关闭" valsi="ganlo" place="2" />
+<nlword word="通不過的" sense="关闭" valsi="ganlo" place="3" />
 <nlword word="乐" valsi="gleki" />
 <nlword word="快乐" valsi="gleki" />
 <nlword word="高兴" valsi="gleki" />

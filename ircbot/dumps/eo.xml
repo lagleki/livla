@@ -4569,10 +4569,13 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>$x_{1}$ (pordo/pasejo/koridoro/trairejo/enirejo) estas fermita/malebligas pason/aliron al $x_{2}$ far $x_{3}$</definition>
+  <definition>$x_{1}$ (pordo/pasejo/koridoro/trairejo/enirejo) estas fermita/malebligas pason/aliron al $x_{2}$ kontraŭ pasanto $x_{3}$</definition>
   <definitionid>3196</definitionid>
   <notes>Kiel enirejo, sed ankaŭ eble kiel duonpenetrebla membrano.  Vidu ankaŭ {kalri}, {pagre}, {canko}, {vorme}, {zunti}.</notes>
   <glossword word="fermita" />
+  <keyword word="fermito" place="1" />
+  <keyword word="neatingato" place="2" sense="pro fermito" />
+  <keyword word="nepasanto" place="3" sense="pro fermito" />
 </valsi>
 <valsi word="ganra" type="gismu">
   <rafsi>gan</rafsi>
@@ -6439,10 +6442,13 @@
     <username>xorxes</username>
     <realname>Jorge Llambias</realname>
   </user>
-  <definition>$x_{1}$ (pordo/pasejo/koridoro/trairejo/enirejo) estas malfermita/ebligas pason/aliron al $x_{2}$ far $x_{3}$</definition>
+  <definition>$x_{1}$ (pordo/pasejo/koridoro/trairejo/enirejo) estas malfermita/ebligas pason/aliron al $x_{2}$ por pasanto $x_{3}$</definition>
   <definitionid>3367</definitionid>
   <notes>Kiel enirejo.  Vidu ankaŭ {ganlo}, {pagre}, {canko}, {vorme}.</notes>
   <glossword word="malfermita" />
+  <keyword word="malfermito" place="1" />
+  <keyword word="atingeblo" place="2" sense="pro malfermito" />
+  <keyword word="pasanto" place="3" sense="pro malfermito" />
 </valsi>
 <valsi word="kalsa" type="gismu">
   <rafsi>kas</rafsi>
@@ -9549,8 +9555,8 @@
   <definition>$x_1$ montras norvegan kulturon/naciecon/lingvon laŭ aspekto $x_2$</definition>
   <definitionid>18080</definitionid>
   <notes>Neoficiala radiko</notes>
-  <glossword word="Norvegio" sense="lando" />
   <glossword word="norvega" sense="popolo" />
+  <glossword word="Norvegio" sense="lando" />
 </valsi>
 <valsi word="notci" type="gismu">
   <rafsi>not</rafsi>
@@ -16405,8 +16411,8 @@
 <nlword word="distribuiĝi" valsi="fatri" />
 <nlword word="Pardonon!" valsi="fau&apos;u" />
 <nlword word="Pardonon!" sense="vokativo" valsi="fau&apos;u" />
-<nlword word="Pardonu min!" sense="vokativo" valsi="fau&apos;u" />
 <nlword word="Pardonu min!" valsi="fau&apos;u" />
+<nlword word="Pardonu min!" sense="vokativo" valsi="fau&apos;u" />
 <nlword word="boli" valsi="febvi" />
 <nlword word="1E-15 femto-" valsi="femti" />
 <nlword word="dividi" valsi="fendi" />
@@ -16454,7 +16460,13 @@
 <nlword word="modifi" valsi="galfi" />
 <nlword word="alta" valsi="galtu" />
 <nlword word="gorĝo" valsi="galxe" />
+<nlword word="fermanto" valsi="ganlo" place="1" />
 <nlword word="fermita" valsi="ganlo" />
+<nlword word="fermito" valsi="ganlo" place="1" />
+<nlword word="neatingato" sense="pro fermito" valsi="ganlo" place="2" />
+<nlword word="neatingato" sense="fermita" valsi="ganlo" place="2" />
+<nlword word="nepasanto" sense="fermita" valsi="ganlo" place="3" />
+<nlword word="nepasanto" sense="pro fermito" valsi="ganlo" place="3" />
 <nlword word="larĝa" valsi="ganra" />
 <nlword word="sensi" valsi="ganse" />
 <nlword word="testiko" valsi="ganti" />
@@ -16624,7 +16636,10 @@
 <nlword word="povi" valsi="kakne" />
 <nlword word="fosi" valsi="kakpa" />
 <nlword word="fekaĵo" valsi="kalci" />
+<nlword word="atingeblo" sense="pro malfermito" valsi="kalri" place="2" />
 <nlword word="malfermita" valsi="kalri" />
+<nlword word="malfermito" valsi="kalri" place="1" />
+<nlword word="pasanto" sense="pro malfermito" valsi="kalri" place="3" />
 <nlword word="kaoso" valsi="kalsa" />
 <nlword word="ĉasi" valsi="kalte" />
 <nlword word="kolono" valsi="kamju" />

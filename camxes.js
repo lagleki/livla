@@ -6185,19 +6185,12 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_quantifier();
-        result0 = result0 !== null ? result0 : "";
+        result0 = parse_selbri();
         if (result0 !== null) {
-          result1 = parse_selbri();
+          result1 = parse_relative_clauses();
+          result1 = result1 !== null ? result1 : "";
           if (result1 !== null) {
-            result2 = parse_relative_clauses();
-            result2 = result2 !== null ? result2 : "";
-            if (result2 !== null) {
-              result0 = [result0, result1, result2];
-            } else {
-              result0 = null;
-              pos = pos1;
-            }
+            result0 = [result0, result1];
           } else {
             result0 = null;
             pos = pos1;
@@ -6210,9 +6203,16 @@ var camxes = (function(){
           pos1 = pos;
           result0 = parse_quantifier();
           if (result0 !== null) {
-            result1 = parse_sumti();
+            result1 = parse_selbri();
             if (result1 !== null) {
-              result0 = [result0, result1];
+              result2 = parse_relative_clauses();
+              result2 = result2 !== null ? result2 : "";
+              if (result2 !== null) {
+                result0 = [result0, result1, result2];
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
             } else {
               result0 = null;
               pos = pos1;
@@ -6220,6 +6220,22 @@ var camxes = (function(){
           } else {
             result0 = null;
             pos = pos1;
+          }
+          if (result0 === null) {
+            pos1 = pos;
+            result0 = parse_quantifier();
+            if (result0 !== null) {
+              result1 = parse_sumti();
+              if (result1 !== null) {
+                result0 = [result0, result1];
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
           }
         }
         if (result0 !== null) {

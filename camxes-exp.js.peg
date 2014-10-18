@@ -253,15 +253,16 @@ sumti_3 = expr:(sumti_4 (joik_ek stag? BO_clause free* sumti_3)?) {return _node(
 
 sumti_4 = expr:(sumti_5 / gek sumti gik sumti_4) {return _node("sumti_4", expr);}
 
-sumti_5 = expr:(quantifier? sumti_6 relative_clauses? / quantifier selbri KU_elidible free* relative_clauses?) {return _node("sumti_5", expr);}
+//// EXP-MODIF: quantifier+gek_sentence
+sumti_5 = expr:(quantifier? sumti_6 relative_clauses? / quantifier (selbri / gek_sentence) KU_elidible free* relative_clauses?) {return _node("sumti_5", expr);}
 
-//// EXP-MODIF: brivla/cmevla merge + NAhE+sumti + add of ZOhOI_clause + LAhE term
-sumti_6 = expr:(ZO_clause free* / ZOI_clause free* / ZOhOI_clause free* / LOhU_clause free* / lerfu_string !MOI_clause BOI_elidible free* / LU_clause text LIhU_elidible free* / (LAhE_clause free* / NAhE_clause BO_clause? free*) (relative_clauses? sumti / term) LUhU_elidible free* / KOhA_clause free* / LE_clause free* sumti_tail KU_elidible free* / li_clause / LOhOI_clause free* subsentence KUhAU_elidible free*) {return _node("sumti_6", expr);}
+//// EXP-MODIF: brivla/cmevla merge + NAhE+sumti + add of ZOhOI_clause + LAhE term + MEX simplification
+sumti_6 = expr:(ZO_clause free* / ZOI_clause free* / ZOhOI_clause free* / LOhU_clause free* / !tag !selbri lerfu_string BOI_elidible free* / LU_clause text LIhU_elidible free* / (LAhE_clause free* / NAhE_clause BO_clause? free*) (relative_clauses? sumti / term) LUhU_elidible free* / KOhA_clause free* / LE_clause free* sumti_tail KU_elidible free* / li_clause / LOhOI_clause free* subsentence KUhAU_elidible free*) {return _node("sumti_6", expr);}
 
 li_clause = expr:(LI_clause free* mex LOhO_elidible free*) {return _node("li_clause", expr); }
 
-//// EXP-MODIF: allow {lo mi e do vu'o noi brodi cu broda} (instead of the previous string)
-sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1 / sumti sumti_tail_1) {return _node("sumti_tail", expr); }
+//// EXP-MODIF: allow {lo mi e do vu'o noi brodi cu broda} (instead of the previous string) + adding gek_sentence
+sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1 / sumti sumti_tail_1 / gek_sentence) {return _node("sumti_tail", expr); }
 
 sumti_tail_1 = expr:(selbri relative_clauses? / quantifier selbri relative_clauses? / quantifier sumti) {return _node("sumti_tail_1", expr);}
 
@@ -314,8 +315,8 @@ tanru_unit = expr:(tanru_unit_1 (CEI_clause free* tanru_unit_1)* selbri_relative
 tanru_unit_1 = expr:(tanru_unit_2 linkargs? / linkargs? tanru_unit_2) {return _node("tanru_unit_1", expr); }
 
 // ** zei is part of BRIVLA_clause
-//// EXP-MODIF: brivla / cmevla merge + add of MEhOI_clause + add of "linkargs tanru_unit_1 / " (for {jai be broda})
-tanru_unit_2 = expr:(BRIVLA_clause free* / GOhA_clause RAhO_clause? free* / KE_clause free* selbri_3 KEhE_elidible free* / ME_clause free* (sumti / lerfu_string) MEhU_elidible free* MOI_clause? free* / (number / lerfu_string) MOI_clause free* / NUhA_clause free* mex_operator / SE_clause free* tanru_unit_2 / JAI_clause free* tag? tanru_unit_2 / NAhE_clause free* tanru_unit_2 / NU_clause free* (joik_jek NU_clause free*)* subsentence KEI_elidible free* / linkargs tanru_unit_1 / MEhOI_clause free*) {return _node("tanru_unit_2", expr); }
+//// EXP-MODIF: brivla / cmevla merge + add of MEhOI_clause + add of "linkargs tanru_unit_1 / " (for {jai be broda}) + MEX simplification
+tanru_unit_2 = expr:(BRIVLA_clause free* / GOhA_clause RAhO_clause? free* / KE_clause free* selbri_3 KEhE_elidible free* / ME_clause free* (sumti / mex) MEhU_elidible free* MOI_clause? free* / mex MOI_clause free* / NUhA_clause free* operator / SE_clause free* tanru_unit_2 / JAI_clause free* tag? tanru_unit_2 / NAhE_clause free* tanru_unit_2 / NU_clause free* (joik_jek NU_clause free*)* subsentence KEI_elidible free* / linkargs tanru_unit_1 / MEhOI_clause free*) {return _node("tanru_unit_2", expr); }
 
 //; linkargs = BE_clause free* term links? BEhO_clause? free*
 
@@ -339,39 +340,24 @@ links_sa = expr:(links_start (!links_start (sa_word / SA_clause !links_start ) )
 
 links_start = expr:(BEI_clause) {return ["links_start", expr];}
 
-//// EXP-MODIF: Making bare mex a legal quantifier (without vei)
-//// REVERTED
-quantifier = expr:(number !MOI_clause BOI_elidible free* / VEI_clause free* mex VEhO_elidible free*) {return _node("quantifier", expr); }
+//// EXP-MODIF: MEX simplification
+quantifier = expr:( !selbri !sumti_6 mex ) {return _node("quantifier", expr); }
 
 //;mex = mex_1 (operator mex_1)* / rp_clause
 
-mex = expr:(mex_sa* mex_0) {return _node("mex", expr); }
+//// EXP-MODIF: MEX simplification
+mex = expr:(mex_1 (operator mex_1)* ) {return _node("mex", expr); }
 
-mex_0 = expr:(mex_1 (operator mex_1)* / rp_clause) {return _node("mex_0", expr); }
+mex_1 = expr:( mex_2 (operator stag? BO_clause free* mex_1)? ) {return _node("mex_1", expr); }
 
-mex_sa = expr:(mex_start (!mex_start (sa_word / SA_clause !mex_start) )* SA_clause &mex_0) {return _node("mex_sa", expr); }
+mex_2 = expr:( number BOI_elidible free* / lerfu_string BOI_elidible free* / VEI_clause free* mex VEhO_elidible free* / NIhE_clause free* selbri TEhU_elidible free* / MOhE_clause sumti TEhU_elidible free* / gek mex gik mex_2 / (LAhE_clause free* / NAhE_clause free* BO_clause? free*) mex LUhU_elidible free* / PEhO_clause free* operator mex+ KUhE_elidible free* / FUhA_clause rp_expression ) {return _node("mex_2", expr); }
 
-mex_start = expr:(FUhA_clause / PEhO_clause / operand_start) {return _node("mex_start", expr); }
+rp_expression = expr:( mex (rp_expression operator)* ) {return _node("rp_expression", expr); }
 
-rp_clause = expr:(FUhA_clause free* rp_expression) {return _node("rp_clause", expr); }
+//mex_sa = expr:(mex_start (!mex_start (sa_word / SA_clause !mex_start) )* SA_clause &mex) {return _node("mex_sa", expr); }
 
-mex_1 = expr:(mex_2 (BIhE_clause free* operator mex_1)?) {return _node("mex_1", expr); }
-
-mex_2 = expr:(operand / mex_forethought) {return _node("mex_2", expr); }
-
-// This is just to make for clearer parse trees
-mex_forethought = PEhO_clause? free* operator fore_operands KUhE_elidible free*
-fore_operands = expr:(mex_2+ ) {return _node("fore_operands", expr); }
-
-//li fu'a reboi ci pi'i voboi mu pi'i su'i reboi ci vu'u su'i du li rexa
-//rp_expression = rp_operand rp_operand operator
-//rp_operand = operand / rp_expression
-// AKA (almost; this one allows a single operand; above does not.
-//rp_expression = rp_expression rp_expression operator / operand
-
-// Right recursive version.
-rp_expression = expr:(operand rp_expression_tail) {return _node("rp_expression", expr); }
-rp_expression_tail = expr:(rp_expression operator rp_expression_tail / ()) {return _node("rp_expression_tail", expr); }
+//mex_start = expr:(FUhA_clause / PEhO_clause / operand_start) {return _node("mex_start", expr); }
+//// END OF EXP-MODIF: MEX simplification
 
 //; operator = operator_1 (joik_jek operator_1 / joik stag? KE_clause free* operator KEhE_clause? free*)*
 
@@ -387,7 +373,8 @@ operator_1 = expr:(operator_2 / guhek operator_1 gik operator_2 / operator_2 (je
 
 operator_2 = expr:(mex_operator / KE_clause free* operator KEhE_elidible free*) {return _node("operator_2", expr); }
 
-mex_operator = expr:(SE_clause free* mex_operator / NAhE_clause free* mex_operator / MAhO_clause free* mex TEhU_elidible free* / NAhU_clause free* selbri TEhU_elidible free* / VUhU_clause free*) {return _node("mex_operator", expr); }
+//// EXP-MODIF: MEX simplification
+mex_operator = expr:(SE_clause free* mex_operator / NAhE_clause free* mex_operator / MAhO_clause free* mex TEhU_elidible free* / NAhU_clause free* selbri TEhU_elidible free* / VUhU_clause free* / joik_jek free* / ek free*) {return _node("mex_operator", expr); }
 
 //; operand = operand_1 (joik_ek stag? KE_clause free* operand KEhE_clause? free*)?
 
@@ -403,13 +390,88 @@ operand_1 = expr:(operand_2 (joik_ek operand_2)*) {return _node("operand_1", exp
 
 operand_2 = expr:(operand_3 (joik_ek stag? BO_clause free* operand_2)?) {return _node("operand_2", expr); }
 
-//// EXP-MODIF: BO optional in NAhE+BO+operand; adding "number BOI" to the alternatives for allowing {me li pa moi}.
-operand_3 = expr:(quantifier / lerfu_string !MOI_clause BOI_elidible free* / number BOI_elidible free* / NIhE_clause free* selbri TEhU_elidible free* / MOhE_clause free* sumti TEhU_elidible free* / JOhI_clause free* mex_2+ TEhU_elidible free* / gek operand gik operand_3 / (LAhE_clause free* / NAhE_clause BO_clause? free*) operand LUhU_elidible free*) {return _node("operand_3", expr); }
+//// EXP-MODIF: BO optional in NAhE+BO+operand
+operand_3 = expr:(quantifier / lerfu_string !MOI_clause BOI_elidible free* / NIhE_clause free* selbri TEhU_elidible free* / MOhE_clause free* sumti TEhU_elidible free* / JOhI_clause free* mex_2+ TEhU_elidible free* / gek operand gik operand_3 / (LAhE_clause free* / NAhE_clause BO_clause? free*) operand LUhU_elidible free*) {return _node("operand_3", expr); }
 
 //// EXP-MODIF
 number = expr:((PA_clause / (NIhE_clause free* selbri TEhU_elidible free*) / (MOhE_clause free* sumti TEhU_elidible free*)) (PA_clause / (NIhE_clause free* selbri TEhU_elidible free*) / (MOhE_clause free* sumti TEhU_elidible free*) / lerfu_word)*) {return _node("number", expr); }
 
 lerfu_string = expr:(lerfu_word (PA_clause / lerfu_word)*) {return _node("lerfu_string", expr); }
+
+//// BEGINNING OF EXP-MODIF ////
+
+///////////////////////////////////////////////
+/////////////// INTERNAL GRAMMAR OF QUANTIFIERS
+
+/*
+quantifier = expr:( proportional spaces? / fractional spaces? ) {return _node("quantifier", expr); }
+
+fractional = expr:( prefix? spaces? definite? spaces? p i spaces? ( indefinite spaces? / definite spaces? / prefix spaces? ) ) {return _node("fractional", expr); }
+
+proportional = expr:( simple+ spaces? ( f i h u spaces? ( r o spaces? definite? spaces? / definite spaces? ) / c e h i spaces? )? ) {return _node("proportional", expr); }
+
+simple = expr:( prefix spaces? ( indefinite spaces? / definite spaces? )? spaces? / ( indefinite spaces? / definite spaces? ) ) {return _node("simple", expr); }
+
+prefix = expr:( (d a h a) spaces? ( s u h o / s u h e / m e h i / z a h u / j i h i )? spaces? / ( s u h o / s u h e / m e h i / z a h u / j i h i ) spaces? ) {return _join(expr);}
+
+indefinite = expr:( s o h u / s o h o / s o h i / s o h e / s o h a / r o / m o h a / r a u / d u h e / n o h o ) {return _join(expr);}
+
+definite = expr:( n o / p a / r e / c i / v o / m u / x a / z e / b i / s o / k i h o ) {return _join(expr);}
+ */
+
+ /*
+ quantifier = prefix quantifier / normal_number
+
+ prefix = jihi / daha / ...
+
+ semi_prefix = ro
+
+ normal_number = (3 [. 14])
+               = digits decimals? / decimals
+
+ decimals = pi digits
+
+ fraction = [normal] (fihu [normal])
+
+ ro number = ro normal
+*/
+/*
+quantifier = expr:( fihu / normal ) {return _node("quantifier", expr); }
+
+fihu = expr:( f i h u ) {return _join(expr);}
+
+normal = expr:(p a / r e / c i / v o / m u / x a / z e / b i / s o) {return _join(expr);}
+*/
+/*pre_fihu_elidible = expr:( normal ) {return (expr == "") ? ["pa"] : _node("pa", expr);}
+
+post_fihu_elidible = expr:( normal ) {return (expr == "") ? ["pa"] : _node("pa", expr);}
+
+golden_ratio_elidible = expr:(  ) {return (expr == "") ? ["pa"] : _node("(1+v5)/2", expr);}
+*/
+
+
+//elidible numberz
+
+
+//quantifier = expr:( prefix quantifier / core ) {return _node("quantifier", expr); }
+
+// core = expr:( ) {return _node("core", expr); }
+
+//prefix = expr:( da'a / su'V ... ) {return _node("prefix", expr); }
+
+// semiprefix = ro
+
+//fraction = fi'u
+
+//percentage = ce'i
+
+// = expr:( ) {return _node("", expr); }
+
+
+ ////////////////////////////////////////////
+ ////////////////////////////////////////////
+
+//// END OF EXP-MODIF: Internal grammar of quantifiers
 
 // ** BU clauses are part of BY_clause
 lerfu_word = expr:(BY_clause / LAU_clause lerfu_word / TEI_clause lerfu_string FOI_clause) {return _node("lerfu_word", expr); }
@@ -434,11 +496,11 @@ interval = expr:(SE_clause? BIhI_clause NAI_clause?) {return _node("interval", e
 //; joik_ek = joik free* / ek free*
 joik_ek = expr:(joik_ek_sa* joik_ek_1) {return _node("joik_ek", expr); }
 
-joik_ek_1 = expr:((joik free* / ek free*)) {return _node("joik_ek_1", expr); }
+joik_ek_1 = expr:((joik free* / ek free* / VUhU_clause free* )) {return _node("joik_ek_1", expr); }
 
 joik_ek_sa = expr:(joik_ek_1 (!joik_ek_1 (sa_word / SA_clause !joik_ek_1 ) )* SA_clause &joik_ek) {return _node("joik_ek_sa", expr); }
 
-joik_jek = expr:(joik free* / jek free*) {return _node("joik_jek", expr); }
+joik_jek = expr:(joik free* / jek free* / VUhU_clause free* ) {return _node("joik_jek", expr); }
 
 //// EXP-MODIF: Implementation of gaJA
 gek = expr:(gak SE_clause? joik_jek / SE_clause? GA_clause free* / joik GI_clause free* / stag gik) {return _node("gek", expr); }
@@ -455,13 +517,15 @@ tag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("tag", expr); }
 //stag = simple_tense_modal ((jek / joik) simple_tense_modal)*
 stag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("stag", expr); }
 
+//// EXP-MODIF: MEX simplification
 tense_modal = expr:((NAhE_clause? SE_clause? 
-(BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? number ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause free* selbri FEhU_elidible / FA_clause) free*)+) {return _node("tense_modal", expr); }
+(BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? ( VEI_clause mex VEhO_elidible / number ) ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause free* selbri FEhU_elidible / FA_clause) free*)+) {return _node("tense_modal", expr); }
 
-//// EXP-MODIF: brivla/cmevla merge
-free = expr:(SEI_clause free* (terms CU_elidible free*)? selbri SEhU_elidible / vocative relative_clauses? selbri relative_clauses? DOhU_elidible  / vocative sumti? DOhU_elidible / (number / lerfu_string) MAI_clause / TO_clause text TOI_elidible / xi_clause) {return _node("free", expr); }
+//// EXP-MODIF: brivla/cmevla merge; MEX simplification
+free = expr:(SEI_clause free* (terms CU_elidible free*)? selbri SEhU_elidible / vocative relative_clauses? selbri relative_clauses? DOhU_elidible  / vocative sumti? DOhU_elidible / mex_2 MAI_clause free* / TO_clause text TOI_elidible / xi_clause) {return _node("free", expr); }
 
-xi_clause = expr:(XI_clause free* (number / lerfu_string) BOI_elidible / XI_clause free* VEI_clause free* mex VEhO_elidible) {return _node("xi_clause", expr); }
+//// EXP-MODIF: MEX simplification
+xi_clause = expr:(XI_clause free* mex_2 / XI_clause free* VEI_clause free* mex VEhO_elidible) {return _node("xi_clause", expr); }
 
 vocative = expr:((COI_clause NAI_clause?)+ DOI_clause / (COI_clause NAI_clause?) (COI_clause NAI_clause?)* / DOI_clause)  {return _node("vocative", expr); }
 

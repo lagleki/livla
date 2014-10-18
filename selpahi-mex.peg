@@ -1,4 +1,4 @@
-    // This is a Parsing Expression Grammar for Lojban.
+// This is a Parsing Expression Grammar for Lojban.
 // See http://www.pdos.lcs.mit.edu/~baford/packrat/
 //
 // All rules have the form:

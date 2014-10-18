@@ -56793,3 +56793,8 @@ var camxes = (function(){
 })()
 
 module.exports = camxes;
+
+term = process.argv[2];
+parsed = camxes.parse(term);
+console.log(JSON.stringify(parsed));
+

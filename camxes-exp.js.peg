@@ -260,12 +260,10 @@ sumti_6 = expr:(ZO_clause free* / ZOI_clause free* / ZOhOI_clause free* / LOhU_c
 
 li_clause = expr:(LI_clause free* mex LOhO_elidible free*) {return _node("li_clause", expr); }
 
-//// sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1) {return _node("sumti_tail", expr); }
-
 //// EXP-MODIF: allow {lo mi e do vu'o noi brodi cu broda} (instead of the previous string)
 sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1 / sumti sumti_tail_1) {return _node("sumti_tail", expr); }
 
-sumti_tail_1 = expr:(quantifier? selbri relative_clauses? / quantifier sumti) {return _node("sumti_tail_1", expr);}
+sumti_tail_1 = expr:(selbri relative_clauses? / quantifier selbri relative_clauses? / quantifier sumti) {return _node("sumti_tail_1", expr);}
 
 //// EXP-MODIF: merging ZIhE with JA/JOI + Forethought relative clause connective
 relative_clauses = expr:(relative_clause ((ZIhE_clause / joik) free* relative_clause)* / gek relative_clauses gik relative_clauses) {return _node("relative_clauses", expr); }
@@ -343,7 +341,7 @@ links_start = expr:(BEI_clause) {return ["links_start", expr];}
 
 //// EXP-MODIF: Making bare mex a legal quantifier (without vei)
 //// REVERTED
-quantifier = expr:(number BOI_elidible free* / VEI_clause free* mex VEhO_elidible free*) {return _node("quantifier", expr); }
+quantifier = expr:(number !MOI_clause BOI_elidible free* / VEI_clause free* mex VEhO_elidible free*) {return _node("quantifier", expr); }
 
 //;mex = mex_1 (operator mex_1)* / rp_clause
 
@@ -405,8 +403,8 @@ operand_1 = expr:(operand_2 (joik_ek operand_2)*) {return _node("operand_1", exp
 
 operand_2 = expr:(operand_3 (joik_ek stag? BO_clause free* operand_2)?) {return _node("operand_2", expr); }
 
-//// EXP-MODIF: BO optional in NAhE+BO+operand
-operand_3 = expr:(quantifier / lerfu_string !MOI_clause BOI_elidible free* / NIhE_clause free* selbri TEhU_elidible free* / MOhE_clause free* sumti TEhU_elidible free* / JOhI_clause free* mex_2+ TEhU_elidible free* / gek operand gik operand_3 / (LAhE_clause free* / NAhE_clause BO_clause? free*) operand LUhU_elidible free*) {return _node("operand_3", expr); }
+//// EXP-MODIF: BO optional in NAhE+BO+operand; adding "number BOI" to the alternatives for allowing {me li pa moi}.
+operand_3 = expr:(quantifier / lerfu_string !MOI_clause BOI_elidible free* / number BOI_elidible free* / NIhE_clause free* selbri TEhU_elidible free* / MOhE_clause free* sumti TEhU_elidible free* / JOhI_clause free* mex_2+ TEhU_elidible free* / gek operand gik operand_3 / (LAhE_clause free* / NAhE_clause BO_clause? free*) operand LUhU_elidible free*) {return _node("operand_3", expr); }
 
 //// EXP-MODIF
 number = expr:((PA_clause / (NIhE_clause free* selbri TEhU_elidible free*) / (MOhE_clause free* sumti TEhU_elidible free*)) (PA_clause / (NIhE_clause free* selbri TEhU_elidible free*) / (MOhE_clause free* sumti TEhU_elidible free*) / lerfu_word)*) {return _node("number", expr); }

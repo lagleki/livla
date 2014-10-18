@@ -40,90 +40,90 @@
 // ___ GRAMMAR ___
 
 {
-function _join(arg)
-{
-if (typeof(arg) == "string")
-return arg;
-else
-{
-ret = "";
-for (v in arg) { ret += _join(arg[v]); }
-return ret;
-}
-}
+  function _join(arg)
+  {
+    if (typeof(arg) == "string")
+      return arg;
+    else
+    {
+      ret = "";
+      for (v in arg) { ret += _join(arg[v]); }
+      return ret;
+    }
+  }
 
-function _node(label, arg)
-{
-var ret = [];
-if (label != undefined) ret.push( label );
-if (typeof( arg ) == "object" && typeof( arg[0] ) == "string" && arg[0] != "")
-{
-ret.push( arg );
-return ret;
-}
-return _node_int(label, arg);
-}
+  function _node(label, arg)
+  {
+    var ret = [];
+    if (label != undefined) ret.push( label );
+    if (typeof( arg ) == "object" && typeof( arg[0] ) == "string" && arg[0] != "")
+    {
+      ret.push( arg );
+      return ret;
+    }
+    return _node_int(label, arg);
+  }
 
-function _node_int(label, arg)
-{
-if (typeof( arg ) == "string")
-return arg;
-var ret = [];
-if (label != undefined) ret.push( label );
-for (v in arg)
-{
-if (arg[v].length != 0)
-ret.push( _node_int( undefined, arg[v] ) );
-}
-return ret;
-}
+  function _node_int(label, arg)
+  {
+    if (typeof( arg ) == "string")
+      return arg;
+    var ret = [];
+    if (label != undefined) ret.push( label );
+    for (v in arg)
+    {
+      if (arg[v].length != 0)
+        ret.push( _node_int( undefined, arg[v] ) );
+    }
+    return ret;
+  }
 
-function _node2(label, arg1, arg2)
-{
-return [label].concat(_node(arg1)).concat(_node(arg2));
-}
+  function _node2(label, arg1, arg2)
+  {
+    return [label].concat(_node(arg1)).concat(_node(arg2));
+  }
 
-function _node_nonempty(label, arg)
-{
-var _n = _node(label, arg);
-return (_n.length == 1 && _n[0] == label) ? [] : _n;
-}
+  function _node_nonempty(label, arg)
+  {
+    var _n = _node(label, arg);
+    return (_n.length == 1 && _n[0] == label) ? [] : _n;
+  }
 
-// === ZOI functions === //
+  // === ZOI functions === //
 
-function _zoi_assign_delim(word) {
-var a = word.toString().split(",");
-if (a.length > 0) _g_zoi_delim = a[a.length - 1];
-else _g_zoi_delim = "";
-return word;
-}
+  function _zoi_assign_delim(word) {
+        var a = word.toString().split(",");
+        if (a.length > 0) _g_zoi_delim = a[a.length - 1];
+        else _g_zoi_delim = "";
+        return word;
+  }
 
-function _zoi_check_quote(word) {
-if (typeof(word) == "object") word = word.toString();
-if (!is_string(word)) {
-alert("ZOI word is not a string");
-return false;
-} else {
-return (word.replace(/,/gm,"") === _g_zoi_delim);
-}
-}
+  function _zoi_check_quote(word) {
+        if (typeof(word) == "object") word = word.toString();
+    if (!is_string(word)) {
+          alert("ZOI word is not a string");
+          return false;
+        } else {
+      return (word.replace(/,/gm,"") === _g_zoi_delim);
+        }
+  }
 
-function _zoi_check_delim(word) {
-if (typeof(word) == "object") word = word.toString();
-if (!is_string(word)) {
-alert("ZOI word is not a string");
-return false;
-} else {
-word = word.split(",");
-if (word.length > 0) word = word[word.length - 1];
-else word = "";
-return (word === _g_zoi_delim);
-}
-}
+  function _zoi_check_delim(word) {
+        if (typeof(word) == "object") word = word.toString();
+    if (!is_string(word)) {
+          alert("ZOI word is not a string");
+          return false;
+        } else {
+          word = word.split(",");
+          if (word.length > 0) word = word[word.length - 1];
+          else word = "";
+      return (word === _g_zoi_delim);
+        }
+  }
 
-function is_string(v) {
-return typeof v.valueOf() === 'string';
-}
+  function is_string(v) {
+    return typeof v.valueOf() === 'string';
+  }
 }
 
 text "text" = expr:(intro_null NAI_clause* text_part_2 (!text_1 joik_jek)? text_1? faho_clause EOF?) {return _node("text", expr);}
@@ -403,23 +403,23 @@ prefix = expr:( (d a h a) spaces? ( s u h o / s u h e / m e h i / z a h u / j i 
 indefinite = expr:( s o h u / s o h o / s o h i / s o h e / s o h a / r o / m o h a / r a u / d u h e / n o h o ) {return _join(expr);}
 
 definite = expr:( n o / p a / r e / c i / v o / m u / x a / z e / b i / s o / k i h o ) {return _join(expr);}
-*/
+ */
 
-/*
-quantifier = prefix quantifier / normal_number
+ /*
+ quantifier = prefix quantifier / normal_number
 
-prefix = jihi / daha / ...
+ prefix = jihi / daha / ...
 
-semi_prefix = ro
+ semi_prefix = ro
 
-normal_number = (3 [. 14])
-= digits decimals? / decimals
+ normal_number = (3 [. 14])
+               = digits decimals? / decimals
 
-decimals = pi digits
+ decimals = pi digits
 
-fraction = [normal] (fihu [normal])
+ fraction = [normal] (fihu [normal])
 
-ro number = ro normal
+ ro number = ro normal
 */
 /*
 quantifier = expr:( fihu / normal ) {return _node("quantifier", expr); }
@@ -454,8 +454,8 @@ golden_ratio_elidible = expr:(  ) {return (expr == "") ? ["pa"] : _node("(1+v5)/
 // = expr:( ) {return _node("", expr); }
 
 
-////////////////////////////////////////////
-////////////////////////////////////////////
+ ////////////////////////////////////////////
+ ////////////////////////////////////////////
 
 
 // ** BU clauses are part of BY_clause

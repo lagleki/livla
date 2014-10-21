@@ -2,7 +2,7 @@ var config = {
   server: 'irc.freenode.net',
   nick: 'camxes',
   options: {
-    channels: ['#lojban', '#ckule', '#khanat'],
+    channels: ['#lojban', '#ckule', '#balningau'],
     debug: false
   }
 };
@@ -15,6 +15,7 @@ client.addListener('message', function(from, to, text, message) {
 });
 
 var camxes = require('../camxes.js');
+var camxes_exp = require('../camxes-exp.js');
 var camxes_pre = require('../camxes_preproc.js');
 var camxes_post = require('../camxes_postproc.js');
 
@@ -34,7 +35,7 @@ var processor = function(client, from, to, text, message) {
     if (text.indexOf(config.nick + ": ") == '0') {
       text = text.substr(config.nick.length + 2);
       var ret = extract_mode(text);
-      client.say(sendTo, run_camxes(ret[0], ret[1]));
+      client.say(sendTo, run_camxes(ret[0], ret[1], ret[2]));
     } else if (text.search(regexps.coi) >= 0) {
       client.say(sendTo, "coi");
     } else if (text.search(regexps.juhi) >= 0) {
@@ -44,26 +45,54 @@ var processor = function(client, from, to, text, message) {
     }
   } else {  // Private
 	var ret = extract_mode(text);
-    client.say(sendTo, run_camxes(ret[0], ret[1]));
+    client.say(sendTo, run_camxes(ret[0], ret[1], ret[2]));
   }
 };
 
 function extract_mode(input) {
-  if (input.indexOf("+s ") == '0') {
-    return [input.substr(3), 3];
-  } else if (input.indexOf("-f ") == '0') {
-    return [input.substr(3), 5];
-  } else if (input.indexOf("-f+s ") == '0') {
-    return [input.substr(5), 6];
-  } else return [input, 2];
+  ret = [input, 2, "std"];
+  flag_pattern = "[+-]\\w+"
+  match = input.match(new RegExp("^\\s*((?:" + flag_pattern + ")+)(.*)"))
+  if (match != null) {
+    ret[0] = match[2];
+    flags = match[1].match(new RegExp(flag_pattern, "g"))
+    for (var i = 0; i < flags.length; ++i) {
+      switch (flags[i]) {
+        case "+s":
+          ret[1] = ret[1] == 5 ? 6 : 3;
+          break;
+        case "-f":
+          ret[1] = ret[1] == 3 ? 6 : 5;
+          break;
+        case "+exp":
+        case "-std":
+          ret[2] = "exp";
+          break;
+        case "-exp":
+        case "+std":
+          ret[2] = "std";
+          break;
+      }
+    }
+  }
+  return ret;
 }
 
-function run_camxes(input, mode) {
+function run_camxes(input, mode, engine) {
 	var result;
 	var syntax_error = false;
 	result = camxes_pre.preprocessing(input);
 	try {
-	  result = camxes.parse(result);
+    switch (engine) {
+      case "std":
+        result = camxes.parse(result);
+        break;
+      case "exp":
+        result = camxes_exp.parse(result);
+        break;
+      default:
+        throw "Unrecognized parser";
+    }
 	} catch (e) {
 		result = e;
 		syntax_error = true;

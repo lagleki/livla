@@ -6560,7 +6560,7 @@
 <valsi unofficial="true" word="kanpe" type="experimental gismu">
   <user>
     <username>selpahi</username>
-    <realname>Miles Forster</realname>
+    <realname>Lorenzo Von Matterhorn</realname>
   </user>
   <definition>$x_1$ atendas/antaŭvidas $x_2$ (okazo), kun atendita probableco $x_3$ (0-1); $x_1$ atendas/antaŭvidas ke $x_2$ okazu.</definition>
   <definitionid>40608</definitionid>
@@ -16409,8 +16409,8 @@
 <nlword word="fakto" valsi="fatci" />
 <nlword word="inversa" valsi="fatne" />
 <nlword word="distribuiĝi" valsi="fatri" />
-<nlword word="Pardonon!" valsi="fau&apos;u" />
 <nlword word="Pardonon!" sense="vokativo" valsi="fau&apos;u" />
+<nlword word="Pardonon!" valsi="fau&apos;u" />
 <nlword word="Pardonu min!" valsi="fau&apos;u" />
 <nlword word="Pardonu min!" sense="vokativo" valsi="fau&apos;u" />
 <nlword word="boli" valsi="febvi" />
@@ -16463,8 +16463,8 @@
 <nlword word="fermanto" valsi="ganlo" place="1" />
 <nlword word="fermita" valsi="ganlo" />
 <nlword word="fermito" valsi="ganlo" place="1" />
-<nlword word="neatingato" sense="pro fermito" valsi="ganlo" place="2" />
 <nlword word="neatingato" sense="fermita" valsi="ganlo" place="2" />
+<nlword word="neatingato" sense="pro fermito" valsi="ganlo" place="2" />
 <nlword word="nepasanto" sense="fermita" valsi="ganlo" place="3" />
 <nlword word="nepasanto" sense="pro fermito" valsi="ganlo" place="3" />
 <nlword word="larĝa" valsi="ganra" />

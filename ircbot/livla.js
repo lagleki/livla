@@ -331,6 +331,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	// 
 	///
 	switch(true) {
+	case text.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
 	case text.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;
 	case text.indexOf("lujvo:") == '0': clientmensi.say(sendTo, triz(text.substr(6)));break;
 	case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
@@ -368,7 +369,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf('Tatoeba:') == '0': clientmensi.say(sendTo, sisku(text.substr(8).trim()));break;
- 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
+/* 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
  	case text.indexOf(prereplier + 'xu do') == '0': 
  	case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {clientmensi.say(sendTo, from + mireturn());}, interm );break;
  	case text.indexOf(prereplier + 'mi retsku') < 0 && text.indexOf(prereplier + 'mi') == '0': setTimeout(function() {clientmensi.say(sendTo, from + doreturn());}, interm );break;
@@ -377,7 +378,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf(prereplier + 'u\'i') == '0' && from==asker: setTimeout(function() {clientmensi.say(sendTo, preasker + ext(nagendra));}, interm );break;
  	case text.indexOf(prereplier + 'xu') == '0' && from!==asker: setTimeout(function() {clientmensi.say(sendTo, from + ': ' + ext(mizmiku));}, interm );break;
  	case text.indexOf(prereplier) == '0' && text.indexOf(prereplier + 'xu') !== '0' && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;
- 	case text.indexOf("doi " + replier) >-1 && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;
+ 	case text.indexOf("doi " + replier) >-1 && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;*/
   	}
 
 
@@ -1168,3 +1169,16 @@ console.log(path.join(__dirname,"../i/data","parsed-"+lng + ".js")
 };
 
 //sutsisningau();
+var lmw = function (lin,sendTo){
+var request = require("request"); var body;
+var uri="http://mw.lojban.org/index.php?action=render&title="+lin;
+//var uri="http://mw.lojban.org/index.php?search="+lin+"&button=&title=Special%3ASearch";
+//https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&prop=extracts&format=json&exlimit=10&explaintext=&exsectionformat=plain&titles=India
+//http://mw.lojban.org/api.php?action=opensearch&search=.o%27i&format=json
+request({uri: uri,method: "GET"}, function(err, response, body) {
+	var i;i = body.replace(/<[^>]+>/g,'');
+	i=i.substring(0,200);
+	if (i.length>=200){i+='...';}
+	clientmensi.say(sendTo, i);
+});
+};

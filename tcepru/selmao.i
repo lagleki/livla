@@ -1,0 +1,218 @@
+/* These defines are for unknown and experimental cmavo. */
+
+# define UNK_M1 (-1)
+# define XAI_M2 (-2)
+/* The following defines specify the order of cmavo in the tables below. */
+
+# define A 0
+# define AhA 1
+# define AhE 2
+# define AhI 3
+# define AhO 4
+# define AhU 5
+# define AI 6
+# define AU 7
+# define E 8
+# define EhA 9
+# define EhE 10
+# define EhI 11
+# define EhO 12
+# define EhU 13
+# define EI 14
+# define I 15
+# define IhA 16
+# define IhE 17
+# define IhI 18
+# define IhO 19
+# define IhU 20
+# define O 21
+# define OhA 22
+# define OhE 23
+# define OhI 24
+# define OhO 25
+# define OhU 26
+# define OI 27
+# define U 28
+# define UhA 29
+# define UhE 30
+# define UhI 31
+# define UhO 32
+# define UhU 33
+# define Y 34
+/* Used only in vowel tables: */
+# define IA 35
+# define IE 36
+# define II 37
+# define IO 38
+# define IU 39
+# define UA 40
+# define UE 41
+# define UI 42
+# define UO 43
+# define UU 44
+# define YhY 45
+
+int vowel_cmavo[46] = {
+	A_501, UI_612, UI_612, UI_612, UI_612, UI_612, UI_612,
+	UI_612, A_501, UI_612, UI_612, UI_612, UI_612, UI_612,
+	UI_612, I_545, UI_612, UI_612, UI_612, UI_612, UI_612,
+	A_501, UI_612, UI_612, UI_612, UI_612, UI_612, UI_612,
+	A_501, UI_612, UI_612, UI_612, UI_612, UI_612, Y_619,
+	UI_612, UI_612, UI_612, UI_612, UI_612,
+	UI_612, UI_612, UI_612, UI_612, UI_612,
+	BY_513,
+};
+
+int b_cmavo[35] = {
+	PU_592, UI_612, BAhE_503, BAI_502, ZAhO_621, UI_612, BAI_502,
+	BAI_502, BE_504, FAhA_528, COI_520, BAI_502, BEhO_506, UI_612,
+	BEI_505, PA_672, UNK_M1, UNK_M1, BIhI_507, BIhI_507, UI_612,
+	BO_508, UNK_M1, UNK_M1, UNK_M1, UNK_M1, UNK_M1, BOI_651,
+	BU_511, GOhA_543, GOhA_543, GOhA_543, UNK_M1, FAhA_528, BY_513,
+};
+
+int c_cmavo[35] = {
+	PU_592, CAhA_514, UI_612, BAI_502, ZAhO_621, FAhA_528, CAI_515,
+	BAI_502, JOI_548, LAU_559, UNK_M1, PA_672, JOI_548, UNK_M1,
+	CEI_516, PA_672, UNK_M1, BAI_502, PA_672, BAI_502, BAI_502,
+	CO_519, ZAhO_621, GOhA_543, ZAhO_621, COI_520, ZAhO_621, COI_520,
+	CU_521, VUhU_679, CUhE_522, CAI_515, MOI_663, BAI_502, BY_513,
+};
+
+int d_cmavo[35] = {
+	KOhA_555, PA_672, KOhA_555, UI_612, DAhO_524, KOhA_555, UI_612,
+	PA_672, KOhA_555, ZAhO_621, KOhA_555, BAI_502, VUhU_679, KOhA_555,
+	KOhA_555, KOhA_555, ZAhO_621, KOhA_555, TAhE_604, BAI_502, KOhA_555,
+	KOhA_555, UI_612, BAI_502, KOhA_555, KOhA_555, DOhU_526, DOI_525,
+	GOhA_543, FAhA_528, PA_672, BAI_502, BAI_502, NU_586, BY_513,
+};
+
+int f_cmavo[35] = {
+	FA_527, FAhA_528, BAI_502, VUhU_679, FAhO_529, JOI_548, FA_527,
+	BAI_502, FA_527, VUhU_679, FEhE_530, VUhU_679, COI_520, FEhU_531,
+	PA_672, FA_527, FA_527, BAI_502, COI_520, FIhO_532, PA_672,
+	FA_527, KOhA_555, KOhA_555, KOhA_555, KOhA_555, KOhA_555, FOI_533,
+	FA_527, FUhA_655, FUhE_535, UI_612, FUhO_536, VUhU_679, BY_513,
+};
+
+int g_cmavo[35] = {
+	GA_537, BAI_502, BY_513, UI_612, GAhO_656, FAhA_528, PA_672,
+	BAI_502, GA_537, VUhU_679, UI_612, GA_537, BY_513, GEhU_538,
+	VUhU_679, GI_539, GIhA_541, GIhA_541, GIhA_541, GIhA_541, GIhA_541,
+	GA_537, GOhA_543, GOhA_543, GOhA_543, GOhA_543, GOhA_543, GOI_542,
+	GA_537, GUhA_544, GUhA_544, GUhA_544, GUhA_544, GUhA_544, BY_513,
+};
+
+int j_cmavo[35] = {
+	JA_546, NA_578, BAI_502, BAI_502, UI_612, UNK_M1, JAI_547,
+	PA_672, JA_546, NAhE_583, COI_520, JA_546, BY_513, UI_612,
+	NU_586, A_501, UI_612, BAI_502, PA_672, BAI_502, BAI_502,
+	JA_546, UI_612, JOI_548, JOhI_657, BY_513, JOI_548, JOI_548,
+	JA_546, UI_612, UNK_M1, COI_520, UI_612, VUhU_679, BY_513,
+};
+
+int k_cmavo[35] = {
+	NU_586, BAI_502, CAhA_514, BAI_502, PA_672, UI_612, BAI_502,
+	UI_612, KE_551, KOhA_555, KEhE_550, GAhO_656, COI_520, UI_612,
+	KEI_552, KI_554, UI_612, COI_520, BAI_502, PA_672, BAI_502,
+	KOhA_555, KOhA_555, KOhA_555, KOhA_555, KOhA_555, KOhA_555, BAI_502,
+	KU_556, JOI_548, KUhE_658, UI_612, KUhO_557, BAI_502, BY_513,
+};
+
+int l_cmavo[35] = {
+	LA_558, UI_612, LAhE_561, LA_558, ZOI_627, BAI_502, LA_558,
+	LAU_559, LE_562, BAI_502, LE_562, LE_562, UI_612, LEhU_565,
+	LE_562, LI_566, UI_612, BAI_502, NU_586, UI_612, LIhU_567,
+	LE_562, BY_513, LE_562, LE_562, LOhO_568, LOhU_569, LE_562,
+	LU_571, LAhE_561, LAhE_561, LAhE_561, LAhE_561, LUhU_573, BY_513,
+};
+
+int m_cmavo[35] = {
+	KOhA_555, KOhA_555, BAI_502, BAI_502, MAhO_662, PA_672, MAI_661,
+	BAI_502, ME_574, BAI_502, BAI_502, PA_672, LI_566, MEhU_575,
+	MOI_663, KOhA_555, KOhA_555, COI_520, BIhI_507, KOhA_555, UI_612,
+	GOhA_543, PA_672, MOhE_664, MOhI_577, MAI_661, ZAhO_621, MOI_663,
+	PA_672, UI_612, NU_586, BAI_502, COI_520, BAI_502, BY_513,
+};
+
+int n_cmavo[35] = {
+	NA_578, BY_513, NAhE_583, UI_612, TAhE_604, NAhU_665, NAI_581,
+	CUhE_522, GOI_542, FAhA_528, UNK_M1, FAhA_528, VUhU_679, FAhA_528,
+	GOhA_543, NU_586, FAhA_528, NIhE_666, BAI_502, NIhO_584, PA_672,
+	PA_672, GOhA_543, NAhE_583, NIhO_584, PA_672, GOI_542, NOI_585,
+	NU_586, NUhA_667, COI_520, NUhI_587, CAhA_514, NUhU_588, BY_513,
+};
+
+int p_cmavo[35] = {
+	PA_672, BAI_502, UI_612, VUhU_679, FAhA_528, BAI_502, PA_672,
+	UI_612, GOI_542, UI_612, UNK_M1, UI_612, PEhO_673, COI_520,
+	CAI_515, PA_672, VUhU_679, PA_672, VUhU_679, BAI_502, JOI_548,
+	GOI_542, UNK_M1, GOI_542, BAI_502, UNK_M1, GOI_542, NOI_585,
+	PU_592, BAI_502, BAI_502, CAhA_514, ZAhO_621, NU_586, BY_513,
+};
+
+int r_cmavo[35] = {
+	KOhA_555, BAI_502, PA_672, BAI_502, RAhO_593, UI_612, BAI_502,
+	PA_672, PA_672, VUhU_679, UI_612, COI_520, FAhA_528, UNK_M1,
+	PA_672, KOhA_555, BAI_502, UI_612, BAI_502, VUhU_679, FAhA_528,
+	PA_672, UI_612, UI_612, UI_612, UI_612, UI_612, ROI_594,
+	KOhA_555, UI_612, CAI_515, TAhE_604, BY_513, FAhA_528, BY_513,
+};
+
+int s_cmavo[35] = {
+	SA_595, UI_612, UI_612, VUhU_679, VUhU_679, UI_612, CAI_515,
+	BAI_502, SE_596, UI_612, BY_513, UI_612, UI_612, SEhU_598,
+	SEI_597, SI_601, UI_612, MOI_663, VUhU_679, NU_586, BAI_502,
+	PA_672, PA_672, PA_672, PA_672, PA_672, PA_672, SOI_602,
+	SU_603, UI_612, PA_672, VUhU_679, PA_672, NU_586, BY_513,
+};
+
+int t_cmavo[35] = {
+	KOhA_555, COI_520, TAhE_604, BAI_502, UI_612, UI_612, BAI_502,
+	LAU_559, SE_596, VUhU_679, FAhA_528, UNK_M1, PA_672, TEhU_675,
+	TEI_605, KOhA_555, FAhA_528, UI_612, BAI_502, SEI_597, BAI_502,
+	TO_606, BY_513, NAhE_583, TO_606, FAhA_528, UI_612, TOI_607,
+	KOhA_555, LAhE_561, TUhE_610, BAI_502, PA_672, TUhU_611, BY_513,
+};
+
+int v_cmavo[35] = {
+	VA_613, VUhU_679, UNK_M1, UI_612, BAI_502, BAI_502, PA_672,
+	VAU_614, SE_596, VEhA_615, VEhA_615, VEhA_615, VEhO_678, VEhA_615,
+	VEI_677, VA_613, VIhA_616, VIhA_616, VIhA_616, COI_520, VIhA_616,
+	PA_672, KOhA_555, KOhA_555, KOhA_555, KOhA_555, KOhA_555, NOI_585,
+	VA_613, FAhA_528, UI_612, LAhE_561, VUhO_617, VUhU_679, BY_513,
+};
+
+int x_cmavo[35] = {
+	PA_672, XAI_M2, XAI_M2, XAI_M2, XAI_M2, XAI_M2, XAI_M2,
+	XAI_M2, SE_596, XAI_M2, XAI_M2, XAI_M2, XAI_M2, XAI_M2,
+	XAI_M2, XI_618, XAI_M2, XAI_M2, XAI_M2, XAI_M2, XAI_M2,
+	PA_672, XAI_M2, XAI_M2, XAI_M2, XAI_M2, XAI_M2, XAI_M2,
+	UI_612, XAI_M2, XAI_M2, XAI_M2, XAI_M2, XAI_M2, BY_513,
+};
+
+int z_cmavo[35] = {
+	ZI_624, UI_612, BAhE_503, NU_586, ZAhO_621, PA_672, LAU_559,
+	BAI_502, PA_672, ZEhA_622, ZEhA_622, ZEhA_622, FAhA_528, ZEhA_622,
+	ZEI_623, ZI_624, UNK_M1, ZIhE_625, UNK_M1, KOhA_555, UNK_M1,
+	ZO_626, FAhA_528, KOhA_555, FAhA_528, UI_612, ZOhU_628, ZOI_627,
+	ZI_624, FAhA_528, BAI_502, KOhA_555, NU_586, UI_612, BY_513,
+};
+
+/* This table is an index into the 18 preceding tables.
+*/
+
+int *cmavo[18] = {
+	vowel_cmavo, b_cmavo, c_cmavo, d_cmavo, f_cmavo, g_cmavo, j_cmavo,
+	k_cmavo, l_cmavo, m_cmavo, n_cmavo, p_cmavo, r_cmavo, s_cmavo,
+	t_cmavo, v_cmavo, x_cmavo, z_cmavo,
+};
+
+/* This table is indexed by the consonants 'a'..'z'.
+*/
+
+int cons[26] = {
+	0, 1, 2, 3, 0, 4, 5, 0, 0, 6, 7, 8, 9,
+	10, 0, 11, 0, 12, 13, 14, 0, 15, 0, 16, 0, 17
+};
+

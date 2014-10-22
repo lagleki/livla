@@ -1,0 +1,2 @@
+make
+./parser <<<"coi ro do" 2>/dev/null

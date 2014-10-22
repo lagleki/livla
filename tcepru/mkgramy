@@ -1,0 +1,85 @@
+#!/bin/sh
+# Copyright 1992-2003 Logical Language Group Inc.
+# Licensed under the Academic Free License version 2.0
+# Converts grammar.$1 (in publication form) to grammar.y (for parser building)
+
+# This sed builds the token-declarations half of the grammar in gprefix.y
+# The first 3 lines comment out the lexer_x_7xx declarations
+# and comment in the lexer_x_9xx declarations.
+# The rest puts numbers in the token declarations and kills the rules.
+sed '
+/^%token lexer/s/^/!/
+/^\/\*%token lexer/s/^..//
+/^!%/s/^!/\/\*/
+/token/s/[0-9][0-9]*/& &/
+/^%start/,$d
+' grammar.$1 >gprefix.y
+
+# This sed builds the rules part of the grammar in gbody.tmp.
+# First, comments are stripped, then token declarations are killed.
+# Blank lines are murdered, and then the lexer rules are removed.
+cpp -P grammar.$1 | sed '
+1,/%%/d
+/^ *$/d
+/^lexer_A/,$d
+' >gbody.tmp
+
+# This ed run removes anything in gbody.tmp that isn't a rule
+# and makes sure each rule appears on just one line.
+ed - gbody.tmp <<end-ed
+v/[|;:]/.-1,.j
+w
+q
+end-ed
+
+# This awk copies gbody.tmp to gbody.y, the final version.
+# An action is inserted after each rule.  Empty action and error action
+# get special treatment.  Everything else is of the form:
+# $$ = node?($1, $2, $3, ...) where n is the number of objects.
+awk '
+/:/ {
+	print $0
+	children = NF - 2
+	c1 = $3
+	tmpFS = FS
+	FS = "_"
+	i = split($1, rulenames)
+	ruleno = rulenames[i]
+	FS = tmpFS
+	if (ruleno == 0) ruleno = 10000
+	printf "                           { $$ = node%d(%d, ", children, ruleno
+	for (i = 1; i < children; i++)
+		printf "$%d, ", i
+	printf "$%d); }\n", children
+	}
+
+/\|/ {
+	print $0
+	if (NF == 1) {
+		print "                           { $$ = elidable(FAhO_529); }"
+		next
+		}
+	else if ($2 == "error") {
+		printf "                           { $$ = elidable(%s); yyerrok; }\n", c1
+		next
+		}
+	children = NF - 1
+	c1 = $2
+	printf "                           { $$ = node%d(%d, ", children, ruleno
+	for (i = 1; i < children; i++)
+		printf "$%d, ", i
+	printf "$%d); }\n", children
+	}
+
+/;/ {
+	print $0
+	}
+' gbody.tmp >gbody.y
+
+# Spit out version.h since we have the correct version number
+echo >version.h "#define VERSION \"$1\""
+
+# Finally, merge gprefix.y and gbody.y, including gmiddle.y, which is
+# some fixed rules for topmost object, and clean up.
+cat gprefix.y gmiddle.y gbody.y >grammar.y
+#rm gprefix.y gbody.y gbody.tmp

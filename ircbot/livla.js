@@ -1,7 +1,5 @@
 //livla bot
-var fs = require("fs"),
-path = require("path-extra"),
-libxmljs = require("libxmljs");
+var fs = require("fs"),path = require("path-extra"),libxmljs = require("libxmljs");
 var s,t,notci,notcijudri;
 var tato= require('./tatoeba.js');
 var interv=300000;
@@ -334,11 +332,12 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
 	case text.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;
 	case text.indexOf("lujvo:") == '0': clientmensi.say(sendTo, triz(text.substr(6)));break;
-	case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
+	//case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
 	case text.indexOf("exp:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
 	case text.indexOf("f:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, xufuhivla(text));break;
 	case text.indexOf("k:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, run_camxes(text, 3));break;
 	case text.indexOf("off:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxesoff(ret[0], ret[1]));break;
+	case text.indexOf("cowan:") == '0': tcepru(text.substr(6),sendTo);break;
 	case text.indexOf(replier + ': ko ningau') == '0': setTimeout(function() {updatexmldumps();clientmensi.say(sendTo,'mi ca ca\'o ningau lo nei i ko ca troci lo ka pilno mi');},1); break;
 	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
@@ -808,6 +807,7 @@ var items = [
 var itemsu = [//universal glosses
 	["lu","<"],["li'u",">"],["i","."],["bo","-|-"],["sai","!"],["cai","!!!"],["na'e","!"],["da","X"],["de","Y"],["di","Z"],["cu",":"],["jo","⇔"],
 	["fa","(1:)"],["fe","(2:)"],["fi","(3:)"],["fo","(4:)"],["fu","(5:)"],
+	["ba'e", "(NB!=>)"],
 	["na","!"]];
 lin=lin.toLowerCase();
 	var i,myregexp,j;
@@ -1160,8 +1160,7 @@ var nl='var literals = {';
 	}
 	nl+="};\n";
 	pars+=nl;
-console.log(path.join(__dirname,"../i/data","parsed-"+lng + ".js")
-);
+	console.log(path.join(__dirname,"../i/data","parsed-"+lng + ".js"));
 	content = fs.writeFile(path.join(__dirname,"../i/data","parsed-"+lng + ".js"),pars, function(err) {
 	if(err) {console.log(err);} else {console.log( + ' updated');
 	}
@@ -1182,3 +1181,10 @@ request({uri: uri,method: "GET"}, function(err, response, body) {
 	clientmensi.say(sendTo, i);
 });
 };
+
+var tcepru = function(lin,sendTo){
+	var exec = require('child_process').exec;
+	exec(path.join(__dirname,"../tcepru/./parser") + ' <<<"'+lin+'coi ro do" 2>/dev/null', function (error, stdout, stderr) {
+  		 clientmensi.say(sendTo, stdout);
+	});
+}

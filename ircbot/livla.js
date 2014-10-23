@@ -1184,7 +1184,7 @@ request({uri: uri,method: "GET"}, function(err, response, body) {
 
 var tcepru = function(lin,sendTo){
 	var exec = require('child_process').exec;
-	exec(path.join(__dirname,"../tcepru/./parser") + ' <<<"'+lin+'coi ro do" 2>/dev/null', function (error, stdout, stderr) {
+	exec(path.join(__dirname,"../tcepru/./parser") + ' <<<"'+lin+'" 2>/dev/null', function (error, stdout, stderr) {
   		 clientmensi.say(sendTo, stdout);
 	});
 }

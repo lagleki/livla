@@ -4395,6 +4395,14 @@
   <definition>$g_1$ gasnu lonu $k_1$ klama $k_2$ $k_3$ $k_4$ $k_5$ kei</definition>
   <definitionid>18778</definitionid>
 </valsi>
+<valsi word="gaxykafke" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>$x_1$ kafke $x_2$ lo ganxo be $x_1$.</definition>
+  <definitionid>63434</definitionid>
+</valsi>
 <valsi word="ge" type="cmavo">
   <selmaho>GA</selmaho>
   <user>
@@ -6126,7 +6134,7 @@
   </user>
   <definition>$x_1$ cmevla $x_2$ la .lojban. gi&apos;e simsa lo lujvo lo ka ce&apos;u porsi fi lo rafsi kei gi&apos;e ku&apos;i se fanmo lo rafsi poi na ka&apos;e fanmo lo lujvo</definition>
   <definitionid>57105</definitionid>
-  <notes>.i mu&apos;a zo .{lojban}. e zo .{mergug}. e zo .{camgusmis}. cu jvocmevla .i li&apos;a fi&apos;o catni ku lo jvocmevla cu cmevla po&apos;o .ije ku&apos;i so&apos;eroiku lo rafpoi cu ve jinvi fi lo smuni .i ko viska zo {cmevla} .e zo {lujvo} ji&apos;a</notes>
+  <notes>.i mu&apos;a zo .{lojban}. .e zo .{mergug}. .e zo .{camgusmis}. cu jvocmevla .i li&apos;a fi&apos;o catni ku lo jvocmevla cu cmevla po&apos;o .ije ku&apos;i so&apos;eroiku lo rafpoi cu ve jinvi fi lo smuni .i ko catlu zo {cmevla} .e zo {lujvo} ji&apos;a</notes>
 </valsi>
 <valsi word="jvofi'i" type="lujvo">
   <user>
@@ -6441,8 +6449,8 @@
   <definition>frica binxo lo zulgrici&apos;e pe tanru ja lujvo</definition>
   <definitionid>57057</definitionid>
   <notes>zo ke&apos;ei&apos;a se rafsi la kex. .i xruti frica binxo to balvi lo be zo ke&apos;ei frica binxo lo prutigrici&apos;e .ija balvi lo be zo ke&apos;ai frica binxo lo nalgrici&apos;e toi</notes>
-  <glossword word="zunle girzu ciste" sense="frica binxo" />
   <glossword word="zulgrici&apos;e" sense="ficybi&apos;o" />
+  <glossword word="zunle girzu ciste" sense="frica binxo" />
 </valsi>
 <valsi word="kei" type="cmavo">
   <rafsi>kez</rafsi>
@@ -11327,8 +11335,8 @@
   <definition>$x_1$ cusku $x_2$ noi preti $x_3$ boi $x_1$ boi $x_4$ ku&apos;o $x_4$ boi $x_5$</definition>
   <definitionid>20393</definitionid>
   <notes>ko catlu fe ji&apos;a zo {cusku} je zo {spusku} je zo {spuda} je zo {preti}</notes>
-  <glossword word="retsku" />
   <glossword word="cusku lo preti" />
+  <glossword word="retsku" />
 </valsi>
 <valsi word="re'u" type="cmavo">
   <selmaho>ROI</selmaho>
@@ -12933,8 +12941,8 @@
   <definition>.i lo ka solgu&apos;idicyborprami&apos;i cu ka ko&apos;a ko&apos;e ce&apos;ai ko&apos;a goi $x_1$ minji lo ka ce&apos;u tejaite cupra lo dikca lo gusni be ko&apos;a bei lo solri fai ko&apos;e goi $x_2$</definition>
   <definitionid>38163</definitionid>
   <notes>.i zo {minji} .e zo {cupra} .e zo {dikca} .e zo {gusni} .e zo {solri} zo&apos;u .e&apos;u zgana</notes>
-  <glossword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" />
   <glossword word="solri ke dikca cupra minji" sense="minji lo ka cupra lo dikca" />
+  <glossword word="solri tanbo pe&apos;a" sense="minji lo ka cupra lo dikca" />
 </valsi>
 <valsi word="solgusli'i" type="lujvo">
   <user>
@@ -13654,8 +13662,8 @@
   </user>
   <definition>lo lamjvo cu ckaji lo tanru .i lo tersumsu&apos;a pe le lujvo cu mintu lo fanmo ke rafsi jonai gismu</definition>
   <definitionid>57059</definitionid>
-  <glossword word="taujvo" sense="taurkaikemjvo" />
   <glossword word="tanru lujvo" sense="tanru kelci ke lujvo" />
+  <glossword word="taujvo" sense="taurkaikemjvo" />
 </valsi>
 <valsi unofficial="true" word="tau'u" type="experimental cmavo">
   <selmaho>PA5</selmaho>
@@ -14593,9 +14601,9 @@
   <definition>$x_1$ tolyli&apos;a $x_2$ $x_3$</definition>
   <definitionid>53187</definitionid>
   <notes>ko catlu fe ji&apos;a zo {cliva} fa&apos;u zo {klama} fa&apos;u zo {tolyli&apos;a}</notes>
+  <glossword word="tsuku" />
   <glossword word="to&apos;e cliva" />
   <glossword word="tolyli&apos;a" />
-  <glossword word="tsuku" />
 </valsi>
 <valsi word="tsustani" type="lujvo">
   <user>
@@ -14871,7 +14879,7 @@
   </user>
   <definition>.i $x_1$ jungau $x_2$ lo du&apos;u $x_4$ .urli $x_3$</definition>
   <definitionid>40534</definitionid>
-  <notes>.i .e&apos;u zgana zo&apos;e ji&apos;a ne .{urli}</notes>
+  <notes>.i .e&apos;u catlu fe ji&apos;a zo {urli}</notes>
   <glossword word=".urli jungau" />
 </valsi>
 <valsi word="uecu'i" type="cmavo-compound">

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html manifest='./webapp.appcache'>
+<html manifest='webapp.appcache'>
 <head>
   <title>sutsis: ze'i vlasisku</title>
   <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
-  <link rel='stylesheet' href='./lib/Lato.css'>
+  <link rel='stylesheet' href='lib/Lato.css'>
   <style type="text/css">
     .container .credit {
       margin: 20px 0;
@@ -209,7 +209,7 @@
       });
       s = s.replace(/\{(.*?)\}/g, function(c) {
         var c = c.substring(1, c.length-1);
-        return '<a href="./search/' + encodeURIComponent(c) + '">' + c + "</a>"
+        return '<a href="#search/' + encodeURIComponent(c) + '">' + c + "</a>"
       });
       return s;
     }
@@ -248,7 +248,7 @@
           if (def.type.match(/lujvo/)) {
             rafElem.append(
                 $("<a>").attr(
-                    'href', '/search/' + encodeURIComponent(raf))
+                    'href', '#search/' + encodeURIComponent(raf))
                 .text(raf)
             );
           } else {
@@ -301,11 +301,11 @@
     typehere.keydown(displayDescription);
 
     function updateUrl(query) {
-      var url = './';
+      var url = '';
       if (query.length > 0) {
-        url = '/extensions/ilmentufa/i/search/' + query
+        url = '#search/' + query
       }
-      if (url == window.location.pathname) {
+      if (url == window.location.pathname || url == '') {
         return;
       }
       var difference = now() - lastQueried;
@@ -317,7 +317,7 @@
       lastQueried = now();
     }
     function handleUrl() {
-      var searchMatch = window.location.pathname.match(/\/search\/(.*)/);
+      var searchMatch = window.location.pathname.match(/\#search\/(.*)/);
       query = '';
       if (searchMatch) {
         var query = decodeURIComponent(searchMatch[1]);

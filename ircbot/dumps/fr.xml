@@ -8,8 +8,8 @@
   </user>
   <definition>$x_1$ est une palmier dattier/dattier/Phoenix dactylifera L. (arbre ou fruit) de l&apos;espèce / variété $x_2$.</definition>
   <definitionid>56800</definitionid>
-  <glossword word="dattier" sense="fruit/arbre" />
   <glossword word="palmier dattier" sense="fruit/arbre" />
+  <glossword word="dattier" sense="fruit/arbre" />
 </valsi>
 <valsi word="angila" type="fu'ivla">
   <user>
@@ -679,8 +679,8 @@
   <definitionid>57278</definitionid>
   <notes>{detri} zei {krefu}. krefu_2 correspond à la date du premier évènement, mais la place est omise pour la simplicité. $x_5=d_4$ peut indiquer le système de la répétition: un jour de la semaine/du mois; un jour/mois de l&apos;an (anniversaire); un an du centenaire etc. ex.) li renopavo pi&apos;e pano pi&apos;e re detke&apos;u lo nu la gandis noi banli cu jbena kei li pavomu zo&apos;e lo pa nanca be fi la gregoris (Le 2 octobre 2014 est le 145e anniversaire de la naissance de Mahatma Gandhi compté selon l&apos;an du calendrier grégorien.)</notes>
   <glossword word="millénaire" />
-  <glossword word="anniversaire" />
   <glossword word="centenaire" />
+  <glossword word="anniversaire" />
 </valsi>
 <valsi unofficial="true" word="digno" type="experimental gismu">
   <user>
@@ -756,8 +756,8 @@
   </user>
   <definition>$x_1$ (personne) est fou/dérangé selon le standard $x_2$</definition>
   <definitionid>53191</definitionid>
-  <glossword word="fou" sense="personne" />
   <glossword word="dérangé" />
+  <glossword word="fou" sense="personne" />
 </valsi>
 <valsi word="fragari" type="fu'ivla">
   <user>
@@ -915,7 +915,7 @@
   </user>
   <definition>$x_1=k_1=s_1$ est un serveur d&apos;Internet pour un client $x_2=k_1=s_2$ d&apos;un service $x_3=s_3$.</definition>
   <definitionid>42620</definitionid>
-  <notes>-kib- est un rafsi court du gismu expérimental {kibro}.{samseltcana}_2 pour des nodes de réseau. Voir {kibro} {selfu}; {kibdu&apos;a}, {kibycpa}, {kibyca&apos;o}.</notes>
+  <notes>-kib- est un rafsi court du gismu expérimental {kibro}. Voir ${samseltcana}_2$ pour des nodes de réseau, {kibro} {selfu}, {kibdu&apos;a}, {kibycpa}, {kibyca&apos;o}</notes>
   <keyword word="serveur" place="1" sense="Internet" />
   <keyword word="client" place="2" sense="Internet" />
   <keyword word="service" place="3" sense="Internet" />
@@ -998,11 +998,11 @@
   <definition>$x_1$ est une quantité de duvet / peluche / bourre qui a / est de la composition / la structure / caractérisation / substance $x_2$ ; $x_1$ est  pelucheux / duveteux  / moelleux / aéré / flou dans la texture.</definition>
   <definitionid>56599</definitionid>
   <notes>Visuel et tactile. x1 est probablement un peu malléable, mais ce mot n&apos;a pas de telles implications en soi; porosité ou moussité est pas non plus implicite. Pourraient également inclure &quot;moelleux&quot;, &quot;comme le coton&quot;, &quot;comme la laine&quot;; une nature fractale pourrait être présent. Pour flou: il n&apos;est pas nécessairement poilu ou velu, mais doit être doux; pas hérissé (ce qui implique la rigidité, raideur, et dureté). Voyez aussi: {ranti}, {rufsu}, {xutla}, {panje}, {dilnu}, {mapni}, {sunla}, {fonmo}, {jduli}, {pesxu}, {marji}.</notes>
-  <glossword word="duvet" sense="peluche, bourre" />
-  <glossword word="duveteux" sense="moelleux, pelucheux" />
-  <glossword word="moelleux" sense="duveteux" />
   <glossword word="peluche" sense="duvet" />
   <glossword word="pelucheux" sense="duveteux, moelleux" />
+  <glossword word="duveteux" sense="moelleux, pelucheux" />
+  <glossword word="moelleux" sense="duveteux" />
+  <glossword word="duvet" sense="peluche, bourre" />
   <glossword word="bourre" sense="duvet, peluche" />
 </valsi>
 <valsi word="melbi" type="gismu">
@@ -1539,7 +1539,9 @@
 <nlword word="camarade" valsi="kamxada" />
 <nlword word="carcajou" valsi="karkaju" />
 <nlword word="Canada" valsi="kenyDAS" />
+<nlword word="client" sense="Internet" valsi="kibyse&apos;u" place="2" />
 <nlword word="serveur" sense="Internet" valsi="kibyse&apos;u" place="1" />
+<nlword word="service" sense="Internet" valsi="kibyse&apos;u" place="3" />
 <nlword word="pleurer" valsi="klaku" />
 <nlword word="impératif" sense="d&apos;attitude" valsi="ko&apos;oi" />
 <nlword word="douane" valsi="korgretro" />

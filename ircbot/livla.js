@@ -621,10 +621,7 @@ var lng="en",gag;
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]");
-if (coun.length===0)
-{
-try{coun=xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text(); var tmp=coun.replace(/^.*?-([a-z']+)-.*/,'$1');if (tmp!==coun){coun=tmp;}else{coun='';}}catch(err){coun='';}
-}
+if (coun.length===0){try{coun=xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text(); var tmp=coun.replace(/^.*?-([a-z']+)-.*/,'$1');if (tmp!==coun){coun=tmp;}else{coun='';}}catch(err){coun='';}}
 else{coun=coun.join (' .e zo\'oi ');}
 if (coun!==''){coun='zo\'oi ' + coun + ' rafsi zo ' + lin;}
 
@@ -632,11 +629,11 @@ var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
 //now try -raf- in notes
 if (typeof rev==='undefined'){rev =  xmlDoc.get("/dictionary/direction[1]/valsi[contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\"-"+lin+"-\")]");}
 //now try to add a vowel:
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"a\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"e\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"i\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"o\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"u\"]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"a\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"e\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"i\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
 
 if (typeof rev!=='undefined' && rev.attr("word").value()!==lin){rev='zo ' + rev.attr("word").value() + ' se rafsi zo\'oi '+lin;}else{rev='';}
 switch(true){
@@ -647,7 +644,7 @@ case (coun==='') && (rev ===''): gag='y no da se tolcri';break;
 }
 return gag;
 };
-
+console.log();
 var io = function ()
 {
 return '.io';
@@ -1112,13 +1109,13 @@ var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
 //now try -raf- in notes
 if (typeof rev==='undefined'){rev =  xmlDoc.get("/dictionary/direction[1]/valsi[contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\"-"+lin+"-\")]");}
 //now try to add a vowel
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"a\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"e\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"i\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\"]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"a\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"e\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"i\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
 //may be it's already a word? then just return it.
-if (typeof rev!=='undefined'){rev=rev.attr("word").value();}else{rev=lin;}
+if (typeof rev!=='undefined'){rev=rev.attr("word").value();}else{rev="[?]";}
 return rev;
 };
 
@@ -1188,3 +1185,4 @@ var tcepru = function(lin,sendTo){
   		 clientmensi.say(sendTo, stdout);
 	});
 }
+

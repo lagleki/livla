@@ -4347,7 +4347,7 @@ var camxes = (function(){
         }
         
         var result0, result1, result2, result3, result4;
-        var pos0, pos1, pos2, pos3;
+        var pos0, pos1, pos2, pos3, pos4, pos5;
         
         pos0 = pos;
         pos1 = pos;
@@ -4367,7 +4367,29 @@ var camxes = (function(){
           if (result1 !== null) {
             pos3 = pos;
             reportFailures++;
-            result2 = parse_selbri();
+            pos4 = pos;
+            pos5 = pos;
+            reportFailures++;
+            result2 = parse_tag();
+            reportFailures--;
+            if (result2 === null) {
+              result2 = "";
+            } else {
+              result2 = null;
+              pos = pos5;
+            }
+            if (result2 !== null) {
+              result3 = parse_selbri();
+              if (result3 !== null) {
+                result2 = [result2, result3];
+              } else {
+                result2 = null;
+                pos = pos4;
+              }
+            } else {
+              result2 = null;
+              pos = pos4;
+            }
             reportFailures--;
             if (result2 === null) {
               result2 = "";

@@ -1622,6 +1622,58 @@
   <notes>En lojban un tel mot finit par une voyelle et contient un cluster de consonne dans les 5 premières lettres (sans compter les y)</notes>
   <glossword word="prédicat" sense="mot" />
 </valsi>
+<valsi word="broda" type="gismu">
+  <rafsi>rod</rafsi>
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ est le broda (1e prédicat variable assignable)</definition>
+  <definitionid>63436</definitionid>
+  <notes>le contexte détermine la structure des places</notes>
+  <glossword word="prédicat1 (variable)" />
+</valsi>
+<valsi word="brode" type="gismu">
+  <rafsi>bo&apos;e</rafsi>
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ est le brode (2e prédicat variable assignable)</definition>
+  <definitionid>63437</definitionid>
+  <notes>le contexte détermine la structure des places</notes>
+  <glossword word="prédicat2 (variable)" />
+</valsi>
+<valsi word="brodi" type="gismu">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ est le brodi (3e prédicat variable assignable)</definition>
+  <definitionid>63438</definitionid>
+  <notes>le contexte détermine la structure des places</notes>
+  <glossword word="prédicat3 (variable)" />
+</valsi>
+<valsi word="brodo" type="gismu">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ est le brodo (4e prédicat variable assignable)</definition>
+  <definitionid>63439</definitionid>
+  <notes>le contexte détermine la structure des places</notes>
+  <glossword word="prédicat4 (variable)" />
+</valsi>
+<valsi word="brodu" type="gismu">
+  <user>
+    <username>glekiponjo</username>
+    <realname>la gleki noi jmina lo ponjo smuni</realname>
+  </user>
+  <definition>$x_1$ est le brodu (5e prédicat variable assignable)</definition>
+  <definitionid>63440</definitionid>
+  <notes>le contexte détermine la structure des places</notes>
+  <glossword word="prédicat5 (variable)" />
+</valsi>
 <valsi word="bruna" type="gismu">
   <rafsi>bun</rafsi>
   <rafsi>bu&apos;a</rafsi>
@@ -26024,6 +26076,11 @@
 <nlword word="bureau" sense="lieu de travail" valsi="briju" />
 <nlword word="britannique" valsi="brito" />
 <nlword word="prédicat" sense="mot" valsi="brivla" />
+<nlword word="prédicat1 (variable)" valsi="broda" />
+<nlword word="prédicat2 (variable)" valsi="brode" />
+<nlword word="prédicat3 (variable)" valsi="brodi" />
+<nlword word="prédicat4 (variable)" valsi="brodo" />
+<nlword word="prédicat5 (variable)" valsi="brodu" />
 <nlword word="frère" valsi="bruna" />
 <nlword word="mot-&gt;lettre" valsi="bu" />
 <nlword word="selbri1" sense="variable" valsi="bu&apos;a" />

@@ -337,8 +337,10 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf("f:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, xufuhivla(text));break;
 	case text.indexOf("k:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, run_camxes(text, 3));break;
 	case text.indexOf("off:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxesoff(ret[0], ret[1]));break;
+	case text.indexOf("yacc:") == '0': tcepru(text.substr(5),sendTo);break;
 	case text.indexOf("cowan:") == '0': tcepru(text.substr(6),sendTo);break;
-	case text.indexOf("gerna:") == '0': jbofihe(text.substr(6),sendTo);break;
+	case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo);break;
+	case text.indexOf("jbofihe:") == '0': jbofihe(text.substr(8),sendTo);break;
 	case text.indexOf(replier + ': ko ningau') == '0': setTimeout(function() {updatexmldumps();clientmensi.say(sendTo,'mi ca ca\'o ningau lo nei i ko ca troci lo ka pilno mi');},1); break;
 	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;

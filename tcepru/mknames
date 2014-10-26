@@ -1,0 +1,20 @@
+#!/bin/sh
+# Copyright 1992-2003 Logical Language Group Inc.
+# Licensed under the Academic Free License version 2.0
+# This makes rulename.i, C source code for a table mapping rule numbers to
+# rule names.  Both rules proper and lexer tokens are included.
+
+# First, comments are stripped and includes made to happen.
+# Then "names1.awk" generates code for the rules proper.
+cc -E grammar.y | awk -f names1.awk >names1.tmp
+
+# Next, grammar.h (built by yacc) is processed into code for the lexer tokens.
+# The two are merged.
+awk -f names2.awk grammar.h | cat names1.tmp - >names2.tmp
+
+# Finally, we figure out the size (ignoring C syntactic sugar)
+# and use sed to stick it in.  Then we clean up.
+size=`wc -l <names2.tmp`
+((size=size-3))
+sed "s/###/$size/" names2.tmp >rulename.i
+rm -f names[12].tmp

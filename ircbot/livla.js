@@ -1,7 +1,5 @@
 //livla bot
-var fs = require("fs"),
-path = require("path-extra"),
-libxmljs = require("libxmljs");
+var fs = require("fs"),path = require("path-extra"),libxmljs = require("libxmljs");
 var s,t,notci,notcijudri;
 var tato= require('./tatoeba.js');
 var interv=300000;
@@ -331,13 +329,18 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	// 
 	///
 	switch(true) {
+	case text.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
 	case text.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;
 	case text.indexOf("lujvo:") == '0': clientmensi.say(sendTo, triz(text.substr(6)));break;
-	case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
+	//case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
 	case text.indexOf("exp:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
 	case text.indexOf("f:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, xufuhivla(text));break;
 	case text.indexOf("k:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, run_camxes(text, 3));break;
 	case text.indexOf("off:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxesoff(ret[0], ret[1]));break;
+	case text.indexOf("yacc:") == '0': tcepru(text.substr(5),sendTo);break;
+	case text.indexOf("cowan:") == '0': tcepru(text.substr(6),sendTo);break;
+	case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo);break;
+	case text.indexOf("jbofihe:") == '0': jbofihe(text.substr(8),sendTo);break;
 	case text.indexOf(replier + ': ko ningau') == '0': setTimeout(function() {updatexmldumps();clientmensi.say(sendTo,'mi ca ca\'o ningau lo nei i ko ca troci lo ka pilno mi');},1); break;
 	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
@@ -368,7 +371,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf('Tatoeba:') == '0': clientmensi.say(sendTo, sisku(text.substr(8).trim()));break;
- 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
+/* 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
  	case text.indexOf(prereplier + 'xu do') == '0': 
  	case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {clientmensi.say(sendTo, from + mireturn());}, interm );break;
  	case text.indexOf(prereplier + 'mi retsku') < 0 && text.indexOf(prereplier + 'mi') == '0': setTimeout(function() {clientmensi.say(sendTo, from + doreturn());}, interm );break;
@@ -377,7 +380,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf(prereplier + 'u\'i') == '0' && from==asker: setTimeout(function() {clientmensi.say(sendTo, preasker + ext(nagendra));}, interm );break;
  	case text.indexOf(prereplier + 'xu') == '0' && from!==asker: setTimeout(function() {clientmensi.say(sendTo, from + ': ' + ext(mizmiku));}, interm );break;
  	case text.indexOf(prereplier) == '0' && text.indexOf(prereplier + 'xu') !== '0' && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;
- 	case text.indexOf("doi " + replier) >-1 && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;
+ 	case text.indexOf("doi " + replier) >-1 && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;*/
   	}
 
 
@@ -621,10 +624,7 @@ var lng="en",gag;
 var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var xmlDoc = libxmljs.parseXml(content);
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]");
-if (coun.length===0)
-{
-try{coun=xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text(); var tmp=coun.replace(/^.*?-([a-z']+)-.*/,'$1');if (tmp!==coun){coun=tmp;}else{coun='';}}catch(err){coun='';}
-}
+if (coun.length===0){try{coun=xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text(); var tmp=coun.replace(/^.*?-([a-z']+)-.*/,'$1');if (tmp!==coun){coun=tmp;}else{coun='';}}catch(err){coun='';}}
 else{coun=coun.join (' .e zo\'oi ');}
 if (coun!==''){coun='zo\'oi ' + coun + ' rafsi zo ' + lin;}
 
@@ -632,11 +632,11 @@ var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
 //now try -raf- in notes
 if (typeof rev==='undefined'){rev =  xmlDoc.get("/dictionary/direction[1]/valsi[contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\"-"+lin+"-\")]");}
 //now try to add a vowel:
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"a\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"e\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"i\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"o\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"u\"]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"a\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"e\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"i\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
 
 if (typeof rev!=='undefined' && rev.attr("word").value()!==lin){rev='zo ' + rev.attr("word").value() + ' se rafsi zo\'oi '+lin;}else{rev='';}
 switch(true){
@@ -807,6 +807,7 @@ var items = [
 var itemsu = [//universal glosses
 	["lu","<"],["li'u",">"],["i","."],["bo","-|-"],["sai","!"],["cai","!!!"],["na'e","!"],["da","X"],["de","Y"],["di","Z"],["cu",":"],["jo","⇔"],
 	["fa","(1:)"],["fe","(2:)"],["fi","(3:)"],["fo","(4:)"],["fu","(5:)"],
+	["ba'e", "(NB!=>)"],
 	["na","!"]];
 lin=lin.toLowerCase();
 	var i,myregexp,j;
@@ -1111,11 +1112,11 @@ var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
 //now try -raf- in notes
 if (typeof rev==='undefined'){rev =  xmlDoc.get("/dictionary/direction[1]/valsi[contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\"-"+lin+"-\")]");}
 //now try to add a vowel
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"a\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"e\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"i\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\"]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\"]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"a\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"e\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"i\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
 //may be it's already a word? then just return it.
 if (typeof rev!=='undefined'){rev=rev.attr("word").value();}else{rev=lin;}
 return rev;
@@ -1159,8 +1160,7 @@ var nl='var literals = {';
 	}
 	nl+="};\n";
 	pars+=nl;
-console.log(path.join(__dirname,"../i/data","parsed-"+lng + ".js")
-);
+	console.log(path.join(__dirname,"../i/data","parsed-"+lng + ".js"));
 	content = fs.writeFile(path.join(__dirname,"../i/data","parsed-"+lng + ".js"),pars, function(err) {
 	if(err) {console.log(err);} else {console.log( + ' updated');
 	}
@@ -1168,3 +1168,31 @@ console.log(path.join(__dirname,"../i/data","parsed-"+lng + ".js")
 };
 
 //sutsisningau();
+var lmw = function (lin,sendTo){
+var request = require("request"); var body;
+var uri="http://mw.lojban.org/index.php?action=render&title="+lin;
+//var uri="http://mw.lojban.org/index.php?search="+lin+"&button=&title=Special%3ASearch";
+//https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&prop=extracts&format=json&exlimit=10&explaintext=&exsectionformat=plain&titles=India
+//http://mw.lojban.org/api.php?action=opensearch&search=.o%27i&format=json
+request({uri: uri,method: "GET"}, function(err, response, body) {
+	var i;i = body.replace(/<[^>]+>/g,'');
+	i=i.substring(0,200);
+	if (i.length>=200){i+='...';}
+	clientmensi.say(sendTo, i);
+});
+};
+
+var tcepru = function(lin,sendTo){
+	var exec = require('child_process').exec;
+	exec(path.join(__dirname,"../tcepru/./parser") + ' <<<"'+lin+'" 2>/dev/null', function (error, stdout, stderr) {
+  		 clientmensi.say(sendTo, stdout);
+	});
+}
+
+var jbofihe = function(lin,sendTo){
+	var exec = require('child_process').exec;
+	exec(path.join(__dirname,"../jbofihe/./jbofihe") + ' <<<"'+lin+'" 2>/dev/null', function (error, stdout, stderr) {
+  		 clientmensi.say(sendTo, stdout.replace(/\n/g,''));
+	});
+}
+

@@ -1,0 +1,52 @@
+Preliminary notes on using this parser, Version 3;0;00:
+
+This parser implements the 3rd baseline as published in _The Complete
+Lojban Language_.
+
+The parser reads the standard input and writes to the standard output.
+These may be redirected on the command line with the usual < and > symbols.
+You can also specify the input file as a single argument.  If no file is
+specified, and the standard input is not redirected, the parser will re-execute
+itself repeatedly and will process only a single line (you can break up the
+single line by using backslash-newline; see below).
+
+The parser accepts certain switches on the command line:
+	-dv prints each valsi as read.
+	-dL prints each token as lexed by the compounder.
+	-dR prints each compounder reduction as attempted.
+	-dl prints each token as lexed by the YACC parser.
+	-dr prints each YACC reduction as executed.
+	-de prints each elidable terminator as inserted.
+	-d* is equivalent to all other -d options together.
+
+	-t produces a dump of the internal tree in TAB-separated columns:
+		column 1 is a node number;
+		column 2 is a rule/selma'o name;
+		column 3 is a word for terminals;
+		columns 3-n are numbers of subnodes for non-terminals;
+		there are no forward references to nodes.
+
+	-e omits the insertion of elidables.
+
+	-p outputs the text as a Prolog datum, with rule/selma'o names
+		used as functors.
+
+	-f outputs a full parse: normally, tree nodes with one
+		child are omitted (most useful with -t or -p).
+
+	-e dumps a cmavo list corresponding to the parser's beliefs.
+
+Input is preprocessed as follows:
+	Upper-case letters are changed to lower-case.
+	The . character is treated as a space.
+	Text enclosed in slashes is ignored.
+	Newlines preceded by an \ character are ignored.
+	Digits are converted to the corresponding cmavo.
+	All other non-alphabetic characters (note that apostrophe is
+		alphabetic) are ignored.
+
+These rules allow the re-parsing of parsed text without error.
+
+At the end of each parse, the parser prints the space used in bytes (broken
+down into token space and string space) and the time in seconds.  Times are not
+printed when running interactively.

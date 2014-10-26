@@ -341,6 +341,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf("cowan:") == '0': tcepru(text.substr(6),sendTo);break;
 	case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo);break;
 	case text.indexOf("jbofihe:") == '0': jbofihe(text.substr(8),sendTo);break;
+	case text.indexOf("gerna:") == '0': jbofihe(text.substr(6),sendTo);break;
 	case text.indexOf(replier + ': ko ningau') == '0': setTimeout(function() {updatexmldumps();clientmensi.say(sendTo,'mi ca ca\'o ningau lo nei i ko ca troci lo ka pilno mi');},1); break;
 	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
@@ -1191,8 +1192,12 @@ var tcepru = function(lin,sendTo){
 
 var jbofihe = function(lin,sendTo){
 	var exec = require('child_process').exec;
-	exec(path.join(__dirname,"../jbofihe/./jbofihe") + ' <<<"'+lin+'" 2>/dev/null', function (error, stdout, stderr) {
-  		 clientmensi.say(sendTo, stdout.replace(/\n/g,''));
+	exec(path.join(__dirname,"../jbofihe/./jbofihe") + ' -ie -cr <<<"'+lin+'" 2>/dev/null', function (error, stdout, stderr) {
+	lin=stdout;
+	if (error !==null){lin='O_0';}
+  	clientmensi.say(sendTo, lin.replace(/\n/g,' ').replace(/ {2,}/g,' '));
+  		 //console.log("|"+stderr.toString()+"|");
+  		 //console.log("+"+error.toString()+"+");
 	});
 }
 

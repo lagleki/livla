@@ -1,0 +1,365 @@
+################################################################################
+# $Header$
+#
+# This file contains a number of additions to the glossing dictionary extending
+# what the LLG files at ftp://xiron.pc.helsinki.fi/pub/lojban/wordlists
+# provide.  It is very much 'work in progress'
+#
+
+# Changes to common cmavo etc
+a:or
+be'o:
+be: :
+bei:and
+bo: :
+boi: :
+cai:intense
+co:of-type
+cu:is/does
+da:X
+de:Y
+di:Z
+di'a:resume
+doi:O!
+e:and
+fa: :
+fai: :
+fe: :
+fe'u: :
+fi'a:what role has?:
+fi'o:modal of..
+fi: :
+fo'a:he/she/it
+fo'e:he/she/it
+fo'i:he/she/it
+fo'o:he/she/it
+fo'u:he/she/it
+fo: :
+fu: :
+ga:either(or)
+ge:both(and)
+ge'u:
+gi'a:or
+gi'e:and
+gi:and/or
+goi:equivalently
+i:`.'
+ja:or
+je:and
+ka:property of
+ke'a:it
+ke'e: :
+ke: :
+kei: :
+ko'a:he/she/it
+ko'e:he/she/it
+ko'i:he/she/it
+ko'o:he/she/it
+ko'u:he/she/it
+ku'o:
+ku: :
+la: :
+lai:between them
+le:the
+lei:between them the
+li'u:$CLOSEQUOTE
+lo:any/some
+loi:the mass of all
+lu:$OPENQUOTE
+mei:-some
+mi:I, me
+moi:-st/nd/th
+mu'e:point-event of
+na'e:not
+na:not
+ne:,associated with...,
+noi:,which..,
+nu:event of
+pe:associated with
+pe'a:figurative
+po:of
+poi:which
+ro:every
+roi:-times
+to'e:opposite of
+to'i:editor-(
+toi:):left blank, should indicate via bracketing
+xu:yes/no?
+zi'e:and
+jai: :
+li'i:experience of
+me:amongst those that are
+ko:YOU!
+do'u: :end vocative
+se'u: :end discursive
+sei:discursive
+ri:the latter
+ra:the former:A bit shaky!
+li:No.:
+pi'e:-
+to:(:
+pi:.
+vu'o: :
+tu'a: :action to do with
+ja'a:{AFFIRM}
+zo'u:({- as for)
+vau: :end simple bridi
+xa'o:insufficient
+za'o:excessive
+
+cai:extreme
+sai:strong
+ru'e:weak
+cu'i:neutral
+# I'm not sure these are right, but the refgram doesn't cover
+# what CAI followed by NAI means.
+ru'enai:not weak
+sainai:not strong
+cainai:not extreme
+
+pimei:partial
+piso'aroi:almost all the time
+piso'eroi:most of the time
+piso'oroi:some of the time
+
+
+jai_v:being the
+jai_n: :
+jai_a: :
+jai:[modal]
+
+pu@TERM:before
+pu@NOUN:earlier
+pu@SELBRI:was/did
+pu@LINK:earlier,
+pu@CONNECT:earlier
+ca@TERM:when
+ca@NOUN:current
+ca@SELBRI:is/does
+ca@LINK:at the same time,
+ca@CONNECT:when
+ca@JAI:time of
+ba@TERM:after
+ba@NOUN:later
+ba@SELBRI:will be
+ba@LINK:later,
+ba@CONNECT:later
+
+ca'o@TERM:during
+ca'o@NOUN:ongoing
+ca'o@SELBRI:in progress
+ca'o@LINK:during that,
+ca'o@CONNECT:during that
+ca'o@JAI:time of
+
+pu'o@TERM:prior to
+pu'o@NOUN:yet-to-be
+pu'o@SELBRI:yet-to-be
+pu'o@LINK:prior to that,
+pu'o@CONNECT:prior to that
+pu'o@JAI:aftermath of
+
+ba'o@TERM:after
+ba'o@NOUN:finished
+ba'o@SELBRI:finished
+ba'o@LINK:after that,
+ba'o@CONNECT:after that
+ba'o@JAI:precursor of
+
+co'a@TERM:at the start of
+co'a@NOUN:still-to-start
+co'a@SELBRI:start to
+co'a@LINK:at the start of that,
+co'a@CONNECT:at the start of that
+co'a@JAI:thing starting at the time of
+
+co'u@TERM:at the end of
+co'u@NOUN:completed
+co'u@SELBRI:completed
+co'u@LINK:at the end of that,
+co'u@CONNECT:at the end of that
+co'u@JAI:thing ending at the time of
+
+puzi@SELBRI:just before
+puza@SELBRI:somewhat before
+puzu@SELBRI:a long time before
+
+cazi@SELBRI:at this time
+caza@SELBRI:around this time
+cazu@SELBRI:vaguely around this time
+
+bazi@SELBRI:just after
+baza@SELBRI:somewhat after
+bazu@SELBRI:a long time after
+
+vi@TERM:near to
+vi@NOUN:nearby
+vi@SELBRI:nearby
+vi@LINK:there,
+vi@CONNECT:there
+vi@JAI:location of
+
+va@TERM:some distance from
+va@NOUN:somewhat distant
+va@SELBRI:some distance away
+va@LINK:some distance away,
+va@CONNECT:some distance away
+va@JAI:middle distance from
+
+vu@TERM:a long way from
+vu@NOUN:distant
+vu@SELBRI:remotely
+vu@LINK:in the distance,
+vu@CONNECT:in the distance
+vu@JAI:long distance from
+
+ga'u@TERM:above
+ga'u@NOUN:(upwards)-
+ga'u@SELBRI:upwards
+ga'u@LINK:above,
+ga'u@CONNECT:above
+ga'u@JAI:below
+
+zu'a@TERM:to the left of
+zu'a@NOUN:(to the left)-
+zu'a@SELBRI:to the left
+zu'a@LINK:to the left,
+zu'a@CONNECT:to the left
+zu'a@JAI:to the right of
+
+# Afterthought connectives
+FFFF@AFTER:[IMPOSSIBLE!]
+FFFT@AFTER:[not that, and also not]
+FFTF@AFTER:[not that, however]
+FFTT@AFTER:[not that, whether or not]
+FTFF@AFTER:[but not]
+FTFT@AFTER:[or not, but certainly not]
+FTTF@AFTER:[one of LHS or RHS, but not both]
+FTTT@AFTER:[LHS and RHS not both true]
+TFFF@AFTER:and
+TFFT@AFTER:[if and only if]
+TFTF@AFTER:[or not, but certainly]
+TFTT@AFTER:[only if / implies]
+TTFF@AFTER:[whether or not]
+TTFT@AFTER:[if / implied by]
+TTTF@AFTER:and/or
+TTTT@AFTER:[IMPOSSIBLE!]
+QQQQ@AFTER:[connective?]
+
+# Forethought connectives
+FFFF@GE:[IMPOSSIBLE!]
+FFFF@GI:[IMPOSSIBLE!]
+FFFT@GE:[not]
+FFFT@GI:[and also not]
+FFTF@GE:[not]
+FFTF@GI:[however]
+FFTT@GE:[not]
+FFTT@GI:[whether or not]
+FTFF@GE: :
+FTFF@GI:[but not]
+FTFT@GE:[whether or not]
+FTFT@GI:[certainly not]
+FTTF@GE:[precisely one of]
+FTTF@GI:[and]
+FTTT@GE:[not both]
+FTTT@GI:[and]
+TFFF@GE:both
+TFFF@GI:and
+TFFT@GE: :
+TFFT@GI:[if and only if]
+TFTF@GE:[whether or not]
+TFTF@GI:[certainly]
+TFTT@GE:[if]
+TFTT@GI:[then]
+TTFF@GE: :
+TTFF@GI:[whether or not]
+TTFT@GE:
+TTFT@GI:[implied by]
+TTTF@GE:either
+TTTF@GI:and/or
+TTTT@GE:[IMPOSSIBLE!]
+TTTT@GI:[IMPOSSIBLE!]
+QQQQ@GE: :
+QQQQ@GI:[connective?]
+
+
+ka'a:with go-er
+
+nu1:D;event* of
+ka1:S;property of
+ni1:S;amount of
+ni2:D;scale* for measurement
+jei1:S;truth value of
+jei2:D;epistemology
+li'i1:D;experience* of
+li'i2:D;experiencer* of
+si'o1:D;idea* of
+si'o2:P;with idea
+si'o2n:person with idea
+si'o2v:having idea of
+si'o2t:person with idea
+si'o2a:with idea of
+du'u1:S;fact that
+du'u2:S;fact expressed by
+su'u1:S;abstract nature of
+za'i1:S;state of
+zu'o1:S;activity of
+pu'u1:S;process of
+mu'e1:D;point event* of
+
+me1:S;referent of #%d
+
+mei1:D;#%d-some
+mei2:D;set* with #%d members
+mei2t:formed from set
+mei3:D;property* of subset
+mei3t:with property
+
+moi1:P;#%dth
+moi2:D;ordered set
+moi3:D;ordering rules
+
+si'e1:D;#%dth portion
+si'e2:P;portioned
+
+cu'o1:D;event with prob. #%d
+cu'o2:S;event conditions
+cu'o2t:under conditions
+
+va'e:scale selbri
+va'e1:R;at position #%d on scale
+va'e2:S;scale
+va'e2t:on scale
+
+bau@JAI:language of
+
+bi'e:hi priority
+ce'e: :
+ce'u:lambda
+ju'e:vague connective
+pe'e:respectively
+re'u:nth time
++bi'e:BIhE
++ce'e:CEhE
++ce'u:KOhA8
++ju'e:JOI
++pe'e:PEhE
++re'u:ROI
++pe'a:UI
++po'a:UI
+
+# Letters
+a.bu:"a"
+e.bu:"e"
+i.bu:"i"
+o.bu:"o"
+u.bu:"u"
+y'y.bu:"h"
+ky.bu:"q"
+vy.bu:"w"
+denpa.bu:"."
+slaku.bu:","
+
+# Emotions
+o'o+cinmo1:P;patient
+o'o+nai+cinmo1:P;impatient

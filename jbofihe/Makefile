@@ -1,0 +1,285 @@
+# $Header$
+#
+# Makefile for parser/glosser
+#
+# COPYRIGHT
+#
+
+PREFIX=./
+EXEDIR=$(PREFIX)/bin
+LIBDIR=$(PREFIX)/lib/jbofihe
+DICTNAME=smujmaji.dat
+DICTIONARY=$(LIBDIR)/$(DICTNAME)
+MANDIR=$(PREFIX)/share/man/man1
+CMAFIHE_LDOPTS=
+
+# Setting $LANG is needed for bison; otherwise, it outputs data in the
+# system locale. On a non-English environment, this prevents parts of
+# the build system (for instance, `output2elide.pl`) from parsing
+# bison output properly, leading to compilation errors.
+LANG=C
+
+CC=gcc
+CFLAGS=  -O2  -DHAVE_MMAP=1 -DDEFAULT_DICTIONARY=\"$(DICTIONARY)\"
+BISON=bison
+
+OBJS2 = main.o lex1.o lex2.o cmavotab.o rpc_tab.o functions.o \
+        categ.o nonterm.o tree.o translate.o latex.o \
+        properties.o conversion.o terms.o memory.o tenses.o \
+        output.o textout.o htmlout.o connect.o latexblk.o \
+        relative.o textblk.o errorscan.o canonluj.o lujvofns.o \
+        erasure.o rpc_full.o morf.o morf_dfa.o bccheck.o \
+        tracebk.o elide.o dictaccs.o stag_dfa.o
+
+SRCS2 = $(OBJS2:%.o=%.c)
+
+CM_OBJS = cm_gather.o cm_output.o cm_main.o cm_translate.o cm_scan.o \
+          dictaccs.o memory.o
+
+CM_SRCS = $(CM_OBJS:%.o=%.c)
+
+progs : jbofihe cmafihe jvocuhadju smujajgau vlatai
+
+all : dictionary progs
+
+jbofihe : $(OBJS2)
+	$(CC) $(CFLAGS) -o jbofihe $(OBJS2)
+
+# Analyse shift/reduce conflicts in the grammar
+conflict :
+	perl terminator.pl < rpc2x.y > rpc2x_noet.y
+	$(BISON) -v rpc2x_noet.y
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $<
+
+%.s : %.c
+	$(CC) $(CFLAGS) -S $<
+
+rpc2x_nc.y : rpc2x.y uncom
+	./uncom < rpc2x.y > rpc2x_nc.y
+
+rpc2x_act.y nonterm.h nonterm.c : rpc2x_nc.y
+	perl ./action.perl < rpc2x_nc.y > rpc2x_act.y
+
+rpc2x_act.tab.c rpc2x_act.output rpc_tab.h : rpc2x_act.y
+	$(BISON) -v -d rpc2x_act.y
+	mv rpc2x_act.tab.h rpc_tab.h
+
+rpc_tab.c : rpc2x_act.tab.c
+	perl add_trace_to_tabc.pl < rpc2x_act.tab.c > rpc_tab.c
+
+# Create grammar that will only recognize text with all elidable cmavo present
+rpc2x_full_nc.y : rpc2x.y terminator.pl uncom
+	perl terminator.pl < rpc2x.y | ./uncom > rpc2x_full_nc.y
+
+rpc2x_full_act.y : rpc2x_full_nc.y
+	perl ./action.perl -nononterm < rpc2x_full_nc.y > rpc2x_full_act.y
+
+rpc_full.c rpc2x_full_act.output : rpc2x_full_act.y
+	$(BISON) -v -p full_yy rpc2x_full_act.y
+	sed -e "s/full_yylex/yylex/;s/full_yydebug/yydebug/;s/full_yyerror/yyerror/;s/full_yylval/yylval/;" < rpc2x_full_act.tab.c | perl add_trace_to_tabc.pl > rpc_full.c
+
+tracebk.o : tracebk.c trctabs.c trcftabs.c
+
+trctabs.c : output2table.pl rpc2x_act.output
+	perl output2table.pl norm < rpc2x_act.output > trctabs.c
+
+trcftabs.c : output2table.pl rpc2x_full_act.output
+	perl output2table.pl full < rpc2x_full_act.output > trcftabs.c
+
+elitabs.c : output2elide.pl rpc2x_act.output
+	perl output2elide.pl < rpc2x_act.output > elitabs.c
+
+elide.o : elide.c elitabs.c
+
+dictaccs.o : dictaccs.c 
+
+dictdata.c: gismu_cmavo.dict
+	cat gismu_cmavo.dict places.dat extradict patterns | perl dict2inc.pl > dictdata.c
+
+uncom : uncom.o
+	$(CC) -o uncom uncom.o
+
+uncom.o : uncom.c
+	$(CC) -O2 -c uncom.c
+
+uncom.c : uncom.l
+	flex -t uncom.l > uncom.c
+
+translate.o : translate.c
+	$(CC) $(CFLAGS) -c translate.c
+
+smujajgau : smujajgau.o canonluj.o
+	$(CC) $(CFLAGS) -o smujajgau smujajgau.o canonluj.o
+
+smujajgau.o : smujajgau.c
+	$(CC) $(CFLAGS) -c smujajgau.c
+
+vlatai.o : morf.c morf.h morf_enc.c morf_lex.c morfvlex.c
+	$(CC) $(CFLAGS) -c -o vlatai.o -DTEST_MORF morf.c
+    
+vlatai : vlatai.o morf_dfa.o bccheck.o canonluj.o
+	$(CC) -o vlatai -DTEST_MORF $(CFLAGS) vlatai.o morf_dfa.o bccheck.o canonluj.o
+
+morf_lex.c : mk_fetab.pl
+	perl mk_fetab.pl > morf_lex.c 2>morf_lex.err
+
+morfvlex.c : mk_vfetab.pl
+	perl mk_vfetab.pl > morfvlex.c
+
+morf_enc.c : mk_enctab.pl
+	perl mk_enctab.pl > morf_enc.c 2>morf_enc.err
+
+morf_dfa.c : morf_nfa.in dfasyn/dfasyn
+	dfasyn/dfasyn -v morf_nfa.in -o morf_dfa.c
+
+bctest : bccheck.c bctables.c
+	$(CC) $(CFLAGS) -o bctest -DTEST=1 bccheck.c
+
+bccheck.o : bccheck.c bctables.c
+
+bctables.c : bctables.in dfasyn/dfasyn
+	dfasyn/dfasyn -v bctables.in -o bctables.c
+
+stag_dfa.c : stag_nfa.in dfasyn/dfasyn
+	dfasyn/dfasyn -v stag_nfa.in -o stag_dfa.c
+
+dfasyn/dfasyn:
+	(cd dfasyn && make all)
+
+morf.o : morf.c morf.h morf_dfa.c morf_enc.c morf_lex.c morfvlex.c
+
+txtman: jbofihe.txt cmafihe.txt smujajgau.txt jvocuhadju.txt vlatai.txt
+
+%.txt:%.1
+	groff -Tascii -man $< | perl -pe 'chomp; s/.\x8//g; $$_ .= "\r\n";' > $@
+
+gismu_cmavo.dict: mkdict.pl
+	perl mkdict.pl > gismu_cmavo.dict
+    
+
+dictionary : smujajgau gismu_cmavo.dict
+	rm -f $(DICTNAME)
+	./smujajgau $(DICTNAME) gismu_cmavo.dict
+	if [ -r lujvo-list ]; then \
+        perl lujvod.pl < ./lujvo-list > lujvo.dict ;\
+        ./smujajgau $(DICTNAME) lujvo.dict ;\
+    fi
+	if [ -r NORALUJV.txt ]; then \
+        perl noralujv.pl > noralujv.dict ;\
+        ./smujajgau $(DICTNAME) noralujv.dict ;\
+    fi
+	./smujajgau $(DICTNAME) extradict places.dat patterns
+
+dictupdate : $(DICTNAME)
+
+$(DICTNAME) : extradict places.dat patterns
+	./smujajgau $(DICTNAME) extradict places.dat patterns
+
+cmafihe : $(CM_OBJS)
+	$(CC) $(CFLAGS)  $(CMAFIHE_LDOPTS) -o cmafihe $(CM_OBJS)
+
+cm_scan.c : cm_scan.l
+	flex -t cm_scan.l > cm_scan.c
+
+jvocuhadju : jvocuhadju.o lujvofns.o
+	$(CC) $(CFLAGS) -o jvocuhadju jvocuhadju.o lujvofns.o
+
+jvocuhadju.o : jvocuhadju.c version.h
+
+test_ivl : lujvofns.c
+	$(CC) $(CFLAGS) -o test_ivl -DTEST_IS_VALID_LUJVO lujvofns.c
+
+smujajgau.o : smujajgau.c version.h
+
+canonluj.o : canonluj.inc
+
+canonluj.inc:
+	perl canonluj.pl < reduced_gismu > canonluj.inc
+
+clean:
+	-(cd dfasyn && make clean)
+	-rm *.output *.tab.c *_tab.c rpc_full.c *.o \
+        jbofihe cmafihe smujajgau vlatai jvocuhadju \
+        *.dict uncom.c uncom.o uncom \
+        morf_lex.c morfvlex.c morf_enc.c morf*_dfa.c \
+        elitabs.c trcftabs.c trctabs.c \
+        rpc2x_nc.y rpc2x_act.y rpc2x_full_nc.y rpc2x_full_act.y \
+        canonluj.inc version.h \
+        nonterm.c nonterm.h morf_dfa.report morf_lex.err
+
+# Specify in this perverse way so that the $-Name construction doesn't get replaced on checkout!
+
+version.h : version.txt
+	sed -e 's/[$$]Name: \(.*\) [$$]/\1/;' < version.txt > version.h
+
+depend:
+	gcc -MM $(SRCS2) $(CM_SRCS) > .depend
+
+install : jbofihe smujajgau cmafihe jvocuhadju $(DICTNAME)
+	[ -d $(DESTDIR)$(EXEDIR) ] || mkdir -p $(DESTDIR)$(EXEDIR)
+	[ -d $(DESTDIR)$(LIBDIR) ] || mkdir -p $(DESTDIR)$(LIBDIR)
+	[ -d $(DESTDIR)$(MANDIR) ] || mkdir -p $(DESTDIR)$(MANDIR)
+	for e in jbofihe cmafihe smujajgau jvocuhadju vlatai ; do cp $$e $(DESTDIR)$(EXEDIR) ; chmod 755 $(DESTDIR)$(EXEDIR)/$$e ; strip -s $(DESTDIR)$(EXEDIR)/$$e ; done
+	if [ -r $(DICTNAME) ]; then for d in $(DICTNAME) ; do cp $$d $(DESTDIR)$(LIBDIR) ; chmod 644 $(DESTDIR)$(LIBDIR)/$$d ; done ; fi
+	for m in jbofihe.1 cmafihe.1 smujajgau.1 jvocuhadju.1 vlatai.1 ; do cp $$m $(DESTDIR)$(MANDIR) ; chmod 755 $(DESTDIR)$(MANDIR)/$$m ; done
+
+## Include the dependency info below.
+
+main.o: main.c nodes.h nonterm.h functions.h output.h version.h
+lex1.o: lex1.c cmavotab.h nodes.h nonterm.h functions.h output.h \
+ lujvofns.h morf.h bccheck.h
+lex2.o: lex2.c functions.h nonterm.h nodes.h output.h cmavotab.h \
+ rpc_tab.h elide.h
+cmavotab.o: cmavotab.c cmavotab.h rpc_tab.h
+rpc_tab.o: rpc_tab.c nodes.h nonterm.h functions.h output.h
+functions.o: functions.c functions.h nonterm.h nodes.h output.h rpc_tab.h
+categ.o: categ.c nodes.h nonterm.h rpc_tab.h functions.h output.h \
+ stag_dfa.h
+nonterm.o: nonterm.c
+tree.o: tree.c nonterm.h functions.h nodes.h output.h cmavotab.h \
+ rpc_tab.h
+translate.o: translate.c functions.h nonterm.h nodes.h output.h \
+ canonluj.h morf.h dictaccs.h
+latex.o: latex.c functions.h nonterm.h nodes.h output.h latex.h
+properties.o: properties.c nodes.h nonterm.h functions.h output.h
+conversion.o: conversion.c nodes.h nonterm.h functions.h output.h \
+ rpc_tab.h cmavotab.h
+terms.o: terms.c functions.h nonterm.h nodes.h output.h rpc_tab.h \
+ cmavotab.h
+memory.o: memory.c functions.h nonterm.h nodes.h output.h
+tenses.o: tenses.c rpc_tab.h nonterm.h functions.h nodes.h output.h
+output.o: output.c nodes.h nonterm.h functions.h output.h cmavotab.h \
+ rpc_tab.h
+textout.o: textout.c functions.h nonterm.h nodes.h output.h
+htmlout.o: htmlout.c functions.h nonterm.h nodes.h output.h
+connect.o: connect.c nodes.h nonterm.h functions.h output.h rpc_tab.h \
+ cmavotab.h
+latexblk.o: latexblk.c functions.h nonterm.h nodes.h output.h latex.h
+relative.o: relative.c nodes.h nonterm.h rpc_tab.h functions.h output.h \
+ cmavotab.h
+textblk.o: textblk.c functions.h nonterm.h nodes.h output.h
+errorscan.o: errorscan.c functions.h nonterm.h nodes.h output.h
+canonluj.o: canonluj.c canonluj.h canonluj.inc
+lujvofns.o: lujvofns.c lujvofns.h
+erasure.o: erasure.c nodes.h nonterm.h rpc_tab.h functions.h output.h
+rpc_full.o: rpc_full.c nodes.h nonterm.h functions.h output.h
+morf.o: morf.c morf.h morf_dfa.h bccheck.h morf_lex.c morfvlex.c
+morf_dfa.o: morf_dfa.c morf_dfa.h
+bccheck.o: bccheck.c bccheck.h bctables.c
+tracebk.o: tracebk.c functions.h nonterm.h nodes.h output.h trctabs.c \
+ trcftabs.c
+elide.o: elide.c nodes.h nonterm.h rpc_tab.h cmavotab.h functions.h \
+ output.h elide.h elitabs.c
+dictaccs.o: dictaccs.c functions.h nonterm.h nodes.h output.h canonluj.h \
+ morf.h
+stag_dfa.o: stag_dfa.c stag_dfa.h
+cm_gather.o: cm_gather.c cm.h
+cm_output.o: cm_output.c cm.h
+cm_main.o: cm_main.c cm.h version.h
+cm_translate.o: cm_translate.c cm.h dictaccs.h
+cm_scan.o: cm_scan.c cm.h
+dictaccs.o: dictaccs.c functions.h nonterm.h nodes.h output.h canonluj.h \
+ morf.h
+memory.o: memory.c functions.h nonterm.h nodes.h output.h

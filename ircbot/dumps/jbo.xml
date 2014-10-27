@@ -15203,13 +15203,13 @@
   <definition>$x1$ se benji fi $x2$ $x3$ lo vacri</definition>
   <definitionid>32356</definitionid>
 </valsi>
-<valsi word="vartinsa" type="lujvo">
+<valsi word="vartisna" type="lujvo">
   <user>
-    <username>vensa</username>
-    <realname>Aviv</realname>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
   </user>
-  <definition>$x1$ tisna lo vacri</definition>
-  <definitionid>32358</definitionid>
+  <definition>$x_1$ tisna loi vacri</definition>
+  <definitionid>63442</definitionid>
 </valsi>
 <valsi word="vau" type="cmavo">
   <selmaho>VAU</selmaho>

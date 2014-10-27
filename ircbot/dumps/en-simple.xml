@@ -1000,7 +1000,7 @@
 <valsi word="broda" type="gismu">
   <rafsi>rod</rafsi>
   <user>
-    <username>glekiponjo</username>
+    <username>glekizmiku</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
   <definition>$x_1$ is the predicate variable 1</definition>
@@ -1010,7 +1010,7 @@
 <valsi word="brode" type="gismu">
   <rafsi>bo&apos;e</rafsi>
   <user>
-    <username>glekiponjo</username>
+    <username>glekizmiku</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
   <definition>$x_1$ is the predicate variable 2</definition>
@@ -1019,7 +1019,7 @@
 </valsi>
 <valsi word="brodi" type="gismu">
   <user>
-    <username>glekiponjo</username>
+    <username>glekizmiku</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
   <definition>$x_1$ is the predicate variable 3</definition>
@@ -1028,7 +1028,7 @@
 </valsi>
 <valsi word="brodo" type="gismu">
   <user>
-    <username>glekiponjo</username>
+    <username>glekizmiku</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
   <definition>$x_1$ is the predicate variable 4</definition>
@@ -1037,7 +1037,7 @@
 </valsi>
 <valsi word="brodu" type="gismu">
   <user>
-    <username>glekiponjo</username>
+    <username>glekizmiku</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
   <definition>$x_1$ is the predicate variable 5</definition>

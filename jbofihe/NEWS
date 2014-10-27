@@ -1,0 +1,260 @@
+New in version 0.39
+===================
+
+- (jbofihe) total rewrite of simple_tense_modal handling in the preparser (to fix cases
+  like {mi ca'a pu broda}). 
+- (jbofihe) fix two bugs in elidable cmavo code (-se[v] support) where
+  uninitialised memory was being read.  (Detected using valgrind).
+- (rtg) Add random text generator.  (This is pretty minimal in functionality -
+  it was primarily written to stress-test the preparser rewrite)
+- (dfasyn) add inline block instantiation facility
+- (dfasyn) speed improvements.
+- (dfasyn) don't needlessly emit attributes table if this feature is not used
+  by the input file.
+- (vlatai) allow spaces at ends of lines when reading words from a file.
+- (cmafihe) share dictionary access code with jbofihe (so embedded dictionary
+  now works for cmafihe)
+- (jbofihe) Can now build with bison up to at least v1.875
+
+New in version 0.38.1
+=====================
+
+- fix bug handling comma at end of cmene.
+
+New in version 0.38
+===================
+
+jbofihe/vlatai
+--------------
+
+- revisions to the handling of commas and vowel groupings in the word category
+  + validity algorithm.
+
+New in version 0.37
+===================
+
+general
+=======
+- Include contributed Emacs Lisp functions for driving jbofi'e.
+- Add fold markers in some of the source code for editing with VIM version 6
+
+jbofihe
+=======
+- Improve translations of vowels & other words followed by "bu".  (Only a
+  partial list is included in the extradict file.)
+- Fix crashes which occurred when tagging term places when the selbri was "jai"
+  followed by something other than a brivla.
+- Add entries for mu'e, pu'u, za'i, zu'o to the 'patterns' file for use in
+  glossing unknown lujvo.
+- Integrate recognition of cultural rafsi in lujvo into the ordinary state
+  machine (so now 1 integrated state machine instead of 2 separate ones).
+  Consequent reduction in table sizes.
+- Recognize stage-3-like fu'ivla with >1 short rafsi before the hyphen and
+  gloss accordingly if the word isn't in the dictionary 'as-is'.
+- New more robust checking for bad cmene (containing la, doi etc)
+- Fix bug : missing 'break' statements causing fall-through and hence bogus
+  access on another branch of a union.
+- Deprecate -g command option from man page.
+- Fix glossing of the words for 10**X (the asterisks were treated as
+  meta-characters by the glosser)
+- Add support for experimental cmavo "xa'o" (selma'o ZAhO, opposite of "za'o")
+
+vlatai
+======
+- For stage 3 fu'ivla, show forward slashes to split the rafsi prefix from the
+  hyphen and the hyphen from the word tail.
+- Recognize an extension to stage 3 fu'ivla, with >1 rafsi before the hyphen
+- Cultural rafsi scanning improvement as for jbofihe.  Remove -cr command line
+  argument.
+- Only show exit value of state machine in verbose (-v) mode.
+- Detect and show bad cmene forms (la/lai/doi break-up)
+- New option '-el' to show a lujvo broken into its component words.
+- Fixed some more obscure faults with words containing patterns like "nytc" and
+  "ntyc".
+
+cmafihe
+=======
+- Include contribution from Björn Gohla to output GNUStep property lists for
+  the vocabulary found in the input.
+
+jvocuhadju
+==========
+- Complete rewrite of the lujvo form checker used to detect tosmabru failures.
+  The old one was completely broken.
+- Added the script testing/jvocipra.pl, which couples jvocuhadju and vlatai in
+  a back-to-back configuration for mutual testing.
+- Add '-l' switch to try long rafsi even if a short one is available.
+- Add '-a' switch to show all possible lujvo forms, not just the 8 most
+  preferred ones.
+
+lexer generator (dfasyn/*)
+===============
+- Add handling of 'state attributes' (to allow actions to be run when automaton
+  is in DFA states corresponding to particular NFA states)
+- Fix bug in NFA compressor, where algorithm could run off the end of an array.
+- Fix bug in DFA compressor (was functionally correct but over-pessimistic
+  about combining states)
+- Improve command line options
+- Add %{ ... %} text inclusion facility
+- Allow exit and attribute table element types to be defined by input grammar
+- Add 'early exit' capability for DFA states that will immediately exit (=>
+  reduced table sizes + more state merging)
+- Provide next_state functions in the output file.
+- Renamed "dfasyn" with a view to it being made a project in its own right.
+
+New in version 0.36
+===================
+
+- Fixed Makefile portability problems discovered in v0.35
+- Fix bug where cmavo sequences like nytysy were not recognized (where removing
+  y leaves invalid triple)
+- Fix bug where the words y, yyyyy, y'y were not recognized as valid cmavo
+- Fix bug for -se option applied to nu'u in the middle of a termset.
+- Fix bug for -se option applied to elidables with a sequence of 'free'
+  constructs following them.
+- Fix bugs for -se option applied to boi & ve'o
+- Fix several bugs people sent me where jbofihe crashed or generated bad output
+  for various small examples.
+- Fix bugs scanning cmene containing ..nydz.., ..y,y.. etc
+- Many improvements to lexical analyser builder (n2d subdirectory) -
+  * generate smaller tables by relying on binary searching in the target app.
+  * compress state machines by grouping equivalent DFA states together input
+  * input file can specify priority logic to resolve ambiguous accepting states
+  * syntax capabilities of input file greatly enhanced
+  * processing speed much improved
+  (This tool can now be considered a standalone project in its own right,
+  except for the lack of documentation on it.)
+- Fix bugs in scanner's fu'ivla recognition (including length of consonant
+  clusters).
+- Recognise stage 3 and stage 4 fu'ivla separately to improve glossing
+  performance.
+- Allow consonant+comma+vowel triples within words.
+- Include configure option --embed to allow a minimal dictionary to be embedded
+  into the jbofihe executable (=> no separate dictionary file required at
+  runtime)
+- Add handling of zei (completely missing before)
+- Add configure option --embed, to allow the gismu+cmavo dictionary to be
+  compiled directly into the jbofihe executable.  (No run-time dictionary is
+  then needed, however there is no capability to add new definitions in this
+  mode)
+- Simplify consonant doubling before -er and -ing suffices in the translator.
+- Added configure script, to help people who just want to 'build+go' without
+  reading the docs.
+- Switch to GNU General Public License (replaces customised zlib/BSD-like
+  license)
+- Detect zoi/la'o constructions left open at the end of the text.
+
+New in version 0.35
+===================
+
+(Changes apply to jbofihe unless stated otherwise)
+
+- Add support to show elidable cmavo that were omitted from the input text (-ie
+  command switch).  (Cmavo inserted this way are displayed in upper case in the
+  output).
+- Add option to require that the input text does not have any cmavo elided (-re
+  command switch).  (This may be useful as a learning aid and when trying to
+  debug grammar failures.)
+- Add option to report any elidable cmavo which are superfluous in the text,
+  accessed with the -se comand switch.  Where a sequence of such words can be
+  partially omitted, all possible 'minimal' sub-sequences are shown.  A verbose
+  option (-sev) gives extra visibility of how the algorithm makes its decisions
+  about valid minimal sequences.
+- Totally rewritten algorithm for determining type (cmavo, brivla, cmene etc)
+  of input words.  Should now enforce word structure rules 100%, and be
+  competely robust at removing cmavo prefixed onto the front of gismu, lujvo
+  and fu'ivla.  The testbench for this part of the program is bundled as a
+  separate tool (vlatai).  Acceptance of cultural rafsi (section 4.16 of the
+  Reference Grammar) is optional (-cr switch).
+- Add backtracing mode for showing the parser stack when a syntax error occurs
+  (-bt option).  May assist in debugging syntactically invalid texts.
+- Changed approach to building the glossing dictionary for jbofihe and cmafihe.
+  The gismu and cmavo information is now bundled with the source.  The 2 lujvo
+  files are also used if they are found in the current directory at build time.
+  This avoids the user having to download extra files to get a minimal working
+  installation.
+- Add case tagging for selbri involving MOI, GOhA, NUhA
+- Fix bugs parsing number/lerfu-string containing bu followed by
+  moi/mei/roi/re'u
+- Fix printing of 'bu' construction on token list following a parse error.
+- Fix output translation if a 'bu' construction occurs in a number/lerfu
+  sequence before MOI.
+- Attempt output translation of zo, zoi, bu etc. constructions.
+- Fix inability to parse pe'a.
+- Fix inability to parse fu'e.
+- Default output width (-w argument) for text output changed to 79 instead of
+  80.
+- Fix core dump illustrated by a text containing a single cmavo which causes a
+  parse error.
+- Return status from main() to the shell reflects whether there was a parse
+  error or not.
+- Show misparsed token as well as previously parsed ones after a parse error is
+  found.
+- Fix line numbering across comments and when token follows whitespace or
+  comment.
+- Cope with multiple BAhE cmavo before a word (previously only the closest one
+  was shown in outputs)
+- Implement erasure processing described in the Refgram. (for 'su' as described
+  in grammar.300 file)
+- Deal properly with cmene which violate the rule about la/lai/doi appearing
+  internally.
+- Port to MSDOS environment (using DJGPP toolchain); binary release for MSDOS.
+- Allow whether to use fread or mmap to access dictionary to be specified at
+  configure time.
+- Open certain files in binary mode instead of text (support DJGPP port)
+- Change name of default dictionary (support DJGPP port)
+- Make banners for 'jbofihe -k' option go to stdout not stderr (so they now
+  flow amongst the token list)
+- Given an advisory message when a core dump would previously have happened.
+- Update various details in manual pages
+- Allow carriage return characters at ends of lines (cmafihe)
+- Further fixes to translation of pre-hyphen part of type 3 fu'ivla
+- Fixes to translation of time_offset when specific entries lacking from
+  dictionary.
+- Support the cmavo va'e (mentioned in reference grammar yet not in word lists)
+- Allow directory containing word lists to be specified to configure script,
+  rather than having to be searched for.  
+- Fix bug in jvocuhadju where the 4 forbidden triples starting with 'n' weren't
+  being detected.
+- Various minor bug fixes.
+  
+New in version 0.34
+===================
+
+- Add support + translations for the cmavo that were missing from the original
+  cmavo list
+- Fix bugs in handling certain cmavo when followed by an indicator (e.g. mi se
+  cai zdile)
+- Fix bugs in cases when constructions involving lu, bu, lo'u...le'u, zo, zoi
+  etc are nested.
+
+New in version 0.33
+===================
+
+- Support for the 'term ::= tag termset' rule discussed on the Egroups list
+  around the start of June 2000.
+- Fix bug splitting cmavo from front of brivla
+- Fix bug translating fu'ivla when the 'Lojbanic' part before the hyphen can't
+  be translated.
+
+New in version 0.32a
+====================
+
+- Fix major bugs in the lexical analysis for cmafi'e (brivla mis-scanned as
+  sequences of cmavo joined together.)
+
+New in version 0.32
+===================
+
+- Add capability to jbofi'e to parse texts where cmavo have been prefixed onto
+  the following brivla.
+- Fix bug with pei not being handled properly.
+
+New in version 0.31
+===================
+
+- Add pattern matching scheme to jbofi'e translater, which recognizes and
+  provides default translations for standard lujvo forms, e.g. -mau, -gau, nun-
+  etc.
+
+

@@ -1,0 +1,1535 @@
+Terminals unused in grammar
+
+   DEFINE
+
+
+Grammar
+
+    0 $accept: all $end
+
+    1 all: decl_seq
+
+    2 decl_seq: /* empty */
+    3         | decl_seq decl
+
+    4 decl: block_decl
+    5     | tokens_decl
+    6     | prefix_decl
+    7     | abbrev_decl
+    8     | result_decl
+    9     | attr_decl
+
+   10 block_decl: block1 block2
+
+   11 block1: BLOCK STRING
+
+   12 block2: instance_decl_seq state_decl_seq ENDBLOCK
+
+   13 prefix_decl: PREFIX STRING
+
+   14 tokens_decl: TOKENS token_seq
+
+   15 $@1: /* empty */
+
+   16 abbrev_decl: ABBREV STRING $@1 EQUAL string_pipe_seq
+
+   17 token_seq: token_seq token
+   18          | token
+
+   19 string_pipe_seq: string_pipe_seq PIPE STRING
+   20                | STRING
+
+   21 token: STRING
+
+   22 instance_decl_seq: /* empty */
+   23                  | instance_decl_seq instance_decl
+
+   24 state_decl_seq: /* empty */
+   25               | state_decl_seq state_decl
+
+   26 $@2: /* empty */
+
+   27 state_decl: STATE STRING $@2 opt_state_attribute sdecl_seq
+
+   28 opt_state_attribute: LPAREN STRING RPAREN
+   29                    | /* empty */
+
+   30 sdecl_seq: /* empty */
+   31          | sdecl_seq sdecl
+
+   32 sdecl: transition_decl
+
+   33 instance_decl: STRING COLON STRING
+
+   34 $@3: /* empty */
+
+   35 transition_decl: transition_seq ARROW $@3 destination_seq
+   36                | transition_seq EQUAL STRING
+
+   37 destination_seq: STRING
+   38                | destination_seq COMMA STRING
+
+   39 transition_seq: option_seq
+   40               | inline_block_seq
+   41               | transition_seq SEMICOLON option_seq
+   42               | transition_seq SEMICOLON inline_block_seq
+
+   43 option_seq: option
+   44           | option_seq PIPE option
+
+   45 option: STRING
+   46       | /* empty */
+
+   47 inline_block_seq: inline_block
+   48                 | inline_block_seq PIPE inline_block
+   49                 | inline_block_seq PIPE
+
+   50 inline_block: LANGLE STRING COLON STRING ARROW STRING RANGLE
+
+   51 result_decl: RESULT STRING
+   52            | RESULT expr ARROW STRING
+   53            | EARLYRESULT STRING
+   54            | EARLYRESULT expr ARROW STRING
+   55            | SYMRESULT expr ARROW STRING
+   56            | EARLYSYMRESULT expr ARROW STRING
+   57            | SYMBOL STRING EQUAL expr
+   58            | DEFRESULT STRING
+   59            | TYPE STRING
+
+   60 attr_decl: ATTR RESULT STRING
+   61          | ATTR RESULT expr ARROW STRING
+   62          | ATTR SYMRESULT expr ARROW STRING
+   63          | ATTR SYMBOL STRING EQUAL expr
+   64          | ATTR DEFRESULT STRING
+   65          | DEFATTR STRING
+   66          | ATTR TYPE STRING
+
+   67 expr: NOT expr
+   68     | expr AND expr
+   69     | expr PIPE expr
+   70     | expr XOR expr
+   71     | expr QUERY expr COLON expr
+   72     | LPAREN expr RPAREN
+   73     | STRING
+   74     | STAR
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+STRING (258) 11 13 16 19 20 21 27 28 33 36 37 38 45 50 51 52 53 54
+    55 56 57 58 59 60 61 62 63 64 65 66 73
+STATE (259) 27
+TOKENS (260) 14
+PREFIX (261) 13
+ARROW (262) 35 50 52 54 55 56 61 62
+BLOCK (263) 11
+ENDBLOCK (264) 12
+COLON (265) 33 50 71
+EQUAL (266) 16 36 57 63
+SEMICOLON (267) 41 42
+COMMA (268) 38
+ABBREV (269) 16
+DEFINE (270)
+RESULT (271) 51 52 60 61
+SYMBOL (272) 57 63
+SYMRESULT (273) 55 62
+DEFRESULT (274) 58 64
+EARLYRESULT (275) 53 54
+EARLYSYMRESULT (276) 56
+TYPE (277) 59 66
+ATTR (278) 60 61 62 63 64 66
+DEFATTR (279) 65
+STAR (280) 74
+QUERY (281) 71
+PIPE (282) 19 44 48 49 69
+XOR (283) 70
+AND (284) 68
+NOT (285) 67
+RPAREN (286) 28 72
+LPAREN (287) 28 72
+RANGLE (288) 50
+LANGLE (289) 50
+
+
+Nonterminals, with rules where they appear
+
+$accept (35)
+    on left: 0
+all (36)
+    on left: 1, on right: 0
+decl_seq (37)
+    on left: 2 3, on right: 1 3
+decl (38)
+    on left: 4 5 6 7 8 9, on right: 3
+block_decl (39)
+    on left: 10, on right: 4
+block1 (40)
+    on left: 11, on right: 10
+block2 (41)
+    on left: 12, on right: 10
+prefix_decl (42)
+    on left: 13, on right: 6
+tokens_decl (43)
+    on left: 14, on right: 5
+abbrev_decl (44)
+    on left: 16, on right: 7
+$@1 (45)
+    on left: 15, on right: 16
+token_seq (46)
+    on left: 17 18, on right: 14 17
+string_pipe_seq (47)
+    on left: 19 20, on right: 16 19
+token (48)
+    on left: 21, on right: 17 18
+instance_decl_seq (49)
+    on left: 22 23, on right: 12 23
+state_decl_seq (50)
+    on left: 24 25, on right: 12 25
+state_decl (51)
+    on left: 27, on right: 25
+$@2 (52)
+    on left: 26, on right: 27
+opt_state_attribute (53)
+    on left: 28 29, on right: 27
+sdecl_seq (54)
+    on left: 30 31, on right: 27 31
+sdecl (55)
+    on left: 32, on right: 31
+instance_decl (56)
+    on left: 33, on right: 23
+transition_decl (57)
+    on left: 35 36, on right: 32
+$@3 (58)
+    on left: 34, on right: 35
+destination_seq (59)
+    on left: 37 38, on right: 35 38
+transition_seq (60)
+    on left: 39 40 41 42, on right: 35 36 41 42
+option_seq (61)
+    on left: 43 44, on right: 39 41 44
+option (62)
+    on left: 45 46, on right: 43 44
+inline_block_seq (63)
+    on left: 47 48 49, on right: 40 42 48 49
+inline_block (64)
+    on left: 50, on right: 47 48
+result_decl (65)
+    on left: 51 52 53 54 55 56 57 58 59, on right: 8
+attr_decl (66)
+    on left: 60 61 62 63 64 65 66, on right: 9
+expr (67)
+    on left: 67 68 69 70 71 72 73 74, on right: 52 54 55 56 57 61 62
+    63 67 68 69 70 71 72
+
+
+state 0
+
+    0 $accept: . all $end
+
+    $default  reduce using rule 2 (decl_seq)
+
+    all       go to state 1
+    decl_seq  go to state 2
+
+
+state 1
+
+    0 $accept: all . $end
+
+    $end  shift, and go to state 3
+
+
+state 2
+
+    1 all: decl_seq .
+    3 decl_seq: decl_seq . decl
+
+    TOKENS          shift, and go to state 4
+    PREFIX          shift, and go to state 5
+    BLOCK           shift, and go to state 6
+    ABBREV          shift, and go to state 7
+    RESULT          shift, and go to state 8
+    SYMBOL          shift, and go to state 9
+    SYMRESULT       shift, and go to state 10
+    DEFRESULT       shift, and go to state 11
+    EARLYRESULT     shift, and go to state 12
+    EARLYSYMRESULT  shift, and go to state 13
+    TYPE            shift, and go to state 14
+    ATTR            shift, and go to state 15
+    DEFATTR         shift, and go to state 16
+
+    $default  reduce using rule 1 (all)
+
+    decl         go to state 17
+    block_decl   go to state 18
+    block1       go to state 19
+    prefix_decl  go to state 20
+    tokens_decl  go to state 21
+    abbrev_decl  go to state 22
+    result_decl  go to state 23
+    attr_decl    go to state 24
+
+
+state 3
+
+    0 $accept: all $end .
+
+    $default  accept
+
+
+state 4
+
+   14 tokens_decl: TOKENS . token_seq
+
+    STRING  shift, and go to state 25
+
+    token_seq  go to state 26
+    token      go to state 27
+
+
+state 5
+
+   13 prefix_decl: PREFIX . STRING
+
+    STRING  shift, and go to state 28
+
+
+state 6
+
+   11 block1: BLOCK . STRING
+
+    STRING  shift, and go to state 29
+
+
+state 7
+
+   16 abbrev_decl: ABBREV . STRING $@1 EQUAL string_pipe_seq
+
+    STRING  shift, and go to state 30
+
+
+state 8
+
+   51 result_decl: RESULT . STRING
+   52            | RESULT . expr ARROW STRING
+
+    STRING  shift, and go to state 31
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 35
+
+
+state 9
+
+   57 result_decl: SYMBOL . STRING EQUAL expr
+
+    STRING  shift, and go to state 36
+
+
+state 10
+
+   55 result_decl: SYMRESULT . expr ARROW STRING
+
+    STRING  shift, and go to state 37
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 38
+
+
+state 11
+
+   58 result_decl: DEFRESULT . STRING
+
+    STRING  shift, and go to state 39
+
+
+state 12
+
+   53 result_decl: EARLYRESULT . STRING
+   54            | EARLYRESULT . expr ARROW STRING
+
+    STRING  shift, and go to state 40
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 41
+
+
+state 13
+
+   56 result_decl: EARLYSYMRESULT . expr ARROW STRING
+
+    STRING  shift, and go to state 37
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 42
+
+
+state 14
+
+   59 result_decl: TYPE . STRING
+
+    STRING  shift, and go to state 43
+
+
+state 15
+
+   60 attr_decl: ATTR . RESULT STRING
+   61          | ATTR . RESULT expr ARROW STRING
+   62          | ATTR . SYMRESULT expr ARROW STRING
+   63          | ATTR . SYMBOL STRING EQUAL expr
+   64          | ATTR . DEFRESULT STRING
+   66          | ATTR . TYPE STRING
+
+    RESULT     shift, and go to state 44
+    SYMBOL     shift, and go to state 45
+    SYMRESULT  shift, and go to state 46
+    DEFRESULT  shift, and go to state 47
+    TYPE       shift, and go to state 48
+
+
+state 16
+
+   65 attr_decl: DEFATTR . STRING
+
+    STRING  shift, and go to state 49
+
+
+state 17
+
+    3 decl_seq: decl_seq decl .
+
+    $default  reduce using rule 3 (decl_seq)
+
+
+state 18
+
+    4 decl: block_decl .
+
+    $default  reduce using rule 4 (decl)
+
+
+state 19
+
+   10 block_decl: block1 . block2
+
+    $default  reduce using rule 22 (instance_decl_seq)
+
+    block2             go to state 50
+    instance_decl_seq  go to state 51
+
+
+state 20
+
+    6 decl: prefix_decl .
+
+    $default  reduce using rule 6 (decl)
+
+
+state 21
+
+    5 decl: tokens_decl .
+
+    $default  reduce using rule 5 (decl)
+
+
+state 22
+
+    7 decl: abbrev_decl .
+
+    $default  reduce using rule 7 (decl)
+
+
+state 23
+
+    8 decl: result_decl .
+
+    $default  reduce using rule 8 (decl)
+
+
+state 24
+
+    9 decl: attr_decl .
+
+    $default  reduce using rule 9 (decl)
+
+
+state 25
+
+   21 token: STRING .
+
+    $default  reduce using rule 21 (token)
+
+
+state 26
+
+   14 tokens_decl: TOKENS token_seq .
+   17 token_seq: token_seq . token
+
+    STRING  shift, and go to state 25
+
+    $default  reduce using rule 14 (tokens_decl)
+
+    token  go to state 52
+
+
+state 27
+
+   18 token_seq: token .
+
+    $default  reduce using rule 18 (token_seq)
+
+
+state 28
+
+   13 prefix_decl: PREFIX STRING .
+
+    $default  reduce using rule 13 (prefix_decl)
+
+
+state 29
+
+   11 block1: BLOCK STRING .
+
+    $default  reduce using rule 11 (block1)
+
+
+state 30
+
+   16 abbrev_decl: ABBREV STRING . $@1 EQUAL string_pipe_seq
+
+    $default  reduce using rule 15 ($@1)
+
+    $@1  go to state 53
+
+
+state 31
+
+   51 result_decl: RESULT STRING .
+   73 expr: STRING .
+
+    ARROW     reduce using rule 73 (expr)
+    QUERY     reduce using rule 73 (expr)
+    PIPE      reduce using rule 73 (expr)
+    XOR       reduce using rule 73 (expr)
+    AND       reduce using rule 73 (expr)
+    $default  reduce using rule 51 (result_decl)
+
+
+state 32
+
+   74 expr: STAR .
+
+    $default  reduce using rule 74 (expr)
+
+
+state 33
+
+   67 expr: NOT . expr
+
+    STRING  shift, and go to state 37
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 54
+
+
+state 34
+
+   72 expr: LPAREN . expr RPAREN
+
+    STRING  shift, and go to state 37
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 55
+
+
+state 35
+
+   52 result_decl: RESULT expr . ARROW STRING
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+
+    ARROW  shift, and go to state 56
+    QUERY  shift, and go to state 57
+    PIPE   shift, and go to state 58
+    XOR    shift, and go to state 59
+    AND    shift, and go to state 60
+
+
+state 36
+
+   57 result_decl: SYMBOL STRING . EQUAL expr
+
+    EQUAL  shift, and go to state 61
+
+
+state 37
+
+   73 expr: STRING .
+
+    $default  reduce using rule 73 (expr)
+
+
+state 38
+
+   55 result_decl: SYMRESULT expr . ARROW STRING
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+
+    ARROW  shift, and go to state 62
+    QUERY  shift, and go to state 57
+    PIPE   shift, and go to state 58
+    XOR    shift, and go to state 59
+    AND    shift, and go to state 60
+
+
+state 39
+
+   58 result_decl: DEFRESULT STRING .
+
+    $default  reduce using rule 58 (result_decl)
+
+
+state 40
+
+   53 result_decl: EARLYRESULT STRING .
+   73 expr: STRING .
+
+    ARROW     reduce using rule 73 (expr)
+    QUERY     reduce using rule 73 (expr)
+    PIPE      reduce using rule 73 (expr)
+    XOR       reduce using rule 73 (expr)
+    AND       reduce using rule 73 (expr)
+    $default  reduce using rule 53 (result_decl)
+
+
+state 41
+
+   54 result_decl: EARLYRESULT expr . ARROW STRING
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+
+    ARROW  shift, and go to state 63
+    QUERY  shift, and go to state 57
+    PIPE   shift, and go to state 58
+    XOR    shift, and go to state 59
+    AND    shift, and go to state 60
+
+
+state 42
+
+   56 result_decl: EARLYSYMRESULT expr . ARROW STRING
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+
+    ARROW  shift, and go to state 64
+    QUERY  shift, and go to state 57
+    PIPE   shift, and go to state 58
+    XOR    shift, and go to state 59
+    AND    shift, and go to state 60
+
+
+state 43
+
+   59 result_decl: TYPE STRING .
+
+    $default  reduce using rule 59 (result_decl)
+
+
+state 44
+
+   60 attr_decl: ATTR RESULT . STRING
+   61          | ATTR RESULT . expr ARROW STRING
+
+    STRING  shift, and go to state 65
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 66
+
+
+state 45
+
+   63 attr_decl: ATTR SYMBOL . STRING EQUAL expr
+
+    STRING  shift, and go to state 67
+
+
+state 46
+
+   62 attr_decl: ATTR SYMRESULT . expr ARROW STRING
+
+    STRING  shift, and go to state 37
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 68
+
+
+state 47
+
+   64 attr_decl: ATTR DEFRESULT . STRING
+
+    STRING  shift, and go to state 69
+
+
+state 48
+
+   66 attr_decl: ATTR TYPE . STRING
+
+    STRING  shift, and go to state 70
+
+
+state 49
+
+   65 attr_decl: DEFATTR STRING .
+
+    $default  reduce using rule 65 (attr_decl)
+
+
+state 50
+
+   10 block_decl: block1 block2 .
+
+    $default  reduce using rule 10 (block_decl)
+
+
+state 51
+
+   12 block2: instance_decl_seq . state_decl_seq ENDBLOCK
+   23 instance_decl_seq: instance_decl_seq . instance_decl
+
+    STRING  shift, and go to state 71
+
+    $default  reduce using rule 24 (state_decl_seq)
+
+    state_decl_seq  go to state 72
+    instance_decl   go to state 73
+
+
+state 52
+
+   17 token_seq: token_seq token .
+
+    $default  reduce using rule 17 (token_seq)
+
+
+state 53
+
+   16 abbrev_decl: ABBREV STRING $@1 . EQUAL string_pipe_seq
+
+    EQUAL  shift, and go to state 74
+
+
+state 54
+
+   67 expr: NOT expr .
+   68     | expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+
+    $default  reduce using rule 67 (expr)
+
+
+state 55
+
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+   72     | LPAREN expr . RPAREN
+
+    QUERY   shift, and go to state 57
+    PIPE    shift, and go to state 58
+    XOR     shift, and go to state 59
+    AND     shift, and go to state 60
+    RPAREN  shift, and go to state 75
+
+
+state 56
+
+   52 result_decl: RESULT expr ARROW . STRING
+
+    STRING  shift, and go to state 76
+
+
+state 57
+
+   71 expr: expr QUERY . expr COLON expr
+
+    STRING  shift, and go to state 37
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 77
+
+
+state 58
+
+   69 expr: expr PIPE . expr
+
+    STRING  shift, and go to state 37
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 78
+
+
+state 59
+
+   70 expr: expr XOR . expr
+
+    STRING  shift, and go to state 37
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 79
+
+
+state 60
+
+   68 expr: expr AND . expr
+
+    STRING  shift, and go to state 37
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 80
+
+
+state 61
+
+   57 result_decl: SYMBOL STRING EQUAL . expr
+
+    STRING  shift, and go to state 37
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 81
+
+
+state 62
+
+   55 result_decl: SYMRESULT expr ARROW . STRING
+
+    STRING  shift, and go to state 82
+
+
+state 63
+
+   54 result_decl: EARLYRESULT expr ARROW . STRING
+
+    STRING  shift, and go to state 83
+
+
+state 64
+
+   56 result_decl: EARLYSYMRESULT expr ARROW . STRING
+
+    STRING  shift, and go to state 84
+
+
+state 65
+
+   60 attr_decl: ATTR RESULT STRING .
+   73 expr: STRING .
+
+    ARROW     reduce using rule 73 (expr)
+    QUERY     reduce using rule 73 (expr)
+    PIPE      reduce using rule 73 (expr)
+    XOR       reduce using rule 73 (expr)
+    AND       reduce using rule 73 (expr)
+    $default  reduce using rule 60 (attr_decl)
+
+
+state 66
+
+   61 attr_decl: ATTR RESULT expr . ARROW STRING
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+
+    ARROW  shift, and go to state 85
+    QUERY  shift, and go to state 57
+    PIPE   shift, and go to state 58
+    XOR    shift, and go to state 59
+    AND    shift, and go to state 60
+
+
+state 67
+
+   63 attr_decl: ATTR SYMBOL STRING . EQUAL expr
+
+    EQUAL  shift, and go to state 86
+
+
+state 68
+
+   62 attr_decl: ATTR SYMRESULT expr . ARROW STRING
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+
+    ARROW  shift, and go to state 87
+    QUERY  shift, and go to state 57
+    PIPE   shift, and go to state 58
+    XOR    shift, and go to state 59
+    AND    shift, and go to state 60
+
+
+state 69
+
+   64 attr_decl: ATTR DEFRESULT STRING .
+
+    $default  reduce using rule 64 (attr_decl)
+
+
+state 70
+
+   66 attr_decl: ATTR TYPE STRING .
+
+    $default  reduce using rule 66 (attr_decl)
+
+
+state 71
+
+   33 instance_decl: STRING . COLON STRING
+
+    COLON  shift, and go to state 88
+
+
+state 72
+
+   12 block2: instance_decl_seq state_decl_seq . ENDBLOCK
+   25 state_decl_seq: state_decl_seq . state_decl
+
+    STATE     shift, and go to state 89
+    ENDBLOCK  shift, and go to state 90
+
+    state_decl  go to state 91
+
+
+state 73
+
+   23 instance_decl_seq: instance_decl_seq instance_decl .
+
+    $default  reduce using rule 23 (instance_decl_seq)
+
+
+state 74
+
+   16 abbrev_decl: ABBREV STRING $@1 EQUAL . string_pipe_seq
+
+    STRING  shift, and go to state 92
+
+    string_pipe_seq  go to state 93
+
+
+state 75
+
+   72 expr: LPAREN expr RPAREN .
+
+    $default  reduce using rule 72 (expr)
+
+
+state 76
+
+   52 result_decl: RESULT expr ARROW STRING .
+
+    $default  reduce using rule 52 (result_decl)
+
+
+state 77
+
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+   71     | expr QUERY expr . COLON expr
+
+    COLON  shift, and go to state 94
+    QUERY  shift, and go to state 57
+    PIPE   shift, and go to state 58
+    XOR    shift, and go to state 59
+    AND    shift, and go to state 60
+
+
+state 78
+
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   69     | expr PIPE expr .
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+
+    XOR  shift, and go to state 59
+    AND  shift, and go to state 60
+
+    $default  reduce using rule 69 (expr)
+
+
+state 79
+
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   70     | expr XOR expr .
+   71     | expr . QUERY expr COLON expr
+
+    AND  shift, and go to state 60
+
+    $default  reduce using rule 70 (expr)
+
+
+state 80
+
+   68 expr: expr . AND expr
+   68     | expr AND expr .
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+
+    $default  reduce using rule 68 (expr)
+
+
+state 81
+
+   57 result_decl: SYMBOL STRING EQUAL expr .
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+
+    QUERY  shift, and go to state 57
+    PIPE   shift, and go to state 58
+    XOR    shift, and go to state 59
+    AND    shift, and go to state 60
+
+    $default  reduce using rule 57 (result_decl)
+
+
+state 82
+
+   55 result_decl: SYMRESULT expr ARROW STRING .
+
+    $default  reduce using rule 55 (result_decl)
+
+
+state 83
+
+   54 result_decl: EARLYRESULT expr ARROW STRING .
+
+    $default  reduce using rule 54 (result_decl)
+
+
+state 84
+
+   56 result_decl: EARLYSYMRESULT expr ARROW STRING .
+
+    $default  reduce using rule 56 (result_decl)
+
+
+state 85
+
+   61 attr_decl: ATTR RESULT expr ARROW . STRING
+
+    STRING  shift, and go to state 95
+
+
+state 86
+
+   63 attr_decl: ATTR SYMBOL STRING EQUAL . expr
+
+    STRING  shift, and go to state 37
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 96
+
+
+state 87
+
+   62 attr_decl: ATTR SYMRESULT expr ARROW . STRING
+
+    STRING  shift, and go to state 97
+
+
+state 88
+
+   33 instance_decl: STRING COLON . STRING
+
+    STRING  shift, and go to state 98
+
+
+state 89
+
+   27 state_decl: STATE . STRING $@2 opt_state_attribute sdecl_seq
+
+    STRING  shift, and go to state 99
+
+
+state 90
+
+   12 block2: instance_decl_seq state_decl_seq ENDBLOCK .
+
+    $default  reduce using rule 12 (block2)
+
+
+state 91
+
+   25 state_decl_seq: state_decl_seq state_decl .
+
+    $default  reduce using rule 25 (state_decl_seq)
+
+
+state 92
+
+   20 string_pipe_seq: STRING .
+
+    $default  reduce using rule 20 (string_pipe_seq)
+
+
+state 93
+
+   16 abbrev_decl: ABBREV STRING $@1 EQUAL string_pipe_seq .
+   19 string_pipe_seq: string_pipe_seq . PIPE STRING
+
+    PIPE  shift, and go to state 100
+
+    $default  reduce using rule 16 (abbrev_decl)
+
+
+state 94
+
+   71 expr: expr QUERY expr COLON . expr
+
+    STRING  shift, and go to state 37
+    STAR    shift, and go to state 32
+    NOT     shift, and go to state 33
+    LPAREN  shift, and go to state 34
+
+    expr  go to state 101
+
+
+state 95
+
+   61 attr_decl: ATTR RESULT expr ARROW STRING .
+
+    $default  reduce using rule 61 (attr_decl)
+
+
+state 96
+
+   63 attr_decl: ATTR SYMBOL STRING EQUAL expr .
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+
+    QUERY  shift, and go to state 57
+    PIPE   shift, and go to state 58
+    XOR    shift, and go to state 59
+    AND    shift, and go to state 60
+
+    $default  reduce using rule 63 (attr_decl)
+
+
+state 97
+
+   62 attr_decl: ATTR SYMRESULT expr ARROW STRING .
+
+    $default  reduce using rule 62 (attr_decl)
+
+
+state 98
+
+   33 instance_decl: STRING COLON STRING .
+
+    $default  reduce using rule 33 (instance_decl)
+
+
+state 99
+
+   27 state_decl: STATE STRING . $@2 opt_state_attribute sdecl_seq
+
+    $default  reduce using rule 26 ($@2)
+
+    $@2  go to state 102
+
+
+state 100
+
+   19 string_pipe_seq: string_pipe_seq PIPE . STRING
+
+    STRING  shift, and go to state 103
+
+
+state 101
+
+   68 expr: expr . AND expr
+   69     | expr . PIPE expr
+   70     | expr . XOR expr
+   71     | expr . QUERY expr COLON expr
+   71     | expr QUERY expr COLON expr .
+
+    QUERY  shift, and go to state 57
+    PIPE   shift, and go to state 58
+    XOR    shift, and go to state 59
+    AND    shift, and go to state 60
+
+    $default  reduce using rule 71 (expr)
+
+
+state 102
+
+   27 state_decl: STATE STRING $@2 . opt_state_attribute sdecl_seq
+
+    LPAREN  shift, and go to state 104
+
+    $default  reduce using rule 29 (opt_state_attribute)
+
+    opt_state_attribute  go to state 105
+
+
+state 103
+
+   19 string_pipe_seq: string_pipe_seq PIPE STRING .
+
+    $default  reduce using rule 19 (string_pipe_seq)
+
+
+state 104
+
+   28 opt_state_attribute: LPAREN . STRING RPAREN
+
+    STRING  shift, and go to state 106
+
+
+state 105
+
+   27 state_decl: STATE STRING $@2 opt_state_attribute . sdecl_seq
+
+    $default  reduce using rule 30 (sdecl_seq)
+
+    sdecl_seq  go to state 107
+
+
+state 106
+
+   28 opt_state_attribute: LPAREN STRING . RPAREN
+
+    RPAREN  shift, and go to state 108
+
+
+state 107
+
+   27 state_decl: STATE STRING $@2 opt_state_attribute sdecl_seq .
+   31 sdecl_seq: sdecl_seq . sdecl
+
+    STRING  shift, and go to state 109
+    LANGLE  shift, and go to state 110
+
+    STATE     reduce using rule 27 (state_decl)
+    ENDBLOCK  reduce using rule 27 (state_decl)
+    $default  reduce using rule 46 (option)
+
+    sdecl             go to state 111
+    transition_decl   go to state 112
+    transition_seq    go to state 113
+    option_seq        go to state 114
+    option            go to state 115
+    inline_block_seq  go to state 116
+    inline_block      go to state 117
+
+
+state 108
+
+   28 opt_state_attribute: LPAREN STRING RPAREN .
+
+    $default  reduce using rule 28 (opt_state_attribute)
+
+
+state 109
+
+   45 option: STRING .
+
+    $default  reduce using rule 45 (option)
+
+
+state 110
+
+   50 inline_block: LANGLE . STRING COLON STRING ARROW STRING RANGLE
+
+    STRING  shift, and go to state 118
+
+
+state 111
+
+   31 sdecl_seq: sdecl_seq sdecl .
+
+    $default  reduce using rule 31 (sdecl_seq)
+
+
+state 112
+
+   32 sdecl: transition_decl .
+
+    $default  reduce using rule 32 (sdecl)
+
+
+state 113
+
+   35 transition_decl: transition_seq . ARROW $@3 destination_seq
+   36                | transition_seq . EQUAL STRING
+   41 transition_seq: transition_seq . SEMICOLON option_seq
+   42               | transition_seq . SEMICOLON inline_block_seq
+
+    ARROW      shift, and go to state 119
+    EQUAL      shift, and go to state 120
+    SEMICOLON  shift, and go to state 121
+
+
+state 114
+
+   39 transition_seq: option_seq .
+   44 option_seq: option_seq . PIPE option
+
+    PIPE  shift, and go to state 122
+
+    $default  reduce using rule 39 (transition_seq)
+
+
+state 115
+
+   43 option_seq: option .
+
+    $default  reduce using rule 43 (option_seq)
+
+
+state 116
+
+   40 transition_seq: inline_block_seq .
+   48 inline_block_seq: inline_block_seq . PIPE inline_block
+   49                 | inline_block_seq . PIPE
+
+    PIPE  shift, and go to state 123
+
+    $default  reduce using rule 40 (transition_seq)
+
+
+state 117
+
+   47 inline_block_seq: inline_block .
+
+    $default  reduce using rule 47 (inline_block_seq)
+
+
+state 118
+
+   50 inline_block: LANGLE STRING . COLON STRING ARROW STRING RANGLE
+
+    COLON  shift, and go to state 124
+
+
+state 119
+
+   35 transition_decl: transition_seq ARROW . $@3 destination_seq
+
+    $default  reduce using rule 34 ($@3)
+
+    $@3  go to state 125
+
+
+state 120
+
+   36 transition_decl: transition_seq EQUAL . STRING
+
+    STRING  shift, and go to state 126
+
+
+state 121
+
+   41 transition_seq: transition_seq SEMICOLON . option_seq
+   42               | transition_seq SEMICOLON . inline_block_seq
+
+    STRING  shift, and go to state 109
+    LANGLE  shift, and go to state 110
+
+    $default  reduce using rule 46 (option)
+
+    option_seq        go to state 127
+    option            go to state 115
+    inline_block_seq  go to state 128
+    inline_block      go to state 117
+
+
+state 122
+
+   44 option_seq: option_seq PIPE . option
+
+    STRING  shift, and go to state 109
+
+    $default  reduce using rule 46 (option)
+
+    option  go to state 129
+
+
+state 123
+
+   48 inline_block_seq: inline_block_seq PIPE . inline_block
+   49                 | inline_block_seq PIPE .
+
+    LANGLE  shift, and go to state 110
+
+    $default  reduce using rule 49 (inline_block_seq)
+
+    inline_block  go to state 130
+
+
+state 124
+
+   50 inline_block: LANGLE STRING COLON . STRING ARROW STRING RANGLE
+
+    STRING  shift, and go to state 131
+
+
+state 125
+
+   35 transition_decl: transition_seq ARROW $@3 . destination_seq
+
+    STRING  shift, and go to state 132
+
+    destination_seq  go to state 133
+
+
+state 126
+
+   36 transition_decl: transition_seq EQUAL STRING .
+
+    $default  reduce using rule 36 (transition_decl)
+
+
+state 127
+
+   41 transition_seq: transition_seq SEMICOLON option_seq .
+   44 option_seq: option_seq . PIPE option
+
+    PIPE  shift, and go to state 122
+
+    $default  reduce using rule 41 (transition_seq)
+
+
+state 128
+
+   42 transition_seq: transition_seq SEMICOLON inline_block_seq .
+   48 inline_block_seq: inline_block_seq . PIPE inline_block
+   49                 | inline_block_seq . PIPE
+
+    PIPE  shift, and go to state 123
+
+    $default  reduce using rule 42 (transition_seq)
+
+
+state 129
+
+   44 option_seq: option_seq PIPE option .
+
+    $default  reduce using rule 44 (option_seq)
+
+
+state 130
+
+   48 inline_block_seq: inline_block_seq PIPE inline_block .
+
+    $default  reduce using rule 48 (inline_block_seq)
+
+
+state 131
+
+   50 inline_block: LANGLE STRING COLON STRING . ARROW STRING RANGLE
+
+    ARROW  shift, and go to state 134
+
+
+state 132
+
+   37 destination_seq: STRING .
+
+    $default  reduce using rule 37 (destination_seq)
+
+
+state 133
+
+   35 transition_decl: transition_seq ARROW $@3 destination_seq .
+   38 destination_seq: destination_seq . COMMA STRING
+
+    COMMA  shift, and go to state 135
+
+    $default  reduce using rule 35 (transition_decl)
+
+
+state 134
+
+   50 inline_block: LANGLE STRING COLON STRING ARROW . STRING RANGLE
+
+    STRING  shift, and go to state 136
+
+
+state 135
+
+   38 destination_seq: destination_seq COMMA . STRING
+
+    STRING  shift, and go to state 137
+
+
+state 136
+
+   50 inline_block: LANGLE STRING COLON STRING ARROW STRING . RANGLE
+
+    RANGLE  shift, and go to state 138
+
+
+state 137
+
+   38 destination_seq: destination_seq COMMA STRING .
+
+    $default  reduce using rule 38 (destination_seq)
+
+
+state 138
+
+   50 inline_block: LANGLE STRING COLON STRING ARROW STRING RANGLE .
+
+    $default  reduce using rule 50 (inline_block)

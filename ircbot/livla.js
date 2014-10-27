@@ -141,10 +141,9 @@ try{
 				//write body to file
 				if(err) {}
 				else {
-					var content = fs.writeFile(path.join(__dirname,"dumps",thisa + ".xml"),body, function(err) {
-					if(err) {console.log(err);} else {console.log(thisa + ' updated');
-					}
-					});
+					var t = path.join(__dirname,"dumps",thisa + ".xml");
+					var content = fs.writeFileSync(t+".temp",body);
+					fs.renameSync(t+".temp", t);console.log(thisa + ' updated');
 				}
 				
 			}); 
@@ -372,7 +371,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf('Tatoeba:') == '0': clientmensi.say(sendTo, sisku(text.substr(8).trim()));break;
-/* 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
+ 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
  	case text.indexOf(prereplier + 'xu do') == '0': 
  	case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {clientmensi.say(sendTo, from + mireturn());}, interm );break;
  	case text.indexOf(prereplier + 'mi retsku') < 0 && text.indexOf(prereplier + 'mi') == '0': setTimeout(function() {clientmensi.say(sendTo, from + doreturn());}, interm );break;
@@ -381,7 +380,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf(prereplier + 'u\'i') == '0' && from==asker: setTimeout(function() {clientmensi.say(sendTo, preasker + ext(nagendra));}, interm );break;
  	case text.indexOf(prereplier + 'xu') == '0' && from!==asker: setTimeout(function() {clientmensi.say(sendTo, from + ': ' + ext(mizmiku));}, interm );break;
  	case text.indexOf(prereplier) == '0' && text.indexOf(prereplier + 'xu') !== '0' && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;
- 	case text.indexOf("doi " + replier) >-1 && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;*/
+ 	case text.indexOf("doi " + replier) >-1 && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;
   	}
 
 
@@ -1188,7 +1187,7 @@ var tcepru = function(lin,sendTo){
 	exec(path.join(__dirname,"../tcepru/./parser") + ' <<<"'+lin+'" 2>/dev/null', function (error, stdout, stderr) {
   		 clientmensi.say(sendTo, stdout);
 	});
-}
+};
 
 var jbofihe = function(lin,sendTo){
 	var exec = require('child_process').exec;
@@ -1199,5 +1198,5 @@ var jbofihe = function(lin,sendTo){
   		 //console.log("|"+stderr.toString()+"|");
   		 //console.log("+"+error.toString()+"+");
 	});
-}
+};
 

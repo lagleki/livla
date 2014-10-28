@@ -1,2 +1,3 @@
-ircbot/dumps/*.*
+ircbot/dumps/*.xml
+ircbot/dumps/*.pdf
 i/data/*.*

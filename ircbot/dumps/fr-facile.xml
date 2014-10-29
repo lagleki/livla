@@ -1628,9 +1628,9 @@
     <username>glekizmiku</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
-  <definition>$x_1$ est le broda (1e prédicat variable assignable)</definition>
+  <definition>$x_1$ est/fait broda (1er prédicat variable assignable)</definition>
   <definitionid>63436</definitionid>
-  <notes>le contexte détermine la structure des places</notes>
+  <notes>le contexte détermine la signification et la structure des places</notes>
   <glossword word="prédicat1 (variable)" />
 </valsi>
 <valsi word="brode" type="gismu">
@@ -1639,9 +1639,9 @@
     <username>glekizmiku</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
-  <definition>$x_1$ est le brode (2e prédicat variable assignable)</definition>
+  <definition>$x_1$ est/fait brode (2ème prédicat variable assignable)</definition>
   <definitionid>63437</definitionid>
-  <notes>le contexte détermine la structure des places</notes>
+  <notes>le contexte détermine la signification et la structure des places</notes>
   <glossword word="prédicat2 (variable)" />
 </valsi>
 <valsi word="brodi" type="gismu">
@@ -1649,9 +1649,9 @@
     <username>glekizmiku</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
-  <definition>$x_1$ est le brodi (3e prédicat variable assignable)</definition>
+  <definition>$x_1$ est/fait brodi (3ème prédicat variable assignable)</definition>
   <definitionid>63438</definitionid>
-  <notes>le contexte détermine la structure des places</notes>
+  <notes>le contexte détermine la signification et la structure des places</notes>
   <glossword word="prédicat3 (variable)" />
 </valsi>
 <valsi word="brodo" type="gismu">
@@ -1659,9 +1659,9 @@
     <username>glekizmiku</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
-  <definition>$x_1$ est le brodo (4e prédicat variable assignable)</definition>
+  <definition>$x_1$ es/fait brodo (4ème prédicat variable assignable)</definition>
   <definitionid>63439</definitionid>
-  <notes>le contexte détermine la structure des places</notes>
+  <notes>le contexte détermine la signification et la structure des places</notes>
   <glossword word="prédicat4 (variable)" />
 </valsi>
 <valsi word="brodu" type="gismu">
@@ -1669,9 +1669,9 @@
     <username>glekizmiku</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
-  <definition>$x_1$ est le brodu (5e prédicat variable assignable)</definition>
+  <definition>$x_1$ est/fait brodu (5ème prédicat variable assignable)</definition>
   <definitionid>63440</definitionid>
-  <notes>le contexte détermine la structure des places</notes>
+  <notes>le contexte détermine la signification et la structure des places</notes>
   <glossword word="prédicat5 (variable)" />
 </valsi>
 <valsi word="bruna" type="gismu">

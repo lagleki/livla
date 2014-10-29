@@ -165,7 +165,7 @@ try{
 			});
 	});
 }catch(err){console.log('Error when autoupdating: ' + err);}
-//sutsisningau("en");
+sutsisningau("en");
 };
 
 setInterval(function(){updatexmldumps()}, 86400000); //update logs once a djedi
@@ -798,10 +798,10 @@ lin=lin.toLowerCase();
 	try{
 		//from lojban to gloso
 		
-		if (check!==1){lin=run_camxes(lin.replace(/[^a-z'\. ]/g,''),5);}
-		lin=lin.replace(/[^a-z'\. ]/g,'').trim().replace(/ ([nd]ai)( |$)/img,"$1$2").split(" ");
+		if (check!==1){lin=run_camxes(lin.replace(/[^a-z'\. ]/g,''),5).replace(/[^a-z'\. ]/g,'').trim().replace(/ ([nd]ai)( |$)/img,"$1$2");}
+		lin=lin.split(" ");
 		for (i=0;i<lin.length;i++){
-		if (xucmavo(lin[i])===true & check===1){}else{
+		//if (xucmavo(lin[i])===true & check===1){}else{
 					if (lng==='en'){//items are only for English. Think of some universla items.
 					for (j=0;j<items.length;j++){
 						myregexp = new RegExp("^"+items[j][0]+"$", "gim");
@@ -820,10 +820,10 @@ lin=lin.toLowerCase();
 			if (typeof cnt==='undefined'){cnt = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin[i].toUpperCase()+"\",\""+lin[i]+"\")=\""+lin[i]+"\"]/keyword[@place=\"1\"]");}//try keyword
 			if (typeof cnt!=='undefined'){lin[i]=cnt.attr("word").value().replace(/ /gm,"-").replace(/$/gm,"A");}
 		}
-		}
+		//}
 		lin=lin.join(" ").replace(/ /gm,"* ").replace(/$/gm,"*").replace(/A\*/gm,"");
 	}catch(err){lin='O_0';}
-	return lin;
+	return lin.replace(/\*\*/g,'*');
 };
 
 var valsicmene = function (lin,lng)
@@ -1093,7 +1093,7 @@ if (typeof xmlDoc==='undefined'){
 };
 
 var selrafsi = function (lin,xmlDoc)
-{
+{console.log(lin);
 var lng="en",gag;
 if (typeof xmlDoc==='undefined'){
 	var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
@@ -1110,7 +1110,7 @@ if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@
 if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
 if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
 //may be it's already a word? then just return it.
-if (typeof rev!=='undefined'){rev=rev.attr("word").value();}else{rev=lin;}
+if (typeof rev!=='undefined'){rev=rev.attr("word").value();}else{if (xugismu(lin)===true||xufuhivla(lin)===true){rev=lin;}else{rev=lin+"**";}}
 return rev;
 };
 
@@ -1152,11 +1152,9 @@ var nl='var literals = {';
 	}
 	nl+="};\n";
 	pars+=nl;
-	console.log(path.join(__dirname,"../i/data","parsed-"+lng + ".js"));
-	content = fs.writeFile(path.join(__dirname,"../i/data","parsed-"+lng + ".js"),pars, function(err) {
-	if(err) {console.log(err);} else {console.log( + ' updated');
-	}
-	});
+	var t = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
+	content = fs.writeFileSync(t+".temp",pars);
+	fs.renameSync(t+".temp", t);console.log(t + ' updated');
 };
 
 //sutsisningau();

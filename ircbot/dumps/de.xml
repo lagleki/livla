@@ -148,9 +148,9 @@
   <definition>$x_1$ ist traurig/bedrückt/depremiert/[unglücklich/empfindet (tiefe) Trauer] über $x_2$ (Abstraktion)</definition>
   <definitionid>16163</definitionid>
   <notes>Siehe auch {klaku}, {gleki}, {betri}, {cinmo}, {junri}, {uinai}.</notes>
+  <glossword word="betrübt" />
   <glossword word="traurig" />
   <glossword word="unglücklich" />
-  <glossword word="betrübt" />
 </valsi>
 <valsi word="bajra" type="gismu">
   <rafsi>baj</rafsi>
@@ -161,8 +161,8 @@
   <definition>$x_{1}$ rennt/läuft auf der Oberfläche $x_{2}$ mit den Gliedmaßen $x_{3}$ in der Gangart $x_{4}$.</definition>
   <definitionid>16246</definitionid>
   <notes>Siehe auch {cadzu}, {klama}, {litru}, {stapa}, {plipe}, {cpare}.</notes>
-  <glossword word="laufen" />
   <glossword word="rennen" />
+  <glossword word="laufen" />
 </valsi>
 <valsi word="bakcmo" type="lujvo">
   <user>
@@ -634,8 +634,8 @@
   </user>
   <definition>Zahl/Ziffer: 8 [Acht].</definition>
   <definitionid>16079</definitionid>
-  <glossword word="Acht" />
   <glossword word="8" />
+  <glossword word="Acht" />
 </valsi>
 <valsi word="bidju" type="gismu">
   <user>
@@ -926,6 +926,17 @@
   <definitionid>42701</definitionid>
   <glossword word="Verbindung kurzer Reichweite" />
 </valsi>
+<valsi word="bogypu'o" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$p_1$ ist etwas Knochenmehl, gemacht aus dem Knochen $p_2=b_1$.</definition>
+  <definitionid>63451</definitionid>
+  <notes>Vgl. {bongu}, {purmo}.</notes>
+  <glossword word="Knochenmehl" />
+  <keyword word="Knochenmehl" place="1" />
+</valsi>
 <valsi word="bolci" type="gismu">
   <rafsi>bol</rafsi>
   <rafsi>boi</rafsi>
@@ -1160,8 +1171,8 @@
   <definition>$x_1$ ist eine Brise/ein Wind/ein Sturm aus der Richtung $x_2$ mit der Geschwindigkeit $x_3$; $x_1$ bläst von $x_2$.</definition>
   <definitionid>16175</definitionid>
   <notes>Siehe auch {tcima}.</notes>
-  <glossword word="Wind" sense="Brise" />
   <glossword word="Brise" />
+  <glossword word="Wind" sense="Brise" />
   <keyword word="Windrichtung" place="1" />
   <keyword word="Windgeschwindigkeit" place="2" />
 </valsi>
@@ -1886,8 +1897,8 @@
   </user>
   <definition>Zahl/Ziffer: 3 [Drei]</definition>
   <definitionid>16074</definitionid>
-  <glossword word="3" />
   <glossword word="Drei" />
+  <glossword word="3" />
 </valsi>
 <valsi word="ciblu" type="gismu">
   <rafsi>blu</rafsi>
@@ -2311,6 +2322,16 @@
   <definition>$x_1$ ist für $x_2$ (Beobachter) kafkaesk in Eigenschaft/Hinsicht $x_3$ (ka).</definition>
   <definitionid>52937</definitionid>
   <glossword word="kafkaesk" />
+</valsi>
+<valsi word="ckabo'o" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$b_1$ ist ein Bettlaken aus dem Material $b_2$.</definition>
+  <definitionid>63486</definitionid>
+  <glossword word="Bettlaken" />
+  <keyword word="Bettlaken" place="1" />
 </valsi>
 <valsi word="ckabu" type="gismu">
   <user>
@@ -3726,6 +3747,14 @@
   <definitionid>42842</definitionid>
   <glossword word="neu" />
 </valsi>
+<valsi word="cnirei" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=p_1$ ist eine Frage nach $x_3=c_2=p_4$s Gefühlen, gefragt von $x_2=p_3$ an $x_3=c_3=p_4$.</definition>
+  <definitionid>63491</definitionid>
+</valsi>
 <valsi word="cnisa" type="gismu">
   <rafsi>nis</rafsi>
   <user>
@@ -4207,8 +4236,8 @@
   </user>
   <definition>$x_1$ sagt $x_2$/drückt $x_2$ aus für Zuhörer $x_3$ mittels Medium/Kommunikationsform $x_4$</definition>
   <definitionid>19105</definitionid>
-  <glossword word="ausdrücken" sense="eine Bedeutung zum Ausdruck bringen" />
   <glossword word="sagen" />
+  <glossword word="ausdrücken" sense="eine Bedeutung zum Ausdruck bringen" />
   <glossword word="erwähnen" sense="ein Konzept in Sprache einbetten" />
   <keyword word="Sprecher" place="1" />
   <keyword word="Aussage" place="2" sense="ausgedrückter Sprachinhalt" />
@@ -4694,8 +4723,8 @@
   <definition>$du_1$ ist der Zehnerlogarithmus von $du_2$.</definition>
   <definitionid>57390</definitionid>
   <notes>Synonym zu {pavnondugri}. Siehe auch {te&apos;o zei dugri}, {reldugri}, {dugri}.</notes>
-  <glossword word="Zehnerlogarithmus" />
   <glossword word="Briggsscher Logarithmus" />
+  <glossword word="Zehnerlogarithmus" />
   <glossword word="dekadischer Logarithmus" />
   <keyword word="Zehnerlogarithmus" place="1" />
   <keyword word="Numerus" place="2" sense="mathematisch" />
@@ -5047,8 +5076,8 @@
   </user>
   <definition>prosumti: Du/ihr die Zuhörer; Definiert durch doi.</definition>
   <definitionid>16116</definitionid>
-  <glossword word="du" />
   <glossword word="ihr" />
+  <glossword word="du" />
 </valsi>
 <valsi word="donri" type="gismu">
   <rafsi>dor</rafsi>
@@ -5301,6 +5330,17 @@
   <definition>$x_1$ ist (ein) Feuer/eine Flamme mit Brennstoff $x_2$ und brennt in/reagiert mit Oxidationsmittel $x_3$ (Default: Luft/Sauerstoff)</definition>
   <definitionid>42966</definitionid>
   <glossword word="Feuer" />
+</valsi>
+<valsi word="fagyfespalne" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$p_1$ ist ein Aschenbecher mit Inhalt $p_2$, aus dem Material $p_3$.</definition>
+  <definitionid>63453</definitionid>
+  <notes>Vgl. {fagyfesti}, {palne}.</notes>
+  <glossword word="Aschenbecher" />
+  <keyword word="Aschenbecher" place="1" />
 </valsi>
 <valsi word="falnu" type="gismu">
   <rafsi>fan</rafsi>
@@ -5618,6 +5658,17 @@
   <definitionid>42994</definitionid>
   <glossword word="Abfall" />
 </valsi>
+<valsi word="fesybaktu" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$b_1$ ist ein Mülleimer mit Inhalt $b_2=f_1$, aus dem Material $b_3$.</definition>
+  <definitionid>63455</definitionid>
+  <notes>Vgl. {festi}, {baktu}</notes>
+  <glossword word="Mülleimer" />
+  <keyword word="Mülleimer" place="1" />
+</valsi>
 <valsi word="fesydakli" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -5733,9 +5784,9 @@
   <definition>$x_1$ scheitert daran, $x_2$ (Ereignis/Zustand) zu tun/sein; $x_1$ ist ein Versager in seiner Rolle als $x_2$.</definition>
   <definitionid>16112</definitionid>
   <notes>Auch: $x_2$ scheitert an/wegen $x_1$. Siehe auch {cfila}, {snada}, {srera}, {troci}, {sisti}, {ranji}, {denpa}, {bebna}, {zunti}.</notes>
-  <glossword word="scheitern" />
   <glossword word="fehlschlagen" />
   <glossword word="versagen" />
+  <glossword word="scheitern" />
   <keyword word="Versager" place="1" />
 </valsi>
 <valsi word="flira" type="gismu">
@@ -5970,8 +6021,8 @@
   </user>
   <definition>$x_1$ ist ein Eis am Stiel mit Eiskrem $x_2=b_1=l_1$ und Stiel $x_3=g_1$.</definition>
   <definitionid>56459</definitionid>
-  <glossword word="Eis am Stiel" />
   <glossword word="Stieleis" />
+  <glossword word="Eis am Stiel" />
   <keyword word="Eis am Stiel" place="1" />
 </valsi>
 <valsi word="gacri" type="gismu">
@@ -6430,8 +6481,8 @@
   <definition>$x_1$ ist eine Frucht [Körperteil] der Spezies $x_2$.</definition>
   <definitionid>16067</definitionid>
   <notes>Siehe auch {badna}, {dembi}, {figre}, {guzme}, {narge}, {perli}, {pilka}, {plise}, {spati}, {stagi}, {tamca}, {tsiju}, {tarbi}, {panzi}, {rorci}, te {pruce}, {jbari}, {nimre}.</notes>
-  <glossword word="Frucht" />
   <glossword word="Obst" />
+  <glossword word="Frucht" />
 </valsi>
 <valsi word="grutrgranate" type="fu'ivla">
   <user>
@@ -6679,6 +6730,19 @@
   <definition>$x_1$ (Gegenstand) schmückt/dekoriert $x_2$; $x_1$ ist Schmuck/Dekoration auf $x_2$; $x_2$ ist geschmückt/dekoriert</definition>
   <definitionid>43089</definitionid>
   <glossword word="schmücken" />
+</valsi>
+<valsi word="jadrdjekolenterne" type="fu'ivla">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1$ ist eine Jack O’Lantern.</definition>
+  <definitionid>63494</definitionid>
+  <notes>Vgl.: {guzmrkukurbita}.</notes>
+  <glossword word="Jack O’Lantern" />
+  <glossword word="Jack-o’-lantern" />
+  <glossword word="Halloween-Kürbis" />
+  <keyword word="Jack O’Lantern" place="1" />
 </valsi>
 <valsi word="jakne" type="gismu">
   <user>
@@ -7332,10 +7396,10 @@
   <definition>$s_1$ ist eine Alkali-Mangan-Zelle mit Ummantelung $s_3$.</definition>
   <definitionid>42304</definitionid>
   <notes>Siehe auch {jilka}, {dicysro}.</notes>
-  <glossword word="Zink-Manganoxid-Zelle" />
+  <glossword word="Alkali-Mangan-Batterie" />
   <glossword word="Alkali-Mangan-Zelle" />
   <glossword word="Alkaline" />
-  <glossword word="Alkali-Mangan-Batterie" />
+  <glossword word="Zink-Manganoxid-Zelle" />
   <keyword word="Alkali-Mangan-Zelle" place="1" />
 </valsi>
 <valsi word="jilra" type="gismu">
@@ -8380,8 +8444,8 @@
   <definition>$x_1$ ist eine Höhle / ein Loch / eine Einbuchtung in $x_2$; $x_1$ ist konkav innerhalb von $x_2$; $x_2$ ist hohl an $x_1$.</definition>
   <definitionid>16121</definitionid>
   <notes>Auch Grube; Hohl (= {selke&apos;a}). Siehe auch {fenra}, {kunti}, {canlu}, {canko}, {galxe}, {tubnu}.</notes>
-  <glossword word="Loch" />
   <glossword word="Höhle" />
+  <glossword word="Loch" />
 </valsi>
 <valsi word="kicne" type="gismu">
   <rafsi>kic</rafsi>
@@ -8494,9 +8558,9 @@
   <definition>$x_1$ geht zu/kommt zu/reist zu/bewegt sich nach $x_2$ von $x_3$ über/entlang $x_4$ mittels $x_5$</definition>
   <definitionid>19110</definitionid>
   <notes>Wie durch $x_5$ impliziert, ist »gehen« nicht auf eine Bewegung zu Fuß beschränkt. Vgl. {cadzu}.</notes>
-  <glossword word="kommen" />
   <glossword word="bewegen" />
   <glossword word="gehen" />
+  <glossword word="kommen" />
   <glossword word="reisen" sense="zielgerichtete, meist langstreckige Fortbewegung" />
   <keyword word="Reisender" place="1" />
   <keyword word="Ziel" place="2" sense="Endpunkt einer Reise" />
@@ -8907,8 +8971,8 @@
   <definition>$x_{1}$ ist ein Raum/ein Zimmer der Struktur $x_{2}$ umgeben von Wänden/Decke/Boden $x_{3}$ (Masse/jo&apos;u).</definition>
   <definitionid>16283</definitionid>
   <notes>Auch Kammer.  Siehe auch {bitmu}, {canlu}, {zdani}.</notes>
-  <glossword word="Zimmer" />
   <glossword word="Raum" sense="Zimmer" />
+  <glossword word="Zimmer" />
 </valsi>
 <valsi word="kumte" type="gismu">
   <user>
@@ -9216,9 +9280,9 @@
   </user>
   <definition>$d_1=s_1$ ist ein Plastiksack/Plastikbeutel / eine Platiktüte mit Inhalt $d_2$.</definition>
   <definitionid>53054</definitionid>
-  <glossword word="Plastikbeutel" />
-  <glossword word="Plastiksack" />
   <glossword word="Plastiktüte" />
+  <glossword word="Plastiksack" />
+  <glossword word="Plastikbeutel" />
   <keyword word="Plastiksack" place="1" />
 </valsi>
 <valsi word="latmo" type="gismu">
@@ -9247,8 +9311,8 @@
   </user>
   <definition>$cm_1=cl_1$ lacht lauthaus; laut am Beobachtungspunkt $cm_2$ nach Standard $cm_3$.</definition>
   <definitionid>52950</definitionid>
-  <glossword word="lauthals lachen" />
   <glossword word="laut lachen" />
+  <glossword word="lauthals lachen" />
 </valsi>
 <valsi word="lazni" type="gismu">
   <user>
@@ -9339,8 +9403,8 @@
   <definition>$p_1$ (zoi-Zitat oder Sequenz aus Buchstaben/Zeichen) ist eine Zeichenkette, die nach Regel $p_2$ auf die unsortierte Menge aus Buchstaben/Zeichen $p_3=l_1$ im Zeichensatz $l_2$ sortiert sind.</definition>
   <definitionid>44206</definitionid>
   <notes>$p_3=l_1$ ist eine Untermenge von $l_2$.</notes>
-  <glossword word="Zeichenkette" />
   <glossword word="String" sense="Informatik" />
+  <glossword word="Zeichenkette" />
   <keyword word="Zeichenkette" place="1" />
   <keyword word="-" place="2" />
   <keyword word="-" place="3" />
@@ -9691,8 +9755,8 @@
   <definition>$cp_1$ ist der Gipfel des Berges/Hügels/[der Erhöhung] $cp_2=cm_1$.</definition>
   <definitionid>56935</definitionid>
   <notes>Vgl. {cmana}, {cpana}.</notes>
-  <glossword word="Berggipfel" />
   <glossword word="Gipfel" sense="Berg" />
+  <glossword word="Berggipfel" />
   <keyword word="Berggipfel" place="1" />
   <keyword word="Berg" place="2" />
 </valsi>
@@ -10650,8 +10714,8 @@
   </user>
   <definition>Zahl/Ziffer: 5 [Fünf]</definition>
   <definitionid>16076</definitionid>
-  <glossword word="Fünf" />
   <glossword word="5" />
+  <glossword word="Fünf" />
 </valsi>
 <valsi word="mucti" type="gismu">
   <rafsi>mut</rafsi>
@@ -10807,6 +10871,14 @@
   <definitionid>43448</definitionid>
   <glossword word="Problem" />
 </valsi>
+<valsi word="nacrei" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$p_1$ ist eine Frage nach einer Zahl, gefragt von $p_3$ an $p_4$.</definition>
+  <definitionid>63458</definitionid>
+</valsi>
 <valsi word="nadmau" type="lujvo">
   <user>
     <username>selpahi</username>
@@ -10814,8 +10886,8 @@
   </user>
   <definition>$x_1$ ist schwieriger als $x_2$ für $x_3$ mit Ausmaß $x_4$</definition>
   <definitionid>38076</definitionid>
-  <glossword word="schwerer" sense="schwieriger" />
   <glossword word="schwieriger" />
+  <glossword word="schwerer" sense="schwieriger" />
 </valsi>
 <valsi word="na'e" type="cmavo">
   <rafsi>nal</rafsi>
@@ -11072,8 +11144,8 @@
   </user>
   <definition>$x_1$ mag/genießt $x_2$ (Objekt/Zusand)</definition>
   <definitionid>19111</definitionid>
-  <glossword word="genießen" />
   <glossword word="mögen" />
+  <glossword word="genießen" />
 </valsi>
 <valsi word="nenri" type="gismu">
   <rafsi>ner</rafsi>
@@ -11276,6 +11348,17 @@
   <definitionid>43479</definitionid>
   <glossword word="skalares mittelwertiges nicht" />
 </valsi>
+<valsi word="noncinse" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$c_1$ ist asexuell in Situation $c_2$ nach Standard $c_4$.</definition>
+  <definitionid>63460</definitionid>
+  <notes>Vgl. {no}, {cinse}</notes>
+  <glossword word="asexuell" />
+  <keyword word="asexuell" place="1" />
+</valsi>
 <valsi word="nonmau" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -11296,8 +11379,8 @@
   <definition>$m_1$ (Zahl) ist kleiner als 0 um Wert $m_4$ (Zahl); $m_1$ ist eine negative Zahl.</definition>
   <definitionid>57376</definitionid>
   <notes>Siehe auch: {nonmau}, {mleca}, {no}.</notes>
-  <glossword word="negativ" sense="Mathematik" />
   <glossword word="negative Zahl" />
+  <glossword word="negativ" sense="Mathematik" />
   <keyword word="negative Zahl" place="1" />
 </valsi>
 <valsi word="norlunbe" type="lujvo">
@@ -11443,8 +11526,8 @@
   </user>
   <definition>Zahl/Ziffer: 1 [Eins]</definition>
   <definitionid>16072</definitionid>
-  <glossword word="1" />
   <glossword word="Eins" />
+  <glossword word="1" />
 </valsi>
 <valsi word="pacmi'a" type="lujvo">
   <user>
@@ -11712,6 +11795,16 @@
   <keyword word="Zehnerlogarithmus" place="1" />
   <keyword word="Numerus" place="2" sense="mathematisch" />
 </valsi>
+<valsi word="pazycfu" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$r_1$ ist kinderreich.</definition>
+  <definitionid>63447</definitionid>
+  <glossword word="kinderreich" />
+  <keyword word="kinderreich" place="1" />
+</valsi>
 <valsi word="pazypanzi" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -11753,8 +11846,8 @@
   <definition>$x_1$ ist gelb/golden [Farbadjektiv].</definition>
   <definitionid>16104</definitionid>
   <notes>Siehe auch {skari}, {blabi}, {xekri}, {kandi}, {carmi}, {narju}, {solji}.</notes>
-  <glossword word="golden" />
   <glossword word="gelb" />
+  <glossword word="golden" />
 </valsi>
 <valsi word="pemci" type="gismu">
   <rafsi>pem</rafsi>
@@ -11805,9 +11898,9 @@
   <definition>$x_1$ (Handelnder) ist ein Freund von $x_2$.; $x_2$ ist $x_1$ ein Freund.</definition>
   <definitionid>16069</definitionid>
   <notes>Siehe auch {bradi}, {xendo}, {nelci}, {prami}, {bradi}.</notes>
-  <glossword word="Freundin" />
   <glossword word="Freund" />
   <glossword word="Kumpel" />
+  <glossword word="Freundin" />
 </valsi>
 <valsi word="penmi" type="gismu">
   <rafsi>pen</rafsi>
@@ -12079,6 +12172,18 @@
   <definition>$x_1$ ist ein Klavier/Piano/Cembalo/Keyboard/eine Orgel; ein Musikinstrument mit Tasten</definition>
   <definitionid>43543</definitionid>
   <glossword word="Klavier" />
+</valsi>
+<valsi word="pipyboi" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$b_1$ ist ein Flummi/Superball gemacht aus dem Material $b_2$.</definition>
+  <definitionid>63462</definitionid>
+  <notes>Vgl. {plipe}, {bolci}.</notes>
+  <glossword word="Flummi" />
+  <glossword word="Superball" sense="Flummi" />
+  <keyword word="Flummi" place="1" />
 </valsi>
 <valsi word="pi'u" type="cmavo">
   <rafsi>piv</rafsi>
@@ -12411,6 +12516,21 @@
   <definitionid>53209</definitionid>
   <notes>Spezialfall von {cerda}.</notes>
 </valsi>
+<valsi word="posyselcerda" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$c_2=p_1$ ist die Erbschaft (Eigentum) für Person $p_2=c_3$ (Erbe), Eigentum nach Gesetz/Regel $p_3$, vererbt von $c_1$ nach Gesetz/Regel $c_4$.</definition>
+  <definitionid>63464</definitionid>
+  <notes>Diese Definition bezieht sich ausschließlich auf das Vererben von Eigentum. Für eine allgemeinere Definition, siehe {cerda}.</notes>
+  <glossword word="erben" sense="von Eigentum" />
+  <keyword word="Erbschaft" place="1" sense="Eigentum" />
+  <keyword word="Erbe" place="2" sense="von Eigentum" />
+  <keyword word="Eigentumsrecht" place="3" />
+  <keyword word="Erblasser" place="4" sense="von Eigentum" />
+  <keyword word="Erbrecht" place="5" />
+</valsi>
 <valsi word="prali" type="gismu">
   <rafsi>pal</rafsi>
   <user>
@@ -12688,9 +12808,9 @@
   <definition>$x_1$ ist ein Hase/Kaninchen/Karnickel der Art/Gattung $x_2$.</definition>
   <definitionid>16120</definitionid>
   <notes>Siehe auch {mabru}, {kerlo}.</notes>
-  <glossword word="Kaninchen" />
   <glossword word="Hase" />
   <glossword word="Karnickel" />
+  <glossword word="Kaninchen" />
 </valsi>
 <valsi word="radno" type="gismu">
   <rafsi>ra&apos;o</rafsi>
@@ -12860,6 +12980,29 @@
   <definitionid>43606</definitionid>
   <glossword word="natürlich" />
 </valsi>
+<valsi word="rastsi" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$t_1$ ist/sind Ölsamen vom Organismus $t_2$ für Nachkommen $t_3$.</definition>
+  <definitionid>63466</definitionid>
+  <notes>Vgl. {grasu}, {tsiju}.</notes>
+  <glossword word="Ölsaat" />
+  <glossword word="Ölsamen" />
+  <keyword word="Ölsamen" place="1" />
+</valsi>
+<valsi word="rasyspa" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$s_1$ ist eine Ölpflanze der Art $s_2$.</definition>
+  <definitionid>63471</definitionid>
+  <notes>Siehe auch: {rastsi}</notes>
+  <glossword word="Ölpflanze" />
+  <keyword word="Ölpflanze" place="1" />
+</valsi>
 <valsi word="ratcu" type="gismu">
   <user>
     <username>gleki</username>
@@ -12934,8 +13077,8 @@
   <definition>$d_1$ ist der binäre Logarithmus von $d_2$.</definition>
   <definitionid>42264</definitionid>
   <notes>Siehe auch {pavnondugri}, {te&apos;o zei dugri}, {dugri}.</notes>
-  <glossword word="Zweierlogarithmus" />
   <glossword word="binärer Logarithmus" />
+  <glossword word="Zweierlogarithmus" />
   <keyword word="binärer Logarithmus" place="1" />
   <keyword word="Numerus" place="2" sense="mathematisch" />
 </valsi>
@@ -13248,6 +13391,17 @@
   <definitionid>43634</definitionid>
   <glossword word="Fels" />
 </valsi>
+<valsi word="rokybakfu" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$b_1=r_1$ ist ein Stein [loses zusammenhängendes Objekt aus Gestein].</definition>
+  <definitionid>63468</definitionid>
+  <notes>Der Begriff »Stein« ist hier allgemein gemeint und impliziert keine Größe. Vgl. {rokci}, {bakfu}.</notes>
+  <glossword word="Stein" sense="loses zusammenhängendes Objekt aus Gestein" />
+  <keyword word="Stein" place="1" sense="loses zusammenhängendes Objekt aus Gestein" />
+</valsi>
 <valsi word="roldzadijbartu" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -13551,6 +13705,16 @@
   <definitionid>43660</definitionid>
   <glossword word="schlicht" />
 </valsi>
+<valsi word="samvidni" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$v_1$ ist ein Computerbildschirm.</definition>
+  <definitionid>63484</definitionid>
+  <glossword word="Computerbildschirm" />
+  <keyword word="Computerbildschirm" place="1" />
+</valsi>
 <valsi word="samyzilkei" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -13559,8 +13723,8 @@
   <definition>$x_1=k_2$ ist ein Videospiel auf Platform $x_2=s_1$.</definition>
   <definitionid>44244</definitionid>
   <notes>Auch: PC-/Computerspiel. x2 kann ein PC, tragbares Gerät, eine Videospielkonsole oder eine Arkade-Maschine sein. Siehe auch: Videospiel spielen (={samyzilkeikei}), am Computer spielen (={samkei}).</notes>
-  <glossword word="Videospiel" />
   <glossword word="Computerspiel" />
+  <glossword word="Videospiel" />
   <keyword word="Computerspiel" place="1" />
 </valsi>
 <valsi word="samyzilkeikei" type="lujvo">
@@ -13792,6 +13956,17 @@
   <definitionid>43680</definitionid>
   <glossword word="dienen" />
 </valsi>
+<valsi word="selkafpu'o" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$p_1$ ist etwas Kaffeepulver aus Quelle/Bohne/Korn $p_2=c_2$.</definition>
+  <definitionid>63482</definitionid>
+  <notes>Vgl. {se}, {ckafi}, {purmo}.</notes>
+  <glossword word="Kaffeepulver" />
+  <keyword word="Kaffeepulver" place="1" />
+</valsi>
 <valsi word="selru'eca'a" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -13853,8 +14028,8 @@
   <definition>$x_1$ träumt über/dass $x_2$ (Tatsache/Idee/Ereignis/Zustand); $x_2$ ist ein Traum/eine Träumerei von $x_1$.</definition>
   <definitionid>16071</definitionid>
   <notes>Traum/Träumerei (= {selsne}). Siehe auch {sipna}, {xanri}.</notes>
-  <glossword word="Traum" />
   <glossword word="träumen" />
+  <glossword word="Traum" />
   <keyword word="Träumer" place="1" />
   <keyword word="Traum" place="2" />
 </valsi>
@@ -13907,9 +14082,9 @@
   </user>
   <definition>$x_1$ vergissert sich, dass $x_2$ (du&apos;u) über $x_3$ wahr ist.</definition>
   <definitionid>38640</definitionid>
-  <glossword word="vergewissern" />
-  <glossword word="sich vergewissern" />
   <glossword word="sicherstellen" sense="vergewissern" />
+  <glossword word="sich vergewissern" />
+  <glossword word="vergewissern" />
 </valsi>
 <valsi word="sfaile" type="fu'ivla">
   <user>
@@ -14000,8 +14175,8 @@
   <definition>$x_1$ (Idee abstrakt) ist eine Idee/Konzept/Gedanke über $x_2$ (Objekt/abstrakt) von Denker $x_3$.</definition>
   <definitionid>16114</definitionid>
   <notes>Auch: $x_1$ ist Ideell (adjektiv). Siehe auch {ciksi}, {jijnu}, {mucti}, {jinvi}, {nabmi}, {pensi}, {xanri}, {si&apos;o}.</notes>
-  <glossword word="Gedanke" />
   <glossword word="Idee" />
+  <glossword word="Gedanke" />
 </valsi>
 <valsi word="sidju" type="gismu">
   <rafsi>dju</rafsi>
@@ -14072,8 +14247,8 @@
   <definition>$p_1=s_3$ skispringt zu $p_2$ von $p_3$ erreichend Höhe $p_4$ angetrieben von/benutzend Skier $p_5=s_1$.</definition>
   <definitionid>57407</definitionid>
   <notes>Vgl. {skiji}, {plipe}.</notes>
-  <glossword word="schispringen" />
   <glossword word="skispringen" />
+  <glossword word="schispringen" />
   <keyword word="Skispringer" place="1" />
   <keyword word="Sprunghöhe" place="4" />
   <keyword word="Skier" place="5" />
@@ -14638,8 +14813,8 @@
   </user>
   <definition>Zahl/Ziffer: 9 [Neun].</definition>
   <definitionid>16080</definitionid>
-  <glossword word="Neun" />
   <glossword word="9" />
+  <glossword word="Neun" />
 </valsi>
 <valsi word="so'a" type="cmavo">
   <rafsi>soj</rafsi>
@@ -14822,8 +14997,8 @@
   </user>
   <definition>$c_1$ ist etwas Pflanzenöl, gewonnen aus der Pflanze $c_2=s_1$.</definition>
   <definitionid>52987</definitionid>
-  <glossword word="Pflanzenöl" />
   <glossword word="pflanzliches Öl" />
+  <glossword word="Pflanzenöl" />
   <keyword word="Pflanzenöl" place="1" />
   <keyword word="Pflanze" place="2" />
 </valsi>
@@ -14914,6 +15089,17 @@
   <definition>$x_1$ ist ein Krankenhaus für Patient(en) $x_2$ mit Krankheit/Zustand/Verletzung $x_3$</definition>
   <definitionid>43779</definitionid>
   <glossword word="Krankenhaus" />
+</valsi>
+<valsi word="spitycka" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$c_1$ ist ein Krankenhausbett aus Material $c_2$ für Patienten $c_3=s_2$.</definition>
+  <definitionid>63488</definitionid>
+  <notes>Vgl. {spita}, {ckana}.</notes>
+  <glossword word="Krankenhausbett" />
+  <keyword word="Krankenhausbett" place="1" />
 </valsi>
 <valsi word="spofu" type="gismu">
   <rafsi>pof</rafsi>
@@ -15709,8 +15895,8 @@
   </user>
   <definition>$l_1$ ist ein Asphaltsee/Teersee.</definition>
   <definitionid>56539</definitionid>
-  <glossword word="Asphaltsee" />
   <glossword word="Teersee" />
+  <glossword word="Asphaltsee" />
   <keyword word="Asphaltsee" place="1" />
 </valsi>
 <valsi word="tarmi" type="gismu">
@@ -15753,8 +15939,8 @@
   <definition>$x_1$ ist müde/erschöpft wegen Anstrengung/Situation $x_2$ (Ereignis); $x_1$ braucht/will Erholung.</definition>
   <definitionid>16122</definitionid>
   <notes>Siehe auch {cikna}, {sipna}, {surla}.</notes>
-  <glossword word="erschöpft" />
   <glossword word="müde" />
+  <glossword word="erschöpft" />
 </valsi>
 <valsi word="tatru" type="gismu">
   <rafsi>tat</rafsi>
@@ -15787,8 +15973,8 @@
   <definition>$x_1$ redet/spricht mit/vor $x_2$ über das Thema $x_3$ in der Sprache $x_4$</definition>
   <definitionid>19109</definitionid>
   <notes>Sofern nicht anders angegeben, nicht auf Sprache beschränkt, auch wenn dies durch $x_4$ impliziert ist. Andere gismu, wie {cusku}, {casnu}, {skicu} oder {ciksi}, implizieren die Verwendung von Sprache weniger stark.</notes>
-  <glossword word="sprechen" />
   <glossword word="reden" />
+  <glossword word="sprechen" />
   <keyword word="Sprecher" place="1" />
   <keyword word="Publikum" place="2" sense="der durch den Sprecher Angesprochene" />
   <keyword word="Thema" place="3" sense="einer sprachlichen Ausführung" />
@@ -15842,6 +16028,17 @@
   <definition>$x_1$ ist eine Menge an/enthält/besteht aus Tee, zubereitet/hergestellt aus Blättern $x_2$</definition>
   <definitionid>43857</definitionid>
   <glossword word="Tee" />
+</valsi>
+<valsi word="tcatykabri" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$k_1$ ist eine Teetasse mit Inhalt(en) $k_2$, und ist aus dem Material $k_3$.</definition>
+  <definitionid>63478</definitionid>
+  <notes>Vgl. {tcati}, {kabri}</notes>
+  <glossword word="Teetasse" />
+  <keyword word="Teetasse" place="1" />
 </valsi>
 <valsi word="tcena" type="gismu">
   <rafsi>ten</rafsi>
@@ -16821,8 +17018,8 @@
   <definition>$x_1$ beinhält/umschließt $x_2$; $x_1$ ist ein Behälter mit $x_2$ drin.</definition>
   <definitionid>16130</definitionid>
   <notes>[Umschließung muss nicht vollständig sein]; Siehe auch {bartu}, {jbini}, {nenri}, {zvati}, {cpana}, {botpi}, {lanka}.</notes>
-  <glossword word="beinhalten" />
   <glossword word="Behälter" />
+  <glossword word="beinhalten" />
   <glossword word="umschließen" />
   <keyword word="Behälter" place="1" />
 </valsi>
@@ -16880,6 +17077,17 @@
   <keyword word="Widerlager" place="1" sense="Brückenbau" />
   <keyword word="-" place="2" />
   <keyword word="Brücke" place="3" />
+</valsi>
+<valsi word="velylumxu'i" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$xu_1=l_4$ ist eine Menge des Reinigungsmittels $xu_2$ in der Reinheit $xu_3$.</definition>
+  <definitionid>63475</definitionid>
+  <notes>Siehe auch: {ve}, {lumci}, {xukmi}.</notes>
+  <glossword word="Reinigungsmittel" />
+  <keyword word="Reinigungsmittel" place="1" />
 </valsi>
 <valsi word="venfu" type="gismu">
   <rafsi>vef</rafsi>
@@ -17142,8 +17350,8 @@
   </user>
   <definition>Zahl/Ziffer: 4 [Vier]</definition>
   <definitionid>16075</definitionid>
-  <glossword word="Vier" />
   <glossword word="4" />
+  <glossword word="Vier" />
 </valsi>
 <valsi word="vofli" type="gismu">
   <rafsi>vol</rafsi>
@@ -17316,10 +17524,10 @@
   <definition>$d_1$ ist ein Briefsack/Briefbeutel mit Brief(en) $d_2=xa_1$, und aus dem Material $d_3$.</definition>
   <definitionid>53049</definitionid>
   <notes>Jeder beliebige Beutel oder Sack, in dem mindestens ein Brief enthalten ist, kann hier als Briefsack bzw. -beutel gelten.</notes>
-  <glossword word="Postbeutel" sense="mit Brief" />
   <glossword word="Briefsack" />
   <glossword word="Briefbeutel" />
   <glossword word="Postsack" sense="mit Brief" />
+  <glossword word="Postbeutel" sense="mit Brief" />
   <keyword word="Briefsack" place="1" />
 </valsi>
 <valsi word="xabju" type="gismu">
@@ -17796,9 +18004,9 @@
   <definition>$x_1$ ist ein Steppenzebra (wissenschaftliche Bezeichnung: »Equus quagga«).</definition>
   <definitionid>57524</definitionid>
   <notes>Vgl. {sriba&apos;axi&apos;a}.</notes>
-  <glossword word="Steppenzebra" sense="Tier der Art Equus quagga" />
-  <glossword word="Equus quagga" />
   <glossword word="Pferdezebra" sense="Tier der Art Equus quagga" />
+  <glossword word="Equus quagga" />
+  <glossword word="Steppenzebra" sense="Tier der Art Equus quagga" />
   <keyword word="Steppenzebra" place="1" sense="Tier der Art Equus quagga" />
 </valsi>
 <valsi word="xirnzebra" type="fu'ivla">
@@ -17809,8 +18017,8 @@
   <definition>$x_1$ ist ein Bergzebra (wissenschaftliche Bezeichnung: »Equus zebra«).</definition>
   <definitionid>57521</definitionid>
   <notes>Vgl. {sriba&apos;axi&apos;a}.</notes>
-  <glossword word="Bergzebra" sense="Tier der Art Equus zebra" />
   <glossword word="Equus zebra" />
+  <glossword word="Bergzebra" sense="Tier der Art Equus zebra" />
   <keyword word="Bergzebra" place="1" sense="Tier der Art Equus zebra" />
 </valsi>
 <valsi word="xislu" type="gismu">
@@ -17901,8 +18109,8 @@
   </user>
   <definition>$g_1$ ist ein Bilderrahmen (ent-)haltend Bild $g_2=p_1$.</definition>
   <definitionid>56517</definitionid>
-  <glossword word="Bild" />
   <glossword word="Bilderrahmen" />
+  <glossword word="Bild" />
   <keyword word="Bilderrahmen" place="1" />
   <keyword word="Bild" place="2" />
 </valsi>
@@ -18652,6 +18860,7 @@
 <nlword word="Block" valsi="bliku" />
 <nlword word="Boot" valsi="bloti" />
 <nlword word="Verbindung kurzer Reichweite" valsi="bo" />
+<nlword word="Knochenmehl" valsi="bogypu&apos;o" place="1" />
 <nlword word="Ball" valsi="bolci" />
 <nlword word="Basketball" sense="Ball" valsi="bolrbasketo" place="1" />
 <nlword word="Baseball" sense="Ball" valsi="bolrbeiso" place="1" />
@@ -18797,6 +19006,7 @@
 <nlword word="Laus" valsi="civla" />
 <nlword word="seltsam" valsi="cizra" />
 <nlword word="kafkaesk" valsi="cizrkafka" />
+<nlword word="Bettlaken" valsi="ckabo&apos;o" place="1" />
 <nlword word="Gummi" valsi="ckabu" />
 <nlword word="Gummiband" valsi="ckabycupsri" place="1" />
 <nlword word="Kaffee" valsi="ckafi" />
@@ -19037,8 +19247,8 @@
 <nlword word="Flugkörper" valsi="danti" />
 <nlword word="Insel" valsi="daplu" />
 <nlword word="verfluchen" valsi="dapma" />
-<nlword word="Fluch" sense="Text zum Verfluchen von jemanden oder etwas" valsi="dapsku" place="2" />
 <nlword word="Fluch" sense="Schicksal" valsi="dapsku" place="5" />
+<nlword word="Fluch" sense="Text zum Verfluchen von jemanden oder etwas" valsi="dapsku" place="2" />
 <nlword word="Verflucher" valsi="dapsku" place="1" />
 <nlword word="Verfluchter" valsi="dapsku" place="3" />
 <nlword word="Straße" sense="Weg" valsi="dargu" />
@@ -19117,6 +19327,7 @@
 <nlword word="entdecken" valsi="facki" />
 <nlword word="gewöhnlich" valsi="fadni" />
 <nlword word="Feuer" valsi="fagri" />
+<nlword word="Aschenbecher" valsi="fagyfespalne" place="1" />
 <nlword word="Segel" valsi="falnu" />
 <nlword word="Tante oder Onkel" valsi="famti" />
 <nlword word="Funktion" valsi="fancu" />
@@ -19151,6 +19362,7 @@
 <nlword word="Lunge" valsi="fepri" />
 <nlword word="fruchtbar" valsi="ferti" />
 <nlword word="Abfall" valsi="festi" />
+<nlword word="Mülleimer" valsi="fesybaktu" place="1" />
 <nlword word="Müllbeutel" valsi="fesydakli" />
 <nlword word="Müllsack" valsi="fesydakli" place="1" />
 <nlword word="weiblich" valsi="fetsi" />
@@ -19216,8 +19428,8 @@
 <nlword word="Grammatik" valsi="gerna" />
 <nlword word="Führer" valsi="gidva" />
 <nlword word="1E9" valsi="gigdo" />
-<nlword word="Lager" valsi="ginka" />
 <nlword word="Lager" sense="vorübergehender Wohnort" valsi="ginka" />
+<nlword word="Lager" valsi="ginka" />
 <nlword word="Gruppe" valsi="girzu" />
 <nlword word="Stammwort" valsi="gismu" />
 <nlword word="heiß" valsi="glare" />
@@ -19261,6 +19473,9 @@
 <nlword word="Tanru-Oder" valsi="ja" />
 <nlword word="bremsen" valsi="jabre" />
 <nlword word="schmücken" valsi="jadni" />
+<nlword word="Halloween-Kürbis" valsi="jadrdjekolenterne" />
+<nlword word="Jack-o’-lantern" valsi="jadrdjekolenterne" />
+<nlword word="Jack O’Lantern" valsi="jadrdjekolenterne" place="1" />
 <nlword word="Rakete" valsi="jakne" />
 <nlword word="Ergebnis" valsi="jalge" />
 <nlword word="Stärke" valsi="jalna" />
@@ -19735,6 +19950,7 @@
 <nlword word="Null" valsi="no" />
 <nlword word="adlig" valsi="nobli" />
 <nlword word="skalares mittelwertiges nicht" valsi="no&apos;e" />
+<nlword word="asexuell" valsi="noncinse" place="1" />
 <nlword word="positiv" sense="Mathematik" valsi="nonmau" />
 <nlword word="positive Zahl" valsi="nonmau" place="1" />
 <nlword word="negativ" sense="Mathematik" valsi="nonme&apos;a" />
@@ -19781,6 +19997,7 @@
 <nlword word="dekadischer Logarithmus" valsi="pavnondugri" />
 <nlword word="Numerus" sense="mathematisch" valsi="pavnondugri" place="2" />
 <nlword word="Zehnerlogarithmus" valsi="pavnondugri" place="1" />
+<nlword word="kinderreich" valsi="pazycfu" place="1" />
 <nlword word="Kindeskind" valsi="pazypanzi" />
 <nlword word="Papier" valsi="pelji" />
 <nlword word="Zitrone" valsi="pelnimryjisra" place="2" />
@@ -19819,6 +20036,8 @@
 <nlword word="eben" valsi="pinta" />
 <nlword word="trinken" valsi="pinxe" />
 <nlword word="Klavier" valsi="pipno" />
+<nlword word="Flummi" valsi="pipyboi" place="1" />
+<nlword word="Superball" sense="Flummi" valsi="pipyboi" />
 <nlword word="Kreuzprodukt" valsi="pi&apos;u" />
 <nlword word="Bild" valsi="pixra" />
 <nlword word="bauchig" valsi="plana" />
@@ -19848,6 +20067,12 @@
 <nlword word="zerbrechen" valsi="porpi" />
 <nlword word="Folge" valsi="porsi" />
 <nlword word="portugiesisch" valsi="porto" />
+<nlword word="Eigentumsrecht" valsi="posyselcerda" place="3" />
+<nlword word="Erbe" sense="von Eigentum" valsi="posyselcerda" place="2" />
+<nlword word="erben" sense="von Eigentum" valsi="posyselcerda" />
+<nlword word="Erblasser" sense="von Eigentum" valsi="posyselcerda" place="4" />
+<nlword word="Erbrecht" valsi="posyselcerda" place="5" />
+<nlword word="Erbschaft" sense="Eigentum" valsi="posyselcerda" place="1" />
 <nlword word="Profit" valsi="prali" />
 <nlword word="lieben" valsi="prami" />
 <nlword word="perfekt" valsi="prane" />
@@ -19893,6 +20118,9 @@
 <nlword word="Ironie" valsi="ranxi" />
 <nlword word="wiederholen" valsi="rapli" />
 <nlword word="natürlich" valsi="rarna" />
+<nlword word="Ölsaat" valsi="rastsi" />
+<nlword word="Ölsamen" valsi="rastsi" place="1" />
+<nlword word="Ölpflanze" valsi="rasyspa" place="1" />
 <nlword word="Ratte" valsi="ratcu" />
 <nlword word="Atom" valsi="ratni" />
 <nlword word="2" valsi="re" />
@@ -19935,6 +20163,7 @@
 <nlword word="jeder von" valsi="ro" />
 <nlword word="quantifizierte Vorkommen" valsi="roi" />
 <nlword word="Fels" valsi="rokci" />
+<nlword word="Stein" sense="loses zusammenhängendes Objekt aus Gestein" valsi="rokybakfu" place="1" />
 <nlword word="allwissend" valsi="rolju&apos;o" />
 <nlword word="Chrom" valsi="romge" />
 <nlword word="europäisch" valsi="ropno" />
@@ -19965,6 +20194,7 @@
 <nlword word="programmieren" valsi="sampla" />
 <nlword word="Programmierer" valsi="sampla" place="1" />
 <nlword word="schlicht" valsi="sampu" />
+<nlword word="Computerbildschirm" valsi="samvidni" place="1" />
 <nlword word="Computerspiel" valsi="samyzilkei" />
 <nlword word="Videospiel" valsi="samyzilkei" />
 <nlword word="spielen" sense="Videospiele" valsi="samyzilkeikei" />
@@ -19989,6 +20219,7 @@
 <nlword word="Oberfläche" valsi="sefta" />
 <nlword word="Zelle" valsi="selci" />
 <nlword word="dienen" valsi="selfu" />
+<nlword word="Kaffeepulver" valsi="selkafpu&apos;o" place="1" />
 <nlword word="Eingabegerät" valsi="selru&apos;eca&apos;a" place="1" />
 <nlword word="semitisch" valsi="semto" />
 <nlword word="niesen" valsi="senci" />
@@ -20110,6 +20341,7 @@
 <nlword word="Lebensgefährte" valsi="speni" />
 <nlword word="Stück" valsi="spisa" />
 <nlword word="Krankenhaus" valsi="spita" />
+<nlword word="Krankenhausbett" valsi="spitycka" place="1" />
 <nlword word="kaputt" valsi="spofu" />
 <nlword word="explodieren" valsi="spoja" />
 <nlword word="antworten" valsi="spuda" />
@@ -20208,6 +20440,7 @@
 <nlword word="Stadt" valsi="tcadu" />
 <nlword word="Bahnhof" valsi="tcana" />
 <nlword word="Tee" valsi="tcati" />
+<nlword word="Teetasse" valsi="tcatykabri" place="1" />
 <nlword word="sich erstrecken" valsi="tcena" />
 <nlword word="irreführend" valsi="tcica" />
 <nlword word="lesen" valsi="tcidu" />
@@ -20310,6 +20543,7 @@
 <nlword word="Zeitzeichensender" valsi="velcradyjunla" place="2" />
 <nlword word="-" valsi="velripyzbe" place="2" />
 <nlword word="Widerlager" sense="Brückenbau" valsi="velripyzbe" place="1" />
+<nlword word="Reinigungsmittel" valsi="velylumxu&apos;i" place="1" />
 <nlword word="sich rächen" valsi="venfu" />
 <nlword word="Frühling" valsi="vensa" />
 <nlword word="Kind" valsi="verba" />

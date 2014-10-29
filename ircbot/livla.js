@@ -26,6 +26,7 @@ var config = {
   options: {
     channels: [livlytcan],
     debug: false,
+    messageSplit: 120,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
   }
 };
@@ -35,6 +36,7 @@ var configmensi = {
   options: {
     channels: [livlytcan, tcan],
     debug: false,
+    messageSplit: 120,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots'
   }
 };
@@ -267,7 +269,7 @@ var processor = function(client, from, to, text, message) {
       	setTimeout(function() {client.say(sendTo, tato.tatoebaprocessing(from));}, interm );
   }
 
-	setInterval(function() {if (Date.now()-said>interv){said=Date.now();client.say(livlytcan, vric());}}, interv);
+	setInterval(function() {if (Date.now()-said>interv){said=Date.now();client.say(livlytcan, prereplier + vric());}}, interv);
   //}
   var sendTo = from; // send privately
   if (to.indexOf('#') > -1) {
@@ -369,7 +371,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf('Tatoeba:') == '0': clientmensi.say(sendTo, sisku(text.substr(8).trim()));break;
- 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
+/* 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
  	case text.indexOf(prereplier + 'xu do') == '0': 
  	case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {clientmensi.say(sendTo, from + mireturn());}, interm );break;
  	case text.indexOf(prereplier + 'mi retsku') < 0 && text.indexOf(prereplier + 'mi') == '0': setTimeout(function() {clientmensi.say(sendTo, from + doreturn());}, interm );break;
@@ -378,7 +380,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf(prereplier + 'u\'i') == '0' && from==asker: setTimeout(function() {clientmensi.say(sendTo, preasker + ext(nagendra));}, interm );break;
  	case text.indexOf(prereplier + 'xu') == '0' && from!==asker: setTimeout(function() {clientmensi.say(sendTo, from + ': ' + ext(mizmiku));}, interm );break;
  	case text.indexOf(prereplier) == '0' && text.indexOf(prereplier + 'xu') !== '0' && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;
- 	case text.indexOf("doi " + replier) >-1 && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;
+ 	case text.indexOf("doi " + replier) >-1 && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;*/
   	}
 
 
@@ -522,7 +524,7 @@ var ret;
 		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z_'\.]/g,''));break;
 		default: ret=tordu(lin.replace(/\"/g,''),lng);break;
 	}
-return ret.replace(/(.{230,310})([ \.\"])/g,'$1$2\n');
+return ret.replace(/(.{130,190})(, |[ \.\"])/g,'$1$2\n');
 };
 
 

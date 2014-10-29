@@ -25863,9 +25863,9 @@
     <username>gleki2</username>
     <realname>Antony</realname>
   </user>
-  <definition>$x_1$ — съедобная часть $x_2$ растения $x_3$; $x_1$ — овощ</definition>
+  <definition>$x_1$ — съедобная часть растения $x_2$; $x_1$ — овощ</definition>
   <definitionid>36421</definitionid>
-  <notes>определение покрывает также фрукты и орехи; может относиться как к съедобным растениям вообще, так и к неплодовым овощам: {nalrutstagi} {grute} (плод [фрукт]), {kobli} (капуста), {narge} (орех [плод]), {sluni} (лук [растение]), {spati} (растение), {sunga} (чеснок), {tamca} (томат)</notes>
+  <notes>определение покрывает также фрукты и орехи; может относиться как к съедобным растениям вообще, так и к неплодовым овощам: {nalrutstagi} {grute} - &apos;плод (фрукт)&apos;, {kobli} - &apos;капуста&apos;, {narge} - &apos;орех (плод)&apos;, {sluni} - &apos;лук (растение)&apos;, {spati} - &apos;растение&apos;, {sunga} - &apos;чеснок&apos;, {tamca} - &apos;томат&apos;</notes>
   <glossword word="овощ" />
   <keyword word="овощ" place="1" />
 </valsi>
@@ -35915,8 +35915,8 @@
 <nlword word="сколько-то" sense="неуказанное число" valsi="xo&apos;e" />
 <nlword word="xo&apos;i" valsi="xo&apos;i" />
 <nlword word="искренне" sense="прямо, открыто" valsi="xo&apos;o" />
-<nlword word="саркастически" sense="шутливо, не взаправду" valsi="xo&apos;o" />
 <nlword word="саркастически" sense="иронично говоря" valsi="xo&apos;o" />
+<nlword word="саркастически" sense="шутливо, не взаправду" valsi="xo&apos;o" />
 <nlword word="хорбан" valsi="xorbo" />
 <nlword word="гостиница" valsi="xotli" />
 <nlword word="управляющий гостиницы" valsi="xotli" place="3" />

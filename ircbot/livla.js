@@ -27,7 +27,6 @@ var config = {
     channels: [livlytcan],
     debug: false,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
-    messageSplit: 276
   }
 };
 var configmensi = {
@@ -36,7 +35,6 @@ var configmensi = {
   options: {
     channels: [livlytcan, tcan],
     debug: false,
-    messageSplit: 276,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots'
   }
 };
@@ -524,7 +522,7 @@ var ret;
 		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z_'\.]/g,''));break;
 		default: ret=tordu(lin.replace(/\"/g,''),lng);break;
 	}
-return ret;
+return ret.replace(/(.{230,310})([ \.\"])/g,'$1$2\n');
 };
 
 

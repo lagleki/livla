@@ -2132,6 +2132,14 @@
   <notes>{cinmo} {kansa}; {dai}</notes>
   <glossword word="cnikansa" />
 </valsi>
+<valsi word="cnirei" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=p_1$ preti lo du&apos;u $x_3=c_2=p_4$ cinmo makau ku $x_2=p_3$ $x_3=c_3=p_4$</definition>
+  <definitionid>63489</definitionid>
+</valsi>
 <valsi word="co" type="cmavo">
   <rafsi>col</rafsi>
   <selmaho>CO</selmaho>
@@ -8804,6 +8812,14 @@
   <notes>{namcu} {nilbra}; {cu&apos;a}</notes>
   <glossword word="nacnilbra" />
 </valsi>
+<valsi word="nacrei" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$p_1$ preti lo du&apos;u makau namcu ku $p_3$ $p_4$</definition>
+  <definitionid>63457</definitionid>
+</valsi>
 <valsi word="nadmau" type="lujvo">
   <user>
     <username>selpahi</username>
@@ -10233,6 +10249,14 @@
   <notes>zo {zildau} .a zo {zilpavdau} cu xagmau</notes>
   <glossword word="pavzildau" />
 </valsi>
+<valsi word="pazycfu" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$r_1$ ricfu lo ka panzi ce&apos;u</definition>
+  <definitionid>63448</definitionid>
+</valsi>
 <valsi word="pazypanzi" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -11577,6 +11601,15 @@
   <definitionid>13299</definitionid>
   <notes>{cinmo}</notes>
   <glossword word="ro&apos;i" />
+</valsi>
+<valsi word="rokybakfu" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$b_1=r_1$ bakfu loi rokci</definition>
+  <definitionid>63467</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {rokci} .e zo {bakfu}</notes>
 </valsi>
 <valsi word="roldzadijbartu" type="lujvo">
   <user>
@@ -15203,13 +15236,13 @@
   <definition>$x1$ se benji fi $x2$ $x3$ lo vacri</definition>
   <definitionid>32356</definitionid>
 </valsi>
-<valsi word="vartinsa" type="lujvo">
+<valsi word="vartisna" type="lujvo">
   <user>
-    <username>vensa</username>
-    <realname>Aviv</realname>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
   </user>
-  <definition>$x1$ tisna lo vacri</definition>
-  <definitionid>32358</definitionid>
+  <definition>$x_1$ tisna loi vacri</definition>
+  <definitionid>63442</definitionid>
 </valsi>
 <valsi word="vau" type="cmavo">
   <selmaho>VAU</selmaho>

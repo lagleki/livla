@@ -1,0 +1,169 @@
+.TH "jbofihe" 1L "January 2001"
+.SH NAME
+jbofihe \- Lojban parser / grammar checker / word glosser
+.SH SYNOPSIS
+.B jbofihe
+[-v] [ -h | --help | -? ] [ -k ] [ -t ] [-tf ] [ -l ] [ -b ] [ -x ] [ -H ] [ -m ] [ -w width ] [-ie] [-re] [-se] [-sev] [-cr] [-bt] [filename]
+.SH DESCRIPTION
+.I jbofihe
+is a program that reads a piece of Lojban text and checks it for
+grammatical correctness.  If it passes, the output will show the
+nesting of the major grammatical constructs by means of bracketing.
+Also, words will have their approximate English translations shown.
+Some of these translations are context-dependent.
+.SH OPTIONS
+.TP
+.B -v
+Show the program version and exit.
+.TP
+.B -h
+Show help page
+.TP
+.B --help
+Show help page
+.TP
+.B -?
+Show help page
+.TP
+.B -k
+Display lists of tokens after parse and after pseudo-token insertion
+(mainly useful for debugging the lexer and parser).
+.TP
+.B -t
+Produce a syntax tree on stdout.  Nodes with only one child will be
+filtered out.
+.TP
+.B -tf
+Produce a full syntax tree on stdout, including nodes with only one
+child.
+.TP
+.B -l
+Produce output for typesetting with LaTeX.
+.TP
+.B -x
+Produce plain text output.
+.TP
+.B  -w width
+Set the width of the screen (in characters) for the -x option.
+.TP
+.B -H
+Produce HTML output
+.TP
+.B -b
+Produce output in 'block' mode, where each block shows the Lojban, the
+English gloss and a term tag where applicable. The default is
+'running' mode, with term tags, Lojban and the English gloss all on
+the same line.  Only applicable to -l and -x (not to -h).
+.TP
+.B -m
+Show the amount of memory used by the processing.
+.TP
+.B -ie
+Display elided separators and terminators in the output.  They are shown in
+upper case, to distinguish them from those originally present in the input
+text.
+.TP
+.B -re
+Require the input text to have all elidable cmavo actually present.  (May be
+useful for forcing the user to think about the grammatical structure of the
+input text more carefully when debugging parse errors.)
+.TP
+.B -se
+Show any elidable cmavo that were present unnecessarily in the input text.
+Where a sequence of elidable cmavo occur, but not all could have been elided, a
+list of possible 'minimal' sequences is shown.  Each 'minimal' sequence is such
+that : removing any words from it would cause the meaning of the text to change
+(or make it ungrammatical); yet preserving any more of the original words is
+unnecessary to preserve the meaning and grammatical correctness of the text.
+Note, -se and -re are mutually incompatible.  If both switches are specified,
+-re is assumed.
+.TP
+.B -sev
+For each sequence of elidable cmavo, show where later ones could be valid
+before earlier ones, and where the non-elidable word at the end of the sequence
+could have been valid earlier in the sequence.  [This information is used to
+determine the output of -se, so this is a verbose mode for -se].
+.TP
+.B -cr
+Allow lujvo to contain the cultural rafsi forms CCVVCy (CCVVCV at end of word)
+described in section 4.16 of the Reference Grammar.  This affects recognition
+of valid lujvo and fu'ivla forms (the latter since it affects the recognition
+of slinku'i failures).
+.TP
+.B -bt
+Show backtrace through the pending parser states when a syntax error occurs.
+This may give some insight into what the parser was expecting to see next, to
+help in fixing the error.
+.IP
+The backtrace comes in three parts.  The first part is a list of rules which
+are automatically reduced when the erroneous word is encountered.  In the
+extreme case, when everything prior to the erroneous word constitutes a
+complete text in its own right, the reduction sequence will go right the way to
+the rule which matches a complete text.  Generally though, this will not be the
+case.
+.IP
+The second part of the report shows the conditions where the grammar requires
+the next word to be of a type other than that which actually appeared.  All the
+active rules are shown (with periods showing the active points), followed by a
+list of word classes (i.e. selma'o or BRIVLA/CMENE etc) that would have been
+valid at this point.
+.IP
+The third part of the report shows the pending states on the parser stack.
+This may give some information on whereabouts at a wider level the problem
+situation has occurred.
+.TP
+.B filename
+The name of the file containing text to be parsed.  If omitted, the text is
+read from standard input.
+.SH EXIT STATUS
+.TP
+.B 0
+The text was scanned and parsed successfully - the text was grammatically valid
+Lojban.
+.TP
+.B "1/2"
+The text had grammatical errors that were detected by the main parsing
+algorithm.
+.TP
+.B 3
+The text contained words whose structure was not valid Lojban.  No grammatical
+checking of the text was performed; the grammatical function of the erroneous
+word(s) could not be determined.
+.SH SEE ALSO
+.PP
+.TP
+.B cmafihe
+A program which does English word glossing without the grammar
+parsing and checking stage.  This is useful to get words quickly
+looked up when studying someone else's text which contains many
+grammatical errors.
+.TP
+.B smujajgau
+A program for compiling binary dictionaries for use by jbofihe
+.SH FILES
+.TP
+.B /usr/local/lib/jbofihe/smujmaji.dat
+This file contains all the dictionary data compiled (using
+.I smujajgau
+) into a binary format to facilitate lookup and search.
+.TP
+.B /usr/local/bin/jbofihe
+The executable.
+.SH ENVIRONMENT
+.TP
+.B JBOFIHE_DICTIONARY
+This should point to the name of the file containing the dictionary.
+The default is /usr/local/lib/jbofihe/smujmaji.dat
+\".SH CAVEATS
+.SH BUGS
+ju'oru'e so'imei (Surely there are many).
+.SH REFERENCES
+.TP
+.B http://www.rc0.org.uk/jbofihe
+Home page for the jbofihe project
+.TP
+.B http://www.lojban.org/
+Home page of the Lojban community
+.SH AUTHOR
+Richard Curnow
+.B <rc@rc0.org.uk>

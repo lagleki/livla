@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# $Header$
+
+# The flow for building the DOS binary-only release is
+# 1. Make usual Unix source release
+# 2. Unpack a copy of the Unix source kit
+# 3. Run this script
+# 4. Boot into DOS and make the executables
+# 5. Run some basic sanity checks
+# 6. Reboot Linux and run doskit.be
+
+if [ ! -d /dosc/jbofihe ]; then
+    echo "You need to mount /dosc first!"
+    exit 1
+fi
+
+if [ ! -r Makefile ]; then
+    echo "You need to perl config.pl first"
+    echo "  e.g. perl config.pl"
+    exit 1
+fi
+
+if [ ! -r smujmaji.dat ]; then
+    # Don't do this twice if a failure occurs below (i.e. if /dosc isn't
+    # mounted!)
+    make dictionary
+fi
+
+make rpc_tab.c
+make rpc_full.c
+make canonluj.inc
+make morf_lex.c
+make morfvlex.c
+make morf_dfa.c
+make stag_dfa.c
+make bctables.c
+make trctabs.c
+make trcftabs.c
+make elitabs.c
+
+cp *.c *.h smujmaji.dat canonluj.inc Makefile.dos /dosc/jbofihe
+
+echo "Now reboot into DOS and do"
+echo "gcc -O2 -o minitouc minitouc.c"
+echo "minitouc *.*"
+echo "del *.o"
+echo "make -f makefile.dos progs"
+echo "Then reboot Linux"
+
+

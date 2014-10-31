@@ -9,7 +9,7 @@ fram="../../../files/fndata-1.5/frame";
 var tcan='#lojban,#ckule';
 //=======
 
-// Default configuration, may be modified by “loadConfig”, with the content of
+	// Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
 var tcan='#lojban,#ckule';
 //>>>>>>> 10a7da789641dfdc44f9b444f18d61cbf813f2aa
@@ -26,7 +26,7 @@ var config = {
   options: {
     channels: [livlytcan],
     debug: false,
-    messageSplit: 120,
+    messageSplit: 190,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
   }
 };
@@ -36,7 +36,7 @@ var configmensi = {
   options: {
     channels: [livlytcan, tcan],
     debug: false,
-    messageSplit: 120,
+    messageSplit: 190,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots'
   }
 };
@@ -169,6 +169,9 @@ sutsisningau("en");
 };
 
 setInterval(function(){updatexmldumps()}, 86400000); //update logs once a djedi
+
+var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));//store en dump in memory
+
 
 var camxesoff = require('../camxes.js');
 var camxes = require('../camxes-exp.js');
@@ -524,7 +527,7 @@ var ret;
 		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z_'\.]/g,''));break;
 		default: ret=tordu(lin.replace(/\"/g,''),lng);break;
 	}
-return ret.replace(/(.{130,190})(, |[ \.\"])/g,'$1$2\n');
+return ret.replace(/(.{80,120})(, |[ \.\"])/g,'$1$2\n');
 };
 
 
@@ -532,8 +535,7 @@ var tordu = function (lin,lng,flag,xmlDoc)
 {
 lin=lin.replace(/\"/g,'');
 if (flag!==1){
-	var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-	xmlDoc = libxmljs.parseXml(content);
+	if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8'));}
 }
 var gchild='';
 	try{gchild +='[' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]").text()+'] ';}catch(err){}
@@ -547,9 +549,9 @@ if (gchild===''){
 			if (f!==''){
 				lin= f;
 			}else{
-var start = new Date().getTime();
+				var start = new Date().getTime();
 				lin= "[< "+katna(lin,lng,'',xmlDoc)+"] "+mulno(lin,lng,xmlDoc);
-var end = new Date().getTime();var time = end - start;console.log(time);
+				var end = new Date().getTime();var time = end - start;
 			}
 		}else{
 			lin= mulno(lin,lng,xmlDoc);
@@ -574,8 +576,7 @@ var mulno = function (lin,lng,xmlDoc)
 {
 lin=lin.replace(/\"/g,'');var xo;
 if (typeof xmlDoc==='undefined'){
-	var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-	xmlDoc = libxmljs.parseXml(content);
+	if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8'));}
 }
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./definition,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\") or contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\") or contains(translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 var stra=[];
@@ -595,12 +596,10 @@ return gag;
 
 var selmaho = function (lin)
 {
-var lng="en";var gag='';var ien='';
-var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-var xmlDoc = libxmljs.parseXml(content);
-var coun = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]");
+var gag='';var ien='';
+var coun = xmlDocEn.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]");
 if (typeof coun!=='undefined'){ien='.i lu ' + lin + ' li\'u cmavo zo\'oi ' + coun.text();}
-	try{var ali = xmlDoc.find("/dictionary/direction[1]/valsi[starts-with(translate(./selmaho,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
+	try{var ali = xmlDocEn.find("/dictionary/direction[1]/valsi[starts-with(translate(./selmaho,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 	var stra=[];
 	for (var i=0;i<ali.length;i++)
 	{
@@ -620,12 +619,10 @@ return gag;
 
 var rafsi = function (lin)
 {
-var lng="en",gag;
-var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-var xmlDoc = libxmljs.parseXml(content);
-var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]");//official
+var gag;
+var coun = xmlDocEn.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]");//official
 try{
-	var s=xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text();
+	var s=xmlDocEn.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text();
 	var tmp=s.replace(/^.*?-([a-z']+)-.*/,'$1');
 	if (tmp!==s){coun.push(tmp);}
 	}catch(err){}//search in notes
@@ -633,15 +630,15 @@ if (lin.substr(0,4)!=='brod' & xugismu(lin)===true){coun.push(lin.substr(0,4));}
 if (coun.length!==0){coun= coun.join (' .e zo\'oi ');}else{coun='';}
 if (coun.length!==0){coun='zo\'oi ' + coun + ' rafsi zo ' + lin;}
 
-var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
+var rev = xmlDocEn.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
 //now try -raf- in notes
-if (typeof rev==='undefined'){rev =  xmlDoc.get("/dictionary/direction[1]/valsi[contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\"-"+lin+"-\")]");}
+if (typeof rev==='undefined'){rev =  xmlDocEn.get("/dictionary/direction[1]/valsi[contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\"-"+lin+"-\")]");}
 //now try to add a vowel:
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"a\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"e\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"i\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi[@word=\""+lin+"a\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi[@word=\""+lin+"e\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi[@word=\""+lin+"i\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
 
 if (typeof rev!=='undefined' && rev.attr("word").value()!==lin){rev='zo ' + rev.attr("word").value() + ' se rafsi zo\'oi '+lin;}else{rev='';}
 switch(true){
@@ -670,8 +667,7 @@ var arrf=fs.readdirSync(path.join(__dirname,fram)).filter(function(file) { retur
 
 for (var i=0;i<arrf.length;i++)
 {
-	var content = fs.readFileSync(path.join(__dirname,fram,arrf[i]),'utf8').replace(/xmlns=\"/g,'mlns=\"');
-	var xmlDoc = libxmljs.parseXml(content);
+	var xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,fram,arrf[i]),'utf8').replace(/xmlns=\"/g,'mlns=\"'));
 	var si = xmlDoc.get("/frame[translate(@name,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/definition[1]/text()");
 	if (typeof si !=='undefined'){gag= si.toString().replace(/&lt;.*?&gt;/g,'');
 	si = xmlDoc.find("/frame[translate(@name,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/FE[@coreType=\"Core\"]/definition/text()");
@@ -690,8 +686,7 @@ var stra=[];
 
 for (var i=0;i<arrf.length;i++)
 {
-	var content = fs.readFileSync(path.join(__dirname,fram,arrf[i]),'utf8').replace(/xmlns=\"/g,'mlns=\"');
-	var xmlDoc = libxmljs.parseXml(content);
+	var xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,fram,arrf[i]),'utf8').replace(/xmlns=\"/g,'mlns=\"'));
 	var si = xmlDoc.get("/frame[contains(translate(./definition,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 		if (typeof si !=='undefined'){
 			stra.push(si.attr("name").value());
@@ -746,12 +741,9 @@ var items = logl.loglandic();
 
 var finti = function (lin)
 {
-var lng="en";
 lin=lin.replace(/\"/g,'');
-var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var retur='y no da se tolcri';
-var xmlDoc = libxmljs.parseXml(content);
-var coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./user/username,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
+var coun = xmlDocEn.find("/dictionary/direction[1]/valsi[contains(translate(./user/username,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 var stra=[];
 	for (var i=0;i<coun.length;i++)
 	{
@@ -773,8 +765,7 @@ var gloso=function(lin,lng,check,xmlDoc)
 //var lng="en";
 lin=lin.replace(/\"/g,'');
 if (typeof xmlDoc==='undefined'){
-	var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-	xmlDoc = libxmljs.parseXml(content);
+	if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8'));}
 }
 var retur='y no da se tolcri';
 var items = [
@@ -786,6 +777,7 @@ var items = [
 	["pe'i","in-my-opinion"],["ui","yay"],["uinai","unfortunately"],
 	["ju","whether-or-not"],["gu","whether-or-not"],["gi'u","whether-or-not"],["u","whether-or-not"],
 	["xu","is-it-true-that"],["ka'e","possibly-can"],
+        ["re'u","time"],["roi","times"],
 	["mi","I"]//dont copy
 	];
 var itemsu = [//universal glosses
@@ -829,9 +821,9 @@ lin=lin.toLowerCase();
 var valsicmene = function (lin,lng)
 {
 lin=lin.replace(/\"/g,'');var xo;
-var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
 var retur='y no da se tolcri';
-var xmlDoc = libxmljs.parseXml(content);
+var xmlDoc;
+if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc= libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8'));}
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 var stra=[];
 	for (var i=0;i<coun.length;i++)
@@ -852,7 +844,6 @@ var lujvosplit = function (lin,lng)
 {
 var gag='';
 try{
-console.log('parsing ' + lin);
 lin = camxes_pre.preprocessing(lin);
 gag=camxes.parse(lin,'lujvo')}catch(e){}
 return gag;
@@ -903,7 +894,7 @@ var xulujvo = function (inp){
 	if((inp.match(myreg)||[]).length==1){return true;}else{return false;}
 };
 var xufuhivla = function (inp){
-	if (run_camxes(inp, 3).substr(0,7)==="(CU [Z:"){return true;}else{return false;}
+	if (run_camxes(inp, 3).toString().substr(0,7)==="(CU [Z:"){return true;}else{return false;}
 };
 //now split
 var jvokatna = function (lujvoi){
@@ -1009,17 +1000,12 @@ else {
 }
 /// LUJVO CONSTRUCTOR PART END
 
-var rafsiselfu = function (lin,last,xmlDoc)//only from brivla to rafsi, returns a string of rafsi
+var rafsiselfu = function (lin,last)//only from brivla to rafsi, returns a string of rafsi
 {
-var lng="en";
-if (typeof xmlDoc==='undefined'){
-	var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-	xmlDoc = libxmljs.parseXml(content);
-}
-var coun = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]");
+var coun = xmlDocEn.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]");
 if (coun.length===0)
 {
-try{coun=xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text(); var tmp=coun.replace(/^.*?-([a-z']+)-.*/,'$1');if (tmp!==coun){coun=tmp;}else{coun='';}}catch(err){coun='';}
+try{coun=xmlDocEn.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text(); var tmp=coun.replace(/^.*?-([a-z']+)-.*/,'$1');if (tmp!==coun){coun=tmp;}else{coun='';}}catch(err){coun='';}
 }
 else{coun=coun.join (' ');}
 if (xugismu(lin)===true){
@@ -1041,14 +1027,13 @@ return coun;
 var triz=function(inp,flag,lng,xmlDoc){
 if (typeof lng==='undefined'){lng='en';}
 if (typeof xmlDoc==='undefined'){
-	var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-	xmlDoc = libxmljs.parseXml(content);
+	if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8'));}
 }
 	var ar=inp.trim().split(" ");
 	for(var l=0;l<ar.length;l++){
 		if (l==ar.length-1){
-		ar[l]=rafsiselfu(ar[l],1,xmlDoc).split(" ");}else{
-		ar[l]=rafsiselfu(ar[l],0,xmlDoc).split(" ");
+		ar[l]=rafsiselfu(ar[l],1).split(" ");}else{
+		ar[l]=rafsiselfu(ar[l],0).split(" ");
 		}
 	}
 	//we have ar, an array of arrays
@@ -1092,25 +1077,21 @@ if (typeof xmlDoc==='undefined'){
 	return si;
 };
 
-var selrafsi = function (lin,xmlDoc)
-{console.log(lin);
-var lng="en",gag;
-if (typeof xmlDoc==='undefined'){
-	var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');//.toLowerCase();
-	xmlDoc = libxmljs.parseXml(content);
-}
+var selrafsi = function (lin)
+{
+var gag;
 
-var rev = xmlDoc.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
+var rev = xmlDocEn.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
 //now try -raf- in notes
-if (typeof rev==='undefined'){rev =  xmlDoc.get("/dictionary/direction[1]/valsi[contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\"-"+lin+"-\")]");}
+if (typeof rev==='undefined'){rev =  xmlDocEn.get("/dictionary/direction[1]/valsi[contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\"-"+lin+"-\")]");}
 //now try to add a vowel
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"a\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"e\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"i\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
-if (typeof rev==='undefined'){rev = xmlDoc.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi[@word=\""+lin+"a\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi[@word=\""+lin+"e\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi[@word=\""+lin+"i\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
+if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\" and (@type=\"fu'ivla\" or @type=\"gismu\")]");}
 //may be it's already a word? then just return it.
-if (typeof rev!=='undefined'){rev=rev.attr("word").value();}else{if (xugismu(lin)===true||xufuhivla(lin)===true){rev=lin;}else{rev=lin+"**";}}
+if (typeof rev!=='undefined'){rev=rev.attr("word").value();}else{if (xugismu(lin)===true||xufuhivla(lin)===true){rev=lin;}else{rev=lin+"*";}}
 return rev;
 };
 
@@ -1126,11 +1107,8 @@ var katna= function(lin,lng,flag,xmlDoc){
 
 
 var sutsisningau = function(lng){//write a new file parsed.js that would be used by sutsis
-lng="en";
-var content = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8');
-var xmlDoc = libxmljs.parseXml(content);
 var pars='var documentStore = {';
-var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
+var rev = xmlDocEn.find("/dictionary/direction[1]/valsi");
 	for (var i=0;i<rev.length;i++) {
 		var hi=rev[i].attr("word").value();
 		pars+="\""+hi+"\":{\"word\":\""+hi+"\"";
@@ -1143,7 +1121,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		if (i<rev.length-1){pars+=",\n";}
 	}
 	pars+="};\n";
-rev = xmlDoc.find("/dictionary/direction[2]/nlword");
+rev = xmlDocEn.find("/dictionary/direction[2]/nlword");
 var nl='var literals = {';
 	for (i=0;i<rev.length;i++) {
 		nl+="\""+rev[i].attr("word").value().replace(/"/g,"'").replace(/\\/g,"\\")+"\":[\""+rev[i].attr("valsi").value().replace(/"/g,"'").replace(/\\/g,"\\")+"\"]";

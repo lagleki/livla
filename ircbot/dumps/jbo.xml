@@ -2132,6 +2132,14 @@
   <notes>{cinmo} {kansa}; {dai}</notes>
   <glossword word="cnikansa" />
 </valsi>
+<valsi word="cnimikce" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>ge $x_1$ mikce $x_2$ boi $x_3$ boi $x_4$ gi $x_2$ cinmo $x_3$</definition>
+  <definitionid>63500</definitionid>
+</valsi>
 <valsi word="cnirei" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -9161,6 +9169,14 @@
   <definitionid>2601</definitionid>
   <notes>{nenri}</notes>
   <glossword word="ne&apos;i" />
+</valsi>
+<valsi word="nencausno" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>$x_1$ masno $x_2$ ri&apos;a lo nu $x_1$ claxu lo nejni</definition>
+  <definitionid>63502</definitionid>
 </valsi>
 <valsi word="nencladakyxa'i" type="lujvo">
   <user>

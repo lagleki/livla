@@ -2333,7 +2333,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("bridi_tail", expr);})(pos0, result0);
+          result0 = (function(offset, expr) {return _node("bridi_tail_t1", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -2411,7 +2411,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("bridi_tail", expr);})(pos0, result0);
+          result0 = (function(offset, expr) {return _node("bridi_tail_t2", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;

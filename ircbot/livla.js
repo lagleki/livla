@@ -126,8 +126,9 @@ clientmensi.addListener('message', function(from, to, text, message) {
 
 loadNotci();
 
-var updatexmldumps = function () {
+var updatexmldumps = function (callback) {
 var err;
+var velruhe = { cfari: {}, mulno: {}, nalmulselfaho: {} };
 try{
 	var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple","fr-facile","hu"];
 	var request = require("request"); var body;
@@ -135,17 +136,24 @@ try{
 	var jar = request.jar();
 	var cookie = request.cookie("jbovlastesessionid=MTg6MzIwOmdsZWtpOjE0MDQyODk5NDE%3D");
 	langs.forEach(function(thisa) {
+		velruhe.cfari[thisa] = true;
 		var uri="http://jbovlaste.lojban.org/export/xml-export.html?lang="+thisa;
 		jar.setCookie(cookie, uri);
 			request({uri: uri,method: "GET",jar: jar}, function(err, response, body) {
 				//write body to file
-				if(err) {}
-				else {
+				if(err) {
+					velruhe.nalmulselfaho[thisa] = true;
+					delete velruhe.cfari[thisa];
+				} else {
 					var t = path.join(__dirname,"dumps",thisa + ".xml");
 					var content = fs.writeFileSync(t+".temp",body);
 					fs.renameSync(t+".temp", t);console.log(thisa + ' updated');
+					velruhe.mulno[thisa] = true;
+					delete velruhe.cfari[thisa];
 				}
-				
+				if (callback && Object.keys(velruhe.cfari).length == 0) {
+					callback(velruhe);
+				}
 			}); 
 	});
 	body="";
@@ -345,7 +353,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo);break;
 	case text.indexOf("jbofihe:") == '0': jbofihe(text.substr(8),sendTo);break;
 	case text.indexOf("gerna:") == '0': jbofihe(text.substr(6),sendTo);break;
-	case text.indexOf(replier + ': ko ningau') == '0': setTimeout(function() {updatexmldumps();clientmensi.say(sendTo,'mi ca ca\'o ningau lo pe mi sorcu i ko bazi troci lo ka pilno mi');},1); break;
+	case text.indexOf(replier + ': ko ningau') == '0': setTimeout(function() {updatexmldumps(function(velruhe) {clientmensi.say(sendTo, 'i ba\'o ningau'); var selsre = Object.keys(velruhe.nalmulselfaho); if (selsre.length) clientmensi.say(sendTo, 'i na kakne lo ka ningau la\'e zoi zoi ' + selsre.join(' ') + ' zoi');});clientmensi.say(sendTo,'mi ca ca\'o ningau lo pe mi sorcu i ko bazi troci lo ka pilno mi');},1); break;
 	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
 	case text.indexOf('frame:/full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(11),'en','framemulno'));break;

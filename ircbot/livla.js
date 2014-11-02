@@ -166,11 +166,12 @@ try{
 	});
 }catch(err){console.log('Error when autoupdating: ' + err);}
 sutsisningau("en");
+xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));
 };
+var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));//store en dump in memory
 
 setInterval(function(){updatexmldumps()}, 86400000); //update logs once a djedi
 
-var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));//store en dump in memory
 
 
 var camxesoff = require('../camxes.js');
@@ -344,7 +345,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo);break;
 	case text.indexOf("jbofihe:") == '0': jbofihe(text.substr(8),sendTo);break;
 	case text.indexOf("gerna:") == '0': jbofihe(text.substr(6),sendTo);break;
-	case text.indexOf(replier + ': ko ningau') == '0': setTimeout(function() {updatexmldumps();clientmensi.say(sendTo,'mi ca ca\'o ningau lo nei i ko ca troci lo ka pilno mi');},1); break;
+	case text.indexOf(replier + ': ko ningau') == '0': setTimeout(function() {updatexmldumps();clientmensi.say(sendTo,'mi ca ca\'o ningau lo pe mi sorcu i ko bazi troci lo ka pilno mi');},1); break;
 	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
 	case text.indexOf('frame:/full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(11),'en','framemulno'));break;

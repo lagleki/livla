@@ -7762,8 +7762,9 @@
     <username>glekizmiku</username>
     <realname>la gleki noi jmina lo ponjo smuni</realname>
   </user>
-  <definition>$x_1$ est une courge de type $x_2$ fruit/plant</definition>
+  <definition>$x_1$ est un(e) melon/pastèque/courge de variété $x_2$</definition>
   <definitionid>61442</definitionid>
+  <glossword word="melon" />
 </valsi>
 <valsi word="gy" type="cmavo">
   <user>
@@ -26461,6 +26462,7 @@
 <nlword word="chose fermée" valsi="ganlo" place="1" />
 <nlword word="chose inaccessible" sense="à cause de la fermeture" valsi="ganlo" place="2" />
 <nlword word="fermé" valsi="ganlo" />
+<nlword word="melon" valsi="guzme" />
 <nlword word="ponctuation entre deux phrases" valsi="i" />
 <nlword word="croyance" valsi="ia" />
 <nlword word="acceptation" valsi="i&apos;a" />

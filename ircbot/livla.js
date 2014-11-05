@@ -127,18 +127,18 @@ clientmensi.addListener('message', function(from, to, text, message) {
 loadNotci();
 
 var updatexmldumps = function (callback) {
-var err;
-var velruhe = { cfari: {}, mulno: {}, nalmulselfaho: {} };
-try{
-	var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple","fr-facile","hu"];
-	var request = require("request"); var body;
-	request = request.defaults({jar: true});
-	var jar = request.jar();
-	var cookie = request.cookie("jbovlastesessionid=MTg6MzIwOmdsZWtpOjE0MDQyODk5NDE%3D");
-	langs.forEach(function(thisa) {
-		velruhe.cfari[thisa] = true;
-		var uri="http://jbovlaste.lojban.org/export/xml-export.html?lang="+thisa;
-		jar.setCookie(cookie, uri);
+	var err;
+	var velruhe = { cfari: {}, mulno: {}, nalmulselfaho: {} };
+	try{
+		var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple","fr-facile","hu"];
+		var request = require("request"); var body;
+		request = request.defaults({jar: true});
+		var jar = request.jar();
+		var cookie = request.cookie("jbovlastesessionid=MTg6MzIwOmdsZWtpOjE0MDQyODk5NDE%3D");
+		langs.forEach(function(thisa) {
+			velruhe.cfari[thisa] = true;
+			var uri="http://jbovlaste.lojban.org/export/xml-export.html?lang="+thisa;
+			jar.setCookie(cookie, uri);
 			request({uri: uri,method: "GET",jar: jar}, function(err, response, body) {
 				//write body to file
 				if(err) {
@@ -149,17 +149,20 @@ try{
 					var content = fs.writeFileSync(t+".temp",body);
 					fs.renameSync(t+".temp", t);console.log(thisa + ' updated');
 					velruhe.mulno[thisa] = true;
+					if (thisa == "en") {
+						xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));
+					}
 					delete velruhe.cfari[thisa];
 				}
 				if (callback && Object.keys(velruhe.cfari).length == 0) {
 					callback(velruhe);
 				}
 			}); 
-	});
-	body="";
-	langs.forEach(function(thisa) {//now update pdf
-		var uri="http://jbovlaste.lojban.org/export/latex-export.html?lang="+thisa;
-		jar.setCookie(cookie, uri);
+		});
+		body="";
+		langs.forEach(function(thisa) {//now update pdf
+			var uri="http://jbovlaste.lojban.org/export/latex-export.html?lang="+thisa;
+			jar.setCookie(cookie, uri);
 			request({uri: uri,method: "GET",jar: jar}, function(err, response, body) {
 				if(err) {console.log(err);}
 				else{
@@ -168,13 +171,15 @@ try{
 						var http = require('http');
 						content = fs.createWriteStream(path.join(__dirname,"dumps","lojban-" + thisa + ".pdf"));
 						var request = http.get(uri, function(response) {
-						response.pipe(content);});
+							response.pipe(content);
+						}).on('error', function(err) {
+							console.log("when updating " + thisa + " pdf: " + err);
+						});
 				}
 			});
-	});
-}catch(err){console.log('Error when autoupdating: ' + err);}
-sutsisningau("en");
-xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));
+		});
+	}catch(err){console.log('Error when autoupdating: ' + err);}
+	sutsisningau("en");
 };
 var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));//store en dump in memory
 

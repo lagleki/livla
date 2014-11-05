@@ -317,7 +317,7 @@
       lastQueried = now();
     }
     function handleUrl() {
-      var searchMatch = window.location.pathname.match(/\#search\/(.*)/);
+      var searchMatch = window.location.href.match(/\#search\/(.*)/);
       query = '';
       if (searchMatch) {
         var query = decodeURIComponent(searchMatch[1]);

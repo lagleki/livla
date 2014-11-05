@@ -536,7 +536,7 @@ var ret;
 		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z_'\.]/g,''));break;
 		default: ret=tordu(lin.replace(/\"/g,''),lng);break;
 	}
-return ret.replace(/(.{80,120})(, |[ \.\"])/g,'$1$2\n');
+return ret.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n');
 };
 
 

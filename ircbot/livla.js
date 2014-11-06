@@ -369,6 +369,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('es:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'es'));break;
 	case text.indexOf('fr:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr'));break;
 	case text.indexOf('fr-facile:') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'fr-facile'));break;
+        case text.indexOf('f@:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr-facile'));break;
 	case text.indexOf('ja:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ja'));break;
 	case text.indexOf('de:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'de'));break;
 	case text.indexOf('eo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
@@ -576,7 +577,7 @@ if (gchild===''){
 }else{
 	gchild=gchild.replace(/[\{\}_\$]/igm,"").replace(/`/g,"'").substring(0,1000);
 		if (gchild.length>=1000){
-			gchild+=' [mo\'u se katna] http://jbovlaste.lojban.org/dict/'+ lin;
+			gchild+='...\n[mo\'u se katna] http://jbovlaste.lojban.org/dict/'+ lin;
 		}
 		if (xulujvo(lin)===true){
 			lin+=" [< "+katna(lin,lng,'',xmlDoc)+"]";

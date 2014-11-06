@@ -2132,6 +2132,14 @@
   <notes>{cinmo} {kansa}; {dai}</notes>
   <glossword word="cnikansa" />
 </valsi>
+<valsi word="cnimikce" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>ge $x_1$ mikce $x_2$ boi $x_3$ boi $x_4$ gi $x_2$ cinmo $x_3$</definition>
+  <definitionid>63500</definitionid>
+</valsi>
 <valsi word="cnirei" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -2198,6 +2206,15 @@
   <definitionid>7827</definitionid>
   <notes>{mokca}</notes>
   <glossword word="co&apos;i" />
+</valsi>
+<valsi word="comco'e" type="lujvo">
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>$x_1$ poi&apos;i mi na djuno lo du&apos;u ke&apos;a mo kau</definition>
+  <definitionid>63532</definitionid>
+  <notes>srana fa zo co&apos;e</notes>
 </valsi>
 <valsi word="condi" type="gismu">
   <rafsi>con</rafsi>
@@ -3015,6 +3032,15 @@
   <notes>{djedi} {karni}</notes>
   <glossword word="djekarni" />
 </valsi>
+<valsi word="djijevgau" type="lujvo">
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>lo nu $x_1$ zukte da $x_2$ cu selja&apos;e $x_2$ gi&apos;e fasnu</definition>
+  <definitionid>63542</definitionid>
+  <notes>srana fa zo {gasnu} .e zo {zukte}</notes>
+</valsi>
 <valsi word="djisku" type="lujvo">
   <user>
     <username>djeikyb</username>
@@ -3566,6 +3592,15 @@
   <definition>$x_1$ dunli $x_2$ lo ka makau lanzu ce&apos;u $x_3$ kei gi&apos;e lidne $x_2$ lo ka ce&apos;u cmima lo xokaumoi rorlei</definition>
   <definitionid>14896</definitionid>
 </valsi>
+<valsi word="fanduse" type="fu'ivla">
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>$x_1$ banzuni lo nu $x_2$ narfau</definition>
+  <definitionid>63548</definitionid>
+  <notes>srana fa zo {banzuni}</notes>
+</valsi>
 <valsi word="fangynavni" type="lujvo">
   <user>
     <username>gusnikantu</username>
@@ -3642,6 +3677,15 @@
   </user>
   <definition>$x_1$ banzu lo ka fasnu ku $x_2$</definition>
   <definitionid>53176</definitionid>
+</valsi>
+<valsi word="faurdu'e" type="lujvo">
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>$x_1$ dukse lo ka fasnu ku $x_2$</definition>
+  <definitionid>63559</definitionid>
+  <notes>srana fa zo banzuni</notes>
 </valsi>
 <valsi word="faurmidju" type="lujvo">
   <user>
@@ -5366,6 +5410,14 @@
   <definition>$c_1=b_1$ po&apos;u loi djacu cu carvi $c_2$ $c_3$</definition>
   <definitionid>52921</definitionid>
 </valsi>
+<valsi word="jaurgacmi'imle" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>$x_1$ melbi $x_2$ boi $x_3$ lo ka jaurgacmi&apos;i</definition>
+  <definitionid>63534</definitionid>
+</valsi>
 <valsi word="jaursabytu'u" type="lujvo">
   <user>
     <username>junpen</username>
@@ -6294,6 +6346,15 @@
   <definitionid>41649</definitionid>
   <notes>ko catlu fe ji&apos;a zo {ganlo} .e zo {pagre} .e zo {canko} .e zo {vorme} .e zo {nalselzu&apos;i}</notes>
   <glossword word="kalri" />
+</valsi>
+<valsi word="kampu" type="gismu">
+  <rafsi>kau</rafsi>
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>ckaji $x_1$ fa ro me $x_2$</definition>
+  <definitionid>63528</definitionid>
 </valsi>
 <valsi word="kamrngogolo" type="fu'ivla">
   <user>
@@ -9024,6 +9085,15 @@
   <definition>$x_1$ na cando</definition>
   <definitionid>42592</definitionid>
 </valsi>
+<valsi word="nardjijevgau" type="lujvo">
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>lo nu $x_1$ zukte da de jo&apos;u na djica $x_2$ cu selja&apos;e $x_2$ gi&apos;e fasnu</definition>
+  <definitionid>63543</definitionid>
+  <notes>srana fa zo {gasnu} .e zo {djica} .e zo {snuti}</notes>
+</valsi>
 <valsi word="narfaucu'i" type="lujvo">
   <user>
     <username>Ilmen</username>
@@ -9161,6 +9231,14 @@
   <definitionid>2601</definitionid>
   <notes>{nenri}</notes>
   <glossword word="ne&apos;i" />
+</valsi>
+<valsi word="nencausno" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>$x_1$ ri&apos;a gi claxu lo nejni gi masno $x_2$</definition>
+  <definitionid>63502</definitionid>
 </valsi>
 <valsi word="nencladakyxa'i" type="lujvo">
   <user>
@@ -12753,6 +12831,14 @@
   <notes>{sidju}</notes>
   <glossword word="si&apos;u" />
 </valsi>
+<valsi word="sivykarni" type="lujvo">
+  <user>
+    <username>durka42</username>
+    <realname>Alex Burka</realname>
+  </user>
+  <definition>ge $x_1$ karni $x_2$ boi $x_3$ gi $x_1$ sivni $x_3$</definition>
+  <definitionid>63526</definitionid>
+</valsi>
 <valsi word="sivypalku" type="lujvo">
   <user>
     <username>junpen</username>
@@ -13156,6 +13242,16 @@
   </user>
   <definition>$x_1$ boi $x_2$ zvati gi&apos;enai cliva</definition>
   <definitionid>15087</definitionid>
+</valsi>
+<valsi word="steci" type="gismu">
+  <rafsi>tec</rafsi>
+  <rafsi>te&apos;i</rafsi>
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>ge $x_2$ me $x_3$ gi ge ro me $x_2$ ckaji $x_1$ gi no da poi me $x_3$ gi&apos;e na me $x_2$ cu ckaji $x_1$</definition>
+  <definitionid>63527</definitionid>
 </valsi>
 <valsi word="stika" type="gismu">
   <rafsi>tik</rafsi>

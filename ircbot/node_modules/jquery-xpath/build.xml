@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	// =================================================================
+	// ANT Build Script for XPath jQuery Plugin project
+	// =================================================================
+-->
+<project name="Project Build Script - XPath jQuery Plugin" default="BUILD_JQUERY_XPATH" basedir=".">
+	<!-- Local properties -->
+	<property file="build.properties" />
+
+	<!-- System properties -->
+	<tstamp>
+		<format property="tstamp.full" pattern="yyyy-MM-dd HH:mm:ss" locale="en" />
+		<format property="tstamp.year" pattern="yyyy" locale="en" />
+		<format property="tstamp.stmp" pattern="ddSSS" locale="en" />
+	</tstamp>
+
+	<!-- Build-related -->
+	<property name="build.package" value="${project.version}" />
+	<property name="build.signature" value="${tstamp.full}" />
+
+	<property name="temp.dir" value="${build.dir}/temp/"/>
+	<property name="work.dir" value="${build.dir}/work/"/>
+
+	<property name="target.dir" value="${work.dir}/${build.package}/"/>
+
+	<property name="copying.js" value="res/build/COPYING.js" />
+
+	<!-- Default target -->
+	<target name="BUILD_JQUERY_XPATH" description="Builds XPath jQuery plugin project">
+		<!-- Remove target bin directory if exists -->
+		<delete dir="${target.dir}" failonerror="false"/>
+
+		<mkdir dir="${temp.dir}" />
+		<mkdir dir="${target.dir}" />
+
+		<antcall target="BUILD_JQUERY_XPATH_PREPARE_CORE" />
+		<antcall target="BUILD_JQUERY_XPATH_PREPARE_ADAPTERS" />
+		<antcall target="BUILD_JQUERY_XPATH_PLUGIN" />
+
+		<delete dir="${temp.dir}" />
+	</target>
+
+	<target name="BUILD_JQUERY_XPATH_PREPARE_CORE">
+		<echo message="Building XPath core engine: ${temp.dir}/xpath-core-raw.js" level="info"/>
+
+		<property name="source.core" value="src/xpath.js/src/" />
+
+		<concat destfile="${temp.dir}/xpath-core-raw.js" fixlastline="yes">
+			<filelist dir="${source.core}/" files="
+				import.js"/>
+			<filelist dir="${source.core}/classes/" files="
+				Exception.js,
+				Lexer.js,
+				DOMAdapter.js,
+				DynamicContext.js,
+				StaticContext.js,
+				Expression.js,
+				StringCollator.js,
+				XSConstants.js"/>
+			<filelist dir="${source.core}/expressions/" files="
+				Expr.js,
+				ExprSingle.js,
+				for/ForExpr.js,
+				if/IfExpr.js,
+				quantified/QuantifiedExpr.js,
+				comparison/ComparisonExpr.js,
+				arithmetic/AdditiveExpr.js,
+				arithmetic/MultiplicativeExpr.js,
+				arithmetic/UnaryExpr.js,
+				arithmetic/ValueExpr.js,
+				logical/OrExpr.js,
+				logical/AndExpr.js,
+				path/StepExpr.js,
+				path/AxisStep.js,
+				path/PathExpr.js,
+				path/tests/NodeTest.js,
+				path/tests/KindTest.js,
+				path/tests/NameTest.js,
+				primary/PrimaryExpr.js,
+				primary/ParenthesizedExpr.js,
+				primary/ContextItemExpr.js,
+				primary/Literal.js,
+				primary/NumericLiteral.js,
+				primary/StringLiteral.js,
+				primary/FilterExpr.js,
+				primary/VarRef.js,
+				primary/FunctionCall.js,
+				sequence/IntersectExceptExpr.js,
+				sequence/RangeExpr.js,
+				sequence/UnionExpr.js,
+				type/InstanceofExpr.js,
+				type/TreatExpr.js,
+				type/CastableExpr.js,
+				type/CastExpr.js,
+				type/types/AtomicType.js,
+				type/types/ItemType.js,
+				type/types/SequenceType.js,
+				type/types/SingleType.js"/>
+			<filelist dir="${source.core}/types/" files="
+				XSAnyType.js,
+				XSAnySimpleType.js,
+				simple/XSAnyAtomicType.js,
+				simple/atomic/XSAnyURI.js,
+				simple/atomic/XSBase64Binary.js,
+				simple/atomic/XSBoolean.js,
+				simple/atomic/XSDate.js,
+				simple/atomic/XSDateTime.js,
+				simple/atomic/XSDecimal.js,
+				simple/atomic/XSDouble.js,
+				simple/atomic/XSDuration.js,
+				simple/atomic/XSFloat.js,
+				simple/atomic/XSGDay.js,
+				simple/atomic/XSGMonth.js,
+				simple/atomic/XSGMonthDay.js,
+				simple/atomic/XSGYear.js,
+				simple/atomic/XSGYearMonth.js,
+				simple/atomic/XSHexBinary.js,
+				simple/atomic/XSNOTATION.js,
+				simple/atomic/XSQName.js,
+				simple/atomic/XSString.js,
+				simple/atomic/XSTime.js,
+				simple/atomic/XSUntypedAtomic.js,
+				simple/atomic/duration/XSYearMonthDuration.js,
+				simple/atomic/duration/XSDayTimeDuration.js,
+				simple/atomic/integer/XSInteger.js,
+				simple/atomic/integer/XSNonPositiveInteger.js,
+				simple/atomic/integer/XSNegativeInteger.js,
+				simple/atomic/integer/XSLong.js,
+				simple/atomic/integer/XSInt.js,
+				simple/atomic/integer/XSShort.js,
+				simple/atomic/integer/XSByte.js,
+				simple/atomic/integer/XSNonNegativeInteger.js,
+				simple/atomic/integer/XSPositiveInteger.js,
+				simple/atomic/integer/XSUnsignedLong.js,
+				simple/atomic/integer/XSUnsignedInt.js,
+				simple/atomic/integer/XSUnsignedShort.js,
+				simple/atomic/integer/XSUnsignedByte.js,
+				simple/atomic/string/XSNormalizedString.js,
+				simple/atomic/string/XSToken.js,
+				simple/atomic/string/XSName.js,
+				simple/atomic/string/XSNCName.js,
+				simple/atomic/string/XSENTITY.js,
+				simple/atomic/string/XSID.js,
+				simple/atomic/string/XSLanguage.js,
+				simple/atomic/string/XSNMTOKEN.js"/>
+			<filelist dir="${source.core}/types/" files="
+				XTItem.js,
+				XTNode.js,
+				node/XTAttribute.js,
+				node/XTComment.js,
+				node/XTDocument.js,
+				node/XTElement.js,
+				node/XTProcessingInstruction.js,
+				node/XTText.js"/>
+			<filelist dir="${source.core}/operators/" files="
+				binary.js,
+				boolean.js,
+				date.js,
+				node.js,
+				notation.js,
+				numeric.js,
+				qname.js,
+				sequence.js"/>
+			<filelist dir="${source.core}/functions/" files="
+				accessor.js,
+				anyuri.js,
+				boolean.js,
+				context.js,
+				date.js,
+				node.js,
+				numeric.js,
+				qname.js,
+				sequence.js,
+				string.js,
+				trace.js"/>
+			<filelist dir="${source.core}/collators/" files="
+				CodepointStringCollator.js"/>
+		</concat>
+	</target>
+
+	<target name="BUILD_JQUERY_XPATH_PREPARE_ADAPTERS">
+		<echo message="Building XPath adapters: ${temp.dir}/xpath-adapters-raw.js" level="info"/>
+
+		<property name="source.adapters" value="src/adapters/" />
+
+		<concat destfile="${temp.dir}/xpath-adapters-raw.js" fixlastline="yes">
+			<filelist dir="${source.adapters}/classes/" files="
+				Attr.js,
+				LXDOMAdapter.js"/>
+			<filelist dir="${source.adapters}/" files="
+				L2DOMAdapter.js,
+				L2HTMLDOMAdapter.js,
+				MSHTMLDOMAdapter.js,
+				MSXMLDOMAdapter.js"/>
+		</concat>
+	</target>
+
+	<target name="BUILD_JQUERY_XPATH_PLUGIN">
+		<echo message="Building jQuery XPath plugin: ${target.dir}/jquery.xpath.js" level="info"/>
+
+		<property name="source.jquery-xpath" value="src/" />
+
+		<!-- Glue plugin raw code -->
+		<concat destfile="${temp.dir}/jquery-xpath-raw.js" fixlastline="yes">
+			<filelist dir="${temp.dir}/" files="
+				xpath-core-raw.js"/>
+			<filelist dir="${temp.dir}/" files="
+				xpath-adapters-raw.js"/>
+			<filelist dir="${source.jquery-xpath}/" files="
+				jquery-xpath.js"/>
+		</concat>
+
+		<!-- Copy copyright note and replace tokens -->
+		<copy file="${copying.js}" tofile="${temp.dir}/copying.js" />
+		<replace file="${temp.dir}/copying.js">
+			<replacefilter token="@project.name@"		value="${project.name}" />
+			<replacefilter token="@project.version@"	value="${project.version}" />
+		</replace>
+
+		<!-- jquery.xpath.js -->
+		<echo message="Building XPath jQuery: ${target.dir}/jquery.xpath.js" level="info"/>
+		<exec executable="${executable.php}" failonerror="true">
+			<arg value="res/build/compiler/js.php" />
+			<arg value="${temp.dir}/jquery-xpath-raw.js" />
+			<arg value="${temp.dir}/jquery-xpath.js" />
+			<!--arg value="- -obfuscate" /-->
+			<arg value="--strip-Source" />
+		</exec>
+		<concat destfile="${target.dir}/jquery.xpath.js" fixlastline="yes">
+			<fileset file="${temp.dir}/copying.js" />
+			<fileset file="${temp.dir}/jquery-xpath.js" />
+		</concat>
+
+		<!-- jquery.xpath.min.js -->
+		<echo message="Building XPath jQuery (min): ${target.dir}/jquery.xpath.min.js" level="info"/>
+		<exec executable="${executable.php}" failonerror="true">
+			<arg value="res/build/compiler/js.php" />
+			<arg value="${temp.dir}/jquery-xpath-raw.js" />
+			<arg value="${temp.dir}/jquery-xpath-min.js" />
+			<arg value="--obfuscate" />
+			<arg value="--strip-Source" />
+			<!-- -->
+			<arg value="--strip-Debug" />
+			<arg value="--strip-Guard" />
+		</exec>
+		<concat destfile="${target.dir}/jquery.xpath.min.js" fixlastline="yes">
+			<fileset file="${temp.dir}/copying.js" />
+			<fileset file="${temp.dir}/jquery-xpath-min.js" />
+		</concat>
+
+	</target>
+</project>

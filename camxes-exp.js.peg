@@ -1537,7 +1537,8 @@ unstressed_diphthong = expr:(!stressed diphthong !stress) {return _join(expr);}
 
 unstressed_vowel = expr:(!stressed vowel !stress) {return _join(expr);}
 
-stress = expr:(consonant* y? syllable pause) {return _join(expr);}
+//// FIX: Xorxes' fix for fu'ivla rafsi stress
+stress = expr:(consonant* h? y? syllable pause) {return _join(expr);}
 
 stressed = expr:(onset comma* [AEIOU]) {return _join(expr);}
 

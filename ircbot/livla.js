@@ -1150,8 +1150,7 @@ var nl='var literals = {';
 	fs.renameSync(t+".temp", t);console.log(t + ' updated');
 };
 
-//sutsisningau();
-var lmw = function (lin,sendTo){
+var lmw = function (lin,sendTo){//to be done
 var request = require("request"); var body;
 var uri="http://mw.lojban.org/index.php?action=render&title="+lin;
 //var uri="http://mw.lojban.org/index.php?search="+lin+"&button=&title=Special%3ASearch";
@@ -1168,7 +1167,8 @@ request({uri: uri,method: "GET"}, function(err, response, body) {
 var tcepru = function(lin,sendTo){
 	var exec = require('child_process').exec;
 	exec(path.join(__dirname,"../tcepru/./parser") + ' <<<"'+lin+'" 2>/dev/null', function (error, stdout, stderr) {
-  		 clientmensi.say(sendTo, stdout);
+                 lin=stdout.toString();if (lin===''){lin='O_0';}
+  		 clientmensi.say(sendTo, lin);
 	});
 };
 
@@ -1178,8 +1178,6 @@ var jbofihe = function(lin,sendTo){
 	lin=stdout;
 	if (error !==null){lin='O_0';}
   	clientmensi.say(sendTo, lin.replace(/\n/g,' ').replace(/ {2,}/g,' '));
-  		 //console.log("|"+stderr.toString()+"|");
-  		 //console.log("+"+error.toString()+"+");
 	});
 };
 

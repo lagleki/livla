@@ -103,6 +103,31 @@ This behavior is more in accordande with that of Jbofi'e, except that in Jbofi'e
 140513:	Allowing semi-vowels after diphthongs
 140518:	Adding cmavo - xai xo'o xoi xu'e
 140529:	Allowing NA without KU as a term
+140626: Update camxes morphology to v119 (October 2009)
+	Adding the missing most frequent experimental cmavo.
+	Merging FIhOI and new-SOI.
+	Fixing NA selbritcita, plus allowing FREE within NAKU.
+140628: Allowing {lo mi .e do broda}.
+140630: The experimental change for allowing {lo mi .e do broda} is breaking the grammar ( {lo pa broda} doesn't parse anymore ), so I'm reverting this change.
+140718: [patch from laMudri for the preprocessor] "ʃɛʒə" => "cejy" and related letters
+140815: lagleki: {mi'ai} added
+140816: Fixes: #1 in camxes-exp, the tag simplification resulted in VIhA being ungrammatical; #2 fixing an ordered choice mistake in space_interval, as well as simplifying statement_2 (standard camxes); Thanks alanpost. :)
+	Folding two orded choices into one in sumti_tail_1 (Thanks alanpost)
+	Combining two ordered choices into one in space_interval, plus a further fix of VIhA_clause in the same production (Thanks alanpost).
+140820: Fix: {gau} was broken by the experimental gaJA connective. Postproc modified to render the ga_word selmaho properly.
+	Fixing the node outputs of Y and ybu.
+140906: camxes-exp: Disallowing ViiV and VuuV vowel sequences.
+140926: Adding experimental cmavo {sa'ei}, {mu'ei}, {poi'i} and {kai'u} to camxes-exp.
+	Implementing LOhOI-KUhAU in camxes-exp.
+	Fixing kai'u
+141009: Fixing ku-less NA adverbial: a NA before a connective shouldn't be treated as an adverbial: it's part of the connective. :)
+141017: Fix in JACU: {brode ja cu brodo vau mi} was broken.
+141018: Fixing {lo me li pa moi} and reverting alanpost's optimization of the sumti_tail_1 production.
+	MAJOR CHANGE: MEX SIMPLIFICATION IMPLEMENTED (Thank you Selpahi!)
+	Camxes-exp: removing the experimental code for the internal grammar of quantifiers.
+141026: Camxes-std: Fixing {vi bai broda} which was broken by the selbritcita absorbtion rules.
+141030: Camxes-exp fix: The node names of bridi_tail_t1 and bridi_tail_t2 were wrong.
+141106: CAMXES FIX: fu'ivla rafsi stress (thank you Xorxes!)
 
 
 

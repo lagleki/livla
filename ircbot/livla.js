@@ -40,6 +40,10 @@ var configmensi = {
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots'
   }
 };
+var defaultLanguages= {
+	asker: "jbo",
+	replier: "jbo"
+};
 var preasker=asker + ': ';
 var prereplier=replier + ': ';
 var said;
@@ -151,11 +155,10 @@ var updatexmldumps = function (callback) {
 					velruhe.mulno[thisa] = true;
 					if (thisa == "en") {
 						xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));
-						sutsisningau("en");
 					}
 					delete velruhe.cfari[thisa];
 				}
-				if (callback && Object.keys(velruhe.cfari).length === 0) {
+				if (callback && Object.keys(velruhe.cfari).length == 0) {
 					callback(velruhe);
 				}
 			}); 
@@ -180,6 +183,7 @@ var updatexmldumps = function (callback) {
 			});
 		});
 	}catch(err){console.log('Error when autoupdating: ' + err);}
+	sutsisningau("en");
 };
 var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));//store en dump in memory
 
@@ -363,18 +367,25 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
 	case text.indexOf('frame:/full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(11),'en','framemulno'));break;
 	case text.indexOf('frame:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','frame'));break;
-	case text.indexOf('jbo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(4),'jbo'));break;
-	case text.indexOf('en:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'en'));break;
+
+	// Change default language
+	case text.indexOf('bangu:') == '0': clientmensi.say(sendTo, bangu(text.substr(6).trim(), from));break;
+
+	// Give definition of valsi in specified language
+	case text.indexOf('?:') == '0': clientmensi.say(sendTo, vlaste(text.substr(2),defaultLanguages[from]?defaultLanguages[from]:'en'));break; // Gives definition of valsi in the default language set to user
+	case text.indexOf('jbo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(4),'jbo'));break; // Gives definition of valsi in Lojban
+	case text.indexOf('en:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'en'));break; // Gives definition of valsi in English
 	case text.indexOf('ru:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ru'));break;
 	case text.indexOf('es:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'es'));break;
-	case text.indexOf('fr:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr'));break;
-	case text.indexOf('fr-facile:') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'fr-facile'));break;
-        case text.indexOf('f@:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr-facile'));break;
+	case text.indexOf('fr:')	== '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr'));break;
+	case text.indexOf('fr-facile:')	== '0': clientmensi.say(sendTo, vlaste(text.substr(10),'fr-facile'));break;
+	case text.indexOf('f@:')	== '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr-facile'));break;
 	case text.indexOf('ja:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ja'));break;
 	case text.indexOf('de:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'de'));break;
 	case text.indexOf('eo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
 	case text.indexOf('zh:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'zh'));break;
 	case text.indexOf('en-simple:') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'en-simple'));break;
+
 	case text.indexOf('selmaho:') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
 	case text.indexOf('finti:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','finti'));break;
 	case text.indexOf('rafsi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
@@ -526,6 +537,28 @@ var rusko = function (lin)
 }
 }
 return jbopotext;
+};
+
+var bangu = function (lng, username)
+{
+	lng=lng.trim().toLowerCase();
+	var ret = "";
+	defaultLanguages[username] = lng;
+	switch (lng)
+	{
+		case "lv":
+			ret = "/me ar '" + username + "' turpmāk runās latviešu valodā.";
+			break;
+		case "en":
+			ret = "/me will speak to '" + username + "' in English from now on.";
+			break;
+		default:
+			//TODO: check for available languages
+			//TODO: translate to lojban
+			ret = "/me will speak to '" + username + "' in '" + lng.toUpperCase() + "' from now on.";
+			break;
+	}
+	return ret; 
 };
 
 var vlaste = function (lin,lng,raf)

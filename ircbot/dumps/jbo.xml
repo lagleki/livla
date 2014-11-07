@@ -878,6 +878,14 @@
   <definition>$x_1$ vlile je suksa fi lo ka muvdu</definition>
   <definitionid>15084</definitionid>
 </valsi>
+<valsi word="bilske" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=s_1$ saske lo si&apos;o bilni ku $x_2=s_3$</definition>
+  <definitionid>63644</definitionid>
+</valsi>
 <valsi word="bi'o" type="cmavo">
   <selmaho>BIhI</selmaho>
   <user>
@@ -2858,6 +2866,14 @@
   <notes>{dertu} {gapru}</notes>
   <glossword word="dergapru" />
 </valsi>
+<valsi word="derske" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=s_1$ saske lo si&apos;o dertu ku $x_2=s_3$</definition>
+  <definitionid>63575</definitionid>
+</valsi>
 <valsi word="detke'u" type="lujvo">
   <user>
     <username>gusnikantu</username>
@@ -3013,6 +3029,14 @@
   <definitionid>2554</definitionid>
   <notes>{zi} {lidne} {selsku} {sumka&apos;i}</notes>
   <glossword word="di&apos;u" />
+</valsi>
+<valsi word="djaske" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=s_1$ saske lo si&apos;o cidja ku $x_2=s_3$</definition>
+  <definitionid>63632</definitionid>
 </valsi>
 <valsi word="djasnuji" type="lujvo">
   <user>
@@ -3832,6 +3856,14 @@
   <definitionid>20609</definitionid>
   <notes>.i .e&apos;u do catlu zo&apos;e pe zo {kakne} .e zo {cupra} .e zo {rirni} .e zo {farvi} .e zo {zbasu} .e zo {jbena}</notes>
   <glossword word="kakne" sense="lo ka jai si&apos;u farvi" />
+</valsi>
+<valsi word="festoknu" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$t_1$ toknu $t_2=f_1$ poi ke&apos;a loi festi</definition>
+  <definitionid>63624</definitionid>
 </valsi>
 <valsi word="fesydakli" type="lujvo">
   <user>
@@ -5537,6 +5569,14 @@
   <definitionid>42509</definitionid>
   <notes>{lojbo} {se} {kelci}</notes>
 </valsi>
+<valsi word="jdaske" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=s_1$ saske lo si&apos;o lijda ku $x_2=s_3$</definition>
+  <definitionid>63638</definitionid>
+</valsi>
 <valsi word="jdika" type="gismu">
   <user>
     <username>xorxes</username>
@@ -5763,6 +5803,14 @@
   <definitionid>2678</definitionid>
   <notes>{jimte}</notes>
   <glossword word="ji&apos;e" />
+</valsi>
+<valsi word="ji'eske" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=s_1$ saske lo si&apos;o jmive ku $x_2=s_3$</definition>
+  <definitionid>63580</definitionid>
 </valsi>
 <valsi word="jifkritrazu'e" type="lujvo">
   <user>
@@ -7027,6 +7075,15 @@
   <definition>$b_1$ bartu $b_2=k_1$ po&apos;u lo kumfa</definition>
   <definitionid>44316</definitionid>
 </valsi>
+<valsi word="kunske" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=s_1$ saske lo si&apos;o kunra ku $x_2=s_3$</definition>
+  <definitionid>63578</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {derske}</notes>
+</valsi>
 <valsi word="ku'o" type="cmavo">
   <selmaho>KUhO</selmaho>
   <user>
@@ -7327,6 +7384,14 @@
   <definition>$cm_1=cl_1$ cladu $cm_2$ $cm_3$ ta&apos;i lo nu vo&apos;a cmila</definition>
   <definitionid>52948</definitionid>
 </valsi>
+<valsi word="la'uske" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=s_1$ saske lo si&apos;o lalxu ku $x_2=s_3$</definition>
+  <definitionid>63650</definitionid>
+</valsi>
 <valsi word="laznynavni" type="lujvo">
   <user>
     <username>gusnikantu</username>
@@ -7521,6 +7586,14 @@
   </user>
   <definition>$x_1=c_1$ cirko $x_2=c_2=l_1$ noi litki $x_4=l_2$ ku&apos;o $x_3=c_3$</definition>
   <definitionid>60510</definitionid>
+</valsi>
+<valsi word="likro'i" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$r_1=l_1$ $r_2=l_2$ rokci $r_3$ gi&apos;e litki $l_3$</definition>
+  <definitionid>63591</definitionid>
 </valsi>
 <valsi word="linji" type="gismu">
   <rafsi>lij</rafsi>
@@ -8496,6 +8569,14 @@
   <definition>$x_1$ namcu gi&apos;e se tenfa lo na&apos;e mleca be li no li re</definition>
   <definitionid>41838</definitionid>
   <notes>dunli zo {tolxarna&apos;u} lo ka ce&apos;u smuni .i {merli} {namcu}; {xarna&apos;u}, {lujna&apos;u}</notes>
+</valsi>
+<valsi word="mreske" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=s_1$ saske lo si&apos;o merli ku $x_2=s_3$</definition>
+  <definitionid>63642</definitionid>
 </valsi>
 <valsi word="mribriju" type="lujvo">
   <user>
@@ -10681,6 +10762,14 @@
   <notes>krasi fi la ma&apos;oste</notes>
   <glossword word="plika&apos;e" />
 </valsi>
+<valsi word="plinyske" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=s_1$ saske lo si&apos;o plini ku $x_2=s_3$</definition>
+  <definitionid>63648</definitionid>
+</valsi>
 <valsi word="plisyjisra" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -11354,6 +11443,14 @@
   <definitionid>38296</definitionid>
   <notes>{remna} {catra}; {remselcatra}</notes>
 </valsi>
+<valsi word="remkemsi'exra" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$p_1=s_1$ pixra $p_2$ po&apos;u lo remna ge&apos;u $p_3$ loi snime</definition>
+  <definitionid>63607</definitionid>
+</valsi>
 <valsi word="remnkimi" type="fu'ivla">
   <user>
     <username>phma</username>
@@ -11679,6 +11776,14 @@
   <definitionid>13299</definitionid>
   <notes>{cinmo}</notes>
   <glossword word="ro&apos;i" />
+</valsi>
+<valsi word="rokske" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=s_1$ saske lo si&apos;o rokci ku $x_2=s_3$</definition>
+  <definitionid>63569</definitionid>
 </valsi>
 <valsi word="rokybakfu" type="lujvo">
   <user>
@@ -12073,6 +12178,14 @@
   <definitionid>56662</definitionid>
   <notes>.e&apos;u ko tcidu tu&apos;a zo {samselse&apos;u}</notes>
 </valsi>
+<valsi word="samske" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=s_1$ saske lo si&apos;o skami ku $x_2=s_3$</definition>
+  <definitionid>63635</definitionid>
+</valsi>
 <valsi word="samtciselse'u" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -12129,6 +12242,15 @@
   <definitionid>14066</definitionid>
   <notes>{mekfancu}; {cneparbi}</notes>
   <glossword word="sa&apos;o" />
+</valsi>
+<valsi word="saskrsporte" type="fu'ivla">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1$ saske lo si&apos;o esporte ku $x_2$</definition>
+  <definitionid>63658</definitionid>
+  <notes>.e&apos;u ko tcidu tu&apos;a zo {saske} .e zo {esporte}</notes>
 </valsi>
 <valsi word="satre" type="gismu">
   <rafsi>sa&apos;e</rafsi>
@@ -12708,6 +12830,14 @@
   <definition>$c_1$ canpa loi snime</definition>
   <definitionid>52930</definitionid>
 </valsi>
+<valsi word="si'erboi" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$b_1=s_1$ cu bolci loi snime</definition>
+  <definitionid>63599</definitionid>
+</valsi>
 <valsi word="si'ercarvi" type="lujvo">
   <user>
     <username>Wuzzy</username>
@@ -12723,6 +12853,14 @@
   </user>
   <definition>$c_1=s_1=d_1$ po&apos;u loi snime joi djacu cu carvi $c_2$ $c_3$</definition>
   <definitionid>52927</definitionid>
+</valsi>
+<valsi word="si'exra" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$p_1=s_1$ pixra $p_2$ $p_3$ loi snime</definition>
+  <definitionid>63604</definitionid>
 </valsi>
 <valsi word="si'i" type="cmavo">
   <selmaho>VUhU4</selmaho>
@@ -14162,6 +14300,14 @@
   </user>
   <definition>$x_1$ darxi $x_2$ fo $x_3$ fi $x_4$ noi jamfu $x_1$</definition>
   <definitionid>15080</definitionid>
+</valsi>
+<valsi word="timske" type="lujvo">
+  <user>
+    <username>Wuzzy</username>
+    <realname>Wuzzy</realname>
+  </user>
+  <definition>$x_1=s_1$ saske lo si&apos;o tcima ku $x_2=s_3$</definition>
+  <definitionid>63640</definitionid>
 </valsi>
 <valsi word="ti'o" type="cmavo">
   <selmaho>SEI</selmaho>

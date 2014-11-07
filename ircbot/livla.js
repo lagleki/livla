@@ -151,10 +151,11 @@ var updatexmldumps = function (callback) {
 					velruhe.mulno[thisa] = true;
 					if (thisa == "en") {
 						xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));
+						sutsisningau("en");
 					}
 					delete velruhe.cfari[thisa];
 				}
-				if (callback && Object.keys(velruhe.cfari).length == 0) {
+				if (callback && Object.keys(velruhe.cfari).length === 0) {
 					callback(velruhe);
 				}
 			}); 
@@ -179,7 +180,6 @@ var updatexmldumps = function (callback) {
 			});
 		});
 	}catch(err){console.log('Error when autoupdating: ' + err);}
-	sutsisningau("en");
 };
 var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));//store en dump in memory
 

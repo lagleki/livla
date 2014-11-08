@@ -1087,7 +1087,7 @@ if (typeof xmlDoc==='undefined'){
 	si=si.trim().split(" ").splice(0,5);
 	if (si.length>=5){si.push("...");}
 	si=si.join(", ");
-	if (tor!==''){si+=" ["+tor+"]";}
+	if (tor!==''){si+="\n"+tor+"";}
 	if (flag===1){si=tor;}
 	return si;
 };

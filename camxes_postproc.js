@@ -64,7 +64,7 @@ function camxes_postprocessing(text, mode) {
 	text = delete_superfluous_brackets(text);
 	text = text.replace(/\[ +/g, "[");
 	text = text.replace(/ +\]/g, "]");
-	text = text.replace(/([A-Z]) \[/g, "$1[");
+	text = text.replace(/([A-Z] )\[/g, "$1[");
 	/* Abbreviations */
 	text = text.replace(/(cmene|cmevla):/g, "C:");
 	text = text.replace(/gismu:/g, "G:");

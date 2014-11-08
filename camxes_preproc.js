@@ -26,6 +26,7 @@
 	input = input.replace(/ch/igm,"tc");
 	input = input.replace(/kh/igm,"x");
 	// --- //
+	input = input.replace(/ı/igm,"i");
 	input = input.replace(/ʃ/igm,"c");
 	input = input.replace(/ʒ/igm,"j");
 	input = input.replace(/ɛ/gm,"e");

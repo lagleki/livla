@@ -1425,7 +1425,8 @@ fuhivla_head = expr:(!rafsi_string brivla_head) { return _join(expr); }
 
 brivla_head = expr:(!cmavo !slinkuhi !h &onset unstressed_syllable*) { return _join(expr); }
 
-slinkuhi = expr:(consonant rafsi_string) { return _join(expr); }
+//// Change by Xorxes
+slinkuhi = expr:(consonant (rafsi_string / brivla_rafsi / stressed_brivla_rafsi)) { return _join(expr); }
 
 rafsi_string = expr:(y_less_rafsi* (gismu / CVV_final_rafsi / stressed_y_less_rafsi short_final_rafsi / y_rafsi / stressed_y_rafsi / stressed_y_less_rafsi? initial_pair y)) { return _join(expr); }
 
@@ -1488,7 +1489,8 @@ any_syllable = expr:(onset nucleus coda? / consonantal_syllable) {return _join(e
 
 syllable = expr:(onset !y nucleus coda?) {return _join(expr);}
 
-consonantal_syllable = expr:(consonant syllabic &(consonantal_syllable / onset) (consonant &spaces)?) {return _join(expr);}
+//// FIX: preventing {bla'ypre} from being a valid lujvo
+consonantal_syllable = expr:(consonant syllabic &(consonantal_syllable / !nucleus onset) (consonant &spaces)?) {return _join(expr);}
 
 coda = expr:(!any_syllable consonant &any_syllable / syllabic? consonant? &pause) {return _join(expr);}
 

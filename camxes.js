@@ -28434,6 +28434,12 @@ var camxes = (function(){
         result0 = parse_consonant();
         if (result0 !== null) {
           result1 = parse_rafsi_string();
+          if (result1 === null) {
+            result1 = parse_brivla_rafsi();
+            if (result1 === null) {
+              result1 = parse_stressed_brivla_rafsi();
+            }
+          }
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -30371,7 +30377,7 @@ var camxes = (function(){
         }
         
         var result0, result1, result2, result3, result4;
-        var pos0, pos1, pos2, pos3;
+        var pos0, pos1, pos2, pos3, pos4;
         
         pos0 = pos;
         pos1 = pos;
@@ -30383,7 +30389,29 @@ var camxes = (function(){
             reportFailures++;
             result2 = parse_consonantal_syllable();
             if (result2 === null) {
-              result2 = parse_onset();
+              pos3 = pos;
+              pos4 = pos;
+              reportFailures++;
+              result2 = parse_nucleus();
+              reportFailures--;
+              if (result2 === null) {
+                result2 = "";
+              } else {
+                result2 = null;
+                pos = pos4;
+              }
+              if (result2 !== null) {
+                result3 = parse_onset();
+                if (result3 !== null) {
+                  result2 = [result2, result3];
+                } else {
+                  result2 = null;
+                  pos = pos3;
+                }
+              } else {
+                result2 = null;
+                pos = pos3;
+              }
             }
             reportFailures--;
             if (result2 !== null) {

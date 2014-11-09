@@ -16919,6 +16919,15 @@
   <notes>{zi&apos;o} {darlu}; {zu&apos;u}</notes>
   <glossword word="zildau" />
 </valsi>
+<valsi word="zildika" type="fu'ivla">
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>fasnu fa su&apos;o poi&apos;i da de poi dubmau da gi&apos;e sumji da $x_2$ zo&apos;u ke&apos;a ge se tolfa&apos;o su&apos;o nu de ckaji $x_1$ gi se fanmo su&apos;o nu da ckaji $x_1$</definition>
+  <definitionid>63667</definitionid>
+  <notes>srana fa zo {zilzena} .e zo {jdika}</notes>
+</valsi>
 <valsi word="zilfanva" type="lujvo">
   <user>
     <username>selpahi</username>
@@ -17002,6 +17011,15 @@
   <definitionid>37960</definitionid>
   <notes>{zi&apos;o} {zbasu}</notes>
   <glossword word="zilzba" />
+</valsi>
+<valsi word="zilzena" type="fu'ivla">
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>fasnu fa su&apos;o poi&apos;i da de poi dubmau da gi&apos;e sumji da $x_2$ zo&apos;u ke&apos;a ge se tolfa&apos;o su&apos;o nu da ckaji $x_1$ gi se fanmo su&apos;o nu de ckaji $x_1$</definition>
+  <definitionid>63666</definitionid>
+  <notes>srana fa zo {zildika} .e zo {zenba}</notes>
 </valsi>
 <valsi word="zi'o" type="cmavo">
   <rafsi>zil</rafsi>

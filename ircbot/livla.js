@@ -5,15 +5,10 @@ var tato= require('./tatoeba.js');
 var interv=300000;
 var interm=2900;
 fram="../../../files/fndata-1.5/frame";
-//<<<<<<< HEAD
-var tcan='#lojban,#ckule';
-//=======
-
-	// Default configuration, may be modified by “loadConfig”, with the content of
+// Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
 var tcan='#lojban,#ckule';
-//>>>>>>> 10a7da789641dfdc44f9b444f18d61cbf813f2aa
-var livlytcan='##jboselbau';//where la livla talks to la mensi 
+var livlytcan='##jboselbau';//where la livla talks to la mensi
 var asker='livla';
 var replier='mensi';
 var server='irc.freenode.net';
@@ -40,6 +35,7 @@ var configmensi = {
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots'
   }
 };
+var defaultLanguage="en"; // Replace to "jbo" when Lojban definitions almost equal that of English
 var defaultLanguages= {
 	asker: "jbo",
 	replier: "jbo"
@@ -400,6 +396,21 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf('Tatoeba:') == '0': clientmensi.say(sendTo, sisku(text.substr(8).trim()));break;
+ 	
+ 	// valsi? (give description in user's default language)
+	case (
+		text.trim().indexOf(' ') == -1 // doesn't include whitespaces between words
+		&& (
+			text.trim().indexOf('?') == 0 // question mark is the first character
+			|| text.trim().substr(-1) === '?' // question mark is the last character
+		)
+	):
+		text = text.trim().replace(/\?/g, '');
+		clientmensi.say(
+			sendTo,
+			vlaste(text, defaultLanguages[from]?defaultLanguages[from]:defaultLanguage, 'passive')
+		);
+		break;
 /* 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
  	case text.indexOf(prereplier + 'xu do') == '0': 
  	case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {clientmensi.say(sendTo, from + mireturn());}, interm );break;
@@ -546,19 +557,20 @@ var bangu = function (lng, username)
 	defaultLanguages[username] = lng;
 	switch (lng)
 	{
+		// ME(speaking in third person) isn't implemented in irc.js
 		case "lv":
-			ret = "/me ar '" + username + "' turpmāk runās latviešu valodā.";
+			ret = "Es ar '" + username + "' turpmāk runāšu latviešu valodā.";
 			break;
 		case "en":
-			ret = "/me will speak to '" + username + "' in English from now on.";
+			ret = "I will speak to '" + username + "' in English from now on.";
 			break;
 		default:
 			//TODO: check for available languages
 			//TODO: translate to lojban
-			ret = "/me will speak to '" + username + "' in '" + lng.toUpperCase() + "' from now on.";
+			ret = "I will speak to '" + username + "' in '" + lng.toUpperCase() + "' from now on.";
 			break;
 	}
-	return ret; 
+	return ret;
 };
 
 var vlaste = function (lin,lng,raf)
@@ -573,7 +585,15 @@ var ret;
 		case raf=='finti': ret=finti(lin.replace(/[^a-z'\.\*0-9]/g,''));break;
 		case raf=='frame': ret=frame(lin.replace(/[^a-z_'\.]/g,''));break;
 		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z_'\.]/g,''));break;
-		default: ret=tordu(lin.replace(/\"/g,''),lng);break;
+		default:
+			ret=tordu(lin.replace(/\"/g,''),lng);
+			if
+			(
+				raf=='passive' // send only if found
+				&& ret == 'lo nu mulno sisku zo\'u: y no da se tolcri'
+			)
+				return '';
+			break;
 	}
 return ret.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n');
 };

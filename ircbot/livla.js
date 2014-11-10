@@ -1148,7 +1148,10 @@ var nl='var literals = {';
 	pars+=nl;
 	var t = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
 	content = fs.writeFileSync(t+".temp",pars);
-	fs.renameSync(t+".temp", t);console.log(t + ' updated');
+	t = path.join(__dirname,"../i/","webapp.appcache");
+	fs.renameSync(t,t+".temp");
+	fs.renameSync(t+".temp",t);
+	console.log(t + ' updated');
 };
 
 var lmw = function (lin,sendTo){//to be done

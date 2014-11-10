@@ -1148,6 +1148,7 @@ var nl='var literals = {';
 	pars+=nl;
 	var t = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
 	content = fs.writeFileSync(t+".temp",pars);
+	fs.renameSync(t+".temp",t);
 	t = path.join(__dirname,"../i/","webapp.appcache");
 	fs.renameSync(t,t+".temp");
 	fs.renameSync(t+".temp",t);

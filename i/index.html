@@ -358,6 +358,19 @@
       }
       return +new Date();
     }
+	// Check if a new cache is available on page load.
+    var appCache = window.applicationCache;
+	appCache.update();
+	if (appCache.status == window.applicationCache.UPDATEREADY) {
+		appCache.swapCache();
+	}
+	window.addEventListener('load', function(e) {
+	  window.applicationCache.addEventListener('updateready', function(e) {
+	    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+	        window.location.reload();
+	    }
+	  }, false);
+	}, false);
   </script>
 </body>
 </html>

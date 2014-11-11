@@ -164,6 +164,7 @@ var updatexmldumps = function (callback) {
 					velruhe.mulno[thisa] = true;
 					if (thisa == "en") {
 						xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));
+						sutsisningau("en");
 					}
 					delete velruhe.cfari[thisa];
 				}
@@ -657,12 +658,8 @@ var ret;
 		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z_'\.]/g,''));break;
 		default:
 			if(raf==='passive')
-			{
-				ret=tordu(lin.replace(/\"/g,''), lng, raf);
-				break;
-			}
-			ret=tordu(lin.replace(/\"/g,''), lng);
-			break;
+			{ret=tordu(lin.replace(/\"/g,''), lng, raf);break;}
+			else{ret=tordu(lin.replace(/\"/g,''), lng);break;}
 	}
 return ret.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n');
 };

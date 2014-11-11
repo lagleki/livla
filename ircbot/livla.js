@@ -35,13 +35,13 @@ var configmensi = {
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots'
   }
 };
-var userSettings = {} // Saving user preferences
+var userSettings = {}; // Saving user preferences
 userSettings[asker] = {
 	"language": "jbo" // Not used, but someone might like to have bots speak to each other in another language
 },
 userSettings[replier] = {
 	"language": "jbo"
-}
+};
 var defaultLanguage="en"; // Maybe someday should be replaced with "jbo" when Lojban definitions almost equal that of English
 var preasker=asker + ': ';
 var prereplier=replier + ': ';
@@ -168,7 +168,7 @@ var updatexmldumps = function (callback) {
 					}
 					delete velruhe.cfari[thisa];
 				}
-				if (callback && Object.keys(velruhe.cfari).length == 0) {
+				if (callback && Object.keys(velruhe.cfari).length === 0) {
 					callback(velruhe);
 				}
 			}); 
@@ -220,7 +220,7 @@ var updateUserSettings = function (callback) {
 		}
 		return;
 	}
-}
+};
 
 var camxesoff = require('../camxes.js');
 var camxes = require('../camxes-exp.js');
@@ -427,7 +427,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('rafsi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
 	case text.indexOf('toki:') == '0': clientmensi.say(sendTo, vlaste(text.substr(5),'toki'));break;
 	case text.indexOf('laadan:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'laadan'));break;
-        case text.indexOf('loglan:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'loglan'));break;
+	case text.indexOf('loglan:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'loglan'));break;
 	case text.indexOf('gloss:') == '0': clientmensi.say(sendTo, gloso(text.substr(6),'en'));break;
 	case text.indexOf('loi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),''));break;
 	case text.indexOf('coi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),'coi'));break;
@@ -442,12 +442,12 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case (
 		text.trim().indexOf(' ') == -1 // doesn't include whitespaces between words
 		&& (
-			text.trim().indexOf('?') == 0 // question mark is the first character
+			text.trim().indexOf('?') === 0 // question mark is the first character
 			|| text.trim().substr(-1) === '?' // question mark is the last character
 		)
 	):
 		text = text.trim().replace(/\?/g, '');
-		var inLanguage = defaultLanguage;
+		inLanguage = defaultLanguage;
 		inLanguage = RetrieveUsersLanguage(from, inLanguage);
 
 		clientmensi.say(
@@ -607,7 +607,7 @@ var bangu = function (lng, username)
 	{
 		userSettings[username] = {};
 	}
-	userSettings[username]["language"] = lng;
+	userSettings[username].language = lng;
 	switch (lng)
 	{
 		// ME(speaking in third person) isn't implemented in irc.js
@@ -630,7 +630,7 @@ var RetrieveUsersLanguage = function (username, lng)
 	if(
 		(
 			typeof userSettings[username] === "undefined"
-			|| typeof userSettings[username]["language"] === "undefined"
+			|| typeof userSettings[username].language === "undefined"
 		)
 	)
 	{
@@ -641,8 +641,8 @@ var RetrieveUsersLanguage = function (username, lng)
 		return lng;
 	}
 
-	return userSettings[username]["language"];
-}
+	return userSettings[username].language;
+};
 
 var vlaste = function (lin,lng,raf)
 {
@@ -1331,7 +1331,6 @@ var jbofihe = function(lin,sendTo){
 	});
 };
 
-<<<<<<< HEAD
 var pseudogismu = function(){
 	//a joke function. checks if an English word is  a valid gismu
 	var words = fs.readFileSync(path.join(__dirname,"../","words"),'utf8').split("\n");
@@ -1343,6 +1342,3 @@ var pseudogismu = function(){
 	}
 	var content = fs.writeFileSync(path.join(__dirname,"../","words-result"),sj.join("\n"));
 };
-=======
-tordu("xadske","en");
->>>>>>> c5afb94edb2e5b18d2db811f5dcabef7b41ac00a

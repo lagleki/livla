@@ -1374,6 +1374,14 @@
   <notes>{fatci}</notes>
   <glossword word="ca&apos;a" />
 </valsi>
+<valsi word="ca'abna" type="fu'ivla">
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>$x_1$ cabna lo nu mi do dei nau cusku</definition>
+  <definitionid>63680</definitionid>
+</valsi>
 <valsi word="cabda'o" type="lujvo">
   <user>
     <username>selpahi</username>
@@ -17256,6 +17264,14 @@
   <definitionid>13664</definitionid>
   <notes>{zu&apos;u} {nai}; {zildau}</notes>
   <glossword word="zu&apos;unai" />
+</valsi>
+<valsi word="zva'ati" type="fu'ivla">
+  <user>
+    <username>Ilmen</username>
+    <realname>Ilmen</realname>
+  </user>
+  <definition>$x_1$ zvati lo nu mi do dei nau cusku</definition>
+  <definitionid>63681</definitionid>
 </valsi>
 <valsi word="zvada'o" type="lujvo">
   <user>

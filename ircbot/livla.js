@@ -1,6 +1,6 @@
 //livla bot
 var fs = require("fs"),path = require("path-extra"),libxmljs = require("libxmljs");
-var s,t,notci,notcijudri;
+var s,t,notci,notcijudri,ljv='';
 var tato= require('./tatoeba.js');
 var interv=300000;
 var interm=2900;
@@ -565,9 +565,9 @@ if (gchild===''){
 			if (f!==''){
 				lin= f;
 			}else{
-				var start = new Date().getTime();
+				//var start = new Date().getTime();
 				lin= "[< "+katna(lin,lng,'',xmlDoc)+"] "+mulno(lin,lng,xmlDoc);
-				var end = new Date().getTime();var time = end - start;
+				//var end = new Date().getTime();var time = end - start;
 			}
 		}else{
 			lin= mulno(lin,lng,xmlDoc);
@@ -585,6 +585,7 @@ if (gchild===''){
 		}
 		lin= lin + " = " + gchild;
 }
+ljv='';
 return lin;
 };
 
@@ -606,7 +607,7 @@ if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
 if (stra.length>1){gag = xo + " da se tolcri: " + gag;}
-if(gag===''){gag='lo nu mulno sisku zo\'u: y no da se tolcri';}
+if(gag===''){gag='lo nu mulno sisku zo\'u: y no da se tolcri';if (ljv!==''){gag+= "\n" + ljv;}}
 return gag;
 };
 
@@ -1089,7 +1090,7 @@ if (typeof xmlDoc==='undefined'){
 	if (si.length>=5){si.push("...");}
 	si=si.join(", ");
 	if (tor!==''){si+="\n"+tor+"";}
-	if (flag===1){si=tor;}
+	if (flag===1){ljv=si;si=tor;}
 	return si;
 };
 
@@ -1131,7 +1132,14 @@ var rev = xmlDocEn.find("/dictionary/direction[1]/valsi");
 		try{pars+=",\"type\":\""+rev[i].attr("type").value()+"\"";}catch(err){}
 		try{pars+=",\"definition\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")+"\"";}catch(err){}
 		try{pars+=",\"notes\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'")+"\"";}catch(err){}
-		var ra=rev[i].find("rafsi//text()[1]").join("\",\"");
+		var ra=rev[i].find("rafsi//text()[1]");
+		if (xugismu(hi)===true){
+			ra.push(hi);
+			if(hi.indexOf("brod")!==0){ra.push(hi.substr(0,4));}
+			if(hi.indexOf("broda")===0){ra.push("brod");}
+		}
+		ra=ra.join("\",\"");
+		
 		if (ra.length!==0){pars+=",\"rafsi\":[\""+ra+"\"]";}else{pars+=",\"rafsi\":[]";}
 		pars+="}";
 		if (i<rev.length-1){pars+=",\n";}
@@ -1147,11 +1155,11 @@ var nl='var literals = {';
 	nl+="};\n";
 	pars+=nl;
 	var t = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
-	content = fs.writeFileSync(t+".temp",pars);
+	pars = fs.writeFileSync(t+".temp",pars);
 	fs.renameSync(t+".temp",t);
 	t = path.join(__dirname,"../i/","webapp.appcache");
-	fs.renameSync(t,t+".temp");
-	fs.renameSync(t+".temp",t);
+	pars=fs.readFileSync(t,'utf8');
+	pars = fs.writeFileSync(t,pars);
 	console.log(t + ' updated');
 };
 
@@ -1186,3 +1194,4 @@ var jbofihe = function(lin,sendTo){
 	});
 };
 
+tordu("xadske","en");

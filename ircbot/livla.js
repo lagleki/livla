@@ -35,11 +35,14 @@ var configmensi = {
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots'
   }
 };
-var defaultLanguage="en"; // Replace to "jbo" when Lojban definitions almost equal that of English
-var defaultLanguages= {
-	asker: "jbo",
-	replier: "jbo"
-};
+var userSettings = {} // Saving user preferences
+userSettings[asker] = {
+	"language": "jbo" // Not used, but someone might like to have bots speak to each other in another language
+},
+userSettings[replier] = {
+	"language": "jbo"
+}
+var defaultLanguage="en"; // Maybe someday should be replaced with "jbo" when Lojban definitions almost equal that of English
 var preasker=asker + ': ';
 var prereplier=replier + ': ';
 var said;
@@ -112,6 +115,15 @@ function loadConfig() {
 	server    = either( localConfig.server,    server    );
 }
 
+// Load the user configuration from “~/.livla/user-settings.json”
+// These are settings
+function loadUserSettings() {
+	var localConfig = readConfig("user-settings.json");
+	if (localConfig.trim() === "")
+		return;
+	userSettings = JSON.parse(localConfig);
+}
+
 var irc = require('irc');
 var client = new irc.Client(config.server, config.nick, config.options);
 var clientmensi = new irc.Client(configmensi.server, configmensi.nick, configmensi.options);
@@ -124,6 +136,7 @@ clientmensi.addListener('message', function(from, to, text, message) {
     processormensi(clientmensi, from, to, text, message);
 });
 
+loadUserSettings();
 loadNotci();
 
 var updatexmldumps = function (callback) {
@@ -185,7 +198,28 @@ var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en
 
 setInterval(function(){updatexmldumps()}, 86400000); //update logs once a djedi
 
+var updateUserSettings = function (callback) {
+	readConfig("user-settings.json"); // Ensure existance
 
+	var body = JSON.stringify(userSettings);
+	var configDirectory = path.join(path.homedir(),".livla");
+	var filename = "user-settings.json";
+	file = path.join(configDirectory, filename);
+	try
+	{
+		fs.writeFileSync(file, body);
+		console.log('User settings updated');
+	}
+	catch (e)
+	{
+		// If we get an “ENOENT” error, we return an empty string.
+		// Other errors are still thrown.
+		if (typeof(e.code) === "undefined" || e.code !== 'ENOENT') {
+			throw e;
+		}
+		return;
+	}
+}
 
 var camxesoff = require('../camxes.js');
 var camxes = require('../camxes-exp.js');
@@ -368,7 +402,12 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('bangu:') == '0': clientmensi.say(sendTo, bangu(text.substr(6).trim(), from));break;
 
 	// Give definition of valsi in specified language
-	case text.indexOf('?:') == '0': clientmensi.say(sendTo, vlaste(text.substr(2),defaultLanguages[from]?defaultLanguages[from]:'en'));break; // Gives definition of valsi in the default language set to user
+	case text.indexOf('?:') == '0':
+		var inLanguage = defaultLanguage;
+		inLanguage = RetrieveUsersLanguage(from, inLanguage);
+
+		clientmensi.say(sendTo, vlaste(text.substr(2), inLanguage));
+		break; // Gives definition of valsi in the default language set to user
 	case text.indexOf('jbo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(4),'jbo'));break; // Gives definition of valsi in Lojban
 	case text.indexOf('en:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'en'));break; // Gives definition of valsi in English
 	case text.indexOf('ru:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ru'));break;
@@ -406,9 +445,12 @@ var processormensi = function(clientmensi, from, to, text, message) {
 		)
 	):
 		text = text.trim().replace(/\?/g, '');
+		var inLanguage = defaultLanguage;
+		inLanguage = RetrieveUsersLanguage(from, inLanguage);
+
 		clientmensi.say(
 			sendTo,
-			vlaste(text, defaultLanguages[from]?defaultLanguages[from]:defaultLanguage, 'passive')
+			vlaste(text, inLanguage, 'passive') // 'passive' flag means that the asker may be asking indirectly, so errors should not be sent
 		);
 		break;
 /* 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
@@ -552,9 +594,18 @@ return jbopotext;
 
 var bangu = function (lng, username)
 {
-	lng=lng.trim().toLowerCase();
 	var ret = "";
-	defaultLanguages[username] = lng;
+	lng=lng.trim().toLowerCase();
+	if(lng.length > 100)
+	{
+		// small data overflow protection
+		return ret;
+	}
+	if(typeof userSettings[username] === "undefined")
+	{
+		userSettings[username] = {};
+	}
+	userSettings[username]["language"] = lng;
 	switch (lng)
 	{
 		// ME(speaking in third person) isn't implemented in irc.js
@@ -565,13 +616,31 @@ var bangu = function (lng, username)
 			ret = "I will speak to '" + username + "' in English from now on.";
 			break;
 		default:
-			//TODO: check for available languages
-			//TODO: translate to lojban
-			ret = "I will speak to '" + username + "' in '" + lng.toUpperCase() + "' from now on.";
+			ret = "I will speak to '" + username + "' in '" + lng.toUpperCase() + "' from now on."; // TODO: translate to lojban
 			break;
 	}
+	updateUserSettings();
 	return ret;
 };
+
+var RetrieveUsersLanguage = function (username, lng)
+{
+	if(
+		(
+			typeof userSettings[username] === "undefined"
+			|| typeof userSettings[username]["language"] === "undefined"
+		)
+	)
+	{
+		if(typeof lng === "undefined")
+		{
+			return defaultLanguage;
+		}
+		return lng;
+	}
+
+	return userSettings[username]["language"];
+}
 
 var vlaste = function (lin,lng,raf)
 {
@@ -586,13 +655,12 @@ var ret;
 		case raf=='frame': ret=frame(lin.replace(/[^a-z_'\.]/g,''));break;
 		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z_'\.]/g,''));break;
 		default:
-			ret=tordu(lin.replace(/\"/g,''),lng);
-			if
-			(
-				raf=='passive' // send only if found
-				&& ret == 'lo nu mulno sisku zo\'u: y no da se tolcri'
-			)
-				return '';
+			if(raf==='passive')
+			{
+				ret=tordu(lin.replace(/\"/g,''), lng, raf);
+				break;
+			}
+			ret=tordu(lin.replace(/\"/g,''), lng);
 			break;
 	}
 return ret.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n');
@@ -601,10 +669,29 @@ return ret.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n');
 
 var tordu = function (lin,lng,flag,xmlDoc)
 {
-lin=lin.replace(/\"/g,'');
-if (flag!==1){
-	if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),'utf8'));}
-}
+	lin=lin.replace(/\"/g,'');
+	if (flag!==1){
+		if (lng==="en")
+		{
+			xmlDoc=xmlDocEn;
+		}
+		else
+		{
+			var xmlPath = path.join(__dirname,"dumps",lng + ".xml");
+			var errorMessage = 'Dictionary for desired "' + lng + '" language does not exits.'; //TODO: Translate to Lojban
+			if(!fs.existsSync(xmlPath))
+			{
+				if(flag === 'passive')
+				{
+					console.log(errorMessage);
+					return '';
+				}
+				return errorMessage;
+			}
+			xmlDoc = libxmljs.parseXml(fs.readFileSync(xmlPath,'utf8'));
+		}
+	}
+
 var gchild='';
 	try{gchild +='[' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]").text()+'] ';}catch(err){}
 	try{gchild += xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/definition[1]").text();}catch(err){}

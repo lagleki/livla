@@ -1194,4 +1194,14 @@ var jbofihe = function(lin,sendTo){
 	});
 };
 
-tordu("xadske","en");
+var pseudogismu = function(){
+	//a joke function. checks if an English word is  a valid gismu
+	var words = fs.readFileSync(path.join(__dirname,"../","words"),'utf8').split("\n");
+	var sj=[];
+	for (var j=0;j<words.length;j++){
+		if (xugismu(words[j].toLowerCase().replace(/sh/g,"c"))===true){
+			sj.push(words[j]);
+		}
+	}
+	var content = fs.writeFileSync(path.join(__dirname,"../","words-result"),sj.join("\n"));
+};

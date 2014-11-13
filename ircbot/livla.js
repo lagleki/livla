@@ -431,24 +431,6 @@ var processormensi = function(clientmensi, from, to, text, message) {
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
  	case text.indexOf('Tatoeba:') == '0': clientmensi.say(sendTo, sisku(text.substr(8).trim()));break;
- 	
- 	// valsi? (give description in user's default language)
-	/*case (
-		text.trim().indexOf(' ') == -1 // doesn't include whitespaces between words
-		&& (
-			text.trim().indexOf('?') === 0 // question mark is the first character
-			|| text.trim().substr(-1) === '?' // question mark is the last character
-		)
-	):
-		text = text.trim().replace(/\?/g, '');
-		inLanguage = defaultLanguage;
-		inLanguage = RetrieveUsersLanguage(from, inLanguage);
-
-		clientmensi.say(
-			sendTo,
-			vlaste(text, inLanguage, 'passive') // 'passive' flag means that the asker may be asking indirectly, so errors should not be sent
-		);
-		break;*/
 /* 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
  	case text.indexOf(prereplier + 'xu do') == '0': 
  	case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {clientmensi.say(sendTo, from + mireturn());}, interm );break;

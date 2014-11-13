@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html manifest='webapp.appcache'>
 <head>
-  <title>la sutsis zo'u: ze'i vlasisku</title>
+  <title>la sutsis: serĉi vortojn rapide</title>
   <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
   <!--<link rel='stylesheet' href='lib/Lato.css'>-->
   <style type="text/css">
@@ -136,7 +136,7 @@
       <div id='header-wrapper' flex layout horizontal center>
         <span class='site-title'>la sutsis</span>
         <div flex></div>
-        <input id='typehere' type='text' placeholder="поиск" autofocus>
+        <input id='typehere' type='text' placeholder="serĉi" autofocus>
       </div>
     </div>
 
@@ -144,14 +144,14 @@
       <div id='content-panel'>
         <div id='description'>
           <p>
-            <b>la sutsis</b> - быстрый словарь ложбана.
+            <b>la sutsis</b> is a fast dictionary for the Esperanto language.
           <p>
-- Будет ли эта страничка открываться, если у меня будет недоступен интернет?<br>- Да, если это случится, всё равно откройте этот же адрес с этого же самого браузера.<br> Страничка всё равно должна открыться. Требуется последняя версия браузера Chrome, Яндекс Браузера, Safari или Firefox. Работает на устройствах Android и Apple.<br><br>Больше информации о ложбане доступно на <a href="http://mw.lojban.org" target="_blank">сайте языка Lojban</a>. Предложения можно писать на адрес <a href="mailto:gleki.is.my.name@gmail.com" target="_blank">gleki.is.my.name@gmail.com</a>.</p>
+- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br><br>For more resources visit <a href="https://www.facebook.com/groups/tiddlydict" target="_blank">Facebook TiddlyDict group</a> or e-mail <a href="mailto:gleki.is.my.name@gmail.com" target="_blank">gleki.is.my.name@gmail.com</a>.</p>
         </div>
         <div id='output'></div>
 
         <div id='loading'>
-          <span class='message'>Грузим базу</span>...<br>
+          <span class='message'>Loading dictionary</span>...<br>
           <paper-progress id='progress' value='0'></paper-progress>
         </div>
       </div>

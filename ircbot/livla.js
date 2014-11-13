@@ -193,6 +193,7 @@ var updatexmldumps = function (callback) {
 			});
 		});
 	}catch(err){console.log('Error when autoupdating: ' + err);}
+	sutsisningau("zamenhofo");sutsisningau("laadan");
 };
 var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));//store en dump in memory
 
@@ -1261,7 +1262,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		if (i<rev.length-1){pars+=",\n";}
 	}
 	pars+="};\n";
-rev = xmlDocEn.find("/dictionary/direction[2]/nlword");
+rev = xmlDoc.find("/dictionary/direction[2]/nlword");
 var nl='var literals = {';
 	for (i=0;i<rev.length;i++) {
 		nl+="\""+rev[i].attr("word").value().replace(/"/g,"'").replace(/\\/g,"\\")+"\":[\""+rev[i].attr("valsi").value().replace(/"/g,"'").replace(/\\/g,"\\")+"\"]";
@@ -1273,10 +1274,8 @@ var nl='var literals = {';
 	var t = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
 	pars = fs.writeFileSync(t+".temp",pars);
 	fs.renameSync(t+".temp",t);
-	t = path.join(__dirname,"../i/","webapp.appcache");
-	pars=fs.readFileSync(t,'utf8');
-	pars = fs.writeFileSync(t,pars);
-	console.log(t + ' updated');
+	t = path.join(__dirname,"../i/"+lng+"/","webapp.appcache");
+	try{pars=fs.readFileSync(t,'utf8');pars = fs.writeFileSync(t,pars);console.log(t + ' updated');}catch(err){}
 };
 
 var lmw = function (lin,sendTo){//to be done

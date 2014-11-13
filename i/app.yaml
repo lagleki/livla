@@ -21,9 +21,12 @@ handlers:
 - url: ./search.js
   static_files: search.js
   upload: search.js
-- url: ./worker.js
-  static_files: worker.js
-  upload: worker.js
+- url: ./data/worker-en.js
+  static_files: worker-en.js
+  upload: worker-en.js
+- url: ./data/worker-toki.js
+  static_files: worker-toki.js
+  upload: worker-toki.js
 - url: ./lujvo.js
   static_files: lujvo.js
   upload: lujvo.js

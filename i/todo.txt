@@ -1,6 +1,0 @@
-TODO:
-
-stemming
-Chrome extension
-
-in entries for gismu, include links to some or all of the lujvo incorporating those gismu.  Possibly only for the lujvo for which the gismu is the tertau.

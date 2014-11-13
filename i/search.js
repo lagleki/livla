@@ -6,7 +6,7 @@ function search(query, callback) {
   limit = 10;
   words.push(query);
 
-  if (query.length == 0) {
+  if (query.length === 0) {
     return;
   }
   var set = {};
@@ -21,18 +21,18 @@ function search(query, callback) {
     }
     results.push(doc);
   }
-  if (results.length === 0) {
+  //if (results.length === 0) {
     var rafsiDecompositions = parseLujvo(query);
-    for (var i = 0; i < rafsiDecompositions.length; i++) {
+    for (i = 0; i < rafsiDecompositions.length; i++) {
       var decomposition = rafsiDecompositions[i];
       results.push({
-        type: 'unknown lujvo',
+        type: 'decomposing ...',
         word: query,
         rafsi: decomposition,
         rafsiDocuments: decomposition.map(function(r){return rafsi[r] || documentStore[r]})
-      })
+      });
     }
-  }
+  //}
   var greatMatches = [];
   searchEngine.lookup(query, function(engineResults) {
     if (!engineResults) {

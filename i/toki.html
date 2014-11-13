@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html manifest='webapp.appcache'>
+<html manifest='webapp.appcache-toki'>
 <head>
-  <title>la sutsis zo'u: ze'i mitysisku lo valsi</title>
+  <title>ilo sutsis o lukin !</title>
   <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
-  <!--<link rel='stylesheet' href='lib/Lato.css'>-->
+  <link rel='stylesheet' href='lib/Lato.css'>
   <style type="text/css">
     .container .credit {
       margin: 20px 0;
@@ -144,9 +144,9 @@
       <div id='content-panel'>
         <div id='description'>
           <p>
-            <b>la sutsis</b> is a fast dictionary for the Lojban language.
+            <b>la sutsis</b> is a fast dictionary for toki pona.
           <p>
-- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br><br>For more resources visit <a href="http://mw.lojban.org" target="_blank">Lojban Wiki</a>.
+- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br><br>For more resources visit <a href="https://www.facebook.com/groups/tiddlydict" target="_blank">Facebook TiddlyDict group</a> or e-mail <a href="mailto:gleki.is.my.name@gmail.com" target="_blank">gleki.is.my.name@gmail.com</a>.
         </div>
         <div id='output'></div>
 
@@ -165,7 +165,7 @@
     var output = $("#output");
     var description = $("#description");
     var progress = $('#progress');
-    var worker = new Worker('./data/worker-en.js');
+    var worker = new Worker('./data/worker-toki.js');
     var resultCount;
     var results = [];
     var ready = false;

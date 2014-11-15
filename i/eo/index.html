@@ -123,7 +123,6 @@
   <meta name="msapplication-TileColor" content="#00a300">
   <meta name="msapplication-TileImage" content="../favicons/mstile-144x144.png">
   <meta name="application-name" content="la sutsis">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src='../polymerchromeapp/components/platform/platform.js'></script>
   <link rel='import' href='../polymerchromeapp/components/polymer/polymer.html'>
   <link rel='import'
@@ -137,7 +136,7 @@
       <div id='header-wrapper' flex layout horizontal center>
         <span class='site-title'>la sutsis</span>
         <div flex></div>
-        <input id='typehere' type='text' placeholder="search" autofocus>
+        <input id='typehere' type='text' placeholder="serĉi" autofocus>
       </div>
     </div>
 
@@ -145,20 +144,24 @@
       <div id='content-panel'>
         <div id='description'>
           <p>
-            <b>la sutsis</b> is a fast dictionary for the Lojban language.
+            <b>la sutsis</b> estas rapida vortara ilo por la lingvo Loĵbana.
           <p>
-- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br><br>For more resources visit <a href="http://mw.lojban.org" target="_blank">Lojban Wiki</a>.
+- Ĉu mi povas ĝin uzi tiam, kiam mi estas malkonektite el la Interreto?<br>
+- Jes, tiaokaze provu malfermi tiun adreson per via komputilo.<br>
+Ĝi devus malfermiĝi malgraŭe. Necesas Freŝdata versio de Chrome, Safari aŭ Firefox.<br><br>
+Por pluaj resursoj, vizitu <a href="http://mw.lojban.org" target="_blank">la Loĵbanan Vikion.</a>.
         </div>
         <div id='output'></div>
 
         <div id='loading'>
-          <span class='message'>Loading dictionary</span>...<br>
+          <span class='message'>Ŝargando vortaron</span>...<br>
           <paper-progress id='progress' value='0'></paper-progress>
         </div>
       </div>
     </div>
   </core-header-panel>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
     var limit;
     var typehere = $("#typehere");

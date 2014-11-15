@@ -123,13 +123,26 @@
   <meta name="msapplication-TileColor" content="#00a300">
   <meta name="msapplication-TileImage" content="../favicons/mstile-144x144.png">
   <meta name="application-name" content="la sutsis">
+<script> 
+var $buoop = {vs:{i:10,f:20,o:17,s:6},c:2}; 
+function $buo_f(){ 
+ var e = document.createElement("script"); 
+ e.src = "//browser-update.org/update.js"; 
+ document.body.appendChild(e);
+};
+try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+catch(e){window.attachEvent("onload", $buo_f)}
+</script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script src='../polymerchromeapp/components/platform/platform.js'></script>
-  <link rel='import' href='../polymerchromeapp/components/polymer/polymer.html'>
+  <script src='../webcomponentsjs/webcomponents.js'></script>
+  <script src='../core/spec/core.js'></script>
+  <link rel='import' href='../polymer/polymer.html'>
   <link rel='import'
-        href='../polymerchromeapp/components/core-header-panel/core-header-panel.html'>
+        href='../core-header-panel/core-header-panel.html'>
   <link rel='import'
-        href='../polymerchromeapp/components/paper-progress/paper-progress.html'>
+        href='../paper-progress/paper-progress.html'>
+  <link rel="stylesheet" href="css/x-tag-components.css" type="text/css" />
+  <script src="js/x-tag-components.js"></script>
 </head>
 <body fullbleed layout vertical unresolved>
   <core-header-panel mode='seamed' flex>

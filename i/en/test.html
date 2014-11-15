@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>sutsis: ze'i vlasisku</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <style type="text/css">
+    /* Sticky footer styles
+    -------------------------------------------------- */
+
+    html,
+    body {
+      height: 100%;
+      /* The html and body elements cannot have any padding or margin. */
+    }
+
+    /* Wrapper for page content to push down footer */
+    #wrap {
+      min-height: 100%;
+      height: auto !important;
+      height: 100%;
+      /* Negative indent footer by it's height */
+      margin: 0 auto -60px;
+    }
+
+    /* Set the fixed height of the footer here */
+    #push,
+    #footer {
+      height: 60px;
+    }
+    #footer {
+      background-color: #f5f5f5;
+    }
+
+    /* Lastly, apply responsive CSS fixes as necessary */
+    @media (max-width: 767px) {
+      #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+
+
+    /* Custom page CSS
+    -------------------------------------------------- */
+    /* Not required for template or sticky footer method. */
+
+    .container {
+      width: auto;
+      max-width: 680px;
+    }
+    .container .credit {
+      margin: 20px 0;
+    }
+
+
+
+
+    h4 {
+      display: inline;
+    }
+    .type {
+      display: inline;
+      font-style: italic;
+      margin-left: 25px;
+    }
+    .definition {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .term {
+      margin: 30px;
+    }
+    #search {
+      display: none;
+    }
+    .rafsi {
+      font-size: 90%;
+    }
+    .rafsi span {
+      font-style: italic;
+      margin-left: 15px;
+    }
+    .right-header {
+      float: right;
+      margin-top: 14px;
+    }
+    #typehere {
+      height: 30px;
+      width: 206px;
+    }
+    .bug-tracker {
+      float:right;
+    }
+  </style>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+  <div id="wrap">
+    <div class="container">
+      <div class="page-header">
+        <div class='right-header'>
+          <div id='loading'>
+            <img src="../loading.gif">
+          </div>
+          <div id='search'>
+            <div class="control-group">
+              <div class="controls">
+                <div class="input-prepend">
+                  <span class="add-on"><i class="icon-search"></i></span>
+                  <input class="span2" id="typehere" type="text" autofocus>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h1>sutsis</h1>
+
+      </div>
+
+      <div id='output'></div>
+
+    </div>
+
+    <div id="push"></div>
+  </div>
+
+  <div id="footer">
+    <div class="container">
+      <p class="bug-tracker muted credit">Please file any issues <a href='https://github.com/rictic/sutsis/issues'>here</a></p>
+      <p class="muted credit">View source on github: <a href="http://github.com/rictic/sutsis">rictic/sutsis</a>.</p>
+
+    </div>
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>
+    var limit;
+    var typehere = $("#typehere");
+    var output = $("#output");
+    var worker = new Worker('worker.js');
+    var resultCount;
+    var results = [];
+    var ready = false;
+    worker.onmessage = function(ev) {
+      if (!ev.data) {
+        console.error(ev);
+        throw new Error("got bad data from worker: " + JSON.stringify(ev.data))
+      }
+      if (ev.data.kind == 'ready') {
+        engineReady();
+      } else if (ev.data.kind == 'searchResults') {
+        if (ev.data.query !== typehere.val()) {
+          return;
+        }
+        results = ev.data.results;
+        displayResults();
+      }
+    };
+
+    function engineReady(arg) {
+      ready = true;
+      $("#loading").remove();
+      $("#search").show();
+      doSearch();
+    }
+
+    function checkScrolledNearBottom() {
+      var windowBottom = ($(window).scrollTop() + window.innerHeight);
+      var bottom = $(document).height() - 700;
+      var isClose = windowBottom >= bottom;
+      if(isClose) {
+        limit += 10;
+        displayResults();
+      }
+    }
+    $(window).scroll(checkScrolledNearBottom);
+
+    function lojTemplate(s) {
+      s = s.replace(/\$.*?\$/g, function(c) {
+        c = c.substring(1, c.length-1);
+        return c.replace(/(\w)_\{?(\d+)\}?/g, "$1<sub>$2</sub>")
+      });
+      s = s.replace(/\{(.*?)\}/g, function(c) {
+        var c = c.substring(1, c.length-1);
+        return '<a href="#search/' + encodeURIComponent(c) + '">' + c + "</a>"
+      });
+      return s;
+    }
+
+    function displayDocument(def) {
+      var out = $("<div>").addClass('term');
+      out.append($("<heading>")
+          .append($("<h4>").text(def.word + ' '))
+          .append($("<div>").addClass('type').text(def.type + ' '))
+      );
+      if (def.definition) {
+        $("<div>").addClass('definition').html(lojTemplate(def.definition) + ' ').appendTo(out);
+      } else {
+        var subDefs = $("<div>").addClass('definition').addClass('subdefinitions');
+        for (var i = 0; i < def.rafsiDocuments.length; i++) {
+          displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);
+        }
+        subDefs.appendTo(out);
+      }
+
+
+      if (def.notes) {
+        out.append($('<div>').addClass('notes').html(lojTemplate(def.notes) + ' '));
+      }
+
+      if (def.rafsi && def.rafsi.length > 0) {
+        var rafsi = $("<div>").addClass('rafsi');
+        rafsi.append("rafsi: ");
+        for (var i = 0; i < def.rafsi.length; i++) {
+          var rafElem = $("<span>").appendTo(rafsi);
+          var raf = def.rafsi[i];
+          if (def.type.match(/lujvo/)) {
+            rafElem.append($("<a>").attr('href', '#search/' + encodeURIComponent(raf)).text(raf));
+          } else {
+            rafElem.text(raf);
+          }
+          rafElem.append(' ');
+        }
+        rafsi.appendTo(out);
+      }
+      out.find('a').click(function(el) {
+        if (el.ctrlKey || el.metaKey) { // let the user open in new tabs
+          return;
+        }
+        window.history.pushState({}, null, $(el.target).attr('href'));
+        handleUrl();
+        return false;
+      });
+      return out;
+    }
+
+    var searchIdCounter = 0;
+    var prevQuery;
+    var lastQueried = now();
+    function doSearch() {
+      var query = typehere.val();
+      if (query === prevQuery) {
+        return;
+      }
+      prevQuery = query;
+      updateUrl(query);
+
+      var searchId = ++searchIdCounter;
+      output.empty();
+      limit = 10;
+      resultCount = 0;
+      worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
+    }
+    typehere.keyup(doSearch);
+
+    function updateUrl(query) {
+      var url = '';
+      if (query.length > 0) {
+        url = '#search/' + query
+      }
+      if (url == window.location.pathname) {
+        return;
+      }
+      var difference = now() - lastQueried;
+      if (difference > 2000) {
+        window.history.pushState({}, null, url);
+      } else {
+        window.history.replaceState({}, null, url);
+      }
+      lastQueried = now();
+    }
+    function handleUrl() {
+      var searchMatch = window.location.pathname.match(/\#search\/(.*)/);
+      query = '';
+      if (searchMatch) {
+        var query = decodeURIComponent(searchMatch[1]);
+      }
+      typehere.val(query);
+      if (ready) {
+        doSearch();
+      }
+    }
+    handleUrl();
+    window.addEventListener('popstate', handleUrl);
+    $(document.body).keyup(function(ev) {
+      if (ev.keyCode === 191) {  // The '/' character
+        typehere.focus();
+      }
+    })
+
+    function displayResults() {
+      var displayUpTo = Math.min(limit, results.length);
+      for (; resultCount < displayUpTo; resultCount++) {
+        displayDocument(results[resultCount]).appendTo(output);
+      }
+    }
+
+    function now() {
+      if (window.performance) {
+        if (performance.now) {
+          return performance.now();
+        }
+      }
+      return +new Date();
+    }
+  </script>
+</body>
+</html>

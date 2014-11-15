@@ -10,7 +10,7 @@ return [
 	["pu","pa"],["ca","na"],["ba","fa"],["zi","zi"],["za","za"],["zu","zu"],["ka'e","gau"],
 	["pu ca'o","pia"],["ca ca'o","nia"],["ba ca'o","fia"],
 	["pu ta'e","pua"],["ca ta'e","nua"],["ba ta'e","fua"],
-	["vi","vi"],["va","va"],["vu","vu"],
+	["vi","vi"],["va","va"],["vu","vu"],["ka'ai","kii"],
 	["lo","le"],["la","la"],["loi","lo"],
 	["lu","li"],["li'u","lu"],["la'e","lae"],["li","lio"],["lo'e","loe"],
 	["ti","ti"],["ta","ta"],

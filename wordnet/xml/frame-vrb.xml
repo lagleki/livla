@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="frame-vrb.rnc" type="application/relax-ng-compact-syntax"?><verb-frames source="dict/frames.vrb">
+   <frame no="1">Something ----s</frame>
+   <frame no="2">Somebody ----s</frame>
+   <frame no="3">It is ----ing</frame>
+   <frame no="4">Something is ----ing PP</frame>
+   <frame no="5">Something ----s something Adjective/Noun</frame>
+   <frame no="6">Something ----s Adjective/Noun</frame>
+   <frame no="7">Somebody ----s Adjective</frame>
+   <frame no="8">Somebody ----s something</frame>
+   <frame no="9">Somebody ----s somebody</frame>
+   <frame no="10">Something ----s somebody</frame>
+   <frame no="11">Something ----s something</frame>
+   <frame no="12">Something ----s to somebody</frame>
+   <frame no="13">Somebody ----s on something</frame>
+   <frame no="14">Somebody ----s somebody something</frame>
+   <frame no="15">Somebody ----s something to somebody</frame>
+   <frame no="16">Somebody ----s something from somebody</frame>
+   <frame no="17">Somebody ----s somebody with something</frame>
+   <frame no="18">Somebody ----s somebody of something</frame>
+   <frame no="19">Somebody ----s something on somebody</frame>
+   <frame no="20">Somebody ----s somebody PP</frame>
+   <frame no="21">Somebody ----s something PP</frame>
+   <frame no="22">Somebody ----s PP</frame>
+   <frame no="23">Somebody's (body part) ----s</frame>
+   <frame no="24">Somebody ----s somebody to INFINITIVE</frame>
+   <frame no="25">Somebody ----s somebody INFINITIVE</frame>
+   <frame no="26">Somebody ----s that CLAUSE</frame>
+   <frame no="27">Somebody ----s to somebody</frame>
+   <frame no="28">Somebody ----s to INFINITIVE</frame>
+   <frame no="29">Somebody ----s whether INFINITIVE</frame>
+   <frame no="30">Somebody ----s somebody into V-ing something</frame>
+   <frame no="31">Somebody ----s something with something</frame>
+   <frame no="32">Somebody ----s INFINITIVE</frame>
+   <frame no="33">Somebody ----s VERB-ing</frame>
+   <frame no="34">It ----s that CLAUSE</frame>
+   <frame no="35">Something ----s INFINITIVE</frame>
+</verb-frames>

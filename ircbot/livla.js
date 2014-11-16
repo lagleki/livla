@@ -23,6 +23,8 @@ var config = {
     debug: false,
     messageSplit: 190,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
+    floodProtection: true,
+    floodProtectionDelay: 1000
   }
 };
 var configmensi = {
@@ -32,7 +34,9 @@ var configmensi = {
     channels: [livlytcan, tcan],
     debug: false,
     messageSplit: 190,
-    realName: 'http://mw.lojban.org/index.php?title=IRC_Bots'
+    realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
+    floodProtection: true,
+    floodProtectionDelay: 1000
   }
 };
 var userSettings = {}; // Saving user preferences

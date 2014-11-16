@@ -1,0 +1,71 @@
+default namespace = ""
+namespace xi = "http://www.w3.org/2001/XInclude"
+
+start = element data {
+    attribute version { xsd:decimal },
+    synsets+
+  }
+
+synsets = element synsets {
+    attribute source { text },
+    attribute xml:base {xsd:anyURI}?, # necessary because of xi:include
+    synset+
+}
+  
+synset = 
+    element synset {
+      attribute id { xsd:ID },
+      attribute type { "n" | "v" | "a" | "r" | "s" },
+      element lex_filenum { xsd:integer },
+      element word {
+        attribute lex_id { xsd:integer },
+        text
+      }+,
+      element pointer {
+        attribute refs { xsd:IDREFS },
+        attribute source { xsd:integer }?,
+        attribute target { xsd:integer }?,
+        pointer-type
+      }*,
+      element frame {
+        attribute f_num { xsd:integer },
+        attribute w_num { xsd:integer }?
+      }*,
+      (element def { text }
+       | element example {
+                attribute author{text}?,
+                text 
+          }
+       )+
+    }
+    
+pointer-type = 
+    "Also see" |
+    "Antonym" |
+    "Attribute" |
+    "Cause" |
+    "Derivationally related form" |
+    "Derived from adjective" |
+    "Domain of synset - REGION" |
+    "Domain of synset - TOPIC" |
+    "Domain of synset - USAGE" |
+    "Domain of synset" |
+    "Entailment" |
+    "Hypernym" |
+    "Hyponym" |
+    "Instance Hypernym" |
+    "Instance Hyponym" |
+    "Member holonym" |
+    "Member meronym" |
+    "Member of this domain - REGION" |
+    "Member of this domain - TOPIC" |
+    "Member of this domain - USAGE" |
+    "Part holonym" |
+    "Part meronym" |
+    "Participle of verb" |
+    "Pertainym (pertains to noun)" |
+    "Similar to" |
+    "Substance holonym" |
+    "Substance meronym" |
+    "Verb Group" 
+

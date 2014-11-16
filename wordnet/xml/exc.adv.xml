@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<word-forms source="dict/adv.exc" pos="adv">
+<form infl="best"><base>well</base></form>
+<form infl="better"><base>well</base></form>
+<form infl="deeper"><base>deeply</base></form>
+<form infl="farther"><base>far</base></form>
+<form infl="further"><base>far</base></form>
+<form infl="harder"><base>hard</base></form>
+<form infl="hardest"><base>hard</base></form>
+</word-forms>

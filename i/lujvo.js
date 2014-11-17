@@ -5,8 +5,8 @@ function onUpdateDocumentStore() {
     if (def.type.match(/lujvo/)) {
       continue;
     }
-    for (var i = 0; i < def.rafsi.length; i++) {
-      rafsi[def.rafsi[i]] = def;
+    for (var i = 0; i < (def.rafsi||[]).length; i++) {
+      rafsi[(def.rafsi[i]||'')] = def;
     }
   }
 }

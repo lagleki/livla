@@ -89,7 +89,7 @@ function initializer(injector, callback) {
   var valuesArray = [];
   for (var key in documentStore) {
     var doc = documentStore[key];
-    var text = [doc.word, doc.type, doc.definition, doc.notes, doc.rafsi.join(' ')].join(' ');
+    var text = [doc.word, doc.type, doc.definition, doc.notes, (doc.rafsi||[]).join(' ')].join(' ');
     wordsArray.push(text);
     valuesArray.push(key);
   }

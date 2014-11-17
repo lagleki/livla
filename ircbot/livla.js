@@ -1261,7 +1261,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		}
 		ra=ra.join("\",\"");
 		
-		if (ra.length!==0){pars+=",\"rafsi\":[\""+ra+"\"]";}else{pars+=",\"rafsi\":[]";}
+		if (ra.length!==0){pars+=",\"rafsi\":[\""+ra+"\"]";}//else{pars+=",\"rafsi\":[]";}//not needed anymore due to gleki's fixes
 		pars+="}";
 		if (i<rev.length-1){pars+=",\n";}
 	}

@@ -1263,23 +1263,25 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		
 		if (ra.length!==0){pars+=",\"rafsi\":[\""+ra+"\"]";}//else{pars+=",\"rafsi\":[]";}//not needed anymore due to gleki's fixes
 		pars+="}";
-		if (i<rev.length-1){pars+=",\n";}
+		if (i<rev.length-1){pars+=",";}//\n
 	}
-	pars+="};\n";
+	pars+="};";//\n
 rev = xmlDoc.find("/dictionary/direction[2]/nlword");
 var nl='var literals = {';
 	for (i=0;i<rev.length;i++) {
 		nl+="\""+rev[i].attr("word").value().replace(/"/g,"'").replace(/\\/g,"\\")+"\":[\""+rev[i].attr("valsi").value().replace(/"/g,"'").replace(/\\/g,"\\")+"\"]";
 		nl+="";
-		if (i<rev.length-1){nl+=",\n";}
+		if (i<rev.length-1){nl+=",";}//\n
 	}
-	nl+="};\n";
+	nl+="};";//\n
 	pars+=nl;
 	var t = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
 	pars = fs.writeFileSync(t+".temp",pars);
 	fs.renameSync(t+".temp",t);
 	t = path.join(__dirname,"../i/"+lng+"/","webapp.appcache");
-	try{pars=fs.readFileSync(t,'utf8');pars = fs.writeFileSync(t,pars);console.log(t + ' updated');}catch(err){}
+	var d = new Date();
+	var n = d.getDate();
+	if(n==1){try{pars=fs.readFileSync(t,'utf8');pars = fs.writeFileSync(t,pars);console.log(t + ' updated');}catch(err){}}
 };
 
 var lmw = function (lin,sendTo){//to be done

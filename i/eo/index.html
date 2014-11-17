@@ -250,7 +250,7 @@ Por pluaj resursoj, vizitu <a href="http://mw.lojban.org" target="_blank">la LoÄ
             $('<div>').addClass('notes').html(lojTemplate(def.notes) + ' '));
       }
 
-      if (def.rafsi && def.rafsi.length > 0) {
+      if ((def.rafsi||[]) && (def.rafsi||[]).length > 0) {
         var rafsi = $("<div>").addClass('rafsi');
         rafsi.append("rafsi: ");
         for (var i = 0; i < def.rafsi.length; i++) {

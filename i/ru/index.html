@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest='webapp.appcache'>
 <head>
   <title>la sutsis zo'u: ze'i vlasisku</title>
   <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
@@ -247,7 +247,7 @@
             $('<div>').addClass('notes').html(lojTemplate(def.notes) + ' '));
       }
 
-      if (def.rafsi && def.rafsi.length > 0) {
+      if ((def.rafsi||[]) && (def.rafsi||[]).length > 0) {
         var rafsi = $("<div>").addClass('rafsi');
         rafsi.append("rafsi: ");
         for (var i = 0; i < def.rafsi.length; i++) {

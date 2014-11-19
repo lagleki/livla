@@ -1,3 +1,7 @@
 ircbot/dumps/*.xml
+!ircbot/dumps/loglan.xml
+!ircbot/dumps/laadan.xml
+!ircbot/dumps/guaspi.xml
+!ircbot/dumps/toki.xml
 ircbot/dumps/*.pdf
 i/data/*.*

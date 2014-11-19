@@ -1,0 +1,10 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+start = element verb-frames {
+             attribute source {text},
+             frame+
+        }
+frame = element frame {
+             attribute no {xsd:positiveInteger},
+             text
+        }

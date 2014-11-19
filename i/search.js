@@ -6,7 +6,7 @@ function search(query, callback) {
   limit = 10;
   words.push(query);
 
-  if (query.length == 0) {
+  if (query.length === 0) {
     return;
   }
   var set = {};
@@ -21,18 +21,18 @@ function search(query, callback) {
     }
     results.push(doc);
   }
-  if (results.length === 0) {
+  //if (results.length === 0) {
     var rafsiDecompositions = parseLujvo(query);
-    for (var i = 0; i < rafsiDecompositions.length; i++) {
+    for (i = 0; i < rafsiDecompositions.length; i++) {
       var decomposition = rafsiDecompositions[i];
       results.push({
-        type: 'unknown lujvo',
+        type: 'decomposing ...',
         word: query,
         rafsi: decomposition,
         rafsiDocuments: decomposition.map(function(r){return rafsi[r] || documentStore[r]})
-      })
+      });
     }
-  }
+  //}
   var greatMatches = [];
   searchEngine.lookup(query, function(engineResults) {
     if (!engineResults) {
@@ -51,7 +51,7 @@ function search(query, callback) {
       if (!doc) {
         continue;
       }
-      if (doc.word === query || (doc.type == 'gismu' && ((doc.rafsi || []).indexOf(query) != -1))) {
+      if (key === query || (doc.type == 'gismu' && ((doc.rafsi || []).indexOf(query) != -1))) {
         greatMatches.push(doc);
         continue;
       }
@@ -89,7 +89,7 @@ function initializer(injector, callback) {
   var valuesArray = [];
   for (var key in documentStore) {
     var doc = documentStore[key];
-    var text = [doc.word, doc.type, doc.definition, doc.notes, doc.rafsi.join(' ')].join(' ');
+    var text = [key, doc.type, doc.definition, doc.notes, (doc.rafsi||[]).join(' ')].join(' ');
     wordsArray.push(text);
     valuesArray.push(key);
   }

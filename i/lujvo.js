@@ -5,8 +5,8 @@ function onUpdateDocumentStore() {
     if (def.type.match(/lujvo/)) {
       continue;
     }
-    for (var i = 0; i < def.rafsi.length; i++) {
-      rafsi[def.rafsi[i]] = def;
+    for (var i = 0; i < (def.rafsi||[]).length; i++) {
+      rafsi[(def.rafsi[i]||'')] = def;
     }
   }
 }
@@ -60,14 +60,14 @@ function decomposeIntoCandidateRafsi(lujvo, someTaken) {
   var newCandidates = [];
   for (var i = 0; i < candidates.length; i++) {
     if (candidates[i][1].charAt(0) in {'y':true, 'n':true, 'r':true}) {
-      newCandidates.push([candidates[i][0], candidates[i][1].substring(1)])
+      newCandidates.push([candidates[i][0], candidates[i][1].substring(1)]);
     }
     newCandidates.push(candidates[i]);
   }
   candidates = newCandidates;
 
   var results = [];
-  for (var i = 0; i < candidates.length; i++) {
+  for (i = 0; i < candidates.length; i++) {
     var head = candidates[i][0], tail = candidates[i][1];
     var decomposedTail = decomposeIntoCandidateRafsi(tail, true);
     if (decomposedTail === []) {
@@ -99,7 +99,7 @@ It is forbidden for both consonants to be the same, as this would violate the ru
     's', 't', 'v', 'w', 'x', 'z'
 ].map(function(consonant) {
   impermissibleConsonentPairs[consonant + consonant] = true;
-})
+});
 
 /*
 2)

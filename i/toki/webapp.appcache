@@ -1,0 +1,42 @@
+CACHE MANIFEST
+
+# Version 1.54
+
+CACHE:
+./
+../search.js
+./worker.js
+../lujvo.js
+../data/parsed-toki.js?version=6
+
+../lib/fullproof/unicode/categ_letters_numbers.js
+../lib/fullproof/unicode/normalizer_lowercase_nomark.js
+../lib/fullproof/unicode/unicode.js
+../lib/fullproof/analyzers.js
+../lib/fullproof/normalizers.js
+../lib/fullproof/misc/dataloader.js
+../lib/fullproof/capabilities.js
+../lib/fullproof/utils.js
+../lib/fullproof/common-engine.js
+../lib/fullproof/boolean-engine.js
+../lib/fullproof/resultsets.js
+../lib/fullproof/storemanager.js
+../lib/fullproof/stores/memory_store.js
+
+../polymerchromeapp/components/platform/platform.js
+../polymerchromeapp/components/polymer/polymer.html
+../polymerchromeapp/components/polymer/layout.html
+../polymerchromeapp/components/polymer/polymer.js
+../polymerchromeapp/components/core-header-panel/core-header-panel.html
+../polymerchromeapp/components/core-header-panel/core-header-panel.css
+../polymerchromeapp/components/core-range/core-range.html
+../polymerchromeapp/components/paper-progress/paper-progress.html
+../polymerchromeapp/components/paper-progress/paper-progress.css
+http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+
+NETWORK:
+https://ssl.google-analytics.com/
+http://www.google-analytics.com/
+
+FALLBACK:
+/search/ ./

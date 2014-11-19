@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A random selection of elements from exc.xml-->
+<?xml-model href="exc.rnc" type="application/relax-ng-compact-syntax"?>
+<exc version="3.0">
+   <word-forms source="dict/adj.exc" pos="adj" xml:base="exc.adj.xml"><!--10 out of 1490 elements-->
+    <form infl="acer">
+         <base>acer</base>
+      </form>
+      <form infl="cheeriest">
+         <base>cheery</base>
+      </form>
+      <form infl="draughtier">
+         <base>draughty</base>
+      </form>
+      <form infl="funkiest">
+         <base>funky</base>
+      </form>
+      <form infl="horniest">
+         <base>horny</base>
+      </form>
+      <form infl="mightiest">
+         <base>mighty</base>
+      </form>
+      <form infl="plummier">
+         <base>plummy</base>
+      </form>
+      <form infl="scraggliest">
+         <base>scraggly</base>
+      </form>
+      <form infl="spikiest">
+         <base>spiky</base>
+      </form>
+      <form infl="tipsier">
+         <base>tipsy</base>
+      </form>
+   </word-forms>
+   <word-forms source="dict/adv.exc" pos="adv" xml:base="exc.adv.xml"><!--7 out of 7 elements-->
+    <form infl="best">
+         <base>well</base>
+      </form>
+      <form infl="better">
+         <base>well</base>
+      </form>
+      <form infl="deeper">
+         <base>deeply</base>
+      </form>
+      <form infl="farther">
+         <base>far</base>
+      </form>
+      <form infl="further">
+         <base>far</base>
+      </form>
+      <form infl="harder">
+         <base>hard</base>
+      </form>
+      <form infl="hardest">
+         <base>hard</base>
+      </form>
+   </word-forms>
+   <word-forms source="dict/noun.exc" pos="noun" xml:base="exc.noun.xml"><!--10 out of 2054 elements-->
+    <form infl="aardwolves">
+         <base>aardwolf</base>
+      </form>
+      <form infl="beeves">
+         <base>beef</base>
+      </form>
+      <form infl="colluvia">
+         <base>colluvium</base>
+      </form>
+      <form infl="enneahedra">
+         <base>enneahedron</base>
+      </form>
+      <form infl="goings-over">
+         <base>going-over</base>
+      </form>
+      <form infl="labra">
+         <base>labrum</base>
+      </form>
+      <form infl="moriscoes">
+         <base>morisco</base>
+      </form>
+      <form infl="perithecia">
+         <base>perithecium</base>
+      </form>
+      <form infl="salvoes">
+         <base>salvo</base>
+      </form>
+      <form infl="syllabi">
+         <base>syllabus</base>
+      </form>
+   </word-forms>
+   <word-forms source="dict/verb.exc" pos="verb" xml:base="exc.verb.xml"><!--10 out of 2401 elements-->
+    <form infl="abetted">
+         <base>abet</base>
+      </form>
+      <form infl="caballing">
+         <base>cabal</base>
+      </form>
+      <form infl="dibbed">
+         <base>dib</base>
+      </form>
+      <form infl="forspoke">
+         <base>forspeak</base>
+      </form>
+      <form infl="interlapping">
+         <base>interlap</base>
+      </form>
+      <form infl="nabbing">
+         <base>nab</base>
+      </form>
+      <form infl="preachified">
+         <base>preachify</base>
+      </form>
+      <form infl="seed">
+         <base>seed</base>
+      </form>
+      <form infl="stepping">
+         <base>step</base>
+      </form>
+      <form infl="tunnelling">
+         <base>tunnel</base>
+      </form>
+   </word-forms>
+</exc>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html manifest='webapp.appcache'>
+<head>
+  <title>ilo sutsis o lukin !</title>
+  <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
+  <!--<link rel='stylesheet' href='lib/Lato.css'>-->
+  <style type="text/css">
+    .container .credit {
+      margin: 20px 0;
+    }
+    #typehere{font-size:150%;}
+
+    body {
+      font-family: Tahoma, Lato, sans-serif;font-size:90%;
+    }
+
+    h4 {
+      display: inline;
+      margin: 0;
+    }
+    .type {
+      display: inline;
+      font-style: italic;
+      margin-left: 25px;
+      color: rgb(118, 118, 118);
+      font-size: 12px;
+    }
+    .definition {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .term {
+      padding-top: 12px;
+      padding-bottom: 9px;
+      border-bottom-color: rgba(0, 0, 0, 0.0980392);
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+    }
+    .rafsi {
+      margin-top: 8px;
+      font-size: 90%;
+    }
+    .rafsi span {
+      font-style: italic;
+      margin-left: 15px;
+    }
+
+    .bug-tracker {
+      float:right;
+    }
+
+    .core-header {
+      height: 48px;
+      font-size: 18px;
+      padding: 0 10px;
+		background: rgb(109,179,242); /* Old browsers */
+		background: -moz-linear-gradient(top,  rgba(109,179,242,1) 0%, rgba(84,163,238,1) 50%, rgba(54,144,240,1) 51%, rgba(30,105,222,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(109,179,242,1)), color-stop(50%,rgba(84,163,238,1)), color-stop(51%,rgba(54,144,240,1)), color-stop(100%,rgba(30,105,222,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de',GradientType=0 ); /* IE6-9 */
+      color: #FFF;
+    }
+
+    ::selection {
+      background: #2B79E0;
+      color: #fff;
+      text-shadow: none;
+    }
+    .site-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .content {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    #content-panel, #header-wrapper {
+      max-width: 700px;
+      width: 100%;
+    }
+    a {
+      color: #2B79E0;
+      text-decoration: none;
+    }
+    
+    #description {
+      margin-top: 50px;
+      text-align: center;
+
+      text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+      color: #333;
+    }
+    #loading {
+      text-align: center;
+    }
+    sup, sub {
+     vertical-align: baseline;
+     position: relative;
+     top: -0.4em;
+     font-size:70%;
+    }
+    sub { top: 0.4em; }
+  </style>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="la sutsis">
+  <meta name="msapplication-TileColor" content="#00a300">
+  <meta name="application-name" content="la sutsis">
+  <script src='../polymerchromeapp/components/platform/platform.js'></script>
+  <link rel='import' href='../polymerchromeapp/components/polymer/polymer.html'>
+  <link rel='import'
+        href='../polymerchromeapp/components/core-header-panel/core-header-panel.html'>
+  <link rel='import'
+        href='../polymerchromeapp/components/paper-progress/paper-progress.html'>
+</head>
+<body fullbleed layout vertical unresolved>
+  <core-header-panel mode='seamed' flex>
+    <div class='core-header' layout horizontal center-justified>
+      <div id='header-wrapper' flex layout horizontal center>
+        <span class='site-title'>la sutsis</span>
+        <div flex></div>
+        <input id='typehere' type='text' placeholder="search" autofocus>
+      </div>
+    </div>
+
+    <div class='content' layout horizontal center-justified>
+      <div id='content-panel'>
+        <div id='description'>
+          <p>
+            <b>la sutsis</b> is a fast dictionary for toki pona.
+          <p>
+- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br><br>For more resources visit <a href="https://www.facebook.com/groups/tiddlydict" target="_blank">Facebook TiddlyDict group</a> or e-mail <a href="mailto:gleki.is.my.name@gmail.com" target="_blank">gleki.is.my.name@gmail.com</a>.
+        </div>
+        <div id='output'></div>
+
+        <div id='loading'>
+          <span class='message'>Loading dictionary</span>...<br>
+          <paper-progress id='progress' value='0'></paper-progress>
+        </div>
+      </div>
+    </div>
+  </core-header-panel>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    var limit;
+    var typehere = $("#typehere");
+    var output = $("#output");
+    var description = $("#description");
+    var progress = $('#progress');
+    var worker = new Worker('worker.js');
+    var resultCount;
+    var results = [];
+    var ready = false;
+    worker.onmessage = function(ev) {
+      if (!ev.data) {
+        console.error(ev);
+        throw new Error("got bad data from worker: " + JSON.stringify(ev.data))
+      }
+      if (ev.data.kind == 'ready') {
+        engineReady();
+      } else if (ev.data.kind == 'searchResults') {
+        if (ev.data.query !== typehere.val()) {
+          return;
+        }
+        results = ev.data.results;
+        displayResults();
+      } else if (ev.data.kind == 'loading') {
+        $("#loading .message").text(ev.data.message);
+      } else if (ev.data.kind == 'progress') {
+        progress.attr('value', ev.data.percent * 100);
+      }
+    };
+
+    function engineReady(arg) {
+      ready = true;
+      $("#loading").remove();
+      $("#search").show();
+      doSearch();
+    }
+
+    function checkScrolledNearBottom(ev) {
+      var target = ev.detail.target;
+      var windowBottom = target.scrollTop + window.innerHeight;
+      var outputBottom = output.height() - 700;
+      var isClose = windowBottom >= outputBottom;
+      if(isClose) {
+        limit += 10;
+        displayResults();
+      }
+    }
+    document.querySelector('core-header-panel')
+        .addEventListener('scroll', checkScrolledNearBottom);
+    output.scroll();
+
+    function lojTemplate(s) {
+      s = s.replace(/\$.*?\$/g, function(c) {
+        c = c.substring(1, c.length-1);
+        return c.replace(/(\w)_\{?(\d+)\}?/g, "$1<sub>$2</sub>").replace(/[\{\}]/g,'');
+      });
+      s = s.replace(/\{(.*?)\}/g, function(c) {
+        var c = c.substring(1, c.length-1);
+        return '<a href="#search/' + encodeURIComponent(c) + '">' + c + "</a>"
+      });
+      return s;
+    }
+
+    function displayDocument(def) {
+      var out = $("<div>").addClass('term');
+      out.append($("<heading layout flex horizontal end>")
+          .append($("<h4>").text(def.word + ' '))
+          .append($("<div flex>"))
+          .append($("<div>").addClass('type').text(def.type + ' '))
+      );
+      if (def.definition) {
+        $("<div>").addClass('definition').html(
+            lojTemplate(def.definition) + ' ').appendTo(out);
+      } else {
+        var subDefs = $("<div>")
+            .addClass('definition').addClass('subdefinitions');
+        for (var i = 0; i < def.rafsiDocuments.length; i++) {
+          displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);
+        }
+        subDefs.appendTo(out);
+      }
+
+
+      if (def.notes) {
+        out.append(
+            $('<div>').addClass('notes').html(lojTemplate(def.notes) + ' '));
+      }
+
+      if (def.rafsi && def.rafsi.length > 0) {
+        var rafsi = $("<div>").addClass('rafsi');
+        rafsi.append("rafsi: ");
+        for (var i = 0; i < def.rafsi.length; i++) {
+          var rafElem = $("<span>").appendTo(rafsi);
+          var raf = def.rafsi[i];
+          if (def.type.match(/lujvo/)) {
+            rafElem.append(
+                $("<a>").attr(
+                    'href', '#search/' + encodeURIComponent(raf))
+                .text(raf)
+            );
+          } else {
+            rafElem.text(raf);
+          }
+          rafElem.append(' ');
+        }
+        rafsi.appendTo(out);
+      }
+      out.find('a').click(function(el) {
+        if (el.ctrlKey || el.metaKey) { // let the user open in new tabs
+          return;
+        }
+        window.history.pushState({}, null, $(el.target).attr('href'));
+        handleUrl();
+        return false;
+      });
+      return out;
+    }
+
+    var searchIdCounter = 0;
+    var prevQuery;
+    var lastQueried = now();
+    function displayDescription() {
+      if (typehere.val().trim() == '') {
+        output.hide();
+        description.show();
+      } else {
+        description.hide();
+        output.show();
+      }
+    }
+    function doSearch() {
+      displayDescription();
+      var query = typehere.val();
+      if (query === prevQuery) {
+        return;
+      }
+      prevQuery = query;
+      updateUrl(query);
+
+      var searchId = ++searchIdCounter;
+      output.empty();
+      limit = 50;
+      resultCount = 0;
+      worker.postMessage(
+          {kind: 'newSearch', 'query': query, 'searchId': searchId});
+    }
+    typehere.keyup(doSearch);
+    typehere.keydown(displayDescription);
+
+    function updateUrl(query) {
+      var url = '';
+      if (query.length > 0) {
+        url = '#search/' + query
+      }
+      if (url == window.location.pathname || url == '') {
+        return;
+      }
+      var difference = now() - lastQueried;
+      if (difference > 2000) {
+        window.history.pushState({}, null, url);
+      } else {
+        window.history.replaceState({}, null, url);
+      }
+      lastQueried = now();
+    }
+    function handleUrl() {
+      var searchMatch = window.location.href.match(/\#search\/(.*)/);
+      query = '';
+      if (searchMatch) {
+        var query = decodeURIComponent(searchMatch[1]);
+      }
+      typehere.val(query);
+      if (ready) {
+        doSearch();
+      }
+    }
+    handleUrl();
+    window.addEventListener('popstate', handleUrl);
+    $(document.body).keyup(function(ev) {
+      if (ev.keyCode === 191) {  // The '/' character
+        typehere.focus();
+      }
+    })
+
+    function displayResults() {
+      var displayUpTo = Math.min(limit, results.length);
+      for (; resultCount < displayUpTo; resultCount++) {
+        displayDocument(results[resultCount]).appendTo(output);
+      }
+    }
+
+    function now() {
+      if (window.performance) {
+        if (performance.now) {
+          return performance.now();
+        }
+      }
+      return +new Date();
+    }
+	// Check if a new cache is available on page load.
+    var appCache = window.applicationCache;
+	appCache.update();
+	if (appCache.status == window.applicationCache.UPDATEREADY) {
+		appCache.swapCache();
+	}
+	window.addEventListener('load', function(e) {
+	  window.applicationCache.addEventListener('updateready', function(e) {
+	    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+	        window.location.reload();
+	    }
+	  }, false);
+	}, false);
+  </script>
+</body>
+</html>

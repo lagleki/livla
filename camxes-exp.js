@@ -14947,7 +14947,9 @@ var camxes = (function(){
         }
         
         var result0, result1;
+        var pos0;
         
+        pos0 = pos;
         result0 = [];
         if (input.length > pos) {
           result1 = input.charAt(pos);
@@ -14969,6 +14971,12 @@ var camxes = (function(){
               matchFailed("any character");
             }
           }
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) { ret = ""; for (i in expr) ret += (expr[i] === " ") ? "_" : expr[i]; return ret; })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
         }
         
         cache[cacheKey] = {

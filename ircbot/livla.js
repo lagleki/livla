@@ -24,7 +24,7 @@ var config = {
     messageSplit: 190,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
     floodProtection: true,
-    floodProtectionDelay: 1000
+    floodProtectionDelay: 400
   }
 };
 var configmensi = {
@@ -36,7 +36,7 @@ var configmensi = {
     messageSplit: 190,
     realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
     floodProtection: true,
-    floodProtectionDelay: 1000
+    floodProtectionDelay: 400
   }
 };
 var userSettings = {}; // Saving user preferences
@@ -201,7 +201,7 @@ var updatexmldumps = function (callback) {
 };
 var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),'utf8'));//store en dump in memory
 
-setInterval(function(){updatexmldumps()}, 86400000); //update logs once a djedi
+setInterval(function(){updatexmldumps()}, 3*86400000); //update logs once a djedi
 
 var updateUserSettings = function (callback) {
 	readConfig("user-settings.json"); // Ensure existance
@@ -397,7 +397,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo);break;
 	case text.indexOf("jbofihe:") == '0': jbofihe(text.substr(8),sendTo);break;
 	case text.indexOf("gerna:") == '0': jbofihe(text.substr(6),sendTo);break;
-	case text.indexOf(replier + ': ko ningau') == '0': setTimeout(function() {updatexmldumps(function(velruhe) {clientmensi.say(sendTo, 'i ba\'o ningau (ko cusku fi la gleki fe ose du\'u ri cmorgunka'); var selsre = Object.keys(velruhe.nalmulselfaho); if (selsre.length) clientmensi.say(sendTo, 'i na kakne lo ka ningau la\'e zoi zoi ' + selsre.join(' ') + ' zoi');});clientmensi.say(sendTo,'sei ca ca\'o ningau be lo pe mi sorcu');},1); break;
+	case text.indexOf(replier + ': ko ningau') == '0': setTimeout(function() {updatexmldumps(function(velruhe) {clientmensi.say(sendTo, 'i ba\'o ningau'); var selsre = Object.keys(velruhe.nalmulselfaho); if (selsre.length) clientmensi.say(sendTo, 'i na kakne lo ka ningau la\'e zoi zoi ' + selsre.join(' ') + ' zoi');});clientmensi.say(sendTo,'sei ca ca\'o ningau be lo pe mi sorcu');},1); break;
 	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
 	case text.indexOf('frame:/full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(11),'en','framemulno'));break;
@@ -657,7 +657,7 @@ var tordu = function (lin,lng,flag,xmlDoc)
 		else
 		{
 			var xmlPath = path.join(__dirname,"dumps",lng + ".xml");
-			var errorMessage = 'Dictionary for desired "' + lng + '" language does not exits.'; //TODO: Translate to Lojban
+			var errorMessage = 'Dictionary for the desired "' + lng + '" language does not exist.'; //TODO: Translate to Lojban
 			if(!fs.existsSync(xmlPath))
 			{
 				if(flag === 'passive')
@@ -694,8 +694,8 @@ if (gchild===''){
 		lin= '';
 	}
 }else{
-	gchild=gchild.replace(/[\{\}_\$]/igm,"").replace(/`/g,"'").substring(0,1000);
-		if (gchild.length>=1000){
+	gchild=gchild.replace(/[\{\}_\$]/igm,"").replace(/`/g,"'").substring(0,600);
+		if (gchild.length>=600){
 			gchild+='...\n[mo\'u se katna] http://jbovlaste.lojban.org/dict/'+ lin;
 		}
 		if (xulujvo(lin)===true){
@@ -867,7 +867,7 @@ var items = logl.loglandic();
 			lin=lin.join(" ").replace(/ /gm,"* ").replace(/$/gm,"*").replace(/A\*/gm,"").replace(/A$/gm,"");
 		}else
 		{
-			lin=lin.replace(/[^a-z'\. ]/g,'').trim().split(" ");
+			lin=lin.replace(/[^a-z', ]/g,'').replace(/\./g,' ').replace(/ +/g,' ').trim().split(" ");
 			for (i=0;i<items.length;i++)
 			{
 			myregexp = new RegExp("^"+items[i][1]+"$", "gm");
@@ -880,7 +880,7 @@ var items = logl.loglandic();
 		lin=lin.join(" ").replace(/ /gm,"* ").replace(/$/gm,"*").replace(/A\*/gm,"").replace(/A$/gm,"");
 	}
 }catch(err){lin='O_0';}
-	return lin;
+	return lin.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n');
 };
 
 var finti = function (lin)
@@ -1324,14 +1324,12 @@ var jbofihe = function(lin,sendTo){
 	});
 };
 
-var pseudogismu = function(){
-	//a joke function. checks if an English word is  a valid gismu
-	var words = fs.readFileSync(path.join(__dirname,"../","words"),'utf8').split("\n");
+var pseudogismu = function(){//a joke function. checks if an English word is  a valid gismu
+	var words = fs.readFileSync(path.join(__dirname,"../","vale.txt"),'utf8').split("\n");
 	var sj=[];
 	for (var j=0;j<words.length;j++){
-		if (xugismu(words[j].toLowerCase().replace(/sh/g,"c"))===true){
-			sj.push(words[j]);
-		}
+			sj.push(words[j]+" "+run_camxes(words[j].toLowerCase().replace(/sh/g,"c"),3));
 	}
-	var content = fs.writeFileSync(path.join(__dirname,"../","words-result"),sj.join("\n"));
+	var content = fs.writeFileSync(path.join(__dirname,"../","vale-result"),sj.join("\n"));
 };
+//pseudogismu();

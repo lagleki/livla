@@ -32,6 +32,8 @@
  *   -- dbg_bracket_count(str)
  */
 
+alert = console.log;
+
 function camxes_postprocessing(text, mode) {
 	if (!is_string(text)) return "ERROR: Wrong input type.";
 	if (mode == 0) return text;

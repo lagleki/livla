@@ -430,7 +430,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('gloss:') == '0': clientmensi.say(sendTo, gloso(text.substr(6),'en'));break;
 	case text.indexOf('loi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),''));break;
 	case text.indexOf('coi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),'coi'));break;
- 	case text==replier+': io': clientmensi.say(sendTo, io());break;
+ 	case text==replier+': ii': clientmensi.say(sendTo, io());break;
  	case text==replier+': help': clientmensi.say(sendTo, sidju());break;
 	case text.indexOf("rot13:") == '0': clientmensi.say(sendTo, rotpaci(text.substr(6)));break;
  	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
@@ -796,7 +796,7 @@ return gag;
 
 var io = function ()
 {
-return '.io';
+return '.ii';
 };
 
 var sidju = function ()

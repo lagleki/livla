@@ -777,7 +777,6 @@ var camxes = (function(){
         var result0, result1, result2, result3, result4, result5, result6;
         var pos0, pos1, pos2, pos3;
         
-        reportFailures++;
         pos0 = pos;
         pos1 = pos;
         result0 = parse_intro_null();
@@ -854,14 +853,10 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("text", expr);})(pos0, result0);
+          result0 = (function(offset, expr) {return _node_nonempty("text", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
-        }
-        reportFailures--;
-        if (reportFailures === 0 && result0 === null) {
-          matchFailed("text");
         }
         
         cache[cacheKey] = {

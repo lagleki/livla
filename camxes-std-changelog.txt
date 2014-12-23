@@ -17,6 +17,7 @@
 140820: Fixing the node outputs of Y and ybu.
 141018: Camxes-std: reverting alanpost's optimization of the sumti_tail_1 production.
 141106: CAMXES FIX: fu'ivla rafsi stress (thank you Xorxes!)
+141223: Change "text" rule from node() to node_nonempty() to fix TO parsing
 
 
 # TODO:

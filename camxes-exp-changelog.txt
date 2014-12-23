@@ -128,6 +128,7 @@ This behavior is more in accordande with that of Jbofi'e, except that in Jbofi'e
 141026: Camxes-std: Fixing {vi bai broda} which was broken by the selbritcita absorbtion rules.
 141030: Camxes-exp fix: The node names of bridi_tail_t1 and bridi_tail_t2 were wrong.
 141106: CAMXES FIX: fu'ivla rafsi stress (thank you Xorxes!)
+141223: Change "text" rule from node() to node_nonempty() to fix TO parsing (also in camxes-std)
 
 
 

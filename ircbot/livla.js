@@ -913,9 +913,15 @@ if (typeof xmlDoc==='undefined'){
 }
 var retur='y no da se tolcri';
 var items = [
-	["lo","the"],["nu","event-of"],["zo","the-word:"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
+	["lo","a(n)"],["le","the"],["la","@@@"],["nu","event-of"],["zo","the-word:"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
 	["na","not"],["na'e","not"],["nai","-not"],["nelci","fond-of"],["ka","being"],["tu'a","about"],
-        ["ie","yeah"],
+	["ie","yeah"],["e'u","I-suggest"],
+	["e","and"],["a","and/or"],
+	["je","and"],["ja","and/or"],
+	["gi'e",",-and"],["gi'a",",-and/or"],
+	["bu'u","at"],["ca","at-present"],
+	["ku",","],
+	["zo'u",":"],
 	["za'a","as-I-ca-see"],["za'adai","as-you-can-see"],["pu","in-past"],["ba","in-future"],["vau","]"],["doi","oh"],["uinai","unfortunately"],["u'u","sorry"],
 	["ko","do-it-so-that-you"],["poi","that"],["noi",",which"],["me","among"],
 	//["bakni","is-a-cow"],
@@ -943,24 +949,30 @@ lin=lin.toLowerCase();
 					for (j=0;j<items.length;j++){
 						myregexp = new RegExp("^"+items[j][0]+"$", "gim");
 						if (lin[i].match(myregexp)!==null){
-								lin[i]=items[j][1].replace(/$/gm,"A");
+								lin[i]=items[j][1].replace(/$/gm,"%%%");
 						}
 					}
 					}
 					for (j=0;j<itemsu.length;j++){//universal items, actually should use them later
 						myregexp = new RegExp("^"+itemsu[j][0]+"$", "gim");
 						if (lin[i].match(myregexp)!==null){
-								lin[i]=itemsu[j][1].replace(/$/gm,"A");
+								lin[i]=itemsu[j][1].replace(/$/gm,"%%%");
 						}
 					}
 			var cnt = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin[i].toUpperCase()+"\",\""+lin[i]+"\")=\""+lin[i]+"\"]/glossword[1]");
 			if (typeof cnt==='undefined'){cnt = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin[i].toUpperCase()+"\",\""+lin[i]+"\")=\""+lin[i]+"\"]/keyword[@place=\"1\"]");}//try keyword
-			if (typeof cnt!=='undefined'){lin[i]=cnt.attr("word").value().replace(/ /gm,"-").replace(/$/gm,"A");}
+			if (typeof cnt!=='undefined'){lin[i]=cnt.attr("word").value().replace(/ /gm,"-").replace(/$/gm,"%%%");}
 		}
 		//}
-		lin=lin.join(" ").replace(/ /gm,"* ").replace(/$/gm,"*").replace(/A\*/gm,"");
+		lin=lin.join(" ").replace(/ /gm,"* ").replace(/$/gm,"*").replace(/%%%\*/gm,"");
+		lin=lin.replace(/(@@@ .)/ig,function(v) { return v.toUpperCase(); }).replace(/@@@/ig,'');//uppercase for {la}
+		lin=lin.replace(/,+ *\./g,'.');
+		lin=lin.replace(/(^.)/ig,function(v) { return v.toUpperCase(); }).replace(/ +/ig,' ').replace(/( \. *[^ ])/ig,function(v) { return v.toUpperCase(); }).replace(/ \./ig,'.');//punctuation prettification
+		lin=lin.replace(/-/g,' ');
+		lin=lin.replace(/ *(:|,)/g,'$1');
+		lin=lin.replace(/\*\*/g,'*');
 	}catch(err){lin='O_0';}
-	return lin.replace(/\*\*/g,'*');
+	return lin;
 };
 
 var valsicmene = function (lin,lng)

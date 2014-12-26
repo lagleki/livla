@@ -1270,11 +1270,11 @@ if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync
 var pars='var documentStore = {';
 var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 	for (var i=0;i<rev.length;i++) {
-		var hi=rev[i].attr("word").value();
+		var hi=rev[i].attr("word").value().replace("\\","\\\\");
 		pars+="\""+hi+"\":{\"word\":\""+hi+"\"";
-		try{pars+=",\"type\":\""+rev[i].attr("type").value()+"\"";}catch(err){}
-		try{pars+=",\"definition\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")+"\"";}catch(err){}
-		try{pars+=",\"notes\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'")+"\"";}catch(err){}
+		try{pars+=",\"type\":\""+rev[i].attr("type").value().replace("\\","\\\\")+"\"";}catch(err){}
+		try{pars+=",\"definition\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\".replace("\\","\\\\"))+"\"";}catch(err){}
+		try{pars+=",\"notes\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		var ra=rev[i].find("rafsi//text()[1]");
 		if (xugismu(hi)===true){
 			ra.push(hi);
@@ -1287,15 +1287,15 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		pars+="}";
 		if (i<rev.length-1){pars+=",";}//\n
 	}
-	pars+="};";//\n
+	pars+="};\n";//\n
 rev = xmlDoc.find("/dictionary/direction[2]/nlword");
 var nl='var literals = {';
 	for (i=0;i<rev.length;i++) {
-		nl+="\""+rev[i].attr("word").value().replace(/"/g,"'").replace(/\\/g,"\\")+"\":[\""+rev[i].attr("valsi").value().replace(/"/g,"'").replace(/\\/g,"\\")+"\"]";
+		nl+="\""+rev[i].attr("word").value().replace(/"/g,"'").replace(/\\/g,"\\").replace("\\","\\\\")+"\":[\""+rev[i].attr("valsi").value().replace(/"/g,"'").replace(/\\/g,"\\").replace("\\","\\\\")+"\"]";
 		nl+="";
-		if (i<rev.length-1){nl+=",";}//\n
+		if (i<rev.length-1){nl+=",\n";}//\n
 	}
-	nl+="};";//\n
+	nl+="};\n";//\n
 	pars+=nl;
 	var t = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
 	pars = fs.writeFileSync(t+".temp",pars);

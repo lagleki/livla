@@ -1,9 +1,9 @@
 CACHE MANIFEST
 
-# Version 1.54
+# Version 1.61
 
 CACHE:
-./
+index.html
 ../search.js
 ./worker.js
 ../lujvo.js

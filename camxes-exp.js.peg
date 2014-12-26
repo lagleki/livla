@@ -1866,7 +1866,7 @@ ROI = &cmavo expr:( r e h u / r o i / m u h e i ) &post_word {return ["ROI", _jo
 
 SA = &cmavo expr:( s a ) &post_word {return ["SA", _join(expr)];}
 
-SE = &cmavo expr:( s e / t e / v e / x e ) &post_word {return ["SE", _join(expr)];}
+SE = &cmavo expr:( s e / t e / v e / x e / t o h a i / v o h a i / x o h a i / s u h e i / s u h a i ) &post_word {return ["SE", _join(expr)];}
 
 SEI = &cmavo expr:( s e i / t i h o ) &post_word {return ["SEI", _join(expr)];}
 

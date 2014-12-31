@@ -922,6 +922,7 @@ var items = [
 	["bu'u","at"],["ca","at-present"],
 	["ku",","],
 	["zo'u",":"],
+	["pe","that-is-related-to"],
 	["za'a","as-I-ca-see"],["za'adai","as-you-can-see"],["pu","in-past"],["ba","in-future"],["vau","]"],["doi","oh"],["uinai","unfortunately"],["u'u","sorry"],
 	["ko","do-it-so-that-you"],["poi","that"],["noi",",which"],["me","among"],
 	//["bakni","is-a-cow"],
@@ -929,7 +930,7 @@ var items = [
 	["ju","whether-or-not"],["gu","whether-or-not"],["gi'u","whether-or-not"],["u","whether-or-not"],
 	["xu","is-it-true-that"],["ka'e","possibly-can"],
         ["re'u","time"],["roi","times"],
-	["mi","I"]//dont copy
+	["mi","me"]//dont copy
 	];
 var itemsu = [//universal glosses
 	["lu","<"],["li'u",">"],["i","."],["bo","-|-"],["sai","!"],["cai","!!!"],["na'e","!"],["da","X"],["de","Y"],["di","Z"],["cu",":"],["jo","⇔"],

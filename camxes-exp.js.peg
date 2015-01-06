@@ -1552,7 +1552,7 @@ consonantal_syllable = expr:(consonant syllabic &(consonantal_syllable / !nucleu
 
 coda = expr:(!any_syllable consonant &any_syllable / syllabic? consonant? &pause) {return _join(expr);}
 
-onset = expr:(h / consonant? glide / initial) {return _join(expr);}
+onset = expr:(h / glide / initial) {return _join(expr);}
 
 nucleus = expr:(vowel / diphthong / y !nucleus) {return _join(expr);}
 
@@ -1602,39 +1602,39 @@ voiced = expr:(b / d / g / j / v / z) {return expr;}
 
 unvoiced = expr:(c / f / k / p / s / t / x) {return expr;}
 
-l = comma* [lL] !h !l {return "l";}
+l = comma* [lL] !h !glide !l {return "l";}
 
-m = comma* [mM] !h !m !z {return "m";}
+m = comma* [mM] !h !glide !m !z {return "m";}
 
-n = comma* [nN] !h !n !affricate  {return "n";}
+n = comma* [nN] !h !glide !n !affricate  {return "n";}
 
-r = comma* [rR] !h !r {return "r";}
+r = comma* [rR] !h !glide !r {return "r";}
 
-b = comma* [bB] !h !b !unvoiced {return "b";}
+b = comma* [bB] !h !glide !b !unvoiced {return "b";}
 
-d = comma* [dD] !h !d !unvoiced {return "d";}
+d = comma* [dD] !h !glide !d !unvoiced {return "d";}
 
-g = comma* [gG] !h !g !unvoiced {return "g";}
+g = comma* [gG] !h !glide !g !unvoiced {return "g";}
 
-v = comma* [vV] !h !v !unvoiced {return "v";}
+v = comma* [vV] !h !glide !v !unvoiced {return "v";}
 
-j = comma* [jJ] !h !j !z !unvoiced {return "j";}
+j = comma* [jJ] !h !glide !j !z !unvoiced {return "j";}
 
-z = comma* [zZ] !h !z !j !unvoiced {return "z";}
+z = comma* [zZ] !h !glide !z !j !unvoiced {return "z";}
 
-s = comma* [sS] !h !s !c !voiced {return "s";}
+s = comma* [sS] !h !glide !s !c !voiced {return "s";}
 
-c = comma* [cC] !h !c !s !x !voiced {return "c";}
+c = comma* [cC] !h !glide !c !s !x !voiced {return "c";}
 
-x = comma* [xX] !h !x !c !k !voiced {return "x";}
+x = comma* [xX] !h !glide !x !c !k !voiced {return "x";}
 
-k = comma* [kK] !h !k !x !voiced {return "k";}
+k = comma* [kK] !h !glide !k !x !voiced {return "k";}
 
-f = comma* [fF] !h !f !voiced {return "f";}
+f = comma* [fF] !h !glide !f !voiced {return "f";}
 
-p = comma* [pP] !h !p !voiced {return "p";}
+p = comma* [pP] !h !glide !p !voiced {return "p";}
 
-t = comma* [tT] !h !t !voiced {return "t";}
+t = comma* [tT] !h !glide !t !voiced {return "t";}
 
 h = comma* ['h] &nucleus {return "'";}
 

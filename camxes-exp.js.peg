@@ -1459,7 +1459,7 @@ brivla_core = expr:(fuhivla / gismu / CVV_final_rafsi / stressed_initial_rafsi s
 
 stressed_initial_rafsi = expr:(stressed_extended_rafsi / stressed_y_rafsi / stressed_y_less_rafsi) { return _join(expr); }
 
-initial_rafsi = expr:(extended_rafsi / y_rafsi / !any_extended_rafsi y_less_rafsi) { return _join(expr); }
+initial_rafsi = expr:(extended_rafsi / y_rafsi / !any_extended_rafsi y_less_rafsi !any_extended_rafsi) { return _join(expr); }
 
 //___________________________________________________________________
 
@@ -1483,10 +1483,9 @@ fuhivla_head = expr:(!rafsi_string brivla_head) { return _join(expr); }
 
 brivla_head = expr:(!cmavo !slinkuhi !h &onset unstressed_syllable*) { return _join(expr); }
 
-//// Change by Xorxes
-slinkuhi = expr:(consonant (rafsi_string / brivla_rafsi / stressed_brivla_rafsi)) { return _join(expr); }
+slinkuhi = expr:(!rafsi_string consonant rafsi_string) { return _join(expr); }
 
-rafsi_string = expr:(y_less_rafsi* (gismu / CVV_final_rafsi / stressed_y_less_rafsi short_final_rafsi / y_rafsi / stressed_y_rafsi / stressed_y_less_rafsi? initial_pair y)) { return _join(expr); }
+rafsi_string = expr:(y_less_rafsi* (gismu / CVV_final_rafsi / stressed_y_less_rafsi short_final_rafsi / y_rafsi / stressed_y_rafsi / stressed_y_less_rafsi? initial_pair y / hy_rafsi / stressed_hy_rafsi)) { return _join(expr); }
 
 //___________________________________________________________________
 
@@ -1510,7 +1509,11 @@ stressed_CVV_rafsi = expr:(consonant (unstressed_vowel h stressed_vowel / stress
 
 y_rafsi = expr:((long_rafsi / CVC_rafsi) y h?) { return _join(expr); }
 
-y_less_rafsi = expr:(!y_rafsi (CVC_rafsi !y / CCV_rafsi / CVV_rafsi) !any_extended_rafsi) { return _join(expr); }
+y_less_rafsi = expr:(!y_rafsi !stressed_y_rafsi !hy_rafsi !stressed_hy_rafsi (CVC_rafsi / CCV_rafsi / CVV_rafsi) !h) { return _join(expr); }
+
+hy_rafsi = expr:((long_rafsi vowel / CCV_rafsi / CVV_rafsi) h y h?)
+
+stressed_hy_rafsi = expr:((long_rafsi stressed_vowel / stressed_CCV_rafsi / stressed_CVV_rafsi) h y h?)
 
 long_rafsi = expr:(initial_pair unstressed_vowel consonant / consonant unstressed_vowel consonant consonant) { return _join(expr); }
 

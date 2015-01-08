@@ -317,24 +317,21 @@ return arr[Math.floor(arr.length*Math.random())];
 var processor = function(client, from, to, text, message) {
   if (!text) return;
 	said=Date.now();
-    if (text.indexOf('darxi la ') == '0' && from!==asker && from!==replier) {
-      	setTimeout(function() {client.say(sendTo, text.substr(9) + ': oidai mi darxi do lo trauta');}, 0 );
-    }
-
+    if (text.indexOf(preasker + 'darxi la ') == '0' && from!==asker && from!==replier) {
+    	setTimeout(function() {client.say(sendTo, text.substr(9+preasker.length) + ': oidai mi darxi do lo trauta');}, 0 );
+    }else{
+        if (text.indexOf(preasker) == '0' && from!==replier) {
+        setTimeout(function() {client.say(sendTo, from + ': ' + ext(mizmiku));}, interm );
+    }}
 	if (text.indexOf("doi " + asker) >-1 && from!==replier) {
-      	setTimeout(function() {client.say(sendTo, tato.tatoebaprocessing(from));}, interm );
-  }
-
+      		setTimeout(function() {client.say(sendTo, tato.tatoebaprocessing(from));}, interm );
+	}
 	setInterval(function() {if (Date.now()-said>interv){said=Date.now();client.say(livlytcan, prereplier + vric());}}, interv);
   //}
   var sendTo = from; // send privately
   if (to.indexOf('#') > -1) {
     sendTo = to; // send publicly
   }
-	if (text.indexOf(preasker) == '0' && from!==replier) {
-      	setTimeout(function() {client.say(sendTo, from + ': ' + ext(mizmiku));}, interm );
-  }
-
 };
 
 var processormensi = function(clientmensi, from, to, text, message) {
@@ -420,6 +417,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('eo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
 	case text.indexOf('zh:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'zh'));break;
 	case text.indexOf('en-simple:') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'en-simple'));break;
+	case text.indexOf('lb:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'lb'));break;
 
 	case text.indexOf('selmaho:') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
 	case text.indexOf('finti:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','finti'));break;
@@ -694,8 +692,8 @@ if (gchild===''){
 		lin= '';
 	}
 }else{
-	gchild=gchild.replace(/[\{\}_\$]/igm,"").replace(/`/g,"'").substring(0,600);
-		if (gchild.length>=600){
+	gchild=gchild.replace(/[\{\}_\$]/igm,"").replace(/`/g,"'").substring(0,700);
+		if (gchild.length>=700){
 			gchild+='...\n[mo\'u se katna] http://jbovlaste.lojban.org/dict/'+ lin;
 		}
 		if (xulujvo(lin)===true){

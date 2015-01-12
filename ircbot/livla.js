@@ -151,7 +151,7 @@ var updatexmldumps = function (callback) {
 		var request = require("request"); var body;
 		request = request.defaults({jar: true});
 		var jar = request.jar();
-		var cookie = request.cookie("jbovlastesessionid=MTg6MzIwOmdsZWtpOjE0MDQyODk5NDE%3D");
+		var cookie = request.cookie("jbovlastesessionid=U2FsdGVkX1%2FpiXtl1FSyMUZvFTudUq0N59YatQesEbsfdQ6owwMDeA%3D%3D");
 		langs.forEach(function(thisa) {
 			velruhe.cfari[thisa] = true;
 			var uri="http://jbovlaste.lojban.org/export/xml-export.html?lang="+thisa;

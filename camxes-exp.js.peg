@@ -257,7 +257,8 @@ sumti_4 = expr:(sumti_5 / gek sumti gik sumti_4) {return _node("sumti_4", expr);
 sumti_5 = expr:(quantifier? sumti_6 relative_clauses? / quantifier (selbri / gek_sentence) KU_elidible free* relative_clauses?) {return _node("sumti_5", expr);}
 
 //// EXP-MODIF: brivla/cmevla merge + NAhE+sumti + add of ZOhOI_clause + LAhE term + MEX simplification
-sumti_6 = expr:(ZO_clause free* / ZOI_clause free* / ZOhOI_clause free* / LOhU_clause free* / !tag !selbri lerfu_string BOI_elidible free* / LU_clause text LIhU_elidible free* / (LAhE_clause free* / NAhE_clause BO_clause? free*) (relative_clauses? sumti / term) LUhU_elidible free* / KOhA_clause free* / LE_clause free* sumti_tail KU_elidible free* / li_clause / LOhOI_clause free* subsentence KUhAU_elidible free*) {return _node("sumti_6", expr);}
+// EXP-MODIF: attempt to formalize lo'ai..sa'ai..le'ai replacement expressions
+sumti_6 = expr:(ZO_clause free* / ZOI_clause free* / ZOhOI_clause free* / LOhU_clause free* / LOhAI_clause free* / !tag !selbri lerfu_string BOI_elidible free* / LU_clause text LIhU_elidible free* / (LAhE_clause free* / NAhE_clause BO_clause? free*) (relative_clauses? sumti / term) LUhU_elidible free* / KOhA_clause free* / LE_clause free* sumti_tail KU_elidible free* / li_clause / LOhOI_clause free* subsentence KUhAU_elidible free*) {return _node("sumti_6", expr);}
 
 li_clause = expr:(LI_clause free* mex LOhO_elidible free*) {return _node("li_clause", expr); }
 
@@ -970,6 +971,12 @@ LOhU_pre = pre_clause LOhU spaces? (!LEhU any_word)* LEhU_clause spaces?
 LOhU_post = post_clause
 // LOhU_no_SA_handling = pre_clause LOhU spaces? (!LEhU any_word)* LEhU_clause spaces?
 
+// EXP-MODIF: attempt to formalize lo'ai..sa'ai..le'ai replacement expressions
+//         possibly ungrammatical replacement expression
+LOhAI_clause = pre:LOhAI_pre post:LOhAI_post {return _node2("LOhAI_clause", pre, post); }
+LOhAI_pre = pre_clause (LOhAI spaces? (!LOhAI !LEhAI any_word)*)? (LOhAI spaces? (!LOhAI !LEhAI any_word)*)? LEhAI spaces?
+LOhAI_post = post_clause
+
 //         grammatical text left quote 
 LU_clause = pre:LU_pre post:LU_post {return _node2("LU_clause", pre, post); }
 LU_pre = pre_clause LU spaces?
@@ -1372,7 +1379,8 @@ CMEVLA = expr:cmevla {return ["CMEVLA", expr];}
 BRIVLA = expr:(gismu_2 / lujvo / fuhivla / CMEVLA ) {return ["BRIVLA", expr];}
 gismu_2 = expr:(gismu) {return ["gismu", expr];}
 //// EXP-DEL: LA, for brivla/cmevla merge
-CMAVO = expr:(A / BAI / BAhE / BE / BEI / BEhO / BIhE / BIhI / BO / BOI / BU / BY / CAhA / CAI / CEI / CEhE / CO / COI / CU / CUhE / DAhO / DOI / DOhU / FA / FAhA / FAhO / FEhE / FEhU / FIhO / FOI / FUhA / FUhE / FUhO / GA / GAhO / GEhU / GI / GIhA / GOI / GOhA / GUhA / I / JA / JAI / JOhI / JOI / KE / KEhE / KEI / KI / KOhA / KU / KUhE / KUhO / LAU / LAhE / LE / LEhU / LI / LIhU / LOhO / LOhU / LU / LUhU / MAhO / MAI / ME / MEhU / MOhE / MOhI / MOI / NA / NAI / NAhE / NAhU / NIhE / NIhO / NOI / NU / NUhA / NUhI / NUhU / PA / PEhE / PEhO / PU / RAhO / ROI / SA / SE / SEI / SEhU / SI / SOI / SU / TAhE / TEhU / TEI / TO / TOI / TUhE / TUhU / UI / VA / VAU / VEI / VEhO / VUhU / VEhA / VIhA / VUhO / XI / ZAhO / ZEhA / ZEI / ZI / ZIhE / ZO / ZOI / ZOhU / cmavo) {return ["CMAVO", expr];}
+// EXP-MODIF: attempt to formalize lo'ai..sa'ai..le'ai replacement expressions
+CMAVO = expr:(A / BAI / BAhE / BE / BEI / BEhO / BIhE / BIhI / BO / BOI / BU / BY / CAhA / CAI / CEI / CEhE / CO / COI / CU / CUhE / DAhO / DOI / DOhU / FA / FAhA / FAhO / FEhE / FEhU / FIhO / FOI / FUhA / FUhE / FUhO / GA / GAhO / GEhU / GI / GIhA / GOI / GOhA / GUhA / I / JA / JAI / JOhI / JOI / KE / KEhE / KEI / KI / KOhA / KU / KUhE / KUhO / LAU / LAhE / LE / LEhAI / LEhU / LI / LIhU / LOhAI / LOhO / LOhU / LU / LUhU / MAhO / MAI / ME / MEhU / MOhE / MOhI / MOI / NA / NAI / NAhE / NAhU / NIhE / NIhO / NOI / NU / NUhA / NUhI / NUhU / PA / PEhE / PEhO / PU / RAhO / ROI / SA / SE / SEI / SEhU / SI / SOI / SU / TAhE / TEhU / TEI / TO / TOI / TUhE / TUhU / UI / VA / VAU / VEI / VEhO / VUhU / VEhA / VIhA / VUhO / XI / ZAhO / ZEhA / ZEI / ZI / ZIhE / ZO / ZOI / ZOhU / cmavo) {return ["CMAVO", expr];}
 
 // This is a Parsing Expression Grammar for the morphology of Lojban.
 // See http://www.pdos.lcs.mit.edu/~baford/packrat/
@@ -1799,11 +1807,17 @@ LAhE = &cmavo expr:( z o h e i / t u h a / l u h a / l u h o / l a h e / v u h i
 //// EXP-MODIF: brivla/cmevla merge + add of me'ei
 LE = &cmavo expr:( m e h e i / l e i / l o i / l e h i / l o h i / l e h e / l o h e / l o / l e / l a i / l a h i / l a ) &post_word { return ["LE", _join(expr)];}
 
+// EXP-MODIF: attempt to formalize lo'ai..sa'ai..le'ai replacement expressions
+LEhAI = &cmavo expr:( l e h a i ) &post_word {return ["LEhAI", _join(expr)];}
+
 LEhU = &cmavo expr:( l e h u ) &post_word {return ["LEhU", _join(expr)];}
 
 LI = &cmavo expr:( m e h o / l i ) &post_word {return ["LI", _join(expr)];}
 
 LIhU = &cmavo expr:( l i h u ) &post_word {return ["LIhU", _join(expr)];}
+
+// EXP-MODIF: attempt to formalize lo'ai..sa'ai..le'ai replacement expressions
+LOhAI = &cmavo expr:( l o h a i / s a h a i ) &post_word {return ["LOhAI", _join(expr)];}
 
 LOhO = &cmavo expr:( l o h o ) &post_word {return ["LOhO", _join(expr)];}
 

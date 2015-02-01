@@ -423,7 +423,7 @@ tag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("tag", expr); }
 //stag = simple_tense_modal ((jek / joik) simple_tense_modal)*
 stag = expr:(simple_tense_modal ((jek / joik) simple_tense_modal)* / tense_modal (joik_jek tense_modal)*) {return _node("stag", expr); }
 
-tense_modal = expr:(simple_tense_modal free* / FIhO_clause free* selbri FEhU_clause? free*) {return _node("tense_modal", expr); }
+tense_modal = expr:(simple_tense_modal free* / FIhO_clause free* selbri FEhU_elidible free*) {return _node("tense_modal", expr); }
 
 simple_tense_modal = expr:(NAhE_clause? SE_clause? BAI_clause NAI_clause? KI_clause? / NAhE_clause? ( ((time space? / space time?) CAhA_clause) / (time space? / space time?) / CAhA_clause ) KI_clause? / KI_clause / CUhE_clause) {return _node("simple_tense_modal", expr); }
 

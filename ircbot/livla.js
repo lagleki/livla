@@ -1,5 +1,6 @@
 //livla bot
 var fs = require("fs"),path = require("path-extra"),libxmljs = require("libxmljs");
+require('v8-profiler');
 var s,t,notci,notcijudri,ljv='';
 var tato= require('./tatoeba.js');
 var interv=300000;
@@ -373,7 +374,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 		if (from.match(sem)!==null)
 		{
 			cmenepagbu=notci[l].split("\t");
-			clientmensi.say(sendTo,from + ": cu'u la'o gy." + cmenepagbu[0] + ".gy.: "+cmenepagbu[2]+"");
+			clientmensi.say(sendTo,(from + ": cu'u la'o gy." + cmenepagbu[0] + ".gy.: "+cmenepagbu[2]).replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n'));
 			notci.splice(l,1);l=l-1;
 			fs.writeFile(notcijudri, notci.join("\n"));
 		}

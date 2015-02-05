@@ -800,9 +800,15 @@ var io = function ()
 return '.ii';
 };
 
-var sidju = function ()
-{
-return "Typing in the chat \"rafsi: pof\" will return \"spofu\". \"rafsi: spofu\" will return \"pof po\'u\". Typing \"selmaho: ui\" will return \"UI\". Typing \"Tatoeba: klama\" will return a random sentence (with its number) from Tatoeba containing \"klama\" sequence.";
+var sidju = {
+	en: 'Parsers: type "exp:" (experimental), "off:" (camxes), "gerna:" (jbofi\'e), or "yacc:" (official yacc) followed by the text to parse\n' +
+		'Lojban dictionary: type "language-code: word", where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh. This searches in both directions.\n' +
+		'    "selmaho: ca\'a" gives "CAhA", "selmaho: CAhA" gives "bi\'ai, ca\'a, ..."\n' +
+		'    "rafsi: kulnu" gives "klu", "rafsi: klu" gives "kulnu"\n' +
+		'Other conlang dictionaries: "toki:", "laadan:", "loglan:"\n' +
+		'Lojban <-> Loglan conversion (incomplete): "coi:", "loi:"\n' +
+		'"Tatoeba: klama" gets a random example sentence using "klama"\n' +
+		'Delayed messaging: type "' + replier + ': doi user message" to send "message" to "user" when they return',
 };
 
 var frame = function (lin)

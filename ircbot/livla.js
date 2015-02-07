@@ -174,7 +174,7 @@ var updatexmldumps = function (callback) {
 				}
 				delete velruhe.cfari[thisa];
 				sutsisningau(thisa);
-				global.gc();
+				//global.gc();
 				if (callback && Object.keys(velruhe.cfari).length === 0) {
 					callback(velruhe);
 				}

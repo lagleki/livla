@@ -372,7 +372,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 		//sendTo
 		if (notci[l].length === 0) continue; // prevent a crash if the line is empty
 		var cmenepagbu=notci[l].split("\t");//.substr(0, notci[l].indexOf('\t'));
-		var sem = new RegExp(cmenepagbu[1].toLowerCase(), "gim");
+		try{var sem = new RegExp(cmenepagbu[1].toLowerCase(), "gim");}catch(err){var sem='';}
 		if (from.match(sem)!==null)
 		{
 			cmenepagbu=notci[l].split("\t");

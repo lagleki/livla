@@ -22,7 +22,7 @@ After having entered the ilmentufa directory, run the following command:
 
 $ node [builder-filename]
 
-For example, "node camxes-builder" for building the standard grammar engine.
+For example, "node camxes-builder" for building the standard grammar engine or "node camxes-exp-builder" for experimental grammar.
 
 Now, the grammar engine should have been created/updated, and be ready for use. :)
 

@@ -1362,7 +1362,7 @@ var prettifylojbansentences = function(){//insert spaces to lojban sentences
         for (var j=0;j<words.length;j++){
                         sj.push(run_camxes(words[j],3));
         }
-        var content = fs.writeFileSync(path.join(__dirname,"../","sekatna.txt"),sj.join("\n"));
+        var content = fs.writeFileSync(path.join(__dirname,"../","sekatna.txt"),sj.join("\n").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n"));
         return 'mulno';
 };
 //

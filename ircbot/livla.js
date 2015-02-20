@@ -402,8 +402,8 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
 	case text.indexOf('frame:/full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(11),'en','framemulno'));break;
-	case text.indexOf('frame:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','frame'));break;
-
+	case text.indexOf('mensi: ktn') == '0': clientmensi.say(sendTo, prettifylojbansentences());break;
+	
 	// Change default language
 	case text.indexOf('bangu:') == '0': clientmensi.say(sendTo, bangu(text.substr(6).trim(), from));break;
 
@@ -1355,3 +1355,14 @@ var pseudogismu = function(){//a joke function. checks if an English word is  a 
 	var content = fs.writeFileSync(path.join(__dirname,"../","vale-result"),sj.join("\n"));
 };
 //pseudogismu();
+
+var prettifylojbansentences = function(){//insert spaces to lojban sentences
+        var words = fs.readFileSync(path.join(__dirname,"../","eikatna.txt"),'utf8').split("\n");
+        var sj=[];
+        for (var j=0;j<words.length;j++){
+                        sj.push(run_camxes(words[j],3));
+        }
+        var content = fs.writeFileSync(path.join(__dirname,"../","sekatna.txt"),sj.join("\n"));
+        return 'mulno';
+};
+//

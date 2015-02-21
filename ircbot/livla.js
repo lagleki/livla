@@ -398,7 +398,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo);break;
 	case text.indexOf("jbofihe:") == '0': jbofihe(text.substr(8),sendTo);break;
 	case text.indexOf("gerna:") == '0': jbofihe(text.substr(6),sendTo);break;
-	case (text.indexOf(replier + ': ko ningau')=='0' ||text.indexOf(replier + ': ko cnino') == '0'): setTimeout(function() {updatexmldumps(function(velruhe) {clientmensi.say(sendTo, 'i ba\'o ningau'); var selsre = Object.keys(velruhe.nalmulselfaho); if (selsre.length) clientmensi.say(sendTo, 'i na kakne lo ka ningau la\'e zoi zoi ' + selsre.join(' ') + ' zoi');});clientmensi.say(sendTo,'sei ca ca\'o ningau be lo pe mi sorcu');},1); break;
+	case (text.indexOf(replier + ': ko ningau')=='0' ||text.indexOf(replier + ': ko cnino') == '0'): setTimeout(function() {updatexmldumps(function(velruhe) {clientmensi.say(sendTo, 'i ba\'o jai gau cnino'); var selsre = Object.keys(velruhe.nalmulselfaho); if (selsre.length) clientmensi.say(sendTo, 'i na kakne lo ka jai gau cnino fai la\'e zoi zoi ' + selsre.join(' ') + ' zoi');});clientmensi.say(sendTo,'sei ca ca\'o jai gau cnino be fai lo pe mi sorcu');},1); break;
 	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
 	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
 	case text.indexOf('frame:/full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(11),'en','framemulno'));break;
@@ -630,6 +630,8 @@ var RetrieveUsersLanguage = function (username, lng)
 
 var vlaste = function (lin,lng,raf)
 {
+var cmalu;
+if (lin.indexOf(" ")===0){cmalu=true;}
 lin=lin.toLowerCase().trim();
 var ret;
 	switch(true) {
@@ -642,14 +644,14 @@ var ret;
 		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z_'\.]/g,''));break;
 		default:
 			if(raf==='passive')
-			{ret=tordu(lin.replace(/\"/g,''), lng, raf);break;}
-			else{ret=tordu(lin.replace(/\"/g,''), lng);break;}
+			{ret=tordu(lin.replace(/\"/g,''), lng, raf,"",cmalu);break;}
+			else{ret=tordu(lin.replace(/\"/g,''), lng,"","",cmalu);break;}
 	}
 return ret.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n');
 };
 
 
-var tordu = function (lin,lng,flag,xmlDoc)
+var tordu = function (lin,lng,flag,xmlDoc,cmalu)
 {
 	lin=lin.replace(/\"/g,'');
 	if (flag!==1){
@@ -677,8 +679,8 @@ var tordu = function (lin,lng,flag,xmlDoc)
 var gchild='';
 	try{gchild +='[' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]").text()+'] ';}catch(err){}
 	try{gchild += xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/definition[1]").text();}catch(err){}
-	try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text();}catch(err){}
-	try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/user[1]/username[1]").text();}catch(err){}
+	if (cmalu==true){try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text();}catch(err){}
+try{gchild +=' |>>> ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/user[1]/username[1]").text();}catch(err){}}
 if (gchild===''){
 	if (flag!==1){
 		if (xulujvo(lin)===true){

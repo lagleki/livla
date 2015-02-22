@@ -425,6 +425,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('krasi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'krasi'));break; // Gives Lojban words etymologies
 
 	case text.indexOf('selmaho:') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
+	case text.indexOf('selma\'o:') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
 	case text.indexOf('finti:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','finti'));break;
 	case text.indexOf('rafsi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
 	case text.indexOf('toki:') == '0': clientmensi.say(sendTo, vlaste(text.substr(5),'toki'));break;

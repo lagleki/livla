@@ -804,9 +804,11 @@ var io = function ()
 return '.ii';
 };
 
-var sidju = {
-	en: 'Parsers: type "exp:" (experimental), "off:" (camxes), "gerna:" (jbofi\'e), or "yacc:" (official yacc) followed by the text to parse\n' +
+var sidju=function(){
+var sidj = {
+	en: 'Parsers: type "exp:" (experimental), "off:" (camxes), "gerna:" (jbofi\'e), or "yacc:" (official yacc) followed by the text to show the structure of sentences.\n' +
 		'Lojban dictionary: type "language-code: word", where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh. This searches in both directions.\n' +
+		'    Type "language-code:word" (i.e. without a space after ":") to get a shorter definition.\n' +
 		'    "selmaho: ca\'a" gives "CAhA", "selmaho: CAhA" gives "bi\'ai, ca\'a, ..."\n' +
 		'    "rafsi: kulnu" gives "klu", "rafsi: klu" gives "kulnu"\n' +
 		'Other conlang dictionaries: "toki:", "laadan:", "loglan:"\n' +
@@ -814,6 +816,8 @@ var sidju = {
 		'"Tatoeba: klama" gets a random example sentence using "klama"\n' +
 		'Delayed messaging: type "' + replier + ': doi user message" to send "message" to "user" when they return',
 };
+	return sidj.en;
+}
 
 var frame = function (lin)
 {

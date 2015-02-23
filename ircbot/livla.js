@@ -8,7 +8,7 @@ var interm=2900;
 fram="../../../files/fndata-1.5/frame";
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
-var tcan='#lojban,#ckule';
+var tcan='#lojban,#ckule,#tokipona';
 var livlytcan='##jboselbau';//where la livla talks to la mensi
 var asker='livla';
 var replier='mensi';
@@ -23,7 +23,7 @@ var config = {
     channels: [livlytcan],
     debug: false,
     messageSplit: 190,
-    realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
+    realName: 'http://mw.lojban.org/papri/IRC_Bots',
     floodProtection: true,
     floodProtectionDelay: 400
   }

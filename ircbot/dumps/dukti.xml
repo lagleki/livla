@@ -3,6 +3,8 @@
 <dictionary>
 <direction from="Lojban" to="Lojban">
 <valsi type="gismu" word="cmalu"><definition>barda</definition></valsi>
+<valsi type="gismu" word="incipe"><definition>ultime</definition></valsi>
+<valsi type="gismu" word="ultime"><definition>incipe</definition></valsi>
 <valsi type="gismu" word="cliva"><definition>tsuku</definition></valsi>
 <valsi type="gismu" word="tsuku"><definition>cliva</definition></valsi>
 <valsi type="gismu" word="nanmu"><definition>ninmu</definition></valsi>

@@ -8,7 +8,7 @@ var interm=2900;
 fram="../../../files/fndata-1.5/frame";
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
-var tcan='#lojban,#ckule,#tokipona';
+var tcan='#lojban,#ckule';
 var livlytcan='##jboselbau';//where la livla talks to la mensi
 var asker='livla';
 var replier='mensi';
@@ -201,6 +201,8 @@ var updatexmldumps = function (callback) {
 	}catch(err){console.log('Error when autoupdating: ' + err);}
 	sutsisningau("zamenhofo");sutsisningau("laadan");
 	//updategloss();# not yet ready function
+	//now update lo vlaste pe la bangu:
+	//ningaulabangu();
 };
 var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),{encoding: 'utf8'}));//store en dump in memory
 
@@ -1321,6 +1323,60 @@ var nl='var literals = {';
 	var d = new Date();
 	var n = d.getDate();
 	if(n==1){try{pars=fs.readFileSync(t,{encoding: 'utf8'});pars = fs.writeFileSync(t,pars);console.log(t + ' updated');}catch(err){}}
+};
+
+var ningaulabangu = function (){
+/*	//var uri="https://docs.google.com/spreadsheet/pub?key=0Ahngu1CNj7wddEljb0o5YzkzSU4zVXhtam5CUGMzZkE&single=true&gid=20&output=csv&range=B1%3AB3000";
+	var uri="http://goo.gl/jrRHuj";
+			//jar.setCookie(cookie, uri);
+			var request = require("request");
+			request({uri: uri,method: "GET"}, function(err, response, body) {
+				if(err) {console.log(err);}
+				else{
+					var content=body.replace(/^'''(.*?)''' (.*?)\n\n/igm,'<valsi word="$1"><definition>$1</definition></valsi>\n');//now get the csv file itself
+					uri=content;
+						var http = require('http');
+						content = fs.createWriteStream(path.join(__dirname,"dumps","lojban-" + "labangu" + ".xml"));
+						var request = http.get(uri, function(response) {
+							response.pipe(content);
+						}).on('error', function(err) {
+							console.log("when updating " + "la bangu" + " xml: " + err);
+						});
+				}
+			});
+*/
+	// Dependencies
+	var fs = require('fs');
+	var url = require('url');
+	var http = require('https');
+	var exec = require('child_process').exec;
+	var spawn = require('child_process').spawn;
+	
+	// App variables
+	var file_url = 'https://docs.google.com/spreadsheet/pub?key=0Ahngu1CNj7wddEljb0o5YzkzSU4zVXhtam5CUGMzZkE&amp;single=true&amp;gid=20&amp;output=csv&amp;range=B1:B3000';
+	var DOWNLOAD_DIR = './ircbot/dumps/';
+
+	// Function to download file using HTTP.get
+	var download_file_httpget = function(file_url) {
+	var options = {
+	    //host: url.parse(file_url).host,
+	    hostname: 'docs.google.com',
+	    port: 80,
+	    path: '/spreadsheet/pub?key=0Ahngu1CNj7wddEljb0o5YzkzSU4zVXhtam5CUGMzZkE&single=true&gid=20&output=csv&range=B1:B3000'
+	};
+	console.log('test');
+	var file_name = 'test.csv';//url.parse(file_url).pathname.split('/').pop();
+	var file = fs.createWriteStream(DOWNLOAD_DIR + file_name);
+	http.get(options, function(res) {
+	    res.on('data', function(data) {
+	            file.write(data);
+	        }).on('end', function() {
+	            file.end();
+	            console.log(file_name + ' downloaded to ' + DOWNLOAD_DIR);
+	        });
+	    });
+	};
+download_file_httpget();	
 };
 
 var lmw = function (lin,sendTo){//to be done

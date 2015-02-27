@@ -425,6 +425,7 @@ var processormensi = function(clientmensi, from, to, text, message) {
 	case text.indexOf('en-simple:') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'en-simple'));break;
 	case text.indexOf('lb:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'lb'));break;
 	case text.indexOf('krasi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'krasi'));break; // Gives Lojban words etymologies
+	case text.indexOf('dukti:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'dukti'));break; // Gives Lojban words antonyms
 
 	case text.indexOf('selmaho:') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
 	case text.indexOf('selma\'o:') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;

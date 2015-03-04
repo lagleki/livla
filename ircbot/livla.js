@@ -8,7 +8,7 @@ var interm=2900;
 fram="../../../files/fndata-1.5/frame";
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
-var tcan='#lojban,#ckule';
+var tcan='#lojban,#ckule,#tokipona,#jbosnu';
 var livlytcan='##jboselbau';//where la livla talks to la mensi
 var asker='livla';
 var replier='mensi';
@@ -370,85 +370,86 @@ var processormensi = function(clientmensi, from, to, text, message) {
 		}
 	}
 	//now send back part
-	for (var l=0;l<notci.length;l++){
-		//sendTo
-		if (notci[l].length === 0) continue; // prevent a crash if the line is empty
-		var cmenepagbu=notci[l].split("\t");//.substr(0, notci[l].indexOf('\t'));
-		var sem;
-		try{sem = new RegExp(cmenepagbu[1].toLowerCase(), "gim");}catch(err){var sem='';}
-		if (from.match(sem)!==null)
-		{
-			cmenepagbu=notci[l].split("\t");
-			clientmensi.say(sendTo,(from + ": cu'u la'o gy." + cmenepagbu[0] + ".gy.: "+cmenepagbu[2]).replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n'));
-			notci.splice(l,1);l=l-1;
-			fs.writeFile(notcijudri, notci.join("\n"));
+		for (var l=0;l<notci.length;l++){
+			//sendTo
+			if (notci[l].length === 0) continue; // prevent a crash if the line is empty
+			var cmenepagbu=notci[l].split("\t");//.substr(0, notci[l].indexOf('\t'));
+			var sem;
+			try{sem = new RegExp(cmenepagbu[1].toLowerCase(), "gim");}catch(err){var sem='';}
+			if (from.match(sem)!==null)
+			{
+				cmenepagbu=notci[l].split("\t");
+				clientmensi.say(sendTo,(from + ": cu'u la'o gy." + cmenepagbu[0] + ".gy.: "+cmenepagbu[2]).replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n'));
+				notci.splice(l,1);l=l-1;
+				fs.writeFile(notcijudri, notci.join("\n"));
+			}
 		}
-	}
-	// 
-	///
-	switch(true) {
-	case text.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
-	case text.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;
-	case text.indexOf("lujvo:") == '0': clientmensi.say(sendTo, triz(text.substr(6)));break;
-	//case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
-	case text.indexOf("exp:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
-	case text.indexOf("f:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, xufuhivla(text));break;
-	case text.indexOf("k:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, run_camxes(text, 3));break;
-	case text.indexOf("off:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxesoff(ret[0], ret[1]));break;
-	case text.indexOf("yacc:") == '0': tcepru(text.substr(5),sendTo);break;
-	case text.indexOf("cowan:") == '0': tcepru(text.substr(6),sendTo);break;
-	case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo);break;
-	case text.indexOf("jbofihe:") == '0': jbofihe(text.substr(8),sendTo);break;
-	case text.indexOf("gerna:") == '0': jbofihe(text.substr(6),sendTo);break;
-	case (text.indexOf(replier + ': ko ningau')=='0' ||text.indexOf(replier + ': ko cnino') == '0'): setTimeout(function() {updatexmldumps(function(velruhe) {clientmensi.say(sendTo, 'i ba\'o jai gau cnino'); var selsre = Object.keys(velruhe.nalmulselfaho); if (selsre.length) clientmensi.say(sendTo, 'i na kakne lo ka jai gau cnino fai la\'e zoi zoi ' + selsre.join(' ') + ' zoi');});clientmensi.say(sendTo,'sei ca ca\'o jai gau cnino be fai lo pe mi sorcu');},1); break;
-	case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
-	case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
-	case text.indexOf('frame:/full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(11),'en','framemulno'));break;
-	case text.indexOf('mensi: ktn') == '0': clientmensi.say(sendTo, prettifylojbansentences());break;
-	
-	// Change default language
-	case text.indexOf('bangu:') == '0': clientmensi.say(sendTo, bangu(text.substr(6).trim(), from));break;
+		// 
+		///
+		switch(true) {
+		case text.search(/ie( |)(nai( |)|)pei/) >= '0': clientmensi.say(sendTo, "mi tugni i ie mi tugni");break;
+		case text.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
+		case text.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;
+		case text.indexOf("lujvo:") == '0': clientmensi.say(sendTo, triz(text.substr(6)));break;
+		//case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
+		case text.indexOf("exp:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxes(ret[0], ret[1]));break;
+		case text.indexOf("f:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, xufuhivla(text));break;
+		case text.indexOf("k:") == '0': text = text.substr(2).trim();clientmensi.say(sendTo, run_camxes(text, 3));break;
+		case text.indexOf("off:") == '0': text = text.substr(4).trim();ret = extract_mode(text);clientmensi.say(sendTo, run_camxesoff(ret[0], ret[1]));break;
+		case text.indexOf("yacc:") == '0': tcepru(text.substr(5),sendTo);break;
+		case text.indexOf("cowan:") == '0': tcepru(text.substr(6),sendTo);break;
+		case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo);break;
+		case text.indexOf("jbofihe:") == '0': jbofihe(text.substr(8),sendTo);break;
+		case text.indexOf("gerna:") == '0': jbofihe(text.substr(6),sendTo);break;
+		case (text.indexOf(replier + ': ko ningau')=='0' ||text.indexOf(replier + ': ko cnino') == '0'): setTimeout(function() {updatexmldumps(function(velruhe) {clientmensi.say(sendTo, 'i ba\'o jai gau cnino'); var selsre = Object.keys(velruhe.nalmulselfaho); if (selsre.length) clientmensi.say(sendTo, 'i na kakne lo ka jai gau cnino fai la\'e zoi zoi ' + selsre.join(' ') + ' zoi');});clientmensi.say(sendTo,'sei ca ca\'o jai gau cnino be fai lo pe mi sorcu');},1); break;
+		case text.indexOf('guaspi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'guaspi'));break;
+		case text.indexOf('frame: /full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(12),'en','framemulno'));break;
+		case text.indexOf('frame:/full ') == '0': clientmensi.say(sendTo, vlaste(text.substr(11),'en','framemulno'));break;
+		case text.indexOf('mensi: ktn') == '0': clientmensi.say(sendTo, prettifylojbansentences());break;
+		
+		// Change default language
+		case text.indexOf('bangu:') == '0': clientmensi.say(sendTo, bangu(text.substr(6).trim(), from));break;
 
-	// Give definition of valsi in specified language
-	case text.indexOf('?:') == '0': var inLanguage = defaultLanguage;inLanguage = RetrieveUsersLanguage(from, inLanguage);clientmensi.say(sendTo, vlaste(text.substr(2), inLanguage));break; // Gives definition of valsi in the default language set to user
-	case text.indexOf('jbo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(4),'jbo'));break; // Gives definition of valsi in Lojban
-	case text.indexOf('en:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'en'));break; // Gives definition of valsi in English
-	case text.indexOf('ru:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ru'));break;
-	case text.indexOf('es:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'es'));break;
-	case text.indexOf('fr:')	== '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr'));break;
-	case text.indexOf('fr-facile:')	== '0': clientmensi.say(sendTo, vlaste(text.substr(10),'fr-facile'));break;
-	case text.indexOf('f@:')	== '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr-facile'));break;
-	case text.indexOf('ja:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ja'));break;
-	case text.indexOf('de:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'de'));break;
-	case text.indexOf('eo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
-	case text.indexOf('zh:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'zh'));break;
-	case text.indexOf('en-simple:') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'en-simple'));break;
-	case text.indexOf('lb:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'lb'));break;
-	case text.indexOf('krasi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'krasi'));break; // Gives Lojban words etymologies
-	case text.indexOf('dukti:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'dukti'));break; // Gives Lojban words antonyms
+		// Give definition of valsi in specified language
+		case text.indexOf('?:') == '0': var inLanguage = defaultLanguage;inLanguage = RetrieveUsersLanguage(from, inLanguage);clientmensi.say(sendTo, vlaste(text.substr(2), inLanguage));break; // Gives definition of valsi in the default language set to user
+		case text.indexOf('jbo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(4),'jbo'));break; // Gives definition of valsi in Lojban
+		case text.indexOf('en:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'en'));break; // Gives definition of valsi in English
+		case text.indexOf('ru:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ru'));break;
+		case text.indexOf('es:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'es'));break;
+		case text.indexOf('fr:')	== '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr'));break;
+		case text.indexOf('fr-facile:')	== '0': clientmensi.say(sendTo, vlaste(text.substr(10),'fr-facile'));break;
+		case text.indexOf('f@:')	== '0': clientmensi.say(sendTo, vlaste(text.substr(3),'fr-facile'));break;
+		case text.indexOf('ja:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'ja'));break;
+		case text.indexOf('de:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'de'));break;
+		case text.indexOf('eo:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'eo'));break;
+		case text.indexOf('zh:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'zh'));break;
+		case text.indexOf('en-simple:') == '0': clientmensi.say(sendTo, vlaste(text.substr(10),'en-simple'));break;
+		case text.indexOf('lb:') == '0': clientmensi.say(sendTo, vlaste(text.substr(3),'lb'));break;
+		case text.indexOf('krasi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'krasi'));break; // Gives Lojban words etymologies
+		case text.indexOf('dukti:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'dukti'));break; // Gives Lojban words antonyms
 
-	case text.indexOf('selmaho:') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
-	case text.indexOf('selma\'o:') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
-	case text.indexOf('finti:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','finti'));break;
-	case text.indexOf('rafsi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
-	case text.indexOf('toki:') == '0': clientmensi.say(sendTo, vlaste(text.substr(5),'toki'));break;
-	case text.indexOf('laadan:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'laadan'));break;
-	case text.indexOf('loglan:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'loglan'));break;
-	case text.indexOf('gloss:') == '0': clientmensi.say(sendTo, gloso(text.substr(6),'en'));break;
-	case text.indexOf('loi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),''));break;
-	case text.indexOf('coi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),'coi'));break;
- 	case text==replier+': ii': clientmensi.say(sendTo, io());break;
- 	case text==replier+': help': clientmensi.say(sendTo, sidju());break;
-	case text.indexOf("rot13:") == '0': clientmensi.say(sendTo, rotpaci(text.substr(6)));break;
- 	case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
- 	case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
- 	case text.indexOf('Tatoeba:') == '0': clientmensi.say(sendTo, sisku(text.substr(8).trim()));break;
-/* 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
- 	case text.indexOf(prereplier + 'xu do') == '0': 
- 	case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {clientmensi.say(sendTo, from + mireturn());}, interm );break;
- 	case text.indexOf(prereplier + 'mi retsku') < 0 && text.indexOf(prereplier + 'mi') == '0': setTimeout(function() {clientmensi.say(sendTo, from + doreturn());}, interm );break;
- 	case text.indexOf(prereplier + 'sei mi kucli') == '0' && from==asker: setTimeout(function() {clientmensi.say(sendTo, preasker + ext(nadjuno));}, interm );break;
- 	case text.indexOf(prereplier + 'zmiku') >= 0 && from==asker: text.indexOf(prereplier + 'zmiku') >= 0 && from==asker;break;
+		case text.indexOf('selmaho:') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
+		case text.indexOf('selma\'o:') == '0': clientmensi.say(sendTo, vlaste(text.substr(8),'en','selmaho'));break;
+		case text.indexOf('finti:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','finti'));break;
+		case text.indexOf('rafsi:') == '0': clientmensi.say(sendTo, vlaste(text.substr(6),'en','raf'));break;
+		case text.indexOf('toki:') == '0': clientmensi.say(sendTo, vlaste(text.substr(5),'toki'));break;
+		case text.indexOf('laadan:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'laadan'));break;
+		case text.indexOf('loglan:') == '0': clientmensi.say(sendTo, vlaste(text.substr(7),'loglan'));break;
+		case text.indexOf('gloss:') == '0': clientmensi.say(sendTo, gloso(text.substr(6),'en'));break;
+		case text.indexOf('loi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),''));break;
+		case text.indexOf('coi:') == '0': clientmensi.say(sendTo, loglo(text.substr(4),'coi'));break;
+		case text==replier+': ii': clientmensi.say(sendTo, io());break;
+		case text==replier+': help': clientmensi.say(sendTo, sidju());break;
+		case text.indexOf("rot13:") == '0': clientmensi.say(sendTo, rotpaci(text.substr(6)));break;
+		case text.indexOf(prereplier + 'r ') == '0': clientmensi.say(sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
+		case text.indexOf(prereplier + 'j ') == '0': clientmensi.say(sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
+		case text.indexOf('Tatoeba:') == '0': clientmensi.say(sendTo, sisku(text.substr(8).trim()));break;
+	/* 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: clientmensi.say(sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
+		case text.indexOf(prereplier + 'xu do') == '0': 
+		case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {clientmensi.say(sendTo, from + mireturn());}, interm );break;
+		case text.indexOf(prereplier + 'mi retsku') < 0 && text.indexOf(prereplier + 'mi') == '0': setTimeout(function() {clientmensi.say(sendTo, from + doreturn());}, interm );break;
+		case text.indexOf(prereplier + 'sei mi kucli') == '0' && from==asker: setTimeout(function() {clientmensi.say(sendTo, preasker + ext(nadjuno));}, interm );break;
+		case text.indexOf(prereplier + 'zmiku') >= 0 && from==asker: text.indexOf(prereplier + 'zmiku') >= 0 && from==asker;break;
  	case text.indexOf(prereplier + 'u\'i') == '0' && from==asker: setTimeout(function() {clientmensi.say(sendTo, preasker + ext(nagendra));}, interm );break;
  	case text.indexOf(prereplier + 'xu') == '0' && from!==asker: setTimeout(function() {clientmensi.say(sendTo, from + ': ' + ext(mizmiku));}, interm );break;
  	case text.indexOf(prereplier) == '0' && text.indexOf(prereplier + 'xu') !== '0' && from!==asker: setTimeout(function() {clientmensi.say(sendTo, tato.tatoebaprocessing(from));}, interm );break;

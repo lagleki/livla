@@ -1390,4 +1390,53 @@ var prettifylojbansentences = function(){//insert spaces to lojban sentences
         var content = fs.writeFileSync(path.join(__dirname,"../","sekatna.txt"),sj.join("\n").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n"));
         return 'mulno';
 };
-//
+//NAXLE
+var ctor='-';
+
+var http = require('http'),
+    fs = require('fs'),
+    // NEVER use a Sync function except at start-up!
+    index = fs.readFileSync(__dirname + '/naxle.html');
+
+// Send index.html to all requests
+var app = http.createServer(function(req, res) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(index);
+});
+
+// Socket.io server listens to our app
+var io = require('socket.io').listen(app);
+
+// Send current time to all connected clients
+function sendTime() {
+    io.sockets.emit('time', { time: vlaste(ctor,'en') });
+}
+
+// Send current time every 10 secs
+setInterval(sendTime, 1000);
+var ctor;
+// Emit welcome message on connection
+io.sockets.on('connection', function(socket) {
+    socket.emit('welcome', { message: 'Welcome!' });
+
+    socket.on('i am client', function(data){ctor=data.data;console.log(ctor)});
+});
+
+app.listen(3000);
+/*
+var express = require('express');
+var app     = express();
+bodyParser = require('body-parser'),
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+
+
+app.post('../myaction', function(req, res) {
+  res.send('You sent the name "' + req.body.name + '".');
+});
+
+app.listen(8077, function() {
+  console.log('Server running at http://127.0.0.1:8077/');
+});*/

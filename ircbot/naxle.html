@@ -1,15 +1,59 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>
-		Untitled Document
-	</title>
+	        <script src='//code.jquery.com/jquery-1.7.2.min.js'></script>
+        <script src='//vrici.lojban.org:3000/socket.io/socket.io.js'></script>
+        <script>
+            var socket = io.connect('//vrici.lojban.org:3000');
+
+            socket.on('welcome', function(data) {
+                $('#messages').append('<li>' + data.message + '</li>');
+
+                //socket.emit('i am client', {data: 'foo!'});
+            });
+            socket.on('time', function(data) {
+                console.log(data);
+                $('#messages').html('<li>' + data.time.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</li>');
+            });
+            socket.on('error', function() { console.error(arguments) });
+            socket.on('message', function() { console.log(arguments) });
+        </script>
 </head>
 <body>
-<script src="/socket.io/socket.io.js"></script>
+<meta charset='utf-8' />
+
+<span style="font: 15px arial, sans-serif;">Type a word. La Mensi will search for it in her English xml dump.</span>
+<br /><br />
+
+<form id="form1" name="form1" method="post" action="" style="width:100%">
+  <textarea id="input_textarea" style="width:100%" rows="8" autofocus onChange="run_camxes()"></textarea>
+  <br />
+  <span style="font: 15px arial, sans-serif;">Output: </span>
+</form>
+
+<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+
 <script>
-    var socket = io.connect("http://localhost");
+//document.getElementById("default").defaultSelected = true;
+
+/*
+ *  Binding the function run_camxes() to keyup event on demo_textarea by using jQuery
+ */
+$('#input_textarea').bind( "keyup",
+  function(e) {
+    run_camxes();
+  } );
+
+function run_camxes() {
+	try {
+	  var input = $('#input_textarea').val();
+	  socket.emit('i am client', {data: input});
+    } catch (e) {
+      return;
+    }
+}
 </script>
+<ul id='messages'></ul>
+
 </body>
 </html>

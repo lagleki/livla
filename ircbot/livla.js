@@ -180,6 +180,18 @@ var updatexmldumps = function (callback) {
 				}
 			}); 
 		});
+		//
+			var uri="http://vrici.lojban.org/~gleki/mediawiki-1.19.2/extensions/ilmentufa/ircbot/dumps/jbovlaste.xsl";
+			jar.setCookie(cookie, uri);
+			var t = path.join(__dirname,"dumps","test" + ".csv");
+			request({
+				uri: uri, method: "GET", jar: jar
+			}).on("error", function (err) {
+			}).pipe(fs.createWriteStream(t + ".temp")).on("finish", function () {
+				fs.renameSync(t+".temp", t);console.log("lb" + ' updated');
+				global.gc();
+			});
+		///
 		langs.forEach(function(thisa) {//now update pdf
 			var uri="http://jbovlaste.lojban.org/export/latex-export.html?lang="+thisa;
 			jar.setCookie(cookie, uri);
@@ -201,8 +213,6 @@ var updatexmldumps = function (callback) {
 	}catch(err){console.log('Error when autoupdating: ' + err);}
 	sutsisningau("zamenhofo");sutsisningau("laadan");
 	//updategloss();# not yet ready function
-	//now update lo vlaste pe la bangu:
-	//ningaulabangu();
 };
 var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),{encoding: 'utf8'}));//store en dump in memory
 
@@ -296,6 +306,8 @@ var nagendra = ["na drani", "li'a na drani i do pu nitcu ma", "do na junri xu","
 var spuda = ["do puzabi\'oca mutce lo ka jai fanza", "do djica ma", "a'enai je'enai i mi djica lo ka sipna", "e'u do klama lo bartu","ke'o i ta'onai aunairu'e mi tavla do"];
 var coi = ["coi", "co\'oi", "ju\'i", "be\'e"];
 var mablagleki = ["la gleki cu tai mabla prenu", "xu la gleki cu fenki i .ies", "la gleki cu cmorguka i ie cmorguka", "lo'e me la gleki cu finti lo cizra zmiku","xu ro lo jbopre cu tai si'a fenki","lo'e arxokuna cu nelci lo ka zukte lo fanza"];
+var nelci = ["ba'e mi nelci i ie mi nelci","sei mi stace mi na mutce nelci","mi na nelci","mi xebni","mi mutce nelci i ie"];
+var tugni = ["mi tugni i ie mi tugni","ba'e mi na tugni","ei mi tugni"];
 var user = ["gleki", replier];
 var grute = ["pelxu badna", "ranti kokso", "fanza plise", "grute", "xunre ka\'orta","zirpu betka","clazme","cirla","tricu","bunre narge","crino spati","dembi","figre","tamca","patlu","djacyzme"];
 var mamta = ["mamta", "patfu", "plise", "gerku", "ractu", "ratcu", "se dunda", "mensi", "mlatu","panzi","tixnu","zdani","zmiku"];
@@ -387,7 +399,8 @@ var processormensi = function(clientmensi, from, to, text, message) {
 		// 
 		///
 		switch(true) {
-		case text.search(/ie( |)(nai( |)|)pei/) >= '0': clientmensi.say(sendTo, "mi tugni i ie mi tugni");break;
+		case text.search(/ie( |)(nai( |)|)pei/) >= '0': clientmensi.say(sendTo, ext(tugni));break;
+		case text.search(/\bna nelci/) >= '0': clientmensi.say(sendTo, ext(nelci));break;
 		case text.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
 		case text.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;
 		case text.indexOf("lujvo:") == '0': clientmensi.say(sendTo, triz(text.substr(6)));break;
@@ -739,8 +752,8 @@ coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./definiti
 stra=stra.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]);
 
 xo=stra.length;
-try{stra.splice(30);}catch(err){}
-if (stra.length>=30){stra.push("...");}
+try{stra.splice(100);}catch(err){}
+if (stra.length>=100){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
 if (stra.length>1){gag = xo + " da se tolcri: " + gag;}
@@ -1325,60 +1338,6 @@ var nl='var literals = {';
 	var d = new Date();
 	var n = d.getDate();
 	if(n==1){try{pars=fs.readFileSync(t,{encoding: 'utf8'});pars = fs.writeFileSync(t,pars);console.log(t + ' updated');}catch(err){}}
-};
-
-var ningaulabangu = function (){
-/*	//var uri="https://docs.google.com/spreadsheet/pub?key=0Ahngu1CNj7wddEljb0o5YzkzSU4zVXhtam5CUGMzZkE&single=true&gid=20&output=csv&range=B1%3AB3000";
-	var uri="http://goo.gl/jrRHuj";
-			//jar.setCookie(cookie, uri);
-			var request = require("request");
-			request({uri: uri,method: "GET"}, function(err, response, body) {
-				if(err) {console.log(err);}
-				else{
-					var content=body.replace(/^'''(.*?)''' (.*?)\n\n/igm,'<valsi word="$1"><definition>$1</definition></valsi>\n');//now get the csv file itself
-					uri=content;
-						var http = require('http');
-						content = fs.createWriteStream(path.join(__dirname,"dumps","lojban-" + "labangu" + ".xml"));
-						var request = http.get(uri, function(response) {
-							response.pipe(content);
-						}).on('error', function(err) {
-							console.log("when updating " + "la bangu" + " xml: " + err);
-						});
-				}
-			});
-*/
-	// Dependencies
-	var fs = require('fs');
-	var url = require('url');
-	var http = require('https');
-	var exec = require('child_process').exec;
-	var spawn = require('child_process').spawn;
-	
-	// App variables
-	var file_url = 'https://docs.google.com/spreadsheet/pub?key=0Ahngu1CNj7wddEljb0o5YzkzSU4zVXhtam5CUGMzZkE&amp;single=true&amp;gid=20&amp;output=csv&amp;range=B1:B3000';
-	var DOWNLOAD_DIR = './ircbot/dumps/';
-
-	// Function to download file using HTTP.get
-	var download_file_httpget = function(file_url) {
-	var options = {
-	    //host: url.parse(file_url).host,
-	    hostname: 'docs.google.com',
-	    port: 80,
-	    path: '/spreadsheet/pub?key=0Ahngu1CNj7wddEljb0o5YzkzSU4zVXhtam5CUGMzZkE&single=true&gid=20&output=csv&range=B1:B3000'
-	};
-	console.log('test');
-	var file_name = 'test.csv';//url.parse(file_url).pathname.split('/').pop();
-	var file = fs.createWriteStream(DOWNLOAD_DIR + file_name);
-	http.get(options, function(res) {
-	    res.on('data', function(data) {
-	            file.write(data);
-	        }).on('end', function() {
-	            file.end();
-	            console.log(file_name + ' downloaded to ' + DOWNLOAD_DIR);
-	        });
-	    });
-	};
-download_file_httpget();	
 };
 
 var lmw = function (lin,sendTo){//to be done

@@ -71,17 +71,28 @@ clear:both;
 /*
  *  Binding the function run_camxes() to keyup event on demo_textarea by using jQuery
  */
-$('#input_textarea').bind( "enterKey",
+//setup before functions
+var typingTimer;                //timer identifier
+var doneTypingInterval = 1000;  //time in ms, 5 second for example
+
+$('#input_textarea').bind( "keyup",
   function(e) {
-    run_camxes();
+	clearTimeout(typingTimer);
+    typingTimer = setTimeout(run_camxes, doneTypingInterval);
+} );
+
+$('#input_textarea').bind( "keydown",
+  function(e) {
+    clearTimeout(typingTimer);
   } );
-$('textarea').keyup(function(e){
+  
+/*$('textarea').keyup(function(e){
     if(e.keyCode == 13)
     {
         $(this).trigger("enterKey");
     }
 });
-
+*/
 function run_camxes() {
 	try {
 	  var input = $('#input_textarea').val();

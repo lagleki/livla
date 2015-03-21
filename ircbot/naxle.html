@@ -73,7 +73,7 @@ clear:both;
  */
 //setup before functions
 var typingTimer;                //timer identifier
-var doneTypingInterval = 1000;  //time in ms, 5 second for example
+var doneTypingInterval = 400;  //time in ms, 5 second for example
 
 $('#input_textarea').bind( "keyup",
   function(e) {
@@ -108,7 +108,7 @@ function run_camxes() {
 <div class="content">
 <h3>Help:</h3>
 <ul>
-<li>Press 'Enter' to get results.<br/></li>
+<li>The results will appear as you type.<br/></li>
 <li>Parsers: type &quot;exp:&quot; (experimental), &quot;off:&quot; (camxes), &quot;gerna:&quot; (jbofi'e), or &quot;yacc:&quot; (official yacc) followed by the text to show the structure of sentences.</li>
 <li>Lojban dictionary: type &quot;language-code: word&quot;, where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh. This searches in both directions.</li>
 <li>Type &quot;language-code:word&quot; (i.e. without a space after &quot;:&quot;) to get a shorter definition.</li>

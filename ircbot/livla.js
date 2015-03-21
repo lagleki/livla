@@ -351,15 +351,16 @@ var processor = function(client, from, to, text, message) {
   }
 };
 
-var benji = function(source,clientmensi, sendTo, what) {
+var benji = function(source,socket,clientmensi, sendTo, what) {
 	if (source==="naxle"){
+		socket.emit('returner', {message: what});
 		return what;
 	}
 	else{clientmensi.say(sendTo, what);}
 };
 
-var processormensi = function(clientmensi, from, to, text, message,source) {
-  var ret,shi="";
+var processormensi = function(clientmensi, from, to, text, message,source,socket) {
+  var ret;
   if (!text) return;
   var sendTo = from; // send privately
   if (to.indexOf('#') > -1) {
@@ -370,10 +371,10 @@ var processormensi = function(clientmensi, from, to, text, message,source) {
 	if (text.indexOf(replier+': tell ') == '0'){
 		text = text.substr(12).trim().replace("\\t"," ").replace(" ","\t");
 		switch(true) {
-		case from.match(text.substr(0, text.indexOf('\t')))!==null: shi=benji(source,clientmensi,sendTo,from+": e'u do cusku di'u lo nei si'unai");break;
-		case text.substr(0, text.indexOf('\t'))==replier: shi=benji(source,clientmensi,sendTo,from+": xu do je'a jinvi lodu'u mi bebna i oi");break;
+		case from.match(text.substr(0, text.indexOf('\t')))!==null: benji(source,socket,clientmensi,sendTo,from+": e'u do cusku di'u lo nei si'unai");break;
+		case text.substr(0, text.indexOf('\t'))==replier: benji(source,socket,clientmensi,sendTo,from+": xu do je'a jinvi lodu'u mi bebna i oi");break;
 		default:
-		var d = new Date();notci.push(from + "\t" + text + ' | ' + d.toISOString());shi=benji(source,clientmensi,sendTo,from+": mi ba benji di'u ba lo nu la'o gy."+text.substr(0, text.indexOf('\t'))+".gy. di'a cusku da");
+		var d = new Date();notci.push(from + "\t" + text + ' | ' + d.toISOString());benji(source,socket,clientmensi,sendTo,from+": mi ba benji di'u ba lo nu la'o gy."+text.substr(0, text.indexOf('\t'))+".gy. di'a cusku da");
 		fs.writeFile(notcijudri, notci.join("\n"),function(err) {});break;
 		}
 	}
@@ -381,10 +382,10 @@ var processormensi = function(clientmensi, from, to, text, message,source) {
 	if (text.indexOf(replier+': doi ') == '0'){
 		text = text.substr(11).trim().replace("\\t"," ").replace(" ","\t");
 		switch(true) {
-		case from.match(text.substr(0, text.indexOf('\t')))!==null: shi=benji(source,clientmensi,sendTo,from+": e'u do cusku di'u lo nei si'unai");break;
-		case text.substr(0, text.indexOf('\t'))==replier: shi=benji(source,clientmensi,sendTo,from+": xu do je'a jinvi lodu'u mi bebna i oi");break;
+		case from.match(text.substr(0, text.indexOf('\t')))!==null: benji(source,socket,clientmensi,sendTo,from+": e'u do cusku di'u lo nei si'unai");break;
+		case text.substr(0, text.indexOf('\t'))==replier: benji(source,socket,clientmensi,sendTo,from+": xu do je'a jinvi lodu'u mi bebna i oi");break;
 		default:
-		var ds = new Date();notci.push(from + "\t" + text + ' | ' + ds.toISOString());shi=benji(source,clientmensi,sendTo,from+": mi ba benji di'u ba lo nu la'o gy."+text.substr(0, text.indexOf('\t'))+".gy. di'a cusku da");
+		var ds = new Date();notci.push(from + "\t" + text + ' | ' + ds.toISOString());benji(source,socket,clientmensi,sendTo,from+": mi ba benji di'u ba lo nu la'o gy."+text.substr(0, text.indexOf('\t'))+".gy. di'a cusku da");
 		fs.writeFile(notcijudri, notci.join("\n"),function(err) {});break;
 		}
 	}
@@ -398,7 +399,7 @@ var processormensi = function(clientmensi, from, to, text, message,source) {
 			if (from.match(sem)!==null)
 			{
 				cmenepagbu=notci[l].split("\t");
-				shi=benji(source,clientmensi,sendTo,(from + ": cu'u la'o gy." + cmenepagbu[0] + ".gy.: "+cmenepagbu[2]).replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n'));
+				benji(source,socket,clientmensi,sendTo,(from + ": cu'u la'o gy." + cmenepagbu[0] + ".gy.: "+cmenepagbu[2]).replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n'));
 				notci.splice(l,1);l=l-1;
 				fs.writeFile(notcijudri, notci.join("\n"));
 			}
@@ -406,87 +407,86 @@ var processormensi = function(clientmensi, from, to, text, message,source) {
 		// 
 		///
 		switch(true) {
-		case text.search(/ie( |)(nai( |)|)pei/) >= '0': shi=benji(source,clientmensi,sendTo, ext(tugni));break;
-		case text.search(/\bna nelci/) >= '0': shi=benji(source,clientmensi,sendTo, ext(nelci));break;
+		case text.search(/ie( |)(nai( |)|)pei/) >= '0': benji(source,socket,clientmensi,sendTo, ext(tugni));break;
+		case text.search(/\bna nelci/) >= '0': benji(source,socket,clientmensi,sendTo, ext(nelci));break;
 		case text.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
 		case text.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;
-		case text.indexOf("lujvo:") == '0': shi=benji(source,clientmensi,sendTo, triz(text.substr(6)));break;
-		//case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);shi=benji(source,clientmensi,sendTo, run_camxes(ret[0], ret[1]));break;
-		case text.indexOf("exp:") == '0': text = text.substr(4).trim();ret = extract_mode(text);shi=benji(source,clientmensi,sendTo, run_camxes(ret[0], ret[1]));break;
-		case text.indexOf("f:") == '0': text = text.substr(2).trim();shi=benji(source,clientmensi,sendTo, xufuhivla(text));break;
-		case text.indexOf("k:") == '0': text = text.substr(2).trim();shi=benji(source,clientmensi,sendTo, run_camxes(text, 3));break;
-		case text.indexOf("off:") == '0': text = text.substr(4).trim();ret = extract_mode(text);shi=benji(source,clientmensi,sendTo, run_camxesoff(ret[0], ret[1]));break;
-		case text.indexOf("yacc:") == '0': tcepru(text.substr(5),sendTo);break;
-		case text.indexOf("cowan:") == '0': tcepru(text.substr(6),sendTo);break;
-		case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo);break;
-		case text.indexOf("jbofihe:") == '0': jbofihe(text.substr(8),sendTo);break;
-		case text.indexOf("gerna:") == '0': jbofihe(text.substr(6),sendTo);break;
-		case (text.indexOf(replier + ': ko ningau')=='0' ||text.indexOf(replier + ': ko cnino') == '0'): setTimeout(function() {updatexmldumps(function(velruhe) {shi=benji(source,clientmensi,sendTo, 'i ba\'o jai gau cnino'); var selsre = Object.keys(velruhe.nalmulselfaho); if (selsre.length) shi=benji(source,clientmensi,sendTo, 'i na kakne lo ka jai gau cnino fai la\'e zoi zoi ' + selsre.join(' ') + ' zoi');});shi=benji(source,clientmensi,sendTo,'sei ca ca\'o jai gau cnino be fai lo pe mi sorcu');},1); break;
-		case text.indexOf('guaspi:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(7),'guaspi'));break;
-		case text.indexOf('frame: /full ') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(12),'en','framemulno'));break;
-		case text.indexOf('frame:/full ') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(11),'en','framemulno'));break;
-		case text.indexOf('mensi: ktn') == '0': shi=benji(source,clientmensi,sendTo, prettifylojbansentences());break;
+		case text.indexOf("lujvo:") == '0': benji(source,socket,clientmensi,sendTo, triz(text.substr(6)));break;
+		//case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxes(ret[0], ret[1]));break;
+		case text.indexOf("exp:") == '0': text = text.substr(4).trim();ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxes(ret[0], ret[1]));break;
+		case text.indexOf("f:") == '0': text = text.substr(2).trim();benji(source,socket,clientmensi,sendTo, xufuhivla(text));break;
+		case text.indexOf("k:") == '0': text = text.substr(2).trim();benji(source,socket,clientmensi,sendTo, run_camxes(text, 3));break;
+		case text.indexOf("off:") == '0': text = text.substr(4).trim();ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxesoff(ret[0], ret[1]));break;
+		case text.indexOf("yacc:") == '0': tcepru(text.substr(5),sendTo,source,socket);break;
+		case text.indexOf("cowan:") == '0': tcepru(text.substr(6),sendTo,source,socket);break;
+		case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo,source,socket);break;
+		case text.indexOf("jbofihe:") == '0': jbofihe(text.substr(8),sendTo,source,socket);break;
+		case text.indexOf("gerna:") == '0': jbofihe(text.substr(6),sendTo,source,socket);break;
+		case (text.indexOf(replier + ': ko ningau')=='0' ||text.indexOf(replier + ': ko cnino') == '0'): setTimeout(function() {updatexmldumps(function(velruhe) {benji(source,socket,clientmensi,sendTo, 'i ba\'o jai gau cnino'); var selsre = Object.keys(velruhe.nalmulselfaho); if (selsre.length) benji(source,socket,clientmensi,sendTo, 'i na kakne lo ka jai gau cnino fai la\'e zoi zoi ' + selsre.join(' ') + ' zoi');});benji(source,socket,clientmensi,sendTo,'sei ca ca\'o jai gau cnino be fai lo pe mi sorcu');},1); break;
+		case text.indexOf('guaspi:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(7),'guaspi'));break;
+		case text.indexOf('frame: /full ') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(12),'en','framemulno'));break;
+		case text.indexOf('frame:/full ') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(11),'en','framemulno'));break;
+		case text.indexOf('mensi: ktn') == '0': benji(source,socket,clientmensi,sendTo, prettifylojbansentences());break;
 		
 		// Change default language
-		case text.indexOf('bangu:') == '0': shi=benji(source,clientmensi,sendTo, bangu(text.substr(6).trim(), from));break;
+		case text.indexOf('bangu:') == '0': benji(source,socket,clientmensi,sendTo, bangu(text.substr(6).trim(), from));break;
 
 		// Give definition of valsi in specified language
-		case text.indexOf('?:') == '0': var inLanguage = defaultLanguage;inLanguage = RetrieveUsersLanguage(from, inLanguage);shi=benji(source,clientmensi,sendTo, vlaste(text.substr(2), inLanguage));break; // Gives definition of valsi in the default language set to user
-		case text.indexOf('jbo:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(4),'jbo'));break; // Gives definition of valsi in Lojban
-		case text.indexOf('en:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(3),'en'));break; // Gives definition of valsi in English
-		case text.indexOf('ru:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(3),'ru'));break;
-		case text.indexOf('es:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(3),'es'));break;
-		case text.indexOf('fr:')	== '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(3),'fr'));break;
-		case text.indexOf('fr-facile:')	== '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(10),'fr-facile'));break;
-		case text.indexOf('f@:')	== '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(3),'fr-facile'));break;
-		case text.indexOf('ja:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(3),'ja'));break;
-		case text.indexOf('de:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(3),'de'));break;
-		case text.indexOf('eo:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(3),'eo'));break;
-		case text.indexOf('zh:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(3),'zh'));break;
-		case text.indexOf('en-simple:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(10),'en-simple'));break;
-		case text.indexOf('lb:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(3),'lb'));break;
-		case text.indexOf('krasi:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(6),'krasi'));break; // Gives Lojban words etymologies
-		case text.indexOf('dukti:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(6),'dukti'));break; // Gives Lojban words antonyms
+		case text.indexOf('?:') == '0': var inLanguage = defaultLanguage;inLanguage = RetrieveUsersLanguage(from, inLanguage);benji(source,socket,clientmensi,sendTo, vlaste(text.substr(2), inLanguage));break; // Gives definition of valsi in the default language set to user
+		case text.indexOf('jbo:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(4),'jbo'));break; // Gives definition of valsi in Lojban
+		case text.indexOf('en:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'en'));break; // Gives definition of valsi in English
+		case text.indexOf('ru:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'ru'));break;
+		case text.indexOf('es:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'es'));break;
+		case text.indexOf('fr:')	== '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'fr'));break;
+		case text.indexOf('fr-facile:')	== '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(10),'fr-facile'));break;
+		case text.indexOf('f@:')	== '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'fr-facile'));break;
+		case text.indexOf('ja:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'ja'));break;
+		case text.indexOf('de:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'de'));break;
+		case text.indexOf('eo:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'eo'));break;
+		case text.indexOf('zh:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'zh'));break;
+		case text.indexOf('en-simple:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(10),'en-simple'));break;
+		case text.indexOf('lb:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'lb'));break;
+		case text.indexOf('krasi:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'krasi'));break; // Gives Lojban words etymologies
+		case text.indexOf('dukti:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'dukti'));break; // Gives Lojban words antonyms
 
-		case text.indexOf('selmaho:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(8),'en','selmaho'));break;
-		case text.indexOf('selma\'o:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(8),'en','selmaho'));break;
-		case text.indexOf('finti:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(6),'en','finti'));break;
-		case text.indexOf('rafsi:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(6),'en','raf'));break;
-		case text.indexOf('toki:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(5),'toki'));break;
-		case text.indexOf('laadan:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(7),'laadan'));break;
-		case text.indexOf('loglan:') == '0': shi=benji(source,clientmensi,sendTo, vlaste(text.substr(7),'loglan'));break;
-		case text.indexOf('gloss:') == '0': shi=benji(source,clientmensi,sendTo, gloso(text.substr(6),'en'));break;
-		case text.indexOf('loi:') == '0': shi=benji(source,clientmensi,sendTo, loglo(text.substr(4),''));break;
-		case text.indexOf('coi:') == '0': shi=benji(source,clientmensi,sendTo, loglo(text.substr(4),'coi'));break;
-		case text==replier+': ii': shi=benji(source,clientmensi,sendTo, io());break;
-		case text==replier+': help': shi=benji(source,clientmensi,sendTo, sidju());break;
-		case text.indexOf("rot13:") == '0': shi=benji(source,clientmensi,sendTo, rotpaci(text.substr(6)));break;
-		case text.indexOf(prereplier + 'r ') == '0': shi=benji(source,clientmensi,sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
-		case text.indexOf(prereplier + 'j ') == '0': shi=benji(source,clientmensi,sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
-		case text.indexOf('Tatoeba:') == '0': shi=benji(source,clientmensi,sendTo, sisku(text.substr(8).trim()));break;
-	/* 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: shi=benji(source,clientmensi,sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
+		case text.indexOf('selmaho:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(8),'en','selmaho'));break;
+		case text.indexOf('selma\'o:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(8),'en','selmaho'));break;
+		case text.indexOf('finti:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'en','finti'));break;
+		case text.indexOf('rafsi:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'en','raf'));break;
+		case text.indexOf('toki:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(5),'toki'));break;
+		case text.indexOf('laadan:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(7),'laadan'));break;
+		case text.indexOf('loglan:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(7),'loglan'));break;
+		case text.indexOf('gloss:') == '0': benji(source,socket,clientmensi,sendTo, gloso(text.substr(6),'en'));break;
+		case text.indexOf('loi:') == '0': benji(source,socket,clientmensi,sendTo, loglo(text.substr(4),''));break;
+		case text.indexOf('coi:') == '0': benji(source,socket,clientmensi,sendTo, loglo(text.substr(4),'coi'));break;
+		case text==replier+': ii': benji(source,socket,clientmensi,sendTo, io());break;
+		case text==replier+': help': benji(source,socket,clientmensi,sendTo, sidju());break;
+		case text.indexOf("rot13:") == '0': benji(source,socket,clientmensi,sendTo, rotpaci(text.substr(6)));break;
+		case text.indexOf(prereplier + 'r ') == '0': benji(source,socket,clientmensi,sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
+		case text.indexOf(prereplier + 'j ') == '0': benji(source,socket,clientmensi,sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
+		case text.indexOf('Tatoeba:') == '0': benji(source,socket,clientmensi,sendTo, sisku(text.substr(8).trim()));break;
+	/* 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: benji(source,socket,clientmensi,sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
 		case text.indexOf(prereplier + 'xu do') == '0': 
-		case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {shi=benji(source,clientmensi,sendTo, from + mireturn());}, interm );break;
-		case text.indexOf(prereplier + 'mi retsku') < 0 && text.indexOf(prereplier + 'mi') == '0': setTimeout(function() {shi=benji(source,clientmensi,sendTo, from + doreturn());}, interm );break;
-		case text.indexOf(prereplier + 'sei mi kucli') == '0' && from==asker: setTimeout(function() {shi=benji(source,clientmensi,sendTo, preasker + ext(nadjuno));}, interm );break;
+		case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {benji(source,socket,clientmensi,sendTo, from + mireturn());}, interm );break;
+		case text.indexOf(prereplier + 'mi retsku') < 0 && text.indexOf(prereplier + 'mi') == '0': setTimeout(function() {benji(source,socket,clientmensi,sendTo, from + doreturn());}, interm );break;
+		case text.indexOf(prereplier + 'sei mi kucli') == '0' && from==asker: setTimeout(function() {benji(source,socket,clientmensi,sendTo, preasker + ext(nadjuno));}, interm );break;
 		case text.indexOf(prereplier + 'zmiku') >= 0 && from==asker: text.indexOf(prereplier + 'zmiku') >= 0 && from==asker;break;
- 	case text.indexOf(prereplier + 'u\'i') == '0' && from==asker: setTimeout(function() {shi=benji(source,clientmensi,sendTo, preasker + ext(nagendra));}, interm );break;
- 	case text.indexOf(prereplier + 'xu') == '0' && from!==asker: setTimeout(function() {shi=benji(source,clientmensi,sendTo, from + ': ' + ext(mizmiku));}, interm );break;
- 	case text.indexOf(prereplier) == '0' && text.indexOf(prereplier + 'xu') !== '0' && from!==asker: setTimeout(function() {shi=benji(source,clientmensi,sendTo, tato.tatoebaprocessing(from));}, interm );break;
- 	case text.indexOf("doi " + replier) >-1 && from!==asker: setTimeout(function() {shi=benji(source,clientmensi,sendTo, tato.tatoebaprocessing(from));}, interm );break;*/
+ 	case text.indexOf(prereplier + 'u\'i') == '0' && from==asker: setTimeout(function() {benji(source,socket,clientmensi,sendTo, preasker + ext(nagendra));}, interm );break;
+ 	case text.indexOf(prereplier + 'xu') == '0' && from!==asker: setTimeout(function() {benji(source,socket,clientmensi,sendTo, from + ': ' + ext(mizmiku));}, interm );break;
+ 	case text.indexOf(prereplier) == '0' && text.indexOf(prereplier + 'xu') !== '0' && from!==asker: setTimeout(function() {benji(source,socket,clientmensi,sendTo, tato.tatoebaprocessing(from));}, interm );break;
+ 	case text.indexOf("doi " + replier) >-1 && from!==asker: setTimeout(function() {benji(source,socket,clientmensi,sendTo, tato.tatoebaprocessing(from));}, interm );break;*/
   	}
 
 
 
   }
-  if (source==="naxle"){return shi;}
 };
 
     /*if (text.indexOf(prereplier + 'mi retsku') < 0 && from==asker && text.indexOf(prereplier + 'mi') == '0') {
-      shi=benji(source,clientmensi,sendTo, preasker + ext(reply));
+      benji(source,socket,clientmensi,sendTo, preasker + ext(reply));
     }*/
     /*if (text.indexOf("gleki: ") == '0' && from==asker) {
-      	setTimeout(function() {shi=benji(source,clientmensi,sendTo, preasker + 'la gleki ' + ext(natirna));}, interm );
+      	setTimeout(function() {benji(source,socket,clientmensi,sendTo, preasker + 'la gleki ' + ext(natirna));}, interm );
     }*/
     
 var mireturn = function ()
@@ -1061,7 +1061,7 @@ return lin.trim().replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<
 var stnlp = function(lin,sendTo)
 {
 	stanfordSimpleNLP.process(lin, function(err, result) {
-		shi=benji(source,clientmensi,sendTo, JSON.stringify(result));
+		benji(source,socket,clientmensi,sendTo, JSON.stringify(result));
 		});
 };
 
@@ -1358,28 +1358,27 @@ request({uri: uri,method: "GET"}, function(err, response, body) {
 	var i;i = body.replace(/<[^>]+>/g,'');
 	i=i.substring(0,200);
 	if (i.length>=200){i+='...';}
-	shi=benji(source,clientmensi,sendTo, i);
+	benji(source,socket,clientmensi,sendTo, i);
 });
 };
 
-var tcepru = function(lin,sendTo,source){
+var tcepru = function(lins,sendTo,source,socket){
 	var exec = require('child_process').exec;
-	exec(path.join(__dirname,"../tcepru/./parser") + ' <<<"'+lin+'" 2>/dev/null', function (error, stdout, stderr) {
-                 lin=stdout.toString();if (lin===''){lin='O_0';}
-  		 shi=benji(source,clientmensi,sendTo, lin);
+	exec(path.join(__dirname,"../tcepru/./parser") + ' <<<"'+lins+'" 2>/dev/null', function (error, stdout, stderr) {
+	lin=stdout;
+	if (error !==null){lin='O_0';}
+	benji(source,socket,clientmensi,sendTo, lin.replace(/\n/g,' ').replace(/ {2,}/g,' '));
+	console.log(lin);
 	});
-	if (source==="naxle"){return shi;}
-
 };
 
-var jbofihe = function(lin,sendTo,source){
+var jbofihe = function(lin,sendTo,source,socket){
 	var exec = require('child_process').exec;
 	exec(path.join(__dirname,"../jbofihe/./jbofihe") + ' -ie -cr <<<"'+lin+'" 2>/dev/null', function (error, stdout, stderr) {
 	lin=stdout;
 	if (error !==null){lin='O_0';}
-  	shi=benji(source,clientmensi,sendTo, lin.replace(/\n/g,' ').replace(/ {2,}/g,' '));
+	benji(source,socket,clientmensi,sendTo, lin.replace(/\n/g,' ').replace(/ {2,}/g,' '));
 	});
-	if (source==="naxle"){return shi;}
 };
 
 var pseudogismu = function(){//a joke function. checks if an English word is  a valid gismu
@@ -1430,7 +1429,8 @@ io.sockets.on('connection', function(socket) {
 	//io.to(socket.id).emit("returner", { message: message: vlaste(data.data,'en') });
     socket.on(
     	'i am client', function(data){//clientmensi, from, to, text, message,source
-    		socket.emit('returner', {message: processormensi(clientmensi, "anonymous", "", data.data, "","naxle")});
+    		processormensi(clientmensi, "anonymous", "", data.data, "","naxle",socket);
+    		//socket.emit('returner', {message: processormensi(clientmensi, "anonymous", "", data.data, "","naxle",socket)});
     	}
     );
 });

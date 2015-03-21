@@ -1,38 +1,42 @@
 <!doctype html>
 <html>
 <head>
-	        <script src='//code.jquery.com/jquery-1.7.2.min.js'></script>
+	    <script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
         <script src='//vrici.lojban.org:3000/socket.io/socket.io.js'></script>
         <script>
             var socket = io.connect('//vrici.lojban.org:3000');
 
             socket.on('welcome', function(data) {
-                $('#messages').append('<li>' + data.message + '</li>');
+                //$('#messages').html('<span>' + data.message + '</span>');
+
+                //socket.emit('i am client', {data: 'foo!'});
+            });
+            socket.on('returner', function(data) {
+                $('#messages').html('<span>' + data.message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</span>');
 
                 //socket.emit('i am client', {data: 'foo!'});
             });
             socket.on('time', function(data) {
                 console.log(data);
-                $('#messages').html('<li>' + data.time.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</li>');
+                //$('#messages').html('<span>' + data.time.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</span>');
             });
             socket.on('error', function() { console.error(arguments) });
             socket.on('message', function() { console.log(arguments) });
         </script>
+        <title>lo naxle be fi La Mensi</title>
 </head>
 <body>
 <meta charset='utf-8' />
-
-<span style="font: 15px arial, sans-serif;">Type a word. La Mensi will search for it in her English xml dump.</span>
+<center>
+<div style="width:300px;">
+<span style="font: 15px arial, sans-serif;">La Mensi: through the looking glass.</span>
 <br /><br />
 
-<form id="form1" name="form1" method="post" action="" style="width:100%">
-  <textarea id="input_textarea" style="width:100%" rows="8" autofocus onChange="run_camxes()"></textarea>
+<form id="form1" name="form1" method="post" action="">
+  <textarea id="input_textarea" style="width:100%; font: 15px arial, sans-serif;" rows="8" autofocus onChange="run_camxes()"></textarea>
   <br />
   <span style="font: 15px arial, sans-serif;">Output: </span>
 </form>
-
-<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
-
 <script>
 //document.getElementById("default").defaultSelected = true;
 
@@ -53,7 +57,20 @@ function run_camxes() {
     }
 }
 </script>
-<ul id='messages'></ul>
-
+<span id='messages'></span><hr>
+</div>
+</center>
+<span>
+<h3>Help:</h3>
+Parsers: type &quot;exp:&quot; (experimental), &quot;off:&quot; (camxes), &quot;gerna:&quot; (jbofi'e), or &quot;yacc:&quot; (official yacc) followed by the text to show the structure of sentences.<br>
+Lojban dictionary: type &quot;language-code: word&quot;, where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh. This searches in both directions.<br>
+&nbsp;   Type &quot;language-code:word&quot; (i.e. without a space after &quot;:&quot;) to get a shorter definition.<br>
+&nbsp;   &quot;selmaho: ca'a&quot; gives &quot;CAhA&quot;, &quot;selmaho: CAhA&quot; gives &quot;bi'ai, ca'a, ...&quot;<br>
+&nbsp;   &quot;rafsi: kulnu&quot; gives &quot;klu&quot;, &quot;rafsi: klu&quot; gives &quot;kulnu&quot;<br>
+Other conlang dictionaries: &quot;toki:&quot;, &quot;laadan:&quot;, &quot;loglan:&quot;<br>
+Lojban &lt;-&gt; Loglan conversion (incomplete): &quot;coi:&quot;, &quot;loi:&quot;<br>
+&quot;Tatoeba: klama&quot; returns a random example sentence using &quot;klama&quot;<br>
+<!--Delayed messaging: type &quot;mensi: doi user message&quot; to send &quot;message&quot; to &quot;user&quot; when they return.-->
+</span>
 </body>
 </html>

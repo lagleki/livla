@@ -27,13 +27,41 @@
 </head>
 <body>
 <meta charset='utf-8' />
-<center>
-<div style="width:300px;">
+<style>
+html, body{
+margin: 0;
+padding: 0;
+}
+
+.content{
+float: left;
+width: 30%;
+border:none;
+margin: 1em;
+}
+
+.rightcontent{
+float: right;
+width: 30%;
+border:none
+}
+
+.hspacer{
+width:5%;
+float:left;
+}
+
+.clear{
+clear:both;
+}
+</style>
+
+<div class="content">
 <span style="font: 15px arial, sans-serif;">La Mensi: through the looking glass.</span>
 <br /><br />
 
 <form id="form1" name="form1" method="post" action="">
-  <textarea id="input_textarea" style="width:100%; font: 15px arial, sans-serif;" rows="8" autofocus onChange="run_camxes()"></textarea>
+  <textarea id="input_textarea" style="width:100%; font: 15px arial, sans-serif;" rows="8" autofocus></textarea>
   <br />
   <span style="font: 15px arial, sans-serif;">Output: </span>
 </form>
@@ -43,10 +71,16 @@
 /*
  *  Binding the function run_camxes() to keyup event on demo_textarea by using jQuery
  */
-$('#input_textarea').bind( "keyup",
+$('#input_textarea').bind( "enterKey",
   function(e) {
     run_camxes();
   } );
+$('textarea').keyup(function(e){
+    if(e.keyCode == 13)
+    {
+        $(this).trigger("enterKey");
+    }
+});
 
 function run_camxes() {
 	try {
@@ -59,9 +93,10 @@ function run_camxes() {
 </script>
 <span id='messages'></span><hr>
 </div>
-</center>
-<span>
+<div class="hspacer">&nbsp;</div>
+<div class="content">
 <h3>Help:</h3>
+Press 'Enter' to get results.<br/>
 Parsers: type &quot;exp:&quot; (experimental), &quot;off:&quot; (camxes), &quot;gerna:&quot; (jbofi'e), or &quot;yacc:&quot; (official yacc) followed by the text to show the structure of sentences.<br>
 Lojban dictionary: type &quot;language-code: word&quot;, where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh. This searches in both directions.<br>
 &nbsp;   Type &quot;language-code:word&quot; (i.e. without a space after &quot;:&quot;) to get a shorter definition.<br>
@@ -71,6 +106,9 @@ Other conlang dictionaries: &quot;toki:&quot;, &quot;laadan:&quot;, &quot;loglan
 Lojban &lt;-&gt; Loglan conversion (incomplete): &quot;coi:&quot;, &quot;loi:&quot;<br>
 &quot;Tatoeba: klama&quot; returns a random example sentence using &quot;klama&quot;<br>
 <!--Delayed messaging: type &quot;mensi: doi user message&quot; to send &quot;message&quot; to &quot;user&quot; when they return.-->
-</span>
+</div>
+<div class="hspacer">&nbsp;</div>
+<div class="rightcontent"></div>
+<div class="clear"></div>
 </body>
 </html>

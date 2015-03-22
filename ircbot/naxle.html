@@ -6,7 +6,7 @@
         <script>
             var socket = io.connect('//vrici.lojban.org:3000');
             socket.on('returner', function(data) {
-                $('#messages').val(data.message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
+                $('#messages').val(data.message);
             });
             socket.on('error', function() { console.error(arguments) });
             socket.on('message', function() { console.log(arguments) });
@@ -56,7 +56,7 @@ clear:both;
 </style>
 
 <div class="content">
-<span style="font: 12px arial, sans-serif;margin-top:0;margin:0.5em;"><i>La Mensi: through the looking glass.</i></span>
+<span style="font: 12px arial, sans-serif;margin-top:0;margin:0.5em;"><i>La Mensi zo'u: pa'o lo minra</i></span>
 <center style="font: 15px arial, sans-serif;margin-top:0;margin:0.5em;">i se pruce fa di'e</center>
 <form id="form1" name="form1" method="post" action="">
   <textarea id="input_textarea" style="width:100%; font: 18px sans-serif;" rows="8" autofocus></textarea>
@@ -94,16 +94,16 @@ function sendinputi() {
 		margin:0.2em;
 	}
 	</style>
-<button type="button" onclick="sendinput('exp');" class="but" style="width:80px;">new</button> <button type="button" onclick="sendinput('off');" class="but" style="width:80px;">official</button> <button type="button" onclick="sendinput('yacc');" class="but" style="width:80px;">YACC</button> <button type="button" onclick="sendinput('gerna');" class="but" style="width:80px;">jbofi'e</button> - parsers<br/>
-<button type="button" onclick="sendinput('zei');" class="but" style="width:80px;">Split</button> compound particles and turn lujvo into zei-lujvo.<hr>
+<button type="button" onclick="sendinput('exp');" class="but" style="width:auto;">new grammar</button> <button type="button" onclick="sendinput('raw');" class="but" style="width:auto;">raw output</button> <button type="button" onclick="sendinput('off');" class="but" style="width:auto;">standard grammar</button> <button type="button" onclick="sendinput('yacc');" class="but" style="width:auto;">YACC</button> <button type="button" onclick="sendinput('gerna');" class="but" style="width:auto;">jbofi'e</button> - parsers<br/>
+<button type="button" onclick="sendinput('zei');" class="but" style="width:auto;">Split</button> compound particles and turn lujvo into zei-lujvo. <button type="button" onclick="sendinput('anji');" class="but" style="width:auto;">anji (hanzi/kanji)</button><hr>
 <button type="button" onclick="sendinput('en');" class="but" style="width:80px;">English</button> - search in the English dictionary. <button type="button" onclick="sendinput('gloss');" class="but" style="width:120px;">Lojban &gt; English</button><br/>
-<button type="button" onclick="sendinput('jbo');" class="but" style="width:80px;">banjubu'o</button> - mitysisku se pi'o lo lojbo vlaste<br/>
+<button type="button" onclick="sendinput('jbo');" class="but" style="width:80px;">la Lojban</button> - mitysisku se pi'o lo lojbo vlaste<br/>
 <button type="button" onclick="sendinput('es');" class="but" style="width:80px;">español</button> - búsqueda en el diccionario español<br/>
 <button type="button" onclick="sendinput('f@');" class="but" style="width:80px;">français</button> - recherche dans le dictionnaire français (facile)<br/>
 <button type="button" onclick="sendinput('de');" class="but" style="width:80px;">Deutsch</button> - Suche im Deutsch Wörterbuch<br/>
 <button type="button" onclick="sendinput('eo');" class="but" style="width:80px;">Esperanto</button> - Serĉo en Esperanta vortaro<br/>
 <button type="button" onclick="sendinput('zh');" class="but" style="width:80px;">汉语</button> - 汉语字典搜索<br/>
-<button type="button" onclick="sendinput('loglan');" class="but" style="width:80px;">Loglan</button> <button type="button" onclick="sendinput('loi');" class="but" style="width:120px;">Loglan &lt; Lojban</button> <button type="button" onclick="sendinput('coi');" class="but" style="width:120px;">Loglan &gt; Lojban</button> <button type="button" onclick="sendinput('toki');" class="but" style="width:80px;">toki pona</button> <button type="button" onclick="sendinput('laadan');" class="but" style="width:80px;">Láadan</button>
+<button type="button" onclick="sendinput('loglan');" class="but" style="width:80px;">Loglan</button> <button type="button" onclick="sendinput('loi');" class="but" style="width:auto;">Loglan &lt; Lojban</button> <button type="button" onclick="sendinput('coi');" class="but" style="width:auto;">Loglan &gt; Lojban</button> <button type="button" onclick="sendinput('toki');" class="but" style="width:80px;">toki pona</button> <button type="button" onclick="sendinput('laadan');" class="but" style="width:80px;">Láadan</button>
 <h3>type mode (advanced users):</h3>The results will appear as you type.
 <ul>
 <li>Parsers: type &quot;exp:&quot; (experimental), &quot;off:&quot; (camxes), &quot;gerna:&quot; (jbofi'e), or &quot;yacc:&quot; (official yacc) followed by the text to show the structure of sentences.</li>

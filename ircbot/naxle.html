@@ -6,11 +6,11 @@
         <script>
             var socket = io.connect('//vrici.lojban.org:3000');
             socket.on('returner', function(data) {
-                $('#messages').html('<span>' + data.message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</span>');
+                $('#messages').val(data.message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
             });
             socket.on('error', function() { console.error(arguments) });
             socket.on('message', function() { console.log(arguments) });
-            function sendinput(prefix) {
+            var sendinput = function (prefix) {
             	if (typeof(prefix)===undefined){prefix=""}else{prefix+=": "};
 				try {
 				  var input = $('#input_textarea').val();
@@ -32,15 +32,17 @@ padding: 0;
 
 .content{
 float: left;
-width: 45%;
+width: 30%;
 border:none;
-margin: 1em;
+margin: 0.5em;
 }
 
 .rightcontent{
 float: right;
-width: 45%;
-border:none
+width: 65%;
+border:none;
+margin-right: 0.5em;
+margin-top: 0.5em;
 }
 
 .hspacer{
@@ -54,19 +56,13 @@ clear:both;
 </style>
 
 <div class="content">
-<span style="font: 15px arial, sans-serif;">La Mensi: through the looking glass.</span>
-<br /><br />
-
+<span style="font: 12px arial, sans-serif;margin-top:0;margin:0.5em;"><i>La Mensi: through the looking glass.</i></span>
+<center style="font: 15px arial, sans-serif;margin-top:0;margin:0.5em;">i se pruce fa di'e</center>
 <form id="form1" name="form1" method="post" action="">
-  <textarea id="input_textarea" style="width:100%; font: 15px arial, sans-serif;" rows="8" autofocus></textarea>
-  <br />
-  <span style="font: 15px arial, sans-serif;">Output: </span>
+  <textarea id="input_textarea" style="width:100%; font: 18px sans-serif;" rows="8" autofocus></textarea>
 </form>
 <script>
 
-/*
- *  Binding the function sendinput() to keyup event on demo_textarea by using jQuery
- */
 //setup before functions
 var typingTimer;                //timer identifier
 var doneTypingInterval = 500;  //time in ms, 5 second for example
@@ -74,7 +70,7 @@ var doneTypingInterval = 500;  //time in ms, 5 second for example
 $('#input_textarea').bind( "keyup",
   function(e) {
 	clearTimeout(typingTimer);
-    typingTimer = setTimeout(sendinput, doneTypingInterval);
+    typingTimer = setTimeout(sendinputi, doneTypingInterval);
 } );
 
 $('#input_textarea').bind( "keydown",
@@ -82,24 +78,34 @@ $('#input_textarea').bind( "keydown",
     clearTimeout(typingTimer);
   } );
 
+function sendinputi() {
+	var input = $('#input_textarea').val();
+	socket.emit('i am client', {data: input});
+}
 </script>
-<span id='messages'></span><hr>
+<center style="font: 15px arial, sans-serif;margin-top:2em;margin:0.5em;">i te pruce fa di'e</center>
+<textarea id='messages' style="width:100%; font: 18px sans-serif;" rows="8"></textarea>
 </div>
 <div class="hspacer">&nbsp;</div>
-<div class="content">
-<button type="button" onclick="sendinput('exp');" style="width:80px;">new</button> <button type="button" onclick="sendinput('off');" style="width:80px;">official</button> <button type="button" onclick="sendinput('yacc');" style="width:80px;">YACC</button> <button type="button" onclick="sendinput('gerna');" style="width:80px;">jbofi'e</button> - parsers<br/><br/>
-<button type="button" onclick="sendinput('en');" style="width:80px;">English</button> - search in the English dictionary<br/><br/>
-<button type="button" onclick="sendinput('jbo');" style="width:80px;">banjubu'o</button> - mitysisku se pi'o lo lojbo vlaste<br/><br/>
-<button type="button" onclick="sendinput('es');" style="width:80px;">español</button> - búsqueda en el diccionario español<br/><br/>
-<button type="button" onclick="sendinput('f@');" style="width:80px;">français</button> - recherche dans le dictionnaire français (facile)<br/><br/>
-<button type="button" onclick="sendinput('de');" style="width:80px;">Deutsch</button> - Suche im Deutsch Wörterbuch<br/><br/>
-<button type="button" onclick="sendinput('eo');" style="width:80px;">Esperanto</button> - Serĉo en Esperanta vortaro<br/><br/>
-<button type="button" onclick="sendinput('zh');" style="width:80px;">汉语</button> - 汉语字典搜索
-<hr>
-<button type="button" onclick="sendinput('zei');" style="width:80px;">Split</button> compound particles and turn lujvo into zei-lujvo.
-<h3>type mode (advanced users):</h3>
+<div class="rightcontent">
+	<style>
+	.but{
+		height: 30px;
+		margin:0.2em;
+	}
+	</style>
+<button type="button" onclick="sendinput('exp');" class="but" style="width:80px;">new</button> <button type="button" onclick="sendinput('off');" class="but" style="width:80px;">official</button> <button type="button" onclick="sendinput('yacc');" class="but" style="width:80px;">YACC</button> <button type="button" onclick="sendinput('gerna');" class="but" style="width:80px;">jbofi'e</button> - parsers<br/>
+<button type="button" onclick="sendinput('zei');" class="but" style="width:80px;">Split</button> compound particles and turn lujvo into zei-lujvo.<hr>
+<button type="button" onclick="sendinput('en');" class="but" style="width:80px;">English</button> - search in the English dictionary<br/>
+<button type="button" onclick="sendinput('jbo');" class="but" style="width:80px;">banjubu'o</button> - mitysisku se pi'o lo lojbo vlaste<br/>
+<button type="button" onclick="sendinput('es');" class="but" style="width:80px;">español</button> - búsqueda en el diccionario español<br/>
+<button type="button" onclick="sendinput('f@');" class="but" style="width:80px;">français</button> - recherche dans le dictionnaire français (facile)<br/>
+<button type="button" onclick="sendinput('de');" class="but" style="width:80px;">Deutsch</button> - Suche im Deutsch Wörterbuch<br/>
+<button type="button" onclick="sendinput('eo');" class="but" style="width:80px;">Esperanto</button> - Serĉo en Esperanta vortaro<br/>
+<button type="button" onclick="sendinput('zh');" class="but" style="width:80px;">汉语</button> - 汉语字典搜索<br/>
+<button type="button" onclick="sendinput('toki');" class="but" style="width:80px;">toki pona</button> <button type="button" onclick="sendinput('laadan');" class="but" style="width:80px;">Láadan</button> <button type="button" onclick="sendinput('loglan');" class="but" style="width:80px;">Loglan</button> <button type="button" onclick="sendinput('loi');" class="but" style="width:120px;">Loglan &lt; Lojban</button> <button type="button" onclick="sendinput('coi');" class="but" style="width:120px;">Loglan &gt; Lojban</button>
+<h3>type mode (advanced users):</h3>The results will appear as you type.
 <ul>
-<li>The results will appear as you type.<br/></li>
 <li>Parsers: type &quot;exp:&quot; (experimental), &quot;off:&quot; (camxes), &quot;gerna:&quot; (jbofi'e), or &quot;yacc:&quot; (official yacc) followed by the text to show the structure of sentences.</li>
 <li>Lojban dictionary: type &quot;language-code: word&quot;, where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh. This searches in both directions.</li>
 <li>Type &quot;language-code:word&quot; (i.e. without a space after &quot;:&quot;) to get a shorter definition.</li>

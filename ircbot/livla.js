@@ -924,7 +924,7 @@ var items = logl.loglandic();
 		lin=lin.join(" ").replace(/ /gm,"* ").replace(/$/gm,"*").replace(/A\*/gm,"").replace(/A$/gm,"");
 	}
 }catch(err){lin='O_0';}
-	return lin.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n');
+	return lin.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n').trim();
 };
 
 var finti = function (lin)
@@ -1501,13 +1501,25 @@ var anji = function(text){
 	["claxu","缺"],["canja","兌"],["dapma","咒"],["badri","愴"],["xlali","壞"],["morsi","死"],["kanro","康"],["mikce","醫"],
 	["spita","院"],["senci","嚏"],["kafke","咳"],["jenmi","軍"],["xarci","戎"],["rokci","石"],["jadni","裝"],["dirba","寶"],
 	["jansu","駐"],["vipsi","次"],["spaji","嚇"],["vlile","烈"],["clupa","迴"],["dasri","帶"],["karli","領"],["cpedu","求"],
-	["pikci","乞"],["srana","於"],["terpa","怕"],["tsani","天"],["gleki","乐"],
+	["pikci","乞"],["srana","於"],["terpa","怕"],["tsani","天空"],["gleki","乐"],["mlatu","猫"],["cidja","食"],["midju","中"],
+	["gapru","上"],["prami","爱"],["zvati","莅"],["tsuku","出"],["tolyliha","出"],["tcima","天气"],
+	["djedi","天"],["nicte","夜"],
 	["no","〇"],["pa","一"],["re","二"],["ci","三"],["vo","四"],["mu","五"],["xa","六"],["ze","七"],["bi","八"],["so","九"],
-	["mi","我"],["do","你"],["ra","他"],
-	["midju","中"],["gapru","上"],["prami","爱"],
-	["co'i","了"],["fa'a","到"],
-	["zei","^"]];
-	text=zeizei(text);
+	["mi","我"],["do","你"],["ko","你吧"],["ra","他"],
+	["ti","这"],["ta","那"],
+	["lo","者"],
+	["je","与"],["e","与"],["gihe","与是"],["ja","或者"],["giha","或者"],
+	["jaha","是"],["na","不"],
+	["cu","是"],["ku",","],["vau",";"],
+	["ua","唉"],["ue","啊"],["uhe","哇"],["oi","哎喲"],["ihe nai","叽"],["uhi","哈"],["uu","咳"],["ehe","嗨哟"],
+	["eha nai","别"],["kohoi","吧"],["xu","吗"],["ue","呢"],["ohi","呕"],["ie","诶"],["oi sehi","嘚"],["iho","啧"],
+	["ia nai","嗬"],
+	["leho","吓"],
+	["kuhi","但是"],
+	["coi","嗨"],["juhi","哎"],["rehi","喂"],
+	["cohi","了"],["faha","到"],
+	["zei","-"]];
+	text=zeizei(text).replace(/'/g,"h");
 		for (j=0;j<anjarr.length;j++){
 			myregexp = new RegExp("\\b"+anjarr[j][0]+"\\b", "gim");
 			text=text.replace(myregexp,anjarr[j][1]);

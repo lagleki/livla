@@ -1,7 +1,7 @@
 // JavaScript Document
 function loglandic() {
 return [
-	["do","tu"],["do'o","tuo"],["mi'o","mu"],["mi'a","miu"],["ma'a","muu"],["mi e do","mo"],["mi e lo drata","mio"],["mi e do e lo drata","muo"],
+	["do","tu"],["do'o","tuo"],["mi'o","mu"],["mi'a","miu"],["ma'a","muu"],["mi e do","mo"],["mi e lo drata","mio"],["mi e do e lo drata","muo"],["ko",""],
 	["i","i"],["ni'o","nao"],
 	["zo'u","goi"],
 	["be","je"],["bei","jue"],

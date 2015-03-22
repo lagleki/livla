@@ -416,6 +416,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf("exp:") == '0': text = text.substr(4).trim();ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxes(ret[0], ret[1]));break;
 		case text.indexOf("f:") == '0': text = text.substr(2).trim();benji(source,socket,clientmensi,sendTo, xufuhivla(text));break;
 		case text.indexOf("k:") == '0': text = text.substr(2).trim();benji(source,socket,clientmensi,sendTo, run_camxes(text, 3));break;
+		case text.indexOf("zei:") == '0': text = text.substr(4).trim();benji(source,socket,clientmensi,sendTo, zeizei(text));break;
 		case text.indexOf("off:") == '0': text = text.substr(4).trim();ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxesoff(ret[0], ret[1]));break;
 		case text.indexOf("yacc:") == '0': tcepru(text.substr(5),sendTo,source,socket);break;
 		case text.indexOf("cowan:") == '0': tcepru(text.substr(6),sendTo,source,socket);break;
@@ -1400,6 +1401,22 @@ var prettifylojbansentences = function(){//insert spaces to lojban sentences
         var content = fs.writeFileSync(path.join(__dirname,"../","sekatna.txt"),sj.join("\n").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n"));
         return 'mulno';
 };
+
+var zeizei = function(text){//insert spaces to lojban sentences, split lujvo into zo zei zei lujvo
+text=run_camxes(text,3);
+	try{if (text.indexOf("SyntaxError")!==0){
+		text=text.replace(/[a-z]+_[a-z]+/ig,"").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n");
+		var sj=text.split(" ");
+		for (var j=0;j<sj.length;j++){
+			if (xulujvo(sj[j])===true){
+			sj[j]=katna(sj[j],"en",1,xmlDocEn).replace(/ /g," zei ");
+			}
+		}
+		text = sj.join(" ").trim();
+	}}catch(e){}
+return text;
+};
+
 //NAXLE
 
 var http = require('http'),
@@ -1416,21 +1433,12 @@ var app = http.createServer(function(req, res) {
 // Socket.io server listens to our app
 var io = require('socket.io').listen(app);
 
-// Send latest lojban tweets to all connected clients
-/*function sendTime() {
-    io.sockets.emit('time', { time: vlaste(ctor,'en') });
-}*/
-
-// Send tweets every 10 secs
-//setInterval(sendTime, 1000);
-// Emit welcome message on connection
 io.sockets.on('connection', function(socket) {
     //socket.emit('welcome', { message: 'Welcome!' +socket.id});
 	//io.to(socket.id).emit("returner", { message: message: vlaste(data.data,'en') });
     socket.on(
     	'i am client', function(data){//clientmensi, from, to, text, message,source
     		processormensi(clientmensi, "anonymous", "", data.data, "","naxle",socket);
-    		//socket.emit('returner', {message: processormensi(clientmensi, "anonymous", "", data.data, "","naxle",socket)});
     	}
     );
 });

@@ -5,23 +5,20 @@
         <script src='//vrici.lojban.org:3000/socket.io/socket.io.js'></script>
         <script>
             var socket = io.connect('//vrici.lojban.org:3000');
-
-            socket.on('welcome', function(data) {
-                //$('#messages').html('<span>' + data.message + '</span>');
-
-                //socket.emit('i am client', {data: 'foo!'});
-            });
             socket.on('returner', function(data) {
                 $('#messages').html('<span>' + data.message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</span>');
-
-                //socket.emit('i am client', {data: 'foo!'});
-            });
-            socket.on('time', function(data) {
-                console.log(data);
-                //$('#messages').html('<span>' + data.time.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</span>');
             });
             socket.on('error', function() { console.error(arguments) });
             socket.on('message', function() { console.log(arguments) });
+            function sendinput(prefix) {
+            	if (typeof(prefix)===undefined){prefix=""}else{prefix+=": "};
+				try {
+				  var input = $('#input_textarea').val();
+				  if (input!==""){socket.emit('i am client', {data: prefix+input});}
+			    } catch (e) {
+			      return;
+			    }
+			}
         </script>
         <title>lo naxle be fi La Mensi</title>
 </head>
@@ -66,52 +63,47 @@ clear:both;
   <span style="font: 15px arial, sans-serif;">Output: </span>
 </form>
 <script>
-//document.getElementById("default").defaultSelected = true;
 
 /*
- *  Binding the function run_camxes() to keyup event on demo_textarea by using jQuery
+ *  Binding the function sendinput() to keyup event on demo_textarea by using jQuery
  */
 //setup before functions
 var typingTimer;                //timer identifier
-var doneTypingInterval = 400;  //time in ms, 5 second for example
+var doneTypingInterval = 500;  //time in ms, 5 second for example
 
 $('#input_textarea').bind( "keyup",
   function(e) {
 	clearTimeout(typingTimer);
-    typingTimer = setTimeout(run_camxes, doneTypingInterval);
+    typingTimer = setTimeout(sendinput, doneTypingInterval);
 } );
 
 $('#input_textarea').bind( "keydown",
   function(e) {
     clearTimeout(typingTimer);
   } );
-  
-/*$('textarea').keyup(function(e){
-    if(e.keyCode == 13)
-    {
-        $(this).trigger("enterKey");
-    }
-});
-*/
-function run_camxes() {
-	try {
-	  var input = $('#input_textarea').val();
-	  socket.emit('i am client', {data: input});
-    } catch (e) {
-      return;
-    }
-}
+
 </script>
 <span id='messages'></span><hr>
 </div>
 <div class="hspacer">&nbsp;</div>
 <div class="content">
-<h3>Help:</h3>
+<button type="button" onclick="sendinput('exp');" style="width:80px;">new</button> <button type="button" onclick="sendinput('off');" style="width:80px;">official</button> <button type="button" onclick="sendinput('yacc');" style="width:80px;">YACC</button> <button type="button" onclick="sendinput('gerna');" style="width:80px;">jbofi'e</button> - parsers<br/><br/>
+<button type="button" onclick="sendinput('en');" style="width:80px;">English</button> - search in the English dictionary<br/><br/>
+<button type="button" onclick="sendinput('jbo');" style="width:80px;">banjubu'o</button> - mitysisku se pi'o lo lojbo vlaste<br/><br/>
+<button type="button" onclick="sendinput('es');" style="width:80px;">español</button> - búsqueda en el diccionario español<br/><br/>
+<button type="button" onclick="sendinput('f@');" style="width:80px;">français</button> - recherche dans le dictionnaire français (facile)<br/><br/>
+<button type="button" onclick="sendinput('de');" style="width:80px;">Deutsch</button> - Suche im Deutsch Wörterbuch<br/><br/>
+<button type="button" onclick="sendinput('eo');" style="width:80px;">Esperanto</button> - Serĉo en Esperanta vortaro<br/><br/>
+<button type="button" onclick="sendinput('zh');" style="width:80px;">汉语</button> - 汉语字典搜索
+<hr>
+<button type="button" onclick="sendinput('zei');" style="width:80px;">Split</button> compound particles and turn lujvo into zei-lujvo.
+<h3>type mode (advanced users):</h3>
 <ul>
 <li>The results will appear as you type.<br/></li>
 <li>Parsers: type &quot;exp:&quot; (experimental), &quot;off:&quot; (camxes), &quot;gerna:&quot; (jbofi'e), or &quot;yacc:&quot; (official yacc) followed by the text to show the structure of sentences.</li>
 <li>Lojban dictionary: type &quot;language-code: word&quot;, where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh. This searches in both directions.</li>
 <li>Type &quot;language-code:word&quot; (i.e. without a space after &quot;:&quot;) to get a shorter definition.</li>
+<li>Type &quot;zei:&quot; followed by the text to split all compound particles and turn lujvo into zei-lujvo.</li>
 <li>&quot;selmaho: ca'a&quot; gives &quot;CAhA&quot;, &quot;selmaho: CAhA&quot; gives &quot;bi'ai, ca'a, ...&quot;</li>
 <li>&quot;rafsi: kulnu&quot; gives &quot;klu&quot;, &quot;rafsi: klu&quot; gives &quot;kulnu&quot;</li>
 <li>Other conlang dictionaries: &quot;toki:&quot;, &quot;laadan:&quot;, &quot;loglan:&quot;</li>
@@ -119,8 +111,6 @@ function run_camxes() {
 <li>&quot;Tatoeba: klama&quot; returns a random example sentence using &quot;klama&quot;</li><!--Delayed messaging: type &quot;mensi: doi user message&quot; to send &quot;message&quot; to &quot;user&quot; when they return.-->
 </ul>
 </div>
-<div class="hspacer">&nbsp;</div>
-<div class="rightcontent"></div>
 <div class="clear"></div>
 </body>
 </html>

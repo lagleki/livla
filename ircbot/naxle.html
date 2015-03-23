@@ -80,7 +80,7 @@ $('#input_textarea').bind( "keydown",
 
 function sendinputi() {
 	var input = $('#input_textarea').val();
-	if(input.indexOf("mensi: doi")===0 || input.indexOf("mensi: tell")===0){}else{socket.emit('i am client', {data: input});}
+	socket.emit('i am client', {data: input});
 }
 </script>
 <center style="font: 15px arial, sans-serif;margin-top:2em;margin:0.5em;">i te pruce fa di'e</center>

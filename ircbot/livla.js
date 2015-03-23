@@ -1452,7 +1452,9 @@ io.sockets.on('connection', function(socket) {
 	//io.to(socket.id).emit("returner", { message: message: vlaste(data.data,'en') });
     socket.on(
     	'i am client', function(data){//clientmensi, from, to, text, message,source
-    		processormensi(clientmensi, "anonymous", "", data.data, "","naxle",socket);
+    		if(data.data.indexOf("mensi: doi")===0 || data.data.indexOf("mensi: tell")===0){}else{
+    			processormensi(clientmensi, "mw.lojban.org", "", data.data, "","naxle",socket);
+    		}
     	}
     );
 });

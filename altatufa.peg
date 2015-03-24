@@ -1647,7 +1647,7 @@ p = comma* [pP] !h !glide !p !voiced {return "p";}
 
 t = comma* [tT] !h !glide !t !voiced {return "t";}
 
-h = comma* ['h] &nucleus {return "'";}
+h = comma* ['h]* &nucleus {return "'";}
 
 //___________________________________________________________________
 

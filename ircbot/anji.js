@@ -112,7 +112,7 @@ return [
 	["ia nai","嗬"],
 	["leho","吓"],
 	["kuhi","但是"],
-	["coi","嗨"],["juhi","哎"],["rehi","喂"],
+	["coi","嗨"],["juhi","哎"],["rehi","喂"],["doi","兮"],
 	["zei","-"]];
 }
 module.exports.anjik = anjik;

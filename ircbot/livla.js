@@ -776,7 +776,12 @@ var selmaho = function (lin)
 {
 var gag='';var ien='';
 var coun = xmlDocEn.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]");
-if (typeof coun!=='undefined'){ien='.i lu ' + lin + ' li\'u cmavo zo\'oi ' + coun.text();}
+if (typeof coun!=='undefined'){
+	ien='.i lu ' + lin + ' li\'u cmavo zo\'oi ' + coun.text();
+	var cll= require('./cll.js');
+	var cllarr = cll.cllk()[coun.text()];
+	if (typeof(cllarr)!==undefined){ien+= "\n" + cllarr.replace(/ /g,"\n")}
+}
 	try{var ali = xmlDocEn.find("/dictionary/direction[1]/valsi[starts-with(translate(./selmaho,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 	var stra=[];
 	for (var i=0;i<ali.length;i++)
@@ -787,7 +792,7 @@ if (typeof coun!=='undefined'){ien='.i lu ' + lin + ' li\'u cmavo zo\'oi ' + cou
 	//if (stra.length==1){gag = gag + ' = ' + tordu(gag,lng);}
 	}catch(err){}
 switch(true){
-case (ien!=='') && (gag !==''): gag=ien.concat(" |||| cmavo: ").concat(gag);break;
+case (ien!=='') && (gag !==''): gag=ien.concat("\ncmavo: ").concat(gag);break;
 case (ien==='') && (gag !==''): gag="cmavo: " + gag;break;
 case (ien!=='') && (gag ===''): gag=ien;break;
 case (ien==='') && (gag ===''): gag='y no da se tolcri';break;

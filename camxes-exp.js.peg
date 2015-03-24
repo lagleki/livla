@@ -224,11 +224,11 @@ term_1 = expr:(sumti / tag_term / termset) {return _node("term_1", expr);}
 tag_term = expr:((!gek tag free* (sumti / KU_elidible free*) / NA_clause free* KU_clause free* / !gek !ek !joik_jek !gihek NA_clause free*  KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek tag_term)*) {return _node("tag_term", expr);}
 
 abs_term = expr:(term_sa* abs_term_1) {return _node("abs_term", expr);}
+//// EXP-MODIF: flip-flop of "sumti / abs_tag_term" to allow postpositions
+abs_term_1 = expr:(abs_tag_term / sumti / termset) {return _node("abs_term_1", expr);}
 
-abs_term_1 = expr:(sumti / abs_tag_term / termset) {return _node("abs_term_1", expr);}
-
-//// EXP-MODIF: NA without KU as a term; free* within NAKU
-abs_tag_term = expr:((!gek tag free* !selbri !gek_sentence (sumti / KU_elidible free*) / NA_clause free* KU_clause free* / !selbri !gek_sentence !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek abs_tag_term)*) {return _node("abs_tag_term", expr);}
+//// EXP-MODIF: NA without KU as a term; free* within NAKU; postpositions
+abs_tag_term = expr:((!gek tag free* !selbri !gek_sentence (sumti / KU_elidible free*) / !gek (sumti / KU_elidible free*) CO_clause tag free* !selbri !gek_sentence / NA_clause free* KU_clause free* / !selbri !gek_sentence !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek abs_tag_term)*) {return _node("abs_tag_term", expr);}
 /*** END EXP-MODIF ***/
 
 term_sa = expr:(term_start (!term_start (sa_word / SA_clause !term_start ) )* SA_clause &term_1) {return _node("term_sa", expr);}

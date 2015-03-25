@@ -34,7 +34,7 @@ return [
 	["gunta","攻"],["gurni","禾"],["guska","刮"],["gutra","宮"],["guzme","瓜"],["jadni","裝"],["jalge","爰"],
 	["jalna","糨"],["jamfu","腳"],["jamna","戰"],["jansu","駐"],["jarki","窄"],["jaspu","證"],["jatna","帥"],
 	["javni","則"],["jbari","莓"],["jbena","生"],["jbini","間"],["jdari","固"],["jdice","決"],["jdika","減"],
-	["jdima","價"],["jecta","政"],["jemna","珙"],["jenca","震"],["jenmi","軍"],["jerna","賺"],["jgari","抓"],
+	["jdima","價"],["jecta","政"],["jemna","珙"],["jenca","震"],["jenmi","軍"],["jerna","賺"],["jetnu","真"],["jgari","抓"],
 	["jgena","結"],["jgita","琹"],["jicmu","礎"],["jikca","交"],["jikni","撙"],["jimca","枝"],["jimpe","懂"],
 	["jimte","界"],["jinga","贏"],["jinsa","淨"],["jinzi","屬"],["jivna","競"],["jmaji","集"],["jorne","接"],
 	["jubme","桌"],["jufra","句"],["jukpa","煮"],["jundi","注"],["jungo","華"],["junla","鐘"],["junri","重"],

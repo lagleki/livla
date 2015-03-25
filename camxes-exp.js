@@ -4802,27 +4802,24 @@ var camxes = (function(){
             pos = pos3;
           }
           if (result0 !== null) {
+            pos3 = pos;
             result1 = parse_sumti();
-            if (result1 === null) {
-              pos3 = pos;
-              result1 = parse_KU_elidible();
-              if (result1 !== null) {
-                result2 = [];
+            if (result1 !== null) {
+              result2 = [];
+              result3 = parse_free();
+              while (result3 !== null) {
+                result2.push(result3);
                 result3 = parse_free();
-                while (result3 !== null) {
-                  result2.push(result3);
-                  result3 = parse_free();
-                }
-                if (result2 !== null) {
-                  result1 = [result1, result2];
-                } else {
-                  result1 = null;
-                  pos = pos3;
-                }
+              }
+              if (result2 !== null) {
+                result1 = [result1, result2];
               } else {
                 result1 = null;
                 pos = pos3;
               }
+            } else {
+              result1 = null;
+              pos = pos3;
             }
             if (result1 !== null) {
               result2 = parse_CO_clause();
@@ -4836,37 +4833,7 @@ var camxes = (function(){
                     result5 = parse_free();
                   }
                   if (result4 !== null) {
-                    pos3 = pos;
-                    reportFailures++;
-                    result5 = parse_selbri();
-                    reportFailures--;
-                    if (result5 === null) {
-                      result5 = "";
-                    } else {
-                      result5 = null;
-                      pos = pos3;
-                    }
-                    if (result5 !== null) {
-                      pos3 = pos;
-                      reportFailures++;
-                      result6 = parse_gek_sentence();
-                      reportFailures--;
-                      if (result6 === null) {
-                        result6 = "";
-                      } else {
-                        result6 = null;
-                        pos = pos3;
-                      }
-                      if (result6 !== null) {
-                        result0 = [result0, result1, result2, result3, result4, result5, result6];
-                      } else {
-                        result0 = null;
-                        pos = pos2;
-                      }
-                    } else {
-                      result0 = null;
-                      pos = pos2;
-                    }
+                    result0 = [result0, result1, result2, result3, result4];
                   } else {
                     result0 = null;
                     pos = pos2;

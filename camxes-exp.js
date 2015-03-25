@@ -4748,8 +4748,8 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0;
-        var pos0;
+        var result0, result1;
+        var pos0, pos1;
         
         pos0 = pos;
         result0 = parse_abs_tag_term();
@@ -4758,7 +4758,23 @@ var camxes = (function(){
           if (result0 === null) {
             result0 = parse_relative_clauses();
             if (result0 === null) {
-              result0 = parse_termset();
+              pos1 = pos;
+              result0 = parse_joik_ek();
+              if (result0 !== null) {
+                result1 = parse_sumti_3();
+                if (result1 !== null) {
+                  result0 = [result0, result1];
+                } else {
+                  result0 = null;
+                  pos = pos1;
+                }
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+              if (result0 === null) {
+                result0 = parse_termset();
+              }
             }
           }
         }

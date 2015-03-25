@@ -2323,6 +2323,9 @@ var camxes = (function(){
           result0 = null;
           pos = pos1;
         }
+        if (result0 === null) {
+          result0 = parse_fragment();
+        }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("sentence", expr);})(pos0, result0);
         }
@@ -7215,6 +7218,9 @@ var camxes = (function(){
             }
             if (result1 !== null) {
               result2 = parse_subsentence();
+              if (result2 === null) {
+                result2 = parse_fragment();
+              }
               if (result2 !== null) {
                 result3 = parse_KUhO_elidible();
                 if (result3 !== null) {

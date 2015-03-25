@@ -163,7 +163,7 @@ prenex = expr:(terms? ZOhU_clause free*) {return _node("prenex", expr);}
 //; sentence = (terms CU_clause? free*)? bridi_tail / bridi_tail
 
 // EXP-MODIF: JACU
-sentence = expr:(terms? bridi_tail_t1 (joik_jek bridi_tail / joik_jek stag? KE_clause free* bridi_tail KEhE_elidible free*)*) {return _node("sentence", expr);}
+sentence = expr:(terms? bridi_tail_t1 (joik_jek bridi_tail / joik_jek stag? KE_clause free* bridi_tail KEhE_elidible free*)* / fragment) {return _node("sentence", expr);}
 // sentence = expr:(((terms bridi_tail_sa*)? CU_elidible free*)? bridi_tail_sa* bridi_tail) {return _node("sentence", expr);}
 
 // JACU
@@ -176,7 +176,7 @@ sentence_sa = expr:(sentence_start (!sentence_start (sa_word / SA_clause !senten
 
 sentence_start = expr:(I_pre / NIhO_pre) {return _node("sentence_start", expr);}
 
-subsentence = expr:(sentence / prenex subsentence) {return _node("subsentence", expr);}
+subsentence = expr:(sentence / prenex subsentence ) {return _node("subsentence", expr);}
 
 //// EXP-MODIF: GI TAG BO + JACU
 bridi_tail = expr:(bridi_tail_1 (((gihek / JA_clause) stag? / GI_clause stag) KE_clause free* bridi_tail KEhE_elidible free* tail_terms)?) {return _node("bridi_tail", expr);}
@@ -275,7 +275,7 @@ relative_clause = expr:(relative_clause_sa* relative_clause_1) {return _node("re
 
 relative_clause_sa = expr:(relative_clause_start (!relative_clause_start (sa_word / SA_clause !relative_clause_start ) )* SA_clause &relative_clause_1) {return _node("relative_clause_sa", expr); }
 
-relative_clause_1 = expr:(GOI_clause free* term GEhU_elidible free* / NOI_clause free* subsentence KUhO_elidible free* ) {return _node("relative_clause_1", expr); }
+relative_clause_1 = expr:(GOI_clause free* term GEhU_elidible free* / NOI_clause free* (subsentence / fragment ) KUhO_elidible free* ) {return _node("relative_clause_1", expr); }
 
 relative_clause_start = expr:(GOI_clause / NOI_clause) {return _node("relative_clause_start", expr); }
 

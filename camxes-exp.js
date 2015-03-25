@@ -8803,6 +8803,9 @@ var camxes = (function(){
                               }
                               if (result2 !== null) {
                                 result3 = parse_subsentence();
+                                if (result3 === null) {
+                                  result3 = parse_fragment();
+                                }
                                 if (result3 !== null) {
                                   result4 = parse_KEI_elidible();
                                   if (result4 !== null) {

@@ -186,6 +186,7 @@ var camxes = (function(){
         "DOhU_elidible": parse_DOhU_elidible,
         "FEhU_elidible": parse_FEhU_elidible,
         "GEhU_elidible": parse_GEhU_elidible,
+        "GOhA_elidible": parse_GOhA_elidible,
         "KEI_elidible": parse_KEI_elidible,
         "KEhE_elidible": parse_KEhE_elidible,
         "KU_elidible": parse_KU_elidible,
@@ -1830,7 +1831,7 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4, result5;
+        var result0, result1, result2, result3, result4, result5, result6;
         var pos0, pos1, pos2;
         
         pos0 = pos;
@@ -1841,16 +1842,22 @@ var camxes = (function(){
           pos2 = pos;
           result2 = parse_terms();
           if (result2 !== null) {
-            result3 = parse_VAU_elidible();
+            result3 = parse_GOhA_elidible();
             if (result3 !== null) {
-              result4 = [];
-              result5 = parse_free();
-              while (result5 !== null) {
-                result4.push(result5);
-                result5 = parse_free();
-              }
+              result4 = parse_VAU_elidible();
               if (result4 !== null) {
-                result2 = [result2, result3, result4];
+                result5 = [];
+                result6 = parse_free();
+                while (result6 !== null) {
+                  result5.push(result6);
+                  result6 = parse_free();
+                }
+                if (result5 !== null) {
+                  result2 = [result2, result3, result4, result5];
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
               } else {
                 result2 = null;
                 pos = pos2;
@@ -1868,16 +1875,22 @@ var camxes = (function(){
             pos2 = pos;
             result2 = parse_terms();
             if (result2 !== null) {
-              result3 = parse_VAU_elidible();
+              result3 = parse_GOhA_elidible();
               if (result3 !== null) {
-                result4 = [];
-                result5 = parse_free();
-                while (result5 !== null) {
-                  result4.push(result5);
-                  result5 = parse_free();
-                }
+                result4 = parse_VAU_elidible();
                 if (result4 !== null) {
-                  result2 = [result2, result3, result4];
+                  result5 = [];
+                  result6 = parse_free();
+                  while (result6 !== null) {
+                    result5.push(result6);
+                    result6 = parse_free();
+                  }
+                  if (result5 !== null) {
+                    result2 = [result2, result3, result4, result5];
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
                 } else {
                   result2 = null;
                   pos = pos2;
@@ -1905,16 +1918,22 @@ var camxes = (function(){
           pos1 = pos;
           result0 = parse_terms();
           if (result0 !== null) {
-            result1 = parse_VAU_elidible();
+            result1 = parse_GOhA_elidible();
             if (result1 !== null) {
-              result2 = [];
-              result3 = parse_free();
-              while (result3 !== null) {
-                result2.push(result3);
-                result3 = parse_free();
-              }
+              result2 = parse_VAU_elidible();
               if (result2 !== null) {
-                result0 = [result0, result1, result2];
+                result3 = [];
+                result4 = parse_free();
+                while (result4 !== null) {
+                  result3.push(result4);
+                  result4 = parse_free();
+                }
+                if (result3 !== null) {
+                  result0 = [result0, result1, result2, result3];
+                } else {
+                  result0 = null;
+                  pos = pos1;
+                }
               } else {
                 result0 = null;
                 pos = pos1;
@@ -16136,6 +16155,34 @@ var camxes = (function(){
         result0 = result0 !== null ? result0 : "";
         if (result0 !== null) {
           result0 = (function(offset, expr) {return (expr == "") ? ["GEhU"] : _node("GEhU", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_GOhA_elidible() {
+        var cacheKey = "GOhA_elidible@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_GOhA_clause();
+        result0 = result0 !== null ? result0 : "";
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;

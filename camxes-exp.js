@@ -4756,7 +4756,10 @@ var camxes = (function(){
         if (result0 === null) {
           result0 = parse_sumti();
           if (result0 === null) {
-            result0 = parse_termset();
+            result0 = parse_relative_clauses();
+            if (result0 === null) {
+              result0 = parse_termset();
+            }
           }
         }
         if (result0 !== null) {

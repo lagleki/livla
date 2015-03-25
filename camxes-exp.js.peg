@@ -176,7 +176,7 @@ sentence_sa = expr:(sentence_start (!sentence_start (sa_word / SA_clause !senten
 
 sentence_start = expr:(I_pre / NIhO_pre) {return _node("sentence_start", expr);}
 
-subsentence = expr:(sentence / prenex subsentence ) {return _node("subsentence", expr);}
+subsentence = expr:(sentence / prenex subsentence) {return _node("subsentence", expr);}
 
 //// EXP-MODIF: GI TAG BO + JACU
 bridi_tail = expr:(bridi_tail_1 (((gihek / JA_clause) stag? / GI_clause stag) KE_clause free* bridi_tail KEhE_elidible free* tail_terms)?) {return _node("bridi_tail", expr);}

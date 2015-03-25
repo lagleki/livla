@@ -7218,9 +7218,6 @@ var camxes = (function(){
             }
             if (result1 !== null) {
               result2 = parse_subsentence();
-              if (result2 === null) {
-                result2 = parse_fragment();
-              }
               if (result2 !== null) {
                 result3 = parse_KUhO_elidible();
                 if (result3 !== null) {
@@ -8828,9 +8825,6 @@ var camxes = (function(){
                               }
                               if (result2 !== null) {
                                 result3 = parse_subsentence();
-                                if (result3 === null) {
-                                  result3 = parse_fragment();
-                                }
                                 if (result3 !== null) {
                                   result4 = parse_KEI_elidible();
                                   if (result4 !== null) {

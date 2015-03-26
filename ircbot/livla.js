@@ -977,7 +977,7 @@ var items = [
 	//["bakni","is-a-cow"],
 	["pe'i","in-my-opinion"],["ui","yay"],["uinai","unfortunately"],
 	["ju","whether-or-not"],["gu","whether-or-not"],["gi'u","whether-or-not"],["u","whether-or-not"],
-	["xu","is-it-true-that"],["ka'e","possibly-can"],
+	["xu","is-it-true-that"],["xunai","isnt-it-so-that"],["ka'e","possibly-can"],
 	["re'u","time"],["roi","times"],
 	["pa'o","through"],
 	["mi","me"]//dont copy

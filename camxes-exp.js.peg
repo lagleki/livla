@@ -155,7 +155,10 @@ statement_2 = expr:(statement_3 (I_clause (jek / joik)? stag? BO_clause free* st
 statement_3 = expr:(sentence / tag? TUhE_clause free* text_1 TUhU_elidible free*) {return _node("statement_3", expr);}
 
 //// EXP-MODIF: allowing na sequence.
-fragment = expr:(prenex (terms GOhA_elidible VAU_elidible free*)* / terms GOhA_elidible VAU_elidible free* / ek free* / gihek free* / quantifier / (NA_clause !JA_clause free*)+ / relative_clauses / links / linkargs) {return _node("fragment", expr);}
+
+fragment = expr:(COhE_fragment / ek free* / gihek free* / quantifier / (NA_clause !JA_clause free*)+ / relative_clauses / links / linkargs) {return _node("fragment", expr);}
+
+COhE_fragment = expr:(prenex (terms GOhA_elidible VAU_elidible free*)* / terms GOhA_elidible VAU_elidible free*) {return _node("COhE_fragment", expr);}
 
 //// EXP-MODIF: Allowing empty prenexes.
 prenex = expr:(terms? ZOhU_clause free*) {return _node("prenex", expr);}
@@ -163,7 +166,7 @@ prenex = expr:(terms? ZOhU_clause free*) {return _node("prenex", expr);}
 //; sentence = (terms CU_clause? free*)? bridi_tail / bridi_tail
 
 // EXP-MODIF: JACU
-sentence = expr:(terms? bridi_tail_t1 (joik_jek bridi_tail / joik_jek stag? KE_clause free* bridi_tail KEhE_elidible free*)* / fragment) {return _node("sentence", expr);}
+sentence = expr:(terms? bridi_tail_t1 (joik_jek bridi_tail / joik_jek stag? KE_clause free* bridi_tail KEhE_elidible free*)* / COhE_fragment) {return _node("sentence", expr);}
 // sentence = expr:(((terms bridi_tail_sa*)? CU_elidible free*)? bridi_tail_sa* bridi_tail) {return _node("sentence", expr);}
 
 // JACU

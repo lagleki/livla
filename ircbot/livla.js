@@ -180,18 +180,6 @@ var updatexmldumps = function (callback) {
 				}
 			}); 
 		});
-		//
-			var uri="http://vrici.lojban.org/~gleki/mediawiki-1.19.2/extensions/ilmentufa/ircbot/dumps/jbovlaste.xsl";
-			jar.setCookie(cookie, uri);
-			var t = path.join(__dirname,"dumps","test" + ".csv");
-			request({
-				uri: uri, method: "GET", jar: jar
-			}).on("error", function (err) {
-			}).pipe(fs.createWriteStream(t + ".temp")).on("finish", function () {
-				fs.renameSync(t+".temp", t);console.log("lb" + ' updated');
-				global.gc();
-			});
-		///
 		langs.forEach(function(thisa) {//now update pdf
 			var uri="http://jbovlaste.lojban.org/export/latex-export.html?lang="+thisa;
 			jar.setCookie(cookie, uri);
@@ -211,7 +199,7 @@ var updatexmldumps = function (callback) {
 			});
 		});
 	}catch(err){console.log('Error when autoupdating: ' + err);}
-	sutsisningau("zamenhofo");sutsisningau("laadan");
+	sutsisningau("zamenhofo");sutsisningau("laadan");labangu();
 	//updategloss();# not yet ready function
 };
 var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),{encoding: 'utf8'}));//store en dump in memory
@@ -1357,6 +1345,28 @@ var nl='var literals = {';
 	if(n==1){try{pars=fs.readFileSync(t,{encoding: 'utf8'});pars = fs.writeFileSync(t,pars);console.log(t + ' updated');}catch(err){}}
 };
 
+var labangu = function(){
+	var request = require("request");
+	var fs = require("fs");
+	var t = path.join(__dirname,"dumps","labangu.csv");
+	requestd = request.defaults({jar: true});
+	var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/export?format=csv&id=19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw&gid=20";
+	requestd({
+	    uri: uri, method: "GET"
+	}).on("error", function (err) {
+	}).pipe(fs.createWriteStream(t)).on("finish", function () {
+		var take = fs.readFileSync(t,{encoding: 'utf8'});
+		take=take.replace(/&/igm,"&amp;");
+		take=take.replace(/<(|\/)(small|sub)>|&nbsp;/igm,"");
+		take=take.replace(/^(.*?),\"\n/igm,"<valsi word=\"$1\"><definition>");
+		take=take.replace(/\"\n/igm,"</definition></valsi>\n");
+		take=take.replace(/'''(.*?)'''/igm,"{$1}");
+		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"La Bangu English\">\n"+take+"</definition></valsi>\n</direction>\n</dictionary>";
+		take = fs.writeFileSync(t+".temp",take);
+		fs.renameSync(t+".temp",path.join(__dirname,"dumps","lb.xml"));console.log("La Bangu updated");
+	});
+};
+
 var lmw = function (lin,sendTo){//to be done
 var request = require("request"); var body;
 var uri="http://mw.lojban.org/index.php?action=render&title="+lin;
@@ -1418,10 +1428,7 @@ text=run_camxes(text,3);
 		for (var j=0;j<sj.length;j++){
 			if (xulujvo(sj[j])===true){
 			sj[j]=katna(sj[j],"en",1,xmlDocEn);
-			//var jo=sj[j].split(" ");
-			var is=true;
-			if (sj[j].search(/^((se|te|ve|xe) )+[^ ]+$/)!==0){is=false;}
-			if (is===true){
+			if (sj[j].search(/^((se|te|ve|xe) )+[^ ]+$/)===0){
 				sj[j]=sj[j].replace(/ /g," ");
 			}
 			else{sj[j]=sj[j].replace(/ /g," zei ");}

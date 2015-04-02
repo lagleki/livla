@@ -1829,7 +1829,7 @@ LUhU = &cmavo expr:( l u h u ) &post_word {return ["LUhU", _join(expr)];}
 
 MAhO = &cmavo expr:( m a h o ) &post_word {return ["MAhO", _join(expr)];}
 
-MAI = &cmavo expr:( z e h e i / m o h o / m a i ) &post_word {return ["MAI", _join(expr)];}
+MAI = &cmavo expr:( m o h o / m a i ) &post_word {return ["MAI", _join(expr)];}
 
 //// EXP-ADD: me'au
 ME = &cmavo expr:(m e h a u / m e) &post_word {return ["ME", _join(expr)];}
@@ -1889,7 +1889,7 @@ SEI = &cmavo expr:( s e i / t i h o ) &post_word {return ["SEI", _join(expr)];}
 
 SEhU = &cmavo expr:( s e h u ) &post_word {return ["SEhU", _join(expr)];}
 
-SI = &cmavo expr:( s i ) &post_word {return ["SI", _join(expr)];}
+SI = &cmavo expr:( s i / z e h e i) &post_word {return ["SI", _join(expr)];}
 
 SOI = &cmavo expr:( s o i / x o i / f i h o i ) &post_word {return ["SOI", _join(expr)];}
 

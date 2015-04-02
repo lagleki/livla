@@ -157,7 +157,7 @@ statement_3 = expr:(sentence / tag? TUhE_clause free* text_1 TUhU_elidible free*
 //// EXP-MODIF: allowing na sequence.
 //fragment = expr:(prenex / terms VAU_elidible free* / ek free* / gihek free* / quantifier / (NA_clause !JA_clause free*)+ / relative_clauses / links / linkargs) {return _node("fragment", expr);}
 //// Remove fragments that are now proper statements
-fragment = expr:(ek free* / quantifier / relative_clauses / links / linkargs) {return _node("fragment", expr);}
+fragment = expr:(ek free* / !term !tag quantifier / quantifier / relative_clauses / links / linkargs) {return _node("fragment", expr);}
 
 //// EXP-MODIF: Allowing empty prenexes.
 prenex = expr:(terms? ZOhU_clause free*) {return _node("prenex", expr);}

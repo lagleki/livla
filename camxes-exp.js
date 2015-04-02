@@ -1832,7 +1832,7 @@ var camxes = (function(){
         }
         
         var result0, result1, result2;
-        var pos0, pos1;
+        var pos0, pos1, pos2;
         
         pos0 = pos;
         pos1 = pos;
@@ -1855,13 +1855,53 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 === null) {
-          result0 = parse_quantifier();
+          pos1 = pos;
+          pos2 = pos;
+          reportFailures++;
+          result0 = parse_term();
+          reportFailures--;
           if (result0 === null) {
-            result0 = parse_relative_clauses();
+            result0 = "";
+          } else {
+            result0 = null;
+            pos = pos2;
+          }
+          if (result0 !== null) {
+            pos2 = pos;
+            reportFailures++;
+            result1 = parse_tag();
+            reportFailures--;
+            if (result1 === null) {
+              result1 = "";
+            } else {
+              result1 = null;
+              pos = pos2;
+            }
+            if (result1 !== null) {
+              result2 = parse_quantifier();
+              if (result2 !== null) {
+                result0 = [result0, result1, result2];
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+          if (result0 === null) {
+            result0 = parse_quantifier();
             if (result0 === null) {
-              result0 = parse_links();
+              result0 = parse_relative_clauses();
               if (result0 === null) {
-                result0 = parse_linkargs();
+                result0 = parse_links();
+                if (result0 === null) {
+                  result0 = parse_linkargs();
+                }
               }
             }
           }

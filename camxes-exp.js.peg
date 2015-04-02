@@ -144,7 +144,7 @@ text_1 = expr:(I_clause (jek / joik)? (stag? BO_clause)? free* text_1? / NIhO_cl
 
 paragraphs = expr:(paragraph (NIhO_clause+ free* su_clause* paragraphs)?) {return _node("paragraphs", expr);}
 
-paragraph = expr:((statement / fragment) (I_clause !jek !joik !joik_jek free* (statement / fragment)?)*) {return _node("paragraph", expr);}
+paragraph = expr:((fragment / statement) (I_clause !jek !joik !joik_jek free* (statement / fragment)?)*) {return _node("paragraph", expr);}
 
 statement = expr:(statement_1 / prenex statement) {return _node("statement", expr);}
 
@@ -155,7 +155,9 @@ statement_2 = expr:(statement_3 (I_clause (jek / joik)? stag? BO_clause free* st
 statement_3 = expr:(sentence / tag? TUhE_clause free* text_1 TUhU_elidible free*) {return _node("statement_3", expr);}
 
 //// EXP-MODIF: allowing na sequence.
-fragment = expr:(prenex / terms VAU_elidible free* / ek free* / gihek free* / quantifier / (NA_clause !JA_clause free*)+ / relative_clauses / links / linkargs) {return _node("fragment", expr);}
+//fragment = expr:(prenex / terms VAU_elidible free* / ek free* / gihek free* / quantifier / (NA_clause !JA_clause free*)+ / relative_clauses / links / linkargs) {return _node("fragment", expr);}
+//// Remove fragments that are now proper statements
+fragment = expr:(ek free* / quantifier / relative_clauses / links / linkargs) {return _node("fragment", expr);}
 
 //// EXP-MODIF: Allowing empty prenexes.
 prenex = expr:(terms? ZOhU_clause free*) {return _node("prenex", expr);}
@@ -1827,7 +1829,7 @@ LUhU = &cmavo expr:( l u h u ) &post_word {return ["LUhU", _join(expr)];}
 
 MAhO = &cmavo expr:( m a h o ) &post_word {return ["MAhO", _join(expr)];}
 
-MAI = &cmavo expr:( m o h o / m a i ) &post_word {return ["MAI", _join(expr)];}
+MAI = &cmavo expr:( z e h e i / m o h o / m a i ) &post_word {return ["MAI", _join(expr)];}
 
 //// EXP-ADD: me'au
 ME = &cmavo expr:(m e h a u / m e) &post_word {return ["ME", _join(expr)];}

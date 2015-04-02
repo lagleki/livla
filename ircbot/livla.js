@@ -1428,7 +1428,7 @@ text=run_camxes(text,3);
 		for (var j=0;j<sj.length;j++){
 			if (xulujvo(sj[j])===true){
 			sj[j]=katna(sj[j],"en",1,xmlDocEn);
-			if (sj[j].search(/^((se|te|ve|xe) )+[^ ]+$/)===0){
+			if (sj[j].search(/^((se|te|ve|xe|na'e|je'a|to'e) )+[^ ]+$/)===0){
 				sj[j]=sj[j].replace(/ /g," ");
 			}
 			else{sj[j]=sj[j].replace(/ /g," zei ");}

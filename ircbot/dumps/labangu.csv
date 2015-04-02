@@ -1170,7 +1170,7 @@ cirkulo,"
 '''cirkulo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a circle
 :'''lo cirkulo''' — circle. 
 :'''mi pu ciska lo cirkulo''' — ''I drew a circle.''
-:Related words: '''cukla''', '''ringe'''"
+:Related words: '''cukla''', '''djine'''"
 cirla,"
 '''cirla''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some cheese
 :'''lo cirla''' — cheese. 
@@ -1337,7 +1337,7 @@ clupa,"
 '''clupa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a loop of material  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo clupa''' — loop. 
 :'''ko jai se torni lo skori ja'e lo nu ri clupa''' — ''Twist the rope into a loop.''
-:Related words: '''ringe'''"
+:Related words: '''djine'''"
 cmaci,"
 '''cmaci''' — ''x<sub>1</sub><sub>(proposition)</sub>''  is mathematics describing  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo cmaci''' — mathematics. '''lo se cmaci''' — field of mathematics. 
@@ -1611,7 +1611,7 @@ cukla,"
 '''cukla''' — ''x<sub>1</sub><sub>(entity)</sub>''  is round
 :'''lo cukla''' — round. 
 :'''le lunra noi pelxu je cukla je carmi cu zvati lo tsani''' — ''The Moon, yellow, round and bright, is in the sky.''
-:Related words: '''ringe''', '''ranji''', '''bolci''', '''tarmi'''"
+:Related words: '''djine''', '''ranji''', '''bolci''', '''tarmi'''"
 cukta,"
 '''cukta''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a book with work  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo cukta''' — book. '''lo se cukta''' — work in a book. 
@@ -1665,7 +1665,7 @@ curnu,"
 curve,"
 '''curve''' — ''x<sub>1</sub><sub>(entity)</sub>''  is pure in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo curve''' — pure. 
-:'''i lo vi ringe cu curve lo ka solji''' — ''This ring is of pure gold.''
+:'''i lo vi djine cu curve lo ka solji''' — ''This ring is of pure gold.''
 :Related words: '''prane''', '''jinsa''', '''manfo''', '''sampu''', '''sepli''', '''traji''', '''lumci''', '''xukmi'''"
 cusku,"
 '''cusku''' — ''x<sub>1</sub><sub>(entity)</sub>''  says  ''x<sub>2</sub><sub>(text)</sub>''  for audience  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -1852,7 +1852,7 @@ dasri,"
 '''dasri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a ribbon
 :'''lo dasri''' — ribbon, strip. 
 :'''lo se dunda pu se bakfu fi lo dasri''' — ''The gift was tied with a ribbon.''
-:Related words: '''ringe'''"
+:Related words: '''djine'''"
 datka,"
 '''datka''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a duck of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo datka''' — duck. 
@@ -2088,6 +2088,11 @@ djica,"
 :'''mi djica lo nu cusku lo xajmi vau lo nu do cisma''' — ''I want tell something funny to make you smile.''
 :'''mi djica tu'a lo so'i cukta lo ka tcidu''' — ''I want many books to read.''
 :Related words: '''taske''', '''xagji''', '''mukti''', '''nitcu''', '''nelci''', '''pacna''', '''prami''', '''rigni''', '''trina''', '''xebni''', '''xlura'''"
+djine,"
+'''djine''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a ring
+:'''lo djine''' — ring. 
+:'''ti solji djine''' — ''This is a golden ring.''
+:Related words: '''cukla'''"
 djuno,"
 '''djuno''' — ''x<sub>1</sub><sub>(entity)</sub>''  knows fact  ''x<sub>2</sub><sub>(proposition)</sub>''  about  ''x<sub>3</sub><sub>(entity)</sub>''  on grounds  ''x<sub>4</sub><sub>(proposition)</sub>'' 
 :'''lo se djuno''' — known fact. '''lo ve djuno''' — grounds of knowledge. 
@@ -4014,7 +4019,7 @@ karli,"
 '''karli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a belt or collar surrounding  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo karli''' — collar. 
 :'''le fetsi pu punji lo karli lo sruri be lo cintura''' — ''She put a waist around her waist.''
-:Related words: '''sruri''', '''ringe'''"
+:Related words: '''sruri''', '''djine'''"
 karni,"
 '''karni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a newspaper, magazine with content  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo karni''' — journal, newspaper, magazine. '''lo se karni''' — contents of a magazine. 
@@ -4283,7 +4288,7 @@ konju,"
 '''konju''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a cone with base  ''x<sub>2</sub><sub>(entity)</sub>''  and vertex  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo konju''' — cone. '''lo se konju''' — base of a cone. '''lo te konju''' — vertex of a cone. 
 :'''lo tarci jadni cu te konju fi lo tricu''' — ''The star is the tip of a tree.''
-:Related words: '''jesni''', '''ringe''', '''sovda''', '''kojna''', '''jganu'''"
+:Related words: '''jesni''', '''djine''', '''sovda''', '''kojna''', '''jganu'''"
 korbi,"
 '''korbi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an edge or border between  ''x<sub>2</sub><sub>(plural of entity)</sub>'' 
 :'''lo korbi''' — edge. '''lo se korbi''' — something with an edge. 
@@ -4708,7 +4713,7 @@ li'anzi,"
 '''li'anzi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a length of chain with links or rings  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo li'anzi''' — chain. '''lo se li'anzi''' — link of a chain, ring of a chain. 
 :'''ti li'anzi lo barda je rijno''' — ''This is a chain with big silver rings.''
-:Related words: '''ringe''', '''cukla''', '''gunma''', '''lasna'''"
+:Related words: '''djine''', '''cukla''', '''gunma''', '''lasna'''"
 li'i,"
 '''li'i''' <small>[clause prefix]</small> — clause > verb
 :'''lo pluka ko li'i se senva''' — ''Have a pleasant dream (sweat dreams!) Bon appetite!''
@@ -6747,11 +6752,6 @@ rinci,"
 :'''lo rinci''' — draining liquid. '''lo te rinci''' — drain, strainer, colander. 
 :'''lo djacu cu rinci lo tubnu lo za'u kevna lo danre''' — ''Water drains from a tube through holes being under pressure.''
 :Related words: '''pambe''', '''tisna''', '''setca''', '''flu'ente''', '''muvdu''', '''ganxo''', '''rirxe'''"
-ringe,"
-'''ringe''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a ring
-:'''lo ringe''' — ring. 
-:'''ti solji ringe''' — ''This is a golden ring.''
-:Related words: '''cukla'''"
 rinju,"
 '''rinju''' — ''x<sub>1</sub><sub>(entity)</sub>''  is restrained by  ''x<sub>2</sub><sub>(entity)</sub>''  against  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo rinju''' — restrained. '''lo se rinju''' — restraining. 
@@ -7799,7 +7799,7 @@ sruri,"
 '''sruri''' — ''x<sub>1</sub><sub>(entity)</sub>''  encloses or surrounds  ''x<sub>2</sub><sub>(entity)</sub>''  in direction  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo sruri''' — enclosing. '''lo se sruri''' — eclosed. 
 :'''lo ckule cu se sruri lo cmana joi lo lalxu ro korbi''' — ''The school is surrounded by mountains and lakes from all sides.''
-:Related words: '''karli''', '''senta''', '''snuji''', '''vanbi''', '''se''' '''nenri''', '''se''' '''jbini''', '''bartu''', '''ringe'''"
+:Related words: '''karli''', '''senta''', '''snuji''', '''vanbi''', '''se''' '''nenri''', '''se''' '''jbini''', '''bartu''', '''djine'''"
 stace,"
 '''stace''' — ''x<sub>1</sub><sub>(entity)</sub>''  is honest with  ''x<sub>2</sub><sub>(entity)</sub>''  about  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo stace''' — honest. 
@@ -9322,7 +9322,7 @@ xu,"
 xukmi,"
 '''xukmi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is the chemical  ''x<sub>2</sub><sub>(entity)</sub>''  with purity  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo xukmi''' — chemical. 
-:'''lo vi ringe cu xukmi lo solji li pi mu bi mu''' — ''This ring is 58.5% pure gold (58.5 out of 100 parts is pure gold).''
+:'''lo vi djine cu xukmi lo solji li pi mu bi mu''' — ''This ring is 58.5% pure gold (58.5 out of 100 parts is pure gold).''
 :Related words: '''curve''', '''cidro''', '''marna''', '''nimre'''"
 xunre,"
 '''xunre''' — ''x<sub>1</sub><sub>(entity)</sub>''  is red

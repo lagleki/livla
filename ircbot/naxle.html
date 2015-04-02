@@ -1,6 +1,18 @@
 <!doctype html>
 <html>
 <head>
+<style>
+body {
+background: rgba(255,255,255,1);
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(247,200,129,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(247,200,129,1)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(247,200,129,1) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(247,200,129,1) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(247,200,129,1) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(247,200,129,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7c881', GradientType=0 );
+}
+</style>
 	    <script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
         <script src='//vrici.lojban.org:3000/socket.io/socket.io.js'></script>
         <script>
@@ -100,6 +112,7 @@ function sendinputi() {
 <button type="button" onclick="sendinput('jbo');" class="but" style="width:80px;">la Lojban</button> - mitysisku se pi'o lo lojbo vlaste<br/>
 <button type="button" onclick="sendinput('es');" class="but" style="width:80px;">español</button> - búsqueda en el diccionario español<br/>
 <button type="button" onclick="sendinput('f@');" class="but" style="width:80px;">français</button> - recherche dans le dictionnaire français (facile)<br/>
+<button type="button" onclick="sendinput('ru');" class="but" style="width:80px;">русский</button> - поиск в русском словаре<br/>
 <button type="button" onclick="sendinput('de');" class="but" style="width:80px;">Deutsch</button> - Suche im Deutsch Wörterbuch<br/>
 <button type="button" onclick="sendinput('eo');" class="but" style="width:80px;">Esperanto</button> - Serĉo en Esperanta vortaro<br/>
 <button type="button" onclick="sendinput('zh');" class="but" style="width:80px;">汉语</button> - 汉语字典搜索<br/>

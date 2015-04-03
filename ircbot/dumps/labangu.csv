@@ -58,7 +58,7 @@ akti,"
 :'''mi jai gau ba akti fai le minji''' — ''I will get the machine running.''
 :'''le zarci ca akti''' — ''The shop is open.''
 :'''le minji ca akti lo ka cupra lo purmo''' — ''The machine is now in operation producing flour.''
-:Related words: '''cando''', '''spofu'''"
+:Related words: '''zukcfu''', '''spofu'''"
 anka,"
 '''anka''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a thigh, hip of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''le verba pu jai gau spofu lo anka be lo no'a''' — ''The child broke his thigh.''
@@ -771,11 +771,6 @@ canci,"
 '''canci''' — ''x<sub>1</sub><sub>(entity)</sub>''  vanishes from location  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''do canci lo jvinu be fi mi''' — ''You disappeared from my view.''
 :Related words: '''cliva''', '''ganse''', '''zgana''', '''lebna''', '''vimcu'''"
-cando,"
-'''cando''' — ''x<sub>1</sub><sub>(entity)</sub>''  is idle or at rest
-:'''lo cando''' — idle, at rest. 
-:'''do simlu lo ka cando''' — ''You seem to be idle.''
-:Related words: '''surla'''"
 cange,"
 '''cange''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a farm or ranch at  ''x<sub>2</sub><sub>(entity)</sub>''  farmed by  ''x<sub>3</sub><sub>(entity)</sub>''  that raises or produces  ''x<sub>4</sub><sub>(entity)</sub>'' 
 :'''lo cange''' — farm. '''lo te cange''' — farmer. '''lo ve cange''' — farm production. 
@@ -2167,7 +2162,7 @@ du'e,"
 du'i,"
 '''du'i''' <small>[preposition from '''dunli''']</small> — ''as much as ...'', adverb: ''equally''
 :'''mi'a du'i casnu lo mintu''' — ''We equally discussed the same.''
-:'''xu do cando du'i mi''' — ''Are you as busy as I am?''
+:'''xu do zukcfu du'i mi''' — ''Are you as busy as I am?''
 :Comment: noun after '''du'i''' is compared with x<sub>1</sub> of the clause, the clause itself describes the comparison."
 du'u,"
 '''du'u''' <small>[clause prefix]</small> — clause > verb
@@ -2934,7 +2929,7 @@ go,"
 :Comment: used to connect nouns, adverbs, verbs, clauses. Shows that the construct inside '''ga''' ... '''gi''' is true only if the cosntruct after '''gi''' is true."
 go'a,"
 '''go'a''' <small>[verb]</small> — copies a recent completed main level clause
-:'''au mi ne ka'ai do zgana lo cnino filme i ku'i za'a do ca mutce to'e cando i ca ma mi'o ka'e go'a''' — ''I'd like to watch a new movie with you. But as I can see you are very busy now. When can we do that?''"
+:'''au mi ne ka'ai do zgana lo cnino filme i ku'i za'a do ca zukcfu so'i da i ca ma mi'o ka'e go'a''' — ''I'd like to watch a new movie with you. But as I can see you are very busy now. When can we do that?''"
 go'i,"
 '''go'i''' <small>[verb]</small> — copies the last completed main main level clause
 :'''au mi penmi do i xu lo nu go'i cu cumki''' — ''I'd like to meet you. Is this possible?''"
@@ -7619,7 +7614,7 @@ so,"
 :'''so tadni ca catlu do''' — ''There are 9 students looking at you.''"
 so'a,"
 '''so'a''' <small>[digit/number]</small> — ''almost all''
-:'''so'a lo prenu ca cando''' — ''Almost all people are idle now.''"
+:'''so'a lo prenu ca zukcfu no da''' — ''Almost all people are idle now.''"
 so'e,"
 '''so'e''' <small>[digit/number]</small> — ''most''
 :'''so'e lo prenu cu nelci lo plise''' — ''Most people like apples.''"
@@ -7981,7 +7976,7 @@ sunla,"
 surla,"
 '''surla''' — ''x<sub>1</sub><sub>(entity)</sub>''  relaxes by doing  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''mi surla lo ka vreta lo sfofa''' — ''I relax myself by lying on a sofa.''
-:Related words: '''dunku''', '''tatpi''', '''cando''', '''vreta'''"
+:Related words: '''dunku''', '''tatpi''', '''zukcfu''', '''vreta'''"
 sutra,"
 '''sutra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is fast or quick at doing  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo sutra''' — fast, quick. '''lo se sutra''' — done fast. 
@@ -7998,7 +7993,6 @@ ta'a,"
 ta'e,"
 '''ta'e''' <small>[preposition of aspect]</small> — ''habitually'' (habitual aspect)
 :'''mi ta'e citka lo plise''' — ''I used to eat apples.''
-:'''ta'e cando''' — ''He tends to be idle.''
 :'''lo verba ta'e ze'i co'a tatpi''' — ''Children tend to quickly get tired.''"
 ta'i,"
 '''ta'i''' <small>[preposition from '''tadji''']</small> — ''by method ...'', adverb: ''methodically''
@@ -9646,6 +9640,11 @@ zu'u,"
 :'''zu'u le jufra cu satci lo ka se smuni''' — ''On the one hand, the sentence is exact in meaning.''
 :'''zu'u nai du'e va'e clani''' — ''On the other hand, it is too long.''
 :Related words: '''tcemi''', '''frica''', '''dukti'''"
+zukcfu,"
+'''zukcfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is busy doing  ''x<sub>2</sub><sub>(property of x1)</sub>''  for purpose  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
+:'''lo zukcfu''' — busy. 
+:'''mi zukcfu lo ka jai gau bredi fai lo cidja vau lo ka jai gau citka fai lo gerku be mi''' — ''I am busy preparing food to feed my dog.''
+:Related words: '''zukcfu''', '''surla'''"
 zukte,"
 '''zukte''' — ''x<sub>1</sub><sub>(entity)</sub>''  takes action  ''x<sub>2</sub><sub>(property of x1)</sub>''  for purpose  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo zukte''' — actor. '''lo se zukte''' — taken action. '''lo te zukte''' — purpose of action. 

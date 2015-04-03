@@ -1894,14 +1894,11 @@ var camxes = (function(){
             pos = pos1;
           }
           if (result0 === null) {
-            result0 = parse_quantifier();
+            result0 = parse_relative_clauses();
             if (result0 === null) {
-              result0 = parse_relative_clauses();
+              result0 = parse_links();
               if (result0 === null) {
-                result0 = parse_links();
-                if (result0 === null) {
-                  result0 = parse_linkargs();
-                }
+                result0 = parse_linkargs();
               }
             }
           }

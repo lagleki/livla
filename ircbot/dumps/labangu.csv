@@ -2989,7 +2989,7 @@ grute,"
 '''grute''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a fruit of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo grute''' — fruit (of a plant). 
 :'''lo pa vi grute be lo plise cu crino''' — ''This apple fruit is green.''
-:Related words: '''badna''', '''dembi''', '''figre''', '''kurkubeta''', '''narge''', '''perli''', '''pilka''', '''plise''', '''spati''', '''stagi''', '''tamca''', '''tsiju''', '''tarbi''', '''panzi''', '''rorci''', te '''pruce''', '''jbari''', '''nimre'''"
+:Related words: '''badna''', '''dembi''', '''figre''', '''tcilokoiotli''', '''narge''', '''perli''', '''pilka''', '''plise''', '''spati''', '''stagi''', '''tamca''', '''tsiju''', '''tarbi''', '''panzi''', '''rorci''', te '''pruce''', '''jbari''', '''nimre'''"
 gu,"
 '''gu''' <small>[forethought conjunction]</small> — ''whether or not''
 :'''la Alis cu gu stati gi melbi''' — ''Alice is smart whether or not she is beautiful.''
@@ -4456,11 +4456,6 @@ kurki,"
 :'''lo kurki''' — bitter (taste). 
 :'''lo birje cu kurki''' — ''The beer is bitter.''
 :Related words: '''titla''', '''slari'''"
-kurkubeta,"
-'''kurkubeta''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a pumpkin of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
-:'''lo kurkubeta''' — pumpkin. 
-:'''xu do pu'i smaka lo sanso be lo kurkubeta''' — ''Have you ever tasted pumpkin sauce?''
-:Related words: '''grute'''"
 kuspe,"
 '''kuspe''' — ''x<sub>1</sub><sub>(entity)</sub>''  extends or reaches over range  ''x<sub>2</sub><sub>(entity)</sub>'' ; x<sub>1</sub> has scope over x<sub>2</sub>
 :'''lo kuspe''' — having scope. '''lo se kuspe''' — scope. 
@@ -8216,6 +8211,11 @@ tcila,"
 :'''lo tcila''' — detail, feature. '''lo se tcila''' — detailed, having features. 
 :'''lo bangu be lo cecmu cu ro roi vajni tcila cy''' — ''The language in a society is always its important detail.''
 :Related words: '''diklo''', '''steci'''"
+tcilokoiotli,"
+'''tcilokoiotli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a pumpkin of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
+:'''lo tcilokoiotli''' — pumpkin. 
+:'''xu do pu'i smaka lo sanso be lo tcilokoiotli''' — ''Have you ever tasted pumpkin sauce?''
+:Related words: '''grute'''"
 tcima,"
 '''tcima''' — ''x<sub>1</sub><sub>(clause)</sub>''  is the weather at place  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo tcima''' — weather. 
@@ -8762,7 +8762,7 @@ vanci,"
 vanjba,"
 '''vanjba''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a grape of plant  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo vanjba''' — grape. 
-:'''ta vasru lo plise e lo vanjba e lo kurkubeta e lo drata grute''' — ''It contains apples, grapes, pumpkin and other fruits.''
+:'''ta vasru lo plise e lo vanjba e lo tcilokoiotli e lo drata grute''' — ''It contains apples, grapes, pumpkin and other fruits.''
 :Related words: '''vanju''', '''jbari''', '''grute''', '''tsiju''', '''narge'''"
 vanju,"
 '''vanju''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some wine from grapes  ''x<sub>2</sub><sub>(entity)</sub>'' 

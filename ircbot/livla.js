@@ -417,7 +417,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf('guaspi:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(7),'guaspi'));break;
 		case text.indexOf('frame: /full ') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(12),'en','framemulno'));break;
 		case text.indexOf('frame:/full ') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(11),'en','framemulno'));break;
-		case text.indexOf('mensi: ktn') == '0': benji(source,socket,clientmensi,sendTo, prettifylojbansentences());break;
+		case text.indexOf(prereplier+'ktn') == '0': benji(source,socket,clientmensi,sendTo, prettifylojbansentences());break;
 		
 		// Change default language
 		case text.indexOf('bangu:') == '0': benji(source,socket,clientmensi,sendTo, bangu(text.substr(6).trim(), from));break;
@@ -450,6 +450,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf('gloss:') == '0': benji(source,socket,clientmensi,sendTo, gloso(text.substr(6),'en'));break;
 		case text.indexOf('loi:') == '0': benji(source,socket,clientmensi,sendTo, loglo(text.substr(4),''));break;
 		case text.indexOf('coi:') == '0': benji(source,socket,clientmensi,sendTo, loglo(text.substr(4),'coi'));break;
+		case text.indexOf(prereplier + 'ningaumahantufa') == '0': ningaumahantufa(text,socket);break;
 		case text==replier+': ii': benji(source,socket,clientmensi,sendTo, io());break;
 		case text==replier+': help': benji(source,socket,clientmensi,sendTo, sidju());break;
 		case text.indexOf("rot13:") == '0': benji(source,socket,clientmensi,sendTo, rotpaci(text.substr(6)));break;
@@ -1387,7 +1388,6 @@ var tcepru = function(lins,sendTo,source,socket){
 	lin=stdout;
 	if (error !==null){lin='O_0';}
 	benji(source,socket,clientmensi,sendTo, lin.replace(/\n/g,' ').replace(/ {2,}/g,' '));
-	console.log(lin);
 	});
 };
 
@@ -1471,7 +1471,7 @@ io.sockets.on('connection', function(socket) {
 	//io.to(socket.id).emit("returner", { message: message: vlaste(data.data,'en') });
     socket.on(
     	'i am client', function(data){//clientmensi, from, to, text, message,source
-    		if(data.data.indexOf("mensi: doi")===0 || data.data.indexOf("mensi: tell")===0){}else{
+    		if(data.data.indexOf(prereplier+"doi")===0 || data.data.indexOf(prereplier+"tell")===0){}else{
     			processormensi(clientmensi, "mw.lojban.org", "", data.data, "","naxle",socket);
     		}
     	}
@@ -1479,3 +1479,28 @@ io.sockets.on('connection', function(socket) {
 });
 
 app.listen(3000);
+
+//mahantufa
+var ningaumahantufa = function(text,socket){
+	console.log(text);
+	var fs = require("fs");
+	var PEG = require("pegjs");
+	//write file
+	var t = path.join(__dirname,"../mahantufa/mahantufa.js.peg");
+	fs.writeFileSync(t,text.replace(prereplier+"ningaumahantufa",""));
+	// // read peg and build a parser
+	var camxes_peg = fs.readFileSync("./mahantufa/mahantufa.js.peg").toString();
+	try{var camxes = PEG.buildParser(camxes_peg, {cache: true});
+	// // write to a file
+	var fd = fs.openSync("./mahantufa/mahantufa.js", 'w+');
+	var buffer = new Buffer('var camxes = ');
+	fs.writeSync(fd, buffer, 0, buffer.length);
+	buffer = new Buffer(camxes.toSource());
+	fs.writeSync(fd, buffer, 0, buffer.length);
+	buffer = new Buffer("\n\nmodule.exports = camxes;\n\nterm = process.argv[2];\nif (term !== undefined && typeof term.valueOf() === 'string')\n  console.log(JSON.stringify(camxes.parse(term)));\n\n");
+	fs.writeSync(fd, buffer, 0, buffer.length);
+	fs.close(fd);
+	socket.emit('returner', {message: "snada"});
+	}
+	catch(e){socket.emit('returner', {message: e.message});}
+};

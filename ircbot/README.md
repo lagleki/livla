@@ -3,7 +3,7 @@
 In order to run LIVLABOT run from the root of ilmentufa directory:
 
 ```sh
-node ircbot/node_modules/.bin/supervisor -w .,./ircbot -i ./ircbot/dumps,./i -- --expose-gc ircbot/livla.js
+node ircbot/node_modules/.bin/supervisor -w .,./ircbot -i ./ircbot/dumps,./i,./mahantufa -- --expose-gc ircbot/livla.js
 ```
 
 Typing in the chat "rafsi: pof" will return "spofu". "rafsi: spofu" will return "pof po\'u". Typing "selmaho: ui" will return "UI". Typing "Tatoeba: klama" will return a random sentence (with its number) from Tatoeba containing "klama" sequence.";

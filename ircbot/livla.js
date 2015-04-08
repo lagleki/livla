@@ -229,6 +229,7 @@ var updateUserSettings = function (callback) {
 	}
 };
 
+try{var camxesalta = require('../mahantufa/altatufa.js');}catch(e){}
 var camxesoff = require('../camxes.js');
 var camxes = require('../camxes-exp.js');
 var camxes_pre = require('../camxes_preproc.js');
@@ -278,6 +279,22 @@ function run_camxesoff(input, mode) {
 	return result;
 }
 
+function run_camxesalta(input, mode) {
+	var result;
+	var syntax_error = false;
+	result = camxes_pre.preprocessing(input);
+	try {
+	  result = camxesalta.parse(result);
+	} catch (e) {
+		result = e;
+		syntax_error = true;
+	}
+	if (!syntax_error) {
+		result = JSON.stringify(result, undefined, 2);
+		result = camxes_post.postprocessing(result, mode);
+	}
+	return result;
+}
 //dict:
 var emails = ["Please email any questions to gleki.is.my.name@gmail.com","Пишите любые вопросы по ложбану на gleki.is.my.name@gmail.com","mw.lojban.org","http://reddit.com/r/lojban/","Страница на русском: http://mw.lojban.org/index.php?title=%D0%94%D0%BE%D0%B1%D1%80%D0%BE%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D0%BE%D0%B2%D0%B0%D1%82%D1%8C!%20(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)&setlang=ru","http://mw.lojban.org/index.php?title=Bienvenue%20!%20(Fran%C3%A7ais)&setlang=fr"];
 var gaga = ["ga ga u la la", "mama", "do re mi fa so la ti", ".iam .iam i la pitsa cu kukte","ba du bi du","lo mlatu cu fasnu","lo'e mlatu ca ta'e fasnu","lo gerku cu dacti ije lo mlatu cu fasnu i xu lo dacti ka'e catra lo fasnu","i mi troci lo ka catra lo ditcu"];
@@ -408,6 +425,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf("zei:") == '0': text = text.substr(4).trim();benji(source,socket,clientmensi,sendTo, zeizei(text));break;
 		case text.indexOf("anji:") == '0': text = text.substr(5).trim();benji(source,socket,clientmensi,sendTo, anji(text));break;
 		case text.indexOf("off:") == '0': text = text.substr(4).trim();ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxesoff(ret[0], ret[1]));break;
+		case text.indexOf("alta:") == '0': text = text.substr(5).trim();ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxesalta(ret[0], ret[1]));break;
 		case text.indexOf("yacc:") == '0': tcepru(text.substr(5),sendTo,source,socket);break;
 		case text.indexOf("cowan:") == '0': tcepru(text.substr(6),sendTo,source,socket);break;
 		case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo,source,socket);break;
@@ -450,7 +468,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf('gloss:') == '0': benji(source,socket,clientmensi,sendTo, gloso(text.substr(6),'en'));break;
 		case text.indexOf('loi:') == '0': benji(source,socket,clientmensi,sendTo, loglo(text.substr(4),''));break;
 		case text.indexOf('coi:') == '0': benji(source,socket,clientmensi,sendTo, loglo(text.substr(4),'coi'));break;
-		case text.indexOf(prereplier + 'ningaumahantufa') == '0': ningaumahantufa(text,socket);break;
+		case text.indexOf(prereplier + 'mhnt ') == '0': ningaumahantufa(text.substr(12),socket);break;
 		case text==replier+': ii': benji(source,socket,clientmensi,sendTo, io());break;
 		case text==replier+': help': benji(source,socket,clientmensi,sendTo, sidju());break;
 		case text.indexOf("rot13:") == '0': benji(source,socket,clientmensi,sendTo, rotpaci(text.substr(6)));break;
@@ -1482,17 +1500,18 @@ app.listen(3000);
 
 //mahantufa
 var ningaumahantufa = function(text,socket){
-	console.log(text);
 	var fs = require("fs");
 	var PEG = require("pegjs");
 	//write file
-	var t = path.join(__dirname,"../mahantufa/mahantufa.js.peg");
-	fs.writeFileSync(t,text.replace(prereplier+"ningaumahantufa",""));
+	var whichfile = text.substr(0,text.indexOf(' ')); console.log(whichfile);
+	text = text.substr(text.indexOf(' ')+1);
+	var t = path.join(__dirname,"."+whichfile+".peg");
+	fs.writeFileSync(t,text);
 	// // read peg and build a parser
-	var camxes_peg = fs.readFileSync("./mahantufa/mahantufa.js.peg").toString();
+	var camxes_peg = fs.readFileSync(whichfile+".peg").toString();
 	try{var camxes = PEG.buildParser(camxes_peg, {cache: true});
 	// // write to a file
-	var fd = fs.openSync("./mahantufa/mahantufa.js", 'w+');
+	var fd = fs.openSync(whichfile, 'w+');
 	var buffer = new Buffer('var camxes = ');
 	fs.writeSync(fd, buffer, 0, buffer.length);
 	buffer = new Buffer(camxes.toSource());

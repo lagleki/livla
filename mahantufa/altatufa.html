@@ -3,7 +3,7 @@
 	<head>
 		<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
         <script src='//vrici.lojban.org:3000/socket.io/socket.io.js'></script>
-        <script id="myscript" type="text/javascript" src="mahantufa.js"></script>
+        <script id="myscript" type="text/javascript" src="altatufa.js"></script>
         <script>
             function run_camxes() {
 				try {
@@ -29,7 +29,7 @@
                 else
                 {$('#messages').html("Result of compiling: <span style=\"color:red;font-weight: bold;\">"+data.message+"</span>",function(){});}
 				$('#myscript').remove();
-				$.getScript("mahantufa.js", function() {
+				$.getScript("altatufa.js", function() {
 					$('script:last').attr('id', 'myscript');
 				});
             });
@@ -40,14 +40,14 @@
             	$('#messages').html("<strong><i>Compiling ...</i></strong>");
 				try {
 				  var input = $('#input_textarea2').val();
-				  if (input!==""){socket.emit('i am client', {data: 'mensi: mhnt ' +"./mahantufa/mahantufa.js "+ input});}
+				  if (input!==""){socket.emit('i am client', {data: 'mensi: mhnt ' +"./mahantufa/altatufa.js "+ input});}
 			    } catch (e) {
 			      return;
 			    }
 			}
 		$(document).ready(function() {
 			   $.ajax({
-			       url : "./mahantufa.js.peg",
+			       url : "./altatufa.js.peg",
 			       dataType: "text",
 			       success : function (data) {
 			           $("#input_textarea2").val(data);

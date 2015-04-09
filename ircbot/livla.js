@@ -229,8 +229,6 @@ var updateUserSettings = function (callback) {
 	}
 };
 
-try{var camxesalta = require('../mahantufa/altatufa.js');}catch(e){}
-var camxesoff = require('../camxes.js');
 var camxes = require('../camxes-exp.js');
 var camxes_pre = require('../camxes_preproc.js');
 var camxes_post = require('../camxes_postproc.js');
@@ -263,6 +261,7 @@ function run_camxes(input, mode) {
 }
 
 function run_camxesoff(input, mode) {
+	var camxesoff = require('../camxes.js');
 	var result;
 	var syntax_error = false;
 	result = camxes_pre.preprocessing(input);
@@ -280,6 +279,7 @@ function run_camxesoff(input, mode) {
 }
 
 function run_camxesalta(input, mode) {
+	try{var camxesalta = require('../mahantufa/altatufa.js');
 	var result;
 	var syntax_error = false;
 	result = camxes_pre.preprocessing(input);
@@ -294,6 +294,7 @@ function run_camxesalta(input, mode) {
 		result = camxes_post.postprocessing(result, mode);
 	}
 	return result;
+	}catch(e){}
 }
 //dict:
 var emails = ["Please email any questions to gleki.is.my.name@gmail.com","Пишите любые вопросы по ложбану на gleki.is.my.name@gmail.com","mw.lojban.org","http://reddit.com/r/lojban/","Страница на русском: http://mw.lojban.org/index.php?title=%D0%94%D0%BE%D0%B1%D1%80%D0%BE%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D0%BE%D0%B2%D0%B0%D1%82%D1%8C!%20(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)&setlang=ru","http://mw.lojban.org/index.php?title=Bienvenue%20!%20(Fran%C3%A7ais)&setlang=fr"];
@@ -1503,7 +1504,7 @@ var ningaumahantufa = function(text,socket){
 	var fs = require("fs");
 	var PEG = require("pegjs");
 	//write file
-	var whichfile = text.substr(0,text.indexOf(' ')); console.log(whichfile);
+	var whichfile = text.substr(0,text.indexOf(' '));
 	text = text.substr(text.indexOf(' ')+1);
 	var t = path.join(__dirname,"."+whichfile+".peg");
 	fs.writeFileSync(t,text);

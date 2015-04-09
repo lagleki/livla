@@ -59,11 +59,8 @@
 <body>
 <meta charset='utf-8' />
 
-<span style="font: 15px arial, sans-serif;">Type any Lojban text in the following textarea. The result will be parsed as you type:</span>
-<br /><br />
-
 <form id="form1" name="form1" method="post" action="" style="width:100%">
-  <textarea id="input_textarea" style="width:95%" rows="3" autofocus></textarea>
+  <textarea id="input_textarea" style="margin-top:5px;width:95%;" rows="3" autofocus placeholder="Type any Lojban text in the following textarea. The result will be parsed as you type."></textarea>
   <br />
   <span style="font: 15px arial, sans-serif;">Output mode: </span>
   <select id="optlist" onChange="run_camxes()">
@@ -89,7 +86,7 @@
 <br/>
 Your Javascripted PEG to edit and test:
 <form id="form2" name="form2" method="post" action="">
-  <textarea id="input_textarea2" style="width:95%; font: 14px sans-serif;" rows="18" placeholder="ca'o cpacu lo gerna vreji"></textarea>
+  <textarea id="input_textarea2" style="width:95%; font: 14px sans-serif;" rows="19" placeholder="ca'o cpacu lo gerna vreji"></textarea>
 </form>
 <br/>
 <button type="button" onclick="sendinput();" class="but" style="font: 26px;height:36px;">Compile PEG</button>&nbsp;&nbsp;&nbsp; <span id="messages" style="font-family:monospace;font-size:16px;"></span>

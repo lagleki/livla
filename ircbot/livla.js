@@ -293,8 +293,9 @@ function run_camxesalta(input, mode) {
 		result = JSON.stringify(result, undefined, 2);
 		result = camxes_post.postprocessing(result, mode);
 	}
+	camxesalta=null;
 	return result;
-	}catch(e){}
+	}catch(e){return '';}
 }
 //dict:
 var emails = ["Please email any questions to gleki.is.my.name@gmail.com","Пишите любые вопросы по ложбану на gleki.is.my.name@gmail.com","mw.lojban.org","http://reddit.com/r/lojban/","Страница на русском: http://mw.lojban.org/index.php?title=%D0%94%D0%BE%D0%B1%D1%80%D0%BE%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D0%BE%D0%B2%D0%B0%D1%82%D1%8C!%20(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)&setlang=ru","http://mw.lojban.org/index.php?title=Bienvenue%20!%20(Fran%C3%A7ais)&setlang=fr"];
@@ -1442,7 +1443,7 @@ var prettifylojbansentences = function(){//insert spaces to lojban sentences
 var zeizei = function(text){//insert spaces to lojban sentences, split lujvo into zo zei zei lujvo
 text=run_camxes(text,3);
 	try{if (text.indexOf("SyntaxError")!==0){
-		text=text.replace(/[a-z]+_[a-z]+/ig,"").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n");
+		text=text.replace(/[a-z]+`/g,"").replace(/[a-z]+_[a-z]+/ig,"").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n");
 		var sj=text.split(" ");
 		for (var j=0;j<sj.length;j++){
 			if (xulujvo(sj[j])===true){

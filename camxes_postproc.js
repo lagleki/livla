@@ -85,8 +85,12 @@ function camxes_postprocessing(text, mode) {
 function erase_elided_terminators(str) {
 	var i, j;
 	var parachute = 400;
+	str = str.replace(/([a-z']+)`/g, function(v) { return v.toUpperCase(); });
+	str = str.replace(/([A-Z]+)'([A-Z]+)`/g,"$1h$2`");
+	str = str.replace(/([A-Z]+)H([A-Z]+)`/g,"$1h$2`");
+	str = str.replace(/([A-Zh]+)`/g,"$1");
 	do {
-		i = str.search(/\[[A-Zh]+\]/);
+		i = str.search(/\[[A-Zh`]+\]/);
 		if (i < 0) break;
 		j = i + str.substr(i).indexOf("]");
 		while (i-- > 0 && ++j < str.length)

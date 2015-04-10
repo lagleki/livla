@@ -60,7 +60,7 @@
 <meta charset='utf-8' />
 
 <form id="form1" name="form1" method="post" action="" style="width:100%">
-  <textarea id="input_textarea" style="margin-top:5px;width:95%;" rows="3" autofocus placeholder="Type any Lojban text in the following textarea. The result will be parsed as you type."></textarea>
+  <textarea id="input_textarea" style="margin-top:0px;width:95%;" rows="3" autofocus placeholder="Type any Lojban text in the following textarea. The result will be parsed as you type."></textarea>
   <br />
   <span style="font: 15px arial, sans-serif;">Output mode: </span>
   <select id="optlist" onChange="run_camxes()">
@@ -78,13 +78,11 @@
   </span>
 </form>
 
-<br/>
 <form id="form3" name="form3" method="post" action="">
-  <textarea readonly id="parse_result" style="width:95%; font: 14px sans-serif;" rows="6"></textarea>
+  <textarea readonly id="parse_result" style="margin-top:5px;width:95%; font: 14px sans-serif;" rows="9"></textarea>
 </form>
 
-<br/>
-Your Javascripted PEG to edit and test:
+<span style="margin-top:5px;">Your Javascripted PEG to edit and test:</span>
 <form id="form2" name="form2" method="post" action="">
   <textarea id="input_textarea2" style="width:95%; font: 14px sans-serif;" rows="19" placeholder="ca'o cpacu lo gerna vreji"></textarea>
 </form>

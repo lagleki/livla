@@ -173,12 +173,12 @@ gek_sentence = expr:(gek subsentence gik subsentence tail_terms / tag* KE_clause
 
 //// Start FAM/ZAM/TAM
 sentence = expr:(
-(termsfa bridi_tail_t1fefi) / /* mi klama do ti*/
-(termsfa bridi_tail_t1fe) / /* mi klama do*/
-(termsfafe bridi_tail_t1fi) / /* mi do klama ti*/
-(termsfafefi bridi_tail_t1) / /* mi do ti klama*/
-(termsfafe bridi_tail_t1) / /* mi do klama*/
-(termsfa bridi_tail_t1) / /* mi klama*/
+(termsZAMfa bridi_tail_t1fefi) / /* mi klama do ti*/
+(termsZAMfa bridi_tail_t1fe) / /* mi klama do*/
+(termsZAMfafe bridi_tail_t1fi) / /* mi do klama ti*/
+(termsZAMfafefi bridi_tail_t1) / /* mi do ti klama*/
+(termsZAMfafe bridi_tail_t1) / /* mi do klama*/
+(termsZAMfa bridi_tail_t1) / /* mi klama*/
 (termsBAM? bridi_tail_t1fe) / /* klama do*/
 terms? bridi_tail_t1 (joik_jek bridi_tail / joik_jek stag? KE_clause free* bridi_tail KEhE_elidible free*)*) {return _node("sentence", expr);}
 
@@ -199,8 +199,8 @@ bridi_tail_safe = expr:(bridi_tail_startfe (term / !bridi_tail_start (sa_word / 
 bridi_tail_startfe = expr:(ME_clause / NUhA_clause / NU_clause / NA_clause !KU_clause / NAhE_clause !BO_clause / selbri / tag bridi_tail_start / KE_clause bridi_tail_start / bridi_tail) {return _node("bridi_tail_startfe", expr);}
 bridi_tail_1fe = expr:(bridi_tail_2fe ((gihek / JA_clause) !(stag? BO_clause) !(stag? KE_clause) free* (bridi_tail_2fefi / bridi_tail_2fe / bridi_tail_2) tail_terms)*) {return _node("bridi_tail_1fe", expr);}
 bridi_tail_2fe = expr:(CU_elidible bridi_tail_3fe (((gihek / JA_clause) stag? / GI_clause stag) BO_clause free* bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2fe", expr);}
-bridi_tail_3fe = expr:(gek_sentence / selbri_may_elide tail_termsfe) {return _node("bridi_tail_3fe", expr);}
-tail_termsfe = expr:(termsfe terms? VAU_elidible free*  !ZOhU_clause) {return _node_nonempty("tail_termsfe", expr); }
+bridi_tail_3fe = expr:(gek_sentence / selbri tail_termsZAMfe) {return _node("bridi_tail_3fe", expr);}
+tail_termsZAMfe = expr:(termsZAMfe terms? VAU_elidible free*  !ZOhU_clause) {return _node_nonempty("tail_termsZAMfe", expr); }
 
 bridi_tail_t1fi = expr:(&selbri bridi_tail_t2fi (joik_jek stag? KE_clause free* bridi_tail KEhE_elidible free*)?) {return _node("bridi_tail_t1fi", expr);}
 bridi_tail_t2fi = expr:(bridi_tailfi (joik_jek stag? BO_clause free* bridi_tail)?) {return _node("bridi_tail_t2fi", expr);}
@@ -209,8 +209,8 @@ bridi_tail_safi = expr:(bridi_tail_startfi (term / !bridi_tail_start (sa_word / 
 bridi_tail_startfi = expr:(ME_clause / NUhA_clause / NU_clause / NA_clause !KU_clause / NAhE_clause !BO_clause / selbri / tag bridi_tail_start / KE_clause bridi_tail_start / bridi_tail) {return _node("bridi_tail_startfi", expr);}
 bridi_tail_1fi = expr:(bridi_tail_2fi ((gihek / JA_clause) !(stag? BO_clause) !(stag? KE_clause) free* (bridi_tail_2fefi / bridi_tail_2fe / bridi_tail_2)  tail_terms)*) {return _node("bridi_tail_1fi", expr);}
 bridi_tail_2fi = expr:(CU_elidible bridi_tail_3fi (((gihek / JA_clause) stag? / GI_clause stag) BO_clause free* bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2fi", expr);}
-bridi_tail_3fi = expr:(gek_sentence / selbri_may_elide tail_termsfi) {return _node("bridi_tail_3fi", expr);}
-tail_termsfi = expr:(termsfi VAU_elidible free*  !ZOhU_clause) {return _node_nonempty("tail_termsfi", expr); }
+bridi_tail_3fi = expr:(gek_sentence / selbri tail_termsZAMfi) {return _node("bridi_tail_3fi", expr);}
+tail_termsZAMfi = expr:(termsZAMfi VAU_elidible free*  !ZOhU_clause) {return _node_nonempty("tail_termsZAMfi", expr); }
 
 bridi_tail_t1fefi = expr:(&selbri bridi_tail_t2fefi (joik_jek stag? KE_clause free* bridi_tail KEhE_elidible free*)?) {return _node("bridi_tail_t1fefi", expr);}
 bridi_tail_t2fefi = expr:(bridi_tailfefi (joik_jek stag? BO_clause free* bridi_tail)?) {return _node("bridi_tail_t2fefi", expr);}
@@ -219,12 +219,12 @@ bridi_tail_safefi = expr:(bridi_tail_startfefi (term / !bridi_tail_start (sa_wor
 bridi_tail_startfefi = expr:(ME_clause / NUhA_clause / NU_clause / NA_clause !KU_clause / NAhE_clause !BO_clause / selbri / tag bridi_tail_startfefi / KE_clause bridi_tail_startfefi / bridi_tailfefi) {return _node("bridi_tail_startfefi", expr);}
 bridi_tail_1fefi = expr:(bridi_tail_2fefi ((gihek / JA_clause) !(stag? BO_clause) !(stag? KE_clause) free* (bridi_tail_2fefi / bridi_tail_2fe / bridi_tail_2) tail_terms)*) {return _node("bridi_tail_1fefi", expr);}
 bridi_tail_2fefi = expr:(CU_elidible bridi_tail_3fefi (((gihek / JA_clause) stag? / GI_clause stag) BO_clause free* bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2fefi", expr);}
-bridi_tail_3fefi = expr:(gek_sentence / selbri_may_elide tail_termsfefi) {return _node("bridi_tail_3fefi", expr);}
-tail_termsfefi = expr:(termsfe termsfi VAU_elidible free*  !ZOhU_clause) {return _node_nonempty("tail_termsfefi", expr); }
+bridi_tail_3fefi = expr:(gek_sentence / selbri tail_termsZAMfefi) {return _node("bridi_tail_3fefi", expr);}
+tail_termsZAMfefi = expr:(termsZAMfe termsZAMfi VAU_elidible free*  !ZOhU_clause) {return _node_nonempty("tail_termsZAMfefi", expr); }
 
-termsBAM = expr:((terms_1)+) {return _node("terms", expr);}
+termsBAM = expr:(terms_1+) {return _node("terms", expr);}
 
-terms = expr:((terms_1 / terms_1FAM / terms_1ZAM)+) {return _node("terms", expr);}
+terms = expr:(terms_1+ / terms_1FAM+ / terms_1ZAM+) {return _node("terms", expr);}
 terms_1 = expr:(terms_2 (pehe_sa* PEhE_clause free* joik_jek terms_2)*) {return _node("terms_1", expr);}
 terms_2 = expr:(abs_term (cehe_sa* CEhE_clause free* abs_term)*) {return _node("terms_2", expr);}
 abs_term = expr:(term_sa* abs_term_1) {return _node("abs_term", expr);}
@@ -247,11 +247,11 @@ abs_termZAM = expr:(term_sa* abs_term_1ZAM) {return _node("abs_termZAM", expr);}
 abs_term_1ZAM = expr:(abs_tag_termZAM / termset) {return _node("abs_term_1ZAM", expr);}
 abs_tag_termZAM = expr:((!gek FA_elidible sumti) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAM))*) {return _node("abs_tag_termZAM", expr);}
 
-termsfa = expr:((terms_1ZAMfa terms_1*)) {return _node("termsfa", expr);}
-termsfafe = expr:((terms_1ZAMfa terms_1ZAMfe)) {return _node("termsfafe", expr);}
-termsfafefi = expr:((terms_1ZAMfa terms_1* terms_1ZAMfe terms_1* terms_1ZAMfi terms_1*)) {return _node("termsfafefi", expr);}
-termsfe = expr:((terms_1ZAMfe terms_1*)) {return _node("termsfe", expr);}
-termsfi = expr:((terms_1ZAMfi terms_1*)) {return _node("termsfi", expr);}
+termsZAMfa = expr:((terms_1ZAMfa terms_1*)) {return _node("termsZAMfa", expr);}
+termsZAMfafe = expr:((terms_1ZAMfa terms_1ZAMfe)) {return _node("termsZAMfafe", expr);}
+termsZAMfafefi = expr:((terms_1ZAMfa terms_1* terms_1ZAMfe terms_1* terms_1ZAMfi terms_1*)) {return _node("termsZAMfafefi", expr);}
+termsZAMfe = expr:((terms_1ZAMfe terms_1*)) {return _node("termsZAMfe", expr);}
+termsZAMfi = expr:((terms_1ZAMfi terms_1*)) {return _node("termsZAMfi", expr);}
 
 terms_1ZAMfa = expr:(terms_2ZAMfa (pehe_sa* PEhE_clause free* joik_jek terms_2)*) {return _node("terms_1ZAMfa", expr);}
 terms_2ZAMfa = expr:(abs_termZAMfa (cehe_sa* CEhE_clause free* (abs_term / abs_termFAM  / abs_termZAM / abs_termZAM))*) {return _node("terms_2ZAMfa", expr);}
@@ -282,12 +282,12 @@ be (bai zo'e bei)* fe FAM bei (bai zo'e bei)* [fi] ZAM
 be (bai zo'e bei)* [fe] ZAM bei (bai zo'e bei)* [fi] ZAM
 links after fi should be just FA - {lo mlatu be fe mi bei zo'e bei ma} doesn't parse correctly. {ma} should be FA, not FE
 
-BE_clause free* termzamre (BEI_clause free* (termFAM / termzamci))* BEhO_elidible free* 
+BE_clause free* termZAMfe (BEI_clause free* (termFAM / termZAMfi))* BEhO_elidible free* 
 
 */
 linkargs_1 = expr:(
-(BE_clause free* tag_termBAM) (BEI_clause free* termzamre) (BEI_clause free* tag_termBAM)* (BEI_clause free* (termFAM / termzamci))? BEhO_elidible free* / 
-(BE_clause free* termzamre) (BEI_clause free* tag_termBAM)* (BEI_clause free* (termFAM / termzamci))? BEhO_elidible free* / 
+(BE_clause free* tag_termBAM) (BEI_clause free* termZAMfe) (BEI_clause free* tag_termBAM)* (BEI_clause free* (termFAM / termZAMfi))? BEhO_elidible free* / 
+(BE_clause free* termZAMfe) (BEI_clause free* tag_termBAM)* (BEI_clause free* (termFAM / termZAMfi))? BEhO_elidible free* / 
 BE_clause free* term? (BEI_clause free* term)* BEhO_elidible free*
 )  {return _node("linkargs_1", expr);}
 linkargs_sa = expr:(linkargs_start (!linkargs_start (sa_word / SA_clause !linkargs_start ) )* SA_clause &linkargs_1) {return _node("linkargs_sa", expr);}
@@ -308,13 +308,13 @@ termFAM = expr:(term_sa* term_1FAM) {return _node("term", expr);}
 term_1FAM = expr:(tag_termFAM / termset) {return _node("term_1", expr);}
 tag_termFAM = expr:((!gek tagFAM free* sumti) (joik_jek tag_term)*) {return _node("tag_term", expr);}
 
-termzamre = expr:(term_sa* term_1zamre) {return _node("term", expr);}
-term_1zamre = expr:(tag_termzamre / termset) {return _node("term_1", expr);}
-tag_termzamre = expr:((!gek FAXIRE_elidible free* sumti) (joik_jek tag_term)*) {return _node("tag_term", expr);}
+termZAMfe = expr:(term_sa* term_1ZAMfe) {return _node("term", expr);}
+term_1ZAMfe = expr:(tag_termZAMfe / termset) {return _node("term_1", expr);}
+tag_termZAMfe = expr:((!gek FAXIRE_elidible free* sumti) (joik_jek tag_term)*) {return _node("tag_term", expr);}
 
-termzamci = expr:(term_sa* term_1zamci) {return _node("term", expr);}
-term_1zamci = expr:(tag_termzamci / termset) {return _node("term_1", expr);}
-tag_termzamci = expr:((!gek FAXICI_elidible free* sumti) (joik_jek tag_term)*) {return _node("tag_term", expr);}
+termZAMfi = expr:(term_sa* term_1ZAMfi) {return _node("term", expr);}
+term_1ZAMfi = expr:(tag_termZAMfi / termset) {return _node("term_1", expr);}
+tag_termZAMfi = expr:((!gek FAXICI_elidible free* sumti) (joik_jek tag_term)*) {return _node("tag_term", expr);}
 /////FAMs/ZAMs in linkargs
 
 pehe_sa = expr:(PEhE_clause (!PEhE_clause (sa_word / SA_clause !PEhE_clause))* SA_clause) {return _node("pehe_sa", expr);}
@@ -388,7 +388,7 @@ selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relativ
 //// EXP-MODIF: tag? --> tag*
 selbri = expr:(tag* selbri_1) {return _node("selbri", expr); }
 
-selbri_may_elide = (selbri / SELBRI_elidible)
+selbri_may_elide = (selbri / SELBRI_elidible !terms)
 selbri_1 = expr:(selbri_2 / NA_clause free* selbri) {return _node("selbri_1", expr); }
 
 selbri_2 = expr:(selbri_3 (CO_clause free* selbri_2)?) {return _node("selbri_2", expr); }
@@ -589,14 +589,13 @@ BEhO_elidible = expr:(BEhO_clause?) {return (expr == "") ? ["BEhO"] : _node("BEh
 BOI_elidible = expr:(BOI_clause?)   {return (expr == "") ? ["BOI"]  : _node("BOI", expr);}
 CU_elidible = expr:(CU_clause?)     {return (expr == "") ? ["CU"]   : _node("CU", expr);}
 DOhU_elidible = expr:(DOhU_clause?) {return (expr == "") ? ["DOhU"] : _node("DOhU", expr);}
-FAXIPA_elidible = expr:() {return (expr == "") ? ["FAXIPA"] : _node("FA", expr);}
+FAXIPA_elidible = expr:() {return (expr == "") ? ["FA"] : _node("FA", expr);}
 FAXIRE_elidible = expr:() {return (expr == "") ? ["FE"] : _node("FA", expr);}
 FAXICI_elidible = expr:() {return (expr == "") ? ["FI"] : _node("FA", expr);}
-FA_elidible = expr:() {return (expr == "") ? ["FA"] : _node("FA", expr);}
+FA_elidible = expr:() {return (expr == "") ? ["FIhA"] : _node("FA", expr);}
 FEhU_elidible = expr:(FEhU_clause?) {return (expr == "") ? ["FEhU"] : _node("FEhU", expr);}
 // FOI and FUhO are never elidible
 GEhU_elidible = expr:(GEhU_clause?) {return (expr == "") ? ["GEhU"] : _node("GEhU", expr);}
-SELBRI_elidible = expr:(GOhA_clause?) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);}
 KEI_elidible = expr:(KEI_clause?)   {return (expr == "") ? ["KEI"]  : _node("KEI", expr);}
 KEhE_elidible = expr:(KEhE_clause?) {return (expr == "") ? ["KEhE"] : _node("KEhE", expr);}
 KU_elidible = expr:(KU_clause?)     {return (expr == "") ? ["KU"]   : _node("KU", expr);}
@@ -614,6 +613,8 @@ TOI_elidible = expr:(TOI_clause?)   {return (expr == "") ? ["TOI"]  : _node("TOI
 TUhU_elidible = expr:(TUhU_clause?) {return (expr == "") ? ["TUhU"] : _node("TUhU", expr);}
 VAU_elidible = expr:(VAU_clause?)   {return (expr == "") ? ["VAU"]  : _node("VAU", expr);}
 VEhO_elidible = expr:(VEhO_clause?) {return (expr == "") ? ["VEhO"] : _node("VEhO", expr);}
+
+SELBRI_elidible = expr:(GOhA_clause?) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);}
 
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}
 KUhAU_elidible = expr:(KUhAU_clause?) {return (expr == "") ? ["KUhAU"] : _node("KUhAU", expr);}

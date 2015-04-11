@@ -83,6 +83,24 @@ var camxes = (function(){
         "bridi_tail_2fi": parse_bridi_tail_2fi,
         "bridi_tail_3fi": parse_bridi_tail_3fi,
         "tail_termsZAMfi": parse_tail_termsZAMfi,
+        "bridi_tail_t1fifo": parse_bridi_tail_t1fifo,
+        "bridi_tail_t2fifo": parse_bridi_tail_t2fifo,
+        "bridi_tailfifo": parse_bridi_tailfifo,
+        "bridi_tail_safifo": parse_bridi_tail_safifo,
+        "bridi_tail_startfifo": parse_bridi_tail_startfifo,
+        "bridi_tail_1fifo": parse_bridi_tail_1fifo,
+        "bridi_tail_2fifo": parse_bridi_tail_2fifo,
+        "bridi_tail_3fifo": parse_bridi_tail_3fifo,
+        "tail_termsZAMfifo": parse_tail_termsZAMfifo,
+        "bridi_tail_t1fefifo": parse_bridi_tail_t1fefifo,
+        "bridi_tail_t2fefifo": parse_bridi_tail_t2fefifo,
+        "bridi_tailfefifo": parse_bridi_tailfefifo,
+        "bridi_tail_safefifo": parse_bridi_tail_safefifo,
+        "bridi_tail_startfefifo": parse_bridi_tail_startfefifo,
+        "bridi_tail_1fefifo": parse_bridi_tail_1fefifo,
+        "bridi_tail_2fefifo": parse_bridi_tail_2fefifo,
+        "bridi_tail_3fefifo": parse_bridi_tail_3fefifo,
+        "tail_termsZAMfefifo": parse_tail_termsZAMfefifo,
         "bridi_tail_t1fefi": parse_bridi_tail_t1fefi,
         "bridi_tail_t2fefi": parse_bridi_tail_t2fefi,
         "bridi_tailfefi": parse_bridi_tailfefi,
@@ -93,6 +111,7 @@ var camxes = (function(){
         "bridi_tail_3fefi": parse_bridi_tail_3fefi,
         "tail_termsZAMfefi": parse_tail_termsZAMfefi,
         "termsBAM": parse_termsBAM,
+        "terms_1_0": parse_terms_1_0,
         "terms": parse_terms,
         "terms_1": parse_terms_1,
         "terms_2": parse_terms_2,
@@ -118,6 +137,7 @@ var camxes = (function(){
         "termsZAMfafefi": parse_termsZAMfafefi,
         "termsZAMfe": parse_termsZAMfe,
         "termsZAMfi": parse_termsZAMfi,
+        "termsZAMfo": parse_termsZAMfo,
         "terms_1ZAMfa": parse_terms_1ZAMfa,
         "terms_2ZAMfa": parse_terms_2ZAMfa,
         "abs_termZAMfa": parse_abs_termZAMfa,
@@ -133,6 +153,11 @@ var camxes = (function(){
         "abs_termZAMfi": parse_abs_termZAMfi,
         "abs_term_1ZAMfi": parse_abs_term_1ZAMfi,
         "abs_tag_termZAMfi": parse_abs_tag_termZAMfi,
+        "terms_1ZAMfo": parse_terms_1ZAMfo,
+        "terms_2ZAMfo": parse_terms_2ZAMfo,
+        "abs_termZAMfo": parse_abs_termZAMfo,
+        "abs_term_1ZAMfo": parse_abs_term_1ZAMfo,
+        "abs_tag_termZAMfo": parse_abs_tag_termZAMfo,
         "linkargs": parse_linkargs,
         "linkargs_1": parse_linkargs_1,
         "linkargs_sa": parse_linkargs_sa,
@@ -259,6 +284,7 @@ var camxes = (function(){
         "FAXIPA_elidible": parse_FAXIPA_elidible,
         "FAXIRE_elidible": parse_FAXIRE_elidible,
         "FAXICI_elidible": parse_FAXICI_elidible,
+        "FAXIVO_elidible": parse_FAXIVO_elidible,
         "FA_elidible": parse_FA_elidible,
         "FEhU_elidible": parse_FEhU_elidible,
         "GEhU_elidible": parse_GEhU_elidible,
@@ -2434,7 +2460,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_termsZAMfa();
         if (result0 !== null) {
-          result1 = parse_bridi_tail_t1fefi();
+          result1 = parse_bridi_tail_t1fefifo();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -2449,7 +2475,7 @@ var camxes = (function(){
           pos1 = pos;
           result0 = parse_termsZAMfa();
           if (result0 !== null) {
-            result1 = parse_bridi_tail_t1fe();
+            result1 = parse_bridi_tail_t1fefi();
             if (result1 !== null) {
               result0 = [result0, result1];
             } else {
@@ -2462,9 +2488,9 @@ var camxes = (function(){
           }
           if (result0 === null) {
             pos1 = pos;
-            result0 = parse_termsZAMfafe();
+            result0 = parse_termsZAMfa();
             if (result0 !== null) {
-              result1 = parse_bridi_tail_t1fi();
+              result1 = parse_bridi_tail_t1fe();
               if (result1 !== null) {
                 result0 = [result0, result1];
               } else {
@@ -2477,9 +2503,9 @@ var camxes = (function(){
             }
             if (result0 === null) {
               pos1 = pos;
-              result0 = parse_termsZAMfafefi();
+              result0 = parse_termsZAMfafe();
               if (result0 !== null) {
-                result1 = parse_bridi_tail_t1();
+                result1 = parse_bridi_tail_t1fifo();
                 if (result1 !== null) {
                   result0 = [result0, result1];
                 } else {
@@ -2494,7 +2520,7 @@ var camxes = (function(){
                 pos1 = pos;
                 result0 = parse_termsZAMfafe();
                 if (result0 !== null) {
-                  result1 = parse_bridi_tail_t1();
+                  result1 = parse_bridi_tail_t1fi();
                   if (result1 !== null) {
                     result0 = [result0, result1];
                   } else {
@@ -2507,7 +2533,7 @@ var camxes = (function(){
                 }
                 if (result0 === null) {
                   pos1 = pos;
-                  result0 = parse_termsZAMfa();
+                  result0 = parse_termsZAMfafefi();
                   if (result0 !== null) {
                     result1 = parse_bridi_tail_t1();
                     if (result1 !== null) {
@@ -2522,10 +2548,9 @@ var camxes = (function(){
                   }
                   if (result0 === null) {
                     pos1 = pos;
-                    result0 = parse_termsBAM();
-                    result0 = result0 !== null ? result0 : "";
+                    result0 = parse_termsZAMfafe();
                     if (result0 !== null) {
-                      result1 = parse_bridi_tail_t1fe();
+                      result1 = parse_bridi_tail_t1();
                       if (result1 !== null) {
                         result0 = [result0, result1];
                       } else {
@@ -2538,70 +2563,49 @@ var camxes = (function(){
                     }
                     if (result0 === null) {
                       pos1 = pos;
-                      result0 = parse_terms();
-                      result0 = result0 !== null ? result0 : "";
+                      result0 = parse_termsZAMfa();
                       if (result0 !== null) {
                         result1 = parse_bridi_tail_t1();
                         if (result1 !== null) {
-                          result2 = [];
-                          pos2 = pos;
-                          result3 = parse_joik_jek();
-                          if (result3 !== null) {
-                            result4 = parse_bridi_tail();
-                            if (result4 !== null) {
-                              result3 = [result3, result4];
-                            } else {
-                              result3 = null;
-                              pos = pos2;
-                            }
+                          result0 = [result0, result1];
+                        } else {
+                          result0 = null;
+                          pos = pos1;
+                        }
+                      } else {
+                        result0 = null;
+                        pos = pos1;
+                      }
+                      if (result0 === null) {
+                        pos1 = pos;
+                        result0 = parse_termsBAM();
+                        result0 = result0 !== null ? result0 : "";
+                        if (result0 !== null) {
+                          result1 = parse_bridi_tail_t1fe();
+                          if (result1 !== null) {
+                            result0 = [result0, result1];
                           } else {
-                            result3 = null;
-                            pos = pos2;
+                            result0 = null;
+                            pos = pos1;
                           }
-                          if (result3 === null) {
-                            pos2 = pos;
-                            result3 = parse_joik_jek();
-                            if (result3 !== null) {
-                              result4 = parse_stag();
-                              result4 = result4 !== null ? result4 : "";
-                              if (result4 !== null) {
-                                result5 = parse_KE_clause();
-                                if (result5 !== null) {
-                                  result6 = [];
-                                  result7 = parse_free();
-                                  while (result7 !== null) {
-                                    result6.push(result7);
-                                    result7 = parse_free();
-                                  }
-                                  if (result6 !== null) {
-                                    result7 = parse_bridi_tail();
-                                    if (result7 !== null) {
-                                      result8 = parse_KEhE_elidible();
-                                      if (result8 !== null) {
-                                        result9 = [];
-                                        result10 = parse_free();
-                                        while (result10 !== null) {
-                                          result9.push(result10);
-                                          result10 = parse_free();
-                                        }
-                                        if (result9 !== null) {
-                                          result3 = [result3, result4, result5, result6, result7, result8, result9];
-                                        } else {
-                                          result3 = null;
-                                          pos = pos2;
-                                        }
-                                      } else {
-                                        result3 = null;
-                                        pos = pos2;
-                                      }
-                                    } else {
-                                      result3 = null;
-                                      pos = pos2;
-                                    }
-                                  } else {
-                                    result3 = null;
-                                    pos = pos2;
-                                  }
+                        } else {
+                          result0 = null;
+                          pos = pos1;
+                        }
+                        if (result0 === null) {
+                          pos1 = pos;
+                          result0 = parse_terms();
+                          result0 = result0 !== null ? result0 : "";
+                          if (result0 !== null) {
+                            result1 = parse_bridi_tail_t1();
+                            if (result1 !== null) {
+                              result2 = [];
+                              pos2 = pos;
+                              result3 = parse_joik_jek();
+                              if (result3 !== null) {
+                                result4 = parse_bridi_tail();
+                                if (result4 !== null) {
+                                  result3 = [result3, result4];
                                 } else {
                                   result3 = null;
                                   pos = pos2;
@@ -2610,55 +2614,38 @@ var camxes = (function(){
                                 result3 = null;
                                 pos = pos2;
                               }
-                            } else {
-                              result3 = null;
-                              pos = pos2;
-                            }
-                          }
-                          while (result3 !== null) {
-                            result2.push(result3);
-                            pos2 = pos;
-                            result3 = parse_joik_jek();
-                            if (result3 !== null) {
-                              result4 = parse_bridi_tail();
-                              if (result4 !== null) {
-                                result3 = [result3, result4];
-                              } else {
-                                result3 = null;
-                                pos = pos2;
-                              }
-                            } else {
-                              result3 = null;
-                              pos = pos2;
-                            }
-                            if (result3 === null) {
-                              pos2 = pos;
-                              result3 = parse_joik_jek();
-                              if (result3 !== null) {
-                                result4 = parse_stag();
-                                result4 = result4 !== null ? result4 : "";
-                                if (result4 !== null) {
-                                  result5 = parse_KE_clause();
-                                  if (result5 !== null) {
-                                    result6 = [];
-                                    result7 = parse_free();
-                                    while (result7 !== null) {
-                                      result6.push(result7);
+                              if (result3 === null) {
+                                pos2 = pos;
+                                result3 = parse_joik_jek();
+                                if (result3 !== null) {
+                                  result4 = parse_stag();
+                                  result4 = result4 !== null ? result4 : "";
+                                  if (result4 !== null) {
+                                    result5 = parse_KE_clause();
+                                    if (result5 !== null) {
+                                      result6 = [];
                                       result7 = parse_free();
-                                    }
-                                    if (result6 !== null) {
-                                      result7 = parse_bridi_tail();
-                                      if (result7 !== null) {
-                                        result8 = parse_KEhE_elidible();
-                                        if (result8 !== null) {
-                                          result9 = [];
-                                          result10 = parse_free();
-                                          while (result10 !== null) {
-                                            result9.push(result10);
+                                      while (result7 !== null) {
+                                        result6.push(result7);
+                                        result7 = parse_free();
+                                      }
+                                      if (result6 !== null) {
+                                        result7 = parse_bridi_tail();
+                                        if (result7 !== null) {
+                                          result8 = parse_KEhE_elidible();
+                                          if (result8 !== null) {
+                                            result9 = [];
                                             result10 = parse_free();
-                                          }
-                                          if (result9 !== null) {
-                                            result3 = [result3, result4, result5, result6, result7, result8, result9];
+                                            while (result10 !== null) {
+                                              result9.push(result10);
+                                              result10 = parse_free();
+                                            }
+                                            if (result9 !== null) {
+                                              result3 = [result3, result4, result5, result6, result7, result8, result9];
+                                            } else {
+                                              result3 = null;
+                                              pos = pos2;
+                                            }
                                           } else {
                                             result3 = null;
                                             pos = pos2;
@@ -2683,25 +2670,96 @@ var camxes = (function(){
                                   result3 = null;
                                   pos = pos2;
                                 }
-                              } else {
-                                result3 = null;
-                                pos = pos2;
                               }
+                              while (result3 !== null) {
+                                result2.push(result3);
+                                pos2 = pos;
+                                result3 = parse_joik_jek();
+                                if (result3 !== null) {
+                                  result4 = parse_bridi_tail();
+                                  if (result4 !== null) {
+                                    result3 = [result3, result4];
+                                  } else {
+                                    result3 = null;
+                                    pos = pos2;
+                                  }
+                                } else {
+                                  result3 = null;
+                                  pos = pos2;
+                                }
+                                if (result3 === null) {
+                                  pos2 = pos;
+                                  result3 = parse_joik_jek();
+                                  if (result3 !== null) {
+                                    result4 = parse_stag();
+                                    result4 = result4 !== null ? result4 : "";
+                                    if (result4 !== null) {
+                                      result5 = parse_KE_clause();
+                                      if (result5 !== null) {
+                                        result6 = [];
+                                        result7 = parse_free();
+                                        while (result7 !== null) {
+                                          result6.push(result7);
+                                          result7 = parse_free();
+                                        }
+                                        if (result6 !== null) {
+                                          result7 = parse_bridi_tail();
+                                          if (result7 !== null) {
+                                            result8 = parse_KEhE_elidible();
+                                            if (result8 !== null) {
+                                              result9 = [];
+                                              result10 = parse_free();
+                                              while (result10 !== null) {
+                                                result9.push(result10);
+                                                result10 = parse_free();
+                                              }
+                                              if (result9 !== null) {
+                                                result3 = [result3, result4, result5, result6, result7, result8, result9];
+                                              } else {
+                                                result3 = null;
+                                                pos = pos2;
+                                              }
+                                            } else {
+                                              result3 = null;
+                                              pos = pos2;
+                                            }
+                                          } else {
+                                            result3 = null;
+                                            pos = pos2;
+                                          }
+                                        } else {
+                                          result3 = null;
+                                          pos = pos2;
+                                        }
+                                      } else {
+                                        result3 = null;
+                                        pos = pos2;
+                                      }
+                                    } else {
+                                      result3 = null;
+                                      pos = pos2;
+                                    }
+                                  } else {
+                                    result3 = null;
+                                    pos = pos2;
+                                  }
+                                }
+                              }
+                              if (result2 !== null) {
+                                result0 = [result0, result1, result2];
+                              } else {
+                                result0 = null;
+                                pos = pos1;
+                              }
+                            } else {
+                              result0 = null;
+                              pos = pos1;
                             }
-                          }
-                          if (result2 !== null) {
-                            result0 = [result0, result1, result2];
                           } else {
                             result0 = null;
                             pos = pos1;
                           }
-                        } else {
-                          result0 = null;
-                          pos = pos1;
                         }
-                      } else {
-                        result0 = null;
-                        pos = pos1;
                       }
                     }
                   }
@@ -5857,31 +5915,519 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3;
+        var result0, result1, result2, result3, result4;
         var pos0, pos1, pos2;
         
         pos0 = pos;
         pos1 = pos;
         result0 = parse_termsZAMfi();
         if (result0 !== null) {
-          result1 = parse_VAU_elidible();
+          result1 = parse_terms();
+          result1 = result1 !== null ? result1 : "";
           if (result1 !== null) {
-            result2 = [];
-            result3 = parse_free();
-            while (result3 !== null) {
-              result2.push(result3);
-              result3 = parse_free();
+            result2 = parse_VAU_elidible();
+            if (result2 !== null) {
+              result3 = [];
+              result4 = parse_free();
+              while (result4 !== null) {
+                result3.push(result4);
+                result4 = parse_free();
+              }
+              if (result3 !== null) {
+                pos2 = pos;
+                reportFailures++;
+                result4 = parse_ZOhU_clause();
+                reportFailures--;
+                if (result4 === null) {
+                  result4 = "";
+                } else {
+                  result4 = null;
+                  pos = pos2;
+                }
+                if (result4 !== null) {
+                  result0 = [result0, result1, result2, result3, result4];
+                } else {
+                  result0 = null;
+                  pos = pos1;
+                }
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
             }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node_nonempty("tail_termsZAMfi", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_t1fifo() {
+        var cacheKey = "bridi_tail_t1fifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5, result6, result7, result8, result9;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        pos2 = pos;
+        reportFailures++;
+        result0 = parse_selbri();
+        reportFailures--;
+        if (result0 !== null) {
+          result0 = "";
+          pos = pos2;
+        } else {
+          result0 = null;
+        }
+        if (result0 !== null) {
+          result1 = parse_bridi_tail_t2fifo();
+          if (result1 !== null) {
+            pos2 = pos;
+            result2 = parse_joik_jek();
+            if (result2 !== null) {
+              result3 = parse_stag();
+              result3 = result3 !== null ? result3 : "";
+              if (result3 !== null) {
+                result4 = parse_KE_clause();
+                if (result4 !== null) {
+                  result5 = [];
+                  result6 = parse_free();
+                  while (result6 !== null) {
+                    result5.push(result6);
+                    result6 = parse_free();
+                  }
+                  if (result5 !== null) {
+                    result6 = parse_bridi_tail();
+                    if (result6 !== null) {
+                      result7 = parse_KEhE_elidible();
+                      if (result7 !== null) {
+                        result8 = [];
+                        result9 = parse_free();
+                        while (result9 !== null) {
+                          result8.push(result9);
+                          result9 = parse_free();
+                        }
+                        if (result8 !== null) {
+                          result2 = [result2, result3, result4, result5, result6, result7, result8];
+                        } else {
+                          result2 = null;
+                          pos = pos2;
+                        }
+                      } else {
+                        result2 = null;
+                        pos = pos2;
+                      }
+                    } else {
+                      result2 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result0 = [result0, result1, result2];
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_t1fifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_t2fifo() {
+        var cacheKey = "bridi_tail_t2fifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_bridi_tailfifo();
+        if (result0 !== null) {
+          pos2 = pos;
+          result1 = parse_joik_jek();
+          if (result1 !== null) {
+            result2 = parse_stag();
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result3 = parse_BO_clause();
+              if (result3 !== null) {
+                result4 = [];
+                result5 = parse_free();
+                while (result5 !== null) {
+                  result4.push(result5);
+                  result5 = parse_free();
+                }
+                if (result4 !== null) {
+                  result5 = parse_bridi_tail();
+                  if (result5 !== null) {
+                    result1 = [result1, result2, result3, result4, result5];
+                  } else {
+                    result1 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result1 = null;
+                  pos = pos2;
+                }
+              } else {
+                result1 = null;
+                pos = pos2;
+              }
+            } else {
+              result1 = null;
+              pos = pos2;
+            }
+          } else {
+            result1 = null;
+            pos = pos2;
+          }
+          result1 = result1 !== null ? result1 : "";
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_t2fifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tailfifo() {
+        var cacheKey = "bridi_tailfifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5, result6, result7;
+        var pos0, pos1, pos2, pos3;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_bridi_tail_1fifo();
+        if (result0 !== null) {
+          pos2 = pos;
+          pos3 = pos;
+          result1 = parse_gihek();
+          if (result1 === null) {
+            result1 = parse_JA_clause();
+          }
+          if (result1 !== null) {
+            result2 = parse_stag();
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result1 = [result1, result2];
+            } else {
+              result1 = null;
+              pos = pos3;
+            }
+          } else {
+            result1 = null;
+            pos = pos3;
+          }
+          if (result1 === null) {
+            pos3 = pos;
+            result1 = parse_GI_clause();
+            if (result1 !== null) {
+              result2 = parse_stag();
+              if (result2 !== null) {
+                result1 = [result1, result2];
+              } else {
+                result1 = null;
+                pos = pos3;
+              }
+            } else {
+              result1 = null;
+              pos = pos3;
+            }
+          }
+          if (result1 !== null) {
+            result2 = parse_KE_clause();
+            if (result2 !== null) {
+              result3 = [];
+              result4 = parse_free();
+              while (result4 !== null) {
+                result3.push(result4);
+                result4 = parse_free();
+              }
+              if (result3 !== null) {
+                result4 = parse_bridi_tail();
+                if (result4 !== null) {
+                  result5 = parse_KEhE_elidible();
+                  if (result5 !== null) {
+                    result6 = [];
+                    result7 = parse_free();
+                    while (result7 !== null) {
+                      result6.push(result7);
+                      result7 = parse_free();
+                    }
+                    if (result6 !== null) {
+                      result7 = parse_tail_terms();
+                      if (result7 !== null) {
+                        result1 = [result1, result2, result3, result4, result5, result6, result7];
+                      } else {
+                        result1 = null;
+                        pos = pos2;
+                      }
+                    } else {
+                      result1 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result1 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result1 = null;
+                  pos = pos2;
+                }
+              } else {
+                result1 = null;
+                pos = pos2;
+              }
+            } else {
+              result1 = null;
+              pos = pos2;
+            }
+          } else {
+            result1 = null;
+            pos = pos2;
+          }
+          result1 = result1 !== null ? result1 : "";
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tailfifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_safifo() {
+        var cacheKey = "bridi_tail_safifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4;
+        var pos0, pos1, pos2, pos3, pos4;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_bridi_tail_startfifo();
+        if (result0 !== null) {
+          result1 = [];
+          result2 = parse_term();
+          if (result2 === null) {
+            pos2 = pos;
+            pos3 = pos;
+            reportFailures++;
+            result2 = parse_bridi_tail_start();
+            reportFailures--;
+            if (result2 === null) {
+              result2 = "";
+            } else {
+              result2 = null;
+              pos = pos3;
+            }
+            if (result2 !== null) {
+              result3 = parse_pre_zei_bu();
+              if (result3 === null) {
+                pos3 = pos;
+                result3 = parse_SA_clause();
+                if (result3 !== null) {
+                  pos4 = pos;
+                  reportFailures++;
+                  result4 = parse_bridi_tail_start();
+                  reportFailures--;
+                  if (result4 === null) {
+                    result4 = "";
+                  } else {
+                    result4 = null;
+                    pos = pos4;
+                  }
+                  if (result4 !== null) {
+                    result3 = [result3, result4];
+                  } else {
+                    result3 = null;
+                    pos = pos3;
+                  }
+                } else {
+                  result3 = null;
+                  pos = pos3;
+                }
+              }
+              if (result3 !== null) {
+                result2 = [result2, result3];
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          }
+          while (result2 !== null) {
+            result1.push(result2);
+            result2 = parse_term();
+            if (result2 === null) {
+              pos2 = pos;
+              pos3 = pos;
+              reportFailures++;
+              result2 = parse_bridi_tail_start();
+              reportFailures--;
+              if (result2 === null) {
+                result2 = "";
+              } else {
+                result2 = null;
+                pos = pos3;
+              }
+              if (result2 !== null) {
+                result3 = parse_pre_zei_bu();
+                if (result3 === null) {
+                  pos3 = pos;
+                  result3 = parse_SA_clause();
+                  if (result3 !== null) {
+                    pos4 = pos;
+                    reportFailures++;
+                    result4 = parse_bridi_tail_start();
+                    reportFailures--;
+                    if (result4 === null) {
+                      result4 = "";
+                    } else {
+                      result4 = null;
+                      pos = pos4;
+                    }
+                    if (result4 !== null) {
+                      result3 = [result3, result4];
+                    } else {
+                      result3 = null;
+                      pos = pos3;
+                    }
+                  } else {
+                    result3 = null;
+                    pos = pos3;
+                  }
+                }
+                if (result3 !== null) {
+                  result2 = [result2, result3];
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            }
+          }
+          if (result1 !== null) {
+            result2 = parse_SA_clause();
             if (result2 !== null) {
               pos2 = pos;
               reportFailures++;
-              result3 = parse_ZOhU_clause();
+              result3 = parse_bridi_tail();
               reportFailures--;
-              if (result3 === null) {
+              if (result3 !== null) {
                 result3 = "";
+                pos = pos2;
               } else {
                 result3 = null;
-                pos = pos2;
               }
               if (result3 !== null) {
                 result0 = [result0, result1, result2, result3];
@@ -5902,7 +6448,1690 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node_nonempty("tail_termsZAMfi", expr); })(pos0, result0);
+          result0 = (function(offset, expr) {return _node("bridi_tail_safifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_startfifo() {
+        var cacheKey = "bridi_tail_startfifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        result0 = parse_ME_clause();
+        if (result0 === null) {
+          result0 = parse_NUhA_clause();
+          if (result0 === null) {
+            result0 = parse_NU_clause();
+            if (result0 === null) {
+              pos1 = pos;
+              result0 = parse_NA_clause();
+              if (result0 !== null) {
+                pos2 = pos;
+                reportFailures++;
+                result1 = parse_KU_clause();
+                reportFailures--;
+                if (result1 === null) {
+                  result1 = "";
+                } else {
+                  result1 = null;
+                  pos = pos2;
+                }
+                if (result1 !== null) {
+                  result0 = [result0, result1];
+                } else {
+                  result0 = null;
+                  pos = pos1;
+                }
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+              if (result0 === null) {
+                pos1 = pos;
+                result0 = parse_NAhE_clause();
+                if (result0 !== null) {
+                  pos2 = pos;
+                  reportFailures++;
+                  result1 = parse_BO_clause();
+                  reportFailures--;
+                  if (result1 === null) {
+                    result1 = "";
+                  } else {
+                    result1 = null;
+                    pos = pos2;
+                  }
+                  if (result1 !== null) {
+                    result0 = [result0, result1];
+                  } else {
+                    result0 = null;
+                    pos = pos1;
+                  }
+                } else {
+                  result0 = null;
+                  pos = pos1;
+                }
+                if (result0 === null) {
+                  result0 = parse_selbri();
+                  if (result0 === null) {
+                    pos1 = pos;
+                    result0 = parse_tag();
+                    if (result0 !== null) {
+                      result1 = parse_bridi_tail_startfifo();
+                      if (result1 !== null) {
+                        result0 = [result0, result1];
+                      } else {
+                        result0 = null;
+                        pos = pos1;
+                      }
+                    } else {
+                      result0 = null;
+                      pos = pos1;
+                    }
+                    if (result0 === null) {
+                      pos1 = pos;
+                      result0 = parse_KE_clause();
+                      if (result0 !== null) {
+                        result1 = parse_bridi_tail_startfifo();
+                        if (result1 !== null) {
+                          result0 = [result0, result1];
+                        } else {
+                          result0 = null;
+                          pos = pos1;
+                        }
+                      } else {
+                        result0 = null;
+                        pos = pos1;
+                      }
+                      if (result0 === null) {
+                        result0 = parse_bridi_tailfifo();
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_startfifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_1fifo() {
+        var cacheKey = "bridi_tail_1fifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5, result6, result7;
+        var pos0, pos1, pos2, pos3, pos4;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_bridi_tail_2fifo();
+        if (result0 !== null) {
+          result1 = [];
+          pos2 = pos;
+          result2 = parse_gihek();
+          if (result2 === null) {
+            result2 = parse_JA_clause();
+          }
+          if (result2 !== null) {
+            pos3 = pos;
+            reportFailures++;
+            pos4 = pos;
+            result3 = parse_stag();
+            result3 = result3 !== null ? result3 : "";
+            if (result3 !== null) {
+              result4 = parse_BO_clause();
+              if (result4 !== null) {
+                result3 = [result3, result4];
+              } else {
+                result3 = null;
+                pos = pos4;
+              }
+            } else {
+              result3 = null;
+              pos = pos4;
+            }
+            reportFailures--;
+            if (result3 === null) {
+              result3 = "";
+            } else {
+              result3 = null;
+              pos = pos3;
+            }
+            if (result3 !== null) {
+              pos3 = pos;
+              reportFailures++;
+              pos4 = pos;
+              result4 = parse_stag();
+              result4 = result4 !== null ? result4 : "";
+              if (result4 !== null) {
+                result5 = parse_KE_clause();
+                if (result5 !== null) {
+                  result4 = [result4, result5];
+                } else {
+                  result4 = null;
+                  pos = pos4;
+                }
+              } else {
+                result4 = null;
+                pos = pos4;
+              }
+              reportFailures--;
+              if (result4 === null) {
+                result4 = "";
+              } else {
+                result4 = null;
+                pos = pos3;
+              }
+              if (result4 !== null) {
+                result5 = [];
+                result6 = parse_free();
+                while (result6 !== null) {
+                  result5.push(result6);
+                  result6 = parse_free();
+                }
+                if (result5 !== null) {
+                  result6 = parse_bridi_tail_2fifo();
+                  if (result6 === null) {
+                    result6 = parse_bridi_tail_2fe();
+                    if (result6 === null) {
+                      result6 = parse_bridi_tail_2();
+                    }
+                  }
+                  if (result6 !== null) {
+                    result7 = parse_tail_terms();
+                    if (result7 !== null) {
+                      result2 = [result2, result3, result4, result5, result6, result7];
+                    } else {
+                      result2 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          } else {
+            result2 = null;
+            pos = pos2;
+          }
+          while (result2 !== null) {
+            result1.push(result2);
+            pos2 = pos;
+            result2 = parse_gihek();
+            if (result2 === null) {
+              result2 = parse_JA_clause();
+            }
+            if (result2 !== null) {
+              pos3 = pos;
+              reportFailures++;
+              pos4 = pos;
+              result3 = parse_stag();
+              result3 = result3 !== null ? result3 : "";
+              if (result3 !== null) {
+                result4 = parse_BO_clause();
+                if (result4 !== null) {
+                  result3 = [result3, result4];
+                } else {
+                  result3 = null;
+                  pos = pos4;
+                }
+              } else {
+                result3 = null;
+                pos = pos4;
+              }
+              reportFailures--;
+              if (result3 === null) {
+                result3 = "";
+              } else {
+                result3 = null;
+                pos = pos3;
+              }
+              if (result3 !== null) {
+                pos3 = pos;
+                reportFailures++;
+                pos4 = pos;
+                result4 = parse_stag();
+                result4 = result4 !== null ? result4 : "";
+                if (result4 !== null) {
+                  result5 = parse_KE_clause();
+                  if (result5 !== null) {
+                    result4 = [result4, result5];
+                  } else {
+                    result4 = null;
+                    pos = pos4;
+                  }
+                } else {
+                  result4 = null;
+                  pos = pos4;
+                }
+                reportFailures--;
+                if (result4 === null) {
+                  result4 = "";
+                } else {
+                  result4 = null;
+                  pos = pos3;
+                }
+                if (result4 !== null) {
+                  result5 = [];
+                  result6 = parse_free();
+                  while (result6 !== null) {
+                    result5.push(result6);
+                    result6 = parse_free();
+                  }
+                  if (result5 !== null) {
+                    result6 = parse_bridi_tail_2fifo();
+                    if (result6 === null) {
+                      result6 = parse_bridi_tail_2fe();
+                      if (result6 === null) {
+                        result6 = parse_bridi_tail_2();
+                      }
+                    }
+                    if (result6 !== null) {
+                      result7 = parse_tail_terms();
+                      if (result7 !== null) {
+                        result2 = [result2, result3, result4, result5, result6, result7];
+                      } else {
+                        result2 = null;
+                        pos = pos2;
+                      }
+                    } else {
+                      result2 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          }
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_1fifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_2fifo() {
+        var cacheKey = "bridi_tail_2fifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5, result6;
+        var pos0, pos1, pos2, pos3;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_CU_elidible();
+        if (result0 !== null) {
+          result1 = parse_bridi_tail_3fifo();
+          if (result1 !== null) {
+            pos2 = pos;
+            pos3 = pos;
+            result2 = parse_gihek();
+            if (result2 === null) {
+              result2 = parse_JA_clause();
+            }
+            if (result2 !== null) {
+              result3 = parse_stag();
+              result3 = result3 !== null ? result3 : "";
+              if (result3 !== null) {
+                result2 = [result2, result3];
+              } else {
+                result2 = null;
+                pos = pos3;
+              }
+            } else {
+              result2 = null;
+              pos = pos3;
+            }
+            if (result2 === null) {
+              pos3 = pos;
+              result2 = parse_GI_clause();
+              if (result2 !== null) {
+                result3 = parse_stag();
+                if (result3 !== null) {
+                  result2 = [result2, result3];
+                } else {
+                  result2 = null;
+                  pos = pos3;
+                }
+              } else {
+                result2 = null;
+                pos = pos3;
+              }
+            }
+            if (result2 !== null) {
+              result3 = parse_BO_clause();
+              if (result3 !== null) {
+                result4 = [];
+                result5 = parse_free();
+                while (result5 !== null) {
+                  result4.push(result5);
+                  result5 = parse_free();
+                }
+                if (result4 !== null) {
+                  result5 = parse_bridi_tail_2();
+                  if (result5 !== null) {
+                    result6 = parse_tail_terms();
+                    if (result6 !== null) {
+                      result2 = [result2, result3, result4, result5, result6];
+                    } else {
+                      result2 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result0 = [result0, result1, result2];
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_2fifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_3fifo() {
+        var cacheKey = "bridi_tail_3fifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        result0 = parse_gek_sentence();
+        if (result0 === null) {
+          pos1 = pos;
+          result0 = parse_selbri();
+          if (result0 !== null) {
+            result1 = parse_tail_termsZAMfifo();
+            if (result1 !== null) {
+              result0 = [result0, result1];
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_3fifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_tail_termsZAMfifo() {
+        var cacheKey = "tail_termsZAMfifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_termsZAMfi();
+        if (result0 !== null) {
+          result1 = parse_termsZAMfo();
+          if (result1 !== null) {
+            result2 = parse_terms();
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result3 = parse_VAU_elidible();
+              if (result3 !== null) {
+                result4 = [];
+                result5 = parse_free();
+                while (result5 !== null) {
+                  result4.push(result5);
+                  result5 = parse_free();
+                }
+                if (result4 !== null) {
+                  pos2 = pos;
+                  reportFailures++;
+                  result5 = parse_ZOhU_clause();
+                  reportFailures--;
+                  if (result5 === null) {
+                    result5 = "";
+                  } else {
+                    result5 = null;
+                    pos = pos2;
+                  }
+                  if (result5 !== null) {
+                    result0 = [result0, result1, result2, result3, result4, result5];
+                  } else {
+                    result0 = null;
+                    pos = pos1;
+                  }
+                } else {
+                  result0 = null;
+                  pos = pos1;
+                }
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node_nonempty("tail_termsZAMfifo", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_t1fefifo() {
+        var cacheKey = "bridi_tail_t1fefifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5, result6, result7, result8, result9;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        pos2 = pos;
+        reportFailures++;
+        result0 = parse_selbri();
+        reportFailures--;
+        if (result0 !== null) {
+          result0 = "";
+          pos = pos2;
+        } else {
+          result0 = null;
+        }
+        if (result0 !== null) {
+          result1 = parse_bridi_tail_t2fefifo();
+          if (result1 !== null) {
+            pos2 = pos;
+            result2 = parse_joik_jek();
+            if (result2 !== null) {
+              result3 = parse_stag();
+              result3 = result3 !== null ? result3 : "";
+              if (result3 !== null) {
+                result4 = parse_KE_clause();
+                if (result4 !== null) {
+                  result5 = [];
+                  result6 = parse_free();
+                  while (result6 !== null) {
+                    result5.push(result6);
+                    result6 = parse_free();
+                  }
+                  if (result5 !== null) {
+                    result6 = parse_bridi_tail();
+                    if (result6 !== null) {
+                      result7 = parse_KEhE_elidible();
+                      if (result7 !== null) {
+                        result8 = [];
+                        result9 = parse_free();
+                        while (result9 !== null) {
+                          result8.push(result9);
+                          result9 = parse_free();
+                        }
+                        if (result8 !== null) {
+                          result2 = [result2, result3, result4, result5, result6, result7, result8];
+                        } else {
+                          result2 = null;
+                          pos = pos2;
+                        }
+                      } else {
+                        result2 = null;
+                        pos = pos2;
+                      }
+                    } else {
+                      result2 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result0 = [result0, result1, result2];
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_t1fefifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_t2fefifo() {
+        var cacheKey = "bridi_tail_t2fefifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_bridi_tailfefifo();
+        if (result0 !== null) {
+          pos2 = pos;
+          result1 = parse_joik_jek();
+          if (result1 !== null) {
+            result2 = parse_stag();
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result3 = parse_BO_clause();
+              if (result3 !== null) {
+                result4 = [];
+                result5 = parse_free();
+                while (result5 !== null) {
+                  result4.push(result5);
+                  result5 = parse_free();
+                }
+                if (result4 !== null) {
+                  result5 = parse_bridi_tail();
+                  if (result5 !== null) {
+                    result1 = [result1, result2, result3, result4, result5];
+                  } else {
+                    result1 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result1 = null;
+                  pos = pos2;
+                }
+              } else {
+                result1 = null;
+                pos = pos2;
+              }
+            } else {
+              result1 = null;
+              pos = pos2;
+            }
+          } else {
+            result1 = null;
+            pos = pos2;
+          }
+          result1 = result1 !== null ? result1 : "";
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_t2fefifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tailfefifo() {
+        var cacheKey = "bridi_tailfefifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5, result6, result7;
+        var pos0, pos1, pos2, pos3;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_bridi_tail_1fefifo();
+        if (result0 !== null) {
+          pos2 = pos;
+          pos3 = pos;
+          result1 = parse_gihek();
+          if (result1 === null) {
+            result1 = parse_JA_clause();
+          }
+          if (result1 !== null) {
+            result2 = parse_stag();
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result1 = [result1, result2];
+            } else {
+              result1 = null;
+              pos = pos3;
+            }
+          } else {
+            result1 = null;
+            pos = pos3;
+          }
+          if (result1 === null) {
+            pos3 = pos;
+            result1 = parse_GI_clause();
+            if (result1 !== null) {
+              result2 = parse_stag();
+              if (result2 !== null) {
+                result1 = [result1, result2];
+              } else {
+                result1 = null;
+                pos = pos3;
+              }
+            } else {
+              result1 = null;
+              pos = pos3;
+            }
+          }
+          if (result1 !== null) {
+            result2 = parse_KE_clause();
+            if (result2 !== null) {
+              result3 = [];
+              result4 = parse_free();
+              while (result4 !== null) {
+                result3.push(result4);
+                result4 = parse_free();
+              }
+              if (result3 !== null) {
+                result4 = parse_bridi_tail();
+                if (result4 !== null) {
+                  result5 = parse_KEhE_elidible();
+                  if (result5 !== null) {
+                    result6 = [];
+                    result7 = parse_free();
+                    while (result7 !== null) {
+                      result6.push(result7);
+                      result7 = parse_free();
+                    }
+                    if (result6 !== null) {
+                      result7 = parse_tail_terms();
+                      if (result7 !== null) {
+                        result1 = [result1, result2, result3, result4, result5, result6, result7];
+                      } else {
+                        result1 = null;
+                        pos = pos2;
+                      }
+                    } else {
+                      result1 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result1 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result1 = null;
+                  pos = pos2;
+                }
+              } else {
+                result1 = null;
+                pos = pos2;
+              }
+            } else {
+              result1 = null;
+              pos = pos2;
+            }
+          } else {
+            result1 = null;
+            pos = pos2;
+          }
+          result1 = result1 !== null ? result1 : "";
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tailfefifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_safefifo() {
+        var cacheKey = "bridi_tail_safefifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4;
+        var pos0, pos1, pos2, pos3, pos4;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_bridi_tail_startfefifo();
+        if (result0 !== null) {
+          result1 = [];
+          result2 = parse_term();
+          if (result2 === null) {
+            pos2 = pos;
+            pos3 = pos;
+            reportFailures++;
+            result2 = parse_bridi_tail_start();
+            reportFailures--;
+            if (result2 === null) {
+              result2 = "";
+            } else {
+              result2 = null;
+              pos = pos3;
+            }
+            if (result2 !== null) {
+              result3 = parse_pre_zei_bu();
+              if (result3 === null) {
+                pos3 = pos;
+                result3 = parse_SA_clause();
+                if (result3 !== null) {
+                  pos4 = pos;
+                  reportFailures++;
+                  result4 = parse_bridi_tail_start();
+                  reportFailures--;
+                  if (result4 === null) {
+                    result4 = "";
+                  } else {
+                    result4 = null;
+                    pos = pos4;
+                  }
+                  if (result4 !== null) {
+                    result3 = [result3, result4];
+                  } else {
+                    result3 = null;
+                    pos = pos3;
+                  }
+                } else {
+                  result3 = null;
+                  pos = pos3;
+                }
+              }
+              if (result3 !== null) {
+                result2 = [result2, result3];
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          }
+          while (result2 !== null) {
+            result1.push(result2);
+            result2 = parse_term();
+            if (result2 === null) {
+              pos2 = pos;
+              pos3 = pos;
+              reportFailures++;
+              result2 = parse_bridi_tail_start();
+              reportFailures--;
+              if (result2 === null) {
+                result2 = "";
+              } else {
+                result2 = null;
+                pos = pos3;
+              }
+              if (result2 !== null) {
+                result3 = parse_pre_zei_bu();
+                if (result3 === null) {
+                  pos3 = pos;
+                  result3 = parse_SA_clause();
+                  if (result3 !== null) {
+                    pos4 = pos;
+                    reportFailures++;
+                    result4 = parse_bridi_tail_start();
+                    reportFailures--;
+                    if (result4 === null) {
+                      result4 = "";
+                    } else {
+                      result4 = null;
+                      pos = pos4;
+                    }
+                    if (result4 !== null) {
+                      result3 = [result3, result4];
+                    } else {
+                      result3 = null;
+                      pos = pos3;
+                    }
+                  } else {
+                    result3 = null;
+                    pos = pos3;
+                  }
+                }
+                if (result3 !== null) {
+                  result2 = [result2, result3];
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            }
+          }
+          if (result1 !== null) {
+            result2 = parse_SA_clause();
+            if (result2 !== null) {
+              pos2 = pos;
+              reportFailures++;
+              result3 = parse_bridi_tail();
+              reportFailures--;
+              if (result3 !== null) {
+                result3 = "";
+                pos = pos2;
+              } else {
+                result3 = null;
+              }
+              if (result3 !== null) {
+                result0 = [result0, result1, result2, result3];
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_safefifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_startfefifo() {
+        var cacheKey = "bridi_tail_startfefifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        result0 = parse_ME_clause();
+        if (result0 === null) {
+          result0 = parse_NUhA_clause();
+          if (result0 === null) {
+            result0 = parse_NU_clause();
+            if (result0 === null) {
+              pos1 = pos;
+              result0 = parse_NA_clause();
+              if (result0 !== null) {
+                pos2 = pos;
+                reportFailures++;
+                result1 = parse_KU_clause();
+                reportFailures--;
+                if (result1 === null) {
+                  result1 = "";
+                } else {
+                  result1 = null;
+                  pos = pos2;
+                }
+                if (result1 !== null) {
+                  result0 = [result0, result1];
+                } else {
+                  result0 = null;
+                  pos = pos1;
+                }
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+              if (result0 === null) {
+                pos1 = pos;
+                result0 = parse_NAhE_clause();
+                if (result0 !== null) {
+                  pos2 = pos;
+                  reportFailures++;
+                  result1 = parse_BO_clause();
+                  reportFailures--;
+                  if (result1 === null) {
+                    result1 = "";
+                  } else {
+                    result1 = null;
+                    pos = pos2;
+                  }
+                  if (result1 !== null) {
+                    result0 = [result0, result1];
+                  } else {
+                    result0 = null;
+                    pos = pos1;
+                  }
+                } else {
+                  result0 = null;
+                  pos = pos1;
+                }
+                if (result0 === null) {
+                  result0 = parse_selbri();
+                  if (result0 === null) {
+                    pos1 = pos;
+                    result0 = parse_tag();
+                    if (result0 !== null) {
+                      result1 = parse_bridi_tail_startfefifo();
+                      if (result1 !== null) {
+                        result0 = [result0, result1];
+                      } else {
+                        result0 = null;
+                        pos = pos1;
+                      }
+                    } else {
+                      result0 = null;
+                      pos = pos1;
+                    }
+                    if (result0 === null) {
+                      pos1 = pos;
+                      result0 = parse_KE_clause();
+                      if (result0 !== null) {
+                        result1 = parse_bridi_tail_startfefifo();
+                        if (result1 !== null) {
+                          result0 = [result0, result1];
+                        } else {
+                          result0 = null;
+                          pos = pos1;
+                        }
+                      } else {
+                        result0 = null;
+                        pos = pos1;
+                      }
+                      if (result0 === null) {
+                        result0 = parse_bridi_tailfefifo();
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_startfefifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_1fefifo() {
+        var cacheKey = "bridi_tail_1fefifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5, result6, result7;
+        var pos0, pos1, pos2, pos3, pos4;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_bridi_tail_2fefifo();
+        if (result0 !== null) {
+          result1 = [];
+          pos2 = pos;
+          result2 = parse_gihek();
+          if (result2 === null) {
+            result2 = parse_JA_clause();
+          }
+          if (result2 !== null) {
+            pos3 = pos;
+            reportFailures++;
+            pos4 = pos;
+            result3 = parse_stag();
+            result3 = result3 !== null ? result3 : "";
+            if (result3 !== null) {
+              result4 = parse_BO_clause();
+              if (result4 !== null) {
+                result3 = [result3, result4];
+              } else {
+                result3 = null;
+                pos = pos4;
+              }
+            } else {
+              result3 = null;
+              pos = pos4;
+            }
+            reportFailures--;
+            if (result3 === null) {
+              result3 = "";
+            } else {
+              result3 = null;
+              pos = pos3;
+            }
+            if (result3 !== null) {
+              pos3 = pos;
+              reportFailures++;
+              pos4 = pos;
+              result4 = parse_stag();
+              result4 = result4 !== null ? result4 : "";
+              if (result4 !== null) {
+                result5 = parse_KE_clause();
+                if (result5 !== null) {
+                  result4 = [result4, result5];
+                } else {
+                  result4 = null;
+                  pos = pos4;
+                }
+              } else {
+                result4 = null;
+                pos = pos4;
+              }
+              reportFailures--;
+              if (result4 === null) {
+                result4 = "";
+              } else {
+                result4 = null;
+                pos = pos3;
+              }
+              if (result4 !== null) {
+                result5 = [];
+                result6 = parse_free();
+                while (result6 !== null) {
+                  result5.push(result6);
+                  result6 = parse_free();
+                }
+                if (result5 !== null) {
+                  result6 = parse_bridi_tail_2fefifo();
+                  if (result6 === null) {
+                    result6 = parse_bridi_tail_2fe();
+                    if (result6 === null) {
+                      result6 = parse_bridi_tail_2();
+                    }
+                  }
+                  if (result6 !== null) {
+                    result7 = parse_tail_terms();
+                    if (result7 !== null) {
+                      result2 = [result2, result3, result4, result5, result6, result7];
+                    } else {
+                      result2 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          } else {
+            result2 = null;
+            pos = pos2;
+          }
+          while (result2 !== null) {
+            result1.push(result2);
+            pos2 = pos;
+            result2 = parse_gihek();
+            if (result2 === null) {
+              result2 = parse_JA_clause();
+            }
+            if (result2 !== null) {
+              pos3 = pos;
+              reportFailures++;
+              pos4 = pos;
+              result3 = parse_stag();
+              result3 = result3 !== null ? result3 : "";
+              if (result3 !== null) {
+                result4 = parse_BO_clause();
+                if (result4 !== null) {
+                  result3 = [result3, result4];
+                } else {
+                  result3 = null;
+                  pos = pos4;
+                }
+              } else {
+                result3 = null;
+                pos = pos4;
+              }
+              reportFailures--;
+              if (result3 === null) {
+                result3 = "";
+              } else {
+                result3 = null;
+                pos = pos3;
+              }
+              if (result3 !== null) {
+                pos3 = pos;
+                reportFailures++;
+                pos4 = pos;
+                result4 = parse_stag();
+                result4 = result4 !== null ? result4 : "";
+                if (result4 !== null) {
+                  result5 = parse_KE_clause();
+                  if (result5 !== null) {
+                    result4 = [result4, result5];
+                  } else {
+                    result4 = null;
+                    pos = pos4;
+                  }
+                } else {
+                  result4 = null;
+                  pos = pos4;
+                }
+                reportFailures--;
+                if (result4 === null) {
+                  result4 = "";
+                } else {
+                  result4 = null;
+                  pos = pos3;
+                }
+                if (result4 !== null) {
+                  result5 = [];
+                  result6 = parse_free();
+                  while (result6 !== null) {
+                    result5.push(result6);
+                    result6 = parse_free();
+                  }
+                  if (result5 !== null) {
+                    result6 = parse_bridi_tail_2fefifo();
+                    if (result6 === null) {
+                      result6 = parse_bridi_tail_2fe();
+                      if (result6 === null) {
+                        result6 = parse_bridi_tail_2();
+                      }
+                    }
+                    if (result6 !== null) {
+                      result7 = parse_tail_terms();
+                      if (result7 !== null) {
+                        result2 = [result2, result3, result4, result5, result6, result7];
+                      } else {
+                        result2 = null;
+                        pos = pos2;
+                      }
+                    } else {
+                      result2 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          }
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_1fefifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_2fefifo() {
+        var cacheKey = "bridi_tail_2fefifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5, result6;
+        var pos0, pos1, pos2, pos3;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_CU_elidible();
+        if (result0 !== null) {
+          result1 = parse_bridi_tail_3fefifo();
+          if (result1 !== null) {
+            pos2 = pos;
+            pos3 = pos;
+            result2 = parse_gihek();
+            if (result2 === null) {
+              result2 = parse_JA_clause();
+            }
+            if (result2 !== null) {
+              result3 = parse_stag();
+              result3 = result3 !== null ? result3 : "";
+              if (result3 !== null) {
+                result2 = [result2, result3];
+              } else {
+                result2 = null;
+                pos = pos3;
+              }
+            } else {
+              result2 = null;
+              pos = pos3;
+            }
+            if (result2 === null) {
+              pos3 = pos;
+              result2 = parse_GI_clause();
+              if (result2 !== null) {
+                result3 = parse_stag();
+                if (result3 !== null) {
+                  result2 = [result2, result3];
+                } else {
+                  result2 = null;
+                  pos = pos3;
+                }
+              } else {
+                result2 = null;
+                pos = pos3;
+              }
+            }
+            if (result2 !== null) {
+              result3 = parse_BO_clause();
+              if (result3 !== null) {
+                result4 = [];
+                result5 = parse_free();
+                while (result5 !== null) {
+                  result4.push(result5);
+                  result5 = parse_free();
+                }
+                if (result4 !== null) {
+                  result5 = parse_bridi_tail_2();
+                  if (result5 !== null) {
+                    result6 = parse_tail_terms();
+                    if (result6 !== null) {
+                      result2 = [result2, result3, result4, result5, result6];
+                    } else {
+                      result2 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result0 = [result0, result1, result2];
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_2fefifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_3fefifo() {
+        var cacheKey = "bridi_tail_3fefifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        result0 = parse_gek_sentence();
+        if (result0 === null) {
+          pos1 = pos;
+          result0 = parse_selbri();
+          if (result0 !== null) {
+            result1 = parse_tail_termsZAMfefifo();
+            if (result1 !== null) {
+              result0 = [result0, result1];
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_3fefifo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_tail_termsZAMfefifo() {
+        var cacheKey = "tail_termsZAMfefifo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5, result6;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_termsZAMfe();
+        if (result0 !== null) {
+          result1 = parse_termsZAMfi();
+          if (result1 !== null) {
+            result2 = parse_termsZAMfo();
+            if (result2 !== null) {
+              result3 = parse_terms();
+              result3 = result3 !== null ? result3 : "";
+              if (result3 !== null) {
+                result4 = parse_VAU_elidible();
+                if (result4 !== null) {
+                  result5 = [];
+                  result6 = parse_free();
+                  while (result6 !== null) {
+                    result5.push(result6);
+                    result6 = parse_free();
+                  }
+                  if (result5 !== null) {
+                    pos2 = pos;
+                    reportFailures++;
+                    result6 = parse_ZOhU_clause();
+                    reportFailures--;
+                    if (result6 === null) {
+                      result6 = "";
+                    } else {
+                      result6 = null;
+                      pos = pos2;
+                    }
+                    if (result6 !== null) {
+                      result0 = [result0, result1, result2, result3, result4, result5, result6];
+                    } else {
+                      result0 = null;
+                      pos = pos1;
+                    }
+                  } else {
+                    result0 = null;
+                    pos = pos1;
+                  }
+                } else {
+                  result0 = null;
+                  pos = pos1;
+                }
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node_nonempty("tail_termsZAMfefifo", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -6923,7 +9152,7 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4;
+        var result0, result1, result2, result3, result4, result5;
         var pos0, pos1, pos2;
         
         pos0 = pos;
@@ -6932,27 +9161,34 @@ var camxes = (function(){
         if (result0 !== null) {
           result1 = parse_termsZAMfi();
           if (result1 !== null) {
-            result2 = parse_VAU_elidible();
+            result2 = parse_terms();
+            result2 = result2 !== null ? result2 : "";
             if (result2 !== null) {
-              result3 = [];
-              result4 = parse_free();
-              while (result4 !== null) {
-                result3.push(result4);
-                result4 = parse_free();
-              }
+              result3 = parse_VAU_elidible();
               if (result3 !== null) {
-                pos2 = pos;
-                reportFailures++;
-                result4 = parse_ZOhU_clause();
-                reportFailures--;
-                if (result4 === null) {
-                  result4 = "";
-                } else {
-                  result4 = null;
-                  pos = pos2;
+                result4 = [];
+                result5 = parse_free();
+                while (result5 !== null) {
+                  result4.push(result5);
+                  result5 = parse_free();
                 }
                 if (result4 !== null) {
-                  result0 = [result0, result1, result2, result3, result4];
+                  pos2 = pos;
+                  reportFailures++;
+                  result5 = parse_ZOhU_clause();
+                  reportFailures--;
+                  if (result5 === null) {
+                    result5 = "";
+                  } else {
+                    result5 = null;
+                    pos = pos2;
+                  }
+                  if (result5 !== null) {
+                    result0 = [result0, result1, result2, result3, result4, result5];
+                  } else {
+                    result0 = null;
+                    pos = pos1;
+                  }
                 } else {
                   result0 = null;
                   pos = pos1;
@@ -7014,6 +9250,31 @@ var camxes = (function(){
         }
         if (result0 === null) {
           pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_terms_1_0() {
+        var cacheKey = "terms_1_0@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        
+        result0 = parse_terms_1();
+        if (result0 === null) {
+          result0 = parse_terms_1FAM();
+          if (result0 === null) {
+            result0 = parse_terms_1ZAM();
+          }
         }
         
         cache[cacheKey] = {
@@ -9741,51 +12002,11 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4;
-        var pos0, pos1;
+        var result0;
+        var pos0;
         
         pos0 = pos;
-        pos1 = pos;
         result0 = parse_terms_1ZAMfa();
-        if (result0 !== null) {
-          result1 = [];
-          result2 = parse_terms_1();
-          while (result2 !== null) {
-            result1.push(result2);
-            result2 = parse_terms_1();
-          }
-          if (result1 !== null) {
-            result2 = [];
-            result3 = parse_terms_1FAM();
-            while (result3 !== null) {
-              result2.push(result3);
-              result3 = parse_terms_1FAM();
-            }
-            if (result2 !== null) {
-              result3 = [];
-              result4 = parse_terms_1();
-              while (result4 !== null) {
-                result3.push(result4);
-                result4 = parse_terms_1();
-              }
-              if (result3 !== null) {
-                result0 = [result0, result1, result2, result3];
-              } else {
-                result0 = null;
-                pos = pos1;
-              }
-            } else {
-              result0 = null;
-              pos = pos1;
-            }
-          } else {
-            result0 = null;
-            pos = pos1;
-          }
-        } else {
-          result0 = null;
-          pos = pos1;
-        }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("termsZAMfa", expr);})(pos0, result0);
         }
@@ -9808,7 +12029,7 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4;
+        var result0, result1;
         var pos0, pos1;
         
         pos0 = pos;
@@ -9817,29 +12038,7 @@ var camxes = (function(){
         if (result0 !== null) {
           result1 = parse_terms_1ZAMfe();
           if (result1 !== null) {
-            result2 = [];
-            result3 = parse_terms_1FAM();
-            while (result3 !== null) {
-              result2.push(result3);
-              result3 = parse_terms_1FAM();
-            }
-            if (result2 !== null) {
-              result3 = [];
-              result4 = parse_terms_1();
-              while (result4 !== null) {
-                result3.push(result4);
-                result4 = parse_terms_1();
-              }
-              if (result3 !== null) {
-                result0 = [result0, result1, result2, result3];
-              } else {
-                result0 = null;
-                pos = pos1;
-              }
-            } else {
-              result0 = null;
-              pos = pos1;
-            }
+            result0 = [result0, result1];
           } else {
             result0 = null;
             pos = pos1;
@@ -9870,7 +12069,7 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4, result5, result6, result7, result8;
+        var result0, result1, result2, result3, result4;
         var pos0, pos1;
         
         pos0 = pos;
@@ -9895,40 +12094,7 @@ var camxes = (function(){
               if (result3 !== null) {
                 result4 = parse_terms_1ZAMfi();
                 if (result4 !== null) {
-                  result5 = [];
-                  result6 = parse_terms_1();
-                  while (result6 !== null) {
-                    result5.push(result6);
-                    result6 = parse_terms_1();
-                  }
-                  if (result5 !== null) {
-                    result6 = [];
-                    result7 = parse_terms_1FAM();
-                    while (result7 !== null) {
-                      result6.push(result7);
-                      result7 = parse_terms_1FAM();
-                    }
-                    if (result6 !== null) {
-                      result7 = [];
-                      result8 = parse_terms_1();
-                      while (result8 !== null) {
-                        result7.push(result8);
-                        result8 = parse_terms_1();
-                      }
-                      if (result7 !== null) {
-                        result0 = [result0, result1, result2, result3, result4, result5, result6, result7];
-                      } else {
-                        result0 = null;
-                        pos = pos1;
-                      }
-                    } else {
-                      result0 = null;
-                      pos = pos1;
-                    }
-                  } else {
-                    result0 = null;
-                    pos = pos1;
-                  }
+                  result0 = [result0, result1, result2, result3, result4];
                 } else {
                   result0 = null;
                   pos = pos1;
@@ -9971,51 +12137,11 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4;
-        var pos0, pos1;
+        var result0;
+        var pos0;
         
         pos0 = pos;
-        pos1 = pos;
         result0 = parse_terms_1ZAMfe();
-        if (result0 !== null) {
-          result1 = [];
-          result2 = parse_terms_1();
-          while (result2 !== null) {
-            result1.push(result2);
-            result2 = parse_terms_1();
-          }
-          if (result1 !== null) {
-            result2 = [];
-            result3 = parse_terms_1FAM();
-            while (result3 !== null) {
-              result2.push(result3);
-              result3 = parse_terms_1FAM();
-            }
-            if (result2 !== null) {
-              result3 = [];
-              result4 = parse_terms_1();
-              while (result4 !== null) {
-                result3.push(result4);
-                result4 = parse_terms_1();
-              }
-              if (result3 !== null) {
-                result0 = [result0, result1, result2, result3];
-              } else {
-                result0 = null;
-                pos = pos1;
-              }
-            } else {
-              result0 = null;
-              pos = pos1;
-            }
-          } else {
-            result0 = null;
-            pos = pos1;
-          }
-        } else {
-          result0 = null;
-          pos = pos1;
-        }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("termsZAMfe", expr);})(pos0, result0);
         }
@@ -10038,53 +12164,40 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4;
-        var pos0, pos1;
+        var result0;
+        var pos0;
         
         pos0 = pos;
-        pos1 = pos;
         result0 = parse_terms_1ZAMfi();
         if (result0 !== null) {
-          result1 = [];
-          result2 = parse_terms_1();
-          while (result2 !== null) {
-            result1.push(result2);
-            result2 = parse_terms_1();
-          }
-          if (result1 !== null) {
-            result2 = [];
-            result3 = parse_terms_1FAM();
-            while (result3 !== null) {
-              result2.push(result3);
-              result3 = parse_terms_1FAM();
-            }
-            if (result2 !== null) {
-              result3 = [];
-              result4 = parse_terms_1();
-              while (result4 !== null) {
-                result3.push(result4);
-                result4 = parse_terms_1();
-              }
-              if (result3 !== null) {
-                result0 = [result0, result1, result2, result3];
-              } else {
-                result0 = null;
-                pos = pos1;
-              }
-            } else {
-              result0 = null;
-              pos = pos1;
-            }
-          } else {
-            result0 = null;
-            pos = pos1;
-          }
-        } else {
-          result0 = null;
-          pos = pos1;
-        }
-        if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("termsZAMfi", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_termsZAMfo() {
+        var cacheKey = "termsZAMfo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_terms_1ZAMfo();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("termsZAMfo", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -11423,6 +13536,452 @@ var camxes = (function(){
         }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("abs_tag_termZAMfi", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_terms_1ZAMfo() {
+        var cacheKey = "terms_1ZAMfo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5, result6;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_terms_2ZAMfo();
+        if (result0 !== null) {
+          result1 = [];
+          pos2 = pos;
+          result2 = [];
+          result3 = parse_pehe_sa();
+          while (result3 !== null) {
+            result2.push(result3);
+            result3 = parse_pehe_sa();
+          }
+          if (result2 !== null) {
+            result3 = parse_PEhE_clause();
+            if (result3 !== null) {
+              result4 = [];
+              result5 = parse_free();
+              while (result5 !== null) {
+                result4.push(result5);
+                result5 = parse_free();
+              }
+              if (result4 !== null) {
+                result5 = parse_joik_jek();
+                if (result5 !== null) {
+                  result6 = parse_terms_2();
+                  if (result6 !== null) {
+                    result2 = [result2, result3, result4, result5, result6];
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          } else {
+            result2 = null;
+            pos = pos2;
+          }
+          while (result2 !== null) {
+            result1.push(result2);
+            pos2 = pos;
+            result2 = [];
+            result3 = parse_pehe_sa();
+            while (result3 !== null) {
+              result2.push(result3);
+              result3 = parse_pehe_sa();
+            }
+            if (result2 !== null) {
+              result3 = parse_PEhE_clause();
+              if (result3 !== null) {
+                result4 = [];
+                result5 = parse_free();
+                while (result5 !== null) {
+                  result4.push(result5);
+                  result5 = parse_free();
+                }
+                if (result4 !== null) {
+                  result5 = parse_joik_jek();
+                  if (result5 !== null) {
+                    result6 = parse_terms_2();
+                    if (result6 !== null) {
+                      result2 = [result2, result3, result4, result5, result6];
+                    } else {
+                      result2 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          }
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("terms_1ZAMfo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_terms_2ZAMfo() {
+        var cacheKey = "terms_2ZAMfo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_abs_termZAMfo();
+        if (result0 !== null) {
+          result1 = [];
+          pos2 = pos;
+          result2 = [];
+          result3 = parse_cehe_sa();
+          while (result3 !== null) {
+            result2.push(result3);
+            result3 = parse_cehe_sa();
+          }
+          if (result2 !== null) {
+            result3 = parse_CEhE_clause();
+            if (result3 !== null) {
+              result4 = [];
+              result5 = parse_free();
+              while (result5 !== null) {
+                result4.push(result5);
+                result5 = parse_free();
+              }
+              if (result4 !== null) {
+                result5 = parse_abs_term();
+                if (result5 === null) {
+                  result5 = parse_abs_termFAM();
+                  if (result5 === null) {
+                    result5 = parse_abs_termZAM();
+                    if (result5 === null) {
+                      result5 = parse_abs_termZAM();
+                    }
+                  }
+                }
+                if (result5 !== null) {
+                  result2 = [result2, result3, result4, result5];
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          } else {
+            result2 = null;
+            pos = pos2;
+          }
+          while (result2 !== null) {
+            result1.push(result2);
+            pos2 = pos;
+            result2 = [];
+            result3 = parse_cehe_sa();
+            while (result3 !== null) {
+              result2.push(result3);
+              result3 = parse_cehe_sa();
+            }
+            if (result2 !== null) {
+              result3 = parse_CEhE_clause();
+              if (result3 !== null) {
+                result4 = [];
+                result5 = parse_free();
+                while (result5 !== null) {
+                  result4.push(result5);
+                  result5 = parse_free();
+                }
+                if (result4 !== null) {
+                  result5 = parse_abs_term();
+                  if (result5 === null) {
+                    result5 = parse_abs_termFAM();
+                    if (result5 === null) {
+                      result5 = parse_abs_termZAM();
+                      if (result5 === null) {
+                        result5 = parse_abs_termZAM();
+                      }
+                    }
+                  }
+                  if (result5 !== null) {
+                    result2 = [result2, result3, result4, result5];
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          }
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("terms_2ZAMfo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_abs_termZAMfo() {
+        var cacheKey = "abs_termZAMfo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = [];
+        result1 = parse_term_sa();
+        while (result1 !== null) {
+          result0.push(result1);
+          result1 = parse_term_sa();
+        }
+        if (result0 !== null) {
+          result1 = parse_abs_term_1ZAMfo();
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("abs_termZAMfo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_abs_term_1ZAMfo() {
+        var cacheKey = "abs_term_1ZAMfo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_abs_tag_termZAMfo();
+        if (result0 === null) {
+          result0 = parse_termset();
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("abs_term_1ZAMfo", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_abs_tag_termZAMfo() {
+        var cacheKey = "abs_tag_termZAMfo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3;
+        var pos0, pos1, pos2, pos3;
+        
+        pos0 = pos;
+        pos1 = pos;
+        pos2 = pos;
+        pos3 = pos;
+        reportFailures++;
+        result0 = parse_gek();
+        reportFailures--;
+        if (result0 === null) {
+          result0 = "";
+        } else {
+          result0 = null;
+          pos = pos3;
+        }
+        if (result0 !== null) {
+          result1 = parse_FAXIVO_elidible();
+          if (result1 !== null) {
+            result2 = parse_sumti();
+            if (result2 !== null) {
+              result0 = [result0, result1, result2];
+            } else {
+              result0 = null;
+              pos = pos2;
+            }
+          } else {
+            result0 = null;
+            pos = pos2;
+          }
+        } else {
+          result0 = null;
+          pos = pos2;
+        }
+        if (result0 !== null) {
+          result1 = [];
+          pos2 = pos;
+          result2 = parse_joik_jek();
+          if (result2 !== null) {
+            result3 = parse_abs_tag_term();
+            if (result3 === null) {
+              result3 = parse_abs_tag_termFAM();
+              if (result3 === null) {
+                result3 = parse_abs_tag_termZAM();
+              }
+            }
+            if (result3 !== null) {
+              result2 = [result2, result3];
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          } else {
+            result2 = null;
+            pos = pos2;
+          }
+          while (result2 !== null) {
+            result1.push(result2);
+            pos2 = pos;
+            result2 = parse_joik_jek();
+            if (result2 !== null) {
+              result3 = parse_abs_tag_term();
+              if (result3 === null) {
+                result3 = parse_abs_tag_termFAM();
+                if (result3 === null) {
+                  result3 = parse_abs_tag_termZAM();
+                }
+              }
+              if (result3 !== null) {
+                result2 = [result2, result3];
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          }
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("abs_tag_termZAMfo", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -23994,6 +26553,34 @@ var camxes = (function(){
         result0 = [];
         if (result0 !== null) {
           result0 = (function(offset, expr) {return (expr == "") ? ["FI"] : _node("FA", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_FAXIVO_elidible() {
+        var cacheKey = "FAXIVO_elidible@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = [];
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return (expr == "") ? ["FO"] : _node("FA", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;

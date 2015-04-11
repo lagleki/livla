@@ -247,11 +247,11 @@ abs_termZAM = expr:(term_sa* abs_term_1ZAM) {return _node("abs_termZAM", expr);}
 abs_term_1ZAM = expr:(abs_tag_termZAM / termset) {return _node("abs_term_1ZAM", expr);}
 abs_tag_termZAM = expr:((!gek FA_elidible sumti) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAM))*) {return _node("abs_tag_termZAM", expr);}
 
-termsZAMfa = expr:((terms_1ZAMfa terms_1*)) {return _node("termsZAMfa", expr);}
-termsZAMfafe = expr:((terms_1ZAMfa terms_1ZAMfe)) {return _node("termsZAMfafe", expr);}
-termsZAMfafefi = expr:((terms_1ZAMfa terms_1* terms_1ZAMfe terms_1* terms_1ZAMfi terms_1*)) {return _node("termsZAMfafefi", expr);}
-termsZAMfe = expr:((terms_1ZAMfe terms_1*)) {return _node("termsZAMfe", expr);}
-termsZAMfi = expr:((terms_1ZAMfi terms_1*)) {return _node("termsZAMfi", expr);}
+termsZAMfa = expr:((terms_1ZAMfa terms_1* terms_1FAM* terms_1*)) {return _node("termsZAMfa", expr);}
+termsZAMfafe = expr:((terms_1ZAMfa terms_1ZAMfe terms_1FAM* terms_1*)) {return _node("termsZAMfafe", expr);}
+termsZAMfafefi = expr:((terms_1ZAMfa terms_1* terms_1ZAMfe terms_1* terms_1ZAMfi terms_1* terms_1FAM* terms_1*)) {return _node("termsZAMfafefi", expr);}
+termsZAMfe = expr:((terms_1ZAMfe terms_1* terms_1FAM* terms_1*)) {return _node("termsZAMfe", expr);}
+termsZAMfi = expr:((terms_1ZAMfi terms_1* terms_1FAM* terms_1*)) {return _node("termsZAMfi", expr);}
 
 terms_1ZAMfa = expr:(terms_2ZAMfa (pehe_sa* PEhE_clause free* joik_jek terms_2)*) {return _node("terms_1ZAMfa", expr);}
 terms_2ZAMfa = expr:(abs_termZAMfa (cehe_sa* CEhE_clause free* (abs_term / abs_termFAM  / abs_termZAM / abs_termZAM))*) {return _node("terms_2ZAMfa", expr);}
@@ -386,9 +386,10 @@ selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relativ
 
 
 //// EXP-MODIF: tag? --> tag*
-selbri = expr:(tag* selbri_1) {return _node("selbri", expr); }
+//ToDo: selbri and selbri_elidible should be at the same level of hierarchy. currently they are not.
+selbri = expr:(tag* selbri_1 SELBRIEND_elidible) {return _node("selbri", expr); }
 
-selbri_may_elide = (selbri / SELBRI_elidible !terms)
+selbri_may_elide = (selbri / SELBRI_elidible SELBRIEND_elidible !terms)
 selbri_1 = expr:(selbri_2 / NA_clause free* selbri) {return _node("selbri_1", expr); }
 
 selbri_2 = expr:(selbri_3 (CO_clause free* selbri_2)?) {return _node("selbri_2", expr); }
@@ -615,7 +616,7 @@ VAU_elidible = expr:(VAU_clause?)   {return (expr == "") ? ["VAU"]  : _node("VAU
 VEhO_elidible = expr:(VEhO_clause?) {return (expr == "") ? ["VEhO"] : _node("VEhO", expr);}
 
 SELBRI_elidible = expr:(GOhA_clause?) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);}
-
+SELBRIEND_elidible = expr:() {return ["COCU"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}
 KUhAU_elidible = expr:(KUhAU_clause?) {return (expr == "") ? ["KUhAU"] : _node("KUhAU", expr);}
 

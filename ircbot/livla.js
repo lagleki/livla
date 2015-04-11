@@ -477,6 +477,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf(prereplier + 'r ') == '0': benji(source,socket,clientmensi,sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
 		case text.indexOf(prereplier + 'j ') == '0': benji(source,socket,clientmensi,sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
 		case text.indexOf('Tatoeba:') == '0': benji(source,socket,clientmensi,sendTo, sisku(text.substr(8).trim()));break;
+		case text.indexOf(prereplier) == '0': text = text.substr(prereplier.length+1).trim();benji(source,socket,clientmensi,sendTo, mensimikce(text));break;
 	/* 	case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: benji(source,socket,clientmensi,sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
 		case text.indexOf(prereplier + 'xu do') == '0': 
 		case text.indexOf(prereplier + 'do') == '0': setTimeout(function() {benji(source,socket,clientmensi,sendTo, from + mireturn());}, interm );break;
@@ -1470,6 +1471,11 @@ var anjarr = anj.anjik();
 return text;
 };
 
+var mensimikce = function(text){//eliza bot analog
+var Mensibot = require('../mahantufa/mensimikce.js');
+Mensibot.start(); // initializes Mensi and returns a greeting message
+return Mensibot.reply(text);
+};
 //NAXLE
 
 var http = require('http'),

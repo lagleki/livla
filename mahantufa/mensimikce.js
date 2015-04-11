@@ -1,30 +1,30 @@
 /*
 Usage:
-var Mensibot = require('./mensibot.js');
+var Mensibot = require('./mensimikce.js');
 Mensibot.start() // initializes Mensi and returns a greeting message
 Mensibot.reply(msgtext) // returns a Mensi-like reply based on the message text passed into it
 Mensibot.bye() // returns a farewell message
 */
 exports.reply = function (r) {
-	if (this.bot == null) {
+	if (this.bot === null||this.bot===undefined) {
 		this.bot = new MensiBot(false);
 	} 
 	return this.bot.transform(r);
-}
+};
 
 exports.start = function () {
-	if (this.bot == null) {
+	if (this.bot === null) {
 		this.bot = new MensiBot(false);
 	}
-	return this.bot.getInitial();
-}
+	//return this.bot.getInitial();
+};
 
 exports.bye = function () {
-	if (this.bot == null) {
+	if (this.bot === null) {
 		this.bot = new MensiBot(false);
 	}
 	return this.bot.getFinal();
-}
+};
 
 function MensiBot(noRandomFlag) {
 
@@ -681,7 +681,7 @@ MensiBot.prototype.reset = function() {
 		var rules=this.MensiKeywords[k][2];
 		for (var i=0; i<rules.length; i++) this.lastchoice[k][i]=-1;
 	}
-}
+};
 
 MensiBot.prototype._init = function() {
 	// install ref to global object
@@ -804,7 +804,7 @@ MensiBot.prototype._init = function() {
 	}
 	// done
 	MensiBot.prototype._dataParsed=true;
-}
+};
 
 MensiBot.prototype._sortKeywords = function(a,b) {
 	// sort by rank
@@ -814,7 +814,7 @@ MensiBot.prototype._sortKeywords = function(a,b) {
 	else if (a[3]>b[3]) return 1
 	else if (a[3]<b[3]) return -1
 	else return 0;
-}
+};
 
 MensiBot.prototype.transform = function(text) {
 	var rpl='';
@@ -830,7 +830,7 @@ MensiBot.prototype.transform = function(text) {
 	var parts=text.split('.');
 	for (var i=0; i<parts.length; i++) {
 		var part=parts[i];
-		if (part!='') {
+		if (part!=='') {
 			// check for quit expression
 			for (var q=0; q<this.MensiQuits.length; q++) {
 				if (this.MensiQuits[q]==part) {
@@ -856,21 +856,21 @@ MensiBot.prototype.transform = function(text) {
 				if (part.search(new RegExp('\\b'+this.MensiKeywords[k][0]+'\\b', 'i'))>=0) {
 					rpl = this._execRule(k);
 				}
-				if (rpl!='') return rpl;
+				if (rpl!=='') return rpl;
 			}
 		}
 	}
 	// nothing matched try mem
 	rpl=this._memGet();
 	// if nothing in mem, so try xnone
-	if (rpl=='') {
+	if (rpl==='') {
 		this.sentence=' ';
 		var k=this._getRuleIndexByKey('xnone');
 		if (k>=0) rpl=this._execRule(k);
 	}
 	// return reply or default string
-	return (rpl!='')? rpl : 'I am at a loss for words.';
-}
+	return (rpl!=='')? rpl : 'I am at a loss for words.';
+};
 
 MensiBot.prototype._execRule = function(k) {
 	var rule=this.MensiKeywords[k];

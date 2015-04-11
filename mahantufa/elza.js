@@ -1,27 +1,34 @@
+/*
+Usage:
+var Mensibot = require('./mensibot.js');
+Mensibot.start() // initializes Mensi and returns a greeting message
+Mensibot.reply(msgtext) // returns a Mensi-like reply based on the message text passed into it
+Mensibot.bye() // returns a farewell message
+*/
 exports.reply = function (r) {
 	if (this.bot == null) {
-		this.bot = new ElizaBot(false);
+		this.bot = new MensiBot(false);
 	} 
 	return this.bot.transform(r);
 }
 
 exports.start = function () {
 	if (this.bot == null) {
-		this.bot = new ElizaBot(false);
+		this.bot = new MensiBot(false);
 	}
 	return this.bot.getInitial();
 }
 
 exports.bye = function () {
 	if (this.bot == null) {
-		this.bot = new ElizaBot(false);
+		this.bot = new MensiBot(false);
 	}
 	return this.bot.getFinal();
 }
 
-function ElizaBot(noRandomFlag) {
+function MensiBot(noRandomFlag) {
 
-	this.elizaInitials = [
+	this.MensiInitials = [
 		"How do you do.  Please tell me your problem.",
 		"Please tell me what's been bothering you.",
 		"Is something troubling you ?",
@@ -31,7 +38,7 @@ function ElizaBot(noRandomFlag) {
 		"Thanks for waking me up"
 	];
 
-	this.elizaKeywords = [
+	this.MensiKeywords = [
 
 	/*
 	  Array of
@@ -579,7 +586,7 @@ function ElizaBot(noRandomFlag) {
 
 	];
 
-	this.elizaPostTransforms = [
+	this.MensiPostTransforms = [
 		/ old old/g, " old",
 		/\bthey were( not)? me\b/g, "it was$1 me",
 		/\bthey are( not)? me\b/g, "it is$1 me",
@@ -589,7 +596,7 @@ function ElizaBot(noRandomFlag) {
 		/Earlier you said your( own)? (\w+)( now)?\./, "Earlier you talked about your $2."
 	];
 
-	this.elizaFinals = [
+	this.MensiFinals = [
 		"Goodbye.  It was nice talking to you.",
 		// additions (not original)
 		"Goodbye.  This was really a nice talk.",
@@ -598,7 +605,7 @@ function ElizaBot(noRandomFlag) {
 		"Maybe we could discuss this moreover in our next session ?   Goodbye."
 	];
 
-	this.elizaQuits = [
+	this.MensiQuits = [
 		"bye",
 		"goodbye",
 		"done",
@@ -606,7 +613,7 @@ function ElizaBot(noRandomFlag) {
 		"quit"
 	];
 
-	this.elizaPres = [
+	this.MensiPres = [
 		"dont", "don't",
 		"cant", "can't",
 		"wont", "won't",
@@ -627,7 +634,7 @@ function ElizaBot(noRandomFlag) {
 		"equivalent", "alike"
 	];
 
-	this.elizaPosts = [
+	this.MensiPosts = [
 		"am", "are",
 		"your", "my",
 		"me", "you",
@@ -639,7 +646,7 @@ function ElizaBot(noRandomFlag) {
 		"i'm", "you are"
 	];
 
-	this.elizaSynons = {
+	this.MensiSynons = {
 		"be": ["am", "is", "are", "was"],
 		"belief": ["feel", "think", "believe", "wish"],
 		"cannot": ["can't"],
@@ -664,31 +671,31 @@ function ElizaBot(noRandomFlag) {
 	this.reset();
 }
 
-ElizaBot.prototype.reset = function() {
+MensiBot.prototype.reset = function() {
 	this.quit=false;
 	this.mem=[];
 	this.lastchoice=[];
 
-	for (var k=0; k<this.elizaKeywords.length; k++) {
+	for (var k=0; k<this.MensiKeywords.length; k++) {
 		this.lastchoice[k]=[];
-		var rules=this.elizaKeywords[k][2];
+		var rules=this.MensiKeywords[k][2];
 		for (var i=0; i<rules.length; i++) this.lastchoice[k][i]=-1;
 	}
 }
 
-ElizaBot.prototype._init = function() {
+MensiBot.prototype._init = function() {
 	// install ref to global object
 	var global=this;
 	// parse data and convert it from canonical form to internal use
 	// prodoce synonym list
 	var synPatterns={};
 
-	if ((this.elizaSynons) && (typeof this.elizaSynons == 'object')) {
-		for (var i in this.elizaSynons) synPatterns[i]='('+i+'|'+this.elizaSynons[i].join('|')+')';
+	if ((this.MensiSynons) && (typeof this.MensiSynons == 'object')) {
+		for (var i in this.MensiSynons) synPatterns[i]='('+i+'|'+this.MensiSynons[i].join('|')+')';
 	}
 	// check for keywords or install empty structure to prevent any errors
-	if ((!this.elizaKeywords) || (typeof this.elizaKeywords.length == 'undefined')) {
-		this.elizaKeywords=[['###',0,[['###',[]]]]];
+	if ((!this.MensiKeywords) || (typeof this.MensiKeywords.length == 'undefined')) {
+		this.MensiKeywords=[['###',0,[['###',[]]]]];
 	}
 	// 1st convert rules to regexps
 	// expand synonyms and insert asterisk expressions for backtracking
@@ -698,9 +705,9 @@ ElizaBot.prototype._init = function() {
 	var are2=/(\S)\s*\*\s*$/;
 	var are3=/^\s*\*\s*$/;
 	var wsre=/\s+/g;
-	for (var k=0; k<this.elizaKeywords.length; k++) {
-		var rules=this.elizaKeywords[k][2];
-		this.elizaKeywords[k][3]=k; // save original index for sorting
+	for (var k=0; k<this.MensiKeywords.length; k++) {
+		var rules=this.MensiKeywords[k][2];
+		this.MensiKeywords[k][3]=k; // save original index for sorting
 		for (var i=0; i<rules.length; i++) {
 			var r=rules[i];
 			// check mem flag and store it as decomp's element 2
@@ -759,47 +766,47 @@ ElizaBot.prototype._init = function() {
 		}
 	}
 	// now sort keywords by rank (highest first)
-	this.elizaKeywords.sort(this._sortKeywords);
+	this.MensiKeywords.sort(this._sortKeywords);
 	// and compose regexps and refs for pres and posts
-	ElizaBot.prototype.pres={};
-	ElizaBot.prototype.posts={};
+	MensiBot.prototype.pres={};
+	MensiBot.prototype.posts={};
 
-	if ((this.elizaPres) && (this.elizaPres.length)) {
+	if ((this.MensiPres) && (this.MensiPres.length)) {
 		var a=new Array();
-		for (var i=0; i<this.elizaPres.length; i+=2) {
-			a.push(this.elizaPres[i]);
-			ElizaBot.prototype.pres[this.elizaPres[i]]=this.elizaPres[i+1];
+		for (var i=0; i<this.MensiPres.length; i+=2) {
+			a.push(this.MensiPres[i]);
+			MensiBot.prototype.pres[this.MensiPres[i]]=this.MensiPres[i+1];
 		}
-		ElizaBot.prototype.preExp = new RegExp('\\b('+a.join('|')+')\\b');
+		MensiBot.prototype.preExp = new RegExp('\\b('+a.join('|')+')\\b');
 	}
 	else {
 		// default (should not match)
-		ElizaBot.prototype.preExp = /####/;
-		ElizaBot.prototype.pres['####']='####';
+		MensiBot.prototype.preExp = /####/;
+		MensiBot.prototype.pres['####']='####';
 	}
 
-	if ((this.elizaPosts) && (this.elizaPosts.length)) {
+	if ((this.MensiPosts) && (this.MensiPosts.length)) {
 		var a=new Array();
-		for (var i=0; i<this.elizaPosts.length; i+=2) {
-			a.push(this.elizaPosts[i]);
-			ElizaBot.prototype.posts[this.elizaPosts[i]]=this.elizaPosts[i+1];
+		for (var i=0; i<this.MensiPosts.length; i+=2) {
+			a.push(this.MensiPosts[i]);
+			MensiBot.prototype.posts[this.MensiPosts[i]]=this.MensiPosts[i+1];
 		}
-		ElizaBot.prototype.postExp = new RegExp('\\b('+a.join('|')+')\\b');
+		MensiBot.prototype.postExp = new RegExp('\\b('+a.join('|')+')\\b');
 	}
 	else {
 		// default (should not match)
-		ElizaBot.prototype.postExp = /####/;
-		ElizaBot.prototype.posts['####']='####';
+		MensiBot.prototype.postExp = /####/;
+		MensiBot.prototype.posts['####']='####';
 	}
-	// check for elizaQuits and install default if missing
-	if ((!this.elizaQuits) || (typeof this.elizaQuits.length == 'undefined')) {
-		this.elizaQuits=[];
+	// check for MensiQuits and install default if missing
+	if ((!this.MensiQuits) || (typeof this.MensiQuits.length == 'undefined')) {
+		this.MensiQuits=[];
 	}
 	// done
-	ElizaBot.prototype._dataParsed=true;
+	MensiBot.prototype._dataParsed=true;
 }
 
-ElizaBot.prototype._sortKeywords = function(a,b) {
+MensiBot.prototype._sortKeywords = function(a,b) {
 	// sort by rank
 	if (a[1]>b[1]) return -1
 	else if (a[1]<b[1]) return 1
@@ -809,7 +816,7 @@ ElizaBot.prototype._sortKeywords = function(a,b) {
 	else return 0;
 }
 
-ElizaBot.prototype.transform = function(text) {
+MensiBot.prototype.transform = function(text) {
 	var rpl='';
 	this.quit=false;
 	// unify text string
@@ -825,8 +832,8 @@ ElizaBot.prototype.transform = function(text) {
 		var part=parts[i];
 		if (part!='') {
 			// check for quit expression
-			for (var q=0; q<this.elizaQuits.length; q++) {
-				if (this.elizaQuits[q]==part) {
+			for (var q=0; q<this.MensiQuits.length; q++) {
+				if (this.MensiQuits[q]==part) {
 					this.quit=true;
 					return this.getFinal();
 				}
@@ -845,8 +852,8 @@ ElizaBot.prototype.transform = function(text) {
 			}
 			this.sentence=part;
 			// loop trough keywords
-			for (var k=0; k<this.elizaKeywords.length; k++) {
-				if (part.search(new RegExp('\\b'+this.elizaKeywords[k][0]+'\\b', 'i'))>=0) {
+			for (var k=0; k<this.MensiKeywords.length; k++) {
+				if (part.search(new RegExp('\\b'+this.MensiKeywords[k][0]+'\\b', 'i'))>=0) {
 					rpl = this._execRule(k);
 				}
 				if (rpl!='') return rpl;
@@ -865,8 +872,8 @@ ElizaBot.prototype.transform = function(text) {
 	return (rpl!='')? rpl : 'I am at a loss for words.';
 }
 
-ElizaBot.prototype._execRule = function(k) {
-	var rule=this.elizaKeywords[k];
+MensiBot.prototype._execRule = function(k) {
+	var rule=this.MensiKeywords[k];
 	var decomps=rule[2];
 	var paramre=/\(([0-9]+)\)/;
 	for (var i=0; i<decomps.length; i++) {
@@ -886,8 +893,8 @@ ElizaBot.prototype._execRule = function(k) {
 				this.lastchoice[k][i]=ri;
 			}
 			var rpl=reasmbs[ri];
-			if (this.debug) alert('match:\nkey: '+this.elizaKeywords[k][0]+
-				'\nrank: '+this.elizaKeywords[k][1]+
+			if (this.debug) alert('match:\nkey: '+this.MensiKeywords[k][0]+
+				'\nrank: '+this.MensiKeywords[k][1]+
 				'\ndecomp: '+decomps[i][0]+
 				'\nreasmb: '+rpl+
 				'\nmemflag: '+memflag);
@@ -928,14 +935,14 @@ ElizaBot.prototype._execRule = function(k) {
 	return '';
 }
 
-ElizaBot.prototype._postTransform = function(s) {
+MensiBot.prototype._postTransform = function(s) {
 	// final cleanings
 	s=s.replace(/\s{2,}/g, ' ');
 	s=s.replace(/\s+\./g, '.');
-	if ((this.elizaPostTransforms) && (this.elizaPostTransforms.length)) {
-		for (var i=0; i<this.elizaPostTransforms.length; i+=2) {
-			s=s.replace(this.elizaPostTransforms[i], this.elizaPostTransforms[i+1]);
-			this.elizaPostTransforms[i].lastIndex=0;
+	if ((this.MensiPostTransforms) && (this.MensiPostTransforms.length)) {
+		for (var i=0; i<this.MensiPostTransforms.length; i+=2) {
+			s=s.replace(this.MensiPostTransforms[i], this.MensiPostTransforms[i+1]);
+			this.MensiPostTransforms[i].lastIndex=0;
 		}
 	}
 	// capitalize first char (v.1.1: work around lambda function)
@@ -947,19 +954,19 @@ ElizaBot.prototype._postTransform = function(s) {
 	return s;
 }
 
-ElizaBot.prototype._getRuleIndexByKey = function(key) {
-	for (var k=0; k<this.elizaKeywords.length; k++) {
-		if (this.elizaKeywords[k][0]==key) return k;
+MensiBot.prototype._getRuleIndexByKey = function(key) {
+	for (var k=0; k<this.MensiKeywords.length; k++) {
+		if (this.MensiKeywords[k][0]==key) return k;
 	}
 	return -1;
 }
 
-ElizaBot.prototype._memSave = function(t) {
+MensiBot.prototype._memSave = function(t) {
 	this.mem.push(t);
 	if (this.mem.length>this.memSize) this.mem.shift();
 }
 
-ElizaBot.prototype._memGet = function() {
+MensiBot.prototype._memGet = function() {
 	if (this.mem.length) {
 		if (this.noRandom) return this.mem.shift();
 		else {
@@ -973,18 +980,18 @@ ElizaBot.prototype._memGet = function() {
 	else return '';
 }
 
-ElizaBot.prototype.getFinal = function() {
+MensiBot.prototype.getFinal = function() {
 
-	if (!this.elizaFinals) return '';
-	return this.elizaFinals[Math.floor(Math.random()*this.elizaFinals.length)];
+	if (!this.MensiFinals) return '';
+	return this.MensiFinals[Math.floor(Math.random()*this.MensiFinals.length)];
 }
 
-ElizaBot.prototype.getInitial = function() {
-	if (!this.elizaInitials) return '';
-	return this.elizaInitials[Math.floor(Math.random()*this.elizaInitials.length)];
+MensiBot.prototype.getInitial = function() {
+	if (!this.MensiInitials) return '';
+	return this.MensiInitials[Math.floor(Math.random()*this.MensiInitials.length)];
 }
 
-var elizaFinals = [
+var MensiFinals = [
 "Goodbye.  It was nice talking to you.",
 // additions (not original)
 "Goodbye.  This was really a nice talk.",

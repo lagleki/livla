@@ -152,7 +152,7 @@ statement_1 = expr:(statement_2 (I_clause joik_jek statement_2?)*) {return _node
 
 statement_2 = expr:(statement_3 (I_clause (jek / joik)? stag? BO_clause free* statement_2)? / statement_3 (I_clause (jek / joik)? stag? BO_clause free*)?) {return _node("statement_2", expr);}
 
-statement_3 = expr:(sentence / tag? TUhE_clause free* text_1 TUhU_elidible free*) {return _node("statement_3", expr);}
+statement_3 = expr:(tag? TUhE_clause free* text_1 TUhU_elidible free* / sentence) {return _node("statement_3", expr);}
 
 //// EXP-MODIF: allowing na sequence.
 //fragment = expr:(prenex / terms VAU_elidible free* / ek free* / gihek free* / quantifier / (NA_clause !JA_clause free*)+ / relative_clauses / links / linkargs) {return _node("fragment", expr);}

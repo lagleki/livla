@@ -5,6 +5,8 @@ Mensibot.start() // initializes Mensi and returns a greeting message
 Mensibot.reply(msgtext) // returns a Mensi-like reply based on the message text passed into it
 Mensibot.bye() // returns a farewell message
 */
+module.exports.reply = exports.reply;
+
 exports.reply = function (r) {
 	if (this.bot === null||this.bot===undefined) {
 		this.bot = new MensiBot(false);
@@ -16,7 +18,7 @@ exports.start = function () {
 	if (this.bot === null) {
 		this.bot = new MensiBot(false);
 	}
-	//return this.bot.getInitial();
+	return this.bot.getInitial();
 };
 
 exports.bye = function () {
@@ -29,13 +31,13 @@ exports.bye = function () {
 function MensiBot(noRandomFlag) {
 
 	this.MensiInitials = [
-		"How do you do.  Please tell me your problem.",
-		"Please tell me what's been bothering you.",
-		"Is something troubling you ?",
-		"Im here. Talk to me.",
-		"Talk to me",
-		"Top of the morning to you.",
-		"Thanks for waking me up"
+		"do cinmo ma i e'o do ciksi lo do nabmi mi",
+		"e' do ciksi fi mi fe lo raktu be do",
+		"xu da raktu do",
+		"mi jundi i ko tavla mi",
+		"ko tavla mi",
+		"cerni coi do",
+		"do jai gau cikna fai mi vau ki'e do"
 	];
 
 	this.MensiKeywords = [
@@ -58,22 +60,22 @@ function MensiBot(noRandomFlag) {
 
 		["xnone", 0, [
 		 ["*", [
-		     "I'm not sure I understand you fully.",
-		     "Please go on.",
-		     "Can you repeat that please ?",
-		     "What does that suggest to you ?",
-		     "Do you feel strongly about discussing such things ?",
-		     "That is interesting.  Please continue.",
-		     "Tell me more about that.",
-		     "Do go on.",
-		     "Please talk more about it",
-		     "Does talking about this bother you ?",
-		     "Can you rephrase that ?",
-		     "I see. Tell me more.",
-		     "Interesting. Is this something you are sorry about ?",
-		     "Mmm hmmm. Is this is your favorite subject ?",
-		     "Now we are getting somewhere. Explain more.",
-		     "I see. How does that make you feel ?"
+		     "mi na birti lo nu mi mulno jimpe lo se smusku be do",
+		     "ko ca'o ciksi",
+		     "e'o do za'u re'u cusku di'u",
+		     "la'e di'u sinxa ma do",
+		     "xu do so'i va'e cinmo fi lo nu casnu lo simsa",
+		     "la'e di'u cinri i e'o do ca'o smusku",
+		     "ko smusku lo se jmina pe la'e di'u",
+		     "e'usai do ca'o ciksi",
+		     "e'o do ca'o smusku lo srana be pe la'e di'u",
+		     "xu lo nu casnu la'e di'u cu raktu do",
+		     "xu do ka'e smusku la'e di'u se pi'o lo drata valsi",
+		     "mi jimpe i ko smusku lo zmadu",
+		     "cinri i xu la'e di'u srana lo se xenru be do",
+		     "je'e i xu la'e di'u se nelci se casnu do",
+		     "i cati mi ce do zenba lo ka ce'u jimpe fi ce'u i ko ca'o ciksi",
+		     "mi co'a jimpe i la'e di'u rinka lo nu do cinmo ma"
 		  ]]
 		]],
 		["sorry", 0, [
@@ -658,7 +660,7 @@ function MensiBot(noRandomFlag) {
 	};
 
 	this.noRandom= (noRandomFlag)? true:false;
-	this.capitalizeFirstLetter=true;
+	this.capitalizeFirstLetter=false;
 	this.debug=false;
 	this.memSize=20;
 	this.version="1.1 (original)";
@@ -691,7 +693,7 @@ MensiBot.prototype._init = function() {
 	var synPatterns={};
 
 	if ((this.MensiSynons) && (typeof this.MensiSynons == 'object')) {
-		for (var i in this.MensiSynons) synPatterns[i]='('+i+'|'+this.MensiSynons[i].join('|')+')';
+		for (var j in this.MensiSynons) synPatterns[j]='('+j+'|'+this.MensiSynons[j].join('|')+')';
 	}
 	// check for keywords or install empty structure to prevent any errors
 	if ((!this.MensiKeywords) || (typeof this.MensiKeywords.length == 'undefined')) {
@@ -733,8 +735,9 @@ MensiBot.prototype._init = function() {
 			}
 			else {
 				m=are.exec(r[0]);
+				var lp;
 				if (m) {
-					var lp='';
+					lp='';
 					var rp=r[0];
 					while (m) {
 						lp+=rp.substring(0,m.index+1);
@@ -749,13 +752,13 @@ MensiBot.prototype._init = function() {
 				}
 				m=are1.exec(r[0]);
 				if (m) {
-					var lp='\\s*(.*)\\s*';
+					lp='\\s*(.*)\\s*';
 					if ((m[1]!=')') && (m[1]!='\\')) lp+='\\b';
 					r[0]=lp+r[0].substring(m.index-1+m[0].length);
 				}
 				m=are2.exec(r[0]);
 				if (m) {
-					var lp=r[0].substring(0,m.index+1);
+					lp=r[0].substring(0,m.index+1);
 					if (m[1]!='(') lp+='\\b';
 					r[0]=lp+'\\s*(.*)\\s*';
 				}
@@ -772,10 +775,10 @@ MensiBot.prototype._init = function() {
 	MensiBot.prototype.posts={};
 
 	if ((this.MensiPres) && (this.MensiPres.length)) {
-		var a=new Array();
-		for (var i=0; i<this.MensiPres.length; i+=2) {
-			a.push(this.MensiPres[i]);
-			MensiBot.prototype.pres[this.MensiPres[i]]=this.MensiPres[i+1];
+		var a=[];
+		for (var n=0; n<this.MensiPres.length; n+=2) {
+			a.push(this.MensiPres[n]);
+			MensiBot.prototype.pres[this.MensiPres[n]]=this.MensiPres[n+1];
 		}
 		MensiBot.prototype.preExp = new RegExp('\\b('+a.join('|')+')\\b');
 	}
@@ -786,12 +789,12 @@ MensiBot.prototype._init = function() {
 	}
 
 	if ((this.MensiPosts) && (this.MensiPosts.length)) {
-		var a=new Array();
-		for (var i=0; i<this.MensiPosts.length; i+=2) {
-			a.push(this.MensiPosts[i]);
-			MensiBot.prototype.posts[this.MensiPosts[i]]=this.MensiPosts[i+1];
+		var e=[];
+		for (var o=0; o<this.MensiPosts.length; o+=2) {
+			e.push(this.MensiPosts[o]);
+			MensiBot.prototype.posts[this.MensiPosts[o]]=this.MensiPosts[o+1];
 		}
-		MensiBot.prototype.postExp = new RegExp('\\b('+a.join('|')+')\\b');
+		MensiBot.prototype.postExp = new RegExp('\\b('+e.join('|')+')\\b');
 	}
 	else {
 		// default (should not match)
@@ -808,11 +811,11 @@ MensiBot.prototype._init = function() {
 
 MensiBot.prototype._sortKeywords = function(a,b) {
 	// sort by rank
-	if (a[1]>b[1]) return -1
-	else if (a[1]<b[1]) return 1
+	if (a[1]>b[1]){ return -1;}
+	else if (a[1]<b[1]) {return 1;}
 	// or original index
-	else if (a[3]>b[3]) return 1
-	else if (a[3]<b[3]) return -1
+	else if (a[3]>b[3]) {return 1;}
+	else if (a[3]<b[3]) {return -1;}
 	else return 0;
 };
 
@@ -865,8 +868,8 @@ MensiBot.prototype.transform = function(text) {
 	// if nothing in mem, so try xnone
 	if (rpl==='') {
 		this.sentence=' ';
-		var k=this._getRuleIndexByKey('xnone');
-		if (k>=0) rpl=this._execRule(k);
+		var o=this._getRuleIndexByKey('xnone');
+		if (o>=0) rpl=this._execRule(o);
 	}
 	// return reply or default string
 	return (rpl!=='')? rpl : 'I am at a loss for words.';
@@ -878,7 +881,7 @@ MensiBot.prototype._execRule = function(k) {
 	var paramre=/\(([0-9]+)\)/;
 	for (var i=0; i<decomps.length; i++) {
 		var m=this.sentence.match(decomps[i][0]);
-		if (m!=null) {
+		if (m!==null) {
 			var reasmbs=decomps[i][1];
 			var memflag=decomps[i][2];
 			var ri= (this.noRandom)? 0 : Math.floor(Math.random()*reasmbs.length);
@@ -898,7 +901,7 @@ MensiBot.prototype._execRule = function(k) {
 				'\ndecomp: '+decomps[i][0]+
 				'\nreasmb: '+rpl+
 				'\nmemflag: '+memflag);
-			if (rpl.search('^goto ', 'i')==0) {
+			if (rpl.search('^goto ', 'i')===0) {
 				ki=this._getRuleIndexByKey(rpl.substring(5));
 				if (ki>=0) return this._execRule(ki);
 			}
@@ -928,12 +931,12 @@ MensiBot.prototype._execRule = function(k) {
 				rpl=lp+rp;
 			}
 			rpl=this._postTransform(rpl);
-			if (memflag) this._memSave(rpl)
-			else return rpl;
+			if (memflag) {this._memSave(rpl)}
+			else {return rpl;}
 		}
 	}
 	return '';
-}
+};
 
 MensiBot.prototype._postTransform = function(s) {
 	// final cleanings
@@ -952,19 +955,19 @@ MensiBot.prototype._postTransform = function(s) {
 		if (m) s=m[0].toUpperCase()+s.substring(1);
 	}
 	return s;
-}
+};
 
 MensiBot.prototype._getRuleIndexByKey = function(key) {
 	for (var k=0; k<this.MensiKeywords.length; k++) {
 		if (this.MensiKeywords[k][0]==key) return k;
 	}
 	return -1;
-}
+};
 
 MensiBot.prototype._memSave = function(t) {
 	this.mem.push(t);
 	if (this.mem.length>this.memSize) this.mem.shift();
-}
+};
 
 MensiBot.prototype._memGet = function() {
 	if (this.mem.length) {
@@ -978,18 +981,18 @@ MensiBot.prototype._memGet = function() {
 		}
 	}
 	else return '';
-}
+};
 
 MensiBot.prototype.getFinal = function() {
 
 	if (!this.MensiFinals) return '';
 	return this.MensiFinals[Math.floor(Math.random()*this.MensiFinals.length)];
-}
+};
 
 MensiBot.prototype.getInitial = function() {
 	if (!this.MensiInitials) return '';
 	return this.MensiInitials[Math.floor(Math.random()*this.MensiInitials.length)];
-}
+};
 
 var MensiFinals = [
 "Goodbye.  It was nice talking to you.",
@@ -1007,7 +1010,7 @@ if (typeof Array.prototype.push == 'undefined') {
 }
 if (typeof Array.prototype.shift == 'undefined') {
 	Array.prototype.shift=function() {
-		if (this.length==0) return null;
+		if (this.length===0) {return null;}
 		var e0=this[0];
 		for (var i=1; i<this.length; i++) this[i-1]=this[i];
 		this.length--;

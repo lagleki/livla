@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+	<TITLE>Mensi (Mensibot.js)</TITLE>
+	<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="./mensimikce.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!--
+
+var Mensi = new MensiBot();
+var MensiLines = new Array();
+
+var displayCols = 60;
+var displayRows = 20;
+
+function MensiReset() {
+	Mensi.reset();
+	MensiLines.length = 0;
+	MensiStep();
+}
+
+function MensiStep() {
+	var f = document.forms.e_form;
+	var userinput = f.e_input.value;
+	if (Mensi.quit) {
+		f.e_input.value = '';
+		if (confirm("This session is over.\nStart over?")) MensiReset();
+		f.e_input.focus();
+		return;
+	}
+	else if (userinput != '') {
+		var usr = 'YOU:   ' + userinput;
+		var rpl ='Mensi: ' + Mensi.transform(userinput);
+		MensiLines.push(usr);
+		MensiLines.push(rpl);
+		// display nicely
+		// (fit to textarea with last line free - reserved for extra line caused by word wrap)
+		var temp  = new Array();
+		var l = 0;
+		for (var i=MensiLines.length-1; i>=0; i--) {
+			l += 1 + Math.floor(MensiLines[i].length/displayCols);
+			if (l >= displayRows) break
+			else temp.push(MensiLines[i]);
+		}
+		MensiLines = temp.reverse();
+		f.e_display.value = MensiLines.join('\n');
+	}
+	else if (MensiLines.length == 0) {
+		// no input and no saved lines -> output initial
+		var initial = 'Mensi: ' + Mensi.getInitial();
+		MensiLines.push(initial);
+		f.e_display.value = initial + '\n';
+	}
+	f.e_input.value = '';
+	f.e_input.focus();
+}
+
+//-->
+</SCRIPT>
+</HEAD>
+
+<BODY TOPMARGIN="0" LEFTMARGIN="0" RIGHTMARGIN="0" BOTTOMMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" STYLE="border:0" onload="window.setTimeout('MensiReset()',100)"><A NAME="top"></A>
+
+<CENTER>
+<P>&nbsp;</P>
+<H3>Mensi</H3>
+<FORM NAME="e_form" onsubmit="MensiStep();return false">
+<TABLE BORDER="0" CELLSPACING="10" CELLPADDING="0">
+<TR><TD COLSPAN="2"><TEXTAREA NAME="e_display" COLS="60" ROWS="20"></TEXTAREA></TD></TR>
+<TR VALIGN="middle">
+	<TD><INPUT TYPE="text" NAME="e_input" SIZE="50"></TD>
+	<TD ALIGN="right"><INPUT TYPE="submit" VALUE="&nbsp;Talk&nbsp;"> <INPUT TYPE="reset" VALUE="Reset" onClick="window.setTimeout('MensiReset()',100)"></TD>
+</TR>
+</TABLE>
+</FORM>
+</CENTER>
+
+<P>&nbsp;</P>
+<P ALIGN="center">For a comfortable terminal-like interface see the <A HREF="http://www.masswerk.at/Mensibot/Mensi.html">Mensi-Terminal</A>.</P>
+<P ALIGN="center">For a modern interface (featuring speech I/O) see <A HREF="http://www.masswerk.at/Mensi/">E.L.I.Z.A. Talking</A>.</P>
+<P>&nbsp;</P>
+<TABLE BORDER="0" CELLSPACING="12" CELLPADDDING="0">
+<TR><TD COLSPAN="2">
+Mensi is a natural language conversation program described by Joseph Weizenbaum in January 1966 <A HREF="#Mensi">[1]</A>.<BR>
+It features the dialog between a human user and a computer program representing a mock Rogerian psychotherapist.<BR>
+The original program was implemented on the IBM 7094 of the Project MAC time-sharing system at MIT and was written in MAD-SLIP.<BR><BR>
+This is how Joseph Weizenbaum discussed his choice for a conversation model as it would be found in psychotherapist's session:
+<BLOCKQUOTE>
+At this writing, the only serious Mensi scripts which exist are some which cause
+Mensi to respond roughly as would certain psychotherapists (Rogerians). Mensi
+performs best when its human correspondent is initially instructed to
+&quot;talk&quot; to it, via the typewriter of course, just as one would to a
+psychiatrist. This mode of conversation was chosen because the psychiatric
+interview is one of the few examples of categorized dyadic natural language
+communication in which one of the participating pair is free to assume the pose
+of knowing almost nothing of the real world. If, for example, one were to tell a
+psychiatrist &quot;I went for a long boat ride&quot; and he responded &quot;Tell
+me about boats&quot;, one would not assume that he knew nothing about boats, but
+that he had some purpose in so directing the subsequent conversation. It is
+important to note that this assumption is one made by the speaker. Whether it is
+realistic or not is an altogether separate question. In any case, it has a
+crucial psychological utility in that it serves the speaker to maintain his
+sense of being heard and understood. The speaker furher defends his impression
+(which even in real life may be illusory) by attributing to his conversational
+partner all sorts of background knowledge, insights and reasoning ability. But
+again, these are the <em>speaker's</em> contribution to the conversation.
+</BLOCKQUOTE>
+</TD></TR>
+</TABLE>
+
+</BODY>
+</HTML>
+

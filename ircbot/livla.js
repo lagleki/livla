@@ -1473,7 +1473,7 @@ return text;
 
 var mensimikce = function(text){//eliza bot analog
 var Mensibot = require('../mahantufa/mensimikce.js');
-Mensibot.start(); // initializes Mensi and returns a greeting message
+//Mensibot.start(); // initializes Mensi and returns a greeting message
 return Mensibot.reply(text);
 };
 //NAXLE

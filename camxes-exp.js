@@ -16076,7 +16076,7 @@ var camxes = (function(){
         result0 = parse_FA_clause();
         result0 = result0 !== null ? result0 : "";
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return (expr == "") ? ["FA"] : _node("FA", expr);})(pos0, result0);
+          result0 = (function(offset, expr) {return (expr == "") ? [""] : _node("FA", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;

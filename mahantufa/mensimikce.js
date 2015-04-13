@@ -78,42 +78,42 @@ function MensiBot(noRandomFlag) {
 		     "mi co'a jimpe i la'e di'u rinka lo nu do cinmo ma"
 		  ]]
 		]],
-		["sorry", 0, [
+		["zungi", 0, [
 		 ["*", [
-		     "Please don't apologize.",
-		     "Apologies are not necessary.",
-		     "I've told you that apologies are not required.",
-		     "It did not bother me.  Please continue.",
-		     "I have no feelings. Do continue.",
-		     "There is nothing to worry about"
+		     "e'o do na zungi",
+		     "lo nu zungi na sarcu",
+		     "ke'u lo nu zungi na sarcu",
+		     "na raktu mi i e'o do ca'o ciksi",
+		     "mi naku cinmoi ko ja'a ca'o ciksi",
+		     "ei cinmo lo ka se raktu vau no da"
 		  ]]
 		]],
-		["apologize", 0, [
+		["u'u", 0, [
 		 ["*", [
-		     "goto sorry"
+		     "goto zungi"
 		  ]]
 		]],
-		["remember", 5, [
-		 ["* i remember *", [
-		     "Do you often think of (2) ?",
+		["morji", 5, [
+		 ["* mi morji lo du'u *", [
+		     "xu do cafne pensi lo nu (2) ?",
 		     "Does thinking of (2) bring anything else to mind ?",
-		     "What else do you recollect ?",
-		     "Why do you remember (2) just now ?",
+		     "do morji fe ji'a ma",
+		     "ni'i ma do punai je ca morji lo du'u (2)",
 		     "What in the present situation reminds you of (2) ?",
 		     "What is the connection between me and (2) ?",
 		     "What else does (2) remind you of ?"
 		  ]],
-		 ["* do you remember *", [
+		 ["* xu do morji *", [
 		     "Did you think I would forget (2) ?",
 		     "Why do you think I should recall (2) now ?",
 		     "What about (2) ?",
 		     "goto what",
 		     "You mentioned (2) ?"
 		  ]],
-		 ["* you remember *", [
+		 ["* do morji *", [
 		     "How could I forget (2) ?",
 		     "What about (2) should I remember ?",
-		     "goto you"
+		     "goto do"
 		  ]]
 		]],
 		["forget", 5, [
@@ -182,8 +182,8 @@ function MensiBot(noRandomFlag) {
 		["deutsch", 0, [
 		 ["*", [
 		     "goto xforeign",
-		     "Sorry I do not sprechen sie deutsch",
-		     "I told you before, I don't understand German."
+		     "u'u mi na sprechen sie deutsch",
+		     "ke'u mi na se bangu la doitc"
 		  ]]
 		]],
 		["francais", 0, [
@@ -209,19 +209,19 @@ function MensiBot(noRandomFlag) {
 		]],
 		["xforeign", 0, [
 		 ["*", [
-		     "I speak only English."
+		     "mi se bangu fe po'o la lojban"
 		  ]]
 		]],
-		["hello", 0, [
+		["coi", 0, [
 		 ["*", [
-		     "How do you do.  Please state your problem.",
-		     "Hi.  What seems to be your problem ?"
+		     "do mo i ko ciksi lo nabmi be do",
+		     "coi i ma simlu lo ka nabmi do"
 		  ]]
 		]],
-		["computer", 50, [
+		["skami", 50, [
 		 ["*", [
-		     "Do computers worry you ?",
-		     "Why do you mention computers ?",
+		     "xu lo skami cu raktu do",
+		     "ki'u ma do smusku lo nu lo skami",
 		     "What do you think machines have to do with your problem ?",
 		     "Don't you think computers can help people ?",
 		     "What about machines worries you ?",
@@ -238,7 +238,7 @@ function MensiBot(noRandomFlag) {
 		     "goto what"
 		  ]],
 		 ["* i am *", [
-		     "goto i"
+		     "goto mi"
 		  ]],
 		 ["*", [
 		     "Why do you say 'am' ?",
@@ -256,7 +256,7 @@ function MensiBot(noRandomFlag) {
 		     "What if I were (2) ?"
 		  ]],
 		 ["* you are *", [
-		     "goto you"
+		     "goto do"
 		  ]],
 		 ["* are *", [
 		     "Did you think they might not be (2) ?",
@@ -299,7 +299,7 @@ function MensiBot(noRandomFlag) {
 		     "What if I had been (2) ?"
 		  ]]
 		]],
-		["i", 0, [
+		["mi", 0, [
 		 ["* i @desire *", [
 		     "What would it mean to you if you got (3) ?",
 		     "Why do you want (3) ?",
@@ -329,7 +329,7 @@ function MensiBot(noRandomFlag) {
 		     "Do you really doubt you (3) ?"
 		  ]],
 		 ["* i* @belief *you *", [
-		     "goto you"
+		     "goto do"
 		  ]],
 		 ["* i am *", [
 		     "Is it because you are (2) that you came to me ?",
@@ -374,7 +374,7 @@ function MensiBot(noRandomFlag) {
 		     "When did you first think about (1)"
 		  ]]
 		]],
-		["you", 0, [
+		["do", 0, [
 		 ["* you remind me of *", [
 		     "goto alike"
 		  ]],

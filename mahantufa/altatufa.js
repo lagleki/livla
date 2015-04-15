@@ -2049,7 +2049,9 @@ var camxes = (function(){
         pos0 = pos;
         pos1 = pos;
         result0 = parse_terms();
-        result0 = result0 !== null ? result0 : "";
+        if (result0 === null) {
+          result0 = parse_termpreFAZOhE();
+        }
         if (result0 !== null) {
           result1 = parse_ZOhU_clause();
           if (result1 !== null) {

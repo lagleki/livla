@@ -159,7 +159,7 @@ statement_3 = expr:(tag? TUhE_clause free* text_1 TUhU_elidible free* / sentence
 fragment = expr:(ek free* / !term !tag quantifier / relative_clauses / links / linkargs) {return _node("fragment", expr);}
 
 //// EXP-MODIF: Allowing empty prenexes.
-prenex = expr:(terms? ZOhU_clause free*) {return _node("prenex", expr);}
+prenex = expr:((terms / termpreFAZOhE) ZOhU_clause free*) {return _node("prenex", expr);}
 
 sentence_sa = expr:(sentence_start (!sentence_start (sa_word / SA_clause !sentence_start ) )* SA_clause &text_1) {return _node("sentence_sa", expr);}
 

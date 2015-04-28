@@ -12,7 +12,7 @@ this.onmessage = function(ev) {
   }
 };
 
-postMessage({kind: 'loading', message: 'Building index'});
+postMessage({kind: 'loading', message: 'Создаём индексы'});
 setupSearchEngine(function() {
   postMessage({kind: 'ready'});
 }, function(percent) {

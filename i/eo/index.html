@@ -155,7 +155,7 @@ Por pluaj resursoj, vizitu <a href="http://mw.lojban.org" target="_blank">la LoÄ
 
         <div id='loading'>
           <span class='message'>Åœargando vortaron</span>...<br>
-          <paper-progress id='progress' value='0'></paper-progress>
+          <paper-progress id='progress' value='33'></paper-progress>
         </div>
       </div>
     </div>
@@ -186,7 +186,7 @@ Por pluaj resursoj, vizitu <a href="http://mw.lojban.org" target="_blank">la LoÄ
         results = ev.data.results;
         displayResults();
       } else if (ev.data.kind == 'loading') {
-        $("#loading .message").text(ev.data.message);
+        $("#loading .message").text(ev.data.message);progress.attr('value', 50);
       } else if (ev.data.kind == 'progress') {
         progress.attr('value', ev.data.percent * 100);
       }
@@ -228,35 +228,35 @@ Por pluaj resursoj, vizitu <a href="http://mw.lojban.org" target="_blank">la LoÄ
     function displayDocument(def) {
       var out = $("<div>").addClass('term');
       out.append($("<heading layout flex horizontal end>")
-          .append($("<h4>").text(def.word + ' '))
+          .append($("<h4>").text(def.w + ' '))
           .append($("<div flex>"))
-          .append($("<div>").addClass('type').text(def.type + ' '))
+          .append($("<div>").addClass('type').text(def.t + ' '))
       );
-      if (def.definition) {
+      if (def.d) {
         $("<div>").addClass('definition').html(
-            lojTemplate(def.definition) + ' ').appendTo(out);
+            lojTemplate(def.d) + ' ').appendTo(out);
       } else {
         var subDefs = $("<div>")
             .addClass('definition').addClass('subdefinitions');
-        for (var i = 0; i < def.rafsiDocuments.length; i++) {
-          displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);
+        for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {
+          displayDocument((def||[]).rafsiDocuments[i]).appendTo(subDefs);
         }
         subDefs.appendTo(out);
       }
 
 
-      if (def.notes) {
+      if (def.n) {
         out.append(
-            $('<div>').addClass('notes').html(lojTemplate(def.notes) + ' '));
+            $('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
       }
 
-      if ((def.rafsi||[]) && (def.rafsi||[]).length > 0) {
+      if ((def.r||[]) && (def.r||[]).length > 0) {
         var rafsi = $("<div>").addClass('rafsi');
         rafsi.append("rafsi: ");
-        for (var i = 0; i < def.rafsi.length; i++) {
+        for (var i = 0; i < def.r.length; i++) {
           var rafElem = $("<span>").appendTo(rafsi);
-          var raf = def.rafsi[i];
-          if (def.type.match(/lujvo/)) {
+          var raf = def.r[i];
+          if (def.t.match(/lujvo/)) {
             rafElem.append(
                 $("<a>").attr(
                     'href', '#search/' + encodeURIComponent(raf))
@@ -308,8 +308,10 @@ Por pluaj resursoj, vizitu <a href="http://mw.lojban.org" target="_blank">la LoÄ
       worker.postMessage(
           {kind: 'newSearch', 'query': query, 'searchId': searchId});
     }
-    typehere.keyup(doSearch);
-    typehere.keydown(displayDescription);
+	var typingTimer;               //timer identifier
+	var doneTypingInterval = 200;  //time in ms, 5 second for example
+    typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
+    typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
     function updateUrl(query) {
       var url = '';

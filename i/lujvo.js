@@ -2,11 +2,11 @@ var rafsi = {};
 function onUpdateDocumentStore() {
   for (var key in documentStore) {
     var def = documentStore[key];
-    if (def.type.match(/lujvo/)) {
+    if ((def.t||'').match(/lujvo/)) {
       continue;
     }
-    for (var i = 0; i < (def.rafsi||[]).length; i++) {
-      rafsi[(def.rafsi[i]||'')] = def;
+    for (var i = 0; i < (def.r||[]).length; i++) {
+      rafsi[(def.r[i]||'')] = def;
     }
   }
 }

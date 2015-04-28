@@ -128,14 +128,14 @@
 
 text = expr:(intro_null NAI_clause* text_part_2 (!text_1 joik_jek)? text_1? faho_clause EOF?) {return _node_nonempty("text", expr);}
 
-intro_null = expr:(spaces? su_clause* intro_si_clause) {return _node_nonempty("intro_null", expr); }
+intro_null = expr:(spaces? su_clause*) {return _node_nonempty("intro_null", expr); }
 
 //// EXP-MODIF: brivla/cmevla merge
 text_part_2 = expr:(indicators? free*) {return _node_nonempty("text_part_2", expr); }
 
 //; intro_sa_clause = SA_clause+ / any_word_SA_handling !(ZEI_clause SA_clause) intro_sa_clause
 intro_si_clause = expr:(si_clause? SI_clause*)  {return _node_nonempty("intro_si_clause", expr); }
-faho_clause = expr:((FAhO_clause dot_star)?) {return _node("faho_clause", expr);}
+faho_clause = expr:((si_clause? FAhO_elidible dot_star)?) {return _node("faho_clause", expr);}
 
 // Please note that the "text_1" item in the text_1 production does
 // *not* match the BNF. This is due to a bug in the BNF.  The change
@@ -152,7 +152,7 @@ statement_1 = expr:(statement_2 (I_clause joik_jek statement_2?)*) {return _node
 
 statement_2 = expr:(statement_3 (I_clause (jek / joik)? stag? BO_clause free* statement_2)? / statement_3 (I_clause (jek / joik)? stag? BO_clause free*)?) {return _node("statement_2", expr);}
 
-statement_3 = expr:(sentence / tag? TUhE_clause free* text_1 TUhU_elidible free*) {return _node("statement_3", expr);}
+statement_3 = expr:(tag? TUhE_clause free* text_1 TUhU_elidible free* / sentence) {return _node("statement_3", expr);}
 
 //// EXP-MODIF: allowing na sequence.
 //fragment = expr:(prenex / terms VAU_elidible free* / ek free* / gihek free* / quantifier / (NA_clause !JA_clause free*)+ / relative_clauses / links / linkargs) {return _node("fragment", expr);}
@@ -190,7 +190,7 @@ bridi_tail_1 = expr:(bridi_tail_2 ((gihek / JA_clause) !(stag? BO_clause) !(stag
 //// EXP-MODIF: GI TAG BO + JACU
 bridi_tail_2 = expr:(CU_elidible bridi_tail_3 (((gihek / JA_clause) stag? / GI_clause stag) BO_clause free* bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2", expr);}
 
-bridi_tail_3 = expr:((selbri / GOhA_elidible) tail_terms / gek_sentence) {return _node("bridi_tail_3", expr);}
+bridi_tail_3 = expr:(gek_sentence / (selbri / SELBRI_elidible) tail_terms) {return _node("bridi_tail_3", expr);}
 
 //// EXP-FIX: tag? KE --> tag* KE
 gek_sentence = expr:(gek subsentence gik subsentence tail_terms / tag* KE_clause free* gek_sentence KEhE_elidible free* / NA_clause free* gek_sentence) {return _node("gek_sentence", expr);}
@@ -220,14 +220,15 @@ term = expr:(term_sa* term_1) {return _node("term", expr);}
 term_1 = expr:(tag_term / sumti / termset) {return _node("term_1", expr);}
 
 //// EXP-MODIF: NA without KU as a term; free* within NAKU
+// FIXME: The first "!gek" below results in "ge mi ba gi do pu" being ungrammatical.
 tag_term = expr:((!gek tag free* (sumti / KU_elidible free*) / !gek (sumti free*) CO_clause tag free* / NA_clause free* KU_clause free* / !gek !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek tag_term)*) {return _node("tag_term", expr);}
 
 abs_term = expr:(term_sa* abs_term_1) {return _node("abs_term", expr);}
 //// EXP-MODIF: flip-flop of "sumti / abs_tag_term" to allow postpositions
-abs_term_1 = expr:(abs_tag_term / sumti / termset) {return _node("abs_term_1", expr);}
+abs_term_1 = expr:(abs_tag_term / termset) {return _node("abs_term_1", expr);}
 
 //// EXP-MODIF: NA without KU as a term; free* within NAKU; postpositions
-abs_tag_term = expr:((!gek tag free* !selbri !gek_sentence (sumti / joik_ek sumti_3 / KU_elidible free*) / !gek (sumti free*) CO_clause tag free* / NA_clause free* KU_clause free* / !selbri !gek_sentence !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek abs_tag_term)*) {return _node("abs_tag_term", expr);}
+abs_tag_term = expr:((!gek tag free* !selbri !gek_sentence (sumti / joik_ek sumti_3 / KU_elidible free*) / !gek (sumti free*) CO_clause tag free* / !gek FA_elidible sumti / NA_clause free* KU_clause free* / !selbri !gek_sentence !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek abs_tag_term)*) {return _node("abs_tag_term", expr);}
 /*** END EXP-MODIF ***/
 
 term_sa = expr:(term_start (!term_start (sa_word / SA_clause !term_start ) )* SA_clause &term_1) {return _node("term_sa", expr);}
@@ -475,7 +476,10 @@ bu_clause_no_pre = expr:(pre_zei_bu (bu_tail? zei_tail)* bu_tail post_clause) {r
 zei_tail = expr:(ZEI_clause any_word)+ {return _node("zei_tail", expr); }
 bu_tail = expr:BU_clause+ {return _node("bu_tail", expr); }
 
-pre_zei_bu = expr:(!BU_clause !ZEI_clause !SI_clause !SA_clause !SU_clause !FAhO_clause any_word_SA_handling si_clause?) {return _node("pre_zei_bu", expr); }
+pre_zei_bu = expr:(BRIVLA / CMAVO) spaces? {return _node("pre_zei_bu", expr); }
+/////pre_zei_bu = expr:(!BU_clause !ZEI_clause !SI_clause !SA_clause !SU_clause !FAhO_clause any_word_SA_handling si_clause?) {return _node("pre_zei_bu", expr); }
+
+
 // LOhU_pre / ZO_pre / ZOI_pre / !ZEI_clause !BU_clause !FAhO_clause !SI_clause !SA_clause !SU_clause any_word_SA_handling si_clause?
 // pre_zei_bu_no_SA = LOhU_pre / ZO_pre / ZOI_pre / !ZEI_clause !BU_clause !FAhO_clause !SI_clause !SA_clause !SU_clause any_word si_clause?
 
@@ -488,9 +492,9 @@ dot_star = expr:(.*) { ret = ""; for (i in expr) ret += (expr[i] === " ") ? "_" 
 // 3.  BAhE is eaten *before* a word.
 
 // Handling of what can go after a cmavo
-post_clause = expr:(spaces? si_clause? !ZEI_clause !BU_clause indicators*) {return _node_nonempty("post_clause", expr); }
+post_clause = expr:(spaces? !ZEI_clause !BU_clause indicators*) {return _node_nonempty("post_clause", expr); }
 
-pre_clause = BAhE_clause?
+pre_clause = BAhE_clause? si_clause?
 
 //// EXP-DELETION: brivla/cmevla merge
 //any_word_SA_handling = BRIVLA_pre / known_cmavo_SA / !known_cmavo_pre CMAVO_pre / CMEVLA_pre
@@ -508,7 +512,7 @@ su_clause = (erasable_clause / su_word)* SU_clause
 
 // Handling of SI and interactions with zo and lo'u...le'u
 
-si_clause = ((erasable_clause / si_word / SA_clause) si_clause? SI_clause)+
+si_clause = ((erasable_clause / si_word) si_clause? SI_clause)+
 
 erasable_clause = expr:(bu_clause_no_pre !ZEI_clause !BU_clause / zei_clause_no_pre !ZEI_clause !BU_clause) {return _node("erasable_clause", expr); }
 
@@ -525,10 +529,12 @@ BEhO_elidible = expr:(BEhO_clause?) {return (expr == "") ? ["BEhO"] : _node("BEh
 BOI_elidible = expr:(BOI_clause?)   {return (expr == "") ? ["BOI"]  : _node("BOI", expr);}
 CU_elidible = expr:(CU_clause?)     {return (expr == "") ? ["CU"]   : _node("CU", expr);}
 DOhU_elidible = expr:(DOhU_clause?) {return (expr == "") ? ["DOhU"] : _node("DOhU", expr);}
+FA_elidible = expr:(FA_clause?) {return (expr == "") ? [""] : _node("FA", expr);}
+FAhO_elidible = expr:(FAhO_clause?) {return (expr == "") ? [""] : _node("FAhO", expr);}
 FEhU_elidible = expr:(FEhU_clause?) {return (expr == "") ? ["FEhU"] : _node("FEhU", expr);}
 // FOI and FUhO are never elidible
 GEhU_elidible = expr:(GEhU_clause?) {return (expr == "") ? ["GEhU"] : _node("GEhU", expr);}
-GOhA_elidible = expr:(GOhA_clause?) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);}
+SELBRI_elidible = expr:(GOhA_clause?) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);}
 KEI_elidible = expr:(KEI_clause?)   {return (expr == "") ? ["KEI"]  : _node("KEI", expr);}
 KEhE_elidible = expr:(KEhE_clause?) {return (expr == "") ? ["KEhE"] : _node("KEhE", expr);}
 KU_elidible = expr:(KU_clause?)     {return (expr == "") ? ["KU"]   : _node("KU", expr);}

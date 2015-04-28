@@ -139,7 +139,7 @@
 
         <div id='loading'>
           <span class='message'>Loading dictionary</span>...<br>
-          <paper-progress id='progress' value='0'></paper-progress>
+          <paper-progress id='progress' value='33'></paper-progress>
         </div>
       </div>
     </div>
@@ -169,7 +169,7 @@
         results = ev.data.results;
         displayResults();
       } else if (ev.data.kind == 'loading') {
-        $("#loading .message").text(ev.data.message);
+        $("#loading .message").text(ev.data.message);progress.attr('value', 50);
       } else if (ev.data.kind == 'progress') {
         progress.attr('value', ev.data.percent * 100);
       }
@@ -211,26 +211,26 @@
     function displayDocument(def) {
       var out = $("<div>").addClass('term');
       out.append($("<heading layout flex horizontal end>")
-          .append($("<h4>").text(def.word + ' '))
+          .append($("<h4>").text(def.w + ' '))
           .append($("<div flex>"))
-          .append($("<div>").addClass('type').text(def.type + ' '))
+          .append($("<div>").addClass('type').text(def.t + ' '))
       );
-      if (def.definition) {
+      if (def.d) {
         $("<div>").addClass('definition').html(
-            lojTemplate(def.definition) + ' ').appendTo(out);
+            lojTemplate(def.d) + ' ').appendTo(out);
       } else {
         var subDefs = $("<div>")
             .addClass('definition').addClass('subdefinitions');
-        for (var i = 0; i < def.rafsiDocuments.length; i++) {
-          displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);
+        for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {
+          displayDocument((def||[]).rafsiDocuments[i]).appendTo(subDefs);
         }
         subDefs.appendTo(out);
       }
 
 
-      if (def.notes) {
+      if (def.n) {
         out.append(
-            $('<div>').addClass('notes').html(lojTemplate(def.notes) + ' '));
+            $('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
       }
 
       if ((def.rafsi||[]) && (def.rafsi||[]).length > 0) {
@@ -291,8 +291,10 @@
       worker.postMessage(
           {kind: 'newSearch', 'query': query, 'searchId': searchId});
     }
-    typehere.keyup(doSearch);
-    typehere.keydown(displayDescription);
+	var typingTimer;               //timer identifier
+	var doneTypingInterval = 200;  //time in ms, 5 second for example
+    typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
+    typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
     function updateUrl(query) {
       var url = '';

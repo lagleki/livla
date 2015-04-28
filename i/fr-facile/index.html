@@ -152,7 +152,7 @@
 
         <div id='loading'>
           <span class='message'>Loading dictionary</span>...<br>
-          <paper-progress id='progress' value='0'></paper-progress>
+          <paper-progress id='progress' value='33'></paper-progress>
         </div>
       </div>
     </div>
@@ -183,7 +183,7 @@
         results = ev.data.results;
         displayResults();
       } else if (ev.data.kind == 'loading') {
-        $("#loading .message").text(ev.data.message);
+        $("#loading .message").text(ev.data.message);progress.attr('value', 50);
       } else if (ev.data.kind == 'progress') {
         progress.attr('value', ev.data.percent * 100);
       }
@@ -235,8 +235,8 @@
       } else {
         var subDefs = $("<div>")
             .addClass('definition').addClass('subdefinitions');
-        for (var i = 0; i < def.rafsiDocuments.length; i++) {
-          displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);
+        for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {
+          displayDocument((def||[]).rafsiDocuments[i]).appendTo(subDefs);
         }
         subDefs.appendTo(out);
       }
@@ -305,8 +305,10 @@
       worker.postMessage(
           {kind: 'newSearch', 'query': query, 'searchId': searchId});
     }
-    typehere.keyup(doSearch);
-    typehere.keydown(displayDescription);
+	var typingTimer;               //timer identifier
+	var doneTypingInterval = 200;  //time in ms, 5 second for example
+    typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
+    typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
     function updateUrl(query) {
       var url = '';

@@ -4,4 +4,7 @@ ircbot/dumps/*.xml
 !ircbot/dumps/guaspi.xml
 !ircbot/dumps/toki.xml
 ircbot/dumps/*.pdf
+ircbot/tatoeba*
+ircbot/*.sql
 i/data/*.*
+

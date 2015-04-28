@@ -76,4 +76,4 @@ https://ssl.google-analytics.com/
 http://www.google-analytics.com/
 
 FALLBACK:
-/search/ ./
+/sisku/ ./

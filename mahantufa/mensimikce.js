@@ -104,10 +104,10 @@ function MensiBot(noRandomFlag) {
 		     "What else does (2) remind you of ?"
 		  ]],
 		 ["* xu do morji *", [
-		     "Did you think I would forget (2) ?",
-		     "Why do you think I should recall (2) now ?",
+		     "xu do jinvi lo du'u mi na morji  lo du'u (2)",
+		     "ki'u ma do jinvi lo du'u mi ca bilga lo ka morji lo du'u (2)",
 		     "What about (2) ?",
-		     "goto what",
+		     "goto ma",
 		     "You mentioned (2) ?"
 		  ]],
 		 ["* do morji *", [
@@ -131,7 +131,7 @@ function MensiBot(noRandomFlag) {
 		     "Are you sure you told me ?",
 		     "Would it bother you if I forgot (2) ?",
 		     "Why should I recall (2) just now ?",
-		     "goto what",
+		     "goto ma",
 		     "Tell me more about (2)."
 		  ]]
 		]],
@@ -162,7 +162,7 @@ function MensiBot(noRandomFlag) {
 		     "Do you believe that dreams have something to do with your problem ?"
 		  ]]
 		]],
-		["perhaps", 0, [
+		["la'a", 0, [
 		 ["*", [
 		     "You don't seem quite certain.",
 		     "Why the uncertain tone ?",
@@ -235,7 +235,7 @@ function MensiBot(noRandomFlag) {
 		     "Would you want to be (2) ?",
 		     "Do you wish I would tell you you are (2) ?",
 		     "What would it mean if you were (2) ?",
-		     "goto what"
+		     "goto ma"
 		  ]],
 		 ["* i am *", [
 		     "goto mi"
@@ -251,7 +251,7 @@ function MensiBot(noRandomFlag) {
 		     "Would you prefer if I weren't (2) ?",
 		     "Perhaps I am (2) in your fantasies.",
 		     "Do you sometimes think I am (2) ?",
-		     "goto what",
+		     "goto ma",
 		     "Would it matter to you ?",
 		     "What if I were (2) ?"
 		  ]],
@@ -284,7 +284,7 @@ function MensiBot(noRandomFlag) {
 		     "Were you (2) ?",
 		     "What would it mean if you were (2) ?",
 		     "What does ' (2) ' suggest to you ?",
-		     "goto what"
+		     "goto ma"
 		  ]],
 		 ["* i was *", [
 		     "Were you really ?",
@@ -450,7 +450,7 @@ function MensiBot(noRandomFlag) {
 		["can", 0, [
 		 ["* can you *", [
 		     "You believe I can (2) don't you ?",
-		     "goto what",
+		     "goto ma",
 		     "You want me to be able to (2).",
 		     "Perhaps you would like to be able to (2) yourself."
 		  ]],
@@ -458,17 +458,17 @@ function MensiBot(noRandomFlag) {
 		     "Whether or not you can (2) depends on you more than on me.",
 		     "Do you want to be able to (2) ?",
 		     "Perhaps you don't want to (2).",
-		     "goto what"
+		     "goto ma"
 		  ]]
 		]],
-		["what", 0, [
+		["ma", 0, [
 		 ["*", [
-		     "Why do you ask ?",
-		     "Does that question interest you ?",
+		     "ki'u ma do retsku",
+		     "xu le preti cu cinri do",
 		     "What is it you really want to know ?",
 		     "Are such questions much on your mind ?",
 		     "What answer would please you most ?",
-		     "What do you think ?",
+		     "do jinvi ma",
 		     "What comes to mind when you ask that ?",
 		     "Have you asked such questions before ?",
 		     "Have you asked anyone else ?"
@@ -476,22 +476,22 @@ function MensiBot(noRandomFlag) {
 		]],
 		["who", 0, [
 		 ["who *", [
-		     "goto what"
+		     "goto ma"
 		  ]]
 		]],
 		["when", 0, [
 		 ["when *", [
-		     "goto what"
+		     "goto ma"
 		  ]]
 		]],
 		["where", 0, [
 		 ["where *", [
-		     "goto what"
+		     "goto ma"
 		  ]]
 		]],
 		["how", 0, [
 		 ["how *", [
-		     "goto what"
+		     "goto ma"
 		  ]]
 		]],
 		["because", 0, [
@@ -508,17 +508,17 @@ function MensiBot(noRandomFlag) {
 		     "Perhaps I will (2) in good time.",
 		     "Should you (2) yourself ?",
 		     "You want me to (2) ?",
-		     "goto what"
+		     "goto ma"
 		  ]],
 		 ["* why can't i *", [
 		     "Do you think you should be able to (2) ?",
 		     "Do you want to be able to (2) ?",
 		     "Do you believe this will help you to (2) ?",
 		     "Have you any idea why you can't (2) ?",
-		     "goto what"
+		     "goto ma"
 		  ]],
 		 ["*", [
-		     "goto what"
+		     "goto ma"
 		  ]]
 		]],
 		["everyone", 2, [

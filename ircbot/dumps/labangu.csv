@@ -50,6 +50,11 @@ ai,"
 :'''a'i cu'i mi klama lo zarci''' — ''I'm indecisive to whether I should go to a shop.''
 :'''ai nai mi pu darxi do''' — ''I didn't mean to hit you.''
 :Related words: '''te''' '''mukti''', '''zukte''', '''cuxna'''"
+aidji,"
+'''aidji''' — ''x<sub>1</sub><sub>(entity)</sub>''  intends to do  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
+:'''lo se aidji''' — intended action. 
+:'''mi aidji lo ka klama la Nipon''' — ''I am going to go to Japan.''
+:Related words: '''lo''' '''te''' '''mukti'''"
 akti,"
 '''akti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is running service  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo akti''' — active, in action, working, in operation. '''lo se akti''' — active operation. 
@@ -339,6 +344,11 @@ bekpi,"
 :'''lo bekpi be mi za'o se cortu''' — ''My back still hurts.''
 :Comment: not necessarily at the back of body (determined by bilateral symmetry of the body).
 :Related words: '''trixe''', '''cutne'''"
+bemro,"
+'''bemro''' — ''x<sub>1</sub><sub>(entity)</sub>''  is North American in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
+:'''lo bemro''' — North American. 
+:'''mi nelci lo bemro tumla''' — ''I like North American lands.''
+:Related words: '''merko''', '''ketco'''"
 bende,"
 '''bende''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a team or crew of persons  ''x<sub>2</sub><sub>(plural of entity)</sub>''  led by  ''x<sub>3</sub><sub>(entity)</sub>''  for purpose  ''x<sub>4</sub><sub>(clause)</sub>'' 
 :'''lo bende''' — team. '''lo se bende''' — member of a team. '''lo te bende''' — leader of a team. '''lo ve bende''' — purpose of a team. 
@@ -537,7 +547,7 @@ bombila,"
 :'''lo bombila cu spofu''' — ''The light bulb is broken.''
 :Related words: '''minji''', '''cabra''', '''matra''', '''tutci'''"
 bongu,"
-'''bongu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bone of body part or body  ''x<sub>2</sub><sub>(property of x1)</sub>'' <sub>(entity)</sub>'' 
+'''bongu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bone of body part or body  ''x<sub>2</sub><sub>(entity)</sub>'' <sub>(entity)</sub>'' 
 :'''lo bongu''' — bone. 
 :'''mi pu darxi lo mi bongu be lo tuple se pi'o lo grana''' — ''I hit my leg bone with a stick.''
 :Related words: '''greku''', '''denci''', '''jirna''', '''sarji'''"
@@ -852,7 +862,7 @@ catke,"
 :Comment: '''danre''' is for non-agentive force.
 :Related words: '''danre''', '''darxi''', '''lacpu'''"
 catlu,"
-'''catlu''' — ''x<sub>1</sub><sub>(entity)</sub>''  looks at  ''x<sub>2</sub><sub>(clause)</sub>'' 
+'''catlu''' — ''x<sub>1</sub><sub>(entity)</sub>''  looks at  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''ko catlu mi''' — ''Look at me.''
 :Related words: '''jvinu''', '''minra''', '''simlu''', '''viska''', '''lanli''', '''zgana''', '''setca''', '''viska'''"
 catni,"
@@ -1182,9 +1192,9 @@ cisma,"
 :'''se ja'e ma do cisma''' — ''Why are you smiling?''
 :Related words: '''xajmi''', '''cmila''', '''frumu'''"
 ciste,"
-'''ciste''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a system with structure  ''x<sub>2</sub><sub>(entity)</sub>'', components  ''x<sub>3</sub><sub>(entity)</sub>'', displaying  ''x<sub>4</sub><sub>(property of x1)</sub>'' 
-:'''lo ciste''' — system. '''lo se ciste''' — structure of a system. '''lo te ciste''' — component of a system. '''lo ve ciste''' — property of a system. 
-:'''lo kibro cu ciste lo se tcana lo skami lo ka jikca se pi'o ce'u''' — ''The internet is a system of nodes connecting computers allowing communication.''
+'''ciste''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a system with structure  ''x<sub>2</sub><sub>(entity)</sub>'' 
+:'''lo ciste''' — system. '''lo se ciste''' — structure of a system. 
+:'''lo kibro cu ciste lo se tcana be lo skami poi se pi'o ce'u lo prenu cu jikca''' — ''The internet is a system with computer nodes, using which people communicate.''
 :Related words: '''ci'e''', '''cmima''', '''girzu''', '''gunma''', '''stura''', '''tadji''', '''munje''', '''farvi''', '''ganzu''', '''judri''', '''julne''', '''klesi''', '''morna''', '''tcana'''"
 citka,"
 '''citka''' — ''x<sub>1</sub><sub>(entity)</sub>''  eats  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -1205,6 +1215,7 @@ citsi,"
 '''citsi''' — ''x<sub>1</sub><sub>(clause)</sub>''  is a season defined by  ''x<sub>2</sub><sub>(clause)</sub>''  of year  ''x<sub>3</sub><sub>(entity, number)</sub>'' 
 :'''lo citsi''' — season. 
 :'''ca citsi lo nu carvi vau lo pa no no mu moi''' — ''Now it's the season of rains of year 2005.''
+:'''vi ku lo dunra cu citsi lo nu lenku''' — ''Here, winter is a cold season.''
 :Related words: '''cedra''', '''crisa''', '''critu''', '''dunra''', '''ranji''', '''temci''', '''vensa''', '''jbena'''"
 civla,"
 '''civla''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a flea or louse of species  ''x<sub>2</sub><sub>(taxon)</sub>''  parasitic on  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -2520,12 +2531,6 @@ figre,"
 :'''lo figre''' — fig. 
 :'''mi nelci lo vi crino figre''' — ''I like these green figs.''
 :Related words: '''grute'''"
-filme,"
-'''filme''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a video, movie about  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo filme''' — movie, film. '''lo se filme''' — plot of a movie. 
-:'''mi pu zgana lo filme be lo crida''' — ''I watched a film about magical beings.''
-:Comment: can be applied to streaming video.
-:Related words: '''tivni''', '''vidni''', '''pixra''', '''finti'''"
 finpe,"
 '''finpe''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a fish of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo finpe''' — fish. 
@@ -2535,7 +2540,7 @@ finti,"
 '''finti''' — ''x<sub>1</sub><sub>(entity)</sub>''  invents or creates  ''x<sub>2</sub><sub>(entity)</sub>''  for purpose  ''x<sub>3</sub><sub>(entity)</sub>''  from existing elements or ideas  ''x<sub>4</sub><sub>(entity)</sub>'' 
 :'''lo finti''' — creator. '''lo se finti''' — creation (object created), creature. '''lo te finti''' — purpose of creation. '''lo ve finti''' — raw materials for creation. 
 :'''mi pu finti lo lisri lo ka jai gau zdile le verba vau lo se vedli be mi''' — ''I created a story out of my real experience to amuse the child.''
-:Related words: '''ciska''', '''pemci''', '''zbasu''', '''larcu''', '''prosa''', '''filme'''"
+:Related words: '''ciska''', '''pemci''', '''zbasu''', '''larcu''', '''prosa''', '''skina'''"
 firca,"
 '''firca''' — ''x<sub>1</sub><sub>(entity)</sub>''  flirts with  ''x<sub>2</sub><sub>(entity)</sub>''  by doing  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''ko sisti lo ka firca lo mi mensi lo ka benji lo se dunda ri''' — ''Stop flirting with my sister by sending her gifts.''
@@ -2929,7 +2934,7 @@ go,"
 :Comment: used to connect nouns, adverbs, verbs, clauses. Shows that the construct inside '''ga''' ... '''gi''' is true only if the cosntruct after '''gi''' is true."
 go'a,"
 '''go'a''' <small>[verb]</small> — copies a recent completed main level clause
-:'''au mi ne ka'ai do zgana lo cnino filme i ku'i za'a do ca zukcfu so'i da i ca ma mi'o ka'e go'a''' — ''I'd like to watch a new movie with you. But as I can see you are very busy now. When can we do that?''"
+:'''au mi ne ka'ai do zgana lo cnino skina i ku'i za'a do ca zukcfu so'i da i ca ma mi'o ka'e go'a''' — ''I'd like to watch a new movie with you. But as I can see you are very busy now. When can we do that?''"
 go'i,"
 '''go'i''' <small>[verb]</small> — copies the last completed main main level clause
 :'''au mi penmi do i xu lo nu go'i cu cumki''' — ''I'd like to meet you. Is this possible?''"
@@ -3750,7 +3755,7 @@ ju'e,"
 :'''mi ju'e do casnu lo za'u bangu''' — ''I discussed languages. You discussed languages.''
 :Comment: '''mi ju'e do klama''' means the same as '''mi klama .i do klama'''."
 ju'i,"
-'''ju'i''' <small>[vocative]</small> — ''Hey! Ahem! Attention!'', '''ju'i''' '''cu'i''' — ''At ease!'', '''ju'i''' '''nai''' — ''Ignore me! Nevermind!''
+'''ju'i''' <small>[vocative]</small> — ''Hey! Psst! Ahem! Attention!'', '''ju'i''' '''cu'i''' — ''At ease!'', '''ju'i''' '''nai''' — ''Ignore me! Nevermind!''
 :'''ju'i lo nixli ma cmene do''' — ''Hey, girl, what is your name?''
 :'''ju'i cu'i sonci''' — ''At ease, soldiers.''
 :'''mi co'a si'u nai jimpe ju'i nai''' — ''I understood myself, never mind.''"
@@ -4088,8 +4093,8 @@ kensa,"
 :'''so'i mluni cu vofli bu'u lo kensa be le terdi''' — ''There are many satellites flying in outer space near the Earth.''
 :Related words: '''canlu''', '''munje''', '''terdi''', '''tsani'''"
 kerfa,"
-'''kerfa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is hair of  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo kerfa''' — hair. 
+'''kerfa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is the hair of  ''x<sub>2</sub><sub>(entity)</sub>'' 
+:'''lo kerfa''' — hair, fur. 
 :'''lo kerfa be mi cu clani''' — ''My hair is long.''
 :Related words: '''skapi''', '''sunla''', '''pimlu'''"
 kerlo,"
@@ -4488,7 +4493,7 @@ la'e,"
 :Comment: '''''la'e''' [noun]'' is the same as '''''lo''' '''se''' '''sinxa''' '''be''' [noun]''."
 la'o,"
 '''la'o''' — foreign text > noun that is a name
-:'''la'o gy.The wild bears.gy. jai cinri filme''' — ''&quot;The wild bears&quot; is an interesting movie.''
+:'''la'o gy.The wild bears.gy. jai cinri skina''' — ''&quot;The wild bears&quot; is an interesting movie.''
 :Comment: quotes a text that can be not Lojbanic. The quotation is to be wrapped with pauses from both sides and with an additional Lojbanic word around them from both sides. Usually the separating words is the name of the first letter of the language of the quotation.
 :Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
 la'oi,"
@@ -5163,7 +5168,7 @@ mentu,"
 :Related words: '''junla''', '''cacra''', '''snidu''', '''tcika'''"
 merko,"
 '''merko''' — ''x<sub>1</sub><sub>(entity)</sub>''  is U.S. American in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
-:'''lo merko''' — American (the United States). 
+:'''lo merko''' — American (of the United States). 
 :'''mi'a pu rinsa le pa merko''' — ''We greeted the American.''
 :Related words: '''bemro''', '''ketco''', '''glico'''"
 merli,"
@@ -6240,7 +6245,7 @@ pixra,"
 '''pixra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a picture of  ''x<sub>2</sub><sub>(entity)</sub>''  made by  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo pixra''' — picture. '''lo se pixra''' — pictured. 
 :'''ti pixra lo zbani mi poi pu zvati la Nipon''' — ''This is a picture of the coast that I made when I was in Japan.''
-:Related words: '''ciska''', '''cinta''', '''prina''', '''mupli''', '''barna''', '''filme'''"
+:Related words: '''ciska''', '''cinta''', '''prina''', '''mupli''', '''barna''', '''skina'''"
 plana,"
 '''plana''' — ''x<sub>1</sub><sub>(entity)</sub>''  is fat or obese in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo plana''' — fat, obese. 
@@ -6475,7 +6480,7 @@ punji,"
 '''punji''' — ''x<sub>1</sub><sub>(entity)</sub>''  places, puts  ''x<sub>2</sub><sub>(entity, property of x3)</sub>''  at  ''x<sub>3</sub><sub>(entity, property of x2)</sub>'' 
 :'''lo se punji''' — placed. 
 :'''doi nobli e'o ko punji lo ka virnu vau lo mi risna''' — ''Lord, put courage into my heart!''
-:'''le filme pu punji mi lo ka gleki cinmo''' — ''The movie put me in a happy mood.''
+:'''le skina pu punji mi lo ka gleki cinmo''' — ''The movie put me in a happy mood.''
 :Related words: '''cpacu''', '''lebna''', '''cpana''', '''batke''', '''setca'''"
 punli,"
 '''punli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a swelling, clump on  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -7449,6 +7454,12 @@ skiji,"
 :'''ei mi cikre lo skiji be lo djacu bei ti''' — ''I should repair runners of this water sled.''
 :Comment: sometimes '''lo''' '''te''' '''skiji''' (''ski kit'') consists of '''lo''' '''skiji''' (''runners'') only.
 :Related words: '''sakli''', '''marce''', '''cutci'''"
+skina,"
+'''skina''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a video clip, movie about  ''x<sub>2</sub><sub>(entity)</sub>'' 
+:'''lo skina''' — movie, film, video clip. '''lo se skina''' — plot of a movie. 
+:'''mi pu zgana lo skina be lo crida''' — ''I watched a movie about magical beings.''
+:Comment: can be applied to streaming video.
+:Related words: '''tivni''', '''vidni''', '''pixra''', '''finti'''"
 skori,"
 '''skori''' — ''x<sub>1</sub><sub>(entity)</sub>''  is rope of filaments or material  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo skori''' — rope, cable. '''lo se skori''' — filament of a rope, filament of a cable. 
@@ -8362,8 +8373,8 @@ titla,"
 tivni,"
 '''tivni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a video camera or TV center streaming  ''x<sub>2</sub><sub>(entity)</sub>''  via medium  ''x<sub>3</sub><sub>(entity)</sub>''  to TV receiver  ''x<sub>4</sub><sub>(entity)</sub>'' 
 :'''lo tivni''' — streaming video camera, streaming TV center. '''lo se tivni''' — streamed video. 
-:'''ti ca'o tivni lo filme la Internet lo mi zdani skami''' — ''This camera is streaming video via the internet to my home computer.''
-:Related words: '''cradi''', '''filme''', '''vidni''', '''benji''', '''tcana'''"
+:'''ti ca'o tivni lo skina la Internet lo mi zdani skami''' — ''This camera is streaming video via the internet to my home computer.''
+:Related words: '''cradi''', '''skina''', '''vidni''', '''benji''', '''tcana'''"
 tixnu,"
 '''tixnu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a daughter of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo tixnu''' — daughter. '''lo se tixnu''' — parent of a daughter. 
@@ -8422,7 +8433,7 @@ tolpo'u,"
 :Related words: '''to'e''', '''spofu''', '''akti''', '''kakne'''"
 tolpro,"
 '''tolpro''' — ''x<sub>1</sub><sub>(entity)</sub>''  surrenders, yields to  ''x<sub>2</sub><sub>(entity)</sub>''  in  ''x<sub>3</sub><sub>(entity, property of x1)</sub>'' ; x<sub>1</sub> consents to do x<sub>3</sub>
-:'''mi pu tolpro lo pendo lo ka klama lo filme dinju''' — ''I accepted my friend's proposal to go to the cinema.''
+:'''mi pu tolpro lo pendo lo ka klama lo skina dinju''' — ''I accepted my friend's proposal to go to the cinema.''
 :Comment: '''tugni''' is ''to agree with some statement'', '''tolpro''' is ''to accept something and actually do it''.
 :Related words: '''fapro''', '''tugni''', '''i'a''', '''vi'o''', '''bradi''', '''darlu''', '''damba''', '''lanxe'''"
 toltinsa,"
@@ -8868,7 +8879,7 @@ vidni,"
 '''vidni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a screen, video monitor for function  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo vidni''' — screen, video monitor. '''lo se vidni''' — function of a screen. 
 :'''ti vidni lo ka jarco lo ni livla''' — ''This is the screen for showing the amount of fuel.''
-:Related words: '''filme''', '''ve''' '''tivni'''"
+:Related words: '''skina''', '''ve''' '''tivni'''"
 vidru,"
 '''vidru''' — ''x<sub>1</sub><sub>(entity)</sub>''  as a virus of species  ''x<sub>2</sub><sub>(taxon)</sub>''  capable of infecting  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo vidru''' — virus. 
@@ -8918,7 +8929,7 @@ virnu,"
 viska,"
 '''viska''' — ''x<sub>1</sub><sub>(entity)</sub>''  sees  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo se viska''' — seen. 
-:'''mi viska lo se skari be lo plise i ri skari lo pelxu''' — ''I see the color of an apple. The apple is colored red.''
+:'''mi viska lo se skari be lo plise i ri skari lo xunre''' — ''I see the color of an apple. The apple is colored red.''
 :'''mi viska lo tarmi be lo najnimre i ri se tarmi lo cukla''' — ''I see the form of an orange. It is round.''
 :'''mi pu viska lo nu le fetsi cu limna''' — ''I saw her swim.''
 :Related words: '''catlu''', '''jvinu''', '''kanla''', '''minra''', '''simlu''', '''djuno''', '''jimpe''', '''zgana''', '''ganse'''"
@@ -9501,7 +9512,7 @@ zgana,"
 '''zgana''' — ''x<sub>1</sub><sub>(entity)</sub>''  observes  ''x<sub>2</sub><sub>(entity)</sub>''  using sense  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo zgana''' — observer, spectator. 
 :'''mi zgana ko''' — ''Show yourself.''
-:'''mi zgana lo zgike e lo filme''' — ''I'm listening to the music and watching a film.''
+:'''mi zgana lo zgike e lo skina''' — ''I'm listening to the music and watching a movie.''
 :'''mi zgana lo tcini lo ka tirna''' — ''I'm monitoring the situation by listening.''
 :'''le ctuca pu jai se zgana fai lo ka zvati lo barja''' — ''The teacher was spotted in a bar.''
 :Related words: '''ga'a''', '''ganse''', '''viska''', '''catlu''', '''tirna''', '''pencu''', '''sumne''', '''kurji''', '''canci''', '''catlu''', '''jarco''', '''lanli''', '''pinka''', '''simlu'''"

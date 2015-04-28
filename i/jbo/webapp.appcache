@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# Version 1.62
+# Version 1.63
 
 CACHE:
 index.html
@@ -77,4 +77,4 @@ https://ssl.google-analytics.com/
 http://www.google-analytics.com/
 
 FALLBACK:
-/search/ ./
+/sisku/ ./

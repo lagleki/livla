@@ -23,7 +23,7 @@ var config = {
     channels: [livlytcan],
     debug: false,
     messageSplit: 190,
-    realName: 'http://mw.lojban.org/papri/IRC_Bots',
+    realName: 'http://lojban.org/papri/IRC_Bots',
     floodProtection: true,
     floodProtectionDelay: 400
   }
@@ -35,7 +35,7 @@ var configmensi = {
     channels: [livlytcan, tcan],
     debug: false,
     messageSplit: 190,
-    realName: 'http://mw.lojban.org/index.php?title=IRC_Bots',
+    realName: 'http://lojban.org/papri/IRC_Bots',
     floodProtection: true,
     floodProtectionDelay: 400
   }
@@ -457,6 +457,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf('zh:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'zh'));break;
 		case text.indexOf('en-simple:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(10),'en-simple'));break;
 		case text.indexOf('lb:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'lb'));break;
+		case text.indexOf('jb:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'lb'));break;
 		case text.indexOf('krasi:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'krasi'));break; // Gives Lojban words etymologies
 		case text.indexOf('dukti:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'dukti'));break; // Gives Lojban words antonyms
 
@@ -471,6 +472,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf('loi:') == '0': benji(source,socket,clientmensi,sendTo, loglo(text.substr(4),''));break;
 		case text.indexOf('coi:') == '0': benji(source,socket,clientmensi,sendTo, loglo(text.substr(4),'coi'));break;
 		case text.indexOf(prereplier + 'mhnt ') == '0': ningaumahantufa(text.substr(12),socket);break;
+		case text.indexOf(prereplier + "tatoget") == '0': tatoget();break;
 		case text==replier+': ii': benji(source,socket,clientmensi,sendTo, io());break;
 		case text==replier+': help': benji(source,socket,clientmensi,sendTo, sidju());break;
 		case text.indexOf("rot13:") == '0': benji(source,socket,clientmensi,sendTo, rotpaci(text.substr(6)));break;
@@ -1328,14 +1330,14 @@ var sutsisningau = function(lng){//write a new file parsed.js that would be used
 if (typeof lng==='undefined'){lng='en';}
 if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),{encoding: 'utf8'}));}
 
-var pars='var documentStore = {';
+var pars='var documentStore = [';
 var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 	for (var i=0;i<rev.length;i++) {
 		var hi=rev[i].attr("word").value().replace("\\","\\\\");
-		pars+="\""+hi+"\":{\"word\":\""+hi+"\"";
-		try{pars+=",\"type\":\""+rev[i].attr("type").value().replace("\\","\\\\")+"\"";}catch(err){}
-		try{pars+=",\"definition\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\".replace("\\","\\\\"))+"\"";}catch(err){}
-		try{pars+=",\"notes\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
+		pars+="{\"w\":\""+hi+"\"";
+		try{pars+=",\"t\":\""+rev[i].attr("type").value().replace("\\","\\\\")+"\"";}catch(err){}
+		try{pars+=",\"d\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
+		try{pars+=",\"n\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		var ra=rev[i].find("rafsi//text()[1]");
 		if (xugismu(hi)===true){
 			ra.push(hi);
@@ -1344,11 +1346,11 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		}
 		ra=ra.join("\",\"");
 		
-		if (ra.length!==0){pars+=",\"rafsi\":[\""+ra+"\"]";}//else{pars+=",\"rafsi\":[]";}//not needed anymore due to gleki's fixes
+		if (ra.length!==0){pars+=",\"r\":[\""+ra+"\"]";}//else{pars+=",\"rafsi\":[]";}//not needed anymore due to gleki's fixes
 		pars+="}";
-		if (i<rev.length-1){pars+=",";}//\n
+		if (i<rev.length-1){pars+=",\n";}//\n
 	}
-	pars+="};\n";//\n
+	pars+="];\n";//\n
 rev = xmlDoc.find("/dictionary/direction[2]/nlword");
 var nl='var literals = {';
 	for (i=0;i<rev.length;i++) {
@@ -1442,8 +1444,8 @@ var prettifylojbansentences = function(){//insert spaces to lojban sentences
 };
 
 var zeizei = function(text){//insert spaces to lojban sentences, split lujvo into zo zei zei lujvo
-text=run_camxes(text,3);
-	try{if (text.indexOf("SyntaxError")!==0){
+text=run_camxes(text,3).toString();
+	try{if (text.indexOf("SyntaxError")<0){
 		text=text.replace(/[a-z]+`/g,"").replace(/[a-z]+_[a-z]+/ig,"").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n");
 		var sj=text.split(" ");
 		for (var j=0;j<sj.length;j++){
@@ -1456,7 +1458,7 @@ text=run_camxes(text,3);
 			}
 		}
 		text = sj.join(" ").trim();
-	}}catch(e){}
+	}else{text='O_0'}}catch(e){}
 return text;
 };
 
@@ -1474,7 +1476,9 @@ return text;
 var mensimikce = function(text){//eliza bot analog
 var Mensibot = require('../mahantufa/mensimikce.js');
 //Mensibot.start(); // initializes Mensi and returns a greeting message
-return Mensibot.reply(text);
+var r = Mensibot.reply(text).toString();
+Mensibot = null;
+return r;
 };
 //NAXLE
 

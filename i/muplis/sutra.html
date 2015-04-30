@@ -12,7 +12,7 @@
     #typehere{font-size:150%;}
 
     body {
-      font-family: Tahoma, Lato, sans-serif;font-size:90%;
+      font-family: Tahoma, Lato, sans-serif;font-size:90%;overflow:hidden;
     }
 
     h4 {
@@ -51,7 +51,8 @@
     }
 
     .core-header {
-      height: 48px;
+      //height: 48px;
+      width:auto;
       font-size: 18px;
       padding: 0 10px;
 		background: rgb(109,179,242); /* Old browsers */
@@ -77,10 +78,21 @@
     .content {
       padding-left: 5px;
       padding-right: 5px;
+      overflow:auto;
     }
     #content-panel, #header-wrapper {
       max-width: 700px;
       width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 5px;
+    }
+    #content-panel {
+      max-width: 700px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      //margin-top: 70px;
     }
     a {
       color: #2B79E0;
@@ -90,7 +102,7 @@
     #description {
       margin-top: 50px;
       text-align: center;
-
+		font-size:80%;
       text-shadow: 0px 1px 0px rgba(255,255,255,.5);
       color: #333;
     }
@@ -104,58 +116,68 @@
      font-size:70%;
     }
     sub { top: 0.4em; }
+    .progressing {
+    	height: 10px;
+    }
+    #blackBar{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:48px;
+	background-color:black;
+	}
   </style>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="la muplis">
   <meta name="msapplication-TileColor" content="#00a300">
   <meta name="msapplication-TileImage" content="../favicons/mstile-144x144.png">
   <meta name="application-name" content="la muplis">
-  <script src='../polymerchromeapp/components/platform/platform.js'></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <link rel='import' href='../polymerchromeapp/components/polymer/polymer.html'>
-  <link rel='import'
-        href='../polymerchromeapp/components/core-header-panel/core-header-panel.html'>
-  <link rel='import'
-        href='../polymerchromeapp/components/paper-progress/paper-progress.html'>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 </head>
-<body fullbleed layout vertical unresolved>
-  <core-header-panel mode='seamed' flex>
-    <div class='core-header' layout horizontal center-justified>
-      <div id='header-wrapper' flex layout horizontal center>
+<body style="margin: 0;height: 100vh;">
+	<div id="blackBar" class='core-header'>
+		<div id='header-wrapper'>
         <img src="plise.svg" onerror="this.src='plise.png'" height='16' width='16'><img src="pelxuplise.png" height='16' width='16'><img src="crinoplise.png" height='16' width='16'><img src="blabiplise.png" height='16' width='16'><img src="cicnaplise.png" height='16' width='16'><span class='site-title'>&nbsp;&nbsp;la muplis</span>
-        <div flex></div>
-        <input id='typehere' type='text' placeholder="mitysisku" autofocus>
-      </div>
-    </div>
-
-    <div class='content' layout horizontal center-justified>
-      <div id='content-panel'>
-        <div id='description'>
+        <input id='typehere' type='text' placeholder="mitysisku" autofocus style="margin-left:60px;">
+		</div>
+		<div id='description'>
           <p>
             <b>la .muplis.</b> cu sutra tutci lo nu mitysisku lo mupli pe ju'oi <a href="http://tatoeba.org/jbo" target="_blank">Tatoeba.org</a>
-          <p>
-- .i xu mi kakne lo ka pilno la .muplis. vau va'o lo nu na ka'e kibro pilno<br>- .i ja'a go'i .i va'o lo nu kibro kakne na ku cu .e'u troci lo ka gau do lo brauzero cu cpacu lo se judri be lo me dei moi<br> .i la'a sai lo mutpapri cu tolcanci to'e ri'a nai .i lo cnino klesi be la xromium ja la'oi Safari ja la'oi Firefox cu jai sarcu lo nu pilno la .muplis.<br><br>.i lo nu djica co zenba co cilre tu'a la .muplis. cu .e'u banzu lo nu vitke <a href="http://lojban.org" target="_blank">lo lojbo uitki</a>.
+          </p><p>
+- .i xu mi kakne lo ka pilno la .muplis. vau va'o lo nu na ka'e kibro pilno<br>- .i ja'a go'i .i va'o lo nu kibro kakne na ku cu .e'u troci lo ka gau do lo brauzero cu cpacu lo se judri be lo me dei moi<br> .i la'a sai lo mutpapri cu tolcanci to'e ri'a nai .i lo cnino klesi be la xromium ja la'oi Safari ja la'oi Firefox cu jai sarcu lo nu pilno la .muplis.<br><br>.i lo nu djica co zenba co cilre tu'a la .muplis. cu .e'u banzu lo nu vitke <a href="http://lojban.org" target="_blank">lo lojbo uitki</a>.</p>
         </div>
+	</div>
+    <div style="height:100%;
+    border-top:48px solid transparent;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    overflow:auto;">
+    <div class='content'>
+      <div id='content-panel'>
         <div id='output'></div>
-
         <div id='loading'>
           <span class='message'>nau ca'o cpacu lo jufra liste</span>...<br>
-          <paper-progress id='progress' value='33'></paper-progress>
+            <div id="progressbar"></div>
         </div>
       </div>
     </div>
-  </core-header-panel>
+    </div>
 
 <script>
     var limit;
     var typehere = $("#typehere");
     var output = $("#output");
     var description = $("#description");
-    var progress = $('#progress');
     var worker = new Worker('worker.js');
     var resultCount;
     var results = [];
     var ready = false;
+    $(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").height('10');});
+    //$("#progressbar > div").css({ 'height': '10px;' });.wrap("<div class='Your-CSS-Scope-Class'></div>");
     worker.onmessage = function(ev) {
       if (!ev.data) {
         console.error(ev);
@@ -170,12 +192,11 @@
         results = ev.data.results;
         displayResults();
       } else if (ev.data.kind == 'loading') {
-        $("#loading .message").text(ev.data.message);progress.attr('value', 50);
+        $("#loading .message").text(ev.data.message);$(function() {$( "#progressbar" ).progressbar({value: 50});$("#progressbar").css({ 'height': '10px;'});});
       } else if (ev.data.kind == 'progress') {
-        progress.attr('value', ev.data.percent * 100);
+        $(function() {$( "#progressbar" ).progressbar({value: ev.data.percent * 100});});
       }
     };
-
     function engineReady(arg) {
       ready = true;
       $("#loading").remove();
@@ -193,8 +214,6 @@
         displayResults();
       }
     }
-    document.querySelector('core-header-panel')
-        .addEventListener('scroll', checkScrolledNearBottom);
     output.scroll();
 
     function lojTemplate(s) {
@@ -217,10 +236,10 @@
       if (def.t.search('plixau jufra')>=0){deft += "<img src='crinoplise.png' height='16' width='16' title=\"lo jufra poi ka'e xamgu lo di'i fanva\">"};
       if (def.t.search('cnano staile')>=0){deft += "<img src='blabiplise.png' height='16' width='16' title=\"lo staile poi ka'e pluja\">"};
       if (def.t.search('non-standard')>=0){deft += "<img src='cicnaplise.png' height='16' width='16' title=\"na'e catni se ciska staile\">"};
-      out.append($("<heading layout flex horizontal end>")
+      out.append($("<heading>")
           .append($("<div>").addClass('type').html(deft + ' '))
           .append($("<h4>").text(def.w + ' '))
-          .append($("<div flex>"))
+          .append($("<div>"))
       );
       if (def.d) {
         $("<div>").addClass('definition').html(
@@ -297,6 +316,7 @@
       resultCount = 0;
       worker.postMessage(
           {kind: 'newSearch', 'query': query, 'searchId': searchId});
+      displayResults;
     }
     //typehere.keyup(doSearch);
     //typehere.keydown(displayDescription);

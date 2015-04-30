@@ -1,12 +1,15 @@
 CACHE MANIFEST
 
-# Version 1.78
+# Version 1.84
 
 CACHE:
-index.html
+index.html?version=13
 plise.svg
 plise.png
+pelxuplise.png
 crinoplise.png
+blabiplise.png
+cicnaplise.png
 ../search.js
 worker.js
 ../lujvo.js

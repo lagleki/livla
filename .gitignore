@@ -3,8 +3,8 @@ ircbot/dumps/*.xml
 !ircbot/dumps/laadan.xml
 !ircbot/dumps/guaspi.xml
 !ircbot/dumps/toki.xml
+!ircbot/dumps/zamenhofo.xml
 ircbot/dumps/*.pdf
 ircbot/tatoeba*
-ircbot/*.sql
+ircbot/dumps/*.sql
 i/data/*.*
-

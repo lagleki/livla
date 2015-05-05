@@ -148,7 +148,7 @@ var updatexmldumps = function (callback) {
 	var err;
 	var velruhe = { cfari: {}, mulno: {}, nalmulselfaho: {} };
 	try{
-		var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple","fr-facile","hu"];
+		var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple","fr-facile","hu","sv"];
 		var request = require("request");
 		request = request.defaults({jar: true});
 		var jar = request.jar();
@@ -455,6 +455,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf('de:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'de'));break;
 		case text.indexOf('eo:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'eo'));break;
 		case text.indexOf('zh:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'zh'));break;
+		case text.indexOf('sv:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'sv'));break;
 		case text.indexOf('en-simple:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(10),'en-simple'));break;
 		case text.indexOf('lb:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'lb'));break;
 		case text.indexOf('jb:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'lb'));break;
@@ -775,8 +776,8 @@ coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./definiti
 stra=stra.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]);
 
 xo=stra.length;
-try{stra.splice(100);}catch(err){}
-if (stra.length>=100){stra.push("...");}
+try{stra.splice(80);}catch(err){}
+if (stra.length>=80){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
 if (stra.length>1){gag = xo + " da se tolcri: " + gag;}
@@ -853,7 +854,7 @@ return '.ii';
 var sidju=function(){
 var sidj = {
 	en: 'Parsers: type "exp:" (experimental), "off:" (camxes), "gerna:" (jbofi\'e), or "yacc:" (official yacc) followed by the text to show the structure of sentences.\n' +
-		'Lojban dictionary: type "language-code: word", where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh. This searches in both directions.\n' +
+		'Lojban dictionary: type "language-code: word", where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh,hu,sv. This searches in both directions.\n' +
 		'    Type "language-code:word" (i.e. without a space after ":") to get a shorter definition.\n' +
 		'    "selmaho: ca\'a" gives "CAhA", "selmaho: CAhA" gives "bi\'ai, ca\'a, ..."\n' +
 		'    "rafsi: kulnu" gives "klu", "rafsi: klu" gives "kulnu"\n' +
@@ -1380,11 +1381,12 @@ var labangu = function(){
 	}).on("error", function (err) {
 	}).pipe(fs.createWriteStream(t)).on("finish", function () {
 		var take = fs.readFileSync(t,{encoding: 'utf8'});
+		take=take.replace(/➜/igm,"=>");
 		take=take.replace(/&/igm,"&amp;");
 		take=take.replace(/<(|\/)(small|sub)>|&nbsp;/igm,"");
 		take=take.replace(/^(.*?),\"\n/igm,"<valsi word=\"$1\"><definition>");
 		take=take.replace(/\"\n/igm,"</definition></valsi>\n");
-		take=take.replace(/'''(.*?)'''/igm,"{$1}");
+		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"{$1}");
 		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"La Bangu English\">\n"+take+"</definition></valsi>\n</direction>\n</dictionary>";
 		take = fs.writeFileSync(t+".temp",take);
 		fs.renameSync(t+".temp",path.join(__dirname,"dumps","lb.xml"));console.log("La Bangu updated");
@@ -1497,6 +1499,7 @@ var app = http.createServer(function(req, res) {
 var io = require('socket.io').listen(app);
 
 io.sockets.on('connection', function(socket) {
+	console.log('111');
     //socket.emit('welcome', { message: 'Welcome!' +socket.id});
 	//io.to(socket.id).emit("returner", { message: message: vlaste(data.data,'en') });
     socket.on(
@@ -1508,7 +1511,7 @@ io.sockets.on('connection', function(socket) {
     );
 });
 
-app.listen(3000);
+app.listen(3001);
 
 //mahantufa
 var ningaumahantufa = function(text,socket){

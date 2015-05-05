@@ -84,7 +84,7 @@ arxokuna,"
 :'''pa arxokuna cu zvati lo mi jukpa kumfa''' — ''There's a raccoon in my kitchen.''
 :Related words: '''danlu''', '''mabru'''"
 asna,"
-'''asna''' — ''x<sub>1</sub><sub>(clause)</sub>''  is a posture, stance, asana of body  ''x<sub>2</sub><sub>(entity)</sub>'' 
+'''asna''' — ''x<sub>1</sub><sub>(property of x2)</sub>''  is a posture, stance, asana of body  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo asna''' — posture (of body), body position, stance (of body), asana. 
 :'''ra co'a se asna lo ckape ne'a le barda fenra''' — ''He took a dangerous pose near the abyss.''
 :Related words: '''morna'''"
@@ -644,7 +644,7 @@ brunete,"
 :'''doi la Alis do te rai nelci lo blondine ji lo brunete''' — ''Alice, whom do you like more, blondes or brunets?''
 :Related words: '''blondine''', '''kerfa'''"
 bu,"
-'''bu''' — noun or verb > letter pronoun
+'''bu''' — turn noun or verb into letter pronoun
 :'''mi pilno vy bu vy bu vy bu''' — ''I use WWW.''
 :'''la Alis pu klama lo zarci i je ku'i mi na djuno lo du'u a bu pu te vecnu ma kau''' — ''Alice went to a store, but I don't know what A (Alice) bought there.''
 :Comment: converts one word into a letter pronoun. From verbs: '''xy''' '''zei''' '''kantu''' '''bu''' (lujvo formed with '''zei'''). From nouns: '''vy.''' '''bu''' (it denotes the letter &quot;w&quot; and thus isn't the same as '''vy.'''), '''zo a bu''', '''zoi ly.klama.ly. bu''', '''lo'u klam le'u bu'''. The following sequences are not grammatical: '''bu bu''', '''si bu''', '''sa bu''', '''su bu''', '''zei bu''', '''fa'o bu''', '''zo bu''', '''zoi bu''', '''lo'u bu'''."
@@ -1006,7 +1006,7 @@ ci'i,"
 '''ci'i''' <small>[digit/number]</small> — infinite number
 :'''ci'i da te cuxna''' — ''There is an infinite number of possibilities.''
 :'''ci'i da te cuxna fi pa prenu i je ci'i re da te cuxna fi re prenu''' — ''There is an infinite number of possibilities for one man, and twice as many for two men.''
-:Comment: followed by digits > aleph cardinality."
+:Comment: when followed by digits denotes aleph cardinality."
 ciblu,"
 '''ciblu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is blood or vital fluid of organism  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo ciblu''' — blood. 
@@ -1212,7 +1212,7 @@ citri,"
 :'''mi tadni lo citri be le kagni bei lo cnino lanli''' — ''I'm studying the history of the company according to new analysts.''
 :Related words: '''muzga''', '''purci'''"
 citsi,"
-'''citsi''' — ''x<sub>1</sub><sub>(clause)</sub>''  is a season defined by  ''x<sub>2</sub><sub>(clause)</sub>''  of year  ''x<sub>3</sub><sub>(entity, number)</sub>'' 
+'''citsi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a season defined by  ''x<sub>2</sub><sub>(clause)</sub>''  of year  ''x<sub>3</sub><sub>(entity, number)</sub>'' 
 :'''lo citsi''' — season. 
 :'''ca citsi lo nu carvi vau lo pa no no mu moi''' — ''Now it's the season of rains of year 2005.''
 :'''vi ku lo dunra cu citsi lo nu lenku''' — ''Here, winter is a cold season.''
@@ -1605,7 +1605,7 @@ cu'i,"
 :'''au cu'i le bruna mo'u tsuku''' — ''The brother arrived, meh.''
 :Comment: can be used either on its own or as a modifier of interjection."
 cu'o,"
-'''cu'o''' <small>[verb]</small> — number > verb denoting probability
+'''cu'o''' <small>[verb]</small> — turn number into verb denoting probability
 :'''le nu casnu cu su'o cu'o lo nu le jatna cu klama''' — ''The discussion is possible if the boss comes.''
 :'''lo nu mi ricfu cu ro cu'o lo nu mi ponse lo rupnu poi megdo''' — ''Had I a million dollars I'd be rich.''
 :Comment: x<sub>1(entity)</sub> has probability (n) of occurring under conditions x<sub>2(entity)</sub>. The number (n) is put in front of '''cu'o'''."
@@ -2176,7 +2176,7 @@ du'i,"
 :'''xu do zukcfu du'i mi''' — ''Are you as busy as I am?''
 :Comment: noun after '''du'i''' is compared with x<sub>1</sub> of the clause, the clause itself describes the comparison."
 du'u,"
-'''du'u''' <small>[clause prefix]</small> — clause > verb
+'''du'u''' <small>[clause prefix]</small> — turn clause into verb
 :'''mi djuno lo du'u do na fuzme''' — ''I know that you are not responsible.''
 :Comment: x<sub>1</sub> is the clause (that follows) expressed in sentence x<sub>2(text)</sub>."
 dugri,"
@@ -2398,7 +2398,7 @@ farna,"
 farvi,"
 '''farvi''' — ''x<sub>1</sub><sub>(entity)</sub>''  evolves or develops into  ''x<sub>2</sub><sub>(entity)</sub>''  from  ''x<sub>3</sub><sub>(entity)</sub>''  through stages  ''x<sub>4</sub><sub>(ordered plural of entity)</sub>'' 
 :'''lo ve farvi''' — stage of development, version in development. 
-:'''lo'e nanba cu farvi lo bredi lo te zbasu lo nu co'a mixre lo purmo ce lo matne ce lo sovda ce lo sakta ce'o lo nu glare ce'o lo nu satre vo'a lo matne''' — ''One makes a standard cake from raw materials by mixing flour, butter, eggs and sugar together, then heating, then greasing the cake with butter, and after that, it is ready.''
+:'''lo'e nanba cu farvi lo bredi lo te zbasu lo nu co'a mixre lo purmo ce lo matne ce lo sovda ce lo sakta vau ce'o lo nu glare ce'o lo nu satre vo'a lo matne''' — ''One makes a standard cake from raw materials by mixing flour, butter, eggs and sugar together, then heating, then greasing the cake with butter, and after that, it is ready.''
 :Related words: '''pruce''', '''banro''', '''makcu''', '''ciste''', '''cupra''', '''ferti'''"
 fasnu,"
 '''fasnu''' — ''x<sub>1</sub><sub>(clause)</sub>''  occurs or happens
@@ -2437,7 +2437,7 @@ fe'u,"
 '''fe'u''' <small>[terminator]</small>
 :ends a construct started with: '''fi'o'''"
 febvi,"
-'''febvi''' — ''x<sub>1</sub><sub>(entity)</sub>''  boils
+'''febvi''' — ''x<sub>1</sub><sub>(entity)</sub>''  evaporates, boils
 :'''lo febvi''' — something boiling. 
 :'''lo djacu za'o febvi''' — ''The water is already boiling.''
 :Related words: '''dunja''', '''lunsa''', '''runme'''"
@@ -2518,7 +2518,7 @@ fi'i,"
 :'''do le'o co'e vi lo mi zdani fi'i nai''' — ''How dare you show up near my house, go away!''
 :Comment: '''je'e''' is ''you are welcome'' for replies to thanks."
 fi'o,"
-'''fi'o''' — from clause to preposition/adverb
+'''fi'o''' — turn clause into preposition/adverb
 :'''le mlatu pu plipe fi'o suksa''' — ''The cat jumped quickly.''
 :'''le nabmi cu nandu fi'o jinvi so'i prenu''' — ''The problem is difficult according to many people.''"
 fi'u,"
@@ -2807,7 +2807,7 @@ garna,"
 :'''ti garna lo xance''' — ''This is a handrail.''
 :Related words: '''kamju''', '''grana''', '''tutci'''"
 gasnu,"
-'''gasnu''' — ''x<sub>1</sub><sub>(clause)</sub>''  causes  ''x<sub>2</sub><sub>(clause)</sub>''  to happen
+'''gasnu''' — ''x<sub>1</sub><sub>(entity)</sub>''  causes  ''x<sub>2</sub><sub>(clause)</sub>''  to happen
 :'''lo gasnu''' — agent. 
 :'''do pu gasnu lo nu mi klaku''' — ''You made me cry.''
 :Comment: '''lo''' '''zukte''' is ''who do something themselves, '''lo''' '''gasnu''' is ''agent who causes something'', '''lo''' '''se''' '''jalge''' is ''event that causes something''.
@@ -3166,7 +3166,7 @@ insekto,"
 :'''mi se cinri lo ka tadni lo insekto''' — ''I am interested in studying insects.''
 :Related words: '''cinki''', '''civla''', '''danlu''', '''blato''', '''ankabuta''', '''manti''', '''sfani''', '''toldi''', '''bifce'''"
 intele,"
-'''intele''' — ''x<sub>1</sub><sub>(clause)</sub>''  is an intellect of bearer  ''x<sub>2</sub><sub>(entity)</sub>'' 
+'''intele''' — ''x<sub>1</sub><sub>(property of x2)</sub>''  is an intellect of bearer  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo intele''' — intellect. 
 :'''lo ka facki lo du'u ma kau drani cu intele lo panzi be mi''' — ''The ability to determine who is right is the sign of high intellect of my child.''
 :Comment: the realized capacity of thinking, judging, abstract reasoning, and conceptual understanding; the cognitive capacity.
@@ -3853,7 +3853,7 @@ jvinu,"
 jy,"
 '''jy''' <small>[pronoun]</small> — ''j'' (letter)"
 ka,"
-'''ka''' <small>[clause prefix]</small> — clause > infinitive
+'''ka''' <small>[clause prefix]</small> — turn clause into infinitive
 :'''mi djica lo ka sipna''' — ''I want to sleep.''
 :'''la Alis cu nitcu lo ka te dunda lo birje''' — ''Alice needs to be given beer.''
 :'''ta'i ku do ba cirko lo ka sinma ce'u''' — ''This way you will lose the respect.''
@@ -4476,7 +4476,7 @@ kusru,"
 ky,"
 '''ky''' <small>[pronoun]</small> — ''k'' (letter)"
 la,"
-'''la''' <small>[gadri]</small> — verb > name (sumti)
+'''la''' <small>[gadri]</small> — turn verb into name (sumti)
 :'''la Alis ba vitke la Paris''' — ''Alice will visit Paris.''
 :'''zo bruna cmene la Kevin lo mi pendo''' — ''Brother is how friends call Kevin.''
 :Comment: ''the one that is called ...'' Creates personal name from verbs or cmevla."
@@ -4492,12 +4492,12 @@ la'e,"
 :'''la'e zo alis cu cinri cukta''' — ''&quot;Alice&quot; is an interesting book.''
 :Comment: '''''la'e''' [noun]'' is the same as '''''lo''' '''se''' '''sinxa''' '''be''' [noun]''."
 la'o,"
-'''la'o''' — foreign text > noun that is a name
+'''la'o''' — turn foreign text into noun that is a name
 :'''la'o gy.The wild bears.gy. jai cinri skina''' — ''&quot;The wild bears&quot; is an interesting movie.''
 :Comment: quotes a text that can be not Lojbanic. The quotation is to be wrapped with pauses from both sides and with an additional Lojbanic word around them from both sides. Usually the separating words is the name of the first letter of the language of the quotation.
 :Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
 la'oi,"
-'''la'oi''' — foreign word > noun that is a name
+'''la'oi''' — turn foreign word into noun that is a name
 :'''xu do se zdani la'oi Virginia''' — ''Do you live in Virginia?''
 :Comment: '''la'oi''' and one single word after it make a name. The word after '''la'oi''': might be from any language and written in any script, it is delimited by pauses (in speech) or whitespaces (in writing) from both sides, it can't have pauses inside if pronounced, nor dots when written. For names  with pauses inside use '''la'o'''.
 :Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
@@ -4531,7 +4531,7 @@ lafti,"
 :'''xu do kakne lo ka lafti le rokci''' — ''Can you lift the stone?''
 :Related words: '''farlu''', '''plipe'''"
 lai,"
-'''lai''' <small>[gadri]</small> — verb > name (sumti) denoting a mass
+'''lai''' <small>[gadri]</small> — turn verb into name (sumti) denoting a mass
 :'''lai djonson pu se zdani ti''' — ''The Johnsons lived here.''
 :Comment: ''the mass of those that are called ...'' Creates personal name that denote a mass."
 lakne,"
@@ -4628,14 +4628,14 @@ lazni,"
 :'''mi lazni lo ka catlu lo matra''' — ''I am lazy to look at the engine.''
 :Related words: '''nejni''', '''vreta''', '''gunka'''"
 le,"
-'''le''' <small>[gadri]</small> — verb > noun just mentioned
+'''le''' <small>[gadri]</small> — turn verb into noun just mentioned
 :'''mi pu viska lo fetsi i le fetsi cu melbi''' — ''I saw a female. She is pretty.''
 :Comment: ''the'', creates pronoun like ''she'', ''he'' from noun. '''le fetsi''' is ''she'', '''le nakni''' is ''he'', '''le''' '''za'u''' '''mei''' is ''they''."
 le'ai,"
 '''le'ai''' <small>[terminator]</small>
 :ends a construct started with: '''lo'ai, sa'ai'''"
 le'e,"
-'''le'e''' <small>[gadri]</small> — verb > noun denoting a typical thing previously mentioned
+'''le'e''' <small>[gadri]</small> — turn verb into noun denoting a typical thing previously mentioned
 :'''lo'e cipni cu kakne lo ka vofli i mi tadni le'e cipni''' — ''Typical birds can fly. And I study such birds.''
 :Comment: ''the typical one that does or is ...'' (previously defined).
 :Related words: '''le''', '''lo''', '''lo'e'''"
@@ -4656,7 +4656,7 @@ lebna,"
 :Comment: '''lebna''' implies possession taken, '''cpacu''' doesn't imply previous possession, '''vimcu''' doesn't imply acquiring possession.
 :Related words: '''punji''', '''cpacu''', '''vimcu''', '''canci''', '''cliva'''"
 lei,"
-'''lei''' <small>[gadri]</small> — verb > noun denoting a mass previously mentioned
+'''lei''' <small>[gadri]</small> — turn verb into noun denoting a mass previously mentioned
 :'''mi pu zgana loi prenu je ba co'a sanli i ba bo mi pu muvdu fa'a lei prenu''' — ''I noticed a crowd and stood up. After that, I moved into the direction of the crowd.''
 :Comment: ''the ...'', ''the mass of those that are ...'' (previously mentioned)."
 lenjo,"
@@ -4689,7 +4689,7 @@ letri,"
 :'''lo dilnu cu letri lo ka cupra lo lindi''' — ''The cloud are electric in that they produce lightning.''
 :Related words: '''magneti''', '''trina''', '''xlura'''"
 li,"
-'''li''' — number > value
+'''li''' — turn number into value
 :'''li vo cu sumji li re li re''' — ''4 is the sum of 2 and 2.''
 :Comment: value of the following number or a math expression."
 li'a,"
@@ -4710,7 +4710,7 @@ li'anzi,"
 :'''ti li'anzi lo barda je rijno''' — ''This is a chain with big silver rings.''
 :Related words: '''djine''', '''cukla''', '''gunma''', '''lasna'''"
 li'i,"
-'''li'i''' <small>[clause prefix]</small> — clause > verb
+'''li'i''' <small>[clause prefix]</small> — turn clause into verb
 :'''lo pluka ko li'i se senva''' — ''Have a pleasant dream (sweat dreams!) Bon appetite!''
 :'''lo pluka ko li'i se citka i ma do li'i salci''' — ''How did you like the party?''
 :Comment: x<sub>1(property of x2)</sub> is an experience of ... (clause follows) experienced by x<sub>2</sub>. The first omitted place of the clause is assumed to be the second place of the '''li'i''' clause."
@@ -4803,7 +4803,7 @@ livla,"
 :'''lo livla na banzu''' — ''There isn't enough fuel.''
 :Related words: '''nejni''', '''xaksu''', '''jelca'''"
 lo,"
-'''lo''' <small>[gadri]</small> — verb > noun
+'''lo''' <small>[gadri]</small> — turn verb into noun
 :'''lo mlatu cu danlu''' — ''Cat is an animal.''
 :'''lo pa sazri ca denpa''' — ''A driver waits.''
 :'''lo za'u sazri ca denpa''' — ''Drivers wait.''
@@ -4815,14 +4815,14 @@ lo'ai,"
 :'''sa'ai ba klama le'ai pei''' — ''Is it &quot;will go&quot; that should have been said?''
 :Comment: You may just start with '''sa'ai''' if it's obvious what is corrected. The word '''le'ai''' on its own indicates that an obvious mistake was made. '''le'ai''' '''dai''' indicates that the other partner made a mistake. '''le'ai''' '''pei''' asks whether the partner made a mistake. '''le'ai''' '''nai''' explicitly denies mistakes."
 lo'e,"
-'''lo'e''' <small>[gadri]</small> — verb > noun denoting a typical thing
+'''lo'e''' <small>[gadri]</small> — turn verb into noun denoting a typical thing
 :'''lo'e cipni cu kakne lo ka vofli''' — ''Typical birds can fly.''
 :Comment: ''the typical one that does or is ...''."
 lo'o,"
 '''lo'o''' <small>[terminator]</small>
 :ends a construct started with: '''li, me'o'''"
 lo'u,"
-'''lo'u''' — main verb > noun that is a quote
+'''lo'u''' — turn main verb into noun that is a quote
 :'''ma smuni lo'u vau ua le'u noi do cusku''' — ''What's the meaning of '''vau ua''' that you said?''
 :Comment: '''lo'u''' ... '''le'u''' is a noun quoting any number of Lojban words."
 logji,"
@@ -4831,7 +4831,7 @@ logji,"
 :'''lo du'u lo prina be fi lo nixli jamfu cu nenri lo dinju cu logji lo du'u la Alis pu zvati ti''' — ''By the fact that there are footprints of a girl inside the house, I conclude that Alice was here.''
 :Related words: '''nibli'''"
 loi,"
-'''loi''' <small>[gadri]</small> — verb > noun denoting a mass
+'''loi''' <small>[gadri]</small> — turn verb into noun denoting a mass
 :'''loi tadni pu sruri le dinju''' — ''Students surrounded the building.''
 :Comment: ''the mass of those that are ...''. Creates noun that denotes a mass."
 lojbo,"
@@ -4850,7 +4850,7 @@ lorxu,"
 :'''lo lorxu cu citka lo jipci''' — ''Foxes eat hens.''
 :Related words: '''gerku'''"
 lu,"
-'''lu''' — main verb > noun that is a quote
+'''lu''' — turn main verb into noun that is a quote
 :'''mi pu cusku lu coi lo pendo li'u''' — ''I said &quot;Hello, friends!&quot;''
 :Comment: '''lu''' ... '''li'u''' is a noun quoting grammatically correct text in Lojban (can contain any number of words)."
 lu'e,"
@@ -4941,7 +4941,7 @@ magneti,"
 :'''lo rokci co'u magneti lo ka co'a glare''' — ''The stone becomes non-magnetic when being heat up.''
 :Related words: '''letri''', '''trina''', '''xlura'''"
 mai,"
-'''mai''' — number > numbered item or paragraph
+'''mai''' — turn number into numbered item or paragraph
 :'''pa mai la Meilis ze'i se zdani ti''' — ''First, Mei Li has been living here for a short time.''
 :'''re mai my ka'e sidju ma'a''' — ''Secondly, she can help us.''
 :'''ro mai my stati nixli''' — ''Lastly, she is a smart girl.''
@@ -5114,11 +5114,11 @@ me'i,"
 '''me'i''' <small>[digit/number]</small> — ''less than ...'' (number follows)
 :'''me'i mu prenu ca zutse bu'u le kumfa''' — ''There are less than five people sitting in the room now.''"
 me'o,"
-'''me'o''' — number > text
+'''me'o''' — turn number into text
 :'''me'o pa re ci''' — ''123 (as a text).''
 :Comment: marks the following sequence of numbers as a text."
 me'oi,"
-'''me'oi''' — foreign word > verb
+'''me'oi''' — turn foreign word into verb
 :'''la Alis cu me'oi slob''' — ''Alice is a slob.''
 :Comment: '''me'oi''' and one single word after it make a verb. The word after '''me'oi''': might be from any language and written in any script, it is delimited by pauses (in speech) or whitespaces (in writing) from both sides, it can't have pauses inside if pronounced, nor dots when written. A quick way to borrow foreign words into Lojban.
 :Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
@@ -5136,7 +5136,7 @@ megdo,"
 :'''e'o do cuxna fi lo pixra poi klani su'e lo megdo be li pa bei lo ka se bitri li bi''' — ''Please choose an image that does not exceed 1 Megabyte.''
 :Related words: '''centi'''"
 mei,"
-'''mei''' <small>[verb]</small> — number > verb denoting quantity
+'''mei''' <small>[verb]</small> — turn number into verb denoting quantity
 :'''mi ralte lo re mei be lo gluta''' — ''I have a pair of mittens.''
 :Comment: x<sub>1(entity)</sub> are (n) in number and are among x<sub>2(entity)</sub>. The number (n) is put in front of '''mei'''.
 :Related words: '''cmima''', '''gunma''', '''moi'''"
@@ -5338,7 +5338,7 @@ mo'i,"
 :'''i do mo'i ca'u cadzu''' — ''You walk towards my front.''
 :'''ko catke mo'i zu'a''' — ''Push it to the left.''"
 mo'o,"
-'''mo'o''' — number > numbered chapter
+'''mo'o''' — turn number into numbered chapter
 :'''pa mo'o pu zu ku zasti fa lo nanmu e lo ninmu''' — ''Chapter 1. Long ago lived a man and a woman.''
 :Comment: suffix of a chapter or section number."
 mo'u,"
@@ -5347,7 +5347,7 @@ mo'u,"
 :'''mi mo'u citka lo ro plise''' — ''I've eaten up all apples.''
 :'''mo'u nai ku mi pu zbasu lo dinju ze'a lo masti''' — ''I built houses for a month.''"
 moi,"
-'''moi''' <small>[verb]</small> — number > verb denoting ordinal position
+'''moi''' <small>[verb]</small> — turn number into verb denoting ordinal position
 :'''lo vi cukta cu me mi moi''' — ''This book is mine.''
 :'''i mi ci moi lo pendo lo ka ce'u ce'u cinba''' — ''I kiss all but two of my friends.''
 :'''lo cmaci cu ro moi lo saske lo ka ce'u ce'u zmadu fi lo ka mi djica lo ka tadni ma kau''' — ''Math is the last subject that I want to study.''
@@ -5667,7 +5667,7 @@ nenri,"
 :Comment: '''se''' '''vasru''' is for containment that need not be total.
 :Related words: '''se''' '''vasru''', '''jbini''', '''zvati''', '''cpana''', '''sruri''', '''senta''', '''snuji''', '''bartu''', '''diklo''', '''jibni''', '''jinru''', '''setca'''"
 ni,"
-'''ni''' <small>[clause prefix]</small> — clause > verb
+'''ni''' <small>[clause prefix]</small> — turn clause into verb
 :'''lo ni clani cu mitre li re''' — ''The length is two meters.''
 :Comment: x<sub>1</sub> is the amount described in the clause that follows."
 ni'a,"
@@ -5758,7 +5758,7 @@ nobli,"
 :'''mi nobli lo ka jbena ma kau''' — ''I am noble by birth.''
 :Related words: '''banli'''"
 noi,"
-'''noi''' — clause > incidental relative clause
+'''noi''' — turn clause into incidental relative clause
 :'''mi nelci la Jasmin noi mi ta'e zgana bu'u lo panka''' — ''I like Jasmine, whom I habitually see in the park.''
 :'''mi nelci la Jasmin''' — ''I like Jasmine.''
 :Comment: ''who'', ''which''. Starts relative clause that only adds additional information."
@@ -5770,7 +5770,7 @@ notci,"
 :Comment: '''skicu''' is ''to tell'', '''cusku''' is ''to say'', '''tavla''' is ''to talk'', '''cusku''' '''lo''' '''notci''' is ''to notify''.
 :Related words: '''xatra''', '''nuzba''', '''mrilu''', '''morji'''"
 nu,"
-'''nu''' <small>[clause prefix]</small> — clause > verb
+'''nu''' <small>[clause prefix]</small> — turn clause into verb
 :'''mi gleki lo nu do klama''' — ''I am happy that you came.''
 :'''lo nu prami cu nu gunka''' — ''Loving is working.''
 :Comment: x<sub>1</sub> is the state, process described in the clause that follows."
@@ -6330,7 +6330,7 @@ po'o,"
 :'''mi pu te vecnu fe po'o nai lo titla''' — ''I bought candies among other things.''
 :Related words: '''pa''' '''mei''', '''mulno''', '''te''' '''panra'''"
 poi,"
-'''poi''' — clause > relative clause
+'''poi''' — turn clause into relative clause
 :'''le nakni pu co'a speni lo ninmu poi pu se penmi bu'u lo zarci''' — ''He married a girl met in the store.''
 :'''le nakni pu co'a speni lo ninmu''' — ''He married a girl.''
 :Comment: ''that''. Starts restrictive relative clause. Removing the relative clause with '''poi''' changes the meaning of the sentence."
@@ -6656,7 +6656,7 @@ re'o,"
 '''re'o''' <small>[preposition of place]</small> — ''adjacent to ...'', ''touching ...'', ''contacting ...''
 :'''lo nobli pu zutse re'o lo jubme''' — ''The sir was sitting touching the wall.''"
 re'u,"
-'''re'u''' <small>[preposition]</small> — number > preposition for which time it happens
+'''re'u''' <small>[preposition]</small> — turn number into adverb (or preposition) showing for which time it happens
 :'''mi pu ci re'u penmi la Alis''' — ''I met Alice for the third time.''
 :'''mi zvati ti za'u re'u''' — ''I'm here again.''
 :Comment: event happens for the (n) time. The number (n) is put in front of '''re'u'''."
@@ -6838,7 +6838,7 @@ ro'u,"
 :Comment: used without an attitudinal to indicate focus of the speaker.
 :Related words: '''seksi'''"
 roi,"
-'''roi''' <small>[preposition]</small> — number > preposition for how many times it happens
+'''roi''' <small>[preposition]</small> — turn number into adverb (or preposition) showing for how many times it happens
 :'''mi pu re roi penmi la Alis''' — ''I met Alice twice, two times.''
 :Comment: event happens (n) times. The number (n) is put in front of '''roi'''."
 rokci,"
@@ -7124,7 +7124,7 @@ se cau,"
 '''se cau''' <small>[preposition from '''se''' '''claxu''']</small> — ''lacking ...''
 :'''lo mi pendo ce mi pu tsuku lo cizra stuzi se cau lo ka sanji lo du'u ka'e ckape''' — ''My friend and I arrived at a strange place lacking the awareness that it can be dangerous.''"
 se du'u,"
-'''se du'u''' <small>[clause prefix]</small> — clause > quote
+'''se du'u''' <small>[clause prefix]</small> — turn clause into quote
 :'''mi pu cusku fi la Edu'ard fe lo se du'u lo mi karce cu spofu''' — ''I told Eduard that my car is broken.''
 :Comment: x<sub>1(text)</sub> is the sentence expressing the clause x<sub>2</sub>. Used for reported speech."
 se ja'e,"
@@ -7188,7 +7188,7 @@ sefta,"
 :'''lo sefta be lo najnimre cu xutla''' — ''The orange has a soft surface.''
 :Related words: '''crane''', '''flira''', '''plita''', '''bliku'''"
 sei,"
-'''sei''' — verb > interjection
+'''sei''' — turn verb into interjection
 :'''sei mi morji do sampla''' — ''As I remember, you are a programmer.''
 :'''sei mi bebna le zarci cu se stuzi lo drata''' — ''Silly me, the store is in another place.''"
 seksi,"
@@ -7294,12 +7294,12 @@ si'au,"
 :'''si'au le fetsi cu xebni do''' — ''It seems, she hates you.''
 :'''si'au le ctuca pu co'u pacna''' — ''It seems, the teacher was disappointed.''"
 si'e,"
-'''si'e''' <small>[verb]</small> — number > verb denoting portion
-:'''lo stati cu kakne lo ka zukte lo zabna''' — ''Smart people can do nice things.''
-:'''ku'i sy mo'a si'e lo se gugde''' — ''But they represent a too small fraction of citizens.''
-:Comment: x<sub>1(entity)</sub> is the n-th portion of mass x<sub>2(entity)</sub>. The number (n) is put in front of '''si'e'''."
+'''si'e''' <small>[verb]</small> — turn number into verb denoting portion
+:'''lo stati cu kakne lo ka zukte lo zabna i ku'i sy boi mo'a si'e lo se gugde''' — ''Smart people can do nice things. But they represent a too small fraction of citizens.''
+:'''lo pi mu si'e be le plise cu fusra''' — ''Half of the apple is rotten.''
+:Comment: x<sub>1(entity)</sub> is the n-th portion of mass x<sub>2(entity)</sub>. The number (n) is put in front of '''si'e''', '''pi''' '''mu''' here would mean ''0.5'', i.e. ''half''."
 si'o,"
-'''si'o''' <small>[clause prefix]</small> — clause > verb
+'''si'o''' <small>[clause prefix]</small> — turn clause into verb
 :'''mi nelci lo si'o xunre''' — ''I like the color red.''
 :Comment: x<sub>1</sub> is a concept described in the clause that follows."
 si'u,"
@@ -7932,7 +7932,7 @@ su'o,"
 :'''su'o ci prenu pu cliva le zdani''' — ''At least three people left the building.''
 :'''su'o prenu ca jundi''' — ''At least one person is attentive now.''"
 su'u,"
-'''su'u''' <small>[clause prefix]</small> — clause > verb
+'''su'u''' <small>[clause prefix]</small> — turn clause into verb
 :'''lo su'u mi tadni vau be lo pruce cu nandu''' — ''My learning is hard process.''
 :'''lo nu catlu lo pindi vau be lo se lifri pu cizra''' — ''It was a strange experience to look at the poor man.''
 :Comment: x<sub>1</sub> is the clause (that follows) that has the type x<sub>2</sub>. Allows to specify the type of the clause."
@@ -8164,9 +8164,9 @@ tavla,"
 :Comment: '''skicu''' is ''to tell'', '''cusku''' is ''to say'', '''tavla''' is ''to talk'', '''cusku''' '''lo''' '''notci''' is ''to notify''.
 :Related words: '''bacru''', '''casnu''', '''darlu''', '''ciksi''', '''bangu'''"
 taxfu,"
-'''taxfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a garment worn by  ''x<sub>2</sub><sub>(entity)</sub>''  serving purpose  ''x<sub>3</sub>
+'''taxfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a garment worn by  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo taxfu''' — garment. 
-:'''lo vi sunla kosta cu taxfu lo zvati be lo cmana gi'e bandu fi lo lenku''' — ''This fur coat is used by those who are in mountains to protect them from cold.''
+:'''lo vi sunla kosta cu taxfu lo zvati be lo cmana gi'e bandu fi lo nu lenku''' — ''This fur coat is used by those who are in mountains and protects from cold.''
 :Related words: '''creka''', '''cutci''', '''daski''', '''dasni''', '''gluta''', '''kosta''', '''mapku''', '''palku''', '''pastu''', '''skaci''', '''smoka''', '''lunbe'''"
 tcaci,"
 '''tcaci''' — ''x<sub>1</sub><sub>(property of x2)</sub>''  is a custom or habit of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -8710,7 +8710,7 @@ va,"
 :'''le prenu cu sanli va lo mitre be li re ki mi''' — ''The man is standing two meters away from me.''
 :Comment: specifies the distance, e.g. in meters ."
 va'e,"
-'''va'e''' <small>[verb]</small> — number > verb denoting position on scale
+'''va'e''' <small>[verb]</small> — turn number into verb denoting position on scale
 :'''ro prenu cu su'o va'e bebna''' — ''Every person is stupid to some degree.''
 :'''du'e va'e fa lo nu cuxna''' — ''It's too hard to choose.''
 :'''ti so'o va'e boske''' — ''This is jungle, not a real forest.''
@@ -8840,7 +8840,7 @@ venfu,"
 :'''la Kevin pu venfu la Alis lo ka kusru ky vau lo ka cinba a bu re'o lo li'anpi''' — ''He took a revenge on Alice being rude to him by kissing her on the cheek.''
 :Related words: '''sfasa''', '''cnemu'''"
 vensa,"
-'''vensa''' — ''x<sub>1</sub><sub>(clause)</sub>''  is spring of year  ''x<sub>2</sub><sub>(entity)</sub>''  at location  ''x<sub>3</sub><sub>(entity)</sub>'' 
+'''vensa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is spring of year  ''x<sub>2</sub><sub>(entity)</sub>''  at location  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo vensa''' — springtime. 
 :'''ca lo vensa be lo re no no mu moi bei la Australi'as mi pu na zvati lo mi zdani gugde''' — ''During Australian winter of year 2005 I wasn't in my home country.''
 :Related words: '''citsi''', '''crisa''', '''critu''', '''dunra'''"
@@ -9265,7 +9265,7 @@ xislu,"
 :'''i xu do mo'u cikre lo xislu''' — ''Have you fixed the wheel?''
 :Related words: '''carce''', '''karce''', '''pulni''', '''tutci'''"
 xlali,"
-'''xlali''' — ''x<sub>1</sub><sub>(clause)</sub>''  is bad for  ''x<sub>2</sub><sub>(clause)</sub>'' 
+'''xlali''' — ''x<sub>1</sub><sub>(entity)</sub>''  is bad for  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo xlali''' — bad. 
 :'''lo nu lo speni be mi cu bilma cu xlali da'i mi''' — ''An illness of my spouse would be bad for me.''
 :Related words: '''palci''', '''mabla''', '''xamgu''', '''betri'''"
@@ -9383,7 +9383,7 @@ za'u,"
 :'''za'u lo prenu pu'o klama''' — ''More people are about to come.''
 :'''xu do djica za'u lo djacu''' — ''Do you want more water?''"
 za'u re'u,"
-'''za'u re'u''' <small>[preposition]</small> — ''again''
+'''za'u re'u''' <small>[preposition]</small> — adverb: ''again''
 :'''e'o do za'u re'u cusku''' — ''Could you repeat that?''"
 zabna,"
 '''zabna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is superb, admirable in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -9586,7 +9586,7 @@ zmiku,"
 :'''lo vorme ci zmiku lo ka co'a kalri''' — ''The door opens automatically.''
 :Related words: '''macnu'''"
 zo,"
-'''zo''' — verb > noun that is a quote
+'''zo''' — turn verb into noun that is a quote
 :'''zo gleki cmene mi''' — ''Gleki is my name.''
 :Comment: '''zo''' and one single Lojban word after it make a quotation, it works as a noun. To quote compound particles, compound verbs and phrases use '''lu''' ...'''li'u'''. To quote arbitrary sequences of words use '''lo'u''' ... '''le'u'''.
 :Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
@@ -9611,7 +9611,7 @@ zo'o,"
 :'''zo'o nai do fanza''' — ''Seriously, you are annoying.''
 :Related words: '''xajmi''', '''junri'''"
 zo'oi,"
-'''zo'oi''' — foreign word > noun that is a quote
+'''zo'oi''' — turn foreign word into noun that is a quote
 :'''zo'oi again se traduki fi lu za'u re'u li'u''' — ''&quot;Again&quot; is translated as '''za'u re'u'''.''
 :Comment: '''zo'oi''' and one single word after it make a quotation, it works as a noun. The word after '''zo'oi''': might be from any language and written in any script, it is delimited by pauses (in speech) or whitespaces (in writing) from both sides, it can't have pauses inside if pronounced, nor dots when written. To quote several words or one word with pauses inside use '''zoi'''.
 :Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
@@ -9621,7 +9621,7 @@ zo'u,"
 :'''vo da poi gerku vau re de poi prenu zo'u da batci de''' — ''There are four '''da''' (that are dogs) and there are two '''de''' (that are men) such that each dog ('''da''') bites the two men ('''de''').''
 :Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
 zoi,"
-'''zoi''' — foreign text > noun that is a quote
+'''zoi''' — turn foreign text into noun that is a quote
 :'''lu coi ro do li'u se traduki fi zoi gy.Hello, everyone!.gy. noi glico''' — '''''coi ro do''' is translated to English as &quot;Hello, everyone!&quot;''
 :Comment: quotes a text that can be not Lojbanic. The quotation is to be wrapped with pauses from both sides and with an additional Lojbanic word around them from both sides. Usually the separating Lojbanic word is the first letter of the language in the quotation.
 :Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"

@@ -1,10 +1,9 @@
 CACHE MANIFEST
 
-# Version 1.84
+# Version 1.87
 
 CACHE:
-index.html?version=13
-plise.svg
+index.html?version=16
 plise.png
 pelxuplise.png
 crinoplise.png
@@ -41,17 +40,11 @@ worker.js
 #./lib/Lato/Lato-Regular.ttf
 #./lib/Lato.css
 
-../polymerchromeapp/components/platform/platform.js
-../polymerchromeapp/components/polymer/polymer.html
-../polymerchromeapp/components/polymer/layout.html
-../polymerchromeapp/components/polymer/polymer.js
-../polymerchromeapp/components/core-header-panel/core-header-panel.html
-../polymerchromeapp/components/core-header-panel/core-header-panel.css
-../polymerchromeapp/components/core-range/core-range.html
-../polymerchromeapp/components/paper-progress/paper-progress.html
-../polymerchromeapp/components/paper-progress/paper-progress.css
 http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
-../loading.gif
+http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css
+http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
+
+#../loading.gif
 
 #../favicons/apple-touch-icon-114x114.png
 #../favicons/apple-touch-icon-120x120.png

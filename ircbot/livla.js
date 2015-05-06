@@ -1499,11 +1499,12 @@ var app = http.createServer(function(req, res) {
 var io = require('socket.io').listen(app);
 
 io.sockets.on('connection', function(socket) {
-	console.log('111');
     //socket.emit('welcome', { message: 'Welcome!' +socket.id});
 	//io.to(socket.id).emit("returner", { message: message: vlaste(data.data,'en') });
     socket.on(
-    	'i am client', function(data){//clientmensi, from, to, text, message,source
+    	'i am client', function(data){
+    		console.log(data+"|||");
+    		//clientmensi, from, to, text, message,source
     		if(data.data.indexOf(prereplier+"doi")===0 || data.data.indexOf(prereplier+"tell")===0){}else{
     			processormensi(clientmensi, "mw.lojban.org", "", data.data, "","naxle",socket);
     		}
@@ -1511,7 +1512,7 @@ io.sockets.on('connection', function(socket) {
     );
 });
 
-app.listen(3001);
+app.listen(3002);
 
 //mahantufa
 var ningaumahantufa = function(text,socket){

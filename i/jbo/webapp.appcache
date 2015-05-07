@@ -1,13 +1,14 @@
 CACHE MANIFEST
 
-# Version 1.63
+# Version 1.89
 
 CACHE:
-index.html
+index.html?version=16
+../sutsis.png
 ../search.js
 worker.js
 ../lujvo.js
-../data/parsed-jbo.js?version=6
+../data/parsed-jbo.js?version=16
 
 ../lib/fullproof/unicode/categ_letters_numbers.js
 ../lib/fullproof/unicode/normalizer_lowercase_nomark.js
@@ -35,17 +36,11 @@ worker.js
 #./lib/Lato/Lato-Regular.ttf
 #./lib/Lato.css
 
-../polymerchromeapp/components/platform/platform.js
-../polymerchromeapp/components/polymer/polymer.html
-../polymerchromeapp/components/polymer/layout.html
-../polymerchromeapp/components/polymer/polymer.js
-../polymerchromeapp/components/core-header-panel/core-header-panel.html
-../polymerchromeapp/components/core-header-panel/core-header-panel.css
-../polymerchromeapp/components/core-range/core-range.html
-../polymerchromeapp/components/paper-progress/paper-progress.html
-../polymerchromeapp/components/paper-progress/paper-progress.css
 http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
-../loading.gif
+http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css
+http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
+
+#../loading.gif
 
 #../favicons/apple-touch-icon-114x114.png
 #../favicons/apple-touch-icon-120x120.png

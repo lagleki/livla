@@ -1,9 +1,10 @@
 CACHE MANIFEST
 
-# Version 1.61
+# Version 1.89
 
 CACHE:
-index.html
+index.html?version=16
+../sutsis.png
 ../search.js
 worker.js
 ../lujvo.js
@@ -35,40 +36,35 @@ worker.js
 #./lib/Lato/Lato-Regular.ttf
 #./lib/Lato.css
 
-../polymerchromeapp/components/platform/platform.js
-../polymerchromeapp/components/polymer/polymer.html
-../polymerchromeapp/components/polymer/layout.html
-../polymerchromeapp/components/polymer/polymer.js
-../polymerchromeapp/components/core-header-panel/core-header-panel.html
-../polymerchromeapp/components/core-header-panel/core-header-panel.css
-../polymerchromeapp/components/core-range/core-range.html
-../polymerchromeapp/components/paper-progress/paper-progress.html
-../polymerchromeapp/components/paper-progress/paper-progress.css
-http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
+http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css
+http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 
-../favicons/apple-touch-icon-114x114.png
-../favicons/apple-touch-icon-120x120.png
-../favicons/apple-touch-icon-144x144.png
-../favicons/apple-touch-icon-152x152.png
-../favicons/apple-touch-icon-180x180.png
-../favicons/apple-touch-icon-57x57.png
-../favicons/apple-touch-icon-60x60.png
-../favicons/apple-touch-icon-72x72.png
-../favicons/apple-touch-icon-76x76.png
-../favicons/apple-touch-icon-precomposed.png
-../favicons/apple-touch-icon.png
-../favicons/browserconfig.xml
-../favicons/favicon-160x160.png
-../favicons/favicon-16x16.png
-../favicons/favicon-192x192.png
-../favicons/favicon-32x32.png
-../favicons/favicon-96x96.png
-../favicons/favicon.ico
-../favicons/mstile-144x144.png
-../favicons/mstile-150x150.png
-../favicons/mstile-310x150.png
-../favicons/mstile-310x310.png
-../favicons/mstile-70x70.png
+#../loading.gif
+
+#../favicons/apple-touch-icon-114x114.png
+#../favicons/apple-touch-icon-120x120.png
+#../favicons/apple-touch-icon-144x144.png
+#../favicons/apple-touch-icon-152x152.png
+#../favicons/apple-touch-icon-180x180.png
+#../favicons/apple-touch-icon-57x57.png
+#../favicons/apple-touch-icon-60x60.png
+#../favicons/apple-touch-icon-72x72.png
+#../favicons/apple-touch-icon-76x76.png
+#../favicons/apple-touch-icon-precomposed.png
+#../favicons/apple-touch-icon.png
+#../favicons/browserconfig.xml
+#../favicons/favicon-160x160.png
+#../favicons/favicon-16x16.png
+#../favicons/favicon-192x192.png
+#../favicons/favicon-32x32.png
+#../favicons/favicon-96x96.png
+#../favicons/favicon.ico
+#../favicons/mstile-144x144.png
+#../favicons/mstile-150x150.png
+#../favicons/mstile-310x150.png
+#../favicons/mstile-310x310.png
+#../favicons/mstile-70x70.png
 
 
 NETWORK:
@@ -76,4 +72,4 @@ https://ssl.google-analytics.com/
 http://www.google-analytics.com/
 
 FALLBACK:
-/search/ ./
+/sisku/ ./

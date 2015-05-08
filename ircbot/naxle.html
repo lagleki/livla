@@ -14,9 +14,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 </style>
 	    <script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
-        <script src='//vrici.lojban.org:3002/socket.io/socket.io.js'></script>
+        <script src='//vrici.lojban.org:3000/socket.io/socket.io.js'></script>
         <script>
-            var socket = io.connect('//vrici.lojban.org:3002');
+            var socket = io.connect('//vrici.lojban.org:3000');
             socket.on('returner', function(data) {
                 $('#messages').val(data.message);
             });

@@ -4,6 +4,7 @@
   <title>la sutsis zo'u: ze'i mitysisku lo valsi</title>
   <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
   <link rel="shortcut icon" href="../sutsis.png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/en/sisku.xml" title="en-sutsis">
   <!--<link rel='stylesheet' href='lib/Lato.css'>-->
   <style type="text/css">
 	.container .credit {
@@ -234,10 +235,13 @@
 
 	function displayDocument(def) {
 		var out = $("<div>").addClass('term');
+		var ss;
+		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
 		  .append($("<h4>").text(def.w + ' '))
 		  .append($("<div style='flex:1;'>"))
 		  .append($("<div>").addClass('type').html(def.t + ' '))
+		  .append(ss)
 		);
 		if (def.d) {
 		$("<div>").addClass('definition').html(

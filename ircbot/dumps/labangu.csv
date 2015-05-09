@@ -447,7 +447,7 @@ binxo,"
 '''binxo''' — ''x<sub>1</sub><sub>(entity)</sub>''  transforms into  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''ba zi ku mi binxo lo gleki''' — ''Soon I will become happy.''
 :'''do pu binxo lo lazni''' — ''You became lazy.''
-:Comment: '''binxo''' describes that entity turns into another entity, '''galfi''' is ''to change one entity into another one''. '''cenba''' describes how entity changes its state while remaining the same entity, '''stika''' is ''to make entity change its state''.
+:Comment: '''binxo''' describes that entity turns into another entity, '''galfi''' is ''to turn one entity into another one''. '''cenba''' describes how entity changes its state while remaining the same entity, '''stika''' is ''to make entity change its state''.
 :Related words: '''cenba''', '''galfi''', '''stika''', '''zasni'''"
 birje,"
 '''birje''' — ''x<sub>1</sub><sub>(entity)</sub>''  some beer brewed from  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -576,6 +576,11 @@ bradi,"
 :'''lo bradi''' — enemy. '''lo se bradi''' — someone who has an enemy. '''lo te bradi''' — struggle between enemies. 
 :'''lo tance be mi mi bradi lo nu mi troci lo ka pilno ty lo ka bacru lo lojbo valsi''' — ''My tongue is my enemy when I'm trying to use it to utter Lojban words.''
 :Related words: '''damba''', '''jamna''', '''darlu''', '''pendo''', '''fapro''', '''gunta''', '''sarji''', '''jivna''', '''jinga'''"
+bramlatu,"
+'''bramlatu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a big cat of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
+:'''lo bramlatu''' — tiger, lion, panther, leopard, cheetah. 
+:'''ju'o cu'i lo bramlatu cu se zdani le tutra''' — ''Big cats may inhabit this area.''
+:Related words: '''cinfo''', '''mlatu'''"
 bratu,"
 '''bratu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is hail
 :'''lo bratu''' — hail, sleet. 
@@ -922,7 +927,7 @@ cenba,"
 '''cenba''' — ''x<sub>1</sub><sub>(entity)</sub>''  varies in  ''x<sub>2</sub><sub>(property of x1)</sub>''  in amount  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo cenba''' — variable. 
 :'''do cenba lo ni ma kau se cpedu vau lo barda''' — ''Your demands vary to much degree.''
-:Comment: '''binxo''' describes that entity turns into another entity, '''galfi''' is ''to change one entity into another one''. '''cenba''' describes how entity changes its state while remaining the same entity, '''stika''' is ''to make entity change its state''.
+:Comment: '''binxo''' describes that entity turns into another entity, '''galfi''' is ''to turn one entity into another one''. '''cenba''' describes how entity changes its state while remaining the same entity, '''stika''' is ''to make entity change its state''.
 :Related words: '''cenba''', '''galfi''', '''stika''', '''stodi''', '''zasni''', '''binxo'''"
 censa,"
 '''censa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is holy or sacred to  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -1109,7 +1114,7 @@ cinfo,"
 '''cinfo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a lion of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo cinfo''' — lion. 
 :'''mi pu se spaji lo ka viska lo cinfo''' — ''I was surprised to see a lion.''
-:Related words: '''mlatu'''"
+:Related words: '''bramlatu''', '''mlatu'''"
 cinje,"
 '''cinje''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a wrinkle in  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo cinje''' — wrinkle. '''lo se cinje''' — wrinkled. 
@@ -2748,7 +2753,7 @@ galfi,"
 :'''le mamta pu galfi lo rectu ce lo nanba lo pluka snuji''' — ''Mother turned the meat and the bread into lovely sandwiches.''
 :'''ju'o le ninmu ba galfi la Kevin lo speni be vo'a''' — ''I'm sure she will make Kevin her spouse.''
 :'''lo lenku brife pu galfi lo pezli lo bunre''' — ''The cold wind turned the leaves brown.''
-:Comment: '''binxo''' describes that entity turns into another entity, '''galfi''' is ''to change one entity into another one''. '''cenba''' describes how entity changes its state while remaining the same entity, '''stika''' is ''to make entity change its state''.
+:Comment: '''binxo''' describes that entity turns into another entity, '''galfi''' is ''to turn one entity into another one''. '''cenba''' describes how entity changes its state while remaining the same entity, '''stika''' is ''to make entity change its state''.
 :Related words: '''stika''', '''binxo''', '''cenba''', '''zasni'''"
 galtu,"
 '''galtu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is high in reference frame  ''x<sub>2</sub><sub>(entity)</sub>'' ; x<sub>1</sub> is an upper part of x<sub>2</sub>
@@ -5304,7 +5309,7 @@ mlatu,"
 :'''lo mlatu''' — cat. 
 :'''lo ka kucli cu catra lo mlatu''' — ''Curiosity killed the cat.''
 :'''mi ralte lo mlatu e lo gerku''' — ''I keep a cat and a dog.''
-:Related words: '''cinfo''', '''tigra''', '''gerku'''"
+:Related words: '''bramlatu''', '''cinfo''', '''ratcu''', '''gerku'''"
 mleca,"
 '''mleca''' — ''x<sub>1</sub><sub>(entity)</sub>''  is less than  ''x<sub>2</sub><sub>(entity)</sub>''  in  ''x<sub>3</sub><sub>(property of x1 and x2 with '''kau''')</sub>''  by amount  ''x<sub>4</sub><sub>(entity)</sub>'' 
 :'''lo mleca''' — less. '''lo se mleca''' — more. 
@@ -5735,7 +5740,7 @@ nixli,"
 :Related words: '''nanla''', '''verba''', '''ninmu'''"
 no,"
 '''no''' <small>[digit/number]</small> — ''0'', ''zero''
-:'''no tigra ca zvati le boske''' — ''There are no tigers in the forest.''"
+:'''no bramlatu ca zvati le boske''' — ''There are no big cats in the forest.''"
 no'a,"
 '''no'a''' <small>[verb]</small> — copies the outer clause in which the current one is embedded excluding '''sei'''-clauses
 :'''xu la Alis cu zukte lo se nupre be lo no'a''' — ''Does Alice keep her words?''
@@ -7607,7 +7612,7 @@ snuji,"
 snura,"
 '''snura''' — ''x<sub>1</sub><sub>(entity)</sub>''  is safe from threat  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo snura''' — safe from a threat. 
-:'''mi'o snura lo ka se gunta lo tigra''' — ''We are safe from a possible attack of tigers. .''
+:'''mi'o snura lo ka se gunta lo bramlatu''' — ''We are safe from a possible attack of big cats.''
 :Related words: '''ckape''', '''kajde''', '''marbi''', '''terpa''', '''xalni''', '''bandu'''"
 snuti,"
 '''snuti''' — ''x<sub>1</sub><sub>(property of x2)</sub>''  is an accident on the part of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -7884,7 +7889,7 @@ stika,"
 '''stika''' — ''x<sub>1</sub><sub>(entity)</sub>''  adjusts, makes  ''x<sub>2</sub><sub>(property of x1)</sub>''  change, vary in degree  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo se stika''' — adjusted. 
 :'''i ro lo linji ka'e stika lo ni clani vau ro lo klani''' — ''Any line segment can be changed in its length to any degree.''
-:Comment: '''binxo''' describes that entity turns into another entity, '''galfi''' is ''to change one entity into another one''. '''cenba''' describes how entity changes its state while remaining the same entity, '''stika''' is ''to make entity change its state''.
+:Comment: '''binxo''' describes that entity turns into another entity, '''galfi''' is ''to turn one entity into another one''. '''cenba''' describes how entity changes its state while remaining the same entity, '''stika''' is ''to make entity change its state''.
 :Related words: '''cenba''', '''galfi''', '''binxo''', '''zasni''', '''stodi'''"
 stizu,"
 '''stizu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bench or chair
@@ -8326,11 +8331,6 @@ tigni,"
 :'''lo tigni''' — performer. '''lo se tigni''' — performance. '''lo te tigni''' — audience of a performance. 
 :'''le za'u mei cu tigni lo ka sutra dansu vau lo tadni''' — ''They are performing a fast dance before students.''
 :Related words: '''jarco'''"
-tigra,"
-'''tigra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a tiger of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
-:'''lo tigra''' — tiger. 
-:'''le mlatu cu simlu lo ka cmalu tigra''' — ''The cat looks like a small tiger.''
-:Related words: '''cinfo''', '''mlatu'''"
 tilju,"
 '''tilju''' — ''x<sub>1</sub><sub>(entity)</sub>''  is heavy or massive in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo tilju''' — heavy. 

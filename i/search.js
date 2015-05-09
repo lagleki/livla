@@ -4,7 +4,6 @@ var searchIdCounter = 0;
 function search(query, callback) {
 	var searchId = ++searchIdCounter;
 	var words = (literals[query] || []).slice();
-	limit = 50;
 	words.push(query);
 	if (query.length === 0) {
 		return;
@@ -12,15 +11,17 @@ function search(query, callback) {
 	var set = {};
 	var resultCount = 0;
 	results = [];
+	/*var valw=function(val){return val.w==words[i]};
 	for (var i = 0; i < words.length; i++) {
 		resultCount++;
 		set[words[i]] = true;
-		var doc = documentStore.filter(function(val){return val.w==words[i]})[0];
+		var doc = documentStore.filter(valw(val))[0];
 		if (!doc) {
 			continue;
 		}
-		//results.push(doc);
-	}
+		results.push(doc);
+	}*/
+	
 	//if (results.length === 0) {
 		var rafsiDecompositions = parseLujvo(query);
 		for (i = 0; i < rafsiDecompositions.length; i++) {
@@ -34,6 +35,7 @@ function search(query, callback) {
 		}
 	//}
 	var greatMatches = [];
+	var selmahoMatches = [];
 	searchEngine.lookup(query, function(engineResults) {
 		if (!engineResults) {
 			callback(results);
@@ -51,14 +53,17 @@ function search(query, callback) {
 			if (!doc) {
 				continue;
 			}
-				if (doc.w === query || (doc.t == 'gismu' && ((doc.r || []).indexOf(query) != -1))) {
+				if ((doc.s||'') === query){
+					selmahoMatches.push(doc);//selmaho
+				}
+				else if (doc.w === query || (doc.t == 'gismu' && ((doc.r || []).indexOf(query) != -1))) {
 					greatMatches.push(doc);
 					continue;
 				}
-				results.push(doc);
+				else {results.push(doc);}
 		}
 
-		results = greatMatches.concat(results);
+		results = greatMatches.concat(selmahoMatches).concat(results);
 		callback(results);
 	});
 }
@@ -89,7 +94,8 @@ function initializer(injector, callback) {
 	for (var key in documentStore) {
 		var doc = documentStore[key];
 		doc.t = (typeof doc.t === 'undefined') ? '' : doc.t;
-		var text = [doc.w, (doc.t||''), doc.d, doc.n, (doc.r||[]).join(' ')].join(' ');
+		if (doc.s){var text = [doc.w, (doc.t||''), doc.s, doc.d, doc.n, (doc.r||[]).join(' ')].join(' ');}
+		else{var text = [doc.w, (doc.t||''), doc.d, doc.n, (doc.r||[]).join(' ')].join(' ');}
 		wordsArray.push(text);
 		valuesArray.push(key);
 	}

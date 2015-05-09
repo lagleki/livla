@@ -1337,6 +1337,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		var hi=rev[i].attr("word").value().replace("\\","\\\\");
 		pars+="{\"w\":\""+hi+"\"";
 		try{pars+=",\"t\":\""+rev[i].attr("type").value().replace("\\","\\\\")+"\"";}catch(err){}
+		try{pars+=",\"s\":\""+rev[i].find("selmaho[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		try{pars+=",\"d\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		try{pars+=",\"n\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		var ra=rev[i].find("rafsi//text()[1]");

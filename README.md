@@ -1,12 +1,16 @@
-ilmentufa
+la glekitufa
 =========
+la glekitufa is a combine providing different options in learning and developing Lojban language.
 
+la ilmentufa
+===========
 'la ilmentufa' is a syntactical and not yet semantical parser for the Lojban language.
 
 Read more about it at http://mw.lojban.org/index.php?title=La_Bangu:_ilmentufa
 
 
-=== Requirements ===
+Requirements
+===========
 
 For generating a PEGJS grammar engine from its PEG grammar file, as well as for running the IRC bot interfaces, you need to have Node.js installed on your machine.
 

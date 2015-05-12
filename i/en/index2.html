@@ -160,14 +160,14 @@
             <b>la sutsis</b> is a fast dictionary for the Lojban language.
           <p>
 - Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href="http://lojban.org" target="_blank">Lojban Wiki</a>.
-		<span style="position: absolute; right: 20px; bottom: 20px;"><i><a href="#" title="en-sutsis"
-onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Add as a search engine</a></i></span>
         </div>
 		<div id='output'></div>
 		<div id='loading'>
 		  <span class='message'>Loading dictionary ...</span><br>
 			<div id="progressbar" style="margin:auto;"></div>
 		</div>
+		<div id='searchengine' style="position: absolute;right: 10px;"><i><a href="#" title="en-sutsis"
+onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Add as a search engine</a></i></div>
 		</div>
 	</div>
 <script>
@@ -180,8 +180,8 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 	var results = [];
 	var ready = false;
 	$(document).ready(function () {
-    if ($(window).width() < 500) 
-        $('#plise').remove();
+    if ($(window).width() < 500) $('#plise').remove();
+    if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 });
 	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").height('5').css('width','100');});
 	//$("#progressbar > div").css({ 'height': '10px;' });.wrap("<div class='Your-CSS-Scope-Class'></div>");

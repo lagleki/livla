@@ -313,7 +313,7 @@ var nagendra = ["na drani", "li'a na drani i do pu nitcu ma", "do na junri xu","
 var spuda = ["do puzabi\'oca mutce lo ka jai fanza", "do djica ma", "a'enai je'enai i mi djica lo ka sipna", "e'u do klama lo bartu","ke'o i ta'onai aunairu'e mi tavla do"];
 var coi = ["coi", "co\'oi", "ju\'i", "be\'e"];
 var mablagleki = ["la gleki cu tai mabla prenu", "xu la gleki cu fenki i .ies", "la gleki cu cmorguka i ie cmorguka", "lo'e me la gleki cu finti lo cizra zmiku","xu ro lo jbopre cu tai si'a fenki","lo'e arxokuna cu nelci lo ka zukte lo fanza"];
-var nelci = ["ba'e mi nelci i ie mi nelci","sei mi stace mi na mutce nelci","mi na nelci","mi xebni","mi mutce nelci i ie"];
+var nelci = ["i mi i mi i mi mo i mi na nelci","ba'e mi nelci i ie mi nelci","sei mi stace mi na mutce nelci","mi na nelci","mi xebni","mi mutce nelci i ie"];
 var tugni = ["mi tugni i ie mi tugni","ba'e mi na tugni","ei mi tugni"];
 var user = ["gleki", replier];
 var grute = ["pelxu badna", "ranti kokso", "fanza plise", "grute", "xunre ka\'orta","zirpu betka","clazme","cirla","tricu","bunre narge","crino spati","dembi","figre","tamca","patlu","djacyzme"];
@@ -978,8 +978,8 @@ var items = [
 	["lo","a(n)"],["le","the"],["la","@@@"],["nu","event-of"],["zo","the-word:"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
 	["na","not"],["na'e","not"],["nai","-not"],["nelci","fond-of"],["ka","being"],["tu'a","about"],
 	["ie","yeah"],["e'u","I-suggest"],
-	["e","and"],["a","and/or"],
-	["je","and"],["ja","and/or"],
+	["e","and"],["enai","and-not"],["a","and/or"],
+	["jenai","and-not"],["je","and-not"],["ja","and/or"],
 	["gi'e",",-and"],["gi'a",",-and/or"],
 	["bu'u","at"],["ca","at-present"],
 	["ku",","],

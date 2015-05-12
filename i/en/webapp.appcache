@@ -1,9 +1,8 @@
 CACHE MANIFEST
-
-# Version 1.94
+# 2015-05-12:v3
 
 CACHE:
-index.html?version=22
+index.html?version=25
 ../sutsis.png
 ../search.js
 worker.js

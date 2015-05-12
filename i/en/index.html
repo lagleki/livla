@@ -143,8 +143,8 @@
 <body style="margin: 0;height: 100vh;">
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
-		<span id='plise'>
-		<a href="../"><span class='site-title'><font color="#fff">la sutsis</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
+		<span id='plise'><a href="../"><img src="../sutsis.png" height='16' width='16'>
+		<span class='site-title'><font color="#fff">la sutsis</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
 		<input id='typehere' type='text' placeholder="search" autofocus style="margin-right:15px;">
 		</div>
 	</div>
@@ -160,8 +160,8 @@
             <b>la sutsis</b> is a fast dictionary for the Lojban language.
           <p>
 - Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href="http://lojban.org" target="_blank">Lojban Wiki</a>.
-		<span style="position: absolute; right: 20px; bottom: 20px;"><i><a href="#" title="en-sutsis"
-onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Add as a search engine</a></i></span>
+		<div id='searchengine' style="position: absolute;right: 10px;"><i><a href="#" title="en-sutsis"
+onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Add as a search engine</a></i></div>
         </div>
 		<div id='output'></div>
 		<div id='loading'>
@@ -178,10 +178,11 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 	var worker = new Worker('worker.js');
 	var resultCount;
 	var results = [];
+	var fm = {BE: "BEhO",BEI: "BEhO",BY: "BOI",COI: "DOhU",DOI: "DOhU",FIhO: "FEhU",FUhE: "FUhO",GIhA: "VAU",GOI: "GEhU",JOhI: "TEhU",KE: "KEhE",LAhE: "LUhU",LA: "KU",LE: "KU",LI: "LOhO",LOhU: "LEhU",LU: "LIhU",ME: "MEhU","NAhE+BO": "LUhU",NOI: "KUhO",NUhI: "NUhU",NU: "KEI",PA: "BOI",PEhO: "KUhE",SEI: "SEhU",SOI: "SEhU",TO: "TOI",TUhE: "TUhU",VEI: "VEhO"};
 	var ready = false;
 	$(document).ready(function () {
-    if ($(window).width() < 500) 
-        $('#plise').remove();
+    if ($(window).width() < 500) $('#plise').remove();
+    if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 });
 	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").height('5').css('width','100');});
 	//$("#progressbar > div").css({ 'height': '10px;' });.wrap("<div class='Your-CSS-Scope-Class'></div>");
@@ -237,12 +238,16 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 
 	function displayDocument(def) {
 		var out = $("<div>").addClass('term');
+		var fmm;
+		console.log(def.s);
+		if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a>";}else{fmm=''}
 		var ss;
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
 		  .append($("<h4>").text(def.w + ' '))
+		  .append($("<h4>").html(fmm))
 		  .append($("<div style='flex:1;'>"))
-		  .append($("<div>").html(def.t + "<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\"http://jbovlaste.lojban.org/dict/" + def.w+ "\">#</a></font> "))
+		  .append($("<div>").addClass('type').html(def.t + "<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\"http://jbovlaste.lojban.org/dict/" + def.w+ "\">#</a></font> "))
 		  .append(ss)
 		);
 		if (def.d) {

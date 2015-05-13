@@ -31,6 +31,10 @@
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
+	.subdefinitions {
+		padding-left: 20px;
+		border-left:solid 3px #1E90FF;
+	}
 	.term {
 		padding-top: 12px;
 		padding-bottom: 9px;
@@ -178,7 +182,7 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 	var worker = new Worker('worker.js');
 	var resultCount;
 	var results = [];
-	var fm = {BE: "BEhO",BEI: "BEhO",BY: "BOI",COI: "DOhU",DOI: "DOhU",FIhO: "FEhU",FUhE: "FUhO",GIhA: "VAU",GOI: "GEhU",JOhI: "TEhU",KE: "KEhE",LAhE: "LUhU",LA: "KU",LE: "KU",LI: "LOhO",LOhU: "LEhU",LU: "LIhU",ME: "MEhU","NAhE+BO": "LUhU",NOI: "KUhO",NUhI: "NUhU",NU: "KEI",PA: "BOI",PEhO: "KUhE",SEI: "SEhU",SOI: "SEhU",TO: "TOI",TUhE: "TUhU",VEI: "VEhO"};
+	var fm = {BE: "be'o",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au"};
 	var ready = false;
 	$(document).ready(function () {
     if ($(window).width() < 500) $('#plise').remove();
@@ -338,7 +342,7 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 	function updateUrl(query) {
 		var url = '';
 		if (query.length > 0) {
-		url = '#sisku/' + query
+		url = '#sisku/' + query.replace(/ /g,"%20");
 		}
 		if (url == window.location.pathname || url == '') {
 		return;
@@ -357,7 +361,7 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 		if (searchMatch) {
 		var query = decodeURIComponent(searchMatch[1]);
 		}
-		typehere.val(query);
+		typehere.val(query.replace(/%20/g," "));
 		if (ready) {
 		doSearch();
 		}

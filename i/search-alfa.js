@@ -26,14 +26,12 @@ function search(query, callback) {
 		var rafsiDecompositions = parseLujvo(query);
 		for (i = 0; i < rafsiDecompositions.length; i++) {
 			var decomposition = rafsiDecompositions[i];
-			if (decomposition.length>0){
 			results.push({
 				t: 'decomposing ...',
 				w: query,
 				r: decomposition.map(function(x){return x.replace(/Q/g, '');}),
 				rafsiDocuments: (decomposition.map(function(r){return rafsi[r] || documentStore.filter(function(val){return val.w==r.replace("Q","")})[0]})||[])
 			});
-			}
 		}
 	//}
 	var greatMatches = [];

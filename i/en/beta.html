@@ -243,7 +243,6 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 	function displayDocument(def) {
 		var out = $("<div>").addClass('term');
 		var fmm;
-		console.log(def.s);
 		if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a>";}else{fmm=''}
 		var ss;
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}

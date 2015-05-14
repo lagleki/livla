@@ -179,10 +179,10 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 	var typehere = $("#typehere");
 	var output = $("#output");
 	var description = $("#description");
-	var worker = new Worker('worker.js');
+	var worker = new Worker('worker-alfa.js');
 	var resultCount;
 	var results = [];
-	var fm = {BE: "be'o",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au"};
+	var fm = {BE: "be'o",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "le'ai",SAhAI: "le'ai",LOhOI: "ku'au",GA:"gi"};
 	var ready = false;
 	$(document).ready(function () {
     if ($(window).width() < 500) $('#plise').remove();
@@ -256,7 +256,7 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 		if (def.d) {
 		$("<div>").addClass('definition').html(
 			lojTemplate(def.d) + ' ').appendTo(out);
-		} else if (def.t.match(/lujvo/)) {
+		} else {
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
 		for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {

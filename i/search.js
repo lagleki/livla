@@ -37,6 +37,7 @@ function search(query, callback) {
 		}
 	//}
 	var greatMatches = [];
+	var normalMatches = [];
 	var selmahoMatches = [];
 	searchEngine.lookup(query, function(engineResults) {
 		if (!engineResults) {
@@ -58,14 +59,19 @@ function search(query, callback) {
 				if ((doc.s||'') === query){
 					selmahoMatches.push(doc);//selmaho
 				}
-				else if (doc.w === query || (doc.t == 'gismu' && ((doc.r || []).indexOf(query) != -1))) {
+				else if (doc.w === query) {
 					greatMatches.push(doc);
+					console.log(query+" - " + doc.w + ":::"+doc.t+"::"+doc.r);
+					continue;
+				}
+				else if ((doc.t == 'gismu' && ((doc.r || []).indexOf(query) != -1))) {
+					normalMatches.push(doc);
 					continue;
 				}
 				else {results.push(doc);}
 		}
 
-		results = greatMatches.concat(selmahoMatches).concat(results);
+		results = greatMatches.concat(normalMatches).concat(selmahoMatches).concat(results);
 		callback(results);
 	});
 }

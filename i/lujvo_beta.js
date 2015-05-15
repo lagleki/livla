@@ -1,16 +1,21 @@
 var rafsi = {};
 function onUpdateDocumentStore() {
-  for (var key in documentStore) {
-    var def = documentStore[key];
-    if ((def.t||'').match(/lujvo/)) {
-      continue;
-    }
-    for (var i = 0; i < (def.r||[]).length; i++) {
-      rafsi[(def.r[i]||'')] = def;
-    }
-  }
+	for (var key in documentStore) {
+	var def = documentStore[key];
+		if ((def.t||'').match(/lujvo/)) {
+			continue;
+		}
+		for (var i = 0; i < (def.r||[]).length; i++) {
+			rafsi[(def.r[i]||'')] = def;
+		}
+	}
 }
 onUpdateDocumentStore();
+
+var xulujvo = function (inp){
+	var myreg = new RegExp("^"+CVV+CCV+"$|^(?:"+CVV+"(?:r(?!r)|n(?=r))|"+CCV+"|"+CVC+"y?|"+gism+"y)(?:"+CVV+"|"+CCV+"|"+CVC+"y?|"+gism+"y)*(?:"+CVV+"|"+CCV+"|"+gism+V+")$", "gm");
+	if((inp.match(myreg)||[]).length==1){return true;}else{return false;}
+};
 
 var jvokatna = function (lujvoi){
 	var tmp;
@@ -36,10 +41,12 @@ var CVC="("+C+V+C+")";
 var gism="("+CC+V+C+"|"+C+V+C_C+")";
 
 function parseLujvo(lujvo) {
-  var m = lujvo.match("([a-z']+) zei ([a-z']+)");
-  if (m) {
-    return [[m[1]+"Q",m[2]]];
-  }
-  var decompositions = [jvokatna(lujvo)];
-  return [jvokatna(lujvo)];
+	if (xulujvo(lujvo) !== true){return [lujvo.split(" ").map(function(arg){return arg+"Q";})]}
+	var m = lujvo.match("([a-z']+) zei ([a-z']+)");
+	if (m) {
+	return [[m[1]+"Q",m[2]]];
+	}
+	var decompositions = [jvokatna(lujvo)];
+	console.log(JSON.stringify(decompositions));
+	return [jvokatna(lujvo)];
 }

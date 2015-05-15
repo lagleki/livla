@@ -18,7 +18,7 @@ var xulujvo = function (inp){
 };
 
 var jvokatna = function (lujvoi){
-if (xulujvo!==true){return [];}
+//if (xulujvo!==true){return [];}
 	var tmp;
 	tmp=lujvoi.toLowerCase().replace(/[^a-z']/img,"");
 	var myregexp = new RegExp("^("+CVV+")[rn]", "gm");

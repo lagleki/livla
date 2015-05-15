@@ -26,7 +26,7 @@ function search(query, callback) {
 		var rafsiDecompositions = parseLujvo(query);
 		for (i = 0; i < rafsiDecompositions.length; i++) {
 			var decomposition = rafsiDecompositions[i];
-			if (decomposition.length>0){
+			if (decomposition.length>1){
 			results.push({
 				t: 'decomposing ...',
 				w: query,
@@ -61,7 +61,6 @@ function search(query, callback) {
 				}
 				else if (doc.w === query) {
 					greatMatches.push(doc);
-					console.log(query+" - " + doc.w + ":::"+doc.t+"::"+doc.r);
 					continue;
 				}
 				else if ((doc.t == 'gismu' && ((doc.r || []).indexOf(query) != -1))) {

@@ -95,7 +95,6 @@
 	    -webkit-align-items: center; /* Safari 7.0+ */
 	    display: flex;
 	    align-items: center;
-	    display: inline;
 	}
 	#content-panel {
 		max-width: 700px;
@@ -257,7 +256,7 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 		if (def.d) {
 		$("<div>").addClass('definition').html(
 			lojTemplate(def.d) + ' ').appendTo(out);
-		} else if (def.t.match(/lujvo/)) {
+		} else {
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
 		for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {
@@ -316,6 +315,7 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 	}
 	function doSearch() {
 		displayDescription();
+		typehere.val(typehere.val().replace(/\./g," ").replace(/ {2,}/g," ").trim());
 		var query = typehere.val();
 		if (query === prevQuery) {
 		return;

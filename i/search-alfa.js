@@ -26,15 +26,18 @@ function search(query, callback) {
 		var rafsiDecompositions = parseLujvo(query);
 		for (i = 0; i < rafsiDecompositions.length; i++) {
 			var decomposition = rafsiDecompositions[i];
+			if (decomposition.length>1){
 			results.push({
 				t: 'decomposing ...',
 				w: query,
 				r: decomposition.map(function(x){return x.replace(/Q/g, '');}),
 				rafsiDocuments: (decomposition.map(function(r){return rafsi[r] || documentStore.filter(function(val){return val.w==r.replace("Q","")})[0]})||[])
 			});
+			}
 		}
 	//}
 	var greatMatches = [];
+	var normalMatches = [];
 	var selmahoMatches = [];
 	searchEngine.lookup(query, function(engineResults) {
 		if (!engineResults) {
@@ -56,14 +59,18 @@ function search(query, callback) {
 				if ((doc.s||'') === query){
 					selmahoMatches.push(doc);//selmaho
 				}
-				else if (doc.w === query || (doc.t == 'gismu' && ((doc.r || []).indexOf(query) != -1))) {
+				else if (doc.w === query) {
 					greatMatches.push(doc);
+					continue;
+				}
+				else if ((doc.t == 'gismu' && ((doc.r || []).indexOf(query) != -1))) {
+					normalMatches.push(doc);
 					continue;
 				}
 				else {results.push(doc);}
 		}
 
-		results = greatMatches.concat(selmahoMatches).concat(results);
+		results = greatMatches.concat(normalMatches).concat(selmahoMatches).concat(results);
 		callback(results);
 	});
 }

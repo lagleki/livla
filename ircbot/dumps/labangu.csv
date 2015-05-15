@@ -1424,7 +1424,7 @@ cnici,"
 cnino,"
 '''cnino''' — ''x<sub>1</sub><sub>(entity)</sub>''  is new to observer  ''x<sub>2</sub><sub>(entity)</sub>''  in property  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo cnino''' — new. 
-:'''lo mi pendo co'a cnino mi lo ka kakne lo ka zgipli fi lo pipno''' — ''My friend appeared new to me in being able to play the piano.''
+:'''lo mi pendo co'a cnino mi lo ka kakne lo ka zgipli lo pipno''' — ''My friend appeared new to me in being able to play the piano.''
 :'''cnino fa no cnita be la Lunra''' — ''Nothing is new under the Moon (saying).''
 :Related words: '''nuzba''', '''slabu''', '''citno''', se '''djuno'''"
 cnisa,"
@@ -1760,7 +1760,7 @@ damba,"
 damri,"
 '''damri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a drum, gong or other percussion instrument with beater  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo damri''' — drum. '''lo se damri''' — beater of a drum. 
-:'''le nakni pu zgipli fi lo damri be lo xance''' — ''He was playing a hand struck drum.''
+:'''le nakni pu zgipli lo damri be lo xance''' — ''He was playing a hand struck drum.''
 :Related words: '''rilti''', '''zgike'''"
 damva'u,"
 '''damva'u''' — ''x<sub>1</sub><sub>(entity)</sub>''  smokes, inhales smoke  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -1991,7 +1991,7 @@ di,"
 :'''i ku'i la'a nai su'o da cizra ro de ro di''' — ''But it is unlikely that something is strange to everyone in every way.''"
 di'a,"
 '''di'a''' <small>[preposition of aspect]</small> — resuming (resumptive aspect)
-:'''mi na ba di'a zgipli fi lo pipno''' — ''I won't play the piano again.''"
+:'''mi na ba di'a zgipli lo pipno''' — ''I won't play the piano again.''"
 di'ai,"
 '''di'ai''' <small>[vocative]</small> — expression of well-wish, '''di'ai''' '''nai''' — expression of curse
 :'''pluka nicte di'ai''' — ''Good night!''
@@ -3512,12 +3512,12 @@ jgina,"
 jgira,"
 '''jgira''' — ''x<sub>1</sub><sub>(entity)</sub>''  feels pride in  ''x<sub>2</sub><sub>(clause, property of x1)</sub>'' 
 :'''lo jgira''' — proud. 
-:'''mi jgira lo nu do co'a kakne lo ka zgipli fi lo pipno''' — ''I am proud that you are now able to play the piano.''
+:'''mi jgira lo nu do co'a kakne lo ka zgipli lo pipno''' — ''I am proud that you are now able to play the piano.''
 :Related words: '''cinmo''', '''cumla''', '''sevzi''', '''sinma''', '''snada'''"
 jgita,"
 '''jgita''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a guitar or stringed musical instrument with plectrum or bow  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo jgita''' — guitar, stringed musical instrument. '''lo se jgita''' — bow of a guitar, bow of a stringed musical instrument. 
-:'''xu do kakne lo ka zgipli fi lo jgita be loi ze mei''' — ''Can you play a 7-stringed guitar?''
+:'''xu do kakne lo ka zgipli lo jgita be loi ze mei''' — ''Can you play a 7-stringed guitar?''
 :Related words: '''zgike'''"
 ji,"
 '''ji''' <small>[conjunction]</small> — asks for the connective (that should go into the place to which '''ji''' is put)
@@ -3864,6 +3864,9 @@ ka,"
 :'''ta'i ku do ba cirko lo ka sinma ce'u''' — ''This way you will lose the respect.''
 :'''lo pa tadji be lo ka se pendo cu ka pendo''' — ''The only way to have a friend is to be a friend.''
 :Comment: x<sub>1</sub> is the property of the clause that follows. Has at least one '''ce'u''' inside referring to a noun of the outer clause. '''ka''' without a '''ce'u''' inside is the same as '''ka ce'u'''. Used to express infinitives."
+ka bu,"
+'''ka bu''' — refers to the last '''ka'''-clause used
+:'''mi je'a djica lo ka tadni i ku'i ka bu nandu mi''' — ''I do want to study. But it's difficult to me.''"
 ka'ai,"
 '''ka'ai''' <small>[preposition from '''kansa''']</small> — ''with ...'', ''with a companion ...''
 :'''mi cadzu ka'ai lo gerku''' — ''I walk with a dog.''"
@@ -3884,8 +3887,6 @@ kabri,"
 :'''e'o do dunda lo kabri be lo ckafi mi''' — ''Please, give me a cup of coffee.''
 :Comment: '''lo''' '''kabri''' is normally lifted when eaten from it, '''lo''' '''palta''' is not.
 :Related words: '''palta''', '''citka''', '''blaci''', '''tansi'''"
-kabu,"
-'''kabu''' — refers to the last '''ka'''-clause used"
 kacma,"
 '''kacma''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a camera recording images of illumination type  ''x<sub>2</sub><sub>(entity)</sub>''  to medium  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo kacma''' — camera. 
@@ -5538,7 +5539,7 @@ nai ,"
 :'''si'u i si'u nai''' — ''With help. Without help''"
 nai  ,"
 '''nai  ''' <small>[3rd meaning]</small> — placed after a connective negates the part after that connective
-:'''mi zgipli fi lo pipno gi'e nai certu''' — ''I play the piano but I'm not an expert.''"
+:'''mi zgipli lo pipno gi'e nai certu''' — ''I play the piano but I'm not an expert.''"
 najnimre,"
 '''najnimre''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an orange of species  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''jisra lo najnimre vau e'o''' — ''Orange juice, please!''
@@ -5779,6 +5780,9 @@ nu,"
 :'''mi gleki lo nu do klama''' — ''I am happy that you came.''
 :'''lo nu prami cu nu gunka''' — ''Loving is working.''
 :Comment: x<sub>1</sub> is the state, process described in the clause that follows."
+nu bu,"
+'''nu bu''' — refers to the last '''nu'''-clause used
+:'''mi djica lo nu do kansa mi i xu nu bu cumki''' — ''I want you to accompany me. Is this possible?''"
 nu'e,"
 '''nu'e''' <small>[vocative]</small> — ''I promise'', '''nu'e''' '''cu'i''' — ''No promises'', '''nu'e''' '''nai''' — ''I take my promise back''
 :'''mi ba no roi zukte lo simsa za'u re'u vau nu'e do''' — ''I will never do that again, I promise you.''
@@ -5788,8 +5792,6 @@ nu'o,"
 '''nu'o''' <small>[preposition of potential]</small> — ''possibly can but actually not...''
 :'''mi nu'o snada''' — ''I could succeed but never managed to do that.''
 :Comment: not necessarily innately capable, describes what can potentially happen but actually hasn't (has happened zero times)."
-nubu,"
-'''nubu''' — refers to the last '''nu'''-clause used"
 nudle,"
 '''nudle''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a noodle
 :'''lo nudle''' — noodles. 
@@ -6244,7 +6246,7 @@ pinxe,"
 pipno,"
 '''pipno''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a piano or other keyboard musical instrument
 :'''lo pipno''' — piano. 
-:'''xu do zgipli fi lo pipno''' — ''Do you play the piano?''
+:'''xu do zgipli lo pipno''' — ''Do you play the piano?''
 :Related words: '''zgike'''"
 pixra,"
 '''pixra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a picture of  ''x<sub>2</sub><sub>(entity)</sub>''  made by  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -7705,7 +7707,7 @@ sovda,"
 spaji,"
 '''spaji''' — ''x<sub>1</sub><sub>(clause)</sub>''  surprises  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo spaji''' — surprising event. '''lo se spaji''' — surprised. 
-:'''mi se spaji lo nu do kakne lo ka zgipli fi lo tabra''' — ''I am surprised that you can play the horn.''
+:'''mi se spaji lo nu do kakne lo ka zgipli lo tabra''' — ''I am surprised that you can play the horn.''
 :Related words: '''marvele''', '''jenca''', '''bredi''', '''suksa'''"
 spali,"
 '''spali''' — ''x<sub>1</sub><sub>(entity)</sub>''  polishes  ''x<sub>2</sub><sub>(entity)</sub>''  with polish  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -9091,7 +9093,7 @@ xagji,"
 xagri,"
 '''xagri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a pipe, reed musical instrument
 :'''lo xagri''' — reed instrument, pipe, oboe, saxophone, clarinet. '''lo se xagri''' — reed (of a musical instrument). 
-:'''le nixli pu zgipli fi lo xagri''' — ''The girl was playing the pipe.''
+:'''le nixli pu zgipli lo xagri''' — ''The girl was playing the pipe.''
 :Related words: '''zgike'''"
 xajmi,"
 '''xajmi''' — ''x<sub>1</sub><sub>(entity, text)</sub>''  is funny to  ''x<sub>2</sub><sub>(entity)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
@@ -9522,9 +9524,9 @@ zgike,"
 :'''lo zgike be lo za'u na cladu''' — ''The music of birds isn't loud.''
 :Related words: '''damri''', '''dansu''', '''flani''', '''janbe''', '''jgita''', '''pipno''', '''rilti''', '''tabra''', '''tonga''', '''xagri''', '''siclu'''"
 zgipli,"
-'''zgipli''' — ''x<sub>1</sub><sub>(entity)</sub>''  plays music ''x<sub>2</sub><sub>(entity)</sub>''  on a musical instrument  ''x<sub>3</sub><sub>(entity)</sub>'' 
+'''zgipli''' — ''x<sub>1</sub><sub>(entity)</sub>''  plays on a musical instrument  ''x<sub>2</sub><sub>(entity)</sub>''  music  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo zgipli''' — musician. '''lo te zgipli''' — musical instrument. 
-:'''do certu lo ka zgipli lo melbi lo flani''' — ''You are a pro in playing beautiful melodies on the flute.''
+:'''do certu lo ka zgipli lo flani lo melbi''' — ''You are a pro in playing beautiful melodies on the flute.''
 :Related words: '''zgike''', '''pilno'''"
 zi,"
 '''zi''' <small>[preposition of group ZI]</small> — ''recently'', ''soon''

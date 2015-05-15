@@ -1,12 +1,12 @@
 CACHE MANIFEST
-# 2015-05-12:v3
+# 2015-05-14:v3
 
 CACHE:
-index.html?version=25
+index.html?version=26
 ../sutsis.png
 ../search.js
 worker.js
-../lujvo.js
+../lujvo_beta.js
 ../data/parsed-en.js
 
 ../lib/fullproof/unicode/categ_letters_numbers.js

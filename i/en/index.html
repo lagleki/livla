@@ -332,11 +332,10 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 		  {kind: 'newSearch', 'query': query, 'searchId': searchId});
 		displayResults;
 	}
-	//typehere.keyup(doSearch);
-	//typehere.keydown(displayDescription);
 	//setup before functions
 	var typingTimer;               //timer identifier
 	var doneTypingInterval = 200;  //time in ms, 5 second for example
+	//typehere.on('change',function(){console.log(typehere.val());doSearch});
 	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 

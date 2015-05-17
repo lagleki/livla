@@ -246,11 +246,13 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 		if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a>";}else{fmm=''}
 		var ss;
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
+		var jvs = def.t + "<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\"http://jbovlaste.lojban.org/dict/" + def.w+ "\">#</a></font> ";
+		if (def.t==='decomposing ...'){jvs=def.t;}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
 		  .append($("<h4>").text(def.w + ' '))
 		  .append($("<h4>").html(fmm))
 		  .append($("<div style='flex:1;'>"))
-		  .append($("<div>").addClass('type').html(def.t + "<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\"http://jbovlaste.lojban.org/dict/" + def.w+ "\">#</a></font> "))
+		  .append($("<div>").addClass('type').html(jvs))
 		  .append(ss)
 		);
 		if (def.d) {
@@ -270,25 +272,25 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 		out.append(
 			$('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
 		}
-
-		if ((def.t.match(/lujvo/)) && (def.r||[]).length > 0) {
-		var rafsi = $("<div>").addClass('rafsi');
-		rafsi.append("rafsi: ");
-		for (var i = 0; i < def.r.length; i++) {
-		  var rafElem = $("<span>").appendTo(rafsi);
-		  var raf = def.r[i];
-		  if (def.t.match(/lujvo/)) {
-			rafElem.append(
-				$("<a>").attr(
-					'href', '#sisku/' + encodeURIComponent(raf))
-				.text(raf)
-			);
-		  } else {
-			rafElem.text(raf);
-		  }
-		  rafElem.append(' ');
-		}
-		rafsi.appendTo(out);
+		console.log(JSON.stringify(def.r));
+		if ((def.r||[]).length > 0) {
+			var rafsi = $("<div>").addClass('rafsi');
+			rafsi.append("rafsi: ");
+			for (var i = 0; i < def.r.length; i++) {
+			  var rafElem = $("<span>").appendTo(rafsi);
+			  var raf = def.r[i];
+			  if (def.t.match(/lujvo/)) {
+				rafElem.append(
+					$("<a>").attr(
+						'href', '#sisku/' + encodeURIComponent(raf))
+					.text(raf)
+				);
+			  } else {
+				rafElem.text(raf);
+			  }
+			  rafElem.append(' ');
+			}
+			rafsi.appendTo(out);
 		}
 		out.find('a').click(function(el) {
 		if (el.ctrlKey || el.metaKey) { // let the user open in new tabs

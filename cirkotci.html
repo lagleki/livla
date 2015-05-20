@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html><head>
+		<meta charset="utf-8">
+		<title>lo voksna</title>
+		<style>
+			td { border: none; text-align: center }
+			button { min-width: 4.5em; min-height: 2em; padding: 0 }
+		</style>
+	</head>
+	<body>
+		<div id="table"> <table><tbody><tr><td><button>p [p]</button></td><td><button>t [t]</button></td><td><button>k [k]</button></td><td><button>f [f]</button></td><td><button>s [s]</button></td><td><button>c [S]</button></td><td><button>x [X]</button></td></tr><tr><td><button>b [b]</button></td><td><button>d [d]</button></td><td><button>g [g]</button></td><td><button>v [v]</button></td><td><button>z [z]</button></td><td><button>j [Z]</button></td><td><button>' [h]</button></td></tr><tr><td><button>m [m]</button></td><td><button>l [l]</button></td><td><button>n [n]</button></td><td><button>r [r]</button></td></tr><tr><td><button>a [a]</button></td><td><button>e&nbsp;[E]</button></td><td><button>i [i]</button></td><td><button>o [O]</button></td><td><button>u [u]</button></td><td><button>y [@]</button></td></tr><tr><td><button>ai [aj]</button></td><td><button>ei [Ej]</button></td><td><button>oi [Oj]</button></td><td><button>au [aw]</button></td></tr></tbody></table></div>
+		<audio id="audio"></audio>
+		<script>
+			var rows = [
+				["p [p]", "t [t]", "k [k]", "f [f]", "s [s]", "c [S]", "x [X]"],
+				["b [b]", "d [d]", "g [g]", "v [v]", "z [z]", "j [Z]", "' [h]"],
+				["m [m]", "l [l]", "n [n]", "r [r]"],
+				["a [a]", "e [E]", "i [i]", "o [O]", "u [u]", "y [@]"],
+				["ai [aj]", "ei [Ej]", "oi [Oj]", "au [aw]"],
+			];
+			var sounds = {
+				p: "http://upload.wikimedia.org/wikipedia/commons/3/35/Voiceless_bilabial_stop.ogg",
+				t: "http://upload.wikimedia.org/wikipedia/commons/e/e0/Voiceless_alveolar_stop.ogg",
+				n: "http://upload.wikimedia.org/wikipedia/commons/2/29/Alveolar_nasal.ogg",
+				r: "http://upload.wikimedia.org/wikipedia/commons/c/ce/Alveolar_trill.ogg",
+				f: "http://upload.wikimedia.org/wikipedia/commons/3/33/Voiceless_labiodental_fricative.ogg",
+				c: "http://upload.wikimedia.org/wikipedia/commons/c/cc/Voiceless_palato-alveolar_sibilant.ogg",
+				j: "http://upload.wikimedia.org/wikipedia/commons/3/30/Voiced_palato-alveolar_sibilant.ogg",
+				d: "http://upload.wikimedia.org/wikipedia/commons/f/f3/Voiced_alveolar_stop.ogg",
+				l: "http://upload.wikimedia.org/wikipedia/commons/b/bc/Alveolar_lateral_approximant.ogg",
+				s: "http://upload.wikimedia.org/wikipedia/commons/a/ac/Voiceless_alveolar_sibilant.ogg",
+				z: "http://upload.wikimedia.org/wikipedia/commons/c/c0/Voiced_alveolar_sibilant.ogg",
+				x: "http://upload.wikimedia.org/wikipedia/commons/c/c8/Voiceless_uvular_fricative.ogg",
+				g: "http://upload.wikimedia.org/wikipedia/commons/transcoded/5/58/Voiced_velar_stop.ogg/Voiced_velar_stop.ogg.ogg",
+				k: "http://upload.wikimedia.org/wikipedia/commons/e/e3/Voiceless_velar_plosive.ogg", // g?
+				v: "http://upload.wikimedia.org/wikipedia/commons/8/85/Voiced_labiodental_fricative.ogg",
+				b: "http://upload.wikimedia.org/wikipedia/commons/a/a8/Voiced_bilabial_stop.ogg",
+				"'": "http://upload.wikimedia.org/wikipedia/commons/b/b2/Voiceless_pharyngeal_fricative.ogg",
+				m: "http://upload.wikimedia.org/wikipedia/commons/a/a9/Bilabial_nasal.ogg",
+				a: "http://upload.wikimedia.org/wikipedia/commons/6/65/Open_front_unrounded_vowel.ogg",
+				e: "http://upload.wikimedia.org/wikipedia/commons/7/71/Open-mid_front_unrounded_vowel.ogg",
+				i: "http://upload.wikimedia.org/wikipedia/commons/9/91/Close_front_unrounded_vowel.ogg",
+				o: "http://upload.wikimedia.org/wikipedia/commons/0/02/Open-mid_back_rounded_vowel.ogg", // wat
+				u: "http://upload.wikimedia.org/wikipedia/commons/5/5d/Close_back_rounded_vowel.ogg",
+				y: "http://upload.wikimedia.org/wikipedia/commons/d/d9/Mid-central_vowel.ogg",
+				oi: "http://upload.wikimedia.org/wikipedia/commons/a/a0/En-uk-oi.ogg",
+				ei: "http://upload.wikimedia.org/wikipedia/commons/4/42/En-us-A.ogg",
+				ai: "http://upload.wikimedia.org/wikipedia/commons/e/ea/Fr-a%C3%AFe.ogg",
+				au: "http://upload.wikimedia.org/wikipedia/commons/8/81/Nl-au.ogg",
+			};
+			var audio = document.querySelector("#audio");
+			function text(name, text) {
+				var el = document.createElement(name);
+				el.textContent = text;
+				return el;
+			}
+			function elem(name, contents) {
+				var el = document.createElement(name);
+				if (Array.isArray(contents))
+					contents.forEach(function (sub) {
+						el.appendChild(sub);
+					});
+				else if (contents) el.appendChild(contents);
+				return el;
+			}
+			function play(url) {
+				audio.src = url;
+				audio.play();
+			}
+			document.querySelector("#table").appendChild(elem("table", rows.map(function (row) {
+				return elem("tr", row.map(function (col) {
+					var button = text("button", col);
+					button.onclick = function () { play(sounds[col.replace(/ .*/g, "")]) };
+					return elem("td", button);
+				}));
+			})));
+		</script>
+	
+
+</body></html>

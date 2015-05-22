@@ -407,7 +407,7 @@ bi'i,"
 :'''mi sanli lo dinju bi'i lo rirxe''' — ''I am standing between a house and a river.''"
 bi'o,"
 '''bi'o''' <small>[conjunction]</small> — ''between ... and ...'' (ordered)
-:'''mi gunka ti'u li bi bi'o li pa ze''' — ''I work from 8 to 17 o'clock.''"
+:'''mi gunka de'i li cy bi bi'o li cy pa ze''' — ''I work from 8 to 17 o'clock.''"
 bi'u,"
 '''bi'u''' <small>[interjection]</small> — newly introduced information, '''bi'u''' '''nai''' — previously introduced information
 :'''lo bi'u nai nixli pu klama lo panka i bi'u ny ca tavla lo nanla bu'u py''' — ''That girl (mentioned earlier), she went to a park. What is new is that she is talking to a boy there.''
@@ -974,7 +974,7 @@ cevni,"
 cfari,"
 '''cfari''' — ''x<sub>1</sub><sub>(clause)</sub>''  commences, begins, or starts
 :'''lo cfari''' — beginning, start. 
-:'''ti'u ma lo se tigni cu cfari''' — ''At what time does the performance begin?''
+:'''de'i li cy xo lo se tigni cu cfari''' — ''At what time does the performance begin?''
 :Related words: '''sisti''', '''krasi''', '''fanmo''', '''incipe''', '''ultime''', '''mulno'''"
 cfika,"
 '''cfika''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a work of fiction about plot or theme  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -1053,7 +1053,7 @@ cikna,"
 :'''lo cikna''' — someone awake. 
 :'''xu su'o lo do cikna''' — ''Is any of you awake?''
 :'''mi pu co'a clira cikna''' — ''I got up early.''
-:'''ko jai gau cikna fai mi ti'u li bi''' — ''Wake me up at 8.''
+:'''ko jai gau cikna fai mi de'i li cy bi''' — ''Wake me up at 8.''
 :Related words: '''sanji''', '''sipna''', '''tatpi'''"
 cikre,"
 '''cikre''' — ''x<sub>1</sub><sub>(entity)</sub>''  repairs or mends  ''x<sub>2</sub><sub>(entity)</sub>''  for use  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
@@ -1897,9 +1897,11 @@ de'e,"
 :'''au do tirna mi''' — ''I'd like you to listen to me.''
 :'''lo xunre cu srana lo nu fengu''' — ''Red is related to the state of being angry.''"
 de'i,"
-'''de'i''' <small>[preposition from '''detri''']</small> — ''on date ...'' (date stamp follows)
-:'''de'i li pa mu pi'e ci mi pu zvati la Nipon''' — ''On March 15 I was in Japan.''
-:Comment: only one number denotes calendar day, two numbers separated with '''pi'e''' denote calendar day and month, three numbers denote calendar day, month and year number, four numbers denote calendar day, week number, month and year number correspondingly."
+'''de'i''' <small>[preposition from '''detri''']</small> — ''on date/time ...'' (date stamp follows)
+:'''de'i li ly ci dy pa mu mi pu zvati la Nipon''' — ''On March 15 I was in Japan.''
+:'''de'i li cy pa ci mi'a cliva''' — ''We leave at 1 pm.''
+:'''mi'a cliva de'i li cy so my ci no''' — ''We leave at 9:30''
+:Comment: '''ny''' is put before years, '''ly''' is put before months, '''dy''' is put before days, '''cy''' is put before hours, '''my''' is put before minutes, '''sy''' is put before seconds.."
 de'u,"
 '''de'u''' <small>[pronoun]</small> — a recent utterance
 :'''i fi'o suksa co'a gusni bu'u lo darno i ba bo le gusni cu canci''' — ''Suddenly a light appeared far away and then the light disappeared.''
@@ -1981,10 +1983,10 @@ desku,"
 :'''ra pu desku lo ka terpa''' — ''She was shaking with fear.''
 :Related words: '''slilu''', '''janbe'''"
 detri,"
-'''detri''' — ''x<sub>1</sub><sub>(number: day, week, month, year separated by '''pi'e''')</sub>''  is the date of  ''x<sub>2</sub><sub>(clause)</sub>'' 
+'''detri''' — ''x<sub>1</sub><sub>(number)</sub>''  is the date of  ''x<sub>2</sub><sub>(clause)</sub>'' 
 :'''lo detri''' — datestamp. 
-:'''li pa ze pi'e re pi'e re no pa mu detri lo nu mi co'a tadni la Lojban''' — ''January 17, 2015 is the date when I started studying Lojban.''
-:Comment: only one number in x<sub>1</sub> denotes calendar day, two numbers separated with '''pi'e''' denote calendar day and month, three numbers denote calendar day, month and year number, four numbers denote calendar day, week number, month and year number correspondingly.
+:'''li my pa dy pa ze ny re no pa mu detri lo nu mi co'a tadni la Lojban''' — ''January 17, 2015 is the date when I started studying Lojban.''
+:Comment: in x<sub>1</sub> '''ny''' is put before years, '''ly''' is put before months, '''dy''' is put before days, '''cy''' is put before hours, '''my''' is put before minutes, '''sy''' is put before seconds.
 :Related words: '''de'i''', '''djedi''', '''jeftu''', '''masti''', '''nanca''', '''tcika''', '''judri'''"
 di,"
 '''di''' <small>[pronoun]</small> — there exists something or someone: 3rd pronoun of '''da''', '''de''', '''di''' series
@@ -2453,7 +2455,7 @@ fegli,"
 :Related words: '''rigni''', '''melbi''', '''pluka'''"
 fei,"
 '''fei''' <small>[digit/number]</small> — hex digit ''B'' (decimal 11), ''eleven''
-:'''mi ba volve ti'u li fei''' — ''I will return at 11 o'clock.''"
+:'''mi ba volve de'i li cy fei''' — ''I will return at 11 o'clock.''"
 femti,"
 '''femti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is 10<sup>-15</sup> of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo protoni cu femti lo mitre be li ji'i pa pi xa boi lo ka klani ma kau''' — ''A proton has a size of about 1.6 femtometres.''
@@ -2746,7 +2748,7 @@ gadri,"
 :Related words: '''valsi''', '''cmavo'''"
 gai,"
 '''gai''' <small>[digit/number]</small> — hex digit ''C'' (decimal 12), ''twelve'', ''dozen''
-:'''mi citka ti'u li gai''' — ''I eat at noon (12 o'clock).''"
+:'''mi citka de'i li cy gai''' — ''I eat at noon (12 o'clock).''"
 galfi,"
 '''galfi''' — ''x<sub>1</sub><sub>(entity)</sub>''  transforms, modifies, changes  ''x<sub>2</sub><sub>(entity)</sub>''  into  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo galfi''' — modifier, transformer. 
@@ -3320,7 +3322,7 @@ jatna,"
 :Related words: '''jitro''', '''lidne''', '''te''' '''bende''', '''minde''', '''ralju''', '''gidva''', '''bloti'''"
 jau,"
 '''jau''' <small>[digit/number]</small> — hex digit ''D'' (decimal 13), ''thirteen''
-:'''e'u mi'o zu'ai penmi ti'u li jau''' — ''Let's meet at 1pm.''"
+:'''e'u mi'o zu'ai penmi de'i li cy jau''' — ''Let's meet at 1pm.''"
 jaurdei,"
 '''jaurdei''' — ''x<sub>1</sub><sub>(entity)</sub>''  is Wednesday
 :'''lo jaurdei''' — Wednesday. 
@@ -8215,15 +8217,15 @@ tcidu,"
 :'''mi mo'u tcidu lo se ciska le bitmu''' — ''I have read what is written on the wall.''
 :Related words: '''ciska''', '''cukta''', '''karni'''"
 tcika,"
-'''tcika''' — ''x<sub>1</sub><sub>(number: hours, minutes, seconds separated by '''pi'e''')</sub>''  is the time of  ''x<sub>2</sub><sub>(clause)</sub>''  happening on day  ''x<sub>3</sub><sub>(entity)</sub>''  at place or timezone  ''x<sub>4</sub><sub>(entity)</sub>'' 
-:'''lo tcika''' — time of day. '''lo ve tcika''' — time zone. 
+'''tcika''' — ''x<sub>1</sub><sub>(number)</sub>''  is the time of  ''x<sub>2</sub><sub>(clause)</sub>''  happening at place or timezone  ''x<sub>3</sub><sub>(entity)</sub>'' 
+:'''lo tcika''' — time of day. '''lo te tcika''' — time zone. '''lo ve tcika''' — time zone. 
 :'''le fetsi pu tsuku mo'u le se tcika''' — ''She arrived on time.''
 :'''mi tsuku ba'o le se tcika''' — ''I arrived in time.''
-:'''li pa ci tcika lo nu ei mi'o cliva''' — ''1 pm is when we should leave.''
-:'''li so pi'e ci no tcika lo nu lo zarci co'a akti''' — ''Shops start working at 9:30''
-:'''li pa no pi'e mu pi'e re ze tcika le nu le jakne co'a vofli''' — ''10:05:27 is when the rocket started the flight.''
-:Comment: only one number in x<sub>1</sub> denotes hours, two numbers separated with '''pi'e''' denote hours and minutes, three numbers denote hours, minutes, seconds correspondingly.
-:Related words: '''ti'u''', '''cacra''', '''cerni''', '''detri''', '''donri''', '''djedi''', '''junla''', '''nicte''', '''mentu''', '''snidu''', '''temci''', '''vanci''', '''dirba''', '''mokca'''"
+:'''li cy pa ci tcika lo nu ei mi'o cliva''' — ''1 pm is when we should leave.''
+:'''li cy so my ci no tcika lo nu lo zarci co'a akti''' — ''Shops start working at 9:30''
+:'''li cy pa no my mu sy re ze tcika le nu le jakne co'a vofli vau la Nipon''' — ''10:05:27 (Japanese timezone) is when the rocket started the flight.''
+:Comment: in x<sub>1</sub> '''cy''' is put before hours, '''my''' is put before minutes, '''sy''' is put before seconds.
+:Related words: '''detri''', '''de'i''', '''cacra''', '''cerni''', '''donri''', '''djedi''', '''junla''', '''nicte''', '''mentu''', '''snidu''', '''temci''', '''vanci''', '''dirba''', '''mokca'''"
 tcila,"
 '''tcila''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a detail of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo tcila''' — detail, feature. '''lo se tcila''' — detailed, having features. 
@@ -8323,11 +8325,6 @@ ti'e,"
 :'''ti'e ba carvi''' — ''They say it will rain.''
 :'''ti'e le prenu cu zabna mikce''' — ''She is said to be a good doctor.''
 :Related words: '''tirna''', '''sitna''', '''tcidu'''"
-ti'u,"
-'''ti'u''' <small>[preposition from '''tcika''']</small> — ''associated with time ...'' (time stamp follows)
-:'''ti'u li pa ci mi'a cliva''' — ''We leave at 1 pm.''
-:'''mi'a cliva ti'u li so pi'e ci no''' — ''We leave at 9:30''
-:Comment: only one number denotes hours, two numbers separated with '''pi'e''' denote hours and minutes, three numbers denote hours, minutes, seconds correspondingly."
 tigni,"
 '''tigni''' — ''x<sub>1</sub><sub>(entity)</sub>''  performs  ''x<sub>2</sub><sub>(property of x1)</sub>''  for audience  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo tigni''' — performer. '''lo se tigni''' — performance. '''lo te tigni''' — audience of a performance. 
@@ -8737,7 +8734,7 @@ vacri,"
 :Related words: '''gapci''', '''kijno''', '''trano''', '''tumla''', '''vasxu''', '''xamsi'''"
 vai,"
 '''vai''' <small>[digit/number]</small> — hex digit ''F'' (decimal 15), ''fifteen''
-:'''mi ba penmi do ti'u li vai''' — ''I will meet you at 3pm.''"
+:'''mi ba penmi do de'i li cy vai''' — ''I will meet you at 3pm.''"
 vajni,"
 '''vajni''' — ''x<sub>1</sub><sub>(entity, property of x2)</sub>''  is important to  ''x<sub>2</sub><sub>(entity)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo vajni''' — important. 
@@ -9219,7 +9216,7 @@ xedja,"
 :Related words: '''stedu'''"
 xei,"
 '''xei''' <small>[digit/number]</small> — hex digit ''E'' (decimal 14), ''fourteen''
-:'''mi ba cliva ti'u li xei''' — ''I will leave at 2pm.''"
+:'''mi ba cliva de'i li cy xei''' — ''I will leave at 2pm.''"
 xekri,"
 '''xekri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is black
 :'''lo xekri''' — black. 
@@ -9410,7 +9407,7 @@ zanru,"
 zarci,"
 '''zarci''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a market selling  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo zarci''' — market (trading site). 
-:'''lo zarci be lo rectu co'u akti ti'u li vo''' — ''The butchery closes at 4 o'clock.''
+:'''lo zarci be lo rectu co'u akti de'i li cy vo''' — ''The butchery closes at 4 o'clock.''
 :Related words: '''vecnu''', '''canja''', '''dinju''', '''banxa'''"
 zargu,"
 '''zargu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a buttock of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -9461,7 +9458,7 @@ zdile,"
 :Related words: '''cinri''', '''panka''', '''kelci'''"
 ze,"
 '''ze''' <small>[digit/number]</small> — ''7'', ''seven''
-:'''li ze tcika ti''' — ''It's 7 o'clock.''"
+:'''li cy ze tcika ti''' — ''It's 7 o'clock.''"
 ze'a,"
 '''ze'a''' <small>[preposition of group ZEhA]</small> — ''during ... '', adverb: ''for some time'' (unspecified or known from context)
 :'''mi pu ze'a sipna''' — ''I slept for a while.''

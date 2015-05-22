@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html manifest='webapp.appcache'>
 <head>
-  <title>la sutsis zo'u: ze'i mitysisku lo valsi</title>
+  <title>la sursis zo'u: ze'i mitysisku lo valsi</title>
   <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
   <link rel="shortcut icon" href="../sutsis.png" />
-  <link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/en/sisku.xml" title="en-sutsis">
+  <link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/en/sisku.xml" title="en-sursis">
   <!--<link rel='stylesheet' href='lib/Lato.css'>-->
   <style type="text/css">
 	.container .credit {
@@ -139,7 +139,7 @@
   <meta name="apple-mobile-web-app-title" content="la muplis">
   <meta name="msapplication-TileColor" content="#00a300">
   <meta name="msapplication-TileImage" content="../favicons/mstile-144x144.png">
-  <meta name="application-name" content="la sutsis">
+  <meta name="application-name" content="la sursis">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -148,7 +148,7 @@
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
 		<span id='plise'><a href="../"><img src="../sutsis.png" height='16' width='16'>
-		<span class='site-title'><font color="#fff">la sutsis</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
+		<span class='site-title'><font color="#fff">la sursis</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
 		<input id='typehere' type='text' placeholder="search" autofocus style="margin-right:15px;">
 		</div>
 	</div>
@@ -161,10 +161,10 @@
 		<div id='content-panel'>
 			<div id='description'>
 			<p>
-            <b>la sutsis</b> is a fast dictionary for the Lojban language.
+            <b>la sursis</b> is a fast dictionary for the Lojban language.
           <p>
-- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href="http://lojban.org" target="_blank">Lojban Wiki</a>.
-		<div id='searchengine' style="position: absolute;right: 10px;"><i><a href="#" title="en-sutsis"
+- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href="http://lojban.org" target="_blank">Lojban Wiki</a>.</p>
+		<div id='searchengine' style="position: absolute;right: 10px;"><i><a href="#" title="en-sursis"
 onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Add as a search engine</a></i></div>
         </div>
 		<div id='output'></div>
@@ -332,11 +332,10 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 		  {kind: 'newSearch', 'query': query, 'searchId': searchId});
 		displayResults;
 	}
-	//typehere.keyup(doSearch);
-	//typehere.keydown(displayDescription);
 	//setup before functions
 	var typingTimer;               //timer identifier
 	var doneTypingInterval = 200;  //time in ms, 5 second for example
+	//typehere.on('change',function(){console.log(typehere.val());doSearch});
 	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 

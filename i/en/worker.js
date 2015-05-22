@@ -11,7 +11,7 @@ this.onmessage = function(ev) {
     });
   }
 };
-
+var descr = '<p><b>la sursis</b> is a fast dictionary for the Lojban language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href="http://lojban.org" target="_blank">Lojban Wiki</a>.</p>';
 postMessage({kind: 'loading', message: 'Building index...'});
 setupSearchEngine(function() {
   postMessage({kind: 'ready'});

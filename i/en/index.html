@@ -143,13 +143,14 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="bangu.js"></script>
 </head>
 <body style="margin: 0;height: 100vh;">
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
 		<span id='plise'><a href="../"><img src="../sutsis.png" height='16' width='16'>
 		<span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-		<input id='typehere' type='text' placeholder="search" autofocus style="margin-right:15px;">
+		<input id='typehere' type='text' autofocus style="margin-right:15px;">
 		</div>
 	</div>
 	<div class='content' style="height:100%;
@@ -159,19 +160,12 @@
 	box-sizing:border-box;
 	overflow:auto;">
 		<div id='content-panel'>
-			<div id='description'>
-			<p>
-            <b>la sutysisku</b> is a fast dictionary for the Lojban language.
-          <p>
-- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href="http://lojban.org" target="_blank">Lojban Wiki</a>.
-		<div id='searchengine' style="position: absolute;right: 10px;"><i><a href="#" title="en-sutysisku"
-onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Add as a search engine</a></i></div>
-        </div>
-		<div id='output'></div>
-		<div id='loading'>
-		  <span class='message'>Loading dictionary ...</span><br>
-			<div id="progressbar" style="margin:auto;"></div>
-		</div>
+			<div id='description'></div>
+			<div id='output'></div>
+			<div id='loading'>
+				<span class='message'></span><br>
+				<div id="progressbar" style="margin:auto;"></div>
+			</div>
 		</div>
 	</div>
 <script>
@@ -180,6 +174,13 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 	var output = $("#output");
 	var description = $("#description");
 	var worker = new Worker('worker.js');
+
+	//localization strings
+	description.html(window.bangudesc);
+	typehere.attr("placeholder", window.bangusisku);
+	$("#loading .message").text(window.bangulo);
+	///
+
 	var resultCount;
 	var results = [];
 	var fm = {BE: "be'o",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au"};
@@ -204,7 +205,7 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 		results = ev.data.results;
 		displayResults();
 		} else if (ev.data.kind == 'loading') {
-		$("#loading .message").text(ev.data.message);$(function() {$( "#progressbar" ).progressbar({value: 50});$("#progressbar").css({ 'height': '10px;'});});
+		$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 50});$("#progressbar").css({ 'height': '10px;'});});
 		} else if (ev.data.kind == 'progress') {
 		$(function() {$( "#progressbar" ).progressbar({value: ev.data.percent * 100});});
 		}
@@ -247,7 +248,7 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 		var ss;
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
 		var jvs = def.t + "<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\"http://jbovlaste.lojban.org/dict/" + def.w+ "\">#</a></font> ";
-		if (def.t==='decomposing ...'){jvs=def.t;}
+		if (def.t==='decomposing ...'){jvs=window.bangudecomp;}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
 		  .append($("<h4>").text(def.w + ' '))
 		  .append($("<h4>").html(fmm))
@@ -279,7 +280,7 @@ onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilme
 			for (var i = 0; i < def.r.length; i++) {
 			  var rafElem = $("<span>").appendTo(rafsi);
 			  var raf = def.r[i];
-			  if (def.t.match(/lujvo/)) {
+			  if ((def.t||'').match(/lujvo/)) {
 				rafElem.append(
 					$("<a>").attr(
 						'href', '#sisku/' + encodeURIComponent(raf))

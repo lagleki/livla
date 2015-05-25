@@ -12,7 +12,7 @@ this.onmessage = function(ev) {
   }
 };
 
-postMessage({kind: 'loading', message: 'ca\'o zbasu lo indice'});
+postMessage({kind: 'loading'});
 setupSearchEngine(function() {
   postMessage({kind: 'ready'});
 }, function(percent) {

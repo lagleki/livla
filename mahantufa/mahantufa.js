@@ -828,6 +828,7 @@ var camxes = (function(){
                 result4 = result4 !== null ? result4 : "";
                 if (result4 !== null) {
                   result5 = parse_faho_clause();
+                  result5 = result5 !== null ? result5 : "";
                   if (result5 !== null) {
                     result6 = parse_EOF();
                     result6 = result6 !== null ? result6 : "";

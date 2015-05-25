@@ -1,11 +1,12 @@
 CACHE MANIFEST
-# 2015-05-16:v4
+# 2015-05-25:v1
 
 CACHE:
 index.html?version=31
 ../sutsis.png
 ../search.js
 worker.js
+bangu.js
 ../lujvo_beta.js
 ../data/parsed-en.js
 

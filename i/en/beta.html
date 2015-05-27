@@ -148,7 +148,7 @@
 <body style="margin: 0;height: 100vh;">
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
-		<span id='plise'><a href="../"><img src="../sutsis.png" height='16' width='16'>
+		<span id='plise'><a id='st' href=""><img src="../sutsis.png" height='16' width='16'>
 		<span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
 		<input id='typehere' type='text' autofocus style="margin-right:15px;">
 		</div>
@@ -161,9 +161,9 @@
 	overflow:auto;">
 		<div id='content-panel'>
 			<div id='description'></div>
-			<div id='output'></div>
-			<div id='loading'>
-				<span class='message'></span><br>
+		<div id='output'></div>
+		<div id='loading'>
+		  <span class='message'></span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
 		</div>
@@ -248,7 +248,7 @@
 		var ss;
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
 		var jvs = def.t + "<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\"http://jbovlaste.lojban.org/dict/" + def.w+ "\">#</a></font> ";
-		if (def.t==='decomposing ...'){jvs=def.t;}
+		if (def.t==='decomposing ...'){jvs=window.bangudecomp;}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
 		  .append($("<h4>").text(def.w + ' '))
 		  .append($("<h4>").html(fmm))
@@ -355,6 +355,8 @@
 		window.history.replaceState({}, null, url);
 		}
 		lastQueried = now();
+		var split = location.href.split('#')[1];if(split===null){split='';}
+		$("#st").attr("href","../#" + split);
 	}
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);

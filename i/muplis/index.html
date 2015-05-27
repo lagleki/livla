@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html manifest='webapp.appcache'>
 <head>
-  <title>la sutysisku zo'u: ze'i mitysisku lo valsi</title>
+  <title>la muplis zo'u: ze'i mitysisku lo jufra</title>
   <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
-  <link rel="shortcut icon" href="../sutsis.png" />
-  <link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/en/sisku.xml" title="en-sutysisku">
+  <link rel="shortcut icon" href="./crinoplise.png" />
   <!--<link rel='stylesheet' href='lib/Lato.css'>-->
   <style type="text/css">
 	.container .credit {
@@ -21,11 +20,11 @@
 		margin: 0;
 	}
 	.type {
-      display: inline;
-      font-style: italic;
-      margin-left: 25px;
-      color: rgb(118, 118, 118);
-      font-size: 12px;
+		display: inline;
+		font-style: italic;
+		margin-right: 3px;
+		color: rgb(118, 118, 118);
+		font-size: 12px;
 	}
 	.definition {
 		margin-top: 10px;
@@ -91,10 +90,10 @@
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: 5px;
-	    display: -webkit-flex; /* Safari */
-	    -webkit-align-items: center; /* Safari 7.0+ */
-	    display: flex;
-	    align-items: center;
+		display: -webkit-flex; /* Safari */
+		-webkit-align-items: center; /* Safari 7.0+ */
+		display: flex;
+		align-items: center;
 	}
 	#content-panel {
 		max-width: 700px;
@@ -139,7 +138,7 @@
   <meta name="apple-mobile-web-app-title" content="la muplis">
   <meta name="msapplication-TileColor" content="#00a300">
   <meta name="msapplication-TileImage" content="../favicons/mstile-144x144.png">
-  <meta name="application-name" content="la sutysisku">
+  <meta name="application-name" content="la muplis">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -148,8 +147,8 @@
 <body style="margin: 0;height: 100vh;">
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
-		<span id='plise'><a href="../"><img src="../sutsis.png" height='16' width='16'>
-		<span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
+		<span id='plise'><img src="plise.png" height='16' width='16' title='lo staile poi sampu'><img src="pelxuplise.png" height='16' width='16' title='lo staile poi na mutce cinri'><img src="crinoplise.png" height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src="blabiplise.png" height='16' width='16' title='lo staile poi ka&#39;e pluja'><img src="cicnaplise.png" height='16' width='16' title='na&#39;e catni se ciska staile'>
+		<a id='st' href="../"><span class='site-title'><font color="#fff">la muplis</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
 		<input id='typehere' type='text' autofocus style="margin-right:15px;">
 		</div>
 	</div>
@@ -160,12 +159,17 @@
 	box-sizing:border-box;
 	overflow:auto;">
 		<div id='content-panel'>
-			<div id='description'></div>
-			<div id='output'></div>
-			<div id='loading'>
-				<span class='message'></span><br>
-				<div id="progressbar" style="margin:auto;"></div>
+			<div id='description'>
+			<p>
+				<b>la .muplis.</b> cu sutra tutci lo nu mitysisku lo mupli pe ju'oi <a href="http://tatoeba.org/jbo" target="_blank">Tatoeba.org</a>
+			</p><p>
+- .i xu mi kakne lo ka pilno la .muplis. vau va'o lo nu na ka'e kibro pilno<br>- .i ja'a go'i .i va'o lo nu kibro kakne na ku cu .e'u troci lo ka gau do lo brauzero cu cpacu lo se judri be lo me dei moi<br> .i la'a sai lo mutpapri cu tolcanci to'e ri'a nai .i lo cnino klesi be la xromium ja la'oi Safari ja la'oi Firefox cu jai sarcu lo nu pilno la .muplis.<br><br>.i lo nu djica co zenba co cilre tu'a la .muplis. cu .e'u banzu lo nu vitke <a href="http://lojban.org" target="_blank">lo lojbo uitki</a>.</p>
 			</div>
+		<div id='output'></div>
+		<div id='loading'>
+		  <span class='message'>nau ca'o cpacu lo jufra liste ...</span><br>
+			<div id="progressbar" style="margin:auto;"></div>
+		</div>
 		</div>
 	</div>
 <script>
@@ -174,20 +178,13 @@
 	var output = $("#output");
 	var description = $("#description");
 	var worker = new Worker('worker.js');
-
-	//localization strings
-	description.html(window.bangudesc);
-	typehere.attr("placeholder", window.bangusisku);
-	$("#loading .message").text(window.bangulo);
-	///
-
 	var resultCount;
 	var results = [];
-	var fm = {BE: "be'o",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au"};
 	var ready = false;
 	$(document).ready(function () {
     if ($(window).width() < 500) $('#plise').remove();
     if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
+
 });
 	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").height('5').css('width','100');});
 	//$("#progressbar > div").css({ 'height': '10px;' });.wrap("<div class='Your-CSS-Scope-Class'></div>");
@@ -243,18 +240,16 @@
 
 	function displayDocument(def) {
 		var out = $("<div>").addClass('term');
-		var fmm;
-		if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a>";}else{fmm=''}
-		var ss;
-		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
-		var jvs = def.t + "<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\"http://jbovlaste.lojban.org/dict/" + def.w+ "\">#</a></font> ";
-		if (def.t==='decomposing ...'){jvs=window.bangudecomp;}
-		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
+		var deft='';
+		if (def.t.search('sampu staile')>=0){deft += "<img src='plise.png' height='16' width='16' title='lo staile poi sampu'>"};
+		if (def.t.search('mansa staile')>=0){deft += "<img src='pelxuplise.png' height='16' width='16' title=\"lo staile poi na mutce cinri\">"};
+		if (def.t.search('plixau jufra')>=0){deft += "<img src='crinoplise.png' height='16' width='16' title=\"lo jufra poi ka'e xamgu lo di'i fanva\">"};
+		if (def.t.search('cnano staile')>=0){deft += "<img src='blabiplise.png' height='16' width='16' title=\"lo staile poi ka'e pluja\">"};
+		if (def.t.search('non-standard')>=0){deft += "<img src='cicnaplise.png' height='16' width='16' title=\"na'e catni se ciska staile\">"};
+		out.append($("<heading>")
+		  .append($("<div>").addClass('type').html(deft + ' '))
 		  .append($("<h4>").text(def.w + ' '))
-		  .append($("<h4>").html(fmm))
-		  .append($("<div style='flex:1;'>"))
-		  .append($("<div>").addClass('type').html(jvs))
-		  .append(ss)
+		  .append($("<div>"))
 		);
 		if (def.d) {
 		$("<div>").addClass('definition').html(
@@ -273,25 +268,25 @@
 		out.append(
 			$('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
 		}
-		console.log(JSON.stringify(def.r));
-		if ((def.r||[]).length > 0) {
-			var rafsi = $("<div>").addClass('rafsi');
-			rafsi.append("rafsi: ");
-			for (var i = 0; i < def.r.length; i++) {
-			  var rafElem = $("<span>").appendTo(rafsi);
-			  var raf = def.r[i];
-			  if ((def.t||'').match(/lujvo/)) {
-				rafElem.append(
-					$("<a>").attr(
-						'href', '#sisku/' + encodeURIComponent(raf))
-					.text(raf)
-				);
-			  } else {
-				rafElem.text(raf);
-			  }
-			  rafElem.append(' ');
-			}
-			rafsi.appendTo(out);
+
+		if ((def.r||[]) && (def.r||[]).length > 0) {
+		var rafsi = $("<div>").addClass('rafsi');
+		rafsi.append("rafsi: ");
+		for (var i = 0; i < def.r.length; i++) {
+		  var rafElem = $("<span>").appendTo(rafsi);
+		  var raf = def.r[i];
+		  if (def.t.match(/lujvo/)) {
+			rafElem.append(
+				$("<a>").attr(
+					'href', '#sisku/' + encodeURIComponent(raf))
+				.text(raf)
+			);
+		  } else {
+			rafElem.text(raf);
+		  }
+		  rafElem.append(' ');
+		}
+		rafsi.appendTo(out);
 		}
 		out.find('a').click(function(el) {
 		if (el.ctrlKey || el.metaKey) { // let the user open in new tabs
@@ -318,7 +313,7 @@
 	}
 	function doSearch() {
 		displayDescription();
-		var query = typehere.val().replace(/\./g," ").replace(/ {2,}/g," ").trim();
+		var query = typehere.val().replace(/( \.|\. )/g," ").replace(/ {2,}/g," ").trim();;
 		if (query === prevQuery) {
 		return;
 		}
@@ -336,7 +331,6 @@
 	//setup before functions
 	var typingTimer;               //timer identifier
 	var doneTypingInterval = 200;  //time in ms, 5 second for example
-	//typehere.on('change',function(){console.log(typehere.val());doSearch});
 	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
@@ -355,6 +349,8 @@
 		window.history.replaceState({}, null, url);
 		}
 		lastQueried = now();
+		var split = location.href.split('#')[1];if(split===null){split='';}
+		$("#st").attr("href","../#" + split);
 	}
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);

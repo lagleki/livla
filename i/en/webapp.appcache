@@ -7,6 +7,7 @@ index.html?version=31
 ../search.js
 worker.js
 bangu.js
+# ../Snowball.js
 ../lujvo_beta.js
 ../data/parsed-en.js
 

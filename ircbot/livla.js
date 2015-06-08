@@ -8,7 +8,7 @@ var interm=2900;
 fram="../../../files/fndata-1.5/frame";
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
-var tcan='#lojban,#ckule,#tokipona,#jbosnu';
+var tcan='#lojban,#ckule,#tokipona,#jbosnu,#jboguhe';
 var livlytcan='##jboselbau';//where la livla talks to la mensi
 var asker='livla';
 var replier='mensi';
@@ -313,7 +313,7 @@ var nagendra = ["na drani", "li'a na drani i do pu nitcu ma", "do na junri xu","
 var spuda = ["do puzabi\'oca mutce lo ka jai fanza", "do djica ma", "a'enai je'enai i mi djica lo ka sipna", "e'u do klama lo bartu","ke'o i ta'onai aunairu'e mi tavla do"];
 var coi = ["coi", "co\'oi", "ju\'i", "be\'e"];
 var mablagleki = ["la gleki cu tai mabla prenu", "xu la gleki cu fenki i .ies", "la gleki cu cmorguka i ie cmorguka", "lo'e me la gleki cu finti lo cizra zmiku","xu ro lo jbopre cu tai si'a fenki","lo'e arxokuna cu nelci lo ka zukte lo fanza"];
-var nelci = ["i mi i mi i mi mo i mi na nelci","ba'e mi nelci i ie mi nelci","sei mi stace mi na mutce nelci","mi na nelci","mi xebni","mi mutce nelci i ie"];
+var nelci = ["i mi i mi i mi mo i mi na nelci","lo nu nelci zo'u ba'e mi nelci i ie mi nelci","sei mi stace mi bi'u na mutce nelci","i ji'a mi na nelci mi'e la "+replier,"mi xebni","e'u do vrude pajni gi'e nai ze'i co'a cinmo lo ka nelci","ji'a mi mutce nelci i ie"];
 var tugni = ["mi tugni i ie mi tugni","ba'e mi na tugni","ei mi tugni"];
 var user = ["gleki", replier];
 var grute = ["pelxu badna", "ranti kokso", "fanza plise", "grute", "xunre ka\'orta","zirpu betka","clazme","cirla","tricu","bunre narge","crino spati","dembi","figre","tamca","patlu","djacyzme"];
@@ -457,7 +457,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf('zh:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'zh'));break;
 		case text.indexOf('sv:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'sv'));break;
 		case text.indexOf('en-simple:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(10),'en-simple'));break;
-		case text.indexOf('lb:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'lb'));break;
+//		case text.indexOf('lb:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'lb'));break;
 		case text.indexOf('jb:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'lb'));break;
 		case text.indexOf('krasi:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'krasi'));break; // Gives Lojban words etymologies
 		case text.indexOf('dukti:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'dukti'));break; // Gives Lojban words antonyms
@@ -466,6 +466,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf('selma\'o:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(8),'en','selmaho'));break;
 		case text.indexOf('finti:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'en','finti'));break;
 		case text.indexOf('rafsi:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'en','raf'));break;
+		case text.search("ra'oi [a-z']+ rafsi ma") == '0': var reg = /ra'oi ([a-z']+) rafsi ma/;var mat=reg.exec(text);benji(source,socket,clientmensi,sendTo, vlaste(mat[1],'en','raf'));break;
 		case text.indexOf('toki:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(5),'toki'));break;
 		case text.indexOf('laadan:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(7),'laadan'));break;
 		case text.indexOf('loglan:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(7),'loglan'));break;
@@ -979,7 +980,7 @@ var items = [
 	["na","not"],["na'e","not"],["nai","-not"],["nelci","fond-of"],["ka","being"],["tu'a","about"],
 	["ie","yeah"],["e'u","I-suggest"],
 	["e","and"],["enai","and-not"],["a","and/or"],
-	["jenai","and-not"],["je","and-not"],["ja","and/or"],
+	["jenai","and-not"],["je","and"],["ja","and/or"],
 	["gi'e",",-and"],["gi'a",",-and/or"],
 	["bu'u","at"],["ca","at-present"],
 	["ku",","],

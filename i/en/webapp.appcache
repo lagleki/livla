@@ -1,8 +1,8 @@
 CACHE MANIFEST
-# 2015-05-25:v1
+# 2015-06-08:v1
 
 CACHE:
-index.html?version=31
+index.html?version=32
 ../sutsis.png
 ../search.js
 worker.js

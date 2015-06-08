@@ -27,6 +27,11 @@
       color: rgb(118, 118, 118);
       font-size: 12px;
 	}
+	.tfm {
+      display: inline;
+      font-style: italic;
+      color: rgb(118, 118, 118);
+	}
 	.definition {
 		margin-top: 10px;
 		margin-bottom: 10px;
@@ -184,6 +189,12 @@
 	var resultCount;
 	var results = [];
 	var fm = {BE: "be'o",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au"};
+	function arraySearch(arr,val) {
+		for (var key in arr){
+			if (arr[key]===val) return key
+		}
+		return false;
+	}
 	var ready = false;
 	$(document).ready(function () {
     if ($(window).width() < 500) $('#plise').remove();
@@ -243,18 +254,21 @@
 
 	function displayDocument(def) {
 		var out = $("<div>").addClass('term');
-		var fmm;
-		if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a>";}else{fmm=''}
+		var fmm,tfm;
+		if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a> ";}else{fmm=''}
+		tfm = arraySearch(fm,def.w);
+		if (tfm!==false) {tfm = $("<div>").addClass('tfm').html('<sup>[<a href="#sisku/' + tfm + '">' + tfm + "</a>&nbsp;&nbsp;...&nbsp;]</sup>&nbsp;&nbsp;");}else{tfm=''}
 		var ss;
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
 		var jvs = def.t + "<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\"http://jbovlaste.lojban.org/dict/" + def.w+ "\">#</a></font> ";
 		if (def.t==='decomposing ...'){jvs=window.bangudecomp;}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
-		  .append($("<h4>").text(def.w + ' '))
-		  .append($("<h4>").html(fmm))
-		  .append($("<div style='flex:1;'>"))
-		  .append($("<div>").addClass('type').html(jvs))
-		  .append(ss)
+		.append(tfm)
+		.append($("<h4>").text(def.w + ' '))
+		.append($("<h4>").addClass('tfm').html(fmm))
+		.append($("<div style='flex:1;'>"))
+		.append($("<div>").addClass('type').html(jvs))
+		.append(ss)
 		);
 		if (def.d) {
 		$("<div>").addClass('definition').html(

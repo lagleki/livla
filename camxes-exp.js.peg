@@ -395,9 +395,9 @@ operand_2 = expr:(operand_3 (joik_ek stag? BO_clause free* operand_2)?) {return 
 operand_3 = expr:(quantifier / lerfu_string !MOI_clause BOI_elidible free* / NIhE_clause free* selbri TEhU_elidible free* / MOhE_clause free* sumti TEhU_elidible free* / JOhI_clause free* mex_2+ TEhU_elidible free* / gek operand gik operand_3 / (LAhE_clause free* / NAhE_clause BO_clause? free*) operand LUhU_elidible free*) {return _node("operand_3", expr); }
 
 //// EXP-MODIF
-number = expr:((PA_clause / (NIhE_clause free* selbri TEhU_elidible free*) / (MOhE_clause free* sumti TEhU_elidible free*)) (PA_clause / (NIhE_clause free* selbri TEhU_elidible free*) / (MOhE_clause free* sumti TEhU_elidible free*) / lerfu_word)*) {return _node("number", expr); }
-
-lerfu_string = expr:(lerfu_word (PA_clause / lerfu_word)*) {return _node("lerfu_string", expr); }
+////mixed lerfu/namcu strings banned
+number = expr:((PA_clause / (NIhE_clause free* selbri TEhU_elidible free*) / (MOhE_clause free* sumti TEhU_elidible free*)) (PA_clause / (NIhE_clause free* selbri TEhU_elidible free*) / (MOhE_clause free* sumti TEhU_elidible free*))*) {return _node("number", expr); }
+lerfu_string = expr:(lerfu_word+) {return _node("lerfu_string", expr); }
 
 
 // ** BU clauses are part of BY_clause
@@ -1522,7 +1522,7 @@ y_less_rafsi = expr:(!y_rafsi !stressed_y_rafsi !hy_rafsi !stressed_hy_rafsi (CV
 
 hy_rafsi = expr:((long_rafsi vowel / CCV_rafsi / CVV_rafsi) h y h?)
 
-stressed_hy_rafsi = expr:((long_rafsi stressed_vowel / stressed_CCV_rafsi / stressed_CVV_rafsi) h y h?)
+stressed_hy_rafsi = expr:((long_rafsi stressed_vowel / stressed_CCV_rafsi / stressed_CVV_rafsi) h y)
 
 long_rafsi = expr:(initial_pair unstressed_vowel consonant / consonant unstressed_vowel consonant consonant) { return _join(expr); }
 
@@ -1560,7 +1560,7 @@ any_syllable = expr:(onset nucleus coda? / consonantal_syllable) {return _join(e
 syllable = expr:(onset !y nucleus coda?) {return _join(expr);}
 
 //// FIX: preventing {bla'ypre} from being a valid lujvo
-consonantal_syllable = expr:(consonant syllabic &(consonantal_syllable / !nucleus onset) (consonant &spaces)?) {return _join(expr);}
+consonantal_syllable = expr:(consonant &syllabic coda) {return _join(expr);}
 
 coda = expr:(!any_syllable consonant &any_syllable / syllabic? consonant? &pause) {return _join(expr);}
 
@@ -1570,7 +1570,7 @@ nucleus = expr:(vowel / diphthong / y !nucleus) {return _join(expr);}
 
 //_________________________________________________________________
 
-glide = expr:(i / u) &nucleus !glide {return expr;}
+glide = expr:(i / u) &nucleus {return expr;}
 
 diphthong = expr:(a u !u / (a i / e i / o i) !i) !nucleus {return _join(expr);}
 
@@ -1955,7 +1955,7 @@ ZOhU = &cmavo expr:( c e h a i / z o h u ) &post_word {return ["ZOhU", _join(exp
 // ___ EXPERIMENTAL SELMAHO ___ //
 
 ZOhOI = &cmavo expr:( z o h o i / l a h o i / r a h o i ) &post_word {return ["ZOhOI", _join(expr)];}
-MEhOI = &cmavo expr:( m e h o i ) &post_word {return ["ZOhOI", _join(expr)];}
+MEhOI = &cmavo expr:( m e h o i ) &post_word {return ["MEhOI", _join(expr)];}
 NOhOI = &cmavo expr:( n o h o i / p o h o i ) &post_word {return ["NOhOI", _join(expr)];}
 KUhOI = &cmavo expr:( k u h o i ) &post_word {return ["KUhOI", _join(expr)];}
 LOhOI = &cmavo expr:( l o h o i ) &post_word {return ["LOhOI", _join(expr)];}

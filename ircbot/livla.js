@@ -150,7 +150,7 @@ var updatexmldumps = function (callback) {
 	try{
 		var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple","fr-facile","hu","sv"];
 		var request = require("request");
-		request = request.defaults({jar: true});
+		request = request.defaults({jar: true, strictSSL: false});
 		var jar = request.jar();
 		var cookie = request.cookie("jbovlastesessionid=U2FsdGVkX1%2FpiXtl1FSyMUZvFTudUq0N59YatQesEbsfdQ6owwMDeA%3D%3D");
 		langs.forEach(function(thisa) {
@@ -1341,6 +1341,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		try{pars+=",\"s\":\""+rev[i].find("selmaho[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		try{pars+=",\"d\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		try{pars+=",\"n\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
+		try{pars+=",\"g\":\""+rev[i].find("glossword/@word").join(" ").replace(/ word='/g," ").replace(/'/g,"").replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		var ra=rev[i].find("rafsi//text()[1]");
 		if (xugismu(hi)===true){
 			ra.push(hi);

@@ -1,5 +1,5 @@
-a,"
-'''a''' <small>[conjunction for nouns]</small> — ''and/or''
+﻿a,"
+'''﻿a''' <small>[conjunction for nouns]</small> — ''and/or''
 :'''ei mi tavla la Alis a la Kevin''' — ''I need to speak to Alice or Kevin (or to both of them).''
 :Related words: '''ja''', '''a''', '''e''', '''ji''', '''o''', '''u'''"
 a'a,"
@@ -183,7 +183,7 @@ balni,"
 :Related words: '''kajna'''"
 balre,"
 '''balre''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a blade of tool or weapon  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo balre''' — blade. '''lo se balre''' — a tool or weapon with a blade. 
+:'''lo balre''' — blade. '''lo se balre''' — tool with a blade, weapon with a blade. 
 :'''lo balre be lo dakfu cu kinli''' — ''The blade of the knife is sharp.''
 :Related words: '''dakfu''', '''tunta''', '''tutci''', '''guska''', '''kinli''', '''katna'''"
 balvi,"
@@ -941,7 +941,7 @@ centero,"
 :Related words: '''xadba'''"
 centi,"
 '''centi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a hundredth of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''lo centi''' — 100, hundred. 
+:'''lo centi''' — 1/100_. 
 :'''le insekto cu centi be lo mitre lo ka clani''' — ''The insect is 1 centimeter long.''
 :Related words: '''grake''', '''mitre''', '''snidu''', '''stero''', '''delno''', '''molro''', '''kelvo''', '''xampo''', '''gradu''', '''litce''', '''merli''', '''decti''', '''dekto''', '''femti''', '''gigdo''', '''gocti''', '''gotro''', '''kilto''', '''megdo''', '''mikri''', '''milti''', '''nanvi''', '''petso''', '''picti''', '''terto''', '''xatsi''', '''xecto''', '''xexso''', '''zepti''', '''zetro'''"
 cerda,"
@@ -1776,10 +1776,9 @@ danfu,"
 :Comment: '''spuda''' is for agentive response/reply.
 :Related words: '''ciksi''', '''retsku''', '''nabmi''', '''spuda''', '''cpedu'''"
 danlu,"
-'''danlu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a live being of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
-:'''lo danlu''' — live being. 
-:'''mi pu viska lo mabru bu'u lo boske''' — ''I saw a mammal in the forest.''
-:'''my jutsi ma''' — ''What species does it belong to?''
+'''danlu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an animal of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
+:'''lo danlu''' — animal, creature. 
+:'''mi pu viska lo danlu bu'u lo boske i dy jutsi ma''' — ''I saw an animal in the forest. What species does it belong to?''
 :Related words: '''banfi''', '''cinki''', '''cipni''', '''finpe''', '''ankabuta''', '''respa''', '''since''', '''mabru''', '''bakni'''"
 danmo,"
 '''danmo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is smoke from source  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -1907,7 +1906,7 @@ de'u,"
 :'''le re mei pu troci lo ka ganse le gusni vau za'u re'u i ku'i le re mei na pu djuno lo du'u xu kau la'e de'e cu du lo sinxa poi le re mei ze'u kanpe tu'a ke'a''' — ''They both tried to observe it once again. But they didn't know whether that was the sign they had been expecting for so long.''"
 decti,"
 '''decti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a tenth of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''lo decti''' — &nbsp;1/10. 
+:'''lo decti''' — 1/10_. 
 :'''le bitmu cu decti be lo mitre lo ka rotsu''' — ''The fence is 10 centimeters thick.''
 :Related words: '''centi'''"
 degji,"
@@ -1930,7 +1929,7 @@ dekpu,"
 :Related words: '''canlu''', '''litce''', '''rupnu''', '''fepni''', '''gutci''', '''minli''', '''merli''', '''bunda''', '''kramu'''"
 dekto,"
 '''dekto''' — ''x<sub>1</sub><sub>(entity)</sub>''  is ten of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''lo dekto''' — 10. 
+:'''lo dekto''' — 10_. 
 :'''le dinju cu dekto be lo mitre lo ka clani''' — ''The house is 10 meters high.''
 :Related words: '''centi'''"
 delfinu,"
@@ -2306,7 +2305,7 @@ fa'u,"
 :'''zmadu fa'u mleca fi lo ka sampu fa'u lo ka drani''' — ''It's more easy and less correct, respectively.''"
 facki,"
 '''facki''' — ''x<sub>1</sub><sub>(entity)</sub>''  discovers fact  ''x<sub>2</sub><sub>(proposition)</sub>''  about  ''x<sub>3</sub><sub>(entity)</sub>'' 
-:'''lo facki''' — discoverer. '''lo se facki''' — a discovery. 
+:'''lo facki''' — discoverer. '''lo se facki''' — discovery. 
 :'''mi facki lo jitfa lo pu se cusku be la Alis''' — ''I discovered that what Alice said is false.''
 :'''mi facki lo du'u le tcadu cu jibni''' — ''I found that the city is near.''
 :'''mi pu facki lo du'u lo lisri cu xajmi''' — ''I found the story funny.''
@@ -3017,7 +3016,7 @@ gu'u,"
 :'''ai mi te vecnu lo gu'u kargu gi cnino karce''' — ''I'm going to buy a new car whether or not it is expensive.''"
 gubni,"
 '''gubni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is public to community  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo gubni''' — public. '''lo se gubni''' — a community with something public. 
+:'''lo gubni''' — public. '''lo se gubni''' — community with something public. 
 :'''lo panka cu gubni lo prenu''' — ''The park is public and open to people.''
 :Related words: '''sivni'''"
 gugde,"
@@ -3472,7 +3471,7 @@ jesni,"
 :Related words: '''konju''', '''pijne''', '''jipno''', '''kinli'''"
 jetnu,"
 '''jetnu''' — ''x<sub>1</sub><sub>(proposition)</sub>''  is true by standard  ''x<sub>2</sub><sub>(proposition)</sub>'' 
-:'''lo jetnu''' —  true. 
+:'''lo jetnu''' — true_. 
 :'''lo du'u lo remna cu xendo cu jetnu lo se jinvi lo prije''' — ''According to a wise person, it's true that all humans are kind.''
 :Related words: '''stace''', '''jitfa''', '''fatci''', '''birti''', '''cfika'''"
 jgalu,"
@@ -3603,7 +3602,7 @@ jinci,"
 :Related words: '''katna'''"
 jinga,"
 '''jinga''' — ''x<sub>1</sub><sub>(entity)</sub>''  wins prize  ''x<sub>2</sub><sub>(entity, property of x1)</sub>''  from competitors  ''x<sub>3</sub><sub>(entity)</sub>''  in competition  ''x<sub>4</sub><sub>(clause)</sub>'' 
-:'''lo jinga''' — winner. '''lo se jinga''' — a prize won. 
+:'''lo jinga''' — winner. '''lo se jinga''' — prize won. 
 :'''la Alis pu jinga lo ralju lo drata nixli lo nu vi'i ve'u bajra''' — ''Alice won the main prize gaining the victory over other girls in a long distant race.''
 :Related words: '''cirko''', '''jivna''', '''talsa''', '''cnemu''', '''prali''', '''pleji''', '''sfasa''', '''jdima''', '''jerna''', '''bradi''', '''kargu''', '''kelci'''"
 jinku,"
@@ -3667,7 +3666,7 @@ jisra,"
 :Related words: '''pinxe''', '''djacu''', '''grute''', '''stagi'''"
 jitfa,"
 '''jitfa''' — ''x<sub>1</sub><sub>(proposition)</sub>''  is false by standard or epistemology  ''x<sub>2</sub><sub>(proposition)</sub>'' 
-:'''lo jitfa''' —  false. 
+:'''lo jitfa''' — false_. 
 :'''lo du'u le nanla cu se slabu la Alis cu jitfa lo du'u ny kucli lo nu a bu mo kau''' — ''It's false that the boy is familiar with Alice since he is wondering who she is.''
 :Related words: '''fatci''', '''stace''', '''jetnu''', '''cfika'''"
 jitro,"
@@ -3703,7 +3702,7 @@ jmina,"
 :Related words: '''zmadu''', '''banro''', '''sumji''', '''zenba''', '''setca'''"
 jmive,"
 '''jmive''' — ''x<sub>1</sub><sub>(entity)</sub>''  is alive in that it does  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
-:'''lo jmive''' — alive. 
+:'''lo jmive''' — alive, living being. 
 :'''le danlu cu jmive lo ka ruble muvdu''' — ''The animal is alive since it is weakly moving.''
 :Related words: '''lifri''', '''morsi''', '''stuzi''', '''zvati''', '''xabju'''"
 jo,"
@@ -4157,7 +4156,7 @@ kijno,"
 :Related words: '''jelca''', '''vacri''', '''vasxu'''"
 kilto,"
 '''kilto''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a thousand of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''lo kilto''' — 1000. 
+:'''lo kilto''' — 1000_. 
 :'''lo xamsi cu kilto be lo mitre lo ka condi''' — ''The sea is 1'000 meters deep.''
 :Related words: '''centi'''"
 kinli,"
@@ -7199,7 +7198,7 @@ selci,"
 :Related words: '''kantu''', '''ratni''', '''gradu'''"
 selfu,"
 '''selfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  serves  ''x<sub>2</sub><sub>(entity)</sub>''  with service  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''lo selfu''' — servant. '''lo te selfu''' — a service. 
+:'''lo selfu''' — servant. '''lo te selfu''' — service. 
 :'''le gerku cu selfu mi lo ka bevri lo cutci''' — ''The dog serves me by bringing shoes.''
 :Related words: '''sidju''', '''sarji''', '''gunka'''"
 selma'o,#N/A
@@ -8086,7 +8085,7 @@ tapla,"
 :Related words: '''bliku''', '''kubli''', '''matci''', '''karda''', '''bliku''', '''kurfa''', '''matci''', '''plita''', '''tarmi'''"
 tarbi,"
 '''tarbi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an embryo with mother  ''x<sub>2</sub><sub>(entity)</sub>''  and father  ''x<sub>3</sub><sub>(entity)</sub>'' 
-:'''lo tarbi''' — embryo. '''lo se tarbi''' — a mother of an embryo. '''lo te tarbi''' — a father of an embryo. 
+:'''lo tarbi''' — embryo. '''lo se tarbi''' — mother of an embryo. '''lo te tarbi''' — father of an embryo. 
 :'''le ninmu pu cusku fi le nanmu fe lu ti tarbi mi na ku fi do li'u''' — ''She said to him &quot;It's not your baby.&quot; (about her not yet born child).''
 :Related words: '''gutra''', '''mamta''', '''patfu''', '''sovda''', '''rorci''', '''tsiju''', '''grute'''"
 tarci,"
@@ -8368,7 +8367,7 @@ toknu,"
 :'''lo toknu''' — oven. '''lo se toknu''' — baked in an oven. 
 :'''ti toknu lo cidja''' — ''This is an oven for cooking food.''
 :'''tu toknu lo mudri''' — ''That is a wood burning stove.''
-:Related words: '''nanba'''"
+:Related words: '''jukpa''', '''cidja''', '''nanba'''"
 tolckire,"
 '''tolckire''' — ''x<sub>1</sub><sub>(entity)</sub>''  feels resentment, bitterness towards  ''x<sub>2</sub><sub>(entity)</sub>''  for action  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
 :'''lo tolckire''' — resentful. 
@@ -8800,7 +8799,7 @@ vei,"
 :'''li ci su'i pa pi'i re du li mu''' — ''3 + 1 x 2 = 5.''"
 venfu,"
 '''venfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  takes revenge against  ''x<sub>2</sub><sub>(entity)</sub>''  for wrong  ''x<sub>3</sub><sub>(property of x2)</sub>''  by doing  ''x<sub>4</sub><sub>(property of x1)</sub>'' 
-:'''lo te venfu''' — reason for revenge. '''lo ve venfu''' — act of vengeance. 
+:'''lo te venfu''' — reason for revenge. '''lo ve venfu''' — vengeance (act). 
 :'''la Kevin pu venfu la Alis lo ka kusru ky vau lo ka cinba a bu re'o lo li'anpi''' — ''He took a revenge on Alice being rude to him by kissing her on the cheek.''
 :Related words: '''sfasa''', '''cnemu'''"
 vensa,"
@@ -9039,7 +9038,7 @@ xabju,"
 :Related words: '''ginka''', '''zdani''', '''zvati''', '''stuzi''', '''jmive''', '''stali''', '''vitke'''"
 xadba,"
 '''xadba''' — ''x<sub>1</sub><sub>(entity)</sub>''  is half of  ''x<sub>2</sub><sub>(same type as x1)</sub>'' 
-:'''lo xadba''' — 1/2, half. 
+:'''lo xadba''' — 1/2_, half. 
 :'''mi pu katna lo plise lo xadba''' — ''I cut the apple in half.''
 :Related words: '''mulno''', '''pagbu'''"
 xadni,"
@@ -9171,7 +9170,7 @@ xebni,"
 :Related words: '''djica''', '''nitcu''', '''rigni''', '''prami''', '''nelci'''"
 xecto,"
 '''xecto''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a hundred of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''lo xecto''' — 100. 
+:'''lo xecto''' — 100_, hundred. 
 :'''lo rirxe cu xecto lo mitre lo ka condi''' — ''The river is 100 meters deep.''
 :Related words: '''centi'''"
 xedja,"

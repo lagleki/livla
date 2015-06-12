@@ -33,7 +33,8 @@ a'u,"
 :'''a'u ro jbopre cu stati prenu''' — ''Interesting, all Lojbanists are smart people.''
 :'''a'u ma krinu''' — ''Hm, what is the reason?''
 :'''a'u cu'i do ne ka'ai lo nanla cu se zdani''' — ''It's none of my business that you live with a boy.''
-:'''a'u nai panci fa lo kalci''' — ''Yuck, that smells like shit!''
+:'''a'u nai do co'a speni lo fange''' — ''You married a stranger, it's none of my business, I'd avoid this topic.''
+:'''a'u nai iu nai panci fa lo kalci i ai nai mi citka ti''' — ''Yuck, that smells like shit! I'm not going to eat this.''
 :Related words: '''lo''' '''se''' '''cinri'''"
 abu,"
 '''abu''' <small>[pronoun]</small> — ''a'' (letter)"
@@ -378,7 +379,7 @@ besna,"
 :Related words: '''menli''', '''stedu''', '''rango''', '''pensi'''"
 betfu,"
 '''betfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a belly, abdomen, lower trunk of body  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo betfu''' — abdomen. 
+:'''lo betfu''' — abdomen, belly. 
 :'''lo betfu be mi cu se cortu''' — ''My belly hurts.''
 :Related words: '''cutne''', '''livga''', '''canti'''"
 betka,"
@@ -726,7 +727,7 @@ ca'e,"
 :'''ca'e gusni''' — ''Let there be light!''
 :Related words: '''jetnu'''"
 ca'o,"
-'''ca'o''' <small>[preposition of aspect]</small> — progress of the event. ''be doing ...'' (someone or something), ''being ... '' (someone or something)
+'''ca'o''' <small>[preposition of aspect]</small> — progress of the event. ''be doing ...'' (someone or something), ''being ... '' (someone or something), ''already''
 :'''le verba ca'o citka''' — ''The child is eating.''
 :Comment: unlike '''ru'i''' describes an event as progressing whether or not it is continuous; progressive aspect."
 ca'u,"
@@ -735,7 +736,7 @@ ca'u,"
 cabdei,"
 '''cabdei''' — ''x<sub>1</sub><sub>(clause)</sub>''  is today, the same day as  ''x<sub>2</sub><sub>(clause)</sub>'' 
 :'''lo cabdei''' — today. 
-:'''lo cabdei cu du lo soldei''' — ''Today is Sunday.''
+:'''lo cabdei cu detri li jy dy ze''' — ''Today is Sunday.''
 :Related words: '''djedi''', '''prulamdei''', '''bavlamdei''', '''cedra''', '''ditcu'''"
 cabna,"
 '''cabna''' — ''x<sub>1</sub><sub>(clause)</sub>''  is current with  ''x<sub>2</sub><sub>(clause)</sub>''  in time
@@ -750,7 +751,7 @@ cabra,"
 :Related words: '''tutci''', '''minji''', '''finti''', '''girzu''', '''ganzu''', '''pilno'''"
 cacra,"
 '''cacra''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  hours in duration
-:'''lo cacra''' — hour. '''lo se cacra''' — number of hours. 
+:'''lo cacra''' — hour-long event. 
 :'''ca ku lo nicte cu cacra li mu''' — ''At this time, night is 5 hours long.''
 :Related words: '''junla''', '''mentu''', '''snidu''', '''tcika''', '''temci'''"
 cadzu,"
@@ -819,7 +820,7 @@ canre,"
 :Related words: '''bidju''', '''rokci''', '''zalvi''', '''boxna'''"
 canti,"
 '''canti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is the intestines or guts of  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo canti''' — intestine. 
+:'''lo canti''' — intestine, gut. 
 :'''lo jurme co'a xabju lo canti be lo cifnu ba zi lo nu ri jbena''' — ''Bacteria colonize the intestines of a child soon after it is born.''
 :Related words: '''betfu'''"
 carce,"
@@ -1072,11 +1073,11 @@ cilce,"
 :Related words: '''pinfu''', '''panpi''', '''tarti'''"
 cilmo,"
 '''cilmo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is moist or damp with liquid  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo cilmo''' — damp. 
+:'''lo cilmo''' — damp, moist, wet. 
 :'''ko lumci lo canko se pi'o lo cilmo bukpu''' — ''Clean the window with a damp cloth.''
 :Related words: '''litki''', '''lunsa''', '''sudga'''"
 cilre,"
-'''cilre''' — ''x<sub>1</sub><sub>(entity)</sub>''  learns ome fact or information  ''x<sub>2</sub><sub>(proposition)</sub>''  about  ''x<sub>3</sub><sub>(entity)</sub>'' 
+'''cilre''' — ''x<sub>1</sub><sub>(entity)</sub>''  learns some fact or information  ''x<sub>2</sub><sub>(proposition)</sub>''  about  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo cilre''' — learner. '''lo se cilre''' — learned. 
 :'''mi cilre fi la Lojban''' — ''I learn Lojban.''
 :'''mi pu cilre lo du'u lo remna na smani''' — ''I learnt that humans are not monkeys.''
@@ -1223,7 +1224,7 @@ citsi,"
 :Related words: '''cedra''', '''crisa''', '''critu''', '''dunra''', '''ranji''', '''temci''', '''vensa''', '''jbena'''"
 civla,"
 '''civla''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a flea or louse of species  ''x<sub>2</sub><sub>(taxon)</sub>''  parasitic on  ''x<sub>3</sub><sub>(entity)</sub>'' 
-:'''lo civla''' — flea. 
+:'''lo civla''' — flea, louse. 
 :'''xu lo civla be fi lo gerku cu ckape lo remna''' — ''Are dog louses dangerous to humans?''
 :Related words: '''insekto''', '''cinki''', '''blato'''"
 cizra,"
@@ -1940,7 +1941,6 @@ delfinu,"
 :Related words: '''mabru''', '''xamsi''', '''rirxe'''"
 delno,"
 '''delno''' — ''x<sub>1</sub><sub>(entity)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  candela in luminosity
-:'''lo se delno''' — amount of candela. 
 :'''lo vi bombila cu delno li ji'i pa re no''' — ''This light bulb has a luminous intensity of around 120 candela.''
 :Related words: '''centi''', '''decti''', '''dekto''', '''femti''', '''gigdo''', '''gocti''', '''gotro''', '''kilto''', '''centi'''"
 dembi,"
@@ -1967,7 +1967,7 @@ denpa,"
 :Related words: '''dicra''', '''fanmo''', '''sisti''', '''fliba''', '''basna'''"
 dertu,"
 '''dertu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some soil or dirt
-:'''lo dertu''' — soil, dirt, ground (soil). 
+:'''lo dertu''' — soil, dirt, ground (soil), earth (soil). 
 :'''pu ze'a ku lo karce cu muvdu bu'u lo dertu''' — ''For a while, the car moved on the soil.''
 :Related words: '''kliti''', '''terdi''', '''loldi'''"
 derxi,"
@@ -2090,7 +2090,7 @@ djacu,"
 :Related words: '''lalxu''', '''rirxe''', '''xamsi''', '''limna''', '''litki''', '''lumci''', '''bumru''', '''jinto'''"
 djedi,"
 '''djedi''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  full days long
-:'''lo djedi''' — full day. '''lo se djedi''' — number of full days. 
+:'''lo djedi''' — day (full day). '''lo se djedi''' — number of full days. 
 :'''mi volve ba zi lo djedi be li pa no''' — ''I will return in 10 days.''
 :Related words: '''donri''', '''detri''', '''jeftu''', '''masti''', '''nanca''', '''nicte''', '''tcika'''"
 djica,"
@@ -2121,7 +2121,7 @@ do'a,"
 :'''do'a mi do ka'e ctuca lo se jmina''' — ''I could teach you some additional things.''
 :'''do'a nai do no da zekri lebna''' — ''At least you didn't steal anything.''
 :'''a'o mi te dunda lo kargu karce a ke do'a nai lo karce poi na spofu''' — ''Hopefully, I'll be given an expensive car or at least one that isn't broken.''
-:Related words: '''dunda'''"
+:Related words: '''sa'e''' '''nai'''"
 do'e,"
 '''do'e''' <small>[preposition from '''co'e''']</small> — preposition with the meaning unspecified or known from context
 :'''ti karda do'e lo valsi''' — ''It's a card with a word.''
@@ -2140,7 +2140,7 @@ doi,"
 :'''doi nobli do co'u morji fi lo do ckiku''' — ''Oh, sir! You forgot your keys.''"
 donri,"
 '''donri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is daytime of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo donri''' — daytime. 
+:'''lo donri''' — day (daylight time), daytime. 
 :'''ca lo donri be lo prulamdei ra pu stali lo zdani''' — ''Yesterday in the daytime, he stayed at home.''
 :Related words: '''nicte''', '''djedi''', '''tcika'''"
 draci,"
@@ -2155,7 +2155,7 @@ drani,"
 :Related words: '''srera''', '''mapti'''"
 drata,"
 '''drata''' — ''x<sub>1</sub><sub>(entity)</sub>''  is not the same as  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo drata''' — different. 
+:'''lo drata''' — different, another, other. 
 :'''lo drata be mi ka'e sidju''' — ''Someone else but me can help.''
 :Related words: '''mintu''', '''frica''', '''dunli'''"
 drudi,"
@@ -2564,7 +2564,7 @@ flaume,"
 :Related words: '''jbari''', '''titla''', '''grute''', '''tricu'''"
 flecu,"
 '''flecu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a current in  ''x<sub>2</sub><sub>(entity)</sub>''  flowing towards  ''x<sub>3</sub><sub>(entity)</sub>''  from  ''x<sub>4</sub><sub>(entity)</sub>'' 
-:'''lo flecu''' — current (flow). 
+:'''lo flecu''' — current (flow), flow (current). 
 :'''ti flecu lo condi lo lalxu lo galtu krasi pe bu'u loi cmana''' — ''This is a current in a deep bed running towards a lake from high springheads in the mountains.''
 :Comment: this word is dispreferred to '''flu'ente''' that has a place structure identical to '''muvdu'''."
 fliba,"
@@ -2586,7 +2586,7 @@ flora,"
 :Related words: '''spati''', '''panci''', '''sumne'''"
 flu'ente,"
 '''flu'ente''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a fluid flowing to  ''x<sub>2</sub><sub>(entity)</sub>''  from  ''x<sub>3</sub><sub>(entity)</sub>''  via the route  ''x<sub>4</sub><sub>(entity)</sub>'' 
-:'''lo flu'ente''' — fluent, fluid. 
+:'''lo flu'ente''' — fluent, fluid, flow. 
 :'''ti flu'ente lo lalxu lo galtu krasi pe bu'u loi cmana lo condi''' — ''This is a current in a deep bed running towards a lake from high springheads in the mountains.''
 :'''lo flu'ente pe lo bu'u tcadu cu carmi''' — ''The traffic in this city is intense.''
 :'''lo mi nazbi cu ve flu'ente''' — ''I have a runny nose.''
@@ -2674,7 +2674,7 @@ fu'au,"
 fu'e,"
 '''fu'e''' — creates a scope (brackets) of influence for an interjection
 :'''mi viska lo fu'e ia cizra zdani fu'o ponse''' — ''I can see an owner of what I believe is a strange house.''
-:'''mi ca klama lo drata tcadu fu'e ta'o ca lo fagdei te zu'e lo ka viska loi mi rirni fu'o''' — ''I am going to another city (on Tuesday, by the way, to visit my parents).''"
+:'''mi ca klama lo drata tcadu fu'e ta'o de'i li jy dy re te zu'e lo ka viska loi mi rirni fu'o''' — ''I am going to another city (on Tuesday, by the way, to visit my parents).''"
 fu'i,"
 '''fu'i''' <small>[interjection modifier]</small> — the state has been achieved easily, '''fu'i''' '''nai''' — state has been achieved hard
 :'''e'e fu'i mi cpare le cmana''' — ''I can easily climb the mountain, I can go for it!''
@@ -2767,7 +2767,7 @@ ganlo,"
 :Related words: '''kalri''', '''pagre''', '''canko''', '''vorme''', '''zunti'''"
 ganra,"
 '''ganra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is broad or wide in length/width etc.  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
-:'''lo ganra''' — broad. 
+:'''lo ganra''' — broad, wide. 
 :'''le tricu cu rotsu lo ka se midju''' — ''The tree is thick in the middle.''
 :Comment: the second largest dimension. '''ganra''', '''rotsu''' and '''clani''' specify the three dimensions of objects.
 :Related words: '''clani''', '''jarki''', '''rotsu''', '''condi''', '''barda''', '''gutci''', '''minli'''"
@@ -2965,7 +2965,7 @@ grake,"
 :Related words: '''junta''', '''kilto''', '''bunda''', '''centi''', '''decti''', '''dekto''', '''femti''', '''gigdo''', '''gocti''', '''gotro''', '''litce''', '''centi'''"
 grana,"
 '''grana''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a rod or pole
-:'''lo grana''' — rod. 
+:'''lo grana''' — rod, stick. 
 :'''ra pu jgari lo grana''' — ''He was holding a rod.''
 :Related words: '''garna'''"
 grasu,"
@@ -3419,6 +3419,7 @@ jecta,"
 :Related words: '''gugde''', '''tutra''', '''turni''', '''natmi''', '''jansu''', '''lanci''', '''cecmu'''"
 jeftu,"
 '''jeftu''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  weeks long
+:'''lo jeftu''' — week-long event. 
 :'''mi'o ba volve ti za lo jeftu be li re''' — ''We'll return here in two weeks.''
 :Related words: '''detri''', '''djedi''', '''masti''', '''nanca'''"
 jegvo,"
@@ -3476,7 +3477,7 @@ jetnu,"
 :Related words: '''stace''', '''jitfa''', '''fatci''', '''birti''', '''cfika'''"
 jgalu,"
 '''jgalu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a claw of  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo jgalu''' — claw. 
+:'''lo jgalu''' — claw, nail, fingernail. 
 :'''le cipni cu se jgalu lo kinli''' — ''The bird has sharp claws.''
 :Related words: '''denci''', '''jirna''', '''batci'''"
 jganu,"
@@ -3720,14 +3721,15 @@ jo'e,"
 '''jo'e''' <small>[conjunction]</small> — forms union of sets
 :'''e'o doi io lo ninmu jo'e lo ctuca ko cliva le kumfa''' — ''Respected women and teachers, please, leave the room.''"
 jo'u,"
-'''jo'u''' <small>[conjunction]</small> — ''in common with...'', ''along with...'', ''and also ...''
+'''jo'u''' <small>[conjunction]</small> — ''in common with ...'', ''along with ...'', ''and also ...''
 :'''do jo'u mi casnu lo za'u bangu''' — ''You and I discussed languages.''
 :Comment: '''ce''' is preferred to '''jo'u'''."
 joi,"
-'''joi''' <small>[conjunction]</small> — ''mixed together with...'', ''forming a mass...'' (forms mixed mass)
+'''joi''' <small>[conjunction]</small> — ''mixed together with ...'', ''forming a mass ...'' (forms mixed mass)
 :'''ti du lo sovda joi lo purmo''' — ''This is a mass of eggs and flour.''"
 jorne,"
 '''jorne''' — ''x<sub>1</sub><sub>(entity)</sub>''  is joined to  ''x<sub>2</sub><sub>(entity)</sub>''  at location  ''x<sub>3</sub><sub>(entity)</sub>'' 
+:'''lo jorne''' — tightened, connected, tied, joined, fastened. 
 :'''la Alis cu jorne lo stizu lo skori''' — ''Alice it tied to the chair with a rope.''
 :'''ko jorne la'e me'o so pa pa''' — ''Call 911!''
 :'''mi ba jorne do ba lo nu mi cliva lo ckule''' — ''I will .''
@@ -3856,7 +3858,7 @@ ka'ai,"
 '''ka'ai''' <small>[preposition from '''kansa''']</small> — ''with ...'', ''with a companion ...''
 :'''mi cadzu ka'ai lo gerku''' — ''I walk with a dog.''"
 ka'e,"
-'''ka'e''' <small>[preposition of potential]</small> — ''possibly can...''
+'''ka'e''' <small>[preposition of potential]</small> — ''possibly can ...''
 :'''mi na ka'e denpa''' — ''I can't wait.''
 :Comment: not necessarily ''innately capable'', might describe what can potentially happen to the thing described."
 ka'o,"
@@ -5047,6 +5049,7 @@ masno,"
 :Related words: '''sutra'''"
 masti,"
 '''masti''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  months long
+:'''lo masti''' — month-long event. 
 :'''lo pu dunra cu masti li ci''' — ''The past winter lasted for 3 months.''
 :Related words: '''detri''', '''djedi''', '''jeftu''', '''nanca'''"
 matci,"
@@ -5150,6 +5153,7 @@ mensi,"
 :Related words: '''bruna''', '''tunba''', '''tamne''', '''famti'''"
 mentu,"
 '''mentu''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  minutes long
+:'''lo mentu''' — minute-long event. 
 :'''lo nu penmi cu mentu be li ji'i xa no''' — ''The meeting is approximately 60 minutes long.''
 :Related words: '''junla''', '''cacra''', '''snidu''', '''tcika'''"
 merko,"
@@ -5414,7 +5418,7 @@ mu'i,"
 '''mu'i''' <small>[preposition from '''mukti''']</small> — ''with the motive of ...''
 :'''mi pu penmi la Alis mu'i lo ka ciksi ro da''' — ''I met Alice in order to explain everything.''"
 mu'o,"
-'''mu'o''' <small>[vocative]</small> — ''I am done talking. Over. That's all, I can say'' (in radio communications), '''mu'o''' '''nai''' — ''more to come ... I am not done talking''
+'''mu'o''' <small>[vocative]</small> — ''I am done talking. Over. That's all I can say'' (in radio communications), '''mu'o''' '''nai''' — ''more to come ... I am not done talking''
 :'''i ro mai mi jinvi lo du'u za'u lo cukta cu jai sarcu mu'o''' — ''Finally, I think that more books are necessary, I'm done.''
 :'''ja'o dai le za'u sonci pu cliva le tcadu mu'o nai loi mi tadni''' — ''As you may conclude, the soldiers left the city ... no, that's not the end of the story, my students.''"
 mucti,"
@@ -5489,7 +5493,7 @@ na ,"
 '''na ''' <small>[2nd meaning]</small> — left negator in conjunctions
 :'''la Kevin pu ku prami na je cinba mi''' — ''Kevin didn't love but kissed me.''"
 na'e,"
-'''na'e''' <small>[converter of group NAhE]</small> — ''not...'', ''other than ...'' (on the scale). Modifies the construct to the right
+'''na'e''' <small>[converter of group NAhE]</small> — ''not ...'', ''other than ...'' (on the scale). Modifies the construct to the right
 :'''na'e vajni mi''' — ''It's not important to me.''
 :'''do ba na'e snada''' — ''You won't make it (won't succeed).''
 :'''na'e bo mi pu zukte''' — ''Not I did it.''"
@@ -5547,6 +5551,7 @@ nanba,"
 :Related words: '''gurni''', '''panlo''', '''toknu'''"
 nanca,"
 '''nanca''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  years long
+:'''lo nanca''' — year-long event. 
 :'''mi nanca li re mu''' — ''I am 25 years old.''
 :'''mi se zdani ti ze'a lo nanca be li vo''' — ''I have been living here for 4 years.''
 :Related words: '''detri''', '''djedi''', '''jeftu''', '''masti'''"
@@ -5764,7 +5769,7 @@ nu'e,"
 :'''nu'e cu'i do mi ba troci''' — ''I'll try, but I don't promise anything.''
 :'''nu'e nai do du'e va'e tilju''' — ''I take my promise back, it's too heavy.''"
 nu'o,"
-'''nu'o''' <small>[preposition of potential]</small> — ''possibly can but actually not...''
+'''nu'o''' <small>[preposition of potential]</small> — ''possibly can but actually not ...''
 :'''mi nu'o snada''' — ''I could succeed but never managed to do that.''
 :Comment: not necessarily innately capable, describes what can potentially happen but actually hasn't (has happened zero times)."
 nudle,"
@@ -5935,7 +5940,7 @@ panci,"
 :'''mi sumne lo panci be lo najnimre i ri se panci lo flora''' — ''I can smell a scent of an orange. It has a scent of flowers.''
 :'''mi te panci lo najnimre lo flora''' — ''I can smell an orange smelling of flowers.''
 :'''lo kumfa cu je'a se panci lo mabla''' — ''The room really stinks.''
-:'''a'u nai panci fa lo kalci''' — ''Yuck, it smells like shit.''
+:'''iu nai panci fa lo kalci''' — ''Yuck, it smells like shit.''
 :Related words: '''nazbi''', '''sumne''', '''cpina''', '''vrusi'''"
 panje,"
 '''panje''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some sponge
@@ -6230,7 +6235,7 @@ pixra,"
 :Related words: '''ciska''', '''cinta''', '''prina''', '''mupli''', '''barna''', '''skina'''"
 plana,"
 '''plana''' — ''x<sub>1</sub><sub>(entity)</sub>''  is fat or obese in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
-:'''lo plana''' — fat, obese. 
+:'''lo plana''' — fat, obese, swollen. 
 :'''le nanla cu plana lo ka se betfu''' — ''The boy is fat with his belly.''
 :Related words: '''cinla''', '''rotsu''', '''barda''', '''punli''', '''grasu'''"
 planeta,"
@@ -6300,7 +6305,7 @@ po,"
 :'''ku'i mi ca'o ralte lo ckiku po do''' — ''But I'm keeping your keys.''
 :Comment: '''pe''' is a more generic particle."
 po'e,"
-'''po'e''' — ''that inalienably belongs to...'' (a noun follows)
+'''po'e''' — ''that inalienably belongs to ...'' (a noun follows)
 :'''lo cidni po'e mi cu cortu''' — ''My knee aches.''
 :Comment: '''po'e''' is used organs, limbs of body, for parental relationships. '''pe''' is a more generic particle."
 po'o,"
@@ -6362,7 +6367,7 @@ prane,"
 '''prane''' — ''x<sub>1</sub><sub>(entity)</sub>''  is perfect or ideal in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo prane''' — perfect. 
 :'''xu mi na prane lo ka melbi''' — ''Am I not perfect in my beauty?''
-:'''mi prane lo ka vitke lo rirni ca ro lo soldei''' — ''I visit my parents every Sunday without fail.''
+:'''mi prane lo ka vitke lo rirni de'i ro li jy dy ze''' — ''I visit my parents every Sunday without fail.''
 :Related words: '''manfo''', '''curve''', '''traji''', '''cfila''', '''mulno'''"
 preja,"
 '''preja''' — ''x<sub>1</sub><sub>(entity)</sub>''  spreads over  ''x<sub>2</sub><sub>(property of x1)</sub>''  from initial state  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
@@ -6382,7 +6387,7 @@ preti,"
 :Related words: '''retsku''', '''cusku''', '''nabmi''', '''danfu''', '''ciksi''', '''spuda''', '''cpedu'''"
 prije,"
 '''prije''' — ''x<sub>1</sub><sub>(entity)</sub>''  is wise about matter  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo prije''' — wise. 
+:'''lo prije''' — wise, sage. 
 :'''do pu ja'a sai prije lo ka skicu la'e di'u mi''' — ''It was really wise of you to tell me about it.''
 :'''mi pu prije lo ka vecnu le karce''' — ''You were wise to sell the car.''
 :Related words: '''bebna'''"
@@ -6436,7 +6441,7 @@ pu,"
 '''pu''' <small>[preposition of tense]</small> — ''before ...'' (in time), adverb: ''in past'' (expresses past tense)
 :'''mi pu na viska le mlatu''' — ''I didn't see the cat.''"
 pu'i,"
-'''pu'i''' <small>[preposition of potential]</small> — ''possibly can and at least once actually is or does...''
+'''pu'i''' <small>[preposition of potential]</small> — ''possibly can and at least once actually is or does ...''
 :'''mi djuno i ku'i bo mi pu'i tavla la Alis''' — ''I know, since I've talked to Alice in my life.''
 :Comment: describes what can potentially happen and has already happened at least once."
 pu'o,"
@@ -6467,7 +6472,7 @@ punji,"
 :Related words: '''cpacu''', '''lebna''', '''cpana''', '''batke''', '''setca'''"
 punli,"
 '''punli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a swelling, clump on  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo punli''' — swelling, clump. 
+:'''lo punli''' — swelling, clump, swollen. 
 :'''pu snime punli lo dargu''' — ''It was a clump of snow on the road.''
 :'''da punli lo stedu be mi''' — ''I have a swelling on my head.''
 :Related words: '''balji''', '''cmana''', '''plana'''"
@@ -6826,7 +6831,7 @@ roi,"
 :Comment: event happens (n) times. The number (n) is put in front of '''roi'''."
 rokci,"
 '''rokci''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a rock
-:'''lo rokci''' — rock. 
+:'''lo rokci''' — rock, stone. 
 :'''le nanla ca'o renro lo za'u rokci''' — ''The boy is throwing stones.''
 :Related words: '''kunra''', '''jemna''', '''canre'''"
 romge,"
@@ -6892,7 +6897,7 @@ runta,"
 :Related words: '''litki''', '''mixre''', '''sligu''', '''sudga'''"
 rupnu,"
 '''rupnu''' — ''x<sub>1</sub><sub>(entity)</sub>''  costs  ''x<sub>2</sub><sub>(number)</sub>''  major money units in monetary system  ''x<sub>3</sub><sub>(entity)</sub>'' 
-:'''lo rupnu''' — measured in dollars / roubles / euro / yuan. '''lo se rupnu''' — amount of dollars / roubles / euro / yuan. 
+:'''lo rupnu''' — measured in dollars / roubles / euro / yuan. '''lo se rupnu''' — money units (dollars / roubles / euro / yuan). 
 :'''lo vi jisra cu rupnu li ci la E'uropas''' — ''This juice costs three euros (European major money units).''
 :Related words: '''jdini''', '''sicni''', '''jdima''', '''vecnu''', '''fepni''', '''dekpu''', '''gutci''', '''minli''', '''merli''', '''bunda''', '''kramu'''"
 rusko,"
@@ -7411,8 +7416,8 @@ skami,"
 :'''lo skami pe mi cu spofu''' — ''My computer is broken.''
 :Related words: '''kancu''', '''minji''', '''pensi'''"
 skapi,"
-'''skapi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a skin, leather from  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo skapi''' — skin, leather. 
+'''skapi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a skin, leather, bark from  ''x<sub>2</sub><sub>(entity)</sub>'' 
+:'''lo skapi''' — skin, leather, bark (of tree). 
 :'''lo skapi be lo cnebo be mi cu xunre''' — ''The skin on my neck is red.''
 :Comment: '''pilka''' is a more general term.
 :Related words: '''pilka''', '''calku''', '''kerfa'''"
@@ -7570,6 +7575,7 @@ snanu,"
 :Related words: '''berti''', '''stuna''', '''stici''', '''farna'''"
 snidu,"
 '''snidu''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  seconds long
+:'''lo snidu''' — second-long event. 
 :'''lo nu mi pu bajra cu snidu li pa mu''' — ''I ran in 15 seconds.''
 :Related words: '''cacra''', '''junla''', '''mentu''', '''tcika''', '''centi'''"
 snime,"
@@ -7985,7 +7991,7 @@ ta'i,"
 ta'o,"
 '''ta'o''' <small>[interjection]</small> — ''by the way'', '''ta'o''' '''nai''' — ''returning to main point''
 :'''ta'o do nanca ma''' — ''By the way, how old are you?''
-:'''ta'o nai mi platu lo ka vitke la Moskov ca lo fagdei''' — ''Back to the point, I'm planning to visit Moscow on Tuesday.''
+:'''ta'o nai mi platu lo ka vitke la Moskov de'i li jy dy re''' — ''Back to the point, I'm planning to visit Moscow on Tuesday.''
 :Related words: '''ni'o''', '''vajni'''"
 tabno,"
 '''tabno''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a quantity of carbon
@@ -8264,7 +8270,7 @@ tengu,"
 :Related words: '''rufsu''', '''xutla'''"
 terdi,"
 '''terdi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is the home planet of inhabitants  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo terdi''' — home planet. 
+:'''lo terdi''' — home planet, earth (planet). 
 :'''ti terdi lo remna''' — ''This is the planet of humans.''
 :Comment: '''lo''' '''dertu''' is ''ground, dirt''. But '''bu'u lo terdi''' is ''on the ground''.
 :Related words: '''lunra''', '''planeta''', '''solri''', '''kensa''', '''tsani'''"
@@ -8409,6 +8415,13 @@ tolxanka,"
 :'''lo tolxanka''' — calm, tranquil, serene . '''lo se tolxanka''' — calm situation. 
 :'''e'o do tolxanka''' — ''Please, calm down.''
 :Related words: '''xanka''', '''surla''', '''denpa''', '''oi''' '''nai'''"
+tolzdi,"
+'''tolzdi''' — ''x<sub>1</sub><sub>(clause)</sub>''  is boring, dreary, wearisome, tedious to  ''x<sub>2</sub><sub>(entity)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
+:'''lo tolzdi''' — boring, tiresome, dreary, dull (boring). '''lo se tolzdi''' — bored. 
+:'''tolzdi se cau lo zgike''' — ''It's boring without music.''
+:'''mi se tolzdi''' — ''I'm bored.''
+:Comment: '''lo''' '''zdile''' has the opposite meaning, ''amuzing''
+:Related words: '''zdile''', '''cinri''', '''panka''', '''kelci'''"
 tonga,"
 '''tonga''' — ''x<sub>1</sub><sub>(sound)</sub>''  is a tone of pitch  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo tonga''' — tone. '''lo se tonga''' — tone pitch. 
@@ -9657,5 +9670,4 @@ zvati,"
 :'''mi pu zvati lo nu penmi''' — ''I was at the meeting.''
 :Comment: '''stuzi''' is for a stable/inherent location.
 :Related words: '''stuzi''', '''jbini''', '''nenri''', '''se''' '''vasru''', '''cpana''', '''diklo''', '''jibni''', '''cabna''', '''lamji''', '''tcini''', '''xabju''', '''jmive''', '''jundi''', '''vitke'''"
-zy,"
-'''zy''' <small>[pronoun]</small> — ''z'' (letter)"
+zy,

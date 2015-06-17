@@ -752,7 +752,7 @@ if (gchild===''){
 		lin= lin + " = " + gchild;
 }
 ljv='';
-return lin;
+return lin.replace(/&quot;/g,"'");
 };
 
 var mulno = function (lin,lng,xmlDoc)
@@ -1378,7 +1378,7 @@ var labangu = function(){
 	var fs = require("fs");
 	var t = path.join(__dirname,"dumps","labangu.csv");
 	requestd = request.defaults({jar: true});
-	var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/export?format=csv&id=19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw&gid=20";
+	var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/export?format=csv&id=19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw&gid=1855189494";
 	requestd({
 	    uri: uri, method: "GET"
 	}).on("error", function (err) {

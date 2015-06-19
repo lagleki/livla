@@ -1482,8 +1482,7 @@ return text;
 var tersmu = function(lin,sendTo,source,socket){
 	var anj= require('../tersmu/all.js');
 	//module.exports.ma = h$main;
-	var anjarr = anj.ma();
-	benji(source,socket,clientmensi,sendTo, anjarr(lin));
+	benji(source,socket,clientmensi,sendTo, anj.h$main(lin));
 };
 
 var mensimikce = function(text){//eliza bot analog

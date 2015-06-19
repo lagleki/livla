@@ -4761,7 +4761,7 @@ linji,"
 :Related words: '''korcu''', '''sirji''', '''jganu''', '''kantu''', '''mokca'''"
 linto,"
 '''linto''' — ''x<sub>1</sub><sub>(entity)</sub>''  is lightweight
-:'''lo linto''' — lightweight. 
+:'''lo linto''' — lightweight, light (not heavy). 
 :'''le mlatu verba cu linto''' — ''The kitten is lightweight.''
 :Comment: '''lo''' '''xalbo''' is ''light (not serious)'', '''lo''' '''gusni''' is ''light (illumination)''.
 :Related words: '''junta''', '''tilju'''"
@@ -5755,6 +5755,11 @@ noi,"
 :'''mi nelci la Jasmin noi mi ta'e zgana bu'u lo panka''' — ''I like Jasmine, whom I habitually see in the park.''
 :'''mi nelci la Jasmin''' — ''I like Jasmine.''
 :Comment: ''who'', ''which''. Starts relative clause that only adds additional information."
+nolraitru,"
+'''nolraitru''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a monarch (king or queen) of  ''x<sub>2</sub><sub>(entity)</sub>'' 
+:'''lo nolraitru''' — king, queen, monarch, regent. 
+:'''xu do nolraitru le munje''' — ''Are you the king of the world?''
+:Related words: '''turni''', '''catni''', '''minde''', '''tutra''', '''jecta''', '''gugde''', '''ponse''', '''jitro'''"
 notci,"
 '''notci''' — ''x<sub>1</sub><sub>(entity, text)</sub>''  is a notice about  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo notci''' — message. '''lo se notci''' — subject of a message. 
@@ -8122,7 +8127,7 @@ tarla,"
 :Related words: '''kolme''', '''pesxu''', '''snipa'''"
 tarmi,"
 '''tarmi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is the shape of  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo tarmi''' — shape, form (figure). '''lo se tarmi''' — having a shape. 
+:'''lo tarmi''' — shape, form (figure), look (appearance). '''lo se tarmi''' — having a shape. 
 :'''lo balnema cu se tarmi lo finpe''' — ''Whales have the form of fishes.''
 :Comment: '''lo''' '''te''' '''marji''' is ''physical shape''.
 :Related words: '''nejni''', '''te''' '''marji''', '''tapla''', '''bliku''', '''kubli''', '''kurfa''', '''cukla''', '''mapti''', '''morna''', '''sarlu'''"
@@ -9579,7 +9584,7 @@ zirpu,"
 :Related words: '''skari''', '''blabi''', '''xekri''', '''kandi''', '''carmi''', '''nukni''', '''blanu''', '''xunre'''"
 zivle,"
 '''zivle''' — ''x<sub>1</sub><sub>(entity)</sub>''  invests resources  ''x<sub>2</sub><sub>(entity)</sub>''  into  ''x<sub>3</sub><sub>(entity, property of x1)</sub>''  expecting profit  ''x<sub>4</sub><sub>(entity)</sub>'' 
-:'''lo zivle''' — investor. '''lo se zivle''' — invested. '''lo ve zivle''' — expected profit of an investment. 
+:'''lo zivle''' — investor. '''lo se zivle''' — invested. '''lo ve zivle''' — interest (financial). 
 :'''ra pu zivle lo jdini lo ka sidju lo cnino sanga''' — ''He invested money in a new singer.''
 :'''ai mi zivle lo nejni lo ka prami do vau lo nu do prami mi''' — ''I take a chance on loving you so that you will love me.''
 :Related words: '''prali''', '''canja''', '''jbera''', '''dejni''', '''ponse'''"

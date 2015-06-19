@@ -433,6 +433,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf("jbofi'e:") == '0': jbofihe(text.substr(8),sendTo,source,socket);break;
 		case text.indexOf("jbofihe:") == '0': jbofihe(text.substr(8),sendTo,source,socket);break;
 		case text.indexOf("gerna:") == '0': jbofihe(text.substr(6),sendTo,source,socket);break;
+		case text.indexOf("tersmu:") == '0': tersmu(text.substr(7),sendTo,source,socket);break;
 		case (text.indexOf(replier + ': ko ningau')=='0' ||text.indexOf(replier + ': ko cnino') == '0'): setTimeout(function() {updatexmldumps(function(velruhe) {benji(source,socket,clientmensi,sendTo, 'i ba\'o jai gau cnino'); var selsre = Object.keys(velruhe.nalmulselfaho); if (selsre.length) benji(source,socket,clientmensi,sendTo, 'i na kakne lo ka jai gau cnino fai la\'e zoi zoi ' + selsre.join(' ') + ' zoi');});benji(source,socket,clientmensi,sendTo,'sei ca ca\'o jai gau cnino be fai lo pe mi sorcu');},1); break;
 		case text.indexOf('guaspi:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(7),'guaspi'));break;
 		case text.indexOf('frame: /full ') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(12),'en','framemulno'));break;
@@ -1476,6 +1477,13 @@ var anjarr = anj.anjik();
 			text=text.replace(myregexp,anjarr[j][1]);
 		}
 return text;
+};
+
+var tersmu = function(lin,sendTo,source,socket){
+	var anj= require('../tersmu/all.js');
+	//module.exports.ma = h$main;
+	var anjarr = anj.ma();
+	benji(source,socket,clientmensi,sendTo, anjarr(lin));
 };
 
 var mensimikce = function(text){//eliza bot analog

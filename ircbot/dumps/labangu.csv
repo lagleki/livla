@@ -9608,6 +9608,9 @@ zo,"
 :'''zo gleki cmene mi''' — ''Gleki is my name.''
 :Comment: '''zo''' and one single Lojban word after it make a quotation, it works as a noun. To quote compound particles, compound verbs and phrases use '''lu''' ...'''li'u'''. To quote arbitrary sequences of words use '''lo'u''' ... '''le'u'''.
 :Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
+zo'a,"
+'''zo'a''' <small>[preposition of place]</small> — ''alongside, by the side of ...''
+:'''mi pu cliva lo karce zo'a le malsi''' — ''I left the car by the side of the temple.''"
 zo'e,"
 '''zo'e''' <small>[pronoun]</small> — noun unspecified or known from context
 :'''zo'e carvi''' — ''It's raining.''
@@ -9618,9 +9621,9 @@ zo'ei,"
 :Comment: equivalent to '''zo'e''' '''pe'''.
 :Related words: '''tu'a'''"
 zo'i,"
-'''zo'i''' <small>[preposition of place]</small> — ''on the same side as ...''
-:'''mi sanli bu'u lo klaji zo'i le muzga''' — ''I'm standing on the street on the same side as the museum.''
-:'''mi zutse lo lalxu korbi zo'i le laldo cindu''' — ''I'm sitting by the river on the same side as the old oak.''"
+'''zo'i''' <small>[preposition of place]</small> — ''on this side of ...''
+:'''mi sanli bu'u lo klaji zo'i le muzga''' — ''I'm standing on the street on this side of the museum.''
+:'''mi zutse lo lalxu korbi zo'i le laldo cindu''' — ''I'm sitting by the river on this side of the old oak.''"
 zo'o,"
 '''zo'o''' <small>[interjection modifier]</small> — ''Kidding...'' (humorously), '''zo'o''' '''cu'i''' — that might be either serious or a joke, '''zo'o''' '''nai''' — ''seriously''
 :'''zo'o pei''' — ''Are you kidding?''
@@ -9712,5 +9715,4 @@ zvati,"
 :'''mi pu zvati lo nu penmi''' — ''I was at the meeting.''
 :Comment: '''stuzi''' is for a stable/inherent location.
 :Related words: '''stuzi''', '''jbini''', '''nenri''', '''se''' '''vasru''', '''cpana''', '''diklo''', '''jibni''', '''cabna''', '''lamji''', '''tcini''', '''xabju''', '''jmive''', '''jundi''', '''vitke'''"
-zy,"
-'''zy''' <small>[pronoun]</small> — ''z'' (letter)"
+zy,

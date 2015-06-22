@@ -393,7 +393,7 @@
 	function displayResults() {
 		var displayUpTo = Math.min(limit, results.length);
 			var sc = window.arrcll[typehere.val()];
-			if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('definition').html(window.cllnotci+"<br/>"+sc).appendTo(output);}
+			if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('definition').html(window.cllnotci+"<br/>"+sc+"<hr>").appendTo(output);}
 		for (; resultCount < displayUpTo; resultCount++) {
 		displayDocument(results[resultCount]).appendTo(output);
 		}

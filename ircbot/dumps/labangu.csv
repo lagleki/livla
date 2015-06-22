@@ -882,6 +882,10 @@ catra,"
 :Related words: '''morsi''', '''xarci'''"
 cau,"
 '''cau''' <small>[preposition from '''claxu''']</small> — ''lacked by ...''"
+caucni,"
+'''caucni''' — ''x<sub>1</sub><sub>(entity)</sub>''  misses, feels the lack of  ''x<sub>2</sub><sub>(entity)</sub>'' 
+:'''mi caucni do''' — ''I miss you.''
+:Related words: '''claxu''', '''cinmo''', '''badri''', '''klaku''', '''gleki''', '''betri'''"
 caxno,"
 '''caxno''' — ''x<sub>1</sub><sub>(entity)</sub>''  is shallow in direction  ''x<sub>2</sub><sub>(entity)</sub>''  away from reference point  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo caxno''' — shallow. 
@@ -3479,6 +3483,7 @@ jetnu,"
 '''jetnu''' — ''x<sub>1</sub><sub>(proposition)</sub>''  is true by standard  ''x<sub>2</sub><sub>(proposition)</sub>'' 
 :'''lo jetnu''' — true_. 
 :'''lo du'u lo remna cu xendo cu jetnu lo se jinvi lo prije''' — ''According to a wise person, it's true that all humans are kind.''
+:'''u'a la'e di'u se jetnu lo du'u mi drani''' — ''Aha, that proves that I am right.''
 :Related words: '''stace''', '''jitfa''', '''fatci''', '''birti''', '''cfika'''"
 jgalu,"
 '''jgalu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a claw of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -3908,7 +3913,7 @@ kajna,"
 :Related words: '''balni'''"
 kakne,"
 '''kakne''' — ''x<sub>1</sub><sub>(entity)</sub>''  is capable of doing  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
-:'''lo kakne''' — capable, able. 
+:'''lo kakne''' — capable, able, master. 
 :'''mi na kakne lo ka sipna''' — ''I can't sleep.''
 :Comment: for e.g. &quot;I can't wait&quot; '''ka'e''' is more appropriate. '''kakne''' is about ability.
 :Related words: '''stati''', '''certu''', '''gasnu''', '''ka'e''', '''nu'o''', '''pu'i''', '''djuno''', '''zifre'''"
@@ -5350,7 +5355,7 @@ moi,"
 :Comment: x<sub>1(entity)</sub> is the n-th member of x<sub>2(entity)</sub> ordered by rule x<sub>3(relation between members of x<sub>2</sub>, contains two places for '''ce'u''')</sub>. The number (n) is put in front of '''moi'''. The two '''ce'u''' in the third place can specify the sequence in which members of the set are compared."
 mokca,"
 '''mokca''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a point in time or at place  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo mokca''' — instant. 
+:'''lo mokca''' — instant, moment. 
 :'''le nu jamna cu mokca po'o lo remna citri''' — ''The war is just a point in human history.''
 :'''le terdi cu mokca po'o le munje''' — ''The Earth is just a point in the Universe.''
 :Related words: '''jipno''', '''jganu''', '''linji''', '''stuzi''', '''tcika'''"
@@ -5475,7 +5480,7 @@ muslo,"
 :Related words: '''jegvo''', '''lijda'''"
 mutce,"
 '''mutce''' — ''x<sub>1</sub><sub>(entity)</sub>''  is extreme in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
-:'''lo mutce''' — extreme. 
+:'''lo mutce''' — extreme, very. 
 :'''ti mutce lo ka kargu''' — ''This is very expensive.''
 :'''mi mutce lo ka senpi''' — ''I highly doubt that.''
 :Related words: '''milxe''', '''traji''', '''banli''', '''carmi''', '''nutli'''"

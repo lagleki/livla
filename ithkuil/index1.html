@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("input").not("#divRoot2").not("[name=bias]").change(produceWord);
+    $("[name=bias]").change(function() {
+        $("[name=bias]").not(this).attr("checked", false);
+        produceWord();
+    });
+    produceWord();
+});
+
+function find(name) {
+    return $("[name=" + name + "]:checked").val();
+}
+
+function produceWord() {
+    adjustRoot2();
+
+    if (!$("#root").val().trim()) {
+        $("#root").val("q");
+    }
+    var root = $("#root").val().trim();
+    var rootL = root.slice(-1);
+    
+    var cas = find('case');
+    
+    if(cas == "ü") {
+        if(rootL == "w" || rootL == "y") {
+            cas = "ae’";
+        }
+    }
+    if(cas == "î") {
+        if(rootL == "y") {
+            cas = "û";
+        }
+    }
+    if(cas == "ia") {
+        if(rootL == "y") {
+            cas = "ua";
+        }
+    }
+    if(cas == "ie") {
+        if(rootL == "y") {
+            cas = "ue";
+        }
+    }
+    if(cas == "io") {
+        if(rootL == "y") {
+            cas = "uo";
+        }
+    }
+    if(cas == "iö") {
+        if(rootL == "y") {
+            cas = "uö";
+        }
+    }
+    if(cas == "üa") {
+        if(rootL == "w" || rootL == "y") {
+            cas = "i’";
+        }
+    }
+    if(cas == "üe") {
+        if(rootL == "w" || rootL == "y") {
+            cas = "ö’";
+        }
+    }
+    if(cas == "üo") {
+        if(rootL == "w") {
+            cas = "î’";
+    } else if (rootL == "y") {
+            cas = "û’";
+        }
+    }
+    if(cas == "ü’a") {
+        if(rootL == "w" || rootL == "y") {
+            cas = "ëu’a";
+        }
+    }
+    if(cas == "î’a") {
+        if(rootL == "y") {
+            cas = "û’a";
+        }
+    }
+    
+    var config = find('configuration');
+    var affil = find('affiliation');
+    var per = find('perspective');
+    var exten = find('extension');
+    var ess = find('essence');
+    var essExtPerConAffs = {normal: {delimitive: {monadic: {consolidative: {uniplex: 'l', duplex: 'll', discrete: 'tļ', aggregative: 'ļ', segmentative: 'ļļ', componential: 'řļ', coherent: 'sk', composite: 'šk', multiform: 'kţ'}, associative: {uniplex: 'r', duplex: 'rr', discrete: 'lļ', aggregative: 'rl', segmentative: 'rļ', componential: 'řl', coherent: 'st', composite: 'št', multiform: 'kç'}, variative: {uniplex: 'm', duplex: 'mm', discrete: 'lm', aggregative: 'rm', segmentative: 'mļ', componential: 'řm', coherent: 'sp', composite: 'šp', multiform: 'pţ'}, coalescent: {uniplex: 'n', duplex: 'nn', discrete: 'ln', aggregative: 'r n', segmentative: 'nļ', componential: 'ř n', coherent: 'sq', composite: 'šq', multiform: 'qţ'}}, unbounded: {consolidative: {uniplex: 't', duplex: 'ļt', discrete: 'lt', aggregative: 'rt', segmentative: 'nt', componential: 'řt', coherent: 'ňt', composite: 'ňd', multiform: 'çt'}, associative: {uniplex: 'k', duplex: 'ļk', discrete: 'lk', aggregative: 'rk', segmentative: 'ňk', componential: 'řk', coherent: 'kt', composite: 'xt', multiform: 'çk'}, variative: {uniplex: 'p', duplex: 'ļp', discrete: 'lp', aggregative: 'rp', segmentative: 'mp', componential: 'řp', coherent: 'pt', composite: 'ft', multiform: 'çp'}, coalescent: {uniplex: 'q', duplex: 'ļq', discrete: 'lq', aggregative: 'rq', segmentative: 'ňq', componential: 'řq', coherent: 'qt', composite: 'xht', multiform: 'çq'}}, nomic: {consolidative: {uniplex: 'ţ', duplex: 'ţţ', discrete: 'lţ', aggregative: 'rţ', segmentative: 'nţ', componential: 'řţ', coherent: 'sţ', composite: 'šţ', multiform: 'tf'}, associative: {uniplex: 'x', duplex: 'xx', discrete: 'lx', aggregative: 'rx', segmentative: 'ňx', componential: 'mx', coherent: 'sx', composite: 'šx', multiform: 'kf'}, variative: {uniplex: 'f', duplex: 'ff', discrete: 'lf', aggregative: 'rf', segmentative: 'mf', componential: 'řf', coherent: 'sf', composite: 'šf', multiform: 'pf'}, coalescent: {uniplex: 'xh', duplex: 'xxh', discrete: 'lxh', aggregative: 'rxh', segmentative: 'ňxh', componential: 'mxh', coherent: 'sxh', composite: 'šxh', multiform: 'qf'}}, abstract: {consolidative: {uniplex: 'c', duplex: 'cc', discrete: 'lc', aggregative: 'rc', segmentative: 'ns', componential: 'řc', coherent: 'sc', composite: 'fk', multiform: 'fq'}, associative: {uniplex: 'č', duplex: 'čč', discrete: 'lč', aggregative: 'rč', segmentative: 'nš', componential: 'řč', coherent: 'šč', composite: 'ţk', multiform: 'ţq'}, variative: {uniplex: 'ż', duplex: 'żż', discrete: 'lż', aggregative: 'rż', segmentative: 'nz', componential: 'řż', coherent: 'ţf', composite: 'ţs', multiform: 'ţc'}, coalescent: {uniplex: 'j', duplex: 'jj', discrete: 'lj', aggregative: 'rj', segmentative: 'nž', componential: 'řj', coherent: 'fţ', composite: 'ţš', multiform: 'ţč'}}}, proximal: {monadic: {consolidative: {uniplex: 's', duplex: 'ss', discrete: 'ls', aggregative: 'rs', segmentative: 'fs', componential: 'řs', coherent: 'ňs', composite: 'ms', multiform: 'mss'}, associative: {uniplex: 'š', duplex: 'šš', discrete: 'lš', aggregative: 'rš', segmentative: 'fš', componential: 'řš', coherent: 'ňš', composite: 'mš', multiform: 'mšš'}, variative: {uniplex: 'z', duplex: 'zz', discrete: 'lz', aggregative: 'rz', segmentative: 'vz', componential: 'řz', coherent: 'ňz', composite: 'mz', multiform: 'mzz'}, coalescent: {uniplex: 'ž', duplex: 'žž', discrete: 'lž', aggregative: 'rž', segmentative: 'vž', componential: 'řž', coherent: 'ňž', composite: 'mž', multiform: 'mžž'}}, unbounded: {consolidative: {uniplex: 'd', duplex: 'dv', discrete: 'ld', aggregative: 'rd', segmentative: 'nd', componential: 'řd', coherent: 'md', composite: 'zd', multiform: 'žd'}, associative: {uniplex: 'g', duplex: 'gv', discrete: 'lg', aggregative: 'rg', segmentative: 'ňg', componential: 'řg', coherent: 'ňkf', composite: 'zg', multiform: 'žg'}, variative: {uniplex: 'b', duplex: 'bv', discrete: 'lb', aggregative: 'rb', segmentative: 'mb', componential: 'řb', coherent: 'ntf', composite: 'zb', multiform: 'žb'}, coalescent: {uniplex: 'ň', duplex: 'ňň', discrete: 'ňç', aggregative: 'rň', segmentative: 'ňv', componential: 'ř ň', coherent: 'ňf', composite: 'řtf', multiform: 'řkf'}}, nomic: {consolidative: {uniplex: 'dh', duplex: 'ddh', discrete: 'ldh', aggregative: 'rdh', segmentative: 'ndh', componential: 'řdh', coherent: 'mdh', composite: 'ţx', multiform: 'ţxh'}, associative: {uniplex: 'ç', duplex: 'çç', discrete: 'lç', aggregative: 'rç', segmentative: 'nç', componential: 'řç', coherent: 'mç', composite: 'fx', multiform: 'fxh'}, variative: {uniplex: 'v', duplex: 'vv', discrete: 'lv', aggregative: 'rv', segmentative: 'mv', componential: 'řv', coherent: 'ndv', composite: 'xf', multiform: 'xţ'}, coalescent: {uniplex: 'ř', duplex: 'řř', discrete: 'rbv', aggregative: 'rdv', segmentative: 'rgv', componential: 'řxh', coherent: 'mţ', composite: 'xhf', multiform: 'xhţ'}}, abstract: {consolidative: {uniplex: 'ck', duplex: 'čk', discrete: 'ps', aggregative: 'ks', segmentative: 'gd', componential: 'psk', coherent: 'pšk', composite: 'ksk', multiform: 'kšk'}, associative: {uniplex: 'ct', duplex: 'čt', discrete: 'pš', aggregative: 'kš', segmentative: 'bd', componential: 'pst', coherent: 'pšt', composite: 'tx', multiform: 'txh'}, variative: {uniplex: 'cp', duplex: 'čp', discrete: 'bz', aggregative: 'gz', segmentative: 'pç', componential: 'ksp', coherent: 'kšp', composite: 'px', multiform: 'pxh'}, coalescent: {uniplex: 'cq', duplex: 'čq', discrete: 'bž', aggregative: 'gž', segmentative: 'řqf', componential: 'kst', coherent: 'kšt', composite: 'psq', multiform: 'pšq'}}}, inceptive: {monadic: {consolidative: {uniplex: 'mt', duplex: 'mt’', discrete: 'skʰ', aggregative: 'sk’', segmentative: 'mtʰ', componential: 'pst’', coherent: 'pstʰ', composite: 'pšt’', multiform: 'pštʰ'}, associative: {uniplex: 'mk', duplex: 'mk’', discrete: 'stʰ', aggregative: 'st’', segmentative: 'mkʰ', componential: 'kst’', coherent: 'kstʰ', composite: 'kšt’', multiform: 'kštʰ'}, variative: {uniplex: 'ňp', duplex: 'ňp’', discrete: 'spʰ', aggregative: 'sp’', segmentative: 'ňpʰ', componential: 'psk’', coherent: 'pskʰ', composite: 'pšk’', multiform: 'pškʰ'}, coalescent: {uniplex: 'mq', duplex: 'mq’', discrete: 'sqʰ', aggregative: 'sq’', segmentative: 'mqʰ', componential: 'ksp’', coherent: 'kspʰ', composite: 'kšp’', multiform: 'kšpʰ'}}, unbounded: {consolidative: {uniplex: 'pk', duplex: 'pk’', discrete: 'škʰ', aggregative: 'šk’', segmentative: 'pkʰ', componential: 'fk’', coherent: 'fkʰ', composite: 'psq’', multiform: 'psqʰ'}, associative: {uniplex: 'tk', duplex: 'tk’', discrete: 'štʰ', aggregative: 'št’', segmentative: 'tkʰ', componential: 'ţk’', coherent: 'ţkʰ', composite: 'ksk’', multiform: 'kskʰ'}, variative: {uniplex: 'tp', duplex: 'tp’', discrete: 'špʰ', aggregative: 'šp’', segmentative: 'tpʰ', componential: 'ţp’', coherent: 'ţpʰ', composite: 'pšq’', multiform: 'pšqʰ'}, coalescent: {uniplex: 'kp', duplex: 'kp’', discrete: 'šqʰ', aggregative: 'šq’', segmentative: 'kpʰ', componential: 'xp’', coherent: 'xpʰ', composite: 'kšk’', multiform: 'kškʰ'}}, nomic: {consolidative: {uniplex: 'pq', duplex: 'pq’', discrete: 'fg', aggregative: 'bg', segmentative: 'pqʰ', componential: 'vg', coherent: 'fp', composite: 'fq’', multiform: 'fqʰ'}, associative: {uniplex: 'tq', duplex: 'tq’', discrete: 'ţg', aggregative: 'dg', segmentative: 'tqʰ', componential: 'dhg', coherent: 'vd', composite: 'ţq’', multiform: 'ţqʰ'}, variative: {uniplex: 'qp', duplex: 'qp’', discrete: 'xhp', aggregative: 'xp', segmentative: 'scʰ', componential: 'sc’', coherent: 'ňqf', composite: 'gb', multiform: 'kkç/kçç'}, coalescent: {uniplex: 'pļ', duplex: 'tç', discrete: 'xhp’', aggregative: 'ţp', segmentative: 'ščʰ', componential: 'šč’', coherent: 'vb', composite: 'dhz', multiform: 'ppç/pçç'}}, abstract: {consolidative: {uniplex: 'fst', duplex: 'fc’', discrete: 'fc', aggregative: 'lfs', segmentative: 'xc’', componential: 'ţc’', coherent: 'ltf', composite: 'fst’', multiform: 'fstʰ'}, associative: {uniplex: 'fšt', duplex: 'fč’', discrete: 'fč', aggregative: 'lfš', segmentative: 'xč’', componential: 'ţč’', coherent: 'lkf', composite: 'fšt’', multiform: 'fštʰ'}, variative: {uniplex: 'fsk', duplex: 'fcʰ', discrete: 'rfs', aggregative: 'fsq', segmentative: 'xcʰ', componential: 'ţcʰ', coherent: 'xhpʰ', composite: 'fsk’', multiform: 'fskʰ'}, coalescent: {uniplex: 'fšk', duplex: 'fčʰ', discrete: 'rfš', aggregative: 'fšq', segmentative: 'xčʰ', componential: 'ţčʰ', coherent: 'qpʰ', composite: 'fšk’', multiform: 'fškʰ'}}}, terminative: {monadic: {consolidative: {uniplex: 't’', duplex: 'ļt’', discrete: 'lt’', aggregative: 'rt’', segmentative: 'nt’', componential: 'řt’', coherent: 'ţsk’', composite: 'kt’', multiform: 'ňt’'}, associative: {uniplex: 'k’', duplex: 'ļk’', discrete: 'lk’', aggregative: 'rk’', segmentative: 'ňk’', componential: 'řk’', coherent: 'ţšk’', composite: 'ft’', multiform: 'xt’'}, variative: {uniplex: 'p’', duplex: 'ļp’', discrete: 'lp’', aggregative: 'rp’', segmentative: 'mp’', componential: 'řp’', coherent: 'fsq’', composite: 'pt’', multiform: 'fp’'}, coalescent: {uniplex: 'q’', duplex: 'ļq’', discrete: 'lq’', aggregative: 'rq’', segmentative: 'ňq’', componential: 'řq’', coherent: 'fšq’', composite: 'xht’', multiform: 'qt’'}}, unbounded: {consolidative: {uniplex: 'tʰ', duplex: 'ļtʰ', discrete: 'ltʰ', aggregative: 'rtʰ', segmentative: 'ntʰ', componential: 'řtʰ', coherent: 'ţskʰ', composite: 'ktʰ', multiform: 'ňtʰ'}, associative: {uniplex: 'kʰ', duplex: 'ļkʰ', discrete: 'lkʰ', aggregative: 'rkʰ', segmentative: 'ňkʰ', componential: 'řkʰ', coherent: 'ţškʰ', composite: 'ftʰ', multiform: 'xtʰ'}, variative: {uniplex: 'pʰ', duplex: 'ļpʰ', discrete: 'lpʰ', aggregative: 'rpʰ', segmentative: 'mpʰ', componential: 'řpʰ', coherent: 'fsqʰ', composite: 'ptʰ', multiform: 'fpʰ'}, coalescent: {uniplex: 'qʰ', duplex: 'ļqʰ', discrete: 'lqʰ', aggregative: 'rqʰ', segmentative: 'ňqʰ', componential: 'řqʰ', coherent: 'fšqʰ', composite: 'xhtʰ', multiform: 'qtʰ'}}, nomic: {consolidative: {uniplex: 'c’', duplex: 'cc’', discrete: 'lc’', aggregative: 'rc’', segmentative: 'nc’', componential: 'řc’', coherent: 'mc’', composite: 'ňc’', multiform: 'çt’'}, associative: {uniplex: 'č’', duplex: 'čč’', discrete: 'lč’', aggregative: 'rč’', segmentative: 'nč’', componential: 'řč’', coherent: 'mč’', composite: 'ňč’', multiform: 'çk’'}, variative: {uniplex: 'cʰ', duplex: 'ccʰ', discrete: 'lcʰ', aggregative: 'rcʰ', segmentative: 'ncʰ', componential: 'řcʰ', coherent: 'mcʰ', composite: 'ňcʰ', multiform: 'çp’'}, coalescent: {uniplex: 'čʰ', duplex: 'ččʰ', discrete: 'lčʰ', aggregative: 'rčʰ', segmentative: 'nčʰ', componential: 'čřʰ', coherent: 'mčʰ', composite: 'ňčʰ', multiform: 'çq’'}}, abstract: {consolidative: {uniplex: 'pps/pss', duplex: 'rps', discrete: 'lps', aggregative: 'rbz', segmentative: 'lbz', componential: 'řps', coherent: 'řbz', composite: 'ňss', multiform: 'çtʰ'}, associative: {uniplex: 'ppš/pšš', duplex: 'rpš', discrete: 'lpš', aggregative: 'rbž', segmentative: 'lbž', componential: 'řpš', coherent: 'řbž', composite: 'ňšš', multiform: 'çkʰ'}, variative: {uniplex: 'kks/ kss', duplex: 'rks', discrete: 'lks', aggregative: 'rgz', segmentative: 'lgz', componential: 'řks', coherent: 'řgz', composite: 'ňzz', multiform: 'çpʰ'}, coalescent: {uniplex: 'kkš/kšš', duplex: 'rkš', discrete: 'lkš', aggregative: 'rgž', segmentative: 'lgž', componential: 'řkš', coherent: 'řgž', composite: 'ňžž', multiform: 'çqʰ'}}}, depletive: {monadic: {consolidative: {uniplex: 'kc', duplex: 'lkç', discrete: 'lsk', aggregative: 'rsk', segmentative: 'nsk', componential: 'řsk', coherent: 'msk', composite: 'ňsk', multiform: 'ssk'}, associative: {uniplex: 'żd', duplex: 'lţs', discrete: 'lst', aggregative: 'rst', segmentative: 'nst', componential: 'řst', coherent: 'mst', composite: 'ňst', multiform: 'sst'}, variative: {uniplex: 'pc', duplex: 'bbz/bzz', discrete: 'lsp', aggregative: 'rsp', segmentative: 'nsp', componential: 'řsp', coherent: 'msp', composite: 'ňsp', multiform: 'ssp'}, coalescent: {uniplex: 'qc', duplex: 'ggz/gzz', discrete: 'lsq', aggregative: 'rsq', segmentative: 'nsq', componential: 'řsq', coherent: 'msq', composite: 'ňsq', multiform: 'ssq'}}, unbounded: {consolidative: {uniplex: 'kč', duplex: 'rçç', discrete: 'lšk', aggregative: 'ršk', segmentative: 'nšk', componential: 'řšk', coherent: 'mšk', composite: 'ňšk', multiform: 'ššk'}, associative: {uniplex: 'jd', duplex: 'lţš', discrete: 'lšt', aggregative: 'ršt', segmentative: 'nšt', componential: 'řšt', coherent: 'mšt', composite: 'ňšt', multiform: 'ššt'}, variative: {uniplex: 'pč', duplex: 'bbž/bžž', discrete: 'lšp', aggregative: 'ršp', segmentative: 'nšp', componential: 'řšp', coherent: 'mšp', composite: 'ňšp', multiform: 'ššp'}, coalescent: {uniplex: 'qč', duplex: 'ggž/gžž', discrete: 'lšq', aggregative: 'ršq', segmentative: 'nšq', componential: 'řšq', coherent: 'mšq', composite: 'ňšq', multiform: 'ššq'}}, nomic: {consolidative: {uniplex: 'bdh', duplex: 'xpf', discrete: 'lvz', aggregative: 'rvz', segmentative: 'rbdh', componential: 'řpţ', coherent: 'lpf', composite: 'rpf', multiform: 'bzd'}, associative: {uniplex: 'gdh', duplex: 'ňdh', discrete: 'lvž', aggregative: 'rvž', segmentative: 'rgdh', componential: 'řkţ', coherent: 'lpç', composite: 'rpç', multiform: 'bžd'}, variative: {uniplex: 'ţt', duplex: 'dhd', discrete: 'ldhz', aggregative: 'rţs', segmentative: 'rqţ', componential: 'řqţ', coherent: 'ňkç', composite: 'řpf', multiform: 'gzd'}, coalescent: {uniplex: 'db', duplex: 'ttç/tçç', discrete: 'ldhž', aggregative: 'rţš', segmentative: 'rkç', componential: 'řkç', coherent: 'mpç', composite: 'řpç', multiform: 'gžd'}}, abstract: {consolidative: {uniplex: 'bż', duplex: 'rpss', discrete: 'lzb', aggregative: 'rzb', segmentative: 'nzb', componential: 'řzb', coherent: 'mzb', composite: 'řpss', multiform: 'gzb'}, associative: {uniplex: 'gż', duplex: 'rkss', discrete: 'lžb', aggregative: 'ržb', segmentative: 'nžb', componential: 'řžb', coherent: 'mžb', composite: 'řkss', multiform: 'gžb'}, variative: {uniplex: 'bj', duplex: 'rpšš', discrete: 'lzg', aggregative: 'rzg', segmentative: 'nzg', componential: 'řzg', coherent: 'mzg', composite: 'řpšš', multiform: 'bzg'}, coalescent: {uniplex: 'gj', duplex: 'rkšš', discrete: 'lžg', aggregative: 'ržg', segmentative: 'nžg', componential: 'řžg', coherent: 'mžg', composite: 'řkšš', multiform: 'bžg'}}}, graduative: {monadic: {consolidative: {uniplex: 'kc’', duplex: 'ck’', discrete: 'lsk’', aggregative: 'rsk’', segmentative: 'nsk’', componential: 'řsk’', coherent: 'msk’', composite: 'ňsk’', multiform: 'ssk’'}, associative: {uniplex: 'żb', duplex: 'ct’', discrete: 'lst’', aggregative: 'rst’', segmentative: 'nst’', componential: 'řst’', coherent: 'mst’', composite: 'ňst’', multiform: 'sst’'}, variative: {uniplex: 'pc’', duplex: 'cp’', discrete: 'lsp’', aggregative: 'rsp’', segmentative: 'nsp’', componential: 'řsp’', coherent: 'msp’', composite: 'ňsp’', multiform: 'ssp’'}, coalescent: {uniplex: 'qc’', duplex: 'cq’', discrete: 'lsq’', aggregative: 'rsq’', segmentative: 'nsq’', componential: 'řsq’', coherent: 'msq’', composite: 'ňsq’', multiform: 'ssq’'}}, unbounded: {consolidative: {uniplex: 'kč’', duplex: 'čk’', discrete: 'lšk’', aggregative: 'ršk’', segmentative: 'nšk’', componential: 'řšk’', coherent: 'mšk’', composite: 'ňšk’', multiform: 'ššk’'}, associative: {uniplex: 'jb', duplex: 'čt’', discrete: 'lšt’', aggregative: 'ršt’', segmentative: 'nšt’', componential: 'řšt’', coherent: 'mšt’', composite: 'ňšt’', multiform: 'ššt’'}, variative: {uniplex: 'pč’', duplex: 'čp’', discrete: 'lšp’', aggregative: 'ršp’', segmentative: 'nšp’', componential: 'řšp’', coherent: 'mšp’', composite: 'ňšp’', multiform: 'ššp’'}, coalescent: {uniplex: 'qč’', duplex: 'čq’', discrete: 'lšq’', aggregative: 'ršq’', segmentative: 'nšq’', componential: 'řšq’', coherent: 'mšq’', composite: 'ňšq’', multiform: 'ššq’'}}, nomic: {consolidative: {uniplex: 'kcʰ', duplex: 'ckʰ', discrete: 'lskʰ', aggregative: 'rskʰ', segmentative: 'nskʰ', componential: 'řskʰ', coherent: 'mskʰ', composite: 'ňskʰ', multiform: 'sskʰ'}, associative: {uniplex: 'żg', duplex: 'ctʰ', discrete: 'lstʰ', aggregative: 'rstʰ', segmentative: 'nstʰ', componential: 'řstʰ', coherent: 'mstʰ', composite: 'ňstʰ', multiform: 'sstʰ'}, variative: {uniplex: 'pcʰ', duplex: 'cpʰ', discrete: 'lspʰ', aggregative: 'rspʰ', segmentative: 'nspʰ', componential: 'řspʰ', coherent: 'mspʰ', composite: 'ňspʰ', multiform: 'sspʰ'}, coalescent: {uniplex: 'qcʰ', duplex: 'cqʰ', discrete: 'lsqʰ', aggregative: 'rsqʰ', segmentative: 'nsqʰ', componential: 'řsqʰ', coherent: 'msqʰ', composite: 'ňsqʰ', multiform: 'ssqʰ'}}, abstract: {consolidative: {uniplex: 'kčʰ', duplex: 'čkʰ', discrete: 'lškʰ', aggregative: 'rškʰ', segmentative: 'nškʰ', componential: 'řškʰ', coherent: 'mškʰ', composite: 'ňškʰ', multiform: 'šškʰ'}, associative: {uniplex: 'jg', duplex: 'čtʰ', discrete: 'lštʰ', aggregative: 'rštʰ', segmentative: 'nštʰ', componential: 'řštʰ', coherent: 'mštʰ', composite: 'ňštʰ', multiform: 'šštʰ'}, variative: {uniplex: 'pčʰ', duplex: 'čpʰ', discrete: 'lšpʰ', aggregative: 'ršpʰ', segmentative: 'nšpʰ', componential: 'řšpʰ', coherent: 'mšpʰ', composite: 'ňšpʰ', multiform: 'ššpʰ'}, coalescent: {uniplex: 'qčʰ', duplex: 'čqʰ', discrete: 'lšqʰ', aggregative: 'ršqʰ', segmentative: 'nšqʰ', componential: 'řšqʰ', coherent: 'mšqʰ', composite: 'ňšqʰ', multiform: 'ššqʰ'}}}}, representative: {delimitive: {monadic: {consolidative: {uniplex: 'tt', duplex: 'tt’', discrete: 'ttʰ', aggregative: 'lpt’', segmentative: 'rpt’', componential: 'řpt’', coherent: 'lptʰ', composite: 'rptʰ', multiform: 'řptʰ'}, associative: {uniplex: 'kk', duplex: 'kk’', discrete: 'kkʰ', aggregative: 'lkt’', segmentative: 'rkt’', componential: 'řkt’', coherent: 'lktʰ', composite: 'rktʰ', multiform: 'řktʰ'}, variative: {uniplex: 'pp', duplex: 'pp’', discrete: 'ppʰ', aggregative: 'lpk’', segmentative: 'rpk’', componential: 'řpk’', coherent: 'lpkʰ', composite: 'rpkʰ', multiform: 'řpkʰ'}, coalescent: {uniplex: 'qq', duplex: 'qq’', discrete: 'qqʰ', aggregative: 'ltk’', segmentative: 'rtk’', componential: 'řtk’', coherent: 'ltkʰ', composite: 'rtkʰ', multiform: 'řtkʰ'}}, unbounded: {consolidative: {uniplex: 'dd', duplex: 'nçw', discrete: 'pçw', aggregative: 'lft’', segmentative: 'rft’', componential: 'řft’', coherent: 'lftʰ', composite: 'rftʰ', multiform: 'řftʰ'}, associative: {uniplex: 'gg', duplex: 'ňçw', discrete: 'kfw', aggregative: 'lxt’', segmentative: 'rxt’', componential: 'řxt’', coherent: 'lxtʰ', composite: 'rxtʰ', multiform: 'řxtʰ'}, variative: {uniplex: 'bb', duplex: 'mçw', discrete: 'pfw', aggregative: 'lfk’', segmentative: 'rfk’', componential: 'řfk’', coherent: 'lfkʰ', composite: 'rfkʰ', multiform: 'řfkʰ'}, coalescent: {uniplex: 'cf', duplex: 'čf', discrete: 'qfw', aggregative: 'lţk’', segmentative: 'rţk’', componential: 'řţk’', coherent: 'lţkʰ', composite: 'rţkʰ', multiform: 'řţkʰ'}}, nomic: {consolidative: {uniplex: 'ţw', duplex: 'dhw', discrete: 'lţw', aggregative: 'rţw', segmentative: 'mţw', componential: 'řţw', coherent: 'nţw', composite: 'ldhw', multiform: 'rdhw'}, associative: {uniplex: 'xw', duplex: 'ňw', discrete: 'lxw', aggregative: 'rxw', segmentative: 'mxw', componential: 'řxw', coherent: 'ňxw', composite: 'lňw', multiform: 'rňw'}, variative: {uniplex: 'fw', duplex: 'vw', discrete: 'lfw', aggregative: 'rfw', segmentative: 'ňfw', componential: 'řfw', coherent: 'mfw', composite: 'lvw', multiform: 'rvw'}, coalescent: {uniplex: 'xhw', duplex: 'çw', discrete: 'lxhw', aggregative: 'rxhw', segmentative: 'mxhw', componential: 'tçw', coherent: 'ňxhw', composite: 'lçw', multiform: 'rçw'}}, abstract: {consolidative: {uniplex: 'sw', duplex: 'cw', discrete: 'lsw', aggregative: 'rsw', segmentative: 'msw', componential: 'řsw', coherent: 'nsw', composite: 'ňsw', multiform: 'ssw'}, associative: {uniplex: 'šw', duplex: 'čw', discrete: 'lšw', aggregative: 'ršw', segmentative: 'mšw', componential: 'řšw', coherent: 'nšw', composite: 'ňšw', multiform: 'ššw'}, variative: {uniplex: 'zw', duplex: 'żw', discrete: 'lzw', aggregative: 'rzw', segmentative: 'mzw', componential: 'řzw', coherent: 'nzw', composite: 'ňzw', multiform: 'zzw'}, coalescent: {uniplex: 'žw', duplex: 'jw', discrete: 'lžw', aggregative: 'ržw', segmentative: 'mžw', componential: 'řžw', coherent: 'nžw', composite: 'ňžw', multiform: 'žžw'}}}, proximal: {monadic: {consolidative: {uniplex: 'tw', duplex: 'ttw', discrete: 'tʰw', aggregative: 't’w', segmentative: 'tt’w', componential: 'ttʰw', coherent: 'ltw', composite: 'rtw', multiform: 'ntw'}, associative: {uniplex: 'kw', duplex: 'kkw', discrete: 'kʰw', aggregative: 'k’w', segmentative: 'kk’w', componential: 'kkʰw', coherent: 'lkw', composite: 'rkw', multiform: 'ňkw'}, variative: {uniplex: 'pw', duplex: 'ppw', discrete: 'pʰw', aggregative: 'p’w', segmentative: 'pp’w', componential: 'ppʰw', coherent: 'lpw', composite: 'rpw', multiform: 'mpw'}, coalescent: {uniplex: 'qw', duplex: 'qqw', discrete: 'qʰw', aggregative: 'q’w', segmentative: 'qq’w', componential: 'qqʰw', coherent: 'lqw', composite: 'rqw', multiform: 'ňqw'}}, unbounded: {consolidative: {uniplex: 'ty', duplex: 'tty', discrete: 'lty', aggregative: 'ţy', segmentative: 'nty', componential: 'řty', coherent: 'rty', composite: 'pty', multiform: 'tky'}, associative: {uniplex: 'ky', duplex: 'kky', discrete: 'lky', aggregative: 'ży', segmentative: 'ňky', componential: 'řky', coherent: 'rky', composite: 'kty', multiform: 'kpy'}, variative: {uniplex: 'py', duplex: 'ppy', discrete: 'lpy', aggregative: 'fy', segmentative: 'npy', componential: 'řpy', coherent: 'rpy', composite: 'tpy', multiform: 'pky'}, coalescent: {uniplex: 'my', duplex: 'fty', discrete: 'ptw', aggregative: 'mw', segmentative: 'ftw', componential: 'ptr', coherent: 'ftr', composite: 'pkw', multiform: 'fkw'}}, nomic: {consolidative: {uniplex: 'dw', duplex: 'ddw', discrete: 'ldw', aggregative: 'tv', segmentative: 'ndw', componential: 'řdw', coherent: 'bdw', composite: 'dgw', multiform: 'rdw'}, associative: {uniplex: 'gw', duplex: 'ggw', discrete: 'lgw', aggregative: 'kv', segmentative: 'ňgw', componential: 'řgw', coherent: 'gdw', composite: 'gbw', multiform: 'rgw'}, variative: {uniplex: 'bw', duplex: 'bbw', discrete: 'lbw', aggregative: 'pv', segmentative: 'mbw', componential: 'řbw', coherent: 'dbw', composite: 'bgw', multiform: 'rbw'}, coalescent: {uniplex: 'lw', duplex: 'ly', discrete: 'ry', aggregative: 'rw', segmentative: 'ļw', componential: 'řy', coherent: 'tļw', composite: 'řw', multiform: 'lř'}}, abstract: {consolidative: {uniplex: 'dy', duplex: 'ddy', discrete: 'ldy', aggregative: 'dhy', segmentative: 'ndy', componential: 'řdy', coherent: 'rdy', composite: 'bdy', multiform: 'dgy'}, associative: {uniplex: 'gy', duplex: 'ggy', discrete: 'lgy', aggregative: 'jy', segmentative: 'ňgy', componential: 'řgy', coherent: 'rgy', composite: 'gdy', multiform: 'gby'}, variative: {uniplex: 'by', duplex: 'bby', discrete: 'lby', aggregative: 'vy', segmentative: 'mby', componential: 'řby', coherent: 'rby', composite: 'dby', multiform: 'bgy'}, coalescent: {uniplex: 'ny', duplex: 'xty', discrete: 'ktw', aggregative: 'nw', segmentative: 'xtw', componential: 'ktr', coherent: 'xtr', composite: 'tkw', multiform: 'ţkw'}}}, inceptive: {monadic: {consolidative: {uniplex: 'tl', duplex: 'ttl', discrete: 'ltl', aggregative: 'rtl', segmentative: 'ntl', componential: 'řtl', coherent: 'mtl', composite: 'ļtl', multiform: 'kçw'}, associative: {uniplex: 'kl', duplex: 'kkl', discrete: 'lkl', aggregative: 'rkl', segmentative: 'ňkl', componential: 'řkl', coherent: 'mkl', composite: 'ļkl', multiform: 'c’w'}, variative: {uniplex: 'pl', duplex: 'ppl', discrete: 'lpl', aggregative: 'rpl', segmentative: 'mpl', componential: 'řpl', coherent: 'ňpl', composite: 'ļpl', multiform: 'tfw'}, coalescent: {uniplex: 'ql', duplex: 'qql', discrete: 'lql', aggregative: 'rql', segmentative: 'ňql', componential: 'řql', coherent: 'mql', composite: 'ļql', multiform: 'č’w'}}, unbounded: {consolidative: {uniplex: 'dl', duplex: 'ddl', discrete: 'ldl', aggregative: 'rdl', segmentative: 'ndl', componential: 'řdl', coherent: 'bdl', composite: 'dgl', multiform: 'vbl'}, associative: {uniplex: 'gl', duplex: 'ggl', discrete: 'lgl', aggregative: 'rgl', segmentative: 'ňgl', componential: 'řgl', coherent: 'gdl', composite: 'gbl', multiform: 'vgl'}, variative: {uniplex: 'bl', duplex: 'bbl', discrete: 'lbl', aggregative: 'rbl', segmentative: 'mbl', componential: 'řbl', coherent: 'dbl', composite: 'bgl', multiform: 'vdl'}, coalescent: {uniplex: 'ml', duplex: 'mř', discrete: 'ňl', aggregative: 'nl', segmentative: 'ţř', componential: 'fř', coherent: 'př', composite: 'tř', multiform: 'lr'}}, nomic: {consolidative: {uniplex: 'skl', duplex: 'ckl', discrete: 'ckw', aggregative: 'skw', segmentative: 'sskw', componential: 'çkw', coherent: 'sk’w', composite: 'ck’w', multiform: 'sskl'}, associative: {uniplex: 'stl', duplex: 'ctl', discrete: 'ctw', aggregative: 'stw', segmentative: 'sstw', componential: 'çtw', coherent: 'st’w', composite: 'ct’w', multiform: 'sstl'}, variative: {uniplex: 'spl', duplex: 'cpl', discrete: 'cpw', aggregative: 'spw', segmentative: 'sspw', componential: 'çpw', coherent: 'sp’w', composite: 'cp’w', multiform: 'sspl'}, coalescent: {uniplex: 'sql', duplex: 'cql', discrete: 'cqw', aggregative: 'sqw', segmentative: 'ssqw', componential: 'çqw', coherent: 'sq’w', composite: 'cq’w', multiform: 'ssql'}}, abstract: {consolidative: {uniplex: 'škl', duplex: 'čkl', discrete: 'čkw', aggregative: 'škw', segmentative: 'šškw', componential: 'xxw', coherent: 'šk’w', composite: 'čk’w', multiform: 'šškl'}, associative: {uniplex: 'štl', duplex: 'čtl', discrete: 'čtw', aggregative: 'štw', segmentative: 'šštw', componential: 'ţţw', coherent: 'št’w', composite: 'čt’w', multiform: 'šštl'}, variative: {uniplex: 'špl', duplex: 'čpl', discrete: 'čpw', aggregative: 'špw', segmentative: 'ššpw', componential: 'ffw', coherent: 'šp’w', composite: 'čp’w', multiform: 'ššpl'}, coalescent: {uniplex: 'šql', duplex: 'čql', discrete: 'čqw', aggregative: 'šqw', segmentative: 'ššqw', componential: 'xxhw', coherent: 'šq’w', composite: 'čq’w', multiform: 'ššql'}}}, terminative: {monadic: {consolidative: {uniplex: 'tr', duplex: 'ttr', discrete: 'ltr', aggregative: 'rtr', segmentative: 'ntr', componential: 'řtr', coherent: 'mtr', composite: 'ļtr', multiform: 'rtn'}, associative: {uniplex: 'kr', duplex: 'kkr', discrete: 'lkr', aggregative: 'rkr', segmentative: 'ňkr', componential: 'řkr', coherent: 'mkr', composite: 'ļkr', multiform: 'rkn'}, variative: {uniplex: 'pr', duplex: 'ppr', discrete: 'lpr', aggregative: 'rpr', segmentative: 'mpr', componential: 'řpr', coherent: 'ňpr', composite: 'ļpr', multiform: 'rpn'}, coalescent: {uniplex: 'qr', duplex: 'qqr', discrete: 'lqr', aggregative: 'rqr', segmentative: 'ňqr', componential: 'řqr', coherent: 'mqr', composite: 'ļqr', multiform: 'rqn'}}, unbounded: {consolidative: {uniplex: 'dr', duplex: 'ddr', discrete: 'ldr', aggregative: 'rdr', segmentative: 'ndr', componential: 'řdr', coherent: 'bdr', composite: 'dgr', multiform: 'vbr'}, associative: {uniplex: 'gr', duplex: 'ggr', discrete: 'lgr', aggregative: 'rgr', segmentative: 'ňgr', componential: 'řgr', coherent: 'gdr', composite: 'gbr', multiform: 'vgr'}, variative: {uniplex: 'br', duplex: 'bbr', discrete: 'lbr', aggregative: 'rbr', segmentative: 'mbr', componential: 'řbr', coherent: 'dbr', composite: 'bgr', multiform: 'vdr'}, coalescent: {uniplex: 'mr', duplex: 'nř', discrete: 'ňr', aggregative: 'nr', segmentative: 'dhř', componential: 'vř', coherent: 'bř', composite: 'dř', multiform: 'gř'}}, nomic: {consolidative: {uniplex: 'skr', duplex: 'ckr', discrete: 'cky', aggregative: 'sky', segmentative: 'ssky', componential: 'čʰw', coherent: 'skʰw', composite: 'ckʰw', multiform: 'sskr'}, associative: {uniplex: 'str', duplex: 'ctr', discrete: 'cty', aggregative: 'sty', segmentative: 'ssty', componential: 'cʰy', coherent: 'stʰw', composite: 'ctʰw', multiform: 'sstr'}, variative: {uniplex: 'spr', duplex: 'cpr', discrete: 'cpy', aggregative: 'spy', segmentative: 'sspy', componential: 'cʰw', coherent: 'spʰw', composite: 'cpʰw', multiform: 'sspr'}, coalescent: {uniplex: 'sqr', duplex: 'cqr', discrete: 'c’y', aggregative: 'cy', segmentative: 'çr', componential: 'čʰy', coherent: 'sqʰw', composite: 'cqʰw', multiform: 'ssqr'}}, abstract: {consolidative: {uniplex: 'škr', duplex: 'čkr', discrete: 'čky', aggregative: 'šky', segmentative: 'ššky', componential: 'ļkw', coherent: 'škʰw', composite: 'čkʰw', multiform: 'šškr'}, associative: {uniplex: 'štr', duplex: 'čtr', discrete: 'čty', aggregative: 'šty', segmentative: 'ššty', componential: 'ļtw', coherent: 'štʰw', composite: 'čtʰw', multiform: 'šštr'}, variative: {uniplex: 'špr', duplex: 'čpr', discrete: 'čpy', aggregative: 'špy', segmentative: 'ššpy', componential: 'ļpw', coherent: 'špʰw', composite: 'čpʰw', multiform: 'ššpr'}, coalescent: {uniplex: 'šqr', duplex: 'čqr', discrete: 'č’y', aggregative: 'čy', segmentative: 'çř', componential: 'ļqw', coherent: 'šqʰw', composite: 'čqʰw', multiform: 'ššqr'}}}, depletive: {monadic: {consolidative: {uniplex: 'sl', duplex: 'ssl', discrete: 'lsl', aggregative: 'rsl', segmentative: 'msl', componential: 'řsl', coherent: 'nsl', composite: 'ňsl', multiform: 'ţst'}, associative: {uniplex: 'šl', duplex: 'ššl', discrete: 'lšl', aggregative: 'ršl', segmentative: 'mšl', componential: 'řšl', coherent: 'nšl', composite: 'ňšl', multiform: 'ţšt'}, variative: {uniplex: 'zl', duplex: 'zzl', discrete: 'lzl', aggregative: 'rzl', segmentative: 'mzl', componential: 'řzl', coherent: 'nzl', composite: 'ňzl', multiform: 'ţsp'}, coalescent: {uniplex: 'žl', duplex: 'žžl', discrete: 'lžl', aggregative: 'ržl', segmentative: 'mžl', componential: 'řžl', coherent: 'nžl', composite: 'ňžl', multiform: 'ţšp'}}, unbounded: {consolidative: {uniplex: 'fl', duplex: 'ffl', discrete: 'lfl', aggregative: 'rfl', segmentative: 'mfl', componential: 'řfl', coherent: 'fxl', composite: 'ňfl', multiform: 'pxl'}, associative: {uniplex: 'ţl', duplex: 'ţţl', discrete: 'lţl', aggregative: 'rţl', segmentative: 'nţl', componential: 'řţl', coherent: 'ţxl', composite: 'mţl', multiform: 'txl'}, variative: {uniplex: 'xl', duplex: 'xxl', discrete: 'lxl', aggregative: 'rxl', segmentative: 'ňxl', componential: 'řxl', coherent: 'xfl', composite: 'mxl', multiform: 'xţl'}, coalescent: {uniplex: 'xhl', duplex: 'xxhl', discrete: 'lxhl', aggregative: 'rxhl', segmentative: 'ňxhl', componential: 'qtl', coherent: 'xhfl', composite: 'mxhl', multiform: 'xhţl'}}, nomic: {consolidative: {uniplex: 'vl', duplex: 'vvl', discrete: 'lvl', aggregative: 'rvl', segmentative: 'mvl', componential: 'řvl', coherent: 'lpţ', composite: 'lkţ', multiform: 'mpļ'}, associative: {uniplex: 'dhl', duplex: 'ddhl', discrete: 'ldhl', aggregative: 'rdhl', segmentative: 'ndhl', componential: 'řdhl', coherent: 'cl', composite: 'čl', multiform: 'ntļ'}, variative: {uniplex: 'sv', duplex: 'sř', discrete: 'ksw', aggregative: 'sxw', segmentative: 'lsř', componential: 'rsř', coherent: 'fsw', composite: 'řsř', multiform: 'bzw'}, coalescent: {uniplex: 'zv', duplex: 'zř', discrete: 'psw', aggregative: 'sxhw', segmentative: 'lzř', componential: 'rzř', coherent: 'sfw', composite: 'řzř', multiform: 'gzw'}}, abstract: {consolidative: {uniplex: 'sm', duplex: 'sy', discrete: 'cm', aggregative: 'zm', segmentative: 'żm', componential: 'çm', coherent: 'bm', composite: 'dm', multiform: 'gm'}, associative: {uniplex: 'šm', duplex: 'šy', discrete: 'čm', aggregative: 'žm', segmentative: 'jm', componential: 'ļm', coherent: 'vm', composite: 'dhm', multiform: 'kř'}, variative: {uniplex: 'sn', duplex: 'zy', discrete: 'cn', aggregative: 'zn', segmentative: 'żn', componential: 'çn', coherent: 'bn', composite: 'dn', multiform: 'gn'}, coalescent: {uniplex: 'šn', duplex: 'žy', discrete: 'čn', aggregative: 'žn', segmentative: 'jn', componential: 'ļn', coherent: 'vn', composite: 'dhn', multiform: 'ňř'}}}, graduative: {monadic: {consolidative: {uniplex: 'sr', duplex: 'ssr', discrete: 'lsr', aggregative: 'rsr', segmentative: 'msr', componential: 'řsr', coherent: 'nsr', composite: 'ňsr', multiform: 'ţsk'}, associative: {uniplex: 'šr', duplex: 'ššr', discrete: 'lšr', aggregative: 'ršr', segmentative: 'mšr', componential: 'řšr', coherent: 'nšr', composite: 'ňšr', multiform: 'ţšk'}, variative: {uniplex: 'zr', duplex: 'zzr', discrete: 'lzr', aggregative: 'rzr', segmentative: 'mzr', componential: 'řzr', coherent: 'nzr', composite: 'ňzr', multiform: 'ţsq'}, coalescent: {uniplex: 'žr', duplex: 'žžr', discrete: 'lžr', aggregative: 'ržr', segmentative: 'mžr', componential: 'řžr', coherent: 'nžr', composite: 'ňžr', multiform: 'ţšq'}}, unbounded: {consolidative: {uniplex: 'fr', duplex: 'ffr', discrete: 'lfr', aggregative: 'rfr', segmentative: 'mfr', componential: 'řfr', coherent: 'fxr', composite: 'ňfr', multiform: 'pxr'}, associative: {uniplex: 'ţr', duplex: 'ţţr', discrete: 'lţr', aggregative: 'rţr', segmentative: 'nţr', componential: 'řţr', coherent: 'ţxr', composite: 'mţr', multiform: 'txr'}, variative: {uniplex: 'xr', duplex: 'xxr', discrete: 'lxr', aggregative: 'rxr', segmentative: 'ňxr', componential: 'řxr', coherent: 'xfr', composite: 'mxr', multiform: 'xţr'}, coalescent: {uniplex: 'xhr', duplex: 'xxhr', discrete: 'lxhr', aggregative: 'rxhr', segmentative: 'ňxhr', componential: 'qtr', coherent: 'xhfr', composite: 'mxhr', multiform: 'xhţr'}}, nomic: {consolidative: {uniplex: 'vr', duplex: 'vvr', discrete: 'lvr', aggregative: 'rvr', segmentative: 'mvr', componential: 'řvr', coherent: 'rpţ', composite: 'rkţ', multiform: 'mpř'}, associative: {uniplex: 'dhr', duplex: 'ddhr', discrete: 'ldhr', aggregative: 'rdhr', segmentative: 'ndhr', componential: 'řdhr', coherent: 'cr', composite: 'čr', multiform: 'ntř'}, variative: {uniplex: 'šv', duplex: 'šř', discrete: 'kšw', aggregative: 'šxw', segmentative: 'lšř', componential: 'ršř', coherent: 'fšw', composite: 'řšř', multiform: 'bžw'}, coalescent: {uniplex: 'žv', duplex: 'žř', discrete: 'pšw', aggregative: 'šxhw', segmentative: 'lžř', componential: 'ržř', coherent: 'šfw', composite: 'řžř', multiform: 'gžw'}}, abstract: {consolidative: {uniplex: 'tm', duplex: 'ţm', discrete: 'ţn', aggregative: 'tn', segmentative: 'rsm', componential: 'rsn', coherent: 'sň', composite: 'rsň', multiform: 'nm'}, associative: {uniplex: 'km', duplex: 'xm', discrete: 'xn', aggregative: 'kn', segmentative: 'rzm', componential: 'rzn', coherent: 'zň', composite: 'rzň', multiform: 'ňm'}, variative: {uniplex: 'pm', duplex: 'fm', discrete: 'fn', aggregative: 'pn', segmentative: 'ršm', componential: 'ršn', coherent: 'šň', composite: 'ršň', multiform: 'mn'}, coalescent: {uniplex: 'qm', duplex: 'xhm', discrete: 'xhn', aggregative: 'qn', segmentative: 'ržm', componential: 'ržn', coherent: 'žň', composite: 'ržň', multiform: 'ňn'}}}}};
+    var essExtPerConAff = essExtPerConAffs[ess][exten][per][affil][config];
+    
+    var func = find('function');
+    var pattern = find('pattern');
+    var stem = find('stem');
+    var funcPattStems = {stative: {pat1: {stem1: 'a', stem2: 'e', stem3: 'u'}, pat2: {stem1: 'o', stem2: 'ö', stem3: 'î'}, pat3: {stem1: 'â', stem2: 'ê', stem3: 'ô'}}, dynamic: {pat1: {stem1: 'i', stem2: 'ai', stem3: 'ei'}, pat2: {stem1: 'au', stem2: 'eu', stem3: 'iu'}, pat3: {stem1: 'ia', stem2: 'ie', stem3: 'io'}}, manifestive: {pat1: {stem1: 'ui', stem2: 'e', stem3: 'ëi'}, pat2: {stem1: 'ae', stem2: 'ea', stem3: 'oa'}, pat3: {stem1: 'üa', stem2: 'iù;', stem3: 'iö'}}, descriptive: {pat1: {stem1: 'oi', stem2: 'eo', stem3: 'eö'}, pat2: {stem1: 'oe', stem2: 'öe', stem3: 'ëu'}, pat3: {stem1: 'üo', stem2: 'üe', stem3: 'üö'}}};
+    var funcPattStem = funcPattStems[func][pattern][stem];
+    
+    var mood = find('mood');
+    var illocution = find('illocution');
+    var moodIllocs = {assertive: {factual: 'wë', subjunctive: 'wa', assumptive: 'yë', speculative: 'ya', counterfactive: 'yû', hypothetical: 'hë', implicative: 'ha', ascriptive: 'hû'}, directive: {factual: 'we', subjunctive: 'wö', assumptive: 'ye', speculative: 'yö', counterfactive: 'yeu', hypothetical: 'he', implicative: 'hö', ascriptive: 'hei'}, interrogative: {factual: 'wu', subjunctive: 'wâ', assumptive: 'yu', speculative: 'yâ', counterfactive: 'yau', hypothetical: 'hu', implicative: 'hâ', ascriptive: 'hai'}, admonitive: {factual: 'wo', subjunctive: 'wê', assumptive: 'yo', speculative: 'yê', counterfactive: 'you', hypothetical: 'ho', implicative: 'hê', ascriptive: 'hoi'}, hortative: {factual: 'wi', subjunctive: 'wô', assumptive: 'yi', speculative: 'yô', counterfactive: 'yiu', hypothetical: 'hi', implicative: 'hô', ascriptive: 'hui'}, declarative: {factual: 'wî'}};
+    var moodIlloc = moodIllocs[illocution][mood];
+    //if (moodIlloc == moodIllocs["assertive"]["factual"]) {
+    if (mood == "factual") {
+        moodIlloc = '';
+    }
+    
+    var validation = find('validation');
+    var validations = {confirmative: 'h', affirmative: 'y', reportive: 'w', inferential: 'hw', intuitive: 'hh', presumptive: 'hm', presumptivetwo : 'hn', purportive: 'hr', purportivetwo: 'lw', conjectural : 'ly', dubitative: 'rw', tentative: 'ry', putative: 'řw', improbable: 'řy'};
+    var validat = validations[validation];
+    
+    var relation = find('relation');
+    var designation = find('designation');
+    var stresses = {informal: {unframed: 2, framed: 3}, formal: {unframed: 1, framed: 4}};
+    var stress = stresses[designation][relation];
+    
+    var phase = find('phase');
+    var sanction = find('sanction');
+    var phaseSanctIllocs = {assertive: {contextual: {propositional: 't', epistemic: 't’', allegative: 'tʰ', imputative: 'l', refutative: 'tr', rebuttative: 'tl', theoretical: 'tř', expatiative: 'tw', axiomatic: 'ty'}, punctual: {propositional: 'k', epistemic: 'k’', allegative: 'kʰ', imputative: 'x', refutative: 'kr', rebuttative: 'kl', theoretical: 'kř', expatiative: 'kw', axiomatic: 'ky'}, iterative: {propositional: 'p', epistemic: 'p’', allegative: 'pʰ', imputative: 'vv', refutative: 'pr', rebuttative: 'pl', theoretical: 'př', expatiative: 'pw', axiomatic: 'py'}, repetitive: {propositional: 'q', epistemic: 'q’', allegative: 'qʰ', imputative: 'ř', refutative: 'qr', rebuttative: 'ql', theoretical: 'xr', expatiative: 'qw', axiomatic: 'xl'}, intermittent: {propositional: 'b', epistemic: 'v', allegative: 'vr', imputative: 'vl', refutative: 'br', rebuttative: 'bl', theoretical: 'bř', expatiative: 'bw', axiomatic: 'by'}, recurrent: {propositional: 'd', epistemic: 'dh', allegative: 'ż', imputative: 'żż', refutative: 'dr', rebuttative: 'dl', theoretical: 'dř', expatiative: 'dw', axiomatic: 'dy'}, frequentative: {propositional: 'g', epistemic: 'xh', allegative: 'j', imputative: 'jj', refutative: 'gr', rebuttative: 'gl', theoretical: 'gř', expatiative: 'gw', axiomatic: 'gy'}, fragmentative: {propositional: 'm', epistemic: 'mm', allegative: 'r', imputative: 'rr', refutative: 'mr', rebuttative: 'ml', theoretical: 'mř', expatiative: 'mw', axiomatic: 'my'}, fluctuative: {propositional: 'n', epistemic: 'nn', allegative: 'ddh', imputative: 'll', refutative: 'nr', rebuttative: 'nl', theoretical: 'nř', expatiative: 'nw', axiomatic: 'ny'}}, interrogative: {contextual: {propositional: 's', epistemic: 'ss', allegative: 'sm', imputative: 'sn', refutative: 'sr', rebuttative: 'sl', theoretical: 'sř', expatiative: 'sw', axiomatic: 'sy'}, punctual: {propositional: 'š', epistemic: 'šš', allegative: 'šm', imputative: 'šn', refutative: 'šr', rebuttative: 'šl', theoretical: 'šř', expatiative: 'šw', axiomatic: 'šy'}, iterative: {propositional: 'ç', epistemic: 'çç', allegative: 'çm', imputative: 'çn', refutative: 'çl', rebuttative: 'çr', theoretical: 'çř', expatiative: 'çw', axiomatic: 'ly'}, repetitive: {propositional: 'c', epistemic: 'cc', allegative: 'cm', imputative: 'cn', refutative: 'cr', rebuttative: 'cl', theoretical: 'cř', expatiative: 'cw', axiomatic: 'cy'}, intermittent: {propositional: 'č', epistemic: 'čč', allegative: 'čm', imputative: 'čn', refutative: 'čr', rebuttative: 'čl', theoretical: 'čř', expatiative: 'čw', axiomatic: 'čy'}, recurrent: {propositional: 'z', epistemic: 'zz', allegative: 'zm', imputative: 'zn', refutative: 'zr', rebuttative: 'zl', theoretical: 'zř', expatiative: 'zw', axiomatic: 'zy'}, frequentative: {propositional: 'ž', epistemic: 'žž', allegative: 'žm', imputative: 'žn', refutative: 'žr', rebuttative: 'žl', theoretical: 'žř', expatiative: 'žw', axiomatic: 'žy'}, fragmentative: {propositional: 'f', epistemic: 'ff', allegative: 'fw', imputative: 'fy', refutative: 'fr', rebuttative: 'fl', theoretical: 'fř', expatiative: 'vw', axiomatic: 'vy'}, fluctuative: {propositional: 'ţ', epistemic: 'ţţ', allegative: 'ţw', imputative: 'ţy', refutative: 'ţr', rebuttative: 'ţl', theoretical: 'ţř', expatiative: 'dhw', axiomatic: 'dhy'}}, directive: {contextual: {propositional: 'sk', epistemic: 'sk’', allegative: 'skʰ', imputative: 'zg', refutative: 'skr', rebuttative: 'skl', theoretical: 'skř', expatiative: 'skw', axiomatic: 'sky'}, punctual: {propositional: 'st', epistemic: 'st’', allegative: 'stʰ', imputative: 'zd', refutative: 'str', rebuttative: 'stl', theoretical: 'stř', expatiative: 'stw', axiomatic: 'sty'}, iterative: {propositional: 'sp', epistemic: 'sp’', allegative: 'spʰ', imputative: 'zb', refutative: 'spr', rebuttative: 'spl', theoretical: 'spř', expatiative: 'spw', axiomatic: 'spy'}, repetitive: {propositional: 'sq', epistemic: 'sq’', allegative: 'sqʰ', imputative: 'xx', refutative: 'sqr', rebuttative: 'sql', theoretical: 'xw', expatiative: 'sqw', axiomatic: 'řř'}, intermittent: {propositional: 'šk', epistemic: 'šk’', allegative: 'škʰ', imputative: 'žg', refutative: 'škr', rebuttative: 'škl', theoretical: 'škř', expatiative: 'škw', axiomatic: 'šky'}, recurrent: {propositional: 'št', epistemic: 'št’', allegative: 'štʰ', imputative: 'žd', refutative: 'štr', rebuttative: 'štl', theoretical: 'štř', expatiative: 'štw', axiomatic: 'šty'}, frequentative: {propositional: 'šp', epistemic: 'šp’', allegative: 'špʰ', imputative: 'žb', refutative: 'špr', rebuttative: 'špl', theoretical: 'špř', expatiative: 'špw', axiomatic: 'špy'}, fragmentative: {propositional: 'šq', epistemic: 'šq’', allegative: 'šqʰ', imputative: 'xxh', refutative: 'šqr', rebuttative: 'šql', theoretical: 'xhw', expatiative: 'šqw', axiomatic: 'řw'}, fluctuative: {propositional: 'ň', epistemic: 'ňň', allegative: 'rw', imputative: 'ry', refutative: 'ňr', rebuttative: 'ňl', theoretical: 'ňř', expatiative: 'ňw', axiomatic: 'řy'}}, admonitive: {contextual: {propositional: 'ks', epistemic: 'kss', allegative: 'ksm', imputative: 'ksn', refutative: 'ksr', rebuttative: 'ksl', theoretical: 'ksř', expatiative: 'ksw', axiomatic: 'ksy'}, punctual: {propositional: 'kš', epistemic: 'kšš', allegative: 'kšm', imputative: 'kšn', refutative: 'kšr', rebuttative: 'kšl', theoretical: 'kšř', expatiative: 'kšw', axiomatic: 'kšy'}, iterative: {propositional: 'ps', epistemic: 'pss', allegative: 'psm', imputative: 'psn', refutative: 'psr', rebuttative: 'psl', theoretical: 'psř', expatiative: 'psw', axiomatic: 'psy'}, repetitive: {propositional: 'pš', epistemic: 'pšš', allegative: 'pšm', imputative: 'pšn', refutative: 'pšr', rebuttative: 'pšl', theoretical: 'pšř', expatiative: 'pšw', axiomatic: 'pšy'}, intermittent: {propositional: 'gz', epistemic: 'gzz', allegative: 'gzm', imputative: 'gzn', refutative: 'gzr', rebuttative: 'gzl', theoretical: 'gzř', expatiative: 'gzw', axiomatic: 'gzy'}, recurrent: {propositional: 'gž', epistemic: 'gžž', allegative: 'gžm', imputative: 'gžn', refutative: 'gžr', rebuttative: 'gžl', theoretical: 'gžř', expatiative: 'gžw', axiomatic: 'gžy'}, frequentative: {propositional: 'bz', epistemic: 'bzz', allegative: 'bzm', imputative: 'bzn', refutative: 'bzr', rebuttative: 'bzl', theoretical: 'bzř', expatiative: 'bzw', axiomatic: 'bzy'}, fragmentative: {propositional: 'bž', epistemic: 'bžž', allegative: 'bžm', imputative: 'bžn', refutative: 'bžr', rebuttative: 'bžl', theoretical: 'bžř', expatiative: 'bžw', axiomatic: 'bžy'}, fluctuative: {propositional: 'sx', epistemic: 'sxh', allegative: 'šx', imputative: 'šxh', refutative: 'zgr', rebuttative: 'zgl', theoretical: 'zgř', expatiative: 'zgw', axiomatic: 'zgy'}}, hortative: {contextual: {propositional: 'çt', epistemic: 'çt’', allegative: 'çtʰ', imputative: 'sţ', refutative: 'çtr', rebuttative: 'çtl', theoretical: 'çtř', expatiative: 'çtw', axiomatic: 'çty'}, punctual: {propositional: 'çk', epistemic: 'çk’', allegative: 'çkʰ', imputative: 'šţ', refutative: 'çkr', rebuttative: 'çkl', theoretical: 'çkř', expatiative: 'çkw', axiomatic: 'çky'}, iterative: {propositional: 'çp', epistemic: 'çp’', allegative: 'çpʰ', imputative: 'sf', refutative: 'çpr', rebuttative: 'çpl', theoretical: 'çpř', expatiative: 'çpw', axiomatic: 'çpy'}, repetitive: {propositional: 'çq', epistemic: 'çq’', allegative: 'çqʰ', imputative: 'šf', refutative: 'çqr', rebuttative: 'çql', theoretical: 'çqř', expatiative: 'çqw', axiomatic: 'çč'}, intermittent: {propositional: 'kt', epistemic: 'kt’', allegative: 'ktʰ', imputative: 'gd', refutative: 'ktr', rebuttative: 'ktl', theoretical: 'ktř', expatiative: 'ktw', axiomatic: 'kty'}, recurrent: {propositional: 'pt', epistemic: 'pt’', allegative: 'ptʰ', imputative: 'bd', refutative: 'ptr', rebuttative: 'ptl', theoretical: 'ptř', expatiative: 'ptw', axiomatic: 'pty'}, frequentative: {propositional: 'qt', epistemic: 'qt’', allegative: 'qtʰ', imputative: 'tk', refutative: 'qtr', rebuttative: 'qtl', theoretical: 'qtř', expatiative: 'qtw', axiomatic: 'qty'}, fragmentative: {propositional: 'sc', epistemic: 'sc’', allegative: 'scʰ', imputative: 'db', refutative: 'żr', rebuttative: 'żl', theoretical: 'żř', expatiative: 'żw', axiomatic: 'ży'}, fluctuative: {propositional: 'šč', epistemic: 'šč’', allegative: 'ščʰ', imputative: 'dg', refutative: 'jr', rebuttative: 'jl', theoretical: 'jř', expatiative: 'jw', axiomatic: 'jy'}}, declarative: {contextual: {propositional: 'ct', epistemic: 'ct’', allegative: 'ctʰ', imputative: 'tm', refutative: 'ctr', rebuttative: 'ctl', theoretical: 'ctř', expatiative: 'ctw', axiomatic: 'cty'}, punctual: {propositional: 'ck', epistemic: 'ck’', allegative: 'ckʰ', imputative: 'km', refutative: 'ckr', rebuttative: 'ckl', theoretical: 'ckř', expatiative: 'ckw', axiomatic: 'cky'}, iterative: {propositional: 'cp', epistemic: 'cp’', allegative: 'cpʰ', imputative: 'pm', refutative: 'cpr', rebuttative: 'cpl', theoretical: 'cpř', expatiative: 'cpw', axiomatic: 'cpy'}, repetitive: {propositional: 'cq', epistemic: 'cq’', allegative: 'cqʰ', imputative: 'qm', refutative: 'cqr', rebuttative: 'cql', theoretical: 'gm', expatiative: 'cqw', axiomatic: 'xm'}, intermittent: {propositional: 'čt', epistemic: 'čt’', allegative: 'čtʰ', imputative: 'tn', refutative: 'čtr', rebuttative: 'čtl', theoretical: 'čtř', expatiative: 'čtw', axiomatic: 'čty'}, recurrent: {propositional: 'čk', epistemic: 'čk’', allegative: 'čkʰ', imputative: 'kn', refutative: 'čkr', rebuttative: 'čkl', theoretical: 'čkř', expatiative: 'čkw', axiomatic: 'čky'}, frequentative: {propositional: 'čp', epistemic: 'čp’', allegative: 'čpʰ', imputative: 'pn', refutative: 'čpr', rebuttative: 'čpl', theoretical: 'čpř', expatiative: 'čpw', axiomatic: 'čpy'}, fragmentative: {propositional: 'čq', epistemic: 'čq’', allegative: 'čqʰ', imputative: 'qn', refutative: 'čqr', rebuttative: 'čql', theoretical: 'gn', expatiative: 'čqw', axiomatic: 'xn'}, fluctuative: {propositional: 'xt', epistemic: 'xt’', allegative: 'xtʰ', imputative: 'pk', refutative: 'xtr', rebuttative: 'xtl', theoretical: 'xtř', expatiative: 'xtw', axiomatic: 'xty'}}};
+    var phaseSanctIlloc;
+    if (mood == "factual") {
+        phaseSanctIlloc = phaseSanctIllocs[illocution][phase][sanction];
+    } else {
+        phaseSanctIlloc = phaseSanctIllocs["assertive"][phase][sanction];
+    }
+  
+    var valence = find('valence');
+    var valences = {monoactive: 'a', parallel: 'e', corollary: 'o', reciprocal: 'i', complementary: 'u', nonrelational: 'â', duplicative: 'ê', demonstrative: 'ô', resistive: 'û', imitative: 'ai', contingent: 'ei', participative: 'oi', indicative: 'ui', mutual: 'ö'};
+    var valen = valences[valence];
+    
+    var filled5and6 = true;
+    if (phaseSanctIlloc == phaseSanctIllocs['assertive']['contextual']['propositional'] && valen == 'a') {
+        filled5and6 = false;
+    }
+  
+    var root2 = $("#root2").val().trim();
+    var pattern2 = find('pattern2');
+    var stem2 = find('stem2');
+    var designation2 = find('designation2');    
+    var pattStemDesi;
+    if (root2) {
+        var pattStemDesis = {informal: {stem1: {pat1: 'a', pat2: 'i', pat3: 'u'}, stem2: {pat1: 'o', pat2: 'e', pat3: 'ö'}, stem3: {pat1: 'ai', pat2: 'ui', pat3: 'ei'}}, formal: {stem1: {pat1: 'â', pat2: 'î', pat3: 'ô'}, stem2: {pat1: 'ê', pat2: 'oi', pat3: 'au'}, stem3: {pat1: 'eu', pat2: 'iu', pat3: 'ou'}}};
+        pattStemDesi = pattStemDesis[designation2][stem2][pattern2];
+        filled5and6 = true;
+    }
+    
+    var version = find('version');    
+ 
+    var context = find('context');
+    var format = find('format');
+    var contForms = {existential: {none: 'a', schematic: 'o', instrumentative: 'ai', authoritive: 'â', resultative: 'au', subsequent: 'ëi', concommitant: 'oa', objective: 'ea', precurrent: 'aì', affinitive: 'aù'}, functional: {none: 'i', schematic: 'ö', instrumentative: 'ui', authoritive: 'ae', resultative: 'iu', subsequent: 'ëu', concommitant: 'oe', objective: 'ia', precurrent: 'uì', affinitive: 'iù'}, representational: {none: 'e', schematic: 'öe', instrumentative: 'ei', authoritive: 'ê', resultative: 'eu', subsequent: 'öi', concommitant: 'eo', objective: 'ie', precurrent: 'eì', affinitive: 'eù'}, amalgamate: {none: 'u', schematic: 'öa', instrumentative: 'oi', authoritive: 'ô', resultative: 'ou', subsequent: 'öu', concommitant: 'iö', objective: 'io', precurrent: 'oì', affinitive: 'où'}};
+    var contForm = contForms[context][format];
+ 
+    var bias = find('bias');
+    var biases = {assurative: 'n', hyperbolic: 'm', coincidental: 'ň', acceptive: 'ţ', reactive: 'ç', stupefactive: 's', contemplative: 'z', desperative: 'š', revelative: 'l', gratificative: 'r', solicitive: 'ř', selective: 'ļ ', ironic: 'kç', exasperative: 'pļ', literal: 'pç', corrective: 'x', euphemistic: 'xh', skeptical: 'ks', cynical: 'f', contemptive: 'kš', dismissive: 'kf', indignative: 'pš', suggestive: 'ps', propositive: 'pf'};
+    var bia = biases[bias];
+    if (bia && find('intensiveBias')) {
+        bia = bia + bia.slice(-1);
+        if (bia == 'xhh') {
+            bia = 'xxh';
+        }
+    }
+  
+    var word = '';
+    
+    if (root2) {
+        if (phaseSanctIlloc != 't') {
+            word = word + phaseSanctIlloc;
+            word = word + valen;
+            word = word + validat;
+        } else {
+            if (valen != 'a') {
+                word = word + valend;
+                word = word + validat;
+            } else {
+                if (validat != 'h') {
+                    word = word + validat;
+                }
+            }
+        }
+    } else if (validat != 'h') {
+        word = word + validat;
+    }
+    word = word + funcPattStem;
+    if (filled5and6) {
+        word = word + "'";
+    }
+    if (root2) {
+        word = word + root2;
+        word = word + pattStemDesi;
+    } else if (filled5and6) {
+        word = word + phaseSanctIlloc;
+        word = word + valen;
+    }
+    word = word + root;
+    word = word + cas;
+    word = word + moodIlloc;
+    word = word + essExtPerConAff;
+    if (contForm != 'a' || bia) {
+        word = word + contForm;
+    }
+    if (bia) {
+        word = word + "'" + bia;
+    }
+    
+    $('#result').html(word);
+}
+
+function adjustRoot2() {
+    if ($("#root2").val()) {
+        if (!find('pattern2')) {
+            $("#divRoot2 [value=pat1]").attr('checked', true);
+        }
+        if (!find('stem2')) {
+            $("#divRoot2 [value=stem1]").attr('checked', true);
+        }
+        if (!find('designation2')) {
+            $("#divRoot2 [value=informal]").attr('checked', true);
+        }
+    } else {
+        $('[name=pattern2]').attr('checked', false);
+        $('[name=stem2]').attr('checked', false);
+        $('[name=designation2]').attr('checked', false);
+    }
+
+}
+</script>
+<style>
+body {
+    background-color: #ddeeff;
+    font-family: Calibri, sans-serif;
+}
+#result {
+    font-size: 48px;
+    font-family: "Georgia", serif;
+    text-align: center;
+}
+</style>
+<title>Ithkuil</title>
+</head>
+
+<body>
+<h1>Ithkuil</h1>
+<div id="result"/></div>
+<div width="50%" style="float:left">
+<table>
+<tr><td>
+<label><b>Root: </b></label>
+</td><td>
+<input type="text" id="root" name="root" value="q" required size=5/>
+</td></tr><tr><td>
+<label><b>Pattern: </b></label>
+</td><td>
+<input type="radio" name="pattern" value="pat1" checked>1</input>
+<input type="radio" name="pattern" value="pat2">2</input>
+<input type="radio" name="pattern" value="pat3">3</input>
+</td></tr><tr><td>
+<label><b>Stem: </b></label>
+</td><td>
+<input type="radio" name="stem" value="stem1" checked>1</input>
+<input type="radio" name="stem" value="stem2">2</input>
+<input type="radio" name="stem" value="stem3">3</input>
+</td></tr><tr><td>
+<label><b>Designation: </b></label>
+</td><td>
+<input type="radio" name="designation" value="informal" checked /><label>Informal</label>
+<input type="radio" name="designation" value="formal"/><label>Formal</label>
+</td></tr>
+</table>
+</div>
+<div width="50%" style="float:right" id="divRoot2">
+<table>
+<tr><td>
+<label><b>Incorporated Root: </b></label>
+</td><td>
+<input type="text" id="root2" name="root2" value="" size=5/>
+</td></tr><tr><td>
+<label><b>Pattern: </b></label>
+</td><td>
+<input type="radio" name="pattern2" value="pat1">1</input>
+<input type="radio" name="pattern2" value="pat2">2</input>
+<input type="radio" name="pattern2" value="pat3">3</input>
+</td></tr><tr><td>
+<label><b>Stem: </b></label>
+</td><td>
+<input type="radio" name="stem2" value="stem1">1</input>
+<input type="radio" name="stem2" value="stem2">2</input>
+<input type="radio" name="stem2" value="stem3">3</input>
+</td></tr><tr><td>
+<label><b>Designation: </b></label>
+</td><td>
+<input type="radio" name="designation2" value="informal"/><label>Informal</label>
+<input type="radio" name="designation2" value="formal"/><label>Formal</label>
+</td></tr><tr><td rowspan='10'>
+<label><b>Format: </b></label>
+</td></tr><tr><td>
+<input type="radio" name="format" value="none" checked /><label>None</label>
+</td></tr><tr><td>
+<input type="radio" name="format" value="schematic"/><label>Schematic</label>
+</td></tr><tr><td>
+<input type="radio" name="format" value="instrumentative"/><label>Instrumentative</label>
+</td></tr><tr><td>
+<input type="radio" name="format" value="objective"/><label>Objective</label>
+</td></tr><tr><td>
+<input type="radio" name="format" value="authoritive"/><label>Authoritive</label>
+</td></tr><tr><td>
+<input type="radio" name="format" value="precurrent"/><label>Precurrent</label>
+</td></tr><tr><td>
+<input type="radio" name="format" value="resultative"/><label>Resultative</label>
+</td></tr><tr><td>
+<input type="radio" name="format" value="concommitant"/><label>Concommitant</label>
+</td></tr><tr><td>
+<input type="radio" name="format" value="affinitive"/><label>Affinitive</label>
+</td></tr>
+</table>
+</div>
+<div width="100%" style="clear:left">
+<label><b>Configuration: </b></label>
+<input type="radio" name="configuration" value="uniplex" checked /><label>Uniplex</label>
+<input type="radio" name="configuration" value="duplex"/><label>Duplex</label>
+<input type="radio" name="configuration" value="discrete"/><label>Discrete</label>
+<input type="radio" name="configuration" value="aggregative"/><label>Aggregative</label>
+<input type="radio" name="configuration" value="segmentative"/><label>Segmentative</label>
+<input type="radio" name="configuration" value="componential"/><label>Componential</label>
+<input type="radio" name="configuration" value="coherent"/><label>Coherent</label>
+<input type="radio" name="configuration" value="composite"/><label>Composite</label>
+<input type="radio" name="configuration" value="multiform"/><label>Multiform</label>
+<br/>
+<label><b>Affiliation: </b></label>
+<input type="radio" name="affiliation" value="consolidative" checked /><label>Consolidative</label>
+<input type="radio" name="affiliation" value="associative"/><label>Associative</label>
+<input type="radio" name="affiliation" value="variative"/><label>Variative</label>
+<input type="radio" name="affiliation" value="coalescent"/><label>Coalescent</label>
+<br/>
+<label><b>Perspective: </b></label>
+<input type="radio" name="perspective" value="monadic" checked /><label>Monadic</label>
+<input type="radio" name="perspective" value="unbounded"/><label>Unbounded</label>
+<input type="radio" name="perspective" value="nomic"/><label>Nomic</label>
+<input type="radio" name="perspective" value="abstract"/><label>Abstract</label>
+<br/>
+<label><b>Extension: </b></label>
+<input type="radio" name="extension" value="delimitive" checked /><label>Delimitive</label>
+<input type="radio" name="extension" value="proximal"/><label>Proximal</label>
+<input type="radio" name="extension" value="inceptive"/><label>Inceptive</label>
+<input type="radio" name="extension" value="terminative"/><label>Terminative</label>
+<input type="radio" name="extension" value="depletive"/><label>Depletive</label>
+<input type="radio" name="extension" value="graduative"/><label>Graduative</label>
+<br/>
+<label><b>Essence: </b></label>
+<input type="radio" name="essence" value="normal" checked /><label>Normal</label>
+<input type="radio" name="essence" value="representative"/><label>Representative</label>
+<br/>
+<label><b>Function: </b></label>
+<input type="radio" name="function" value="stative" checked /><label>Stative</label>
+<input type="radio" name="function" value="dynamic"/><label>Dynamic</label>
+<input type="radio" name="function" value="manifestive"/><label>Manifestive</label>
+<input type="radio" name="function" value="descriptive"/><label>Descriptive</label>
+<br/>
+<label><b>Context: </b></label>
+<input type="radio" name="context" value="existential" checked /><label>Existential</label>
+<input type="radio" name="context" value="functional"/><label>Functional</label>
+<input type="radio" name="context" value="representational"/><label>Representational</label>
+<input type="radio" name="context" value="amalgamative"/><label>Amalgamative</label>
+<br/>
+<label><b>Case: </b></label>
+<table>
+<tr><td>
+<input type="radio" name="case" value="a" checked /><label>Oblique</label>
+<input type="radio" name="case" value="u"/><label>Inductive</label>
+<input type="radio" name="case" value="e"/><label>Absolutive</label>
+<input type="radio" name="case" value="o"/><label>Ergative</label>
+<input type="radio" name="case" value="ö"/><label>Effectuative</label>
+<input type="radio" name="case" value="i"/><label>Affective</label>
+<input type="radio" name="case" value="ü"/><label>Dative</label>
+<input type="radio" name="case" value="ai"/><label>Instrumental</label>
+<input type="radio" name="case" value="ei"/><label>Activative</label>
+<input type="radio" name="case" value="ui"/><label>Derivative</label>
+<input type="radio" name="case" value="oi"/><label>Situative</label>
+</td></tr><tr><td>
+<input type="radio" name="case" value="â"/><label>Posessive</label>
+<input type="radio" name="case" value="î"/><label>Proprietive</label>
+<input type="radio" name="case" value="ê"/><label>Genitive</label>
+<input type="radio" name="case" value="ô"/><label>Attributive</label>
+<input type="radio" name="case" value="ëi"/><label>Productive</label>
+<input type="radio" name="case" value="öi"/><label>Interpretative</label>
+<input type="radio" name="case" value="ae"/><label>Originative</label>
+</td></tr><tr><td>
+<input type="radio" name="case" value="ia"/><label>Partitive</label>
+<input type="radio" name="case" value="ie"/><label>Contrastive</label>
+<input type="radio" name="case" value="io"/><label>Compositive</label>
+<input type="radio" name="case" value="iö"/><label>Predicative</label>
+<input type="radio" name="case" value="a’"/><label>Mediative</label>
+<input type="radio" name="case" value="u’"/><label>Applicative</label>
+<input type="radio" name="case" value="e’"/><label>Purposive</label>
+<input type="radio" name="case" value="o’"/><label>Cosiderative</label>
+<input type="radio" name="case" value="ea"/><label>Essive</label>
+<input type="radio" name="case" value="eo"/><label>Assimilative</label>
+<input type="radio" name="case" value="eö"/><label>Functive</label>
+<input type="radio" name="case" value="oa"/><label>Transformative</label>
+<input type="radio" name="case" value="oe"/><label>Referential</label>
+<input type="radio" name="case" value="öa"/><label>Classicative</label>
+<input type="radio" name="case" value="öe"/><label>Conductive</label>
+<input type="radio" name="case" value="üa"/><label>Interdependent</label>
+<input type="radio" name="case" value="üe"/><label>Benefactive</label>
+<input type="radio" name="case" value="üo"/><label>Transpositive</label>
+<input type="radio" name="case" value="au"/><label>Commutative</label>
+<input type="radio" name="case" value="eu"/><label>Comitative</label>
+<input type="radio" name="case" value="iu"/><label>Conjunctive</label>
+<input type="radio" name="case" value="ou"/><label>Utilitative</label>
+<input type="radio" name="case" value="ëu"/><label>Abessive</label>
+<input type="radio" name="case" value="öu"/><label>Conversive</label>
+<input type="radio" name="case" value="ai’"/><label>Correlative</label>
+<input type="radio" name="case" value="ui’"/><label>Dependent</label>
+<input type="radio" name="case" value="ei’"/><label>Provisional</label>
+<input type="radio" name="case" value="oi’"/><label>Postulative</label>
+<input type="radio" name="case" value="au’"/><label>Concessive</label>
+<input type="radio" name="case" value="iu’"/><label>Exceptive</label>
+<input type="radio" name="case" value="eu’"/><label>Aversive</label>
+<input type="radio" name="case" value="ou’"/><label>Comparative</label>
+</td></tr><tr><td>
+<input type="radio" name="case" value="a’a"/><label>Simultaneitive</label>
+<input type="radio" name="case" value="e’a"/><label>Assessive</label>
+<input type="radio" name="case" value="i’a"/><label>Concursive</label>
+<input type="radio" name="case" value="o’a"/><label>Accessive</label>
+<input type="radio" name="case" value="u’a"/><label>Diffusive</label>
+<input type="radio" name="case" value="ö’a"/><label>Periodic</label>
+<input type="radio" name="case" value="ü’a"/><label>Prolapsive</label>
+<input type="radio" name="case" value="ai’a"/><label>Precursive</label>
+<input type="radio" name="case" value="ei’a"/><label>Postcursive</label>
+<input type="radio" name="case" value="ui’a"/><label>Elapsive</label>
+<input type="radio" name="case" value="oi’a"/><label>Allapsive</label>
+<input type="radio" name="case" value="ëi’a"/><label>Interpolative</label>
+<input type="radio" name="case" value="au’a"/><label>Episodic</label>
+<input type="radio" name="case" value="eu’a"/><label>Prolimitive</label>
+<input type="radio" name="case" value="iu’a"/><label>Limitative</label>
+</td></tr><tr><td>
+<input type="radio" name="case" value="â’a"/><label>Locative</label>
+<input type="radio" name="case" value="ê’a"/><label>Orientative</label>
+<input type="radio" name="case" value="ô’a"/><label>Procursive</label>
+<input type="radio" name="case" value="î’a"/><label>Allative</label>
+<input type="radio" name="case" value="ëu’a"/><label>Ablative</label>
+<input type="radio" name="case" value="ou’a"/><label>Navigative</label>
+</td></tr><tr><td>
+<input type="radio" name="case" value="ë"/><label>Vocative</label>
+</td></tr>
+</table>
+<label><b>Version: </b></label>
+<input type="radio" name="version" value="processual" checked /><label>Processual</label>
+<input type="radio" name="version" value="completive"/><label>Completive</label>
+<input type="radio" name="version" value="ineffectual"/><label>Ineffectual</label>
+<input type="radio" name="version" value="incompletive"/><label>Incompletive</label>
+<input type="radio" name="version" value="positive"/><label>Positive</label>
+<input type="radio" name="version" value="effective"/><label>Effective</label>
+<br/>
+<label><b>Mood: </b></label>
+<input type="radio" name="mood" value="factual"/ checked /><label>Factual</label>
+<input type="radio" name="mood" value="subjunctive"/><label>Subjunctive</label>
+<input type="radio" name="mood" value="assumptive"/><label>Assumptive</label>
+<input type="radio" name="mood" value="speculative"/><label>Speculative</label>
+<input type="radio" name="mood" value="counterfactive"/><label>Counterfactive</label>
+<input type="radio" name="mood" value="hypothetical"/><label>Hypothetical</label>
+<input type="radio" name="mood" value="implicative"/><label>Implicative</label>
+<input type="radio" name="mood" value="ascriptive"/><label>Ascriptive</label>
+<br/>
+<label><b>Illocution: </b></label>
+<input type="radio" name="illocution" value="assertive" checked /><label>Assertive</label>
+<input type="radio" name="illocution" value="directive"/><label>Directive</label>
+<input type="radio" name="illocution" value="interrogative"/><label>Interrogative</label>
+<input type="radio" name="illocution" value="admonitive"/><label>Admonitive</label>
+<input type="radio" name="illocution" value="hortative"/><label>Hortative</label>
+<input type="radio" name="illocution" value="declarative"/><label>Declarative</label>
+<br/>
+<label><b>Validation: </b></label>
+<input type="radio" name="validation" value="confirmative" checked /><label>Confirmative</label>
+<input type="radio" name="validation" value="affirmative"/><label>Affirmative</label>
+<input type="radio" name="validation" value="reportative"/><label>Reportative</label>
+<input type="radio" name="validation" value="inferential"/><label>Inferential</label>
+<input type="radio" name="validation" value="intuitive"/><label>Intuitive</label>
+<input type="radio" name="validation" value="presumptive"/><label>Presumptive</label>
+<input type="radio" name="validation" value="presumptivetwo"/><label>Presumptive 2</label>
+<input type="radio" name="validation" value="purportive"/><label>Purportive</label>
+<input type="radio" name="validation" value="purportivetwo"/><label>Purportive 2</label>
+<input type="radio" name="validation" value="conjectural"/><label>Conjectural</label>
+<input type="radio" name="validation" value="dubitative"/><label>Dubitative</label>
+<input type="radio" name="validation" value="tentative"/><label>Tentative</label>
+<input type="radio" name="validation" value="putative"/><label>Putative</label>
+<input type="radio" name="validation" value="improbable"/><label>Improbable</label>
+<br/>
+<label><b>Phase: </b></label>
+<input type="radio" name="phase" value="contextual" checked /><label>Contextual</label>
+<input type="radio" name="phase" value="punctual"/><label>Punctual</label>
+<input type="radio" name="phase" value="iterative"/><label>Iterative</label>
+<input type="radio" name="phase" value="repetitive"/><label>Repetitive</label>
+<input type="radio" name="phase" value="intermittent"/><label>Intermittent</label>
+<input type="radio" name="phase" value="recurrent"/><label>Recurrent</label>
+<input type="radio" name="phase" value="frequentative"/><label>Frequentative</label>
+<input type="radio" name="phase" value="fragmentative"/><label>Fragmentative</label>
+<input type="radio" name="phase" value="flunctuative"/><label>Flunctuative</label>
+<br/>
+<label><b>Sanction: </b></label>
+<input type="radio" name="sanction" value="propositional" checked /><label>Propositional</label>
+<input type="radio" name="sanction" value="epistemic"/><label>Epistemic</label>
+<input type="radio" name="sanction" value="allegative"/><label>Allegative</label>
+<input type="radio" name="sanction" value="imputative"/><label>Imputative</label>
+<input type="radio" name="sanction" value="refutative"/><label>Refutative</label>
+<input type="radio" name="sanction" value="rebuttative"/><label>Rebuttative</label>
+<input type="radio" name="sanction" value="theoretical"/><label>Theoretical</label>
+<input type="radio" name="sanction" value="expatiative"/><label>Expatiative</label>
+<input type="radio" name="sanction" value="axiomatic"/><label>Axiomatic</label>
+<br/>
+<label><b>Bias: </b></label>
+<br/>
+<input type="checkbox" name="intensiveBias" value="intensive"/><label><b>Intensive</b></label>
+<br/>
+<input type="checkbox" name="bias" value="assurative"/><label>Assurative</label>
+<input type="checkbox" name="bias" value="hyperbolic"/><label>Hyperbolic</label>
+<input type="checkbox" name="bias" value="coincidental"/><label>Coincidental</label>
+<input type="checkbox" name="bias" value="acceptive"/><label>Acceptive</label>
+<input type="checkbox" name="bias" value="reactive"/><label>Reactive</label>
+<input type="checkbox" name="bias" value="stupefactive"/><label>Stupefactive</label>
+<input type="checkbox" name="bias" value="contemplative"/><label>Contemplative</label>
+<input type="checkbox" name="bias" value="desperative"/><label>Desperative</label>
+<input type="checkbox" name="bias" value="revelative"/><label>Revelative</label>
+<input type="checkbox" name="bias" value="gratificative"/><label>Gratificative</label>
+<input type="checkbox" name="bias" value="solicitive"/><label>Solicitive</label>
+<input type="checkbox" name="bias" value="selective"/><label>Selective</label>
+<input type="checkbox" name="bias" value="ironic"/><label>Ironic</label>
+<input type="checkbox" name="bias" value="exasperative"/><label>Exasperative</label>
+<input type="checkbox" name="bias" value="literal"/><label>Literal</label>
+<input type="checkbox" name="bias" value="corrective"/><label>Corrective</label>
+<input type="checkbox" name="bias" value="euphemistic"/><label>Euphemistic</label>
+<input type="checkbox" name="bias" value="skeptical"/><label>Skeptical</label>
+<input type="checkbox" name="bias" value="cynical"/><label>Cynical</label>
+<input type="checkbox" name="bias" value="contemptive"/><label>Contemptive</label>
+<input type="checkbox" name="bias" value="dismissive"/><label>Dismissive</label>
+<input type="checkbox" name="bias" value="indignative"/><label>Indignative</label>
+<input type="checkbox" name="bias" value="suggestive"/><label>Suggestive</label>
+<input type="checkbox" name="bias" value="propositive"/><label>Propositive</label>
+<br/>
+<label><b>Valence: </b></label>
+<input type="radio" name="valence" value="monoactive" checked /><label>Monoactive</label>
+<input type="radio" name="valence" value="parallel"/><label>Parallel</label>
+<input type="radio" name="valence" value="corollary"/><label>Corollary</label>
+<input type="radio" name="valence" value="reciprocal"/><label>Reciprocal</label>
+<input type="radio" name="valence" value="complementary"/><label>Complementary</label>
+<input type="radio" name="valence" value="nonrelational"/><label>Nonrelational</label>
+<input type="radio" name="valence" value="duplicative"/><label>Duplicative</label>
+<input type="radio" name="valence" value="demonstrative"/><label>Demonstrative</label>
+<input type="radio" name="valence" value="resistive"/><label>Resistive</label>
+<input type="radio" name="valence" value="imitative"/><label>Imitative</label>
+<input type="radio" name="valence" value="contingent"/><label>Contingent</label>
+<input type="radio" name="valence" value="participative"/><label>Participative</label>
+<input type="radio" name="valence" value="indicative"/><label>Indicative</label>
+<input type="radio" name="valence" value="mutual"/><label>Mutual</label>
+<br/>
+<label><b>Relation: </b></label>
+<input type="radio" name="relation" value="unframed" checked /><label>Unframed</label>
+<input type="radio" name="relation" value="framed"/><label>Framed</label>
+</div>
+</body>
+</html>

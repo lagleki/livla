@@ -1,0 +1,2923 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Ithkuil help</title>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<style>
+body{
+	background-color:#F8F8F8;
+}
+html{
+	font-family:'Trebuchet MS',serif;
+	font-size:14px;
+}
+div{
+	border-radius:0.25em;
+	border:1px solid gray;
+	margin:0.25em;
+	padding:0.25em;
+}
+span{
+	color:cornflowerblue;
+	cursor:default;
+}
+.nav:hover{
+	text-decoration:underline;<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Ithkuil help</title>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<style>
+body{
+	background-color:#F8F8F8;
+}
+html{
+	font-family:'Trebuchet MS',serif;
+	font-size:14px;
+}
+div{
+	border-radius:0.25em;
+	border:1px solid gray;
+	margin:0.25em;
+	padding:0.25em;
+}
+span{
+	color:cornflowerblue;
+	cursor:default;
+}
+.nav:hover{
+	text-decoration:underline;
+	cursor:pointer;
+}
+	</style>
+</head>
+<body onload="init()">
+	Ithkuil Help
+	<small>
+		("*" means the category doesn't work -- yet !)
+		<br />
+		Work in progress ! Wait a few seconds to see the word appear
+	</small>
+	<br />
+	<span id="test"></span>
+	<div title="Ithkuil">
+		Ithkuil : 
+		<span id="ithkuil_">
+			Change a category or read the notes
+		</span>
+	</div>
+	<div id="nav_bar">
+		<span class="nav" onclick="toggleMenu(1)">Root</span>
+		<span class="nav" onclick="toggleMenu(3)">Case</span>
+		<span class="nav" onclick="toggleMenu(4)">Verb</span>
+		<span class="nav" onclick="toggleMenu(5)">*Suffix</span>
+		<span class="nav" onclick="toggleMenu(6)">*Person</span>
+		<span class="nav" onclick="toggleMenu(7)">Notes</span>
+	</div>
+	<div id="root_formation">
+		Root formation
+		<span id="span1" onclick="toggleMenu(1)">
+			(hide/show)
+		</span>
+		<div title="root">
+			Root
+			<select onchange="main()" id="root">
+				<option>-bg- 'squid'</option>
+				<option>-bj- 'eel'</option>
+				<option>-kl- ‘water in natural motion’</option>
+				<option>-kš- ‘fool, clown’</option>
+				<option>-q- ‘higher order life-form’</option>
+			</select>
+			Stem
+			<select onchange="main()" id="stem">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+			Pattern
+			<select onchange="main()" id="pattern">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select><br />
+			*Designation
+			<input id="0" name="designation" type="radio" onchange="main()" checked="checked">
+				Informal
+			</input>
+			<input id="1" name="designation" type="radio" onchange="main()">
+				Formal
+			</input>
+			<span id="designationGr"></span><br />
+			Function
+			<select onchange="main()" id="f_function">
+				<option>Stative</option>
+				<option>Dynamic</option>
+				<option>Manifestive</option>
+				<option>Descriptive</option>
+			</select>
+			<span id="functionGr">
+			</span>
+			<!--<span id="meaning">Root meaning</span><br />-->
+			<br />
+			<input type="checkbox" onchange="toggleImRoot()" id="ir_cb">
+				<span>Imbricated root</span>
+			</input>
+			<div title="incorporated root" id="ir_div">
+				Incorporated root
+				<select onchange="main()" id="ir_root">
+					<option>-bg- 'squid'</option>
+					<option>-bj- 'eel'</option>
+					<option>-kl- ‘water in natural motion’</option>
+					<option>-kš- ‘fool, clown’</option>
+					<option>-q- ‘higher order life-form’</option>
+				</select>
+				Stem
+				<select onchange="main()" id="ir_stem">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+				Pattern
+				<select onchange="main()" id="ir_pattern">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+				<br />
+				Designation
+				<input id="0" name="ir_des" type="radio" onchange="main()" checked="checked">
+					Informal
+				</input>
+				<input id="1" name="ir_des" type="radio" onchange="main()">
+					Formal
+				</input><br />
+				Format
+				<select onchange="main()" id="format">
+					<option>Schematic</option>
+					<option>Instrumentative</option>
+					<option>Objective</option>
+					<option>Authoritive</option>
+					<option>Recurrent</option>
+					<option>Resultative</option>
+					<option>Subsequent</option>
+					<option>Concommitant</option>
+					<option>Affinitive</option>
+				</select>
+				<span id="formatGr">
+				</span>
+			</div>
+		</div>
+	</div>
+	<div id="basic_morphology">
+		Basic morphology
+		<span id="span2" onclick="toggleMenu(2)">
+			(hide/show)
+		</span>
+		<div title="configuration">Configuration
+			<select onchange="main()" id="configuration">
+				<option>Uniplex</option>
+				<option>Duplex</option>
+				<option>Discrete</option>
+				<option>Aggregative</option>
+				<option>Segmentative</option>
+				<option>Componential</option>
+				<option>Coherent</option>
+				<option>Composite</option>
+				<option>Multiform</option>
+			</select>
+			<span id="configurationGr">
+			</span>
+		</div>
+		<div title="affiliation">
+			Affiliation
+			<select onchange="main()" id="affiliation">
+				<option>Consolidative</option>
+				<option>Associative</option>
+				<option>Variative</option>
+				<option>Coalescent</option>
+			</select>
+			<span id="affiliationGr">
+			</span>
+		</div>
+		<div title="perspective">
+			Perspective
+			<select onchange="main()" id="perspective">
+				<option>Monadic</option>
+				<option>Unbounded</option>
+				<option>Nomic</option>
+				<option>Abstract</option>
+			</select>
+			<span id="perspectiveGr">
+			</span>
+		</div>
+		<div title="extension">
+			Extension
+			<select onchange="main()" id="extension">
+				<option>Delimitive</option>
+				<option>Proximal</option>
+				<option>Inceptive</option>
+				<option>Terminative</option>
+				<option>Depletive</option>
+				<option>Graduative</option>
+			</select>
+			<span id="extensionGr">
+			</span>
+		</div>
+		<div title="essence">
+			Essence
+			<input value="0" type="radio" name="essence" onchange="main()" checked="checked">
+				Normal
+			</input>
+			<input value="1" type="radio" name="essence" onchange="main()">
+				Representative
+			</input>
+			<span id="essenceGr">
+			</span>
+		</div>
+		<div title="context">
+			Context
+			<select onchange="main()" id="context">
+				<option>Existential</option>
+				<option>Functional</option>
+				<option>Representational</option>
+				<option>Amalgamate</option>
+			</select>
+			<span id="contextGr">
+			</span>
+		</div>
+	</div>
+	<div id="formative_case">
+		Case
+		<span id="span3" onclick="toggleMenu(3)">
+			(hide/show)
+		</span>
+		<br />
+		<select id="f_case" onchange="main()">
+			<optgroup label="Transrelative Cases">
+				<option>Oblique</option>
+				<option>Inducive</option>
+				<option>Absolutive</option>
+				<option>Ergative</option>
+				<option>Effectuative</option>
+				<option>Affective</option>
+				<option>Dative</option>
+				<option>Instrumental</option>
+				<option>Activative</option>
+				<option>Derivative</option>
+				<option>Situative</option>
+			</optgroup>
+			<optgroup label="Possessive Cases">
+				<option>Possessive</option>
+				<option>Proprietive</option>
+				<option>Genitive</option>
+				<option>Attributive</option>
+				<option>Productive</option>
+				<option>Interpretative</option>
+				<option>Originative</option>
+			</optgroup>
+			<optgroup label="Associative Cases">
+				<option>Partitive</option>
+				<option>Contrastive</option>
+				<option>Compositive</option>
+				<option>Predicative</option>
+				<option>Mediative</option>
+				<option>Applicative</option>
+				<option>Purposive</option>
+				<option>Considerative</option>
+				<option>Essive</option>
+				<option>Assimilative</option>
+				<option>Functive</option>
+				<option>Transformative</option>
+				<option>Referential</option>
+				<option>Classificative</option>
+				<option>Conductive</option>
+				<option>Interdependent</option>
+				<option>Benefactive</option>
+				<option>Transpositive</option>
+				<option>Commutative</option>
+				<option>Comitative</option>
+				<option>Conjunctive</option>
+				<option>Utilitative</option>
+				<option>Abessive</option>
+				<option>Conversive</option>
+				<option>Correlative</option>
+				<option>Dependent</option>
+				<option>Provisional</option>
+				<option>Postulative</option>
+				<option>Concessive</option>
+				<option>Exceptive</option>
+				<option>Aversive</option>
+				<option>Comparative</option>
+			</optgroup>
+			<optgroup label="Temporal Cases">
+				<option>Simultaneitive</option>
+				<option>Assessive</option>
+				<option>Concursive</option>
+				<option>Accessive</option>
+				<option>Diffusive</option>
+				<option>Periodic</option>
+				<option>Prolapsive</option>
+				<option>Precursive</option>
+				<option>Postcursive</option>
+				<option>Elapsive</option>
+				<option>Allapsive</option>
+				<option>Interpolative</option>
+				<option>Episodic</option>
+				<option>Prolimitive</option>
+				<option>Limitative</option>
+			</optgroup>
+			<optgroup label="Spatial Cases">
+				<option>Locative</option>
+				<option>Orientiative</option>
+				<option>Procursive</option>
+				<option>Allative</option>
+				<option>Ablative</option>
+				<option>Navigative</option>
+			</optgroup>
+			<optgroup label="Vocative">
+				<option>Vocative</option>
+			</optgroup>
+		</select>
+	</div>
+	<div id="verbal_morphology">
+		Verbal morphology
+		<span id="span4" onclick="toggleMenu(4)">
+			(hide/show)
+		</span>
+		<div title="aspect">
+			*Aspect
+			<select onchange="main()" id="aspect">
+				<option>(none)</option>
+				<option>Retrospective</option>
+				<option>Prospective</option>
+				<option>Habitual</option>
+				<option>Progressive</option>
+				<option>Imminent</option>
+				<option>Precessive</option>
+				<option>Regulative</option>
+				<option>Experiential</option>
+				<option>Resumptive</option>
+				<option>Cessative</option>
+				<option>Recessative</option>
+				<option>Pausal</option>
+				<option>Regressive</option>
+				<option>Preclusive</option>
+				<option>Continuative</option>
+				<option>Incessative</option>
+				<option>Preemptive</option>
+				<option>Climactic</option>
+				<option>Protractive</option>
+				<option>Temporary</option>
+				<option>Motive</option>
+				<option>Consequential</option>
+				<option>Sequential</option>
+				<option>Expeditive</option>
+				<option>Disclusive</option>
+				<option>Conclusive</option>
+				<option>Culminative</option>
+				<option>Intermediative</option>
+				<option>Tardative</option>
+				<option>Transitional</option>
+				<option>Intercommutative</option>
+				<option>Consumptive</option>
+			</select>
+			<span id="aspectGr">
+			</span>
+			<input type="checkbox" id="aspect1_cb" onchange="toggleAspect1()">
+				<span>2<sup>nd</sup> aspect</span>
+			</input>
+			<div id="aspect1_div">
+				*2<sup>nd</sup> aspect
+				<select onchange="main()" id="aspect1">
+					<option>(none)</option>
+					<option>Retrospective</option>
+					<option>Prospective</option>
+					<option>Habitual</option>
+					<option>Progressive</option>
+					<option>Imminent</option>
+					<option>Precessive</option>
+					<option>Regulative</option>
+					<option>Experiential</option>
+					<option>Resumptive</option>
+					<option>Cessative</option>
+					<option>Recessative</option>
+					<option>Pausal</option>
+					<option>Regressive</option>
+					<option>Preclusive</option>
+					<option>Continuative</option>
+					<option>Incessative</option>
+					<option>Preemptive</option>
+					<option>Climactic</option>
+					<option>Protractive</option>
+					<option>Temporary</option>
+					<option>Motive</option>
+					<option>Consequential</option>
+					<option>Sequential</option>
+					<option>Expeditive</option>
+					<option>Disclusive</option>
+					<option>Conclusive</option>
+					<option>Culminative</option>
+					<option>Intermediative</option>
+					<option>Tardative</option>
+					<option>Transitional</option>
+					<option>Intercommutative</option>
+					<option>Consumptive</option>
+				</select>
+			</div>
+		</div>
+		<div title="bias">
+			Bias
+			<select onchange="main()" id="bias">
+				<option  "1">Assurative</option>
+				<option  "2">Hyperbolic</option>
+				<option  "3">Coincidental</option>
+				<option  "4">Acceptive</option>
+				<option  "5">Reactive</option>
+				<option  "6">Stupefactive</option>
+				<option  "7">Contemplative</option>
+				<option  "8">Desperative</option>
+				<option  "9">Revelative</option>
+				<option  "10">Gratificative</option>
+				<option  "11">Solicitive</option>
+				<option  "12">Selective</option>
+				<option  "13">Ironic</option>
+				<option  "14">Exasperative</option>
+				<option  "15">Literal</option>
+				<option  "16">Corrective</option>
+				<option  "17">Euphemistic</option>
+				<option  "18">Skeptical</option>
+				<option  "19">Cynical</option>
+				<option  "20">Contemptive</option>
+				<option  "21">Dismissive</option>
+				<option  "22">Indignative</option>
+				<option  "23">Suggestive</option>
+				<option  "24">Propositive</option>
+			</select>
+			<input
+				id="biasInt"
+				type="checkbox"
+				onclick="main()"
+				onchange="main()">Intensive</input>
+			<span id="biasGr">
+			</span>
+		</div>
+		<div title="frame">
+			*Case-frame / relation
+			<input id="0" name="frame" type="radio" onchange="main()" checked="checked">
+				Unframed
+			</input>
+			<input id="1" name="frame" type="radio" onchange="main()">
+				Framed
+			</input>
+			<span id="frameGr">
+			</span>
+		</div>
+		<div title="illocution">
+			Illocution
+			<select onchange="main()" id="illocution">
+				<option>Assertive</option>
+				<option>Interrogative</option>
+				<option>Directive</option>
+				<option>Admonitive</option>
+				<option>Hortative</option>
+				<option>Declarative</option>
+			</select>
+			<span id="illocutionGr">
+			</span>
+		</div>
+		<div title="level">
+			*Level
+			<select onchange="main()" id="level">
+				<option>Equative</option>
+				<option>Surpassive</option>
+				<option>Deficient</option>
+				<option>Optimal</option>
+				<option>Minimal</option>
+				<option>Superlative</option>
+				<option>Inferior</option>
+				<option>Superequative</option>
+				<option>Subequative</option>
+			</select>
+			<input type="checkbox" id="level_cb">
+				Absolute comparison
+			</input>
+			<span id="levelGr">
+			</span>
+		</div>
+		<div title="modality">
+			*Modality
+			<select onchange="main()" id="modality">
+				<option>(none)</option>
+				<option>Desiderative</option>
+				<option>Aspirative</option>
+				<option>Expectative</option>
+				<option>Credential</option>
+				<option>Requisitive</option>
+				<option>Exhortative</option>
+				<option>Opportunitive</option>
+				<option>Capacitative</option>
+				<option>Permissive</option>
+				<option>Potential</option>
+				<option>Compulsory</option>
+				<option>Obligative</option>
+				<option>Impositive</option>
+				<option>Advocative</option>
+				<option>Intentive</option>
+				<option>Anticipative</option>
+				<option>Dispositive</option>
+				<option>Preparative</option>
+				<option>Necessitative</option>
+				<option>Decisive</option>
+				<option>Proclivitive</option>
+				<option>Voluntative</option>
+				<option>Accordative</option>
+				<option>Inclinative</option>
+				<option>Compulsive</option>
+				<option>Divertive</option>
+				<option>Devotive</option>
+				<option>Preferential</option>
+				<option>Impressional</option>
+				<option>Promissory</option>
+			</select>
+			<span id="modalityGr">
+			</span>
+		</div>
+		<div title="mood">
+			Mood
+			<select onchange="main()" id="mood">
+				<option>Factual</option>
+				<option>Subjunctive</option>
+				<option>Assumptive</option>
+				<option>Speculative</option>
+				<option>Counterfactive</option>
+				<option>Hypothetical</option>
+				<option>Implicative</option>
+				<option>Ascriptive</option>
+			</select>
+			<span id="moodGr">
+			</span>
+		</div>
+		<div title="phase">
+			Phase
+			<select onchange="main()" id="phase">
+				<option>Contextual</option>
+				<option>Punctual</option>
+				<option>Iterative</option>
+				<option>Repetitive</option>
+				<option>Intermittent</option>
+				<option>Recurrent</option>
+				<option>Frequentative</option>
+				<option>Fragmentative</option>
+				<option>Fluctuative</option>
+			</select>
+			<span id="phaseGr">
+			</span>
+		</div>
+		<div title="sanction">
+			Sanction
+			<select onchange="main()" id="sanction">
+				<option>Propositional</option>
+				<option>Epistemic</option>
+				<option>Allegative</option>
+				<option>Imputative</option>
+				<option>Refutative</option>
+				<option>Rebuttative</option>
+				<option>Theoretical</option>
+				<option>Expatiative</option>
+				<option>Axiomatic</option>
+			</select>
+			<span id="sanctionGr">
+			</span>
+		</div>
+		<div title="valence">
+			Valence
+			<select onchange="main()" id="valence">
+				<option>Monoactive</option>
+				<option>Parallel</option>
+				<option>Corollary</option>
+				<option>Reciprocal</option>
+				<option>Complementary</option>
+				<option>Nonrelational</option>
+				<option>Duplicative</option>
+				<option>Demonstrative</option>
+				<option>Resistive</option>
+				<option>Imitative</option>
+				<option>Contingent</option>
+				<option>Participative</option>
+				<option>Indicative</option>
+				<option>Mutual</option>
+			</select>
+			<span id="valenceGr">
+			</span>
+		</div>
+		<div title="validation">
+			Validation
+			<select onchange="main()" id="validation">
+				<option>Confirmative</option>
+				<option>Affirmative</option>
+				<option>Reportive</option>
+				<option>Inferential</option>
+				<option>Intuitive</option>
+				<option>Presumptive</option>
+				<option>Presumptive2</option>
+				<option>Purportive</option>
+				<option>Purportive2</option>
+				<option>Conjectural</option>
+				<option>Dubitative</option>
+				<option>Tentative</option>
+				<option>Putative</option>
+				<option>Improbable</option>
+			</select>
+			<span id="validationGr">
+			</span>
+		</div>
+		<div title="version">
+			Version
+			<select onchange="main()" id="version">
+				<option>Processual</option>
+				<option>Completive</option>
+				<option>Ineffectual</option>
+				<option>Incompletive</option>
+				<option>Positive</option>
+				<option>Effective</option>
+			</select>
+			<span id="versionGr">
+			</span>
+		</div>
+	</div>
+	<div id="suffixes">*Suffixes
+		<span id="span5" onclick="toggleMenu(5)">
+			(hide/show)
+		</span>
+		<div>
+			Suffix 1
+			<select onchange="main()" id="suffix">
+				<option>-kt- Degree of Definiteness</option>
+				<option>-q'- Degree of Discretion</option>
+			</select>
+			Type
+			<select onchange="main()" id="suffixType">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+			Degree
+			<select onchange="main()" id="suffixDegree">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+			</select>
+			<br />
+			<button onclick="addSuffix()">
+				More suffixes
+			</button>
+		</div>
+	</div>
+	<div id="notes">
+		<p><b>Dev Notes</b></p>
+		<p>
+			<b>0.1 (28 jul '14) :</b>
+			If you read this, you're one of the first users of Ithkuil Help (thanks !). Please report all your remarks/notes/critics on the <a href="https://www.facebook.com/groups/ithkuil/601173499999224/?notif_t=group_activity">facebook page</a> ! You can contact me on facebook too ("Bastien E. A. Michaux").
+		</p>
+		<p><b>Why isn't it working ?</b></p>
+		<p>
+			Be online in order for the page to work. On stypi, the page may run slowly. Don't wanna wait ? Copy-paste the code ("ctrl + a") in your notepad and save the file as "something.html". Then open the page with your internet browser, Ithkuil Help will work perfectly !</p>
+		<p><b>Is the work done ?</b></p>
+		<p>
+			Not yet sadly -_- Basic morphology works, most cases too, incorporation is incorporated, the verbal morphology still needs some tweaks, and suffixes and adjuncts are for later. You probably noticed there are only a few roots, that's because I'm focusing on the grammar (I need approximately 20 minutes to encode a complete root + it's translation). Ithkuil is complicated, plus english isn't my mother tongue, I need thus time to decode/code/encode stuff. Here is the list of what Ithkuil Help will/should/could focus on :
+			<ul>
+				<li>Words 100% accurate !</li>
+				<li>Personal reference adjuncts !</li>
+				<li>More roots and suffixes ! (I need YOU !)</li>
+				<li>More word-building possibilities !</li>
+				<li>Figure out how to incorporate stress !</li>
+				<li>Better webdesign !</li>
+				<li>Dynamic grammar tips !</li>
+				<li>Rough english translation !</li>
+				<li>Comparison stuff !</li>
+				<li>Numbers !</li>
+				<li>Phonotactic rules !</li>
+				<li>Syntax stuff !</li>
+				<li>Responsive-design tweaks ! (so you can ithkuil on your mobile !)</li>
+				<li>All roots and suffixes ! (won't be done before 2015 IMHO)</li>
+				<li>Accurate english translation ! (won't be done before 2215 IMHO)</li>
+			</ul>
+		</p>
+		<p>
+			Christian Oudard also works on a more ambitious Ithkuil project (with the native script !), but I limit myself to simpler things for the time being. <a href="https://github.com/christian-oudard/ithkuil">Check it on github</a> !
+		</p>
+		<p><b>Can you help ?</b></p>
+		<p>
+			If you know html/css/javascript/jquery, obviously yes ! If you can use Excel or Word, you can help me greatly too, please contact me via facebook or bastienmichaux@gmail.com. I also need good english speakers to work on an automated and roughly accurate translation. If you want to translate Ithkuil in international french, I'm interested too !
+		</p>
+		<p><b>How much time have I spent on this ?</b></p>
+		<p>
+			Approximately 26 hours as of july 28. I began writing this on july 10 and spent a LOT of time encoding the affix tables. It was SO BORING (╬ ಠ益ಠ) that's why I don't want to work on bigger tables (translation, roots, suffixes) all alone. Also I play music and make other websites and love doing that. So, if you want a complete Ithkuil tool before the End-Times, let's share the work.
+		</p>
+	</div>
+</body>
+<script>
+$(document).ready(function(){});
+
+$("#root_formation").show();
+$("#basic_morphology").show();
+$("#formative_case").hide();
+$("#verbal_morphology").hide();
+$("#suffixes").hide();
+$("#notes").hide();
+
+$('#ir_div').hide();
+$("#aspect1_div").hide();
+function toggleMenu(a){
+switch (a){
+		case 1 :
+			$("#root_formation").show();
+			$("#basic_morphology").show();
+			$("#formative_case").hide();
+			$("#verbal_morphology").hide();
+			$("#suffixes").hide();
+			$("#notes").hide();
+		break;
+		case 2 :
+			$("#root_formation").hide();
+			$("#basic_morphology").show();
+			$("#formative_case").hide();
+			$("#verbal_morphology").hide();
+			$("#suffixes").hide();
+			$("#notes").hide();
+		break;
+		case 3 :
+			$("#root_formation").hide();
+			$("#basic_morphology").hide();
+			$("#formative_case").show();
+			$("#verbal_morphology").hide();
+			$("#suffixes").hide();
+			$("#notes").hide();
+		break;
+		case 4 :
+			$("#root_formation").hide();
+			$("#basic_morphology").hide();
+			$("#formative_case").hide();
+			$("#verbal_morphology").show();
+			$("#suffixes").hide();
+			$("#notes").hide();
+		break;
+		case 5 :
+			$("#root_formation").hide();
+			$("#basic_morphology").hide();
+			$("#formative_case").hide();
+			$("#verbal_morphology").hide();
+			$("#suffixes").show();
+			$("#notes").hide();
+		break;
+		case 7 :
+			$("#root_formation").hide();
+			$("#basic_morphology").hide();
+			$("#formative_case").hide();
+			$("#verbal_morphology").hide();
+			$("#suffixes").hide();
+			$("#notes").show();
+		break;
+	}
+}
+
+function toggleCase(a){
+	null;
+}
+
+function toggleImRoot(){
+	var b = document.getElementById("ir_cb").checked;
+	if (b === false){
+		$("#ir_div").hide();
+	}
+	else {
+		$("#ir_div").show();
+	}
+}
+
+function toggleAspect1(){
+	var b = document.getElementById("aspect1_cb").checked;
+	if (b === false){
+		$("#aspect1_div").hide();
+	}
+	else {
+		$("#aspect1_div").show();
+	}
+}
+</script><!--jquery / displays-->
+<script>
+
+var ir_cb = false; //checkbox
+
+//CATEGORIES
+
+var root = "";
+var pattern = "";
+var stem = "";
+
+var incorporation = false;
+var ir_root = "";
+var ir_pattern = "";
+var ir_stem = "";
+var ir_des = false;
+
+var format = "";
+
+var configuration = "";
+var affiliation = "";
+var perspective = "";
+var extension = "";
+var essence = false;
+var context = "";
+var designation = false;
+
+var f_case= ""; //96
+
+var f_function = "";
+var mood = "";
+var illocution = "";
+var framed = false;
+var phase = "";
+var sanction = "";
+var valence = "";
+var version = "";
+var validation = "";
+var aspect = "";
+//var aspect0 = "";
+var bias = "";
+var biasInt = false;
+
+var modality = ""; //31 modalities
+var level = ""; //9 levels + relative/absolute Bool
+var aspect1 = "";
+
+//suffixes ?
+
+//AFFIXES
+
+var ca = ""; //essence, extension, perspective, cfg, aff
+var cg = ""; //validation
+var civi = ""; //illocution+mood (ci+vi)
+var cr = ""; //root
+var cx = ""; //im root
+var tone = ""; //version
+var vc = ""; //case
+var vf = ""; //context + format
+var	vl = ""; //valence
+var vp = ""; //im pat + im stem + im designation
+var vr = ""; //pattern + stem + function
+//var stress = ""; //designation + relation
+
+var va_tone = ""; //verbal adjunct tone = extension
+var cl = ""; //verbal adjunct valence
+var ve = ""; //verbal adjunct level
+var	cv = ""; //phase + sanction (+ illocution) ==> verbal adjunct
+var vm = ""; //verbal adjunct modality
+var cs = ""; //aspect (+ mood) ==> verbal adjunct
+var vs = ""; //verbal adjunct 2nd aspect
+var cb = ""; //bias ==> verbal adjunct
+
+//var vxc = ""; //deriv suffix 1, 2, 3
+
+</script><!--variables-->
+<script>
+//TABLES
+
+var ca_table0 =	[["l",  "ll", "tļ", "ļ", "ļļ", "řļ", "sk", "šk", "kţ"],
+ 	["r", "rr", "lļ", "rl", "rļ", "řl", "st", "št", "kç"],
+ 	["m", "mm", "lm", "rm", "mļ", "řm", "sp", "šp", "pţ"],
+ 	["n", "nn", "ln", "rn", "nļ", "řn", "sq", "šq", "qţ"],
+
+ 	["t", "ļt", "lt", "rt", "nt", "řt", "ňt", "ňd", "çt"],
+ 	["k", "ļk", "lk", "rk", "ňk", "řk", "kt", "xt", "çk"],
+ 	["p", "ļp", "lp", "rp", "mp", "řp", "pt", "ft", "çp"],
+ 	["q", "ļq", "lq", "rq", "ňq", "řq", "qt", "xht", "çq"],
+
+ 	["ţ", "ţţ", "lţ", "rţ", "nţ", "řţ", "sţ", "šţ", "tf"],
+ 	["x", "xx", "lx", "rx", "ňx", "mx", "sx", "šx", "kf"],
+ 	["f", "ff", "lf", "rf", "mf", "řf", "sf", "šf", "pf"],
+ 	["xh", "xxh", "lxh", "rxh", "ňxh", "mxh", "sxh", "šxh", "qf"],
+
+ 	["c", "cc", "lc", "rc", "ns", "řc", "sc", "fk", "fq"],
+ 	["č", "čč", "lč", "rč", "nš", "řč", "šč", "ţk", "ţq"],
+ 	["ż", "żż", "lż", "rż", "nz", "řż", "ţf", "ţs", "ţc"],
+ 	["j", "jj", "lj", "rj", "nž", "řj", "fţ", "ţš", "ţč"]]; //nrm + del
+var ca_table1 =	[["s", "ss", "ls", "rs", "fs", "řs", "ňs", "ms", "mss"],
+ 	["š", "šš", "lš", "rš", "fš", "řš", "ňš", "mš", "mšš"],
+ 	["z", "zz", "lz", "rz", "vz", "řz", "ňz", "mz", "mzz"],
+ 	["ž", "žž", "lž", "rž", "vž", "řž", "ňž", "mž", "mžž"],
+
+ 	["d", "dv", "ld", "rd", "nd", "řd", "md", "zd", "žd"],
+ 	["g", "gv", "lg", "rg", "ňg", "řg", "ňkf", "zg", "žg"],
+ 	["b", "bv", "lb", "rb", "mb", "řb", "ntf", "zb", "žb"],
+ 	["ň", "ňň", "ňç", "rň", "ňv", "řň", "ňf", "řtf", "řkf"],
+
+ 	["dh", "ddh", "ldh", "rdh", "ndh", "řdh", "mdh", "ţx", "ţxh"],
+ 	["ç", "çç", "lç", "rç", "nç", "řç", "mç", "fx", "fxh"],
+ 	["v", "vv", "lv", "rv", "mv", "řv", "ndv", "xf", "xţ"],
+ 	["ř", "řř", "rbv", "rdv", "rgv", "řxh", "mţ", "xhf", "xhţ"],
+
+ 	["ck", "čk", "ps", "ks", "gd", "psk", "pšk", "ksk", "kšk"],
+ 	["ct", "čt", "pš", "kš", "bd", "pst", "pšt", "tx", "txh"],
+ 	["cp", "čp", "bz", "gz", "pç", "ksp", "kšp", "px", "pxh"],
+ 	["cq", "čq", "bž", "gž", "řqf", "kst", "kšt", "psq", "pšq"]]; //nrm + prx
+var ca_table2 =	[["mt", "mt’", "sk<sup>h</sup>", "sk’", "mth", "pst’", "pst<sup>h</sup>", "pšt’", "pšt<sup>h</sup>"],
+ 	["mk", "mk’", "st<sup>h</sup>", "st’", "mkh", "kst’", "kst<sup>h</sup>", "kšt’", "kšt<sup>h</sup>"],
+ 	["ňp", "ňp’", "sp<sup>h</sup>", "sp’", "ňp<sup>h</sup>", "psk’", "psk<sup>h</sup>", "pšk’", "pšk<sup>h</sup>"],
+ 	["mq", "mq’", "sq<sup>h</sup>", "sq’", "mq<sup>h</sup>", "ksp’", "ksp<sup>h</sup>", "kšp’", "kšp<sup>h</sup>"],
+
+ 	["pk", "pk’", "šk<sup>h</sup>", "šk’", "pk<sup>h</sup>", "fk’", "fk<sup>h</sup>", "psq’", "psq<sup>h</sup>"],
+ 	["tk", "tk’", "št<sup>h</sup>", "št’", "tk<sup>h</sup>", "ţk’", "ţk<sup>h</sup>", "ksk’", "ksk<sup>h</sup>"],
+ 	["tp", "tp’", "šp<sup>h</sup>", "šp’", "tp<sup>h</sup>", "ţp’", "ţp<sup>h</sup>", "pšq’", "pšq<sup>h</sup>"],
+ 	["kp", "kp’", "šq<sup>h</sup>", "šq’", "kp<sup>h</sup>", "xp’", "xp<sup>h</sup>", "kšk’", "kšk<sup>h</sup>"],
+
+ 	["pq", "pq’", "fg", "bg", "pq<sup>h</sup>", "vg", "fp", "fq’", "fq<sup>h</sup>"],
+ 	["tq", "tq’", "ţg", "dg", "tq<sup>h</sup>", "dhg", "vd", "ţq’", "ţq<sup>h</sup>"],
+ 	["qp", "qp’", "xhp", "xp", "sc<sup>h</sup>", "sc’", "ňqf", "gb", "kkç"],
+ 	["pļ", "tç", "xhp’", "ţp", "šč<sup>h</sup>", "šč’", "vb", "dhz", "ppç"],
+
+ 	["fst", "fc’", "fc", "lfs", "xc’", "ţc’", "ltf", "fst’", "fst<sup>h</sup>"],
+ 	["fšt", "fč’", "fč", "lfš", "xč’", "ţč’", "lkf", "fšt’", "fšt<sup>h</sup>"],
+ 	["fsk", "fc<sup>h</sup>", "rfs", "fsq", "xc<sup>h</sup>", "ţc<sup>h</sup>", "xhp<sup>h</sup>", "fsk’", "fsk<sup>h</sup>"],
+ 	["fšk", "fč<sup>h</sup>", "rfš", "fšq", "xč<sup>h</sup>", "ţč<sup>h</sup>", "qp<sup>h</sup>", "fšk’", "fšk<sup>h</sup>"]]; //nrm + icp
+var ca_table3 =	[["t’", "ļt’", "lt’", "rt’", "nt’", "řt’", "ţsk’", "kt’", "ňt’"],
+ 	["k’", "ļk’", "lk’", "rk’", "ňk’", "řk’", "ţšk’", "ft’", "xt’"],
+ 	["p’", "ļp’", "lp’", "rp’", "mp’", "řp’", "fsq’", "pt’", "fp’"],
+ 	["q’", "ļq’", "lq’", "rq’", "ňq’", "řq’", "fšq’", "xht’", "qt’"],
+
+ 	["t<sup>h</sup>", "ļt<sup>h</sup>", "lt<sup>h</sup>", "rt<sup>h</sup>", "nt<sup>h</sup>", "řt<sup>h</sup>", "ţsk<sup>h</sup>", "kt<sup>h</sup>", "ňt<sup>h</sup>"],
+ 	["k<sup>h</sup>", "ļk<sup>h</sup>", "lk<sup>h</sup>", "rk<sup>h</sup>", "ňk<sup>h</sup>", "řk<sup>h</sup>", "ţšk<sup>h</sup>", "ft<sup>h</sup>", "xt<sup>h</sup>"],
+ 	["p<sup>h</sup>", "ļp<sup>h</sup>", "lp<sup>h</sup>", "rp<sup>h</sup>", "mp<sup>h</sup>", "řp<sup>h</sup>", "fsq<sup>h</sup>", "pt<sup>h</sup>", "fp<sup>h</sup>"],
+ 	["q<sup>h</sup>", "ļq<sup>h</sup>", "lq<sup>h</sup>", "rq<sup>h</sup>", "ňq<sup>h</sup>", "řq<sup>h</sup>", "fšq<sup>h</sup>", "x<sup>h</sup>t<sup>h</sup>", "qt<sup>h</sup>"],
+
+ 	["c’", "cc’", "lc’", "rc’", "nc’", "řc’", "mc’", "ňc’", "çt’"],
+ 	["č’", "čč’", "lč’", "rč’", "nč’", "řč’", "mč’", "ňč’", "çk’"],
+ 	["c<sup>h</sup>", "cc<sup>h</sup>", "lc<sup>h</sup>", "rc<sup>h</sup>", "nc<sup>h</sup>", "řc<sup>h</sup>", "mc<sup>h</sup>", "ňc<sup>h</sup>", "çp’"],
+ 	["č<sup>h</sup>", "čč<sup>h</sup>", "lč<sup>h</sup>", "rč<sup>h</sup>", "nč<sup>h</sup>", "čř<sup>h</sup>", "mč<sup>h</sup>", "ňč<sup>h</sup>", "çq’"],
+
+ 	["pps/pss", "rps", "lps", "rbz", "lbz", "řps", "řbz", "ňss", "çt<sup>h</sup>"],
+ 	["ppš/pšš", "rpš", "lpš", "rbž", "lbž", "řpš", "řbž", "ňšš", "çk<sup>h</sup>"],
+ 	["kks/kss", "rks", "lks", "rgz", "lgz", "řks", "řgz", "ňzz", "çp<sup>h</sup>"],
+ 	["kkš/kšš", "rkš", "lkš", "rgž", "lgž", "řkš", "řgž", "ňžž", "çq<sup>h</sup>"]]; //nrm + trm
+var ca_table4 =	[["kc", "lkç", "lsk", "rsk", "nsk", "řsk", "msk", "ňsk", "ssk"],
+ 	["żd", "lţs", "lst", "rst", "nst", "řst", "mst", "ňst", "sst"],
+ 	["pc", "bbz/bzz", "lsp", "rsp", "nsp", "řsp", "msp", "ňsp", "ssp"],
+ 	["qc", "ggz/gzz", "lsq", "rsq", "nsq", "řsq", "msq", "ňsq", "ssq"],
+
+ 	["kč", "rçç", "lšk", "ršk", "nšk", "řšk", "mšk", "ňšk", "ššk"],
+ 	["jd", "lţš", "lšt", "ršt", "nšt", "řšt", "mšt", "ňšt", "ššt"],
+ 	["pč", "bbž/bžž", "lšp", "ršp", "nšp", "řšp", "mšp", "ňšp", "ššp"],
+ 	["qč", "ggž/gžž", "lšq", "ršq", "nšq", "řšq", "mšq", "ňšq", "ššq"],
+
+ 	["bdh", "xpf", "lvz", "rvz", "rbdh", "řpţ", "lpf", "rpf", "bzd"],
+ 	["gdh", "ňdh", "lvž", "rvž", "rgdh", "řkţ", "lpç", "rpç", "bžd"],
+ 	["ţt", "dhd", "ldhz", "rţs", "rqţ", "řqţ", "ňkç", "řpf", "gzd"],
+ 	["db", "ttç/tçç", "ldhž", "rţš", "rkç", "řkç", "mpç", "řpç", "gžd"],
+
+ 	["bż", "rpss", "lzb", "rzb", "nzb", "řzb", "mzb", "řpss", "gzb"],
+ 	["gż", "rkss", "lžb", "ržb", "nžb", "řžb", "mžb", "řkss", "gžb"],
+ 	["bj", "rpšš", "lzg", "rzg", "nzg", "řzg", "mzg", "řpšš", "bzg"],
+ 	["gj", "rkšš", "lžg", "ržg", "nžg", "řžg", "mžg", "řkšš", "bžg"]]; //nrm + dpl
+var ca_table5 =	[["kc’", "ck’", "lsk’", "rsk’", "nsk’", "řsk’", "msk’", "ňsk’", "ssk’"],
+ 	["żb", "ct’", "lst’", "rst’", "nst’", "řst’", "mst’", "ňst’", "sst’"],
+ 	["pc’", "cp’", "lsp’", "rsp’", "nsp’", "řsp’", "msp’", "ňsp’", "ssp’"],
+ 	["qc’", "cq’", "lsq’", "rsq’", "nsq’", "řsq’", "msq’", "ňsq’", "ssq’"],
+
+ 	["kč’", "čk’", "lšk’", "ršk’", "nšk’", "řšk’", "mšk’", "ňšk’", "ššk’"],
+ 	["jb", "čt’", "lšt’", "ršt’", "nšt’", "řšt’", "mšt’", "ňšt’", "ššt’"],
+ 	["pč’", "čp’", "lšp’", "ršp’", "nšp’", "řšp’", "mšp’", "ňšp’", "ššp’"],
+ 	["qč’", "čq’", "lšq’", "ršq’", "nšq’", "řšq’", "mšq’", "ňšq’", "ššq’"],
+
+ 	["kc<sup>h</sup>", "ck<sup>h</sup>", "lsk<sup>h</sup>", "rsk<sup>h</sup>", "nsk<sup>h</sup>", "řsk<sup>h</sup>", "msk<sup>h</sup>", "ňsk<sup>h</sup>", "ssk<sup>h</sup>"],
+ 	["żg", "ct<sup>h</sup>", "lst<sup>h</sup>", "rst<sup>h</sup>", "nst<sup>h</sup>", "řst<sup>h</sup>", "mst<sup>h</sup>", "ňst<sup>h</sup>", "sst<sup>h</sup>"],
+ 	["pc<sup>h</sup>", "cp<sup>h</sup>", "lsp<sup>h</sup>", "rsp<sup>h</sup>", "nsp<sup>h</sup>", "řsp<sup>h</sup>", "msp<sup>h</sup>", "ňsp<sup>h</sup>", "ssp<sup>h</sup>"],
+ 	["qc<sup>h</sup>", "cq<sup>h</sup>", "lsq<sup>h</sup>", "rsq<sup>h</sup>", "nsq<sup>h</sup>", "řsq<sup>h</sup>", "msq<sup>h</sup>", "ňsq<sup>h</sup>", "ssq<sup>h</sup>"],
+
+ 	["kč<sup>h</sup>", "čk<sup>h</sup>", "lšk<sup>h</sup>", "ršk<sup>h</sup>", "nšk<sup>h</sup>", "řšk<sup>h</sup>", "mšk<sup>h</sup>", "ňšk<sup>h</sup>", "ššk<sup>h</sup>"],
+ 	["jg", "čt<sup>h</sup>", "lšt<sup>h</sup>", "ršt<sup>h</sup>", "nšt<sup>h</sup>", "řšt<sup>h</sup>", "mšt<sup>h</sup>", "ňšt<sup>h</sup>", "ššt<sup>h</sup>"],
+ 	["pč<sup>h</sup>", "čp<sup>h</sup>", "lšp<sup>h</sup>", "ršp<sup>h</sup>", "nšp<sup>h</sup>", "řšp<sup>h</sup>", "mšp<sup>h</sup>", "ňšp<sup>h</sup>", "ššp<sup>h</sup>"],
+ 	["qč<sup>h</sup>", "čq<sup>h</sup>", "lšq<sup>h</sup>", "ršq<sup>h</sup>", "nšq<sup>h</sup>", "řšq<sup>h</sup>", "mšq<sup>h</sup>", "ňšq<sup>h</sup>", "ššq<sup>h</sup>"]]; //nrm + gra
+var ca_table6 =	[["tt", "tt’", "tt<sup>h</sup>", "lpt’", "rpt’", "řpt’", "lpt<sup>h</sup>", "rpt<sup>h</sup>", "řpt<sup>h</sup>"],
+ 	["kk", "kk’", "kk<sup>h</sup>", "lkt’", "rkt’", "řkt’", "lkt<sup>h</sup>", "rkt<sup>h</sup>", "řkt<sup>h</sup>"],
+ 	["pp", "pp’", "pp<sup>h</sup>", "lpk’", "rpk’", "řpk’", "lpk<sup>h</sup>", "rpk<sup>h</sup>", "řpk<sup>h</sup>"],
+ 	["qq", "qq’", "qq<sup>h</sup>", "ltk’", "rtk’", "řtk’", "ltk<sup>h</sup>", "rtk<sup>h</sup>", "řtk<sup>h</sup>"],
+
+ 	["dd", "nçw", "pçw", "lft’", "rft’", "řft’", "lft<sup>h</sup>", "rft<sup>h</sup>", "řft<sup>h</sup>"],
+ 	["gg", "ňçw", "kfw", "lxt’", "rxt’", "řxt’", "lxt<sup>h</sup>", "rxt<sup>h</sup>", "řxt<sup>h</sup>"],
+ 	["bb", "mçw", "pfw", "lfk’", "rfk’", "řfk’", "lfk<sup>h</sup>", "rfk<sup>h</sup>", "řfk<sup>h</sup>"],
+ 	["cf", "čf", "qfw", "lţk’", "rţk’", "řţk’", "lţk<sup>h</sup>", "rţk<sup>h</sup>", "řţk<sup>h</sup>"],
+
+ 	["ţw", "dhw", "lţw", "rţw", "mţw", "řţw", "nţw", "ldhw", "rdhw"],
+ 	["xw", "ňw", "lxw", "rxw", "mxw", "řxw", "ňxw", "lňw", "rňw"],
+ 	["fw", "vw", "lfw", "rfw", "ňfw", "řfw", "mfw", "lvw", "rvw"],
+ 	["xhw", "çw", "lxhw", "rxhw", "mxhw", "tçw", "ňxhw", "lçw", "rçw"],
+
+ 	["sw", "cw", "lsw", "rsw", "msw", "řsw", "nsw", "ňsw", "ssw"],
+ 	["šw", "čw", "lšw", "ršw", "mšw", "řšw", "nšw", "ňšw", "ššw"],
+ 	["zw", "żw", "lzw", "rzw", "mzw", "řzw", "nzw", "ňzw", "zzw"],
+ 	["žw", "jw", "lžw", "ržw", "mžw", "řžw", "nžw", "ňžw", "žžw"]]; //rpv + del
+var ca_table7 =	[["tw", "ttw", "t<sup>h</sup>w", "t’w", "tt’w", "tt<sup>h</sup>w", "ltw", "rtw", "ntw"],
+ 	["kw", "kkw", "k<sup>h</sup>w", "k’w", "kk’w", "kk<sup>h</sup>w", "lkw", "rkw", "ňkw"],
+ 	["pw", "ppw", "p<sup>h</sup>w", "p’w", "pp’w", "pp<sup>h</sup>w", "lpw", "rpw", "mpw"],
+ 	["qw", "qqw", "q<sup>h</sup>w", "q’w", "qq’w", "qq<sup>h</sup>w", "lqw", "rqw", "ňqw"],
+
+ 	["ty", "tty", "lty", "ţy", "nty", "řty", "rty", "pty", "tky"],
+ 	["ky", "kky", "lky", "ży", "ňky", "řky", "rky", "kty", "kpy"],
+ 	["py", "ppy", "lpy", "fy", "npy", "řpy", "rpy", "tpy", "pky"],
+ 	["my", "fty", "ptw", "mw", "ftw", "ptr", "ftr", "pkw", "fkw"],
+
+ 	["dw", "ddw", "ldw", "tv", "ndw", "řdw", "bdw", "dgw", "rdw"],
+ 	["gw", "ggw", "lgw", "kv", "ňgw", "řgw", "gdw", "gbw", "rgw"],
+ 	["bw", "bbw", "lbw", "pv", "mbw", "řbw", "dbw", "bgw", "rbw"],
+ 	["lw", "ly", "ry", "rw", "ļw", "řy", "tļw", "řw", "lř"],
+
+ 	["dy", "ddy", "ldy", "dhy", "ndy", "řdy", "rdy", "bdy", "dgy"],
+ 	["gy", "ggy", "lgy", "jy", "ňgy", "řgy", "rgy", "gdy", "gby"],
+ 	["by", "bby", "lby", "vy", "mby","řby", "rby", "dby" , "bgy"],
+ 	["ny", "xty", "ktw", "nw", "xtw", "ktr", "xtr", "tkw", "ţkw"]]; //rpv + prx
+var ca_table8 =	[["tl", "ttl", "ltl", "rtl", "ntl", "řtl", "mtl", "ļtl", "kçw"],
+ 	["kl", "kkl", "lkl", "rkl", "ňkl", "řkl", "mkl", "ļkl", "c’w"],
+ 	["pl","ppl","lpl","rpl","mpl","řpl","ňpl","ļpl","tfw"],
+ 	["ql","qql","lql","rql","ňql","řql","mql","ļql","č’w"],
+
+ 	["dl","ddl","ldl","rdl","ndl","řdl","bdl","dgl","vbl"],
+ 	["gl","ggl","lgl","rgl","ňgl","řgl","gdl","gbl","vgl"],
+ 	["bl","bbl","lbl","rbl","mbl","řbl","dbl","bgl","vdl"],
+ 	["ml","mř","ňl","nl","ţř","fř","př","tř","lr"],
+
+ 	["skl","ckl","ckw","skw","sskw","çkw","sk’w","ck’w","sskl"],
+ 	["stl","ctl","ctw","stw","sstw","çtw","st’w","ct’w","sstl"],
+ 	["spl","cpl","cpw","spw","sspw","çpw","sp’w","cp’w","sspl"],
+ 	["sql","cql","cqw","sqw","ssqw","çqw","sq’w","cq’w","ssql"],
+
+ 	["škl","čkl","čkw","škw","šškw","xxw","šk’w","čk’w","šškl"],
+ 	["štl","čtl","čtw","štw","šštw","ţţw","št’w","čt’w","šštl"],
+ 	["špl","čpl","čpw","špw","ššpw","ffw","šp’w","čp’w","ššpl"],
+ 	["šql","čql","čqw","šqw","ššqw","xxhw","šq’w","čq’w","ššql"]]; //rpv + icp
+var ca_table9 =	[["tr","ttr","ltr","rtr","ntr","řtr","mtr","ļtr","rtn"],
+ 	["kr","kkr","lkr","rkr","ňkr","řkr","mkr","ļkr","rkn"],
+ 	["pr","ppr","lpr","rpr","mpr","řpr","ňpr","ļpr","rpn"],
+ 	["qr","qqr","lqr","rqr","ňqr","řqr","mqr","ļqr","rqn"],
+
+ 	["dr","ddr","ldr","rdr","ndr","řdr","bdr","dgr","vbr"],
+ 	["gr","ggr","lgr","rgr","ňgr","řgr","gdr","gbr","vgr"],
+ 	["br","bbr","lbr","rbr","mbr","řbr","dbr","bgr","vdr"],
+ 	["mr","nř","ňr","nr","dhř","vř","bř","dř","gř"],
+
+ 	["skr","ckr","cky","sky","ssky","č<sup>h</sup>w","sk<sup>h</sup>w","ck<sup>h</sup>w","sskr"],
+ 	["str","ctr","cty","sty","ssty","c<sup>h</sup>y","st<sup>h</sup>w","ct<sup>h</sup>w","sstr"],
+ 	["spr","cpr","cpy","spy","sspy","c<sup>h</sup>w","sp<sup>h</sup>w","cp<sup>h</sup>w","sspr"],
+ 	["sqr","cqr","c’y","cy","çr","č<sup>h</sup>y","sq<sup>h</sup>w","cq<sup>h</sup>w","ssqr"],
+
+ 	["škr","čkr","čky","šky","ššky","ļkw","šk<sup>h</sup>w","čk<sup>h</sup>w","šškr"],
+ 	["štr","čtr","čty","šty","ššty","ļtw","št<sup>h</sup>w","čt<sup>h</sup>w","šštr"],
+ 	["špr","čpr","čpy","špy","ššpy","ļpw","šp<sup>h</sup>w","čp<sup>h</sup>w","ššpr"],
+ 	["šqr","čqr","č’y","čy","çř","ļqw","šq<sup>h</sup>w","čq<sup>h</sup>w","ššqr"]]; //rpv + trm
+var ca_table10 = [["sl","ssl","lsl","rsl","msl","řsl","nsl","ňsl","ţst"],
+ 	["šl","ššl","lšl","ršl","mšl","řšl","nšl","ňšl","ţšt"],
+ 	["zl","zzl","lzl","rzl","mzl","řzl","nzl","ňzl","ţsp"],
+ 	["žl","žžl","lžl","ržl","mžl","řžl","nžl","ňžl","ţšp"],
+
+ 	["fl","ffl","lfl","rfl","mfl","řfl","fxl","ňfl","pxl"],
+ 	["ţl","ţţl","lţl","rţl","nţl","řţl","ţxl","mţl","txl"],
+ 	["xl","xxl","lxl","rxl","ňxl","řxl","xfl","mxl","xţl"],
+ 	["xhl","xxhl","lxhl","rxhl","ňxhl","qtl","xhfl","mxhl","xhţl"],
+
+ 	["vl","vvl","lvl","rvl","mvl","řvl","lpţ","lkţ","mpļ"],
+ 	["dhl","ddhl","ldhl","rdhl","ndhl","řdhl","cl","čl","ntļ"],
+ 	["sv","sř","ksw","sxw","lsř","rsř","fsw","řsř","bzw"],
+ 	["zv","zř","psw","sxhw","lzř","rzř","sfw","řzř","gzw",]
+
+ 	["sm","sy","cm","zm","żm","çm","bm","dm","gm"],
+ 	["šm","šy","čm","žm","jm","ļm","vm","dhm","kř"],
+ 	["sn", "zy", "cn", "zn", "żn","çn","bn","dn","gn"],
+ 	["šn", "žy", "čn", "žn", "jn", "ļn", "vn", "dhn", "ňř"]]; //rpv + dpl
+var ca_table11 = [["sr", "ssr", "lsr", "rsr", "msr", "řsr", "nsr", "ňsr", "ţsk"],
+ 	["šr", "ššr", "lšr", "ršr", "mšr", "řšr", "nšr", "ňšr", "ţšk"],
+ 	["zr", "zzr", "lzr", "rzr", "mzr", "řzr", "nzr", "ňzr", "ţsq"],
+ 	["žr", "žžr", "lžr", "ržr", "mžr", "řžr", "nžr", "ňžr", "ţšq"],
+
+ 	["fr", "ffr", "lfr", "rfr", "mfr", "řfr", "fxr", "ňfr", "pxr"],
+ 	["ţr", "ţţr", "lţr", "rţr", "nţr", "řţr", "ţxr", "mţr", "txr"],
+ 	["xr", "xxr", "lxr", "rxr", "ňxr", "řxr", "xfr", "mxr", "xţr"],
+ 	["xhr", "xxhr", "lxhr", "rxhr", "ňxhr", "qtr", "xhfr", "mxhr", "xhţr"],
+
+ 	["vr", "vvr", "lvr", "rvr", "mvr", "řvr", "rpţ", "rkţ", "mpř"],
+ 	["dhr", "ddhr", "ldhr", "rdhr", "ndhr", "řdhr", "cr", "čr", "ntř"],
+ 	["šv", "šř", "kšw", "šxw", "lšř", "ršř", "fšw", "řšř", "bžw"],
+ 	["žv", "žř", "pšw", "šxhw", "lžř", "ržř", "šfw", "řžř", "gžw"],
+
+ 	["tm", "ţm", "ţn", "tn", "rsm", "rsn", "sň", "rsň", "nm"],
+ 	["km", "xm", "xn", "kn", "rzm", "rzn", "zň", "rzň", "ňm"],
+ 	["pm", "fm", "fn", "pn", "ršm", "ršn", "šň", "ršň", "mn"],
+ 	["qm", "xhm", "xhn", "qn", "ržm", "ržn", "žň", "ržň", "ňn"]]; //rpv + gra
+var cb_table = [["n", "m", "ň", "ţ", "ç", "s", "z", "š", "l", "r", "ř", "ļ", "kç", "pļ", "pç", "x", "xh", "ks", "f", "kš", "kf", "pš", "ps", "pf"],
+["nn", "mm", "ňň", "ţţ", "çç", "ss", "zz", "šš", "ll", "rr", "řř", "ļļ", "kçç", "pļļ", "pçç", "xx", "xxh", "kss", "ff", "kšš", "kff", "pšš", "pss", "pff"]]; //bias
+var cg_table = ["h", "y", "w", "hw", "hh", "hm", "hn", "hr", "lw", "ly", "rw", "ry", "řw", "řy"];
+var civi_table = [["wë", "wa", "yë", "ya", "yû", "hë", "ha", "hû"],
+["we", "wö", "ye", "yö", "yeu", "he", "hö", "hei"],
+["wu", "wâ", "yu", "yâ", "yau", "hu", "hâ", "hai"],
+["wo", "wê", "yo", "yê", "you", "ho", "hê", "hoi"],
+["wi", "wô", "yi", "yô", "yiu", "hi", "hô", "hui"],
+["wî", "wî", "wî", "wî", "wî", "wî", "wî", "wî"]]; //illocution + mood
+//var vi_table = ??
+var cl_table = ["", "h", "y", "w", "hw", "hm", "hn", "hr", "lw", "ly", "rw", "ry", "řw", "řy"]; //va valence
+var cr_table = ["bg", "bj", "kl", "kš", "q"]; //root
+var cs_table = [["n-n", "m-m", "l-l", "r-r", "ň-ň", "r-n", "l-ň", "r-ň"],
+["n-nr", "n-nt", "n-nt’", "n-nd", "n-nth", "n-nţ", "n-ndh", "n-nh"],
+["m-mr", "m-mp", "m-mp’", "m-mb", "m-mph", "m-mf", "m-mv", "m-mh"],
+["l-lr", "l-lt", "l-lt’", "l-ld", "l-lth", "l-lţ", "l-ldh", "l-lh"],
+["r-rn", "r-rt", "r-rt’", "r-rd", "r-rth", "r-rţ", "r-rdh", "r-rh"],
+["ň-ňr", "ň-ňk", "ň-ňk’", "ň-ňg", "ň-ňkh", "ň-ňx", "ň-ňq", "ň-ňh"],
+["n-nw", "n-ntw", "n-nt’w", "n-ndw", "n-nthw", "n-nţw", "n-ndhw", "n-nhw"],
+["m-mw", "m-mpw", "m-mp’w", "m-mbw", "m-mphw", "m-mfw", "m-mvw", "m-mhw"],
+["l-lw", "l-ltw", "l-lt’w", "l-ldw", "l-lthw", "l-lţw", "l-ldhw", "l-lhw"],
+["r-rw", "r-rtw", "r-rt’w", "r-rdw", "r-rthw", "r-rţw", "r-rdhw", "r-rhw"],
+["ň-ňw", "ň-ňkw", "ň-ňk’w", "ň-ňgw", "ň-ňkhw", "ň-ňxw", "ň-ňqw", "ň-ňhw"],
+["n-ny", "n-nty", "n-nt’y", "n-ndy", "n-nthy", "n-nţy", "n-ndhy", "n-nç"],
+["m-my", "m-mpy", "m-mp’y", "m-mby", "m-mphy", "m-mfy", "m-mvy", "m-mç"],
+["l-ly", "l-lty", "l-lt’y", "l-ldy", "l-lthy", "l-lţy", "l-ldhy", "l-lç"],
+["r-ry", "r-rty", "r-rt’y", "r-rdy", "r-rthy", "r-rţy", "r-rdhy", "r-rç"],
+["n-ns", "n-nz", "n-nsw", "n-nzw", "n-nc’", "n-nch", "n-nc’w", "n-nchw"],
+["m-ms", "m-mz", "m-msw", "m-mzw", "m-mc’", "m-mch", "m-mc’w", "m-mchw"],
+["ň-ňs", "ň-ňz", "ň-ňsw", "ň-ňzw", "ň-ňc’", "ň-ňch", "ň-ňc’w", "ň-ňchw"],
+["l-ls", "l-lz", "l-lsw", "l-lzw", "l-lc’", "l-lch", "l-lc’w", "l-lchw"],
+["r-rs", "r-rz", "r-rsw", "r-rzw", "r-rc’", "r-rch", "r-rc’w", "r-rchw"],
+["n-nš", "n-nž", "n-nšw", "n-nžw", "n-nč’", "n-nčh", "n-nč’w", "n-nčhw"],
+["m-mš", "m-mž", "m-mšw", "m-mžw", "m-mč’", "m-mčh", "m-mč’w", "m-mčhw"],
+["ň-ňš", "ň-ňž", "ň-ňšw", "ň-ňžw", "ň-ňč’", "ň-ňčh", "ň-ňč’w", "ň-ňčhw"],
+["l-lš", "l-lž", "l-lšw", "l-lžw", "l-lč’", "l-lčh", "l-lč’w", "l-lčhw"],
+["r-rš", "r-rž", "r-ršw", "r-ržw", "r-rč’", "r-rčh", "r-rč’w", "r-rčhw"],
+["n-nļ", "m-mļ", "ň-ňļ", "n-ntļ", "m-mtļ", "ň-ňtļ", "l-ltļ", "r-rtļ"],
+["l-lm", "l-lļ", "n-nl", "ň-ňm", "m-mř", "m-mt", "ň-ňt", "ň-ňn"],
+["r-rm", "r-rl", "m-ml", "m-mn", "r-mř", "m-mt’", "ň-ňt’", "ň-ňç"],
+["l-ln", "l-nļ", "l-lř", "n-nm", "ň-ňř", "m-mth", "ň-ňth", "ň-ňţ"],
+["l-nw", "l-ny", "l-lg", "l-lgw", "l-lx", "l-lxw", "l-lv", "l-lcw"],
+["r-nw", "r-my", "r-rg", "r-rgw", "r-rx", "r-rxw", "r-rv", "r-rcw"],
+["l-mw", "l-my", "l-lb", "l-lbw", "l-lf", "l-lfw", "l-ňw", "l-lčw"],
+["r-mw", "r-ny", "r-rb", "r-rbw", "r-rf", "r-rfw", "r-ňw", "r-rčw"]]; //aspect (+ mood) TO DO : <SUP></SUP>
+var cv_table0 = [["t", "t’", "t<sup>h</sup>", "l", "tr", "tl", "tř", "tw", "ty"],
+["k", "k’", "k<sup>h</sup>", "x", "kr", "kl", "kř", "kw", "ky"],
+["p", "p’", "p<sup>h</sup>", "vv", "pr", "pl", "př", "pw", "py"],
+["q", "q’", "q<sup>h</sup>", "ř", "qr", "ql", "xr", "qw", "xl"],
+["b", "v", "vr", "vl", "br", "bl", "bř", "bw", "by"],
+["d", "dh", "ż", "żż", "dr", "dl", "dř", "dw", "dy"],
+["g", "xh", "j", "jj", "gr", "gl", "gř", "gw", "gy"],
+["m", "mm", "r", "rr", "mr", "ml", "mř", "mw", "my"],
+["n", "nn", "ddh", "ll", "nr", "nl", "nř", "nw", "ny"]]; //Assertive illocution
+var cv_table1 = [["s", "ss", "sm", "sn", "sr", "sl", "sř", "sw", "sy"],
+["š", "šš", "šm", "šn", "šr", "šl", "šř", "šw", "šy"],
+["ç", "çç", "çm", "çn", "çl", "çr", "çř", "çw", "ly"],
+["c", "cc", "cm", "cn", "cr", "cl", "cř", "cw", "cy"],
+["č", "čč", "čm", "čn", "čr", "čl", "čř", "čw", "čy"],
+["z", "zz", "zm", "zn", "zr", "zl", "zř", "zw", "zy"],
+["ž", "žž", "žm", "žn", "žr", "žl", "žř", "žw", "žy"],
+["f", "ff", "fw", "fy", "fr", "fl", "fř", "vw", "vy"],
+["ţ", "ţţ", "ţw", "ţy", "ţr", "ţl", "ţř", "dhw", "dhy"]]; //Interrogative illocution
+var cv_table2 = [["sk","sk’","skh","zg","skr","skl","skř","skw","sky"],
+["st","st’","sth","zd","str","stl","stř","stw","sty"],
+["sp","sp’","sph","zb","spr","spl","spř","spw","spy"],
+["sq","sq’","sqh","xx","sqr","sql","xw","sqw","řř"],
+["šk","šk’","škh","žg","škr","škl","škř","škw","šky"],
+["št","št’","šth","žd","štr","štl","štř","štw","šty"],
+["šp","šp’","šph","žb","špr","špl","špř","špw","špy"],
+["šq","šq’","šqh","xxh","šqr","šql","xhw","šqw","řw"],
+["ň","ňň","rw","ry","ňr","ňl","ňř","ňw","řy"]]; //Directive illocution
+var cv_table3 = [["ks","kss","ksm","ksn","ksr","ksl","ksř","ksw","ksy"],
+["kš","kšš","kšm","kšn","kšr","kšl","kšř","kšw","kšy"],
+["ps","pss","psm","psn","psr","psl","psř","psw","psy"],
+["pš","pšš","pšm","pšn","pšr","pšl","pšř","pšw","pšy"],
+["gz","gzz","gzm","gzn","gzr","gzl","gzř","gzw","gzy"],
+["gž","gžž","gžm","gžn","gžr","gžl","gžř","gžw","gžy"],
+["bz","bzz","bzm","bzn","bzr","bzl","bzř","bzw","bzy"],
+["bž","bžž","bžm","bžn","bžr","bžl","bžř","bžw","bžy"],
+["sx","sxh","šx","šxh","zgr","zgl","zgř","zgw","zgy"]]; //Admonitive illocution
+var cv_table4 = [["çt","çt’","çth","sţ","çtr","çtl","çtř","çtw","çty"],
+["çk","çk’","çkh","šţ","çkr","çkl","çkř","çkw","çky"],
+["çp","çp’","çph","sf","çpr","çpl","çpř","çpw","çpy"],
+["çq","çq’","çqh","šf","çqr","çql","çqř","çqw","çč"],
+["kt","kt’","kth","gd","ktr","ktl","ktř","ktw","kty"],
+["pt","pt’","pth","bd","ptr","ptl","ptř","ptw","pty"],
+["qt","qt’","qth","tk","qtr","qtl","qtř","qtw","qty"],
+["sc","sc’","sch","db","żr","żl","żř","żw","ży"],
+["šč","šč’","ščh","dg","jr","jl","jř","jw","jy"]]; //hortative illocution
+var cv_table5 = [["ct","ct’","cth","tm","ctr","ctl","ctř","ctw","cty"],
+["ck","ck’","ckh","km","ckr","ckl","ckř","ckw","cky"],
+["cp","cp’","cph","pm","cpr","cpl","cpř","cpw","cpy"],
+["cq","cq’","cqh","qm","cqr","cql","gm","cqw","xm"],
+["čt","čt’","čth","tn","čtr","čtl","čtř","čtw","čty"],
+["čk","čk’","čkh","kn","čkr","čkl","čkř","čkw","čky"],
+["čp","čp’","čph","pn","čpr","čpl","čpř","čpw","čpy"],
+["čq","čq’","čqh","qn","čqr","čql","gn","čqw","xn"],
+["xt","xt’","xth","pk","xtr","xtl","xtř","xtw","xty"]]; //declarative illocution
+var cx_table = ["cx"]; //im root
+var tone_table = ["", "<sup>–<\/sup>", "<sup>\/<\/sup>", "_", "^", "ˇ"]; //version (+ extension in verbal adjunct tone)
+var vc_table = ["a", "u", "e", "o", "ö", "i", "ü", "ai", "ei", "ui", "oi", //transrelative
+"â", "î", "ê", "ô", "ëi", "öi", "ae", //possessive
+"ia", "ie", "io", "iö", "a'", "u'", "e'", "o'", "ea", "eo", "eö", "oa", "oe", "öa", "öe", "üa", "üe", "üo", "au", "eu", "iu", "ou", "ëu", "öu", "ai'", "ui'", "ei'", "oi'", "au'", "iu'", "eu'", "ou'", //associative
+"a'a", "e'a", "i'a", "o'a", "u'a", "ö'a", "ü'a", "ai'a", "ei'a", "ui'a", "oi'a", "ëi'a", "au'a", "eu'a", "iu'a", //temporal
+"â'a", "ê'a", "ô'a", "î'a", "ëu'a", "ou'a", //spatial
+"ë", //vocative
+"aì", "eì", "oì", "uì", "aù", "eù", "où", "iù", "ao", "aü", "eü", "oü", "ëì", "öì", "ëù", "öù", "eai", "oai", "eau", "oau", "uai", "uei", "uoi", "uëi"]; //case
+/*
+var vc_table = ["a", "u", "e", "o", "ö", "i", "ü", "ai", "ei", "ui", "oi", //transrelative
+"â", "î", "ê", "ô", "ëi", "öi", "ae", //possessive
+"ia", "ie", "io", "iö", "a'", "u'", "e'", "o'", "ea", "eo", "eö", "oa", "oe", "öa", "öe", "üa", "üe", "üo", "au", "eu", "iu", "ou", "ëu", "öu", "ai'", "ui'", "ei'", "oi'", "au'", "iu'", "eu'", "ou'", //associative
+"a'V", "e'V", "i'V", "o'V", "u'V", "ö'V", "ü'V", "ai'V", "ei'V", "ui'V", "oi'V", "ëi'V", "au'V", "eu'V", "iu'V", //temporal
+"â'V", "ê'V", "ô'V", "î'V", "ëu'V", "ou'V", //spatial
+"ë", //vocative
+"aì", "eì", "oì", "uì", "aù", "eù", "où", "iù", "ao", "aü", "eü", "oü", "ëì", "öì", "ëù", "öù", "eai", "oai", "eau", "oau", "uai", "uei", "uoi", "uëi"]; //case
+*/
+var ve_table = ["a", "u", "i", "o", "e", "ai", "ui", "ei", "oi","â", "û", "ö", "ô", "ê", "au", "iu", "eu", "ou"]; //va level + absolutive
+var vf_table = [["a", "o", "ai", "â", "au", "ëi", "oa", "ea", "aì", "aù"],
+["i", "ö", "ui", "ae", "iu", "ëu", "oe", "ia", "uì", "iù"],
+["e", "ü", "ei", "ê", "eu", "öi", "eo", "ie", "eì", "eù"],
+["u", "öa", "oi", "ô", "ou", "öu", "iö", "io", "oì", "où"]]; //context + format
+var vl_table = ["a", "e", "o", "i", "u", "â", "ê", "ô", "û", "ai", "ei", "oi", "ui", "ö"];
+var vm_table = ["a", "u", "e", "o", "i", "ö", "î", "â", "ê", "ô", "ü", "ai", "ei", "ui", "oi", "iu", "au", "eu", "ou", "ae", "ia", "ie", "io", "iö", "ea", "oa", "öi", "öu", "eo", "ëi", "ëu"]; //modality
+var vp_table = [["a","i","u"],["o","e","ö"],["ai","ui","ei"],
+["â","î","ô"],["ê","oi","au"],["eu","iu","ou"]]; //im pat + im stem + im designation
+var vr_table = [["a", "e", "u", "o", "ö", "î", "â", "ê", "ô"],
+["i", "ai", "ei", "au", "eu", "iu", "ia", "ie", "io"],
+["ui", "ü", "ëi", "ae", "ea", "oa", "aì", "iù", "iö"],
+["oi", "eo", "eö", "oe", "öe", "ëu", "oì", "eì", "aù"]]; //pattern + stem + function
+var vs_table = ["a", "u", "e", "o", "i", "ö", "î", "â", "ê", "ô", "ü", "ai", "ei", "ui", "oi", "iu", "au", "eu", "ou", "ae", "ia", "ie", "io", "iö", "ea", "oa", "öi", "öu", "eo", "ëi", "ëu"]; //aspect1
+
+//FORMATIVE, ADJUNCTS, PHRASE
+
+var formative = "";
+var va = ""; //verbal adjunct
+var pra = ""; //personal reference adjunct
+var dpra = ""; //dual personal reference adjunct
+//var ba = ""; //bias adjunct
+//var sa = ""; //suffixal adjunct
+var phrase = ""; //formative + adjuncts
+//var translation = ""; //rough english translation
+
+/* // GRAMMAR HINTS
+var configurationGr = ["Single unit/act",
+	"Two complementary halves",
+	"Group of same/Repeated set of identical acts",
+	"Group of different/Repeated set of non-identical acts",
+	"Group of same linked/Naturally repetitive act",
+	"Group of different linked/Connected series of non-identical events",
+	"A coherent entity/event made of identical",
+	"A coherent entity/event made of different",
+	"An incoherent set of varying things/events"];
+*/
+</script><!--tables-->
+<script>
+function init(){
+	main();
+}
+
+function showGrammar(){
+/*	z =		"<br>Root : " + document.getElementById("root").value;
+	z +=	"<br>Stem " + document.getElementById("stem").value;
+	z +=	", Pattern " + document.getElementById("pattern").value;
+	z +=	" + " + document.getElementById("f_function").value + " function <br>";
+	z +=	document.getElementById("configuration").value + " configuration <br>";
+	z +=	document.getElementById("affiliation").value + " affiliation <br>";
+	z +=	document.getElementById("perspective").value + " perspective <br>";
+	z +=	document.getElementById("extension").value + " extension <br>";
+	//z +=	document.getElementById("essence").checked + " essence <br>";
+	z +=	document.getElementById("context").value + " context <br>";
+	document.getElementById("grammarResume").innerHTML=(z);*/
+	null;
+}
+
+function main(){
+//ASSIGNATION OF CATEGORIES TO HTML ELEMENTS AND PARSING
+	(function assignation(){	
+		//ASSIGNATION OF CATEGORIES TO HTML ELEMENTS AND PARSING
+		
+		root = parseInt(document.getElementById("root").selectedIndex);
+		pattern = parseInt(document.getElementById("pattern").selectedIndex);
+		stem = parseInt(document.getElementById("stem").selectedIndex);
+		
+		incorporation = document.getElementById("ir_cb").checked;
+		ir_root = parseInt(document.getElementById("ir_root").selectedIndex);
+		ir_pattern = parseInt(document.getElementById("ir_pattern").selectedIndex);
+		ir_stem = parseInt(document.getElementById("ir_stem").selectedIndex);
+		ir_des = parseInt($("input[name=ir_des]:checked").val());
+		
+		format = parseInt(document.getElementById("format").selectedIndex);
+		modality = parseInt(document.getElementById("modality").selectedIndex); //31 modalities
+		level = parseInt(document.getElementById("level").selectedIndex); //9 levels + relative/absolute Bool
+		
+		configuration = parseInt(document.getElementById("configuration").selectedIndex);
+		affiliation = parseInt(document.getElementById("affiliation").selectedIndex);
+		perspective = parseInt(document.getElementById("perspective").selectedIndex);
+		extension = parseInt(document.getElementById("extension").selectedIndex);
+		essence = parseInt($("input[name=essence]:checked").val());
+		context = parseInt(document.getElementById("context").selectedIndex);
+		designation = parseInt($("input[name=designation]:checked").val());
+		
+		f_case = parseInt(document.getElementById("f_case").selectedIndex); //96 cases
+		
+		f_function = parseInt(document.getElementById("f_function").selectedIndex);
+		mood = parseInt(document.getElementById("mood").selectedIndex);
+		illocution = parseInt(document.getElementById("illocution").selectedIndex);
+		framed = false;
+		phase = parseInt(document.getElementById("phase").selectedIndex);
+		sanction = parseInt(document.getElementById("sanction").selectedIndex);
+		valence = parseInt(document.getElementById("valence").selectedIndex);
+		version = parseInt(document.getElementById("version").selectedIndex);
+		validation = parseInt(document.getElementById("validation").selectedIndex);
+		aspect = parseInt(document.getElementById("aspect").selectedIndex);
+		//aspect0 = aspect;
+		aspect1 = parseInt(document.getElementById("aspect1").selectedIndex);
+		bias = parseInt(document.getElementById("bias").selectedIndex);
+		biasInt = document.getElementById("biasInt").checked;
+		//biasInt = parseInt(document.getElementById("biasInt").checked);	
+	})();
+	
+//TWEAKS
+	if (ir_des === true) {ir_stem += 3;}
+
+	//conversion of pattern to stem (to simplify vr_table)
+	if (pattern === 1) {stem += 3;}
+	else if (pattern === 2) {stem += 6;}
+	
+	if (biasInt === false) {biasInt = 0;}
+	else {biasInt = 1;}
+	
+	// conversion of perspective + affiliation to a number (0-15) for ca tables
+	var perAff = 0; //perAff = perspective + affiliation
+	if (perspective === 1) {perAff = 4}
+	else if (perspective === 2) {perAff = 8}
+	else if (perspective === 3) {perAff = 12}
+	perAff += affiliation;
+	
+	//designation + delimitation tweak for ca table
+	
+//ASSIGNATION OF CATEGORIES TO AFFIXES AND TABLES
+	(function assignment(){
+		//ca
+		if (essence === 0) {
+			if (extension === 0) {ca = ca_table0[perAff][configuration];}
+			else if (extension === 1) {ca = ca_table1[perAff][configuration];}
+			else if (extension === 2) {ca = ca_table2[perAff][configuration];}
+			else if (extension === 3) {ca = ca_table3[perAff][configuration];}
+			else if (extension === 4) {ca = ca_table4[perAff][configuration];}
+			else if (extension === 5) {ca = ca_table5[perAff][configuration];}
+		;}
+		else if (essence === 1) {
+			if (extension === 0) {ca = ca_table6[perAff][configuration];}
+			else if (extension === 1) {ca = ca_table7[perAff][configuration];}
+			else if (extension === 2) {ca = ca_table8[perAff][configuration];}
+			else if (extension === 3) {ca = ca_table9[perAff][configuration];}
+			else if (extension === 4) {ca = ca_table10[perAff][configuration];}
+			else if (extension === 5) {ca = ca_table11[perAff][configuration];}
+		;}
+		else {ca = "ERROR";}
+	
+		cb = cb_table[biasInt][bias]; //bias
+	
+		cg = cg_table[validation];
+	
+		civi = civi_table[illocution][mood]; //illocution
+	
+		cl = cl_table[valence];
+	
+		cs = cs_table[aspect][mood]; //aspect + mood
+	
+		cr = cr_table[root]; //root
+		
+		//cv	
+		if (illocution === 0) {cv = cv_table0[phase][sanction];}
+		else if (illocution === 1) {cv = cv_table1[phase][sanction];}
+		else if (illocution === 2) {cv = cv_table2[phase][sanction];}
+		else if (illocution === 3) {cv = cv_table3[phase][sanction];}
+		else if (illocution === 4) {cv = cv_table4[phase][sanction];}
+		else if (illocution === 5) {cv = cv_table5[phase][sanction];}
+		
+		cx = cr_table[ir_root]; //incorp. root
+		
+		//stress = stressFormative(); //designation + relation
+		
+		tone = tone_table[version]; //version
+		
+		va_tone = tone_table[extension];
+		
+		vc = vc_table[f_case]; //case
+		
+		ve = ve_table[level];
+		
+		vf = vf_table[context][format]; //context + format
+		
+		vl = vl_table[valence]; //valence
+		
+		vm = vm_table[modality];
+		
+		vp = vp_table[ir_stem][ir_pattern]; //im pat + im stem + im designation
+		
+		vr = vr_table[f_function][stem]; //function + (pattern TWEAKED) stem
+		
+		vs = vs_table[aspect1];
+		
+		//vxc ...
+		
+	}());
+	writeIthkuil();
+}
+
+function writeIthkuil(){
+	//MORPHOLOGICAL STRUCTURE OF FORMATIVE
+	if (vr === "a" && cg === "h") {vr = "";}
+	
+	if (cg === "h") {cg = "";}
+	
+	if (civi === "wë") {civi = "";}
+	
+	if (cb === "n") {cb = "";}
+	else {cb = "'" + cb;}
+	
+	if (vf === "a" && cb === "") {vf = "(" + vf + ")";}
+	
+	if (incorporation === true) {
+		formative = tone + cv + vl + cg + vr + cx + vp + cr + vc + civi + ca + vf + cb;
+	}
+	else {
+		if (phase === 0 && sanction === 0) {
+			cv = "";
+			if (valence === 0) {
+				vl = "";
+				if (validation === 0) {
+					cg = "";
+					if (vr === "a") {vr = "";}
+				}
+			}
+		}
+		formative = tone + cg + vr + cv + vl + cr + vc + civi + ca + vf + cb;
+	}
+	
+	if (modality != 0 || level != 0 || aspect != 0) {
+		va = cl + ve + cv + vm + cs + vs + cb;
+		if (incorporation === true) {
+			formative = tone + cg + vr + cx + vp + cr + vc + civi + ca + vf;
+		}
+		else {
+			formative = tone + cg + vr + cr + vc + civi + ca + vf;
+		}
+		formative = va + " " + formative;
+	}
+	
+//TEST
+	document.getElementById("test").innerHTML="Debug : it works";
+	document.getElementById("ithkuil_").innerHTML = formative;
+
+/*
+To do :
+1) va_tone[extension] / ca = ...
+2) cb : va / formative
+3) alternative vc+vr for cases 51 - 71
+4) add "?" / "!" at the end of the formative
+*/
+}
+</script><!--scripts-->
+</html>
+	cursor:pointer;
+}
+	</style>
+</head>
+<body onload="init()">
+	Ithkuil Help
+	<small>
+		("*" means the category doesn't work -- yet !)
+		<br />
+		Work in progress !
+	</small>
+	<br />
+	<span id="test"></span>
+	<div title="Ithkuil">
+		Ithkuil : 
+		<span id="ithkuil_">
+			Change a category or read the notes
+		</span>
+	</div>
+	<div id="nav_bar">
+		<span class="nav" onclick="toggleMenu(1)">Root</span>
+		<span class="nav" onclick="toggleMenu(3)">Case</span>
+		<span class="nav" onclick="toggleMenu(4)">Verb</span>
+		<span class="nav" onclick="toggleMenu(5)">*Suffix</span>
+		<span class="nav" onclick="toggleMenu(6)">*Person</span>
+		<span class="nav" onclick="toggleMenu(7)">Notes</span>
+	</div>
+	<div id="root_formation">
+		Root formation
+		<span id="span1" onclick="toggleMenu(1)">
+			(hide/show)
+		</span>
+		<div title="root">
+			Root
+			<select onchange="main()" id="root">
+				<option>-bg- 'squid'</option>
+				<option>-bj- 'eel'</option>
+				<option>-kl- ‘water in natural motion’</option>
+				<option>-kš- ‘fool, clown’</option>
+				<option>-q- ‘higher order life-form’</option>
+			</select>
+			Stem
+			<select onchange="main()" id="stem">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+			Pattern
+			<select onchange="main()" id="pattern">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select><br />
+			*Designation
+			<input id="0" name="designation" type="radio" onchange="main()" checked="checked">
+				Informal
+			</input>
+			<input id="1" name="designation" type="radio" onchange="main()">
+				Formal
+			</input>
+			<span id="designationGr"></span><br />
+			Function
+			<select onchange="main()" id="f_function">
+				<option>Stative</option>
+				<option>Dynamic</option>
+				<option>Manifestive</option>
+				<option>Descriptive</option>
+			</select>
+			<span id="functionGr">
+			</span>
+			<!--<span id="meaning">Root meaning</span><br />-->
+			<br />
+			<input type="checkbox" onchange="toggleImRoot()" id="ir_cb">
+				<span>Imbricated root</span>
+			</input>
+			<div title="incorporated root" id="ir_div">
+				Incorporated root
+				<select onchange="main()" id="ir_root">
+					<option>-bg- 'squid'</option>
+					<option>-bj- 'eel'</option>
+					<option>-kl- ‘water in natural motion’</option>
+					<option>-kš- ‘fool, clown’</option>
+					<option>-q- ‘higher order life-form’</option>
+				</select>
+				Stem
+				<select onchange="main()" id="ir_stem">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+				Pattern
+				<select onchange="main()" id="ir_pattern">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+				<br />
+				Designation
+				<input id="0" name="ir_des" type="radio" onchange="main()" checked="checked">
+					Informal
+				</input>
+				<input id="1" name="ir_des" type="radio" onchange="main()">
+					Formal
+				</input><br />
+				Format
+				<select onchange="main()" id="format">
+					<option>Schematic</option>
+					<option>Instrumentative</option>
+					<option>Objective</option>
+					<option>Authoritive</option>
+					<option>Recurrent</option>
+					<option>Resultative</option>
+					<option>Subsequent</option>
+					<option>Concommitant</option>
+					<option>Affinitive</option>
+				</select>
+				<span id="formatGr">
+				</span>
+			</div>
+		</div>
+	</div>
+	<div id="basic_morphology">
+		Basic morphology
+		<span id="span2" onclick="toggleMenu(2)">
+			(hide/show)
+		</span>
+		<div title="configuration">Configuration
+			<select onchange="main()" id="configuration">
+				<option>Uniplex</option>
+				<option>Duplex</option>
+				<option>Discrete</option>
+				<option>Aggregative</option>
+				<option>Segmentative</option>
+				<option>Componential</option>
+				<option>Coherent</option>
+				<option>Composite</option>
+				<option>Multiform</option>
+			</select>
+			<span id="configurationGr">
+			</span>
+		</div>
+		<div title="affiliation">
+			Affiliation
+			<select onchange="main()" id="affiliation">
+				<option>Consolidative</option>
+				<option>Associative</option>
+				<option>Variative</option>
+				<option>Coalescent</option>
+			</select>
+			<span id="affiliationGr">
+			</span>
+		</div>
+		<div title="perspective">
+			Perspective
+			<select onchange="main()" id="perspective">
+				<option>Monadic</option>
+				<option>Unbounded</option>
+				<option>Nomic</option>
+				<option>Abstract</option>
+			</select>
+			<span id="perspectiveGr">
+			</span>
+		</div>
+		<div title="extension">
+			Extension
+			<select onchange="main()" id="extension">
+				<option>Delimitive</option>
+				<option>Proximal</option>
+				<option>Inceptive</option>
+				<option>Terminative</option>
+				<option>Depletive</option>
+				<option>Graduative</option>
+			</select>
+			<span id="extensionGr">
+			</span>
+		</div>
+		<div title="essence">
+			Essence
+			<input value="0" type="radio" name="essence" onchange="main()" checked="checked">
+				Normal
+			</input>
+			<input value="1" type="radio" name="essence" onchange="main()">
+				Representative
+			</input>
+			<span id="essenceGr">
+			</span>
+		</div>
+		<div title="context">
+			Context
+			<select onchange="main()" id="context">
+				<option>Existential</option>
+				<option>Functional</option>
+				<option>Representational</option>
+				<option>Amalgamate</option>
+			</select>
+			<span id="contextGr">
+			</span>
+		</div>
+	</div>
+	<div id="formative_case">
+		Case
+		<span id="span3" onclick="toggleMenu(3)">
+			(hide/show)
+		</span>
+		<br />
+		<select id="f_case" onchange="main()">
+			<optgroup label="Transrelative Cases">
+				<option>Oblique</option>
+				<option>Inducive</option>
+				<option>Absolutive</option>
+				<option>Ergative</option>
+				<option>Effectuative</option>
+				<option>Affective</option>
+				<option>Dative</option>
+				<option>Instrumental</option>
+				<option>Activative</option>
+				<option>Derivative</option>
+				<option>Situative</option>
+			</optgroup>
+			<optgroup label="Possessive Cases">
+				<option>Possessive</option>
+				<option>Proprietive</option>
+				<option>Genitive</option>
+				<option>Attributive</option>
+				<option>Productive</option>
+				<option>Interpretative</option>
+				<option>Originative</option>
+			</optgroup>
+			<optgroup label="Associative Cases">
+				<option>Partitive</option>
+				<option>Contrastive</option>
+				<option>Compositive</option>
+				<option>Predicative</option>
+				<option>Mediative</option>
+				<option>Applicative</option>
+				<option>Purposive</option>
+				<option>Considerative</option>
+				<option>Essive</option>
+				<option>Assimilative</option>
+				<option>Functive</option>
+				<option>Transformative</option>
+				<option>Referential</option>
+				<option>Classificative</option>
+				<option>Conductive</option>
+				<option>Interdependent</option>
+				<option>Benefactive</option>
+				<option>Transpositive</option>
+				<option>Commutative</option>
+				<option>Comitative</option>
+				<option>Conjunctive</option>
+				<option>Utilitative</option>
+				<option>Abessive</option>
+				<option>Conversive</option>
+				<option>Correlative</option>
+				<option>Dependent</option>
+				<option>Provisional</option>
+				<option>Postulative</option>
+				<option>Concessive</option>
+				<option>Exceptive</option>
+				<option>Aversive</option>
+				<option>Comparative</option>
+			</optgroup>
+			<optgroup label="Temporal Cases">
+				<option>Simultaneitive</option>
+				<option>Assessive</option>
+				<option>Concursive</option>
+				<option>Accessive</option>
+				<option>Diffusive</option>
+				<option>Periodic</option>
+				<option>Prolapsive</option>
+				<option>Precursive</option>
+				<option>Postcursive</option>
+				<option>Elapsive</option>
+				<option>Allapsive</option>
+				<option>Interpolative</option>
+				<option>Episodic</option>
+				<option>Prolimitive</option>
+				<option>Limitative</option>
+			</optgroup>
+			<optgroup label="Spatial Cases">
+				<option>Locative</option>
+				<option>Orientiative</option>
+				<option>Procursive</option>
+				<option>Allative</option>
+				<option>Ablative</option>
+				<option>Navigative</option>
+			</optgroup>
+			<optgroup label="Vocative">
+				<option>Vocative</option>
+			</optgroup>
+		</select>
+	</div>
+	<div id="verbal_morphology">
+		Verbal morphology
+		<span id="span4" onclick="toggleMenu(4)">
+			(hide/show)
+		</span>
+		<div title="aspect">
+			*Aspect
+			<select onchange="main()" id="aspect">
+				<option>(none)</option>
+				<option>Retrospective</option>
+				<option>Prospective</option>
+				<option>Habitual</option>
+				<option>Progressive</option>
+				<option>Imminent</option>
+				<option>Precessive</option>
+				<option>Regulative</option>
+				<option>Experiential</option>
+				<option>Resumptive</option>
+				<option>Cessative</option>
+				<option>Recessative</option>
+				<option>Pausal</option>
+				<option>Regressive</option>
+				<option>Preclusive</option>
+				<option>Continuative</option>
+				<option>Incessative</option>
+				<option>Preemptive</option>
+				<option>Climactic</option>
+				<option>Protractive</option>
+				<option>Temporary</option>
+				<option>Motive</option>
+				<option>Consequential</option>
+				<option>Sequential</option>
+				<option>Expeditive</option>
+				<option>Disclusive</option>
+				<option>Conclusive</option>
+				<option>Culminative</option>
+				<option>Intermediative</option>
+				<option>Tardative</option>
+				<option>Transitional</option>
+				<option>Intercommutative</option>
+				<option>Consumptive</option>
+			</select>
+			<span id="aspectGr">
+			</span>
+			<input type="checkbox" id="aspect1_cb" onchange="toggleAspect1()">
+				<span>2<sup>nd</sup> aspect</span>
+			</input>
+			<div id="aspect1_div">
+				*2<sup>nd</sup> aspect
+				<select onchange="main()" id="aspect1">
+					<option>(none)</option>
+					<option>Retrospective</option>
+					<option>Prospective</option>
+					<option>Habitual</option>
+					<option>Progressive</option>
+					<option>Imminent</option>
+					<option>Precessive</option>
+					<option>Regulative</option>
+					<option>Experiential</option>
+					<option>Resumptive</option>
+					<option>Cessative</option>
+					<option>Recessative</option>
+					<option>Pausal</option>
+					<option>Regressive</option>
+					<option>Preclusive</option>
+					<option>Continuative</option>
+					<option>Incessative</option>
+					<option>Preemptive</option>
+					<option>Climactic</option>
+					<option>Protractive</option>
+					<option>Temporary</option>
+					<option>Motive</option>
+					<option>Consequential</option>
+					<option>Sequential</option>
+					<option>Expeditive</option>
+					<option>Disclusive</option>
+					<option>Conclusive</option>
+					<option>Culminative</option>
+					<option>Intermediative</option>
+					<option>Tardative</option>
+					<option>Transitional</option>
+					<option>Intercommutative</option>
+					<option>Consumptive</option>
+				</select>
+			</div>
+		</div>
+		<div title="bias">
+			Bias
+			<select onchange="main()" id="bias">
+				<option  "1">Assurative</option>
+				<option  "2">Hyperbolic</option>
+				<option  "3">Coincidental</option>
+				<option  "4">Acceptive</option>
+				<option  "5">Reactive</option>
+				<option  "6">Stupefactive</option>
+				<option  "7">Contemplative</option>
+				<option  "8">Desperative</option>
+				<option  "9">Revelative</option>
+				<option  "10">Gratificative</option>
+				<option  "11">Solicitive</option>
+				<option  "12">Selective</option>
+				<option  "13">Ironic</option>
+				<option  "14">Exasperative</option>
+				<option  "15">Literal</option>
+				<option  "16">Corrective</option>
+				<option  "17">Euphemistic</option>
+				<option  "18">Skeptical</option>
+				<option  "19">Cynical</option>
+				<option  "20">Contemptive</option>
+				<option  "21">Dismissive</option>
+				<option  "22">Indignative</option>
+				<option  "23">Suggestive</option>
+				<option  "24">Propositive</option>
+			</select>
+			<input
+				id="biasInt"
+				type="checkbox"
+				onclick="main()"
+				onchange="main()">Intensive</input>
+			<span id="biasGr">
+			</span>
+		</div>
+		<div title="frame">
+			*Case-frame / relation
+			<input id="0" name="frame" type="radio" onchange="main()" checked="checked">
+				Unframed
+			</input>
+			<input id="1" name="frame" type="radio" onchange="main()">
+				Framed
+			</input>
+			<span id="frameGr">
+			</span>
+		</div>
+		<div title="illocution">
+			Illocution
+			<select onchange="main()" id="illocution">
+				<option>Assertive</option>
+				<option>Interrogative</option>
+				<option>Directive</option>
+				<option>Admonitive</option>
+				<option>Hortative</option>
+				<option>Declarative</option>
+			</select>
+			<span id="illocutionGr">
+			</span>
+		</div>
+		<div title="level">
+			*Level
+			<select onchange="main()" id="level">
+				<option>Equative</option>
+				<option>Surpassive</option>
+				<option>Deficient</option>
+				<option>Optimal</option>
+				<option>Minimal</option>
+				<option>Superlative</option>
+				<option>Inferior</option>
+				<option>Superequative</option>
+				<option>Subequative</option>
+			</select>
+			<input type="checkbox" id="level_cb">
+				Absolute comparison
+			</input>
+			<span id="levelGr">
+			</span>
+		</div>
+		<div title="modality">
+			*Modality
+			<select onchange="main()" id="modality">
+				<option>(none)</option>
+				<option>Desiderative</option>
+				<option>Aspirative</option>
+				<option>Expectative</option>
+				<option>Credential</option>
+				<option>Requisitive</option>
+				<option>Exhortative</option>
+				<option>Opportunitive</option>
+				<option>Capacitative</option>
+				<option>Permissive</option>
+				<option>Potential</option>
+				<option>Compulsory</option>
+				<option>Obligative</option>
+				<option>Impositive</option>
+				<option>Advocative</option>
+				<option>Intentive</option>
+				<option>Anticipative</option>
+				<option>Dispositive</option>
+				<option>Preparative</option>
+				<option>Necessitative</option>
+				<option>Decisive</option>
+				<option>Proclivitive</option>
+				<option>Voluntative</option>
+				<option>Accordative</option>
+				<option>Inclinative</option>
+				<option>Compulsive</option>
+				<option>Divertive</option>
+				<option>Devotive</option>
+				<option>Preferential</option>
+				<option>Impressional</option>
+				<option>Promissory</option>
+			</select>
+			<span id="modalityGr">
+			</span>
+		</div>
+		<div title="mood">
+			Mood
+			<select onchange="main()" id="mood">
+				<option>Factual</option>
+				<option>Subjunctive</option>
+				<option>Assumptive</option>
+				<option>Speculative</option>
+				<option>Counterfactive</option>
+				<option>Hypothetical</option>
+				<option>Implicative</option>
+				<option>Ascriptive</option>
+			</select>
+			<span id="moodGr">
+			</span>
+		</div>
+		<div title="phase">
+			Phase
+			<select onchange="main()" id="phase">
+				<option>Contextual</option>
+				<option>Punctual</option>
+				<option>Iterative</option>
+				<option>Repetitive</option>
+				<option>Intermittent</option>
+				<option>Recurrent</option>
+				<option>Frequentative</option>
+				<option>Fragmentative</option>
+				<option>Fluctuative</option>
+			</select>
+			<span id="phaseGr">
+			</span>
+		</div>
+		<div title="sanction">
+			Sanction
+			<select onchange="main()" id="sanction">
+				<option>Propositional</option>
+				<option>Epistemic</option>
+				<option>Allegative</option>
+				<option>Imputative</option>
+				<option>Refutative</option>
+				<option>Rebuttative</option>
+				<option>Theoretical</option>
+				<option>Expatiative</option>
+				<option>Axiomatic</option>
+			</select>
+			<span id="sanctionGr">
+			</span>
+		</div>
+		<div title="valence">
+			Valence
+			<select onchange="main()" id="valence">
+				<option>Monoactive</option>
+				<option>Parallel</option>
+				<option>Corollary</option>
+				<option>Reciprocal</option>
+				<option>Complementary</option>
+				<option>Nonrelational</option>
+				<option>Duplicative</option>
+				<option>Demonstrative</option>
+				<option>Resistive</option>
+				<option>Imitative</option>
+				<option>Contingent</option>
+				<option>Participative</option>
+				<option>Indicative</option>
+				<option>Mutual</option>
+			</select>
+			<span id="valenceGr">
+			</span>
+		</div>
+		<div title="validation">
+			Validation
+			<select onchange="main()" id="validation">
+				<option>Confirmative</option>
+				<option>Affirmative</option>
+				<option>Reportive</option>
+				<option>Inferential</option>
+				<option>Intuitive</option>
+				<option>Presumptive</option>
+				<option>Presumptive2</option>
+				<option>Purportive</option>
+				<option>Purportive2</option>
+				<option>Conjectural</option>
+				<option>Dubitative</option>
+				<option>Tentative</option>
+				<option>Putative</option>
+				<option>Improbable</option>
+			</select>
+			<span id="validationGr">
+			</span>
+		</div>
+		<div title="version">
+			Version
+			<select onchange="main()" id="version">
+				<option>Processual</option>
+				<option>Completive</option>
+				<option>Ineffectual</option>
+				<option>Incompletive</option>
+				<option>Positive</option>
+				<option>Effective</option>
+			</select>
+			<span id="versionGr">
+			</span>
+		</div>
+	</div>
+	<div id="suffixes">*Suffixes
+		<span id="span5" onclick="toggleMenu(5)">
+			(hide/show)
+		</span>
+		<div>
+			Suffix 1
+			<select onchange="main()" id="suffix">
+				<option>-kt- Degree of Definiteness</option>
+				<option>-q'- Degree of Discretion</option>
+			</select>
+			Type
+			<select onchange="main()" id="suffixType">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+			Degree
+			<select onchange="main()" id="suffixDegree">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+			</select>
+			<br />
+			<button onclick="addSuffix()">
+				More suffixes
+			</button>
+		</div>
+	</div>
+	<div id="notes">
+		<p><b>Dev Notes</b></p>
+		<p>
+			<b>0.1 (28 jul '14) :</b>
+			If you read this, you're one of the first users of Ithkuil Help (thanks !). Please report all your remarks/notes/critics on the <a href="https://www.facebook.com/groups/ithkuil/601173499999224/?notif_t=group_activity">facebook page</a> ! You can contact me on facebook too ("Bastien E. A. Michaux").
+		</p>
+		<p><b>Why isn't it working ?</b></p>
+		<p>
+			Be online in order for the page to work. On stypi, the page may run slowly. Don't wanna wait ? Copy-paste the code ("ctrl + a") in your notepad and save the file as "something.html". Then open the page with your internet browser, Ithkuil Help will work perfectly !</p>
+		<p><b>Is the work done ?</b></p>
+		<p>
+			Not yet sadly -_- Basic morphology works, most cases too, incorporation is incorporated, the verbal morphology still needs some tweaks, and suffixes and adjuncts are for later. You probably noticed there are only a few roots, that's because I'm focusing on the grammar (I need approximately 20 minutes to encode a complete root + it's translation). Ithkuil is complicated, plus english isn't my mother tongue, I need thus time to decode/code/encode stuff. Here is the list of what Ithkuil Help will/should/could focus on :
+			<ul>
+				<li>Words 100% accurate !</li>
+				<li>Personal reference adjuncts !</li>
+				<li>More roots and suffixes ! (I need YOU !)</li>
+				<li>More word-building possibilities !</li>
+				<li>Figure out how to incorporate stress !</li>
+				<li>Better webdesign !</li>
+				<li>Dynamic grammar tips !</li>
+				<li>Rough english translation !</li>
+				<li>Comparison stuff !</li>
+				<li>Numbers !</li>
+				<li>Phonotactic rules !</li>
+				<li>Syntax stuff !</li>
+				<li>Responsive-design tweaks ! (so you can ithkuil on your mobile !)</li>
+				<li>All roots and suffixes ! (won't be done before 2015 IMHO)</li>
+				<li>Accurate english translation ! (won't be done before 2215 IMHO)</li>
+			</ul>
+		</p>
+		<p>
+			Christian Oudard also works on a more ambitious Ithkuil project (with the native script !), but I limit myself to simpler things for the time being. <a href="https://github.com/christian-oudard/ithkuil">Check it on github</a> !
+		</p>
+		<p><b>Can you help ?</b></p>
+		<p>
+			If you know html/css/javascript/jquery, obviously yes ! If you can use Excel or Word, you can help me greatly too, please contact me via facebook or bastienmichaux@gmail.com. I also need good english speakers to work on an automated and roughly accurate translation. If you want to translate Ithkuil in international french, I'm interested too !
+		</p>
+		<p><b>How much time have I spent on this ?</b></p>
+		<p>
+			Approximately 26 hours as of july 28. I began writing this on july 10 and spent a LOT of time encoding the affix tables. It was SO BORING (╬ ಠ益ಠ) that's why I don't want to work on bigger tables (translation, roots, suffixes) all alone. Also I play music and make other websites and love doing that. So, if you want a complete Ithkuil tool before the End-Times, let's share the work.
+		</p>
+	</div>
+</body>
+<script>
+$(document).ready(function(){});
+
+$("#root_formation").show();
+$("#basic_morphology").show();
+$("#formative_case").hide();
+$("#verbal_morphology").hide();
+$("#suffixes").hide();
+$("#notes").hide();
+
+$('#ir_div').hide();
+$("#aspect1_div").hide();
+function toggleMenu(a){
+switch (a){
+		case 1 :
+			$("#root_formation").show();
+			$("#basic_morphology").show();
+			$("#formative_case").hide();
+			$("#verbal_morphology").hide();
+			$("#suffixes").hide();
+			$("#notes").hide();
+		break;
+		case 2 :
+			$("#root_formation").hide();
+			$("#basic_morphology").show();
+			$("#formative_case").hide();
+			$("#verbal_morphology").hide();
+			$("#suffixes").hide();
+			$("#notes").hide();
+		break;
+		case 3 :
+			$("#root_formation").hide();
+			$("#basic_morphology").hide();
+			$("#formative_case").show();
+			$("#verbal_morphology").hide();
+			$("#suffixes").hide();
+			$("#notes").hide();
+		break;
+		case 4 :
+			$("#root_formation").hide();
+			$("#basic_morphology").hide();
+			$("#formative_case").hide();
+			$("#verbal_morphology").show();
+			$("#suffixes").hide();
+			$("#notes").hide();
+		break;
+		case 5 :
+			$("#root_formation").hide();
+			$("#basic_morphology").hide();
+			$("#formative_case").hide();
+			$("#verbal_morphology").hide();
+			$("#suffixes").show();
+			$("#notes").hide();
+		break;
+		case 7 :
+			$("#root_formation").hide();
+			$("#basic_morphology").hide();
+			$("#formative_case").hide();
+			$("#verbal_morphology").hide();
+			$("#suffixes").hide();
+			$("#notes").show();
+		break;
+	}
+}
+
+function toggleCase(a){
+	null;
+}
+
+function toggleImRoot(){
+	var b = document.getElementById("ir_cb").checked;
+	if (b === false){
+		$("#ir_div").hide();
+	}
+	else {
+		$("#ir_div").show();
+	}
+}
+
+function toggleAspect1(){
+	var b = document.getElementById("aspect1_cb").checked;
+	if (b === false){
+		$("#aspect1_div").hide();
+	}
+	else {
+		$("#aspect1_div").show();
+	}
+}
+</script><!--jquery / displays-->
+<script>
+
+var ir_cb = false; //checkbox
+
+//CATEGORIES
+
+var root = "";
+var pattern = "";
+var stem = "";
+
+var incorporation = false;
+var ir_root = "";
+var ir_pattern = "";
+var ir_stem = "";
+var ir_des = false;
+
+var format = "";
+
+var configuration = "";
+var affiliation = "";
+var perspective = "";
+var extension = "";
+var essence = false;
+var context = "";
+var designation = false;
+
+var f_case= ""; //96
+
+var f_function = "";
+var mood = "";
+var illocution = "";
+var framed = false;
+var phase = "";
+var sanction = "";
+var valence = "";
+var version = "";
+var validation = "";
+var aspect = "";
+//var aspect0 = "";
+var bias = "";
+var biasInt = false;
+
+var modality = ""; //31 modalities
+var level = ""; //9 levels + relative/absolute Bool
+var aspect1 = "";
+
+//suffixes ?
+
+//AFFIXES
+
+var ca = ""; //essence, extension, perspective, cfg, aff
+var cg = ""; //validation
+var civi = ""; //illocution+mood (ci+vi)
+var cr = ""; //root
+var cx = ""; //im root
+var tone = ""; //version
+var vc = ""; //case
+var vf = ""; //context + format
+var	vl = ""; //valence
+var vp = ""; //im pat + im stem + im designation
+var vr = ""; //pattern + stem + function
+//var stress = ""; //designation + relation
+
+var va_tone = ""; //verbal adjunct tone = extension
+var cl = ""; //verbal adjunct valence
+var ve = ""; //verbal adjunct level
+var	cv = ""; //phase + sanction (+ illocution) ==> verbal adjunct
+var vm = ""; //verbal adjunct modality
+var cs = ""; //aspect (+ mood) ==> verbal adjunct
+var vs = ""; //verbal adjunct 2nd aspect
+var cb = ""; //bias ==> verbal adjunct
+
+//var vxc = ""; //deriv suffix 1, 2, 3
+
+</script><!--variables-->
+<script>
+//TABLES
+
+var ca_table0 =	[["l",  "ll", "tļ", "ļ", "ļļ", "řļ", "sk", "šk", "kţ"],
+ 	["r", "rr", "lļ", "rl", "rļ", "řl", "st", "št", "kç"],
+ 	["m", "mm", "lm", "rm", "mļ", "řm", "sp", "šp", "pţ"],
+ 	["n", "nn", "ln", "rn", "nļ", "řn", "sq", "šq", "qţ"],
+
+ 	["t", "ļt", "lt", "rt", "nt", "řt", "ňt", "ňd", "çt"],
+ 	["k", "ļk", "lk", "rk", "ňk", "řk", "kt", "xt", "çk"],
+ 	["p", "ļp", "lp", "rp", "mp", "řp", "pt", "ft", "çp"],
+ 	["q", "ļq", "lq", "rq", "ňq", "řq", "qt", "xht", "çq"],
+
+ 	["ţ", "ţţ", "lţ", "rţ", "nţ", "řţ", "sţ", "šţ", "tf"],
+ 	["x", "xx", "lx", "rx", "ňx", "mx", "sx", "šx", "kf"],
+ 	["f", "ff", "lf", "rf", "mf", "řf", "sf", "šf", "pf"],
+ 	["xh", "xxh", "lxh", "rxh", "ňxh", "mxh", "sxh", "šxh", "qf"],
+
+ 	["c", "cc", "lc", "rc", "ns", "řc", "sc", "fk", "fq"],
+ 	["č", "čč", "lč", "rč", "nš", "řč", "šč", "ţk", "ţq"],
+ 	["ż", "żż", "lż", "rż", "nz", "řż", "ţf", "ţs", "ţc"],
+ 	["j", "jj", "lj", "rj", "nž", "řj", "fţ", "ţš", "ţč"]]; //nrm + del
+var ca_table1 =	[["s", "ss", "ls", "rs", "fs", "řs", "ňs", "ms", "mss"],
+ 	["š", "šš", "lš", "rš", "fš", "řš", "ňš", "mš", "mšš"],
+ 	["z", "zz", "lz", "rz", "vz", "řz", "ňz", "mz", "mzz"],
+ 	["ž", "žž", "lž", "rž", "vž", "řž", "ňž", "mž", "mžž"],
+
+ 	["d", "dv", "ld", "rd", "nd", "řd", "md", "zd", "žd"],
+ 	["g", "gv", "lg", "rg", "ňg", "řg", "ňkf", "zg", "žg"],
+ 	["b", "bv", "lb", "rb", "mb", "řb", "ntf", "zb", "žb"],
+ 	["ň", "ňň", "ňç", "rň", "ňv", "řň", "ňf", "řtf", "řkf"],
+
+ 	["dh", "ddh", "ldh", "rdh", "ndh", "řdh", "mdh", "ţx", "ţxh"],
+ 	["ç", "çç", "lç", "rç", "nç", "řç", "mç", "fx", "fxh"],
+ 	["v", "vv", "lv", "rv", "mv", "řv", "ndv", "xf", "xţ"],
+ 	["ř", "řř", "rbv", "rdv", "rgv", "řxh", "mţ", "xhf", "xhţ"],
+
+ 	["ck", "čk", "ps", "ks", "gd", "psk", "pšk", "ksk", "kšk"],
+ 	["ct", "čt", "pš", "kš", "bd", "pst", "pšt", "tx", "txh"],
+ 	["cp", "čp", "bz", "gz", "pç", "ksp", "kšp", "px", "pxh"],
+ 	["cq", "čq", "bž", "gž", "řqf", "kst", "kšt", "psq", "pšq"]]; //nrm + prx
+var ca_table2 =	[["mt", "mt’", "sk<sup>h</sup>", "sk’", "mth", "pst’", "pst<sup>h</sup>", "pšt’", "pšt<sup>h</sup>"],
+ 	["mk", "mk’", "st<sup>h</sup>", "st’", "mkh", "kst’", "kst<sup>h</sup>", "kšt’", "kšt<sup>h</sup>"],
+ 	["ňp", "ňp’", "sp<sup>h</sup>", "sp’", "ňp<sup>h</sup>", "psk’", "psk<sup>h</sup>", "pšk’", "pšk<sup>h</sup>"],
+ 	["mq", "mq’", "sq<sup>h</sup>", "sq’", "mq<sup>h</sup>", "ksp’", "ksp<sup>h</sup>", "kšp’", "kšp<sup>h</sup>"],
+
+ 	["pk", "pk’", "šk<sup>h</sup>", "šk’", "pk<sup>h</sup>", "fk’", "fk<sup>h</sup>", "psq’", "psq<sup>h</sup>"],
+ 	["tk", "tk’", "št<sup>h</sup>", "št’", "tk<sup>h</sup>", "ţk’", "ţk<sup>h</sup>", "ksk’", "ksk<sup>h</sup>"],
+ 	["tp", "tp’", "šp<sup>h</sup>", "šp’", "tp<sup>h</sup>", "ţp’", "ţp<sup>h</sup>", "pšq’", "pšq<sup>h</sup>"],
+ 	["kp", "kp’", "šq<sup>h</sup>", "šq’", "kp<sup>h</sup>", "xp’", "xp<sup>h</sup>", "kšk’", "kšk<sup>h</sup>"],
+
+ 	["pq", "pq’", "fg", "bg", "pq<sup>h</sup>", "vg", "fp", "fq’", "fq<sup>h</sup>"],
+ 	["tq", "tq’", "ţg", "dg", "tq<sup>h</sup>", "dhg", "vd", "ţq’", "ţq<sup>h</sup>"],
+ 	["qp", "qp’", "xhp", "xp", "sc<sup>h</sup>", "sc’", "ňqf", "gb", "kkç"],
+ 	["pļ", "tç", "xhp’", "ţp", "šč<sup>h</sup>", "šč’", "vb", "dhz", "ppç"],
+
+ 	["fst", "fc’", "fc", "lfs", "xc’", "ţc’", "ltf", "fst’", "fst<sup>h</sup>"],
+ 	["fšt", "fč’", "fč", "lfš", "xč’", "ţč’", "lkf", "fšt’", "fšt<sup>h</sup>"],
+ 	["fsk", "fc<sup>h</sup>", "rfs", "fsq", "xc<sup>h</sup>", "ţc<sup>h</sup>", "xhp<sup>h</sup>", "fsk’", "fsk<sup>h</sup>"],
+ 	["fšk", "fč<sup>h</sup>", "rfš", "fšq", "xč<sup>h</sup>", "ţč<sup>h</sup>", "qp<sup>h</sup>", "fšk’", "fšk<sup>h</sup>"]]; //nrm + icp
+var ca_table3 =	[["t’", "ļt’", "lt’", "rt’", "nt’", "řt’", "ţsk’", "kt’", "ňt’"],
+ 	["k’", "ļk’", "lk’", "rk’", "ňk’", "řk’", "ţšk’", "ft’", "xt’"],
+ 	["p’", "ļp’", "lp’", "rp’", "mp’", "řp’", "fsq’", "pt’", "fp’"],
+ 	["q’", "ļq’", "lq’", "rq’", "ňq’", "řq’", "fšq’", "xht’", "qt’"],
+
+ 	["t<sup>h</sup>", "ļt<sup>h</sup>", "lt<sup>h</sup>", "rt<sup>h</sup>", "nt<sup>h</sup>", "řt<sup>h</sup>", "ţsk<sup>h</sup>", "kt<sup>h</sup>", "ňt<sup>h</sup>"],
+ 	["k<sup>h</sup>", "ļk<sup>h</sup>", "lk<sup>h</sup>", "rk<sup>h</sup>", "ňk<sup>h</sup>", "řk<sup>h</sup>", "ţšk<sup>h</sup>", "ft<sup>h</sup>", "xt<sup>h</sup>"],
+ 	["p<sup>h</sup>", "ļp<sup>h</sup>", "lp<sup>h</sup>", "rp<sup>h</sup>", "mp<sup>h</sup>", "řp<sup>h</sup>", "fsq<sup>h</sup>", "pt<sup>h</sup>", "fp<sup>h</sup>"],
+ 	["q<sup>h</sup>", "ļq<sup>h</sup>", "lq<sup>h</sup>", "rq<sup>h</sup>", "ňq<sup>h</sup>", "řq<sup>h</sup>", "fšq<sup>h</sup>", "x<sup>h</sup>t<sup>h</sup>", "qt<sup>h</sup>"],
+
+ 	["c’", "cc’", "lc’", "rc’", "nc’", "řc’", "mc’", "ňc’", "çt’"],
+ 	["č’", "čč’", "lč’", "rč’", "nč’", "řč’", "mč’", "ňč’", "çk’"],
+ 	["c<sup>h</sup>", "cc<sup>h</sup>", "lc<sup>h</sup>", "rc<sup>h</sup>", "nc<sup>h</sup>", "řc<sup>h</sup>", "mc<sup>h</sup>", "ňc<sup>h</sup>", "çp’"],
+ 	["č<sup>h</sup>", "čč<sup>h</sup>", "lč<sup>h</sup>", "rč<sup>h</sup>", "nč<sup>h</sup>", "čř<sup>h</sup>", "mč<sup>h</sup>", "ňč<sup>h</sup>", "çq’"],
+
+ 	["pps/pss", "rps", "lps", "rbz", "lbz", "řps", "řbz", "ňss", "çt<sup>h</sup>"],
+ 	["ppš/pšš", "rpš", "lpš", "rbž", "lbž", "řpš", "řbž", "ňšš", "çk<sup>h</sup>"],
+ 	["kks/kss", "rks", "lks", "rgz", "lgz", "řks", "řgz", "ňzz", "çp<sup>h</sup>"],
+ 	["kkš/kšš", "rkš", "lkš", "rgž", "lgž", "řkš", "řgž", "ňžž", "çq<sup>h</sup>"]]; //nrm + trm
+var ca_table4 =	[["kc", "lkç", "lsk", "rsk", "nsk", "řsk", "msk", "ňsk", "ssk"],
+ 	["żd", "lţs", "lst", "rst", "nst", "řst", "mst", "ňst", "sst"],
+ 	["pc", "bbz/bzz", "lsp", "rsp", "nsp", "řsp", "msp", "ňsp", "ssp"],
+ 	["qc", "ggz/gzz", "lsq", "rsq", "nsq", "řsq", "msq", "ňsq", "ssq"],
+
+ 	["kč", "rçç", "lšk", "ršk", "nšk", "řšk", "mšk", "ňšk", "ššk"],
+ 	["jd", "lţš", "lšt", "ršt", "nšt", "řšt", "mšt", "ňšt", "ššt"],
+ 	["pč", "bbž/bžž", "lšp", "ršp", "nšp", "řšp", "mšp", "ňšp", "ššp"],
+ 	["qč", "ggž/gžž", "lšq", "ršq", "nšq", "řšq", "mšq", "ňšq", "ššq"],
+
+ 	["bdh", "xpf", "lvz", "rvz", "rbdh", "řpţ", "lpf", "rpf", "bzd"],
+ 	["gdh", "ňdh", "lvž", "rvž", "rgdh", "řkţ", "lpç", "rpç", "bžd"],
+ 	["ţt", "dhd", "ldhz", "rţs", "rqţ", "řqţ", "ňkç", "řpf", "gzd"],
+ 	["db", "ttç/tçç", "ldhž", "rţš", "rkç", "řkç", "mpç", "řpç", "gžd"],
+
+ 	["bż", "rpss", "lzb", "rzb", "nzb", "řzb", "mzb", "řpss", "gzb"],
+ 	["gż", "rkss", "lžb", "ržb", "nžb", "řžb", "mžb", "řkss", "gžb"],
+ 	["bj", "rpšš", "lzg", "rzg", "nzg", "řzg", "mzg", "řpšš", "bzg"],
+ 	["gj", "rkšš", "lžg", "ržg", "nžg", "řžg", "mžg", "řkšš", "bžg"]]; //nrm + dpl
+var ca_table5 =	[["kc’", "ck’", "lsk’", "rsk’", "nsk’", "řsk’", "msk’", "ňsk’", "ssk’"],
+ 	["żb", "ct’", "lst’", "rst’", "nst’", "řst’", "mst’", "ňst’", "sst’"],
+ 	["pc’", "cp’", "lsp’", "rsp’", "nsp’", "řsp’", "msp’", "ňsp’", "ssp’"],
+ 	["qc’", "cq’", "lsq’", "rsq’", "nsq’", "řsq’", "msq’", "ňsq’", "ssq’"],
+
+ 	["kč’", "čk’", "lšk’", "ršk’", "nšk’", "řšk’", "mšk’", "ňšk’", "ššk’"],
+ 	["jb", "čt’", "lšt’", "ršt’", "nšt’", "řšt’", "mšt’", "ňšt’", "ššt’"],
+ 	["pč’", "čp’", "lšp’", "ršp’", "nšp’", "řšp’", "mšp’", "ňšp’", "ššp’"],
+ 	["qč’", "čq’", "lšq’", "ršq’", "nšq’", "řšq’", "mšq’", "ňšq’", "ššq’"],
+
+ 	["kc<sup>h</sup>", "ck<sup>h</sup>", "lsk<sup>h</sup>", "rsk<sup>h</sup>", "nsk<sup>h</sup>", "řsk<sup>h</sup>", "msk<sup>h</sup>", "ňsk<sup>h</sup>", "ssk<sup>h</sup>"],
+ 	["żg", "ct<sup>h</sup>", "lst<sup>h</sup>", "rst<sup>h</sup>", "nst<sup>h</sup>", "řst<sup>h</sup>", "mst<sup>h</sup>", "ňst<sup>h</sup>", "sst<sup>h</sup>"],
+ 	["pc<sup>h</sup>", "cp<sup>h</sup>", "lsp<sup>h</sup>", "rsp<sup>h</sup>", "nsp<sup>h</sup>", "řsp<sup>h</sup>", "msp<sup>h</sup>", "ňsp<sup>h</sup>", "ssp<sup>h</sup>"],
+ 	["qc<sup>h</sup>", "cq<sup>h</sup>", "lsq<sup>h</sup>", "rsq<sup>h</sup>", "nsq<sup>h</sup>", "řsq<sup>h</sup>", "msq<sup>h</sup>", "ňsq<sup>h</sup>", "ssq<sup>h</sup>"],
+
+ 	["kč<sup>h</sup>", "čk<sup>h</sup>", "lšk<sup>h</sup>", "ršk<sup>h</sup>", "nšk<sup>h</sup>", "řšk<sup>h</sup>", "mšk<sup>h</sup>", "ňšk<sup>h</sup>", "ššk<sup>h</sup>"],
+ 	["jg", "čt<sup>h</sup>", "lšt<sup>h</sup>", "ršt<sup>h</sup>", "nšt<sup>h</sup>", "řšt<sup>h</sup>", "mšt<sup>h</sup>", "ňšt<sup>h</sup>", "ššt<sup>h</sup>"],
+ 	["pč<sup>h</sup>", "čp<sup>h</sup>", "lšp<sup>h</sup>", "ršp<sup>h</sup>", "nšp<sup>h</sup>", "řšp<sup>h</sup>", "mšp<sup>h</sup>", "ňšp<sup>h</sup>", "ššp<sup>h</sup>"],
+ 	["qč<sup>h</sup>", "čq<sup>h</sup>", "lšq<sup>h</sup>", "ršq<sup>h</sup>", "nšq<sup>h</sup>", "řšq<sup>h</sup>", "mšq<sup>h</sup>", "ňšq<sup>h</sup>", "ššq<sup>h</sup>"]]; //nrm + gra
+var ca_table6 =	[["tt", "tt’", "tt<sup>h</sup>", "lpt’", "rpt’", "řpt’", "lpt<sup>h</sup>", "rpt<sup>h</sup>", "řpt<sup>h</sup>"],
+ 	["kk", "kk’", "kk<sup>h</sup>", "lkt’", "rkt’", "řkt’", "lkt<sup>h</sup>", "rkt<sup>h</sup>", "řkt<sup>h</sup>"],
+ 	["pp", "pp’", "pp<sup>h</sup>", "lpk’", "rpk’", "řpk’", "lpk<sup>h</sup>", "rpk<sup>h</sup>", "řpk<sup>h</sup>"],
+ 	["qq", "qq’", "qq<sup>h</sup>", "ltk’", "rtk’", "řtk’", "ltk<sup>h</sup>", "rtk<sup>h</sup>", "řtk<sup>h</sup>"],
+
+ 	["dd", "nçw", "pçw", "lft’", "rft’", "řft’", "lft<sup>h</sup>", "rft<sup>h</sup>", "řft<sup>h</sup>"],
+ 	["gg", "ňçw", "kfw", "lxt’", "rxt’", "řxt’", "lxt<sup>h</sup>", "rxt<sup>h</sup>", "řxt<sup>h</sup>"],
+ 	["bb", "mçw", "pfw", "lfk’", "rfk’", "řfk’", "lfk<sup>h</sup>", "rfk<sup>h</sup>", "řfk<sup>h</sup>"],
+ 	["cf", "čf", "qfw", "lţk’", "rţk’", "řţk’", "lţk<sup>h</sup>", "rţk<sup>h</sup>", "řţk<sup>h</sup>"],
+
+ 	["ţw", "dhw", "lţw", "rţw", "mţw", "řţw", "nţw", "ldhw", "rdhw"],
+ 	["xw", "ňw", "lxw", "rxw", "mxw", "řxw", "ňxw", "lňw", "rňw"],
+ 	["fw", "vw", "lfw", "rfw", "ňfw", "řfw", "mfw", "lvw", "rvw"],
+ 	["xhw", "çw", "lxhw", "rxhw", "mxhw", "tçw", "ňxhw", "lçw", "rçw"],
+
+ 	["sw", "cw", "lsw", "rsw", "msw", "řsw", "nsw", "ňsw", "ssw"],
+ 	["šw", "čw", "lšw", "ršw", "mšw", "řšw", "nšw", "ňšw", "ššw"],
+ 	["zw", "żw", "lzw", "rzw", "mzw", "řzw", "nzw", "ňzw", "zzw"],
+ 	["žw", "jw", "lžw", "ržw", "mžw", "řžw", "nžw", "ňžw", "žžw"]]; //rpv + del
+var ca_table7 =	[["tw", "ttw", "t<sup>h</sup>w", "t’w", "tt’w", "tt<sup>h</sup>w", "ltw", "rtw", "ntw"],
+ 	["kw", "kkw", "k<sup>h</sup>w", "k’w", "kk’w", "kk<sup>h</sup>w", "lkw", "rkw", "ňkw"],
+ 	["pw", "ppw", "p<sup>h</sup>w", "p’w", "pp’w", "pp<sup>h</sup>w", "lpw", "rpw", "mpw"],
+ 	["qw", "qqw", "q<sup>h</sup>w", "q’w", "qq’w", "qq<sup>h</sup>w", "lqw", "rqw", "ňqw"],
+
+ 	["ty", "tty", "lty", "ţy", "nty", "řty", "rty", "pty", "tky"],
+ 	["ky", "kky", "lky", "ży", "ňky", "řky", "rky", "kty", "kpy"],
+ 	["py", "ppy", "lpy", "fy", "npy", "řpy", "rpy", "tpy", "pky"],
+ 	["my", "fty", "ptw", "mw", "ftw", "ptr", "ftr", "pkw", "fkw"],
+
+ 	["dw", "ddw", "ldw", "tv", "ndw", "řdw", "bdw", "dgw", "rdw"],
+ 	["gw", "ggw", "lgw", "kv", "ňgw", "řgw", "gdw", "gbw", "rgw"],
+ 	["bw", "bbw", "lbw", "pv", "mbw", "řbw", "dbw", "bgw", "rbw"],
+ 	["lw", "ly", "ry", "rw", "ļw", "řy", "tļw", "řw", "lř"],
+
+ 	["dy", "ddy", "ldy", "dhy", "ndy", "řdy", "rdy", "bdy", "dgy"],
+ 	["gy", "ggy", "lgy", "jy", "ňgy", "řgy", "rgy", "gdy", "gby"],
+ 	["by", "bby", "lby", "vy", "mby","řby", "rby", "dby" , "bgy"],
+ 	["ny", "xty", "ktw", "nw", "xtw", "ktr", "xtr", "tkw", "ţkw"]]; //rpv + prx
+var ca_table8 =	[["tl", "ttl", "ltl", "rtl", "ntl", "řtl", "mtl", "ļtl", "kçw"],
+ 	["kl", "kkl", "lkl", "rkl", "ňkl", "řkl", "mkl", "ļkl", "c’w"],
+ 	["pl","ppl","lpl","rpl","mpl","řpl","ňpl","ļpl","tfw"],
+ 	["ql","qql","lql","rql","ňql","řql","mql","ļql","č’w"],
+
+ 	["dl","ddl","ldl","rdl","ndl","řdl","bdl","dgl","vbl"],
+ 	["gl","ggl","lgl","rgl","ňgl","řgl","gdl","gbl","vgl"],
+ 	["bl","bbl","lbl","rbl","mbl","řbl","dbl","bgl","vdl"],
+ 	["ml","mř","ňl","nl","ţř","fř","př","tř","lr"],
+
+ 	["skl","ckl","ckw","skw","sskw","çkw","sk’w","ck’w","sskl"],
+ 	["stl","ctl","ctw","stw","sstw","çtw","st’w","ct’w","sstl"],
+ 	["spl","cpl","cpw","spw","sspw","çpw","sp’w","cp’w","sspl"],
+ 	["sql","cql","cqw","sqw","ssqw","çqw","sq’w","cq’w","ssql"],
+
+ 	["škl","čkl","čkw","škw","šškw","xxw","šk’w","čk’w","šškl"],
+ 	["štl","čtl","čtw","štw","šštw","ţţw","št’w","čt’w","šštl"],
+ 	["špl","čpl","čpw","špw","ššpw","ffw","šp’w","čp’w","ššpl"],
+ 	["šql","čql","čqw","šqw","ššqw","xxhw","šq’w","čq’w","ššql"]]; //rpv + icp
+var ca_table9 =	[["tr","ttr","ltr","rtr","ntr","řtr","mtr","ļtr","rtn"],
+ 	["kr","kkr","lkr","rkr","ňkr","řkr","mkr","ļkr","rkn"],
+ 	["pr","ppr","lpr","rpr","mpr","řpr","ňpr","ļpr","rpn"],
+ 	["qr","qqr","lqr","rqr","ňqr","řqr","mqr","ļqr","rqn"],
+
+ 	["dr","ddr","ldr","rdr","ndr","řdr","bdr","dgr","vbr"],
+ 	["gr","ggr","lgr","rgr","ňgr","řgr","gdr","gbr","vgr"],
+ 	["br","bbr","lbr","rbr","mbr","řbr","dbr","bgr","vdr"],
+ 	["mr","nř","ňr","nr","dhř","vř","bř","dř","gř"],
+
+ 	["skr","ckr","cky","sky","ssky","č<sup>h</sup>w","sk<sup>h</sup>w","ck<sup>h</sup>w","sskr"],
+ 	["str","ctr","cty","sty","ssty","c<sup>h</sup>y","st<sup>h</sup>w","ct<sup>h</sup>w","sstr"],
+ 	["spr","cpr","cpy","spy","sspy","c<sup>h</sup>w","sp<sup>h</sup>w","cp<sup>h</sup>w","sspr"],
+ 	["sqr","cqr","c’y","cy","çr","č<sup>h</sup>y","sq<sup>h</sup>w","cq<sup>h</sup>w","ssqr"],
+
+ 	["škr","čkr","čky","šky","ššky","ļkw","šk<sup>h</sup>w","čk<sup>h</sup>w","šškr"],
+ 	["štr","čtr","čty","šty","ššty","ļtw","št<sup>h</sup>w","čt<sup>h</sup>w","šštr"],
+ 	["špr","čpr","čpy","špy","ššpy","ļpw","šp<sup>h</sup>w","čp<sup>h</sup>w","ššpr"],
+ 	["šqr","čqr","č’y","čy","çř","ļqw","šq<sup>h</sup>w","čq<sup>h</sup>w","ššqr"]]; //rpv + trm
+var ca_table10 = [["sl","ssl","lsl","rsl","msl","řsl","nsl","ňsl","ţst"],
+ 	["šl","ššl","lšl","ršl","mšl","řšl","nšl","ňšl","ţšt"],
+ 	["zl","zzl","lzl","rzl","mzl","řzl","nzl","ňzl","ţsp"],
+ 	["žl","žžl","lžl","ržl","mžl","řžl","nžl","ňžl","ţšp"],
+
+ 	["fl","ffl","lfl","rfl","mfl","řfl","fxl","ňfl","pxl"],
+ 	["ţl","ţţl","lţl","rţl","nţl","řţl","ţxl","mţl","txl"],
+ 	["xl","xxl","lxl","rxl","ňxl","řxl","xfl","mxl","xţl"],
+ 	["xhl","xxhl","lxhl","rxhl","ňxhl","qtl","xhfl","mxhl","xhţl"],
+
+ 	["vl","vvl","lvl","rvl","mvl","řvl","lpţ","lkţ","mpļ"],
+ 	["dhl","ddhl","ldhl","rdhl","ndhl","řdhl","cl","čl","ntļ"],
+ 	["sv","sř","ksw","sxw","lsř","rsř","fsw","řsř","bzw"],
+ 	["zv","zř","psw","sxhw","lzř","rzř","sfw","řzř","gzw",]
+
+ 	["sm","sy","cm","zm","żm","çm","bm","dm","gm"],
+ 	["šm","šy","čm","žm","jm","ļm","vm","dhm","kř"],
+ 	["sn", "zy", "cn", "zn", "żn","çn","bn","dn","gn"],
+ 	["šn", "žy", "čn", "žn", "jn", "ļn", "vn", "dhn", "ňř"]]; //rpv + dpl
+var ca_table11 = [["sr", "ssr", "lsr", "rsr", "msr", "řsr", "nsr", "ňsr", "ţsk"],
+ 	["šr", "ššr", "lšr", "ršr", "mšr", "řšr", "nšr", "ňšr", "ţšk"],
+ 	["zr", "zzr", "lzr", "rzr", "mzr", "řzr", "nzr", "ňzr", "ţsq"],
+ 	["žr", "žžr", "lžr", "ržr", "mžr", "řžr", "nžr", "ňžr", "ţšq"],
+
+ 	["fr", "ffr", "lfr", "rfr", "mfr", "řfr", "fxr", "ňfr", "pxr"],
+ 	["ţr", "ţţr", "lţr", "rţr", "nţr", "řţr", "ţxr", "mţr", "txr"],
+ 	["xr", "xxr", "lxr", "rxr", "ňxr", "řxr", "xfr", "mxr", "xţr"],
+ 	["xhr", "xxhr", "lxhr", "rxhr", "ňxhr", "qtr", "xhfr", "mxhr", "xhţr"],
+
+ 	["vr", "vvr", "lvr", "rvr", "mvr", "řvr", "rpţ", "rkţ", "mpř"],
+ 	["dhr", "ddhr", "ldhr", "rdhr", "ndhr", "řdhr", "cr", "čr", "ntř"],
+ 	["šv", "šř", "kšw", "šxw", "lšř", "ršř", "fšw", "řšř", "bžw"],
+ 	["žv", "žř", "pšw", "šxhw", "lžř", "ržř", "šfw", "řžř", "gžw"],
+
+ 	["tm", "ţm", "ţn", "tn", "rsm", "rsn", "sň", "rsň", "nm"],
+ 	["km", "xm", "xn", "kn", "rzm", "rzn", "zň", "rzň", "ňm"],
+ 	["pm", "fm", "fn", "pn", "ršm", "ršn", "šň", "ršň", "mn"],
+ 	["qm", "xhm", "xhn", "qn", "ržm", "ržn", "žň", "ržň", "ňn"]]; //rpv + gra
+var cb_table = [["n", "m", "ň", "ţ", "ç", "s", "z", "š", "l", "r", "ř", "ļ", "kç", "pļ", "pç", "x", "xh", "ks", "f", "kš", "kf", "pš", "ps", "pf"],
+["nn", "mm", "ňň", "ţţ", "çç", "ss", "zz", "šš", "ll", "rr", "řř", "ļļ", "kçç", "pļļ", "pçç", "xx", "xxh", "kss", "ff", "kšš", "kff", "pšš", "pss", "pff"]]; //bias
+var cg_table = ["h", "y", "w", "hw", "hh", "hm", "hn", "hr", "lw", "ly", "rw", "ry", "řw", "řy"];
+var civi_table = [["wë", "wa", "yë", "ya", "yû", "hë", "ha", "hû"],
+["we", "wö", "ye", "yö", "yeu", "he", "hö", "hei"],
+["wu", "wâ", "yu", "yâ", "yau", "hu", "hâ", "hai"],
+["wo", "wê", "yo", "yê", "you", "ho", "hê", "hoi"],
+["wi", "wô", "yi", "yô", "yiu", "hi", "hô", "hui"],
+["wî", "wî", "wî", "wî", "wî", "wî", "wî", "wî"]]; //illocution + mood
+//var vi_table = ??
+var cl_table = ["", "h", "y", "w", "hw", "hm", "hn", "hr", "lw", "ly", "rw", "ry", "řw", "řy"]; //va valence
+var cr_table = ["bg", "bj", "kl", "kš", "q"]; //root
+var cs_table = [["n-n", "m-m", "l-l", "r-r", "ň-ň", "r-n", "l-ň", "r-ň"],
+["n-nr", "n-nt", "n-nt’", "n-nd", "n-nth", "n-nţ", "n-ndh", "n-nh"],
+["m-mr", "m-mp", "m-mp’", "m-mb", "m-mph", "m-mf", "m-mv", "m-mh"],
+["l-lr", "l-lt", "l-lt’", "l-ld", "l-lth", "l-lţ", "l-ldh", "l-lh"],
+["r-rn", "r-rt", "r-rt’", "r-rd", "r-rth", "r-rţ", "r-rdh", "r-rh"],
+["ň-ňr", "ň-ňk", "ň-ňk’", "ň-ňg", "ň-ňkh", "ň-ňx", "ň-ňq", "ň-ňh"],
+["n-nw", "n-ntw", "n-nt’w", "n-ndw", "n-nthw", "n-nţw", "n-ndhw", "n-nhw"],
+["m-mw", "m-mpw", "m-mp’w", "m-mbw", "m-mphw", "m-mfw", "m-mvw", "m-mhw"],
+["l-lw", "l-ltw", "l-lt’w", "l-ldw", "l-lthw", "l-lţw", "l-ldhw", "l-lhw"],
+["r-rw", "r-rtw", "r-rt’w", "r-rdw", "r-rthw", "r-rţw", "r-rdhw", "r-rhw"],
+["ň-ňw", "ň-ňkw", "ň-ňk’w", "ň-ňgw", "ň-ňkhw", "ň-ňxw", "ň-ňqw", "ň-ňhw"],
+["n-ny", "n-nty", "n-nt’y", "n-ndy", "n-nthy", "n-nţy", "n-ndhy", "n-nç"],
+["m-my", "m-mpy", "m-mp’y", "m-mby", "m-mphy", "m-mfy", "m-mvy", "m-mç"],
+["l-ly", "l-lty", "l-lt’y", "l-ldy", "l-lthy", "l-lţy", "l-ldhy", "l-lç"],
+["r-ry", "r-rty", "r-rt’y", "r-rdy", "r-rthy", "r-rţy", "r-rdhy", "r-rç"],
+["n-ns", "n-nz", "n-nsw", "n-nzw", "n-nc’", "n-nch", "n-nc’w", "n-nchw"],
+["m-ms", "m-mz", "m-msw", "m-mzw", "m-mc’", "m-mch", "m-mc’w", "m-mchw"],
+["ň-ňs", "ň-ňz", "ň-ňsw", "ň-ňzw", "ň-ňc’", "ň-ňch", "ň-ňc’w", "ň-ňchw"],
+["l-ls", "l-lz", "l-lsw", "l-lzw", "l-lc’", "l-lch", "l-lc’w", "l-lchw"],
+["r-rs", "r-rz", "r-rsw", "r-rzw", "r-rc’", "r-rch", "r-rc’w", "r-rchw"],
+["n-nš", "n-nž", "n-nšw", "n-nžw", "n-nč’", "n-nčh", "n-nč’w", "n-nčhw"],
+["m-mš", "m-mž", "m-mšw", "m-mžw", "m-mč’", "m-mčh", "m-mč’w", "m-mčhw"],
+["ň-ňš", "ň-ňž", "ň-ňšw", "ň-ňžw", "ň-ňč’", "ň-ňčh", "ň-ňč’w", "ň-ňčhw"],
+["l-lš", "l-lž", "l-lšw", "l-lžw", "l-lč’", "l-lčh", "l-lč’w", "l-lčhw"],
+["r-rš", "r-rž", "r-ršw", "r-ržw", "r-rč’", "r-rčh", "r-rč’w", "r-rčhw"],
+["n-nļ", "m-mļ", "ň-ňļ", "n-ntļ", "m-mtļ", "ň-ňtļ", "l-ltļ", "r-rtļ"],
+["l-lm", "l-lļ", "n-nl", "ň-ňm", "m-mř", "m-mt", "ň-ňt", "ň-ňn"],
+["r-rm", "r-rl", "m-ml", "m-mn", "r-mř", "m-mt’", "ň-ňt’", "ň-ňç"],
+["l-ln", "l-nļ", "l-lř", "n-nm", "ň-ňř", "m-mth", "ň-ňth", "ň-ňţ"],
+["l-nw", "l-ny", "l-lg", "l-lgw", "l-lx", "l-lxw", "l-lv", "l-lcw"],
+["r-nw", "r-my", "r-rg", "r-rgw", "r-rx", "r-rxw", "r-rv", "r-rcw"],
+["l-mw", "l-my", "l-lb", "l-lbw", "l-lf", "l-lfw", "l-ňw", "l-lčw"],
+["r-mw", "r-ny", "r-rb", "r-rbw", "r-rf", "r-rfw", "r-ňw", "r-rčw"]]; //aspect (+ mood) TO DO : <SUP></SUP>
+var cv_table0 = [["t", "t’", "t<sup>h</sup>", "l", "tr", "tl", "tř", "tw", "ty"],
+["k", "k’", "k<sup>h</sup>", "x", "kr", "kl", "kř", "kw", "ky"],
+["p", "p’", "p<sup>h</sup>", "vv", "pr", "pl", "př", "pw", "py"],
+["q", "q’", "q<sup>h</sup>", "ř", "qr", "ql", "xr", "qw", "xl"],
+["b", "v", "vr", "vl", "br", "bl", "bř", "bw", "by"],
+["d", "dh", "ż", "żż", "dr", "dl", "dř", "dw", "dy"],
+["g", "xh", "j", "jj", "gr", "gl", "gř", "gw", "gy"],
+["m", "mm", "r", "rr", "mr", "ml", "mř", "mw", "my"],
+["n", "nn", "ddh", "ll", "nr", "nl", "nř", "nw", "ny"]]; //Assertive illocution
+var cv_table1 = [["s", "ss", "sm", "sn", "sr", "sl", "sř", "sw", "sy"],
+["š", "šš", "šm", "šn", "šr", "šl", "šř", "šw", "šy"],
+["ç", "çç", "çm", "çn", "çl", "çr", "çř", "çw", "ly"],
+["c", "cc", "cm", "cn", "cr", "cl", "cř", "cw", "cy"],
+["č", "čč", "čm", "čn", "čr", "čl", "čř", "čw", "čy"],
+["z", "zz", "zm", "zn", "zr", "zl", "zř", "zw", "zy"],
+["ž", "žž", "žm", "žn", "žr", "žl", "žř", "žw", "žy"],
+["f", "ff", "fw", "fy", "fr", "fl", "fř", "vw", "vy"],
+["ţ", "ţţ", "ţw", "ţy", "ţr", "ţl", "ţř", "dhw", "dhy"]]; //Interrogative illocution
+var cv_table2 = [["sk","sk’","skh","zg","skr","skl","skř","skw","sky"],
+["st","st’","sth","zd","str","stl","stř","stw","sty"],
+["sp","sp’","sph","zb","spr","spl","spř","spw","spy"],
+["sq","sq’","sqh","xx","sqr","sql","xw","sqw","řř"],
+["šk","šk’","škh","žg","škr","škl","škř","škw","šky"],
+["št","št’","šth","žd","štr","štl","štř","štw","šty"],
+["šp","šp’","šph","žb","špr","špl","špř","špw","špy"],
+["šq","šq’","šqh","xxh","šqr","šql","xhw","šqw","řw"],
+["ň","ňň","rw","ry","ňr","ňl","ňř","ňw","řy"]]; //Directive illocution
+var cv_table3 = [["ks","kss","ksm","ksn","ksr","ksl","ksř","ksw","ksy"],
+["kš","kšš","kšm","kšn","kšr","kšl","kšř","kšw","kšy"],
+["ps","pss","psm","psn","psr","psl","psř","psw","psy"],
+["pš","pšš","pšm","pšn","pšr","pšl","pšř","pšw","pšy"],
+["gz","gzz","gzm","gzn","gzr","gzl","gzř","gzw","gzy"],
+["gž","gžž","gžm","gžn","gžr","gžl","gžř","gžw","gžy"],
+["bz","bzz","bzm","bzn","bzr","bzl","bzř","bzw","bzy"],
+["bž","bžž","bžm","bžn","bžr","bžl","bžř","bžw","bžy"],
+["sx","sxh","šx","šxh","zgr","zgl","zgř","zgw","zgy"]]; //Admonitive illocution
+var cv_table4 = [["çt","çt’","çth","sţ","çtr","çtl","çtř","çtw","çty"],
+["çk","çk’","çkh","šţ","çkr","çkl","çkř","çkw","çky"],
+["çp","çp’","çph","sf","çpr","çpl","çpř","çpw","çpy"],
+["çq","çq’","çqh","šf","çqr","çql","çqř","çqw","çč"],
+["kt","kt’","kth","gd","ktr","ktl","ktř","ktw","kty"],
+["pt","pt’","pth","bd","ptr","ptl","ptř","ptw","pty"],
+["qt","qt’","qth","tk","qtr","qtl","qtř","qtw","qty"],
+["sc","sc’","sch","db","żr","żl","żř","żw","ży"],
+["šč","šč’","ščh","dg","jr","jl","jř","jw","jy"]]; //hortative illocution
+var cv_table5 = [["ct","ct’","cth","tm","ctr","ctl","ctř","ctw","cty"],
+["ck","ck’","ckh","km","ckr","ckl","ckř","ckw","cky"],
+["cp","cp’","cph","pm","cpr","cpl","cpř","cpw","cpy"],
+["cq","cq’","cqh","qm","cqr","cql","gm","cqw","xm"],
+["čt","čt’","čth","tn","čtr","čtl","čtř","čtw","čty"],
+["čk","čk’","čkh","kn","čkr","čkl","čkř","čkw","čky"],
+["čp","čp’","čph","pn","čpr","čpl","čpř","čpw","čpy"],
+["čq","čq’","čqh","qn","čqr","čql","gn","čqw","xn"],
+["xt","xt’","xth","pk","xtr","xtl","xtř","xtw","xty"]]; //declarative illocution
+var cx_table = ["cx"]; //im root
+var tone_table = ["", "<sup>–<\/sup>", "<sup>\/<\/sup>", "_", "^", "ˇ"]; //version (+ extension in verbal adjunct tone)
+var vc_table = ["a", "u", "e", "o", "ö", "i", "ü", "ai", "ei", "ui", "oi", //transrelative
+"â", "î", "ê", "ô", "ëi", "öi", "ae", //possessive
+"ia", "ie", "io", "iö", "a'", "u'", "e'", "o'", "ea", "eo", "eö", "oa", "oe", "öa", "öe", "üa", "üe", "üo", "au", "eu", "iu", "ou", "ëu", "öu", "ai'", "ui'", "ei'", "oi'", "au'", "iu'", "eu'", "ou'", //associative
+"a'a", "e'a", "i'a", "o'a", "u'a", "ö'a", "ü'a", "ai'a", "ei'a", "ui'a", "oi'a", "ëi'a", "au'a", "eu'a", "iu'a", //temporal
+"â'a", "ê'a", "ô'a", "î'a", "ëu'a", "ou'a", //spatial
+"ë", //vocative
+"aì", "eì", "oì", "uì", "aù", "eù", "où", "iù", "ao", "aü", "eü", "oü", "ëì", "öì", "ëù", "öù", "eai", "oai", "eau", "oau", "uai", "uei", "uoi", "uëi"]; //case
+/*
+var vc_table = ["a", "u", "e", "o", "ö", "i", "ü", "ai", "ei", "ui", "oi", //transrelative
+"â", "î", "ê", "ô", "ëi", "öi", "ae", //possessive
+"ia", "ie", "io", "iö", "a'", "u'", "e'", "o'", "ea", "eo", "eö", "oa", "oe", "öa", "öe", "üa", "üe", "üo", "au", "eu", "iu", "ou", "ëu", "öu", "ai'", "ui'", "ei'", "oi'", "au'", "iu'", "eu'", "ou'", //associative
+"a'V", "e'V", "i'V", "o'V", "u'V", "ö'V", "ü'V", "ai'V", "ei'V", "ui'V", "oi'V", "ëi'V", "au'V", "eu'V", "iu'V", //temporal
+"â'V", "ê'V", "ô'V", "î'V", "ëu'V", "ou'V", //spatial
+"ë", //vocative
+"aì", "eì", "oì", "uì", "aù", "eù", "où", "iù", "ao", "aü", "eü", "oü", "ëì", "öì", "ëù", "öù", "eai", "oai", "eau", "oau", "uai", "uei", "uoi", "uëi"]; //case
+*/
+var ve_table = ["a", "u", "i", "o", "e", "ai", "ui", "ei", "oi","â", "û", "ö", "ô", "ê", "au", "iu", "eu", "ou"]; //va level + absolutive
+var vf_table = [["a", "o", "ai", "â", "au", "ëi", "oa", "ea", "aì", "aù"],
+["i", "ö", "ui", "ae", "iu", "ëu", "oe", "ia", "uì", "iù"],
+["e", "ü", "ei", "ê", "eu", "öi", "eo", "ie", "eì", "eù"],
+["u", "öa", "oi", "ô", "ou", "öu", "iö", "io", "oì", "où"]]; //context + format
+var vl_table = ["a", "e", "o", "i", "u", "â", "ê", "ô", "û", "ai", "ei", "oi", "ui", "ö"];
+var vm_table = ["a", "u", "e", "o", "i", "ö", "î", "â", "ê", "ô", "ü", "ai", "ei", "ui", "oi", "iu", "au", "eu", "ou", "ae", "ia", "ie", "io", "iö", "ea", "oa", "öi", "öu", "eo", "ëi", "ëu"]; //modality
+var vp_table = [["a","i","u"],["o","e","ö"],["ai","ui","ei"],
+["â","î","ô"],["ê","oi","au"],["eu","iu","ou"]]; //im pat + im stem + im designation
+var vr_table = [["a", "e", "u", "o", "ö", "î", "â", "ê", "ô"],
+["i", "ai", "ei", "au", "eu", "iu", "ia", "ie", "io"],
+["ui", "ü", "ëi", "ae", "ea", "oa", "aì", "iù", "iö"],
+["oi", "eo", "eö", "oe", "öe", "ëu", "oì", "eì", "aù"]]; //pattern + stem + function
+var vs_table = ["a", "u", "e", "o", "i", "ö", "î", "â", "ê", "ô", "ü", "ai", "ei", "ui", "oi", "iu", "au", "eu", "ou", "ae", "ia", "ie", "io", "iö", "ea", "oa", "öi", "öu", "eo", "ëi", "ëu"]; //aspect1
+
+//FORMATIVE, ADJUNCTS, PHRASE
+
+var formative = "";
+var va = ""; //verbal adjunct
+var pra = ""; //personal reference adjunct
+var dpra = ""; //dual personal reference adjunct
+//var ba = ""; //bias adjunct
+//var sa = ""; //suffixal adjunct
+var phrase = ""; //formative + adjuncts
+//var translation = ""; //rough english translation
+
+/* // GRAMMAR HINTS
+var configurationGr = ["Single unit/act",
+	"Two complementary halves",
+	"Group of same/Repeated set of identical acts",
+	"Group of different/Repeated set of non-identical acts",
+	"Group of same linked/Naturally repetitive act",
+	"Group of different linked/Connected series of non-identical events",
+	"A coherent entity/event made of identical",
+	"A coherent entity/event made of different",
+	"An incoherent set of varying things/events"];
+*/
+</script><!--tables-->
+<script>
+function init(){
+	main();
+}
+
+function showGrammar(){
+/*	z =		"<br>Root : " + document.getElementById("root").value;
+	z +=	"<br>Stem " + document.getElementById("stem").value;
+	z +=	", Pattern " + document.getElementById("pattern").value;
+	z +=	" + " + document.getElementById("f_function").value + " function <br>";
+	z +=	document.getElementById("configuration").value + " configuration <br>";
+	z +=	document.getElementById("affiliation").value + " affiliation <br>";
+	z +=	document.getElementById("perspective").value + " perspective <br>";
+	z +=	document.getElementById("extension").value + " extension <br>";
+	//z +=	document.getElementById("essence").checked + " essence <br>";
+	z +=	document.getElementById("context").value + " context <br>";
+	document.getElementById("grammarResume").innerHTML=(z);*/
+	null;
+}
+
+function main(){
+//ASSIGNATION OF CATEGORIES TO HTML ELEMENTS AND PARSING
+	(function assignation(){	
+		//ASSIGNATION OF CATEGORIES TO HTML ELEMENTS AND PARSING
+		
+		root = parseInt(document.getElementById("root").selectedIndex);
+		pattern = parseInt(document.getElementById("pattern").selectedIndex);
+		stem = parseInt(document.getElementById("stem").selectedIndex);
+		
+		incorporation = document.getElementById("ir_cb").checked;
+		ir_root = parseInt(document.getElementById("ir_root").selectedIndex);
+		ir_pattern = parseInt(document.getElementById("ir_pattern").selectedIndex);
+		ir_stem = parseInt(document.getElementById("ir_stem").selectedIndex);
+		ir_des = parseInt($("input[name=ir_des]:checked").val());
+		
+		format = parseInt(document.getElementById("format").selectedIndex);
+		modality = parseInt(document.getElementById("modality").selectedIndex); //31 modalities
+		level = parseInt(document.getElementById("level").selectedIndex); //9 levels + relative/absolute Bool
+		
+		configuration = parseInt(document.getElementById("configuration").selectedIndex);
+		affiliation = parseInt(document.getElementById("affiliation").selectedIndex);
+		perspective = parseInt(document.getElementById("perspective").selectedIndex);
+		extension = parseInt(document.getElementById("extension").selectedIndex);
+		essence = parseInt($("input[name=essence]:checked").val());
+		context = parseInt(document.getElementById("context").selectedIndex);
+		designation = parseInt($("input[name=designation]:checked").val());
+		
+		f_case = parseInt(document.getElementById("f_case").selectedIndex); //96 cases
+		
+		f_function = parseInt(document.getElementById("f_function").selectedIndex);
+		mood = parseInt(document.getElementById("mood").selectedIndex);
+		illocution = parseInt(document.getElementById("illocution").selectedIndex);
+		framed = false;
+		phase = parseInt(document.getElementById("phase").selectedIndex);
+		sanction = parseInt(document.getElementById("sanction").selectedIndex);
+		valence = parseInt(document.getElementById("valence").selectedIndex);
+		version = parseInt(document.getElementById("version").selectedIndex);
+		validation = parseInt(document.getElementById("validation").selectedIndex);
+		aspect = parseInt(document.getElementById("aspect").selectedIndex);
+		//aspect0 = aspect;
+		aspect1 = parseInt(document.getElementById("aspect1").selectedIndex);
+		bias = parseInt(document.getElementById("bias").selectedIndex);
+		biasInt = document.getElementById("biasInt").checked;
+		//biasInt = parseInt(document.getElementById("biasInt").checked);	
+	})();
+	
+//TWEAKS
+	if (ir_des === true) {ir_stem += 3;}
+
+	//conversion of pattern to stem (to simplify vr_table)
+	if (pattern === 1) {stem += 3;}
+	else if (pattern === 2) {stem += 6;}
+	
+	if (biasInt === false) {biasInt = 0;}
+	else {biasInt = 1;}
+	
+	// conversion of perspective + affiliation to a number (0-15) for ca tables
+	var perAff = 0; //perAff = perspective + affiliation
+	if (perspective === 1) {perAff = 4}
+	else if (perspective === 2) {perAff = 8}
+	else if (perspective === 3) {perAff = 12}
+	perAff += affiliation;
+	
+	//designation + delimitation tweak for ca table
+	
+//ASSIGNATION OF CATEGORIES TO AFFIXES AND TABLES
+	(function assignment(){
+		//ca
+		if (essence === 0) {
+			if (extension === 0) {ca = ca_table0[perAff][configuration];}
+			else if (extension === 1) {ca = ca_table1[perAff][configuration];}
+			else if (extension === 2) {ca = ca_table2[perAff][configuration];}
+			else if (extension === 3) {ca = ca_table3[perAff][configuration];}
+			else if (extension === 4) {ca = ca_table4[perAff][configuration];}
+			else if (extension === 5) {ca = ca_table5[perAff][configuration];}
+		;}
+		else if (essence === 1) {
+			if (extension === 0) {ca = ca_table6[perAff][configuration];}
+			else if (extension === 1) {ca = ca_table7[perAff][configuration];}
+			else if (extension === 2) {ca = ca_table8[perAff][configuration];}
+			else if (extension === 3) {ca = ca_table9[perAff][configuration];}
+			else if (extension === 4) {ca = ca_table10[perAff][configuration];}
+			else if (extension === 5) {ca = ca_table11[perAff][configuration];}
+		;}
+		else {ca = "ERROR";}
+	
+		cb = cb_table[biasInt][bias]; //bias
+	
+		cg = cg_table[validation];
+	
+		civi = civi_table[illocution][mood]; //illocution
+	
+		cl = cl_table[valence];
+	
+		cs = cs_table[aspect][mood]; //aspect + mood
+	
+		cr = cr_table[root]; //root
+		
+		//cv	
+		if (illocution === 0) {cv = cv_table0[phase][sanction];}
+		else if (illocution === 1) {cv = cv_table1[phase][sanction];}
+		else if (illocution === 2) {cv = cv_table2[phase][sanction];}
+		else if (illocution === 3) {cv = cv_table3[phase][sanction];}
+		else if (illocution === 4) {cv = cv_table4[phase][sanction];}
+		else if (illocution === 5) {cv = cv_table5[phase][sanction];}
+		
+		cx = cr_table[ir_root]; //incorp. root
+		
+		//stress = stressFormative(); //designation + relation
+		
+		tone = tone_table[version]; //version
+		
+		va_tone = tone_table[extension];
+		
+		vc = vc_table[f_case]; //case
+		
+		ve = ve_table[level];
+		
+		vf = vf_table[context][format]; //context + format
+		
+		vl = vl_table[valence]; //valence
+		
+		vm = vm_table[modality];
+		
+		vp = vp_table[ir_stem][ir_pattern]; //im pat + im stem + im designation
+		
+		vr = vr_table[f_function][stem]; //function + (pattern TWEAKED) stem
+		
+		vs = vs_table[aspect1];
+		
+		//vxc ...
+		
+	}());
+	writeIthkuil();
+}
+
+function writeIthkuil(){
+	//MORPHOLOGICAL STRUCTURE OF FORMATIVE
+	if (vr === "a" && cg === "h") {vr = "";}
+	
+	if (cg === "h") {cg = "";}
+	
+	if (civi === "wë") {civi = "";}
+	
+	if (cb === "n") {cb = "";}
+	else {cb = "'" + cb;}
+	
+	if (vf === "a" && cb === "") {vf = "(" + vf + ")";}
+	
+	if (incorporation === true) {
+		formative = tone + cv + vl + cg + vr + cx + vp + cr + vc + civi + ca + vf + cb;
+	}
+	else {
+		if (phase === 0 && sanction === 0) {
+			cv = "";
+			if (valence === 0) {
+				vl = "";
+				if (validation === 0) {
+					cg = "";
+					if (vr === "a") {vr = "";}
+				}
+			}
+		}
+		formative = tone + cg + vr + cv + vl + cr + vc + civi + ca + vf + cb;
+	}
+	
+	if (modality != 0 || level != 0 || aspect != 0) {
+		va = cl + ve + cv + vm + cs + vs + cb;
+		if (incorporation === true) {
+			formative = tone + cg + vr + cx + vp + cr + vc + civi + ca + vf;
+		}
+		else {
+			formative = tone + cg + vr + cr + vc + civi + ca + vf;
+		}
+		formative = va + " " + formative;
+	}
+	
+//TEST
+	document.getElementById("test").innerHTML="Debug : it works";
+	document.getElementById("ithkuil_").innerHTML = formative;
+
+/*
+To do :
+1) va_tone[extension] / ca = ...
+2) cb : va / formative
+3) alternative vc+vr for cases 51 - 71
+4) add "?" / "!" at the end of the formative
+*/
+}
+</script><!--scripts-->
+</html>

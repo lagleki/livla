@@ -199,7 +199,7 @@ var updatexmldumps = function (callback) {
 			});
 		});
 	}catch(err){console.log('Error when autoupdating: ' + err);}
-	sutsisningau("zamenhofo");sutsisningau("laadan");labangu();
+	sutsisningau("zamenhofo");sutsisningau("laadan");sutsisningau("ile");labangu();
 	//updategloss();# not yet ready function
 };
 var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),{encoding: 'utf8'}));//store en dump in memory

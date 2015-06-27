@@ -18061,6 +18061,7 @@ var camxes = (function(){
         if (result0 !== null) {
           pos2 = pos;
           result1 = parse_joik_ek();
+          result1 = result1 !== null ? result1 : "";
           if (result1 !== null) {
             result2 = parse_stag();
             result2 = result2 !== null ? result2 : "";

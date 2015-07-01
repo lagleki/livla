@@ -465,13 +465,13 @@ function MensiBot(noRandomFlag) {
 		 ["*", [
 		     "ki'u ma do retsku",
 		     "xu le preti cu cinri do",
-		     "What is it you really want to know ?",
+		     "do je'a djica lo ka djuno ma",
 		     "Are such questions much on your mind ?",
-		     "What answer would please you most ?",
+		     "ma poi se spusku cu da'i pluka do",
 		     "do jinvi ma",
 		     "What comes to mind when you ask that ?",
-		     "Have you asked such questions before ?",
-		     "Have you asked anyone else ?"
+		     "xu do pu'i pu retsku lo mintu",
+		     "xu do fi lo drata pu'i pu retsku"
 		  ]]
 		]],
 		["who", 0, [

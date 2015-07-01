@@ -395,7 +395,7 @@ sumti_6 = expr:(ZO_clause free* / ZOI_clause free* / ZOhOI_clause free* / LOhU_c
 li_clause = expr:(LI_clause free* mex LOhO_elidible free*) {return _node("li_clause", expr); }
 
 //// EXP-MODIF: allow {lo mi e do vu'o noi brodi cu broda} (instead of the previous string) + adding gek_sentence
-sumti_tail = expr:((sumti_6 relative_clauses?)? sumti_tail_1 / relative_clauses sumti_tail_1 / sumti sumti_tail_1 / gek_sentence) {return _node("sumti_tail", expr); }
+sumti_tail = expr:(relative_clauses sumti_tail_1 / (sumti_6 relative_clauses?)? sumti_tail_1 / sumti sumti_tail_1 / gek_sentence) {return _node("sumti_tail", expr); }
 
 sumti_tail_1 = expr:(selbri_may_elide relative_clauses? / quantifier selbri_may_elide relative_clauses? / quantifier sumti) {return _node("sumti_tail_1", expr);}
 
@@ -426,23 +426,24 @@ selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relativ
 
 //// EXP-MODIF: tag? --> tag*
 //ToDo: selbri and selbri_elidible should be at the same level of hierarchy. currently they are not.
-//selbri_may_elide = (selbri / SELBRI_elidible SELBRIEND_elidible !terms)
-selbri_may_elide = (selbri / selbri_to_elide SELBRIEND_elidible !terms)
+selbri_may_elide = (selbri / selbri_to_elide !terms)
 selbri_to_elide = expr:(tag* SELBRI_elidible) {return _node("selbri", expr); }
 
-selbri = expr:(tag* selbri_1 SELBRIEND_elidible) {return _node("selbri", expr); }
+selbri = expr:(tag* selbri_1) {return _node("selbri", expr); }
 selbri_1 = expr:(selbri_2 / NA_clause free* selbri) {return _node("selbri_1", expr); }
 selbri_2 = expr:(selbri_3 (CO_clause free* selbri_2)?) {return _node("selbri_2", expr); }
-selbri_3 = expr:(selbri_4+) {return _node("selbri_3", expr); }
+selbri_3 = expr:((selbri_4 &selbri_4)* selbri_4nf) {return _node("selbri_3", expr); }
 selbri_4 = expr:(selbri_5 (joik_jek selbri_5 / joik stag? KE_clause free* selbri_3 KEhE_elidible free*)*) {return _node("selbri_4", expr); }
 selbri_5 = expr:(selbri_6 ((jek / joik) stag? BO_clause free* selbri_5)?) {return _node("selbri_5", expr); }
 selbri_6 = expr:(tanru_unit (BO_clause free* selbri_6)? / NAhE_clause? free* guhek selbri gik selbri_6) {return _node("selbri_6", expr); }
-
-//// EXP-MODIF: add of "selbri_relative_clauses?" for implementing NOhOI
 tanru_unit = expr:(tanru_unit_1 (CEI_clause free* tanru_unit_1)* selbri_relative_clauses?) {return _node("tanru_unit", expr); }
-
-//// EXP-MODIF: implementation of foretought BE-clause
 tanru_unit_1 = expr:(tanru_unit_2 linkargs? / linkargs? tanru_unit_2) {return _node("tanru_unit_1", expr); }
+
+selbri_4nf = expr:(selbri_5nf (joik_jek selbri_5nf / joik stag? KE_clause free* selbri_3 KEhE_elidible free*)*) {return _node("selbri_4", expr); }
+selbri_5nf = expr:(selbri_6nf ((jek / joik) stag? BO_clause free* selbri_5nf)?) {return _node("selbri_5", expr); }
+selbri_6nf = expr:(tanru_unitnf (BO_clause free* selbri_6nf)? / NAhE_clause? free* guhek selbri gik selbri_6nf) {return _node("selbri_6", expr); }
+tanru_unitnf = expr:(tanru_unit_1nf (CEI_clause free* tanru_unit_1nf)* selbri_relative_clauses?) {return _node("tanru_unit", expr); }
+tanru_unit_1nf = expr:(NOUNSTART tanru_unit_2 NOUNEND linkargs? / linkargs? tanru_unit_2) {return _node("tanru_unit_1", expr); }
 
 // ** zei is part of BRIVLA_clause
 //// EXP-MODIF: brivla / cmevla merge + add of MEhOI_clause + add of "linkargs tanru_unit_1 / " (for {jai be broda}) + MEX simplification
@@ -654,7 +655,8 @@ VAU_elidible = expr:(VAU_clause?)   {return (expr == "") ? ["VAU"]  : _node("VAU
 VEhO_elidible = expr:(VEhO_clause?) {return (expr == "") ? ["VEhO"] : _node("VEhO", expr);}
 
 SELBRI_elidible = expr:(GOhA_clause?) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);}
-SELBRIEND_elidible = expr:() {return ["SF"];}
+NOUNSTART = expr:() {return ["NS"];}
+NOUNEND = expr:() {return ["NF"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}
 
 

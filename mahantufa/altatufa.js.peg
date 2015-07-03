@@ -427,10 +427,10 @@ selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relativ
 //// EXP-MODIF: tag? --> tag*
 //ToDo: selbri and selbri_elidible should be at the same level of hierarchy. currently they are not.
 selbri_may_elide = (selbri / selbri_to_elide !terms)
-selbri_to_elide = expr:(tag* SELBRI_elidible) {return _node("selbri", expr); }
+selbri_to_elide = expr:((tag / NA_clause)* SELBRI_elidible) {return _node("selbri", expr); }
 
-selbri = expr:(tag* selbri_1) {return _node("selbri", expr); }
-selbri_1 = expr:(selbri_2 / NA_clause free* selbri) {return _node("selbri_1", expr); }
+selbri = expr:((tag / NA_clause)* selbri_1) {return _node("selbri", expr); }
+selbri_1 = expr:(selbri_2) {return _node("selbri_1", expr); }
 selbri_2 = expr:(selbri_3 (CO_clause free* selbri_2)?) {return _node("selbri_2", expr); }
 selbri_3 = expr:((selbri_4 &selbri_4)* selbri_4nf) {return _node("selbri_3", expr); }
 selbri_4 = expr:(selbri_5 (joik_jek selbri_5 / joik stag? KE_clause free* selbri_3 KEhE_elidible free*)*) {return _node("selbri_4", expr); }

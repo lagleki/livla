@@ -42,7 +42,12 @@ var labangu = function(){
 		var col11 = x.map(function(value,index) { return value[11-1]; }).join(", ").split(", ");
 		var col12 = x.map(function(value,index) { return value[12-1]; }).join(", ").split(", ");
 		var col14 = x.map(function(value,index) { return value[14-1]; }).join(", ").split(", ");
-		var colall = col3.concat(col4).concat(col5).concat(col7).concat(col10).concat(col11).concat(col12).concat(col14).filter(Boolean).sort();
+		var col15 = x.map(function(value,index) { return value[15-1]; }).join(", ").split(", ");
+		var col16 = x.map(function(value,index) { return value[16-1]; }).join(", ").split(", ");
+		var col17 = x.map(function(value,index) { return value[17-1]; }).join(", ").split(", ");
+		var col18 = x.map(function(value,index) { return value[18-1]; }).join(", ").split(", ");
+		var col19 = x.map(function(value,index) { return value[19-1]; }).join(", ").split(", ");
+		var colall = col3.concat(col4).concat(col5).concat(col7).concat(col10).concat(col11).concat(col12).concat(col14).concat(col15).concat(col16).concat(col17).concat(col18).concat(col19).filter(Boolean).sort();
 		allenglish = colall.filter(function(item, pos, self) {
 			return self.indexOf(item) == pos;
 		});
@@ -94,7 +99,7 @@ var labangu = function(){
 				||x[i][11-1].search(", "+so+"$")>=0) & x[i][8-1]==='yes'
 				)
 				{
-					alllojban[j]+=""+x[i][10-1]+" cu'i, ";
+					alllojban[j]+=""+x[i][9-1]+" cu'i, ";
 				}
 				if(
 				  (x[i][12-1].search("^"+so+"$")>=0
@@ -123,13 +128,58 @@ var labangu = function(){
 				{
 					alllojban[j]+=""+x[i][13-1]+", ";
 				}
+				if(
+				  (x[i][15-1].search("^"+so+"$")>=0
+				||x[i][15-1].search("^"+so+", ")>=0
+				||x[i][15-1].search(", "+so+", ")>=0
+				||x[i][15-1].search(", "+so+"$")>=0) & x[i][1-1]==='yes'
+				)
+				{
+					alllojban[j]+="lo "+x[i][2-1]+", ";
+				}
+				if(
+				  (x[i][16-1].search("^"+so+"$")>=0
+				||x[i][16-1].search("^"+so+", ")>=0
+				||x[i][16-1].search(", "+so+", ")>=0
+				||x[i][16-1].search(", "+so+"$")>=0) & x[i][1-1]==='yes'
+				)
+				{
+					alllojban[j]+="lo se "+x[i][2-1]+", ";
+				}
+				if(
+				  (x[i][17-1].search("^"+so+"$")>=0
+				||x[i][17-1].search("^"+so+", ")>=0
+				||x[i][17-1].search(", "+so+", ")>=0
+				||x[i][17-1].search(", "+so+"$")>=0) & x[i][1-1]==='yes'
+				)
+				{
+					alllojban[j]+="lo te "+x[i][2-1]+", ";
+				}
+				if(
+				  (x[i][18-1].search("^"+so+"$")>=0
+				||x[i][18-1].search("^"+so+", ")>=0
+				||x[i][18-1].search(", "+so+", ")>=0
+				||x[i][18-1].search(", "+so+"$")>=0) & x[i][1-1]==='yes'
+				)
+				{
+					alllojban[j]+="lo ve "+x[i][2-1]+", ";
+				}
+				if(
+				  (x[i][19-1].search("^"+so+"$")>=0
+				||x[i][19-1].search("^"+so+", ")>=0
+				||x[i][19-1].search(", "+so+", ")>=0
+				||x[i][19-1].search(", "+so+"$")>=0) & x[i][1-1]==='yes'
+				)
+				{
+					alllojban[j]+="lo xe "+x[i][2-1]+", ";
+				}
 			}
 			alllojban[j]=alllojban[j].replace(/(, )+$/,"");
 		}
 		//now join into string
 		var out='';
 		for (j=0;j<allenglish.length;j++){
-			if(!(alllojban[j]==='' || allenglish[j]==='')){out+=("''"+allenglish[j].replace(/'/g,"&apos;").replace(/^([ _]+)/,"")+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''")+"  –  '''"+alllojban[j].replace(/, /,"''', '''")+"'''\n\n";}
+			if(!(alllojban[j]==='' || allenglish[j]==='')){out+=("''"+allenglish[j].replace(/_/g,"").replace(/'/g,"&apos;").replace(/^([ ]+)/,"")+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''")+"  –  '''"+alllojban[j].replace(/, /,"''', '''")+"'''\n\n";}
 		}
 		take = fs.writeFileSync(tr+".temp",out);
 		fs.renameSync(tr+".temp",tr);console.log("La Bangu Eng2Jbo updated");

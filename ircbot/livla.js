@@ -992,11 +992,12 @@ var items = [
 	["za'a","as-I-ca-see"],["za'adai","as-you-can-see"],["pu","in-past"],["ba","in-future"],["vau","]"],["doi","oh"],["uinai","unfortunately"],["u'u","sorry"],
 	["ko","do-it-so-that-you"],["poi","that"],["noi",",which"],["me","among"],
 	//["bakni","is-a-cow"],
+	["slabu","familiar-to"],
 	["pe'i","in-my-opinion"],["ui","yay"],["uinai","unfortunately"],
 	["ju","whether-or-not"],["gu","whether-or-not"],["gi'u","whether-or-not"],["u","whether-or-not"],
 	["xu","is-it-true-that"],["xunai","isnt-it-so-that"],["ka'e","possibly-can"],
 	["re'u","time"],["roi","times"],
-	["pa'o","through"],
+	["pa'o","through"],["co'a","become"],
 	["mi","me"]//dont copy
 	];
 var itemsu = [//universal glosses

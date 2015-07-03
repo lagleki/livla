@@ -73,3 +73,9 @@ path to your system) should solve the problem:
  $ npm config set python /usr/bin/python2.7
 ```
 
+# La Bangu dictionary generations
+
+```sh
+node ircbot/labangu.js
+```
+will generate the english2lojban La Bangu dictionary in ircbot/dumps/eng2jbo.tsv file which is ready to be imported into MediaWiki.

@@ -407,6 +407,18 @@ sumti_tail = expr:(relative_clauses sumti_tail_1 / (sumti_6 relative_clauses?)? 
 
 sumti_tail_1 = expr:(selbri_may_elide relative_clauses? / quantifier selbri_may_elide relative_clauses? / quantifier sumti) {return _node("sumti_tail_1", expr);}
 
+///LE-less sumti
+sumti_leless = expr:(sumti_1_leless) {return _node("sumti", expr);}
+sumti_1_leless = expr:(sumti_2_leless) {return _node("sumti_1", expr);}
+sumti_2_leless = expr:(sumti_3_leless) {return _node("sumti_2", expr);}
+sumti_3_leless = expr:(sumti_4_leless) {return _node("sumti_3", expr);}
+sumti_4_leless = expr:(sumti_5_leless) {return _node("sumti_4", expr);}
+sumti_5_leless = expr:(quantifier? sumti_6_leless relative_clauses?) {return _node("sumti_5", expr);}
+sumti_6_leless = expr:(LE_clause_elidible free* sumti_tail_leless KU_elidible free*) {return _node("sumti_6", expr);}
+sumti_tail_leless = expr:(relative_clauses? sumti_tail_1_leless) {return _node("sumti_tail", expr); }
+sumti_tail_1_leless = expr:(selbri relative_clauses?) {return _node("sumti_tail_1", expr);}
+
+
 //// EXP-MODIF: merging ZIhE with JA/JOI + Forethought relative clause connective
 relative_clauses = expr:(relative_clause ((ZIhE_clause / joik) free* relative_clause)* / gek relative_clauses gik relative_clauses) {return _node("relative_clauses", expr); }
 
@@ -560,7 +572,7 @@ gik = expr:(GI_clause free*) {return _node("gik", expr); }
 stag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("stag", expr); }
 
 
-free = expr:(SEI_clause free* (terms CU_elidible free*)? selbri SEhU_elidible / vocative relative_clauses? selbri relative_clauses? DOhU_elidible  / vocative (sumti / sumtido) DOhU_elidible / mex_2 MAI_clause free* / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
+free = expr:(SEI_clause free* (terms CU_elidible free*)? selbri SEhU_elidible / vocative (sumti / sumti_leless  / sumtido) DOhU_elidible / mex_2 MAI_clause free* / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
 
 //// EXP-MODIF: MEX simplification
 xi_clause = expr:(XI_clause free* mex_2 / XI_clause free* VEI_clause free* mex VEhO_elidible) {return _node("xi_clause", expr); }
@@ -667,8 +679,8 @@ VEhO_elidible = expr:(VEhO_clause?) {return (expr == "") ? ["VEhO"] : _node("VEh
 SELBRI_elidible = expr:(GOhA_clause?) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);}
 NOUNEND = expr:() {return ["NF"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}
-KOhAdo = expr:() { return ["DO", _join(expr)];}
-
+KOhA_elidible = expr:() { return ["DO", _join(expr)];}
+LE_elidible = expr:() { return ["LO", _join(expr)];}
 
 // ___ SELMAHO ___
 // Do *NOT* delete the line above!
@@ -1016,7 +1028,7 @@ KOhA_post = post_clause
 // KOhA_no_SA_handling = pre_clause KOhA spaces?
 
 KOhA_clausedo = pre:KOhA_predo post:KOhA_post {return _node2("KOhA_clause", pre, post); }
-KOhA_predo = pre_clause KOhAdo spaces?
+KOhA_predo = pre_clause KOhA_elidible spaces?
 
 //         right terminator for descriptions, etc. 
 KU_clause = pre:KU_pre post:KU_post {return _node2("KU_clause", pre, post); }
@@ -1060,6 +1072,9 @@ LE_clause = pre:LE_pre post:LE_post {return _node2("LE_clause", pre, post); }
 LE_pre = pre_clause LE spaces?
 LE_post = post_clause
 // LE_no_SA_handling = pre_clause LE post_clause
+
+LE_clause_elidible = pre:LE_pre_elidible post:LE_post {return _node2("LE_clause", pre, post); }
+LE_pre_elidible = pre_clause LE_elidible spaces?
 
 
 //         possibly ungrammatical text right quote 

@@ -219,6 +219,13 @@ var camxes = (function(){
         "sumti_4": parse_sumti_4,
         "sumti_5": parse_sumti_5,
         "sumti_6": parse_sumti_6,
+        "sumtido": parse_sumtido,
+        "sumti_1do": parse_sumti_1do,
+        "sumti_2do": parse_sumti_2do,
+        "sumti_3do": parse_sumti_3do,
+        "sumti_4do": parse_sumti_4do,
+        "sumti_5do": parse_sumti_5do,
+        "sumti_6do": parse_sumti_6do,
         "li_clause": parse_li_clause,
         "sumti_tail": parse_sumti_tail,
         "sumti_tail_1": parse_sumti_tail_1,
@@ -340,6 +347,7 @@ var camxes = (function(){
         "SELBRI_elidible": parse_SELBRI_elidible,
         "NOUNEND": parse_NOUNEND,
         "KUhOI_elidible": parse_KUhOI_elidible,
+        "KOhAdo": parse_KOhAdo,
         "BRIVLA_clause": parse_BRIVLA_clause,
         "BRIVLA_pre": parse_BRIVLA_pre,
         "BRIVLA_clausenf": parse_BRIVLA_clausenf,
@@ -450,6 +458,8 @@ var camxes = (function(){
         "KI_pre": parse_KI_pre,
         "KOhA_clause": parse_KOhA_clause,
         "KOhA_pre": parse_KOhA_pre,
+        "KOhA_clausedo": parse_KOhA_clausedo,
+        "KOhA_predo": parse_KOhA_predo,
         "KU_clause": parse_KU_clause,
         "KU_pre": parse_KU_pre,
         "KUhE_clause": parse_KUhE_clause,
@@ -18638,6 +18648,234 @@ var camxes = (function(){
         return result0;
       }
       
+      function parse_sumtido() {
+        var cacheKey = "sumtido@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_sumti_1do();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_1do() {
+        var cacheKey = "sumti_1do@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_sumti_2do();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_1", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_2do() {
+        var cacheKey = "sumti_2do@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_sumti_3do();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_2", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_3do() {
+        var cacheKey = "sumti_3do@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_sumti_4do();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_3", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_4do() {
+        var cacheKey = "sumti_4do@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_sumti_5do();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_4", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_5do() {
+        var cacheKey = "sumti_5do@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_quantifier();
+        result0 = result0 !== null ? result0 : "";
+        if (result0 !== null) {
+          result1 = parse_sumti_6do();
+          if (result1 !== null) {
+            result2 = parse_relative_clauses();
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result0 = [result0, result1, result2];
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_5", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_6do() {
+        var cacheKey = "sumti_6do@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_KOhA_clausedo();
+        if (result0 !== null) {
+          result1 = [];
+          result2 = parse_free();
+          while (result2 !== null) {
+            result1.push(result2);
+            result2 = parse_free();
+          }
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_6", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
       function parse_li_clause() {
         var cacheKey = "li_clause@" + pos;
         var cachedResult = cache[cacheKey];
@@ -26255,7 +26493,9 @@ var camxes = (function(){
             result0 = parse_vocative();
             if (result0 !== null) {
               result1 = parse_sumti();
-              result1 = result1 !== null ? result1 : "";
+              if (result1 === null) {
+                result1 = parse_sumtido();
+              }
               if (result1 !== null) {
                 result2 = parse_DOhU_elidible();
                 if (result2 !== null) {
@@ -28950,6 +29190,34 @@ var camxes = (function(){
         result0 = result0 !== null ? result0 : "";
         if (result0 !== null) {
           result0 = (function(offset, expr) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_KOhAdo() {
+        var cacheKey = "KOhAdo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = [];
+        if (result0 !== null) {
+          result0 = (function(offset, expr) { return ["DO", _join(expr)];})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -33416,6 +33684,86 @@ var camxes = (function(){
         result0 = parse_pre_clause();
         if (result0 !== null) {
           result1 = parse_KOhA();
+          if (result1 !== null) {
+            result2 = parse_spaces();
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result0 = [result0, result1, result2];
+            } else {
+              result0 = null;
+              pos = pos0;
+            }
+          } else {
+            result0 = null;
+            pos = pos0;
+          }
+        } else {
+          result0 = null;
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_KOhA_clausedo() {
+        var cacheKey = "KOhA_clausedo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_KOhA_predo();
+        if (result0 !== null) {
+          result1 = parse_post_clause();
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, pre, post) {return _node2("KOhA_clause", pre, post); })(pos0, result0[0], result0[1]);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_KOhA_predo() {
+        var cacheKey = "KOhA_predo@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_pre_clause();
+        if (result0 !== null) {
+          result1 = parse_KOhAdo();
           if (result1 !== null) {
             result2 = parse_spaces();
             result2 = result2 !== null ? result2 : "";

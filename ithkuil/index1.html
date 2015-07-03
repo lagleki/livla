@@ -104,9 +104,9 @@ function produceWord() {
     var moodIllocs = {assertive: {factual: 'wë', subjunctive: 'wa', assumptive: 'yë', speculative: 'ya', counterfactive: 'yû', hypothetical: 'hë', implicative: 'ha', ascriptive: 'hû'}, directive: {factual: 'we', subjunctive: 'wö', assumptive: 'ye', speculative: 'yö', counterfactive: 'yeu', hypothetical: 'he', implicative: 'hö', ascriptive: 'hei'}, interrogative: {factual: 'wu', subjunctive: 'wâ', assumptive: 'yu', speculative: 'yâ', counterfactive: 'yau', hypothetical: 'hu', implicative: 'hâ', ascriptive: 'hai'}, admonitive: {factual: 'wo', subjunctive: 'wê', assumptive: 'yo', speculative: 'yê', counterfactive: 'you', hypothetical: 'ho', implicative: 'hê', ascriptive: 'hoi'}, hortative: {factual: 'wi', subjunctive: 'wô', assumptive: 'yi', speculative: 'yô', counterfactive: 'yiu', hypothetical: 'hi', implicative: 'hô', ascriptive: 'hui'}, declarative: {factual: 'wî'}};
     var moodIlloc = moodIllocs[illocution][mood];
     //if (moodIlloc == moodIllocs["assertive"]["factual"]) {
-    if (mood == "factual") {
+    /*if (mood == "factual") {
         moodIlloc = '';
-    }
+    }*/
     
     var validation = find('validation');
     var validations = {confirmative: 'h', affirmative: 'y', reportive: 'w', inferential: 'hw', intuitive: 'hh', presumptive: 'hm', presumptivetwo : 'hn', purportive: 'hr', purportivetwo: 'lw', conjectural : 'ly', dubitative: 'rw', tentative: 'ry', putative: 'řw', improbable: 'řy'};

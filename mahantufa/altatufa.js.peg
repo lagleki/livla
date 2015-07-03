@@ -392,6 +392,14 @@ sumti_5 = expr:(quantifier? sumti_6 relative_clauses? / quantifier (selbri / gek
 //// EXP-MODIF: brivla/cmevla merge + NAhE+sumti + add of ZOhOI_clause + LAhE term + MEX simplification
 sumti_6 = expr:(ZO_clause free* / ZOI_clause free* / ZOhOI_clause free* / LOhU_clause free* / !tag !selbri lerfu_string BOI_elidible free* / LU_clause text LIhU_elidible free* / (LAhE_clause free* / NAhE_clause BO_clause? free*) (relative_clauses? sumti / term) LUhU_elidible free* / KOhA_clause free* / LE_clause free* sumti_tail KU_elidible free* / li_clause) {return _node("sumti_6", expr);}
 
+sumtido = expr:(sumti_1do) {return _node("sumti", expr);}
+sumti_1do = expr:(sumti_2do) {return _node("sumti_1", expr);}
+sumti_2do = expr:(sumti_3do) {return _node("sumti_2", expr);}
+sumti_3do = expr:(sumti_4do) {return _node("sumti_3", expr);}
+sumti_4do = expr:(sumti_5do) {return _node("sumti_4", expr);}
+sumti_5do = expr:(quantifier? sumti_6do relative_clauses?) {return _node("sumti_5", expr);}
+sumti_6do = expr:(KOhA_clausedo free*) {return _node("sumti_6", expr);}
+
 li_clause = expr:(LI_clause free* mex LOhO_elidible free*) {return _node("li_clause", expr); }
 
 //// EXP-MODIF: allow {lo mi e do vu'o noi brodi cu broda} (instead of the previous string) + adding gek_sentence
@@ -552,7 +560,7 @@ gik = expr:(GI_clause free*) {return _node("gik", expr); }
 stag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("stag", expr); }
 
 
-free = expr:(SEI_clause free* (terms CU_elidible free*)? selbri SEhU_elidible / vocative relative_clauses? selbri relative_clauses? DOhU_elidible  / vocative sumti? DOhU_elidible / mex_2 MAI_clause free* / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
+free = expr:(SEI_clause free* (terms CU_elidible free*)? selbri SEhU_elidible / vocative relative_clauses? selbri relative_clauses? DOhU_elidible  / vocative (sumti / sumtido) DOhU_elidible / mex_2 MAI_clause free* / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
 
 //// EXP-MODIF: MEX simplification
 xi_clause = expr:(XI_clause free* mex_2 / XI_clause free* VEI_clause free* mex VEhO_elidible) {return _node("xi_clause", expr); }
@@ -659,6 +667,7 @@ VEhO_elidible = expr:(VEhO_clause?) {return (expr == "") ? ["VEhO"] : _node("VEh
 SELBRI_elidible = expr:(GOhA_clause?) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);}
 NOUNEND = expr:() {return ["NF"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}
+KOhAdo = expr:() { return ["DO", _join(expr)];}
 
 
 // ___ SELMAHO ___
@@ -1005,6 +1014,9 @@ KOhA_clause = pre:KOhA_pre post:KOhA_post {return _node2("KOhA_clause", pre, pos
 KOhA_pre = pre_clause KOhA spaces?
 KOhA_post = post_clause
 // KOhA_no_SA_handling = pre_clause KOhA spaces?
+
+KOhA_clausedo = pre:KOhA_predo post:KOhA_post {return _node2("KOhA_clause", pre, post); }
+KOhA_predo = pre_clause KOhAdo spaces?
 
 //         right terminator for descriptions, etc. 
 KU_clause = pre:KU_pre post:KU_post {return _node2("KU_clause", pre, post); }
@@ -1899,7 +1911,6 @@ KEI = &cmavo expr:( k e i ) &post_word {return ["KEI", _join(expr)];}
 
 KI = &cmavo expr:( k i ) &post_word {return ["KI", _join(expr)];}
 
-//// EXP-ADD: xai
 KOhA = &cmavo expr:( d a Ih u / d a H e / d i H u / d i H e / d e H u / d e H e / d e i / d o Ih i / m i H o / m i H a i / m a H a / m i H a / d o H o / k o H a / f o H u / k o H e / k o Ih i / k o H o / k o H u / f o H a / f o H e / f o Ih i / f o H o / v o H a / v o H e / v o Ih i / v o H o / v o H u / r u / r i / r a / t a / t u / t i / z i H o / k e H a / m a / z u H i / z o H e / c e H u / d a / d e / d i / k o / m i / d o / x a i) &post_word { return ["KOhA", _join(expr)];}
 
 KU = &cmavo expr:( k u ) &post_word {return ["KU", _join(expr)];}

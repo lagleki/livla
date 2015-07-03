@@ -73,7 +73,7 @@ path to your system) should solve the problem:
  $ npm config set python /usr/bin/python2.7
 ```
 
-# La Bangu dictionary generations
+# La Bangu dictionary generation
 
 ```sh
 node ircbot/labangu.js

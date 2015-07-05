@@ -8568,7 +8568,10 @@ var camxes = (function(){
                     }
                     if (result5 === null) {
                       pos3 = pos;
-                      result5 = parse_sumtifazohe();
+                      result5 = parse_KU_clause();
+                      if (result5 === null) {
+                        result5 = parse_sumtifazohe();
+                      }
                       if (result5 !== null) {
                         result6 = [];
                         result7 = parse_free();
@@ -8782,7 +8785,10 @@ var camxes = (function(){
                             result7 = parse_free();
                           }
                           if (result6 !== null) {
-                            result7 = parse_KU_elidible();
+                            result7 = parse_KU_clause();
+                            if (result7 === null) {
+                              result7 = parse_sumtifazohe();
+                            }
                             if (result7 !== null) {
                               result8 = [];
                               result9 = parse_free();
@@ -9495,7 +9501,10 @@ var camxes = (function(){
                       }
                       if (result5 === null) {
                         pos3 = pos;
-                        result5 = parse_sumtifazohe();
+                        result5 = parse_KU_clause();
+                        if (result5 === null) {
+                          result5 = parse_sumtifazohe();
+                        }
                         if (result5 !== null) {
                           result6 = [];
                           result7 = parse_free();
@@ -9644,7 +9653,10 @@ var camxes = (function(){
                             result7 = parse_free();
                           }
                           if (result6 !== null) {
-                            result7 = parse_KU_elidible();
+                            result7 = parse_KU_clause();
+                            if (result7 === null) {
+                              result7 = parse_sumtifazohe();
+                            }
                             if (result7 !== null) {
                               result8 = [];
                               result9 = parse_free();
@@ -11611,7 +11623,10 @@ var camxes = (function(){
         if (result0 !== null) {
           result1 = parse_FAXIPA_elidible();
           if (result1 !== null) {
-            result2 = parse_sumtifazohe();
+            result2 = parse_KU_clause();
+            if (result2 === null) {
+              result2 = parse_sumtifazohe();
+            }
             if (result2 !== null) {
               result0 = [result0, result1, result2];
             } else {
@@ -15016,7 +15031,10 @@ var camxes = (function(){
               result3 = parse_sumti();
               if (result3 === null) {
                 pos3 = pos;
-                result3 = parse_sumtifazohe();
+                result3 = parse_KU_clause();
+                if (result3 === null) {
+                  result3 = parse_sumtifazohe();
+                }
                 if (result3 !== null) {
                   result4 = [];
                   result5 = parse_free();
@@ -15210,7 +15228,10 @@ var camxes = (function(){
                           result6 = parse_free();
                         }
                         if (result5 !== null) {
-                          result6 = parse_KU_elidible();
+                          result6 = parse_KU_clause();
+                          if (result6 === null) {
+                            result6 = parse_sumtifazohe();
+                          }
                           if (result6 !== null) {
                             result7 = [];
                             result8 = parse_free();
@@ -15468,7 +15489,10 @@ var camxes = (function(){
               result3 = parse_sumti();
               if (result3 === null) {
                 pos3 = pos;
-                result3 = parse_sumtifazohe();
+                result3 = parse_KU_clause();
+                if (result3 === null) {
+                  result3 = parse_sumtifazohe();
+                }
                 if (result3 !== null) {
                   result4 = [];
                   result5 = parse_free();
@@ -15662,7 +15686,10 @@ var camxes = (function(){
                           result6 = parse_free();
                         }
                         if (result5 !== null) {
-                          result6 = parse_KU_elidible();
+                          result6 = parse_KU_clause();
+                          if (result6 === null) {
+                            result6 = parse_sumtifazohe();
+                          }
                           if (result6 !== null) {
                             result7 = [];
                             result8 = parse_free();

@@ -243,14 +243,14 @@ terms_1 = expr:(terms_2 (pehe_sa* PEhE_clause free* joik_jek terms_2)*) {return 
 terms_2 = expr:(abs_term (cehe_sa* CEhE_clause free* abs_term)*) {return _node("terms_2", expr);}
 abs_term = expr:(term_sa* abs_term_1) {return _node("abs_term", expr);}
 abs_term_1 = expr:(abs_tag_term / termset) {return _node("abs_term_1", expr);}
-abs_tag_term = expr:((!gek tag free* !selbri !gek_sentence (sumti / joik_ek sumti_3 / KU_elidible free*) / !gek (sumti free*) CO_clause tag free* / NA_clause free* KU_clause free* / !selbri !gek_sentence !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_term", expr);}
+abs_tag_term = expr:((!gek tag free* !selbri !gek_sentence (sumti / joik_ek sumti_3 / sumtifazohe KU_elidible free*) / !gek (sumti free*) CO_clause tag free* / NA_clause free* KU_clause free* / !selbri !gek_sentence !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_term", expr);}
 tag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("tag", expr); }
 
 terms_1FAM = expr:(terms_2FAM (pehe_sa* PEhE_clause free* joik_jek terms_2)*) {return _node("terms_1FAM", expr);}
 terms_2FAM = expr:(abs_termFAM (cehe_sa* CEhE_clause free* (abs_term / abs_termFAM / abs_termZAMfa / abs_termZAM))*) {return _node("terms_2FAM", expr);}
 abs_termFAM = expr:(term_sa* abs_term_1FAM) {return _node("abs_termFAM", expr);}
 abs_term_1FAM = expr:(abs_tag_termFAM / termset) {return _node("abs_term_1FAM", expr);}
-abs_tag_termFAM = expr:((!gek (sumti free*) CO_clause tagFAM free* / !gek tagFAM free* !selbri !gek_sentence (sumti / joik_ek sumti_3 / KU_elidible free*) / NA_clause free* KU_clause free* / !selbri !gek_sentence !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_termFAM", expr);}
+abs_tag_termFAM = expr:((!gek (sumti free*) CO_clause tagFAM free* / !gek tagFAM free* !selbri !gek_sentence (sumti / joik_ek sumti_3 / sumtifazohe KU_elidible free*) / NA_clause free* KU_clause free* / !selbri !gek_sentence !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_termFAM", expr);}
 tagFAM = expr:(tense_modalFAM (joik_jek (tense_modal / tense_modalFAM))*) {return _node("tagFAM", expr); }
 tense_modal = expr:((NAhE_clause? SE_clause? (BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? ( VEI_clause mex VEhO_elidible / number ) ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause free* selbri FEhU_elidible) free*)+) {return _node("tense_modal", expr); }
 tense_modalFAM = expr:((NAhE_clause? (FA_clause) free*)+) {return _node("tense_modalFAM", expr); }
@@ -328,11 +328,11 @@ links_1 = expr:((BEI_clause free* term)+) {return _node("links_1", expr);}
 
 term = expr:(term_sa* term_1) {return _node("term", expr);}
 term_1 = expr:(tag_term / termset) {return _node("term_1", expr);}
-tag_term = expr:((!gek (tag / tagFAM / FA_elidible) free* (sumti / KU_elidible free*) / !gek (sumti free*) CO_clause tag free* / NA_clause free* KU_clause free* / !gek !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek tag_term)*) {return _node("tag_term", expr);}
+tag_term = expr:((!gek (tag / tagFAM / FA_elidible) free* (sumti / sumtifazohe KU_elidible free*) / !gek (sumti free*) CO_clause tag free* / NA_clause free* KU_clause free* / !gek !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek tag_term)*) {return _node("tag_term", expr);}
 
 termBAM = expr:(term_sa* term_1BAM) {return _node("term", expr);}
 term_1BAM = expr:(tag_termBAM / termset) {return _node("term_1", expr);}
-tag_termBAM = expr:((!gek tag free* (sumti / KU_elidible free*) / !gek (sumti free*) CO_clause tag free* / NA_clause free* KU_clause free* / !gek !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek tag_term)*) {return _node("tag_term", expr);}
+tag_termBAM = expr:((!gek tag free* (sumti / sumtifazohe KU_elidible free*) / !gek (sumti free*) CO_clause tag free* / NA_clause free* KU_clause free* / !gek !ek !joik_jek !gihek NA_clause free* KU_elidible free* / SOI_clause free* subsentence SEhU_elidible free*) (joik_jek tag_term)*) {return _node("tag_term", expr);}
 
 termFAM = expr:(term_sa* term_1FAM) {return _node("term", expr);}
 term_1FAM = expr:(tag_termFAM / termset) {return _node("term_1", expr);}
@@ -459,7 +459,7 @@ selbri_6 = expr:(tanru_unit (BO_clause free* selbri_6)? / NAhE_clause? free* guh
 tanru_unit = expr:(tanru_unit_1 (CEI_clause free* tanru_unit_1)* selbri_relative_clauses?) {return _node("tanru_unit", expr); }
 tanru_unit_1 = expr:(tanru_unit_2 linkargs? / linkargs? tanru_unit_2) {return _node("tanru_unit_1", expr); }
 
-selbri_4nf = expr:(selbri_5nf (joik_jek selbri_5nf / joik stag? KE_clause free* selbri_3 KEhE_elidible free*)*) {return _node("selbri_4", expr); }
+selbri_4nf = expr:(selbri_5nf (joik_jek selbri_5nf / joik stag? KE_clause free* selbri_3 KEhE_elidible free*)*) {return _node("selbri_4nf", expr); }
 selbri_5nf = expr:(selbri_6nf ((jek / joik) stag? BO_clause free* selbri_5nf)?) {return _node("selbri_5", expr); }
 selbri_6nf = expr:(tanru_unitnf (BO_clause free* selbri_6nf)? / NAhE_clause? free* guhek selbri gik selbri_6nf) {return _node("selbri_6", expr); }
 tanru_unitnf = expr:(tanru_unit_1nf (CEI_clause free* tanru_unit_1nf)* selbri_relative_clauses?) {return _node("tanru_unit", expr); }
@@ -687,7 +687,8 @@ LE_elidible = expr:() { return ["LO", _join(expr)];}
 
 BRIVLA_clause = expr:(BRIVLA_pre BRIVLA_post / zei_clause) {return (expr.length == 2) ? _node2("BRIVLA_clause", expr[0], expr[1]) : _node("BRIVLA_clause", expr[0]); }
 BRIVLA_pre = pre_clause BRIVLA spaces?
-BRIVLA_clausenf = expr:(BRIVLA_pre NOUNEND BRIVLA_post / zei_clause) {return (expr.length == 2) ? _node2("BRIVLA_clausenf", expr[0], expr[1]) : _node("BRIVLA_clausenf", expr[0]); }
+BRIVLA_clausenf = expr:(BRIVLA_pre BRIVLA_postnf / zei_clause) {return (expr.length == 2) ? _node2("BRIVLA_clausenf", expr[0], expr[1]) : _node("BRIVLA_clausenf", expr[0]); }
+BRIVLA_postnf = NOUNEND post_clause
 BRIVLA_post = post_clause
 // BRIVLA_no_SA_handling = pre_clause BRIVLA post_clause / zei_clause_no_SA
 

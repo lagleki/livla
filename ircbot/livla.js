@@ -992,7 +992,8 @@ var items = [
 	["za'a","as-I-ca-see"],["za'adai","as-you-can-see"],["pu","in-past"],["ba","in-future"],["vau","]"],["doi","oh"],["uinai","unfortunately"],["u'u","sorry"],
 	["ko","do-it-so-that-you"],["poi","that"],["noi",",which"],["me","among"],
 	//["bakni","is-a-cow"],
-	["slabu","familiar-to"],
+	["mlatu@n","cat"],["dansu@n","dancer(s)"],["klama@n","comer"],
+	["slabu","is-familiar-to"],["dansu","dance(s)"],["mlatu","is-a-cat"],["klama","come(s)"],
 	["pe'i","in-my-opinion"],["ui","yay"],["uinai","unfortunately"],
 	["ju","whether-or-not"],["gu","whether-or-not"],["gi'u","whether-or-not"],["u","whether-or-not"],
 	["xu","is-it-true-that"],["xunai","isnt-it-so-that"],["ka'e","possibly-can"],
@@ -1010,14 +1011,18 @@ lin=lin.toLowerCase();
 	try{
 		//from lojban to gloso
 		
-		if (check!==1){lin=run_camxes(lin.replace(/[^a-z'\. ]/g,''),5).replace(/[^a-z'\. ]/g,'').trim().replace(/ ([nd]ai)( |$)/img,"$1$2");}
+		if (check!==1){lin=run_camxesalta(lin.replace(/[^a-z'\. ]/g,''),2).replace(/h/g,"H").replace(/NF/g,"@nf").replace(/\bKU\b/g,"@ku").replace(/[^a-z@'\. ]/g,'').replace(/ {2,}/g," ").replace(/ ([nd]ai)( |$)/img,"$1$2").replace(/ @nf @ku\b/g,"@n").replace(/ @nf\b/g,"").trim();}
+		console.log(lin);
 		lin=lin.split(" ");
 		for (i=0;i<lin.length;i++){
 		//if (xucmavo(lin[i])===true & check===1){}else{
-					if (lng==='en'){//items are only for English. Think of some universla items.
+					if (lng==='en'){//items are only for English. Think of some universal items.
 					for (j=0;j<items.length;j++){
 						myregexp = new RegExp("^"+items[j][0]+"$", "gim");
 						if (lin[i].match(myregexp)!==null){
+								lin[i]=items[j][1].replace(/$/gm,"%%%");
+						}
+						else if(lin[i].replace(/@n$/,"").match(myregexp)!==null){//if noun not found
 								lin[i]=items[j][1].replace(/$/gm,"%%%");
 						}
 					}
@@ -1028,6 +1033,7 @@ lin=lin.toLowerCase();
 								lin[i]=itemsu[j][1].replace(/$/gm,"%%%");
 						}
 					}
+					lin[i]=lin[i].replace(/@n$/,"");
 			var cnt = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin[i].toUpperCase()+"\",\""+lin[i]+"\")=\""+lin[i]+"\"]/glossword[1]");
 			if (typeof cnt==='undefined'){cnt = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin[i].toUpperCase()+"\",\""+lin[i]+"\")=\""+lin[i]+"\"]/keyword[@place=\"1\"]");}//try keyword
 			if (typeof cnt!=='undefined'){lin[i]=cnt.attr("word").value().replace(/ /gm,"-").replace(/$/gm,"%%%");}

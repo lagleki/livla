@@ -33,7 +33,6 @@ var labangu = function(){
 		    y = x[i].split('\t');
 		    x[i] = y;
 		}
-		// take the third column
 		var col3 = x.map(function(value,index) { return value[3-1]; }).join(", ").split(", ");
 		var col4 = x.map(function(value,index) { return value[4-1]; }).join(", ").split(", ");
 		var col5 = x.map(function(value,index) { return value[5-1]; }).join(", ").split(", ");
@@ -47,7 +46,8 @@ var labangu = function(){
 		var col17 = x.map(function(value,index) { return value[17-1]; }).join(", ").split(", ");
 		var col18 = x.map(function(value,index) { return value[18-1]; }).join(", ").split(", ");
 		var col19 = x.map(function(value,index) { return value[19-1]; }).join(", ").split(", ");
-		var colall = col3.concat(col4).concat(col5).concat(col7).concat(col10).concat(col11).concat(col12).concat(col14).concat(col15).concat(col16).concat(col17).concat(col18).concat(col19).filter(Boolean).sort();
+		var col20 = x.map(function(value,index) { return value[20-1]; }).join(", ").split(", ");
+		var colall = col3.concat(col4).concat(col5).concat(col7).concat(col10).concat(col11).concat(col12).concat(col14).concat(col15).concat(col16).concat(col17).concat(col18).concat(col19).concat(col20).filter(Boolean).sort();
 		allenglish = colall.filter(function(item, pos, self) {
 			return self.indexOf(item) == pos;
 		});
@@ -114,7 +114,7 @@ var labangu = function(){
 				  (x[i][7-1].search("^"+so+"$")>=0
 				||x[i][7-1].search("^"+so+", ")>=0
 				||x[i][7-1].search(", "+so+", ")>=0
-				||x[i][7-1].search(", "+so+"$")>=0)
+				||x[i][7-1].search(", "+so+"$")>=0) & x[i][20-1]==='yes'
 				)
 				{
 					alllojban[j]+=""+x[i][6-1]+", ";

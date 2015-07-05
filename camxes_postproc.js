@@ -36,7 +36,7 @@ alert = console.log;
 
 function camxes_postprocessing(text, mode) {
 	if (!is_string(text)) return "ERROR: Wrong input type.";
-	if (mode == 0) return text;
+	if (mode === 0) return text;
 	if (text.charAt(0) != '[') return text;
 	/** Condensation **/
 	text = text.replace(/ +/gm, "");
@@ -127,7 +127,7 @@ function delete_superfluous_brackets(string) {
 	do {
 		/** erase_surrounding_brackets **/
 		var j = i;
-		while (str[i].search(/[A-Za-z'_:~]/) == 0 && i < str.length) i++;
+		while (str[i].search(/[A-Za-z'_:~]/) === 0 && i < str.length) i++;
 		while (str[i] == ']') {
 			if (j <= 0) {
 				alert("ERROR: right bracket found without left counterpart.");
@@ -153,7 +153,7 @@ function delete_superfluous_brackets(string) {
 	i = 0;
 	parachute = 4000;
 	while (i < str.length && parachute-- > 0) {
-		var so, eo, j;
+		var so, eo, jj;
 		// FIRST STEP: reaching the next '['.
 		while (i < str.length && str[i] != '[') i++;
 		so = i;
@@ -161,23 +161,23 @@ function delete_superfluous_brackets(string) {
 		eo = i;
 		if (i >= str.length) break;
 		if (i - so < 2) continue;
-		j = i;
+		jj = i;
 		i -= 2;
 		do {
 			var floor;
 			// Now we'll reach the ']' closing the aformentioned '['.
 			floor = 1;
-			while (j < str.length && floor > 0) {
-				if (str[j] == '[') floor++;
-				else if (str[j] == ']') floor--;
-				j++;
+			while (jj < str.length && floor > 0) {
+				if (str[jj] == '[') floor++;
+				else if (str[jj] == ']') floor--;
+				jj++;
 			}
 			// We now erase superfluous brackets
-			while (str[j] == ']' && i >= so) {
+			while (str[jj] == ']' && i >= so) {
 				str[i--] = ' ';
-				str[j++] = ' ';
+				str[jj++] = ' ';
 			}
-		} while (i >= so && j < str.length && parachute-- > 0);
+		} while (i >= so && jj < str.length && parachute-- > 0);
 		i = eo;
 	}
 	if (parachute <= 0)
@@ -204,10 +204,10 @@ function prettify_brackets(str) {
 			floor++;
 		} else if (str[i] == ']') {
 			floor--;
-			var n = floor % brackets_number;
-			var num = (floor && !n) ?
+			var nn = floor % brackets_number;
+			var numm = (floor && !nn) ?
 				str_print_uint(floor / brackets_number, numset) : "";
-			str = str_replace(str, i, 1, num + close_brackets[n]);
+			str = str_replace(str, i, 1, numm + close_brackets[nn]);
 		}
 		i++;
 	}

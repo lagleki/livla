@@ -1,6 +1,6 @@
 // JavaScript Document
 window.bangulo = "辞書を読み込んでいます ...";
 window.bangubuild = '索引を作成しています ...';
-window.bangudesc = "<p><b>la sutysisku</b> は、ロジバンの素早い辞書です。<p>――インターネット接続が切れても使えますか？<br>――使えます。そうしたら、このブラウザから今のこのアドレスを開いてください。<br>まだ開くはずです。 Chrome か Safari か Firefox の最新版が必要です。<br><br>他の教材については<a href='http://lojban.org' target='_blank'>ロジバンのウィキ</a>を訪れてください。</p><div id='searchengine' style='position: absolute;right: 10px;'><i><a href='#' title='en-sutysisku' onclick='window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')'>Add as a search engine</a></i></div>";
-window.bangusisku='検索';
-window.bangudecomp = 'decomposing ...';
+window.bangudesc = "<b>la sutysisku</b> は、素早く検索できるロジバンの辞書です。<p>――インターネットに接続していない時にでも使えるの？<br>――使えます。接続していない時にこのブラウザから今のこのアドレスを開いてみて下さい。<br>開くはずです。 Chrome か Safari か Firefox の最新版が必要です。<br><br>他の教材については<a href='http://mw.lojban.org' target='_blank'>ロジバンのウィキ</a>を訪れて下さい。</p><div id='searchengine' style='position: absolute;margin-top:30px;right: 10px;'><i><a href='#' title='ja-sutysisku' onclick='window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilmentufa/i/ja/sisku.xml')'>検索エンジンとして追加</a></i></div>";
+window.bangusisku='語を入力';
+window.bangudecomp = '以下に分解 ...';

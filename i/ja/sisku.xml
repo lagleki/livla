@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
-   <ShortName>en-sutysisku</ShortName>
+   <ShortName>ja-sutysisku</ShortName>
    <Description>Search the Lojban dictionary jbovlaste.</Description>
    <Tags>sutsis sutysisku muplis vlasisku jbovlaste lojban vlaste dictionary</Tags>
    <Contact>gleki.is.my.name@gmail.com</Contact>
    <Url type="text/html"
-        template="http://mw.lojban.org/extensions/ilmentufa/i/en/index.html#sisku/{searchTerms}"/>
+        template="http://mw.lojban.org/extensions/ilmentufa/i/ja/index.html#sisku/{searchTerms}"/>
  </OpenSearchDescription>

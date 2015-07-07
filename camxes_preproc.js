@@ -4,6 +4,7 @@ function camxes_preprocessing(input) {
 	input = input.replace(/-/gm," ");
 	input = input.replace(/’/gm,"'");
 	input = input.replace(/·/gm,".");
+	input = input.replace(/\./gm," ");
 	input = input.replace(/([0-9])\.([0-9])/gm,"$1 pi $2");
 	input = input.replace(/[0٠۰०૦੦০୦౦೦൦೦༠၀๐០໐]/gm,"no");
 	input = input.replace(/[1١۱१૧੧১୧౧೧൧௧༡၁๑១໑]/gm,"pa");

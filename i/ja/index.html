@@ -5,7 +5,6 @@
   <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
   <link rel="shortcut icon" href="../sutsis.png" />
   <link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/en/sisku.xml" title="en-sutysisku">
-  <!--<link rel='stylesheet' href='lib/Lato.css'>-->
   <style type="text/css">
 	.container .credit {
 		margin: 20px 0;
@@ -253,6 +252,7 @@
 	}
 
 	function displayDocument(def) {
+		if (!def){def=[];}
 		var out = $("<div>").addClass('term');
 		var fmm,tfm;
 		if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a> ";}else{fmm=''}
@@ -277,7 +277,7 @@
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
 		for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {
-		  displayDocument((def||[]).rafsiDocuments[i]).appendTo(subDefs);
+		  if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);}
 		}
 		subDefs.appendTo(out);
 		}

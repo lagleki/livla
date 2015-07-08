@@ -1351,7 +1351,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		try{pars+=",\"s\":\""+rev[i].find("selmaho[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		try{pars+=",\"d\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		try{pars+=",\"n\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
-		try{pars+=",\"g\":\""+rev[i].find("glossword/@word").join(" ").replace(/ word='/g," ").replace(/'/g,"").replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
+		//try{pars+=",\"g\":\""+rev[i].find("glossword/@word").join(" ").replace(/ word='/g," ").replace(/'/g,"").replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		var ra=rev[i].find("rafsi//text()[1]");
 		if (xugismu(hi)===true){
 			ra.push(hi);

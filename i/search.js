@@ -2,25 +2,49 @@ var literals = (typeof literals === 'undefined') ? '' : literals;
 
 var searchIdCounter = 0;
 function search(query, callback) {
-	var searchId = ++searchIdCounter;
-	var words = (literals[query] || []).slice();
-	words.push(query);
 	if (query.length === 0) {
 		return;
 	}
+	var searchId = ++searchIdCounter;
+	var words = (literals[query] || []).slice();
+	words.push(query);
 	var set = {};
 	var resultCount = 0;
 	results = [];
-	/*var valw=function(val){return val.w==words[i]};
 	for (var i = 0; i < words.length; i++) {
 		resultCount++;
-		set[words[i]] = true;
-		var doc = documentStore.filter(valw(val))[0];
-		if (!doc) {
-			continue;
+		var doc = documentStore.filter(function(v) {return v.w === words[i];}).slice(0);
+		if (doc) {
+			for (var doci in doc){
+				results.push(doc[doci]);set[doc[doci].w] = true;
+			}
 		}
-		results.push(doc);
-	}*/
+	}
+	//
+	words = [];
+	var patt = new RegExp("\\b"+query+"$","i");
+	for (var k in literals){
+		if (patt.test(k.toString())){
+			words.push(literals[k][0]);
+		}
+	}
+	patt = new RegExp("^"+query+"\\b","i");
+	for (k in literals){
+		if (patt.test(k.toString())){
+			words.push(literals[k][0]);
+		}
+	}
+	for (i = 0; i < words.length; i++) {
+		resultCount++;
+		var doct = documentStore.filter(function(v) {return v.w === words[i];}).slice(0);
+		if (doct) {
+			for (var docj in doct){
+				if (!set[doct[docj].w]){
+					results.push(doct[docj]);console.log(doct[docj]);set[doct[docj].w] = true;
+				}
+			}
+		}
+	}
 	
 	//if (results.length === 0) {
 		var rafsiDecompositions = parseLujvo(query);
@@ -49,15 +73,14 @@ function search(query, callback) {
 		}
 		for (var i = 0; i < engineResults.getSize(); i++) {
 			var key = engineResults.getItem(i);
-			if (key in set) {
-	      continue;
-			}
 			var doc = documentStore[key];
+			if (doc.w in set) {continue;}
 			if (!doc) {
 				continue;
 			}
 				if ((doc.s||'') === query){
 					selmahoMatches.push(doc);//selmaho
+					continue;
 				}
 				else if (doc.w === query) {
 					greatMatches.push(doc);

@@ -1,10 +1,8 @@
 function camxes_preprocessing(input) {
 	if (typeof input.valueOf() !== 'string')
 		return "ERROR: Wrong input type.";
-	input = input.replace(/-/gm," ");
 	input = input.replace(/’/gm,"'");
 	input = input.replace(/·/gm,".");
-	input = input.replace(/\./gm," ");
 	input = input.replace(/([0-9])\.([0-9])/gm,"$1 pi $2");
 	input = input.replace(/[0٠۰०૦੦০୦౦೦൦೦༠၀๐០໐]/gm,"no");
 	input = input.replace(/[1١۱१૧੧১୧౧೧൧௧༡၁๑១໑]/gm,"pa");
@@ -48,7 +46,8 @@ function camxes_preprocessing(input) {
 	}
 	input = transliterate(input);
 	// --- //
-	input = input.replace(/[^a-zA-Z', ]/gm,"");
+	input = input.replace(/-/gm,".");
+	input = input.replace(/[^a-zA-Z', \.]/gm,"");
 	//input = input.replace(/\(|\)|«|»|—|:/gm,"");
 	return input;
 }

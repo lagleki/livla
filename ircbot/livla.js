@@ -761,7 +761,7 @@ return lin.replace(/&quot;/g,"'");
 var mulno = function (lin,lng,xmlDoc)
 {
 lin=lin.replace(/\"/g,'');var xo;
-if (typeof xmlDoc==='undefined'){
+if (typeof xmlDoc==="undefined"){
 	if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),{encoding: 'utf8'}));}
 }
 	
@@ -797,7 +797,7 @@ if (typeof coun!=='undefined'){
 	ien='.i lu ' + lin + ' li\'u cmavo zo\'oi ' + coun.text();
 	var cll= require('./cll.js');
 	var cllarr = cll.cllk()[coun.text()];
-	if (typeof(cllarr)!==undefined){ien+= "\n" + cllarr.replace(/ /g,"\n")}
+	if (typeof cllarr !== 'undefined'){ien+= "\n" + cllarr.replace(/ /g,"\n")}
 }
 	try{var ali = xmlDocEn.find("/dictionary/direction[1]/valsi[starts-with(translate(./selmaho,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 	var stra=[];

@@ -826,7 +826,7 @@ COI_post = post_clause
 
 //         separator between head sumti and selbri 
 CU_clause = pre:CU_pre post:CU_post {return _node2("CU_clause", pre, post); }
-CU_pre = pre_clause CU spaces?
+CU_pre = pre_clause (CU spaces? /  LI spaces? &selbri)
 CU_post = post_clause
 // CU_no_SA_handling = pre_clause CU post_clause
 

@@ -1,9 +1,6 @@
 // JavaScript Document
 
 window.db = {
-	"cnino":"new",
-	"klama":"come",
-	"lifri":"feel",
-	"cliva":"leave",
+	"Jbo-lojban.ogg":"Lojban",
 	"tsuku":"arrive"
 }

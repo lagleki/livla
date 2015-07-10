@@ -7,36 +7,42 @@
 	</title>
 	<script src="data.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-		<script>
-			var va='';
-			var sendinput = function () {
-				if ($("#typehere").val()===va){$("#typehere").val('');$("#drani").html("");drata();}else{$("#typehere").val('');$("#drani").html("correct: "+va);}
+	<script>
+		var va='';
+		var sendinput = function () {
+			if ($("#typehere").val()===va){$("#typehere").val('');$("#drani").html("");drata();}else{$("#typehere").val('');$("#drani").html("correct: "+va);}
+		}
+		$(document).ready(function () {
+			drata();
+		});
+		function randomKey(obj) {
+		    var ret;
+		    var c = 0;
+		    for (var key in obj)
+		        if (Math.random() < 1/++c)
+		           ret = key;
+		    return ret;
+		}
+		
+		var drata = function(){
+			var k = randomKey(window.db);
+			if (k.search('\.ogg')>-1){
+				$( "#trans" ).html(k.replace(/^(.*?)$/,"<audio id='audiotag1' src=\"$1\" preload='auto'></audio>") + "<a href=\"javascript:document.getElementById('audiotag1').play();\">Replay audio</a>");
+				document.getElementById('audiotag1').play();
 			}
-			$(document).ready(function () {
-				drata();
-			});
-			function randomKey(obj) {
-			    var ret;
-			    var c = 0;
-			    for (var key in obj)
-			        if (Math.random() < 1/++c)
-			           ret = key;
-			    return ret;
-			}
-			
-			var drata = function(){
-				var k = randomKey(window.db);
-				va = window.db[k];
-				//console.log(value);
+			else{
 				$( "#trans" ).html(k);
 			}
-		</script>
+			va = window.db[k];
+		}
+	</script>
 </head>
 <body>
 <span id='trans' type='text' autofocus style="margin-right:15px;"></span><br/>
 <input id='typehere' type='text' autofocus style="margin-right:15px;"><br/>
 <span id='drani' type='text' autofocus style="margin-right:15px;"></span><br/>
 <button id="bt" type="button" onclick="sendinput();" class="but" style="width:auto;">check</button><br/>
+<audio id="audio"></audio>
 <script>
 			$('#typehere').bind('keyup', function(e) {
 			    if ( e.keyCode === 13 ) { // 13 is enter key

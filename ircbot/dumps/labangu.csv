@@ -148,7 +148,7 @@ bajra,"
 :'''xu do su'o roi senva lo ka bajra lo jdika grana lo xance be do''' — ''Have you ever dreamt of running on your hands on a narrow rod?''
 :Related words: '''cadzu''', '''klama''', '''litru''', '''stapa''', '''plipe''', '''cpare'''"
 bakfu,"
-'''bakfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a pack or bundle containing  ''x<sub>2</sub><sub>(plural of entity)</sub>''  held together by  ''x<sub>3</sub><sub>(entity)</sub>'' 
+'''bakfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a pack or bundle containing  ''x<sub>2</sub><sub>(entity group)</sub>''  held together by  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo bakfu''' — pack, bundle. '''lo se bakfu''' — content of a pack. 
 :'''ti bakfu lo se dunda lo dasri''' — ''This is a gift packed with a ribbon into a bundle.''
 :Related words: '''daski''', '''dakli''', '''tanxe'''"
@@ -351,7 +351,7 @@ bemro,"
 :'''mi nelci lo bemro tumla''' — ''I like North American lands.''
 :Related words: '''merko''', '''ketco'''"
 bende,"
-'''bende''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a team or crew of persons  ''x<sub>2</sub><sub>(plural of entity)</sub>''  led by  ''x<sub>3</sub><sub>(entity)</sub>''  for purpose  ''x<sub>4</sub><sub>(clause)</sub>'' 
+'''bende''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a team or crew of persons  ''x<sub>2</sub><sub>(entity group)</sub>''  led by  ''x<sub>3</sub><sub>(entity)</sub>''  for purpose  ''x<sub>4</sub><sub>(clause)</sub>'' 
 :'''lo bende''' — team. '''lo se bende''' — member of a team. '''lo te bende''' — leader of a team. '''lo ve bende''' — purpose of a team. 
 :'''mi cmima lo bende be lo stati prenu bei la Robin bei lo ka tadni la Lojban''' — ''I am a member of a team of smart people led by Robin and learning Lojban.''
 :Related words: '''gunma''', '''girzu''', '''dansu''', '''jatna''', '''jitro''', '''kagni''', '''kamni''', '''minde''', '''ralju''', '''cecmu''', '''gidva'''"
@@ -477,10 +477,10 @@ bitmu,"
 :'''lo bitmu be lo purdi ce lo foldi cu rotsu''' — ''The fence between the garden and the field is thick.''
 :'''pa lo vi bitmu be le malsi cu sinxa lo pu nu le gugde cu vlipa''' — ''One of these walls of the temple is a sign of the past power of the country.''
 :Related words: '''jbini''', '''sepli''', '''fendi''', '''canko''', '''drudi''', '''kumfa''', '''loldi''', '''senta''', '''snuji''', '''pagre''', '''gacri''', '''kuspe''', '''marbi''', '''vorme'''"
-bitri,"
-'''bitri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  bits in size
-:'''lo se bitri''' — bit (data). 
-:'''lo vi vreji cu bitri lo kilto''' — ''This file is 1000 bit.''
+bitni,"
+'''bitni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  bits in size
+:'''lo se bitni''' — bit (data). 
+:'''lo vi vreji cu bitni lo kilto''' — ''This file is 1000 bit.''
 :Related words: '''datni'''"
 blabi,"
 '''blabi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is white
@@ -598,7 +598,7 @@ bredi,"
 :'''mi bredi lo ka cadzu ka'ai do''' — ''I am ready to walk with you.''
 :Related words: '''spaji''', '''jukpa'''"
 bridi,"
-'''bridi''' — ''x<sub>1</sub><sub>(text)</sub>''  is a clause with the main verb  ''x<sub>2</sub><sub>(property of nonce place, has places for '''ce'u''' referring to x3)</sub>''  and having places  ''x<sub>3</sub><sub>(ordered plural of entity)</sub>'' 
+'''bridi''' — ''x<sub>1</sub><sub>(text)</sub>''  is a clause with the main verb  ''x<sub>2</sub><sub>(property of nonce place, has places for '''ce'u''' referring to x3)</sub>''  and having places  ''x<sub>3</sub><sub>(ordered entity group)</sub>'' 
 :'''lo bridi''' — grammatical clause. '''lo se bridi''' — main verb of a clause. '''lo te bridi''' — place of a grammatical clause. 
 :'''lu ma nuzba li'u bridi''' — ''&quot;What's up?&quot; is a clause.''
 :'''lu mi dunda ti do li'u bridi lo ka dunda vau mi ce'o ti ce'o do''' — ''&quot;I give this to you&quot; is a clause with the main verb &quot;give&quot; and sequential places &quot;I&quot;,&quot;this&quot;,&quot;you&quot;.''
@@ -856,7 +856,7 @@ carvi,"
 :'''lo snime pu carmi carvi lo lalxu lo barda dilnu''' — ''It was snowing hard onto the lake from a large cloud.''
 :Related words: '''bratu''', '''dilnu''', '''santa''', '''snime''', '''tcima''', '''bisli''', '''bumru'''"
 casnu,"
-'''casnu''' — ''x<sub>1</sub><sub>(plural of entity)</sub>''  discuss  ''x<sub>2</sub><sub>(entity)</sub>'' 
+'''casnu''' — ''x<sub>1</sub><sub>(entity group)</sub>''  discuss  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo casnu''' — debaters. '''lo se casnu''' — topic of a discussion. 
 :'''ra ce mi pu casnu lo arte''' — ''She and I discussed a piece of art.''
 :Related words: '''bacru''', '''cusku''', '''darlu''', '''tavla'''"
@@ -894,7 +894,7 @@ caxno,"
 ce,"
 '''ce''' <small>[conjunction]</small> — ''along with...'', ''and also ...''
 :'''do ce mi casnu lo za'u bangu''' — ''You and I discussed languages.''
-:Comment: links nouns to create noun of plural type.
+:Comment: links nouns to create a new noun of group type.
 :Related words: '''je''', '''e'''"
 ce'i,"
 '''ce'i''' <small>[digit/number]</small> —  '%' (percentage symbol), hundredths
@@ -902,7 +902,7 @@ ce'i,"
 ce'o,"
 '''ce'o''' <small>[conjunction]</small> — ''and then ...'' (forms ordered sequence)
 :'''li pa ce'o li re ce'o li ci cu porsi''' — ''1,2,3 is a sequence.''
-:Comment: links nouns to create sumti of ordered plural type.
+:Comment: links nouns to create a new noun of ordered group type.
 :Related words: '''ce''', '''je''', '''e'''"
 ce'u,"
 '''ce'u''' <small>[pronoun]</small> — inside an abstraction of a verb '''ce'u''' refers to another place of that verb
@@ -914,7 +914,7 @@ cecla,"
 :'''ti cecla lo fagri''' — ''This is a fire gun.''
 :Related words: '''renro''', '''danti''', '''jakne''', '''jbama''', '''spoja'''"
 cecmu,"
-'''cecmu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a community or colony of organisms  ''x<sub>2</sub><sub>(plural of entity)</sub>'' 
+'''cecmu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a community or colony of organisms  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo cecmu''' — community. '''lo se cecmu''' — member of a community. 
 :'''lo cecmu be lo cipni mo'u muvdu lo vi tcadu''' — ''The colony of birds moved to this city.''
 :Related words: '''bende''', '''kulnu''', '''natmi''', '''tcadu''', '''jecta''', '''girzu'''"
@@ -1555,7 +1555,7 @@ crino,"
 :'''ca lo crisa lo pezli poi crino co'a xunre''' — ''In the fall leaves that are green, turn red.''
 :Related words: '''skari''', '''blabi''', '''xekri''', '''kandi''', '''carmi''', '''cicna'''"
 cripu,"
-'''cripu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bridge across  ''x<sub>2</sub><sub>(entity)</sub>''  between points  ''x<sub>3</sub><sub>(plural of entity)</sub>'' 
+'''cripu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bridge across  ''x<sub>2</sub><sub>(entity)</sub>''  between points  ''x<sub>3</sub><sub>(entity group)</sub>'' 
 :'''lo cripu''' — bridge. 
 :'''mi'ai muvdu fo lo cripu be lo rirxe bei lo tcadu ce lo nurma''' — ''We are moving over the bridge across the river that connects the city and the rural zone.''
 :Related words: '''bargu''', '''kruca''', '''ragve''', '''kuspe'''"
@@ -1700,7 +1700,7 @@ cutne,"
 :'''lo nanla pu ca'o jgari lo gerku re'o lo cutne''' — ''The boy was holding the dog near the chest.''
 :Related words: '''cnebo''', '''betfu''', '''xadni''', '''tanxe'''"
 cuxna,"
-'''cuxna''' — ''x<sub>1</sub><sub>(entity)</sub>''  chooses, decides on  ''x<sub>2</sub><sub>(property of x1)</sub>''  from complete set  ''x<sub>3</sub><sub>(plural of same type as x2)</sub>'' 
+'''cuxna''' — ''x<sub>1</sub><sub>(entity)</sub>''  chooses, decides on  ''x<sub>2</sub><sub>(property of x1)</sub>''  from complete set  ''x<sub>3</sub><sub>(group of same type as x2)</sub>'' 
 :'''lo se cuxna''' — what is chosen. '''lo te cuxna''' — set of choices, menu of choices. 
 :'''mi na mo'u cuxna lo ka zukte ma kau''' — ''I haven't yet decided what to do.''
 :'''nandu fa lo nu cuxna''' — ''It's hard to choose.''
@@ -2407,7 +2407,7 @@ farna,"
 :'''lo canko cu farna lo nu la Alis pu catlu vau mi''' — ''From my viewpoint, Alice was looking at the direction of the window.''
 :Related words: '''zunle''', '''pritu''', '''galtu''', '''gapru''', '''cnita''', '''dizlo''', '''berti''', '''snanu''', '''stuna''', '''stici''', '''purci''', '''balvi''', '''lidne'''"
 farvi,"
-'''farvi''' — ''x<sub>1</sub><sub>(entity)</sub>''  evolves or develops into  ''x<sub>2</sub><sub>(entity)</sub>''  from  ''x<sub>3</sub><sub>(entity)</sub>''  through stages  ''x<sub>4</sub><sub>(ordered plural of entity)</sub>'' 
+'''farvi''' — ''x<sub>1</sub><sub>(entity)</sub>''  evolves or develops into  ''x<sub>2</sub><sub>(entity)</sub>''  from  ''x<sub>3</sub><sub>(entity)</sub>''  through stages  ''x<sub>4</sub><sub>(ordered entity group)</sub>'' 
 :'''lo ve farvi''' — stage of development, version in development. 
 :'''lo'e nanba cu farvi lo bredi lo te zbasu lo nu co'a mixre lo purmo ce lo matne ce lo sovda ce lo sakta vau ce'o lo nu glare ce'o lo nu satre vo'a lo matne''' — ''One makes a standard cake from raw materials by mixing flour, butter, eggs and sugar together, then heating, then greasing the cake with butter, and after that, it is ready.''
 :Related words: '''pruce''', '''banro''', '''makcu''', '''ciste''', '''cupra''', '''ferti'''"
@@ -2486,7 +2486,7 @@ fenra,"
 :'''da fenra lo bitmu''' — ''There is a crack in the wall.''
 :Related words: '''kevna''', '''cfila''', '''jinto'''"
 fenso,"
-'''fenso''' — ''x<sub>1</sub><sub>(entity)</sub>''  sews or stitches  ''x<sub>2</sub><sub>(plural of entity)</sub>''  together with tool  ''x<sub>3</sub><sub>(entity)</sub>''  using filament  ''x<sub>4</sub><sub>(entity)</sub>'' 
+'''fenso''' — ''x<sub>1</sub><sub>(entity)</sub>''  sews or stitches  ''x<sub>2</sub><sub>(entity group)</sub>''  together with tool  ''x<sub>3</sub><sub>(entity)</sub>''  using filament  ''x<sub>4</sub><sub>(entity)</sub>'' 
 :'''le nixli pu fenso lo bukpu lo jesni lo cilta''' — ''The girl sewed pieces of cloth using a needle and a thread.''
 :Related words: '''cilta''', '''jivbu''', '''jorne''', '''nivji''', '''pijne''', '''lasna'''"
 fepni,"
@@ -2896,7 +2896,7 @@ gidva,"
 :Related words: '''jitro''', '''ralju''', '''sazri''', te '''bende''', '''jatna''', '''fukpi''', '''morna'''"
 gigdo,"
 '''gigdo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a billion, 10<sup>9</sup> of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''lo vi tcana cu gigdo lo bitri lo ka benji ca ro snidu''' — ''This network station sends 1 gigabit of data per second.''
+:'''lo vi tcana cu gigdo lo bitni lo ka benji ca ro snidu''' — ''This network station sends 1 gigabit of data per second.''
 :Related words: '''centi'''"
 ginka,"
 '''ginka''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a camp of inhabitants  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -3053,7 +3053,7 @@ gunka,"
 :Comment: '''zukte''' need not be labor.
 :Related words: '''sazri''', '''gasnu''', '''se''' '''jibri''', '''briju''', '''lazni''', '''akti''', '''selfu'''"
 gunma,"
-'''gunma''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a joint mass, team of components that are  ''x<sub>2</sub><sub>(plural of entity)</sub>'' 
+'''gunma''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a joint mass, team of components that are  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo gunma''' — mass, aggregate. '''lo se gunma''' — component of a mass. 
 :'''lo gunma be lo prenu ca'o sruri le dinju''' — ''The crowd of people is surrounding the building.''
 :Comment: x<sub>2</sub> describes the whole set. For a particular member of a set use '''cmima'''.
@@ -3277,7 +3277,7 @@ janbe,"
 :'''mi pu tirna lo janbe be lo cladu''' — ''I heard a loud bell ringing.''
 :Related words: '''zgike''', '''tonga''', '''desku''', '''slilu'''"
 janco,"
-'''janco''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a joint attaching limbs  ''x<sub>2</sub><sub>(plural of entity)</sub>'' 
+'''janco''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a joint attaching limbs  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo janco''' — joint. '''lo se janco''' — limb with a joint. 
 :'''lo anka cu janco lo tuple ce lo cutne''' — ''Ankle is a joint between chest and leg.''
 :Comment: '''lo''' '''tornozelo''' is ''ankle'', '''lo''' '''anka''' is ''hip''.
@@ -3356,7 +3356,7 @@ jbera,"
 :'''mi ba te jbera lo karce do''' — ''I will lend you a car.''
 :Related words: '''dejni''', '''janta''', '''zivle'''"
 jbini,"
-'''jbini''' — ''x<sub>1</sub><sub>(entity)</sub>''  is between  ''x<sub>2</sub><sub>(plural of same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1 and x2)</sub>'' 
+'''jbini''' — ''x<sub>1</sub><sub>(entity)</sub>''  is between  ''x<sub>2</sub><sub>(group of same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1 and x2)</sub>'' 
 :'''lo jbini''' — something between. 
 :'''la Alis cu jbini li re no ce li ci no lo ka jai nanca ce'u''' — ''Alice is between 20 and 30 years old.''
 :Related words: '''se''' '''vasru''', '''nenri''', '''zvati''', '''cpana''', '''snuji''', '''senta''', '''bitmu''', '''jimte''', '''kuspe''', '''jibni''', '''lamji''', '''sruri''', '''vanbi''', '''midju''', '''cmima''', '''setca'''"
@@ -3701,7 +3701,7 @@ jivna,"
 :'''la Alis pu jivna lo drata nixli lo nu vi'i ve'u bajra vau lo ka cpacu lo jdini''' — ''Alice competed with other girls in a long distance race with a monetary prize for the winner.''
 :Related words: '''cnemu''', '''jinga''', '''talsa''', '''bradi''', '''fapro''', '''kelci'''"
 jmaji,"
-'''jmaji''' — ''x<sub>1</sub><sub>(plural of entity)</sub>''  gather at location  ''x<sub>2</sub><sub>(entity)</sub>''  from locations  ''x<sub>3</sub><sub>(plural of entity)</sub>'' 
+'''jmaji''' — ''x<sub>1</sub><sub>(entity group)</sub>''  gather at location  ''x<sub>2</sub><sub>(entity)</sub>''  from locations  ''x<sub>3</sub><sub>(entity group)</sub>'' 
 :'''lo jmaji''' — gatherers. '''lo se jmaji''' — location of gathering. 
 :'''lo jbopre pu jmaji lo dinju lo vrici gugde''' — ''Lojbanists gathered.''
 :Related words: '''crepu'''"
@@ -3824,7 +3824,7 @@ junri,"
 :'''xu do junri lo ka te mukti lo ka cliva lo bu'u gugde''' — ''Are you serious in your intent to leave this country?''
 :Related words: '''tilju''', '''xalbo''', '''badri''', '''ritli'''"
 junta,"
-'''junta''' — ''x<sub>1</sub><sub>(entity)</sub>''  is the weight of  ''x<sub>2</sub><sub>(plural of entity)</sub>''  in field  ''x<sub>3</sub>
+'''junta''' — ''x<sub>1</sub><sub>(entity)</sub>''  is the weight of  ''x<sub>2</sub><sub>(entity group)</sub>''  in field  ''x<sub>3</sub>
 :'''lo junta''' — weight. 
 :'''lo kensa gunka cu se junta lo ki'ogra be li pa no no lo terdi''' — ''The space worker weights 100 kilograms in the gravity of the Earth.''
 :Related words: '''grake''', '''linto''', '''tilju''', '''bunda'''"
@@ -4297,7 +4297,7 @@ konju,"
 :'''lo tarci jadni cu te konju fi lo tricu''' — ''The star is the tip of a tree.''
 :Related words: '''jesni''', '''djine''', '''sovda''', '''kojna''', '''jganu'''"
 korbi,"
-'''korbi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an edge or border between  ''x<sub>2</sub><sub>(plural of entity)</sub>'' 
+'''korbi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an edge or border between  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo korbi''' — edge. '''lo se korbi''' — something with an edge. 
 :'''ti korbi lo re rirxe''' — ''This is the border between the two rivers.''
 :Related words: '''greku''', '''mlana''', '''jimte''', '''ctebi''', '''bartu'''"
@@ -4454,7 +4454,7 @@ kunti,"
 :'''lo kabri cu kunti''' — ''The glass is empty.''
 :Related words: '''culno''', '''tisna''', '''claxu''', '''canlu''', '''kevna''', '''setca'''"
 kurfa,"
-'''kurfa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a rectangle defined by vertices  ''x<sub>2</sub><sub>(plural of entity)</sub>'' 
+'''kurfa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a rectangle defined by vertices  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo kurfa''' — rectangle. 
 :'''loi sonci pu kurfa vo mitre be li mu''' — ''Soldiers formed together a rectangle 5 meters in each side.''
 :Related words: '''bliku''', '''kubli''', '''tapla''', '''salpo''', '''tarmi'''"
@@ -4599,7 +4599,7 @@ lante,"
 :'''ti lante lo festi''' — ''It's a can for waste.''
 :Related words: '''botpi''', '''baktu''', '''tinci'''"
 lanxe,"
-'''lanxe''' — ''x<sub>1</sub><sub>(plural of entity)</sub>''  is in balance under forces  ''x<sub>2</sub><sub>(entity)</sub>'' 
+'''lanxe''' — ''x<sub>1</sub><sub>(entity group)</sub>''  is in balance under forces  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo lanxe''' — balanced. 
 :'''lo ni mi gunka ce lo ni mi surla cu lanxe lo se zukte be mi''' — ''I keep my work and my leisure time in balance.''
 :Related words: '''fapro''', '''midju''', '''nutli'''"
@@ -4764,7 +4764,7 @@ lindi,"
 :'''sa'u tu pe pu cu lindi lo darno lo dilnu''' — ''That was just a lightning that stroke far away from here striking from a cloud.''
 :Related words: '''letri'''"
 linji,"
-'''linji''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a line segment defined by points  ''x<sub>2</sub><sub>(plural of entity)</sub>'' 
+'''linji''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a line segment defined by points  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo linji''' — line. '''lo se linji''' — points defining a line. 
 :'''loi pulji pu se linji lo clani te zu'e lo ka kurji lo prenu poi cadzu''' — ''The police officers formed long lines in order to protect walking people.''
 :Related words: '''korcu''', '''sirji''', '''jganu''', '''kantu''', '''mokca'''"
@@ -4780,7 +4780,7 @@ lisri,"
 :'''ko skicu lo lisri be lo crida mi''' — ''Tell me a story about fairies.''
 :Related words: '''ranmi''', '''cfika''', '''skicu''', '''prosa''', '''pemci'''"
 liste,"
-'''liste''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a list, log of  ''x<sub>2</sub><sub>(plural of entity)</sub>'' 
+'''liste''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a list, log of  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo liste''' — list, log. '''lo se liste''' — logged. 
 :'''mi pu tcidu lo liste be lo notci noi te porsi lo ka se benji ca ma kau''' — ''I read a log of messages, which were sorted in the order of being sent.''
 :Comment: unlike '''porsi''' the word '''liste''' describes an actual object with the sequence formed as is.
@@ -4870,7 +4870,7 @@ lu'u,"
 '''lu'u''' <small>[terminator]</small>
 :ends a construct started with: '''la'e, lu'e, tu'a, zo'ei'''"
 lujvo,"
-'''lujvo''' — ''x<sub>1</sub><sub>(text)</sub>''  is a lujvo, verb made of affixes with meaning  ''x<sub>2</sub><sub>(entity)</sub>'', arguments meaning  ''x<sub>3</sub><sub>(ordered plural of entity)</sub>'', with affixes built from components  ''x<sub>4</sub><sub>(ordered plural of text)</sub>'' 
+'''lujvo''' — ''x<sub>1</sub><sub>(text)</sub>''  is a lujvo, verb made of affixes with meaning  ''x<sub>2</sub><sub>(entity)</sub>'', arguments meaning  ''x<sub>3</sub><sub>(ordered entity group)</sub>'', with affixes built from components  ''x<sub>4</sub><sub>(ordered text group)</sub>'' 
 :'''lo lujvo''' — lujvo (compound verb made of affixes). 
 :'''zo ki'ogra lujvo lo du'u kilto lo grake vau lo kilto ce'o lo se grake zo kilto ce'o zo grake''' — '''''ki'ogra''' is a lujvo meaning &quot;is a thousand of grams&quot; with arguments meaning &quot;what is measured in thousands&quot;, &quot;the number of grams&quot;; affixes of the lujvo are built from '''kilto''' and '''grake''' attached sequentially.''
 :Related words: '''stura''', '''cmavo''', '''gismu''', '''rafsi''', '''smuni'''"
@@ -5137,7 +5137,7 @@ mebri,"
 megdo,"
 '''megdo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a million of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''mi ponse lo megdo lo rupnu be li ci''' — ''I own three million dollars.''
-:'''e'o do cuxna fi lo pixra poi klani su'e lo megdo be li pa bei lo ka se bitri li bi''' — ''Please choose an image that does not exceed 1 Megabyte.''
+:'''e'o do cuxna fi lo pixra poi klani su'e lo megdo be li pa bei lo ka se bitni li bi''' — ''Please choose an image that does not exceed 1 Megabyte.''
 :Related words: '''centi'''"
 mei,"
 '''mei''' <small>[verb]</small> — turn number into verb denoting quantity
@@ -5295,7 +5295,7 @@ mitysisku,"
 :'''mi mitysisku lo sunla skaci lo nenri be lo vi kumfa''' — ''I'm looking for a woolen skirt among things in this room.''
 :Related words: '''cirko''', '''kalte''', '''kavbu''', '''kucli''', '''rivbi''', '''marvele''', '''facki'''"
 mixre,"
-'''mixre''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a mixture including  ''x<sub>2</sub><sub>(plural of same type as x1)</sub>'' 
+'''mixre''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a mixture including  ''x<sub>2</sub><sub>(group of same type as x1)</sub>'' 
 :'''lo mixre''' — mixture. '''lo se mixre''' — ingredient of a mixture. 
 :'''lo vacri cu mixre so'o gapci''' — ''Air is a mixture of several gases.''
 :Related words: '''salta''', te '''runta''', '''stasu''', '''jicla''', '''sanso'''"
@@ -5390,7 +5390,7 @@ morji,"
 :Comment: '''morji''' describes memory of general knowledge (facts, concepts), '''vedli''' describes personal experience, autobiographical events, episodic memory.
 :Related words: '''ba'a''' '''nai''', '''menli''', '''pensi''', '''sanji''', '''djuno''', '''notci'''"
 morna,"
-'''morna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a pattern of forms  ''x<sub>2</sub><sub>(plural of entity)</sub>''  arranged according to rule  ''x<sub>3</sub><sub>(proposition)</sub>'' 
+'''morna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a pattern of forms  ''x<sub>2</sub><sub>(entity group)</sub>''  arranged according to rule  ''x<sub>3</sub><sub>(proposition)</sub>'' 
 :'''lo morna''' — pattern. 
 :'''mi nelci lo morna be lo pezli bei lo du'u lo gunma be ri cu cirkulo''' — ''I like patterns of leaves that form circles.''
 :Related words: '''ciste''', '''ganzu''', '''marji''', '''slilu''', '''stura''', '''tarmi''', '''boxna''', '''cimde''', '''gidva''', '''jimpe''', '''rilti'''"
@@ -6297,7 +6297,7 @@ plise,"
 :Comment: '''lo''' '''plise''' '''poi''' '''grute''' is @@apple fruit'', '''lo''' '''plise''' '''poi''' '''tricu''' is @@apple tree''. '''plise''' alone can denote either of them.
 :Related words: '''grute''', '''tricu'''"
 plita,"
-'''plita''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a geometrical plane defined by points  ''x<sub>2</sub><sub>(plural of entity)</sub>'' 
+'''plita''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a geometrical plane defined by points  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo plita''' — plane (shape). 
 :'''lo toldi poi cpare lo flora pe lo loldi co'a se plita lo melbi''' — ''Butterflies creeping along the flowers formed a beautiful plane.''
 :Related words: '''xutla''', '''sefta''', '''tapla''', '''karda''', '''boxfo''', '''pinta'''"
@@ -6365,7 +6365,7 @@ porpi,"
 :'''le palta mo'u porpi so'i cmalu''' — ''The plate broke into many small pieces.''
 :Related words: '''xrani''', '''spofu''', se '''katna'''"
 porsi,"
-'''porsi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a sequence ordered by rules  ''x<sub>2</sub><sub>(relation between members of x1, contains two places for '''ce'u''')</sub>''  on unordered  ''x<sub>3</sub><sub>(plural of same type as x1)</sub>'' 
+'''porsi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a sequence ordered by rules  ''x<sub>2</sub><sub>(relation between members of x1, contains two places for '''ce'u''')</sub>''  on unordered  ''x<sub>3</sub><sub>(group of same type as x1)</sub>'' 
 :'''lo porsi''' — sequence. 
 :'''li pa ce'o li re ce'o li ci cu porsi lo ka ce'u mleca ce'u vau lo namcu''' — ''1, 2, 3 is a sequence of numbers where a number to the left is less than the number to the right.''
 :'''mi pu zgana fe po'o lo porsi be fi lo valsi i je mi na pu jimpe lo smuni be py''' — ''I could only see a sequence of words, the sequence the meaning of which I couldn't understand.''
@@ -6440,9 +6440,9 @@ protoni,"
 :'''lo protoni cu kantu''' — ''Proton is an elementary particle.''
 :Related words: '''kantu'''"
 pruce,"
-'''pruce''' — ''x<sub>1</sub><sub>(clause)</sub>''  is a process with input  ''x<sub>2</sub><sub>(entity)</sub>''  and output  ''x<sub>3</sub><sub>(entity)</sub>''  via stages  ''x<sub>4</sub><sub>(ordered plural of entity)</sub>'' 
+'''pruce''' — ''x<sub>1</sub><sub>(clause)</sub>''  is a process with input  ''x<sub>2</sub><sub>(entity)</sub>''  and output  ''x<sub>3</sub><sub>(entity)</sub>''  via stages  ''x<sub>4</sub><sub>(entity ordered group)</sub>'' 
 :'''lo pruce''' — process. '''lo se pruce''' — process input. '''lo te pruce''' — process output. '''lo ve pruce''' — stage of a process. 
-:'''lo nu zbasu lo nanba cu pruce lo purmo ce lo djacu ce lo sovda lo nanba lo nu mixre vo'e vau ce'o lo nu jukpa''' — ''Making bread is a process with ingredients flour, water and eggs where one mixes them and then cooks.''
+:'''lo nu zbasu lo nanba cu pruce lo purmo ce lo djacu ce lo sovda lo nanba '''lo nu mixre vo'e vau''' ce'o '''lo nu jukpa — ''Making bread is a process with ingredients flour, water and eggs where '''one mixes them''' and then '''cooks'''.''
 :Related words: '''farvi''', '''tadji''', '''grute''', '''tcini'''"
 prulamdei,"
 '''prulamdei''' — ''x<sub>1</sub><sub>(clause)</sub>''  is yesterday, the day before the day  ''x<sub>2</sub><sub>(clause)</sub>'' 
@@ -7208,7 +7208,7 @@ seksi,"
 :'''le tigni cu seksi lo ka dasni lo tordu skaci vau lo ka ninmu''' — ''The actor shows her female sexuality by wearing a short skirt.''
 :Related words: '''gletu''', '''nakpinji''', '''plibu''', '''vibna''', '''vlagi'''"
 selbri,"
-'''selbri''' — ''x<sub>1</sub><sub>(property of nonce place, has places for '''ce'u''' referring to x3)</sub>''  is the main verb of the clause  ''x<sub>2</sub><sub>(text)</sub>''  that has places  ''x<sub>3</sub><sub>(ordered plural of entity)</sub>'' 
+'''selbri''' — ''x<sub>1</sub><sub>(property of nonce place, has places for '''ce'u''' referring to x3)</sub>''  is the main verb of the clause  ''x<sub>2</sub><sub>(text)</sub>''  that has places  ''x<sub>3</sub><sub>(ordered entity group)</sub>'' 
 :'''lo selbri''' — main verb of a clause. '''lo se selbri''' — grammatical clause. '''lo te selbri''' — place of a grammatical clause. 
 :'''lo ka dunda vau selbri lu mi dunda ti do li'u mi ce'o ti ce'o do''' — ''&quot;Give&quot; is the main verb of the clause &quot;I give this to you&quot; that has sequential places &quot;I&quot;,&quot;this&quot;,&quot;you&quot;.''
 :Comment: the same as '''se''' '''bridi'''
@@ -7370,7 +7370,7 @@ simsa,"
 :Comment: '''jibni''' is used when the difference is something generally measurable, whereas '''simsa''' is about difference in quality.
 :Related words: '''dunli''', '''frica''', '''mintu''', '''panra''', '''simlu''', '''vrici'''"
 simxu,"
-'''simxu''' — ''x<sub>1</sub><sub>(plural entity)</sub>''  mutually do  ''x<sub>2</sub><sub>(relation between members of x1, contains two places for '''ce'u''')</sub>'' 
+'''simxu''' — ''x<sub>1</sub><sub>(entity group)</sub>''  mutually do  ''x<sub>2</sub><sub>(relation between members of x1, contains two places for '''ce'u''')</sub>'' 
 :'''lo se simxu''' — done mutually. 
 :'''do ce mi simxu lo ka prami''' — ''You and I love each other.''
 :Related words: '''kampu''', '''mintu'''"
@@ -7619,7 +7619,7 @@ snipa,"
 :'''lo cirla cu snipa lo moklu be mi''' — ''The cheese sticked to my mouth.''
 :Related words: '''tarla''', '''viknu'''"
 snuji,"
-'''snuji''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a sandwich of  ''x<sub>2</sub><sub>(entity)</sub>''  sandwiched between  ''x<sub>3</sub><sub>(plural of entity)</sub>'' 
+'''snuji''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a sandwich of  ''x<sub>2</sub><sub>(entity)</sub>''  sandwiched between  ''x<sub>3</sub><sub>(entity group)</sub>'' 
 :'''lo snuji''' — sandwich. 
 :'''mi pu citka lo snuji be lo rectu bei lo nanba''' — ''I ate a bread sandwich with meat inside.''
 :Related words: '''midju''', '''nenri''', '''sepli''', '''senta''', '''jbini''', '''bitmu''', '''sruri'''"
@@ -7922,7 +7922,7 @@ stuna,"
 :'''lo nurma zdani pe mi cu stuna lo tcadu zdani ti''' — ''My rural house is to the west of the city apartment when viewed from here.''
 :Related words: '''stici''', '''berti''', '''snanu''', '''farna'''"
 stura,"
-'''stura''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a structure or arrangement of  ''x<sub>2</sub><sub>(plural of entity)</sub>'' 
+'''stura''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a structure or arrangement of  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo stura''' — structure. '''lo se stura''' — structured. 
 :'''lo stura be lo dinju cu pluja''' — ''The building has a complex structure.''
 :Related words: '''ganzu''', '''morna''', '''ciste''', '''lujvo''', '''greku''', '''gerna'''"
@@ -8312,7 +8312,7 @@ terpa,"
 :Related words: '''snura''', '''xalni''', '''xanka''', '''virnu'''"
 terto,"
 '''terto''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a trillion, 10<sup>12</sup> of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''lo vi tcana cu terto lo bitri be li bi lo ka vasru''' — ''This network station stores 1 Terabyte of data.''
+:'''lo vi tcana cu terto lo bitni be li bi lo ka vasru''' — ''This network station stores 1 Terabyte of data.''
 :Related words: '''centi'''"
 ti,"
 '''ti''' <small>[pronoun]</small> — ''this (here)''
@@ -8517,7 +8517,7 @@ trati,"
 :'''le taxfu cu tarti lo ka pinta''' — ''The dress is strained in horizontal direction.''
 :Related words: '''tinsa''', '''torni''', '''tagji''', '''tcena''', '''kluza'''"
 trene,"
-'''trene''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a caravan, a train of connected cars  ''x<sub>2</sub><sub>(plural of entity)</sub>''  on the route or railroad  ''x<sub>3</sub><sub>(entity)</sub>'' 
+'''trene''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a caravan, a train of connected cars  ''x<sub>2</sub><sub>(entity group)</sub>''  on the route or railroad  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo trene''' — caravan, train (of cars). '''lo se trene''' — member of a caravan, car of a train, carriage (of a train). 
 :'''ti trene mu da''' — ''This train consists of 5 cars.''
 :'''so'i da trene lo kumte la Silka Dargu''' — ''There are many camel caravans on the Silk Road.''
@@ -9024,7 +9024,7 @@ volve,"
 :'''ko jai gau volve fai lo jdini''' — ''Return the money.''
 :Related words: '''trixe''', '''krefu''', '''benji''', '''rapli'''"
 vorme,"
-'''vorme''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a doorway between  ''x<sub>2</sub><sub>(plural of entity)</sub>'' 
+'''vorme''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a doorway between  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo vorme''' — doorway. 
 :'''ti du lo vorme poi ve klama lo zarci''' — ''This is the doorway to the store.''
 :'''lo va kevna cu vorme lo re kumfa''' — ''That hole is a doorway between the two rooms.''

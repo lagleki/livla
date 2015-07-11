@@ -3,14 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<title>
-		Untitled Document
+		la cilretci
 	</title>
 	<script src="data.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script>
 		var va='';
 		var sendinput = function () {
-			if ($("#typehere").val()===va){$("#typehere").val('');$("#drani").html("");drata();}else{$("#typehere").val('');$("#drani").html("correct: "+va);}
+			if ($("#typehere").val().toLowerCase().trim()===va){$("#typehere").val('');$("#drani").html("");drata();}else{$("#typehere").val('');$("#drani").html("correct: "+va);}
 		}
 		$(document).ready(function () {
 			drata();
@@ -33,7 +33,7 @@
 			else{
 				$( "#trans" ).html(k);
 			}
-			va = window.db[k];
+			va = window.db[k].toLowerCase().trim();
 		}
 	</script>
 </head>

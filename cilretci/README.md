@@ -1,0 +1,1 @@
+All the data are in data.js + files put into the same folder. If you want to use an .ogg file as a question just put it next to index.html and data.js and use its short filename (without the path) as the question. No other extensions and formats are supported.

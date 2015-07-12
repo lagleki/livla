@@ -150,7 +150,7 @@ text_1 = expr:(I_clause (jek / joik)? (stag? BO_clause)? free* text_1? / NIhO_cl
 
 paragraphs = expr:(paragraph (NIhO_clause+ free* su_clause* paragraphs)?) {return _node("paragraphs", expr);}
 
-paragraph = expr:((fragment / statement) (I_clause !jek !joik !joik_jek free* (statement / fragment)?)*) {return _node("paragraph", expr);}
+paragraph = expr:((fragment / statement) ((I_clause / I_clause_elidible &selbri) !jek !joik !joik_jek free* (statement / fragment)?)*) {return _node("paragraph", expr);}
 
 statement = expr:(statement_1 / prenex statement) {return _node("statement", expr);}
 
@@ -663,6 +663,7 @@ FA_elidible = {return ["FIhA"];}
 FEhU_elidible = expr:(FEhU_clause?) {return (expr == "") ? ["FEhU"] : _node("FEhU", expr);}
 // FOI and FUhO are never elidible
 GEhU_elidible = expr:(GEhU_clause?) {return (expr == "") ? ["GEhU"] : _node("GEhU", expr);}
+I_elidible = expr:() expr:() { return ["I", "I"];}
 NE_elidible = expr:() expr:() { return ["GOI", "NE"];}
 KEI_elidible = expr:(KEI_clause?)   {return (expr == "") ? ["KEI"]  : _node("KEI", expr);}
 KEhE_elidible = expr:(KEhE_clause?) {return (expr == "") ? ["KEhE"] : _node("KEhE", expr);}
@@ -978,6 +979,9 @@ GUhA_post = post_clause
 //         sentence link 
 I_clause = expr:(sentence_sa* I_pre I_post) {return _node("I_clause", expr); }
 I_pre = pre_clause I spaces?
+I_clause_elidible = expr:(sentence_sa* I_pre_elidible I_post) {return _node("I_clause", expr); }
+I_pre_elidible = pre_clause I_elidible spaces?
+
 I_post = post_clause
 // I_no_SA_handling = pre_clause I post_clause
 

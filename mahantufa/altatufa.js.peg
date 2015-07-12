@@ -146,7 +146,7 @@ faho_clause = expr:((FAhO_clause dot_star)?) {return _node("faho_clause", expr);
 // Please note that the "text_1" item in the text_1 production does
 // *not* match the BNF. This is due to a bug in the BNF.  The change
 // here was made to match grammar.300
-text_1 = expr:(I_clause (jek / joik)? (stag? BO_clause)? free* text_1? / NIhO_clause+ free* su_clause* paragraphs? / paragraphs) {return _node("text_1", expr);}
+text_1 = expr:(I_clause (jek / joik)? (stag? BO_clause)? free* paragraphs / NIhO_clause+ (jek / joik)? (stag? BO_clause)? free* su_clause* paragraphs? / I_clause_elidible paragraphs) {return _node("text_1", expr);}
 
 paragraphs = expr:(paragraph (NIhO_clause+ free* su_clause* paragraphs)?) {return _node("paragraphs", expr);}
 
@@ -162,7 +162,7 @@ statement_3 = expr:(tag? TUhE_clause free* text_1 TUhU_elidible free* / bridi) {
 
 //// EXP-MODIF: allowing na sequence.
 //// Remove fragments that are now proper statements
-fragment = expr:(ek free* / !term !tag quantifier / relative_clauses / links / linkargs) {return _node("fragment", expr);}
+fragment = expr:(!term !tag quantifier / links / linkargs) {return _node("fragment", expr);}
 
 prenex = expr:((terms / termspreFAZOhE) ZOhU_clause free*) {return _node("prenex", expr);}
 
@@ -186,7 +186,7 @@ bridi = expr:(
 (termsZAMfafefifofu_elidible bridi_tail_t1) / /* mi [do ti ta tu] (FA ko'a)n klama*/
 terms? bridi_tail_t1 (joik_jek bridi_tail / joik_jek stag? KE_clause free* bridi_tail KEhE_elidible free*)*) {return _node("bridi", expr);}
 
-bridi_tail_3_various = expr:(gek_sentence / DU_elidible sumtifazohe relative_clauses)
+bridi_tail_3_various = expr:(gek_sentence / ME_elidible sumtifazohe relative_clauses)
 
 bridi_tail_t1 = expr:(bridi_tail_t2 (joik_jek stag? KE_clause free* bridi_tail KEhE_elidible free*)?) {return _node("bridi_tail_t1", expr);}
 bridi_tail_t2 = expr:(bridi_tail (joik_jek stag? BO_clause free* bridi_tail)?) {return _node("bridi_tail_t2", expr);}
@@ -686,7 +686,7 @@ VAU_elidible = expr:(VAU_clause?)   {return (expr == "") ? ["VAU"]  : _node("VAU
 VEhO_elidible = expr:(VEhO_clause?) {return (expr == "") ? ["VEhO"] : _node("VEhO", expr);}
 
 SELBRI_elidible = expr:(GOhA_clause?) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);}
-DU_elidible = expr:(GOhA_clause?) {return (expr == "") ? ["DU"]   : _node("DU", expr);}
+ME_elidible = expr:(ME_clause?) {return (expr == "") ? ["ME"]   : _node("ME", expr);}
 
 NOUNEND = {return ["NF"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}

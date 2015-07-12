@@ -981,7 +981,7 @@ var retur='y no da se tolcri';
 var items = [
 	["lo","a(n)"],["le","the"],["la","@@@"],["nu","event-of"],["zo","the-word:"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
 	["na","not"],["na'e","not"],["nai","-not"],["nelci","fond-of"],["ka","being"],["tu'a","about"],
-	["ie","yeah"],["e'u","I-suggest"],
+	["ie","yeah"],["e'u","I-suggest"],["e'a","[permission-granted]"],["pei","?"],
 	["e","and"],["enai","and-not"],["a","and/or"],
 	["jenai","and-not"],["je","and"],["ja","and/or"],
 	["gi'e",",-and"],["gi'a",",-and/or"],

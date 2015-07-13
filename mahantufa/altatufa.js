@@ -102,6 +102,43 @@ var camxes = (function(){
         "bridi_tail_2fefifofu": parse_bridi_tail_2fefifofu,
         "bridi_tail_3fefifofu": parse_bridi_tail_3fefifofu,
         "tail_termsZAMfefifofu": parse_tail_termsZAMfefifofu,
+        "bridi_tail_t1fefifofunoi": parse_bridi_tail_t1fefifofunoi,
+        "bridi_tail_t2fefifofunoi": parse_bridi_tail_t2fefifofunoi,
+        "bridi_tailfefifofunoi": parse_bridi_tailfefifofunoi,
+        "bridi_tail_1fefifofunoi": parse_bridi_tail_1fefifofunoi,
+        "bridi_tail_2fefifofunoi": parse_bridi_tail_2fefifofunoi,
+        "bridi_tail_3fefifofunoi": parse_bridi_tail_3fefifofunoi,
+        "fasnu_to_elide": parse_fasnu_to_elide,
+        "tail_termsZAMfefifofunoi": parse_tail_termsZAMfefifofunoi,
+        "termsnoi": parse_termsnoi,
+        "terms_1FAMnoi": parse_terms_1FAMnoi,
+        "terms_2FAMnoi": parse_terms_2FAMnoi,
+        "abs_termFAMnoi": parse_abs_termFAMnoi,
+        "abs_term_1FAMnoi": parse_abs_term_1FAMnoi,
+        "abs_tag_termFAMnoi": parse_abs_tag_termFAMnoi,
+        "tagFAMnoi": parse_tagFAMnoi,
+        "tense_modalFAMnoi": parse_tense_modalFAMnoi,
+        "sumtinoi": parse_sumtinoi,
+        "sumti_1noi": parse_sumti_1noi,
+        "sumti_2noi": parse_sumti_2noi,
+        "sumti_3noi": parse_sumti_3noi,
+        "sumti_4noi": parse_sumti_4noi,
+        "sumti_5noi": parse_sumti_5noi,
+        "sumti_6noi": parse_sumti_6noi,
+        "sumti_tailnoi": parse_sumti_tailnoi,
+        "sumti_tail_1noi": parse_sumti_tail_1noi,
+        "selbrinoi": parse_selbrinoi,
+        "selbri_1noi": parse_selbri_1noi,
+        "selbri_2noi": parse_selbri_2noi,
+        "selbri_3noi": parse_selbri_3noi,
+        "selbri_4nfnoi": parse_selbri_4nfnoi,
+        "selbri_5nfnoi": parse_selbri_5nfnoi,
+        "selbri_6nfnoi": parse_selbri_6nfnoi,
+        "tanru_unitnfnoi": parse_tanru_unitnfnoi,
+        "tanru_unit_1nfnoi": parse_tanru_unit_1nfnoi,
+        "tanru_unit_2nfnoi": parse_tanru_unit_2nfnoi,
+        "subsentencenoi": parse_subsentencenoi,
+        "bridinoi": parse_bridinoi,
         "termspreFAZOhE": parse_termspreFAZOhE,
         "terms": parse_terms,
         "terms_1": parse_terms_1,
@@ -359,12 +396,14 @@ var camxes = (function(){
         "TUhU_elidible": parse_TUhU_elidible,
         "VAU_elidible": parse_VAU_elidible,
         "VEhO_elidible": parse_VEhO_elidible,
+        "FASNU_elidible": parse_FASNU_elidible,
         "SELBRI_elidible": parse_SELBRI_elidible,
         "ME_elidible": parse_ME_elidible,
         "NOUNEND": parse_NOUNEND,
         "KUhOI_elidible": parse_KUhOI_elidible,
         "KOhA_elidible": parse_KOhA_elidible,
         "LE_elidible": parse_LE_elidible,
+        "NU_elidible": parse_NU_elidible,
         "BRIVLA_clause": parse_BRIVLA_clause,
         "BRIVLA_pre": parse_BRIVLA_pre,
         "BRIVLA_clausenf": parse_BRIVLA_clausenf,
@@ -544,6 +583,8 @@ var camxes = (function(){
         "NOI_pre": parse_NOI_pre,
         "NU_clause": parse_NU_clause,
         "NU_pre": parse_NU_pre,
+        "NU_clause_elidible": parse_NU_clause_elidible,
+        "NU_pre_elidible": parse_NU_pre_elidible,
         "NUhA_clause": parse_NUhA_clause,
         "NUhA_pre": parse_NUhA_pre,
         "NUhI_clause": parse_NUhI_clause,
@@ -2594,7 +2635,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_termspreFAZOhE();
         if (result0 !== null) {
-          result1 = parse_bridi_tail_t1fefifofu();
+          result1 = parse_bridi_tail_t1fefifofunoi();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -2607,7 +2648,7 @@ var camxes = (function(){
         }
         if (result0 === null) {
           pos1 = pos;
-          result0 = parse_termsZAMfa();
+          result0 = parse_termspreFAZOhE();
           if (result0 !== null) {
             result1 = parse_bridi_tail_t1fefifofu();
             if (result1 !== null) {
@@ -2622,9 +2663,9 @@ var camxes = (function(){
           }
           if (result0 === null) {
             pos1 = pos;
-            result0 = parse_termsZAMfafe();
+            result0 = parse_termsZAMfa();
             if (result0 !== null) {
-              result1 = parse_bridi_tail_t1fifofu();
+              result1 = parse_bridi_tail_t1fefifofu();
               if (result1 !== null) {
                 result0 = [result0, result1];
               } else {
@@ -2637,9 +2678,9 @@ var camxes = (function(){
             }
             if (result0 === null) {
               pos1 = pos;
-              result0 = parse_termsZAMfafefi();
+              result0 = parse_termsZAMfafe();
               if (result0 !== null) {
-                result1 = parse_bridi_tail_t1fofu();
+                result1 = parse_bridi_tail_t1fifofu();
                 if (result1 !== null) {
                   result0 = [result0, result1];
                 } else {
@@ -2652,9 +2693,9 @@ var camxes = (function(){
               }
               if (result0 === null) {
                 pos1 = pos;
-                result0 = parse_termsZAMfafefifo();
+                result0 = parse_termsZAMfafefi();
                 if (result0 !== null) {
-                  result1 = parse_bridi_tail_t1fu();
+                  result1 = parse_bridi_tail_t1fofu();
                   if (result1 !== null) {
                     result0 = [result0, result1];
                   } else {
@@ -2667,9 +2708,9 @@ var camxes = (function(){
                 }
                 if (result0 === null) {
                   pos1 = pos;
-                  result0 = parse_termsZAMfafefifofu();
+                  result0 = parse_termsZAMfafefifo();
                   if (result0 !== null) {
-                    result1 = parse_bridi_tail_t1();
+                    result1 = parse_bridi_tail_t1fu();
                     if (result1 !== null) {
                       result0 = [result0, result1];
                     } else {
@@ -2682,7 +2723,7 @@ var camxes = (function(){
                   }
                   if (result0 === null) {
                     pos1 = pos;
-                    result0 = parse_termsZAMfafefifofu_elidible();
+                    result0 = parse_termsZAMfafefifofu();
                     if (result0 !== null) {
                       result1 = parse_bridi_tail_t1();
                       if (result1 !== null) {
@@ -2697,85 +2738,27 @@ var camxes = (function(){
                     }
                     if (result0 === null) {
                       pos1 = pos;
-                      result0 = parse_terms();
-                      result0 = result0 !== null ? result0 : "";
+                      result0 = parse_termsZAMfafefifofu_elidible();
                       if (result0 !== null) {
                         result1 = parse_bridi_tail_t1();
                         if (result1 !== null) {
-                          result2 = [];
-                          pos2 = pos;
-                          result3 = parse_joik_jek();
-                          if (result3 !== null) {
-                            result4 = parse_bridi_tail();
-                            if (result4 !== null) {
-                              result3 = [result3, result4];
-                            } else {
-                              result3 = null;
-                              pos = pos2;
-                            }
-                          } else {
-                            result3 = null;
-                            pos = pos2;
-                          }
-                          if (result3 === null) {
-                            pos2 = pos;
-                            result3 = parse_joik_jek();
-                            if (result3 !== null) {
-                              result4 = parse_stag();
-                              result4 = result4 !== null ? result4 : "";
-                              if (result4 !== null) {
-                                result5 = parse_KE_clause();
-                                if (result5 !== null) {
-                                  result6 = [];
-                                  result7 = parse_free();
-                                  while (result7 !== null) {
-                                    result6.push(result7);
-                                    result7 = parse_free();
-                                  }
-                                  if (result6 !== null) {
-                                    result7 = parse_bridi_tail();
-                                    if (result7 !== null) {
-                                      result8 = parse_KEhE_elidible();
-                                      if (result8 !== null) {
-                                        result9 = [];
-                                        result10 = parse_free();
-                                        while (result10 !== null) {
-                                          result9.push(result10);
-                                          result10 = parse_free();
-                                        }
-                                        if (result9 !== null) {
-                                          result3 = [result3, result4, result5, result6, result7, result8, result9];
-                                        } else {
-                                          result3 = null;
-                                          pos = pos2;
-                                        }
-                                      } else {
-                                        result3 = null;
-                                        pos = pos2;
-                                      }
-                                    } else {
-                                      result3 = null;
-                                      pos = pos2;
-                                    }
-                                  } else {
-                                    result3 = null;
-                                    pos = pos2;
-                                  }
-                                } else {
-                                  result3 = null;
-                                  pos = pos2;
-                                }
-                              } else {
-                                result3 = null;
-                                pos = pos2;
-                              }
-                            } else {
-                              result3 = null;
-                              pos = pos2;
-                            }
-                          }
-                          while (result3 !== null) {
-                            result2.push(result3);
+                          result0 = [result0, result1];
+                        } else {
+                          result0 = null;
+                          pos = pos1;
+                        }
+                      } else {
+                        result0 = null;
+                        pos = pos1;
+                      }
+                      if (result0 === null) {
+                        pos1 = pos;
+                        result0 = parse_terms();
+                        result0 = result0 !== null ? result0 : "";
+                        if (result0 !== null) {
+                          result1 = parse_bridi_tail_t1();
+                          if (result1 !== null) {
+                            result2 = [];
                             pos2 = pos;
                             result3 = parse_joik_jek();
                             if (result3 !== null) {
@@ -2847,9 +2830,86 @@ var camxes = (function(){
                                 pos = pos2;
                               }
                             }
-                          }
-                          if (result2 !== null) {
-                            result0 = [result0, result1, result2];
+                            while (result3 !== null) {
+                              result2.push(result3);
+                              pos2 = pos;
+                              result3 = parse_joik_jek();
+                              if (result3 !== null) {
+                                result4 = parse_bridi_tail();
+                                if (result4 !== null) {
+                                  result3 = [result3, result4];
+                                } else {
+                                  result3 = null;
+                                  pos = pos2;
+                                }
+                              } else {
+                                result3 = null;
+                                pos = pos2;
+                              }
+                              if (result3 === null) {
+                                pos2 = pos;
+                                result3 = parse_joik_jek();
+                                if (result3 !== null) {
+                                  result4 = parse_stag();
+                                  result4 = result4 !== null ? result4 : "";
+                                  if (result4 !== null) {
+                                    result5 = parse_KE_clause();
+                                    if (result5 !== null) {
+                                      result6 = [];
+                                      result7 = parse_free();
+                                      while (result7 !== null) {
+                                        result6.push(result7);
+                                        result7 = parse_free();
+                                      }
+                                      if (result6 !== null) {
+                                        result7 = parse_bridi_tail();
+                                        if (result7 !== null) {
+                                          result8 = parse_KEhE_elidible();
+                                          if (result8 !== null) {
+                                            result9 = [];
+                                            result10 = parse_free();
+                                            while (result10 !== null) {
+                                              result9.push(result10);
+                                              result10 = parse_free();
+                                            }
+                                            if (result9 !== null) {
+                                              result3 = [result3, result4, result5, result6, result7, result8, result9];
+                                            } else {
+                                              result3 = null;
+                                              pos = pos2;
+                                            }
+                                          } else {
+                                            result3 = null;
+                                            pos = pos2;
+                                          }
+                                        } else {
+                                          result3 = null;
+                                          pos = pos2;
+                                        }
+                                      } else {
+                                        result3 = null;
+                                        pos = pos2;
+                                      }
+                                    } else {
+                                      result3 = null;
+                                      pos = pos2;
+                                    }
+                                  } else {
+                                    result3 = null;
+                                    pos = pos2;
+                                  }
+                                } else {
+                                  result3 = null;
+                                  pos = pos2;
+                                }
+                              }
+                            }
+                            if (result2 !== null) {
+                              result0 = [result0, result1, result2];
+                            } else {
+                              result0 = null;
+                              pos = pos1;
+                            }
                           } else {
                             result0 = null;
                             pos = pos1;
@@ -2858,9 +2918,6 @@ var camxes = (function(){
                           result0 = null;
                           pos = pos1;
                         }
-                      } else {
-                        result0 = null;
-                        pos = pos1;
                       }
                     }
                   }
@@ -8211,6 +8268,1257 @@ var camxes = (function(){
         return result0;
       }
       
+      function parse_bridi_tail_t1fefifofunoi() {
+        var cacheKey = "bridi_tail_t1fefifofunoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_bridi_tail_t2fefifofunoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_t1fefifofu", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_t2fefifofunoi() {
+        var cacheKey = "bridi_tail_t2fefifofunoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_bridi_tailfefifofunoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_t2fefifofu", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tailfefifofunoi() {
+        var cacheKey = "bridi_tailfefifofunoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_bridi_tail_1fefifofunoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tailfefifofu", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_1fefifofunoi() {
+        var cacheKey = "bridi_tail_1fefifofunoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_bridi_tail_2fefifofunoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_1fefifofu", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_2fefifofunoi() {
+        var cacheKey = "bridi_tail_2fefifofunoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_CU_elidible();
+        if (result0 !== null) {
+          result1 = parse_bridi_tail_3fefifofunoi();
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_2fefifofu", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridi_tail_3fefifofunoi() {
+        var cacheKey = "bridi_tail_3fefifofunoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_fasnu_to_elide();
+        if (result0 !== null) {
+          result1 = parse_tail_termsZAMfefifofunoi();
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi_tail_3fefifofu", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_fasnu_to_elide() {
+        var cacheKey = "fasnu_to_elide@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = [];
+        result1 = parse_tag();
+        if (result1 === null) {
+          result1 = parse_NA_clause();
+        }
+        while (result1 !== null) {
+          result0.push(result1);
+          result1 = parse_tag();
+          if (result1 === null) {
+            result1 = parse_NA_clause();
+          }
+        }
+        if (result0 !== null) {
+          result1 = parse_FASNU_elidible();
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("selbri", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_tail_termsZAMfefifofunoi() {
+        var cacheKey = "tail_termsZAMfefifofunoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_termsnoi();
+        if (result0 !== null) {
+          result1 = parse_VAU_elidible();
+          if (result1 !== null) {
+            pos2 = pos;
+            reportFailures++;
+            result2 = parse_ZOhU_clause();
+            reportFailures--;
+            if (result2 === null) {
+              result2 = "";
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+            if (result2 !== null) {
+              result0 = [result0, result1, result2];
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node_nonempty("tail_termsZAMfefifofu", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_termsnoi() {
+        var cacheKey = "termsnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_terms_1FAMnoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("terms", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_terms_1FAMnoi() {
+        var cacheKey = "terms_1FAMnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_terms_2FAMnoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("terms_1FAM", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_terms_2FAMnoi() {
+        var cacheKey = "terms_2FAMnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_abs_termFAMnoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("terms_2FAM", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_abs_termFAMnoi() {
+        var cacheKey = "abs_termFAMnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_abs_term_1FAMnoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("abs_termFAM", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_abs_term_1FAMnoi() {
+        var cacheKey = "abs_term_1FAMnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_abs_tag_termFAMnoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("abs_term_1FAM", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_abs_tag_termFAMnoi() {
+        var cacheKey = "abs_tag_termFAMnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        pos2 = pos;
+        reportFailures++;
+        result0 = parse_gek();
+        reportFailures--;
+        if (result0 === null) {
+          result0 = "";
+        } else {
+          result0 = null;
+          pos = pos2;
+        }
+        if (result0 !== null) {
+          result1 = parse_tagFAMnoi();
+          if (result1 !== null) {
+            pos2 = pos;
+            reportFailures++;
+            result2 = parse_gek_sentence();
+            reportFailures--;
+            if (result2 === null) {
+              result2 = "";
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+            if (result2 !== null) {
+              result3 = parse_sumtinoi();
+              if (result3 !== null) {
+                result0 = [result0, result1, result2, result3];
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("abs_tag_termFAM", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_tagFAMnoi() {
+        var cacheKey = "tagFAMnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_tense_modalFAMnoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("tagFAM", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_tense_modalFAMnoi() {
+        var cacheKey = "tense_modalFAMnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_FAXIPA_elidible();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("tense_modalFAM", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumtinoi() {
+        var cacheKey = "sumtinoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_sumti_1noi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_1noi() {
+        var cacheKey = "sumti_1noi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_sumti_2noi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_1", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_2noi() {
+        var cacheKey = "sumti_2noi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_sumti_3noi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_2", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_3noi() {
+        var cacheKey = "sumti_3noi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_sumti_4noi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_3", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_4noi() {
+        var cacheKey = "sumti_4noi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_sumti_5noi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_4", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_5noi() {
+        var cacheKey = "sumti_5noi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_sumti_6noi();
+        if (result0 !== null) {
+          result1 = parse_relative_clauses();
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_5", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_6noi() {
+        var cacheKey = "sumti_6noi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_LE_clause_elidible();
+        if (result0 !== null) {
+          result1 = [];
+          result2 = parse_free();
+          while (result2 !== null) {
+            result1.push(result2);
+            result2 = parse_free();
+          }
+          if (result1 !== null) {
+            result2 = parse_sumti_tailnoi();
+            if (result2 !== null) {
+              result3 = parse_KU_elidible();
+              if (result3 !== null) {
+                result0 = [result0, result1, result2, result3];
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_6", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_tailnoi() {
+        var cacheKey = "sumti_tailnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_sumti_tail_1noi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_tail", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumti_tail_1noi() {
+        var cacheKey = "sumti_tail_1noi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_selbrinoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("sumti_tail_1", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_selbrinoi() {
+        var cacheKey = "selbrinoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_selbri_1noi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("selbri", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_selbri_1noi() {
+        var cacheKey = "selbri_1noi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_selbri_2noi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("selbri_1", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_selbri_2noi() {
+        var cacheKey = "selbri_2noi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_selbri_3noi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("selbri_2", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_selbri_3noi() {
+        var cacheKey = "selbri_3noi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_selbri_4nfnoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("selbri_3", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_selbri_4nfnoi() {
+        var cacheKey = "selbri_4nfnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_selbri_5nfnoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("selbri_4", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_selbri_5nfnoi() {
+        var cacheKey = "selbri_5nfnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_selbri_6nfnoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("selbri_5", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_selbri_6nfnoi() {
+        var cacheKey = "selbri_6nfnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_tanru_unitnfnoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("selbri_6", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_tanru_unitnfnoi() {
+        var cacheKey = "tanru_unitnfnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_tanru_unit_1nfnoi();
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("tanru_unit", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_tanru_unit_1nfnoi() {
+        var cacheKey = "tanru_unit_1nfnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_tanru_unit_2nfnoi();
+        if (result0 !== null) {
+          pos2 = pos;
+          reportFailures++;
+          result1 = parse_relative_clauses();
+          reportFailures--;
+          if (result1 !== null) {
+            result1 = "";
+            pos = pos2;
+          } else {
+            result1 = null;
+          }
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("tanru_unit_1", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_tanru_unit_2nfnoi() {
+        var cacheKey = "tanru_unit_2nfnoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_NU_clause_elidible();
+        if (result0 !== null) {
+          result1 = parse_subsentencenoi();
+          if (result1 !== null) {
+            pos2 = pos;
+            reportFailures++;
+            result2 = parse_relative_clauses();
+            reportFailures--;
+            if (result2 !== null) {
+              result2 = "";
+              pos = pos2;
+            } else {
+              result2 = null;
+            }
+            if (result2 !== null) {
+              result3 = parse_KEI_elidible();
+              if (result3 !== null) {
+                result0 = [result0, result1, result2, result3];
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("tanru_unit_2nfnoi", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_subsentencenoi() {
+        var cacheKey = "subsentencenoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        result0 = parse_bridinoi();
+        if (result0 === null) {
+          pos1 = pos;
+          result0 = parse_prenex();
+          if (result0 !== null) {
+            result1 = parse_subsentencenoi();
+            if (result1 !== null) {
+              result0 = [result0, result1];
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("subsentence", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_bridinoi() {
+        var cacheKey = "bridinoi@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_termsZAMfafefifofu_elidible();
+        if (result0 === null) {
+          result0 = parse_termspreFAZOhE();
+        }
+        if (result0 !== null) {
+          result1 = parse_bridi_tail_t1();
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("bridi", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
       function parse_termspreFAZOhE() {
         var cacheKey = "termspreFAZOhE@" + pos;
         var cachedResult = cache[cacheKey];
@@ -10891,7 +12199,7 @@ var camxes = (function(){
           pos = pos3;
         }
         if (result0 !== null) {
-          result1 = parse_FA_elidible();
+          result1 = parse_FAXIPA_elidible();
           if (result1 !== null) {
             result2 = parse_sumti();
             if (result2 !== null) {
@@ -29949,6 +31257,34 @@ var camxes = (function(){
         return result0;
       }
       
+      function parse_FASNU_elidible() {
+        var cacheKey = "FASNU_elidible@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = [];
+        if (result0 !== null) {
+          result0 = (function(offset) {return ["FASNU"] })(pos0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
       function parse_SELBRI_elidible() {
         var cacheKey = "SELBRI_elidible@" + pos;
         var cachedResult = cache[cacheKey];
@@ -30076,7 +31412,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = [];
         if (result0 !== null) {
-          result0 = (function(offset) { return ["DO", _join(expr)];})(pos0);
+          result0 = (function(offset, expr) { return ["DO", _join(expr)];})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -30104,7 +31440,35 @@ var camxes = (function(){
         pos1 = pos;
         result0 = [];
         if (result0 !== null) {
-          result0 = (function(offset) { return ["LO", _join(expr)];})(pos0);
+          result0 = (function(offset, expr) { return ["LO", _join(expr)];})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_NU_elidible() {
+        var cacheKey = "NU_elidible@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = [];
+        if (result0 !== null) {
+          result0 = (function(offset, expr) { return ["NU", _join(expr)];})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -37637,6 +39001,86 @@ var camxes = (function(){
         result0 = parse_pre_clause();
         if (result0 !== null) {
           result1 = parse_NU();
+          if (result1 !== null) {
+            result2 = parse_spaces();
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result0 = [result0, result1, result2];
+            } else {
+              result0 = null;
+              pos = pos0;
+            }
+          } else {
+            result0 = null;
+            pos = pos0;
+          }
+        } else {
+          result0 = null;
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_NU_clause_elidible() {
+        var cacheKey = "NU_clause_elidible@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_NU_pre_elidible();
+        if (result0 !== null) {
+          result1 = parse_post_clause();
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, pre, post) {return _node2("NU_clause", pre, post); })(pos0, result0[0], result0[1]);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_NU_pre_elidible() {
+        var cacheKey = "NU_pre_elidible@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_pre_clause();
+        if (result0 !== null) {
+          result1 = parse_NU_elidible();
           if (result1 !== null) {
             result2 = parse_spaces();
             result2 = result2 !== null ? result2 : "";

@@ -2,6 +2,8 @@
 '''﻿a''' <small>[conjunction for nouns]</small> — ''and/or''
 :'''ei mi tavla la Alis a la Kevin''' — ''I need to speak to Alice or Kevin (or to both of them).''
 :Related words: '''ja''', '''a''', '''e''', '''ji''', '''o''', '''u'''"
+a bu,"
+'''a bu''' <small>[pronoun]</small> — ''a'' (letter)"
 a'a,"
 '''a'a''' <small>[interjection]</small> — attention, '''a'a''' '''cu'i''' — inattentiveness, '''a'a''' '''nai''' — avoiding
 :'''a'a ko ca'o skicu''' — ''I'm listening, go on talking!''
@@ -36,8 +38,6 @@ a'u,"
 :'''a'u nai do co'a speni lo fange''' — ''You married a stranger, it's none of my business, I'd avoid this topic.''
 :'''a'u nai iu nai panci fa lo kalci i ai nai mi citka ti''' — ''Yuck, that smells like shit! I'm not going to eat this.''
 :Related words: '''lo''' '''se''' '''cinri'''"
-abu,"
-'''abu''' <small>[pronoun]</small> — ''a'' (letter)"
 aftobuso,"
 '''aftobuso''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bus, coach carrying  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo aftobuso''' — bus, coach. 
@@ -1972,6 +1972,8 @@ denpa,"
 :'''ki'e sai''' — ''Thank you!''
 :'''mi denpa lo nu lo patfu cu volve vau lo ka kelci vau lo ka cliva''' — ''I am waiting for my father to arrive playing before leaving.''
 :Related words: '''dicra''', '''fanmo''', '''sisti''', '''fliba''', '''basna'''"
+denpa bu,"
+'''denpa bu''' <small>[pronoun]</small> — ''.'', ''full stop'', ''period'', ''dot''"
 dertu,"
 '''dertu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some soil or dirt
 :'''lo dertu''' — soil, dirt, ground (soil), earth (soil). 
@@ -2245,6 +2247,8 @@ e,"
 '''e''' <small>[conjunction for nouns]</small> — ''and''
 :'''mi e do pu casnu lo za'u bangu''' — ''I discussed languages, and you discussed languages (maybe not with each other, maybe in different discussions).''
 :Related words: '''ce''', '''je''', '''a''', '''e''', '''ji''', '''o''', '''u'''"
+e bu,"
+'''e bu''' <small>[pronoun]</small> — ''e'' (letter)"
 e'a,"
 '''e'a''' <small>[interjection]</small> — ''you may, I allow'', '''e'a''' '''nai''' — prohibiting
 :'''e'a do klama lo nenri''' — ''You may come in.''
@@ -2278,8 +2282,6 @@ e'u,"
 :'''e'u nai do stapa lo crepu''' — ''You'd better not step onto the bridge.''
 :'''e'u do dasni lo kosta''' — ''You ought to wear a coat.''
 :Related words: '''stidi''', '''kajde'''"
-ebu,"
-'''ebu''' <small>[pronoun]</small> — ''e'' (letter)"
 ei,"
 '''ei''' <small>[interjection]</small> — ''I should ..., one should ...'' (obligation), '''ei''' '''nai''' — freedom, how things need not be
 :'''ei do ca sipna''' — ''You should be sleeping now.''
@@ -3109,6 +3111,8 @@ gy,"
 i,"
 '''i''' — separates sentences
 :'''da vi fasnu i je lo nu da mo kau cu na klina''' — ''Something is happening here, and what it is isn't exactly clear.''"
+i bu,"
+'''i bu''' <small>[pronoun]</small> — ''i'' (letter)"
 i'a,"
 '''i'a''' <small>[interjection]</small> — ''OK'' (acceptance), '''i'a''' '''nai''' — resistance
 :'''i'a mi ba denpa''' — ''Okay, I will wait.''
@@ -3144,8 +3148,6 @@ ia,"
 :'''ia cu'i le prenu cu catra''' — ''Allegedly, he is the murderer.''
 :'''ia nai le prenu cu stace mi''' — ''I don't believe, he is frank with me.''
 :Related words: '''krici''', '''jinvi'''"
-ibu,"
-'''ibu''' <small>[pronoun]</small> — ''i'' (letter)"
 ie,"
 '''ie''' <small>[interjection]</small> — ''Yeah! Aye!'' (agreement), '''ie''' '''nai''' — disagreement
 :'''ie la Kevin ka'e pu zvati ti''' — ''Yes, Alice could be here.''
@@ -5835,6 +5837,8 @@ o,"
 :'''la Alis o la Kevin cu lumci lo kumfa''' — ''Alice cleans a room if and only if, Kevin does (either both of them clean a room or none).''
 :Comment: describes event requiring both connected nouns to be true in respect to the clause.
 :Related words: '''jo''', '''a''', '''e''', '''ji''', '''o''', '''u'''"
+o bu,"
+'''o bu''' <small>[pronoun]</small> — ''o'' (letter)"
 o nai,"
 '''o nai''' <small>[conjunction for nouns]</small> — ''either ... or ...''
 :'''do o nai mi lumci le kumfa''' — ''Either you clean the room or I do.''
@@ -5868,8 +5872,6 @@ o'u,"
 :'''o'u cu'i mi pu tinbe lo se flalu''' — ''I followed the law.''
 :'''o'u nai lo mi bersa za'o na volve''' — ''My son is still not back.''
 :Related words: '''surla''', '''dunku'''"
-obu,"
-'''obu''' <small>[pronoun]</small> — ''o'' (letter)"
 oi,"
 '''oi''' <small>[interjection]</small> — ''Darn! Ouch! Hmph'' (complaint), '''oi''' '''nai''' — pleasure
 :'''mi tuple oi''' — ''Ouch, my leg!''
@@ -7493,6 +7495,8 @@ slaka,"
 :'''lo slaka''' — syllable. 
 :'''zo'oi sla slaka la Lojban''' — ''&quot;sla&quot; is a syllable in Lojban.''
 :Related words: '''sance''', '''valsi''', '''bangu'''"
+slaka bu,"
+'''slaka bu''' <small>[pronoun]</small> — '','' (comma)"
 slami,"
 '''slami''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a quantity of acid
 :'''lo slami''' — acid. 
@@ -9373,11 +9377,11 @@ y,"
 '''y''' — ''Err'', hesitation noise
 :'''mi te vecnu lo vi plise e y lo vu perli''' — ''I'm buying these apples and, umm, the pears over there.''
 :Comment: maintains the floor while speaker decides what to say next."
+y bu,"
+'''y bu''' <small>[pronoun]</small> — ''y'' (letter)"
 y'y,"
 '''y'y''' <small>[pronoun]</small> —  ' (apostrophe; letter)
 :Comment: apostrophe is a letter in Lojban alphabet."
-ybu,"
-'''ybu''' <small>[pronoun]</small> — ''y'' (letter)"
 za,"
 '''za''' <small>[preposition of group ZI]</small> — (time units) '' ... ago'', ''in ...'' (time units), adverb: ''some time ago'' (unspecified or known from context), ''in some time''
 :'''mi ba volve za lo djedi be li ci''' — ''I will return in three days.''

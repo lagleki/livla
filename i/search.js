@@ -10,13 +10,14 @@ function search(query, callback) {
 	words.push(query);
 	var set = {};
 	var resultCount = 0;
-	results = [];
+	var results = [];
+	var greatMatches = [];
 	for (var i = 0; i < words.length; i++) {
 		resultCount++;
 		var doc = documentStore.filter(function(v) {return v.w === words[i];}).slice(0);
 		if (doc) {
 			for (var doci in doc){
-				results.push(doc[doci]);set[doc[doci].w] = true;
+				greatMatches.push(doc[doci]);set[doc[doci].w] = true;
 			}
 		}
 	}
@@ -40,7 +41,7 @@ function search(query, callback) {
 		if (doct) {
 			for (var docj in doct){
 				if (!set[doct[docj].w]){
-					results.push(doct[docj]);console.log(doct[docj]);set[doct[docj].w] = true;
+					greatMatches.push(doct[docj]);set[doct[docj].w] = true;
 				}
 			}
 		}
@@ -60,7 +61,6 @@ function search(query, callback) {
 			}
 		}
 	//}
-	var greatMatches = [];
 	var normalMatches = [];
 	var selmahoMatches = [];
 	searchEngine.lookup(query, function(engineResults) {
@@ -92,7 +92,6 @@ function search(query, callback) {
 				}
 				else {results.push(doc);}
 		}
-
 		results = greatMatches.concat(normalMatches).concat(selmahoMatches).concat(results);
 		callback(results);
 	});

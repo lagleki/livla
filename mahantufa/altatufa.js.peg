@@ -170,7 +170,7 @@ sentence_sa = expr:(sentence_start (!sentence_start (sa_word / SA_clause !senten
 
 sentence_start = expr:(I_pre / NIhO_pre) {return _node("sentence_start", expr);}
 
-subsentence = expr:(bridi / prenex subsentence) {return _node("subsentence", expr);}
+subsentence = expr:(prenex* bridi) {return _node("subsentence", expr);}
 
 //// EXP-FIX: tag? KE --> tag* KE
 gek_sentence = expr:(gek subsentence gik subsentence tail_terms / tag* KE_clause free* gek_sentence KEhE_elidible free* / NA_clause free* gek_sentence) {return _node("gek_sentence", expr);}
@@ -178,14 +178,16 @@ gek_sentence = expr:(gek subsentence gik subsentence tail_terms / tag* KE_clause
 //// Start FAM/ZAM/TAM
 bridi = expr:(
 (termspreFAZOhE bridi_tail_t1fefifofunoi) / /*    klama do ti ta tu*/
-(termspreFAZOhE bridi_tail_t1fefifofu) / /*    klama do ti ta tu*/
+normalbridi ) {return _node("bridi", expr);}
+
+normalbridi = expr:((termspreFAZOhE bridi_tail_t1fefifofu) / /*    klama do ti ta tu*/
 (termsZAMfa bridi_tail_t1fefifofu) / /* mi klama do ti ta tu*/
 (termsZAMfafe bridi_tail_t1fifofu) / /* mi do klama ti ta tu*/
 (termsZAMfafefi bridi_tail_t1fofu) / /* mi do ti klama ta tu*/
 (termsZAMfafefifo bridi_tail_t1fu) / /* mi do ti ta klama tu*/
 (termsZAMfafefifofu bridi_tail_t1) / /* mi do ti ta tu klama*/
 (termsZAMfafefifofu_elidible bridi_tail_t1) / /* mi [do ti ta tu] (FA ko'a)n klama*/
-terms? bridi_tail_t1 (joik_jek bridi_tail / joik_jek stag? KE_clause free* bridi_tail KEhE_elidible free*)*) {return _node("bridi", expr);}
+terms? bridi_tail_t1 (joik_jek bridi_tail / joik_jek stag? KE_clause free* bridi_tail KEhE_elidible free*)*)
 
 bridi_tail_3_various = expr:(gek_sentence / ME_elidible sumtifazohe relative_clauses)
 
@@ -275,8 +277,7 @@ selbri_6nfnoi = expr:(tanru_unitnfnoi) {return _node("selbri_6", expr); }
 tanru_unitnfnoi = expr:(tanru_unit_1nfnoi) {return _node("tanru_unit", expr); }
 tanru_unit_1nfnoi = expr:(tanru_unit_2nfnoi &relative_clauses) {return _node("tanru_unit_1", expr); }
 tanru_unit_2nfnoi = expr:(NU_clause_elidible subsentencenoi &relative_clauses KEI_elidible) {return _node("tanru_unit_2nfnoi", expr); }
-subsentencenoi = expr:(bridinoi / prenex subsentencenoi) {return _node("subsentence", expr);}
-bridinoi = expr:((termsZAMfafefifofu_elidible / termspreFAZOhE) bridi_tail_t1) {return _node("bridi", expr);}
+subsentencenoi = expr:(prenex* normalbridi) {return _node("subsentence", expr);}
 
 
 termspreFAZOhE = expr:(terms_1* terms_1ZAMfazohe terms_1*) {return _node("terms", expr);}
@@ -2061,7 +2062,7 @@ NIhO = &cmavo expr:( n i H o / n o Ih i ) &post_word {return ["NIhO", _join(expr
 NOI = &cmavo expr:( v o i / n o i / p o i ) &post_word {return ["NOI", _join(expr)];}
 
 //// EXP-ADD: poi'i, kai'u
-NU = &cmavo expr:(k a i H u / n i / d u H u / s i H o / n u / l i H i / k a / j e i / s u H u / z u H o / m u H e / p u H u / z a Ih i ) &post_word {return ["NU", _join(expr)];}
+NU = &cmavo expr:(p o i H i / k a i H u / n i / d u H u / s i H o / n u / l i H i / k a / j e i / s u H u / z u H o / m u H e / p u H u / z a Ih i ) &post_word {return ["NU", _join(expr)];}
 
 NUhA = &cmavo expr:( n u H a ) &post_word {return ["NUhA", _join(expr)];}
 

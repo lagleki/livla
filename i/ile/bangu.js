@@ -5,5 +5,6 @@ window.bangudesc = "<p><b>la sutysisku</b> is a fast dictionary for Occidental /
 window.bangusisku='search';
 window.bangudecomp = 'decomposing ...';
 window.bangu = 'interlingue';
+window.xuzganalojudri = false;
 window.cllnotci = 'The Reference Grammar on this topic:';
 window.arrcll = {};

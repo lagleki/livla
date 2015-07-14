@@ -5,6 +5,8 @@ window.bangudesc = "<p><b>la sutysisku</b> is a fast dictionary for the Lojban l
 window.bangusisku='search';
 window.bangudecomp = 'decomposing ...';
 window.bangu = 'english';
+window.xuzganalojudri = true;
+window.judri = "http://jbovlaste.lojban.org/dict/";
 window.cllnotci = 'The Reference Grammar on this topic:';
 window.arrcll = {
 A:"http://lojban.github.io/cll/14/6/",

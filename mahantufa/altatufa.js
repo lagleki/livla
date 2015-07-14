@@ -1783,22 +1783,24 @@ var camxes = (function(){
         var pos0, pos1;
         
         pos0 = pos;
-        result0 = parse_statement_1();
-        if (result0 === null) {
-          pos1 = pos;
-          result0 = parse_prenex();
-          if (result0 !== null) {
-            result1 = parse_statement();
-            if (result1 !== null) {
-              result0 = [result0, result1];
-            } else {
-              result0 = null;
-              pos = pos1;
-            }
+        pos1 = pos;
+        result0 = [];
+        result1 = parse_prenex();
+        while (result1 !== null) {
+          result0.push(result1);
+          result1 = parse_prenex();
+        }
+        if (result0 !== null) {
+          result1 = parse_statement_1();
+          if (result1 !== null) {
+            result0 = [result0, result1];
           } else {
             result0 = null;
             pos = pos1;
           }
+        } else {
+          result0 = null;
+          pos = pos1;
         }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("statement", expr);})(pos0, result0);

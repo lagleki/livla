@@ -5,12 +5,11 @@
   <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
   <link rel="shortcut icon" href="../sutsis.png" />
   <link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/en/sisku.xml" title="en-sutysisku">
-  <!--<link rel='stylesheet' href='lib/Lato.css'>-->
   <style type="text/css">
 	.container .credit {
 		margin: 20px 0;
 	}
-	#typehere{font-size:150%;}
+	#typehere{height:auto;font-size:140%;}
 
 	body {
 		font-family: Tahoma, Lato, sans-serif;font-size:90%;overflow:hidden;
@@ -113,7 +112,7 @@
 	}
 	
 	#description {
-		//margin-top: 50px;
+		margin-top: 5px;
 		text-align: center;
 		text-shadow: 0px 1px 0px rgba(255,255,255,.5);
 		color: #333;
@@ -135,6 +134,7 @@
 	position:absolute;
 	top:0;
 	left:0;
+	right:0;
 	width:100%;
 	height:48px;
 	background-color:black;
@@ -153,9 +153,9 @@
 <body style="margin: 0;height: 100vh;">
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
-		<span id='plise'><a id='st' href=""><img src="../sutsis.png" height='16' width='16'>
+		<span id='plise'><a id='st' href="../"><img src="../sutsis.png" height='16' width='16'>
 		<span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-		<input id='typehere' type='text' autofocus style="margin-right:15px;">
+		<input id='typehere' type='text' autofocus>
 		</div>
 	</div>
 	<div class='content' style="height:100%;
@@ -199,6 +199,7 @@
 	$(document).ready(function () {
     if ($(window).width() < 500) $('#plise').remove();
     if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
+	doSearch();
 });
 	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").height('5').css('width','100');});
 	//$("#progressbar > div").css({ 'height': '10px;' });.wrap("<div class='Your-CSS-Scope-Class'></div>");
@@ -225,7 +226,6 @@
 		ready = true;
 		$("#loading").remove();
 		$("#search").show();
-		doSearch();
 	}
 
 	function checkScrolledNearBottom(ev) {
@@ -253,6 +253,7 @@
 	}
 
 	function displayDocument(def) {
+		if (!def){def=[];}
 		var out = $("<div>").addClass('term');
 		var fmm,tfm;
 		if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a> ";}else{fmm=''}
@@ -260,7 +261,8 @@
 		if (tfm!==false) {tfm = $("<div>").addClass('tfm').html('<sup>[<a href="#sisku/' + tfm + '">' + tfm + "</a>&nbsp;&nbsp;...&nbsp;]</sup>&nbsp;&nbsp;");}else{tfm=''}
 		var ss;
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
-		var jvs = def.t + "<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\"http://jbovlaste.lojban.org/dict/" + def.w+ "\">#</a></font> ";
+		var jvs = def.t;
+		if(window.xuzganalojudri){jvs+="<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
 		if (def.t==='decomposing ...'){jvs=window.bangudecomp;}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
 		.append(tfm)
@@ -277,7 +279,7 @@
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
 		for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {
-		  displayDocument((def||[]).rafsiDocuments[i]).appendTo(subDefs);
+		  if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);}
 		}
 		subDefs.appendTo(out);
 		}
@@ -392,7 +394,7 @@
 
 	function displayResults() {
 		var displayUpTo = Math.min(limit, results.length);
-			var sc = window.arrcll[typehere.val()];
+			var sc = (window.arrcll||[])[typehere.val()];
 			if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('definition').html(window.cllnotci+"<br/>"+sc+"<hr>").appendTo(output);}
 		for (; resultCount < displayUpTo; resultCount++) {
 		displayDocument(results[resultCount]).appendTo(output);

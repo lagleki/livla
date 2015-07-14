@@ -2,11 +2,11 @@
 var fs = require("fs")
 var PEG = require("pegjs")
 // // read peg and build a parser
-var camxes_peg = fs.readFileSync("\mahantufa.js.peg").toString();
-var camxes = PEG.buildParser(camxes_peg, {cache: true});
+var camxes_peg = fs.readFileSync("mahantufa.js.peg").toString();
+var camxes = PEG.buildParser(camxes_peg, {cache: true, trace: true});
 // // write to a file
 // fs.writeFileSync("\camxes.js", camxes.toSource());
-var fd = fs.openSync("\mahantufa.js", 'w+');
+var fd = fs.openSync("mahantufa.js", 'w+');
 var buffer = new Buffer('var camxes = ');
 fs.writeSync(fd, buffer, 0, buffer.length);
 buffer = new Buffer(camxes.toSource());

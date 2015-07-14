@@ -199,7 +199,7 @@ var updatexmldumps = function (callback) {
 			});
 		});
 	}catch(err){console.log('Error when autoupdating: ' + err);}
-	sutsisningau("zamenhofo");sutsisningau("laadan");sutsisningau("ile");labangu();
+	sutsisningau("ithkuil");sutsisningau("zamenhofo");sutsisningau("laadan");sutsisningau("ile");labangu();
 	//updategloss();# not yet ready function
 };
 var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),{encoding: 'utf8'}));//store en dump in memory
@@ -1283,7 +1283,9 @@ if (typeof xmlDoc==='undefined'){
 	var si='';
 	for (i=0;i<cart.length;i++)
 	{
-		si+=sey[i][1] + "["+sey[i][2]+"] ";
+		if (xulujvo(sey[i][1])===true){
+			si+=sey[i][1] + "["+sey[i][2]+"] ";
+		}
 	}
 	var tor='';
 	for (i=0;i<cart.length;i++)
@@ -1543,7 +1545,7 @@ var ningaumahantufa = function(text,socket){
 	fs.writeFileSync(t,text);
 	// // read peg and build a parser
 	var camxes_peg = fs.readFileSync(whichfile+".peg").toString();
-	try{var camxes = PEG.buildParser(camxes_peg, {cache: true});
+	try{var camxes = PEG.buildParser(camxes_peg, {cache: true, trace: true});
 	// // write to a file
 	var fd = fs.openSync(whichfile, 'w+');
 	var buffer = new Buffer('var camxes = ');

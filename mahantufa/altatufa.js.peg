@@ -152,7 +152,7 @@ paragraphs = expr:(paragraph (NIhO_clause+ free* su_clause* paragraphs)?) {retur
 
 paragraph = expr:((fragment / statement) ((I_clause / I_clause_elidible &selbri) !jek !joik !joik_jek free* (statement / fragment)?)*) {return _node("paragraph", expr);}
 
-statement = expr:(statement_1 / prenex statement) {return _node("statement", expr);}
+statement = expr:(prenex* statement_1) {return _node("statement", expr);}
 
 statement_1 = expr:(statement_2 (I_clause joik_jek statement_2?)*) {return _node("statement_1", expr);}
 

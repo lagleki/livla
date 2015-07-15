@@ -37,7 +37,7 @@ zo coioo is parsed as coi o'o. zo coiooo as co'o'o'o
 // // test it
 // > camxes.parse("ko'a broda");
 // [ 'text',
-//   [ 'text_1',
+//   [ 'i_zei_uenzi',
 //     [ 'paragraphs', [Object] ] ] ]
 // // write to a file
 // > fs.writeFileSync("/path/to/camxes.js", camxes.toSource());
@@ -132,7 +132,7 @@ zo coioo is parsed as coi o'o. zo coiooo as co'o'o'o
   }
 }
 
-text = expr:(intro_null NAI_clause* text_part_2 (!text_1 joik_jek)? text_1? faho_clause EOF?) {return _node_nonempty("text", expr);}
+text = expr:(intro_null NAI_clause* text_part_2 (!i_zei_uenzi joik_jek)? i_zei_uenzi? faho_clause EOF?) {return _node_nonempty("text", expr);}
 
 intro_null = expr:(spaces? su_clause* intro_si_clause) {return _node_nonempty("intro_null", expr); }
 
@@ -143,22 +143,13 @@ text_part_2 = expr:(indicators? free*) {return _node_nonempty("text_part_2", exp
 intro_si_clause = expr:(si_clause? SI_clause*)  {return _node_nonempty("intro_si_clause", expr); }
 faho_clause = expr:((FAhO_clause dot_star)?) {return _node("faho_clause", expr);}
 
-// Please note that the "text_1" item in the text_1 production does
-// *not* match the BNF. This is due to a bug in the BNF.  The change
+// Please note that the "i_zei_uenzi " item in the i_zei_uenzi production does
+// *not* match "text_1" in the BNF. This is due to a bug in the BNF.  The change
 // here was made to match grammar.300
-text_1 = expr:(I_clause (jek / joik)? (stag? BO_clause)? free* paragraphs / NIhO_clause+ (jek / joik)? (stag? BO_clause)? free* su_clause* paragraphs? / I_clause_elidible paragraphs) {return _node("text_1", expr);}
 
-paragraphs = expr:(paragraph (NIhO_clause+ free* su_clause* paragraphs)?) {return _node("paragraphs", expr);}
-
-paragraph = expr:((fragment / statement) ((I_clause / I_clause_elidible &selbri) !jek !joik !joik_jek free* (statement / fragment)?)*) {return _node("paragraph", expr);}
-
-statement = expr:(prenex* statement_1) {return _node("statement", expr);}
-
-statement_1 = expr:(statement_2 (I_clause joik_jek statement_2?)*) {return _node("statement_1", expr);}
-
-statement_2 = expr:(statement_3 (I_clause (jek / joik)? stag? BO_clause free* statement_2)? / statement_3 (I_clause (jek / joik)? stag? BO_clause free*)?) {return _node("statement_2", expr);}
-
-statement_3 = expr:(tag? TUhE_clause free* text_1 TUhU_elidible free* / bridi) {return _node("statement_3", expr);}
+i_zei_uenzi = expr:((I_clause_elidible statement_2_5)? ((I_clause / NIhO_clause+ / I_clause_elidible &selbri) statement_2_5)* ) {return _node("i_zei_uenzi", expr);}
+statement_2_5 = expr:((jek / joik)? (stag? BO_clause)? free* su_clause* statement_3)
+statement_3 = expr:(tag? TUhE_clause free* i_zei_uenzi TUhU_elidible free* / bridi) {return _node("statement_3", expr);}
 
 //// EXP-MODIF: allowing na sequence.
 //// Remove fragments that are now proper statements
@@ -166,7 +157,7 @@ fragment = expr:(!term !tag quantifier / links / linkargs) {return _node("fragme
 
 prenex = expr:((terms / termspreFAZOhE) ZOhU_clause free*) {return _node("prenex", expr);}
 
-sentence_sa = expr:(sentence_start (!sentence_start (sa_word / SA_clause !sentence_start ) )* SA_clause &text_1) {return _node("sentence_sa", expr);}
+sentence_sa = expr:(sentence_start (!sentence_start (sa_word / SA_clause !sentence_start ) )* SA_clause &i_zei_uenzi) {return _node("sentence_sa", expr);}
 
 sentence_start = expr:(I_pre / NIhO_pre) {return _node("sentence_start", expr);}
 

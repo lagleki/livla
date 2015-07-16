@@ -327,7 +327,7 @@ var camxes = (function(){
         "gihek_sa": parse_gihek_sa,
         "gihenjoma": parse_gihenjoma,
         "kernelo_lo_gihenjoma": parse_kernelo_lo_gihenjoma,
-        "terjonmaho_kernelo": parse_terjonmaho_kernelo,
+        "kernelo_lo_terjoma": parse_kernelo_lo_terjoma,
         "joik": parse_joik,
         "interval": parse_interval,
         "joik_jek": parse_joik_jek,
@@ -394,7 +394,7 @@ var camxes = (function(){
         "NOUNEND": parse_NOUNEND,
         "KUhOI_elidible": parse_KUhOI_elidible,
         "KOhA_elidible": parse_KOhA_elidible,
-        "LE_elidible": parse_LE_elidible,
+        "LE_elided": parse_LE_elided,
         "NU_elidible": parse_NU_elidible,
         "BRIVLA_clause": parse_BRIVLA_clause,
         "BRIVLA_pre": parse_BRIVLA_pre,
@@ -525,8 +525,8 @@ var camxes = (function(){
         "LAhE_pre": parse_LAhE_pre,
         "LE_clause": parse_LE_clause,
         "LE_pre": parse_LE_pre,
-        "LE_clause_elidible": parse_LE_clause_elidible,
-        "LE_pre_elidible": parse_LE_pre_elidible,
+        "LE_clause_elided": parse_LE_clause_elided,
+        "LE_pre_elided": parse_LE_pre_elided,
         "LEhU_clause": parse_LEhU_clause,
         "LEhU_pre": parse_LEhU_pre,
         "LEhU_post": parse_LEhU_post,
@@ -8246,7 +8246,7 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_LE_clause_elidible();
+        result0 = parse_LE_clause_elided();
         if (result0 !== null) {
           result1 = [];
           result2 = parse_free();
@@ -8723,40 +8723,11 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3;
-        var pos0, pos1;
+        var result0;
+        var pos0;
         
         pos0 = pos;
-        pos1 = pos;
-        result0 = [];
-        result1 = parse_terms_1();
-        while (result1 !== null) {
-          result0.push(result1);
-          result1 = parse_terms_1();
-        }
-        if (result0 !== null) {
-          result1 = parse_terms_1ZAMfazohe();
-          if (result1 !== null) {
-            result2 = [];
-            result3 = parse_terms_1();
-            while (result3 !== null) {
-              result2.push(result3);
-              result3 = parse_terms_1();
-            }
-            if (result2 !== null) {
-              result0 = [result0, result1, result2];
-            } else {
-              result0 = null;
-              pos = pos1;
-            }
-          } else {
-            result0 = null;
-            pos = pos1;
-          }
-        } else {
-          result0 = null;
-          pos = pos1;
-        }
+        result0 = parse_terms_1ZAMfazohe();
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("terms", expr);})(pos0, result0);
         }
@@ -19528,7 +19499,7 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_LE_clause_elidible();
+        result0 = parse_LE_clause_elided();
         if (result0 !== null) {
           result1 = [];
           result2 = parse_free();
@@ -26164,14 +26135,14 @@ var camxes = (function(){
         var result0, result1;
         var pos0;
         
-        result0 = parse_terjonmaho_kernelo();
+        result0 = parse_kernelo_lo_terjoma();
         if (result0 === null) {
           result0 = parse_GIhA_clause();
           if (result0 === null) {
             pos0 = pos;
             result0 = parse_GI_clause();
             if (result0 !== null) {
-              result1 = parse_terjonmaho_kernelo();
+              result1 = parse_kernelo_lo_terjoma();
               if (result1 !== null) {
                 result0 = [result0, result1];
               } else {
@@ -26192,8 +26163,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_terjonmaho_kernelo() {
-        var cacheKey = "terjonmaho_kernelo@" + pos;
+      function parse_kernelo_lo_terjoma() {
+        var cacheKey = "kernelo_lo_terjoma@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -26256,7 +26227,7 @@ var camxes = (function(){
           result1 = parse_SE_clause();
           result1 = result1 !== null ? result1 : "";
           if (result1 !== null) {
-            result2 = parse_terjonmaho_kernelo();
+            result2 = parse_kernelo_lo_terjoma();
             if (result2 !== null) {
               result3 = parse_NAI_clause();
               result3 = result3 !== null ? result3 : "";
@@ -29869,8 +29840,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_LE_elidible() {
-        var cacheKey = "LE_elidible@" + pos;
+      function parse_LE_elided() {
+        var cacheKey = "LE_elided@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -35204,8 +35175,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_LE_clause_elidible() {
-        var cacheKey = "LE_clause_elidible@" + pos;
+      function parse_LE_clause_elided() {
+        var cacheKey = "LE_clause_elided@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -35217,7 +35188,7 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_LE_pre_elidible();
+        result0 = parse_LE_pre_elided();
         if (result0 !== null) {
           result1 = parse_post_clause();
           if (result1 !== null) {
@@ -35244,8 +35215,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_LE_pre_elidible() {
-        var cacheKey = "LE_pre_elidible@" + pos;
+      function parse_LE_pre_elided() {
+        var cacheKey = "LE_pre_elided@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -35258,7 +35229,7 @@ var camxes = (function(){
         pos0 = pos;
         result0 = parse_pre_clause();
         if (result0 !== null) {
-          result1 = parse_LE_elidible();
+          result1 = parse_LE_elided();
           if (result1 !== null) {
             result2 = parse_spaces();
             result2 = result2 !== null ? result2 : "";

@@ -10415,9 +10415,15 @@ var camxes = (function(){
             if (result3 !== null) {
               result4 = [];
               result5 = parse_INT();
+              if (result5 === null) {
+                result5 = parse_NAI_clause();
+              }
               while (result5 !== null) {
                 result4.push(result5);
                 result5 = parse_INT();
+                if (result5 === null) {
+                  result5 = parse_NAI_clause();
+                }
               }
               if (result4 !== null) {
                 result1 = [result1, result2, result3, result4];
@@ -10633,9 +10639,15 @@ var camxes = (function(){
                 if (result3 !== null) {
                   result4 = [];
                   result5 = parse_INT();
+                  if (result5 === null) {
+                    result5 = parse_NAI_clause();
+                  }
                   while (result5 !== null) {
                     result4.push(result5);
                     result5 = parse_INT();
+                    if (result5 === null) {
+                      result5 = parse_NAI_clause();
+                    }
                   }
                   if (result4 !== null) {
                     result1 = [result1, result2, result3, result4];
@@ -10693,9 +10705,15 @@ var camxes = (function(){
           if (result2 !== null) {
             result3 = [];
             result4 = parse_INT();
+            if (result4 === null) {
+              result4 = parse_NAI_clause();
+            }
             while (result4 !== null) {
               result3.push(result4);
               result4 = parse_INT();
+              if (result4 === null) {
+                result4 = parse_NAI_clause();
+              }
             }
             if (result3 !== null) {
               result1 = [result1, result2, result3];
@@ -10723,9 +10741,15 @@ var camxes = (function(){
               if (result2 !== null) {
                 result3 = [];
                 result4 = parse_INT();
+                if (result4 === null) {
+                  result4 = parse_NAI_clause();
+                }
                 while (result4 !== null) {
                   result3.push(result4);
                   result4 = parse_INT();
+                  if (result4 === null) {
+                    result4 = parse_NAI_clause();
+                  }
                 }
                 if (result3 !== null) {
                   result1 = [result1, result2, result3];

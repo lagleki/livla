@@ -287,8 +287,8 @@ abs_termFAM = expr:(term_sa* abs_term_1FAM) {return _node("abs_termFAM", expr);}
 abs_term_1FAM = expr:(abs_tag_termFAM / termset) {return _node("abs_term_1FAM", expr);}
 abs_tag_termFAM = expr:((!gek (sumti INT*) CO_clause tagFAM INT* / !gek tagFAM INT* !selbri !gek_sentence (sumti / joik_jek sumti_3 / (KU_clause / sumtifazohe) INT*) / SOI_clause INT* subsentence SEhU_elidible INT*) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_termFAM", expr);}
 tagFAM = expr:(tense_modalFAM (joik_jek (tense_modal / tense_modalFAM))*) {return _node("tagFAM", expr); }
-tense_modal = expr:((NAhE_clause? SE_clause? (NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? ( VEI_clause mex VEhO_elidible / number ) ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause INT* selbri FEhU_elidible) INT*)+) {return _node("tense_modal", expr); }
-tense_modalFAM = expr:((NAhE_clause? (FA_clause) INT*)+) {return _node("tense_modalFAM", expr); }
+tense_modal = expr:((NAhE_clause? SE_clause? (NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? ( VEI_clause mex VEhO_elidible / number ) ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause INT* selbri FEhU_elidible) (INT / NAI_clause)*)+) {return _node("tense_modal", expr); }
+tense_modalFAM = expr:((NAhE_clause? (FA_clause) (INT / NAI_clause)*)+) {return _node("tense_modalFAM", expr); }
 
 terms_1ZAM = expr:(terms_2ZAM (pehe_sa* PEhE_clause INT* joik_jek terms_2)*) {return _node("terms_1ZAM", expr);}
 terms_2ZAM = expr:(abs_termZAM (cehe_sa* CEhE_clause INT* (abs_term / abs_termFAM / abs_termZAM))*) {return _node("terms_2ZAM", expr);}

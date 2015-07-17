@@ -442,11 +442,8 @@ sumti_1 = expr:(sumti_2 (joik_jek stag? KE_clause loi_INT* sumti KEhE_elidible l
 sumti_2 = expr:(sumti_3 (joik_jek sumti_3)*) {return _node("sumti_2", expr);}
 sumti_3 = expr:(sumti_4 (joik_jek (joik_jek / BO_clause) loi_INT* sumti_3)?) {return _node("sumti_3", expr);}
 sumti_4 = expr:(sumti_5 / gek sumti gik sumti_4) {return _node("sumti_4", expr);}
-//// EXP-MODIF: quantifier+gek_sentence
 sumti_5 = expr:(quantifier? sumti_6 relative_clauses? / quantifier (selbri / gek_sentence) KU_elidible loi_NAICAI_rule? loi_INT* relative_clauses?) {return _node("sumti_5", expr);}
-//// EXP-MODIF: brivla/cmevla merge + NAhE+sumti + add of ZOhOI_clause + LAhE term + MEX simplification
 sumti_6 = expr:((ZO_clause / ZOI_clause / ZOhOI_clause / LOhU_clause / !tag !selbri lerfu_string BOI_elidible / LU_clause uenzi LIhU_elidible / (LAhE_clause loi_INT* / NAhE_clause BO_clause? loi_INT*) (relative_clauses? sumti / term) LUhU_elidible / KOhA_clause / LE_clause loi_INT* sumti_tail KU_elidible / li_clause) loi_NAICAI_rule* loi_INT*) {return _node("sumti_6", expr);}
-
 
 sumtido = expr:(sumti_1do) {return _node("sumti", expr);}
 sumti_1do = expr:(sumti_2do) {return _node("sumti_1", expr);}
@@ -508,7 +505,7 @@ selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relativ
 //// EXP-MODIF: tag? --> tag*
 //ToDo: selbri and selbri_elidible should be at the same level of hierarchy. currently they are not.
 selbri_may_elide = (selbri / selbri_to_elide !terms)
-selbri_to_elide = expr:((tag / NA_clause)* SELBRI_elidible) {return _node("selbri", expr); }
+selbri_to_elide = expr:(tag* SELBRI_elidible) {return _node("selbri", expr); }
 
 selbri = expr:(tag* selbri_1) {return _node("selbri", expr); }
 selbri_1 = expr:(selbri_2) {return _node("selbri_1", expr); }
@@ -528,9 +525,9 @@ selbrisle_1nf = expr:(selbrisle_2nf linkargs? / linkargs? selbrisle_2) {return _
 
 // ** zei is part of BRIVLA_clause
 //// EXP-MODIF: brivla / cmevla merge + add of MEhOI_clause + add of "linkargs selbrisle_1 / " (for {jai be broda}) + MEX simplification
-selbrisle_2 = expr:(BRIVLA_clause loi_INT* / GOhA_clause RAhO_clause? loi_INT* / KE_clause loi_INT* selbri_3 KEhE_elidible loi_INT* / ME_clause loi_INT* (sumti / mex) MEhU_elidible loi_INT* MOI_clause? loi_INT* / mex MOI_clause loi_INT* / NUhA_clause loi_INT* operator / SE_clause loi_INT* selbrisle_2 / JAI_clause loi_INT* tag? selbrisle_2 / NAhE_clause loi_INT* selbrisle_2 / NU_clause loi_INT* (joik_jek NU_clause loi_INT*)* subsentence KEI_elidible loi_INT* / linkargs selbrisle_1 / MEhOI_clause loi_INT*) {return _node("selbrisle_2", expr); }
+selbrisle_2 = expr:((BRIVLA_clause / GOhA_clause RAhO_clause? / KE_clause loi_INT* selbri_3 KEhE_elidible / ME_clause loi_INT* (sumti / mex) MEhU_elidible loi_INT* MOI_clause? / mex MOI_clause / NUhA_clause loi_INT* operator / SE_clause loi_INT* selbrisle_2 / JAI_clause loi_INT* tag? selbrisle_2 / NAhE_clause loi_INT* selbrisle_2 / NU_clause loi_INT* (joik_jek NU_clause loi_INT*)* subsentence KEI_elidible / linkargs selbrisle_1 / MEhOI_clause ) loi_NAICAI_rule* loi_INT* ) {return _node("selbrisle_2", expr); }
 
-selbrisle_2nf = expr:(BRIVLA_clausenf loi_INT* / GOhA_clause RAhO_clause? loi_INT* / KE_clause loi_INT* selbri_3 KEhE_elidible loi_INT* / ME_clause loi_INT* (sumti / mex) MEhU_elidible loi_INT* MOI_clause? loi_INT* / mex MOI_clause loi_INT* / NUhA_clause loi_INT* operator / SE_clause loi_INT* selbrisle_2nf / JAI_clause loi_INT* tag? selbrisle_2nf / NAhE_clause loi_INT* selbrisle_2nf / NU_clause loi_INT* (joik_jek NU_clause loi_INT*)* subsentence KEI_elidible loi_INT* / linkargs selbrisle_1nf / MEhOI_clause loi_INT*) {return _node("selbrisle_2nf", expr); }
+selbrisle_2nf = expr:((BRIVLA_clausenf / GOhA_clause RAhO_clause? / KE_clause loi_INT* selbri_3 KEhE_elidible / ME_clause loi_INT* (sumti / mex) MEhU_elidible loi_INT* MOI_clause? / mex MOI_clause / NUhA_clause loi_INT* operator / SE_clause loi_INT* selbrisle_2nf / JAI_clause loi_INT* tag? selbrisle_2nf / NAhE_clause loi_INT* selbrisle_2nf / NU_clause loi_INT* (joik_jek NU_clause loi_INT*)* subsentence KEI_elidible / linkargs selbrisle_1nf / MEhOI_clause ) loi_NAICAI_rule* loi_INT* ) {return _node("selbrisle_2nf", expr); }
 
 //// EXP-MODIF: MEX simplification
 quantifier = expr:( !selbri !sumti_6 mex ) {return _node("quantifier", expr); }

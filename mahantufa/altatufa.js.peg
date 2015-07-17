@@ -200,51 +200,51 @@ terms? bridi_tail_t1 (joik_jek bridi_tail / joik_jek stag? KE_clause bridi_tail 
 
 bridi_tail_t1 = expr:(bridi_tail_t2 (joik_jek stag? KE_clause bridi_tail KEhE_elidible)?) {return _node("bridi_tail_t1", expr);}
 bridi_tail_t2 = expr:(bridi_tail (joik_jek stag? BO_clause bridi_tail)?) {return _node("bridi_tail_t2", expr);}
-bridi_tail = expr:(bridi_tail_1 (((gihek) stag? / GI_clause stag) KE_clause bridi_tail KEhE_elidible tail_terms)?) {return _node("bridi_tail", expr);}
+bridi_tail = expr:(bridi_tail_1 ((gihek stag? / GI_clause stag) KE_clause bridi_tail KEhE_elidible tail_terms)?) {return _node("bridi_tail", expr);}
 bridi_tail_sa = expr:(bridi_tail_start (term / !bridi_tail_start (sa_word / SA_clause !bridi_tail_start ) )* SA_clause &bridi_tail) {return _node("bridi_tail_sa", expr);}
 bridi_tail_start = expr:(ME_clause / NUhA_clause / NU_clause / NA_clause !KU_clause / NAhE_clause !BO_clause / selbri / tag bridi_tail_start / KE_clause bridi_tail_start / bridi_tail) {return _node("bridi_tail_start", expr);}
-bridi_tail_1 = expr:(bridi_tail_2 ((gihek) !(stag? BO_clause) !(stag? KE_clause) bridi_tail_2 tail_terms)*) {return _node("bridi_tail_1", expr);}
-bridi_tail_2 = expr:(CU_elidible bridi_tail_3 (((gihek) stag? / GI_clause stag) BO_clause bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2", expr);}
+bridi_tail_1 = expr:(bridi_tail_2 (gihek !(stag? BO_clause) !(stag? KE_clause) bridi_tail_2 tail_terms)*) {return _node("bridi_tail_1", expr);}
+bridi_tail_2 = expr:(CU_elidible bridi_tail_3 ((gihek stag? / GI_clause stag) BO_clause bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2", expr);}
 bridi_tail_3 = expr:(gek_sentence / selbri_may_elide tail_terms) {return _node("bridi_tail_3", expr);}
 tail_terms = expr:(terms? VAU_elidible  !ZOhU_clause) {return _node_nonempty("tail_terms", expr); }
 
 bridi_tail_t1fu = expr:(bridi_tail_t2fu (joik_jek stag? KE_clause bridi_tail KEhE_elidible)?) {return _node("bridi_tail_t1fu", expr);}
 bridi_tail_t2fu = expr:(bridi_tailfu (joik_jek stag? BO_clause bridi_tail)?) {return _node("bridi_tail_t2fu", expr);}
-bridi_tailfu = expr:(bridi_tail_1fu (((gihek) stag? / GI_clause stag) KE_clause bridi_tail KEhE_elidible tail_terms)?) {return _node("bridi_tailfu", expr);}
+bridi_tailfu = expr:(bridi_tail_1fu ((gihek stag? / GI_clause stag) KE_clause bridi_tail KEhE_elidible tail_terms)?) {return _node("bridi_tailfu", expr);}
 bridi_tail_safu = expr:(bridi_tail_startfu (term / !bridi_tail_start (sa_word / SA_clause !bridi_tail_start ) )* SA_clause &bridi_tail) {return _node("bridi_tail_safu", expr);}
 bridi_tail_startfu = expr:(ME_clause / NUhA_clause / NU_clause / NA_clause !KU_clause / NAhE_clause !BO_clause / selbri / tag bridi_tail_start / KE_clause bridi_tail_start / bridi_tail) {return _node("bridi_tail_startfu", expr);}
-bridi_tail_1fu = expr:(bridi_tail_2fu ((gihek) !(stag? BO_clause) !(stag? KE_clause) bridi_tail_2fu tail_terms)*) {return _node("bridi_tail_1fu", expr);}
-bridi_tail_2fu = expr:(CU_elidible bridi_tail_3fu (((gihek) stag? / GI_clause stag) BO_clause bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2fu", expr);}
+bridi_tail_1fu = expr:(bridi_tail_2fu (gihek !(stag? BO_clause) !(stag? KE_clause) bridi_tail_2fu tail_terms)*) {return _node("bridi_tail_1fu", expr);}
+bridi_tail_2fu = expr:(CU_elidible bridi_tail_3fu ((gihek stag? / GI_clause stag) BO_clause bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2fu", expr);}
 bridi_tail_3fu = expr:(gek_sentence / selbri_may_elide tail_termsZAMfu) {return _node("bridi_tail_3fu", expr);}
 tail_termsZAMfu = expr:(termsZAMfu? terms? VAU_elidible  !ZOhU_clause) {return _node_nonempty("tail_termsZAMfu", expr); }
 
 bridi_tail_t1fofu = expr:(bridi_tail_t2fofu (joik_jek stag? KE_clause bridi_tail KEhE_elidible)?) {return _node("bridi_tail_t1fofu", expr);}
 bridi_tail_t2fofu = expr:(bridi_tailfofu (joik_jek stag? BO_clause bridi_tail)?) {return _node("bridi_tail_t2fofu", expr);}
-bridi_tailfofu = expr:(bridi_tail_1fofu (((gihek) stag? / GI_clause stag) KE_clause bridi_tail KEhE_elidible tail_terms)?) {return _node("bridi_tailfofu", expr);}
+bridi_tailfofu = expr:(bridi_tail_1fofu ((gihek stag? / GI_clause stag) KE_clause bridi_tail KEhE_elidible tail_terms)?) {return _node("bridi_tailfofu", expr);}
 bridi_tail_safofu = expr:(bridi_tail_startfofu (term / !bridi_tail_start (sa_word / SA_clause !bridi_tail_start ) )* SA_clause &bridi_tail) {return _node("bridi_tail_safofu", expr);}
 bridi_tail_startfofu = expr:(ME_clause / NUhA_clause / NU_clause / NA_clause !KU_clause / NAhE_clause !BO_clause / selbri / tag bridi_tail_start / KE_clause bridi_tail_start / bridi_tail) {return _node("bridi_tail_startfofu", expr);}
-bridi_tail_1fofu = expr:(bridi_tail_2fofu ((gihek) !(stag? BO_clause) !(stag? KE_clause) bridi_tail_2fofu tail_terms)*) {return _node("bridi_tail_1fofu", expr);}
-bridi_tail_2fofu = expr:(CU_elidible bridi_tail_3fofu (((gihek) stag? / GI_clause stag) BO_clause bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2fofu", expr);}
+bridi_tail_1fofu = expr:(bridi_tail_2fofu (gihek !(stag? BO_clause) !(stag? KE_clause) bridi_tail_2fofu tail_terms)*) {return _node("bridi_tail_1fofu", expr);}
+bridi_tail_2fofu = expr:(CU_elidible bridi_tail_3fofu ((gihek stag? / GI_clause stag) BO_clause bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2fofu", expr);}
 bridi_tail_3fofu = expr:(gek_sentence / selbri_may_elide tail_termsZAMfofu) {return _node("bridi_tail_3fofu", expr);}
 tail_termsZAMfofu = expr:(termsZAMfo? termsZAMfu? terms? VAU_elidible  !ZOhU_clause) {return _node_nonempty("tail_termsZAMfofu", expr); }
 
 bridi_tail_t1fifofu = expr:(bridi_tail_t2fifofu (joik_jek stag? KE_clause bridi_tail KEhE_elidible)?) {return _node("bridi_tail_t1fifofu", expr);}
 bridi_tail_t2fifofu = expr:(bridi_tailfifofu (joik_jek stag? BO_clause bridi_tail)?) {return _node("bridi_tail_t2fifofu", expr);}
-bridi_tailfifofu = expr:(bridi_tail_1fifofu (((gihek) stag? / GI_clause stag) KE_clause bridi_tail KEhE_elidible tail_terms)?) {return _node("bridi_tailfifofu", expr);}
+bridi_tailfifofu = expr:(bridi_tail_1fifofu ((gihek stag? / GI_clause stag) KE_clause bridi_tail KEhE_elidible tail_terms)?) {return _node("bridi_tailfifofu", expr);}
 bridi_tail_safifofu = expr:(bridi_tail_startfifofu (term / !bridi_tail_start (sa_word / SA_clause !bridi_tail_start ) )* SA_clause &bridi_tail) {return _node("bridi_tail_safifofu", expr);}
 bridi_tail_startfifofu = expr:(ME_clause / NUhA_clause / NU_clause / NA_clause !KU_clause / NAhE_clause !BO_clause / selbri / tag bridi_tail_startfifofu / KE_clause bridi_tail_startfifofu / bridi_tailfifofu) {return _node("bridi_tail_startfifofu", expr);}
-bridi_tail_1fifofu = expr:(bridi_tail_2fifofu ((gihek) !(stag? BO_clause) !(stag? KE_clause) bridi_tail_2fifofu tail_terms)*) {return _node("bridi_tail_1fifofu", expr);}
-bridi_tail_2fifofu = expr:(CU_elidible bridi_tail_3fifofu (((gihek) stag? / GI_clause stag) BO_clause bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2fifofu", expr);}
+bridi_tail_1fifofu = expr:(bridi_tail_2fifofu (gihek !(stag? BO_clause) !(stag? KE_clause) bridi_tail_2fifofu tail_terms)*) {return _node("bridi_tail_1fifofu", expr);}
+bridi_tail_2fifofu = expr:(CU_elidible bridi_tail_3fifofu ((gihek stag? / GI_clause stag) BO_clause bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2fifofu", expr);}
 bridi_tail_3fifofu = expr:(gek_sentence / selbri_may_elide tail_termsZAMfifofu) {return _node("bridi_tail_3fifofu", expr);}
 tail_termsZAMfifofu = expr:(termsZAMfi? termsZAMfo? termsZAMfu? terms? VAU_elidible  !ZOhU_clause) {return _node_nonempty("tail_termsZAMfifofu", expr); }
 
 bridi_tail_t1fefifofu = expr:(bridi_tail_t2fefifofu (joik_jek stag? KE_clause bridi_tail KEhE_elidible)?) {return _node("bridi_tail_t1fefifofu", expr);}
 bridi_tail_t2fefifofu = expr:(bridi_tailfefifofu (joik_jek stag? BO_clause bridi_tail)?) {return _node("bridi_tail_t2fefifofu", expr);}
-bridi_tailfefifofu = expr:(bridi_tail_1fefifofu (((gihek) stag? / GI_clause stag) KE_clause bridi_tail KEhE_elidible tail_terms)?) {return _node("bridi_tailfefifofu", expr);}
+bridi_tailfefifofu = expr:(bridi_tail_1fefifofu ((gihek stag? / GI_clause stag) KE_clause bridi_tail KEhE_elidible tail_terms)?) {return _node("bridi_tailfefifofu", expr);}
 bridi_tail_safefifofu = expr:(bridi_tail_startfefifofu (term / !bridi_tail_start (sa_word / SA_clause !bridi_tail_start ) )* SA_clause &bridi_tail) {return _node("bridi_tail_safefifofu", expr);}
 bridi_tail_startfefifofu = expr:(ME_clause / NUhA_clause / NU_clause / NA_clause !KU_clause / NAhE_clause !BO_clause / selbri / tag bridi_tail_startfefifofu / KE_clause bridi_tail_startfefifofu / bridi_tailfefifofu) {return _node("bridi_tail_startfefifofu", expr);}
-bridi_tail_1fefifofu = expr:(bridi_tail_2fefifofu ((gihek) !(stag? BO_clause) !(stag? KE_clause) bridi_tail_2fefifofu tail_terms)*) {return _node("bridi_tail_1fefifofu", expr);}
-bridi_tail_2fefifofu = expr:(CU_elidible bridi_tail_3fefifofu (((gihek) stag? / GI_clause stag) BO_clause bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2fefifofu", expr);}
+bridi_tail_1fefifofu = expr:(bridi_tail_2fefifofu (gihek !(stag? BO_clause) !(stag? KE_clause) bridi_tail_2fefifofu tail_terms)*) {return _node("bridi_tail_1fefifofu", expr);}
+bridi_tail_2fefifofu = expr:(CU_elidible bridi_tail_3fefifofu ((gihek stag? / GI_clause stag) BO_clause bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2fefifofu", expr);}
 bridi_tail_3fefifofu = expr:(gek_sentence / selbri_may_elide tail_termsZAMfefifofu) {return _node("bridi_tail_3fefifofu", expr);}
 tail_termsZAMfefifofu = expr:(termsZAMfe? termsZAMfi? termsZAMfo? termsZAMfu? terms? VAU_elidible  !ZOhU_clause) {return _node_nonempty("tail_termsZAMfefifofu", expr); }
 
@@ -591,23 +591,25 @@ lerfu_word = expr:(BY_clause / LAU_clause lerfu_word / TEI_clause lerfu_string F
 
 gihek = expr:(gihek_sa* gihenjoma) {return _node("gihek", expr); }
 gihek_sa = expr:(gihenjoma (!gihenjoma (sa_word / SA_clause !gihenjoma ) )* SA_clause &gihek) {return _node("gihek_sa", expr); }
-gihenjoma = expr:(NA_clause? SE_clause? kernelo_lo_gihenjoma NAI_clause?) {return _node("gihenjoma", expr); }
+gihenjoma = expr:(cln cls kernelo_lo_gihenjoma crn) {return _node("gihenjoma", expr); }
 kernelo_lo_gihenjoma = expr:(kernelo_lo_terjoma / GIhA_clause / GI_clause kernelo_lo_terjoma)
 kernelo_lo_terjoma = expr:(JA_clause / JOI_clause / stag BO_clause / A_clause / ZIhE_clause)
 joik_ek = joik
 ek = joik
 jek = joik
-joik = expr:(NA_clause? SE_clause? kernelo_lo_terjoma NAI_clause? / interval / GAhO_clause interval GAhO_clause) {return _node("joik", expr); }
-interval = expr:(SE_clause? BIhI_clause NAI_clause?) {return _node("interval", expr); }
+joik = expr:(cln cls kernelo_lo_terjoma crn / interval / GAhO_clause interval GAhO_clause) {return _node("joik", expr); }
+interval = expr:(cls BIhI_clause crn) {return _node("interval", expr); }
 joik_jek = expr:(joik_jek_sa* joik_jek_1) {return _node("joik_jek", expr); }
 joik_jek_sa = expr:(joik_jek_1 (!joik_jek_1 (sa_word / SA_clause !joik_jek_1 ) )* SA_clause &joik_jek) {return _node("joik_jek_sa", expr); }
 joik_jek_1 = expr:(joik / VUhU_clause) {return _node("joik_jek_1", expr); }
-gek = expr:((gak SE_clause? joik_jek NAI_clause? / SE_clause? GA_clause NAI_clause? / joik GI_clause NAI_clause? / stag gik)) {return _node("gek", expr); }
-//// EXP-ADD: GAJA
-gak = expr:(ga_clause NAI_clause?) {return _node("gak", expr); }
-guhek = expr:(SE_clause? GUhA_clause NAI_clause?) {return _node("guhek", expr); }
-gik = expr:(GI_clause NAI_clause?) {return _node("gik", expr); }
+gek = expr:((gak cls joik_jek crn / cls GA_clause crn / joik GI_clause crn / stag gik)) {return _node("gek", expr); }
+gak = expr:(ga_clause crn) {return _node("gak", expr); }
+guhek = expr:(cls GUhA_clause crn) {return _node("guhek", expr); }
+gik = expr:(GI_clause crn) {return _node("gik", expr); }
 stag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("stag", expr); }
+crn = expr:(NAI_clause?) {return _node("connective right negator", expr); }
+cln = expr:(NA_clause?) {return _node("connective left negator", expr); }
+cls = expr:(SE_clause?) {return _node("connective left switcher", expr); }
 /// mo'u skicu lo terjonma'o
 
 // ****************

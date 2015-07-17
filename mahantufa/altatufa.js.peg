@@ -158,12 +158,10 @@ loi_NAICAI_rule = expr:((NAI_clause / CAI_clause) !BU_clause loi_NAICAI_rule*) {
 free = expr:(SEI_clause loi_INT* (terms CU_elidible loi_INT*)? selbri SEhU_elidible / vocative (sumti / sumti_leless  / sumtido) DOhU_elidible / mex_2 MAI_clause loi_INT* / TO_clause uenzi TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
 
 xi_clause = expr:(XI_clause loi_INT* mex_2 / XI_clause loi_INT* VEI_clause loi_INT* mex VEhO_elidible) {return _node("xi_clause", expr); }
+
 vocative = expr:((COI_clause NAI_clause?)+ DOI_clause / (COI_clause NAI_clause?) (COI_clause NAI_clause?)* / DOI_clause)  {return _node("vocative", expr); }
 indicators = expr:(FUhE_clause? indicator+) {return _node("indicators", expr); }
 indicator =  expr:((UI_clause / CAI_clause) NAI_clause? / NAI_clause / DAhO_clause / FUhO_clause) !BU_clause {return _node("indicator", expr); }
-
-//// EXP-MODIF: brivla/cmevla merge
-text_part_2 = expr:(loi_INT*) {return _node_nonempty("text_part_2", expr); }
 
 //; intro_sa_clause = SA_clause+ / any_word_SA_handling !(ZEI_clause SA_clause) intro_sa_clause
 intro_si_clause = expr:(si_clause? SI_clause*)  {return _node_nonempty("intro_si_clause", expr); }

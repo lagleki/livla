@@ -846,7 +846,7 @@ CAhA_post = post_clause
 //         afterthought intensity marker 
 CAI_clause = pre:CAI_pre post:CAI_post {return _node2("CAI_clause", pre, post); }
 CAI_pre = pre_clause CAI spaces?
-CAI_post = post_clause
+CAI_post = post_clause_limited
 // CAI_no_SA_handling = pre_clause CAI post_clause
 
 //         pro_bridi assignment operator 
@@ -1245,7 +1245,7 @@ NA_post = post_clause
 //         attached to words to negate them 
 NAI_clause = pre:NAI_pre post:NAI_post {return _node2("NAI_clause", pre, post); }
 NAI_pre = pre_clause NAI spaces?
-NAI_post = post_clause
+NAI_post = post_clause_limited
 // NAI_no_SA_handling = pre_clause NAI post_clause
 
 //         scalar negation  

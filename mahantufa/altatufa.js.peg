@@ -1020,7 +1020,7 @@ GOhA_pre = pre_clause GOhA spaces?
 GOhA_post = post_clause
 // GOhA_no_SA_handling = pre_clause GOhA post_clause
 
-//         GEK for tanru units, corresponds to JEKs 
+//         GEK for selbrisle, corresponds to JEKs 
 GUhA_clause = pre:GUhA_pre post:GUhA_post {return _node2("GUhA_clause", pre, post); }
 GUhA_pre = pre_clause GUhA spaces?
 GUhA_post = post_clause

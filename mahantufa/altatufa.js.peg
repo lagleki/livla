@@ -561,12 +561,12 @@ operator_sa = expr:(operator_start (!operator_start (sa_word / SA_clause !operat
 
 operator_start = expr:(guhek / KE_clause / SE_clause? NAhE_clause / SE_clause? MAhO_clause / SE_clause? VUhU_clause) {return _node("operator_start", expr); }
 
-operator_1 = expr:(operator_2 / guhek operator_1 gik operator_2 / operator_2 (jek / joik) stag? BO_clause loi_INT* operator_1) {return _node("operator_1", expr); }
+operator_1 = expr:(operator_2 / guhek operator_1 gik operator_2 / operator_2 (joik) stag? BO_clause loi_INT* operator_1) {return _node("operator_1", expr); }
 
 operator_2 = expr:(mex_operator / KE_clause loi_INT* operator KEhE_elidible loi_INT*) {return _node("operator_2", expr); }
 
 //// EXP-MODIF: MEX simplification
-mex_operator = expr:(SE_clause loi_INT* mex_operator / NAhE_clause loi_INT* mex_operator / MAhO_clause loi_INT* mex TEhU_elidible loi_INT* / NAhU_clause loi_INT* selbri TEhU_elidible loi_INT* / VUhU_clause loi_INT* / joik_jek loi_INT* / ek loi_INT*) {return _node("mex_operator", expr); }
+mex_operator = expr:((SE_clause loi_INT* mex_operator / NAhE_clause loi_INT* mex_operator / MAhO_clause loi_INT* mex TEhU_elidible / NAhU_clause loi_INT* selbri TEhU_elidible / VUhU_clause  / joik_jek ) loi_NAICAI_rule* loi_INT*) {return _node("mex_operator", expr); }
 
 //; operand = operand_1 (joik_jek stag? KE_clause loi_INT* operand KEhE_clause? loi_INT*)?
 

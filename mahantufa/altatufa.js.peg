@@ -291,7 +291,7 @@ selbrisle_2nfnoi = expr:(NU_clause_elidible subsentencenoi &relative_clauses KEI
 subsentencenoi = expr:(prenexe* normalbridi) {return _node("subsentence", expr);}
 
 
-termspreFAZOhE = expr:(terms_1* terms_1ZAMfazohe terms_1*) {return _node("terms", expr);}
+termspreFAZOhE = expr:(terms_1ZAMfazohe terms_1*) {return _node("terms", expr);}
 
 terms = expr:((terms_1 / terms_1FAM / terms_1ZAM)+) {return _node("terms", expr);}
 terms_1 = expr:(terms_2 (pehe_sa* PEhE_clause loi_INT* joik_jek terms_2)*) {return _node("terms_1", expr);}

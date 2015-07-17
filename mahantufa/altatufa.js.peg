@@ -510,13 +510,13 @@ selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relativ
 selbri_may_elide = (selbri / selbri_to_elide !terms)
 selbri_to_elide = expr:((tag / NA_clause)* SELBRI_elidible) {return _node("selbri", expr); }
 
-selbri = expr:((tag / NA_clause)* selbri_1) {return _node("selbri", expr); }
+selbri = expr:(tag* selbri_1) {return _node("selbri", expr); }
 selbri_1 = expr:(selbri_2) {return _node("selbri_1", expr); }
 selbri_2 = expr:(selbri_3 (CO_clause loi_INT* selbri_2)?) {return _node("selbri_2", expr); }
 selbri_3 = expr:((selbri_4 &selbri_4)* selbri_4nf) {return _node("selbri_3", expr); }
 selbri_4 = expr:(selbri_5 (joik_jek selbri_5 / joik stag? KE_clause loi_INT* selbri_3 KEhE_elidible loi_INT*)*) {return _node("selbri_4", expr); }
-selbri_5 = expr:(selbri_6 ((jek / joik) stag? BO_clause loi_INT* selbri_5)?) {return _node("selbri_5", expr); }
-selbri_6 = expr:(selbrisle (BO_clause loi_INT* selbri_6)? / NAhE_clause? loi_INT* guhek selbri gik selbri_6) {return _node("selbri_6", expr); }
+selbri_5 = expr:(selbri_6 (joik stag? BO_clause loi_INT* selbri_5)?) {return _node("selbri_5", expr); }
+selbri_6 = expr:(selbrisle (BO_clause loi_INT* selbri_6)? / NAhE_clause? loi_INT* guhek loi_NAICAI_rule* INT* selbri gik selbri_6) {return _node("selbri_6", expr); }
 selbrisle = expr:(selbrisle_1 (CEI_clause loi_INT* selbrisle_1)* selbri_relative_clauses?) {return _node("selbrisle", expr); }
 selbrisle_1 = expr:(selbrisle_2 linkargs? / linkargs? selbrisle_2) {return _node("selbrisle_1", expr); }
 

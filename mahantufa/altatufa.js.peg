@@ -42,8 +42,8 @@ zo coioo is parsed as coi o'o. zo coiooo as co'o'o'o
 // > var camxes = PEG.buildParser(camxes_peg, {cache: true});
 // // test it
 // > camxes.parse("ko'a broda");
-// [ 'text',
-//   [ 'text_1',
+// [ 'uenzi',
+//   [ 'loi_i_zei_uenzi',
 //     [ 'paragraphs', [Object] ] ] ]
 // // write to a file
 // > fs.writeFileSync("/path/to/camxes.js", camxes.toSource());

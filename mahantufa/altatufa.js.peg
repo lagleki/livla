@@ -663,6 +663,7 @@ dot_star = expr:(.*) { ret = ""; for (i in expr) ret += (expr[i] === " ") ? "_" 
 
 // Handling of what can go after a cmavo
 post_clause = expr:(spaces? si_clause? !ZEI_clause !BU_clause indicators*) {return _node_nonempty("post_clause", expr); }
+
 post_clause_limited = expr:(spaces? si_clause? !ZEI_clause !BU_clause) {return _node_nonempty("post_clause", expr); }		
 
 pre_clause = BAhE_clause?

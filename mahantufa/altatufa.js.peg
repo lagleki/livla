@@ -166,7 +166,7 @@ paragraphs = expr:(paragraph (NIhO_clause+ loi_INT* su_clause* paragraphs)?) {re
 
 paragraph = expr:((fragment / statement) ((I_clause / I_clause_elidible &selbri) !jek !joik !joik_jek loi_INT* (statement / fragment)?)*) {return _node("paragraph", expr);}
 
-statement = expr:(prenexee* statement_1) {return _node("statement", expr);}
+statement = expr:(prenexe* statement_1) {return _node("statement", expr);}
 
 statement_1 = expr:(statement_2 (I_clause joik_jek statement_2?)*) {return _node("statement_1", expr);}
 
@@ -1429,7 +1429,7 @@ TUhU_post = post_clause
 //         attitudinals, observationals, discursives 
 UI_clause = pre:UI_pre post:UI_post {return _node2("UI_clause", pre, post); }
 UI_pre = pre_clause UI spaces?
-UI_post = post_clause
+UI_post = post_clause_limited
 // UI_no_SA_handling = pre_clause UI post_clause
 
 ROhA_clause = pre:ROhA_pre post:ROhA_post {return _node2("ROhA_clause", pre, post); }		

@@ -139,9 +139,9 @@ var camxes = (function(){
         "selbri_4nfnoi": parse_selbri_4nfnoi,
         "selbri_5nfnoi": parse_selbri_5nfnoi,
         "selbri_6nfnoi": parse_selbri_6nfnoi,
-        "tanru_unitnfnoi": parse_tanru_unitnfnoi,
-        "tanru_unit_1nfnoi": parse_tanru_unit_1nfnoi,
-        "tanru_unit_2nfnoi": parse_tanru_unit_2nfnoi,
+        "selbrislenfnoi": parse_selbrislenfnoi,
+        "selbrisle_1nfnoi": parse_selbrisle_1nfnoi,
+        "selbrisle_2nfnoi": parse_selbrisle_2nfnoi,
         "subsentencenoi": parse_subsentencenoi,
         "termspreFAZOhE": parse_termspreFAZOhE,
         "terms": parse_terms,
@@ -302,15 +302,15 @@ var camxes = (function(){
         "selbri_4": parse_selbri_4,
         "selbri_5": parse_selbri_5,
         "selbri_6": parse_selbri_6,
-        "tanru_unit": parse_tanru_unit,
-        "tanru_unit_1": parse_tanru_unit_1,
+        "selbrisle": parse_selbrisle,
+        "selbrisle_1": parse_selbrisle_1,
         "selbri_4nf": parse_selbri_4nf,
         "selbri_5nf": parse_selbri_5nf,
         "selbri_6nf": parse_selbri_6nf,
-        "tanru_unitnf": parse_tanru_unitnf,
-        "tanru_unit_1nf": parse_tanru_unit_1nf,
-        "tanru_unit_2": parse_tanru_unit_2,
-        "tanru_unit_2nf": parse_tanru_unit_2nf,
+        "selbrislenf": parse_selbrislenf,
+        "selbrisle_1nf": parse_selbrisle_1nf,
+        "selbrisle_2": parse_selbrisle_2,
+        "selbrisle_2nf": parse_selbrisle_2nf,
         "quantifier": parse_quantifier,
         "mex": parse_mex,
         "mex_1": parse_mex_1,
@@ -9346,7 +9346,7 @@ var camxes = (function(){
         var pos0;
         
         pos0 = pos;
-        result0 = parse_tanru_unitnfnoi();
+        result0 = parse_selbrislenfnoi();
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("selbri_6", expr); })(pos0, result0);
         }
@@ -9361,8 +9361,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_tanru_unitnfnoi() {
-        var cacheKey = "tanru_unitnfnoi@" + pos;
+      function parse_selbrislenfnoi() {
+        var cacheKey = "selbrislenfnoi@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -9373,9 +9373,9 @@ var camxes = (function(){
         var pos0;
         
         pos0 = pos;
-        result0 = parse_tanru_unit_1nfnoi();
+        result0 = parse_selbrisle_1nfnoi();
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("tanru_unit", expr); })(pos0, result0);
+          result0 = (function(offset, expr) {return _node("selbrisle", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -9388,8 +9388,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_tanru_unit_1nfnoi() {
-        var cacheKey = "tanru_unit_1nfnoi@" + pos;
+      function parse_selbrisle_1nfnoi() {
+        var cacheKey = "selbrisle_1nfnoi@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -9401,7 +9401,7 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_tanru_unit_2nfnoi();
+        result0 = parse_selbrisle_2nfnoi();
         if (result0 !== null) {
           pos2 = pos;
           reportFailures++;
@@ -9424,7 +9424,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("tanru_unit_1", expr); })(pos0, result0);
+          result0 = (function(offset, expr) {return _node("selbrisle_1", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -9437,8 +9437,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_tanru_unit_2nfnoi() {
-        var cacheKey = "tanru_unit_2nfnoi@" + pos;
+      function parse_selbrisle_2nfnoi() {
+        var cacheKey = "selbrisle_2nfnoi@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -9485,7 +9485,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("tanru_unit_2nfnoi", expr); })(pos0, result0);
+          result0 = (function(offset, expr) {return _node("selbrisle_2nfnoi", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -9551,13 +9551,31 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0;
-        var pos0;
+        var result0, result1, result2;
+        var pos0, pos1;
         
         pos0 = pos;
+        pos1 = pos;
         result0 = parse_terms_1ZAMfazohe();
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("terms", expr);})(pos0, result0);
+          result1 = [];
+          result2 = parse_terms_1();
+          while (result2 !== null) {
+            result1.push(result2);
+            result2 = parse_terms_1();
+          }
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("termsX", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -22150,7 +22168,7 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_tanru_unit();
+        result0 = parse_selbrisle();
         if (result0 !== null) {
           pos2 = pos;
           result1 = parse_BO_clause();
@@ -22270,8 +22288,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_tanru_unit() {
-        var cacheKey = "tanru_unit@" + pos;
+      function parse_selbrisle() {
+        var cacheKey = "selbrisle@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -22283,7 +22301,7 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_tanru_unit_1();
+        result0 = parse_selbrisle_1();
         if (result0 !== null) {
           result1 = [];
           pos2 = pos;
@@ -22296,7 +22314,7 @@ var camxes = (function(){
               result4 = parse_loi_INT();
             }
             if (result3 !== null) {
-              result4 = parse_tanru_unit_1();
+              result4 = parse_selbrisle_1();
               if (result4 !== null) {
                 result2 = [result2, result3, result4];
               } else {
@@ -22323,7 +22341,7 @@ var camxes = (function(){
                 result4 = parse_loi_INT();
               }
               if (result3 !== null) {
-                result4 = parse_tanru_unit_1();
+                result4 = parse_selbrisle_1();
                 if (result4 !== null) {
                   result2 = [result2, result3, result4];
                 } else {
@@ -22357,7 +22375,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("tanru_unit", expr); })(pos0, result0);
+          result0 = (function(offset, expr) {return _node("selbrisle", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -22370,8 +22388,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_tanru_unit_1() {
-        var cacheKey = "tanru_unit_1@" + pos;
+      function parse_selbrisle_1() {
+        var cacheKey = "selbrisle_1@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -22383,7 +22401,7 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_tanru_unit_2();
+        result0 = parse_selbrisle_2();
         if (result0 !== null) {
           result1 = parse_linkargs();
           result1 = result1 !== null ? result1 : "";
@@ -22402,7 +22420,7 @@ var camxes = (function(){
           result0 = parse_linkargs();
           result0 = result0 !== null ? result0 : "";
           if (result0 !== null) {
-            result1 = parse_tanru_unit_2();
+            result1 = parse_selbrisle_2();
             if (result1 !== null) {
               result0 = [result0, result1];
             } else {
@@ -22415,7 +22433,7 @@ var camxes = (function(){
           }
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("tanru_unit_1", expr); })(pos0, result0);
+          result0 = (function(offset, expr) {return _node("selbrisle_1", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -22704,7 +22722,7 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_tanru_unitnf();
+        result0 = parse_selbrislenf();
         if (result0 !== null) {
           pos2 = pos;
           result1 = parse_BO_clause();
@@ -22824,8 +22842,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_tanru_unitnf() {
-        var cacheKey = "tanru_unitnf@" + pos;
+      function parse_selbrislenf() {
+        var cacheKey = "selbrislenf@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -22837,7 +22855,7 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_tanru_unit_1nf();
+        result0 = parse_selbrisle_1nf();
         if (result0 !== null) {
           result1 = [];
           pos2 = pos;
@@ -22850,7 +22868,7 @@ var camxes = (function(){
               result4 = parse_loi_INT();
             }
             if (result3 !== null) {
-              result4 = parse_tanru_unit_1nf();
+              result4 = parse_selbrisle_1nf();
               if (result4 !== null) {
                 result2 = [result2, result3, result4];
               } else {
@@ -22877,7 +22895,7 @@ var camxes = (function(){
                 result4 = parse_loi_INT();
               }
               if (result3 !== null) {
-                result4 = parse_tanru_unit_1nf();
+                result4 = parse_selbrisle_1nf();
                 if (result4 !== null) {
                   result2 = [result2, result3, result4];
                 } else {
@@ -22911,7 +22929,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("tanru_unit", expr); })(pos0, result0);
+          result0 = (function(offset, expr) {return _node("selbrisle", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -22924,8 +22942,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_tanru_unit_1nf() {
-        var cacheKey = "tanru_unit_1nf@" + pos;
+      function parse_selbrisle_1nf() {
+        var cacheKey = "selbrisle_1nf@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -22937,7 +22955,7 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_tanru_unit_2nf();
+        result0 = parse_selbrisle_2nf();
         if (result0 !== null) {
           result1 = parse_linkargs();
           result1 = result1 !== null ? result1 : "";
@@ -22956,7 +22974,7 @@ var camxes = (function(){
           result0 = parse_linkargs();
           result0 = result0 !== null ? result0 : "";
           if (result0 !== null) {
-            result1 = parse_tanru_unit_2();
+            result1 = parse_selbrisle_2();
             if (result1 !== null) {
               result0 = [result0, result1];
             } else {
@@ -22969,7 +22987,7 @@ var camxes = (function(){
           }
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("tanru_unit_1nf", expr); })(pos0, result0);
+          result0 = (function(offset, expr) {return _node("selbrisle_1nf", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -22982,8 +23000,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_tanru_unit_2() {
-        var cacheKey = "tanru_unit_2@" + pos;
+      function parse_selbrisle_2() {
+        var cacheKey = "selbrisle_2@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -23149,7 +23167,7 @@ var camxes = (function(){
                         result2 = parse_loi_INT();
                       }
                       if (result1 !== null) {
-                        result2 = parse_tanru_unit_2();
+                        result2 = parse_selbrisle_2();
                         if (result2 !== null) {
                           result0 = [result0, result1, result2];
                         } else {
@@ -23178,7 +23196,7 @@ var camxes = (function(){
                           result2 = parse_tag();
                           result2 = result2 !== null ? result2 : "";
                           if (result2 !== null) {
-                            result3 = parse_tanru_unit_2();
+                            result3 = parse_selbrisle_2();
                             if (result3 !== null) {
                               result0 = [result0, result1, result2, result3];
                             } else {
@@ -23208,7 +23226,7 @@ var camxes = (function(){
                             result2 = parse_loi_INT();
                           }
                           if (result1 !== null) {
-                            result2 = parse_tanru_unit_2();
+                            result2 = parse_selbrisle_2();
                             if (result2 !== null) {
                               result0 = [result0, result1, result2];
                             } else {
@@ -23318,7 +23336,7 @@ var camxes = (function(){
                             pos2 = pos;
                             result0 = parse_linkargs();
                             if (result0 !== null) {
-                              result1 = parse_tanru_unit_1();
+                              result1 = parse_selbrisle_1();
                               if (result1 !== null) {
                                 result0 = [result0, result1];
                               } else {
@@ -23371,7 +23389,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("tanru_unit_2", expr); })(pos0, result0);
+          result0 = (function(offset, expr) {return _node("selbrisle_2", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -23384,8 +23402,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_tanru_unit_2nf() {
-        var cacheKey = "tanru_unit_2nf@" + pos;
+      function parse_selbrisle_2nf() {
+        var cacheKey = "selbrisle_2nf@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -23551,7 +23569,7 @@ var camxes = (function(){
                         result2 = parse_loi_INT();
                       }
                       if (result1 !== null) {
-                        result2 = parse_tanru_unit_2nf();
+                        result2 = parse_selbrisle_2nf();
                         if (result2 !== null) {
                           result0 = [result0, result1, result2];
                         } else {
@@ -23580,7 +23598,7 @@ var camxes = (function(){
                           result2 = parse_tag();
                           result2 = result2 !== null ? result2 : "";
                           if (result2 !== null) {
-                            result3 = parse_tanru_unit_2nf();
+                            result3 = parse_selbrisle_2nf();
                             if (result3 !== null) {
                               result0 = [result0, result1, result2, result3];
                             } else {
@@ -23610,7 +23628,7 @@ var camxes = (function(){
                             result2 = parse_loi_INT();
                           }
                           if (result1 !== null) {
-                            result2 = parse_tanru_unit_2nf();
+                            result2 = parse_selbrisle_2nf();
                             if (result2 !== null) {
                               result0 = [result0, result1, result2];
                             } else {
@@ -23720,7 +23738,7 @@ var camxes = (function(){
                             pos2 = pos;
                             result0 = parse_linkargs();
                             if (result0 !== null) {
-                              result1 = parse_tanru_unit_1nf();
+                              result1 = parse_selbrisle_1nf();
                               if (result1 !== null) {
                                 result0 = [result0, result1];
                               } else {
@@ -23773,7 +23791,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("tanru_unit_2nf", expr); })(pos0, result0);
+          result0 = (function(offset, expr) {return _node("selbrisle_2nf", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;

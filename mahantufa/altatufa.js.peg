@@ -166,7 +166,7 @@ paragraphs = expr:(paragraph (NIhO_clause+ loi_INT* su_clause* paragraphs)?) {re
 
 paragraph = expr:((fragment / statement) ((I_clause / I_clause_elidible &selbri) !jek !joik !joik_jek loi_INT* (statement / fragment)?)*) {return _node("paragraph", expr);}
 
-statement = expr:(prenex* statement_1) {return _node("statement", expr);}
+statement = expr:(prenexee* statement_1) {return _node("statement", expr);}
 
 statement_1 = expr:(statement_2 (I_clause joik_jek statement_2?)*) {return _node("statement_1", expr);}
 
@@ -178,13 +178,13 @@ statement_3 = expr:(tag? TUhE_clause loi_INT* text_1 TUhU_elidible loi_INT* / br
 //// Remove fragments that are now proper statements
 fragment = expr:(!term !tag quantifier / links / linkargs) {return _node("fragment", expr);}
 
-prenex = expr:((terms / termspreFAZOhE) ZOhU_clause loi_INT*) {return _node("prenex", expr);}
+prenexe = expr:((terms / termspreFAZOhE) ZOhU_clause loi_INT*) {return _node("prenexe", expr);}
 
 sentence_sa = expr:(sentence_start (!sentence_start (sa_word / SA_clause !sentence_start ) )* SA_clause &text_1) {return _node("sentence_sa", expr);}
 
 sentence_start = expr:(I_pre / NIhO_pre) {return _node("sentence_start", expr);}
 
-subsentence = expr:(prenex* bridi) {return _node("subsentence", expr);}
+subsentence = expr:(prenexe* bridi) {return _node("subsentence", expr);}
 
 //// EXP-FIX: tag? KE --> tag* KE
 gek_sentence = expr:(gek subsentence gik subsentence tail_terms / tag* KE_clause loi_INT* gek_sentence KEhE_elidible loi_INT* / NA_clause loi_INT* gek_sentence) {return _node("gek_sentence", expr);}
@@ -291,7 +291,7 @@ selbri_6nfnoi = expr:(selbrislenfnoi) {return _node("selbri_6", expr); }
 selbrislenfnoi = expr:(selbrisle_1nfnoi) {return _node("selbrisle", expr); }
 selbrisle_1nfnoi = expr:(selbrisle_2nfnoi &relative_clauses) {return _node("selbrisle_1", expr); }
 selbrisle_2nfnoi = expr:(NU_clause_elidible subsentencenoi &relative_clauses KEI_elidible) {return _node("selbrisle_2nfnoi", expr); }
-subsentencenoi = expr:(prenex* normalbridi) {return _node("subsentence", expr);}
+subsentencenoi = expr:(prenexe* normalbridi) {return _node("subsentence", expr);}
 
 
 termspreFAZOhE = expr:(terms_1* terms_1ZAMfazohe terms_1*) {return _node("terms", expr);}
@@ -1547,7 +1547,7 @@ ZOI_pre = pre_clause ZOI spaces? zoi_open spaces? zoi_word* zoi_close spaces?
 ZOI_post = post_clause
 // ZOI_no_SA_handling = pre_clause ZOI spaces? zoi_open zoi_word* zoi_close spaces?
 
-//         prenex terminator (not elidable) 
+//         prenexe terminator (not elidable) 
 ZOhU_clause = pre:ZOhU_pre post:ZOhU_post {return _node2("ZOhU_clause", pre, post); }
 ZOhU_pre = pre_clause ZOhU spaces?
 ZOhU_post = post_clause
@@ -2123,11 +2123,11 @@ TUhE = &cmavo expr:( t u H e ) &post_word {return ["TUhE", _join(expr)];}
 TUhU = &cmavo expr:( t u H u ) &post_word {return ["TUhU", _join(expr)];}
 
 UI = &cmavo expr:( f u H a u / a H e i / k o H o i / s i H a u / o H a i / x e H e / x o H o / i H a / i e / a H e / u H i / i H o / i H e / a H a / i a / o Ih i / o H e / e H e / o i / u o / e Ih i / u H o / a u / u a / a Ih i / i H u / i i / u H a / u i / a H o / a i / a Ih u / i u / e i / o H o / e H a / u u / o H a / o H u / u H u / e H o / i o / e H u / u e / i H i / u H e / b a H a / j a H o / c a H e / s u H a / t i H e / k a Ih u / s e H o / z a H a / p e Ih i / r u H a / j u H a / t a H o / r a Ih u / l i H a / b a Ih u / m u H a / d o H a / t o H u / v a Ih i / p a H e / z u H u / s a H e / l a H a / k e H u / s a Ih u / d a Ih i / j e H u / s a H a / k a u / t a Ih u / n a Ih i / j o H a / b i H u / l i H o / p a u / m i H u / k u H i / j i H a / s i H a / p o H o / p e H a / l e H o / j u H o / f u H i / g a Ih i / z o H o / b e H u / r i H e / s e Ih i / s e H a / v u H e / k i H a / x u / g e H e / b u H o ) &post_word {return ["UI", _join(expr)];}
-		
+
 ROhA = &cmavo expr:( r o Ih i / r o H e / r o H o / r o H u / r o H a / r e H e) &post_word {return ["END", _join(expr)];}		
-		
+
 DAI = &cmavo expr:(d a i) &post_word {return ["END", _join(expr)];}		
- 
+
 VA = &cmavo expr:( v i / v a / v u ) &post_word {return ["VA", _join(expr)];}
 
 VAU = &cmavo expr:( v a u ) &post_word {return ["VAU", _join(expr)];}

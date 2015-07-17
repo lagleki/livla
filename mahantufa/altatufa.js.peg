@@ -1,16 +1,4 @@
 // ToDo:
-/*
-on parsing as "mi mo na zo'e gi'e mo na gi'a mo"
-
-gi'e ... na gi'a -> ~(p ^ q) v r                                                          
-which is not (p ^ ~q) v r   
-*/
-/*
-no kui! only kuii ideology!
-mauii is thought to be a brivla although meiai is cmavo
-diai is not parsed. diiai is.
-zo coioo is parsed as coi o'o. zo coiooo as co'o'o'o
-*/
 // This is a Parsing Expression Grammar for Lojban.
 // See http://bford.info/packrat/
 // 
@@ -160,7 +148,7 @@ free = expr:(SEI_clause (terms CU_elidible)? selbri SEhU_elidible / vocative (su
 
 xi_clause = expr:(XI_clause mex_2 / XI_clause VEI_clause mex VEhO_elidible) {return _node("xi_clause", expr); }
 
-vocative = expr:((COI_clause loi_NAICAI_rule?)+ DOI_clause / (COI_clause loi_NAICAI_rule?) (COI_clause loi_NAICAI_rule?)* / DOI_clause)  {return _node("vocative", expr); }
+vocative = expr:((COI_clause loi_NAICAI_rule?) ((COI_clause / DOI_clause ) loi_NAICAI_rule?)* / DOI_clause loi_NAICAI_rule?)  {return _node("vocative", expr); }
 
 //; intro_sa_clause = SA_clause+ / any_word_SA_handling !(ZEI_clause SA_clause) intro_sa_clause
 intro_si_clause = expr:(si_clause? SI_clause*)  {return _node_nonempty("intro_si_clause", expr); }
@@ -424,7 +412,6 @@ cehe_sa = expr:(CEhE_clause (!CEhE_clause (sa_word / SA_clause !CEhE_clause))* S
 
 term_sa = expr:(term_start (!term_start (sa_word / SA_clause !term_start ) )* SA_clause &term_1) {return _node("term_sa", expr);}
 
-//// EXP-MODIF: brivla/cmevla merge
 term_start = expr:(term_1 / LE_clause / LI_clause / LU_clause / LAhE_clause / quantifier term_start / gek sumti gik / FA_clause / tag term_start) {return _node("term_start", expr);}
 
 termset = expr:(gek_termset / NUhI_clause gek terms NUhU_elidible gik terms NUhU_elidible / NUhI_clause terms NUhU_elidible) {return _node("termset", expr);}
@@ -433,7 +420,6 @@ gek_termset = expr:(gek terms_gik_terms) {return _node("gek_termset", expr);}
 
 terms_gik_terms = expr:(term (gik / terms_gik_terms) term) {return _node("terms_gik_terms", expr);}
 
-//// EXP-MODIF: '?' added after "relative_clauses" + Lunra's add of "(joik_jek sumti)?"
 sumti = expr:(sumti_1 (VUhO_clause (relative_clauses (joik_jek sumti)?)?)?) {return _node("sumti", expr);}
 sumti_1 = expr:(sumti_2 (joik_jek stag? KE_clause sumti KEhE_elidible)?) {return _node("sumti_1", expr);}
 sumti_2 = expr:(sumti_3 (joik_jek sumti_3)*) {return _node("sumti_2", expr);}
@@ -452,7 +438,6 @@ sumti_6do = expr:(KOhA_clausedo) {return _node("sumti_6", expr);}
 
 li_clause = expr:(LI_clause mex LOhO_elidible) {return _node("li_clause", expr); }
 
-//// EXP-MODIF: allow {lo mi e do vu'o noi brodi cu broda} (instead of the previous string) + adding gek_sentence
 sumti_tail = expr:((relative_clauses / relative_clauses_ne)? sumti_tail_1 / gek_sentence) {return _node("sumti_tail", expr); }
 
 sumti_tail_1 = expr:(selbri_may_elide relative_clauses? / quantifier selbri_may_elide relative_clauses? / quantifier sumti) {return _node("sumti_tail_1", expr);}
@@ -469,23 +454,15 @@ sumti_tail_leless = expr:(relative_clauses? sumti_tail_1_leless) {return _node("
 sumti_tail_1_leless = expr:(selbri relative_clauses?) {return _node("sumti_tail_1", expr);}
 
 
-//// EXP-MODIF: merging ZIhE with JA/JOI + Forethought relative clause connective
 relative_clauses = expr:(relative_clause (joik relative_clause)* / gek relative_clauses gik relative_clauses) {return _node("relative_clauses", expr); }
-
 relative_clause = expr:(relative_clause_sa* relative_clause_1) {return _node("relative_clause", expr); }
-
 relative_clause_sa = expr:(relative_clause_start (!relative_clause_start (sa_word / SA_clause !relative_clause_start ) )* SA_clause &relative_clause_1) {return _node("relative_clause_sa", expr); }
-
 relative_clause_1 = expr:(GOI_clause term GEhU_elidible / NOI_clause subsentence KUhO_elidible) {return _node("relative_clause_1", expr); }
-
 relative_clause_start = expr:(GOI_clause / NOI_clause) {return _node("relative_clause_start", expr); }
-
 relative_clauses_ne = expr:(!sumti_tail_1 relative_clause_ne (joik (relative_clause / relative_clause_ne))* / gek relative_clauses gik relative_clauses) {return _node("relative_clauses", expr); }
 relative_clause_ne = expr:(relative_clause_sa* relative_clause_1_ne) {return _node("relative_clause", expr); }
 relative_clause_1_ne = expr:(GOI_clause_elidible term GEhU_elidible &sumti_tail_1) {return _node("relative_clause_1", expr); }
 
-
-//// EXPERIMENTAL
 
 //// + Forethought connective
 selbri_relative_clauses = expr:(selbri_relative_clause (joik selbri_relative_clause)* / gek selbri_relative_clauses gik selbri_relative_clauses) {return _node("selbri_relative_clauses", expr); }
@@ -499,7 +476,6 @@ selbri_relative_clause_1 = expr:(NOhOI_clause subsentence KUhOI_elidible ) {retu
 selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relative_clause_start", expr); }
 
 
-//// EXP-MODIF: tag? --> tag*
 //ToDo: selbri and selbri_elidible should be at the same level of hierarchy. currently they are not.
 selbri_may_elide = (selbri / selbri_to_elide !terms)
 selbri_to_elide = expr:(tag* SELBRI_elidible) {return _node("selbri", expr); }

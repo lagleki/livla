@@ -188,7 +188,7 @@ gek_sentence = expr:(gek subsentence gik subsentence tail_terms / tag* KE_clause
 
 //// Start FAM/ZAM/TAM
 bridi = expr:(
-(termspreFAZOhE bridi_tail_t1fefifofunoi) / /*    klama do ti ta tu*/
+(termspreFAZOhE bridi_tail_t1fefifofunoi) / /* klama do ti ta tu vau noi */
 normalbridi ) {return _node("bridi", expr);}
 
 normalbridi = expr:((termspreFAZOhE bridi_tail_t1fefifofu) / /*    klama do ti ta tu*/
@@ -275,7 +275,7 @@ sumti_2noi = expr:(sumti_3noi) {return _node("sumti_2", expr);}
 sumti_3noi = expr:(sumti_4noi) {return _node("sumti_3", expr);}
 sumti_4noi = expr:(sumti_5noi) {return _node("sumti_4", expr);}
 sumti_5noi = expr:(sumti_6noi relative_clauses) {return _node("sumti_5", expr);}
-sumti_6noi = expr:(LE_clause_elidible loi_INT* sumti_tailnoi KU_elidible) {return _node("sumti_6", expr);}
+sumti_6noi = expr:(LE_clause_elided loi_INT* sumti_tailnoi KU_elidible) {return _node("sumti_6", expr);}
 sumti_tailnoi = expr:(sumti_tail_1noi) {return _node("sumti_tail", expr); }
 sumti_tail_1noi = expr:(selbrinoi) {return _node("sumti_tail_1", expr);}
 selbrinoi = expr:(selbri_1noi) {return _node("selbri", expr); }
@@ -469,7 +469,7 @@ sumti_2_leless = expr:(sumti_3_leless) {return _node("sumti_2", expr);}
 sumti_3_leless = expr:(sumti_4_leless) {return _node("sumti_3", expr);}
 sumti_4_leless = expr:(sumti_5_leless) {return _node("sumti_4", expr);}
 sumti_5_leless = expr:(quantifier? sumti_6_leless relative_clauses?) {return _node("sumti_5", expr);}
-sumti_6_leless = expr:(LE_clause_elidible loi_INT* sumti_tail_leless KU_elidible loi_INT*) {return _node("sumti_6", expr);}
+sumti_6_leless = expr:(LE_clause_elided loi_INT* sumti_tail_leless KU_elidible loi_INT*) {return _node("sumti_6", expr);}
 sumti_tail_leless = expr:(relative_clauses? sumti_tail_1_leless) {return _node("sumti_tail", expr); }
 sumti_tail_1_leless = expr:(selbri relative_clauses?) {return _node("sumti_tail_1", expr);}
 
@@ -703,7 +703,7 @@ FAXIRE_elidible = {return ["FE"];}
 FAXICI_elidible = {return ["FI"];}
 FAXIVO_elidible = {return ["FO"];}
 FAXIMU_elidible = {return ["FU"];}
-FA_elidible = {return ["FIhA"];}
+FA_elidible = {return ["DOhE"];}
 FEhU_elidible = expr:(FEhU_clause?) {return (expr == "") ? ["FEhU"] : _node("FEhU", expr);}
 // FOI and FUhO are never elidible
 GEhU_elidible = expr:(GEhU_clause?) {return (expr == "") ? ["GEhU"] : _node("GEhU", expr);}
@@ -1136,7 +1136,7 @@ LE_pre = pre_clause LE spaces?
 LE_post = post_clause
 // LE_no_SA_handling = pre_clause LE post_clause
 
-LE_clause_elidible = pre:LE_pre_elidible post:LE_post {return _node2("LE_clause", pre, post); }
+LE_clause_elided = pre:LE_pre_elidible post:LE_post {return _node2("LE_clause", pre, post); }
 LE_pre_elidible = pre_clause LE_elidible spaces?
 
 

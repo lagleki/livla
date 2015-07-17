@@ -437,10 +437,10 @@ gek_termset = expr:(gek terms_gik_terms) {return _node("gek_termset", expr);}
 terms_gik_terms = expr:(term (gik / terms_gik_terms) term) {return _node("terms_gik_terms", expr);}
 
 //// EXP-MODIF: '?' added after "relative_clauses" + Lunra's add of "(joik_ek sumti)?"
-sumti = expr:(sumti_1 (VUhO_clause loi_INT* (relative_clauses (joik_ek sumti)?)?)?) {return _node("sumti", expr);}
-sumti_1 = expr:(sumti_2 (joik_ek stag? KE_clause loi_INT* sumti KEhE_elidible loi_INT*)?) {return _node("sumti_1", expr);}
-sumti_2 = expr:(sumti_3 (joik_ek sumti_3)*) {return _node("sumti_2", expr);}
-sumti_3 = expr:(sumti_4 (joik_ek? stag? BO_clause loi_INT* sumti_3)?) {return _node("sumti_3", expr);}
+sumti = expr:(sumti_1 (VUhO_clause loi_INT* (relative_clauses (joik_jek sumti)?)?)?) {return _node("sumti", expr);}
+sumti_1 = expr:(sumti_2 (joik_jek stag? KE_clause loi_INT* sumti KEhE_elidible loi_INT*)?) {return _node("sumti_1", expr);}
+sumti_2 = expr:(sumti_3 (joik_jek sumti_3)*) {return _node("sumti_2", expr);}
+sumti_3 = expr:(sumti_4 (joik_jek? stag? BO_clause loi_INT* sumti_3)?) {return _node("sumti_3", expr);}
 sumti_4 = expr:(sumti_5 / gek sumti gik sumti_4) {return _node("sumti_4", expr);}
 //// EXP-MODIF: quantifier+gek_sentence
 sumti_5 = expr:(quantifier? sumti_6 relative_clauses? / quantifier (selbri / gek_sentence) KU_elidible loi_INT* relative_clauses?) {return _node("sumti_5", expr);}
@@ -567,19 +567,19 @@ operator_2 = expr:(mex_operator / KE_clause loi_INT* operator KEhE_elidible loi_
 //// EXP-MODIF: MEX simplification
 mex_operator = expr:(SE_clause loi_INT* mex_operator / NAhE_clause loi_INT* mex_operator / MAhO_clause loi_INT* mex TEhU_elidible loi_INT* / NAhU_clause loi_INT* selbri TEhU_elidible loi_INT* / VUhU_clause loi_INT* / joik_jek loi_INT* / ek loi_INT*) {return _node("mex_operator", expr); }
 
-//; operand = operand_1 (joik_ek stag? KE_clause loi_INT* operand KEhE_clause? loi_INT*)?
+//; operand = operand_1 (joik_jek stag? KE_clause loi_INT* operand KEhE_clause? loi_INT*)?
 
 operand = expr:(operand_sa* operand_0) {return _node("operand", expr); }
 
-operand_0 = expr:(operand_1 (joik_ek stag? KE_clause loi_INT* operand KEhE_elidible loi_INT*)?) {return _node("operand_0", expr); }
+operand_0 = expr:(operand_1 (joik_jek stag? KE_clause loi_INT* operand KEhE_elidible loi_INT*)?) {return _node("operand_0", expr); }
 
 operand_sa = expr:(operand_start (!operand_start (sa_word / SA_clause !operand_start) )* SA_clause &operand_0) {return _node("operand_sa", expr); }
 
 operand_start = expr:(quantifier / lerfu_word / NIhE_clause / MOhE_clause / JOhI_clause / gek / LAhE_clause / NAhE_clause) {return _node("operand_start", expr); }
 
-operand_1 = expr:(operand_2 (joik_ek operand_2)*) {return _node("operand_1", expr); }
+operand_1 = expr:(operand_2 (joik_jek operand_2)*) {return _node("operand_1", expr); }
 
-operand_2 = expr:(operand_3 (joik_ek stag? BO_clause loi_INT* operand_2)?) {return _node("operand_2", expr); }
+operand_2 = expr:(operand_3 (joik_jek stag? BO_clause loi_INT* operand_2)?) {return _node("operand_2", expr); }
 
 //// EXP-MODIF: BO optional in NAhE+BO+operand
 operand_3 = expr:((quantifier / lerfu_string !MOI_clause BOI_elidible / NIhE_clause loi_INT* selbri TEhU_elidible / MOhE_clause loi_INT* sumti TEhU_elidible / JOhI_clause loi_INT* mex_2+ TEhU_elidible / gek operand gik operand_3 / (LAhE_clause loi_INT* / NAhE_clause BO_clause? loi_INT*) operand LUhU_elidible ) / loi_NAICAI_rule* loi_INT*) {return _node("operand_3", expr); }

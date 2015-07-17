@@ -593,44 +593,28 @@ lerfu_string = expr:(lerfu_word (PA_clause / lerfu_word)*) {return _node("lerfu_
 // ** BU clauses are part of BY_clause
 lerfu_word = expr:(BY_clause / LAU_clause lerfu_word / TEI_clause lerfu_string FOI_clause) {return _node("lerfu_word", expr); }
 
-ek = expr:(NA_clause? SE_clause? A_clause NAI_clause?) {return _node("ek", expr); }
+/// co'a skicu lo terjonma'o
 
-//; gihek = NA_clause? SE_clause? GIhA_clause NAI_clause?
-gihek = expr:(gihek_sa* gihek_1) {return _node("gihek", expr); }
-
-//// EXP-MODIF - A/JA/JOI merge, gijek implementaton, add of JA_clause synonym of GIhA_clause
-gihek_1 = expr:(NA_clause? SE_clause? (JA_clause / JOI_clause / GIhA_clause / GI_clause (JOI_clause / JA_clause / A_clause)) NAI_clause?) {return _node("gihek_1", expr); }
-
-gihek_sa = expr:(gihek_1 (!gihek_1 (sa_word / SA_clause !gihek_1 ) )* SA_clause &gihek) {return _node("gihek_sa", expr); }
-
-jek = expr:(NA_clause? SE_clause? JA_clause NAI_clause?) {return _node("jek", expr); }
-
-//// EXP-MODIF: A-JA-JOI merge
-joik = expr:(NA_clause? SE_clause? (JOI_clause / JA_clause / A_clause / ZIhE_clause) NAI_clause? / interval / GAhO_clause interval GAhO_clause) {return _node("joik", expr); }
-
+gihek = expr:(gihek_sa* gihenjoma) {return _node("gihek", expr); }
+gihek_sa = expr:(gihenjoma (!gihenjoma (sa_word / SA_clause !gihenjoma ) )* SA_clause &gihek) {return _node("gihek_sa", expr); }
+gihenjoma = expr:(NA_clause? SE_clause? (kernelo_lo_gihenjoma) NAI_clause?) {return _node("gihenjoma", expr); }
+kernelo_lo_gihenjoma = expr:(kernelo_lo_terjoma / GIhA_clause / GI_clause kernelo_lo_terjoma)
+kernelo_lo_terjoma = expr:(JA_clause / JOI_clause / stag BO_clause / A_clause / ZIhE_clause)
+joik_ek = joik
+ek = joik
+jek = joik
+joik = expr:(NA_clause? SE_clause? kernelo_lo_terjoma NAI_clause? / interval / GAhO_clause interval GAhO_clause) {return _node("joik", expr); }
 interval = expr:(SE_clause? BIhI_clause NAI_clause?) {return _node("interval", expr); }
-
-//; joik_ek = joik loi_INT* / ek loi_INT*
-joik_ek = expr:(joik_ek_sa* joik_ek_1) {return _node("joik_ek", expr); }
-
-joik_ek_1 = expr:((joik loi_INT* / ek loi_INT* / VUhU_clause loi_INT* )) {return _node("joik_ek_1", expr); }
-
-joik_ek_sa = expr:(joik_ek_1 (!joik_ek_1 (sa_word / SA_clause !joik_ek_1 ) )* SA_clause &joik_ek) {return _node("joik_ek_sa", expr); }
-
-joik_jek = expr:(joik loi_INT* / jek loi_INT* / VUhU_clause loi_INT* ) {return _node("joik_jek", expr); }
-
-//// EXP-MODIF: Implementation of gaJA
+joik_jek = expr:(joik_jek_sa* joik_jek_1) {return _node("joik_jek", expr); }
+joik_jek_sa = expr:(joik_jek_1 (!joik_jek_1 (sa_word / SA_clause !joik_jek_1 ) )* SA_clause &joik_jek) {return _node("joik_jek_sa", expr); }
+joik_jek_1 = expr:(joik loi_INT* / VUhU_clause loi_INT*) {return _node("joik_jek_1", expr); }
 gek = expr:(gak SE_clause? joik_jek / SE_clause? GA_clause loi_INT* / joik GI_clause loi_INT* / stag gik) {return _node("gek", expr); }
-
 //// EXP-ADD: GAJA
 gak = expr:(ga_clause loi_INT*) {return _node("gak", expr); }
-
 guhek = expr:(SE_clause? GUhA_clause loi_INT*) {return _node("guhek", expr); }
-
 gik = expr:(GI_clause loi_INT*) {return _node("gik", expr); }
-
 stag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("stag", expr); }
-
+/// mo'u skicu lo terjonma'o
 // ****************
 // Magic Words
 // ****************

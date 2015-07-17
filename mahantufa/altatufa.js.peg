@@ -735,7 +735,7 @@ ME_elidible = expr:(ME_clause?) {return (expr == "") ? ["ME"]   : _node("ME", ex
 NOUNEND = {return ["NF"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}
 KOhA_elidible = expr:() { return ["DO", _join(expr)];}
-LE_elidible =  expr:() { return ["LO", _join(expr)];}
+LE_elided =  expr:() { return ["LO", _join(expr)];}
 NU_elidible =  expr:() { return ["NU", _join(expr)];}
 
 // ___ SELMAHO ___
@@ -1029,7 +1029,7 @@ GUhA_post = post_clause
 I_clause = expr:(sentence_sa* I_pre I_post) {return _node("I_clause", expr); }
 I_pre = pre_clause I spaces?
 I_clause_elidible = expr:(sentence_sa* I_pre_elidible I_post) {return _node("I_clause", expr); }
-I_pre_elidible = pre_clause I_elidible spaces?
+I_pre_elidible = pre_clause (I / I_elidible) spaces?
 
 I_post = post_clause
 // I_no_SA_handling = pre_clause I post_clause
@@ -1136,8 +1136,8 @@ LE_pre = pre_clause LE spaces?
 LE_post = post_clause
 // LE_no_SA_handling = pre_clause LE post_clause
 
-LE_clause_elided = pre:LE_pre_elidible post:LE_post {return _node2("LE_clause", pre, post); }
-LE_pre_elidible = pre_clause LE_elidible spaces?
+LE_clause_elided = pre:LE_pre_elided post:LE_post {return _node2("LE_clause", pre, post); }
+LE_pre_elided = pre_clause LE_elided spaces?
 
 
 //         possibly ungrammatical text right quote 

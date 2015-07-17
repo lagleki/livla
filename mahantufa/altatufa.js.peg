@@ -201,10 +201,9 @@ normalbridi = expr:((termspreFAZOhE bridi_tail_t1fefifofu) / /*    klama do ti t
 terms? bridi_tail_t1 (joik_jek bridi_tail / joik_jek stag? KE_clause loi_INT* bridi_tail KEhE_elidible loi_INT*)*)
 
 bridi_tail_3_various = expr:(gek_sentence / ME_elidible sumtifazohe relative_clauses)
-
 bridi_tail_t1 = expr:(bridi_tail_t2 (joik_jek stag? KE_clause loi_INT* bridi_tail KEhE_elidible loi_INT*)?) {return _node("bridi_tail_t1", expr);}
 bridi_tail_t2 = expr:(bridi_tail (joik_jek stag? BO_clause loi_INT* bridi_tail)?) {return _node("bridi_tail_t2", expr);}
-bridi_tail = expr:(bridi_tail_1 (((gihek) stag? / GI_clause stag) KE_clause loi_INT* bridi_tail KEhE_elidible loi_INT* tail_terms)? / SELBRI_elidible relative_clauses) {return _node("bridi_tail", expr);}
+bridi_tail = expr:(bridi_tail_1 (((gihek) stag? / GI_clause stag) KE_clause loi_INT* bridi_tail KEhE_elidible loi_INT* tail_terms)?) {return _node("bridi_tail", expr);}
 bridi_tail_sa = expr:(bridi_tail_start (term / !bridi_tail_start (sa_word / SA_clause !bridi_tail_start ) )* SA_clause &bridi_tail) {return _node("bridi_tail_sa", expr);}
 bridi_tail_start = expr:(ME_clause / NUhA_clause / NU_clause / NA_clause !KU_clause / NAhE_clause !BO_clause / selbri / tag bridi_tail_start / KE_clause bridi_tail_start / bridi_tail) {return _node("bridi_tail_start", expr);}
 bridi_tail_1 = expr:(bridi_tail_2 ((gihek) !(stag? BO_clause) !(stag? KE_clause) loi_INT* bridi_tail_2 tail_terms)*) {return _node("bridi_tail_1", expr);}

@@ -385,7 +385,7 @@ tag_term = expr:((!gek (tag / tagFAM / FA_elidible &(loi_INT* sumti)) !BO_clause
 
 termBAM = expr:(term_sa* term_1BAM) {return _node("term", expr);}
 term_1BAM = expr:(tag_termBAM / termset) {return _node("term_1", expr);}
-abs_tag_termFAM = expr:((!gek (sumti loi_INT*) CO_clause tagFAM loi_INT* / !gek tagFAM loi_INT* !selbri !gek_sentence (sumti / joik_jek sumti_3 / (KU_clause / sumtifazohe) loi_INT*) / SOI_clause loi_INT* subsentence SEhU_elidible loi_INT*) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_termFAM", expr);}
+tag_termBAM = expr:((!gek tag loi_INT* (sumti / (KU_clause / sumtifazohe) loi_INT*) / !gek (sumti loi_INT*) CO_clause tag loi_INT* / SOI_clause loi_INT* subsentence SEhU_elidible loi_INT*) (joik_jek tag_term)*) {return _node("tag_term", expr);}
 
 termFAM = expr:(term_sa* term_1FAM) {return _node("term", expr);}
 term_1FAM = expr:(tag_termFAM / termset) {return _node("term_1", expr);}
@@ -711,7 +711,6 @@ VEhO_elidible = expr:(VEhO_clause?) {return (expr == "") ? ["VEhO"] : _node("VEh
 FASNU_elidible = {return ["FASNU"] }
 
 SELBRI_elidible = expr:(GOhA_clause?) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);}
-ME_elidible = expr:(ME_clause?) {return (expr == "") ? ["ME"]   : _node("ME", expr);}
 
 NOUNEND = {return ["NF"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}

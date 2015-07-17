@@ -542,7 +542,7 @@ mex = expr:(mex_1 (operator mex_1)* ) {return _node("mex", expr); }
 
 mex_1 = expr:( mex_2 (operator stag? BO_clause loi_INT* mex_1)? ) {return _node("mex_1", expr); }
 
-mex_2 = expr:( number BOI_elidible loi_INT* / lerfu_string BOI_elidible loi_INT* / VEI_clause loi_INT* mex VEhO_elidible loi_INT* / NIhE_clause loi_INT* selbri TEhU_elidible loi_INT* / MOhE_clause sumti TEhU_elidible loi_INT* / gek mex gik mex_2 / (LAhE_clause loi_INT* / NAhE_clause loi_INT* BO_clause? loi_INT*) mex LUhU_elidible loi_INT* / PEhO_clause loi_INT* operator mex+ KUhE_elidible loi_INT* / FUhA_clause rp_expression ) {return _node("mex_2", expr); }
+mex_2 = expr:(( number BOI_elidible / lerfu_string BOI_elidible / VEI_clause loi_INT* mex VEhO_elidible / NIhE_clause loi_INT* selbri TEhU_elidible / MOhE_clause sumti TEhU_elidible / gek mex gik mex_2 / (LAhE_clause loi_INT* / NAhE_clause loi_INT* BO_clause? loi_INT*) mex LUhU_elidible / PEhO_clause loi_INT* operator mex+ KUhE_elidible / FUhA_clause rp_expression ) loi_NAICAI_rule* loi_INT*) {return _node("mex_2", expr); }
 
 rp_expression = expr:( mex (rp_expression operator)* ) {return _node("rp_expression", expr); }
 

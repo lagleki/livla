@@ -1432,12 +1432,12 @@ UI_pre = pre_clause UI spaces?
 UI_post = post_clause_limited
 // UI_no_SA_handling = pre_clause UI post_clause
 
-ROhA_clause = pre:ROhA_pre post:ROhA_post {return _node2("ROhA_clause", pre, post); }		
-ROhA_pre = pre_clause ROhA spaces?		
-ROhA_post = post_clause_limited		
-		
-DAI_clause = pre:DAI_pre post:DAI_post {return _node2("DAI_clause", pre, post); }		
-DAI_pre = pre_clause DAI spaces?		
+ROhA_clause = pre:ROhA_pre post:ROhA_post {return _node2("ROhA_clause", pre, post); }
+ROhA_pre = pre_clause ROhA spaces?
+ROhA_post = post_clause_limited
+
+DAI_clause = pre:DAI_pre post:DAI_post {return _node2("DAI_clause", pre, post); }
+DAI_pre = pre_clause DAI spaces?
 DAI_post = post_clause_limited
 
 //         distance in space_time 

@@ -735,7 +735,7 @@ ME_elidible = expr:(ME_clause?) {return (expr == "") ? ["ME"]   : _node("ME", ex
 NOUNEND = {return ["NF"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}
 KOhA_elidible = expr:() { return ["DO", _join(expr)];}
-LE_elided =  expr:() { return ["LO", _join(expr)];}
+LE_elided = expr:() { return ["LO", _join(expr)];}
 NU_elidible =  expr:() { return ["NU", _join(expr)];}
 
 // ___ SELMAHO ___

@@ -436,16 +436,17 @@ gek_termset = expr:(gek terms_gik_terms) {return _node("gek_termset", expr);}
 
 terms_gik_terms = expr:(term (gik / terms_gik_terms) term) {return _node("terms_gik_terms", expr);}
 
-//// EXP-MODIF: '?' added after "relative_clauses" + Lunra's add of "(joik_ek sumti)?"
+//// EXP-MODIF: '?' added after "relative_clauses" + Lunra's add of "(joik_jek sumti)?"
 sumti = expr:(sumti_1 (VUhO_clause loi_INT* (relative_clauses (joik_jek sumti)?)?)?) {return _node("sumti", expr);}
 sumti_1 = expr:(sumti_2 (joik_jek stag? KE_clause loi_INT* sumti KEhE_elidible loi_INT*)?) {return _node("sumti_1", expr);}
 sumti_2 = expr:(sumti_3 (joik_jek sumti_3)*) {return _node("sumti_2", expr);}
-sumti_3 = expr:(sumti_4 (joik_jek? stag? BO_clause loi_INT* sumti_3)?) {return _node("sumti_3", expr);}
+sumti_3 = expr:(sumti_4 (joik_jek? (joik_jek / BO_clause) loi_INT* sumti_3)?) {return _node("sumti_3", expr);}
 sumti_4 = expr:(sumti_5 / gek sumti gik sumti_4) {return _node("sumti_4", expr);}
 //// EXP-MODIF: quantifier+gek_sentence
-sumti_5 = expr:(quantifier? sumti_6 relative_clauses? / quantifier (selbri / gek_sentence) KU_elidible loi_INT* relative_clauses?) {return _node("sumti_5", expr);}
+sumti_5 = expr:(quantifier? sumti_6 relative_clauses? / quantifier (selbri / gek_sentence) KU_elidible loi_NAICAI_rule? loi_INT* relative_clauses?) {return _node("sumti_5", expr);}
 //// EXP-MODIF: brivla/cmevla merge + NAhE+sumti + add of ZOhOI_clause + LAhE term + MEX simplification
-sumti_6 = expr:(ZO_clause loi_INT* / ZOI_clause loi_INT* / ZOhOI_clause loi_INT* / LOhU_clause loi_INT* / !tag !selbri lerfu_string BOI_elidible loi_INT* / LU_clause uenzi LIhU_elidible loi_INT* / (LAhE_clause loi_INT* / NAhE_clause BO_clause? loi_INT*) (relative_clauses? sumti / term) LUhU_elidible loi_INT* / KOhA_clause loi_INT* / LE_clause loi_INT* sumti_tail KU_elidible loi_INT* / li_clause) {return _node("sumti_6", expr);}
+sumti_6 = expr:((ZO_clause / ZOI_clause / ZOhOI_clause / LOhU_clause / !tag !selbri lerfu_string BOI_elidible / LU_clause uenzi LIhU_elidible / (LAhE_clause loi_INT* / NAhE_clause BO_clause? loi_INT*) (relative_clauses? sumti / term) LUhU_elidible / KOhA_clause / LE_clause loi_INT* sumti_tail KU_elidible / li_clause) loi_NAICAI_rule* loi_INT*) {return _node("sumti_6", expr);}
+
 
 sumtido = expr:(sumti_1do) {return _node("sumti", expr);}
 sumti_1do = expr:(sumti_2do) {return _node("sumti_1", expr);}

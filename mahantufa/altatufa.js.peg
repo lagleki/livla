@@ -298,7 +298,7 @@ terms_1 = expr:(terms_2 (pehe_sa* PEhE_clause loi_INT* joik_jek terms_2)*) {retu
 terms_2 = expr:(abs_term (cehe_sa* CEhE_clause loi_INT* abs_term)*) {return _node("terms_2", expr);}
 abs_term = expr:(term_sa* abs_term_1) {return _node("abs_term", expr);}
 abs_term_1 = expr:(abs_tag_term / termset) {return _node("abs_term_1", expr);}
-abs_tag_term = expr:((!gek tag loi_INT* !selbri !gek_sentence (sumti / joik_ek sumti_3 / (KU_clause / sumtifazohe) loi_INT*) / !gek (sumti loi_INT*) CO_clause tag loi_INT* / NA_clause loi_INT* KU_clause loi_INT* / !selbri !gek_sentence !ek !joik_jek !gihek NA_clause loi_INT* (KU_clause / sumtifazohe) loi_INT* / SOI_clause loi_INT* subsentence SEhU_elidible loi_INT*) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_term", expr);}
+abs_tag_term = expr:((!gek tag !BO_clause loi_INT* !selbri !gek_sentence (sumti / joik_ek sumti_3 / (KU_clause / sumtifazohe) loi_INT*) / !gek (sumti loi_INT*) CO_clause tag loi_INT* / NA_clause loi_INT* KU_clause loi_INT* / !selbri !gek_sentence !ek !joik_jek !gihek NA_clause loi_INT* (KU_clause / sumtifazohe) loi_INT* / SOI_clause loi_INT* subsentence SEhU_elidible loi_INT*) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_term", expr);}
 tag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("tag", expr); }
 
 terms_1FAM = expr:(terms_2FAM (pehe_sa* PEhE_clause loi_INT* joik_jek terms_2)*) {return _node("terms_1FAM", expr);}
@@ -383,11 +383,11 @@ links_1 = expr:((BEI_clause loi_INT* term)+) {return _node("links_1", expr);}
 
 term = expr:(term_sa* term_1) {return _node("term", expr);}
 term_1 = expr:(tag_term / termset) {return _node("term_1", expr);}
-tag_term = expr:((!gek (tag / tagFAM / FA_elidible &(loi_INT* sumti)) loi_INT* (sumti / (KU_clause / sumtifazohe) loi_INT*) / !gek (sumti loi_INT*) CO_clause tag loi_INT* / NA_clause loi_INT* KU_clause loi_INT* / !gek !ek !joik_jek !gihek NA_clause loi_INT* (KU_clause / sumtifazohe) loi_INT* / SOI_clause loi_INT* subsentence SEhU_elidible loi_INT*) (joik_jek &((tag / tagFAM / FA_elidible &(loi_INT* sumti)) loi_INT* sumti) tag_term)*) {return _node("tag_term", expr);}
+tag_term = expr:((!gek (tag / tagFAM / FA_elidible &(loi_INT* sumti)) !BO_clause loi_INT* (sumti / (KU_clause / sumtifazohe) loi_INT*) / !gek (sumti loi_INT*) CO_clause tag loi_INT* / NA_clause loi_INT* KU_clause loi_INT* / !gek !ek !joik_jek !gihek NA_clause loi_INT* (KU_clause / sumtifazohe) loi_INT* / SOI_clause loi_INT* subsentence SEhU_elidible loi_INT*) (joik_jek &((tag / tagFAM / FA_elidible &(loi_INT* sumti)) loi_INT* sumti) tag_term)*) {return _node("tag_term", expr);}
 
 termBAM = expr:(term_sa* term_1BAM) {return _node("term", expr);}
 term_1BAM = expr:(tag_termBAM / termset) {return _node("term_1", expr);}
-tag_termBAM = expr:((!gek tag loi_INT* (sumti / (KU_clause / sumtifazohe) loi_INT*) / !gek (sumti loi_INT*) CO_clause tag loi_INT* / NA_clause loi_INT* KU_clause loi_INT* / !gek !ek !joik_jek !gihek NA_clause loi_INT* (KU_clause / sumtifazohe) loi_INT* / SOI_clause loi_INT* subsentence SEhU_elidible loi_INT*) (joik_jek tag_term)*) {return _node("tag_term", expr);}
+tag_termBAM = expr:((!gek tag !BO_clause loi_INT* (sumti / (KU_clause / sumtifazohe) loi_INT*) / !gek (sumti loi_INT*) CO_clause tag loi_INT* / NA_clause loi_INT* KU_clause loi_INT* / !gek !ek !joik_jek !gihek NA_clause loi_INT* (KU_clause / sumtifazohe) loi_INT* / SOI_clause loi_INT* subsentence SEhU_elidible loi_INT*) (joik_jek tag_term)*) {return _node("tag_term", expr);}
 
 termFAM = expr:(term_sa* term_1FAM) {return _node("term", expr);}
 term_1FAM = expr:(tag_termFAM / termset) {return _node("term_1", expr);}
@@ -582,7 +582,7 @@ operand_1 = expr:(operand_2 (joik_ek operand_2)*) {return _node("operand_1", exp
 operand_2 = expr:(operand_3 (joik_ek stag? BO_clause loi_INT* operand_2)?) {return _node("operand_2", expr); }
 
 //// EXP-MODIF: BO optional in NAhE+BO+operand
-operand_3 = expr:(quantifier / lerfu_string !MOI_clause BOI_elidible loi_INT* / NIhE_clause loi_INT* selbri TEhU_elidible loi_INT* / MOhE_clause loi_INT* sumti TEhU_elidible loi_INT* / JOhI_clause loi_INT* mex_2+ TEhU_elidible loi_INT* / gek operand gik operand_3 / (LAhE_clause loi_INT* / NAhE_clause BO_clause? loi_INT*) operand LUhU_elidible loi_INT*) {return _node("operand_3", expr); }
+operand_3 = expr:((quantifier / lerfu_string !MOI_clause BOI_elidible / NIhE_clause loi_INT* selbri TEhU_elidible / MOhE_clause loi_INT* sumti TEhU_elidible / JOhI_clause loi_INT* mex_2+ TEhU_elidible / gek operand gik operand_3 / (LAhE_clause loi_INT* / NAhE_clause BO_clause? loi_INT*) operand LUhU_elidible ) / loi_NAICAI_rule* loi_INT*) {return _node("operand_3", expr); }
 
 //// EXP-MODIF
 number = expr:((PA_clause / (NIhE_clause loi_INT* selbri TEhU_elidible loi_INT*) / (MOhE_clause loi_INT* sumti TEhU_elidible loi_INT*)) (PA_clause / (NIhE_clause loi_INT* selbri TEhU_elidible loi_INT*) / (MOhE_clause loi_INT* sumti TEhU_elidible loi_INT*) / lerfu_word)*) {return _node("number", expr); }
@@ -615,6 +615,7 @@ guhek = expr:(SE_clause? GUhA_clause loi_INT*) {return _node("guhek", expr); }
 gik = expr:(GI_clause loi_INT*) {return _node("gik", expr); }
 stag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("stag", expr); }
 /// mo'u skicu lo terjonma'o
+
 // ****************
 // Magic Words
 // ****************
@@ -645,7 +646,7 @@ dot_star = expr:(.*) { ret = ""; for (i in expr) ret += (expr[i] === " ") ? "_" 
 // Handling of what can go after a cmavo
 post_clause = expr:(spaces? si_clause? !ZEI_clause !BU_clause indicators*) {return _node_nonempty("post_clause", expr); }
 
-post_clause_limited = expr:(spaces? si_clause? !ZEI_clause !BU_clause) {return _node_nonempty("post_clause", expr); }		
+post_clause_limited = expr:(spaces? si_clause? !ZEI_clause !BU_clause) {return _node_nonempty("post_clause", expr); }
 
 pre_clause = BAhE_clause?
 

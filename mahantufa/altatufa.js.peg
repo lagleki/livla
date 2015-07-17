@@ -142,6 +142,7 @@ text = expr:(intro_null NAI_clause* text_part_2 (!text_1 joik_jek)? text_1? faho
 
 intro_null = expr:(spaces? su_clause* intro_si_clause) {return _node_nonempty("intro_null", expr); }
 
+
 // INTERJECTIONS AND SCALERS: UI ROhA DAI
 loi_INT = expr:(FUhE_clause? (((INT / free) loi_ROhA_rule?) loi_DAI_rule?)+ FUhO_clause?){return _node("loi_interjection", expr); }
 INT = expr:((UI_clause / DAhO_clause) !BU_clause loi_NAICAI_rule?){return _node("interjection", expr); }
@@ -151,9 +152,9 @@ loi_DAI_rule = (DAI_rule loi_DAI_rule?)
 DAI_rule = expr:(DAI_clause !BU_clause loi_NAICAI_rule?) {return _node("interjection rotator", expr); }
 loi_NAICAI_rule = expr:((NAI_clause / CAI_clause) !BU_clause loi_NAICAI_rule*) {return _node("right scaler", expr); }
 
-free = expr:(SEI_clause loi_INT* (terms CU_elidible loi_INT*)? selbri SEhU_elidible / vocative (sumti / sumti_leless  / sumtido) DOhU_elidible / mex_2 MAI_clause loi_INT* / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }		
+free = expr:(SEI_clause loi_INT* (terms CU_elidible loi_INT*)? selbri SEhU_elidible / vocative (sumti / sumti_leless  / sumtido) DOhU_elidible / mex_2 MAI_clause loi_INT* / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
 
-xi_clause = expr:(XI_clause loi_INT* mex_2 / XI_clause loi_INT* VEI_clause loi_INT* mex VEhO_elidible) {return _node("xi_clause", expr); }		
+xi_clause = expr:(XI_clause loi_INT* mex_2 / XI_clause loi_INT* VEI_clause loi_INT* mex VEhO_elidible) {return _node("xi_clause", expr); }
 vocative = expr:((COI_clause NAI_clause?)+ DOI_clause / (COI_clause NAI_clause?) (COI_clause NAI_clause?)* / DOI_clause)  {return _node("vocative", expr); }
 indicators = expr:(FUhE_clause? indicator+) {return _node("indicators", expr); }
 indicator =  expr:((UI_clause / CAI_clause) NAI_clause? / NAI_clause / DAhO_clause / FUhO_clause) !BU_clause {return _node("indicator", expr); }

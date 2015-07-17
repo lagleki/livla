@@ -138,7 +138,10 @@ zo coioo is parsed as coi o'o. zo coiooo as co'o'o'o
   }
 }
 
-text = expr:(intro_null NAI_clause* text_part_2 (!text_1 joik_jek)? text_1? faho_clause EOF?) {return _node_nonempty("text", expr);}
+uenzi = expr:(intro_null loi_i_zei_uenzi faho_clause EOF?) {return _node_nonempty("uenzi", expr);}
+loi_i_zei_uenzi = expr:((I_clause_elidible statement_2_5)? ((I_clause / NIhO_clause+ / I_clause_elidible &selbri) statement_2_5)* ) {return _node("loi_i_zei_uenzi", expr);}
+statement_2_5 = expr:(joik? (stag? BO_clause)? loi_INT* su_clause* statement_3)
+statement_3 = expr:(tag? TUhE_clause loi_INT* loi_i_zei_uenzi TUhU_elidible loi_INT* / bridi) {return _node("statement_3", expr);}
 
 intro_null = expr:(spaces? su_clause* intro_si_clause) {return _node_nonempty("intro_null", expr); }
 
@@ -152,7 +155,7 @@ loi_DAI_rule = (DAI_rule loi_DAI_rule?)
 DAI_rule = expr:(DAI_clause !BU_clause loi_NAICAI_rule?) {return _node("interjection rotator", expr); }
 loi_NAICAI_rule = expr:((NAI_clause / CAI_clause) !BU_clause loi_NAICAI_rule*) {return _node("right scaler", expr); }
 
-free = expr:(SEI_clause loi_INT* (terms CU_elidible loi_INT*)? selbri SEhU_elidible / vocative (sumti / sumti_leless  / sumtido) DOhU_elidible / mex_2 MAI_clause loi_INT* / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
+free = expr:(SEI_clause loi_INT* (terms CU_elidible loi_INT*)? selbri SEhU_elidible / vocative (sumti / sumti_leless  / sumtido) DOhU_elidible / mex_2 MAI_clause loi_INT* / TO_clause uenzi TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
 
 xi_clause = expr:(XI_clause loi_INT* mex_2 / XI_clause loi_INT* VEI_clause loi_INT* mex VEhO_elidible) {return _node("xi_clause", expr); }
 vocative = expr:((COI_clause NAI_clause?)+ DOI_clause / (COI_clause NAI_clause?) (COI_clause NAI_clause?)* / DOI_clause)  {return _node("vocative", expr); }
@@ -169,19 +172,6 @@ faho_clause = expr:((FAhO_clause dot_star)?) {return _node("faho_clause", expr);
 // Please note that the "loi_i_zei_uenzi" item in the loi_i_zei_uenzi production does
 // *not* match "text_1" in the BNF. This is due to a bug in the BNF.  The change
 // here was made to match grammar.300
-text_1 = expr:(I_clause (jek / joik)? (stag? BO_clause)? loi_INT* paragraphs / NIhO_clause+ (jek / joik)? (stag? BO_clause)? loi_INT* su_clause* paragraphs? / I_clause_elidible paragraphs) {return _node("text_1", expr);}
-
-paragraphs = expr:(paragraph (NIhO_clause+ loi_INT* su_clause* paragraphs)?) {return _node("paragraphs", expr);}
-
-paragraph = expr:((fragment / statement) ((I_clause / I_clause_elidible &selbri) !jek !joik !joik_jek loi_INT* (statement / fragment)?)*) {return _node("paragraph", expr);}
-
-statement = expr:(prenexe* statement_1) {return _node("statement", expr);}
-
-statement_1 = expr:(statement_2 (I_clause joik_jek statement_2?)*) {return _node("statement_1", expr);}
-
-statement_2 = expr:(statement_3 (I_clause (jek / joik)? stag? BO_clause loi_INT* statement_2)? / statement_3 (I_clause (jek / joik)? stag? BO_clause loi_INT*)?) {return _node("statement_2", expr);}
-
-statement_3 = expr:(tag? TUhE_clause loi_INT* text_1 TUhU_elidible loi_INT* / bridi) {return _node("statement_3", expr);}
 
 //// EXP-MODIF: allowing na sequence.
 //// Remove fragments that are now proper statements
@@ -189,7 +179,7 @@ fragment = expr:(!term !tag quantifier / links / linkargs) {return _node("fragme
 
 prenexe = expr:((terms / termspreFAZOhE) ZOhU_clause loi_INT*) {return _node("prenexe", expr);}
 
-sentence_sa = expr:(sentence_start (!sentence_start (sa_word / SA_clause !sentence_start ) )* SA_clause &text_1) {return _node("sentence_sa", expr);}
+sentence_sa = expr:(sentence_start (!sentence_start (sa_word / SA_clause !sentence_start ) )* SA_clause &loi_i_zei_uenzi) {return _node("sentence_sa", expr);}
 
 sentence_start = expr:(I_pre / NIhO_pre) {return _node("sentence_start", expr);}
 
@@ -457,7 +447,7 @@ sumti_4 = expr:(sumti_5 / gek sumti gik sumti_4) {return _node("sumti_4", expr);
 //// EXP-MODIF: quantifier+gek_sentence
 sumti_5 = expr:(quantifier? sumti_6 relative_clauses? / quantifier (selbri / gek_sentence) KU_elidible loi_INT* relative_clauses?) {return _node("sumti_5", expr);}
 //// EXP-MODIF: brivla/cmevla merge + NAhE+sumti + add of ZOhOI_clause + LAhE term + MEX simplification
-sumti_6 = expr:(ZO_clause loi_INT* / ZOI_clause loi_INT* / ZOhOI_clause loi_INT* / LOhU_clause loi_INT* / !tag !selbri lerfu_string BOI_elidible loi_INT* / LU_clause text LIhU_elidible loi_INT* / (LAhE_clause loi_INT* / NAhE_clause BO_clause? loi_INT*) (relative_clauses? sumti / term) LUhU_elidible loi_INT* / KOhA_clause loi_INT* / LE_clause loi_INT* sumti_tail KU_elidible loi_INT* / li_clause) {return _node("sumti_6", expr);}
+sumti_6 = expr:(ZO_clause loi_INT* / ZOI_clause loi_INT* / ZOhOI_clause loi_INT* / LOhU_clause loi_INT* / !tag !selbri lerfu_string BOI_elidible loi_INT* / LU_clause uenzi LIhU_elidible loi_INT* / (LAhE_clause loi_INT* / NAhE_clause BO_clause? loi_INT*) (relative_clauses? sumti / term) LUhU_elidible loi_INT* / KOhA_clause loi_INT* / LE_clause loi_INT* sumti_tail KU_elidible loi_INT* / li_clause) {return _node("sumti_6", expr);}
 
 sumtido = expr:(sumti_1do) {return _node("sumti", expr);}
 sumti_1do = expr:(sumti_2do) {return _node("sumti_1", expr);}

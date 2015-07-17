@@ -561,7 +561,7 @@ operator_sa = expr:(operator_start (!operator_start (sa_word / SA_clause !operat
 
 operator_start = expr:(guhek / KE_clause / SE_clause? NAhE_clause / SE_clause? MAhO_clause / SE_clause? VUhU_clause) {return _node("operator_start", expr); }
 
-operator_1 = expr:(operator_2 / guhek operator_1 gik operator_2 / operator_2 (joik) stag? BO_clause loi_INT* operator_1) {return _node("operator_1", expr); }
+operator_1 = expr:(operator_2 / guhek operator_1 gik operator_2 / operator_2 joik stag? BO_clause loi_INT* operator_1) {return _node("operator_1", expr); }
 
 operator_2 = expr:(mex_operator / KE_clause loi_INT* operator KEhE_elidible loi_INT*) {return _node("operator_2", expr); }
 

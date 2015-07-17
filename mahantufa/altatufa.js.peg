@@ -1228,6 +1228,7 @@ NA_post = post_clause
 NAI_clause = pre:NAI_pre post:NAI_post {return _node2("NAI_clause", pre, post); }
 NAI_pre = pre_clause NAI spaces?
 NAI_post = post_clause_limited
+
 // NAI_no_SA_handling = pre_clause NAI post_clause
 
 //         scalar negation  

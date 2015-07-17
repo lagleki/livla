@@ -1,5 +1,10 @@
 // ToDo:
 /*
+on parsing as "mi mo na zo'e gi'e mo na gi'a mo"
+
+gi'e ... na gi'a -> ~(p ^ q) v r                                                          
+which is not (p ^ ~q) v r   
+
 no kui! only kuii ideology!
 mauii is thought to be a brivla although meiai is cmavo
 diai is not parsed. diiai is.

@@ -54988,22 +54988,7 @@ var camxes = (function(){
               result2 = null;
             }
             if (result2 !== null) {
-              pos2 = pos;
-              reportFailures++;
-              result3 = parse_post_word();
-              reportFailures--;
-              if (result3 !== null) {
-                result3 = "";
-                pos = pos2;
-              } else {
-                result3 = null;
-              }
-              if (result3 !== null) {
-                result0 = [result0, result1, result2, result3];
-              } else {
-                result0 = null;
-                pos = pos1;
-              }
+              result0 = [result0, result1, result2];
             } else {
               result0 = null;
               pos = pos1;

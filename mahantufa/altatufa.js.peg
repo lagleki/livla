@@ -202,9 +202,8 @@ terms_2 = expr:(abs_term (cehe_sa* CEhE_clause abs_term)*) {return _node("terms_
 abs_term = expr:(KE_clause terms_0 KEhE_elidible /  co_abs_tag_term / abs_tag_term  / gek_term / termset) {return _node("abs_term", expr);}
 co_abs_tag_term = expr:(!gek sumti) CO_clause expr2:(tag)  {return _node("abs_tag_term", expr2.concat(expr));}
 //ToDo:normalize abs_tag_term and tag_term according to zantufa
-abs_tag_term = expr:((!gek tag !BO_clause !selbri !gek_sentence (KU_clause / sumti / sumtifazohe) / SOI_clause subbridi SEhU_elidible) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_term", expr);}
-tag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("tag", expr); }
-
+abs_tag_term = expr:((!gek tag !BO_clause !selbri !gek_sentence (&ZI_clause KU_elidible / KU_clause / sumti / sumtifazohe) / SOI_clause subbridi SEhU_elidible) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_term", expr);}
+tag = expr:(tense_modal (!ZI_clause tense_modal)* (joik_jek tense_modal+)*) {return _node("tag", expr); }
 term = expr:(co_tag_term / tag_term / termset) {return _node("term", expr);}
 co_tag_term = expr:(!gek sumti) CO_clause expr2:(tag)  {return _node("subbridi", expr2.concat(expr));}
 tag_term = expr:((!gek (tag / tagFAM / FA_elided &(full_INT* sumti)) !BO_clause (sumti / KU_clause / sumtifazohe) / NA_clause KU_clause / !gek !ek !joik_jek !gihek NA_clause (KU_clause / sumtifazohe) / SOI_clause subbridi SEhU_elidible) (joik_jek &((tag / tagFAM / FA_elided &(full_INT* sumti)) sumti) tag_term)*) {return _node("tag_term", expr);}
@@ -297,8 +296,8 @@ terms_2FAM = expr:(abs_termFAM (cehe_sa* CEhE_clause (abs_term / abs_termFAM / a
 abs_termFAM = expr:(abs_term_1FAM) {return _node("abs_termFAM", expr);}
 abs_term_1FAM = expr:(abs_tag_termFAM / termset) {return _node("abs_term_1FAM", expr);}
 abs_tag_termFAM = expr:((!gek (sumti) CO_clause tagFAM / !gek tagFAM !selbri !gek_sentence (sumti / KU_clause / sumtifazohe) / SOI_clause subbridi SEhU_elidible) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_termFAM", expr);}
-tagFAM = expr:(tense_modalFAM (joik_jek (tense_modal / tense_modalFAM))*) {return _node("tagFAM", expr); }
-tense_modal = expr:(((full_NAhE* cls (NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? ( VEI_clause mex VEhO_elidible / number ) ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause selbri FEhU_elidible) full_NAICAI*) full_INT*)+) {return _node("tense_modal", expr); }
+tagFAM = expr:(tense_modalFAM (joik_jek (tense_modal+ / tense_modalFAM))*) {return _node("tagFAM", expr); }
+tense_modal = expr:(((full_NAhE* cls (NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? ( VEI_clause mex VEhO_elidible / number ) ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause selbri FEhU_elidible) full_NAICAI*) full_INT*)) {return _node("tense_modal", expr); }
 
 tense_modalFAM = expr:(((full_NAhE* (FA_clause) full_NAICAI*) full_INT*)+) {return _node("tense_modalFAM", expr); }
 
@@ -584,7 +583,7 @@ gek = expr:((gak cls joik_jek crn / cls GA_clause crn / joik GI_clause crn / sta
 gak = expr:((ga_clause crn) full_INT*) {return _node("gak", expr); }
 guhek = expr:((cls GUhA_clause crn) full_INT*) {return _node("guhek", expr); }
 gik = expr:((GI_clause crn) full_INT*) {return _node("gik", expr); }
-stag = expr:(tense_modal (joik_jek tense_modal)*) {return _node("stag", expr); }
+stag = expr:(tense_modal+ (joik_jek tense_modal+)*) {return _node("stag", expr); }
 crn = expr:(NAI_clause?) {return _node("connective right negator", expr); }
 cln = expr:(NA_clause?) {return _node("connective left negator", expr); }
 cls = expr:(SE_clause?) {return _node("places left switcher", expr); }

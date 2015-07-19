@@ -129,15 +129,17 @@
 // exp paragraphing implementation
 /* ToDo:
 * I_clause_elidible &selbri
-* join: BO_clause - autorestore DOhE
+*{ni'o ijebo do mo ije bo klama} and {ni'o mi mo ijebo do mo ije bo klama} seems to parse ijabons differently
 */
 
 uenzi = expr:(intro_null nion_0 faho_clause EOF?) {return _node_nonempty("text", expr);}
-nion_0 = expr:((NIhO_elided !NIhO_clause)? nion) {return _node("paragraph_level", expr);}
-nion = expr:((NIhO_clause nion)+ / ion) {return _node("paragraph_level", expr);}
-ion = expr:((I_clause_elidible bridi_elided ijon / I_clause_elidible bridi_ext) (I_clause bridi_ext)*) {return _node("sentence_level", expr);}
-bridi_ext = ((tag? TUhE_clause nion_0 TUhU_elidible / prenexe* bridi) (&I_clause ijon)?)
-ijon = expr:((I_clause_elidible ((joik joik?) / joik_reduced) su_clause* bridi_ext) (I_clause ((joik joik?) / BO_clause) su_clause* bridi_ext)*) {return _node("attached_sentence_level", expr);}
+nion_0 = expr:((NIhO_elided !NIhO_clause)? nion) {return _node("paragraph1", expr);}
+nion = expr:((NIhO_clause nion)+ / ion) {return _node("paragraph", expr);}
+ion = expr:((I_clause_elidible bridi_elided (ijobon / ijon) / I_clause_elidible bridi_ext) (I_clause bridi_ext)*) {return _node("sentence", expr);}
+bridi_ext = expr:((tag? TUhE_clause nion_0 TUhU_elidible / prenexe* bridi (&I_clause ijobon)*)){return _node("subsentence", expr);}
+ijon = expr:((I_clause_elidible je su_clause* bridi_ext) (I_clause je su_clause* bridi_ext)*) {return _node("ijon", expr);}
+ijobon = expr:((I_clause_elidible jebo su_clause* bridi_ext)) {return _node("ijobon", expr);}
+bridi_elided = expr:(termspreFAZOhE bridi_tail_t1fefifofu_elided) {return _node("bridi_elided", expr);}
 
 NIhO_elided = {return ["NIhO_elided", "NIhO"];}
 
@@ -195,8 +197,6 @@ normalbridi = expr:((termspreFAZOhE bridi_tail_t1fefifofu) / /*    klama do ti t
 (termsZAMfafefifofu bridi_tail_t1) / /* mi do ti ta tu klama*/
 (termsZAMfafefifofu_elidible bridi_tail_t1) / /* mi [do ti ta tu] (FA ko'a)n klama*/
 terms? bridi_tail_t1 (joik_jek bridi_tail / joik_jek stag? KE_clause bridi_tail KEhE_elidible)*)
-
-bridi_elided = expr:(termspreFAZOhE bridi_tail_t1fefifofu_elided) {return _node("bridi", expr);}
 
 bridi_tail_t1 = expr:(bridi_tail_t2 (joik_jek stag? KE_clause bridi_tail KEhE_elidible)?) {return _node("bridi_tail_t1", expr);}
 bridi_tail_t2 = expr:(bridi_tail (joik_jek stag? BO_clause bridi_tail)?) {return _node("bridi_tail_t2", expr);}
@@ -592,6 +592,9 @@ gihek_sa = expr:(gihenjoma (!gihenjoma (sa_word / SA_clause !gihenjoma ) )* SA_c
 gihenjoma = expr:((cln cls kernelo_lo_gihenjoma crn) loi_INT*) {return _node("gihenjoma", expr); }
 kernelo_lo_gihenjoma = expr:(kernelo_lo_terjoma / GIhA_clause / GI_clause kernelo_lo_terjoma)
 kernelo_lo_terjoma = (JA_clause / JOI_clause / stag BO_clause / A_clause / ZIhE_clause)
+je = (JA_clause / JOI_clause / A_clause / ZIhE_clause)
+jebo = je stag? BO_clause
+
 joik_ek = joik
 ek = joik
 jek = joik

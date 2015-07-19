@@ -82,13 +82,11 @@
   <textarea readonly id="parse_result" style="margin-top:5px;width:95%; font: 14px sans-serif;" rows="9"></textarea>
 </form>
 
-<span style="margin-top:5px;">Your Javascripted PEG to edit and test:</span>
-<form id="form2" name="form2" method="post" action="">
-  <textarea id="input_textarea2" style="width:95%; font: 14px sans-serif;" rows="19" placeholder="ca'o cpacu lo gerna vreji"></textarea>
-</form>
-<br/>
 <button type="button" onclick="sendinput();" class="but" style="font: 26px;height:36px;">Compile PEG</button>&nbsp;&nbsp;&nbsp; <span id="messages" style="font-family:monospace;font-size:16px;"></span>
-
+<span style="margin-top:5px;">Your Javascripted PEG to edit and test:</span><br/>
+<form id="form2" name="form2" method="post" action="">
+  <textarea id="input_textarea2" style="margin-top:5px; width:95%; font: 12px sans-serif;" rows="22" placeholder="ca'o cpacu lo gerna vreji"></textarea>
+</form>
 <script type="text/javascript" src="../camxes_preproc.js"></script>
 <script type="text/javascript" src="../camxes_postproc.js"></script>
 
@@ -100,6 +98,14 @@ $('#input_textarea').bind( "keyup",
     run_camxes();
   } );
 setInterval(function () {run_camxes()}, 1000);
+var kri=function(){
+	var viewportWidth = $(window).width();
+	var viewportHeight = $(window).height();
+	$('#input_textarea2').css("height",viewportHeight-350);
+	//$('#input_textarea2').css("width",viewportWidth-300);
+}
+$(window).resize(function() {kri()});
+kri();
 </script>
 
 </body>

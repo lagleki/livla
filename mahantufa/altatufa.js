@@ -4344,33 +4344,33 @@ var camxes = (function(){
                   pos = pos3;
                 }
                 if (result4 !== null) {
-                  pos3 = pos;
-                  pos4 = pos;
-                  reportFailures++;
-                  result5 = parse_ZI_clause();
-                  reportFailures--;
-                  if (result5 !== null) {
-                    result5 = "";
-                    pos = pos4;
-                  } else {
-                    result5 = null;
-                  }
-                  if (result5 !== null) {
-                    result6 = parse_KU_elidible();
-                    if (result6 !== null) {
-                      result5 = [result5, result6];
-                    } else {
-                      result5 = null;
-                      pos = pos3;
-                    }
-                  } else {
-                    result5 = null;
-                    pos = pos3;
-                  }
+                  result5 = parse_KU_clause();
                   if (result5 === null) {
-                    result5 = parse_KU_clause();
+                    result5 = parse_sumti();
                     if (result5 === null) {
-                      result5 = parse_sumti();
+                      pos3 = pos;
+                      pos4 = pos;
+                      reportFailures++;
+                      result5 = parse_ZI_clause();
+                      reportFailures--;
+                      if (result5 === null) {
+                        result5 = "";
+                      } else {
+                        result5 = null;
+                        pos = pos4;
+                      }
+                      if (result5 !== null) {
+                        result6 = parse_KU_elidible();
+                        if (result6 !== null) {
+                          result5 = [result5, result6];
+                        } else {
+                          result5 = null;
+                          pos = pos3;
+                        }
+                      } else {
+                        result5 = null;
+                        pos = pos3;
+                      }
                       if (result5 === null) {
                         result5 = parse_sumtifazohe();
                       }
@@ -4520,11 +4520,11 @@ var camxes = (function(){
           reportFailures++;
           result2 = parse_ZI_clause();
           reportFailures--;
-          if (result2 === null) {
+          if (result2 !== null) {
             result2 = "";
+            pos = pos3;
           } else {
             result2 = null;
-            pos = pos3;
           }
           if (result2 !== null) {
             result3 = parse_tense_modal();
@@ -4545,11 +4545,11 @@ var camxes = (function(){
             reportFailures++;
             result2 = parse_ZI_clause();
             reportFailures--;
-            if (result2 === null) {
+            if (result2 !== null) {
               result2 = "";
+              pos = pos3;
             } else {
               result2 = null;
-              pos = pos3;
             }
             if (result2 !== null) {
               result3 = parse_tense_modal();

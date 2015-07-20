@@ -120,7 +120,7 @@ var Stem = function(lng) {
 	testStemmer.setCurrent(word);
 	testStemmer.stem();
 	return testStemmer.getCurrent();
-	}
+	};
 };
 function println(lng, word){
 	return new Stem(lng)(word);
@@ -131,6 +131,7 @@ function initializer(injector, callback) {
 	var synchro = fullproof.make_synchro_point(callback, numTerms);
 	var wordsArray = [];
 	var valuesArray = [];
+	var text;
 	for (var key in documentStore) {
 		var doc = documentStore[key];
 		doc.t = (typeof doc.t === 'undefined') ? '' : doc.t;var bng;var docd;
@@ -139,8 +140,8 @@ function initializer(injector, callback) {
 		//}else{
 		//	docd = doc.d.split(/\b/).map(function(r){return println(window.bangu,r);}).join("");
 		//}
-		if (doc.s){var text = [doc.w, (doc.t||''), doc.s, docd, doc.n, (doc.r||[]).join(' ')].join(' ');}
-		else{var text = [doc.w, (doc.t||''), docd, doc.n, (doc.r||[]).join(' ')].join(' ');}
+		if (doc.s){text = [doc.w, (doc.t||''), doc.s, docd, doc.n, (doc.r||[]).join(' ')].join(' ');}
+		else{text = [doc.w, (doc.t||''), docd, doc.n, (doc.r||[]).join(' ')].join(' ');}
 		wordsArray.push(text);
 		valuesArray.push(key);
 	}

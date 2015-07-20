@@ -10,7 +10,7 @@
 // 
 // All rules have the form:
 // 
-// 	name = peg_expression
+//     name = peg_expression
 // 
 // which means that the grammatical construct "name" is parsed using
 // "peg_expression".  
@@ -47,14 +47,15 @@
 // ___ GRAMMAR ___
 
 {
+  var _g_zoi_delim;
   function _join(arg)
   {
     if (typeof(arg) == "string")
       return arg;
     else
     {
-      ret = "";
-      for (v in arg) { ret += _join(arg[v]); }
+      var ret = "";
+      for (var v in arg) { ret += _join(arg[v]); }
       return ret;
     }
   }
@@ -77,7 +78,7 @@
       return arg;
     var ret = [];
     if (label != undefined) ret.push( label );
-    for (v in arg)
+    for (var v in arg)
     {
       if (arg[v].length != 0)
         ret.push( _node_int( undefined, arg[v] ) );
@@ -99,33 +100,33 @@
   // === ZOI functions === //
 
   function _zoi_assign_delim(word) {
-	var a = word.toString().split(",");
-	if (a.length > 0) _g_zoi_delim = a[a.length - 1];
-	else _g_zoi_delim = "";
-	return word;
+    var a = word.toString().split(",");
+    if (a.length > 0) _g_zoi_delim = a[a.length - 1];
+    else _g_zoi_delim = "";
+    return word;
   }
 
   function _zoi_check_quote(word) {
-	if (typeof(word) == "object") word = word.toString();
+    if (typeof(word) == "object") word = word.toString();
     if (!is_string(word)) {
-	  alert("ZOI word is not a string");
-	  return false;
-	} else {
-      return (word.replace(/,/gm,"") === _g_zoi_delim);
-	}
+      alert("ZOI word is not a string");
+      return false;
+    } else {
+      return (word.toLowerCase().replace(/,/gm,"").replace(/h/g, "'") === _g_zoi_delim);
+    }
   }
   
   function _zoi_check_delim(word) {
-	if (typeof(word) == "object") word = word.toString();
+    if (typeof(word) == "object") word = word.toString();
     if (!is_string(word)) {
-	  alert("ZOI word is not a string");
-	  return false;
-	} else {
-	  word = word.split(",");
-	  if (word.length > 0) word = word[word.length - 1];
-	  else word = "";
+      alert("ZOI word is not a string");
+      return false;
+    } else {
+      word = word.split(",");
+      if (word.length > 0) word = word[word.length - 1];
+      else word = "";
       return (word === _g_zoi_delim);
-	}
+    }
   }
   
   function is_string(v) {
@@ -148,7 +149,7 @@ faho_clause = expr:((FAhO_clause dot_star)?) {return _node("faho_clause", expr);
 // here was made to match grammar.300
 text_1 = expr:(I_clause (jek / joik)? (stag? BO_clause)? free* text_1? / NIhO_clause+ free* su_clause* paragraphs? / paragraphs) {return _node("text_1", expr);}
 
-paragraphs = expr:(paragraph (NIhO_clause+ free* su_clause* paragraphs)?) {return _node("paragraphs", expr);}
+paragraphs = expr:(paragraph? (NIhO_clause+ free* su_clause* paragraphs)?) {return _node_nonempty("paragraphs", expr);}
 
 paragraph = expr:((statement / fragment) (I_clause !jek !joik !joik_jek free* (statement / fragment)?)*) {return _node("paragraph", expr);}
 
@@ -1376,7 +1377,7 @@ any_word = expr:lojban_word spaces? { return expr; }
 
 zoi_open = w:lojban_word { return _zoi_assign_delim(w); }
 zoi_word = expr:( w:(non_space+) spaces &{ return (! _zoi_check_quote(w)); } ) {return "";}
-zoi_close = w:lojban_word &{ return (_zoi_check_delim(w)); }
+zoi_close = w:any_word &{ return (_zoi_check_delim(w)); }
 
 //___________________________________________________________________
 
@@ -1424,9 +1425,9 @@ stressed_brivla_rafsi = expr:(&unstressed_syllable brivla_head stressed_syllable
 
 brivla_rafsi = expr:(&(syllable consonantal_syllable* syllable) brivla_head h y h?) { return _join(expr); }
 
-stressed_fuhivla_rafsi = expr:(fuhivla_head stressed_syllable &consonant onset y) { return _join(expr); }
+stressed_fuhivla_rafsi = expr:(fuhivla_head stressed_syllable consonantal_syllable* !h onset y) { return _join(expr); }
 
-fuhivla_rafsi = expr:(&unstressed_syllable fuhivla_head &consonant onset y h?) { return _join(expr); }
+fuhivla_rafsi = expr:(&unstressed_syllable fuhivla_head !h onset y h?) { return _join(expr); }
 
 fuhivla_head = expr:(!rafsi_string brivla_head) { return _join(expr); }
 
@@ -1462,7 +1463,7 @@ y_less_rafsi = expr:(!y_rafsi !stressed_y_rafsi !hy_rafsi !stressed_hy_rafsi (CV
 
 hy_rafsi = expr:((long_rafsi vowel / CCV_rafsi / CVV_rafsi) h y h?)
 
-stressed_hy_rafsi = expr:((long_rafsi stressed_vowel / stressed_CCV_rafsi / stressed_CVV_rafsi) h y h?)
+stressed_hy_rafsi = expr:((long_rafsi stressed_vowel / stressed_CCV_rafsi / stressed_CVV_rafsi) h y)
 
 long_rafsi = expr:(initial_pair unstressed_vowel consonant / consonant unstressed_vowel consonant consonant) { return _join(expr); }
 
@@ -1491,7 +1492,7 @@ unstressed_diphthong = expr:(!stressed diphthong !stress) {return _join(expr);}
 unstressed_vowel = expr:(!stressed vowel !stress) {return _join(expr);}
 
 //// FIX: Xorxes' fix for fu'ivla rafsi stress
-stress = expr:(consonant* h? y? syllable pause) {return _join(expr);}
+stress = expr:((consonant / glide)* h? y? syllable pause) {return _join(expr);}
 
 stressed = expr:(onset comma* [AEIOU]) {return _join(expr);}
 
@@ -1500,7 +1501,7 @@ any_syllable = expr:(onset nucleus coda? / consonantal_syllable) {return _join(e
 syllable = expr:(onset !y nucleus coda?) {return _join(expr);}
 
 //// FIX: preventing {bla'ypre} from being a valid lujvo
-consonantal_syllable = expr:(consonant syllabic &(consonantal_syllable / !nucleus onset) (consonant &spaces)?) {return _join(expr);}
+consonantal_syllable = expr:(consonant &syllabic coda) {return _join(expr);}
 
 coda = expr:(!any_syllable consonant &any_syllable / syllabic? consonant? &pause) {return _join(expr);}
 
@@ -1510,9 +1511,9 @@ nucleus = expr:(vowel / diphthong / y !nucleus) {return _join(expr);}
 
 //_________________________________________________________________
 
-glide = expr:(i / u) &nucleus !glide {return expr;}
+glide = expr:(i / u) &nucleus {return expr;}
 
-diphthong = expr:(a i / a u / e i / o i) !nucleus !glide {return _join(expr);}
+diphthong = expr:(a i !i / a u !u / e i !i / o i !i) !nucleus {return _join(expr);}
 
 vowel = expr:(a / e / i / o / u) !nucleus {return expr;}
 
@@ -1526,7 +1527,7 @@ o = comma* [oO] {return "o";}
 
 u = comma* [uU] {return "u";}
 
-y = comma* [yY] {return "y";}
+y = comma* [yY] !nucleus {return "y";}
 
 
 //___________________________________________________________________

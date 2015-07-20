@@ -17676,6 +17676,7 @@ var camxes = (function(){
         result0 = parse_GOI_clause();
         if (result0 !== null) {
           result1 = parse_term();
+          result1 = result1 !== null ? result1 : "";
           if (result1 !== null) {
             result2 = parse_GEhU_elidible();
             if (result2 !== null) {
@@ -17840,11 +17841,11 @@ var camxes = (function(){
           pos1 = pos;
           result0 = parse_gek();
           if (result0 !== null) {
-            result1 = parse_relative_clauses();
+            result1 = parse_relative_clauses_ne();
             if (result1 !== null) {
               result2 = parse_gik();
               if (result2 !== null) {
-                result3 = parse_relative_clauses();
+                result3 = parse_relative_clauses_ne();
                 if (result3 !== null) {
                   result0 = [result0, result1, result2, result3];
                 } else {

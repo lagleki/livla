@@ -416,8 +416,8 @@ sumti_1 = expr:(sumti_2  (joik_ek sumti_2)*) {return _node("sumti_1", expr);}
 sumti_2 = expr:(sumti_3 (jebo full_INT* sumti_3)*) {return _node("sumti_2", expr);}
 sumti_3 = expr:(KE_clause free* sumti KEhE_elidible free* / sumti_4 / gek sumti gik sumti) {return _node("sumti_3", expr);}
 sumti_4 = expr:((quantifier? sumti_5 relative_clauses? / quantifier (selbri / gek_sentence) KU_elidible full_NAICAI?) full_INT* relative_clauses?) {return _node("sumti_4", expr);}
-sumti_5 = expr:((sumti_6 / full_NAhE relative_clauses? sumti LUhU_elidible / full_NAhE !(!sumti_5 operand) sumti_3) full_INT*) {return _node("sumti_5", expr);}
-sumti_6 = ((LE_clause sumti_tail KU_elidible / LAhE_clause relative_clauses? sumti LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_clause / lerfu_string BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_clause text LIhU_elidible  / KOhA_clause / li_clause) full_NAICAI*)
+sumti_5 = expr:((sumti_6 full_NAICAI* / full_NAhE relative_clauses? sumti LUhU_elidible / full_NAhE !(!sumti_5 operand) sumti_3) full_INT*) {return _node("sumti_5", expr);}
+sumti_6 = LE_clause sumti_tail KU_elidible / LAhE_clause relative_clauses? sumti LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_clause / lerfu_string BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_clause text LIhU_elidible  / KOhA_clause / li_clause
 
 sumtido = expr:(sumti_1do) {return _node("sumti", expr);}
 sumti_1do = expr:(sumti_2do) {return _node("sumti_1", expr);}
@@ -493,12 +493,13 @@ selbrisle_1nf = expr:(selbrisle_2nf linkargs? / linkargs? selbrisle_2) {return _
 // ** zei is part of BRIVLA_clause
 //ToDo: extract common parts into a separate rule, fix nahe problem
 selbrisle_2 = expr:((full_NAhE selbrisle_2_inner / selbrisle_2_inner full_NAICAI*) full_INT*) {return _node("selbrisle_2", expr); }
-selbrisle_2_inner = linkargs selbrisle_1 / SE_clause selbrisle_2 / JAI_clause tag? selbrisle_2 / selbrisle_2_root / selbrisle_2_root
+selbrisle_2_inner = linkargs selbrisle_1 / SE_clause selbrisle_2 / JAI_clause tag? selbrisle_2 / selbrisle_2_root
+
 selbrisle_2_root = BRIVLA_clause / GOhA_clause RAhO_clause? / KE_clause selbri_3 KEhE_elidible / ME_clause (sumti / mex) MEhU_elidible MOI_clause? / mex MOI_clause / NUhA_clause operator / NU_clause (joik_jek NU_clause)* subbridi KEI_elidible / MEhOI_clause
 
 selbrisle_2nf = expr:((full_NAhE selbrisle_2nf_inner / selbrisle_2nf_inner full_NAICAI*) full_INT*) {return _node("selbrisle_2nf", expr); }
-selbrisle_2nf_inner = linkargs selbrisle_1nf / SE_clause selbrisle_2nf / JAI_clause tag? selbrisle_2nf / selbrisle_2nf_root / selbrisle_2nf_root
-selbrisle_2nf_root = BRIVLA_clause / GOhA_clause RAhO_clause? / KE_clause selbri_3 KEhE_elidible / ME_clause (sumti / mex) MEhU_elidible MOI_clause? / mex MOI_clause / NUhA_clause operator / NU_clause (joik_jek NU_clause)* subbridi KEI_elidible / MEhOI_clause
+
+selbrisle_2nf_inner = linkargs selbrisle_1nf / SE_clause selbrisle_2nf / JAI_clause tag? selbrisle_2nf / selbrisle_2_root
 
 
 //// EXP-MODIF: MEX simplification

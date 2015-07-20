@@ -422,7 +422,7 @@ sumti_4do = expr:(sumti_5do) {return _node("sumti_4", expr);}
 sumti_5do = expr:(quantifier? sumti_6do relative_clauses?) {return _node("sumti_5", expr);}
 sumti_6do = expr:(KOhA_clausedo) {return _node("sumti_6", expr);}
 
-li_clause = expr:(LI_clause mex LOhO_elidible) {return _node("li_clause", expr); }
+li_clause = expr:(LI_clause mex LOhO_elidible / LI_clause &LOhO_clause LOhO_elidible ) {return _node("li_clause", expr); }
 
 sumti_tail = expr:((relative_clauses / relative_clauses_ne)? sumti_tail_1 / gek_sentence) {return _node("sumti_tail", expr); }
 

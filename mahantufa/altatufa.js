@@ -16786,7 +16786,7 @@ var camxes = (function(){
         }
         
         var result0, result1, result2;
-        var pos0, pos1;
+        var pos0, pos1, pos2;
         
         pos0 = pos;
         pos1 = pos;
@@ -16808,6 +16808,37 @@ var camxes = (function(){
         } else {
           result0 = null;
           pos = pos1;
+        }
+        if (result0 === null) {
+          pos1 = pos;
+          result0 = parse_LI_clause();
+          if (result0 !== null) {
+            pos2 = pos;
+            reportFailures++;
+            result1 = parse_LOhO_clause();
+            reportFailures--;
+            if (result1 !== null) {
+              result1 = "";
+              pos = pos2;
+            } else {
+              result1 = null;
+            }
+            if (result1 !== null) {
+              result2 = parse_LOhO_elidible();
+              if (result2 !== null) {
+                result0 = [result0, result1, result2];
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
         }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("li_clause", expr); })(pos0, result0);

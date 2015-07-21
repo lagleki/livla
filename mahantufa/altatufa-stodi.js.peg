@@ -448,9 +448,9 @@ sumti_tail_1_leless = expr:(selbri relative_clauses?) {return _node("sumti_tail_
 relative_clauses = expr:(relative_clause (joik relative_clause)* / gek relative_clauses gik relative_clauses) {return _node("relative_clauses", expr); }
 relative_clause = expr:(relative_clause_sa* relative_clause_1) {return _node("relative_clause", expr); }
 relative_clause_sa = expr:(relative_clause_start (!relative_clause_start (sa_word / SA_clause !relative_clause_start ) )* SA_clause &relative_clause_1) {return _node("relative_clause_sa", expr); }
-relative_clause_1 = expr:(GOI_clause term GEhU_elidible / NOI_clause subbridi KUhO_elidible) {return _node("relative_clause_1", expr); }
+relative_clause_1 = expr:(GOI_clause term? GEhU_elidible / NOI_clause subbridi KUhO_elidible) {return _node("relative_clause_1", expr); }
 relative_clause_start = expr:(GOI_clause / NOI_clause) {return _node("relative_clause_start", expr); }
-relative_clauses_ne = expr:(!sumti_tail_1 relative_clause_ne (joik (relative_clause / relative_clause_ne))* / gek relative_clauses gik relative_clauses) {return _node("relative_clauses", expr); }
+relative_clauses_ne = expr:(!sumti_tail_1 relative_clause_ne (joik (relative_clause / relative_clause_ne))* / gek relative_clauses_ne gik relative_clauses_ne) {return _node("relative_clauses", expr); }
 relative_clause_ne = expr:(relative_clause_sa* relative_clause_1_ne) {return _node("relative_clause", expr); }
 relative_clause_1_ne = expr:(GOI_clause_elidible term GEhU_elidible &sumti_tail_1) {return _node("relative_clause_1", expr); }
 

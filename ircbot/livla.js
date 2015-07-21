@@ -477,6 +477,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf(prereplier + 'mhnt ') == '0': ningaumahantufa(text.substr(12),socket);break;
 		case text.indexOf(prereplier + "tatoget") == '0': tatoget();break;
 		case text==replier+': ii': benji(source,socket,clientmensi,sendTo, io());break;
+		case text==replier+': aigne': benji(source,socket,clientmensi,sendTo, kurtyvla());break;
 		case text==replier+': help': benji(source,socket,clientmensi,sendTo, sidju());break;
 		case text==replier+': labangu': benji(source,socket,clientmensi,sendTo, labangu());break;
 		case text.indexOf("rot13:") == '0': benji(source,socket,clientmensi,sendTo, rotpaci(text.substr(6)));break;
@@ -853,6 +854,11 @@ return gag;
 var io = function ()
 {
 return '.ii';
+};
+
+var kurtyvla = function ()
+{
+return 'CommonSenseError: Expected normal word but Curtis found.';
 };
 
 var sidju=function(){

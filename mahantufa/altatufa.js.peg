@@ -507,8 +507,8 @@ mex_forethought = !(lerfu_string BOI_elidible) operator mex_2+ mex_forethought? 
 operator = expr:(full_NAhE operator / (SE_clause operator / MAhO_clause mex TEhU_elidible / NAhU_clause selbri TEhU_elidible / VUhU_clause / joik_ek) full_NAICAI*) {return _node("operator", expr); }
 //ToDo: double VEI in e.g. {vei pa mo} - no need in that
 operand = expr:(((VEI_clause mex VEhO_elidible / number BOI_elidible / NIhE_clause selbri TEhU_elidible / MOhE_clause sumti TEhU_elidible / LAhE_clause mex LUhU_elidible)  full_NAICAI*) / NAhE_clause BO_clause? mex LUhU_elidible / full_NAhE operand) {return _node("operand", expr); }
-number = expr:((VEI_clause? (PA_clause / lerfu_string) VEhO_elidible)+) {return _node("number", expr); }
-
+number = expr:((VEI_elidible !VEI_clause)? (VEI_clause pl VEhO_elidible / pl )+ (VEhO_elidible !pl)?) {return _node("number", expr); }
+pl = PA_clause / lerfu_string
 lerfu_string = expr:((PA_clause BY_clause / lerfu_word)+) {return _node("lerfu_string", expr); }
 lerfu_word = expr:(BY_clause / LAU_clause lerfu_word / TEI_clause lerfu_string FOI_clause) {return _node("lerfu_word", expr); }
 
@@ -636,6 +636,7 @@ TEhU_elidible = expr:(TEhU_clause?) {return (expr == "") ? ["TEhU"] : _node("TEh
 TOI_elidible = expr:(TOI_clause?)   {return (expr == "") ? ["TOI"]  : _node("TOI", expr);}
 TUhU_elidible = expr:(TUhU_clause?) {return (expr == "") ? ["TUhU"] : _node("TUhU", expr);}
 VAU_elidible = expr:(VAU_clause?)   {return (expr == "") ? ["VAU"]  : _node("VAU", expr);}
+VEI_elidible = expr:(VEI_clause?) {return (expr == "") ? ["VEI"] : _node("VEI", expr);}
 VEhO_elidible = expr:(VEhO_clause?) {return (expr == "") ? ["VEhO"] : _node("VEhO", expr);}
 
 FASNU_elidible = {return ["FASNU"] }
@@ -1379,11 +1380,6 @@ VAU_post = post_clause
 VEI_clause = pre:VEI_pre post:VEI_post {return _node2("VEI_clause", pre, post); }
 VEI_pre = pre_clause VEI spaces?
 VEI_post = post_clause
-
-//ToDo: a new VEI inside needed
-VEI_clause_elidible = pre:VEI_pre_elidible post:VEI_post {return _node2("VEI_clause", pre, post); }
-VEI_pre_elidible = pre_clause VEI? spaces?
-// VEI_no_SA_handling = pre_clause VEI post_clause
 
 //         right MEX bracket 
 VEhO_clause = pre:VEhO_pre post:VEhO_post {return _node2("VEhO_clause", pre, post); }

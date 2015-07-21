@@ -464,10 +464,10 @@ selbri_relative_clause_1 = expr:(NOhOI_clause subbridi KUhOI_elidible ) {return 
 selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relative_clause_start", expr); }
 
 
-selbri_may_elide = (selbri / selbri_to_elide_elided !terms)
-selbri_may_elide_elided = (selbri_to_elide_elided)
-selbri_to_elide_elided = expr:(tag* SELBRI_elided) {return _node("selbri", expr); }
-selbri_elided = expr:(SELBRI_elided) {return _node("selbri", expr); }
+selbri_may_elide = (selbri / selbri_elided !terms)
+selbri_may_elide_elided = (selbri_elided)
+selbri_elided = expr:(tag* COhE_elided) {return _node("selbri", expr); }
+selbri_elided = expr:(COhE_elided) {return _node("selbri", expr); }
 
 selbri = expr:(tag* selbri_1) {return _node("selbri", expr); }
 selbri_1 = expr:(selbri_2) {return _node("selbri_1", expr); }
@@ -684,7 +684,7 @@ VEhO_elidible = expr:(VEhO_clause?) {return (expr == "") ? ["VEhO"] : _node("VEh
 
 FASNU_elidible = {return ["FASNU"] }
 
-SELBRI_elided = {return ["COhE"] }
+COhE_elided = {return ["COhE"] }
 
 NOUNEND = {return ["NF"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}
@@ -934,7 +934,7 @@ FUhO_post = post_clause
 //         geks; forethought logical connectives 
 GA_clause = pre:GA_pre post:GA_post {return _node2("GA_clause", pre, post); }
 GA_pre = pre_clause GA spaces?
-GA_post = post_clause
+GA_post = post_clause_limited
 // GA_no_SA_handling = pre_clause GA post_clause
 
 //         openclosed interval markers for BIhI 
@@ -952,13 +952,13 @@ GEhU_post = post_clause
 //         forethought medial marker 
 GI_clause = pre:GI_pre post:GI_post {return _node2("GI_clause", pre, post); }
 GI_pre = pre_clause GI spaces?
-GI_post = post_clause
+GI_post = post_clause_limited
 // GI_no_SA_handling = pre_clause GI post_clause
 
 //         logical connectives for bridi_tails 
 GIhA_clause = pre:GIhA_pre post:GIhA_post {return _node2("GIhA_clause", pre, post); }
 GIhA_pre = pre_clause GIhA spaces?
-GIhA_post = post_clause
+GIhA_post = post_clause_limited
 // GIhA_no_SA_handling = pre_clause GIhA post_clause
 
 //         attaches a sumti modifier to a sumti 
@@ -979,7 +979,7 @@ GOhA_post = post_clause
 //         GEK for selbrisle, corresponds to JEKs 
 GUhA_clause = pre:GUhA_pre post:GUhA_post {return _node2("GUhA_clause", pre, post); }
 GUhA_pre = pre_clause GUhA spaces?
-GUhA_post = post_clause
+GUhA_post = post_clause_limited
 // GUhA_no_SA_handling = pre_clause GUhA post_clause
 
 
@@ -1537,9 +1537,10 @@ KUhOI_clause = pre:KUhOI_pre post:KUhOI_post {return _node2("KUhOI_clause", pre,
 KUhOI_pre = pre_clause KUhOI spaces?
 KUhOI_post = post_clause
 
+//ToDo: weird definition
 ga_clause = pre:ga_pre post:ga_post {return _node2("ga_clause", pre, post); }
 ga_pre = pre_clause ga_word spaces?
-ga_post = post_clause
+ga_post = post_clause_limited
 ga_word = &cmavo expr:( g a ) &post_word {return ["ga_word", _join(expr)];}
 
 

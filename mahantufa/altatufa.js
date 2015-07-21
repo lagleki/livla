@@ -287,7 +287,7 @@ var camxes = (function(){
         "selbri_relative_clause_1": parse_selbri_relative_clause_1,
         "selbri_relative_clause_start": parse_selbri_relative_clause_start,
         "selbri_may_elide": parse_selbri_may_elide,
-        "selbri_to_elide_elided": parse_selbri_to_elide_elided,
+        "selbri_elided": parse_selbri_elided,
         "selbri_elided": parse_selbri_elided,
         "selbri": parse_selbri,
         "selbri_1": parse_selbri_1,
@@ -397,7 +397,7 @@ var camxes = (function(){
         "VAU_elidible": parse_VAU_elidible,
         "VEhO_elidible": parse_VEhO_elidible,
         "FASNU_elidible": parse_FASNU_elidible,
-        "SELBRI_elided": parse_SELBRI_elided,
+        "COhE_elided": parse_COhE_elided,
         "NOUNEND": parse_NOUNEND,
         "KUhOI_elidible": parse_KUhOI_elidible,
         "KOhA_elidible": parse_KOhA_elidible,
@@ -8069,7 +8069,7 @@ var camxes = (function(){
         var pos0;
         
         pos0 = pos;
-        result0 = parse_selbri_to_elide_elided();
+        result0 = parse_selbri_elided();
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("bridi_tail_3", expr);})(pos0, result0);
         }
@@ -18535,7 +18535,7 @@ var camxes = (function(){
         result0 = parse_selbri();
         if (result0 === null) {
           pos0 = pos;
-          result0 = parse_selbri_to_elide_elided();
+          result0 = parse_selbri_elided();
           if (result0 !== null) {
             pos1 = pos;
             reportFailures++;
@@ -18566,8 +18566,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_selbri_to_elide_elided() {
-        var cacheKey = "selbri_to_elide_elided@" + pos;
+      function parse_selbri_elided() {
+        var cacheKey = "selbri_elided@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -18586,7 +18586,7 @@ var camxes = (function(){
           result1 = parse_tag();
         }
         if (result0 !== null) {
-          result1 = parse_SELBRI_elided();
+          result1 = parse_COhE_elided();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -18623,7 +18623,7 @@ var camxes = (function(){
         var pos0;
         
         pos0 = pos;
-        result0 = parse_SELBRI_elided();
+        result0 = parse_COhE_elided();
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("selbri", expr); })(pos0, result0);
         }
@@ -25876,8 +25876,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_SELBRI_elided() {
-        var cacheKey = "SELBRI_elided@" + pos;
+      function parse_COhE_elided() {
+        var cacheKey = "COhE_elided@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -29194,7 +29194,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_GA_pre();
         if (result0 !== null) {
-          result1 = parse_post_clause();
+          result1 = parse_post_clause_limited();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -29434,7 +29434,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_GI_pre();
         if (result0 !== null) {
-          result1 = parse_post_clause();
+          result1 = parse_post_clause_limited();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -29514,7 +29514,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_GIhA_pre();
         if (result0 !== null) {
-          result1 = parse_post_clause();
+          result1 = parse_post_clause_limited();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -29834,7 +29834,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_GUhA_pre();
         if (result0 !== null) {
-          result1 = parse_post_clause();
+          result1 = parse_post_clause_limited();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -37924,7 +37924,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_ga_pre();
         if (result0 !== null) {
-          result1 = parse_post_clause();
+          result1 = parse_post_clause_limited();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {

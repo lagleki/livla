@@ -464,9 +464,8 @@ selbri_relative_clause_1 = expr:(NOhOI_clause subbridi KUhOI_elidible ) {return 
 selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relative_clause_start", expr); }
 
 
-selbri_may_elide = (selbri / selbri_to_elide !terms)
+selbri_may_elide = (selbri / selbri_to_elide_elided !terms)
 selbri_may_elide_elided = (selbri_to_elide_elided)
-selbri_to_elide = expr:(tag* SELBRI_elidible) {return _node("selbri", expr); }
 selbri_to_elide_elided = expr:(tag* SELBRI_elided) {return _node("selbri", expr); }
 selbri_elided = expr:(SELBRI_elided) {return _node("selbri", expr); }
 
@@ -686,7 +685,6 @@ VEhO_elidible = expr:(VEhO_clause?) {return (expr == "") ? ["VEhO"] : _node("VEh
 FASNU_elidible = {return ["FASNU"] }
 
 SELBRI_elided = {return ["COhE"] }
-SELBRI_elidible = expr:(GOhA_clause?) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);}
 
 NOUNEND = {return ["NF"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}

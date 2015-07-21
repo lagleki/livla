@@ -287,7 +287,6 @@ var camxes = (function(){
         "selbri_relative_clause_1": parse_selbri_relative_clause_1,
         "selbri_relative_clause_start": parse_selbri_relative_clause_start,
         "selbri_may_elide": parse_selbri_may_elide,
-        "selbri_to_elide": parse_selbri_to_elide,
         "selbri_to_elide_elided": parse_selbri_to_elide_elided,
         "selbri_elided": parse_selbri_elided,
         "selbri": parse_selbri,
@@ -399,7 +398,6 @@ var camxes = (function(){
         "VEhO_elidible": parse_VEhO_elidible,
         "FASNU_elidible": parse_FASNU_elidible,
         "SELBRI_elided": parse_SELBRI_elided,
-        "SELBRI_elidible": parse_SELBRI_elidible,
         "NOUNEND": parse_NOUNEND,
         "KUhOI_elidible": parse_KUhOI_elidible,
         "KOhA_elidible": parse_KOhA_elidible,
@@ -18537,7 +18535,7 @@ var camxes = (function(){
         result0 = parse_selbri();
         if (result0 === null) {
           pos0 = pos;
-          result0 = parse_selbri_to_elide();
+          result0 = parse_selbri_to_elide_elided();
           if (result0 !== null) {
             pos1 = pos;
             reportFailures++;
@@ -18559,51 +18557,6 @@ var camxes = (function(){
             result0 = null;
             pos = pos0;
           }
-        }
-        
-        cache[cacheKey] = {
-          nextPos: pos,
-          result:  result0
-        };
-        return result0;
-      }
-      
-      function parse_selbri_to_elide() {
-        var cacheKey = "selbri_to_elide@" + pos;
-        var cachedResult = cache[cacheKey];
-        if (cachedResult) {
-          pos = cachedResult.nextPos;
-          return cachedResult.result;
-        }
-        
-        var result0, result1;
-        var pos0, pos1;
-        
-        pos0 = pos;
-        pos1 = pos;
-        result0 = [];
-        result1 = parse_tag();
-        while (result1 !== null) {
-          result0.push(result1);
-          result1 = parse_tag();
-        }
-        if (result0 !== null) {
-          result1 = parse_SELBRI_elidible();
-          if (result1 !== null) {
-            result0 = [result0, result1];
-          } else {
-            result0 = null;
-            pos = pos1;
-          }
-        } else {
-          result0 = null;
-          pos = pos1;
-        }
-        if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("selbri", expr); })(pos0, result0);
-        }
-        if (result0 === null) {
-          pos = pos0;
         }
         
         cache[cacheKey] = {
@@ -25939,34 +25892,6 @@ var camxes = (function(){
         result0 = [];
         if (result0 !== null) {
           result0 = (function(offset) {return ["COhE"] })(pos0);
-        }
-        if (result0 === null) {
-          pos = pos0;
-        }
-        
-        cache[cacheKey] = {
-          nextPos: pos,
-          result:  result0
-        };
-        return result0;
-      }
-      
-      function parse_SELBRI_elidible() {
-        var cacheKey = "SELBRI_elidible@" + pos;
-        var cachedResult = cache[cacheKey];
-        if (cachedResult) {
-          pos = cachedResult.nextPos;
-          return cachedResult.result;
-        }
-        
-        var result0;
-        var pos0;
-        
-        pos0 = pos;
-        result0 = parse_GOhA_clause();
-        result0 = result0 !== null ? result0 : "";
-        if (result0 !== null) {
-          result0 = (function(offset, expr) {return (expr == "") ? ["COhE"]   : _node("COhE", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;

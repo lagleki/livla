@@ -506,7 +506,7 @@ operator = expr:(full_NAhE operator / (SE_clause operator / MAhO_clause mex TEhU
 operand = expr:(((number BOI_elidible / VEI_clause mex VEhO_elidible / NIhE_clause selbri TEhU_elidible / MOhE_clause sumti TEhU_elidible / LAhE_clause mex LUhU_elidible)  full_NAICAI*) / NAhE_clause BO_clause? mex LUhU_elidible / full_NAhE operand) {return _node("operand", expr); }
 number = expr:((PA_clause ln* / VEI_clause lerfu_string ln* VEhO_elidible)) {return _node("number", expr); }
 ln = PA_clause / VEI_clause? lerfu_string
-lerfu_string = expr:((PA_clause BY_clause / lerfu_word)+) {return _node("lerfu_string", expr); }
+lerfu_string = expr:((PA_clause+ BY_clause / lerfu_word)+) {return _node("lerfu_string", expr); }
 lerfu_word = expr:(BY_clause / LAU_clause lerfu_word / TEI_clause lerfu_string FOI_clause) {return _node("lerfu_word", expr); }
 
 ///MEX 

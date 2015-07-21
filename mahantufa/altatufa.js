@@ -21367,7 +21367,16 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result1 = parse_PA_clause();
+        result2 = parse_PA_clause();
+        if (result2 !== null) {
+          result1 = [];
+          while (result2 !== null) {
+            result1.push(result2);
+            result2 = parse_PA_clause();
+          }
+        } else {
+          result1 = null;
+        }
         if (result1 !== null) {
           result2 = parse_BY_clause();
           if (result2 !== null) {
@@ -21388,7 +21397,16 @@ var camxes = (function(){
           while (result1 !== null) {
             result0.push(result1);
             pos1 = pos;
-            result1 = parse_PA_clause();
+            result2 = parse_PA_clause();
+            if (result2 !== null) {
+              result1 = [];
+              while (result2 !== null) {
+                result1.push(result2);
+                result2 = parse_PA_clause();
+              }
+            } else {
+              result1 = null;
+            }
             if (result1 !== null) {
               result2 = parse_BY_clause();
               if (result2 !== null) {

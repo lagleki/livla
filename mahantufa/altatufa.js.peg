@@ -506,11 +506,10 @@ mex_rp = FUhA_clause mex_2+ operator (mex_2* operator)* KUhE_elidible free*
 mex_forethought = !(lerfu_string BOI_elidible) operator mex_2+ mex_forethought? KUhE_elidible / PEhO_clause operator mex_2+ mex_forethought? KUhE_elidible
 operator = expr:(full_NAhE operator / (SE_clause operator / MAhO_clause mex TEhU_elidible / NAhU_clause selbri TEhU_elidible / VUhU_clause / joik_ek) full_NAICAI*) {return _node("operator", expr); }
 //ToDo: double VEI in e.g. {vei pa mo} - no need in that
-operand = expr:(((number BOI_elidible / VEI_clause mex VEhO_elidible / NIhE_clause selbri TEhU_elidible / MOhE_clause sumti TEhU_elidible / LAhE_clause mex LUhU_elidible)  full_NAICAI*) / NAhE_clause BO_clause? mex LUhU_elidible / full_NAhE operand) {return _node("operand", expr); }
-//number = expr:((PA_clause / VEI_clause lerfu_string VEhO_elidible)+) {return _node("number", expr); }
-number = expr:((VEI_clause? (PA_clause / lerfu_string VEhO_elidible))+) {return _node("number", expr); }
+operand = expr:(((VEI_clause mex VEhO_elidible / number BOI_elidible / NIhE_clause selbri TEhU_elidible / MOhE_clause sumti TEhU_elidible / LAhE_clause mex LUhU_elidible)  full_NAICAI*) / NAhE_clause BO_clause? mex LUhU_elidible / full_NAhE operand) {return _node("operand", expr); }
+number = expr:((VEI_clause? (PA_clause / lerfu_string) VEhO_elidible)+) {return _node("number", expr); }
 
-lerfu_string = expr:((PA_clause+ BY_clause / lerfu_word)+) {return _node("lerfu_string", expr); }
+lerfu_string = expr:((PA_clause BY_clause / lerfu_word)+) {return _node("lerfu_string", expr); }
 lerfu_word = expr:(BY_clause / LAU_clause lerfu_word / TEI_clause lerfu_string FOI_clause) {return _node("lerfu_word", expr); }
 
 ///MEX 

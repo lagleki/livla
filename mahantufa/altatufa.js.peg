@@ -171,7 +171,7 @@ normalbridi ) {return _node("bridi", expr);}
 
 //ToDo: consider removing KE_clause from (joi bridi_tail) definition
 normalbridi = expr:(
-(bridi_tail) / /* klama*/
+bridi_tail /
 (termspreFAZOhE bridi_tailfefifofu) / /*    klama do ti ta tu*/
 (termsZAMfa bridi_tailfefifofu) / /* mi klama do ti ta tu*/
 (termsZAMfafe bridi_tailfifofu) / /* mi do klama ti ta tu*/
@@ -181,17 +181,17 @@ normalbridi = expr:(
 (termsZAMfafefifofu_elidible bridi_tail) / /* mi [do ti ta tu] (FA ko'a)n klama*/
 terms? bridi_tail)
 
-bridi_sei = expr:(terms? bridi_tail_sei)  {return _node("bridi_sei", expr);}
-bridi_tail_sei = expr:(CU_elidible bridi_tail_1_nul) {return _node("bridi_tail_sei", expr);}
-
 sentence_sa = expr:(sentence_start (!sentence_start (sa_word / SA_clause !sentence_start ) )* SA_clause &nion_0) {return _node("sentence_sa", expr);}
 sentence_start = expr:(I_pre / NIhO_pre) {return _node("sentence_start", expr);}
+
+bridi_sei = expr:(terms? bridi_tail_sei)  {return _node("bridi_sei", expr);}
+bridi_tail_sei = expr:(CU_elidible bridi_tail_1_nul) {return _node("bridi_tail_sei", expr);}
 
 bridi_tail_nul = expr:(bridi_tail_1_nul) {return _node("bridi_tail_nul", expr);}
 bridi_tail_1_nul = expr:(bridi_tail_2_nul) {return _node("bridi_tail_1_nul", expr);}
 bridi_tail_2_nul = expr:(bridi_tail_3_nul) {return _node("bridi_tail_2_nul", expr);}
 bridi_tail_3_nul = expr:(KE_clause !(selbri_2 KEhE) bridi_tail_nul KEhE_elidible / gek_bridi_tail_nul / selbri_may_elide) {return _node("bridi_tail_3_nul", expr);}
-gek_bridi_tail_nul = expr:(gek bridi_tail_nul gik bridi_tail_nul / KE_clause gek_bridi_tail_nul KEhE_elidible / NA_clause gek_bridi_tail_nul) {return _node("gek_bridi_tail", expr);}
+gek_bridi_tail_nul = expr:(gek bridi_tail_nul gik bridi_tail_nul / KE_clause gek_bridi_tail_nul KEhE_elidible / NA_clause gek_bridi_tail_nul) {return _node("gek_bridi_tail_nul", expr);}
 
 //ToDo:NA_clause is left negator, fix this, dont hardcode
 bridi_tail = expr:(CU_elidible bridi_tail_1 (joik_gihek stag? CU_elidible bridi_tail_1)*) {return _node("bridi_tail", expr);}

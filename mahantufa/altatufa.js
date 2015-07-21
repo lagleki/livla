@@ -316,6 +316,7 @@ var camxes = (function(){
         "mex_forethought": parse_mex_forethought,
         "operator": parse_operator,
         "operand": parse_operand,
+        "number": parse_number,
         "lerfu_string": parse_lerfu_string,
         "lerfu_word": parse_lerfu_word,
         "gihek": parse_gihek,
@@ -10059,7 +10060,7 @@ var camxes = (function(){
                                     pos = pos1;
                                   }
                                   if (result1 === null) {
-                                    result1 = parse_lerfu_string();
+                                    result1 = parse_number();
                                   }
                                   if (result1 !== null) {
                                     result2 = parse_ROI_clause();
@@ -16697,28 +16698,7 @@ var camxes = (function(){
                             pos = pos1;
                           }
                           if (result3 !== null) {
-                            pos1 = pos;
-                            reportFailures++;
-                            result4 = parse_sumti_5();
-                            if (result4 === null) {
-                              result4 = parse_selbri();
-                              if (result4 === null) {
-                                result4 = parse_gek_sentence();
-                              }
-                            }
-                            reportFailures--;
-                            if (result4 === null) {
-                              result4 = "";
-                            } else {
-                              result4 = null;
-                              pos = pos1;
-                            }
-                            if (result4 !== null) {
-                              result0 = [result0, result1, result2, result3, result4];
-                            } else {
-                              result0 = null;
-                              pos = pos0;
-                            }
+                            result0 = [result0, result1, result2, result3];
                           } else {
                             result0 = null;
                             pos = pos0;
@@ -21081,7 +21061,7 @@ var camxes = (function(){
         pos0 = pos;
         pos1 = pos;
         pos2 = pos;
-        result0 = parse_lerfu_string();
+        result0 = parse_number();
         if (result0 !== null) {
           result1 = parse_BOI_elidible();
           if (result1 !== null) {
@@ -21258,6 +21238,86 @@ var camxes = (function(){
         return result0;
       }
       
+      function parse_number() {
+        var cacheKey = "number@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        result1 = parse_PA_clause();
+        if (result1 === null) {
+          pos1 = pos;
+          result1 = parse_VEI_clause();
+          if (result1 !== null) {
+            result2 = parse_lerfu_word();
+            if (result2 !== null) {
+              result3 = parse_VEhO_elidible();
+              if (result3 !== null) {
+                result1 = [result1, result2, result3];
+              } else {
+                result1 = null;
+                pos = pos1;
+              }
+            } else {
+              result1 = null;
+              pos = pos1;
+            }
+          } else {
+            result1 = null;
+            pos = pos1;
+          }
+        }
+        if (result1 !== null) {
+          result0 = [];
+          while (result1 !== null) {
+            result0.push(result1);
+            result1 = parse_PA_clause();
+            if (result1 === null) {
+              pos1 = pos;
+              result1 = parse_VEI_clause();
+              if (result1 !== null) {
+                result2 = parse_lerfu_word();
+                if (result2 !== null) {
+                  result3 = parse_VEhO_elidible();
+                  if (result3 !== null) {
+                    result1 = [result1, result2, result3];
+                  } else {
+                    result1 = null;
+                    pos = pos1;
+                  }
+                } else {
+                  result1 = null;
+                  pos = pos1;
+                }
+              } else {
+                result1 = null;
+                pos = pos1;
+              }
+            }
+          }
+        } else {
+          result0 = null;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("number", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
       function parse_lerfu_string() {
         var cacheKey = "lerfu_string@" + pos;
         var cachedResult = cache[cacheKey];
@@ -21266,11 +21326,24 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1;
-        var pos0;
+        var result0, result1, result2;
+        var pos0, pos1;
         
         pos0 = pos;
+        pos1 = pos;
         result1 = parse_PA_clause();
+        if (result1 !== null) {
+          result2 = parse_BY_clause();
+          if (result2 !== null) {
+            result1 = [result1, result2];
+          } else {
+            result1 = null;
+            pos = pos1;
+          }
+        } else {
+          result1 = null;
+          pos = pos1;
+        }
         if (result1 === null) {
           result1 = parse_lerfu_word();
         }
@@ -21278,7 +21351,20 @@ var camxes = (function(){
           result0 = [];
           while (result1 !== null) {
             result0.push(result1);
+            pos1 = pos;
             result1 = parse_PA_clause();
+            if (result1 !== null) {
+              result2 = parse_BY_clause();
+              if (result2 !== null) {
+                result1 = [result1, result2];
+              } else {
+                result1 = null;
+                pos = pos1;
+              }
+            } else {
+              result1 = null;
+              pos = pos1;
+            }
             if (result1 === null) {
               result1 = parse_lerfu_word();
             }

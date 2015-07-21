@@ -151,7 +151,7 @@ full_NAICAI = expr:((NAI_clause / CAI_clause) !BU_clause full_NAICAI*) {return _
 full_NAhE = expr:(NAhE_clause BO_clause?) {return _node("left scaler", expr); }
 
 //ToDo:change bridi structure definition
-free = expr:(SEI_clause terms? CU_elidible selbri SEhU_elidible / vocative (sumti / sumti_leless  / sumtido) DOhU_elidible / mex_2 MAI_clause / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
+free = expr:(SEI_clause terms? bridi_tail_3 SEhU_elidible / vocative (sumti / sumti_leless  / sumtido) DOhU_elidible / mex_2 MAI_clause / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
 
 xi_clause = expr:(XI_clause mex_2 / XI_clause VEI_clause mex VEhO_elidible) {return _node("xi_clause", expr); }
 
@@ -170,7 +170,9 @@ bridi = expr:(
 normalbridi ) {return _node("bridi", expr);}
 
 //ToDo: consider removing KE_clause from (joi bridi_tail) definition
-normalbridi = expr:((termspreFAZOhE bridi_tail_t1fefifofu) / /*    klama do ti ta tu*/
+normalbridi = expr:(
+(bridi_tail_t1) / /* klama*/
+(termspreFAZOhE bridi_tail_t1fefifofu) / /*    klama do ti ta tu*/
 (termsZAMfa bridi_tail_t1fefifofu) / /* mi klama do ti ta tu*/
 (termsZAMfafe bridi_tail_t1fifofu) / /* mi do klama ti ta tu*/
 (termsZAMfafefi bridi_tail_t1fofu) / /* mi do ti klama ta tu*/
@@ -286,7 +288,7 @@ abs_term_1FAM = expr:(abs_tag_termFAM / termset) {return _node("abs_term_1FAM", 
 abs_tag_termFAM = expr:((!gek (sumti) CO_clause tagFAM / !gek tagFAM !selbri !gek_sentence (sumti / KU_clause / sumtifazohe) / SOI_clause subbridi SEhU_elidible) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_termFAM", expr);}
 tagFAM = expr:(tense_modalFAM (joik_jek (tense_modal+ / tense_modalFAM))*) {return _node("tagFAM", expr); }
 tense_modal = expr:((full_NAhE cls tense_modal_root / cls tense_modal_root full_NAICAI*) full_INT*) {return _node("tense_modal", expr); }
-tense_modal_root = NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? ( VEI_clause mex VEhO_elidible / number) ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause selbri FEhU_elidible
+tense_modal_root = NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? ( VEI_clause mex VEhO_elidible / !lerfu_string number) ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause selbri FEhU_elidible
 
 //ToDo: not FA_clause but required node
 tense_modalFAM = expr:(((full_NAhE FA_clause / FA_clause full_NAICAI*) full_INT*)+) {return _node("tense_modalFAM", expr); }
@@ -503,9 +505,11 @@ mex_2 = expr:(operand / mex_rp / mex_forethought) {return _node("mex_2", expr); 
 mex_rp = FUhA_clause mex_2+ operator (mex_2* operator)* KUhE_elidible free*
 mex_forethought = !(lerfu_string BOI_elidible) operator mex_2+ mex_forethought? KUhE_elidible / PEhO_clause operator mex_2+ mex_forethought? KUhE_elidible
 operator = expr:(full_NAhE operator / (SE_clause operator / MAhO_clause mex TEhU_elidible / NAhU_clause selbri TEhU_elidible / VUhU_clause / joik_ek) full_NAICAI*) {return _node("operator", expr); }
+//ToDo: double VEI in e.g. {vei pa mo} - no need in that
 operand = expr:(((number BOI_elidible / VEI_clause mex VEhO_elidible / NIhE_clause selbri TEhU_elidible / MOhE_clause sumti TEhU_elidible / LAhE_clause mex LUhU_elidible)  full_NAICAI*) / NAhE_clause BO_clause? mex LUhU_elidible / full_NAhE operand) {return _node("operand", expr); }
-number = expr:((PA_clause ln* / VEI_clause lerfu_string ln* VEhO_elidible)) {return _node("number", expr); }
-ln = PA_clause / VEI_clause? lerfu_string
+//number = expr:((PA_clause / VEI_clause lerfu_string VEhO_elidible)+) {return _node("number", expr); }
+number = expr:((VEI_clause? (PA_clause / lerfu_string VEhO_elidible))+) {return _node("number", expr); }
+
 lerfu_string = expr:((PA_clause+ BY_clause / lerfu_word)+) {return _node("lerfu_string", expr); }
 lerfu_word = expr:(BY_clause / LAU_clause lerfu_word / TEI_clause lerfu_string FOI_clause) {return _node("lerfu_word", expr); }
 
@@ -1376,6 +1380,10 @@ VAU_post = post_clause
 VEI_clause = pre:VEI_pre post:VEI_post {return _node2("VEI_clause", pre, post); }
 VEI_pre = pre_clause VEI spaces?
 VEI_post = post_clause
+
+//ToDo: a new VEI inside needed
+VEI_clause_elidible = pre:VEI_pre_elidible post:VEI_post {return _node2("VEI_clause", pre, post); }
+VEI_pre_elidible = pre_clause VEI? spaces?
 // VEI_no_SA_handling = pre_clause VEI post_clause
 
 //         right MEX bracket 

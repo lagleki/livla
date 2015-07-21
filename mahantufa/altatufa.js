@@ -317,6 +317,7 @@ var camxes = (function(){
         "operator": parse_operator,
         "operand": parse_operand,
         "number": parse_number,
+        "pl": parse_pl,
         "lerfu_string": parse_lerfu_string,
         "lerfu_word": parse_lerfu_word,
         "gihek": parse_gihek,
@@ -384,6 +385,7 @@ var camxes = (function(){
         "TOI_elidible": parse_TOI_elidible,
         "TUhU_elidible": parse_TUhU_elidible,
         "VAU_elidible": parse_VAU_elidible,
+        "VEI_elidible": parse_VEI_elidible,
         "VEhO_elidible": parse_VEhO_elidible,
         "FASNU_elidible": parse_FASNU_elidible,
         "COhE_elided": parse_COhE_elided,
@@ -640,8 +642,6 @@ var camxes = (function(){
         "VAU_pre": parse_VAU_pre,
         "VEI_clause": parse_VEI_clause,
         "VEI_pre": parse_VEI_pre,
-        "VEI_clause_elidible": parse_VEI_clause_elidible,
-        "VEI_pre_elidible": parse_VEI_pre_elidible,
         "VEhO_clause": parse_VEhO_clause,
         "VEhO_pre": parse_VEhO_pre,
         "VUhU_clause": parse_VUhU_clause,
@@ -21267,71 +21267,156 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3;
-        var pos0, pos1;
+        var result0, result1, result2, result3, result4;
+        var pos0, pos1, pos2, pos3;
         
         pos0 = pos;
         pos1 = pos;
-        result1 = parse_VEI_clause();
-        result1 = result1 !== null ? result1 : "";
-        if (result1 !== null) {
-          result2 = parse_PA_clause();
-          if (result2 === null) {
-            result2 = parse_lerfu_string();
-          }
-          if (result2 !== null) {
-            result3 = parse_VEhO_elidible();
-            if (result3 !== null) {
-              result1 = [result1, result2, result3];
-            } else {
-              result1 = null;
-              pos = pos1;
-            }
+        pos2 = pos;
+        result0 = parse_VEI_elidible();
+        if (result0 !== null) {
+          pos3 = pos;
+          reportFailures++;
+          result1 = parse_VEI_clause();
+          reportFailures--;
+          if (result1 === null) {
+            result1 = "";
           } else {
             result1 = null;
-            pos = pos1;
+            pos = pos3;
           }
-        } else {
-          result1 = null;
-          pos = pos1;
-        }
-        if (result1 !== null) {
-          result0 = [];
-          while (result1 !== null) {
-            result0.push(result1);
-            pos1 = pos;
-            result1 = parse_VEI_clause();
-            result1 = result1 !== null ? result1 : "";
-            if (result1 !== null) {
-              result2 = parse_PA_clause();
-              if (result2 === null) {
-                result2 = parse_lerfu_string();
-              }
-              if (result2 !== null) {
-                result3 = parse_VEhO_elidible();
-                if (result3 !== null) {
-                  result1 = [result1, result2, result3];
-                } else {
-                  result1 = null;
-                  pos = pos1;
-                }
-              } else {
-                result1 = null;
-                pos = pos1;
-              }
-            } else {
-              result1 = null;
-              pos = pos1;
-            }
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos2;
           }
         } else {
           result0 = null;
+          pos = pos2;
+        }
+        result0 = result0 !== null ? result0 : "";
+        if (result0 !== null) {
+          pos2 = pos;
+          result2 = parse_VEI_clause();
+          if (result2 !== null) {
+            result3 = parse_pl();
+            if (result3 !== null) {
+              result4 = parse_VEhO_elidible();
+              if (result4 !== null) {
+                result2 = [result2, result3, result4];
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+          } else {
+            result2 = null;
+            pos = pos2;
+          }
+          if (result2 === null) {
+            result2 = parse_pl();
+          }
+          if (result2 !== null) {
+            result1 = [];
+            while (result2 !== null) {
+              result1.push(result2);
+              pos2 = pos;
+              result2 = parse_VEI_clause();
+              if (result2 !== null) {
+                result3 = parse_pl();
+                if (result3 !== null) {
+                  result4 = parse_VEhO_elidible();
+                  if (result4 !== null) {
+                    result2 = [result2, result3, result4];
+                  } else {
+                    result2 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+              if (result2 === null) {
+                result2 = parse_pl();
+              }
+            }
+          } else {
+            result1 = null;
+          }
+          if (result1 !== null) {
+            pos2 = pos;
+            result2 = parse_VEhO_elidible();
+            if (result2 !== null) {
+              pos3 = pos;
+              reportFailures++;
+              result3 = parse_pl();
+              reportFailures--;
+              if (result3 === null) {
+                result3 = "";
+              } else {
+                result3 = null;
+                pos = pos3;
+              }
+              if (result3 !== null) {
+                result2 = [result2, result3];
+              } else {
+                result2 = null;
+                pos = pos2;
+              }
+            } else {
+              result2 = null;
+              pos = pos2;
+            }
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result0 = [result0, result1, result2];
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
         }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("number", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_pl() {
+        var cacheKey = "pl@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        
+        result0 = parse_PA_clause();
+        if (result0 === null) {
+          result0 = parse_lerfu_string();
         }
         
         cache[cacheKey] = {
@@ -24839,6 +24924,34 @@ var camxes = (function(){
         result0 = result0 !== null ? result0 : "";
         if (result0 !== null) {
           result0 = (function(offset, expr) {return (expr == "") ? ["VAU"]  : _node("VAU", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_VEI_elidible() {
+        var cacheKey = "VEI_elidible@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_VEI_clause();
+        result0 = result0 !== null ? result0 : "";
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return (expr == "") ? ["VEI"] : _node("VEI", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -35379,87 +35492,6 @@ var camxes = (function(){
         result0 = parse_pre_clause();
         if (result0 !== null) {
           result1 = parse_VEI();
-          if (result1 !== null) {
-            result2 = parse_spaces();
-            result2 = result2 !== null ? result2 : "";
-            if (result2 !== null) {
-              result0 = [result0, result1, result2];
-            } else {
-              result0 = null;
-              pos = pos0;
-            }
-          } else {
-            result0 = null;
-            pos = pos0;
-          }
-        } else {
-          result0 = null;
-          pos = pos0;
-        }
-        
-        cache[cacheKey] = {
-          nextPos: pos,
-          result:  result0
-        };
-        return result0;
-      }
-      
-      function parse_VEI_clause_elidible() {
-        var cacheKey = "VEI_clause_elidible@" + pos;
-        var cachedResult = cache[cacheKey];
-        if (cachedResult) {
-          pos = cachedResult.nextPos;
-          return cachedResult.result;
-        }
-        
-        var result0, result1;
-        var pos0, pos1;
-        
-        pos0 = pos;
-        pos1 = pos;
-        result0 = parse_VEI_pre_elidible();
-        if (result0 !== null) {
-          result1 = parse_post_clause();
-          if (result1 !== null) {
-            result0 = [result0, result1];
-          } else {
-            result0 = null;
-            pos = pos1;
-          }
-        } else {
-          result0 = null;
-          pos = pos1;
-        }
-        if (result0 !== null) {
-          result0 = (function(offset, pre, post) {return _node2("VEI_clause", pre, post); })(pos0, result0[0], result0[1]);
-        }
-        if (result0 === null) {
-          pos = pos0;
-        }
-        
-        cache[cacheKey] = {
-          nextPos: pos,
-          result:  result0
-        };
-        return result0;
-      }
-      
-      function parse_VEI_pre_elidible() {
-        var cacheKey = "VEI_pre_elidible@" + pos;
-        var cachedResult = cache[cacheKey];
-        if (cachedResult) {
-          pos = cachedResult.nextPos;
-          return cachedResult.result;
-        }
-        
-        var result0, result1, result2;
-        var pos0;
-        
-        pos0 = pos;
-        result0 = parse_pre_clause();
-        if (result0 !== null) {
-          result1 = parse_VEI();
-          result1 = result1 !== null ? result1 : "";
           if (result1 !== null) {
             result2 = parse_spaces();
             result2 = result2 !== null ? result2 : "";

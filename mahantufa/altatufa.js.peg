@@ -140,11 +140,13 @@ NIhO_elided = {return ["NIhO_elided", "NIhO"];}
 intro_null = expr:(spaces? su_clause* intro_si_clause) {return _node_nonempty("intro_null", expr); }
 
 // INTERJECTIONS AND SCALERS: UI ROhA DAI
-full_INT = expr:(FUhE_clause? (((INT_root / free) INT_suffix?) INT_ending?)+ FUhO_clause?){return _node("full interjection", expr); }
+full_INT = expr:(FUhE_clause? (((INT_root / free) INT_suffix?) INT_ending? / ((INT_root_elided) INT_suffix) INT_ending? / ((INT_root_elided)) INT_ending)+ FUhO_clause?){return _node("full interjection", expr); }
 INT_root = expr:((UI_clause / DAhO_clause) !BU_clause full_NAICAI?){return _node("interjection root", expr); }
 INT_suffix = expr:((ROhA_clause !BU_clause full_NAICAI?)+){return _node("interjection categorizer", expr); }
 INT_ending = expr:(DAI_rule INT_ending?){return _node("interjection rotator", expr); }
 DAI_rule = expr:(DAI_clause !BU_clause full_NAICAI?) 
+INT_root_elided = expr:(GEhE_elided_clause  !BU_clause){return _node("interjection root elided", expr); }
+
 full_NAICAI = expr:((NAI_clause / CAI_clause) !BU_clause full_NAICAI*) {return _node("right scaler", expr); }
 full_NAhE = expr:(NAhE_clause BO_clause?) {return _node("left scaler", expr); }
 
@@ -1403,6 +1405,10 @@ DAI_clause = pre:DAI_pre post:DAI_post {return _node2("DAI_clause", pre, post); 
 DAI_pre = pre_clause DAI spaces?
 DAI_post = post_clause_limited
 
+GEhE_elided_clause = pre:GEhE_elided_pre post:UI_post {return _node2("UI_clause", pre, post); }
+GEhE_elided_pre = pre_clause GEhE_elided spaces?
+
+
 //         distance in space_time 
 VA_clause = pre:VA_pre post:VA_post {return _node2("VA_clause", pre, post); }
 VA_pre = pre_clause VA spaces?
@@ -2092,6 +2098,8 @@ UI = &cmavo expr:( f u H a u / a H e i / k o H o i / s i H a u / o H a i / x e H
 ROhA = &cmavo expr:( r o Ih i / r o H e / r o H o / r o H u / r o H a / r e H e) &post_word {return ["END", _join(expr)];}
 
 DAI = &cmavo expr:(d a i) &post_word {return ["END", _join(expr)];}
+
+GEhE_elided = &post_word {return ["GEhE elided", "GEhE"];}
 
 VA = &cmavo expr:( v i / v a / v u ) &post_word {return ["VA", _join(expr)];}
 

@@ -223,7 +223,7 @@ tail_termsZAMfu = expr:(termsZAMfu? terms? VAU_elidible  !ZOhU_clause) {return _
 bridi_tailfofu = expr:(bridi_tail_1fofu (joik_gihek stag? bridi_tail)*) {return _node("bridi_tailfofu", expr);}
 bridi_tail_1fofu = expr:(bridi_tail_2fofu (joik_gihek !(stag? BO_clause) !(stag? KE_clause) CU_elidible bridi_tail_2 tail_terms)*) {return _node("bridi_tail_1", expr);}
 bridi_tail_2fofu = expr:(bridi_tail_3fofu (joik_gihek stag? BO_clause CU_elidible bridi_tail_3 tail_terms)*) {return _node("bridi_tail_2", expr);}
-bridi_tail_3fofu = expr:(KE_clause !(selbri_2 KEhE) bridi_tail KEhE_elidible tail_terms / selbri tail_termsZAMfofu / gek_bridi_tail / (gek_sentence / selbri_may_elide) tail_termsZAMfofu) {return _node("bridi_tail_3", expr);}
+bridi_tail_3fofu = expr:(KE_clause !(selbri_2 KEhE) bridi_tail KEhE_elidible tail_terms / gek_bridi_tail / (gek_sentence / selbri_may_elide) tail_termsZAMfofu) {return _node("bridi_tail_3", expr);}
 tail_termsZAMfofu = expr:(termsZAMfo? termsZAMfu? terms? VAU_elidible  !ZOhU_clause) {return _node_nonempty("tail_termsZAMfofu", expr); }
 
 bridi_tailfifofu = expr:(bridi_tail_1fifofu (joik_gihek stag? bridi_tail)*) {return _node("bridi_tailfifofu", expr);}
@@ -409,26 +409,24 @@ gek_termset = expr:(gek terms_gik_terms) {return _node("gek_termset", expr);}
 
 terms_gik_terms = expr:(term (gik / terms_gik_terms) term) {return _node("terms_gik_terms", expr);}
 
-sumti = expr:(sumti_1 (VUhO_clause (relative_clauses (joik_jek sumti)?)?)?) {return _node("sumti", expr);}
+sumti = expr:((KE_clause sumti KEhE_elidible / gek sumti gik sumti / sumti_1) (VUhO_clause (relative_clauses (joik_jek sumti)?)?)?) {return _node("sumti", expr);}
 sumti_1 = expr:(sumti_2  (joik_ek sumti_2)*) {return _node("sumti_1", expr);}
 sumti_2 = expr:(sumti_3 (jebo full_INT* sumti_3)*) {return _node("sumti_2", expr);}
-sumti_3 = expr:(KE_clause sumti KEhE_elidible / sumti_4 / gek sumti gik sumti) {return _node("sumti_3", expr);}
-sumti_4 = expr:((mex? LE_clause / mex) sumti_core KU_elidible full_NAICAI? full_INT* relative_clauses? /  full_NAhE relative_clauses? sumti LUhU_elidible / LAhE_clause relative_clauses? sumti LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_clause / lerfu_string BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_clause text LIhU_elidible  / KOhA_clause / li_clause / mex sumti) {return _node("sumti_4", expr);}
+sumti_3 = expr:((mex? (full_NAhE relative_clauses? sumti LUhU_elidible / LAhE_clause relative_clauses? sumti LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_clause / lerfu_string BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_clause text LIhU_elidible  / KOhA_clause / li_clause / LE_clause sumti_core KU_elidible) / mex sumti_core KU_elidible) full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_4", expr);}
 sumti_core = (relative_clauses / relative_clauses_ne)? mex? (bridi_tail_nul / gek_sentence) relative_clauses?
 
 sumtido = expr:(sumti_1do) {return _node("sumti", expr);}
 sumti_1do = expr:(sumti_2do) {return _node("sumti_1", expr);}
 sumti_2do = expr:(sumti_3do) {return _node("sumti_2", expr);}
-sumti_3do = expr:(sumti_4do) {return _node("sumti_3", expr);}
-sumti_4do = expr:(mex? KOhA_clausedo relative_clauses?) {return _node("sumti_4", expr);}
+//todo: remove hardcoded koha:
+sumti_3do = expr:(mex? KOhA_clausedo relative_clauses?) {return _node("sumti_4", expr);}
 
 
 ///LE-less sumti
 sumti_leless = expr:(sumti_1_leless) {return _node("sumti", expr);}
 sumti_1_leless = expr:(sumti_2_leless) {return _node("sumti_1", expr);}
 sumti_2_leless = expr:(sumti_3_leless) {return _node("sumti_2", expr);}
-sumti_3_leless = expr:(sumti_4_leless) {return _node("sumti_3", expr);}
-sumti_4_leless = expr:(mex? (LE_clause_elided (relative_clauses? (selbri relative_clauses?)) KU_elidible) relative_clauses?) {return _node("sumti_4", expr);}
+sumti_3_leless = expr:(mex? (LE_clause_elided sumti_core KU_elidible) full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_4", expr);}
 
 
 relative_clauses = expr:(relative_clause (joik relative_clause)* / gek relative_clauses gik relative_clauses) {return _node("relative_clauses", expr); }
@@ -454,6 +452,7 @@ selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relativ
 
 selbri_may_elide = (selbri / selbri_elided !terms)
 selbri_may_elide_elided = (selbri_elided)
+//todo: remove hardcoded cohe_elided below
 selbri_elided = expr:(tag* COhE_elided) {return _node("selbri", expr); }
 selbri_elided = expr:(COhE_elided) {return _node("selbri", expr); }
 

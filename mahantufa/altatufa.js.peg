@@ -515,7 +515,7 @@ joik_gihek = expr:(joik / gihek ) {return _node("joik_gihek", expr); }
 interval = expr:(cls BIhI_clause crn) {return _node("interval", expr); }
 joik_jek = expr:(joik / VUhU_clause) {return _node("joik_jek", expr); }
 gek = expr:((gak cls joik_jek crn / cls GA_clause crn / joik GI_clause crn / stag gik) full_INT*) {return _node("gek", expr); }
-gak = expr:((ga_clause crn) full_INT*) {return _node("gak", expr); }
+gak = expr:((GA_clause crn) full_INT*) {return _node("gak", expr); }
 guhek = expr:((cls GUhA_clause crn) full_INT*) {return _node("guhek", expr); }
 gik = expr:((GI_clause crn) full_INT*) {return _node("gik", expr); }
 stag = expr:(tense_modal+ (joik_jek tense_modal+)*) {return _node("stag", expr); }
@@ -1475,12 +1475,6 @@ NOhOI_post = post_clause
 KUhOI_clause = pre:KUhOI_pre post:KUhOI_post {return _node2("KUhOI_clause", pre, post); }
 KUhOI_pre = pre_clause KUhOI spaces?
 KUhOI_post = post_clause
-
-ga_clause = pre:ga_pre post:ga_post {return _node2("ga_clause", pre, post); }
-ga_pre = pre_clause ga_word spaces?
-ga_post = post_clause_limited
-ga_word = &cmavo expr:( g a ) &post_word {return ["ga_word", _join(expr)];}
-
 
 // ___ MORPHOLOGY ___
 

@@ -169,6 +169,7 @@ bridi = expr:(
 normalbridi ) {return _node("bridi", expr);}
 
 normalbridi = expr:(
+bridi_tailfefifofu / 
 (termsBAMonly? CU_elidible bridi_tailfefifofu) / /*    klama do ti ta tu*/
 (termsZAMfa CU_elidible bridi_tailfefifofu) / /* mi klama do ti ta tu*/
 (termsZAMfafe CU_elidible bridi_tailfifofu) / /* mi do klama ti ta tu*/

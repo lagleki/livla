@@ -1,6 +1,3 @@
-// This is a Parsing Expression Grammar for Lojban.
-// See http://bford.info/packrat/
-// 
 // All rules have the form:
 // 
 // 	name = peg_expression
@@ -145,7 +142,7 @@ INT_root = expr:((UI_clause / DAhO_clause) !BU_clause full_NAICAI?){return _node
 INT_suffix = expr:((ROhA_clause !BU_clause full_NAICAI?)+){return _node("interjection categorizer", expr); }
 INT_ending = expr:(DAI_rule INT_ending?){return _node("interjection rotator", expr); }
 DAI_rule = expr:(DAI_clause !BU_clause full_NAICAI?) 
-INT_root_elided = expr:(JUhA_elided_clause !BU_clause){return _node("interjection root elided", expr); }
+INT_root_elided = expr:(GEhE_elided_clause  !BU_clause){return _node("interjection root elided", expr); }
 
 full_NAICAI = expr:((NAI_clause / CAI_clause) !BU_clause full_NAICAI*) {return _node("right scaler", expr); }
 full_NAhE = expr:(NAhE_clause BO_clause?) {return _node("left scaler", expr); }
@@ -1363,8 +1360,8 @@ DAI_clause = pre:DAI_pre post:DAI_post {return _node2("DAI_clause", pre, post); 
 DAI_pre = pre_clause DAI spaces?
 DAI_post = post_clause_limited
 
-JUhA_elided_clause = pre:JUhA_elided_pre post:UI_post {return _node2("UI_clause", pre, post); }
-JUhA_elided_pre = pre_clause JUhA_elided spaces?
+GEhE_elided_clause = pre:GEhE_elided_pre post:UI_post {return _node2("UI_clause", pre, post); }
+GEhE_elided_pre = pre_clause GEhE_elided spaces?
 
 
 //         distance in space_time 
@@ -2053,11 +2050,11 @@ TUhU = &cmavo expr:( t u H u ) &post_word {return ["TUhU", _join(expr)];}
 
 UI = &cmavo expr:( f u H a u / a H e i / k o H o i / s i H a u / o H a i / x e H e / i H a / i e / a H e / u H i / i H o / i H e / a H a / i a / o Ih i / o H e / e H e / o i / u o / e Ih i / u H o / a u / u a / a Ih i / i H u / i i / u H a / u i / a H o / a i / a Ih u / i u / e i / o H o / e H a / u u / o H a / o H u / u H u / e H o / i o / e H u / u e / i H i / u H e / b a H a / j a H o / c a H e / s u H a / t i H e / k a Ih u / s e H o / z a H a / p e Ih i / r u H a / j u H a / t a H o / r a Ih u / l i H a / b a Ih u / m u H a / d o H a / t o H u / v a Ih i / p a H e / z u H u / s a H e / l a H a / k e H u / s a Ih u / d a Ih i / j e H u / s a H a / k a u / t a Ih u / n a Ih i / j o H a / b i H u / l i H o / p a u / m i H u / k u H i / j i H a / s i H a / p o H o / p e H a / l e H o / j u H o/ g a Ih i / v u H e / k i H a / x u / g e H e / b u H o ) &post_word {return ["UI", _join(expr)];}
 
-ROhA = &cmavo expr:( r o Ih i / r o H e / r o H o / r o H u / r o H a / r e H e / z o H o / x o H o  / f u H i  / b e H u / r i H e / s e H a) &post_word {return ["ROhA", _join(expr)];}
+ROhA = &cmavo expr:( r o Ih i / r o H e / r o H o / r o H u / r o H a / r e H e / z o H o / x o H o  / f u H i  / b e H u / r i H e / s e Ih i / s e H a) &post_word {return ["ROhA", _join(expr)];}
 
-DAI = &cmavo expr:(d a i / s e Ih i) &post_word {return ["DAI", _join(expr)];}
+DAI = &cmavo expr:(d a i) &post_word {return ["DAI", _join(expr)];}
 
-JUhA_elided = &post_word {return ["JUhA elided", "JUhA"];}
+GEhE_elided = &post_word {return ["GEhE elided", "GEhE"];}
 
 VA = &cmavo expr:( v i / v a / v u ) &post_word {return ["VA", _join(expr)];}
 

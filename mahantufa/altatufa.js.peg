@@ -153,8 +153,7 @@ full_NAhE = expr:(NAhE_clause BO_clause?) {return _node("left scaler", expr); }
 free = expr:(SEI_clause bridi_sei SEhU_elidible / vocative (sumti / sumti_leless  / sumtido) DOhU_elidible / mex_2 MAI_clause / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
 free_xohe = expr:(mex_2_xohe MAI_clause) {return _node("free", expr); }
 
-//ToDo: use normal mex here:
-xi_clause = expr:(XI_clause mex_2 / XI_clause VEI_clause mex VEhO_elidible) {return _node("xi_clause", expr); }
+xi_clause = expr:(XI_clause mex) {return _node("xi_clause", expr); }
 
 vocative = expr:(((COI_clause / DOI_clause ) full_NAICAI?) full_INT*)  {return _node("vocative", expr); }
 
@@ -199,6 +198,11 @@ bridi_tail_1 = expr:(bridi_tail_2 (joik_gihek !(stag? BO_clause) !(stag? KE_clau
 bridi_tail_2 = expr:(bridi_tail_3 (joik_gihek stag? BO_clause CU_elidible bridi_tail_3 tail_terms)*) {return _node("bridi_tail_2", expr);}
 bridi_tail_3 = expr:(KE_clause !(selbri_2 KEhE) bridi_tail KEhE_elidible tail_terms / gek_bridi_tail / (selbri_may_elide / gek_sentence) tail_terms) {return _node("bridi_tail_3", expr);}
 gek_bridi_tail = expr:(gek bridi_tail gik bridi_tail / tag* KE_clause gek_bridi_tail KEhE_elidible / NA_clause gek_bridi_tail) {return _node("gek_bridi_tail", expr);}
+
+//now new terms
+//loi_sumsmi_BAM
+//loi_sumsmi_BFAM
+//loi_sumsmi_BFZAM
 
 tail_terms = expr:(terms? VAU_elidible  !ZOhU_clause) {return _node_nonempty("tail_terms", expr); }
 terms = expr:((KE_clause terms_0 terms_0+ KEhE_elidible / terms_0)+) {return _node("terms", expr);}

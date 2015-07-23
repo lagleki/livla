@@ -279,7 +279,7 @@ function run_camxesoff(input, mode) {
 }
 
 function run_camxesalta(input, mode) {
-	try{var camxesalta = require('../mahantufa/altatufa.js');
+	try{var camxesalta = require('../mahantufa/altatufa-stodi.js');
 	var result;
 	var syntax_error = false;
 	result = camxes_pre.preprocessing(input);

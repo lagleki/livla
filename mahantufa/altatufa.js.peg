@@ -457,7 +457,7 @@ selbrisle_2nfnoi = expr:(NU_clause_elidible subbridinoi &relative_clauses KEI_el
 subbridinoi = expr:(prenexe* normalbridi) {return _node("subbridi", expr);}
 
 
-li_clause = expr:(LI_clause mex LOhO_elidible / LI_clause &LOhO_clause LOhO_elidible ) {return _node("li_clause", expr); }
+li_clause = expr:(LI_clause mex LOhO_elidible / LI_clause LOhO_elidible ) {return _node("li_clause", expr); }
 
 //// + Forethought connective
 selbri_relative_clauses = expr:(selbri_relative_clause (joik selbri_relative_clause)* / gek selbri_relative_clauses gik selbri_relative_clauses) {return _node("selbri_relative_clauses", expr); }
@@ -779,7 +779,7 @@ COI_pre = pre_clause COI spaces?
 
 //         separator between head sumti and selbri 
 CU_clause = pre:CU_pre post:post_clause {return _node2("CU_clause", pre, post); }
-CU_pre = pre_clause (CU spaces? /  LI spaces? &selbri)
+CU_pre = pre_clause (CU spaces?)
 // CU_no_SA_handling = pre_clause CU post_clause
 
 //         tensemodal question 

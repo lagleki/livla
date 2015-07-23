@@ -2457,14 +2457,14 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3;
+        var result0, result1;
         var pos0, pos1;
         
         pos0 = pos;
         pos1 = pos;
         result0 = parse_XI_clause();
         if (result0 !== null) {
-          result1 = parse_mex_2();
+          result1 = parse_mex();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -2474,34 +2474,6 @@ var camxes = (function(){
         } else {
           result0 = null;
           pos = pos1;
-        }
-        if (result0 === null) {
-          pos1 = pos;
-          result0 = parse_XI_clause();
-          if (result0 !== null) {
-            result1 = parse_VEI_clause();
-            if (result1 !== null) {
-              result2 = parse_mex();
-              if (result2 !== null) {
-                result3 = parse_VEhO_elidible();
-                if (result3 !== null) {
-                  result0 = [result0, result1, result2, result3];
-                } else {
-                  result0 = null;
-                  pos = pos1;
-                }
-              } else {
-                result0 = null;
-                pos = pos1;
-              }
-            } else {
-              result0 = null;
-              pos = pos1;
-            }
-          } else {
-            result0 = null;
-            pos = pos1;
-          }
         }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("xi_clause", expr); })(pos0, result0);

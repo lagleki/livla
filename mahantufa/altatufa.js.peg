@@ -153,7 +153,7 @@ full_NAhE = expr:(NAhE_clause BO_clause?) {return _node("left scaler", expr); }
 free = expr:(SEI_clause bridi_sei SEhU_elidible / vocative (sumti / sumti_leless  / sumtido) DOhU_elidible / mex_2 MAI_clause / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
 free_xohe = expr:(mex_2_xohe MAI_clause) {return _node("free", expr); }
 
-
+//ToDo: use normal mex here:
 xi_clause = expr:(XI_clause mex_2 / XI_clause VEI_clause mex VEhO_elidible) {return _node("xi_clause", expr); }
 
 vocative = expr:(((COI_clause / DOI_clause ) full_NAICAI?) full_INT*)  {return _node("vocative", expr); }
@@ -171,14 +171,14 @@ bridi = expr:(
 normalbridi ) {return _node("bridi", expr);}
 
 normalbridi = expr:(
+bridi_tailfefifofu / 
 (termsZAMfa CU_elidible bridi_tailfefifofu) / /* mi klama do ti ta tu*/
 (termsZAMfafe CU_elidible bridi_tailfifofu) / /* mi do klama ti ta tu*/
 (termsZAMfafefi CU_elidible bridi_tailfofu) / /* mi do ti klama ta tu*/
 (termsZAMfafefifo CU_elidible bridi_tailfu) / /* mi do ti ta klama tu*/
 (termsZAMfafefifofu CU_elidible bridi_tail) / /* mi do ti ta tu klama*/
-(termsZAMfafefifofu_elidible CU_elidible bridi_tail) / /* mi [do ti ta tu] (FA ko'a)n klama*/
+//(termsZAMfafefifofu_elidible CU_elidible bridi_tail) / /* mi [do ti ta tu] (FA ko'a)n klama*/
 (termsBAMonly CU_elidible bridi_tailfefifofu) / /*    klama do ti ta tu*/
-bridi_tailfefifofu / 
 terms? CU_elidible bridi_tail
 )
 
@@ -257,8 +257,6 @@ bridi_tail_2fefifofu_elided = expr:(bridi_tail_3fefifofu_elided) {return _node("
 bridi_tail_3fefifofu_elided = expr:(selbri_may_elide_elided) {return _node("bridi_tail_3", expr);}
 
 
-
-
 terms_1FAM = expr:(terms_2FAM (pehe_sa* PEhE_clause joik_jek terms_2)*) {return _node("terms_1FAM", expr);}
 terms_2FAM = expr:(abs_termFAM (cehe_sa* CEhE_clause (abs_term / abs_termFAM / abs_termZAMfa / abs_termZAM))*) {return _node("terms_2FAM", expr);}
 abs_termFAM = expr:(abs_term_1FAM) {return _node("abs_termFAM", expr);}
@@ -266,7 +264,7 @@ abs_term_1FAM = expr:(abs_tag_termFAM / termset) {return _node("abs_term_1FAM", 
 abs_tag_termFAM = expr:((!gek (sumti) CO_clause tagFAM / !gek tagFAM !selbri !gek_sentence (sumti / KU_clause / sumtifazohe) / SOI_clause subbridi SEhU_elidible) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_termFAM", expr);}
 tagFAM = expr:(tense_modalFAM (joik_jek (tense_modal+ / tense_modalFAM))*) {return _node("tagFAM", expr); }
 tense_modal = expr:((full_NAhE cls tense_modal_root / cls tense_modal_root full_NAICAI*) full_INT*) {return _node("tense_modal", expr); }
-tense_modal_root = NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? ( VEI_clause mex VEhO_elidible / !lerfu_string mex) ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause selbri FEhU_elidible
+tense_modal_root = NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? mex ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause selbri FEhU_elidible
 
 //ToDo: not FA_clause but required node
 tense_modalFAM = expr:(((full_NAhE FA_clause / FA_clause full_NAICAI*) full_INT*)+) {return _node("tense_modalFAM", expr); }

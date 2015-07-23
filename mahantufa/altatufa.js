@@ -16669,33 +16669,18 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3;
-        var pos0, pos1, pos2;
+        var result0, result1, result2;
+        var pos0, pos1;
         
         pos0 = pos;
         pos1 = pos;
         result0 = parse_GOI_clause_elidible();
         if (result0 !== null) {
-          pos2 = pos;
-          reportFailures++;
-          result1 = parse_sumti();
-          reportFailures--;
+          result1 = parse_term_only_ZAM();
           if (result1 !== null) {
-            result1 = "";
-            pos = pos2;
-          } else {
-            result1 = null;
-          }
-          if (result1 !== null) {
-            result2 = parse_term();
+            result2 = parse_GEhU_elidible();
             if (result2 !== null) {
-              result3 = parse_GEhU_elidible();
-              if (result3 !== null) {
-                result0 = [result0, result1, result2, result3];
-              } else {
-                result0 = null;
-                pos = pos1;
-              }
+              result0 = [result0, result1, result2];
             } else {
               result0 = null;
               pos = pos1;

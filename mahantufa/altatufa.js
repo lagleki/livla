@@ -16457,7 +16457,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_GOI_clause();
         if (result0 !== null) {
-          result1 = parse_term();
+          result1 = parse_term_no_ZAM();
           result1 = result1 !== null ? result1 : "";
           if (result1 !== null) {
             result2 = parse_GEhU_elidible();

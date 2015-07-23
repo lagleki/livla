@@ -412,7 +412,7 @@ sumti_3_leless = expr:(mex? (LE_clause_elided sumti_core KU_elidible) full_NAICA
 
 relative_clauses = expr:(relative_clause (joik relative_clause)* / gek relative_clauses gik relative_clauses) {return _node("relative_clauses", expr); }
 relative_clause = expr:(relative_clause_sa* relative_clause_1) {return _node("relative_clause", expr); }
-relative_clause_1 = expr:(GOI_clause term? GEhU_elidible / NOI_clause subbridi KUhO_elidible) {return _node("relative_clause_1", expr); }
+relative_clause_1 = expr:(GOI_clause term_no_ZAM? GEhU_elidible / NOI_clause subbridi KUhO_elidible) {return _node("relative_clause_1", expr); }
 
 relative_clauses_ne = expr:( relative_clause_ne (joik (relative_clause / relative_clause_ne))* / gek relative_clauses_ne gik relative_clauses_ne) {return _node("relative_clauses", expr); }
 relative_clause_ne = expr:(relative_clause_sa* relative_clause_1_ne) {return _node("relative_clause", expr); }

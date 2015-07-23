@@ -326,7 +326,7 @@ be'o,"
 '''be'o''' <small>[terminator]</small>
 :ends a construct started with: '''be, bei'''"
 be'u,"
-'''be'u''' <small>[interjection modifier]</small> — lack/need, '''be'u''' '''cu'i''' — presence/satisfaction, '''be'u''' '''nai''' — satiation
+'''be'u''' <small>[interjection suffix]</small> — lack/need, '''be'u''' '''cu'i''' — presence/satisfaction, '''be'u''' '''nai''' — satiation
 :'''u'i be'u ko skicu lo drata lisri''' — ''Hehe, not that funny, tell me another story.''
 :'''ui be'u cu'i do bevri re verba mlatu noi mi pu djica''' — ''Yay, you brought the two kittens whom I wanted.''
 :'''u'i be'u nai ba'a mi ca farlu lo loldi''' — ''Ha-ha-ha, so funny, I can't laugh anymore, I might fall down to the floor now.''
@@ -664,7 +664,7 @@ bu'i,"
 '''bu'i''' <small>[verb]</small> — ''there exists some relation'': 3rd verb of '''bu'a''', '''bu'e''', '''bu'i''' series
 :'''pa bu'a pa bu'e pa bu'i zo'u lo nu bu'a ka'e se jalge lo nu bu'e ca lo nu bu'i''' — ''There is an event X, an event Y and event Z such that X can lead to Y during Z.''"
 bu'o,"
-'''bu'o''' <small>[interjection modifier]</small> — shows the start of emotion, '''bu'o''' '''cu'i''' — shows the continuation of emotion, '''bu'o''' '''nai''' — shows the end of emotion
+'''bu'o''' <small>[interjection suffix]</small> — shows the start of emotion, '''bu'o''' '''cu'i''' — shows the continuation of emotion, '''bu'o''' '''nai''' — shows the end of emotion
 :'''za'o ku do tsuku ui bu'o''' — ''At last you arrived, and I'm happy now!''
 :'''ua nai bu'o cu'i la Alis cu simsa fi lo ka na zvati''' — ''What's going on, Alice is also not present.''
 :'''u'i bu'o nai mi di'a gunka''' — ''Enough laughing, I'm back to work.''"
@@ -770,7 +770,7 @@ cagna,"
 :'''ti cagna lo moklu be ra lo pu se zvati be lo denci lo nu lo mikce mo'u vimcu le denci''' — ''This is a wound in his mouth at the place where there was a tooth removed by a doctor.''
 :Related words: '''xrani''', '''bilma'''"
 cai,"
-'''cai''' <small>[interjection modifier]</small> — critical, extreme intensity interjection
+'''cai''' <small>[right scaler]</small> — critical, extreme intensity
 :'''oi cai''' — ''Ah, pain, I'm going to lose consciousness now!!!''"
 cakla,"
 '''cakla''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some chocolate or cocoa
@@ -1611,7 +1611,7 @@ cu'e,"
 :'''lu do cu'e vitke la Nipon li'u lu pu'o li'u''' — ''&quot;Have you been to Japan?&quot; &quot;I'm about to.&quot;''
 :'''lu le penbi cu'e zvati li'u lu pu vu li'u''' — ''&quot;Where is the pen?&quot; &quot;It was over there.&quot;''"
 cu'i,"
-'''cu'i''' <small>[interjection modifier]</small> — neutral intensity (on the scale) interjection
+'''cu'i''' <small>[right scaler]</small> — neutral intensity (on the scale)
 :'''au cu'i le bruna mo'u tsuku''' — ''The brother arrived, meh.''"
 cu'o,"
 '''cu'o''' <small>[verb]</small> — turn number into verb denoting probability
@@ -1739,7 +1739,7 @@ dadjo,"
 :'''le tcaci cu dadjo''' — ''The tradition is Taoist.''
 :Related words: '''lijda''', '''jegvo'''"
 dai,"
-'''dai''' <small>[interjection modifier]</small> — marks empathetic use of interjection, shows another's feelings
+'''dai''' <small>[interjection ending]</small> — marks empathetic use of interjection, shows another's feelings
 :'''oi ro'o dai tuple doi le cifnu''' — ''I know it hurts, baby!''
 :'''do jinga ui dai''' — ''You won, yay you!''
 :'''ui nai dai lo do gerku co'a morsi''' — ''You must be sad, your dog died.''
@@ -1884,10 +1884,10 @@ dau,"
 '''dau''' <small>[digit/number]</small> — hex digit ''A'' (decimal 10), ''ten''
 :'''ei mi'o denpa ze'a lo djedi be li dau''' — ''We should wait for 10 days.''"
 dau'i,"
-'''dau'i''' <small>[interjection modifier]</small> — equal intensity interjection
+'''dau'i''' <small>[right scaler]</small> — equal intensity
 :'''ju'o la Alis ba tsuku''' — ''I'm sure Alice will arrive.''
 :'''ju'o dau'i ji'a la Kevin ba vitke mi'a''' — ''And I'm equally sure that Kevin will visit us.''
-:Comment: specifies an intensity of an interjection equal to the intensity of the same interjection earlier used.
+:Comment: usually specifies an intensity of an interjection equal to the intensity of the same interjection earlier used.
 :Related words: '''dau'i''', '''mau'i''', '''me'ai''', '''cu'i''', '''sai''', '''ru'e'''"
 de,"
 '''de''' <small>[pronoun]</small> — there exists something or someone: 2nd pronoun of '''da''', '''de''', '''di''' series
@@ -2689,7 +2689,7 @@ fu'e,"
 :'''mi viska lo fu'e ia cizra zdani fu'o ponse''' — ''I can see an owner of what I believe is a strange house.''
 :'''mi ca klama lo drata tcadu fu'e ta'o de'i li jy dy re te zu'e lo ka viska loi mi rirni fu'o''' — ''I am going to another city (on Tuesday, by the way, to visit my parents).''"
 fu'i,"
-'''fu'i''' <small>[interjection modifier]</small> — the state has been achieved easily, '''fu'i''' '''nai''' — state has been achieved hard
+'''fu'i''' <small>[interjection suffix]</small> — the state has been achieved easily, '''fu'i''' '''nai''' — state has been achieved hard
 :'''e'e fu'i mi cpare le cmana''' — ''I can easily climb the mountain, I can go for it!''
 :'''ui fu'i nai mi tsuku lo korbi be le tcadu''' — ''Yay, that was hard but now I'm at the edge of the city.''
 :Related words: '''frili'''"
@@ -2733,7 +2733,7 @@ ga'a,"
 :'''ko ga'a viska le pixra''' — ''Look at the picture!''
 :Comment: not limited to vision. When used as an adverb (without a noun after it) the clause itself describes the means of observing and x<sub>1</sub> of the clause is the observer. When used as a preposition (with a noun after it) the clause itself describes what is being observed.."
 ga'i,"
-'''ga'i''' <small>[interjection modifier]</small> — expressing hauteur, '''ga'i''' '''cu'i''' — expressing equal rank, '''ga'i''' '''nai''' — meekness (used with one of lower rank)
+'''ga'i''' <small>[interjection]</small> — expressing hauteur, '''ga'i''' '''cu'i''' — expressing equal rank, '''ga'i''' '''nai''' — meekness (used with one of lower rank)
 :'''do nitcu ma doi pikci ga'i''' — ''What do you need, you beggar?''
 :'''mi ro do ga'i cu'i tavla''' — ''I'm talking to you, my peers.''
 :'''e'o doi turni ko sidju mi'a ga'i nai sai''' — ''Please, governor, help us, worthless people.''
@@ -3215,7 +3215,7 @@ ja'ai,"
 :'''ui ja'ai''' — ''Yay indeed!''
 :Comment: affirmative/negation pairs are '''ja'ai'''/'''nai''', '''ja'a'''/'''na''', '''je'a'''/'''na'e''', '''jo'a'''/'''na'i'''."
 ja'ai ,"
-'''ja'ai ''' <small>[2nd meaning]</small> — affirms prepositions, pronouns, clauses, verb words
+'''ja'ai ''' <small>[2nd meaning: right scaler]</small> — affirms prepositions, pronouns, clauses, verb words
 :'''mi pu citka se pi'o ja'ai lo forca''' — ''I ate indeed using a fork.''"
 ja'ai  ,"
 '''ja'ai  ''' <small>[3rd meaning]</small> — placed after a connective affirms the part after that connective
@@ -3406,11 +3406,11 @@ je,"
 '''je''' <small>[conjunction]</small> — ''and''
 :'''do pu je ca je ba pendo mi''' — ''You were, are and will be my friend.''"
 je'a,"
-'''je'a''' <small>[converter of group NAhE]</small> — ''indeed ...'' (affirms the position on the scale)
+'''je'a''' <small>[left scaler]</small> — ''indeed ...'' (affirms the position on the scale)
 :'''do je'a stati doi loi prenu''' — ''You are really smart, people.''
 :'''lei grute cu tasta je'a rigni''' — ''The fruits are indeed disgusting in taste.''"
 je'ai,"
-'''je'ai''' <small>[converter of group NAhE]</small> — asks which particle fits the place where '''je'ai''' is put: '''je'a''', '''na'e''', '''no'e''' or '''to'e'''
+'''je'ai''' <small>[left scaler]</small> — asks which particle fits the place where '''je'ai''' is put: '''je'a''', '''na'e''', '''no'e''' or '''to'e'''
 :'''lu do je'ai nelci lo gerku li'u lu to'e li'u''' — ''&quot;You like/dislike dogs?&quot; &quot;I hate them.&quot;''"
 je'e,"
 '''je'e''' <small>[vocative]</small> — ''roger, I got your message, you are welcome'' (in reply to thanks), '''je'e''' '''nai''' — ''I didn't get your message''
@@ -3767,7 +3767,7 @@ ju'i,"
 :'''ju'i cu'i sonci''' — ''At ease, soldiers.''
 :'''mi co'a si'u nai jimpe ju'i nai''' — ''I understood myself, never mind.''"
 ju'o,"
-'''ju'o''' <small>[interjection modifier]</small> — ''I'm sure'' (certainty), '''ju'o''' '''cu'i''' — ''maybe'' (uncertainty), '''ju'o''' '''nai''' — ''I have no idea!'' (lack of certainty)
+'''ju'o''' <small>[interjection]</small> — ''I'm sure'' (certainty), '''ju'o''' '''cu'i''' — ''maybe'' (uncertainty), '''ju'o''' '''nai''' — ''I have no idea!'' (lack of certainty)
 :'''ju'o do pu pensi da''' — ''You must have thought of something.''
 :'''ju'o cu'i le nakni cu zukte xau le fetsi''' — ''Maybe, he is doing it for her, I'm not sure.''
 :'''ju'o nai xu lo tai valsi cu se pilno''' — ''Are such words used? I have no idea!''
@@ -4010,7 +4010,7 @@ karce,"
 '''karce''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a car, truck, van for carrying  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo karce''' — car, truck, van. '''lo se karce''' — cargo of a car. 
 :'''ti karce lo festi''' — ''It's a trash truck.''
-:'''do te mukti lo ka te vecnu lo karce pe ma poi kagni''' — ''A car of what company are you going to buy?''
+:'''do te mukti lo ka te vecnu lo karce pe ma noi kagni''' — ''A car of what company are you going to buy?''
 :Comment: '''karce''' and '''carce''' are designed to be with wheels, '''marce''' isn't and is more generic.
 :Related words: '''carce''', '''xislu''', '''marce''', '''sabnu'''"
 karda,"
@@ -4650,7 +4650,7 @@ le'e,"
 :Comment: ''the typical one that does or is ...'' (previously defined).
 :Related words: '''le''', '''lo''', '''lo'e'''"
 le'o,"
-'''le'o''' <small>[interjection modifier]</small> — ''Grr!'' (aggression), '''le'o''' '''cu'i''' — expressing passive (non-agressive) emotion, '''le'o''' '''nai''' — expressing defensive emotion
+'''le'o''' <small>[interjection]</small> — ''Grr!'' (aggression), '''le'o''' '''cu'i''' — expressing passive (non-agressive) emotion, '''le'o''' '''nai''' — expressing defensive emotion
 :'''le'o ro ko tinbe fi mi''' — ''Everybody follow my orders!''
 :'''le'o cu'i sa'u mi pu retsku zo'ei lo ni do kanro''' — ''Hey, I just asked you about your health.''
 :'''le'o nai mi jimpe lo du'u ei mi zutse ti''' — ''Okay, okay, I understand that I have to sit here.''
@@ -4906,8 +4906,8 @@ ly,"
 ma,"
 '''ma''' <small>[pronoun]</small> — asks for the noun (that should go into the place to which '''ma''' is put)
 :'''do djica ma''' — ''What do you want?''
-:'''ma poi prenu pu zvati ti''' — ''Who was here?''
-:'''ma poi dacti pu zvati ti''' — ''What object was here?''"
+:'''ma noi prenu pu zvati ti''' — ''Who was here?''
+:'''ma noi dacti pu zvati ti''' — ''What object was here?''"
 ma'a,"
 '''ma'a''' <small>[pronoun]</small> — ''we with you'' (includes other persons not in the dialog)
 :'''ma'a se zdani lo bu'u planeta''' — ''We inhabit this planet.''
@@ -5094,9 +5094,9 @@ mau,"
 :'''nelci do fa mi ne mau la Alis''' — ''I like you but Alice likes you more.''
 :Comment: the clause itself describes the comparison."
 mau'i,"
-'''mau'i''' <small>[interjection modifier]</small> — stronger intensity interjection
+'''mau'i''' <small>[right scaler]</small> — stronger intensity
 :'''ua do ti zvati i ua mau'i ji'a la Alis ti zvati''' — ''Wow, you are here. Wow, wow, Alice is here too!''
-:Comment: specifies an intensity of an interjection stronger than the intensity of the same interjection earlier used.
+:Comment: usually specifies an intensity of an interjection stronger than the intensity of the same interjection earlier used.
 :Related words: '''dau'i''', '''mau'i''', '''me'ai''', '''cu'i''', '''sai''', '''ru'e'''"
 mavji,"
 '''mavji''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some oats of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
@@ -5112,9 +5112,9 @@ me,"
 '''me''' — ''x1 is among the referents of ...'' (a noun follows)
 :'''xu do me lo ctuca''' — ''Are you a teacher?''"
 me'ai,"
-'''me'ai''' <small>[interjection modifier]</small> — weaker intensity interjection
+'''me'ai''' <small>[right scaler]</small> — weaker intensity
 :'''ua do tsuku doi la Alis i ua me'ai lo drata ti zvati ji'a''' — ''Wow, you arrived, Alice! Oh well, the others are here too.''
-:Comment: specifies an intensity of an interjection weaker than the intensity of the same interjection earlier used.
+:Comment: usually specifies an intensity of an interjection weaker than the intensity of the same interjection earlier used.
 :Related words: '''dau'i''', '''mau'i''', '''me'ai''', '''cu'i''', '''sai''', '''ru'e'''"
 me'i,"
 '''me'i''' <small>[digit/number]</small> — ''less than ...'' (number follows)
@@ -5511,7 +5511,7 @@ na ,"
 '''na ''' <small>[2nd meaning]</small> — left negator in conjunctions
 :'''la Kevin pu ku prami na je cinba mi''' — ''Kevin didn't love but kissed me.''"
 na'e,"
-'''na'e''' <small>[converter of group NAhE]</small> — ''not ...'', ''other than ...'' (on the scale). Modifies the construct to the right
+'''na'e''' <small>[left scaler]</small> — ''not ...'', ''other than ...'' (on the scale). Modifies the construct to the right
 :'''na'e vajni mi''' — ''It's not important to me.''
 :'''do ba na'e snada''' — ''You won't make it (won't succeed).''
 :'''na'e bo mi pu zukte''' — ''Not I did it.''"
@@ -5532,7 +5532,7 @@ nai,"
 '''nai''' <small>[1st meaning: interjection]</small> — opposite attitude. Used as a modifier of interjection
 :'''ui i ui nai''' — ''Yay! Alas!''"
 nai ,"
-'''nai ''' <small>[2nd meaning]</small> — ''not'', negates prepositions, pronouns, clauses, verb words
+'''nai ''' <small>[2nd meaning: right scaler]</small> — ''not'', negates prepositions, pronouns, clauses, verb words
 :'''si'u i si'u nai''' — ''With help. Without help''"
 nai  ,"
 '''nai  ''' <small>[3rd meaning]</small> — placed after a connective negates the part after that connective
@@ -5745,7 +5745,7 @@ no'a,"
 :'''xu la Alis cu zukte lo se nupre be lo no'a''' — ''Does Alice keep her words?''
 :'''mi gleki lo nu no'a''' — ''I'm happy because I'm happy.''"
 no'e,"
-'''no'e''' <small>[converter of group NAhE]</small> — middle on the scale. Modifies the construct to the right
+'''no'e''' <small>[left scaler]</small> — middle on the scale. Modifies the construct to the right
 :'''le creka cu no'e cmalu''' — ''The shirt is medium in size.''
 :'''mi no'e certu la Lojban''' — ''I'm fine in Lojban, neither a newbie, nor an expert.''
 :'''lo vacri ca no'e glare''' — ''It's neither cold, nor hot now, it's in between.''"
@@ -6655,7 +6655,7 @@ re,"
 '''re''' <small>[digit/number]</small> — ''2'', ''two''
 :'''re cribe ca cpana lo bisli''' — ''There are two bears on the ice.''"
 re'e,"
-'''re'e''' <small>[interjection modifier]</small> — religious/worship/supernatural attribute, '''re'e''' '''cu'i''' — secular attribute, '''re'e''' '''nai''' — sacrilegious attribute
+'''re'e''' <small>[interjection suffix]</small> — religious/worship/supernatural attribute, '''re'e''' '''cu'i''' — secular attribute, '''re'e''' '''nai''' — sacrilegious attribute
 :'''ko na cliva mi doi crida iu re'e''' — ''Don't leave me, oh my beloved fairy!''
 :'''do io nai re'e nai se lijda lo mabla''' — ''Yay, you built a temple (well, no religious feelings here)!''
 :'''ui re'e cu'i do'o pu zbasu lo malsi''' — ''You belong to a shitty religion, no respect to you in this!''
@@ -6718,7 +6718,7 @@ ri'a,"
 '''ri'a''' <small>[preposition from '''rinka''']</small> — ''because of the cause ...''
 :'''ri'a lo ka kucli vau lo mlatu co'a morsi''' — ''Cat died because of being curious (curiosity killed the cat).''"
 ri'e,"
-'''ri'e''' <small>[interjection modifier]</small> — expressing release of attitude, '''ri'e''' '''nai''' — expressing restraint of attitude
+'''ri'e''' <small>[interjection suffix]</small> — expressing release of attitude, '''ri'e''' '''nai''' — expressing restraint of attitude
 :'''oi ri'e mi cirko lo mi ckiku''' — ''Ah, I lost my keys.''
 :'''oi ri'e nai cortu''' — ''Mmm, it hurts.''
 :Related words: '''rinju'''"
@@ -6816,35 +6816,35 @@ ro,"
 '''ro''' <small>[digit/number]</small> — ''each'', ''all''
 :'''ro lo mi pendo cu cusku lo se du'u mi simlu lo ka tatpi''' — ''All of my friends say that I look tired.''"
 ro'a,"
-'''ro'a''' <small>[interjection modifier]</small> — interacting socially (communication, customs), '''ro'a''' '''cu'i''' — not focused towards interacting socially, '''ro'a''' '''nai''' — focused away from interacting socially
+'''ro'a''' <small>[interjection suffix]</small> — interacting socially (communication, customs), '''ro'a''' '''cu'i''' — not focused towards interacting socially, '''ro'a''' '''nai''' — focused away from interacting socially
 :'''oi ro'a ca ti mi se cfipu''' — ''Awkward. I'm confused.''
 :'''ui ro'a cu'i mi cikre lo mi skami''' — ''I'm just puttering here by myself, fixing my computer.''
 :'''ui nai ro'a no da zvati ti''' — ''I feel so lonely, nobody is here.''
 :Comment: used without an attitudinal to indicate focus of the speaker.
 :Related words: '''jikca'''"
 ro'e,"
-'''ro'e''' <small>[interjection modifier]</small> — thinking/intellectual aspect, '''ro'e''' '''cu'i''' — not focused towards contemplating, '''ro'e''' '''nai''' — mindless action
+'''ro'e''' <small>[interjection suffix]</small> — thinking/intellectual aspect, '''ro'e''' '''cu'i''' — not focused towards contemplating, '''ro'e''' '''nai''' — mindless action
 :'''ui ro'e mi morji''' — ''Yay, I remember!''
 :'''a'i ro'e cu'i mi ba zukte''' — ''I will do it not putting much intellectual effort.''
 :'''do marvele iu ro'e nai''' — ''There is no logic in it, you are just wonderful.''
 :Comment: used without an interjection to indicate focus of the speaker.
 :Related words: '''menli'''"
 ro'i,"
-'''ro'i''' <small>[interjection modifier]</small> — emotionally, '''ro'i''' '''cu'i''' — non-emotionally, '''ro'i''' '''nai''' — denying emotions
+'''ro'i''' <small>[interjection suffix]</small> — emotionally, '''ro'i''' '''cu'i''' — non-emotionally, '''ro'i''' '''nai''' — denying emotions
 :'''ui ro'i sai mi'a jinga''' — ''I'm just overwhelmed with emotions, we won!!''
 :'''do mo ro'i''' — ''How do you feel?''
 :'''ui ro'i cu'i mi kanro''' — ''Feelings apart, I'm healthy.''
 :'''ui ro'i nai do snada''' — ''No rejoicing from me, you won.''
 :Related words: '''cinmo'''"
 ro'o,"
-'''ro'o''' <small>[interjection modifier]</small> — being restricted to physical body, '''ro'o''' '''cu'i''' — not oriented towards physical experience, '''ro'o''' '''nai''' — denying physical experience
+'''ro'o''' <small>[interjection suffix]</small> — being restricted to physical body, '''ro'o''' '''cu'i''' — not oriented towards physical experience, '''ro'o''' '''nai''' — denying physical experience
 :'''oi nai ro'o kukte''' — ''Yum, yum, it's tasty.''
 :'''ii ro'o cu'i ka'e kargu''' — ''I'm afraid it can be expensive.''
 :'''ii ro'o nai mi na drani punji le tanxe''' — ''No, not that it requires physical work, but I'm afraid I might not put the box correctly.''
 :Comment: used without an attitudinal to indicate focus of the speaker.
 :Related words: '''xadni'''"
 ro'u,"
-'''ro'u''' <small>[interjection modifier]</small> — sexually, '''ro'u''' '''nai''' — sexual abstinence
+'''ro'u''' <small>[interjection suffix]</small> — sexually, '''ro'u''' '''nai''' — sexual abstinence
 :'''iu ro'u doi nanla''' — ''Boy, you are hot, I love you.''
 :'''do melbi iu ro'o cu'i''' — ''You are pretty, not that I love you in sexual sense.''
 :'''do mi kansa ui ro'u nai doi pendo''' — ''Yay, you are with me, my buddy.''
@@ -6888,7 +6888,7 @@ ru'a,"
 :'''ru'a mi milxe lo ka bilma''' — ''I presume, I am a bit ill.''
 :Related words: '''sruma'''"
 ru'e,"
-'''ru'e''' <small>[interjection modifier]</small> — week intensity interjection
+'''ru'e''' <small>[right scaler]</small> — week intensity
 :'''mi na ru'e se slabu do''' — ''I hardly know you.''
 :'''ui ru'e do snada''' — ''Yay, you won.''"
 ru'i,"
@@ -6984,7 +6984,7 @@ saclu,"
 :'''lo saclu be li pai bei li pa no cu cimni lo ka clani''' — ''The decimal expansion of the number π (pi) is infinitely long.''
 :Related words: '''namcu''', '''frinu'''"
 sai,"
-'''sai''' <small>[interjection modifier]</small> — strong intensity interjection
+'''sai''' <small>[right scaler]</small> — strong intensity
 :'''ui sai do snada''' — ''Yay, you won!''"
 sakci,"
 '''sakci''' — ''x<sub>1</sub><sub>(entity)</sub>''  sucks, inhales  ''x<sub>2</sub><sub>(entity)</sub>''  into  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -7176,12 +7176,12 @@ se xau,"
 '''se xau''' <small>[preposition from '''xamgu''']</small> — ''thanks to ...'', ''due to ...'', ''benefiting from ...''
 :'''mi co'a ricfu se xau lo ka carmi gunka''' — ''I became rich thanks to my hard work.''"
 se'a,"
-'''se'a''' <small>[interjection modifier]</small> — self-sufficiency, '''se'a''' '''nai''' — dependency
+'''se'a''' <small>[interjection suffix]</small> — self-sufficiency, '''se'a''' '''nai''' — dependency
 :'''fa se'a le verba pu kelci''' — ''The child played by himself.''
 :'''fa se'a nai le cifnu cu cadzu''' — ''The infant walks but not by himself.''
 :Related words: '''lacri'''"
 se'i,"
-'''se'i''' <small>[interjection modifier]</small> — interjection is self-oriented, '''se'i''' '''nai''' — interjection is oriented towards others
+'''se'i''' <small>[interjection ending]</small> — interjection is self-oriented, '''se'i''' '''nai''' — interjection is oriented towards others
 :'''oi se'i mi pu srera''' — ''Oh, I made a mistake.''
 :'''oi se'i nai da spofu botpi bu'u lo loldi''' — ''Someone would be discontented, there is a broken bottle on the floor.''
 :Related words: '''drata'''"
@@ -7896,7 +7896,7 @@ stici,"
 stidi,"
 '''stidi''' — ''x<sub>1</sub><sub>(entity)</sub>''  suggests  ''x<sub>2</sub><sub>(property of x3)</sub>''  to  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo stidi''' — advisor. '''lo se stidi''' — piece of advice, suggestion, proposal. 
-:'''do ka'e stidi tu'a ma poi gusta''' — ''What restaurant would you recommend?''
+:'''do ka'e stidi tu'a ma noi gusta''' — ''What restaurant would you recommend?''
 :'''lo se stidi be le prenu pu du lo nu daspo lo dinju''' — ''Her proposal was to destroy the building.''
 :Related words: '''tcica''', '''xlura'''"
 stika,"
@@ -8388,7 +8388,7 @@ to,"
 '''to''' — '''to''' ... '''toi''' are parentheses, mark parenthetical comments
 :'''lei verba to lei rirni pu zvati lo zarci toi pu klama lo bartu''' — ''The children (the parents were at the store) went outside.''"
 to'e,"
-'''to'e''' <small>[converter of group NAhE]</small> — ''anti-'' (opposite on the scale). Modifies the construct to the right
+'''to'e''' <small>[left scaler]</small> — ''anti-'' (opposite on the scale). Modifies the construct to the right
 :'''mi to'e ri'a nai snada''' — ''Despite that, I succeeded.''
 :'''to'e cafne fa lo nu carvi bu'u ti''' — ''It rains here seldom.''
 :'''mi to'e nelci lo perli''' — ''I hate pears.''"
@@ -8499,7 +8499,7 @@ torta,"
 traduki,"
 '''traduki''' — ''x<sub>1</sub><sub>(entity)</sub>''  translates  ''x<sub>2</sub><sub>(text)</sub>''  to  ''x<sub>3</sub><sub>(text)</sub>'' 
 :'''lo traduki''' — translator, interpreter. '''lo se traduki''' — text translated. 
-:'''do traduki zoi gy.Yay, hello!.gy. ma poi lojbo''' — ''How would you translate &quot;Yay, hello!&quot; to Lojban?''
+:'''do traduki zoi gy.Yay, hello!.gy. ma noi lojbo''' — ''How would you translate &quot;Yay, hello!&quot; to Lojban?''
 :'''mi pu traduki lu coi ui li'u noi lojbo zoi gy.Yay, hello!.gy. noi glico''' — ''I translated Lojban '''coi ui''' to English as &quot;Yay, hello!&quot;''
 :'''mi traduki lo glico lo lojbo''' — ''I translate from English to Lojban.''
 :Comment: x<sub>2</sub> and x<sub>3</sub> can be filled with names denoting languages e.g. '''glico'''.
@@ -9069,7 +9069,7 @@ vu,"
 :'''le prenu ca zvati vu ci trene tcana ki mi''' — ''The man is now far away, three train stations from me.''
 :Comment: specifies the distance, e.g. in meters ."
 vu'e,"
-'''vu'e''' <small>[interjection modifier]</small> — expressing virtue, '''vu'e''' '''nai''' — expressing sin
+'''vu'e''' <small>[interjection]</small> — expressing virtue, '''vu'e''' '''nai''' — expressing sin
 :'''ie vu'e sarcu fa lo nu le tcadu cu se daspo''' — ''It's my virtue, I agree that the city should be destroyed.''
 :'''mi djica vu'e nai lo nu do na cliva''' — ''My sin, I don't want you to leave.''
 :'''ui vu'e nai mi pu citka lo titla poi mi pu zekri lebna''' — ''Yay, I ate a candy that I had stolen.''
@@ -9094,8 +9094,8 @@ xa'o,"
 xabju,"
 '''xabju''' — ''x<sub>1</sub><sub>(entity)</sub>''  dwells or lives in  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo xabju''' — inhabitant. '''lo se xabju''' — home. 
-:'''do xabju ma poi gugde''' — ''What country do you live in?''
-:'''do xabju ma poi tcadu''' — ''What city do you live in?''
+:'''do xabju ma noi gugde''' — ''What country do you live in?''
+:'''do xabju ma noi tcadu''' — ''What city do you live in?''
 :Comment: a synonym to '''se''' '''zdani'''.
 :Related words: '''ginka''', '''zdani''', '''zvati''', '''stuzi''', '''jmive''', '''stali''', '''vitke'''"
 xadba,"
@@ -9306,7 +9306,7 @@ xo'e,"
 :'''mi pu xagji xo'e va'e''' — ''I was hungry to some degree.''
 :Related words: '''tu'o''', '''xo''', '''zo'e''', '''co'e''', '''do'e'''"
 xo'o,"
-'''xo'o''' <small>[interjection modifier]</small> — verbal irony, '''xo'o''' '''nai''' — sincerely
+'''xo'o''' <small>[interjection suffix]</small> — verbal irony, '''xo'o''' '''nai''' — sincerely
 :'''je'u xo'o do ne se mau djuno''' — ''Yes, of course, you know better (sarcastically)!''
 :'''xo'o nai sai do pu rau va'e gunka''' — ''With full sincerity, I can tell you that you worked enough.''
 :Comment: For '''xo'o''' the intended meaning is the opposite of that expressed by the words used, in '''xo'o''' '''nai''' it explicitely marks the intended meaning as matching the words. Sarcasm isn't necessarily implied."
@@ -9634,7 +9634,7 @@ zo'i,"
 :'''mi sanli bu'u lo klaji zo'i le muzga''' — ''I'm standing on the street on this side of the museum.''
 :'''mi zutse lo lalxu korbi zo'i le laldo cindu''' — ''I'm sitting by the river on this side of the old oak.''"
 zo'o,"
-'''zo'o''' <small>[interjection modifier]</small> — ''Kidding...'' (humorously), '''zo'o''' '''cu'i''' — that might be either serious or a joke, '''zo'o''' '''nai''' — ''seriously''
+'''zo'o''' <small>[interjection suffix]</small> — ''Kidding...'' (humorously), '''zo'o''' '''cu'i''' — that might be either serious or a joke, '''zo'o''' '''nai''' — ''seriously''
 :'''zo'o pei''' — ''Are you kidding?''
 :'''e'u zo'o renro la Kevin lo vi kevna''' — ''Let's throw Kevin into this hole (kidding ...).''
 :'''mi kakne lo ka plipe fi lo ve'i cmana vau zo'o cu'i''' — ''I might be able to jump from the hill.''

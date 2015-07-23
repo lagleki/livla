@@ -151,6 +151,8 @@ full_NAICAI = expr:((NAI_clause / CAI_clause) !BU_clause full_NAICAI*) {return _
 full_NAhE = expr:(NAhE_clause BO_clause?) {return _node("left scaler", expr); }
 
 free = expr:(SEI_clause bridi_sei SEhU_elidible / vocative (sumti / sumti_leless  / sumtido) DOhU_elidible / mex_2 MAI_clause / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
+free_xohe = expr:(mex_2_xohe MAI_clause) {return _node("free", expr); }
+
 
 xi_clause = expr:(XI_clause mex_2 / XI_clause VEI_clause mex VEhO_elidible) {return _node("xi_clause", expr); }
 
@@ -183,7 +185,7 @@ terms? CU_elidible bridi_tail
 sentence_sa = expr:(sentence_start (!sentence_start (sa_word / SA_clause !sentence_start ) )* SA_clause &nion_0) {return _node("sentence_sa", expr);}
 sentence_start = expr:(I_pre / NIhO_pre) {return _node("sentence_start", expr);}
 
-bridi_sei = expr:(terms? CU_elidible bridi_tail_nul)  {return _node("bridi_sei", expr);}
+bridi_sei = expr:((terms CU_elidible)? bridi_tail_nul)  {return _node("bridi_sei", expr);}
 //ToDo: add relative clauses, make normal bridi like sei/sumti bridi, i.e. allowing bridi relative clauses using NOI
 bridi_tail_nul = expr:(bridi_tail_1_nul) {return _node("bridi_tail_nul", expr);}
 bridi_tail_1_nul = expr:(bridi_tail_2_nul) {return _node("bridi_tail_1_nul", expr);}
@@ -204,17 +206,26 @@ terms_0 = terms_1 / terms_1FAM / terms_1ZAM
 terms_0notZAM = terms_1 / terms_1FAM
 terms_1 = expr:(terms_2 (pehe_sa* PEhE_clause joik_jek terms_2)*) {return _node("terms_1", expr);}
 terms_2 = expr:(abs_term (cehe_sa* CEhE_clause abs_term)*) {return _node("terms_2", expr);}
-abs_term = expr:(KE_clause terms_0notZAM KEhE_elidible /  co_abs_tag_term / abs_tag_term / gek_term / termset) {return _node("abs_term", expr);}
+abs_term = expr:(KE_clause terms_0notZAM KEhE_elidible /  co_abs_tag_term / abs_tag_term / gek_term_no_ZAM / termset) {return _node("abs_term", expr);}
 co_abs_tag_term = expr:(!gek sumti) CO_clause expr2:(tag)  {return _node("abs_tag_term", expr2.concat(expr));}
 abs_tag_term = expr:((!gek tag !BO_clause !selbri !gek_sentence (KU_clause / sumti / sumtifazohe) / SOI_clause subbridi SEhU_elidible) (joik_jek (abs_tag_term / abs_tag_termFAM / abs_tag_termZAMfa / abs_tag_termZAM))*) {return _node("abs_tag_term", expr);}
 tag = expr:(tense_modal+ (joik_jek tense_modal+)*) {return _node("tag", expr); }
 term = expr:(co_tag_term / tag_term / termset) {return _node("term", expr);}
 co_tag_term = expr:(!gek sumti) CO_clause expr2:(tag)  {return _node("subbridi", expr2.concat(expr));}
-tag_term = expr:((!gek (tag / tagFAM / FA_elided &(full_INT* sumti)) !BO_clause (sumti / KU_clause / sumtifazohe) / NA_clause KU_clause / !gek !ek !joik_jek !gihek NA_clause (KU_clause / sumtifazohe) / SOI_clause subbridi SEhU_elidible) (joik_jek &((tag / tagFAM / FA_elided &(full_INT* sumti)) sumti) tag_term)*) {return _node("tag_term", expr);}
+tag_term = expr:((!gek (tag / tagFAM / FA_elided &(full_INT* sumti)) !BO_clause (sumti / KU_clause / sumtifazohe) / SOI_clause subbridi SEhU_elidible) (joik_jek &((tag / tagFAM / FA_elided &(full_INT* sumti)) sumti) tag_term)*) {return _node("tag_term", expr);}
+//dont allow joi-ning non-ZAMs with ZAMs?: gek allowed?:
+
+term_only_ZAM = expr:(tag_term_only_ZAM) {return _node("term", expr);}
+tag_term_only_ZAM = expr:(((FA_elided &(full_INT* sumti)) !BO_clause (sumti / KU_clause / sumtifazohe)) (joik_jek &((FA_elided &(full_INT* sumti)) sumti) tag_term_only_ZAM)*) {return _node("tag_term", expr);}
+//dont allow joi-ning non-ZAMs with ZAMs?: termset is {ge caku gi baku}:
+term_no_ZAM = expr:(tag_term_no_ZAM / termset) {return _node("term", expr);}
+tag_term_no_ZAM = expr:((!gek (tag / tagFAM) !BO_clause (sumti / KU_clause / sumtifazohe) / SOI_clause subbridi SEhU_elidible) (joik_jek &((tag / tagFAM) sumti) tag_term_no_ZAM)*) {return _node("tag_term", expr);}
+gek_term_no_ZAM = expr:(gek term_no_ZAM gik term_no_ZAM) {return _node("gek_term", expr);}
+
 subbridi = expr:(prenexe* bridi) {return _node("subbridi", expr);}
 gek_sentence = expr:(gek subbridi gik subbridi tail_terms / tag* KE_clause gek_sentence KEhE_elidible / NA_clause gek_sentence) {return _node("gek_sentence", expr);}
 //ToDo: we have a problem: gek term can't have FA alided
-gek_term = expr:(gek !sumti term gik !sumti term) {return _node("gek_term", expr);}
+//gek_term = expr:(gek term gik term) {return _node("gek_term", expr);}
 
 bridi_tailfu = expr:(bridi_tail_1fu (joik_gihek stag? bridi_tail)*) {return _node("bridi_tailfu", expr);}
 bridi_tail_1fu = expr:(bridi_tail_2fu (joik_gihek !(stag? BO_clause) !(stag? KE_clause) CU_elidible bridi_tail_2 tail_terms)*) {return _node("bridi_tail_1", expr);}
@@ -377,14 +388,13 @@ termset = expr:(gek_termset / NUhI_clause gek terms NUhU_elidible gik terms NUhU
 
 //ToDo:dont allow ZAM sumti here:
 gek_termset = expr:(gek terms_gik_terms) {return _node("gek_termset", expr);}
-
-terms_gik_terms = expr:(!sumti term (gik / terms_gik_terms) !sumti term) {return _node("terms_gik_terms", expr);}
+terms_gik_terms = expr:(term_no_ZAM (gik / terms_gik_terms) term_no_ZAM) {return _node("terms_gik_terms", expr);}
 
 sumti = expr:((KE_clause sumti KEhE_elidible / gek sumti gik sumti / sumti_1) (VUhO_clause (relative_clauses (joik_jek sumti)?)?)?) {return _node("sumti", expr);}
 sumti_1 = expr:(sumti_2  (joik_ek sumti_2)*) {return _node("sumti_1", expr);}
 sumti_2 = expr:(sumti_3 (jebo full_INT* sumti_3)*) {return _node("sumti_2", expr);}
 sumti_3 = expr:((mex? (full_NAhE relative_clauses? sumti LUhU_elidible / LAhE_clause relative_clauses? sumti LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_clause / lerfu_string BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_clause text LIhU_elidible  / KOhA_clause / li_clause / LE_clause sumti_core KU_elidible) / mex sumti_core KU_elidible) full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_3", expr);}
-sumti_core = (relative_clauses / relative_clauses_ne)? mex? bridi_tail_nul relative_clauses?
+sumti_core = (relative_clauses / relative_clauses_ne)? mex? bridi_sei relative_clauses?
 
 sumtido = expr:(sumti_1do) {return _node("sumti", expr);}
 sumti_1do = expr:(sumti_2do) {return _node("sumti_1", expr);}
@@ -406,7 +416,8 @@ relative_clause_1 = expr:(GOI_clause term? GEhU_elidible / NOI_clause subbridi K
 
 relative_clauses_ne = expr:( relative_clause_ne (joik (relative_clause / relative_clause_ne))* / gek relative_clauses_ne gik relative_clauses_ne) {return _node("relative_clauses", expr); }
 relative_clause_ne = expr:(relative_clause_sa* relative_clause_1_ne) {return _node("relative_clause", expr); }
-relative_clause_1_ne = expr:(GOI_clause_elidible term GEhU_elidible) {return _node("relative_clause_1", expr); }
+//ToDo: again ugly hack for ZAMs! allow only ZAM terms here!
+relative_clause_1_ne = expr:(GOI_clause_elidible &sumti term GEhU_elidible) {return _node("relative_clause_1", expr); }
 
 relative_clause_sa = expr:(relative_clause_start (!relative_clause_start (sa_word / SA_clause !relative_clause_start ) )* SA_clause &relative_clause_1) {return _node("relative_clause_sa", expr); }
 relative_clause_start = expr:(GOI_clause / NOI_clause) {return _node("relative_clause_start", expr); }
@@ -500,6 +511,10 @@ pl = PA_clause / lerfu_string
 lerfu_string = expr:((PA_clause BY_clause / lerfu_word)+) {return _node("lerfu_string", expr); }
 lerfu_word = expr:(BY_clause / LAU_clause lerfu_word / TEI_clause lerfu_string FOI_clause) {return _node("lerfu_word", expr); }
 
+mex_2_xohe = expr:(operand_xohe) {return _node("mex_2", expr); }
+operand_xohe = expr:((number_xohe BOI_elidible)  full_NAICAI*) {return _node("operand", expr); }
+number_xohe = expr:((VEI_elidible !VEI_clause)? (VEI_clause PA_clause_xohe / PA_clause_xohe) VEhO_elidible?) {return _node("number", expr); }
+
 ///MEX 
 
 /// co'a skicu lo terjonma'o
@@ -559,8 +574,8 @@ dot_star = expr:(.*) { ret = ""; for (i in expr) ret += (expr[i] === " ") ? "_" 
 
 // Handling of what can go after a cmavo
 post_clause = expr:(spaces? si_clause? !ZEI_clause !BU_clause full_INT*) {return _node_nonempty("post_clause", expr); }
-
 post_clause_limited = expr:(spaces? si_clause? !ZEI_clause !BU_clause) {return _node_nonempty("post_clause", expr); }
+post_clause_for_xohe_mai = expr:(spaces? si_clause? !ZEI_clause !BU_clause (free_xohe / full_INT)*) {return _node_nonempty("post_clause", expr); }
 
 pre_clause = BAhE_clause?
 
@@ -636,6 +651,7 @@ NOUNEND = {return ["NF"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}
 KOhA_elidible = expr:() { return ["DO", _join(expr)];}
 LE_elided = expr:() { return ["LO", _join(expr)];}
+PA_elided = expr:() { return ["XOhE", _join(expr)];}
 NU_elidible =  expr:() { return ["NU", _join(expr)];}
 
 // ___ SELMAHO ___
@@ -731,7 +747,6 @@ CAhA_pre = pre_clause CAhA spaces?
 //         afterthought intensity marker 
 CAI_clause = pre:CAI_pre post:post_clause_limited {return _node2("CAI_clause", pre, post); }
 CAI_pre = pre_clause CAI spaces?
-CAI_post = post_clause_limited
 // CAI_no_SA_handling = pre_clause CAI post_clause
 
 //         pro_bridi assignment operator 
@@ -848,9 +863,8 @@ FUhO_pre = pre_clause FUhO spaces?
 
 
 //         geks; forethought logical connectives 
-GA_clause = pre:GA_pre post:GA_post {return _node2("GA_clause", pre, post); }
+GA_clause = pre:GA_pre post_clause_limited {return _node2("GA_clause", pre, post); }
 GA_pre = pre_clause GA spaces?
-GA_post = post_clause_limited
 // GA_no_SA_handling = pre_clause GA post_clause
 
 ga_clause = pre:ga_pre post:post_clause_limited {return _node2("ga_clause", pre, post); }
@@ -869,15 +883,13 @@ GEhU_pre = pre_clause GEhU spaces?
 // GEhU_no_SA_handling = pre_clause GEhU post_clause
 
 //         forethought medial marker 
-GI_clause = pre:GI_pre post:GI_post {return _node2("GI_clause", pre, post); }
+GI_clause = pre:GI_pre post_clause_limited {return _node2("GI_clause", pre, post); }
 GI_pre = pre_clause GI spaces?
-GI_post = post_clause_limited
 // GI_no_SA_handling = pre_clause GI post_clause
 
 //         logical connectives for bridi_tails 
-GIhA_clause = pre:GIhA_pre post:GIhA_post {return _node2("GIhA_clause", pre, post); }
+GIhA_clause = pre:GIhA_pre post_clause_limited {return _node2("GIhA_clause", pre, post); }
 GIhA_pre = pre_clause GIhA spaces?
-GIhA_post = post_clause_limited
 // GIhA_no_SA_handling = pre_clause GIhA post_clause
 
 //         attaches a sumti modifier to a sumti 
@@ -894,16 +906,15 @@ GOhA_pre = pre_clause GOhA spaces?
 // GOhA_no_SA_handling = pre_clause GOhA post_clause
 
 //         GEK for selbrisle, corresponds to JEKs 
-GUhA_clause = pre:GUhA_pre post:GUhA_post {return _node2("GUhA_clause", pre, post); }
+GUhA_clause = pre:GUhA_pre post_clause_limited {return _node2("GUhA_clause", pre, post); }
 GUhA_pre = pre_clause GUhA spaces?
-GUhA_post = post_clause_limited
 // GUhA_no_SA_handling = pre_clause GUhA post_clause
 
 
 //         sentence link 
-I_clause = expr:(sentence_sa* I_pre post:post_clause ) {return _node("I_clause", expr); }
+I_clause = expr:(sentence_sa* I_pre post_clause_for_xohe_mai ) {return _node("I_clause", expr); }
 I_pre = pre_clause I spaces?
-I_clause_elidible = expr:(sentence_sa* I_pre_elidible post:post_clause ) {return _node("I_clause", expr); }
+I_clause_elidible = expr:(sentence_sa* I_pre_elidible post_clause_for_xohe_mai ) {return _node("I_clause", expr); }
 I_pre_elidible = pre_clause (I / I_elidible) spaces?
 // I_no_SA_handling = pre_clause I post_clause
 
@@ -1084,9 +1095,8 @@ NA_pre = pre_clause NA spaces?
 // NA_no_SA_handling = pre_clause NA post_clause
 
 //         attached to words to negate them 
-NAI_clause = pre:NAI_pre post:NAI_post {return _node2("NAI_clause", pre, post); }
+NAI_clause = pre:NAI_pre post_clause_limited{return _node2("NAI_clause", pre, post); }
 NAI_pre = pre_clause NAI spaces?
-NAI_post = post_clause_limited
 
 // NAI_no_SA_handling = pre_clause NAI post_clause
 
@@ -1144,6 +1154,10 @@ NUhU_pre = pre_clause NUhU spaces?
 //         numbers and numeric punctuation 
 PA_clause = pre:PA_pre post:post_clause {return _node2("PA_clause", pre, post); }
 PA_pre = pre_clause PA spaces?
+
+PA_clause_xohe = pre:PA_xohe_pre post:post_clause {return _node2("PA_clause", pre, post); }
+PA_xohe_pre = pre_clause PA_elided spaces?
+
 // PA_no_SA_handling = pre_clause PA post_clause
 
 //         afterthought termset connective prefix 

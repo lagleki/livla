@@ -201,7 +201,7 @@ gek_sentence = expr:(tagBAM* (gek subbridi gik subbridi tail_loi_sumsmi / KE_cla
 bridi_tail = expr:(bridi_tail_1 (joik_gihek stag? bridi_tail)*) {return _node("bridi_tail", expr);}
 bridi_tail_1 = expr:(bridi_tail_2 (joik_gihek !(stag? BO_clause) !(stag? KE_clause) CU_elidible bridi_tail_2 tail_loi_sumsmi)*) {return _node("bridi_tail_1", expr);}
 bridi_tail_2 = expr:(bridi_tail_3 (joik_gihek stag? BO_clause CU_elidible bridi_tail_3 tail_loi_sumsmi)*) {return _node("bridi_tail_2", expr);}
-bridi_tail_3 = expr:(KE_clause !(selbri_2 KEhE) bridi_tail KEhE_elidible tail_loi_sumsmi / gek_bridi_tail / (selbri_may_elide / gek_sentence) tail_loi_sumsmi) {return _node("bridi_tail_3", expr);}
+bridi_tail_3 = expr:(KE_clause !(selbri_2 KEhE) bridi_tail KEhE_elidible tail_loi_sumsmi / gek_bridi_tail / loisumsmiBFZAM? (selbri_may_elide / gek_sentence) tail_loi_sumsmi) {return _node("bridi_tail_3", expr);}
 //todo: restore {NA_clause before gek_bridi_tail_nul  and gek_bridi_tail
 gek_bridi_tail = expr:(gek bridi_tail gik bridi_tail / tagBAM* KE_clause gek_bridi_tail KEhE_elidible) {return _node("gek_bridi_tail", expr);}
 
@@ -210,9 +210,9 @@ gek_bridi_tail = expr:(gek bridi_tail gik bridi_tail / tagBAM* KE_clause gek_bri
 //todo: geks: ge ca mi gi ba mi - done. ge ca gi ba mi - not done. ge ca ba gi ba ca mi - not done. ge ca mi gau do fa mi gi ba mi gau mi fa do - not done. ge mi gi do - not done.
 //```//gek_term = expr:(gek term gik term) {return _node("gek_term", expr);}
 
-sumsmiBFAM = sumsmiBAM / sumsmiFAM
-sumsmiBFZAM = sumsmiBAM / sumsmiFAM / sumsmiZAM
-loisumsmiBFZAM = KE_clause loisumsmiBFZAM KEhE_elidible loisumsmiBFZAM? / sumsmiBFZAM+ / gek loisumsmiBFZAM gik loisumsmiBFZAM
+sumsmiBFAM = expr:(sumsmiBAM / sumsmiFAM) {return _node("loisumsmi", expr);}
+sumsmiBFZAM = expr:(sumsmiBAM / sumsmiFAM / sumsmiZAM) {return _node("loisumsmi", expr);}
+loisumsmiBFZAM = expr:(KE_clause loisumsmiBFZAM KEhE_elidible loisumsmiBFZAM? / sumsmiBFZAM+ / gek loisumsmiBFZAM gik loisumsmiBFZAM) {return _node("loisumsmi", expr);}
 
 loisumsmiBAM = KE_clause loisumsmiBAM KEhE_elidible loisumsmiBAM? / sumsmiBAM+ / gek loisumsmiBAM gik loisumsmiBAM
 sumsmiBAM = sumsmiBAMprep / sumsmiBAMpostp

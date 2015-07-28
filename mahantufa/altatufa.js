@@ -93,8 +93,13 @@ var camxes = (function(){
         "tag_rootBAM": parse_tag_rootBAM,
         "loisumsmiFAM": parse_loisumsmiFAM,
         "sumsmiFAM": parse_sumsmiFAM,
+        "sumsmiFAMprep": parse_sumsmiFAMprep,
+        "sumsmiFAMpostp": parse_sumsmiFAMpostp,
+        "tagFAM_0": parse_tagFAM_0,
+        "tagFAMgek": parse_tagFAMgek,
         "tagFAM": parse_tagFAM,
         "tag_headFAM": parse_tag_headFAM,
+        "tagBFAM_0": parse_tagBFAM_0,
         "loisumsmiZAM": parse_loisumsmiZAM,
         "sumsmiZAM": parse_sumsmiZAM,
         "tagZAM": parse_tagZAM,
@@ -4882,6 +4887,28 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
+        var result0;
+        
+        result0 = parse_sumsmiFAMprep();
+        if (result0 === null) {
+          result0 = parse_sumsmiFAMpostp();
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumsmiFAMprep() {
+        var cacheKey = "sumsmiFAMprep@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
         var result0, result1, result2, result3;
         var pos0, pos1, pos2, pos3, pos4;
         
@@ -4899,7 +4926,7 @@ var camxes = (function(){
           pos = pos3;
         }
         if (result0 !== null) {
-          result1 = parse_tagFAM();
+          result1 = parse_tagFAM_0();
           if (result1 !== null) {
             result2 = parse_sumti();
             if (result2 === null) {
@@ -4989,6 +5016,163 @@ var camxes = (function(){
         }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("sumsmi", expr);})(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_sumsmiFAMpostp() {
+        var cacheKey = "sumsmiFAMpostp@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3, result4, result5;
+        var pos0, pos1, pos2;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_sumti();
+        if (result0 !== null) {
+          result1 = parse_CO_clause();
+          if (result1 !== null) {
+            result2 = parse_tagFAM_0();
+            if (result2 !== null) {
+              result3 = [];
+              pos2 = pos;
+              result4 = parse_joik_jek();
+              if (result4 !== null) {
+                result5 = parse_sumsmiBFAM();
+                if (result5 !== null) {
+                  result4 = [result4, result5];
+                } else {
+                  result4 = null;
+                  pos = pos2;
+                }
+              } else {
+                result4 = null;
+                pos = pos2;
+              }
+              while (result4 !== null) {
+                result3.push(result4);
+                pos2 = pos;
+                result4 = parse_joik_jek();
+                if (result4 !== null) {
+                  result5 = parse_sumsmiBFAM();
+                  if (result5 !== null) {
+                    result4 = [result4, result5];
+                  } else {
+                    result4 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result4 = null;
+                  pos = pos2;
+                }
+              }
+              if (result3 !== null) {
+                result0 = [result0, result1, result2, result3];
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr, expr2, expr3) {return _node("sumsmi", expr2.concat(expr).concat(expr3));})(pos0, result0[0], result0[2], result0[3]);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_tagFAM_0() {
+        var cacheKey = "tagFAM_0@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        
+        result0 = parse_tagFAM();
+        if (result0 === null) {
+          result0 = parse_tagFAMgek();
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_tagFAMgek() {
+        var cacheKey = "tagFAMgek@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2, result3;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_gek();
+        if (result0 !== null) {
+          result1 = parse_tagFAM();
+          if (result1 !== null) {
+            result2 = parse_gik();
+            if (result2 !== null) {
+              result3 = parse_tagFAM();
+              if (result3 !== null) {
+                result0 = [result0, result1, result2, result3];
+              } else {
+                result0 = null;
+                pos = pos1;
+              }
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("tagFAMgek", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -5154,6 +5338,28 @@ var camxes = (function(){
         }
         if (result0 === null) {
           pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_tagBFAM_0() {
+        var cacheKey = "tagBFAM_0@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        
+        result0 = parse_tagBAM_0();
+        if (result0 === null) {
+          result0 = parse_tagFAM_0();
         }
         
         cache[cacheKey] = {
@@ -13847,10 +14053,10 @@ var camxes = (function(){
         pos0 = pos;
         pos1 = pos;
         result0 = [];
-        result1 = parse_tagBAM_0();
+        result1 = parse_tagBFAM_0();
         while (result1 !== null) {
           result0.push(result1);
-          result1 = parse_tagBAM_0();
+          result1 = parse_tagBFAM_0();
         }
         if (result0 !== null) {
           result1 = parse_selbri_1();

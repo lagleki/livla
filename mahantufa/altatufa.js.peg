@@ -225,11 +225,16 @@ tag_headBAM = expr:((full_NAhE cls tag_rootBAM / cls tag_rootBAM full_NAICAI*) f
 tag_rootBAM = NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? mex ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause selbri FEhU_elidible
 
 loisumsmiFAM = sumsmiFAM+ / gek loisumsmiFAM gik loisumsmiFAM
-sumsmiFAM = expr:((!gek tagFAM (sumti / (KU_clause / sumtifazohe !bridi_tail))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
+sumsmiFAM = sumsmiFAMprep / sumsmiFAMpostp
+sumsmiFAMprep = expr:((!gek tagFAM_0 (sumti / (KU_clause / sumtifazohe !bridi_tail))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
+sumsmiFAMpostp = expr:(sumti) CO_clause expr2:(tagFAM_0) expr3:((joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr2.concat(expr).concat(expr3));}
+tagFAM_0 = tagFAM / tagFAMgek
+tagFAMgek = expr:(gek tagFAM gik tagFAM) {return _node("tagFAMgek", expr); }
 tagFAM = expr:(tag_headFAM (joik_jek tag_headFAM)*) {return _node("tagFAM", expr); }
 tag_headFAM = expr:((full_NAhE cls tag_rootFAM / cls tag_rootFAM full_NAICAI*) full_INT*) {return _node("tense_modal", expr); }
 tag_rootFAM = FA_clause
 
+tagBFAM_0 = tagBAM_0 / tagFAM_0 
 loisumsmiZAM = sumsmiZAM+ / gek loisumsmiZAM gik loisumsmiZAM
 sumsmiZAM = expr:((!gek tagZAM sumti) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
 tagZAM = expr:(tag_headZAM (joik_jek tag_headZAM)*) {return _node("tagZAM", expr); }
@@ -435,7 +440,7 @@ selbri_may_elide_elided = (selbri_elided)
 selbri_elided = expr:(tagBAM* COhE_elided) {return _node("selbri", expr); }
 selbri_elided = expr:(COhE_elided) {return _node("selbri", expr); }
 
-selbri = expr:(tagBAM_0* selbri_1) {return _node("selbri", expr); }
+selbri = expr:(tagBFAM_0* selbri_1) {return _node("selbri", expr); }
 selbri_1 = expr:(selbri_2) {return _node("selbri_1", expr); }
 selbri_2 = expr:(selbri_3 (CO_clause selbri_2)?) {return _node("selbri_2", expr); }
 selbri_3 = expr:((selbri_4 &selbri_4)* selbri_4nf) {return _node("selbri_3", expr); }

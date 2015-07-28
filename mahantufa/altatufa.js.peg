@@ -216,7 +216,7 @@ loisumsmiBFZAM = expr:(KE_clause loisumsmiBFZAM KEhE_elidible loisumsmiBFZAM? / 
 
 loisumsmiBAM = KE_clause loisumsmiBAM KEhE_elidible loisumsmiBAM? / sumsmiBAM+ / gek loisumsmiBAM gik loisumsmiBAM
 sumsmiBAM = sumsmiBAMprep / sumsmiBAMpostp
-sumsmiBAMprep = expr:((!gek tagBAM_0 (sumti / (KU_clause / sumtifazohe !bridi_tail))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
+sumsmiBAMprep = expr:((!gek tagBAM_0 (sumti / (KU_clause / sumtifazohe !(sumsmiBFZAM / selbri)))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
 sumsmiBAMpostp = expr:(sumti) CO_clause expr2:(tagBAM_0) expr3:((joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr2.concat(expr).concat(expr3));}
 tagBAM_0 = tagBAM / tagBAMgek
 tagBAMgek = expr:(gek tagBAM gik tagBAM) {return _node("tagBAMgek", expr); }
@@ -333,7 +333,7 @@ fasnu_to_elide = expr:(FASNU_elidible) {return _node("selbri", expr); }
 bridi_tailfefifofu_elided = expr:(bridi_tail_1fefifofu_elided) {return _node("bridi_tailfefifofu_elided", expr);}
 bridi_tail_1fefifofu_elided = expr:(bridi_tail_2fefifofu_elided) {return _node("bridi_tail_1", expr);}
 bridi_tail_2fefifofu_elided = expr:(bridi_tail_3fefifofu_elided) {return _node("bridi_tail_2", expr);}
-bridi_tail_3fefifofu_elided = expr:(selbri_may_elide_elided) {return _node("bridi_tail_3", expr);}
+bridi_tail_3fefifofu_elided = expr:(selbri_elided) {return _node("bridi_tail_3", expr);}
 
 
 //LINKARGs
@@ -373,7 +373,7 @@ cehe_sa = expr:(CEhE_clause (!CEhE_clause (sa_word / SA_clause !CEhE_clause))* S
 sumti = expr:((KE_clause sumti KEhE_elidible / gek sumti gik sumti / sumti_1) (VUhO_clause (relative_clauses (joik_jek sumti)?)?)?) {return _node("sumti", expr);}
 sumti_1 = expr:(sumti_2  (joik_ek sumti_2)*) {return _node("sumti_1", expr);}
 sumti_2 = expr:(sumti_3 (jebo full_INT* sumti_3)*) {return _node("sumti_2", expr);}
-sumti_3 = expr:((mex? (full_NAhE relative_clauses? sumti LUhU_elidible / LAhE_clause relative_clauses? sumti LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_clause / lerfu_string BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_clause text LIhU_elidible  / KOhA_clause / li_clause / LE_clause sumti_core KU_elidible) / mex sumti_core KU_elidible) full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_3", expr);}
+sumti_3 = expr:((mex? (full_NAhE relative_clauses? sumti LUhU_elidible / LAhE_clause relative_clauses? sumti LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_clause / lerfu_string BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_clause text LIhU_elidible  / KOhA_clause / li_clause / LE_clause sumti_core KU_elidible) / mex !ROI_clause sumti_core KU_elidible) full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_3", expr);}
 sumti_core = (relative_clauses / relative_clauses_ne)? mex? bridi_sei relative_clauses?
 
 sumtinoi = expr:(sumti_1noi) {return _node("sumti", expr);}
@@ -435,9 +435,8 @@ selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relativ
 
 //todo: usually we add  !sumsmiBFZAM after selbri_elided but then maximum stack exceeded
 selbri_may_elide = (selbri / selbri_elided)
-selbri_may_elide_elided = (selbri_elided)
 //todo: remove hardcoded cohe_elided below
-selbri_elided = expr:(tagBAM* COhE_elided) {return _node("selbri", expr); }
+selbri_elided = expr:(tagBFAM_0* COhE_elided) {return _node("selbri", expr); }
 selbri_elided = expr:(COhE_elided) {return _node("selbri", expr); }
 
 selbri = expr:(tagBFAM_0* selbri_1) {return _node("selbri", expr); }

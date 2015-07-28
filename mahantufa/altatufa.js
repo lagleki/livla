@@ -4274,7 +4274,10 @@ var camxes = (function(){
                 if (result2 !== null) {
                   pos4 = pos;
                   reportFailures++;
-                  result3 = parse_bridi_tail();
+                  result3 = parse_sumsmiBFZAM();
+                  if (result3 === null) {
+                    result3 = parse_selbri();
+                  }
                   reportFailures--;
                   if (result3 === null) {
                     result3 = "";
@@ -11889,11 +11892,26 @@ var camxes = (function(){
           pos2 = pos;
           result0 = parse_mex();
           if (result0 !== null) {
-            result1 = parse_sumti_core();
+            pos3 = pos;
+            reportFailures++;
+            result1 = parse_ROI_clause();
+            reportFailures--;
+            if (result1 === null) {
+              result1 = "";
+            } else {
+              result1 = null;
+              pos = pos3;
+            }
             if (result1 !== null) {
-              result2 = parse_KU_elidible();
+              result2 = parse_sumti_core();
               if (result2 !== null) {
-                result0 = [result0, result1, result2];
+                result3 = parse_KU_elidible();
+                if (result3 !== null) {
+                  result0 = [result0, result1, result2, result3];
+                } else {
+                  result0 = null;
+                  pos = pos2;
+                }
               } else {
                 result0 = null;
                 pos = pos2;
@@ -14011,10 +14029,10 @@ var camxes = (function(){
         pos0 = pos;
         pos1 = pos;
         result0 = [];
-        result1 = parse_tagBAM();
+        result1 = parse_tagBFAM_0();
         while (result1 !== null) {
           result0.push(result1);
-          result1 = parse_tagBAM();
+          result1 = parse_tagBFAM_0();
         }
         if (result0 !== null) {
           result1 = parse_COhE_elided();

@@ -170,14 +170,13 @@ bridi = expr:(
 (loisumsmiBAM? bridi_tailfefifofunoi) / /* klama do ti ta tu vau noi */
 normalbridi ) {return _node("bridi", expr);}
 normalbridi = expr:(
-(loisumsmiwithzamfafefifofuandmore CU_elidible bridi_tail) / /* mi [do ti ta tu] (FA ko'a)n klama*///try merging with ^CU
-(loisumsmiwithzamfafefifofu CU_elidible bridi_tail) / /* mi do ti ta tu klama*/
-(loisumsmiwithzamfafefifo CU_elidible bridi_tailfu) / /* mi do ti ta klama tu*/
-(loisumsmiwithzamfafefi CU_elidible bridi_tailfofu) / /* mi do ti klama ta tu*/
-(loisumsmiwithzamfafe CU_elidible bridi_tailfifofu) / /* mi do klama ti ta tu*/
-(loisumsmiwithzamfa CU_elidible bridi_tailfefifofu) / /* mi klama do ti ta tu*/
-(loisumsmiBAM CU_elidible bridi_tailfefifofu) / /*  caku cu klama do ti ta tu*/
-CU_elidible? bridi_tailfefifofu / 
+//(loisumsmiwithzamfafefifofuandmore CU_elidible bridi_tail) / /* mi [do ti ta tu] (FA ko'a)n klama*///try merging with ^CU
+//(loisumsmiwithzamfafefifofu CU_elidible bridi_tail) / /* mi do ti ta tu klama*/
+//(loisumsmiwithzamfafefifo CU_elidible bridi_tailfu) / /* mi do ti ta klama tu*/
+//(loisumsmiwithzamfafefi CU_elidible bridi_tailfofu) / /* mi do ti klama ta tu*/
+//(loisumsmiwithzamfafe CU_elidible bridi_tailfifofu) / /* mi do klama ti ta tu*/
+//(loisumsmiwithzamfa CU_elidible bridi_tailfefifofu) / /* mi klama do ti ta tu*/
+//(loisumsmiBAM CU_elidible bridi_tailfefifofu) / /*  caku cu klama do ti ta tu*/
 (loisumsmiBFZAM? CU_elidible)? bridi_tail
 )
 bridi_elided = expr:(loisumsmiBAM bridi_tailfefifofu_elided) {return _node("bridi_elided", expr);}
@@ -213,9 +212,9 @@ gek_bridi_tail = expr:(gek bridi_tail gik bridi_tail / tagBAM* KE_clause gek_bri
 
 sumsmiBFAM = sumsmiBAM / sumsmiFAM
 sumsmiBFZAM = sumsmiBAM / sumsmiFAM / sumsmiZAM
-loisumsmiBFZAM = (sumsmiBFZAM)+ / gek loisumsmiBFZAM gik loisumsmiBFZAM
+loisumsmiBFZAM = KE_clause loisumsmiBFZAM KEhE_elidible loisumsmiBFZAM? / sumsmiBFZAM+ / gek loisumsmiBFZAM gik loisumsmiBFZAM
 
-loisumsmiBAM = sumsmiBAM+ / gek loisumsmiBAM gik loisumsmiBAM
+loisumsmiBAM = KE_clause loisumsmiBAM KEhE_elidible loisumsmiBAM? / sumsmiBAM+ / gek loisumsmiBAM gik loisumsmiBAM
 sumsmiBAM = sumsmiBAMprep / sumsmiBAMpostp
 sumsmiBAMprep = expr:((!gek tagBAM_0 (sumti / (KU_clause / sumtifazohe !bridi_tail))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
 sumsmiBAMpostp = expr:(sumti) CO_clause expr2:(tagBAM_0) expr3:((joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr2.concat(expr).concat(expr3));}
@@ -296,7 +295,7 @@ tagZAMfanoi = expr:(tag_headZAMfanoi) {return _node("tagZAM", expr); }
 tag_headZAMfanoi = expr:((tag_rootZAMfanoi)) {return _node("tense_modal", expr); }
 tag_rootZAMfanoi = FAXIPA_clause_elided
 
-tail_loi_sumsmi = expr:(loisumsmiBFZAM? VAU_elidible  !ZOhU_clause) {return _node_nonempty("tail_terms", expr); }
+tail_loi_sumsmi = expr:(loisumsmiBFZAM? vaunotbeforezohu) {return _node_nonempty("tail_terms", expr); }
 
 bridi_tailfu = expr:(bridi_tail_1fu (joik_gihek stag? bridi_tail)*) {return _node("bridi_tailfu", expr);}
 bridi_tail_1fu = expr:(bridi_tail_2fu (joik_gihek !(stag? BO_clause) !(stag? KE_clause) CU_elidible bridi_tail_2 tail_loi_sumsmi)*) {return _node("bridi_tail_1", expr);}
@@ -436,7 +435,7 @@ selbri_may_elide_elided = (selbri_elided)
 selbri_elided = expr:(tagBAM* COhE_elided) {return _node("selbri", expr); }
 selbri_elided = expr:(COhE_elided) {return _node("selbri", expr); }
 
-selbri = expr:(tagBAM* selbri_1) {return _node("selbri", expr); }
+selbri = expr:(tagBAM_0* selbri_1) {return _node("selbri", expr); }
 selbri_1 = expr:(selbri_2) {return _node("selbri_1", expr); }
 selbri_2 = expr:(selbri_3 (CO_clause selbri_2)?) {return _node("selbri_2", expr); }
 selbri_3 = expr:((selbri_4 &selbri_4)* selbri_4nf) {return _node("selbri_3", expr); }

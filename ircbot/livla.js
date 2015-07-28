@@ -1372,16 +1372,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		pars+="}";
 		if (i<rev.length-1){pars+=",\n";}//\n
 	}
-	pars+="];\n";//\n
-/*rev = xmlDoc.find("/dictionary/direction[2]/nlword");
-var nl='var literals = {';
-	for (i=0;i<rev.length;i++) {
-		nl+="\""+rev[i].attr("word").value().replace(/"/g,"'").replace(/\\/g,"\\").replace("\\","\\\\")+"\":[\""+rev[i].attr("valsi").value().replace(/"/g,"'").replace(/\\/g,"\\").replace("\\","\\\\")+"\"]";
-		nl+="";
-		if (i<rev.length-1){nl+=",\n";}//\n
-	}
-	nl+="};\n";//\n
-	pars+=nl;*/
+	pars+="];\n";
 	var t = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
 	pars = fs.writeFileSync(t+".temp",pars);
 	fs.renameSync(t+".temp",t);

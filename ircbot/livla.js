@@ -1359,7 +1359,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		try{pars+=",\"s\":\""+rev[i].find("selmaho[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		try{pars+=",\"d\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		try{pars+=",\"n\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
-		//try{pars+=",\"g\":\""+rev[i].find("glossword/@word").join(" ").replace(/ word='/g," ").replace(/'/g,"").replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
+		try{pars+=",\"g\":\""+rev[i].find("glossword/@word").join(";").replace(/ word=\"(.*?)\"/g,"$1")+"\"";}catch(err){}
 		var ra=rev[i].find("rafsi//text()[1]");
 		if (xugismu(hi)===true){
 			ra.push(hi);
@@ -1373,7 +1373,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		if (i<rev.length-1){pars+=",\n";}//\n
 	}
 	pars+="];\n";//\n
-rev = xmlDoc.find("/dictionary/direction[2]/nlword");
+/*rev = xmlDoc.find("/dictionary/direction[2]/nlword");
 var nl='var literals = {';
 	for (i=0;i<rev.length;i++) {
 		nl+="\""+rev[i].attr("word").value().replace(/"/g,"'").replace(/\\/g,"\\").replace("\\","\\\\")+"\":[\""+rev[i].attr("valsi").value().replace(/"/g,"'").replace(/\\/g,"\\").replace("\\","\\\\")+"\"]";
@@ -1381,7 +1381,7 @@ var nl='var literals = {';
 		if (i<rev.length-1){nl+=",\n";}//\n
 	}
 	nl+="};\n";//\n
-	pars+=nl;
+	pars+=nl;*/
 	var t = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
 	pars = fs.writeFileSync(t+".temp",pars);
 	fs.renameSync(t+".temp",t);

@@ -1,66 +1,25 @@
-var literals = (typeof literals === 'undefined') ? '' : literals;
-
 var searchIdCounter = 0;
 function search(query, callback) {
 	if (query.length === 0) {
 		return;
 	}
 	var searchId = ++searchIdCounter;
-	var words = (literals[query] || []).slice();
-	words.push(query);
-	var set = {};
 	var resultCount = 0;
 	var results = [];
 	var greatMatches = [];
-	for (var i = 0; i < words.length; i++) {
-		resultCount++;
-		var doc = documentStore.filter(function(v) {return v.w === words[i];}).slice(0);
-		if (doc) {
-			for (var doci in doc){
-				greatMatches.push(doc[doci]);set[doc[doci].w] = true;
-			}
+	var rafsiDecompositions = parseLujvo(query);
+	for (i = 0; i < rafsiDecompositions.length; i++) {
+		var decomposition = rafsiDecompositions[i];
+		if (decomposition.length>1){
+		results.push({
+			t: "decomposing ...",
+			w: query,
+			r: decomposition.filter(function(y){return y.search(/Q$/)===-1;}),
+			rafsiDocuments: (decomposition.map(function(r){return rafsi[r] || documentStore.filter(function(val){return val.w==r.replace("Q","")})[0]})||[])
+		});
 		}
 	}
-	//
-	words = [];
-	var patt = new RegExp("\\b"+query+"$","i");
-	for (var k in literals){
-		if (patt.test(k.toString())){
-			words.push(literals[k][0]);
-		}
-	}
-	patt = new RegExp("^"+query+"\\b","i");
-	for (k in literals){
-		if (patt.test(k.toString())){
-			words.push(literals[k][0]);
-		}
-	}
-	for (i = 0; i < words.length; i++) {
-		resultCount++;
-		var doct = documentStore.filter(function(v) {return v.w === words[i];}).slice(0);
-		if (doct) {
-			for (var docj in doct){
-				if (!set[doct[docj].w]){
-					greatMatches.push(doct[docj]);set[doct[docj].w] = true;
-				}
-			}
-		}
-	}
-	
-	//if (results.length === 0) {
-		var rafsiDecompositions = parseLujvo(query);
-		for (i = 0; i < rafsiDecompositions.length; i++) {
-			var decomposition = rafsiDecompositions[i];
-			if (decomposition.length>1){
-			results.push({
-				t: "decomposing ...",
-				w: query,
-				r: decomposition.filter(function(y){return y.search(/Q$/)===-1;}),
-				rafsiDocuments: (decomposition.map(function(r){return rafsi[r] || documentStore.filter(function(val){return val.w==r.replace("Q","")})[0]})||[])
-			});
-			}
-		}
-	//}
+	var goodMatches = [];
 	var normalMatches = [];
 	var selmahoMatches = [];
 	searchEngine.lookup(query, function(engineResults) {
@@ -74,7 +33,6 @@ function search(query, callback) {
 		for (var i = 0; i < engineResults.getSize(); i++) {
 			var key = engineResults.getItem(i);
 			var doc = documentStore[key];
-			if (doc.w in set) {continue;}
 			if (!doc) {
 				continue;
 			}
@@ -82,8 +40,12 @@ function search(query, callback) {
 					selmahoMatches.push(doc);//selmaho
 					continue;
 				}
-				else if (doc.w === query) {
+				else if (doc.w === query||doc.g===query) {
 					greatMatches.push(doc);
+					continue;
+				}
+				else if (doc.g.search("\\b"+query+"\\b")>=0) {
+					goodMatches.push(doc);
 					continue;
 				}
 				else if ((doc.t == 'gismu' && ((doc.r || []).indexOf(query) != -1))) {
@@ -92,7 +54,8 @@ function search(query, callback) {
 				}
 				else {results.push(doc);}
 		}
-		results = greatMatches.concat(normalMatches).concat(selmahoMatches).concat(results);
+		console.log(JSON.stringify(greatMatches));
+		results = greatMatches.concat(goodMatches).concat(normalMatches).concat(selmahoMatches).concat(results);
 		callback(results);
 	});
 }
@@ -140,8 +103,8 @@ function initializer(injector, callback) {
 		//}else{
 		//	docd = doc.d.split(/\b/).map(function(r){return println(window.bangu,r);}).join("");
 		//}
-		if (doc.s){text = [doc.w, (doc.t||''), doc.s, docd, doc.n, (doc.r||[]).join(' ')].join(' ');}
-		else{text = [doc.w, (doc.t||''), docd, doc.n, (doc.r||[]).join(' ')].join(' ');}
+		if (doc.s){text = [doc.w, (doc.t||''), doc.s, docd, doc.n, (doc.g||''), (doc.r||[]).join(' ')].join(' ');}
+		else{text = [doc.w, (doc.t||''), docd, doc.n, (doc.g||''), (doc.r||[]).join(' ')].join(' ');}
 		wordsArray.push(text);
 		valuesArray.push(key);
 	}

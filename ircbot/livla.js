@@ -458,8 +458,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf('zh:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'zh'));break;
 		case text.indexOf('sv:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'sv'));break;
 		case text.indexOf('en-simple:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(10),'en-simple'));break;
-//		case text.indexOf('lb:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'lb'));break;
-		case text.indexOf('jb:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'lb'));break;
+		case text.indexOf('jb:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'jb'));break;
 		case text.indexOf('krasi:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'krasi'));break; // Gives Lojban words etymologies
 		case text.indexOf('dukti:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'dukti'));break; // Gives Lojban words antonyms
 
@@ -1397,11 +1396,11 @@ var labangu = function(){
 		take=take.replace(/&/igm,"&amp;");
 		take=take.replace(/<(|\/)(small|sub)>|&nbsp;/igm,"");
 		take=take.replace(/^(.*?),\"\n/igm,"<valsi word=\"$1\"><definition>");
-		take=take.replace(/\"\n/igm,"</definition></valsi>\n");
+		take=take.replace(/\"(\n|\r)/igm,"</definition></valsi>\n");
 		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"{$1}");
 		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"La Bangu English\">\n"+take+"</definition></valsi>\n</direction>\n</dictionary>";
 		take = fs.writeFileSync(t+".temp",take);
-		fs.renameSync(t+".temp",path.join(__dirname,"dumps","lb.xml"));console.log("La Bangu updated");
+		fs.renameSync(t+".temp",path.join(__dirname,"dumps","jb.xml"));console.log("La Bangu updated");
 	});
 };
 

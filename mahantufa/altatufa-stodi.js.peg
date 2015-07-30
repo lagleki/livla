@@ -151,7 +151,7 @@ INT_root_elided = expr:(JUhA_elided_clause !BU_clause){return _node("interjectio
 free = expr:(SEI_clause bridi_sei SEhU_elidible / vocative (sumti / sumti_leless  / sumtido) DOhU_elidible / mex_2 MAI_clause / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
 free_xohe = expr:(mex_2_xohe MAI_clause) {return _node("free", expr); }
 xi_clause = expr:(XI_clause mex) {return _node("xi_clause", expr); }
-vocative = expr:(((COI_clause / DOI_clause ) full_NAICAI?) full_INT*)  {return _node("vocative", expr); }
+vocative = expr:((COI_clause full_NAICAI?) full_INT*)  {return _node("vocative", expr); }
 
 // SCALERS
 full_NAICAI = expr:((NAI_clause / CAI_clause) !BU_clause full_NAICAI*) {return _node("right scaler", expr); }
@@ -192,7 +192,7 @@ gek_bridi_tail_nul = expr:(gek bridi_tail_nul gik bridi_tail_nul / KE_clause gek
 //dont allow joi-ning non-ZAMs with ZAMs?: termset is {ge caku gi baku}:
 //```term_no_ZAM = expr:(tag_term_no_ZAM / termset) {return _node("term", expr);}
 
-subbridi = expr:(prenexe* bridi) {return _node("subbridi", expr);}
+subbridi = expr:(prenexe* bridi (IAU_clause sumsmiBAM?)?) {return _node("subbridi", expr);}
 prenexe = expr:(loisumsmiBFZAM ZOhU_clause) {return _node("prenexe", expr);}
 gek_sentence = expr:(tagBAM* (gek subbridi gik subbridi tail_loi_sumsmi / KE_clause gek_sentence KEhE_elidible)) {return _node("gek_sentence", expr);}
 
@@ -222,7 +222,7 @@ tagBAM_0 = tagBAM / tagBAMgek
 tagBAMgek = expr:(gek tagBAM gik tagBAM) {return _node("tagBAMgek", expr); }
 tagBAM = expr:(tag_headBAM (joik_jek tag_headBAM)*) {return _node("tagBAM", expr); }
 tag_headBAM = expr:((full_NAhE cls tag_rootBAM / cls tag_rootBAM full_NAICAI*) full_INT*) {return _node("tense_modal", expr); }
-tag_rootBAM = NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / MOhI_clause? FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / FEhE_clause? mex ROI_clause / FEhE_clause? TAhE_clause / FEhE_clause? ZAhO_clause / FIhO_clause selbri FEhU_elidible
+tag_rootBAM = NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / mex ROI_clause / TAhE_clause / ZAhO_clause / FIhO_clause selbri FEhU_elidible
 
 loisumsmiFAM = sumsmiFAM+ / gek loisumsmiFAM gik loisumsmiFAM
 sumsmiFAM = sumsmiFAMprep / sumsmiFAMpostp
@@ -541,7 +541,7 @@ pre_clause = BAhE_clause?
 any_word_SA_handling = expr:(BRIVLA_pre / known_cmavo_SA / CMAVO_pre) {return _node("any_word_SA_handling", expr); }
 
 //// EXP-DEL: LA_pre, for brivla/cmevla merge
-known_cmavo_SA = A_pre / BAI_pre / BAhE_pre / BE_pre / BEI_pre / BEhO_pre / BIhE_pre / BIhI_pre / BO_pre / BOI_pre / BU_pre / BY_pre / CAI_pre / CAhA_pre / CEI_pre / CEhE_pre / CO_pre / COI_pre / CU_pre / CUhE_pre / DAhO_pre / DOI_pre / DOhU_pre / FA_pre / FAhA_pre / FEhE_pre / FEhU_pre / FIhO_pre / FOI_pre / FUhA_pre / FUhE_pre / FUhO_pre / GA_pre / GAhO_pre / GEhU_pre / GI_pre / GIhA_pre / GOI_pre / GOhA_pre / GUhA_pre / I_pre / JA_pre / JAI_pre / JOI_pre / JOhI_pre / KE_pre / KEI_pre / KEhE_pre / KI_pre / KOhA_pre / KU_pre / KUhE_pre / KUhO_pre / LAU_pre / LAhE_pre / LE_pre / LEhU_pre / LI_pre / LIhU_pre / LOhO_pre / LOhU_pre / LU_pre / LUhU_pre / MAI_pre / MAhO_pre / ME_pre / MEhU_pre / MOI_pre / MOhE_pre / MOhI_pre / NA_pre / NAI_pre / NAhE_pre / NAhU_pre / NIhE_pre / NIhO_pre / NOI_pre / NU_pre / NUhA_pre / NUhI_pre / NUhU_pre / PA_pre / PEhE_pre / PEhO_pre / PU_pre / RAhO_pre / ROI_pre / SA_pre / SE_pre / SEI_pre / SEhU_pre / SI_clause / SOI_pre / SU_pre / TAhE_pre / TEI_pre / TEhU_pre / TO_pre / TOI_pre / TUhE_pre / TUhU_pre / UI_pre / VA_pre / VAU_pre / VEI_pre / VEhA_pre / VEhO_pre / VIhA_pre / VUhO_pre / VUhU_pre / XI_pre / ZAhO_pre / ZEI_pre / ZEhA_pre / ZI_pre / ZIhE_pre / ZO_pre / ZOI_pre / ZOhU_pre
+known_cmavo_SA = A_pre / BAI_pre / BAhE_pre / BE_pre / BEI_pre / BEhO_pre / BIhE_pre / BIhI_pre / BO_pre / BOI_pre / BU_pre / BY_pre / CAI_pre / CAhA_pre / CEI_pre / CEhE_pre / CO_pre / COI_pre / CU_pre / CUhE_pre / DAhO_pre / DOhU_pre / FA_pre / FAhA_pre / FEhU_pre / FIhO_pre / FOI_pre / FUhA_pre / FUhE_pre / FUhO_pre / GA_pre / GAhO_pre / GEhU_pre / GI_pre / GIhA_pre / GOI_pre / GOhA_pre / GUhA_pre / I_pre / JA_pre / JAI_pre / JOI_pre / JOhI_pre / KE_pre / KEI_pre / KEhE_pre / KI_pre / KOhA_pre / KU_pre / KUhE_pre / KUhO_pre / LAU_pre / LAhE_pre / LE_pre / LEhU_pre / LI_pre / LIhU_pre / LOhO_pre / LOhU_pre / LU_pre / LUhU_pre / MAI_pre / MAhO_pre / ME_pre / MEhU_pre / MOI_pre / MOhE_pre / NA_pre / NAI_pre / NAhE_pre / NAhU_pre / NIhE_pre / NIhO_pre / NOI_pre / NU_pre / NUhA_pre / NUhI_pre / NUhU_pre / PA_pre / PEhE_pre / PEhO_pre / PU_pre / RAhO_pre / ROI_pre / SA_pre / SE_pre / SEI_pre / SEhU_pre / SI_clause / SOI_pre / SU_pre / TAhE_pre / TEI_pre / TEhU_pre / TO_pre / TOI_pre / TUhE_pre / TUhU_pre / UI_pre / VA_pre / VAU_pre / VEI_pre / VEhA_pre / VEhO_pre / VIhA_pre / VUhO_pre / VUhU_pre / XI_pre / ZAhO_pre / ZEI_pre / ZEhA_pre / ZI_pre / ZIhE_pre / ZO_pre / ZOI_pre / ZOhU_pre
 
 // Handling of spaces and things like spaces.
 // ___ SPACE ___
@@ -728,6 +728,7 @@ CO_clause = pre:CO_pre post:post_clause {return _node2("CO_clause", pre, post); 
 CO_pre = pre_clause CO spaces?
 // CO_no_SA_handling = pre_clause CO post_clause
 
+//         vocative marker
 COI_clause = pre:COI_pre post:post_clause {return _node2("COI_clause", pre, post); }
 COI_pre = pre_clause COI spaces?
 // COI_no_SA_handling = pre_clause COI post_clause
@@ -752,12 +753,7 @@ DAhO_clause = pre:DAhO_pre post:post_clause {return _node2("DAhO_clause", pre, p
 DAhO_pre = pre_clause DAhO spaces?
 // DAhO_no_SA_handling = pre_clause DAhO post_clause
 
-//         vocative marker
-DOI_clause = pre:DOI_pre post:post_clause {return _node2("DOI_clause", pre, post); }
-DOI_pre = pre_clause DOI spaces?
-// DOI_no_SA_handling = pre_clause DOI post_clause
-
-//         terminator for DOI_marked vocatives 
+//         terminator for COI_marked vocatives 
 DOhU_clause = pre:DOhU_pre post:post_clause {return _node2("DOhU_clause", pre, post); }
 DOhU_pre = pre_clause DOhU spaces?
 // DOhU_no_SA_handling = pre_clause DOhU post_clause
@@ -794,11 +790,6 @@ FAhA_pre = pre_clause FAhA spaces?
 //                                    of utterance string 
 
 FAhO_clause = expr:(pre_clause FAhO spaces?) {return _node("FAhO_clause", expr);}
-
-//         space interval mod flag 
-FEhE_clause = pre:FEhE_pre post:post_clause {return _node2("FEhE_clause", pre, post); }
-FEhE_pre = pre_clause FEhE spaces?
-// FEhE_no_SA_handling = pre_clause FEhE post_clause
 
 //         ends bridi to modal conversion 
 FEhU_clause = pre:FEhU_pre post:post_clause {return _node2("FEhU_clause", pre, post); }
@@ -888,6 +879,8 @@ I_clause_elidible = expr:(sentence_sa* I_pre_elidible post_clause_for_xohe_mai )
 I_pre_elidible = pre_clause (I / I_elidible) spaces?
 // I_no_SA_handling = pre_clause I post_clause
 
+IAU_clause = pre:IAU_pre post:post_clause {return _node2("IAU_clause", pre, post); }
+IAU_pre = pre_clause IAU spaces?
 
 //         jeks; logical connectives within tanru 
 JA_clause = pre:JA_pre post:post_clause {return _node2("JA_clause", pre, post); }
@@ -1046,11 +1039,6 @@ MEhU_pre = pre_clause MEhU spaces?
 MOhE_clause = pre:MOhE_pre post:post_clause {return _node2("MOhE_clause", pre, post); }
 MOhE_pre = pre_clause MOhE spaces?
 // MOhE_no_SA_handling = pre_clause MOhE post_clause
-
-//         motion tense marker 
-MOhI_clause = pre:MOhI_pre post:post_clause {return _node2("MOhI_clause", pre, post); }
-MOhI_pre = pre_clause MOhI spaces?
-// MOhI_no_SA_handling = pre_clause MOhI post_clause
 
 //         change number to selbri 
 MOI_clause = pre:MOI_pre post:post_clause {return _node2("MOI_clause", pre, post); }
@@ -1363,7 +1351,7 @@ BRIVLA = expr:(gismu_2 / lujvo / fuhivla / CMEVLA ) {return ["BRIVLA", expr];}
 gismu_2 = expr:(gismu) {return ["gismu", expr];}
 //// EXP-DEL: LA, for brivla/cmevla merge
 // EXP-MODIF: attempt to formalize lo'ai..sa'ai..le'ai replacement expressions
-CMAVO = expr:(A / BAI / BAhE / BE / BEI / BEhO / BIhE / BIhI / BO / BOI / BU / BY / CAhA / CAI / CEI / CEhE / CO / COI / CU / CUhE / DAhO / DOI / DOhU / FA / FAhA / FAhO / FEhE / FEhU / FIhO / FOI / FUhA / FUhE / FUhO / GA / GAhO / GEhU / GI / GIhA / GOI / GOhA / GUhA / I / JA / JAI / JOhI / JOI / KE / KEhE / KEI / KI / KOhA / KU / KUhE / KUhO / LAU / LAhE / LE / LEhAI / LEhU / LI / LIhU / LOhAI / LOhO / LOhU / LU / LUhU / MAhO / MAI / ME / MEhU / MOhE / MOhI / MOI / NA / NAI / NAhE / NAhU / NIhE / NIhO / NOI / NU / NUhA / NUhI / NUhU / PA / PEhE / PEhO / PU / RAhO / ROI / SA / SE / SEI / SEhU / SI / SOI / SU / TAhE / TEhU / TEI / TO / TOI / TUhE / TUhU / UI / VA / VAU / VEI / VEhO / VUhU / VEhA / VIhA / VUhO / XI / ZAhO / ZEhA / ZEI / ZI / ZIhE / ZO / ZOI / ZOhU / cmavo) {return ["CMAVO", expr];}
+CMAVO = expr:(A / BAI / BAhE / BE / BEI / BEhO / BIhE / BIhI / BO / BOI / BU / BY / CAhA / CAI / CEI / CEhE / CO / COI / CU / CUhE / DAhO / DOhU / FA / FAhA / FAhO / FEhU / FIhO / FOI / FUhA / FUhE / FUhO / GA / GAhO / GEhU / GI / GIhA / GOI / GOhA / GUhA / I / JA / JAI / JOhI / JOI / KE / KEhE / KEI / KI / KOhA / KU / KUhE / KUhO / LAU / LAhE / LE / LEhAI / LEhU / LI / LIhU / LOhAI / LOhO / LOhU / LU / LUhU / MAhO / MAI / ME / MEhU / MOhE / MOI / NA / NAI / NAhE / NAhU / NIhE / NIhO / NOI / NU / NUhA / NUhI / NUhU / PA / PEhE / PEhO / PU / RAhO / ROI / SA / SE / SEI / SEhU / SI / SOI / SU / TAhE / TEhU / TEI / TO / TOI / TUhE / TUhU / UI / VA / VAU / VEI / VEhO / VUhU / VEhA / VIhA / VUhO / XI / ZAhO / ZEhA / ZEI / ZI / ZIhE / ZO / ZOI / ZOhU / cmavo) {return ["CMAVO", expr];}
 
 // This is a Parsing Expression Grammar for the morphology of Lojban.
 // See http://www.pdos.lcs.mit.edu/~baford/packrat/
@@ -1714,16 +1702,13 @@ CEhE = &cmavo expr:( c e H e ) &post_word {return ["CEhE", _join(expr)];}
 CO = &cmavo expr:( c o ) &post_word {return ["CO", _join(expr)];}
 
 //// EXP-ADD: di'ai, co'oi, ki'ai, sa'ei
-COI = &cmavo expr:( d i H a i / a H o i / c o H o i / k i H a i / s a H e i / j u H i / c o i / f i H i / t a H a / m u H o / f e H o / c o H o / p e H u / k e H o / n u H e / r e Ih i / b e H e / j e H e / m i H e / k i H e / v i H o ) &post_word {return ["COI", _join(expr)];}
+COI = &cmavo expr:(  d o i / d a H o i / d i H a i / a H o i / c o H o i / k i H a i / s a H e i / j u H i / c o i / f i H i / t a H a / m u H o / f e H o / c o H o / p e H u / k e H o / n u H e / r e Ih i / b e H e / j e H e / m i H e / k i H e / v i H o ) &post_word {return ["COI", _join(expr)];}
 
 CU = &cmavo expr:( c u ) &post_word {return ["CU", _join(expr)];}
 
 CUhE = &cmavo expr:( c u H e / n a u ) &post_word {return ["CUhE", _join(expr)];}
 
 DAhO = &cmavo expr:( d a H o ) &post_word {return ["DAhO", _join(expr)];}
-
-//// EXP-ADD: da'oi
-DOI = &cmavo expr:( d o i / d a H o i ) &post_word {return ["DOI", _join(expr)];}
 
 DOhU = &cmavo expr:( d o H u ) &post_word {return ["DOhU", _join(expr)];}
 
@@ -1739,8 +1724,6 @@ fu = &cmavo expr:( f u ) &post_word {return ["FU", _join(expr)];}
 FAhA = &cmavo expr:( d u H a / b e H a / n e H u / v u H a / g a Ih u / t i H a / n i H a / c a Ih u / z u H a / r i H u / r u H u / r e H o / t e H e / b u H u / n e H a / p a H o / n e Ih i / t o H o / z o Ih i / z e H o / z o H a / f a H a ) &post_word {return ["FAhA", _join(expr)];}
 
 FAhO = &cmavo expr:( f a H o ) &post_word {return ["FAhO", _join(expr)];}
-
-FEhE = &cmavo expr:( f e H e ) &post_word {return ["FEhE", _join(expr)];}
 
 FEhU = &cmavo expr:( f e H u ) &post_word {return ["FEhU", _join(expr)];}
 
@@ -1771,6 +1754,8 @@ GOhA = &cmavo expr:( m o / n e i / g o H u / g o H o / g o Ih i / n o H a / g o 
 GUhA = &cmavo expr:( g u H e / g u H i / g u H o / g u H a / g u H u ) &post_word {return ["GUhA", _join(expr)];}
 
 I = &cmavo expr:( i ) &post_word {return ["I", _join(expr)];}
+
+IAU = &cmavo expr:( i H a u / i a u ) &post_word {return ["IAU", _join(expr)];}
 
 JA = &cmavo expr:( j e Ih i / j e / j o / j a / j u ) &post_word { return ["JA", _join(expr)];} 
 
@@ -1838,8 +1823,6 @@ MEhU = &cmavo expr:( m e H u ) &post_word {return ["MEhU", _join(expr)];}
 
 MOhE = &cmavo expr:( m o H e ) &post_word {return ["MOhE", _join(expr)];}
 
-MOhI = &cmavo expr:( m o Ih i ) &post_word {return ["MOhI", _join(expr)];}
-
 MOI = &cmavo expr:( m e i / m o i / s i H e / c u H o / v a H e ) &post_word {return ["MOI", _join(expr)];}
 
 NA = &cmavo expr:( j a H a / n a ) &post_word {return ["NA", _join(expr)];}
@@ -1847,8 +1830,7 @@ NA = &cmavo expr:( j a H a / n a ) &post_word {return ["NA", _join(expr)];}
 //// EXP-ADD: ja'ai
 NAI = &cmavo expr:( n a i / j a H a i ) &post_word {return ["NAI", _join(expr)];}
 
-//// EXP-ADD: na'ei
-NAhE = &cmavo expr:( n a H e i / t o H e / j e H a / n a H e / n o H e ) &post_word {return ["NAhE", _join(expr)];}
+NAhE = &cmavo expr:( m o Ih i / f e H e / n a H e i / t o H e / j e H a / n a H e / n o H e ) &post_word {return ["NAhE", _join(expr)];}
 
 NAhU = &cmavo expr:( n a Ih u ) &post_word {return ["NAhU", _join(expr)];}
 

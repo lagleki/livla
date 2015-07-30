@@ -244,7 +244,7 @@
 	output.scroll();
 
 	function lojTemplate(s) {
-		s = s.replace(/\$.*?\$/g, function(c) {
+		s = s.replace(/\//g," / ").replace(/\$.*?\$/g, function(c) {
 		c = c.substring(1, c.length-1);
 		return c.replace(/(\w)_\{?(\d+)\}?/g, "$1<sub>$2</sub>").replace(/[\{\}]/g,'');
 		});

@@ -192,7 +192,7 @@ gek_bridi_tail_nul = expr:(gek bridi_tail_nul gik bridi_tail_nul / KE_clause gek
 //dont allow joi-ning non-ZAMs with ZAMs?: termset is {ge caku gi baku}:
 //```term_no_ZAM = expr:(tag_term_no_ZAM / termset) {return _node("term", expr);}
 
-subbridi = expr:(prenexe* bridi (IAU_elidible sumsmiBAM?)?) {return _node("subbridi", expr);}
+subbridi = expr:(prenexe* bridi (IAU_clause sumsmiBAM?)?) {return _node("subbridi", expr);}
 prenexe = expr:(loisumsmiBFZAM ZOhU_clause) {return _node("prenexe", expr);}
 gek_sentence = expr:(tagBAM* (gek subbridi gik subbridi tail_loi_sumsmi / KE_clause gek_sentence KEhE_elidible)) {return _node("gek_sentence", expr);}
 
@@ -457,9 +457,9 @@ selbrisle_1nf = expr:(selbrisle_2nf linkargs? / linkargs? selbrisle_2) {return _
 
 // ** zei is part of BRIVLA_clause
 selbrisle_2 = expr:((full_NAhE selbrisle_2_inner / selbrisle_2_inner full_NAICAI*) full_INT*) {return _node("selbrisle_2", expr); }
-selbrisle_2_inner = linkargs selbrisle_1 / SE_clause selbrisle_2 / JAI_clause tagBAM? selbrisle_2 / selbrisle_2_root
+selbrisle_2_inner = linkargs selbrisle_1 / SE_clause selbrisle_2 / JAI_clause tagBAM+ selbrisle_2 / selbrisle_2_root
 selbrisle_2nf = expr:((full_NAhE selbrisle_2nf_inner / selbrisle_2nf_inner full_NAICAI*) full_INT*) {return _node("selbrisle_2nf", expr); }
-selbrisle_2nf_inner = linkargs selbrisle_1nf / SE_clause selbrisle_2nf / JAI_clause tagBAM? selbrisle_2nf / selbrisle_2_root
+selbrisle_2nf_inner = linkargs selbrisle_1nf / SE_clause selbrisle_2nf / JAI_clause tagBAM+ selbrisle_2nf / selbrisle_2_root
 selbrisle_2_root = BRIVLA_clause / GOhA_clause RAhO_clause? / KE_clause selbri_3 KEhE_elidible / ME_clause (sumti / mex) MEhU_elidible MOI_clause? / mex MOI_clause / NUhA_clause operator / NU_clause (joik_jek NU_clause)* subbridi KEI_elidible / MEhOI_clause
 
 
@@ -582,7 +582,6 @@ FEhU_elidible = expr:(FEhU_clause?) {return (expr == "") ? ["FEhU"] : _node("FEh
 GEhU_elidible = expr:(GEhU_clause?) {return (expr == "") ? ["GEhU"] : _node("GEhU", expr);}
 I_elidible = { return ["I", "I"];}
 NE_elidible = { return ["GOI", "NE"];}
-IAU_elidible = expr:(IAU_clause?)   {return (expr == "") ? ["IAU"]  : _node("IAU", expr);}
 KEI_elidible = expr:(KEI_clause?)   {return (expr == "") ? ["KEI"]  : _node("KEI", expr);}
 KEhE_elidible = expr:(KEhE_clause?) {return (expr == "") ? ["KEhE"] : _node("KEhE", expr);}
 KU_elidible = expr:(KU_clause?)     {return (expr == "") ? ["KU"]   : _node("KU", expr);}

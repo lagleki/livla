@@ -26,7 +26,7 @@ var jvokatna = function (lujvoi){
 	tmp=tmp.replace(myregexpi,"$1 ");
 	tmp=tmp.replace(/y/g," ");
 	tmp=tmp.replace(/ +/g," ");
-return tmp.trim().split(" ");
+	return tmp.trim().split(" ");
 };
 var C="("+"[bcdfgjklmnprstvxz]"+")";
 var V="("+"[aeiou]"+")";
@@ -41,12 +41,15 @@ var CVC="("+C+V+C+")";
 var gism="("+CC+V+C+"|"+C+V+C_C+")";
 
 function parseLujvo(lujvo) {
-	if (xulujvo(lujvo) !== true){return [lujvo.split(" ").map(function(arg){return arg+"Q";})]}
 	var m = lujvo.match("([a-z']+) zei ([a-z']+)");
-	if (m) {
-	return [[m[1]+"Q",m[2]]];
+	console.log(window.xuzganalojudri);
+	if ((window.xuzganalojudri!==true)||(xulujvo(lujvo) !== true)){
+		return [lujvo.split(" ").map(function(arg){return arg+"Q";})];
 	}
-	var decompositions = [jvokatna(lujvo)];
-	console.log(JSON.stringify(decompositions));
-	return [jvokatna(lujvo)];
+	else if (m) {
+			return [[m[1]+"Q",m[2]]];
+		}
+	else {
+		return [jvokatna(lujvo)];
+	}
 }

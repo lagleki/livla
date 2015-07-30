@@ -374,7 +374,7 @@ sumti = expr:((KE_clause sumti KEhE_elidible / gek sumti gik sumti / sumti_1) (V
 sumti_1 = expr:(sumti_2  (joik_ek sumti_2)*) {return _node("sumti_1", expr);}
 sumti_2 = expr:(sumti_3 (jebo full_INT* sumti_3)*) {return _node("sumti_2", expr);}
 sumti_3 = expr:((mex? (full_NAhE relative_clauses? sumti LUhU_elidible / LAhE_clause relative_clauses? sumti LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_clause / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_clause text LIhU_elidible  / KOhA_clause / li_clause / LE_clause sumti_core KU_elidible) / mex !ROI_clause sumti_core KU_elidible) full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_3", expr);}
-sumti_core = (relative_clauses / relative_clauses_ne)? mex? bridi_sei relative_clauses?
+sumti_core = relative_clauses? (mex !ROI_clause)? bridi_sei relative_clauses? / relative_clauses_ne (mex !ROI_clause)? bridi_sei relative_clauses?
 
 sumtinoi = expr:(sumti_1noi) {return _node("sumti", expr);}
 sumti_1noi = expr:(sumti_2noi) {return _node("sumti_1", expr);}
@@ -423,7 +423,7 @@ relative_clause_1_ne = expr:(GOI_clause_elidible sumsmiZAM GEhU_elidible) {retur
 relative_clause_sa = expr:(relative_clause_start (!relative_clause_start (sa_word / SA_clause !relative_clause_start ) )* SA_clause &relative_clause_1) {return _node("relative_clause_sa", expr); }
 relative_clause_start = expr:(GOI_clause / NOI_clause) {return _node("relative_clause_start", expr); }
 
-li_clause = expr:(LI_clause mex* LOhO_elidible) {return _node("li_clause", expr); }
+li_clause = expr:(LI_clause (mex / (PA_clause / loi_lerfu)+ BOI_elidible)? LOhO_elidible) {return _node("li_clause", expr); }
 
 // SELBRI
 //// + Forethought connective
@@ -470,7 +470,7 @@ mex_2 = expr:(operand / mex_rp / mex_forethought) {return _node("mex_2", expr); 
 mex_rp = FUhA_clause mex_2+ operator (mex_2* operator)* KUhE_elidible free*
 mex_forethought = !(loi_lerfu BOI_elidible) operator mex_2+ mex_forethought? KUhE_elidible / PEhO_clause operator mex_2+ mex_forethought? KUhE_elidible
 operator = expr:(full_NAhE operator / (SE_clause operator / MAhO_clause mex TEhU_elidible / NAhU_clause selbri TEhU_elidible / VUhU_clause / joik_ek) full_NAICAI*) {return _node("operator", expr); }
-operand = expr:(((VEI_clause mex VEhO_elidible / (PA_clause / VEI_clause lerfu_word VEhO_elidible)+ BOI_elidible / NIhE_clause selbri TEhU_elidible / MOhE_clause sumti TEhU_elidible / LAhE_clause mex LUhU_elidible)  full_NAICAI*) / NAhE_clause BO_clause? mex LUhU_elidible / full_NAhE operand) {return _node("operand", expr); }
+operand = expr:((((PA_clause+ / VEI_clause lerfu_word VEhO_elidible) BOI_elidible / VEI_clause mex VEhO_elidible / NIhE_clause selbri TEhU_elidible / MOhE_clause sumti TEhU_elidible / LAhE_clause mex LUhU_elidible)  full_NAICAI*) / NAhE_clause BO_clause? mex LUhU_elidible / full_NAhE operand) {return _node("operand", expr); }
 loi_lerfu = expr:(lerfu_word+) {return _node("loi_lerfu", expr); }
 lerfu_word = expr:(PA_clause BY_clause / BY_clause / LAU_clause lerfu_word / TEI_clause loi_lerfu FOI_clause) {return _node("lerfu_word", expr); }
 

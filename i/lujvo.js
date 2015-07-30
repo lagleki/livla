@@ -12,13 +12,7 @@ function onUpdateDocumentStore() {
 }
 onUpdateDocumentStore();
 
-var xulujvo = function (inp){
-	var myreg = new RegExp("^"+CVV+CCV+"$|^(?:"+CVV+"(?:r(?!r)|n(?=r))|"+CCV+"|"+CVC+"y?|"+gism+"y)(?:"+CVV+"|"+CCV+"|"+CVC+"y?|"+gism+"y)*(?:"+CVV+"|"+CCV+"|"+gism+V+")$", "gm");
-	if((inp.match(myreg)||[]).length==1){return true;}else{return false;}
-};
-
 var jvokatna = function (lujvoi){
-//if (xulujvo!==true){return [];}
 	var tmp;
 	tmp=lujvoi.toLowerCase().replace(/[^a-z']/img,"");
 	var myregexp = new RegExp("^("+CVV+")[rn]", "gm");
@@ -27,8 +21,7 @@ var jvokatna = function (lujvoi){
 	tmp=tmp.replace(myregexpi,"$1 ");
 	tmp=tmp.replace(/y/g," ");
 	tmp=tmp.replace(/ +/g," ");
-	console.log(JSON.stringify(tmp.trim().split(" ")));
-return tmp.trim().split(" ");
+	return tmp.trim().split(" ");
 };
 var C="("+"[bcdfgjklmnprstvxz]"+")";
 var V="("+"[aeiou]"+")";
@@ -43,10 +36,10 @@ var CVC="("+C+V+C+")";
 var gism="("+CC+V+C+"|"+C+V+C_C+")";
 
 function parseLujvo(lujvo) {
-  var m = lujvo.match("([a-z']+) zei ([a-z']+)");
-  if (m) {
-    return [[m[1]+"Q",m[2]]];
-  }
-  var decompositions = [jvokatna(lujvo)];
-  return [jvokatna(lujvo)];
+	if (window.xuzganalojudri===false){return [lujvo];}
+	var m = lujvo.match("([a-z']+) zei ([a-z']+)");
+	if (m) {
+		return [[m[1]+"Q",m[2]]];
+	}
+	return [jvokatna(lujvo)];
 }

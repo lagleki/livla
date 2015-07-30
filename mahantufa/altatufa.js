@@ -13631,13 +13631,44 @@ var camxes = (function(){
         }
         
         var result0, result1, result2;
-        var pos0, pos1;
+        var pos0, pos1, pos2;
         
         pos0 = pos;
         pos1 = pos;
         result0 = parse_LI_clause();
         if (result0 !== null) {
           result1 = parse_mex();
+          if (result1 === null) {
+            pos2 = pos;
+            result2 = parse_PA_clause();
+            if (result2 === null) {
+              result2 = parse_loi_lerfu();
+            }
+            if (result2 !== null) {
+              result1 = [];
+              while (result2 !== null) {
+                result1.push(result2);
+                result2 = parse_PA_clause();
+                if (result2 === null) {
+                  result2 = parse_loi_lerfu();
+                }
+              }
+            } else {
+              result1 = null;
+            }
+            if (result1 !== null) {
+              result2 = parse_BOI_elidible();
+              if (result2 !== null) {
+                result1 = [result1, result2];
+              } else {
+                result1 = null;
+                pos = pos2;
+              }
+            } else {
+              result1 = null;
+              pos = pos2;
+            }
+          }
           result1 = result1 !== null ? result1 : "";
           if (result1 !== null) {
             result2 = parse_LOhO_elidible();

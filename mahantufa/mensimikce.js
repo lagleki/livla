@@ -419,7 +419,7 @@ function MensiBot(noRandomFlag) {
 		     "Who do you think you are talking about ?"
 		  ]],
 		 ["*", [
-		     "Are you saying no just to be negative?",
+		     "xu do cusku zo no te zu'e lo ka po'o basna lo mabla",
 		     "You are being a bit negative.",
 		     "Why not ?",
 		     "Why 'no' ?"

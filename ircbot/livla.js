@@ -279,22 +279,24 @@ function run_camxesoff(input, mode) {
 }
 
 function run_camxesalta(input, mode) {
-	try{var camxesalta = require('../mahantufa/altatufa-stodi.js');
-	var result;
-	var syntax_error = false;
-	result = camxes_pre.preprocessing(input);
-	try {
-	  result = camxesalta.parse(result);
-	} catch (e) {
-		result = e;
-		syntax_error = true;
-	}
-	if (!syntax_error) {
-		result = JSON.stringify(result, undefined, 2);
-		result = camxes_post.postprocessing(result, mode);
-	}
-	camxesalta=null;
-	return result;
+	try{
+		var camxesalta = require('../mahantufa/altatufa-stodi.js');
+		var result;
+		var syntax_error = false;
+		result = camxes_pre.preprocessing(input);
+		try {
+		  result = camxesalta.parse(result);
+		} catch (e) {
+			result = e;
+			syntax_error = true;
+		}
+		if (!syntax_error) {
+			result = JSON.stringify(result, undefined, 2);
+			result = camxes_post.postprocessing(result, mode);
+		}
+		camxesalta={};
+		delete require.cache[require.resolve('../mahantufa/altatufa-stodi.js')];
+		return result;
 	}catch(e){return '';}
 }
 //dict:

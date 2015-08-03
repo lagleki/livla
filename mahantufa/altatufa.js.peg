@@ -216,7 +216,7 @@ loisumsmiBFZAM = expr:(KE_space loisumsmiBFZAM KEhE_elidible loisumsmiBFZAM? / s
 
 loisumsmiBAM = KE_space loisumsmiBAM KEhE_elidible loisumsmiBAM? / sumsmiBAM+ / gek loisumsmiBAM gik loisumsmiBAM
 sumsmiBAM = sumsmiBAMprep / sumsmiBAMpostp
-sumsmiBAMprep = expr:((!gek tagBAM_0 (sumti / (KU_clause / sumtifazohe !(sumsmiBFZAM / selbri)))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
+sumsmiBAMprep = expr:((!gek tagBAM_0 (sumti / (KU_clause / sumtifazohe))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
 sumsmiBAMpostp = expr:(sumti) CO_clause expr2:(tagBAM_0) expr3:((joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr2.concat(expr).concat(expr3));}
 tagBAM_0 = tagBAM / tagBAMgek
 tagBAMgek = expr:(gek tagBAM gik tagBAM) {return _node("tagBAMgek", expr); }
@@ -435,11 +435,19 @@ selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relativ
 
 //todo: usually we add  !sumsmiBFZAM after selbri_elided but then maximum stack exceeded
 selbri_may_elide = (selbri / selbri_elided)
-//todo: remove hardcoded cohe_elided below
-selbri_elided = expr:(tagBFAM_0* COhE_elided) {return _node("selbri", expr); }
-selbri_elided = expr:(COhE_elided) {return _node("selbri", expr); }
+selbri_elided = expr:(selbri_1_elided) {return _node("selbri", expr); }
+selbri_1_elided = expr:(selbri_2_elided) {return _node("selbri_1", expr); }
+selbri_2_elided = expr:(selbri_3_elided) {return _node("selbri_2", expr); }
+selbri_3_elided = expr:(selbri_4_elided) {return _node("selbri_3", expr); }
+selbri_4_elided = expr:(selbri_5_elided) {return _node("selbri_4", expr); }
+selbri_5_elided = expr:(selbri_6_elided) {return _node("selbri_5", expr); }
+selbri_6_elided = expr:(selbrisle_elided) {return _node("selbri_6", expr); }
+selbrisle_elided = expr:(selbrisle_1_elided) {return _node("selbrisle", expr); }
+selbrisle_1_elided = expr:(selbrisle_2_elided) {return _node("selbrisle_1", expr); }
+selbrisle_2_elided = expr:(COhE_clause_elided) {return _node("selbrisle_2", expr); }
 
-selbri = expr:(tagBFAM_0* selbri_1) {return _node("selbri", expr); }
+
+selbri = expr:(selbri_1) {return _node("selbri", expr); }
 selbri_1 = expr:(selbri_2) {return _node("selbri_1", expr); }
 selbri_2 = expr:(selbri_3 (CO_clause selbri_2)?) {return _node("selbri_2", expr); }
 selbri_3 = expr:((selbri_4 &selbri_4)* selbri_4nf) {return _node("selbri_3", expr); }
@@ -603,8 +611,6 @@ VEI_elidible = expr:(VEI_clause?) {return (expr == "") ? ["VEI"] : _node("VEI", 
 VEhO_elidible = expr:(VEhO_clause?) {return (expr == "") ? ["VEhO"] : _node("VEhO", expr);}
 
 FASNU_elidible = {return ["FASNU"] }
-
-COhE_elided = {return ["COhE"] }
 
 NOUNEND = {return ["NF"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}
@@ -866,6 +872,10 @@ GOI_pre_elidible = pre_clause NE_elidible spaces?
 GOhA_clause = pre:GOhA_pre post:post_clause {return _node2("GOhA_clause", pre, post); }
 GOhA_pre = pre_clause GOhA spaces?
 // GOhA_no_SA_handling = pre_clause GOhA post_clause
+
+COhE_clause_elided = pre:COhE_pre post:post_clause {return _node2("GOhA_clause", pre, post); }
+COhE_pre = pre_clause COhE spaces?
+COhE = {return ["GOhA", "COhE"];} 
 
 //         GEK for selbrisle, corresponds to JEKs 
 GUhA_clause = pre:GUhA_pre post:post_clause_limited {return _node2("GUhA_clause", pre, post); }

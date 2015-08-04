@@ -242,6 +242,7 @@ var camxes = (function(){
         "relative_clause_1_ne": parse_relative_clause_1_ne,
         "relative_clause_sa": parse_relative_clause_sa,
         "relative_clause_start": parse_relative_clause_start,
+        "li_space": parse_li_space,
         "li_clause": parse_li_clause,
         "selbri_relative_clauses": parse_selbri_relative_clauses,
         "selbri_relative_clause": parse_selbri_relative_clause,
@@ -12501,7 +12502,7 @@ var camxes = (function(){
                         if (result1 === null) {
                           result1 = parse_KOhA_clause();
                           if (result1 === null) {
-                            result1 = parse_li_clause();
+                            result1 = parse_li_space();
                             if (result1 === null) {
                               pos3 = pos;
                               result1 = parse_LE_clause();
@@ -14271,6 +14272,51 @@ var camxes = (function(){
         }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("relative_clause_start", expr); })(pos0, result0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_li_space() {
+        var cacheKey = "li_space@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1, result2;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = parse_li_clause();
+        if (result0 !== null) {
+          result1 = [];
+          result2 = parse_full_INT();
+          while (result2 !== null) {
+            result1.push(result2);
+            result2 = parse_full_INT();
+          }
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos1;
+          }
+        } else {
+          result0 = null;
+          pos = pos1;
+        }
+        if (result0 !== null) {
+          result0 = (function(offset, expr) {return _node("li_space", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -27839,7 +27885,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_LOhO_pre();
         if (result0 !== null) {
-          result1 = parse_post_clause();
+          result1 = parse_post_clause_limited();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {

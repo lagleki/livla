@@ -16055,7 +16055,7 @@ var camxes = (function(){
           result0 = parse_linkargs();
           result0 = result0 !== null ? result0 : "";
           if (result0 !== null) {
-            result1 = parse_selbrisle_2();
+            result1 = parse_selbrisle_2nf();
             if (result1 !== null) {
               result0 = [result0, result1];
             } else {
@@ -16172,9 +16172,9 @@ var camxes = (function(){
         var pos0;
         
         pos0 = pos;
-        result0 = parse_linkargs();
+        result0 = parse_loi_SEJAI_element();
         if (result0 !== null) {
-          result1 = parse_selbrisle_1();
+          result1 = parse_selbrisle_2();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -16186,23 +16186,7 @@ var camxes = (function(){
           pos = pos0;
         }
         if (result0 === null) {
-          pos0 = pos;
-          result0 = parse_loi_SEJAI_element();
-          if (result0 !== null) {
-            result1 = parse_selbrisle_2();
-            if (result1 !== null) {
-              result0 = [result0, result1];
-            } else {
-              result0 = null;
-              pos = pos0;
-            }
-          } else {
-            result0 = null;
-            pos = pos0;
-          }
-          if (result0 === null) {
-            result0 = parse_selbrisle_2_root();
-          }
+          result0 = parse_selbrisle_2_root();
         }
         
         cache[cacheKey] = {
@@ -16303,9 +16287,9 @@ var camxes = (function(){
         var pos0;
         
         pos0 = pos;
-        result0 = parse_linkargs();
+        result0 = parse_loi_SEJAI_element();
         if (result0 !== null) {
-          result1 = parse_selbrisle_1nf();
+          result1 = parse_selbrisle_2nf();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -16317,23 +16301,7 @@ var camxes = (function(){
           pos = pos0;
         }
         if (result0 === null) {
-          pos0 = pos;
-          result0 = parse_loi_SEJAI_element();
-          if (result0 !== null) {
-            result1 = parse_selbrisle_2nf();
-            if (result1 !== null) {
-              result0 = [result0, result1];
-            } else {
-              result0 = null;
-              pos = pos0;
-            }
-          } else {
-            result0 = null;
-            pos = pos0;
-          }
-          if (result0 === null) {
-            result0 = parse_selbrisle_2_root();
-          }
+          result0 = parse_selbrisle_2_root();
         }
         
         cache[cacheKey] = {
@@ -17490,7 +17458,7 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3;
+        var result0, result1, result2, result3, result4, result5;
         var pos0, pos1, pos2, pos3;
         
         pos0 = pos;
@@ -17510,11 +17478,33 @@ var camxes = (function(){
           pos3 = pos;
           result0 = parse_VEI_clause();
           if (result0 !== null) {
-            result1 = parse_lerfu_word();
+            result1 = [];
+            result2 = parse_full_INT();
+            while (result2 !== null) {
+              result1.push(result2);
+              result2 = parse_full_INT();
+            }
             if (result1 !== null) {
-              result2 = parse_VEhO_elidible();
+              result2 = parse_lerfu_word();
               if (result2 !== null) {
-                result0 = [result0, result1, result2];
+                result3 = parse_VEhO_elidible();
+                if (result3 !== null) {
+                  result4 = [];
+                  result5 = parse_full_INT();
+                  while (result5 !== null) {
+                    result4.push(result5);
+                    result5 = parse_full_INT();
+                  }
+                  if (result4 !== null) {
+                    result0 = [result0, result1, result2, result3, result4];
+                  } else {
+                    result0 = null;
+                    pos = pos3;
+                  }
+                } else {
+                  result0 = null;
+                  pos = pos3;
+                }
               } else {
                 result0 = null;
                 pos = pos3;
@@ -17544,11 +17534,33 @@ var camxes = (function(){
           pos2 = pos;
           result0 = parse_VEI_clause();
           if (result0 !== null) {
-            result1 = parse_mex();
+            result1 = [];
+            result2 = parse_full_INT();
+            while (result2 !== null) {
+              result1.push(result2);
+              result2 = parse_full_INT();
+            }
             if (result1 !== null) {
-              result2 = parse_VEhO_elidible();
+              result2 = parse_mex();
               if (result2 !== null) {
-                result0 = [result0, result1, result2];
+                result3 = parse_VEhO_elidible();
+                if (result3 !== null) {
+                  result4 = [];
+                  result5 = parse_full_INT();
+                  while (result5 !== null) {
+                    result4.push(result5);
+                    result5 = parse_full_INT();
+                  }
+                  if (result4 !== null) {
+                    result0 = [result0, result1, result2, result3, result4];
+                  } else {
+                    result0 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result0 = null;
+                  pos = pos2;
+                }
               } else {
                 result0 = null;
                 pos = pos2;
@@ -17833,7 +17845,7 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2;
+        var result0, result1, result2, result3, result4, result5;
         var pos0, pos1, pos2, pos3;
         
         pos0 = pos;
@@ -17842,11 +17854,33 @@ var camxes = (function(){
         pos3 = pos;
         result0 = parse_VEI_elidible();
         if (result0 !== null) {
-          result1 = parse_PA_clause_xohe();
+          result1 = [];
+          result2 = parse_full_INT();
+          while (result2 !== null) {
+            result1.push(result2);
+            result2 = parse_full_INT();
+          }
           if (result1 !== null) {
-            result2 = parse_VEhO_elidible();
+            result2 = parse_PA_clause_xohe();
             if (result2 !== null) {
-              result0 = [result0, result1, result2];
+              result3 = parse_VEhO_elidible();
+              if (result3 !== null) {
+                result4 = [];
+                result5 = parse_full_INT();
+                while (result5 !== null) {
+                  result4.push(result5);
+                  result5 = parse_full_INT();
+                }
+                if (result4 !== null) {
+                  result0 = [result0, result1, result2, result3, result4];
+                } else {
+                  result0 = null;
+                  pos = pos3;
+                }
+              } else {
+                result0 = null;
+                pos = pos3;
+              }
             } else {
               result0 = null;
               pos = pos3;
@@ -32177,7 +32211,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_VEI_pre();
         if (result0 !== null) {
-          result1 = parse_post_clause();
+          result1 = parse_post_clause_limited();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -32257,7 +32291,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_VEhO_pre();
         if (result0 !== null) {
-          result1 = parse_post_clause();
+          result1 = parse_post_clause_limited();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {

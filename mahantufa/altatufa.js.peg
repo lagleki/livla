@@ -390,7 +390,7 @@ KE_space_sumti = expr:(KE_clause full_INT* sumti KEhE_elidible full_INT*) {retur
 
 sumti_1 = expr:(sumti_2  (joik_ek sumti_2)*) {return _node("sumti_1", expr);}
 sumti_2 = expr:(sumti_3 (jebo full_INT* sumti_3)*) {return _node("sumti_2", expr);}
-sumti_3 = expr:((mex? (full_NAhE relative_clauses? sumti LUhU_elidible / LAhE_clause relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_space / LE_clause sumti_core KU_elidible) / mex !ROI_clause sumti_core KU_elidible) full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_3", expr);}
+sumti_3 = expr:((mex? (full_NAhE relative_clauses? sumti LUhU_elidible !full_NAICAI / LAhE_clause relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_space / LE_clause sumti_core KU_elidible) / mex !ROI_clause sumti_core KU_elidible) full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_3", expr);}
 LU_space = expr:(LU_clause text LIhU_elidible full_INT*) {return _node("LU_space", expr);}
 LOhU_space = expr:(LOhU_clause full_INT*) {return _node("LOhU_space", expr);}
 sumti_core = relative_clauses? (mex !ROI_clause)? bridi_sei relative_clauses? / relative_clauses_ne (mex !ROI_clause)? bridi_sei relative_clauses?

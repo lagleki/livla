@@ -244,7 +244,6 @@ tagFAM = expr:(tag_headFAM (joik_jek tag_headFAM)*) {return _node("tagFAM", expr
 tag_headFAM = expr:((full_NAhE cls tag_rootFAM / cls tag_rootFAM full_NAICAI*) full_INT*) {return _node("tense_modal", expr); }
 tag_rootFAM = FA_clause
 
-tagBFAM_0 = tagBAM_0 / tagFAM_0 
 loisumsmiZAM = sumsmiZAM+ / gek loisumsmiZAM gik loisumsmiZAM
 sumsmiZAM = expr:((!gek tagZAM sumti) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
 tagZAM = expr:(tag_headZAM (joik_jek tag_headZAM)*) {return _node("tagZAM", expr); }
@@ -480,13 +479,14 @@ selbrislenf = expr:(selbrisle_1nf (CEI_clause selbrisle_1nf)* selbri_relative_cl
 selbrisle_1nf = expr:(selbrisle_2nf linkargs? / linkargs? selbrisle_2) {return _node("selbrisle_1nf", expr); }
 
 // ** zei is part of BRIVLA_clause
+//SE=JAI
 selbrisle_2 = expr:((full_NAhE selbrisle_2_inner / selbrisle_2_inner full_NAICAI*) full_INT*) {return _node("selbrisle_2", expr); }
-selbrisle_2_inner = linkargs selbrisle_1 / SE_clause selbrisle_2 / loi_JAI_element selbrisle_2 / selbrisle_2_root
+selbrisle_2_inner = linkargs selbrisle_1 / loi_SEJAI_element selbrisle_2 / selbrisle_2_root
 selbrisle_2nf = expr:((full_NAhE selbrisle_2nf_inner / selbrisle_2nf_inner full_NAICAI*) full_INT*) {return _node("selbrisle_2nf", expr); }
-selbrisle_2nf_inner = linkargs selbrisle_1nf / SE_clause selbrisle_2nf / loi_JAI_element selbrisle_2nf / selbrisle_2_root
+selbrisle_2nf_inner = linkargs selbrisle_1nf / loi_SEJAI_element selbrisle_2nf / selbrisle_2_root
 selbrisle_2_root = BRIVLA_clause / GOhA_clause RAhO_clause? / KE_space_selbri_3 / ME_clause (sumti / mex) MEhU_elidible MOI_clause? / mex MOI_clause / NUhA_clause operator / NU_clause (joik_jek NU_clause)* subbridi KEI_elidible / MEhOI_clause
 KE_space_selbri_3 = expr:(KE_clause full_INT* selbri_3 KEhE_elidible full_INT*) {return _node("KE_space_selbri_3", expr);}
-loi_JAI_element = (JAI_clause tagBFAM_0 / JAI_clause tagZAM)+
+loi_SEJAI_element = (SE_clause / JAI_clause ((tagBAM_0 / tagFAM_0)+ / tagZAM))+
 
 // MEX
 mex = expr:(mex_1 (operator+ mex_1?)*) {return _node("mex", expr); }

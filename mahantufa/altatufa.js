@@ -12350,7 +12350,22 @@ var camxes = (function(){
               if (result3 !== null) {
                 result4 = parse_LUhU_elidible();
                 if (result4 !== null) {
-                  result1 = [result1, result2, result3, result4];
+                  pos4 = pos;
+                  reportFailures++;
+                  result5 = parse_full_NAICAI();
+                  reportFailures--;
+                  if (result5 === null) {
+                    result5 = "";
+                  } else {
+                    result5 = null;
+                    pos = pos4;
+                  }
+                  if (result5 !== null) {
+                    result1 = [result1, result2, result3, result4, result5];
+                  } else {
+                    result1 = null;
+                    pos = pos3;
+                  }
                 } else {
                   result1 = null;
                   pos = pos3;

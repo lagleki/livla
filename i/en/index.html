@@ -76,7 +76,7 @@
 		//height: 48px;
 		width:auto;
 		font-size: 18px;
-		padding: 0 10px;
+		padding: 0;
 		background: rgb(109,179,242); /* Old browsers */
 		background: -moz-linear-gradient(top,  rgba(109,179,242,1) 0%, rgba(84,163,238,1) 50%, rgba(54,144,240,1) 51%, rgba(30,105,222,1) 100%); /* FF3.6+ */
 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(109,179,242,1)), color-stop(50%,rgba(84,163,238,1)), color-stop(51%,rgba(54,144,240,1)), color-stop(100%,rgba(30,105,222,1))); /* Chrome,Safari4+ */
@@ -210,7 +210,7 @@
 	}
 	var ready = false;
 	$(document).ready(function () {
-    if ($(window).width() < 500) {$('#plise').remove();$("#typehere").css({ 'width':'90%','padding':'0','margin-right': '0.5em'});}
+    if ($(window).width() < 500) {$('#plise').remove();$("#typehere").css({ 'width':'90%','margin-right': '0.5em'});}
     if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 	doSearch();
 });

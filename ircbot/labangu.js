@@ -14,11 +14,11 @@ var labangu = function(){
 		take=take.replace(/&/igm,"&amp;");
 		take=take.replace(/<(|\/)(small|sub)>|&nbsp;/igm,"");
 		take=take.replace(/^(.*?),\"\n/igm,"<valsi word=\"$1\"><definition>");
-		take=take.replace(/\"\n/igm,"</definition></valsi>\n");
+		take=take.replace(/\"(\n|\r)/igm,"</definition></valsi>\n");
 		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"{$1}");
 		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"La Bangu English\">\n"+take+"</definition></valsi>\n</direction>\n</dictionary>";
 		take = fs.writeFileSync(t+".temp",take);
-		fs.renameSync(t+".temp",path.join(__dirname,"dumps","lb.xml"));console.log("La Bangu updated");
+		fs.renameSync(t+".temp",path.join(__dirname,"dumps","jb.xml"));console.log("La Bangu updated");
 	});
 	//
 	var tr = path.join(__dirname,"dumps","eng2jbo.tsv");
@@ -47,13 +47,15 @@ var labangu = function(){
 		var col18 = x.map(function(value,index) { return value[18-1]; }).join(", ").split(", ");
 		var col19 = x.map(function(value,index) { return value[19-1]; }).join(", ").split(", ");
 		var col20 = x.map(function(value,index) { return value[20-1]; }).join(", ").split(", ");
-		var colall = col3.concat(col4).concat(col5).concat(col7).concat(col10).concat(col11).concat(col12).concat(col14).concat(col15).concat(col16).concat(col17).concat(col18).concat(col19).concat(col20).filter(Boolean).sort();
+		var col21 = x.map(function(value,index) { return value[21-1]; }).join(", ").split(", ");
+		var colall = col3.concat(col4).concat(col5).concat(col7).concat(col10).concat(col11).concat(col12).concat(col14).concat(col15).concat(col16).concat(col17).concat(col18).concat(col19).concat(col20).concat(col21).filter(Boolean).sort();
 		allenglish = colall.filter(function(item, pos, self) {
 			return self.indexOf(item) == pos;
 		});
 		alllojban=allenglish.slice(0);
+		alllojbancomment=allenglish.slice(0);
 		for (var j=0;j<allenglish.length;j++){
-			alllojban[j]="";
+			alllojban[j]="";alllojbancomment[j]="";
 			var so=allenglish[j].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 			for (i=1;i<x.length; i++){
 				if(
@@ -118,6 +120,12 @@ var labangu = function(){
 				)
 				{
 					alllojban[j]+=""+x[i][6-1]+", ";
+						if(
+							(x[i][21-1]!=='')
+						)
+						{
+							alllojbancomment[j]+=x[i][21-1]+", ";
+						}
 				}
 				if(
 				  (x[i][14-1].search("^"+so+"$")>=0
@@ -175,11 +183,19 @@ var labangu = function(){
 				}
 			}
 			alllojban[j]=alllojban[j].replace(/(, )+$/,"");
+			alllojbancomment[j]=alllojbancomment[j].replace(/(, )+$/,"");
 		}
 		//now join into string
 		var out='';
 		for (j=0;j<allenglish.length;j++){
-			if(!(alllojban[j]==='' || allenglish[j]==='')){out+=("''"+allenglish[j].replace(/_/g,"").replace(/'/g,"&apos;").replace(/^([ ]+)/,"")+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''")+"  –  '''"+alllojban[j].replace(/, /,"''', '''")+"'''\n\n";}
+			if(!(alllojban[j]==='' || allenglish[j]==='')){
+				out+=("''"+allenglish[j].replace(/_/g,"").replace(/'/g,"&apos;").replace(/^([ ]+)/,"")+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''")+"  –  '''"+alllojban[j].replace(/, /,"''', '''")+"'''";
+				if(alllojbancomment[j]!=='')
+					{
+						out+=". " + alllojbancomment[j].replace(/_/g,"").replace(/'/g,"&apos;").replace(/^([ ]+)/,"").replace(/[\{\}]/g,"'''").replace(/@@@/g,"''");
+					}
+				out+="\n\n";
+			}
 		}
 		take = fs.writeFileSync(tr+".temp",out);
 		fs.renameSync(tr+".temp",tr);console.log("La Bangu Eng2Jbo updated");

@@ -173,7 +173,7 @@ var updatexmldumps = function (callback) {
 					xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),{encoding: 'utf8'}));
 				}
 				delete velruhe.cfari[thisa];
-				sutsisningau(thisa);
+				sutysiskuningau(thisa);
 				//global.gc();
 				if (callback && Object.keys(velruhe.cfari).length === 0) {
 					callback(velruhe);
@@ -199,7 +199,7 @@ var updatexmldumps = function (callback) {
 			});
 		});
 	}catch(err){console.log('Error when autoupdating: ' + err);}
-	sutsisningau("ithkuil");sutsisningau("zamenhofo");sutsisningau("laadan");sutsisningau("ile");sutsisningau("ldp");labangu();
+	sutysiskuningau("ithkuil");sutysiskuningau("zamenhofo");sutysiskuningau("laadan");sutysiskuningau("ile");sutysiskuningau("ldp");labangu();
 	//updategloss();# not yet ready function
 };
 var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),{encoding: 'utf8'}));//store en dump in memory
@@ -1357,7 +1357,7 @@ var katna= function(lin,lng,flag,xmlDoc){
 };
 
 
-var sutsisningau = function(lng){//write a new file parsed.js that would be used by sutsis
+var sutysiskuningau = function(lng){//write a new file parsed.js that would be used by la sutysisku
 if (typeof lng==='undefined'){lng='en';}
 if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),{encoding: 'utf8'}));}
 
@@ -1370,7 +1370,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		try{pars+=",\"s\":\""+rev[i].find("selmaho[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		try{pars+=",\"d\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		try{pars+=",\"n\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
-		try{pars+=",\"g\":\""+rev[i].find("glossword/@word").join(";").replace(/ word=\"(.*?)\"/g,"$1")+"\"";}catch(err){}
+		try{pars+=",\"g\":\""+rev[i].find("glossword/@word").join(";").replace(/ word=\"(.*?)\"/g,"$1").replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 		var ra=rev[i].find("rafsi//text()[1]");
 		if (xugismu(hi)===true){
 			ra.push(hi);

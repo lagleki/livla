@@ -335,6 +335,7 @@ var camxes = (function(){
         "si_clause": parse_si_clause,
         "erasable_clause": parse_erasable_clause,
         "su_word": parse_su_word,
+        "FA_clause_elided": parse_FA_clause_elided,
         "BEhO_elidible": parse_BEhO_elidible,
         "BOI_elidible": parse_BOI_elidible,
         "CU_elidible": parse_CU_elidible,
@@ -344,7 +345,6 @@ var camxes = (function(){
         "FAXICI_elidible": parse_FAXICI_elidible,
         "FAXIVO_elidible": parse_FAXIVO_elidible,
         "FAXIMU_elidible": parse_FAXIMU_elidible,
-        "FA_clause_elided": parse_FA_clause_elided,
         "FEhU_elidible": parse_FEhU_elidible,
         "GEhU_elidible": parse_GEhU_elidible,
         "I_elidible": parse_I_elidible,
@@ -20818,6 +20818,34 @@ var camxes = (function(){
         return result0;
       }
       
+      function parse_FA_clause_elided() {
+        var cacheKey = "FA_clause_elided@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0, pos1;
+        
+        pos0 = pos;
+        pos1 = pos;
+        result0 = [];
+        if (result0 !== null) {
+          result0 = (function(offset) {return ["DOhE"];})(pos0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
       function parse_BEhO_elidible() {
         var cacheKey = "BEhO_elidible@" + pos;
         var cachedResult = cache[cacheKey];
@@ -21168,34 +21196,6 @@ var camxes = (function(){
         result0 = result0 !== null ? result0 : "";
         if (result0 !== null) {
           result0 = (function(offset, expr) {return (expr == "") ? ["FU"] : _node("FA", expr);})(pos0, result0);
-        }
-        if (result0 === null) {
-          pos = pos0;
-        }
-        
-        cache[cacheKey] = {
-          nextPos: pos,
-          result:  result0
-        };
-        return result0;
-      }
-      
-      function parse_FA_clause_elided() {
-        var cacheKey = "FA_clause_elided@" + pos;
-        var cachedResult = cache[cacheKey];
-        if (cachedResult) {
-          pos = cachedResult.nextPos;
-          return cachedResult.result;
-        }
-        
-        var result0;
-        var pos0, pos1;
-        
-        pos0 = pos;
-        pos1 = pos;
-        result0 = [];
-        if (result0 !== null) {
-          result0 = (function(offset) {return ["DOhE"];})(pos0);
         }
         if (result0 === null) {
           pos = pos0;

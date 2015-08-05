@@ -228,7 +228,7 @@ KE_space_loisumsmiBFZAM = expr:(KE_clause full_INT* loisumsmiBFZAM KEhE_elidible
 loisumsmiBAM = KE_space_loisumsmiBAM loisumsmiBAM? / sumsmiBAM+ / gek loisumsmiBAM gik loisumsmiBAM
 KE_space_loisumsmiBAM = expr:(KE_clause full_INT* loisumsmiBAM KEhE_elidible full_INT*) {return _node("KE_space_loisumsmiBAM ", expr);}
 sumsmiBAM = sumsmiBAMprep / sumsmiBAMpostp
-sumsmiBAMprep = expr:((!gek tagBAM_0 (sumti / (KU_clause / sumtifazohe))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
+sumsmiBAMprep = expr:((!gek tagBAM_0 (sumti / (KU_clause / sumtifazohe !selbri))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
 sumsmiBAMpostp = expr:(sumti) CO_clause expr2:(tagBAM_0) expr3:((joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr2.concat(expr).concat(expr3));}
 tagBAM_0 = tagBAM / tagBAMgek
 tagBAMgek = expr:(gek tagBAM gik tagBAM) {return _node("tagBAMgek", expr); }
@@ -245,6 +245,9 @@ tagFAMgek = expr:(gek tagFAM gik tagFAM) {return _node("tagFAMgek", expr); }
 tagFAM = expr:(tag_headFAM (joik_jek tag_headFAM)*) {return _node("tagFAM", expr); }
 tag_headFAM = expr:((full_NAhE cls tag_rootFAM / cls tag_rootFAM full_NAICAI*) full_INT*) {return _node("tense_modal", expr); }
 tag_rootFAM = FA_clause
+
+tagBFAM_0 = tagBAM_0 / tagFAM_0
+
 
 loisumsmiZAM = sumsmiZAM+ / gek loisumsmiZAM gik loisumsmiZAM
 sumsmiZAM = expr:((!gek tagZAM sumti) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
@@ -457,8 +460,7 @@ selbri_relative_clause_start = expr:(NOhOI_clause) {return _node("selbri_relativ
 
 //todo: usually we add  !sumsmiBFZAM after selbri_elided but then maximum stack exceeded
 selbri_may_elide = (selbri / selbri_elided)
-selbri_elided = expr:(selbri_1_elided) {return _node("selbri", expr); }
-selbri_1_elided = expr:(selbri_2_elided) {return _node("selbri_1", expr); }
+selbri_elided = expr:(selbri_2_elided) {return _node("selbri", expr); }
 selbri_2_elided = expr:(selbri_3_elided) {return _node("selbri_2", expr); }
 selbri_3_elided = expr:(selbri_4_elided) {return _node("selbri_3", expr); }
 selbri_4_elided = expr:(selbri_5_elided) {return _node("selbri_4", expr); }
@@ -469,8 +471,7 @@ selbrisle_1_elided = expr:(selbrisle_2_elided) {return _node("selbrisle_1", expr
 selbrisle_2_elided = expr:(COhE_clause_elided) {return _node("selbrisle_2", expr); }
 
 
-selbri = expr:(selbri_1) {return _node("selbri", expr); }
-selbri_1 = expr:(selbri_2) {return _node("selbri_1", expr); }
+selbri = expr:(tagBFAM_0* selbri_2) {return _node("selbri", expr); }
 selbri_2 = expr:(selbri_3 (CO_clause selbri_2)?) {return _node("selbri_2", expr); }
 selbri_3 = expr:((selbri_4 &selbri_4)* selbri_4nf) {return _node("selbri_3", expr); }
 selbri_4 = expr:(selbri_5 (joik_jek selbri_5 / joik stag? KE_clause selbri_3 KEhE_elidible)*) {return _node("selbri_4", expr); }
@@ -494,7 +495,7 @@ selbrisle_2nf_inner = loi_SEJAI_element selbrisle_2nf / selbrisle_2_root
 selbrisle_2_root = BRIVLA_clause / GOhA_clause RAhO_clause? / KE_space_selbri_3 / ME_clause (sumti / mex) MEhU_elidible MOI_clause? / mex MOI_clause / NUhA_clause operator / NU_space / MEhOI_clause
 NU_space = expr:(NU_clause (joik_jek NU_clause)* subbridi KEI_elidible full_INT*) {return _node("NU_spacenoi", expr); }
 KE_space_selbri_3 = expr:(KE_clause full_INT* selbri_3 KEhE_elidible full_INT*) {return _node("KE_space_selbri_3", expr);}
-loi_SEJAI_element = (SE_clause / JAI_clause ((tagBAM_0 / tagFAM_0)+ / tagZAM))+
+loi_SEJAI_element = (SE_clause / JAI_clause (tagBFAM_0+ / tagZAM))+
 
 // MEX
 mex = expr:(mex_1 (operator+ mex_1?)*) {return _node("mex", expr); }

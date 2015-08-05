@@ -390,7 +390,8 @@ KE_space_sumti = expr:(KE_clause full_INT* sumti KEhE_elidible full_INT*) {retur
 
 sumti_1 = expr:(sumti_2  (joik_ek sumti_2)*) {return _node("sumti_1", expr);}
 sumti_2 = expr:(sumti_3 (jebo full_INT* sumti_3)*) {return _node("sumti_2", expr);}
-sumti_3 = expr:((mex? (full_NAhE relative_clauses? sumti LUhU_elidible / LAhE_clause relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_space / LE_clause sumti_core KU_elidible) / mex !ROI_clause sumti_core KU_elidible) full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_3", expr);}
+sumti_3 = expr:((mex? full_NAhE sumti_3more / mex? sumti_3more full_NAICAI? / mex !ROI_clause sumti_core KU_elidible full_NAICAI?) full_INT* relative_clauses?) {return _node("sumti_3", expr);}
+sumti_3more = (LAhE_clause relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_space / LE_clause full_INT* sumti_core KU_elidible)
 LU_space = expr:(LU_clause text LIhU_elidible full_INT*) {return _node("LU_space", expr);}
 LOhU_space = expr:(LOhU_clause full_INT*) {return _node("LOhU_space", expr);}
 sumti_core = relative_clauses? (mex !ROI_clause)? bridi_sei relative_clauses? / relative_clauses_ne (mex !ROI_clause)? bridi_sei relative_clauses?
@@ -504,6 +505,7 @@ mex_2 = expr:(operand / mex_rp / mex_forethought) {return _node("mex_2", expr); 
 mex_rp = FUhA_clause mex_2+ operator (mex_2* operator)* KUhE_elidible free*
 mex_forethought = !(loi_lerfu BOI_elidible) operator mex_2+ mex_forethought? KUhE_elidible / PEhO_clause operator mex_2+ mex_forethought? KUhE_elidible
 operator = expr:(full_NAhE operator / (SE_clause operator / MAhO_clause sumti_le_elidible TEhU_elidible / VUhU_clause / joik_ek) full_NAICAI*) {return _node("operator", expr); }
+//todo: nahebo is a new selmaho like LAhE
 operand = expr:(((((PA_clause+ / VEI_clause full_INT* lerfu_word VEhO_elidible full_INT*) BOI_elidible / VEI_clause full_INT* mex VEhO_elidible full_INT* / MOhE_clause sumti_le_elidible TEhU_elidible / LAhE_clause mex LUhU_elidible)  full_NAICAI*) / NAhE_clause BO_clause mex LUhU_elidible / full_NAhE operand) full_INT*) {return _node("operand", expr); }
 loi_lerfu = expr:(lerfu_word+) {return _node("loi_lerfu", expr); }
 lerfu_word = expr:(PA_clause BY_clause / BY_clause / LAU_clause lerfu_word / TEI_clause loi_lerfu FOI_clause) {return _node("lerfu_word", expr); }
@@ -999,7 +1001,7 @@ LAhE_pre = pre_clause LAhE spaces?
 // LAhE_no_SA_handling = pre_clause LAhE post_clause
 
 //         sumti descriptors 
-LE_clause = pre:LE_pre post:post_clause {return _node2("LE_clause", pre, post); }
+LE_clause = pre:LE_pre post:post_clause_limited {return _node2("LE_clause", pre, post); }
 LE_pre = pre_clause LE spaces?
 // LE_no_SA_handling = pre_clause LE post_clause
 

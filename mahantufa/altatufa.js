@@ -12649,11 +12649,22 @@ var camxes = (function(){
                           pos0 = pos;
                           result0 = parse_LE_clause();
                           if (result0 !== null) {
-                            result1 = parse_sumti_core();
+                            result1 = [];
+                            result2 = parse_full_INT();
+                            while (result2 !== null) {
+                              result1.push(result2);
+                              result2 = parse_full_INT();
+                            }
                             if (result1 !== null) {
-                              result2 = parse_KU_elidible();
+                              result2 = parse_sumti_core();
                               if (result2 !== null) {
-                                result0 = [result0, result1, result2];
+                                result3 = parse_KU_elidible();
+                                if (result3 !== null) {
+                                  result0 = [result0, result1, result2, result3];
+                                } else {
+                                  result0 = null;
+                                  pos = pos0;
+                                }
                               } else {
                                 result0 = null;
                                 pos = pos0;
@@ -27693,7 +27704,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_LE_pre();
         if (result0 !== null) {
-          result1 = parse_post_clause();
+          result1 = parse_post_clause_limited();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {

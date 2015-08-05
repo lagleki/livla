@@ -691,17 +691,20 @@ var ret;
 		case raf=='frame': ret=frame(lin.replace(/[^a-z_'\.]/g,''));break;
 		case raf=='framemulno': ret=framemulno(lin.replace(/[^a-z_'\.]/g,''));break;
 		default:
-			if(raf==='passive')
-			{ret=tordu(lin.replace(/\"/g,''), lng, raf,"",cmalu);break;}
-			else{ret=tordu(lin.replace(/\"/g,''), lng,"","",cmalu);break;}
+			if(raf==='passive'){
+				ret=tordu(lin.replace(/\"/g,''), lng, raf,"",cmalu);break;
+			}
+			else{
+				ret=tordu(lin.replace(/\"/g,''), lng,"","",cmalu);break;
+			}
 	}
 return ret.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n');
 };
 
 
-var tordu = function (lin,lng,flag,xmlDoc,cmalu)
+var tordu = function (linf,lng,flag,xmlDoc,cmalu)
 {
-	lin=lin.replace(/\"/g,'');
+	var lin=linf.replace(/\"/g,'');
 	if (flag!==1){
 		if (lng==="en")
 		{
@@ -757,6 +760,13 @@ if (gchild===''){
 		lin= lin + " = " + gchild;
 }
 ljv='';
+console.log("<"+linf+"|");
+if (lin!==''){
+	var more = tordu(linf+" ", lng,1,xmlDoc,cmalu);
+	if (more!==''){
+		lin+="\n"+more;
+	}
+}
 return lin.replace(/&quot;/g,"'");
 };
 

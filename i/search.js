@@ -7,7 +7,7 @@ function search(query, callback) {
 	var resultCount = 0;
 	var results = [];
 	var greatMatches = [];
-	var rafsiDecompositions = parseLujvo(query);
+	var rafsiDecompositions = parseLujvo(query.replace(/h/g,"'"));
 	for (i = 0; i < rafsiDecompositions.length; i++) {
 		var decomposition = rafsiDecompositions[i];
 		if (decomposition.length>1){
@@ -40,7 +40,7 @@ function search(query, callback) {
 					selmahoMatches.push(doc);//selmaho
 					continue;
 				}
-				else if (doc.w === query||doc.g===query) {
+				else if (doc.w === query||doc.g===query||doc.g.search("(^|;)"+query+"(;|$)")>=0){
 					greatMatches.push(doc);
 					continue;
 				}
@@ -73,10 +73,18 @@ function setupSearchEngine(callback, prgrss) {
 			capabilities: new fullproof.Capabilities().setUseScores(
 					false).setDbName(dbName),
 			initializer: initializer
-	}];
+	}
+    ];
 	searchEngine.open(indexes, fullproof.make_callback(callback, true), fullproof.make_callback(callback, false));
 }
-
+/*,
+	{
+            name: "stemmedindex",
+            analyzer: new fullproof.StandardAnalyzer(fullproof.normalizer.to_lowercase_nomark, fullproof.english.metaphone),
+            capabilities: new fullproof.Capabilities().setStoreObjects(false).setUseScores(false).setDbName(dbName),
+            initializer: initializer
+        }
+*/
 var Stem = function(lng) {
 	var testStemmer = new Snowball(lng);
 	return function(word) {

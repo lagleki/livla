@@ -16,6 +16,7 @@ bangu.js
 ../lib/fullproof/unicode/unicode.js
 ../lib/fullproof/analyzers.js
 ../lib/fullproof/normalizers.js
+../lib/fullproof/normalizers/english/metaphone.js
 ../lib/fullproof/misc/dataloader.js
 ../lib/fullproof/capabilities.js
 ../lib/fullproof/utils.js

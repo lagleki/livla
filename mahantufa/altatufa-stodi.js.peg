@@ -435,11 +435,11 @@ sumti_3_leless = expr:(mex? (LE_clause_elided sumti_core KU_elidible) full_NAICA
 //RAhABRI
 relative_clauses = expr:(relative_clause (joik relative_clause)* / gek relative_clauses gik relative_clauses) {return _node("relative_clauses", expr); }
 relative_clause = expr:(relative_clause_sa* relative_clause_1) {return _node("relative_clause", expr); }
-relative_clause_1 = expr:(GOI_clause sumsmiBFAM? GEhU_elidible / NOI_clause subbridi KUhO_elidible) {return _node("relative_clause_1", expr); }
+relative_clause_1 = expr:(GOI_clause full_INT* sumsmiBFZAM? GEhU_elidible full_INT* / NOI_clause full_INT* subbridi KUhO_elidible full_INT*) {return _node("relative_clause_1", expr); }
 
-relative_clauses_ne = expr:( relative_clause_ne (joik (relative_clause / relative_clause_ne))* / gek relative_clauses_ne gik relative_clauses_ne) {return _node("relative_clauses", expr); }
+relative_clauses_ne = expr:( relative_clause_ne (joik (relative_clause / relative_clause_ne))* / gek relative_clauses_ne gik relative_clauses_ne) {return _node("relative_clausesne", expr); }
 relative_clause_ne = expr:(relative_clause_sa* relative_clause_1_ne) {return _node("relative_clause", expr); }
-relative_clause_1_ne = expr:(GOI_clause_elidible sumsmiZAM GEhU_elidible) {return _node("relative_clause_1", expr); }
+relative_clause_1_ne = expr:(GOI_clause_elidible sumsmiZAM GEhU_elidible full_INT*) {return _node("relative_clause_1", expr); }
 
 relative_clause_sa = expr:(relative_clause_start (!relative_clause_start (sa_word / SA_clause !relative_clause_start ) )* SA_clause &relative_clause_1) {return _node("relative_clause_sa", expr); }
 relative_clause_start = expr:(GOI_clause / NOI_clause) {return _node("relative_clause_start", expr); }
@@ -599,7 +599,8 @@ si_word = pre_zei_bu
 su_word = !NIhO_clause !LU_clause !TUhE_clause !TO_clause !SU_clause !FAhO_clause any_word_SA_handling
 
 
-// ___ ELIDIBLE TERMINATORS ___  (EXPERIMENTAL)
+// ___ ELIDIBLE FAMYMAHO ___  (EXPERIMENTAL)
+FA_clause_elided = {return ["DOhE"];}
 
 BEhO_elidible = expr:(BEhO_clause?) {return (expr == "") ? ["BEhO"] : _node("BEhO", expr);}//+
 BOI_elidible = expr:(BOI_clause?)   {return (expr == "") ? ["BOI"]  : _node("BOI", expr);}
@@ -611,17 +612,16 @@ FAXICI_elidible = expr:((&FA_clause fi)?) {return (expr == "") ? ["FI"] : _node(
 FAXIVO_elidible = expr:((&FA_clause fo)?) {return (expr == "") ? ["FO"] : _node("FA", expr);}
 FAXIMU_elidible = expr:((&FA_clause fu)?) {return (expr == "") ? ["FU"] : _node("FA", expr);}
 
-FA_clause_elided = {return ["DOhE"];}
 FEhU_elidible = expr:(FEhU_clause?) {return (expr == "") ? ["FEhU"] : _node("FEhU", expr);}
 // FOI and FUhO are never elidible
-GEhU_elidible = expr:(GEhU_clause?) {return (expr == "") ? ["GEhU"] : _node("GEhU", expr);}
+GEhU_elidible = expr:(GEhU_clause?) {return (expr == "") ? ["GEhU"] : _node("GEhU", expr);}//+
 I_elidible = { return ["I", "I"];}
 NE_elidible = { return ["GOI", "NE"];}
 KEI_elidible = expr:(KEI_clause?)   {return (expr == "") ? ["KEI"]  : _node("KEI", expr);}//+
 KEhE_elidible = expr:(KEhE_clause?) {return (expr == "") ? ["KEhE"] : _node("KEhE", expr);}//+
 KU_elidible = expr:(KU_clause?)     {return (expr == "") ? ["KU"]   : _node("KU", expr);}
 KUhE_elidible = expr:(KUhE_clause?) {return (expr == "") ? ["KUhE"] : _node("KUhE", expr);}
-KUhO_elidible = expr:(KUhO_clause?) {return (expr == "") ? ["KUhO"] : _node("KUhO", expr);}
+KUhO_elidible = expr:(KUhO_clause?) {return (expr == "") ? ["KUhO"] : _node("KUhO", expr);}//+
 // LEhU is never elidible
 //todo: do these elidible break the tree leveling?
 LIhU_elidible = expr:(LIhU_clause?) {return (expr == "") ? ["LIhU"] : _node("LIhU", expr);}//+
@@ -873,7 +873,7 @@ GAhO_pre = pre_clause GAhO spaces?
 // GAhO_no_SA_handling = pre_clause GAhO post_clause
 
 //         marker ending GOI relative clauses 
-GEhU_clause = pre:GEhU_pre post:post_clause {return _node2("GEhU_clause", pre, post); }
+GEhU_clause = pre:GEhU_pre post:post_clause_limited {return _node2("GEhU_clause", pre, post); }
 GEhU_pre = pre_clause GEhU spaces?
 // GEhU_no_SA_handling = pre_clause GEhU post_clause
 
@@ -888,7 +888,7 @@ GIhA_pre = pre_clause GIhA spaces?
 // GIhA_no_SA_handling = pre_clause GIhA post_clause
 
 //         attaches a sumti modifier to a sumti 
-GOI_clause = pre:GOI_pre post:post_clause {return _node2("GOI_clause", pre, post); }
+GOI_clause = pre:GOI_pre post:post_clause_limited {return _node2("GOI_clause", pre, post); }
 GOI_pre = pre_clause GOI spaces?
 GOI_clause_elidible = pre:GOI_pre_elidible post:post_clause {return _node2("GOI_clause", pre, post); }
 GOI_pre_elidible = pre_clause NE_elidible spaces?
@@ -980,7 +980,7 @@ KUhE_pre = pre_clause KUhE spaces?
 // KUhE_no_SA_handling = pre_clause KUhE post_clause
 
 //         right terminator, NOI relative clauses 
-KUhO_clause = pre:KUhO_pre post:post_clause {return _node2("KUhO_clause", pre, post); }
+KUhO_clause = pre:KUhO_pre post:post_clause_limited {return _node2("KUhO_clause", pre, post); }
 KUhO_pre = pre_clause KUhO spaces?
 // KUhO_no_SA_handling = pre_clause KUhO post_clause
 
@@ -1105,7 +1105,7 @@ NIhO_pre_elided = pre_clause NIhO_elided spaces?
 // NIhO_no_SA_handling = pre_clause NIhO su_clause* post_clause
 
 //         attaches a subordinate clause to a sumti 
-NOI_clause = pre:NOI_pre post:post_clause {return _node2("NOI_clause", pre, post); }
+NOI_clause = pre:NOI_pre post:post_clause_limited {return _node2("NOI_clause", pre, post); }
 NOI_pre = pre_clause NOI spaces?
 // NOI_no_SA_handling = pre_clause NOI post_clause
 

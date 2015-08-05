@@ -600,6 +600,7 @@ su_word = !NIhO_clause !LU_clause !TUhE_clause !TO_clause !SU_clause !FAhO_claus
 
 
 // ___ ELIDIBLE FAMYMAHO ___  (EXPERIMENTAL)
+FA_clause_elided = {return ["DOhE"];}
 
 BEhO_elidible = expr:(BEhO_clause?) {return (expr == "") ? ["BEhO"] : _node("BEhO", expr);}//+
 BOI_elidible = expr:(BOI_clause?)   {return (expr == "") ? ["BOI"]  : _node("BOI", expr);}
@@ -611,17 +612,16 @@ FAXICI_elidible = expr:((&FA_clause fi)?) {return (expr == "") ? ["FI"] : _node(
 FAXIVO_elidible = expr:((&FA_clause fo)?) {return (expr == "") ? ["FO"] : _node("FA", expr);}
 FAXIMU_elidible = expr:((&FA_clause fu)?) {return (expr == "") ? ["FU"] : _node("FA", expr);}
 
-FA_clause_elided = {return ["DOhE"];}
 FEhU_elidible = expr:(FEhU_clause?) {return (expr == "") ? ["FEhU"] : _node("FEhU", expr);}
 // FOI and FUhO are never elidible
-GEhU_elidible = expr:(GEhU_clause?) {return (expr == "") ? ["GEhU"] : _node("GEhU", expr);}
+GEhU_elidible = expr:(GEhU_clause?) {return (expr == "") ? ["GEhU"] : _node("GEhU", expr);}//+
 I_elidible = { return ["I", "I"];}
 NE_elidible = { return ["GOI", "NE"];}
 KEI_elidible = expr:(KEI_clause?)   {return (expr == "") ? ["KEI"]  : _node("KEI", expr);}//+
 KEhE_elidible = expr:(KEhE_clause?) {return (expr == "") ? ["KEhE"] : _node("KEhE", expr);}//+
 KU_elidible = expr:(KU_clause?)     {return (expr == "") ? ["KU"]   : _node("KU", expr);}
 KUhE_elidible = expr:(KUhE_clause?) {return (expr == "") ? ["KUhE"] : _node("KUhE", expr);}
-KUhO_elidible = expr:(KUhO_clause?) {return (expr == "") ? ["KUhO"] : _node("KUhO", expr);}
+KUhO_elidible = expr:(KUhO_clause?) {return (expr == "") ? ["KUhO"] : _node("KUhO", expr);}//+
 // LEhU is never elidible
 //todo: do these elidible break the tree leveling?
 LIhU_elidible = expr:(LIhU_clause?) {return (expr == "") ? ["LIhU"] : _node("LIhU", expr);}//+

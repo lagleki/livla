@@ -202,7 +202,7 @@ var camxes = (function(){
         "sumti_1": parse_sumti_1,
         "sumti_2": parse_sumti_2,
         "sumti_3": parse_sumti_3,
-        "sumti_4_const": parse_sumti_4_const,
+        "sumti_4_declaration": parse_sumti_4_declaration,
         "sumti_5_shell": parse_sumti_5_shell,
         "sumti_6_shell": parse_sumti_6_shell,
         "sumti_4_var": parse_sumti_4_var,
@@ -11742,7 +11742,7 @@ var camxes = (function(){
         var pos0;
         
         pos0 = pos;
-        result0 = parse_sumti_4_const();
+        result0 = parse_sumti_4_declaration();
         if (result0 === null) {
           result0 = parse_sumti_4_var();
         }
@@ -11760,8 +11760,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_sumti_4_const() {
-        var cacheKey = "sumti_4_const@" + pos;
+      function parse_sumti_4_declaration() {
+        var cacheKey = "sumti_4_declaration@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -11856,7 +11856,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("sumti_5_shell", expr);})(pos0, result0[0]);
+          result0 = (function(offset, expr) {return _node("sumti_5_shell", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;

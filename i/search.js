@@ -7,7 +7,7 @@ function search(query, callback) {
 	var resultCount = 0;
 	var results = [];
 	var greatMatches = [];
-	var rafsiDecompositions = parseLujvo(query.replace(/h/g,"'"));
+	var rafsiDecompositions = parseLujvo(query);
 	for (i = 0; i < rafsiDecompositions.length; i++) {
 		var decomposition = rafsiDecompositions[i];
 		if (decomposition.length>1){
@@ -15,7 +15,16 @@ function search(query, callback) {
 			t: "decomposing ...",
 			w: query,
 			r: decomposition.filter(function(y){return y.search(/Q$/)===-1;}),
-			rafsiDocuments: (decomposition.map(function(r){return rafsi[r] || documentStore.filter(function(val){return val.w==r.replace("Q","")})[0]})||[])
+			rafsiDocuments: (
+				decomposition.map(
+					function(r){
+						return  rafsi[r] || 
+								documentStore.filter(
+									function(val){
+										return val.w==r.replace("Q","")
+									})[0]
+					})||[]
+				)
 		});
 		}
 	}
@@ -24,6 +33,7 @@ function search(query, callback) {
 	var selmahoMatches = [];
 	searchEngine.lookup(query, function(engineResults) {
 		if (!engineResults) {
+						console.log("keLl");
 			callback(results);
 			return;
 		}
@@ -54,8 +64,8 @@ function search(query, callback) {
 				}
 				else {results.push(doc);}
 		}
-		console.log(JSON.stringify(greatMatches));
 		results = greatMatches.concat(goodMatches).concat(normalMatches).concat(selmahoMatches).concat(results);
+		console.log(JSON.stringify(results));
 		callback(results);
 	});
 }

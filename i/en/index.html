@@ -304,7 +304,8 @@
 		out.append(
 			$('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
 		}
-		if ((def.r||[]).length > 0) {
+		console.log(def.r.length);
+		if ((def.r||[]).length > 0) {// && window.xuzganalojudri
 			var rafsi = $("<div>").addClass('rafsi');
 			rafsi.append("rafsi: ");
 			for (var i = 0; i < def.r.length; i++) {

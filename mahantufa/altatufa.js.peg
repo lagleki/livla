@@ -126,7 +126,7 @@
 }
 
 // PARAGRAPHING
-text = expr:(intro_null nion_0 si_clause? faho_clause EOF?) {return _node_nonempty("text", expr);}
+text = expr:(intro_null nion_0 intro_si_clause faho_clause EOF?) {return _node_nonempty("text", expr);}
 nion_0 = expr:((NIhO_elided !NIhO_clause)? nion) {return _node("paragraph1", expr);}
 nion = expr:((NIhO_clause nion)+ / ion) {return _node("paragraph", expr);}
 ion = expr:((I_clause_elidible bridi_elided (ijobon / ijon) / I_clause_elidible bridi_ext (&I_clause ijon)*) (I_clause bridi_ext)*) {return _node("sentence", expr);}
@@ -136,7 +136,7 @@ TUhE_space = expr:(TUhE_clause full_INT* nion_0 TUhU_elidible full_INT*) {return
 ijon = expr:(I_clause_elidible je su_clause* bridi_ext) {return _node("ijon", expr);}
 ijobon = expr:(I_clause_elidible jebo su_clause* bridi_ext) {return _node("ijobon", expr);}
 NIhO_elided = {return ["NIhO_elided", "NIhO"];}
-intro_null = expr:(spaces? su_clause* intro_si_clause) {return _node_nonempty("intro_null", expr); }
+intro_null = expr:(spaces? su_clause*) {return _node_nonempty("intro_null", expr); }
 intro_si_clause = expr:(si_clause? SI*)  {return _node_nonempty("intro_si_clause", expr); }
 faho_clause = expr:((FAhO_clause dot_star)?) {return _node("faho_clause", expr);}
 
@@ -205,19 +205,18 @@ KE_space_gek_sentence = expr:(KE_clause full_INT* gek_sentence KEhE_elidible ful
 
 //BRIDI TAIL
 bridi_tail = expr:(bridi_tail_1 (joik_gihek stag? bridi_tail)*) {return _node("bridi_tail", expr);}
-bridi_tail_1 = expr:(bridi_tail_2 (joik_gihek !(stag? BO_clause) !(stag? KE_clause) CU_space bridi_tail_2 tail_loi_sumsmi)*) {return _node("bridi_tail_1", expr);}
+//todo: (joik_gihek / &selbri) will allow {prami mi prami do}, add phantom joik_gihek
+bridi_tail_1 = expr:(bridi_tail_2 ((joik_gihek) !(stag? BO_clause) !(stag? KE_clause) CU_space bridi_tail_2 tail_loi_sumsmi)*) {return _node("bridi_tail_1", expr);}
 bridi_tail_2 = expr:(bridi_tail_3 (joik_gihek stag? BO_clause CU_space bridi_tail_3 tail_loi_sumsmi)*) {return _node("bridi_tail_2", expr);}
 bridi_tail_3 = expr:(KE_space_bridi_tail_3 tail_loi_sumsmi / gek_bridi_tail / loisumsmiBFZAM? (selbri_may_elide / gek_sentence) tail_loi_sumsmi) {return _node("bridi_tail_3", expr);}
 KE_space_bridi_tail_3 = expr:(KE_clause full_INT* !(selbri_2 KEhE) bridi_tail KEhE_elidible full_INT*) {return _node("KE_space_bridi_tail_3", expr);}
 
 //todo: restore {NA_clause before gek_bridi_tail_nul  and gek_bridi_tail
-gek_bridi_tail = expr:(gek bridi_tail gik bridi_tail / tagBAM* KE_space_gek_bridi_tail) {return _node("gek_bridi_tail", expr);}
+gek_bridi_tail = expr:(tagBAM* gek bridi_tail gik bridi_tail / tagBAM* KE_space_gek_bridi_tail) {return _node("gek_bridi_tail", expr);}
 KE_space_gek_bridi_tail = expr:(KE_clause full_INT* gek_bridi_tail KEhE_elidible full_INT*) {return _node("KE_space_gek_bridi_tail", expr);}
 
 //TERMS: BAM, FAM, ZAM
-//todo: termsets, postpositions for FAMs, SOI, "KE_space terms_0 terms_0+ KEhE_elidible", pehe/cehe in tag tree
-//todo: geks: ge ca mi gi ba mi - done. ge ca gi ba mi - not done. ge ca ba gi ba ca mi - not done. ge ca mi gau do fa mi gi ba mi gau mi fa do - not done. ge mi gi do - not done.
-//```//gek_term = expr:(gek term gik term) {return _node("gek_term", expr);}
+//todo: termsets, SOI, "KE_space terms_0 terms_0+ KEhE_elidible", pehe/cehe in tag tree
 
 sumsmiBFAM = expr:(sumsmiBAM / sumsmiFAM) {return _node("loisumsmi", expr);}
 sumsmiBFZAM = expr:(sumsmiBAM / sumsmiFAM / sumsmiZAM) {return _node("loisumsmi", expr);}
@@ -227,7 +226,7 @@ KE_space_loisumsmiBFZAM = expr:(KE_clause full_INT* loisumsmiBFZAM KEhE_elidible
 loisumsmiBAM = KE_space_loisumsmiBAM loisumsmiBAM? / sumsmiBAM+ / gek loisumsmiBAM gik loisumsmiBAM
 KE_space_loisumsmiBAM = expr:(KE_clause full_INT* loisumsmiBAM KEhE_elidible full_INT*) {return _node("KE_space_loisumsmiBAM ", expr);}
 sumsmiBAM = sumsmiBAMprep / sumsmiBAMpostp
-sumsmiBAMprep = expr:((!gek tagBAM_0 (sumti / (KU_clause / sumtifazohe !selbri))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
+sumsmiBAMprep = expr:((tagBAM_0 (sumti / (KU_clause / sumtifazohe !selbri))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
 sumsmiBAMpostp = expr:(sumti) CO_clause expr2:(tagBAM_0) expr3:((joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr2.concat(expr).concat(expr3));}
 tagBAM_0 = tagBAM / tagBAMgek
 tagBAMgek = expr:(gek tagBAM gik tagBAM) {return _node("tagBAMgek", expr); }
@@ -237,7 +236,7 @@ tag_rootBAM = NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_
 
 loisumsmiFAM = sumsmiFAM+ / gek loisumsmiFAM gik loisumsmiFAM
 sumsmiFAM = sumsmiFAMprep / sumsmiFAMpostp
-sumsmiFAMprep = expr:((!gek tagFAM_0 (sumti / (KU_clause / sumtifazohe !bridi_tail))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
+sumsmiFAMprep = expr:((tagFAM_0 (sumti / (KU_clause / sumtifazohe !bridi_tail))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
 sumsmiFAMpostp = expr:(sumti) CO_clause expr2:(tagFAM_0) expr3:((joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr2.concat(expr).concat(expr3));}
 tagFAM_0 = tagFAM / tagFAMgek
 tagFAMgek = expr:(gek tagFAM gik tagFAM) {return _node("tagFAMgek", expr); }
@@ -249,7 +248,7 @@ tagBFAM_0 = tagBAM_0 / tagFAM_0
 
 
 loisumsmiZAM = sumsmiZAM+ / gek loisumsmiZAM gik loisumsmiZAM
-sumsmiZAM = expr:((!gek tagZAM sumti) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
+sumsmiZAM = expr:((tagZAM sumti) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
 tagZAM = expr:(tag_headZAM (joik_jek tag_headZAM)*) {return _node("tagZAM", expr); }
 tag_headZAM = expr:((tag_rootZAM)) {return _node("tense_modal", expr); }
 tag_rootZAM = FA_clause_elided

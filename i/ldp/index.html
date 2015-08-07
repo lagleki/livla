@@ -8,18 +8,20 @@
 	<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
 	<meta property="og:title" content="lai sutysisku"/>
 	<meta property="og:type" content="article"/>
-	<meta property="og:url" content="http://mw.lojban.org/extensions/ilmentufa/i/ldp/index.html"/>
+	<meta property="og:url" content="http://mw.lojban.org/extensions/ilmentufa/i/en/index.html"/>
 	<meta property="og:image" content="http://mw.lojban.org/images/1/11/sutysisku2015-06-22.png"/>
 	<meta property="og:site_name" content="La Sutysisku"/>
 	<meta property="fb:app_id" content="191051864394489"/>
 	<meta property="og:description" content="A dictionary for Lojban, English and other languages that can work offline."/>
 	<link rel="shortcut icon" href="../sutsis.png" />
-  <link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/ldp/sisku.xml" title="ldp-sutysisku">
+	<link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/en/sisku.xml" title="en-sutysisku">
   <style type="text/css">
 	.container .credit {
 		margin: 20px 0;
 	}
-	#typehere{height:auto;font-size:140%;}
+	#typehere{height:auto;
+		font-size:140%;
+	}
 
 	body {
 		font-family: Tahoma, Lato, sans-serif;font-size:90%;overflow:hidden;
@@ -55,6 +57,7 @@
 		border-bottom-color: rgba(0, 0, 0, 0.0980392);
 		border-bottom-style: solid;
 		border-bottom-width: 1px;
+		text-align: justify;
 	}
 	.rafsi {
 		margin-top: 8px;
@@ -73,7 +76,7 @@
 		//height: 48px;
 		width:auto;
 		font-size: 18px;
-		padding: 0 10px;
+		padding: 0;
 		background: rgb(109,179,242); /* Old browsers */
 		background: -moz-linear-gradient(top,  rgba(109,179,242,1) 0%, rgba(84,163,238,1) 50%, rgba(54,144,240,1) 51%, rgba(30,105,222,1) 100%); /* FF3.6+ */
 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(109,179,242,1)), color-stop(50%,rgba(84,163,238,1)), color-stop(51%,rgba(54,144,240,1)), color-stop(100%,rgba(30,105,222,1))); /* Chrome,Safari4+ */
@@ -207,7 +210,7 @@
 	}
 	var ready = false;
 	$(document).ready(function () {
-    if ($(window).width() < 500) $('#plise').remove();
+    if ($(window).width() < 500) {$('#plise').remove();$("#typehere").css({ 'width':'90%','margin-right': '0.5em'});}
     if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 	doSearch();
 });
@@ -221,7 +224,7 @@
 		if (ev.data.kind == 'ready') {
 		engineReady();
 		} else if (ev.data.kind == 'searchResults') {
-		if (ev.data.query !== typehere.val()) {
+		if (ev.data.query !== typehere.val().trim()) {
 		  return;
 		}
 		results = ev.data.results;
@@ -251,7 +254,7 @@
 	output.scroll();
 
 	function lojTemplate(s) {
-		s = s.replace(/\$.*?\$/g, function(c) {
+		s = s.replace(/\//g," / ").replace(/\$.*?\$/g, function(c) {
 		c = c.substring(1, c.length-1);
 		return c.replace(/(\w)_\{?(\d+)\}?/g, "$1<sub>$2</sub>").replace(/[\{\}]/g,'');
 		});
@@ -274,9 +277,11 @@
 		var jvs = def.t;
 		if(window.xuzganalojudri){jvs+="<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
 		if (def.t==='decomposing ...'){jvs=window.bangudecomp;}
+		var word='<a href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
+		if (def.w == typehere.val().trim()){word=def.w + ' ';}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
 		.append(tfm)
-		.append($("<h4>").text(def.w + ' '))
+		.append($("<h4>").html(word))
 		.append($("<h4>").addClass('tfm').html(fmm))
 		.append($("<div style='flex:1;'>"))
 		.append($("<div>").addClass('type').html(jvs))
@@ -299,7 +304,7 @@
 		out.append(
 			$('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
 		}
-		if ((def.r||[]).length > 0) {
+		if ((def.r||[]).length > 0) {// && window.xuzganalojudri
 			var rafsi = $("<div>").addClass('rafsi');
 			rafsi.append("rafsi: ");
 			for (var i = 0; i < def.r.length; i++) {
@@ -343,7 +348,7 @@
 	}
 	function doSearch() {
 		displayDescription();
-		var query = typehere.val().replace(/\./g," ").replace(/ {2,}/g," ").trim();
+		var query = typehere.val().replace(/,\./g," ").replace(/ {2,}/g," ").trim().toLowerCase();
 		if (query === prevQuery) {
 		return;
 		}
@@ -389,7 +394,7 @@
 		if (searchMatch) {
 		var query = decodeURIComponent(searchMatch[1]);
 		}
-		typehere.val(query.replace(/%20/g," "));
+		typehere.val(query.replace(/%20/g," ").trim());
 		if (ready) {
 		doSearch();
 		}

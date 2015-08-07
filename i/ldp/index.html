@@ -254,7 +254,7 @@
 	output.scroll();
 
 	function lojTemplate(s) {
-		s = s.replace(/\//g," / ").replace(/\$.*?\$/g, function(c) {
+		s = s.replace(/\$.*?\$/g, function(c) {
 		c = c.substring(1, c.length-1);
 		return c.replace(/(\w)_\{?(\d+)\}?/g, "$1<sub>$2</sub>").replace(/[\{\}]/g,'');
 		});
@@ -289,7 +289,7 @@
 		);
 		if (def.d) {
 		$("<div>").addClass('definition').html(
-			lojTemplate(def.d) + ' ').appendTo(out);
+			lojTemplate(def.d.replace(/\//g," / ")) + ' ').appendTo(out);
 		} else {
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
@@ -373,7 +373,7 @@
 	function updateUrl(query) {
 		var url = '';
 		if (query.length > 0) {
-		url = '#sisku/' + query.replace(/ /g,"%20");
+		url = '#sisku/' + query.replace(/ /g,"_");
 		}
 		if (url == window.location.pathname || url == '') {
 		return;
@@ -392,9 +392,9 @@
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
 		query = '';
 		if (searchMatch) {
-		var query = decodeURIComponent(searchMatch[1]);
+		var query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ");
 		}
-		typehere.val(query.replace(/%20/g," ").trim());
+		typehere.val(query.replace(/_/g," ").trim());
 		if (ready) {
 		doSearch();
 		}

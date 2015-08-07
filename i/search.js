@@ -33,7 +33,6 @@ function search(query, callback) {
 	var selmahoMatches = [];
 	searchEngine.lookup(query, function(engineResults) {
 		if (!engineResults) {
-						console.log("keLl");
 			callback(results);
 			return;
 		}
@@ -65,7 +64,6 @@ function search(query, callback) {
 				else {results.push(doc);}
 		}
 		results = greatMatches.concat(goodMatches).concat(normalMatches).concat(selmahoMatches).concat(results);
-		console.log(JSON.stringify(results));
 		callback(results);
 	});
 }

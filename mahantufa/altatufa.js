@@ -485,7 +485,6 @@ var camxes = (function(){
         "KEhE_pre": parse_KEhE_pre,
         "KEI_clause": parse_KEI_clause,
         "KEI_pre": parse_KEI_pre,
-        "KEI_no_SA_handling": parse_KEI_no_SA_handling,
         "KI_clause": parse_KI_clause,
         "KI_pre": parse_KI_pre,
         "KOhA_clause": parse_KOhA_clause,
@@ -25433,45 +25432,6 @@ var camxes = (function(){
           if (result1 !== null) {
             result2 = parse_spaces();
             result2 = result2 !== null ? result2 : "";
-            if (result2 !== null) {
-              result0 = [result0, result1, result2];
-            } else {
-              result0 = null;
-              pos = pos0;
-            }
-          } else {
-            result0 = null;
-            pos = pos0;
-          }
-        } else {
-          result0 = null;
-          pos = pos0;
-        }
-        
-        cache[cacheKey] = {
-          nextPos: pos,
-          result:  result0
-        };
-        return result0;
-      }
-      
-      function parse_KEI_no_SA_handling() {
-        var cacheKey = "KEI_no_SA_handling@" + pos;
-        var cachedResult = cache[cacheKey];
-        if (cachedResult) {
-          pos = cachedResult.nextPos;
-          return cachedResult.result;
-        }
-        
-        var result0, result1, result2;
-        var pos0;
-        
-        pos0 = pos;
-        result0 = parse_pre_clause();
-        if (result0 !== null) {
-          result1 = parse_KEI();
-          if (result1 !== null) {
-            result2 = parse_post_clause();
             if (result2 !== null) {
               result0 = [result0, result1, result2];
             } else {

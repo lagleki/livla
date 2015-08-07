@@ -39,14 +39,15 @@
 // ___ GRAMMAR ___
 
 {
+  var _g_zoi_delim;
   function _join(arg)
   {
     if (typeof(arg) == "string")
       return arg;
     else
     {
-      ret = "";
-      for (v in arg) { ret += _join(arg[v]); }
+      var ret = "";
+      for (var v in arg) { ret += _join(arg[v]); }
       return ret;
     }
   }
@@ -69,7 +70,7 @@
       return arg;
     var ret = [];
     if (label != undefined) ret.push( label );
-    for (v in arg)
+    for (var v in arg)
     {
       if (arg[v].length != 0)
         ret.push( _node_int( undefined, arg[v] ) );
@@ -103,7 +104,7 @@
 	  alert("ZOI word is not a string");
 	  return false;
 	} else {
-      return (word.replace(/,/gm,"") === _g_zoi_delim);
+      return (word.toLowerCase().replace(/,/gm,"").replace(/h/g, "'") === _g_zoi_delim);
 	}
   }
   
@@ -130,7 +131,6 @@ text = expr:(intro_null nion_0 intro_si_clause faho_clause EOF?) {return _node_n
 nion_0 = expr:((NIhO_elided !NIhO_clause)? nion) {return _node("paragraph1", expr);}
 nion = expr:((NIhO_clause nion)+ / ion) {return _node("paragraph", expr);}
 ion = expr:((I_clause_elidible bridi_elided (ijobon / ijon) / I_clause_elidible bridi_ext (&I_clause ijon)*) (I_clause bridi_ext)*) {return _node("sentence", expr);}
-//todo:bracketedspace
 bridi_ext = expr:(tagBAM? TUhE_space / subbridi (&I_clause ijobon)*){return _node("subsentence", expr);}
 TUhE_space = expr:(TUhE_clause full_INT* nion_0 TUhU_elidible full_INT*) {return _node("TUhE_scope", expr);}
 ijon = expr:(I_clause_elidible je su_clause* bridi_ext) {return _node("ijon", expr);}
@@ -190,7 +190,7 @@ bridi_tail_1_nul = expr:(bridi_tail_2_nul) {return _node("bridi_tail_1_nul", exp
 bridi_tail_2_nul = expr:(bridi_tail_3_nul) {return _node("bridi_tail_2_nul", expr);}
 bridi_tail_3_nul = expr:(KE_space_bridi_nul / gek_bridi_tail_nul / (selbri_may_elide / gek_sentence)) {return _node("bridi_tail_3_nul", expr);}
 KE_space_bridi_nul = expr:(KE_clause full_INT* !(selbri_2 KEhE) bridi_tail_nul KEhE_elidible full_INT*) {return _node("KE_bridi_nul_scope", expr);}
-gek_bridi_tail_nul = expr:(gek bridi_tail_nul gik bridi_tail_nul / KE_space_bridi_nulgek ) {return _node("gek_bridi_tail_nul", expr);}
+gek_bridi_tail_nul = expr:(tagBAM_0* (gek bridi_tail_nul gik bridi_tail_nul / KE_space_bridi_nulgek)) {return _node("gek_bridi_tail_nul", expr);}
 KE_space_bridi_nulgek = expr:(KE_clause full_INT* gek_bridi_tail_nul KEhE_elidible full_INT*) {return _node("KE_bridi_nul_gek_scope", expr);}
 
 //dont allow joi-ning non-ZAMs with ZAMs?: gek allowed?:
@@ -199,20 +199,18 @@ KE_space_bridi_nulgek = expr:(KE_clause full_INT* gek_bridi_tail_nul KEhE_elidib
 
 subbridi = expr:(prenexe* bridi (IAU_clause sumsmiBAM?)?) {return _node("subbridi", expr);}
 prenexe = expr:(loisumsmiBFZAM ZOhU_clause) {return _node("prenexe", expr);}
-gek_sentence = expr:(tagBAM* (gek subbridi gik subbridi tail_loi_sumsmi / KE_space_gek_sentence)) {return _node("gek_sentence", expr);}
+gek_sentence = expr:(tagBAM_0* (gek subbridi gik subbridi tail_loi_sumsmi / KE_space_gek_sentence)) {return _node("gek_sentence", expr);}
 KE_space_gek_sentence = expr:(KE_clause full_INT* gek_sentence KEhE_elidible full_INT*) {return _node("KE_space_gek_sentence", expr);}
 
 
 //BRIDI TAIL
 bridi_tail = expr:(bridi_tail_1 (joik_gihek stag? bridi_tail)*) {return _node("bridi_tail", expr);}
-//todo: (joik_gihek / &selbri) will allow {prami mi prami do}, add phantom joik_gihek
-bridi_tail_1 = expr:(bridi_tail_2 ((joik_gihek) !(stag? BO_clause) !(stag? KE_clause) CU_space bridi_tail_2 tail_loi_sumsmi)*) {return _node("bridi_tail_1", expr);}
+bridi_tail_1 = expr:(bridi_tail_2 ((joik_gihek / joik_gihek_elided) !(stag? BO_clause) !(stag? KE_clause) CU_space bridi_tail_2 tail_loi_sumsmi)*) {return _node("bridi_tail_1", expr);}
 bridi_tail_2 = expr:(bridi_tail_3 (joik_gihek stag? BO_clause CU_space bridi_tail_3 tail_loi_sumsmi)*) {return _node("bridi_tail_2", expr);}
 bridi_tail_3 = expr:(KE_space_bridi_tail_3 tail_loi_sumsmi / gek_bridi_tail / loisumsmiBFZAM? (selbri_may_elide / gek_sentence) tail_loi_sumsmi) {return _node("bridi_tail_3", expr);}
 KE_space_bridi_tail_3 = expr:(KE_clause full_INT* !(selbri_2 KEhE) bridi_tail KEhE_elidible full_INT*) {return _node("KE_space_bridi_tail_3", expr);}
 
-//todo: restore {NA_clause before gek_bridi_tail_nul  and gek_bridi_tail
-gek_bridi_tail = expr:(tagBAM* gek bridi_tail gik bridi_tail / tagBAM* KE_space_gek_bridi_tail) {return _node("gek_bridi_tail", expr);}
+gek_bridi_tail = expr:(tagBAM_0* (gek bridi_tail gik bridi_tail / KE_space_gek_bridi_tail)) {return _node("gek_bridi_tail", expr);}
 KE_space_gek_bridi_tail = expr:(KE_clause full_INT* gek_bridi_tail KEhE_elidible full_INT*) {return _node("KE_space_gek_bridi_tail", expr);}
 
 //TERMS: BAM, FAM, ZAM
@@ -226,9 +224,9 @@ KE_space_loisumsmiBFZAM = expr:(KE_clause full_INT* loisumsmiBFZAM KEhE_elidible
 loisumsmiBAM = KE_space_loisumsmiBAM loisumsmiBAM? / sumsmiBAM+ / gek loisumsmiBAM gik loisumsmiBAM
 KE_space_loisumsmiBAM = expr:(KE_clause full_INT* loisumsmiBAM KEhE_elidible full_INT*) {return _node("KE_space_loisumsmiBAM ", expr);}
 sumsmiBAM = sumsmiBAMprep / sumsmiBAMpostp
-sumsmiBAMprep = expr:((tagBAM_0 (sumti / (KU_clause / sumtifazohe !selbri))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
+sumsmiBAMprep = expr:((tagBAM_0 (sumti / (KU_clause / sumtifazohe !selbri !gik))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
 sumsmiBAMpostp = expr:(sumti) CO_clause expr2:(tagBAM_0) expr3:((joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr2.concat(expr).concat(expr3));}
-tagBAM_0 = tagBAM / tagBAMgek
+tagBAM_0 = (tagBAM / tagBAMgek) !gik
 tagBAMgek = expr:(gek tagBAM gik tagBAM) {return _node("tagBAMgek", expr); }
 tagBAM = expr:(tag_headBAM (joik_jek tag_headBAM)*) {return _node("tagBAM", expr); }
 tag_headBAM = expr:((full_NAhE cls tag_rootBAM / cls tag_rootBAM full_NAICAI*) full_INT*) {return _node("tense_modal", expr); }
@@ -283,7 +281,6 @@ tagZAMfu = expr:(tag_headZAMfu (joik_jek tag_headZAMfu)*) {return _node("tagZAM"
 tag_headZAMfu = expr:((tag_rootZAMfu)) {return _node("tense_modal", expr); }
 tag_rootZAMfu = FAXIMU_clause_elided
 
-//todo: ke fami do mo doesnt work - it's like a new fu'e
 loisumsmiwithzamfafe = loisumsmiwithzamfa sumsmiZAMfe loisumsmiBAM?
 loisumsmiwithzamfafefi = loisumsmiwithzamfafe sumsmiZAMfi loisumsmiBAM?
 loisumsmiwithzamfafefifo = loisumsmiwithzamfafefi sumsmiZAMfo loisumsmiBAM?
@@ -389,7 +386,7 @@ sumti_3 = expr:(((mex? (full_NAhE sumti_3more / sumti_3more full_NAICAI?)) / mex
 sumti_3more = (LAhE_NAhE relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_space / LE_clause full_INT* sumti_core KU_elidible)
 LU_space = expr:(LU_clause text LIhU_elidible full_INT*) {return _node("LU_space", expr);}
 LOhU_space = expr:(LOhU_clause full_INT*) {return _node("LOhU_space", expr);}
-sumti_core = relative_clauses? (mex !ROI_clause)? bridi_sei relative_clauses? / relative_clauses_ne (mex !ROI_clause)? bridi_sei relative_clauses?
+sumti_core = (relative_clauses_ne / relative_clauses?) (mex !ROI_clause)? bridi_sei relative_clauses?
 
 sumtinoi = expr:(sumti_1noi) {return _node("sumti", expr);}
 sumti_1noi = expr:(sumti_2noi) {return _node("sumti_1", expr);}
@@ -417,7 +414,6 @@ subbridinoi = expr:(prenexe* normalbridi) {return _node("subbridi", expr);}
 sumtido = expr:(sumti_1do) {return _node("sumti", expr);}
 sumti_1do = expr:(sumti_2do) {return _node("sumti_1", expr);}
 sumti_2do = expr:(sumti_3do) {return _node("sumti_2", expr);}
-//todo: remove hardcoded koha:
 sumti_3do = expr:(mex? KOhA_clausedo relative_clauses?) {return _node("sumti_3", expr);}
 
 
@@ -515,6 +511,11 @@ ek = joik
 jek = joik
 joik_gihek = expr:(joik / gihek ) {return _node("joik_gihek", expr); }
 
+joik_gihek_elided = expr:(gihek_elided &selbri) {return _node("joik_gihek_elided", expr); }
+gihek_elided = expr:(gihenjoma_elided) {return _node("gihek_elided", expr); }
+gihenjoma_elided = expr:(kernelo_lo_gihenjoma_elided) {return _node("gihenjoma_elided", expr); }
+kernelo_lo_gihenjoma_elided = expr:(GIhA_clause_elided)
+
 interval = expr:(cls BIhI_clause crn) {return _node("interval", expr); }
 joik_jek = expr:(joik / VUhU_clause) {return _node("joik_jek", expr); }
 gek = expr:((gak cls joik_jek crn / cls GA_clause crn / joik GI_clause crn / stag gik) full_INT*) {return _node("gek", expr); }
@@ -532,7 +533,6 @@ cls = expr:(SE_clause?) {return _node("places left switcher", expr); }
 
 bu_clause = expr:(pre_clause post:bu_clause_no_pre) {return _node("bu_clause", expr); }
 bu_clause_no_pre = expr:((si_word / SU spaces?) bu_tail+ lerfu_post_clause) {return _node("bu_clause_no_pre", expr); }
-// bu_clause_no_SA = pre_zei_bu_no_SA (bu_tail? zei_tail)* bu_tail
 
 bu_tail = expr:BU_clause+ {return _node("bu_tail", expr); }
 
@@ -553,9 +553,6 @@ post_clause_for_xohe_mai = expr:(spaces? !BU_clause free_xohe*) {return _node_no
 lerfu_post_clause = expr:(spaces? !BU_clause (!loi_lerfu full_INT)*) {return _node_nonempty("lerfu_post_clause", expr); }
 
 pre_clause = BAhE_clause? si_clause?
-
-//// EXP-DEL: LA_pre, for brivla/cmevla merge
-//known_cmavo_SA = A_pre / BAI_pre / BAhE_pre / BE_pre / BEI_pre / BEhO_pre / BIhE_pre / BIhI_pre / BO_pre / BOI_pre / BU_pre / BY_pre / CAI_pre / CAhA_pre / CEI_pre / CEhE_pre / CO_pre / COI_pre / CU_pre / CUhE_pre / DAhO_pre / DOhU_pre / FA_pre / FAhA_pre / FEhU_pre / FIhO_pre / FOI_pre / FUhA_pre / FUhE_pre / FUhO_pre / GA_pre / GAhO_pre / GEhU_pre / GI_pre / GIhA_pre / GOI_pre / GOhA_pre / GUhA_pre / I_pre / JA_pre / JAI_pre / JOI_pre / JOhI_pre / KE_pre / KEI_pre / KEhE_pre / KI_pre / KOhA_pre / KU_pre / KUhE_pre / KUhO_pre / LAU_pre / LAhE_pre / LE_pre / LEhU_pre / LI_pre / LIhU_pre / LOhO_pre / LOhU_pre / LU_pre / LUhU_pre / MAI_pre / ME_pre / MEhU_pre / MOI_pre / MOhE_pre / NA_pre / NAhE_pre / MAhO_pre / NIhO_pre / NOI_pre / NU_pre / NUhA_pre / NUhI_pre / NUhU_pre / PA_pre / PEhE_pre / PEhO_pre / PU_pre / RAhO_pre / ROI_pre / SA_pre / SE_pre / SEI_pre / SEhU_pre / SI_clause / SOI_pre / SU_pre / TAhE_pre / TEI_pre / TEhU_pre / TO_pre / TOI_pre / TUhE_pre / TUhU_pre / UI_pre / VA_pre / VAU_pre / VEI_pre / VEhA_pre / VEhO_pre / VIhA_pre / VUhO_pre / VUhU_pre / XI_pre / ZAhO_pre / ZEhA_pre / ZI_pre / ZIhE_pre / ZO_pre / ZOI_pre / ZOhU_pre
 
 // Handling of spaces and things like spaces.
 // ___ SPACE ___
@@ -617,7 +614,7 @@ FASNU_elidible = {return ["FASNU"] }
 
 NOUNEND = {return ["NF"];}
 KUhOI_elidible = expr:(KUhOI_clause?) {return (expr == "") ? ["KUhOI"] : _node("KUhOI", expr);}
-KOhA_elidible = expr:() { return ["DO", _join(expr)];}
+KOhA_elided = expr:() { return ["DO", _join(expr)];}
 LE_elided = expr:() { return ["LO", _join(expr)];}
 PA_elided = expr:() { return ["XOhE", _join(expr)];}
 NU_elidible =  expr:() { return ["NU", _join(expr)];}
@@ -634,22 +631,18 @@ BRIVLA_postnf = NOUNEND post_clause
 // CMEVLA_clause = pre:CMEVLA_pre post:CMEVLA_post {return _node2("CMEVLA_clause", pre, post); }
 // CMEVLA_pre = pre_clause CMEVLA spaces?
 // CMEVLA_post = post_clause
-// CMEVLA_no_SA_handling = pre_clause CMEVLA post_clause
 
 CMAVO_clause = pre:CMAVO_pre post:post_clause {return _node2("CMAVO_clause", pre, post); }
 CMAVO_pre = pre_clause CMAVO spaces?
-// CMAVO_no_SA_handling = pre_clause CMAVO post_clause
 
 //         eks; basic afterthought logical connectives 
 A_clause = pre:A_pre post:post_clause {return _node2("A_clause", pre, post); }
 A_pre = pre_clause A spaces?
-// A_no_SA_handling = pre_clause A post_clause
 
 
 //         modal operators 
 BAI_clause = pre:BAI_pre post:post_clause {return _node2("BAI_clause", pre, post); }
 BAI_pre = pre_clause BAI spaces?
-// BAI_no_SA_handling = pre_clause BAI post_clause
 
 //         next word intensifier 
 BAhE_clause = expr:(BAhE_pre post:post_clause )+ {return _node("BAhE_clause", expr); }
@@ -662,66 +655,52 @@ BE_pre = pre_clause BE spaces?
 //         multiple sumti separator between BE, BEI 
 BEI_clause = pre:BEI_pre post:post_clause {return _node2("BEI_clause", pre, post); }
 BEI_pre = pre_clause BEI spaces?
-// BEI_no_SA_handling = pre_clause BEI post_clause
 
 //         terminates BEBEI specified descriptors 
 BEhO_clause = pre:BEhO_pre post:post_clause_limited {return _node2("BEhO_clause", pre, post); }
 BEhO_pre = pre_clause BEhO spaces?
-// BEhO_no_SA_handling = pre_clause BEhO post_clause
 
 //         prefix for high_priority MEX operator
 BIhE_clause = pre:BIhE_pre post:post_clause {return _node2("BIhE_clause", pre, post); }
 BIhE_pre = pre_clause BIhE spaces?
-// BIhE_no_SA_handling = pre_clause BIhE post_clause
 
 //         interval component of JOI 
 BIhI_clause = pre:BIhI_pre post:post_clause {return _node2("BIhI_clause", pre, post); }
 BIhI_pre = pre_clause BIhI spaces?
-// BIhI_no_SA_handling = pre_clause BIhI post_clause
 
 //         joins two units with shortest scope 
 BO_clause = pre:BO_pre post:post_clause {return _node2("BO_clause", pre, post); }
 BO_pre = pre_clause BO spaces?
-// BO_no_SA_handling = pre_clause BO post_clause
 
 //         number / loi_lerfu terminator 
 BOI_clause = pre:BOI_pre post:post_clause {return _node2("BOI_clause", pre, post); }
 BOI_pre = pre_clause BOI spaces?
-// BOI_no_SA_handling = pre_clause BOI post_clause
 
 //         turns any word into a BY lerfu word 
 BU_clause = pre:BU_pre post:BU_post {return _node2("BU_clause", pre, post); }
-// BU_clause_no_SA = BU_pre_no_SA BU BU_post
 BU_pre = pre_clause BU spaces?
-// BU_pre_no_SA = pre_clause
 BU_post = spaces?
-// BU_no_SA_handling = pre_clause BU spaces?
 
 //         individual lerfu words 
 BY_clause = expr:(BY_pre post:post_clause / bu_clause) {return (expr[0] == "bu_clause") ? ["BY_clause", expr] : _node2("BY_clause", expr[0], expr[1]); }
 BY_pre = pre_clause BY spaces?
-// BY_no_SA_handling = pre_clause BY post_clause / bu_clause_no_SA
 
 
 //         specifies actualitypotentiality of tense 
 CAhA_clause = pre:CAhA_pre post:post_clause {return _node2("CAhA_clause", pre, post); }
 CAhA_pre = pre_clause CAhA spaces?
-// CAhA_no_SA_handling = pre_clause CAhA post_clause
 
 //         afterthought intensity marker 
 CAI_clause = pre:CAI_pre post:post_clause_limited {return _node2("CAI_clause", pre, post); }
 CAI_pre = pre_clause CAI spaces?
-// CAI_no_SA_handling = pre_clause CAI post_clause
 
 //         pro_bridi assignment operator 
 CEI_clause = pre:CEI_pre post:post_clause {return _node2("CEI_clause", pre, post); }
 CEI_pre = pre_clause CEI spaces?
-// CEI_no_SA_handling = pre_clause CEI post_clause
 
 //         afterthought term list connective 
 CEhE_clause = pre:CEhE_pre post:post_clause {return _node2("CEhE_clause", pre, post); }
 CEhE_pre = pre_clause CEhE spaces?
-// CEhE_no_SA_handling = pre_clause CEhE post_clause
 
 //         names; require consonant end, then pause no
 
@@ -732,12 +711,10 @@ CEhE_pre = pre_clause CEhE spaces?
 //         tanru inversion  
 CO_clause = pre:CO_pre post:post_clause {return _node2("CO_clause", pre, post); }
 CO_pre = pre_clause CO spaces?
-// CO_no_SA_handling = pre_clause CO post_clause
 
 //         vocative marker
 COI_clause = pre:COI_pre post:post_clause {return _node2("COI_clause", pre, post); }
 COI_pre = pre_clause COI spaces?
-// COI_no_SA_handling = pre_clause COI post_clause
 
 //         vocative marker permitted inside names; must
 
@@ -746,23 +723,19 @@ COI_pre = pre_clause COI spaces?
 //         separator between head sumti and selbri 
 CU_clause = pre:CU_pre post:post_clause_limited {return _node2("CU_clause", pre, post); }
 CU_pre = pre_clause (CU spaces?)
-// CU_no_SA_handling = pre_clause CU post_clause
 
 //         tensemodal question 
 CUhE_clause = pre:CUhE_pre post:post_clause {return _node2("CUhE_clause", pre, post); }
 CUhE_pre = pre_clause CUhE spaces?
-// CUhE_no_SA_handling = pre_clause CUhE post_clause
 
 
 //         cancel anaphoracataphora assignments 
 DAhO_clause = pre:DAhO_pre post:post_clause {return _node2("DAhO_clause", pre, post); }
 DAhO_pre = pre_clause DAhO spaces?
-// DAhO_no_SA_handling = pre_clause DAhO post_clause
 
 //         terminator for COI_marked vocatives 
 DOhU_clause = pre:DOhU_pre post:post_clause_limited {return _node2("DOhU_clause", pre, post); }
 DOhU_pre = pre_clause DOhU spaces?
-// DOhU_no_SA_handling = pre_clause DOhU post_clause
 
 
 //         modifier head generic case tag 
@@ -784,12 +757,10 @@ FAXIVO_pre_elided = pre_clause FAXIVO_elidible spaces?
 FAXIMU_clause_elided = pre:FAXIMU_pre_elided post:post_clause {return _node2("FAXIMU_clause_elided", pre, post); }
 FAXIMU_pre_elided = pre_clause FAXIMU_elidible spaces?
 
-// FA_no_SA_handling = pre_clause FA post_clause
 
 //         superdirections in space 
 FAhA_clause = pre:FAhA_pre post:post_clause {return _node2("FAhA_clause", pre, post); }
 FAhA_pre = pre_clause FAhA spaces?
-// FAhA_no_SA_handling = pre_clause FAhA post_clause
 
 
 //         normally elided 'done pause' to indicate end
@@ -800,39 +771,32 @@ FAhO_clause = expr:(pre_clause FAhO spaces?) {return _node("FAhO_clause", expr);
 //         ends bridi to modal conversion 
 FEhU_clause = pre:FEhU_pre post:post_clause {return _node2("FEhU_clause", pre, post); }
 FEhU_pre = pre_clause FEhU spaces?
-// FEhU_no_SA_handling = pre_clause FEhU post_clause
 
 //         marks bridi to modal conversion 
 FIhO_clause = pre:FIhO_pre post:post_clause {return _node2("FIhO_clause", pre, post); }
 FIhO_pre = pre_clause FIhO spaces?
-// FIhO_no_SA_handling = pre_clause FIhO post_clause
 
 //         end compound lerfu 
 FOI_clause = pre:FOI_pre post:post_clause {return _node2("FOI_clause", pre, post); }
 FOI_pre = pre_clause FOI spaces?
-// FOI_no_SA_handling = pre_clause FOI post_clause
 
 //         reverse Polish flag 
 FUhA_clause = pre:FUhA_pre post:post_clause {return _node2("FUhA_clause", pre, post); }
 FUhA_pre = pre_clause FUhA spaces?
-// FUhA_no_SA_handling = pre_clause FUhA post_clause
 
 //         open long scope for indicator 
 FUhE_clause = pre:FUhE_pre post:FUhE_post {return _node2("FUhE_clause", pre, post); }
 FUhE_pre = pre_clause FUhE spaces?
 FUhE_post = !BU_clause spaces? !BU_clause
-// FUhE_no_SA_handling = pre_clause FUhE post_clause
 
 //         close long scope for indicator 
 FUhO_clause = pre:FUhO_pre post:post_clause {return _node2("FUhO_clause", pre, post); }
 FUhO_pre = pre_clause FUhO spaces?
-// FUhO_no_SA_handling = pre_clause FUhO post_clause
 
 
 //         geks; forethought logical connectives 
 GA_clause = pre:GA_pre post:post_clause_limited {return _node2("GA_clause", pre, post); }
 GA_pre = pre_clause GA spaces?
-// GA_no_SA_handling = pre_clause GA post_clause
 
 ga_clause = pre:ga_pre post:post_clause_limited {return _node2("ga_clause", pre, post); }
 ga_pre = pre_clause ga_word spaces?
@@ -842,22 +806,21 @@ ga_word = &cmavo expr:( g a ) &post_word {return ["ga_word", _join(expr)];}
 //         openclosed interval markers for BIhI 
 GAhO_clause = pre:GAhO_pre post:post_clause {return _node2("GAhO_clause", pre, post); }
 GAhO_pre = pre_clause GAhO spaces?
-// GAhO_no_SA_handling = pre_clause GAhO post_clause
 
 //         marker ending GOI relative clauses 
 GEhU_clause = pre:GEhU_pre post:post_clause_limited {return _node2("GEhU_clause", pre, post); }
 GEhU_pre = pre_clause GEhU spaces?
-// GEhU_no_SA_handling = pre_clause GEhU post_clause
 
 //         forethought medial marker 
 GI_clause = pre:GI_pre post:post_clause_limited {return _node2("GI_clause", pre, post); }
 GI_pre = pre_clause GI spaces?
-// GI_no_SA_handling = pre_clause GI post_clause
 
 //         logical connectives for bridi_tails 
 GIhA_clause = pre:GIhA_pre post:post_clause_limited {return _node2("GIhA_clause", pre, post); }
 GIhA_pre = pre_clause GIhA spaces?
-// GIhA_no_SA_handling = pre_clause GIhA post_clause
+
+GIhA_clause_elided = pre:GIhA_pre_elided post:post_clause_limited {return _node2("GIhA_clause", pre, post); }
+GIhA_pre_elided = pre_clause GIhA_elided spaces?
 
 //         attaches a sumti modifier to a sumti 
 GOI_clause = pre:GOI_pre post:post_clause_limited {return _node2("GOI_clause", pre, post); }
@@ -865,12 +828,10 @@ GOI_pre = pre_clause GOI spaces?
 GOI_clause_elidible = pre:GOI_pre_elidible post:post_clause {return _node2("GOI_clause", pre, post); }
 GOI_pre_elidible = pre_clause NE_elidible spaces?
 
-// GOI_no_SA_handling = pre_clause GOI post_clause
 
 //         pro_bridi 
 GOhA_clause = pre:GOhA_pre post:post_clause {return _node2("GOhA_clause", pre, post); }
 GOhA_pre = pre_clause GOhA spaces?
-// GOhA_no_SA_handling = pre_clause GOhA post_clause
 
 GOhOI_clause = pre:GOhOI_pre post:post_clause {return _node2("GOhOI_clause", pre, post); }
 GOhOI_pre = pre_clause GOhOI spaces? any_word spaces?
@@ -882,7 +843,6 @@ COhE = {return ["GOhA", "COhE"];}
 //         GEK for selbrisle, corresponds to JEKs 
 GUhA_clause = pre:GUhA_pre post:post_clause_limited {return _node2("GUhA_clause", pre, post); }
 GUhA_pre = pre_clause GUhA spaces?
-// GUhA_no_SA_handling = pre_clause GUhA post_clause
 
 
 //         sentence link 
@@ -890,7 +850,6 @@ I_clause = expr:(I_pre post_clause_for_xohe_mai ) {return _node("I_clause", expr
 I_pre = pre_clause I spaces?
 I_clause_elidible = expr:(I_pre_elidible post_clause_for_xohe_mai ) {return _node("I_clause", expr); }
 I_pre_elidible = pre_clause (I / I_elidible) spaces?
-// I_no_SA_handling = pre_clause I post_clause
 
 IAU_clause = pre:IAU_pre post:post_clause {return _node2("IAU_clause", pre, post); }
 IAU_pre = pre_clause IAU spaces?
@@ -898,87 +857,71 @@ IAU_pre = pre_clause IAU spaces?
 //         jeks; logical connectives within tanru 
 JA_clause = pre:JA_pre post:post_clause {return _node2("JA_clause", pre, post); }
 JA_pre = pre_clause JA spaces?
-// JA_no_SA_handling = pre_clause JA post_clause
 
 //         modal conversion flag 
 JAI_clause = pre:JAI_pre post:post_clause {return _node2("JAI_clause", pre, post); }
 JAI_pre = pre_clause JAI spaces?
-// JAI_no_SA_handling = pre_clause JAI post_clause
 
 //         flags an array operand 
 JOhI_clause = pre:JOhI_pre post:post_clause {return _node2("JOhI_clause", pre, post); }
 JOhI_pre = pre_clause JOhI spaces?
-// JOhI_no_SA_handling = pre_clause JOhI post_clause
 
 //         non_logical connectives 
 JOI_clause = pre:JOI_pre post:post_clause {return _node2("JOI_clause", pre, post); }
 JOI_pre = pre_clause JOI spaces?
-// JOI_no_SA_handling = pre_clause JOI post_clause
 
 
 //         left long scope marker 
 KE_clause = pre:KE_pre post:post_clause_limited {return _node2("KE_clause", pre, post); }
 KE_pre = pre_clause KE spaces?
-// KE_no_SA_handling = pre_clause KE post_clause
 
 //         right terminator for KE groups 
 KEhE_clause = pre:KEhE_pre post:post_clause {return _node2("KEhE_clause", pre, post); }
 KEhE_pre = pre_clause KEhE spaces?
-// KEhE_no_SA_handling = pre_clause KEhE post_clause
 
 //         right terminator, NU abstractions 
 KEI_clause = pre:KEI_pre post:post_clause_limited {return _node2("KEI_clause", pre, post); }
 KEI_pre = pre_clause KEI spaces?
-KEI_no_SA_handling = pre_clause KEI post_clause
 
 //         multiple utterance scope for tenses 
 KI_clause = pre:KI_pre post:post_clause {return _node2("KI_clause", pre, post); }
 KI_pre = pre_clause KI spaces?
-// KI_no_SA_handling = pre_clause KI post_clause
 
 //         sumti anaphora 
 KOhA_clause = pre:KOhA_pre post:post_clause {return _node2("KOhA_clause", pre, post); }
 KOhA_pre = pre_clause KOhA spaces?
-// KOhA_no_SA_handling = pre_clause KOhA spaces?
 
 KOhA_clausedo = pre:KOhA_predo post:post_clause {return _node2("KOhA_clause", pre, post); }
-KOhA_predo = pre_clause KOhA_elidible spaces?
+KOhA_predo = pre_clause KOhA_elided spaces?
 
 //         right terminator for descriptions, etc. 
 KU_clause = pre:KU_pre post:post_clause {return _node2("KU_clause", pre, post); }
 KU_pre = pre_clause KU spaces?
-// KU_no_SA_handling = pre_clause KU post_clause
 
 //         MEX forethought delimiter 
 KUhE_clause = pre:KUhE_pre post:post_clause {return _node2("KUhE_clause", pre, post); }
 KUhE_pre = pre_clause KUhE spaces?
-// KUhE_no_SA_handling = pre_clause KUhE post_clause
 
 //         right terminator, NOI relative clauses 
 KUhO_clause = pre:KUhO_pre post:post_clause_limited {return _node2("KUhO_clause", pre, post); }
 KUhO_pre = pre_clause KUhO spaces?
-// KUhO_no_SA_handling = pre_clause KUhO post_clause
 
 //// EXP-DELETION: brivla/cmevla merge
 //         name descriptors 
 // LA_clause = pre:LA_pre post:post_clause {return _node2("LA_clause", pre, post); }
 // LA_pre = pre_clause LA spaces?
-// LA_no_SA_handling = pre_clause LA post_clause
 
 //         lerfu prefixes 
 LAU_clause = pre:LAU_pre post:post_clause {return _node2("LAU_clause", pre, post); }
 LAU_pre = pre_clause LAU spaces?
-// LAU_no_SA_handling = pre_clause LAU post_clause
 
 //         sumti qualifiers 
 LAhE_clause = pre:LAhE_pre post:post_clause {return _node2("LAhE_clause", pre, post); }
 LAhE_pre = pre_clause LAhE spaces?
-// LAhE_no_SA_handling = pre_clause LAhE post_clause
 
 //         sumti descriptors 
 LE_clause = pre:LE_pre post:post_clause_limited {return _node2("LE_clause", pre, post); }
 LE_pre = pre_clause LE spaces?
-// LE_no_SA_handling = pre_clause LE post_clause
 
 LE_clause_elided = pre:LE_pre_elided post:post_clause {return _node2("LE_clause", pre, post); }
 LE_pre_elided = pre_clause LE_elided spaces?
@@ -990,27 +933,22 @@ LEhU_pre = pre_clause LEhU spaces?
 LEhU_post = spaces?
 // LEhU_clause_no_SA = LEhU_pre_no_SA LEhU_post
 // LEhU_pre_no_SA = pre_clause LEhU spaces?
-// LEhU_no_SA_handling = pre_clause LEhU post_clause
 
 //         convert number to sumti 
 LI_clause = pre:LI_pre post:post_clause_limited {return _node2("LI_clause", pre, post); }
 LI_pre = pre_clause LI spaces?
-// LI_no_SA_handling = pre_clause LI post_clause
 
 //         grammatical text right quote 
 LIhU_clause = pre:LIhU_pre post:post_clause {return _node2("LIhU_clause", pre, post); }
 LIhU_pre = pre_clause LIhU spaces?
-// LIhU_no_SA_handling = pre_clause LIhU post_clause
 
 //         elidable terminator for LI 
 LOhO_clause = pre:LOhO_pre post:post_clause_limited {return _node2("LOhO_clause", pre, post); }
 LOhO_pre = pre_clause LOhO spaces?
-// LOhO_no_SA_handling = pre_clause LOhO post_clause
 
 //         possibly ungrammatical text left quote 
 LOhU_clause = pre:LOhU_pre post:post_clause_limited {return _node2("LOhU_clause", pre, post); }
 LOhU_pre = pre_clause LOhU spaces? (!LEhU any_word)* LEhU_clause spaces?
-// LOhU_no_SA_handling = pre_clause LOhU spaces? (!LEhU any_word)* LEhU_clause spaces?
 
 // EXP-MODIF: attempt to formalize lo'ai..sa'ai..le'ai replacement expressions
 //         possibly ungrammatical replacement expression
@@ -1020,56 +958,45 @@ LOhAI_pre = pre_clause (LOhAI spaces? (!LOhAI !LEhAI any_word)*)? (LOhAI spaces?
 //         grammatical text left quote 
 LU_clause = pre:LU_pre post:post_clause_limited {return _node2("LU_clause", pre, post); }
 LU_pre = pre_clause LU spaces?
-// LU_no_SA_handling = pre_clause LU post_clause
 
 //         LAhE close delimiter 
 LUhU_clause = pre:LUhU_pre post:post_clause_limited {return _node2("LUhU_clause", pre, post); }
 LUhU_pre = pre_clause LUhU spaces?
-// LUhU_no_SA_handling = pre_clause LUhU post_clause
 
 //         change numbers to utterance ordinals 
 MAI_clause = pre:MAI_pre post:post_clause_limited {return _node2("MAI_clause", pre, post); }
 MAI_pre = pre_clause MAI spaces?
-// MAI_no_SA_handling = pre_clause MAI post_clause
 
 //         converts a sumti into a selbrisle 
 ME_clause = pre:ME_pre post:post_clause {return _node2("ME_clause", pre, post); }
 ME_pre = pre_clause ME spaces?
-// ME_no_SA_handling = pre_clause ME post_clause
 
 //         terminator for ME 
 MEhU_clause = pre:MEhU_pre post:post_clause {return _node2("MEhU_clause", pre, post); }
 MEhU_pre = pre_clause MEhU spaces?
-// MEhU_no_SA_handling = pre_clause MEhU post_clause
 
 //         change sumti to operand, inverse of LI, change selbri to operand; inverse of MOI 
 MOhE_clause = pre:MOhE_pre post:post_clause {return _node2("MOhE_clause", pre, post); }
 MOhE_pre = pre_clause MOhE spaces?
-// MOhE_no_SA_handling = pre_clause MOhE post_clause
 
 //         change number to selbri 
 MOI_clause = pre:MOI_pre post:post_clause {return _node2("MOI_clause", pre, post); }
 MOI_pre = pre_clause MOI spaces?
-// MOI_no_SA_handling = pre_clause MOI post_clause
 
 
 //         bridi negation  
 //ToDo: post clause is limited
 NA_clause = pre:NA_pre post:post_clause {return _node2("NA_clause", pre, post); }
 NA_pre = pre_clause NA spaces?
-// NA_no_SA_handling = pre_clause NA post_clause
 
-// NAI_no_SA_handling = pre_clause NAI post_clause
 
 //         scalar negation  
 NAhE_clause = pre:NAhE_pre post:post_clause {return _node2("NAhE_clause", pre, post); }
 NAhE_pre = pre_clause NAhE spaces?
-// NAhE_no_SA_handling = pre_clause NAhE post_clause
 
 //         change a selbri into an operator 
 MAhO_clause = pre:MAhO_pre post:post_clause {return _node2("MAhO_clause", pre, post); }
 MAhO_pre = pre_clause MAhO spaces?
-// MAhO_no_SA_handling = pre_clause MAhO post_clause
 
 //         new paragraph; change of subject 
 NIhO_clause = expr:(NIhO_pre NIhO_post) {return _node("NIhO_clause", expr); }
@@ -1077,34 +1004,28 @@ NIhO_pre = pre_clause NIhO spaces?
 NIhO_post = su_clause* post_clause
 NIhO_clause_elided = pre:NIhO_pre_elided post:NIhO_post {return _node2("NIhO_clause", pre, post); }
 NIhO_pre_elided = pre_clause NIhO_elided spaces?
-// NIhO_no_SA_handling = pre_clause NIhO su_clause* post_clause
 
 //         attaches a subordinate clause to a sumti 
 NOI_clause = pre:NOI_pre post:post_clause_limited {return _node2("NOI_clause", pre, post); }
 NOI_pre = pre_clause NOI spaces?
-// NOI_no_SA_handling = pre_clause NOI post_clause
 
 //         abstraction  
 NU_clause = pre:NU_pre post:post_clause {return _node2("NU_clause", pre, post); }
 NU_pre = pre_clause NU spaces?
 NU_clause_elidible = pre:NU_pre_elidible post:post_clause {return _node2("NU_clause", pre, post); }
 NU_pre_elidible = pre_clause NU_elidible spaces?
-// NU_no_SA_handling = pre_clause NU post_clause
 
 //         change operator to selbri; inverse of MOhE 
 NUhA_clause = pre:NUhA_pre post:post_clause {return _node2("NUhA_clause", pre, post); }
 NUhA_pre = pre_clause NUhA spaces?
-// NUhA_no_SA_handling = pre_clause NUhA post_clause
 
 //         marks the start of a termset 
 NUhI_clause = pre:NUhI_pre post:post_clause {return _node2("NUhI_clause", pre, post); }
 NUhI_pre = pre_clause NUhI spaces?
-// NUhI_no_SA_handling = pre_clause NUhI post_clause
 
 //         marks the middle and end of a termset 
 NUhU_clause = pre:NUhU_pre post:post_clause {return _node2("NUhU_clause", pre, post); }
 NUhU_pre = pre_clause NUhU spaces?
-// NUhU_no_SA_handling = pre_clause NUhU post_clause
 
 
 //         numbers and numeric punctuation 
@@ -1114,28 +1035,23 @@ PA_pre = pre_clause PA spaces?
 PA_clause_xohe = pre:PA_xohe_pre post:post_clause {return _node2("PA_clause", pre, post); }
 PA_xohe_pre = pre_clause PA_elided spaces?
 
-// PA_no_SA_handling = pre_clause PA post_clause
 
 //         afterthought termset connective prefix 
 PEhE_clause = pre:PEhE_pre post:post_clause {return _node2("PEhE_clause", pre, post); }
 PEhE_pre = pre_clause PEhE spaces?
-// PEhE_no_SA_handling = pre_clause PEhE post_clause
 
 //         forethought (Polish) flag 
 PEhO_clause = pre:PEhO_pre post:post_clause {return _node2("PEhO_clause", pre, post); }
 PEhO_pre = pre_clause PEhO spaces?
-// PEhO_no_SA_handling = pre_clause PEhO post_clause
 
 //         directions in time 
 PU_clause = pre:PU_pre post:post_clause {return _node2("PU_clause", pre, post); }
 PU_pre = pre_clause PU spaces?
-// PU_no_SA_handling = pre_clause PU post_clause
 
 
 //         flag for modified interpretation of GOhI 
 RAhO_clause = pre:RAhO_pre post:post_clause {return _node2("RAhO_clause", pre, post); }
 RAhO_pre = pre_clause RAhO spaces?
-// RAhO_no_SA_handling = pre_clause RAhO post_clause
 
 RAhOI_clause = pre:RAhOI_pre post:post_clause {return _node2("RAhOI_clause", pre, post); }
 RAhOI_pre = pre_clause RAhOI spaces? (initial_rafsi / gismu / CVV_final_rafsi / stressed_initial_rafsi short_final_rafsi) spaces?
@@ -1143,7 +1059,6 @@ RAhOI_pre = pre_clause RAhOI spaces? (initial_rafsi / gismu / CVV_final_rafsi / 
 //         converts number to extensional tense 
 ROI_clause = pre:ROI_pre post:post_clause {return _node2("ROI_clause", pre, post); }
 ROI_pre = pre_clause ROI spaces?
-// ROI_no_SA_handling = pre_clause ROI post_clause
 
 SA_clause = pre:SA_pre post:SA_post {return _node2("SA_clause", pre, post); }
 SA_pre = pre_clause SA spaces?
@@ -1156,17 +1071,14 @@ SA_post = spaces?
 //         conversions 
 SE_clause = pre:SE_pre post:post_clause {return _node2("SE_clause", pre, post); }
 SE_pre = pre_clause SE spaces?
-// SE_no_SA_handling = pre_clause SE post_clause
 
 //         metalinguistic bridi insert marker 
 SEI_clause = pre:SEI_pre post:post_clause {return _node2("SEI_clause", pre, post); }
 SEI_pre = pre_clause SEI spaces?
-// SEI_no_SA_handling = pre_clause SEI post_clause
 
 //         metalinguistic bridi end marker 
 SEhU_clause = pre:SEhU_pre post:post_clause_limited {return _node2("SEhU_clause", pre, post); }
 SEhU_pre = pre_clause SEhU spaces?
-// SEhU_no_SA_handling = pre_clause SEhU post_clause
 
 //         metalinguistic single word eraser 
 SI_clause = expr:(spaces? SI spaces?) {return _node("SI_clause", expr); }
@@ -1174,7 +1086,6 @@ SI_clause = expr:(spaces? SI spaces?) {return _node("SI_clause", expr); }
 //         EXP: bridi relative clause
 SOI_clause = pre:SOI_pre post:post_clause {return _node2("SOI_clause", pre, post); } 
 SOI_pre = pre_clause SOI spaces?
-// SOI_no_SA_handling = pre_clause SOI post_clause
 
 //         metalinguistic eraser of the entire text 
 SU_clause = pre:SU_pre post:post_clause {return _node2("SU_clause", pre, post); }
@@ -1184,44 +1095,36 @@ SU_pre = pre_clause SU spaces?
 //         tense interval properties 
 TAhE_clause = pre:TAhE_pre post:post_clause {return _node2("TAhE_clause", pre, post); }
 TAhE_pre = pre_clause TAhE spaces?
-// TAhE_no_SA_handling = pre_clause TAhE post_clause
 
 //         closing gap for MEX constructs 
 TEhU_clause = pre:TEhU_pre post:post_clause {return _node2("TEhU_clause", pre, post); }
 TEhU_pre = pre_clause TEhU spaces?
-// TEhU_no_SA_handling = pre_clause TEhU post_clause
 
 //         start compound lerfu 
 TEI_clause = pre:TEI_pre post:post_clause {return _node2("TEI_clause", pre, post); }
 TEI_pre = pre_clause TEI spaces?
-// TEI_no_SA_handling = pre_clause TEI post_clause
 
 //         left discursive parenthesis 
 TO_clause = pre:TO_pre post:post_clause {return _node2("TO_clause", pre, post); }
 TO_pre = pre_clause TO spaces?
-// TO_no_SA_handling = pre_clause TO post_clause
 
 //         right discursive parenthesis 
 TOI_clause = pre:TOI_pre post:post_clause {return _node2("TOI_clause", pre, post); }
 TOI_pre = pre_clause TOI spaces?
-// TOI_no_SA_handling = pre_clause TOI post_clause
 
 //         multiple utterance scope mark 
 TUhE_clause = pre:TUhE_pre post:TUhE_post {return _node2("TUhE_clause", pre, post); }
 TUhE_pre = pre_clause TUhE spaces?
 TUhE_post = su_clause* post_clause_limited
-// TUhE_no_SA_handling = pre_clause TUhE su_clause* post_clause
 
 //         multiple utterance end scope mark 
 TUhU_clause = pre:TUhU_pre post:post_clause {return _node2("TUhU_clause", pre, post); }
 TUhU_pre = pre_clause TUhU spaces?
-// TUhU_no_SA_handling = pre_clause TUhU post_clause_limited
 
 
 //         attitudinals, observationals, discursives 
 UI_clause = pre:UI_pre post:post_clause_limited {return _node2("UI_clause", pre, post); }
 UI_pre = pre_clause UI spaces?
-// UI_no_SA_handling = pre_clause UI post_clause
 
 ROhA_clause = pre:ROhA_pre post:post_clause_limited {return _node2("ROhA_clause", pre, post); }
 ROhA_pre = pre_clause ROhA spaces?
@@ -1235,12 +1138,10 @@ JUhA_elided_pre = pre_clause JUhA_elided spaces?
 //         distance in space_time 
 VA_clause = pre:VA_pre post:post_clause {return _node2("VA_clause", pre, post); }
 VA_pre = pre_clause VA spaces?
-// VA_no_SA_handling = pre_clause VA post_clause
 
 //         end simple bridi or bridi_tail 
 VAU_clause = pre:VAU_pre post:post_clause {return _node2("VAU_clause", pre, post); }
 VAU_pre = pre_clause VAU spaces?
-// VAU_no_SA_handling = pre_clause VAU post_clause
 
 //         left MEX bracket 
 VEI_clause = pre:VEI_pre post:post_clause_limited {return _node2("VEI_clause", pre, post); }
@@ -1249,26 +1150,21 @@ VEI_pre = pre_clause VEI spaces?
 //         right MEX bracket 
 VEhO_clause = pre:VEhO_pre post:post_clause_limited {return _node2("VEhO_clause", pre, post); }
 VEhO_pre = pre_clause VEhO spaces?
-// VEhO_no_SA_handling = pre_clause VEhO post_clause
 
 //         MEX operator 
 VUhU_clause = pre:VUhU_pre post:post_clause {return _node2("VUhU_clause", pre, post); }
 VUhU_pre = pre_clause VUhU spaces?
-// VUhU_no_SA_handling = pre_clause VUhU post_clause
 
 //         space_time interval size 
 VEhA_clause = pre:VEhA_pre post:post_clause {return _node2("VEhA_clause", pre, post); }
 VEhA_pre = pre_clause VEhA spaces?
-// VEhA_no_SA_handling = pre_clause VEhA post_clause
 
 //         space_time dimensionality marker 
 VIhA_clause = pre:VIhA_pre post:post_clause {return _node2("VIhA_clause", pre, post); }
 VIhA_pre = pre_clause VIhA spaces?
-// VIhA_no_SA_handling = pre_clause VIhA post_clause
 
 VUhO_clause = pre:VUhO_pre post:post_clause {return _node2("VUhO_clause", pre, post); }
 VUhO_pre = pre_clause VUhO spaces?
-// VUhO_no_SA_handling = pre_clause VUhO post_clause
 
 // glue between logically connected sumti and relative clauses 
 
@@ -1276,7 +1172,6 @@ VUhO_pre = pre_clause VUhO spaces?
 //         subscripting operator 
 XI_clause = pre:XI_pre post:post_clause {return _node2("XI_clause", pre, post); }
 XI_pre = pre_clause XI spaces?
-// XI_no_SA_handling = pre_clause XI post_clause
 
 
 //         hesitation 
@@ -1287,37 +1182,30 @@ XI_pre = pre_clause XI spaces?
 //         event properties _ inchoative, etc. 
 ZAhO_clause = pre:ZAhO_pre post:post_clause {return _node2("ZAhO_clause", pre, post); }
 ZAhO_pre = pre_clause ZAhO spaces?
-// ZAhO_no_SA_handling = pre_clause ZAhO post_clause
 
 //         time interval size tense 
 ZEhA_clause = pre:ZEhA_pre post:post_clause {return _node2("ZEhA_clause", pre, post); }
 ZEhA_pre = pre_clause ZEhA spaces?
-// ZEhA_no_SA_handling = pre_clause ZEhA post_clause
 
 //         time distance tense 
 ZI_clause = pre:ZI_pre post:post_clause {return _node2("ZI_clause", pre, post); }
 ZI_pre = pre_clause ZI spaces?
-// ZI_no_SA_handling = pre_clause ZI post_clause
 
 //         conjoins relative clauses 
 ZIhE_clause = pre:ZIhE_pre post:post_clause {return _node2("ZIhE_clause", pre, post); }
 ZIhE_pre = pre_clause ZIhE spaces?
-// ZIhE_no_SA_handling = pre_clause ZIhE post_clause
 
 //         single word metalinguistic quote marker 
 ZO_clause = pre:ZO_pre post:post_clause {return _node2("ZO_clause", pre, post); }
 ZO_pre = pre_clause ZO spaces? any_word spaces?
-// ZO_no_SA_handling = pre_clause ZO spaces? any_word spaces?
 
 //         delimited quote marker 
 ZOI_clause = pre:ZOI_pre post:post_clause {return _node2("ZOI_clause", pre, post); }
 ZOI_pre = pre_clause ZOI spaces? zoi_open spaces? zoi_word* zoi_close spaces?
-// ZOI_no_SA_handling = pre_clause ZOI spaces? zoi_open zoi_word* zoi_close spaces?
 
 //         prenexe terminator (not elidable) 
 ZOhU_clause = pre:ZOhU_pre post:post_clause_limited {return _node2("ZOhU_clause", pre, post); }
 ZOhU_pre = pre_clause ZOhU spaces?
-// ZOhU_no_SA_handling = pre_clause ZOhU post_clause
 
 // [EXPERIMENTAL]        single foreign word quote marker 
 ZOhOI_clause = pre:ZOhOI_pre post:post_clause {return _node2("ZOhOI_clause", pre, post); }
@@ -1733,6 +1621,8 @@ GEhU = &cmavo expr:( g e H u ) &post_word {return ["GEhU", _join(expr)];}
 GI = &cmavo expr:( g i ) &post_word {return ["GI", _join(expr)];}
 
 GIhA = &cmavo expr:( g i H e / g i H i / g i H o / g i H a / g i H u ) &post_word {return ["GIhA", _join(expr)];}
+
+GIhA_elided = {return ["GIhA", "GIhE"];}
 
 GOI = &cmavo expr:( n o H u / n e / g o i / p o H u / p e / p o H e / p o ) &post_word {return ["GOI", _join(expr)];}
 

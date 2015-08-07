@@ -224,7 +224,7 @@
 		if (ev.data.kind == 'ready') {
 		engineReady();
 		} else if (ev.data.kind == 'searchResults') {
-		if (ev.data.query !== typehere.val()) {
+		if (ev.data.query !== typehere.val().trim()) {
 		  return;
 		}
 		results = ev.data.results;
@@ -278,7 +278,7 @@
 		if(window.xuzganalojudri){jvs+="<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
 		if (def.t==='decomposing ...'){jvs=window.bangudecomp;}
 		var word='<a href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
-		if (def.w == typehere.val()){word=def.w + ' ';}
+		if (def.w == typehere.val().trim()){word=def.w + ' ';}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
 		.append(tfm)
 		.append($("<h4>").html(word))
@@ -304,7 +304,6 @@
 		out.append(
 			$('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
 		}
-		console.log(def.r.length);
 		if ((def.r||[]).length > 0) {// && window.xuzganalojudri
 			var rafsi = $("<div>").addClass('rafsi');
 			rafsi.append("rafsi: ");
@@ -349,7 +348,7 @@
 	}
 	function doSearch() {
 		displayDescription();
-		var query = typehere.val().replace(/\./g," ").replace(/ {2,}/g," ").trim();
+		var query = typehere.val().replace(/,\./g," ").replace(/ {2,}/g," ").trim().toLowerCase();
 		if (query === prevQuery) {
 		return;
 		}
@@ -395,7 +394,7 @@
 		if (searchMatch) {
 		var query = decodeURIComponent(searchMatch[1]);
 		}
-		typehere.val(query.replace(/%20/g," "));
+		typehere.val(query.replace(/%20/g," ").trim());
 		if (ready) {
 		doSearch();
 		}

@@ -66124,14 +66124,15 @@ var camxes = (function(){
       }
       
       
+        var _g_zoi_delim;
         function _join(arg)
         {
           if (typeof(arg) == "string")
             return arg;
           else
           {
-            ret = "";
-            for (v in arg) { ret += _join(arg[v]); }
+            var ret = "";
+            for (var v in arg) { ret += _join(arg[v]); }
             return ret;
           }
         }
@@ -66154,7 +66155,7 @@ var camxes = (function(){
             return arg;
           var ret = [];
           if (label != undefined) ret.push( label );
-          for (v in arg)
+          for (var v in arg)
           {
             if (arg[v].length != 0)
               ret.push( _node_int( undefined, arg[v] ) );
@@ -66188,7 +66189,7 @@ var camxes = (function(){
       	  alert("ZOI word is not a string");
       	  return false;
       	} else {
-            return (word.replace(/,/gm,"") === _g_zoi_delim);
+            return (word.toLowerCase().replace(/,/gm,"").replace(/h/g, "'") === _g_zoi_delim);
       	}
         }
         

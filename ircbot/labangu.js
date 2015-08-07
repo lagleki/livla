@@ -183,7 +183,7 @@ var labangu = function(){
 				}
 			}
 			alllojban[j]=alllojban[j].replace(/(, )+$/,"");
-			alllojbancomment[j]=alllojbancomment[j].replace(/(, )+$/,"");
+			alllojbancomment[j]=alllojbancomment[j].replace(/(, )+$/,"").replace(/_/g,"").replace(/'/g,"&apos;").replace(/[\{\}]/g,"'''").replace(/@@@/g,"''").trim();
 		}
 		//now join into string
 		var out='';
@@ -192,7 +192,7 @@ var labangu = function(){
 				out+=("''"+allenglish[j].replace(/_/g,"").replace(/'/g,"&apos;").replace(/^([ ]+)/,"")+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''")+"  –  '''"+alllojban[j].replace(/, /,"''', '''")+"'''";
 				if(alllojbancomment[j]!=='')
 					{
-						out+=". " + alllojbancomment[j].replace(/_/g,"").replace(/'/g,"&apos;").replace(/^([ ]+)/,"").replace(/[\{\}]/g,"'''").replace(/@@@/g,"''");
+						out+=". " + alllojbancomment[j];
 					}
 				out+="\n\n";
 			}

@@ -383,18 +383,18 @@ KE_space_sumti = expr:(KE_clause full_INT* sumti KEhE_elidible full_INT*) {retur
 
 sumti_1 = expr:(sumti_2  (joik_ek sumti_2)*) {return _node("sumti_1", expr);}
 sumti_2 = expr:(sumti_3 (jebo full_INT* sumti_3)*) {return _node("sumti_2", expr);}
-sumti_3 = expr:(sumti_4_declaration / sumti_4_var) {return _node("sumti_3", expr);}
+sumti_3 = expr:(sumti_4_declaration / sumti_4_slice) {return _node("sumti_3", expr);}
 
-sumti_4_declaration = expr:(sumti_5_shell) {return _node("sumti_4_const", expr);}
-sumti_5_shell = expr:((full_NAhE sumti_6_shell / sumti_6_shell full_NAICAI?) full_INT* relative_clauses?) {return _node("sumti_5_shell", expr);}
-sumti_6_shell = expr:(LAhE_NAhE relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_space / LE_clause full_INT* sumti_core KU_elidible full_INT*) {return _node("sumti_6_shell", expr);}
-sumti_4_var = expr:(mex !ROI_clause full_INT* (sumti_5_shell / sumti_5_var)) {return _node("sumti_4_var", expr);}
-sumti_5_var = expr:(sumti_6_var) {return _node("sumti_5_var", expr);}
-sumti_6_var = expr:(sumti_core KU_elidible full_INT*) {return _node("sumti_6_var", expr);}
+sumti_4_declaration = expr:(sumti_5_declaration) {return _node("sumti_4_declaration", expr);}
+sumti_5_declaration = expr:((full_NAhE sumti_6_declaration / sumti_6_declaration full_NAICAI?) full_INT* relative_clauses?) {return _node("sumti_5_declaration", expr);}
+sumti_6_declaration = expr:(LAhE_NAhE relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_space / LE_clause full_INT* sumti_core) {return _node("sumti_6_declaration", expr);}
+sumti_4_slice = expr:(mex !ROI_clause full_INT* (sumti_5_declaration / sumti_5_slice)) {return _node("sumti_4_slice", expr);}
+sumti_5_slice = expr:(sumti_6_slice) {return _node("sumti_5_slice", expr);}
+sumti_6_slice = expr:(sumti_core) {return _node("sumti_6_slice", expr);}
 
 LU_space = expr:(LU_clause text LIhU_elidible full_INT*) {return _node("LU_space", expr);}
 LOhU_space = expr:(LOhU_clause full_INT*) {return _node("LOhU_space", expr);}
-sumti_core = (relative_clauses_ne !sumti_fire / relative_clauses?) sumti_fire
+sumti_core = (relative_clauses_ne !sumti_fire / relative_clauses?) sumti_fire KU_elidible full_INT*
 sumti_fire = (mex !ROI_clause)? bridi_sei relative_clauses?
 
 //todo: sumti structure is now new

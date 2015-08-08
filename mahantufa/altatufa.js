@@ -203,11 +203,11 @@ var camxes = (function(){
         "sumti_2": parse_sumti_2,
         "sumti_3": parse_sumti_3,
         "sumti_4_declaration": parse_sumti_4_declaration,
-        "sumti_5_shell": parse_sumti_5_shell,
-        "sumti_6_shell": parse_sumti_6_shell,
-        "sumti_4_var": parse_sumti_4_var,
-        "sumti_5_var": parse_sumti_5_var,
-        "sumti_6_var": parse_sumti_6_var,
+        "sumti_5_declaration": parse_sumti_5_declaration,
+        "sumti_6_declaration": parse_sumti_6_declaration,
+        "sumti_4_slice": parse_sumti_4_slice,
+        "sumti_5_slice": parse_sumti_5_slice,
+        "sumti_6_slice": parse_sumti_6_slice,
         "LU_space": parse_LU_space,
         "LOhU_space": parse_LOhU_space,
         "sumti_core": parse_sumti_core,
@@ -11744,7 +11744,7 @@ var camxes = (function(){
         pos0 = pos;
         result0 = parse_sumti_4_declaration();
         if (result0 === null) {
-          result0 = parse_sumti_4_var();
+          result0 = parse_sumti_4_slice();
         }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("sumti_3", expr);})(pos0, result0);
@@ -11772,9 +11772,9 @@ var camxes = (function(){
         var pos0;
         
         pos0 = pos;
-        result0 = parse_sumti_5_shell();
+        result0 = parse_sumti_5_declaration();
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("sumti_4_const", expr);})(pos0, result0);
+          result0 = (function(offset, expr) {return _node("sumti_4_declaration", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -11787,8 +11787,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_sumti_5_shell() {
-        var cacheKey = "sumti_5_shell@" + pos;
+      function parse_sumti_5_declaration() {
+        var cacheKey = "sumti_5_declaration@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -11803,7 +11803,7 @@ var camxes = (function(){
         pos2 = pos;
         result0 = parse_full_NAhE();
         if (result0 !== null) {
-          result1 = parse_sumti_6_shell();
+          result1 = parse_sumti_6_declaration();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -11816,7 +11816,7 @@ var camxes = (function(){
         }
         if (result0 === null) {
           pos2 = pos;
-          result0 = parse_sumti_6_shell();
+          result0 = parse_sumti_6_declaration();
           if (result0 !== null) {
             result1 = parse_full_NAICAI();
             result1 = result1 !== null ? result1 : "";
@@ -11856,7 +11856,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("sumti_5_shell", expr);})(pos0, result0);
+          result0 = (function(offset, expr) {return _node("sumti_5_declaration", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -11869,8 +11869,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_sumti_6_shell() {
-        var cacheKey = "sumti_6_shell@" + pos;
+      function parse_sumti_6_declaration() {
+        var cacheKey = "sumti_6_declaration@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -12064,24 +12064,7 @@ var camxes = (function(){
                             if (result1 !== null) {
                               result2 = parse_sumti_core();
                               if (result2 !== null) {
-                                result3 = parse_KU_elidible();
-                                if (result3 !== null) {
-                                  result4 = [];
-                                  result5 = parse_full_INT();
-                                  while (result5 !== null) {
-                                    result4.push(result5);
-                                    result5 = parse_full_INT();
-                                  }
-                                  if (result4 !== null) {
-                                    result0 = [result0, result1, result2, result3, result4];
-                                  } else {
-                                    result0 = null;
-                                    pos = pos1;
-                                  }
-                                } else {
-                                  result0 = null;
-                                  pos = pos1;
-                                }
+                                result0 = [result0, result1, result2];
                               } else {
                                 result0 = null;
                                 pos = pos1;
@@ -12104,7 +12087,7 @@ var camxes = (function(){
           }
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("sumti_6_shell", expr);})(pos0, result0);
+          result0 = (function(offset, expr) {return _node("sumti_6_declaration", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -12117,8 +12100,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_sumti_4_var() {
-        var cacheKey = "sumti_4_var@" + pos;
+      function parse_sumti_4_slice() {
+        var cacheKey = "sumti_4_slice@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -12150,9 +12133,9 @@ var camxes = (function(){
               result3 = parse_full_INT();
             }
             if (result2 !== null) {
-              result3 = parse_sumti_5_shell();
+              result3 = parse_sumti_5_declaration();
               if (result3 === null) {
-                result3 = parse_sumti_5_var();
+                result3 = parse_sumti_5_slice();
               }
               if (result3 !== null) {
                 result0 = [result0, result1, result2, result3];
@@ -12173,7 +12156,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("sumti_4_var", expr);})(pos0, result0);
+          result0 = (function(offset, expr) {return _node("sumti_4_slice", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -12186,8 +12169,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_sumti_5_var() {
-        var cacheKey = "sumti_5_var@" + pos;
+      function parse_sumti_5_slice() {
+        var cacheKey = "sumti_5_slice@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -12198,9 +12181,9 @@ var camxes = (function(){
         var pos0;
         
         pos0 = pos;
-        result0 = parse_sumti_6_var();
+        result0 = parse_sumti_6_slice();
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("sumti_5_var", expr);})(pos0, result0);
+          result0 = (function(offset, expr) {return _node("sumti_5_slice", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -12213,45 +12196,21 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_sumti_6_var() {
-        var cacheKey = "sumti_6_var@" + pos;
+      function parse_sumti_6_slice() {
+        var cacheKey = "sumti_6_slice@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3;
-        var pos0, pos1;
+        var result0;
+        var pos0;
         
         pos0 = pos;
-        pos1 = pos;
         result0 = parse_sumti_core();
         if (result0 !== null) {
-          result1 = parse_KU_elidible();
-          if (result1 !== null) {
-            result2 = [];
-            result3 = parse_full_INT();
-            while (result3 !== null) {
-              result2.push(result3);
-              result3 = parse_full_INT();
-            }
-            if (result2 !== null) {
-              result0 = [result0, result1, result2];
-            } else {
-              result0 = null;
-              pos = pos1;
-            }
-          } else {
-            result0 = null;
-            pos = pos1;
-          }
-        } else {
-          result0 = null;
-          pos = pos1;
-        }
-        if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("sumti_6_var", expr);})(pos0, result0);
+          result0 = (function(offset, expr) {return _node("sumti_6_slice", expr);})(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;
@@ -12374,7 +12333,7 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1;
+        var result0, result1, result2, result3, result4;
         var pos0, pos1, pos2;
         
         pos0 = pos;
@@ -12408,7 +12367,24 @@ var camxes = (function(){
         if (result0 !== null) {
           result1 = parse_sumti_fire();
           if (result1 !== null) {
-            result0 = [result0, result1];
+            result2 = parse_KU_elidible();
+            if (result2 !== null) {
+              result3 = [];
+              result4 = parse_full_INT();
+              while (result4 !== null) {
+                result3.push(result4);
+                result4 = parse_full_INT();
+              }
+              if (result3 !== null) {
+                result0 = [result0, result1, result2, result3];
+              } else {
+                result0 = null;
+                pos = pos0;
+              }
+            } else {
+              result0 = null;
+              pos = pos0;
+            }
           } else {
             result0 = null;
             pos = pos0;

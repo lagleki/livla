@@ -13,6 +13,7 @@ var livlytcan='##jboselbau';//where la livla talks to la mensi
 var asker='livla';
 var replier='mensi';
 var server='irc.freenode.net';
+var stodipilno=['gleki','xalbo'];
 // End default configuration
 
 loadConfig();
@@ -140,6 +141,21 @@ client.addListener('message', function(from, to, text, message) {
 clientmensi.addListener('message', function(from, to, text, message) {
     processormensi(clientmensi, from, to, text, message);
 });
+
+/*clientmensi.addListener('join', function(channel, nick, message) {
+    fihido(channel,nick);
+});
+*/
+
+var fihido = function(channel, nick, message){
+	var fihinotciglic = "Welcome!";
+	var fihinotcilojb = "fi'i do";
+	switch(true){
+		case channel=='#lojban': clientmensi.say(channel, nick + fihinotciglic);break;
+		case channel=='#ckule': clientmensi.say(channel, nick + fihinotciglic);break;
+		case channel=='#jbosnu': clientmensi.say(channel, nick + fihinotcilojb);break;
+	}
+};
 
 loadUserSettings();
 loadNotci();

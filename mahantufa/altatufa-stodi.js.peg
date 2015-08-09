@@ -219,10 +219,10 @@ KE_space_gek_bridi_tail = expr:(KE_clause full_INT* gek_bridi_tail KEhE_elidible
 
 sumsmiBFAM = expr:(sumsmiBAM / sumsmiFAM) {return _node("loisumsmi", expr);}
 sumsmiBFZAM = expr:(sumsmiBAM / sumsmiFAM / sumsmiZAM) {return _node("loisumsmi", expr);}
-loisumsmiBFZAM = expr:(KE_space_loisumsmiBFZAM loisumsmiBFZAM? / sumsmiBFZAM+ / gek loisumsmiBFZAM gik loisumsmiBFZAM) {return _node("loisumsmi", expr);}
+loisumsmiBFZAM = expr:(KE_space_loisumsmiBFZAM loisumsmiBFZAM? / sumsmiBFZAM+ / gek loisumsmiBFZAM NUhU_elidible gik loisumsmiBFZAM NUhU_elidible) {return _node("loisumsmi", expr);}
 KE_space_loisumsmiBFZAM = expr:(KE_clause full_INT* loisumsmiBFZAM KEhE_elidible full_INT*) {return _node("KE_space_loisumsmiBFZAM ", expr);}
 
-loisumsmiBAM = KE_space_loisumsmiBAM loisumsmiBAM? / sumsmiBAM+ / gek loisumsmiBAM gik loisumsmiBAM
+loisumsmiBAM = KE_space_loisumsmiBAM loisumsmiBAM? / sumsmiBAM+ / gek loisumsmiBAM NUhU_elidible gik loisumsmiBAM NUhU_elidible
 KE_space_loisumsmiBAM = expr:(KE_clause full_INT* loisumsmiBAM KEhE_elidible full_INT*) {return _node("KE_space_loisumsmiBAM ", expr);}
 sumsmiBAM = sumsmiBAMprep / sumsmiBAMpostp
 sumsmiBAM_0 = sumsmiBAMprep_0 / sumsmiBAMpostp_0 
@@ -242,7 +242,7 @@ tagBAM = expr:(tag_headBAM (joik_jek tag_headBAM)*) {return _node("tagBAM", expr
 tag_headBAM = expr:((full_NAhE cls tag_rootBAM / cls tag_rootBAM full_NAICAI*) full_INT*) {return _node("tense_modal", expr); }
 tag_rootBAM = NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / mex ROI_clause / TAhE_clause / ZAhO_clause / FIhO_clause selbri FEhU_elidible
 
-loisumsmiFAM = sumsmiFAM+ / gek loisumsmiFAM gik loisumsmiFAM
+loisumsmiFAM = sumsmiFAM+ / gek loisumsmiFAM NUhU_elidible gik loisumsmiFAM NUhU_elidible
 sumsmiFAM = sumsmiFAMprep / sumsmiFAMpostp
 sumsmiFAM_0 = sumsmiFAMprep_0 / sumsmiFAMpostp_0 
 sumsmiFAM_1 = sumsmiFAMprep_1 / sumsmiFAMpostp_1 
@@ -268,7 +268,7 @@ sumsmiBFAM_0 = sumsmiBAM_0 / sumsmiFAM_0
 sumsmiBFAM_1 = sumsmiBAM_1 / sumsmiFAM_1
 tagBFAM_0 = tagBAM_0 / tagFAM_0
 
-loisumsmiZAM = sumsmiZAM+ / gek loisumsmiZAM gik loisumsmiZAM
+loisumsmiZAM = sumsmiZAM+ / gek loisumsmiZAM NUhU_elidible gik loisumsmiZAM NUhU_elidible
 sumsmiZAM = sumsmiZAMprep
 sumsmiZAMprep = expr:(sumsmiZAMprep_0 (joik_jek sumsmiBFAM_0)*) {return _node("sumsmi", expr);}
 sumsmiZAMprep_0 = expr:(sumsmiZAMprep_1 (jebo sumsmiBFAM_1)*) {return _node("sumsmi_0", expr);}
@@ -399,11 +399,6 @@ KOhA_prefazohe = pre_clause KOhAfazohe spaces?
 KOhAfazohe = { return ["KOhA", "ZOhE"];}
 
 /////End FAM/ZAM/TAM
-
-//todo: do the same for FAM, ZAM BFZAM
-//termsetBAM = expr:(gek_termset / NUhI_clause gek sumsmiBFZAM NUhU_elidible gik sumsmiBFZAM NUhU_elidible / NUhI_clause sumsmiBFZAM NUhU_elidible) {return _node("termset", expr);}
-//gek_termset = expr:(gek terms_gik_terms) {return _node("gek_termset", expr);}
-//terms_gik_terms = expr:(sumsmiBFZAM (gik / terms_gik_terms) term_no_ZAM) {return _node("terms_gik_terms", expr);}
 
 sumti = expr:((KE_space_sumti / gek sumti gik sumti / sumti_1) (VUhO_clause (relative_clauses (joik_jek sumti)?)?)?) {return _node("sumti", expr);}
 KE_space_sumti = expr:(KE_clause full_INT* sumti KEhE_elidible full_INT*) {return _node("KE_space_sumti", expr);}
@@ -1578,7 +1573,7 @@ A = &cmavo expr:( a / e / j i / o / u ) &post_word {return ["A", _join(expr)];}
 
 BAI = &cmavo expr:( k a H a / d u H o / s i H u / z a u / k i H i / d u H i / c u H u / t u H i / t i H u / d i H o / j i H u / r i H a / n i H i / m u H i / k i H u / v a Ih u / k o i / c a Ih i / t a Ih i / p u H e / j a Ih i / k a i / b a i / f i H e / d e Ih i / c i H o / m a u / m u H u / r i H i / r a Ih i / k a H a i / p a Ih u / p a H a / l e H a / k u H u / t a i / b a u / m a Ih i / c i H e / f a u / p o Ih i / c a u / m a H e / c i H u / r a H a / p u H a / l i H e / l a Ih u / b a Ih i / k a Ih i / s a u / f a H e / b e Ih i / t i H i / j a H e / g a H a / v a H o / j i H o / m e H a / d o H e / j i H e / p i H o / g a u / z u H e / m e H e / r a i ) &post_word {return ["BAI", _join(expr)];}
 
-BAhE = &cmavo expr:( b a H e / z a H e / p e H e) &post_word {return ["BAhE", _join(expr)];}
+BAhE = &cmavo expr:( b a H e / z a H e / p e H e / n u H i) &post_word {return ["BAhE", _join(expr)];}
 
 BE = &cmavo expr:( b e ) &post_word  {return ["BE", _join(expr)];}
 
@@ -1675,9 +1670,9 @@ JOhI = &cmavo expr:( j o Ih i ) &post_word {return ["JOhI", _join(expr)];}
 
 JOI = &cmavo expr:( f a Ih u / p i H u / j o i / c e H o / c e / j o H u / k u H a / j o H e / j u H e ) &post_word {return ["JOI", _join(expr)];}
 
-KE = &cmavo expr:( k e / p i H a i ) &post_word {return ["KE", _join(expr)];}
+KE = &cmavo expr:( k e / p i H a i / n u H i ) &post_word {return ["KE", _join(expr)];}
 
-KEhE = &cmavo expr:( k e H e ) &post_word {return ["KEhE", _join(expr)];}
+KEhE = &cmavo expr:( k e H e) &post_word {return ["KEhE", _join(expr)];}
 
 KEI = &cmavo expr:( k e i ) &post_word {return ["KEI", _join(expr)];}
 
@@ -1712,7 +1707,7 @@ LI = &cmavo expr:( m e H o / l i ) &post_word {return ["LI", _join(expr)];}
 LIhU = &cmavo expr:( l i H u ) &post_word {return ["LIhU", _join(expr)];}
 
 // EXP-MODIF: attempt to formalize lo'ai..sa'ai..le'ai replacement expressions
-LOhAI = &cmavo expr:( l o H a i / s a H a i ) &post_word {return ["LOhAI", _join(expr)];}
+LOhAI = &cmavo expr:( l o H a i / s a H a i) &post_word {return ["LOhAI", _join(expr)];}
 
 LOhO = &cmavo expr:( l o H o ) &post_word {return ["LOhO", _join(expr)];}
 

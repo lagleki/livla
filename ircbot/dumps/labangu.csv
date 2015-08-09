@@ -9661,4 +9661,73 @@ zoi,"
 :Comment: quotes a text that can be not Lojbanic. The quotation is to be wrapped with pauses from both sides and with an additional Lojbanic word around them from both sides. Usually the separating Lojbanic word is the first letter of the language in the quotation.
 :Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
 zu,"
-'''zu''' <small>[preposition of group ZI]</small> — ''long 
+'''zu''' <small>[preposition of group ZI]</small> — ''long ago'', ''in a long time''
+:'''la Alis pu cliva zu lo nanca be li pa no''' — ''Alice left ten years ago (a long time).''
+:Related words: '''zi''', '''za''', '''zu'''"
+zu'a,"
+'''zu'a''' <small>[preposition of cardinal direction]</small> — ''to the left of ...'', adverb: ''leftwards''
+:'''ko catlu lo pa karce pe zu'a do''' — ''Look at a car to the left of you.''"
+zu'ai,"
+'''zu'ai''' <small>[pronoun]</small> — shows mutual activity between this place and the first place of the current clause
+:'''mi tavla do lo mlatu i je do tavla mi lo mlatu i va'i mi ce do tavla zu'ai lo mlatu''' — ''I talk to you about cats, and you talk to me about cats. In other words, we talk to each other about cats.''
+:'''do ce la Alis ce mi tavla zu'ai''' — ''You, Alice and I talk to each other.''
+:'''do ce mi ce la Alis pu damba zu'ai''' — ''You, I and A had a battle royale.''
+:Comment: the mass of members is described in the first place (e.g. by connecting nouns with '''ce''')."
+zu'e,"
+'''zu'e''' <small>[preposition from '''zukte''']</small> — ''with an actor ...'', adverb: ''via a free will''
+:'''zu'e nai je fa mi viska lo dinju''' — ''A building caught my eye.''
+:'''zu'e je fa mi tirna lo zgike''' — ''I listened to the music.''
+:Comment: the clause describes the event done by the actor."
+zu'i,"
+'''zu'i''' <small>[pronoun]</small> — noun typical for this place
+:'''mi pu penmi zu'i bu'u zu'i''' — ''I met the usual people at the usual place.''"
+zu'u,"
+'''zu'u''' <small>[interjection]</small> — ''on the one hand'', '''zu'u''' '''nai''' — ''on the other hand''
+:'''zu'u le jufra cu satci lo ka se smuni''' — ''On the one hand, the sentence is exact in meaning.''
+:'''zu'u nai du'e va'e clani''' — ''On the other hand, it is too long.''
+:Related words: '''tcemi''', '''frica''', '''dukti'''"
+zukcfu,"
+'''zukcfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is busy doing  ''x<sub>2</sub><sub>(property of x1)</sub>''  for purpose  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
+:'''lo zukcfu''' — busy. 
+:'''mi zukcfu lo ka jai gau bredi fai lo cidja vau lo ka jai gau citka fai lo gerku be mi''' — ''I am busy preparing food to feed my dog.''
+:Related words: '''zukcfu''', '''surla'''"
+zukte,"
+'''zukte''' — ''x<sub>1</sub><sub>(entity)</sub>''  takes action  ''x<sub>2</sub><sub>(property of x1)</sub>''  for purpose  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
+:'''lo zukte''' — actor. '''lo se zukte''' — action taken. '''lo te zukte''' — purpose of action. 
+:'''i mi zukte lo me mi moi tu'a lo me mi moi''' — ''I'm doing my own work for myself.''
+:'''xu do ca'o zukte lo cipra''' — ''Are you performing a test?''
+:'''mi zukte lo ka darxi le nakni''' — ''I intentionally hit him.''
+:'''mi ba zukte ro da lo nu do nelci mi''' — ''I would do everything so that you like me.''
+:Comment: '''lo''' '''zukte''' is ''who do something themselves, '''lo''' '''gasnu''' is ''agent who causes something''.
+:Related words: '''zu'e''', '''gasnu''', '''snuti''', '''bapli''', '''gunka''', '''jalge''', '''krinu''', '''mukti''', '''rinka''', '''fasnu''', '''minji''', '''prenu''', '''ciksi''', '''jibri''', '''pilno''', '''pluta''', '''tadji''', '''tutci'''"
+zumri,"
+'''zumri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some corn or maize of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
+:'''lo zumri''' — maize. 
+:'''mi sombo lo samcu je lo zumri''' — ''I plant yams and maize.''
+:Related words: '''gurni'''"
+zungi,"
+'''zungi''' — ''x<sub>1</sub><sub>(entity)</sub>''  feels guilty about  ''x<sub>2</sub><sub>(clause, property of x1)</sub>'' 
+:'''mi zungi lo ka pu cusku lo jitfa''' — ''I feel guilty about having told a lie.''
+:Related words: '''u'u''', '''cinmo''', '''xenru''', '''zekri'''"
+zunle,"
+'''zunle''' — ''x<sub>1</sub><sub>(entity)</sub>''  is to the left of  ''x<sub>2</sub><sub>(entity)</sub>''  in frame of reference  ''x<sub>3</sub><sub>(entity)</sub>'' 
+:'''lo zunle''' — left (in direction). 
+:'''lo dinju cu zunle lo rokci ti''' — ''The house is to the left of the rock if viewed from here.''
+:Related words: '''zu'a''', '''pritu''', '''mlana''', '''crane''', '''trixe''', '''farna'''"
+zunti,"
+'''zunti''' — ''x<sub>1</sub><sub>(entity)</sub>''  interferes with or disrupts  ''x<sub>2</sub><sub>(entity)</sub>''  due to  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
+:'''lo se zunti''' — hindered, disrupted. 
+:'''lo gerku cu zunti lo nu mi lumci lo kumfa vau lo ka plipe''' — ''The dog leaping hinders me from cleaning the room.''
+:Related words: '''fanta''', '''dicra''', '''fliba''', '''fanza''', '''raktu''', '''klina''', '''bandu''', '''cfipu''', '''ganlo'''"
+zutse,"
+'''zutse''' — ''x<sub>1</sub><sub>(entity)</sub>''  sits on  ''x<sub>2</sub><sub>(entity)</sub>'' 
+:'''e'a do zutse lo stizu''' — ''You may sit down on the chair.''
+:Related words: '''stizu''', '''cpana''', '''vreta'''"
+zvati,"
+'''zvati''' — ''x<sub>1</sub><sub>(entity)</sub>''  is present at  ''x<sub>2</sub><sub>(entity)</sub>'' 
+:'''lo sivni kumfa cu zvati ma''' — ''Where is the toilet?''
+:'''mi pu zvati lo nu penmi''' — ''I was at the meeting.''
+:Comment: '''stuzi''' is for a stable/inherent location.
+:Related words: '''stuzi''', '''jbini''', '''nenri''', '''se''' '''vasru''', '''cpana''', '''diklo''', '''jibni''', '''cabna''', '''lamji''', '''tcini''', '''xabju''', '''jmive''', '''jundi''', '''vitke'''"
+zy,"
+'''zy''' <small>[pronoun]</small> — ''z'' (letter)"

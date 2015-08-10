@@ -219,7 +219,7 @@ KE_space_gek_bridi_tail = expr:(KE_clause full_INT* gek_bridi_tail KEhE_elidible
 
 sumsmiBFAM = expr:(sumsmiBAM / sumsmiFAM) {return _node("loisumsmi", expr);}
 sumsmiBFZAM = expr:(sumsmiBAM / sumsmiFAM / sumsmiZAM) {return _node("loisumsmi", expr);}
-loisumsmiBFZAM = expr:(KE_space_loisumsmiBFZAM loisumsmiBFZAM? / sumsmiBFZAM+ / gek loisumsmiBFZAM NUhU_elidible gik loisumsmiBFZAM NUhU_elidible) {return _node("loisumsmi", expr);}
+loisumsmiBFZAM = expr:((KE_space_loisumsmiBFZAM loisumsmiBFZAM? / sumsmiBFZAM / gek loisumsmiBFZAM NUhU_elidible gik loisumsmiBFZAM NUhU_elidible)+) {return _node("loisumsmi", expr);}
 KE_space_loisumsmiBFZAM = expr:(KE_clause full_INT* loisumsmiBFZAM KEhE_elidible full_INT*) {return _node("KE_space_loisumsmiBFZAM ", expr);}
 
 loisumsmiBAM = KE_space_loisumsmiBAM loisumsmiBAM? / sumsmiBAM+ / gek loisumsmiBAM NUhU_elidible gik loisumsmiBAM NUhU_elidible
@@ -881,7 +881,7 @@ GUhA_pre = pre_clause GUhA spaces?
 I_clause = expr:(I_pre post_clause_for_xohe_mai ) {return _node("I_clause", expr); }
 I_pre = pre_clause I spaces?
 I_clause_elidible = expr:(I_pre_elidible post_clause_for_xohe_mai ) {return _node("I_clause", expr); }
-I_pre_elidible = pre_clause (I / I_elidible) spaces?
+I_pre_elidible = (pre_clause I / I_elidible) spaces?
 
 IAU_clause = pre:IAU_pre post:post_clause {return _node2("IAU_clause", pre, post); }
 IAU_pre = pre_clause IAU spaces?

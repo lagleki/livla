@@ -11,20 +11,15 @@ function search(query, callback) {
 	for (i = 0; i < rafsiDecompositions.length; i++) {
 		var decomposition = rafsiDecompositions[i];
 		if (decomposition.length>1){
+				var tmp=(decomposition.map(
+					function(r){
+						return rafsi[r] || (documentStore.filter(function(val){return val.w==r.replace("Q","");})[0]);
+					})||[]).filter(function(n){ return n != undefined });
 		results.push({
 			t: "decomposing ...",
 			w: query,
 			r: decomposition.filter(function(y){return y.search(/Q$/)===-1;}),
-			rafsiDocuments: (
-				decomposition.map(
-					function(r){
-						return  rafsi[r] || 
-								documentStore.filter(
-									function(val){
-										return val.w==r.replace("Q","")
-									})[0]
-					})||[]
-				)
+			rafsiDocuments: tmp
 		});
 		}
 	}

@@ -348,10 +348,11 @@
 	}
 	function doSearch() {
 		displayDescription();
-		var query = typehere.val().replace(/,\./g," ").replace(/ {2,}/g," ").trim().toLowerCase();
+		var query = typehere.val().replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim().toLowerCase();
 		if (query === prevQuery) {
 		return;
 		}
+		typehere.val(query);
 		prevQuery = query;
 		updateUrl(query);
 
@@ -392,9 +393,9 @@
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
 		query = '';
 		if (searchMatch) {
-		var query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ");
+		var query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ").trim();
 		}
-		typehere.val(query.replace(/_/g," ").trim());
+		typehere.val(query);
 		if (ready) {
 		doSearch();
 		}

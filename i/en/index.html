@@ -276,7 +276,7 @@
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
 		var jvs = def.t;
 		if(window.xuzganalojudri){jvs+="<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
-		if (def.t==='decomposing ...'){jvs=window.bangudecomp;}
+		if (def.t==='decomposing ...'){if ((def.rafsiDocuments||[]).length==0){ return;}jvs=window.bangudecomp;}
 		var word='<a href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
 		if (def.w == typehere.val().trim()){word=def.w + ' ';}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
@@ -294,7 +294,7 @@
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
 		for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {
-		  if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);}
+			if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);}
 		}
 		subDefs.appendTo(out);
 		}
@@ -412,7 +412,7 @@
 			var sc = (window.arrcll||[])[typehere.val()];
 			if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('definition').html(window.cllnotci+"<br/>"+sc+"<hr>").appendTo(output);}
 		for (; resultCount < displayUpTo; resultCount++) {
-		displayDocument(results[resultCount]).appendTo(output);
+		try{displayDocument(results[resultCount]).appendTo(output);}catch(err){}
 		}
 	}
 

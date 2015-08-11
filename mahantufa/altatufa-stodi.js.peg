@@ -409,7 +409,7 @@ sumti_3 = expr:(sumti_4_declaration / sumti_4_slice) {return _node("sumti_3", ex
 
 sumti_4_declaration = expr:(sumti_5_declaration) {return _node("sumti_4_declaration", expr);}
 sumti_5_declaration = expr:((full_NAhE sumti_6_declaration / sumti_6_declaration full_NAICAI?) full_INT* relative_clauses?) {return _node("sumti_5_declaration", expr);}
-sumti_6_declaration = expr:(LAhE_NAhE relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_space / LE_clause full_INT* sumti_core) {return _node("sumti_6_declaration", expr);}
+sumti_6_declaration = expr:(LAhE_NAhE relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_clause / LE_clause full_INT* sumti_core) {return _node("sumti_6_declaration", expr);}
 sumti_4_slice = expr:(mex !ROI_clause full_INT* (sumti_5_declaration / sumti_5_slice)) {return _node("sumti_4_slice", expr);}
 sumti_5_slice = expr:(sumti_6_slice) {return _node("sumti_5_slice", expr);}
 sumti_6_slice = expr:(sumti_core) {return _node("sumti_6_slice", expr);}
@@ -466,9 +466,6 @@ relative_clauses_ne = expr:( relative_clause_ne (joik (relative_clause / relativ
 relative_clause_ne = expr:(relative_clause_1_ne) {return _node("relative_clause", expr); }
 relative_clause_1_ne = expr:(GOI_clause_elidible sumsmiZAM GEhU_elidible full_INT*) {return _node("relative_clause_1", expr); }
 
-li_space = expr:(li_clause full_INT*) {return _node("li_space", expr); }
-li_clause = expr:(LI_clause ( mex / (full_INT / PA_clause / loi_lerfu)+ mex? BOI_elidible)? LOhO_elidible) {return _node("li_clause", expr); }
-
 // SELBRI
 //// + Forethought connective
 selbri_relative_clauses = expr:(selbri_relative_clause (joik selbri_relative_clause)* / gek selbri_relative_clauses gik selbri_relative_clauses) {return _node("selbri_relative_clauses", expr); }
@@ -489,18 +486,19 @@ selbrisle_1_elided = expr:(selbrisle_2_elided) {return _node("selbrisle_1", expr
 selbrisle_2_elided = expr:(COhE_clause_elided) {return _node("selbrisle_2", expr); }
 
 
-selbri = expr:(tagBFAM_0* selbri_2) {return _node("selbri", expr); }
+selbri = expr:(selbri_1 / full_NAhE* guhek selbri_1 gik selbri_1) {return _node("selbri", expr); }
+selbri_1 = tagBFAM_0* selbri_2
 selbri_2 = expr:(selbri_3 (CO_clause selbri_2)?) {return _node("selbri_2", expr); }
 selbri_3 = expr:((selbri_4 &selbri_4)* selbri_4nf) {return _node("selbri_3", expr); }
 selbri_4 = expr:(selbri_5 (joik_jek selbri_5 / joik stag? KE_clause selbri_3 KEhE_elidible)*) {return _node("selbri_4", expr); }
 selbri_5 = expr:(selbri_6 (jebo selbri_5)?) {return _node("selbri_5", expr); }
-selbri_6 = expr:(selbrisle (BO_clause selbri_6)? / full_NAhE* guhek selbri gik selbri_6) {return _node("selbri_6", expr); }
+selbri_6 = expr:(selbrisle (BO_clause selbri_6)?) {return _node("selbri_6", expr); }
 selbrisle = expr:(selbrisle_1 (CEI_clause selbrisle_1)* selbri_relative_clauses?) {return _node("selbrisle", expr); }
 selbrisle_1 = expr:(selbrisle_2 linkargs? / linkargs? selbrisle_2) {return _node("selbrisle_1", expr); }
 
 selbri_4nf = expr:(selbri_5nf (joik_jek selbri_5nf / joik stag? KE_clause selbri_3 KEhE_elidible)*) {return _node("selbri_4nf", expr); }
 selbri_5nf = expr:(selbri_6nf (jebo selbri_5nf)?) {return _node("selbri_5", expr); }
-selbri_6nf = expr:(selbrislenf (BO_clause selbri_6nf)? / full_NAhE* guhek selbri gik selbri_6nf) {return _node("selbri_6", expr); }
+selbri_6nf = expr:(selbrislenf (BO_clause selbri_6nf)?) {return _node("selbri_6", expr); }
 selbrislenf = expr:(selbrisle_1nf (CEI_clause selbrisle_1nf)* selbri_relative_clauses?) {return _node("selbrisle", expr); }
 selbrisle_1nf = expr:(selbrisle_2nf linkargs? / linkargs? selbrisle_2nf) {return _node("selbrisle_1nf", expr); }
 
@@ -516,7 +514,8 @@ KE_space_selbri_3 = expr:(KE_clause full_INT* selbri_3 KEhE_elidible full_INT*) 
 loi_SEJAI_element = (SE_clause / JAI_clause (tagBFAM_0+ / tagZAM))+
 
 // MEX
-mex = expr:(mex_1 (operator+ mex_1?)*) {return _node("mex", expr); }
+mex = expr:(!lerfu_word mex_1 (operator+ mex_1?)*) {return _node("mex", expr); }
+mex_for_li = expr:(mex_1 (operator+ mex_1?)*) {return _node("mex", expr); }
 mex_1 = expr:(loi_mex_2 (BIhE_clause operator+ loi_mex_2?)*) {return _node("mex_1", expr); }
 loi_mex_2 = KE_space_mex_2_loi / mex_2 (BO_clause mex_2)*
 KE_space_mex_2_loi = expr:(KE_clause full_INT* mex_2+ KEhE_elidible full_INT*) {return _node("KE_space_mex_2_loi", expr);}
@@ -524,12 +523,15 @@ mex_2 = expr:(operand / mex_rp / mex_forethought) {return _node("mex_2", expr); 
 mex_rp = FUhA_clause mex_2+ operator (mex_2* operator)* KUhE_elidible free*
 mex_forethought = !(loi_lerfu BOI_elidible) operator mex_2+ mex_forethought? KUhE_elidible / PEhO_clause operator mex_2+ mex_forethought? KUhE_elidible
 operator = expr:(full_NAhE operator / (SE_clause operator / MAhO_clause sumti_le_elidible TEhU_elidible / VUhU_clause / joik_ek) full_NAICAI*) {return _node("operator", expr); }
-operand = expr:(((((PA_clause+ / VEI_clause full_INT* lerfu_word VEhO_elidible full_INT*) BOI_elidible / VEI_clause full_INT* mex VEhO_elidible full_INT* / MOhE_clause sumti_le_elidible TEhU_elidible / LAhE_NAhE mex LUhU_elidible)  full_NAICAI*) / full_NAhE operand) full_INT*) {return _node("operand", expr); }
+operand = expr:(((((PA_clause+ / lerfu_word) BOI_elidible / VEI_clause full_INT* mex VEhO_elidible full_INT* / MOhE_clause sumti_le_elidible TEhU_elidible / LAhE_NAhE mex LUhU_elidible)  full_NAICAI*) / full_NAhE operand) full_INT*) {return _node("operand", expr); }
 loi_lerfu = expr:(lerfu_word+) {return _node("loi_lerfu", expr); }
 lerfu_word = expr:(PA_clause BY_clause / BY_clause / LAU_clause lerfu_word / TEI_clause loi_lerfu FOI_clause) {return _node("lerfu_word", expr); }
 
 mex_2_xohe = expr:(operand_xohe) {return _node("mex_2", expr); }
 operand_xohe = expr:(((VEI_elidible full_INT* PA_clause_xohe VEhO_elidible full_INT*) BOI_elidible)  full_NAICAI*) {return _node("operand", expr); }
+
+//todo: merge all mex, PA, letterals and cnima'o here into one
+li_clause = expr:(LI_clause ( (full_INT / PA_clause / loi_lerfu)+ mex? BOI_elidible / mex_for_li )? LOhO_elidible full_INT*) {return _node("li_clause", expr); }
 
 // TERJONMAhO
 gihek = expr:(gihenjoma) {return _node("gihek", expr); }

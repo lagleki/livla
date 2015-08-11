@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html manifest='webapp.appcache'>
+<html manifest='webapp.appcache'
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:og="http://ogp.me/ns#"
+	xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-  <title>la sutysisku zo'u: ze'i mitysisku lo valsi</title>
-  <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
-  <link rel="shortcut icon" href="../sutsis.png" />
-  <link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/en/sisku.xml" title="en-sutysisku">
+	<title>la sutysisku zo'u: ze'i mitysisku lo valsi</title>
+	<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
+	<meta property="og:title" content="lai sutysisku"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:url" content="http://mw.lojban.org/extensions/ilmentufa/i/toki/index.html"/>
+	<meta property="og:image" content="http://mw.lojban.org/images/1/11/sutysisku2015-06-22.png"/>
+	<meta property="og:site_name" content="La Sutysisku"/>
+	<meta property="fb:app_id" content="191051864394489"/>
+	<meta property="og:description" content="A dictionary for Lojban, English and other languages that can work offline."/>
+	<link rel="shortcut icon" href="../sutsis.png" />
+	<link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/en/sisku.xml" title="en-sutysisku">
   <style type="text/css">
 	.container .credit {
 		margin: 20px 0;
 	}
-	#typehere{height:auto;font-size:140%;}
+	#typehere{height:auto;
+		font-size:140%;
+	}
 
 	body {
 		font-family: Tahoma, Lato, sans-serif;font-size:90%;overflow:hidden;
@@ -45,6 +57,7 @@
 		border-bottom-color: rgba(0, 0, 0, 0.0980392);
 		border-bottom-style: solid;
 		border-bottom-width: 1px;
+		text-align: justify;
 	}
 	.rafsi {
 		margin-top: 8px;
@@ -63,7 +76,7 @@
 		//height: 48px;
 		width:auto;
 		font-size: 18px;
-		padding: 0 10px;
+		padding: 0;
 		background: rgb(109,179,242); /* Old browsers */
 		background: -moz-linear-gradient(top,  rgba(109,179,242,1) 0%, rgba(84,163,238,1) 50%, rgba(54,144,240,1) 51%, rgba(30,105,222,1) 100%); /* FF3.6+ */
 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(109,179,242,1)), color-stop(50%,rgba(84,163,238,1)), color-stop(51%,rgba(54,144,240,1)), color-stop(100%,rgba(30,105,222,1))); /* Chrome,Safari4+ */
@@ -155,7 +168,7 @@
 		<div id='header-wrapper'>
 		<span id='plise'><a id='st' href="../"><img src="../sutsis.png" height='16' width='16'>
 		<span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-		<input id='typehere' type='text' autofocus>
+		<input id='typehere' placeholder="search" type='text' autofocus>
 		</div>
 	</div>
 	<div class='content' style="height:100%;
@@ -165,10 +178,10 @@
 	box-sizing:border-box;
 	overflow:auto;">
 		<div id='content-panel'>
-			<div id='description'></div>
+			<div id='description'><p><b>la sutysisku</b> is a fast dictionary for toki pona.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br><br>For more resources visit <a href='https://www.facebook.com/groups/tiddlydict' target='_blank'>Facebook TiddlyDict group</a> or e-mail <a href='mailto:gleki.is.my.name@gmail.com' target='_blank'>gleki.is.my.name@gmail.com</a>.<div id='searchengine' style='position: absolute;right: 10px;'><i><a href='#' title='en-sutysisku' onclick='window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')'>Add as a search engine</a></i></div></div>
 		<div id='output'></div>
 		<div id='loading'>
-		  <span class='message'></span><br>
+		  <span class='message'>Loading dictionary ...</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
 		</div>
@@ -179,12 +192,7 @@
 	var output = $("#output");
 	var description = $("#description");
 	var worker = new Worker('worker.js');
-
-	//localization strings
-	description.html(window.bangudesc);
-	typehere.attr("placeholder", window.bangusisku);
-	$("#loading .message").text(window.bangulo);
-	///
+	var query="";
 
 	var resultCount;
 	var results = [];
@@ -197,7 +205,7 @@
 	}
 	var ready = false;
 	$(document).ready(function () {
-    if ($(window).width() < 500) $('#plise').remove();
+    if ($(window).width() < 500) {$('#plise').remove();$("#typehere").css({ 'width':'90%','margin-right': '0.5em'});}
     if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 	doSearch();
 });
@@ -211,7 +219,7 @@
 		if (ev.data.kind == 'ready') {
 		engineReady();
 		} else if (ev.data.kind == 'searchResults') {
-		if (ev.data.query !== typehere.val()) {
+		if (ev.data.query !== query) {
 		  return;
 		}
 		results = ev.data.results;
@@ -263,10 +271,12 @@
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
 		var jvs = def.t;
 		if(window.xuzganalojudri){jvs+="<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
-		if (def.t==='decomposing ...'){jvs=window.bangudecomp;}
+		if (def.t==='decomposing ...'){if ((def.rafsiDocuments||[]).length==0){ return;}jvs=window.bangudecomp;}
+		var word='<a href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
+		if (def.w == query){word=def.w + ' ';}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
 		.append(tfm)
-		.append($("<h4>").text(def.w + ' '))
+		.append($("<h4>").html(word))
 		.append($("<h4>").addClass('tfm').html(fmm))
 		.append($("<div style='flex:1;'>"))
 		.append($("<div>").addClass('type').html(jvs))
@@ -274,12 +284,12 @@
 		);
 		if (def.d) {
 		$("<div>").addClass('definition').html(
-			lojTemplate(def.d) + ' ').appendTo(out);
+			lojTemplate(def.d.replace(/\//g," / ")) + ' ').appendTo(out);
 		} else {
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
 		for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {
-		  if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);}
+			if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);}
 		}
 		subDefs.appendTo(out);
 		}
@@ -289,7 +299,7 @@
 		out.append(
 			$('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
 		}
-		if ((def.r||[]).length > 0) {
+		if ((def.r||[]).length > 0) {// && window.xuzganalojudri
 			var rafsi = $("<div>").addClass('rafsi');
 			rafsi.append("rafsi: ");
 			for (var i = 0; i < def.r.length; i++) {
@@ -323,20 +333,20 @@
 	var prevQuery;
 	var lastQueried = now();
 	function displayDescription() {
-		if (typehere.val().trim() == '') {
+		if (query == '') {
 		output.hide();
 		description.show();
 		} else {
-		description.hide();
 		output.show();
+		description.hide();
 		}
 	}
 	function doSearch() {
-		displayDescription();
-		var query = typehere.val().replace(/\./g," ").replace(/ {2,}/g," ").trim();
+		query = typehere.val().replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim();
 		if (query === prevQuery) {
 		return;
 		}
+		//typehere.val(query);
 		prevQuery = query;
 		updateUrl(query);
 
@@ -347,6 +357,7 @@
 		worker.postMessage(
 		  {kind: 'newSearch', 'query': query, 'searchId': searchId});
 		displayResults;
+		displayDescription();
 	}
 	//setup before functions
 	var typingTimer;               //timer identifier
@@ -358,7 +369,7 @@
 	function updateUrl(query) {
 		var url = '';
 		if (query.length > 0) {
-		url = '#sisku/' + query.replace(/ /g,"%20");
+		url = '#sisku/' + query.replace(/ /g,"_");
 		}
 		if (url == window.location.pathname || url == '') {
 		return;
@@ -377,9 +388,9 @@
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
 		query = '';
 		if (searchMatch) {
-		var query = decodeURIComponent(searchMatch[1]);
+		query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ").trim();
 		}
-		typehere.val(query.replace(/%20/g," "));
+		typehere.val(query);
 		if (ready) {
 		doSearch();
 		}
@@ -394,10 +405,10 @@
 
 	function displayResults() {
 		var displayUpTo = Math.min(limit, results.length);
-			var sc = (window.arrcll||[])[typehere.val()];
+			var sc = (window.arrcll||[])[query];
 			if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('definition').html(window.cllnotci+"<br/>"+sc+"<hr>").appendTo(output);}
 		for (; resultCount < displayUpTo; resultCount++) {
-		displayDocument(results[resultCount]).appendTo(output);
+		try{displayDocument(results[resultCount]).appendTo(output);}catch(err){}
 		}
 	}
 

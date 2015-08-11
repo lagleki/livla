@@ -6,3 +6,6 @@ window.bangusisku='search';
 window.xuzganalojudri = false;
 window.bangudecomp = 'decomposing ...';
 window.arrcll = {};
+siskudescr="Search the toki pona dictionary la sutysisku.";
+opdescr = "A dictionary for toki pona, Lojban, English and other languages that can work offline.";
+

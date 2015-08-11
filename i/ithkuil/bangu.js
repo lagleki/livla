@@ -9,3 +9,5 @@ window.xuzganalojudri = false;
 window.judri = "http://jbovlaste.lojban.org/dict/";
 window.cllnotci = 'The Reference Grammar on this topic:';
 window.arrcll = {};
+siskudescr="Search the Ithkuil dictionary la sutysisku.";
+opdescr = "A dictionary for Ithkuil, Lojban, English and other languages that can work offline.";

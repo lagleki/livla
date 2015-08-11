@@ -8,3 +8,5 @@ window.bangu = 'interlingue';
 window.xuzganalojudri = false;
 window.cllnotci = 'The Reference Grammar on this topic:';
 window.arrcll = {};
+siskudescr="Search the Interlingue / Occidental dictionary la sutysisku.";
+opdescr = "A dictionary for Interlingue / Occidental, Lojban, English and other languages that can work offline.";

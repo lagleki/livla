@@ -23,7 +23,9 @@ langs.forEach(function(thisa){
 	b = b.replace("%1%",m);
 
 	b = b.replace("%ogurl%","http://mw.lojban.org/extensions/ilmentufa/i/"+thisa+"/index.html");
-	
+	b = b.replace("%searchurl%","/extensions/ilmentufa/i/"+thisa+"/sisku.xml");
+	b = b.replace("%searchtitle%",thisa+"-sutysisku");
+	///extensions/ilmentufa/i/en/sisku.xml
 	fs.writeFileSync(path.join(__dirname,"../i",thisa,"index.html"), b);
 });
 

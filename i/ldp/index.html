@@ -7,7 +7,7 @@
 	<title>la sutysisku zo'u: ze'i mitysisku lo valsi</title>
 	<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
 	<meta property="og:title" content="lai sutysisku"/>
-	<meta property="og:type" content="article"/>
+	<meta property="og:type" content="product"/>
 	<meta property="og:url" content="http://mw.lojban.org/extensions/ilmentufa/i/en/index.html"/>
 	<meta property="og:image" content="http://mw.lojban.org/images/1/11/sutysisku2015-06-22.png"/>
 	<meta property="og:site_name" content="La Sutysisku"/>
@@ -192,7 +192,7 @@
 	var output = $("#output");
 	var description = $("#description");
 	var worker = new Worker('worker.js');
-
+	var query="";
 	//localization strings
 	description.html(window.bangudesc);
 	typehere.attr("placeholder", window.bangusisku);
@@ -224,7 +224,7 @@
 		if (ev.data.kind == 'ready') {
 		engineReady();
 		} else if (ev.data.kind == 'searchResults') {
-		if (ev.data.query !== typehere.val().trim()) {
+		if (ev.data.query !== query) {
 		  return;
 		}
 		results = ev.data.results;
@@ -276,9 +276,9 @@
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
 		var jvs = def.t;
 		if(window.xuzganalojudri){jvs+="<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
-		if (def.t==='decomposing ...'){jvs=window.bangudecomp;}
+		if (def.t==='decomposing ...'){if ((def.rafsiDocuments||[]).length==0){ return;}jvs=window.bangudecomp;}
 		var word='<a href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
-		if (def.w == typehere.val().trim()){word=def.w + ' ';}
+		if (def.w == query){word=def.w + ' ';}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
 		.append(tfm)
 		.append($("<h4>").html(word))
@@ -294,7 +294,7 @@
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
 		for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {
-		  if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);}
+			if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);}
 		}
 		subDefs.appendTo(out);
 		}
@@ -338,7 +338,7 @@
 	var prevQuery;
 	var lastQueried = now();
 	function displayDescription() {
-		if (typehere.val().trim() == '') {
+		if (query == '') {
 		output.hide();
 		description.show();
 		} else {
@@ -348,10 +348,11 @@
 	}
 	function doSearch() {
 		displayDescription();
-		var query = typehere.val().replace(/,\./g," ").replace(/ {2,}/g," ").trim().toLowerCase();
+		query = typehere.val().replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim();
 		if (query === prevQuery) {
 		return;
 		}
+		//typehere.val(query);
 		prevQuery = query;
 		updateUrl(query);
 
@@ -392,9 +393,9 @@
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
 		query = '';
 		if (searchMatch) {
-		var query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ");
+		query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ").trim();
 		}
-		typehere.val(query.replace(/_/g," ").trim());
+		typehere.val(query);
 		if (ready) {
 		doSearch();
 		}
@@ -409,10 +410,10 @@
 
 	function displayResults() {
 		var displayUpTo = Math.min(limit, results.length);
-			var sc = (window.arrcll||[])[typehere.val()];
+			var sc = (window.arrcll||[])[query];
 			if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('definition').html(window.cllnotci+"<br/>"+sc+"<hr>").appendTo(output);}
 		for (; resultCount < displayUpTo; resultCount++) {
-		displayDocument(results[resultCount]).appendTo(output);
+		try{displayDocument(results[resultCount]).appendTo(output);}catch(err){}
 		}
 	}
 

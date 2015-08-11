@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
    <ShortName>ithkuil-sutysisku</ShortName>
-   <Description>Search the Lojban dictionary jbovlaste.</Description>
+   <Description>Search the Ithkuil dictionary la sutysisku.</Description>
    <Tags>sutsis sutysisku muplis vlasisku jbovlaste lojban vlaste dictionary</Tags>
    <Contact>gleki.is.my.name@gmail.com</Contact>
    <Url type="text/html"

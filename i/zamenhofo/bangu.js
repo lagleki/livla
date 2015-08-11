@@ -6,3 +6,6 @@ window.bangusisku='serĉi';
 window.xuzganalojudri = false;
 window.bangudecomp = 'fendando ...';
 window.arrcll = {};
+siskudescr="Search the Esperanto dictionary la sutysisku.";
+opdescr = "A dictionary for Esperanto, Lojban, English and other languages that can work offline.";
+

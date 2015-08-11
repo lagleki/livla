@@ -6,3 +6,6 @@ window.bangusisku='search';
 window.xuzganalojudri = false;
 window.bangudecomp = 'decomposing ...';
 window.arrcll = {};
+siskudescr="Search the Laadan dictionary la sutysisku.";
+opdescr = "A dictionary for Laadan, Lojban, English and other languages that can work offline.";
+

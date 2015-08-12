@@ -40,12 +40,12 @@ function search(query, callback) {
 			if (!doc) {
 				continue;
 			}
-				if ((doc.s||'') === query){
-					selmahoMatches.push(doc);//selmaho
+				if (doc.w === query||doc.g===query||(query>0 && doc.g.search("(^|;)"+query+"(;|$)")>=0)){
+					greatMatches.push(doc);
 					continue;
 				}
-				else if (doc.w === query||doc.g===query||doc.g.search("(^|;)"+query+"(;|$)")>=0){
-					greatMatches.push(doc);
+				else if ((doc.s||'') === query){
+					selmahoMatches.push(doc);//selmaho
 					continue;
 				}
 				else if (doc.g.search("\\b"+query+"\\b")>=0) {
@@ -58,7 +58,7 @@ function search(query, callback) {
 				}
 				else {results.push(doc);}
 		}
-		results = greatMatches.concat(goodMatches).concat(normalMatches).concat(selmahoMatches).concat(results);
+		results = greatMatches.concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(results);
 		callback(results);
 	});
 }

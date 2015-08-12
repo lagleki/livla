@@ -40,7 +40,7 @@ function search(query, callback) {
 			if (!doc) {
 				continue;
 			}
-				if (doc.w === query||doc.g===query||(query>0 && doc.g.search("(^|;)"+query+"(;|$)")>=0)){
+				if (doc.w === query||(doc.g||'')===query||(query>0 && (doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
 					greatMatches.push(doc);
 					continue;
 				}
@@ -48,7 +48,7 @@ function search(query, callback) {
 					selmahoMatches.push(doc);//selmaho
 					continue;
 				}
-				else if (doc.g.search("\\b"+query+"\\b")>=0) {
+				else if ((doc.g||'').search("\\b"+query+"\\b")>=0) {
 					goodMatches.push(doc);
 					continue;
 				}

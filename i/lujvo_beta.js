@@ -43,7 +43,7 @@ var gism="("+CC+V+C+"|"+C+V+C_C+")";
 function parseLujvo(lujvo) {
 	var m = lujvo.match("([a-z']+) zei ([a-z']+)");
 	if ((window.xuzganalojudri!==true)||(xulujvo(lujvo) !== true)){
-		return [lujvo.split(" ").map(function(arg){return arg+"Q";})];
+		return [lujvo.split(" ").map(function(arg){return arg.toLowerCase()+"Q";})];
 	}
 	else if (m) {
 			return [[m[1]+"Q",m[2]]];

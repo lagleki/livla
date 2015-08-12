@@ -204,8 +204,8 @@ KE_space_gek_sentence = expr:(KE_clause full_INT* gek_sentence KEhE_elidible ful
 
 
 //BRIDI TAIL
-bridi_tail = expr:(bridi_tail_1 (joik_gihek stag? bridi_tail)*) {return _node("bridi_tail", expr);}
-bridi_tail_1 = expr:(bridi_tail_2 ((joik_gihek / joik_gihek_elided) !(stag? BO_clause) !(stag? KE_clause) CU_space bridi_tail_2 tail_loi_sumsmi)*) {return _node("bridi_tail_1", expr);}
+bridi_tail = expr:(bridi_tail_1 (joik_gihek stag? bridi_tail_1)*) {return _node("bridi_tail", expr);}
+bridi_tail_1 = expr:(bridi_tail_2 ((joik_gihek / joik_gihek_elided) !(stag? BO_clause) !(stag? KE_clause) CU_space bridi_tail_2)* tail_loi_sumsmi?) {return _node("bridi_tail_1", expr);}
 //todo: remove dharcoded bo_clauses here
 bridi_tail_2 = expr:(bridi_tail_3 ((jebo / joik_gihek stag? BO_clause) CU_space bridi_tail_3 tail_loi_sumsmi)*) {return _node("bridi_tail_2", expr);}
 bridi_tail_3 = expr:(KE_space_bridi_tail_3 tail_loi_sumsmi / gek_bridi_tail / loisumsmiBFZAM? (selbri_may_elide / gek_sentence) tail_loi_sumsmi) {return _node("bridi_tail_3", expr);}

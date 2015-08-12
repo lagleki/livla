@@ -3550,7 +3550,7 @@ var camxes = (function(){
             result3 = parse_tagBAM();
             result3 = result3 !== null ? result3 : "";
             if (result3 !== null) {
-              result4 = parse_bridi_tail();
+              result4 = parse_bridi_tail_1();
               if (result4 !== null) {
                 result2 = [result2, result3, result4];
               } else {
@@ -3573,7 +3573,7 @@ var camxes = (function(){
               result3 = parse_tagBAM();
               result3 = result3 !== null ? result3 : "";
               if (result3 !== null) {
-                result4 = parse_bridi_tail();
+                result4 = parse_bridi_tail_1();
                 if (result4 !== null) {
                   result2 = [result2, result3, result4];
                 } else {
@@ -3621,7 +3621,7 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4, result5, result6, result7;
+        var result0, result1, result2, result3, result4, result5, result6;
         var pos0, pos1, pos2, pos3, pos4;
         
         pos0 = pos;
@@ -3689,13 +3689,7 @@ var camxes = (function(){
                 if (result5 !== null) {
                   result6 = parse_bridi_tail_2();
                   if (result6 !== null) {
-                    result7 = parse_tail_loi_sumsmi();
-                    if (result7 !== null) {
-                      result2 = [result2, result3, result4, result5, result6, result7];
-                    } else {
-                      result2 = null;
-                      pos = pos2;
-                    }
+                    result2 = [result2, result3, result4, result5, result6];
                   } else {
                     result2 = null;
                     pos = pos2;
@@ -3778,13 +3772,7 @@ var camxes = (function(){
                   if (result5 !== null) {
                     result6 = parse_bridi_tail_2();
                     if (result6 !== null) {
-                      result7 = parse_tail_loi_sumsmi();
-                      if (result7 !== null) {
-                        result2 = [result2, result3, result4, result5, result6, result7];
-                      } else {
-                        result2 = null;
-                        pos = pos2;
-                      }
+                      result2 = [result2, result3, result4, result5, result6];
                     } else {
                       result2 = null;
                       pos = pos2;
@@ -3807,7 +3795,14 @@ var camxes = (function(){
             }
           }
           if (result1 !== null) {
-            result0 = [result0, result1];
+            result2 = parse_tail_loi_sumsmi();
+            result2 = result2 !== null ? result2 : "";
+            if (result2 !== null) {
+              result0 = [result0, result1, result2];
+            } else {
+              result0 = null;
+              pos = pos1;
+            }
           } else {
             result0 = null;
             pos = pos1;

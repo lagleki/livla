@@ -215,7 +215,7 @@ gek_bridi_tail = expr:(tagBAM_0* (gek bridi_tail gik bridi_tail / KE_space_gek_b
 KE_space_gek_bridi_tail = expr:(KE_clause full_INT* gek_bridi_tail KEhE_elidible full_INT*) {return _node("KE_space_gek_bridi_tail", expr);}
 
 //TERMS: BAM, FAM, ZAM
-//todo: termsets, SOI, "KE_space terms_0 terms_0+ KEhE_elidible", pehe/cehe in tag tree
+//todo: SOI, "KE_space terms_0 terms_0+ KEhE_elidible"
 
 sumsmiBFAM = expr:(sumsmiBAM / sumsmiFAM) {return _node("loisumsmi", expr);}
 sumsmiBFZAM = expr:(sumsmiBAM / sumsmiFAM / sumsmiZAM) {return _node("loisumsmi", expr);}

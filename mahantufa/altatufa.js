@@ -18111,36 +18111,42 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_LI_clause();
         if (result0 !== null) {
-          pos2 = pos;
-          result2 = parse_full_INT();
-          if (result2 === null) {
-            result2 = parse_PA_clause();
+          result1 = parse_mex_for_li();
+          if (result1 === null) {
+            pos2 = pos;
+            result2 = parse_full_INT();
             if (result2 === null) {
-              result2 = parse_loi_lerfu();
-            }
-          }
-          if (result2 !== null) {
-            result1 = [];
-            while (result2 !== null) {
-              result1.push(result2);
-              result2 = parse_full_INT();
+              result2 = parse_PA_clause();
               if (result2 === null) {
-                result2 = parse_PA_clause();
-                if (result2 === null) {
-                  result2 = parse_loi_lerfu();
-                }
+                result2 = parse_loi_lerfu();
               }
             }
-          } else {
-            result1 = null;
-          }
-          if (result1 !== null) {
-            result2 = parse_mex();
-            result2 = result2 !== null ? result2 : "";
             if (result2 !== null) {
-              result3 = parse_BOI_elidible();
-              if (result3 !== null) {
-                result1 = [result1, result2, result3];
+              result1 = [];
+              while (result2 !== null) {
+                result1.push(result2);
+                result2 = parse_full_INT();
+                if (result2 === null) {
+                  result2 = parse_PA_clause();
+                  if (result2 === null) {
+                    result2 = parse_loi_lerfu();
+                  }
+                }
+              }
+            } else {
+              result1 = null;
+            }
+            if (result1 !== null) {
+              result2 = parse_mex();
+              result2 = result2 !== null ? result2 : "";
+              if (result2 !== null) {
+                result3 = parse_BOI_elidible();
+                if (result3 !== null) {
+                  result1 = [result1, result2, result3];
+                } else {
+                  result1 = null;
+                  pos = pos2;
+                }
               } else {
                 result1 = null;
                 pos = pos2;
@@ -18149,12 +18155,6 @@ var camxes = (function(){
               result1 = null;
               pos = pos2;
             }
-          } else {
-            result1 = null;
-            pos = pos2;
-          }
-          if (result1 === null) {
-            result1 = parse_mex_for_li();
           }
           result1 = result1 !== null ? result1 : "";
           if (result1 !== null) {

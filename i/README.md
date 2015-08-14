@@ -11,16 +11,7 @@ To use it offline, simply try to load the site in your browser as usual. If your
 
 Libraries under lib/ have their own license, as does the data in the data/ directory.
 
-sutsis itself is released under the MIT license.
-
-### Hacking
-
-sutsis uses appengine as a static file server – all the uptime and speed of
-a CDN for free, plus configurable routes and a local server! To start it up,
- download the app engine sdk, then just do
-
-    $ dev_appserver.py ./app.yaml
-
+	la sutysisku itself is released under the MIT license.
 
 ##### Scary Warning: App Cache
 

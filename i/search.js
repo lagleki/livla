@@ -67,7 +67,7 @@ var searchEngine;
 var progress;
 function setupSearchEngine(callback, prgrss) {
 	progress = prgrss;
-	var dbName = "sutsis";
+	var dbName = "sutysisku";
 	searchEngine = new fullproof.BooleanEngine();
 	var indexes = [{
 			name: "normalindex",
@@ -109,11 +109,7 @@ function initializer(injector, callback) {
 	for (var key in documentStore) {
 		var doc = documentStore[key];
 		doc.t = (typeof doc.t === 'undefined') ? '' : doc.t;var bng;var docd;
-		//if (typeof window.bangu === 'undefined'){
-			docd = doc.d;
-		//}else{
-		//	docd = doc.d.split(/\b/).map(function(r){return println(window.bangu,r);}).join("");
-		//}
+		docd = doc.d;
 		if (doc.s){text = [doc.w, (doc.t||''), doc.s, docd, doc.n, (doc.g||''), (doc.r||[]).join(' ')].join(' ');}
 		else{text = [doc.w, (doc.t||''), docd, doc.n, (doc.g||''), (doc.r||[]).join(' ')].join(' ');}
 		wordsArray.push(text);

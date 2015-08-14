@@ -416,8 +416,7 @@ sumti_6_slice = expr:(sumti_core) {return _node("sumti_6_slice", expr);}
 
 LU_space = expr:(LU_clause text LIhU_elidible full_INT*) {return _node("LU_space", expr);}
 LOhU_space = expr:(LOhU_clause full_INT*) {return _node("LOhU_space", expr);}
-sumti_core = (relative_clauses_ne !sumti_fire / relative_clauses?) sumti_fire KU_elidible full_INT*
-sumti_fire = (mex !ROI_clause)? bridi_sei relative_clauses?
+sumti_core = (relative_clauses_ne / relative_clauses?) (mex !ROI_clause)? bridi_sei relative_clauses? KU_elidible full_INT*
 
 //todo: sumti structure is now new
 sumtinoi = expr:(sumti_1noi) {return _node("sumti", expr);}

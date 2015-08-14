@@ -530,7 +530,7 @@ mex_2_xohe = expr:(operand_xohe) {return _node("mex_2", expr); }
 operand_xohe = expr:(((VEI_elidible full_INT* PA_clause_xohe VEhO_elidible full_INT*) BOI_elidible)  full_NAICAI*) {return _node("operand", expr); }
 
 //todo: merge all mex, PA, letterals and cnima'o here into one
-li_clause = expr:(LI_clause ( mex_for_li / (full_INT / PA_clause / loi_lerfu)+ mex? BOI_elidible)? LOhO_elidible full_INT*) {return _node("li_clause", expr); }
+li_clause = expr:(LI_clause ( (full_INT / PA_clause / loi_lerfu)+ !mex_for_li BOI_elidible / mex_for_li )? LOhO_elidible full_INT*) {return _node("li_clause", expr); }
 
 // TERJONMAhO
 gihek = expr:(gihenjoma) {return _node("gihek", expr); }

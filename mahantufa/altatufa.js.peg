@@ -228,7 +228,7 @@ sumsmiBAM_1 = sumsmiBAMprep_1 / sumsmiBAMpostp_1
 
 sumsmiBAMprep = expr:(sumsmiBAMprep_0 (joik_jek sumsmiBAM_0)*) {return _node("sumsmi", expr);}
 sumsmiBAMprep_0 = expr:(sumsmiBAMprep_1 (jebo sumsmiBAM_1)*) {return _node("sumsmi_0", expr);}
-sumsmiBAMprep_1 = expr:((tagBAM_0 (sumti / (KU_clause / sumtifazohe !selbri !gik)))) {return _node("sumsmi_1", expr);}
+sumsmiBAMprep_1 = expr:((tagBAM_0 (sumti / (KU_clause / sumtifazohe !gik)))) {return _node("sumsmi_1", expr);}
 
 sumsmiBAMpostp = expr:(sumsmiBAMpostp_0 (joik_jek sumsmiBAM_0)*) {return _node("sumsmi", expr);}
 sumsmiBAMpostp_0 = expr:(sumsmiBAMpostp_1 (jebo sumsmiBAM_1)*) {return _node("sumsmi_0", expr);}
@@ -247,7 +247,7 @@ sumsmiFAM_1 = sumsmiFAMprep_1 / sumsmiFAMpostp_1
 
 sumsmiFAMprep = expr:(sumsmiFAMprep_0 (joik_jek sumsmiFAM_0)*) {return _node("sumsmi", expr);}
 sumsmiFAMprep_0 = expr:(sumsmiFAMprep_1 (jebo sumsmiFAM_1)*) {return _node("sumsmi_0", expr);}
-sumsmiFAMprep_1 = expr:((tagFAM_0 (sumti / (KU_clause / sumtifazohe !selbri !gik)))) {return _node("sumsmi_1", expr);}
+sumsmiFAMprep_1 = expr:((tagFAM_0 (sumti / (KU_clause / sumtifazohe !bridi_tail !gik)))) {return _node("sumsmi_1", expr);}
 
 sumsmiFAMpostp = expr:(sumsmiFAMpostp_0 (joik_jek sumsmiFAM_0)*) {return _node("sumsmi", expr);}
 sumsmiFAMpostp_0 = expr:(sumsmiFAMpostp_1 (jebo sumsmiFAM_1)*) {return _node("sumsmi_0", expr);}
@@ -375,13 +375,9 @@ bridi_tail_3fefifofu_elided = expr:(selbri_elided) {return _node("bridi_tail_3",
 
 
 //LINKARGs
-linkargs = expr:(linkargs_1 full_INT*)  {return _node("linkargs", expr);}
-
+linkargs = expr:((BE_clause loisumsmiBAM) (BEI_clause sumsmiZAMfe) beifi / (BE_clause sumsmiZAMfe) beifi / BE_clause sumsmiBFZAM (BEI_clause sumsmiBFZAM)* BEhO_elidible full_INT*)  {return _node("linkargs", expr);}
 beiBAM = (BEI_clause loisumsmiBAM )*
-linkargs_1 = expr:(
-(BE_clause loisumsmiBAM) (BEI_clause sumsmiZAMfe) beiBAM (BEI_clause sumsmiZAMfi)? beiBAM (BEI_clause sumsmiZAMfo)?  beiBAM (BEI_clause sumsmiZAMfu)? (BEI_clause sumsmiBFZAM)* BEhO_elidible / 
-(BE_clause sumsmiZAMfe) beiBAM (BEI_clause sumsmiZAMfi)? beiBAM (BEI_clause sumsmiZAMfo)? beiBAM (BEI_clause sumsmiZAMfu)? (BEI_clause sumsmiBFZAM)* BEhO_elidible / 
-BE_clause sumsmiBFZAM? (BEI_clause sumsmiBFZAM)* BEhO_elidible)  {return _node("linkargs_1", expr);}
+beifi = beiBAM (BEI_clause sumsmiZAMfi)? beiBAM (BEI_clause sumsmiZAMfo)?  beiBAM (BEI_clause sumsmiZAMfu)? (BEI_clause sumsmiBFZAM)* BEhO_elidible
 
 // SUMTI
 //todo: sumti structure is now new
@@ -486,7 +482,7 @@ selbrisle_2_elided = expr:(COhE_clause_elided) {return _node("selbrisle_2", expr
 selbri = expr:(selbri_1 / full_NAhE* guhek selbri_1 gik selbri_1) {return _node("selbri", expr); }
 selbri_1 = tagBFAM_0* selbri_2
 selbri_2 = expr:(selbri_3 (CO_clause selbri_2)?) {return _node("selbri_2", expr); }
-selbri_3 = expr:((selbri_4 &selbri_4)* selbri_4nf) {return _node("selbri_3", expr); }
+selbri_3 = expr:((selbri_4)+) {return _node("selbri_3", expr); }//todo: restore * selbri_4nf
 selbri_4 = expr:(selbri_5 (joik_jek selbri_5 / joik stag? KE_clause selbri_3 KEhE_elidible)*) {return _node("selbri_4", expr); }
 selbri_5 = expr:(selbri_6 (jebo selbri_5)?) {return _node("selbri_5", expr); }
 selbri_6 = expr:(selbrisle (BO_clause selbri_6)?) {return _node("selbri_6", expr); }

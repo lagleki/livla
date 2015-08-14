@@ -190,9 +190,8 @@
 	var typehere = $("#typehere");
 	var output = $("#output");
 	var description = $("#description");
-	var worker = new Worker('worker.js');
 	var query="";
-
+	var worker = new Worker('worker.js');
 	var resultCount;
 	var results = [];
 	var fm = {BE: "be'o",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au"};
@@ -204,10 +203,11 @@
 	}
 	var ready = false;
 	$(document).ready(function () {
-    if ($(window).width() < 500) {$('#plise').remove();$("#typehere").css({ 'width':'90%','margin-right': '0.5em'});}
-    if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
-	doSearch();
-});
+		if ($(window).width() < 500) {$('#plise').remove();$("#typehere").css({ 'width':'90%','margin-right': '0.5em'});}
+		if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
+		doSearch();
+	});
+
 	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").height('5').css('width','100');});
 	//$("#progressbar > div").css({ 'height': '10px;' });.wrap("<div class='Your-CSS-Scope-Class'></div>");
 	worker.onmessage = function(ev) {
@@ -425,13 +425,11 @@
 	if (appCache.status == window.applicationCache.UPDATEREADY) {
 		appCache.swapCache();
 	}
-	window.addEventListener('load', function(e) {
 		window.applicationCache.addEventListener('updateready', function(e) {
 		if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
 			window.location.reload();
 		}
 		}, false);
-	}, false);
   </script>
 </body>
 </html>

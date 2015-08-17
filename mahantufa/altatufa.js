@@ -17537,78 +17537,83 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4;
+        var result0, result1, result2, result3, result4, result5;
         var pos0, pos1, pos2, pos3;
         
         pos0 = pos;
         pos1 = pos;
         result0 = parse_LI_clause();
         if (result0 !== null) {
-          pos2 = pos;
-          pos3 = pos;
-          reportFailures++;
-          result1 = parse_mex_for_li();
-          reportFailures--;
-          if (result1 === null) {
-            result1 = "";
-          } else {
-            result1 = null;
-            pos = pos3;
+          result1 = [];
+          result2 = parse_full_INT();
+          while (result2 !== null) {
+            result1.push(result2);
+            result2 = parse_full_INT();
           }
           if (result1 !== null) {
-            result3 = parse_full_INT();
-            if (result3 === null) {
-              result3 = parse_PA_clause();
-              if (result3 === null) {
-                result3 = parse_loi_lerfu();
-              }
-            }
-            if (result3 !== null) {
-              result2 = [];
-              while (result3 !== null) {
-                result2.push(result3);
-                result3 = parse_full_INT();
-                if (result3 === null) {
-                  result3 = parse_PA_clause();
-                  if (result3 === null) {
-                    result3 = parse_loi_lerfu();
-                  }
-                }
-              }
+            pos2 = pos;
+            pos3 = pos;
+            reportFailures++;
+            result2 = parse_mex_for_li();
+            reportFailures--;
+            if (result2 === null) {
+              result2 = "";
             } else {
               result2 = null;
+              pos = pos3;
             }
             if (result2 !== null) {
-              result3 = parse_BOI_elidible();
-              if (result3 !== null) {
-                result1 = [result1, result2, result3];
+              result4 = parse_PA_clause();
+              if (result4 === null) {
+                result4 = parse_loi_lerfu();
+              }
+              if (result4 !== null) {
+                result3 = [];
+                while (result4 !== null) {
+                  result3.push(result4);
+                  result4 = parse_PA_clause();
+                  if (result4 === null) {
+                    result4 = parse_loi_lerfu();
+                  }
+                }
               } else {
-                result1 = null;
+                result3 = null;
+              }
+              if (result3 !== null) {
+                result4 = parse_BOI_elidible();
+                if (result4 !== null) {
+                  result2 = [result2, result3, result4];
+                } else {
+                  result2 = null;
+                  pos = pos2;
+                }
+              } else {
+                result2 = null;
                 pos = pos2;
               }
             } else {
-              result1 = null;
+              result2 = null;
               pos = pos2;
             }
-          } else {
-            result1 = null;
-            pos = pos2;
-          }
-          if (result1 === null) {
-            result1 = parse_mex_for_li();
-          }
-          result1 = result1 !== null ? result1 : "";
-          if (result1 !== null) {
-            result2 = parse_LOhO_elidible();
+            if (result2 === null) {
+              result2 = parse_mex_for_li();
+            }
+            result2 = result2 !== null ? result2 : "";
             if (result2 !== null) {
-              result3 = [];
-              result4 = parse_full_INT();
-              while (result4 !== null) {
-                result3.push(result4);
-                result4 = parse_full_INT();
-              }
+              result3 = parse_LOhO_elidible();
               if (result3 !== null) {
-                result0 = [result0, result1, result2, result3];
+                result4 = [];
+                result5 = parse_full_INT();
+                while (result5 !== null) {
+                  result4.push(result5);
+                  result5 = parse_full_INT();
+                }
+                if (result4 !== null) {
+                  result0 = [result0, result1, result2, result3, result4];
+                } else {
+                  result0 = null;
+                  pos = pos1;
+                }
               } else {
                 result0 = null;
                 pos = pos1;

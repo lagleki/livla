@@ -394,6 +394,8 @@ KOhAfazohe = { return ["KOhA", "ZOhE"];}
 
 /////End FAM/ZAM/TAM
 
+//SUMTI
+//todo: allow NAICAI after sumti
 sumti = expr:((KE_space_sumti / gek sumti gik sumti / sumti_1) (VUhO_clause (relative_clauses (joik_jek sumti)?)?)?) {return _node("sumti", expr);}
 KE_space_sumti = expr:(KE_clause full_INT* sumti KEhE_elidible full_INT*) {return _node("KE_space_sumti", expr);}
 
@@ -448,7 +450,7 @@ sumti_3do = expr:(mex? KOhA_clausedo relative_clauses?) {return _node("sumti_3",
 sumti_le_elidible = expr:(sumti_1 / sumti_1_leless) {return _node("sumti", expr);}
 sumti_1_leless = expr:(sumti_2_leless) {return _node("sumti_1", expr);}
 sumti_2_leless = expr:(sumti_3_leless) {return _node("sumti_2", expr);}
-sumti_3_leless = expr:(mex? (LE_clause_elided sumti_core KU_elidible) full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_3", expr);}
+sumti_3_leless = expr:(LE_clause_elided sumti_core full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_3", expr);}
 
 //RAhABRI
 relative_clauses = expr:(relative_clause (joik relative_clause)* / gek relative_clauses gik relative_clauses) {return _node("relative_clauses", expr); }
@@ -525,7 +527,7 @@ mex_2_xohe = expr:(operand_xohe) {return _node("mex_2", expr); }
 operand_xohe = expr:((PA_clause_xohe BOI_elidible)  full_NAICAI?) {return _node("operand", expr); }
 
 //todo: merge all mex, PA, letterals and cnima'o here into one
-li_clause = expr:(LI_clause full_INT* (!mex_for_li (PA_clause / loi_lerfu)+ BOI_elidible / mex_for_li )? LOhO_elidible full_INT*) {return _node("li_clause", expr); }
+li_clause = expr:(LI_clause (!mex_for_li (full_INT / PA_clause / loi_lerfu)+ BOI_elidible / mex_for_li )? LOhO_elidible full_INT*) {return _node("li_clause", expr); }
 
 // TERJONMAhO
 gihek = expr:(gihenjoma) {return _node("gihek", expr); }

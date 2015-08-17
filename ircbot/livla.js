@@ -1406,7 +1406,9 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 	t = path.join(__dirname,"../i/"+lng+"/","webapp.appcache");
 	var d = new Date();
 	var n = d.getDate();
-	if(n==1){try{pars=fs.readFileSync(t,{encoding: 'utf8'});pars = fs.writeFileSync(t,pars);console.log(t + ' updated');}catch(err){}}
+	if(n==1){
+		try{pars=fs.readFileSync(t,{encoding: 'utf8'});pars = fs.writeFileSync(t,pars);console.log(t + ' updated');}catch(err){}
+	}
 };
 
 var labangu = function(){

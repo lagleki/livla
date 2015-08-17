@@ -577,7 +577,7 @@ dot_star = expr:(.*) { ret = ""; for (i in expr) ret += (expr[i] === " ") ? "_" 
 // Handling of what can go after a cmavo
 //todo: change _node_nonempty to allow <=2 elements
 //post_spaces = spaces? !BU_clause
-post_clause = expr:((spaces? !BU_clause full_NAICAI?) full_INT*) {return _node_nonempty("post_clause", expr); }
+post_clause = expr:(spaces? !BU_clause full_NAICAI? full_INT*) {return _node_nonempty("post_clause", expr); }
 post_clause_limited = expr:(spaces? !BU_clause) {return _node_nonempty("post_clause", expr); }
 post_clause_for_xohe_mai = expr:(spaces? !BU_clause free_xohe*) {return _node_nonempty("post_clause", expr); }
 lerfu_post_clause = expr:(spaces? !BU_clause (!loi_lerfu full_INT)*) {return _node_nonempty("lerfu_post_clause", expr); }

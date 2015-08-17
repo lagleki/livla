@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2015-08-14:v12
+# 2015-08-15:v02
 
 CACHE:
 index.html?version=32
@@ -38,9 +38,9 @@ bangu.js
 #./lib/Lato/Lato-Regular.ttf
 #./lib/Lato.css
 
-http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
-http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css
-http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
+//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
+//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css
+//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 
 #../loading.gif
 

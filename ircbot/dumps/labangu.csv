@@ -2870,7 +2870,7 @@ gerku,"
 gerna,"
 '''gerna''' — ''x<sub>1</sub><sub>(proposition)</sub>''  is the grammar of language  ''x<sub>2</sub><sub>(entity)</sub>''  for structure  ''x<sub>3</sub><sub>(text)</sub>'' 
 :'''lo gerna''' — grammar. '''lo te gerna''' — text. 
-:'''lo du'u lo gadri cu lidne lo selbri cu gerna la Lojban lo selbri''' — ''That gadri precede selbri is the grammar of Lojban for sumti.''
+:'''lo du'u lo gadri cu lidne lo selbri cu gerna la Lojban lo sumti''' — ''That gadri precede selbri is the grammar of Lojban for sumti.''
 :Related words: '''bangu''', '''stura''', '''cmavo''', '''jufra'''"
 gi,"
 '''gi''' <small>[middle separator]</small> — separator of the two parts in the forethought connection
@@ -6254,7 +6254,7 @@ pinta,"
 :Related words: '''sraji''', '''plita''', '''xutla'''"
 pinxe,"
 '''pinxe''' — ''x<sub>1</sub><sub>(entity)</sub>''  drinks  ''x<sub>2</sub><sub>(entity)</sub>''  out of  ''x<sub>3</sub><sub>(entity)</sub>'' 
-:'''lo pinxe''' — drinker. '''lo se pinxe''' — something drunk. 
+:'''lo pinxe''' — drinker. '''lo se pinxe''' — something drunk, beverage. 
 :'''mi pinxe lo tcati lo kabri''' — ''I drink tea from the cup.''
 :'''mi pu pinxe lo glare ckafi lo kabri''' — ''I drank a cup of hot coffee from a cup.''
 :Related words: '''cidja''', '''citka''', '''taske''', '''tunlo''', '''xaksu''', '''barja''', '''birje'''"
@@ -6767,7 +6767,7 @@ rinci,"
 :'''lo djacu cu rinci lo tubnu lo za'u kevna lo danre''' — ''Water drains from a tube through holes being under pressure.''
 :Related words: '''pambe''', '''tisna''', '''setca''', '''flu'ente''', '''muvdu''', '''ganxo''', '''rirxe'''"
 rinju,"
-'''rinju''' — ''x<sub>1</sub><sub>(entity)</sub>''  is restrained by  ''x<sub>2</sub><sub>(entity)</sub>''  against  ''x<sub>3</sub><sub>(entity)</sub>'' 
+'''rinju''' — ''x<sub>1</sub><sub>(entity)</sub>''  is restrained by  ''x<sub>2</sub><sub>(entity)</sub>''  against  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo rinju''' — restrained. '''lo se rinju''' — restraining. 
 :'''lo carmi ke tcadu flu'ente pu se rinju mi lo ka tsuku le briju''' — ''Intense traffic prevented me from getting to the office.''
 :Related words: '''zifre''', '''ralte''', '''pinfu''', '''kavbu''', '''fanta''', '''jgari''', '''jimte''', '''bapli''', '''permite''', '''kluza''', '''tagji'''"
@@ -9735,4 +9735,5 @@ zvati,"
 :'''mi pu zvati lo nu penmi''' — ''I was at the meeting.''
 :Comment: '''stuzi''' is for a stable/inherent location. '''cabna''' is time equivalent of '''zvati'''
 :Related words: '''stuzi''', '''jbini''', '''nenri''', '''se''' '''vasru''', '''cpana''', '''diklo''', '''jibni''', '''cabna''', '''lamji''', '''tcini''', '''xabju''', '''jmive''', '''jundi''', '''vitke'''"
-zy,
+zy,"
+'''zy''' <small>[pronoun]</small> — ''z'' (letter)"

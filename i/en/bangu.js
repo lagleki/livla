@@ -8,7 +8,7 @@ siskudescr="Search the Lojban dictionary la jbovlaste.";
 opdescr = "A dictionary for Lojban, English and other languages that can work offline.";
 window.bangu = 'english';
 window.xuzganalojudri = true;
-window.judri = "https://jbovlaste.lojban.org/dict/";
+window.judri = "http://jbovlaste.lojban.org/dict/";
 window.cllnotci = 'The Reference Grammar on this topic:';
 window.arrcll = {
 A:"https://lojban.github.io/cll/14/6/",

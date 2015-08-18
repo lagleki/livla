@@ -676,7 +676,7 @@ BAI_clause = pre:BAI_pre post:post_clause {return _node2("BAI_clause", pre, post
 BAI_pre = pre_clause BAI spaces?
 
 //         next word intensifier 
-BAhE_clause = expr:(BAhE_pre post:post_clause )+ {return _node("BAhE_clause", expr); }
+BAhE_clause = expr:(BAhE_pre post:post_clause_limited )+ {return _node("BAhE_clause", expr); }
 BAhE_pre = BAhE spaces?
 
 //         sumti link to attach sumti to a selbri 

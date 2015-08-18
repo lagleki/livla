@@ -21514,7 +21514,7 @@ var camxes = (function(){
         pos1 = pos;
         result1 = parse_BAhE_pre();
         if (result1 !== null) {
-          result2 = parse_post_clause();
+          result2 = parse_post_clause_limited();
           if (result2 !== null) {
             result1 = [result1, result2];
           } else {
@@ -21532,7 +21532,7 @@ var camxes = (function(){
             pos1 = pos;
             result1 = parse_BAhE_pre();
             if (result1 !== null) {
-              result2 = parse_post_clause();
+              result2 = parse_post_clause_limited();
               if (result2 !== null) {
                 result1 = [result1, result2];
               } else {

@@ -3794,24 +3794,18 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 === null) {
-          result0 = parse_gek_bridi_tail();
-          if (result0 === null) {
-            pos1 = pos;
-            result0 = parse_loisumsmiBFZAM();
-            result0 = result0 !== null ? result0 : "";
-            if (result0 !== null) {
+          pos1 = pos;
+          result0 = parse_loisumsmiBFZAM();
+          result0 = result0 !== null ? result0 : "";
+          if (result0 !== null) {
+            result1 = parse_gek_sentence();
+            if (result1 === null) {
               result1 = parse_selbri_may_elide();
-              if (result1 === null) {
-                result1 = parse_gek_sentence();
-              }
-              if (result1 !== null) {
-                result2 = parse_tail_loi_sumsmi();
-                if (result2 !== null) {
-                  result0 = [result0, result1, result2];
-                } else {
-                  result0 = null;
-                  pos = pos1;
-                }
+            }
+            if (result1 !== null) {
+              result2 = parse_tail_loi_sumsmi();
+              if (result2 !== null) {
+                result0 = [result0, result1, result2];
               } else {
                 result0 = null;
                 pos = pos1;
@@ -3820,6 +3814,9 @@ var camxes = (function(){
               result0 = null;
               pos = pos1;
             }
+          } else {
+            result0 = null;
+            pos = pos1;
           }
         }
         if (result0 !== null) {
@@ -4765,7 +4762,7 @@ var camxes = (function(){
               if (result1 !== null) {
                 pos3 = pos;
                 reportFailures++;
-                result2 = parse_gik();
+                result2 = parse_bridi_tail();
                 reportFailures--;
                 if (result2 === null) {
                   result2 = "";

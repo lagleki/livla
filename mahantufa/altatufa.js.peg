@@ -237,7 +237,7 @@ sumsmiBAMpostp_1 = expr:(sumti) CO_clause expr2:(tagBAM_0) {return _node("sumsmi
 tagBAM_0 = (tagBAM / tagBAMgek) !gik
 tagBAMgek = expr:(gek tagBAM gik tagBAM) {return _node("tagBAMgek", expr); }
 tagBAM = expr:(tag_headBAM (joik_jek tag_headBAM)*) {return _node("tagBAM", expr); }
-tag_headBAM = expr:((full_NAhE cls tag_rootBAM / cls tag_rootBAM full_NAICAI?) full_INT*) {return _node("tense_modal", expr); }
+tag_headBAM = expr:((full_NAhE cls* tag_rootBAM / cls* tag_rootBAM full_NAICAI?) full_INT*) {return _node("tense_modal", expr); }
 tag_rootBAM = NA_clause !kernelo_lo_gihenjoma / BAI_clause / CAhA_clause / CUhE_clause / KI_clause / ZI_clause / PU_clause / VA_clause / FAhA_clause / ZEhA_clause / VEhA_clause / VIhA_clause / mex ROI_clause / TAhE_clause / ZAhO_clause / FIhO_clause selbri FEhU_elidible
 
 loisumsmiFAM = sumsmiFAM+ / gek loisumsmiFAM NUhU_elidible gik loisumsmiFAM NUhU_elidible
@@ -259,7 +259,7 @@ sumsmiFAMpostp = expr:(sumti) CO_clause expr2:(tagFAM_0) expr3:((joik_jek sumsmi
 tagFAM_0 = (tagFAM / tagFAMgek) !gik
 tagFAMgek = expr:(gek tagFAM gik tagFAM) {return _node("tagFAMgek", expr); }
 tagFAM = expr:(tag_headFAM (joik_jek tag_headFAM)*) {return _node("tagFAM", expr); }
-tag_headFAM = expr:((full_NAhE cls tag_rootFAM / cls tag_rootFAM full_NAICAI?) full_INT*) {return _node("tense_modal", expr); }
+tag_headFAM = expr:((full_NAhE cls* tag_rootFAM / cls* tag_rootFAM full_NAICAI?) full_INT*) {return _node("tense_modal", expr); }
 tag_rootFAM = FA_clause
 
 sumsmiBFAM_0 = sumsmiBAM_0 / sumsmiFAM_0
@@ -517,6 +517,7 @@ KE_space_mex_2_loi = expr:(KE_clause full_INT* mex_2_loi KEhE_elidible full_INT*
 mex_2 = expr:(operand / mex_rp / mex_forethought) {return _node("mex_2", expr); }
 mex_rp = FUhA_clause mex_2+ operator (mex_2* operator)* KUhE_elidible free*
 mex_forethought = !(loi_lerfu BOI_elidible) operator mex_2+ mex_forethought? KUhE_elidible / PEhO_clause operator mex_2+ mex_forethought? KUhE_elidible
+operator = joik
 operator = expr:(full_NAhE operator / (SE_clause operator / MAhO_clause sumti_le_elidible TEhU_elidible / joik) full_NAICAI?) {return _node("operator", expr); }
 operand = expr:(((((PA_clause+ / lerfu_word) BOI_elidible / VEI_clause full_INT* mex VEhO_elidible full_INT* / MOhE_clause sumti_le_elidible TEhU_elidible / LAhE_NAhE mex LUhU_elidible)  full_NAICAI?) / full_NAhE operand) full_INT*) {return _node("operand", expr); }
 loi_lerfu = expr:(lerfu_word+) {return _node("loi_lerfu", expr); }
@@ -531,11 +532,11 @@ li_clause = expr:(LI_clause (!mex_for_li (full_INT / PA_clause / loi_lerfu)+ BOI
 
 // TERJONMAhO
 gihek = expr:(gihenjoma) {return _node("gihek", expr); }
-gihenjoma = expr:((cln cls kernelo_lo_gihenjoma crn) full_INT*) {return _node("gihenjoma", expr); }
+gihenjoma = expr:((cln cls* kernelo_lo_gihenjoma crn) full_INT*) {return _node("gihenjoma", expr); }
 kernelo_lo_gihenjoma = expr:(GI_clause? je / GIhA_clause)
-je = (JA_clause / JOI_clause / A_clause / ZIhE_clause / VUhU_clause)
+je = (JA_clause / JOI_clause / A_clause / ZIhE_clause / VUhU_clause / MAhO_clause sumti_le_elidible TEhU_elidible)
 jebo = (je stag? / stag) BO_clause / CEhE_clause
-joik = expr:((cln cls je crn / interval / GAhO_clause interval  GAhO_clause) full_INT*) {return _node("joik", expr); }
+joik = expr:((cln (full_NAhE / cls)* je crn / interval / GAhO_clause interval  GAhO_clause) full_INT*) {return _node("operator", expr); }
 joik_ek = joik
 ek = joik
 jek = joik
@@ -546,17 +547,16 @@ gihek_elided = expr:(gihenjoma_elided) {return _node("gihek_elided", expr); }
 gihenjoma_elided = expr:(kernelo_lo_gihenjoma_elided) {return _node("gihenjoma_elided", expr); }
 kernelo_lo_gihenjoma_elided = expr:(GIhA_clause_elided)
 
-interval = expr:(cls BIhI_clause crn) {return _node("interval", expr); }
+interval = expr:(cls* BIhI_clause crn) {return _node("interval", expr); }
 joik_jek = joik
-gek = expr:((gak cls joik_jek crn / cls GA_clause crn / joik GI_clause crn / stag gik) full_INT*) {return _node("gek", expr); }
+gek = expr:((gak cls* joik_jek crn / cls* GA_clause crn / joik GI_clause crn / stag gik) full_INT*) {return _node("gek", expr); }
 gak = expr:((ga_clause crn) full_INT*) {return _node("gak", expr); }
-guhek = expr:((cls GUhA_clause crn) full_INT*) {return _node("guhek", expr); }
+guhek = expr:((cls* GUhA_clause crn) full_INT*) {return _node("guhek", expr); }
 gik = expr:((GI_clause crn) full_INT*) {return _node("gik", expr); }
 stag = tagBAM
 crn = expr:(CAI_clause?) {return _node("connective right negator", expr); }
 cln = expr:(NA_clause?) {return _node("connective left negator", expr); }
-cls = expr:(SE_clause?) {return _node("places left switcher", expr); }
-clsnahe = expr:((full_NAhE / SE_clause)*) {return _node("places left switcher", expr); }
+cls = expr:(SE_clause) {return _node("places left switcher", expr); }
 
 
 // ****************

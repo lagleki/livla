@@ -228,7 +228,7 @@ sumsmiBAM_1 = sumsmiBAMprep_1 / sumsmiBAMpostp_1
 
 sumsmiBAMprep = expr:(sumsmiBAMprep_0 (joik_jek sumsmiBAM_0)*) {return _node("sumsmi", expr);}
 sumsmiBAMprep_0 = expr:(sumsmiBAMprep_1 (jebo sumsmiBAM_1)*) {return _node("sumsmi_0", expr);}
-sumsmiBAMprep_1 = expr:((tagBAM_0 (sumti / (KU_clause / sumtifazohe !gik)))) {return _node("sumsmi_1", expr);}
+sumsmiBAMprep_1 = expr:(tagBAM_0 (sumti / (KU_clause full_NAICAI? full_INT* / sumtifazohe !gik))) {return _node("sumsmi_1", expr);}
 
 sumsmiBAMpostp = expr:(sumsmiBAMpostp_0 (joik_jek sumsmiBAM_0)*) {return _node("sumsmi", expr);}
 sumsmiBAMpostp_0 = expr:(sumsmiBAMpostp_1 (jebo sumsmiBAM_1)*) {return _node("sumsmi_0", expr);}
@@ -247,13 +247,13 @@ sumsmiFAM_1 = sumsmiFAMprep_1 / sumsmiFAMpostp_1
 
 sumsmiFAMprep = expr:(sumsmiFAMprep_0 (joik_jek sumsmiFAM_0)*) {return _node("sumsmi", expr);}
 sumsmiFAMprep_0 = expr:(sumsmiFAMprep_1 (jebo sumsmiFAM_1)*) {return _node("sumsmi_0", expr);}
-sumsmiFAMprep_1 = expr:((tagFAM_0 (sumti / (KU_clause / sumtifazohe !bridi_tail !gik)))) {return _node("sumsmi_1", expr);}
+sumsmiFAMprep_1 = expr:((tagFAM_0 (sumti / (KU_clause full_NAICAI? full_INT* / sumtifazohe !bridi_tail !gik)))) {return _node("sumsmi_1", expr);}
 
 sumsmiFAMpostp = expr:(sumsmiFAMpostp_0 (joik_jek sumsmiFAM_0)*) {return _node("sumsmi", expr);}
 sumsmiFAMpostp_0 = expr:(sumsmiFAMpostp_1 (jebo sumsmiFAM_1)*) {return _node("sumsmi_0", expr);}
 sumsmiFAMpostp_1 = expr:(sumti) CO_clause expr2:(tagFAM_0) {return _node("sumsmi_1", expr2.concat(expr));} 
 
-sumsmiFAMprep = expr:((tagFAM_0 (sumti / (KU_clause / sumtifazohe !bridi_tail))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
+sumsmiFAMprep = expr:((tagFAM_0 (sumti / (KU_clause full_NAICAI? full_INT* / sumtifazohe !bridi_tail))) (joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr);}
 sumsmiFAMpostp = expr:(sumti) CO_clause expr2:(tagFAM_0) expr3:((joik_jek sumsmiBFAM)*) {return _node("sumsmi", expr2.concat(expr).concat(expr3));}
 
 tagFAM_0 = (tagFAM / tagFAMgek) !gik
@@ -407,12 +407,12 @@ sumti_4_declaration = expr:(sumti_5_declaration) {return _node("sumti_4_declarat
 sumti_5_declaration = expr:((full_NAhE sumti_6_declaration / sumti_6_declaration full_NAICAI?) full_INT* relative_clauses?) {return _node("sumti_5_declaration", expr);}
 sumti_6_declaration = expr:(LAhE_NAhE relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_clause / LE_clause full_INT* sumti_core) {return _node("sumti_6_declaration", expr);}
 sumti_4_slice = expr:(mex !ROI_clause full_INT* (sumti_5_declaration / sumti_5_slice)) {return _node("sumti_4_slice", expr);}
-sumti_5_slice = expr:(sumti_6_slice) {return _node("sumti_5_slice", expr);}
+sumti_5_slice = expr:(sumti_6_slice full_NAICAI? full_INT*) {return _node("sumti_5_slice", expr);}
 sumti_6_slice = expr:(sumti_core) {return _node("sumti_6_slice", expr);}
 
 LU_space = expr:(LU_clause text LIhU_elidible full_INT*) {return _node("LU_space", expr);}
 LOhU_space = expr:(LOhU_clause full_INT*) {return _node("LOhU_space", expr);}
-sumti_core = (relative_clauses_ne / relative_clauses?) (mex !ROI_clause)? bridi_sei relative_clauses? KU_elidible full_INT*
+sumti_core = (relative_clauses_ne / relative_clauses?) (mex !ROI_clause)? bridi_sei relative_clauses? KU_elidible
 
 //todo: sumti structure is now new
 sumtinoi = expr:(sumti_1noi) {return _node("sumti", expr);}
@@ -922,7 +922,7 @@ KOhA_clausedo = pre:KOhA_predo post:post_clause {return _node2("KOhA_clause", pr
 KOhA_predo = pre_clause KOhA_elided spaces?
 
 //         right terminator for descriptions, etc. 
-KU_clause = pre:KU_pre post:post_clause {return _node2("KU_clause", pre, post); }
+KU_clause = pre:KU_pre post:post_clause_limited {return _node2("KU_clause", pre, post); }
 KU_pre = pre_clause KU spaces?
 
 //         MEX forethought delimiter 

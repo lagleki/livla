@@ -3794,24 +3794,18 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 === null) {
-          result0 = parse_gek_bridi_tail();
-          if (result0 === null) {
-            pos1 = pos;
-            result0 = parse_loisumsmiBFZAM();
-            result0 = result0 !== null ? result0 : "";
-            if (result0 !== null) {
+          pos1 = pos;
+          result0 = parse_loisumsmiBFZAM();
+          result0 = result0 !== null ? result0 : "";
+          if (result0 !== null) {
+            result1 = parse_gek_sentence();
+            if (result1 === null) {
               result1 = parse_selbri_may_elide();
-              if (result1 === null) {
-                result1 = parse_gek_sentence();
-              }
-              if (result1 !== null) {
-                result2 = parse_tail_loi_sumsmi();
-                if (result2 !== null) {
-                  result0 = [result0, result1, result2];
-                } else {
-                  result0 = null;
-                  pos = pos1;
-                }
+            }
+            if (result1 !== null) {
+              result2 = parse_tail_loi_sumsmi();
+              if (result2 !== null) {
+                result0 = [result0, result1, result2];
               } else {
                 result0 = null;
                 pos = pos1;
@@ -3820,6 +3814,9 @@ var camxes = (function(){
               result0 = null;
               pos = pos1;
             }
+          } else {
+            result0 = null;
+            pos = pos1;
           }
         }
         if (result0 !== null) {
@@ -4765,7 +4762,7 @@ var camxes = (function(){
               if (result1 !== null) {
                 pos3 = pos;
                 reportFailures++;
-                result2 = parse_gik();
+                result2 = parse_bridi_tail();
                 reportFailures--;
                 if (result2 === null) {
                   result2 = "";
@@ -43373,6 +43370,28 @@ var camxes = (function(){
                                                                                                                                               result1 = null;
                                                                                                                                               pos = pos2;
                                                                                                                                             }
+                                                                                                                                            if (result1 === null) {
+                                                                                                                                              pos2 = pos;
+                                                                                                                                              result1 = parse_x();
+                                                                                                                                              if (result1 !== null) {
+                                                                                                                                                result2 = parse_a();
+                                                                                                                                                if (result2 !== null) {
+                                                                                                                                                  result3 = parse_u();
+                                                                                                                                                  if (result3 !== null) {
+                                                                                                                                                    result1 = [result1, result2, result3];
+                                                                                                                                                  } else {
+                                                                                                                                                    result1 = null;
+                                                                                                                                                    pos = pos2;
+                                                                                                                                                  }
+                                                                                                                                                } else {
+                                                                                                                                                  result1 = null;
+                                                                                                                                                  pos = pos2;
+                                                                                                                                                }
+                                                                                                                                              } else {
+                                                                                                                                                result1 = null;
+                                                                                                                                                pos = pos2;
+                                                                                                                                              }
+                                                                                                                                            }
                                                                                                                                           }
                                                                                                                                         }
                                                                                                                                       }
@@ -44959,7 +44978,7 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4;
+        var result0, result1, result2, result3, result4, result5;
         var pos0, pos1, pos2;
         
         pos0 = pos;
@@ -45081,6 +45100,40 @@ var camxes = (function(){
                 } else {
                   result1 = null;
                   pos = pos2;
+                }
+                if (result1 === null) {
+                  pos2 = pos;
+                  result1 = parse_b();
+                  if (result1 !== null) {
+                    result2 = parse_i();
+                    if (result2 !== null) {
+                      result3 = parse_H();
+                      if (result3 !== null) {
+                        result4 = parse_a();
+                        if (result4 !== null) {
+                          result5 = parse_i();
+                          if (result5 !== null) {
+                            result1 = [result1, result2, result3, result4, result5];
+                          } else {
+                            result1 = null;
+                            pos = pos2;
+                          }
+                        } else {
+                          result1 = null;
+                          pos = pos2;
+                        }
+                      } else {
+                        result1 = null;
+                        pos = pos2;
+                      }
+                    } else {
+                      result1 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result1 = null;
+                    pos = pos2;
+                  }
                 }
               }
             }
@@ -53556,7 +53609,7 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4;
+        var result0, result1, result2, result3, result4, result5;
         var pos0, pos1, pos2;
         
         pos0 = pos;
@@ -53573,15 +53626,21 @@ var camxes = (function(){
         }
         if (result0 !== null) {
           pos2 = pos;
-          result1 = parse_m();
+          result1 = parse_l();
           if (result1 !== null) {
-            result2 = parse_e();
+            result2 = parse_i();
             if (result2 !== null) {
               result3 = parse_H();
               if (result3 !== null) {
-                result4 = parse_o();
+                result4 = parse_a();
                 if (result4 !== null) {
-                  result1 = [result1, result2, result3, result4];
+                  result5 = parse_i();
+                  if (result5 !== null) {
+                    result1 = [result1, result2, result3, result4, result5];
+                  } else {
+                    result1 = null;
+                    pos = pos2;
+                  }
                 } else {
                   result1 = null;
                   pos = pos2;
@@ -53600,11 +53659,23 @@ var camxes = (function(){
           }
           if (result1 === null) {
             pos2 = pos;
-            result1 = parse_l();
+            result1 = parse_m();
             if (result1 !== null) {
-              result2 = parse_i();
+              result2 = parse_e();
               if (result2 !== null) {
-                result1 = [result1, result2];
+                result3 = parse_H();
+                if (result3 !== null) {
+                  result4 = parse_o();
+                  if (result4 !== null) {
+                    result1 = [result1, result2, result3, result4];
+                  } else {
+                    result1 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result1 = null;
+                  pos = pos2;
+                }
               } else {
                 result1 = null;
                 pos = pos2;
@@ -53612,6 +53683,22 @@ var camxes = (function(){
             } else {
               result1 = null;
               pos = pos2;
+            }
+            if (result1 === null) {
+              pos2 = pos;
+              result1 = parse_l();
+              if (result1 !== null) {
+                result2 = parse_i();
+                if (result2 !== null) {
+                  result1 = [result1, result2];
+                } else {
+                  result1 = null;
+                  pos = pos2;
+                }
+              } else {
+                result1 = null;
+                pos = pos2;
+              }
             }
           }
           if (result1 !== null) {

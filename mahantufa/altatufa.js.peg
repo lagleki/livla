@@ -1828,7 +1828,7 @@ ZOhU = &cmavo expr:( c e H a i / z o H u ) &post_word {return ["ZOhU", _join(exp
 
 // ___ EXPERIMENTAL SELMAHO ___ //
 
-ZOhOI = &cmavo expr:( z o H o i / l a H o i ) &post_word {return ["ZOhOI", _join(expr)];}
+ZOhOI = &cmavo expr:( z o H o i / l a H o i / j u H o i) &post_word {return ["ZOhOI", _join(expr)];}
 MEhOI = &cmavo expr:( m e H o i ) &post_word {return ["ZOhOI", _join(expr)];}
 NOhOI = &cmavo expr:( n o H o i / p o H o i ) &post_word {return ["NOhOI", _join(expr)];}
 KUhOI = &cmavo expr:( k u H o i ) &post_word {return ["KUhOI", _join(expr)];}

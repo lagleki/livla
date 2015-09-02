@@ -206,7 +206,7 @@ bridi_tail = expr:(bridi_tail_1 (joik_gihek stag? bridi_tail_1)*) {return _node(
 bridi_tail_1 = expr:(bridi_tail_2 (joik_gihek !(stag? BO_clause) !(stag? KE_clause) CU_space bridi_tail_2)* tail_loi_sumsmi?) {return _node("bridi_tail_1", expr);}
 //todo: remove harcoded bo_clauses here
 bridi_tail_2 = expr:(bridi_tail_3 ((jebo / joik_gihek stag? BO_clause) CU_space bridi_tail_3 tail_loi_sumsmi)*) {return _node("bridi_tail_2", expr);}
-bridi_tail_3 = expr:(KE_space_bridi_tail_3 tail_loi_sumsmi / loisumsmiBFZAM? (gek_sentence / selbri_may_elide) tail_loi_sumsmi) {return _node("bridi_tail_3", expr);}
+bridi_tail_3 = expr:(KE_space_bridi_tail_3 / loisumsmiBFZAM? (gek_sentence / selbri_may_elide)) {return _node("bridi_tail_3", expr);}
 KE_space_bridi_tail_3 = expr:(KE_clause full_INT* !(selbri_2 KEhE) bridi_tail KEhE_elidible full_INT*) {return _node("KE_space_bridi_tail_3", expr);}
 
 gek_bridi_tail = expr:(tagBAM_0* (gek bridi_tail gik bridi_tail / KE_space_gek_bridi_tail)) {return _node("gek_bridi_tail", expr);}
@@ -405,7 +405,7 @@ sumti_3 = expr:(sumti_4_declaration / sumti_4_slice) {return _node("sumti_3", ex
 
 sumti_4_declaration = expr:(sumti_5_declaration) {return _node("sumti_4_declaration", expr);}
 sumti_5_declaration = expr:((full_NAhE sumti_6_declaration / sumti_6_declaration full_NAICAI?) full_INT* relative_clauses?) {return _node("sumti_5_declaration", expr);}
-sumti_6_declaration = expr:(LAhE_NAhE relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_clause / LE_clause full_INT* se_gadri_be_zo_lo) {return _node("sumti_6_declaration", expr);}
+sumti_6_declaration = expr:(LAhE_NAhE relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / ZOhOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_clause / LE_clause full_INT* se_gadri_be_zo_lo) {return _node("sumti_6_declaration", expr);}
 sumti_4_slice = expr:(mex !ROI_clause full_INT* (sumti_5_declaration / sumti_5_slice)) {return _node("sumti_4_slice", expr);}
 sumti_5_slice = expr:(sumti_6_slice full_NAICAI? full_INT*) {return _node("sumti_5_slice", expr);}
 sumti_6_slice = expr:(se_gadri_be_zo_lo) {return _node("sumti_6_slice", expr);}
@@ -1301,7 +1301,7 @@ zoi_word = expr:( w:(non_space+) spaces &{ return (! _zoi_check_quote(w)); } ) {
 zoi_close = w:lojban_word &{ return (_zoi_check_delim(w)); }
 
 //// EXP-MODIF: ZOhOI/MEhOI implementation
-zohoi_word = non_space+ {return "~";} 
+zohoi_word = (dot / non_space)+ {return "~";} 
 
 //___________________________________________________________________
 
@@ -1536,6 +1536,7 @@ pause = expr:(comma* space_char+ / EOF)  {return _join(expr);}
 EOF = expr:(comma* !.)  {return _join(expr);}
 
 comma = [,] {return "";}
+dot = [.] {return "";}
 
 non_lojban_word = expr:(!lojban_word non_space+)  {return _join(expr);}
 
@@ -1827,7 +1828,7 @@ ZOhU = &cmavo expr:( c e H a i / z o H u ) &post_word {return ["ZOhU", _join(exp
 
 // ___ EXPERIMENTAL SELMAHO ___ //
 
-ZOhOI = &cmavo expr:( z o H o i / l a H o i ) &post_word {return ["ZOhOI", _join(expr)];}
+ZOhOI = &cmavo expr:( z o H o i / l a H o i / j u H o i) &post_word {return ["ZOhOI", _join(expr)];}
 MEhOI = &cmavo expr:( m e H o i ) &post_word {return ["ZOhOI", _join(expr)];}
 NOhOI = &cmavo expr:( n o H o i / p o H o i ) &post_word {return ["NOhOI", _join(expr)];}
 KUhOI = &cmavo expr:( k u H o i ) &post_word {return ["KUhOI", _join(expr)];}

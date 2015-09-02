@@ -143,7 +143,7 @@ faho_clause = expr:((FAhO_clause dot_star)?) {return _node("faho_clause", expr);
 // INTERJECTIONS
 full_INT = expr:(FUhE_clause? (INT_root  INT_suffix? / INT_root_elided INT_suffix)+ FUhO_clause?){return _node("full interjection", expr); }
 INT_root = expr:(UI_clause !BU_clause full_NAICAI? / free){return _node("interjection root", expr); }
-INT_suffix = expr:((ROhA_clause !BU_clause full_NAICAI?)+){return _node("interjection categorizer", expr); }
+INT_suffix = expr:((DAI_clause !BU_clause full_NAICAI?)+){return _node("interjection categorizer", expr); }
 INT_root_elided = expr:(JUhA_elided_clause !BU_clause){return _node("interjection root elided", expr); }
 free = expr:(SEI_clause bridi_sei SEhU_elidible / vocative (sumti_le_elidible / sumtido) DOhU_elidible / mex MAI_clause / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
 free_xohe = expr:(mex_2_xohe MAI_clause) {return _node("free", expr); }
@@ -203,7 +203,7 @@ KE_space_gek_sentence = expr:(KE_clause full_INT* gek_sentence KEhE_elidible ful
 
 //BRIDI TAIL
 bridi_tail = expr:(bridi_tail_1 (joik_gihek stag? bridi_tail_1)*) {return _node("bridi_tail", expr);}
-bridi_tail_1 = expr:(bridi_tail_2 ((joik_gihek / joik_gihek_elided) !(stag? BO_clause) !(stag? KE_clause) CU_space bridi_tail_2)* tail_loi_sumsmi?) {return _node("bridi_tail_1", expr);}
+bridi_tail_1 = expr:(bridi_tail_2 (joik_gihek !(stag? BO_clause) !(stag? KE_clause) CU_space bridi_tail_2)* tail_loi_sumsmi?) {return _node("bridi_tail_1", expr);}
 //todo: remove harcoded bo_clauses here
 bridi_tail_2 = expr:(bridi_tail_3 ((jebo / joik_gihek stag? BO_clause) CU_space bridi_tail_3 tail_loi_sumsmi)*) {return _node("bridi_tail_2", expr);}
 bridi_tail_3 = expr:(KE_space_bridi_tail_3 tail_loi_sumsmi / loisumsmiBFZAM? (gek_sentence / selbri_may_elide) tail_loi_sumsmi) {return _node("bridi_tail_3", expr);}
@@ -405,14 +405,14 @@ sumti_3 = expr:(sumti_4_declaration / sumti_4_slice) {return _node("sumti_3", ex
 
 sumti_4_declaration = expr:(sumti_5_declaration) {return _node("sumti_4_declaration", expr);}
 sumti_5_declaration = expr:((full_NAhE sumti_6_declaration / sumti_6_declaration full_NAICAI?) full_INT* relative_clauses?) {return _node("sumti_5_declaration", expr);}
-sumti_6_declaration = expr:(LAhE_NAhE relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_clause / LE_clause full_INT* sumti_core) {return _node("sumti_6_declaration", expr);}
+sumti_6_declaration = expr:(LAhE_NAhE relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_clause / LE_clause full_INT* se_gadri_be_zo_lo) {return _node("sumti_6_declaration", expr);}
 sumti_4_slice = expr:(mex !ROI_clause full_INT* (sumti_5_declaration / sumti_5_slice)) {return _node("sumti_4_slice", expr);}
 sumti_5_slice = expr:(sumti_6_slice full_NAICAI? full_INT*) {return _node("sumti_5_slice", expr);}
-sumti_6_slice = expr:(sumti_core) {return _node("sumti_6_slice", expr);}
+sumti_6_slice = expr:(se_gadri_be_zo_lo) {return _node("sumti_6_slice", expr);}
 
 LU_space = expr:(LU_clause text LIhU_elidible full_INT*) {return _node("LU_space", expr);}
 LOhU_space = expr:(LOhU_clause full_INT*) {return _node("LOhU_space", expr);}
-sumti_core = (relative_clauses_ne / relative_clauses?) (mex !ROI_clause)? bridi_sei relative_clauses? KU_elidible
+se_gadri_be_zo_lo = (relative_clauses_ne / relative_clauses?) (mex !ROI_clause)? bridi_sei relative_clauses? KU_elidible
 
 //todo: sumti structure is now new
 sumtinoi = expr:(sumti_1noi) {return _node("sumti", expr);}
@@ -450,7 +450,7 @@ sumti_3do = expr:(mex? KOhA_clausedo relative_clauses?) {return _node("sumti_3",
 sumti_le_elidible = expr:(sumti_1 / sumti_1_leless) {return _node("sumti", expr);}
 sumti_1_leless = expr:(sumti_2_leless) {return _node("sumti_1", expr);}
 sumti_2_leless = expr:(sumti_3_leless) {return _node("sumti_2", expr);}
-sumti_3_leless = expr:(LE_clause_elided sumti_core full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_3", expr);}
+sumti_3_leless = expr:(LE_clause_elided se_gadri_be_zo_lo full_NAICAI? full_INT* relative_clauses?) {return _node("sumti_3", expr);}
 
 //RAhABRI
 relative_clauses = expr:(relative_clause (joik relative_clause)* / gek relative_clauses gik relative_clauses) {return _node("relative_clauses", expr); }
@@ -542,10 +542,10 @@ ek = joik
 jek = joik
 joik_gihek = expr:(joik / gihek ) {return _node("joik_gihek", expr); }
 
-joik_gihek_elided = expr:(gihek_elided &selbri) {return _node("joik_gihek_elided", expr); }
-gihek_elided = expr:(gihenjoma_elided) {return _node("gihek_elided", expr); }
-gihenjoma_elided = expr:(kernelo_lo_gihenjoma_elided) {return _node("gihenjoma_elided", expr); }
-kernelo_lo_gihenjoma_elided = expr:(GIhA_clause_elided)
+//joik_gihek_elided = expr:(gihek_elided &selbri) {return _node("joik_gihek_elided", expr); }
+//gihek_elided = expr:(gihenjoma_elided) {return _node("gihek_elided", expr); }
+//gihenjoma_elided = expr:(kernelo_lo_gihenjoma_elided) {return _node("gihenjoma_elided", expr); }
+//kernelo_lo_gihenjoma_elided = expr:(GIhA_clause_elided)
 
 interval = expr:(cls* BIhI_clause crn) {return _node("interval", expr); }
 joik_jek = joik
@@ -1147,8 +1147,8 @@ TUhU_pre = pre_clause TUhU spaces?
 UI_clause = pre:UI_pre post:post_clause_limited {return _node2("UI_clause", pre, post); }
 UI_pre = pre_clause UI spaces?
 
-ROhA_clause = pre:ROhA_pre post:post_clause_limited {return _node2("ROhA_clause", pre, post); }
-ROhA_pre = pre_clause ROhA spaces?
+DAI_clause = pre:DAI_pre post:post_clause_limited {return _node2("DAI_clause", pre, post); }
+DAI_pre = pre_clause DAI spaces?
 
 JUhA_elided_clause = pre:JUhA_elided_pre post:post_clause_limited {return _node2("UI_clause", pre, post); }
 JUhA_elided_pre = pre_clause JUhA_elided spaces?
@@ -1779,7 +1779,7 @@ TUhU = &cmavo expr:( t u H u ) &post_word {return ["TUhU", _join(expr)];}
 
 UI = &cmavo expr:( d a H o / f u H a u / k o H o i / s i H a u / o H a i / x e H e / i H a / i e / a H e / u H i / i H o / i H e / a H a / i a / o Ih i / o H e / e H e / o i / u o / e Ih i / u H o / a u / u a / a Ih i / i H u / i i / u H a / u i / a H o / a i / a Ih u / i u / e i / o H o / e H a / u u / o H a / o H u / u H u / e H o / i o / e H u / u e / i H i / u H e / b a H a / j a H o / c a H e / s u H a / t i H e / k a Ih u / s e H o / z a H a / p e Ih i / r u H a / j u H a / t a H o / r a Ih u / l i H a / b a Ih u / m u H a / d o H a / t o H u / v a Ih i / p a H e / z u H u / s a H e / l a H a / k e H u / s a Ih u / d a Ih i / j e H u / s a H a / t a Ih u / b i H u / l i H o / p a u / m i H u / k u H i / j i H a / s i H a / p o H o / p e H a / l e H o / j u H o/ g a Ih i / v u H e / k i H a / x u / g e H e / s a / b i H a / z i H a) &post_word {return ["UI", _join(expr)];}
 
-ROhA = &cmavo expr:( k a u / d a i / s e Ih i / p e i / b u H o / n a Ih i / j o H a / r o Ih i / r o H e / r o H o / r o H u / r o H a / r e H e / z o H o / x o H o  / f u H i  / b e H u / r i H e / s e H a) &post_word {return ["ROhA", _join(expr)];}
+DAI = &cmavo expr:( k a u / d a i / s e Ih i / p e i / b u H o / n a Ih i / j o H a / r o Ih i / r o H e / r o H o / r o H u / r o H a / r e H e / z o H o / x o H o  / f u H i  / b e H u / r i H e / s e H a) &post_word {return ["DAI", _join(expr)];}
 
 JUhA_elided = &post_word {return ["JUhA elided", "JUhA"];}
 

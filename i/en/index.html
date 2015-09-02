@@ -19,8 +19,9 @@
 	.container .credit {
 		margin: 20px 0;
 	}
-	#typehere{height:auto;
+	#typehere{height:31px;
 		font-size:140%;
+		line-height:140%;
 	}
 
 	body {
@@ -166,7 +167,15 @@
 <body style="margin: 0;height: 100vh;">
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
-		<span id='plise'><a id='st' href="../"><img src="../sutysisku.png" height='16' width='16'><span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
+		<span id='plise'><a id='st' href="../"><img src="../sutysisku.png" height='16' width='16'><span class='site-title'><font color="#fff">la sutysisku</font></span></a></span>
+		<div style="
+		-webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 1;         /* OLD - Firefox 19- */
+  width: 20%;               /* For old syntax, otherwise collapses. */
+  -webkit-flex: 1;          /* Chrome */
+  -ms-flex: 1;              /* IE 10 */
+  flex: 1;     
+  "></div>
 		<input id='typehere' placeholder="search" type='text' autofocus>
 		</div>
 	</div>

@@ -66006,6 +66006,40 @@ var camxes = (function(){
               result1 = null;
               pos = pos2;
             }
+            if (result1 === null) {
+              pos2 = pos;
+              result1 = parse_j();
+              if (result1 !== null) {
+                result2 = parse_u();
+                if (result2 !== null) {
+                  result3 = parse_H();
+                  if (result3 !== null) {
+                    result4 = parse_o();
+                    if (result4 !== null) {
+                      result5 = parse_i();
+                      if (result5 !== null) {
+                        result1 = [result1, result2, result3, result4, result5];
+                      } else {
+                        result1 = null;
+                        pos = pos2;
+                      }
+                    } else {
+                      result1 = null;
+                      pos = pos2;
+                    }
+                  } else {
+                    result1 = null;
+                    pos = pos2;
+                  }
+                } else {
+                  result1 = null;
+                  pos = pos2;
+                }
+              } else {
+                result1 = null;
+                pos = pos2;
+              }
+            }
           }
           if (result1 !== null) {
             pos2 = pos;

@@ -226,7 +226,7 @@ var camxes = (function(){
         "sumti_6_slice": parse_sumti_6_slice,
         "LU_space": parse_LU_space,
         "LOhU_space": parse_LOhU_space,
-        "sumti_core": parse_sumti_core,
+        "se_gadri_be_zo_lo": parse_se_gadri_be_zo_lo,
         "sumtinoi": parse_sumtinoi,
         "sumti_1noi": parse_sumti_1noi,
         "sumti_2noi": parse_sumti_2noi,
@@ -319,10 +319,6 @@ var camxes = (function(){
         "jebo": parse_jebo,
         "joik": parse_joik,
         "joik_gihek": parse_joik_gihek,
-        "joik_gihek_elided": parse_joik_gihek_elided,
-        "gihek_elided": parse_gihek_elided,
-        "gihenjoma_elided": parse_gihenjoma_elided,
-        "kernelo_lo_gihenjoma_elided": parse_kernelo_lo_gihenjoma_elided,
         "interval": parse_interval,
         "gek": parse_gek,
         "gak": parse_gak,
@@ -619,8 +615,8 @@ var camxes = (function(){
         "TUhU_pre": parse_TUhU_pre,
         "UI_clause": parse_UI_clause,
         "UI_pre": parse_UI_pre,
-        "ROhA_clause": parse_ROhA_clause,
-        "ROhA_pre": parse_ROhA_pre,
+        "DAI_clause": parse_DAI_clause,
+        "DAI_pre": parse_DAI_pre,
         "JUhA_elided_clause": parse_JUhA_elided_clause,
         "JUhA_elided_pre": parse_JUhA_elided_pre,
         "VA_clause": parse_VA_clause,
@@ -884,7 +880,7 @@ var camxes = (function(){
         "TUhE": parse_TUhE,
         "TUhU": parse_TUhU,
         "UI": parse_UI,
-        "ROhA": parse_ROhA,
+        "DAI": parse_DAI,
         "JUhA_elided": parse_JUhA_elided,
         "CAI": parse_CAI,
         "NAhE": parse_NAhE,
@@ -1955,7 +1951,7 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result1 = parse_ROhA_clause();
+        result1 = parse_DAI_clause();
         if (result1 !== null) {
           pos2 = pos;
           reportFailures++;
@@ -1989,7 +1985,7 @@ var camxes = (function(){
           while (result1 !== null) {
             result0.push(result1);
             pos1 = pos;
-            result1 = parse_ROhA_clause();
+            result1 = parse_DAI_clause();
             if (result1 !== null) {
               pos2 = pos;
               reportFailures++;
@@ -3432,9 +3428,6 @@ var camxes = (function(){
           result1 = [];
           pos2 = pos;
           result2 = parse_joik_gihek();
-          if (result2 === null) {
-            result2 = parse_joik_gihek_elided();
-          }
           if (result2 !== null) {
             pos3 = pos;
             reportFailures++;
@@ -3515,9 +3508,6 @@ var camxes = (function(){
             result1.push(result2);
             pos2 = pos;
             result2 = parse_joik_gihek();
-            if (result2 === null) {
-              result2 = parse_joik_gihek_elided();
-            }
             if (result2 !== null) {
               pos3 = pos;
               reportFailures++;
@@ -12816,7 +12806,7 @@ var camxes = (function(){
                               result2 = parse_full_INT();
                             }
                             if (result1 !== null) {
-                              result2 = parse_sumti_core();
+                              result2 = parse_se_gadri_be_zo_lo();
                               if (result2 !== null) {
                                 result0 = [result0, result1, result2];
                               } else {
@@ -12987,7 +12977,7 @@ var camxes = (function(){
         var pos0;
         
         pos0 = pos;
-        result0 = parse_sumti_core();
+        result0 = parse_se_gadri_be_zo_lo();
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("sumti_6_slice", expr);})(pos0, result0);
         }
@@ -13104,8 +13094,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_sumti_core() {
-        var cacheKey = "sumti_core@" + pos;
+      function parse_se_gadri_be_zo_lo() {
+        var cacheKey = "se_gadri_be_zo_lo@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -14088,7 +14078,7 @@ var camxes = (function(){
         pos1 = pos;
         result0 = parse_LE_clause_elided();
         if (result0 !== null) {
-          result1 = parse_sumti_core();
+          result1 = parse_se_gadri_be_zo_lo();
           if (result1 !== null) {
             result2 = parse_full_NAICAI();
             result2 = result2 !== null ? result2 : "";
@@ -17987,128 +17977,6 @@ var camxes = (function(){
         if (result0 === null) {
           pos = pos0;
         }
-        
-        cache[cacheKey] = {
-          nextPos: pos,
-          result:  result0
-        };
-        return result0;
-      }
-      
-      function parse_joik_gihek_elided() {
-        var cacheKey = "joik_gihek_elided@" + pos;
-        var cachedResult = cache[cacheKey];
-        if (cachedResult) {
-          pos = cachedResult.nextPos;
-          return cachedResult.result;
-        }
-        
-        var result0, result1;
-        var pos0, pos1, pos2;
-        
-        pos0 = pos;
-        pos1 = pos;
-        result0 = parse_gihek_elided();
-        if (result0 !== null) {
-          pos2 = pos;
-          reportFailures++;
-          result1 = parse_selbri();
-          reportFailures--;
-          if (result1 !== null) {
-            result1 = "";
-            pos = pos2;
-          } else {
-            result1 = null;
-          }
-          if (result1 !== null) {
-            result0 = [result0, result1];
-          } else {
-            result0 = null;
-            pos = pos1;
-          }
-        } else {
-          result0 = null;
-          pos = pos1;
-        }
-        if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("joik_gihek_elided", expr); })(pos0, result0);
-        }
-        if (result0 === null) {
-          pos = pos0;
-        }
-        
-        cache[cacheKey] = {
-          nextPos: pos,
-          result:  result0
-        };
-        return result0;
-      }
-      
-      function parse_gihek_elided() {
-        var cacheKey = "gihek_elided@" + pos;
-        var cachedResult = cache[cacheKey];
-        if (cachedResult) {
-          pos = cachedResult.nextPos;
-          return cachedResult.result;
-        }
-        
-        var result0;
-        var pos0;
-        
-        pos0 = pos;
-        result0 = parse_gihenjoma_elided();
-        if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("gihek_elided", expr); })(pos0, result0);
-        }
-        if (result0 === null) {
-          pos = pos0;
-        }
-        
-        cache[cacheKey] = {
-          nextPos: pos,
-          result:  result0
-        };
-        return result0;
-      }
-      
-      function parse_gihenjoma_elided() {
-        var cacheKey = "gihenjoma_elided@" + pos;
-        var cachedResult = cache[cacheKey];
-        if (cachedResult) {
-          pos = cachedResult.nextPos;
-          return cachedResult.result;
-        }
-        
-        var result0;
-        var pos0;
-        
-        pos0 = pos;
-        result0 = parse_kernelo_lo_gihenjoma_elided();
-        if (result0 !== null) {
-          result0 = (function(offset, expr) {return _node("gihenjoma_elided", expr); })(pos0, result0);
-        }
-        if (result0 === null) {
-          pos = pos0;
-        }
-        
-        cache[cacheKey] = {
-          nextPos: pos,
-          result:  result0
-        };
-        return result0;
-      }
-      
-      function parse_kernelo_lo_gihenjoma_elided() {
-        var cacheKey = "kernelo_lo_gihenjoma_elided@" + pos;
-        var cachedResult = cache[cacheKey];
-        if (cachedResult) {
-          pos = cachedResult.nextPos;
-          return cachedResult.result;
-        }
-        
-        var result0;
-        
-        result0 = parse_GIhA_clause_elided();
         
         cache[cacheKey] = {
           nextPos: pos,
@@ -30882,8 +30750,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_ROhA_clause() {
-        var cacheKey = "ROhA_clause@" + pos;
+      function parse_DAI_clause() {
+        var cacheKey = "DAI_clause@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -30895,7 +30763,7 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_ROhA_pre();
+        result0 = parse_DAI_pre();
         if (result0 !== null) {
           result1 = parse_post_clause_limited();
           if (result1 !== null) {
@@ -30909,7 +30777,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, pre, post) {return _node2("ROhA_clause", pre, post); })(pos0, result0[0], result0[1]);
+          result0 = (function(offset, pre, post) {return _node2("DAI_clause", pre, post); })(pos0, result0[0], result0[1]);
         }
         if (result0 === null) {
           pos = pos0;
@@ -30922,8 +30790,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_ROhA_pre() {
-        var cacheKey = "ROhA_pre@" + pos;
+      function parse_DAI_pre() {
+        var cacheKey = "DAI_pre@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -30936,7 +30804,7 @@ var camxes = (function(){
         pos0 = pos;
         result0 = parse_pre_clause();
         if (result0 !== null) {
-          result1 = parse_ROhA();
+          result1 = parse_DAI();
           if (result1 !== null) {
             result2 = parse_spaces();
             result2 = result2 !== null ? result2 : "";
@@ -61906,8 +61774,8 @@ var camxes = (function(){
         return result0;
       }
       
-      function parse_ROhA() {
-        var cacheKey = "ROhA@" + pos;
+      function parse_DAI() {
+        var cacheKey = "DAI@" + pos;
         var cachedResult = cache[cacheKey];
         if (cachedResult) {
           pos = cachedResult.nextPos;
@@ -62468,7 +62336,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset, expr) {return ["ROhA", _join(expr)];})(pos0, result0[1]);
+          result0 = (function(offset, expr) {return ["DAI", _join(expr)];})(pos0, result0[1]);
         }
         if (result0 === null) {
           pos = pos0;

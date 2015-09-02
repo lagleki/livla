@@ -1,34 +1,36 @@
-''&apos; (letter)''  –  '''y'y'''
-
-''%''  –  '''ce'i'''
+''%''  –  '''ce&apos;i'''
 
 ''&#44; (comma)''  –  '''slaka bu'''
 
+''&apos; (letter)''  –  '''y&apos;y'''
+
 ''( (bracket)''  –  '''vei'''
 
-'') (bracket)''  –  '''ve'o'''
+'') (bracket)''  –  '''ve&apos;o'''
+
+''+ (addition operator)''  –  '''su&apos;i'''
 
 ''. (symbol)''  –  '''denpa bu'''
 
-''/ (division operator)''  –  '''fe'i'''
+''/ (division operator)''  –  '''fe&apos;i'''
 
 ''0''  –  '''no'''
 
 ''1''  –  '''pa'''
 
-''1/100''  –  '''lo centi'''
-
 ''1/10''  –  '''lo decti'''
+
+''1/100''  –  '''lo centi'''
 
 ''1/2''  –  '''lo xadba'''
 
 ''10''  –  '''dau'''
 
-''1000''  –  '''lo kilto'''
+''10''  –  '''lo dekto'''
 
 ''100''  –  '''lo xecto'''
 
-''10''  –  '''lo dekto'''
+''1000''  –  '''lo kilto'''
 
 ''11''  –  '''fei'''
 
@@ -42,7 +44,7 @@
 
 ''2''  –  '''re'''
 
-''2.71828 ... (number)''  –  '''te'o'''
+''2.71828 ... (number)''  –  '''te&apos;o'''
 
 ''3''  –  '''ci'''
 
@@ -64,139 +66,9 @@
 
 ''A (hex digit)''  –  '''dau'''
 
-''Africa''  –  '''la  Afrik'''
-
-''African''  –  '''lo friko'''
-
-''Alice''  –  '''la Alis'''
-
-''America''  –  '''la Amerik'''
-
-''Anne (personal name)''  –  '''la An'''
-
-''Asia''  –  '''la Asi'as'''
-
-''Asiatic''  –  '''lo xazdo'''
-
-''At ease!''  –  '''ju'i cu'i'''
-
-''Australia''  –  '''la Australi'as'''
-
-''Australian''  –  '''lo sralo'''
-
-''B (hex digit)''  –  '''fei'''
-
-''Beijing''  –  '''la Beidzin'''
-
-''Blah! (weariness)''  –  '''u'i nai'''
-
-''C (hex digit)''  –  '''gai'''
-
-''California''  –  '''la Kaliforni'as'''
-
-''Christian''  –  '''lo xriso'''
-
-''D (hex digit)''  –  '''jau'''
-
-''E (hex digit)''  –  '''xei'''
-
-''Eduard (personal name)''  –  '''la Edvard'''
-
-''Europe''  –  '''la E'uropas'''
-
-''European''  –  '''lo ropno'''
-
-''Eww! (repulsion)''  –  '''a'u nai'''
-
-''F (hex digit)''  –  '''vai'''
-
-''Gah! (despair)''  –  '''a'o nai'''
-
-''Ho-hum (disinterest)''  –  '''a'u cu'i'''
-
-''Hong Kong''  –  '''la Si'angan'''
-
-''I''  –  '''mi'''
-
-''I am ... (self-identification of the speaker)''  –  '''mi'e'''
-
-''I am done talking''  –  '''mu'o'''
-
-''I am not (denial of the speaker&apos;s identity)''  –  '''mi'e nai'''
-
-''I and you''  –  '''mi'o'''
-
-''I got your message''  –  '''je'e'''
-
-''I have no idea! (lack of certainty)''  –  '''ju'o nai'''
-
-''I heard you''  –  '''ke'o nai'''
-
-''I promise''  –  '''nu'e'''
-
-''I repeat''  –  '''ke'u'''
-
-''I understand (understanding about something said)''  –  '''ki'a nai'''
-
-''I&apos;m sure (certainty)''  –  '''ju'o'''
-
-''IRC user''  –  '''lo irci'''
-
-''Ignore me!''  –  '''ju'i nai'''
-
-''Japan''  –  '''la Nipon'''
-
-''Jasmine (personal name)''  –  '''la Jasmin'''
-
-''Kevin (personal name)''  –  '''la Kevin'''
-
-''Let&apos;s (suggestion)''  –  '''e'u'''
-
-''Lojban (language)''  –  '''la Lojban'''
-
-''Lojbanic''  –  '''lo lojbo'''
-
-''Lojbanist''  –  '''lo jbopre'''
-
-''London''  –  '''la London'''
-
-''Mei Li (personal name)''  –  '''la Meilis'''
-
-''Moon (major natural satellite)''  –  '''lo lunra'''
-
-''Moscow''  –  '''la Moskov'''
-
-''Moslem''  –  '''lo muslo'''
-
-''Muslim''  –  '''lo muslo'''
-
-''Nevermind!''  –  '''ju'i nai'''
-
-''New York''  –  '''la Nuiork'''
-
-''North American''  –  '''lo bemro'''
-
-''OK (acceptance)''  –  '''i'a'''
-
-''Paris''  –  '''la Paris'''
-
-''Russia''  –  '''la Rosi'as'''
-
-''South American''  –  '''lo ketco'''
-
-''Taoist''  –  '''lo dadjo'''
-
-''Tokio''  –  '''la Toki'os'''
-
-''U.S. (American)''  –  '''lo merko'''
-
-''Yuck! (repulsion)''  –  '''a'u nai'''
-
-''+ (addition operator)''  –  '''su'i'''
-
 ''a (letter)''  –  '''a bu'''
 
-''a/an (one)''  –  '''lo''', '''lo pa'''
+''a/an (one)''  –  '''lo, lo pa'''
 
 ''abdomen''  –  '''lo betfu'''
 
@@ -210,13 +82,17 @@
 
 ''<small>which is</small> about ...''  –  '''ne'''
 
-''about to ...''  –  '''pu'o'''
+''about to ...''  –  '''pu&apos;o'''
 
-''above''  –  '''ga'u'''
+''above''  –  '''ga&apos;u'''
 
-''<small>to</small> abrade''  –  '''guska''', '''sraku'''
+''<small>to</small> abrade''  –  '''guska'''
 
-''abrasive''  –  '''lo guska''', '''lo sraku'''
+''<small>to</small> abrade''  –  '''sraku'''
+
+''abrasive''  –  '''lo guska'''
+
+''abrasive''  –  '''lo sraku'''
 
 ''<small>to</small> absorb''  –  '''cokcu'''
 
@@ -240,7 +116,9 @@
 
 ''account (history)''  –  '''lo citri'''
 
-''account (registry to a service)''  –  '''lo jaspu''', '''lo jaspu'''
+''account (registry to a service)''  –  '''lo jaspu'''
+
+''account (registry to a service)''  –  '''lo jaspu'''
 
 ''accountable for''  –  '''lo fuzme'''
 
@@ -250,7 +128,7 @@
 
 ''acquired''  –  '''lo se cpacu'''
 
-''across ... (on the opposite side)''  –  '''ze'o'''
+''across ... (on the opposite side)''  –  '''ze&apos;o'''
 
 ''<small>to</small> act''  –  '''zukte'''
 
@@ -270,11 +148,11 @@
 
 ''actual (not just apparent or even false)''  –  '''lo fatci'''
 
-''actually ...''  –  '''ca'a'''
+''actually ...''  –  '''ca&apos;a'''
 
 ''<small>to</small> add''  –  '''jmina'''
 
-''additionally''  –  '''ji'a'''
+''additionally''  –  '''ji&apos;a'''
 
 ''address''  –  '''lo judri'''
 
@@ -284,7 +162,7 @@
 
 ''adjacent''  –  '''lo lamji'''
 
-''adjacent to ...''  –  '''re'o'''
+''adjacent to ...''  –  '''re&apos;o'''
 
 ''<small>to</small> adjust''  –  '''stika'''
 
@@ -302,9 +180,13 @@
 
 ''afraid of''  –  '''lo terpa'''
 
+''Africa''  –  '''la afrik'''
+
+''African''  –  '''lo friko'''
+
 ''after ... (in time)''  –  '''ba'''
 
-''again''  –  '''za'u re'u'''
+''again''  –  '''za&apos;u re&apos;u'''
 
 ''age''  –  '''lo se renvi'''
 
@@ -320,9 +202,9 @@
 
 ''aha! (discovery)''  –  '''ua'''
 
-''ahem!''  –  '''ju'i'''
+''ahem!''  –  '''ju&apos;i'''
 
-''ahoy! (greeting in a piratic manner)''  –  '''a'oi'''
+''ahoy! (greeting in a piratic manner)''  –  '''a&apos;oi'''
 
 ''ailment treated''  –  '''lo te mikce'''
 
@@ -342,6 +224,8 @@
 
 ''ale''  –  '''lo birje'''
 
+''Alice''  –  '''la alis'''
+
 ''alien''  –  '''lo fange'''
 
 ''alive''  –  '''lo jmive'''
@@ -352,45 +236,55 @@
 
 ''all''  –  '''ro'''
 
-''all but ...''  –  '''da'a'''
+''all but ...''  –  '''da&apos;a'''
 
-''all except ...''  –  '''da'a'''
+''all except ...''  –  '''da&apos;a'''
 
 ''alley''  –  '''lo klaji'''
 
-''allow''  –  '''e'a'''
+''allow''  –  '''e&apos;a'''
 
 ''<small>to</small> allow''  –  '''permite'''
 
-''almost (about to be)''  –  '''so'a va'e'''
+''almost (about to be)''  –  '''so&apos;a va&apos;e'''
 
-''almost all''  –  '''so'a'''
+''almost all''  –  '''so&apos;a'''
 
-''alone''  –  '''ka'ai no drata''', '''lo sepli'''
+''alone''  –  '''ka&apos;ai no drata'''
 
-''alone (without help)''  –  '''si'u nai'''
+''alone''  –  '''lo sepli'''
 
-''along a line''  –  '''vi'i'''
+''alone (without help)''  –  '''si&apos;u nai'''
+
+''along a line''  –  '''vi&apos;i'''
+
+''along with ...''  –  '''jo&apos;u'''
 
 ''along with...''  –  '''ce'''
 
-''alongside ...''  –  '''zo'a'''
+''alongside ...''  –  '''zo&apos;a'''
 
 ''alphabetic symbol''  –  '''lo lerfu'''
 
-''already''  –  '''ca'o''', '''xa'o'''
+''already''  –  '''ca&apos;o'''
 
-''also''  –  '''ji'a'''
+''already''  –  '''xa&apos;o'''
 
-''although''  –  '''ku'i'''
+''also''  –  '''ji&apos;a'''
+
+''although''  –  '''ku&apos;i'''
 
 ''always''  –  '''ro roi'''
+
+''America''  –  '''la amerik'''
+
+''American (of the United States)''  –  '''lo merko'''
 
 ''<small>to be</small> among (between)''  –  '''jbini'''
 
 ''<small>to be</small> among''  –  '''me'''
 
-''among others''  –  '''po'o nai'''
+''among others''  –  '''po&apos;o nai'''
 
 ''amount''  –  '''lo se klani'''
 
@@ -406,19 +300,39 @@
 
 ''ancestor''  –  '''lo dzena'''
 
-''and''  –  '''gi'e''', '''je, zi'e'''
+''and''  –  '''e'''
+
+''and''  –  '''ge'''
+
+''and''  –  '''gi&apos;e'''
+
+''and''  –  '''gu&apos;e'''
+
+''and''  –  '''je'''
+
+''and''  –  '''zi&apos;e'''
 
 ''and also ...''  –  '''ce'''
 
-''and not''  –  '''gi'e nai'''
+''and also ...''  –  '''jo&apos;u'''
 
-''and respectively ...''  –  '''fa'u'''
+''and not''  –  '''gi&apos;e nai'''
 
-''and so on ...''  –  '''li'o'''
+''and respectively ...''  –  '''fa&apos;u'''
 
-''and then ...''  –  '''ce'o'''
+''and so on ...''  –  '''li&apos;o'''
 
-''and/or''  –  '''gi'a''', '''ja'''
+''and then ...''  –  '''ce&apos;o'''
+
+''and/or''  –  '''a'''
+
+''and/or''  –  '''ga'''
+
+''and/or''  –  '''gi&apos;a'''
+
+''and/or''  –  '''gu&apos;a'''
+
+''and/or''  –  '''ja'''
 
 ''angle''  –  '''lo jganu'''
 
@@ -429,6 +343,8 @@
 ''animal of family Crocodylidae''  –  '''lo krokodilo'''
 
 ''ankle''  –  '''lo tornozelo'''
+
+''Anne (personal name)''  –  '''la an'''
 
 ''<small>to</small> annoy''  –  '''fanza'''
 
@@ -446,25 +362,27 @@
 
 ''ant''  –  '''lo manti'''
 
-''anti-''  –  '''to'e'''
+''anti-''  –  '''to&apos;e'''
 
 ''anus''  –  '''lo ganxo'''
 
 ''anxious''  –  '''lo xanka'''
 
-''anyway''  –  '''ta'i ro da'''
+''anyway''  –  '''ta&apos;i ro da'''
 
-''apostrophe''  –  '''y'y'''
+''apostrophe''  –  '''y&apos;y'''
 
 ''apparatus''  –  '''lo cabra'''
 
-''<small>to</small> appear''  –  '''to'e canci'''
+''<small>to</small> appear''  –  '''to&apos;e canci'''
 
 ''apple''  –  '''lo plise'''
 
 ''<small>to</small> approve of''  –  '''zanru'''
 
-''approximately ...''  –  '''ji'i'''
+''approximately ...''  –  '''ji&apos;i'''
+
+''Arabic''  –  '''lo xrabo'''
 
 ''arch''  –  '''lo bargu'''
 
@@ -482,7 +400,7 @@
 
 ''army of soldiers''  –  '''lo se sonci'''
 
-''around''  –  '''ru'u'''
+''around''  –  '''ru&apos;u'''
 
 ''<small>to</small> arrange (organize)''  –  '''ganzu'''
 
@@ -496,13 +414,13 @@
 
 ''as (in the manner)''  –  '''tai'''
 
-''as (to the same degree)''  –  '''du'i'''
+''as (to the same degree)''  –  '''du&apos;i'''
 
-''as I already said''  –  '''ke'u'''
+''as I already said''  –  '''ke&apos;u'''
 
-''as much as ...''  –  '''du'i'''
+''as much as ...''  –  '''du&apos;i'''
 
-''as said by ...''  –  '''cu'u'''
+''as said by ...''  –  '''cu&apos;u'''
 
 ''as soon as''  –  '''ba zi'''
 
@@ -511,6 +429,10 @@
 ''ashamed''  –  '''lo ckeji'''
 
 ''ashes''  –  '''festi lo nu fagri'''
+
+''Asia''  –  '''la asi&apos;as'''
+
+''Asiatic''  –  '''lo xazdo'''
 
 ''<small>to</small> ask''  –  '''retsku'''
 
@@ -536,21 +458,25 @@
 
 ''<small>to</small> astonish''  –  '''marvele'''
 
-''at ... (some place)''  –  '''bu'u'''
+''at ... (some place)''  –  '''bu&apos;u'''
 
 ''at ... (some time)''  –  '''ca'''
 
 ''at any time''  –  '''ca ro da'''
 
+''At ease!''  –  '''ju&apos;i cu&apos;i'''
+
 ''at first''  –  '''pa mai'''
 
-''at least''  –  '''do'a nai'''
+''at least''  –  '''do&apos;a nai'''
 
-''at least ...''  –  '''su'o'''
+''at least ...''  –  '''su&apos;o'''
 
-''at most ...''  –  '''su'e'''
+''at most ...''  –  '''su&apos;e'''
 
-''atom''  –  '''lo ratni''', '''lo selci'''
+''atom''  –  '''lo ratni'''
+
+''atom''  –  '''lo selci'''
 
 ''atomic number''  –  '''lo se ratni'''
 
@@ -560,7 +486,7 @@
 
 ''attacker''  –  '''lo gunta'''
 
-''attention!''  –  '''ju'i'''
+''attention!''  –  '''ju&apos;i'''
 
 ''attentive''  –  '''lo jundi'''
 
@@ -572,11 +498,17 @@
 
 ''audacious behaviour''  –  '''lo se darsi'''
 
-''audience''  –  '''lo te cusku''', '''lo te smusku'''
+''audience''  –  '''lo te cusku'''
+
+''audience''  –  '''lo te smusku'''
 
 ''audience of a performance''  –  '''lo te tigni'''
 
 ''aunt''  –  '''lo famti'''
+
+''Australia''  –  '''la australi&apos;as'''
+
+''Australian''  –  '''lo sralo'''
 
 ''automatic''  –  '''lo zmiku'''
 
@@ -590,7 +522,7 @@
 
 ''aware''  –  '''lo sanji'''
 
-''away from ...''  –  '''to'o'''
+''away from ...''  –  '''to&apos;o'''
 
 ''awful''  –  '''lo mabla'''
 
@@ -602,13 +534,17 @@
 
 ''axle of a pulley''  –  '''lo te pulni'''
 
+''B (hex digit)''  –  '''fei'''
+
 ''b (letter)''  –  '''by'''
 
 ''baby''  –  '''lo cifnu'''
 
 ''back (of body)''  –  '''lo bekpi'''
 
-''back to the main point''  –  '''ta'o nai'''
+''back to the main point''  –  '''ta&apos;o nai'''
+
+''backbone''  –  '''loi verteba'''
 
 ''bacteria''  –  '''lo jurme'''
 
@@ -656,7 +592,7 @@
 
 ''base of a logarithm''  –  '''lo te dugri'''
 
-''based on ...''  –  '''se ji'u'''
+''based on ...''  –  '''se ji&apos;u'''
 
 ''basic''  –  '''lo jicmu'''
 
@@ -684,11 +620,13 @@
 
 ''beautiful''  –  '''lo melbi'''
 
-''because of reason ...''  –  '''ki'u'''
+''because of reason ...''  –  '''ki&apos;u'''
 
-''because of the cause ...''  –  '''ri'a'''
+''because of the cause ...''  –  '''ri&apos;a'''
 
-''<small>to</small> become''  –  '''binxo''', '''co'a'''
+''<small>to</small> become''  –  '''binxo'''
+
+''<small>to</small> become''  –  '''co&apos;a'''
 
 ''bed''  –  '''lo ckana'''
 
@@ -716,15 +654,17 @@
 
 ''behaviour''  –  '''lo se tarti'''
 
-''behind''  –  '''ti'a'''
+''behind''  –  '''ti&apos;a'''
+
+''Beijing''  –  '''la beidzin'''
 
 ''<small>live</small> being''  –  '''lo jmive'''
 
-''being a replacement of ...''  –  '''se ba'i'''
+''being a replacement of ...''  –  '''se ba&apos;i'''
 
 ''being most in ...''  –  '''se rai'''
 
-''being observed''  –  '''ga'a'''
+''being observed''  –  '''ga&apos;a'''
 
 ''belief (fact in which one believes)''  –  '''lo se krici'''
 
@@ -742,6 +682,8 @@
 
 ''<small>to</small> belong to (the group)''  –  '''me'''
 
+''belonging to Hindi''  –  '''lo xindo'''
+
 ''bench''  –  '''lo stizu'''
 
 ''benefit''  –  '''lo prali'''
@@ -752,25 +694,33 @@
 
 ''berry''  –  '''lo jbari'''
 
-''besides''  –  '''ta'o ji'a'''
+''besides''  –  '''ta&apos;o ji&apos;a'''
 
-''best''  –  '''traji lo ka xamgu''', '''lo traji be lo ka zabna, lo te rai zabna'''. ,
+''best''  –  '''lo traji be lo ka zabna, lo te rai zabna'''
 
-''better''  –  '''zmadu fi lo ka xamgu''', '''se mau xau'''. ,
+''best''  –  '''traji lo ka xamgu'''
 
-''between ... and ...''  –  '''bi'i'''
+''better''  –  '''se mau xau'''
 
-''between ... and ... (ordered)''  –  '''bi'o'''
+''better''  –  '''zmadu fi lo ka xamgu'''
+
+''between ... and ...''  –  '''bi&apos;i'''
+
+''between ... and ... (ordered)''  –  '''bi&apos;o'''
 
 ''<small>to be</small> between''  –  '''jbini'''
 
-''between me and ...''  –  '''ca'u'''
+''between me and ...''  –  '''ca&apos;u'''
 
-''beyond ...''  –  '''ze'o'''
+''beverage''  –  '''lo se pinxe'''
+
+''beyond ...''  –  '''ze&apos;o'''
 
 ''<small>to</small> bid farewell to''  –  '''tolrinsa'''
 
-''big''  –  '''lo barda''', '''ve'u'''
+''big''  –  '''lo barda'''
+
+''big''  –  '''ve&apos;u'''
 
 ''bill''  –  '''lo janta'''
 
@@ -796,7 +746,11 @@
 
 ''black''  –  '''lo xekri'''
 
-''blade''  –  '''lo balre''', '''lo guska'''
+''blade''  –  '''lo balre'''
+
+''blade''  –  '''lo guska'''
+
+''Blah! (weariness)''  –  '''u&apos;i nai'''
 
 ''blanket''  –  '''lo boxfo'''
 
@@ -834,7 +788,7 @@
 
 ''bone''  –  '''lo bongu'''
 
-''boo! (disapproval)''  –  '''i'e nai'''
+''boo! (disapproval)''  –  '''i&apos;e nai'''
 
 ''book''  –  '''lo cukta'''
 
@@ -876,6 +830,8 @@
 
 ''brave''  –  '''lo virnu'''
 
+''Brazilian''  –  '''lo brazo'''
+
 ''bread''  –  '''lo nanba'''
 
 ''<small>to</small> break''  –  '''porpi'''
@@ -906,7 +862,7 @@
 
 ''broadcasting station''  –  '''lo te cradi'''
 
-''broadly construed''  –  '''do'a'''
+''broadly construed''  –  '''do&apos;a'''
 
 ''broken''  –  '''lo spofu'''
 
@@ -932,6 +888,8 @@
 
 ''buckwheat''  –  '''lo xruba'''
 
+''Buddhist''  –  '''lo budjo'''
+
 ''<small>to</small> build (form by combining materials)''  –  '''zbasu'''
 
 ''building''  –  '''lo dinju'''
@@ -947,6 +905,8 @@
 ''bullet''  –  '''lo danti'''
 
 ''bundle''  –  '''lo bakfu'''
+
+''<small>to</small> burn''  –  '''jelca'''
 
 ''<small>to</small> burn''  –  '''se fagri'''
 
@@ -964,7 +924,7 @@
 
 ''busy''  –  '''lo zukcfu'''
 
-''but''  –  '''ku'i'''
+''but''  –  '''ku&apos;i'''
 
 ''butter''  –  '''lo matne'''
 
@@ -974,17 +934,19 @@
 
 ''button''  –  '''lo batke'''
 
-''by (instrument)''  –  '''se pi'o'''
+''by (instrument)''  –  '''se pi&apos;o'''
 
-''by ... (alongside)''  –  '''zo'a'''
+''by ... (alongside)''  –  '''zo&apos;a'''
 
-''by default''  –  '''na'o'''
+''by default''  –  '''na&apos;o'''
 
-''by method ...''  –  '''ta'i'''
+''by method ...''  –  '''ta&apos;i'''
 
-''by the way''  –  '''ta'o'''
+''by the way''  –  '''ta&apos;o'''
 
-''bye!''  –  '''co'o'''
+''bye!''  –  '''co&apos;o'''
+
+''C (hex digit)''  –  '''gai'''
 
 ''c (letter)''  –  '''cy'''
 
@@ -995,6 +957,8 @@
 ''cable''  –  '''lo skori'''
 
 ''cake''  –  '''lo torta'''
+
+''California''  –  '''la kaliforni&apos;as'''
 
 ''<small>to</small> call (on the phone)''  –  '''jorne'''
 
@@ -1094,7 +1058,7 @@
 
 ''ceremony''  –  '''lo ritli'''
 
-''chain''  –  '''lo li'anzi'''
+''chain''  –  '''lo li&apos;anzi'''
 
 ''chair''  –  '''lo stizu'''
 
@@ -1108,13 +1072,17 @@
 
 ''<small>by</small> chance (random)''  –  '''lo cunso'''
 
-''<small>to</small> change''  –  '''galfi''', '''stika'''
+''<small>to</small> change''  –  '''galfi'''
+
+''<small>to</small> change''  –  '''stika'''
 
 ''channel''  –  '''lo naxle'''
 
 ''chaos''  –  '''lo kalsa'''
 
-''chaotic''  –  '''lo se ganzu''', '''lo kalsa'''
+''chaotic''  –  '''lo kalsa'''
+
+''chaotic''  –  '''lo se ganzu'''
 
 ''character (in a story or play)''  –  '''lo participe'''
 
@@ -1132,7 +1100,7 @@
 
 ''chaser''  –  '''lo jersi'''
 
-''cheek''  –  '''lo li'anpi'''
+''cheek''  –  '''lo li&apos;anpi'''
 
 ''cheeky''  –  '''lo darsi'''
 
@@ -1154,13 +1122,17 @@
 
 ''child of a mother''  –  '''lo se mamta'''
 
+''Chinese''  –  '''lo jungo'''
+
 ''chocolate''  –  '''lo cakla'''
 
 ''<small>to</small> choose''  –  '''cuxna'''
 
+''Christian''  –  '''lo xriso'''
+
 ''church''  –  '''lo malsi'''
 
-''ciao! (hello! or goodbye! depending on context)''  –  '''co'oi'''
+''ciao! (hello! or goodbye! depending on context)''  –  '''co&apos;oi'''
 
 ''cigar''  –  '''lo sigja'''
 
@@ -1200,7 +1172,7 @@
 
 ''clear''  –  '''lo klina'''
 
-''clearly''  –  '''li'a'''
+''clearly''  –  '''li&apos;a'''
 
 ''clever''  –  '''lo stati'''
 
@@ -1266,7 +1238,7 @@
 
 ''<small>to</small> come''  –  '''klama'''
 
-''come on! (instigation''  –  '''e'e'''
+''come on! (instigation''  –  '''e&apos;e'''
 
 ''comfortable''  –  '''lo kufra'''
 
@@ -1278,7 +1250,9 @@
 
 ''commanded''  –  '''lo se minde'''
 
-''commander''  –  '''lo jatna''', '''lo minde'''
+''commander''  –  '''lo jatna'''
+
+''commander''  –  '''lo minde'''
 
 ''<small>to</small> commence''  –  '''cfari'''
 
@@ -1292,7 +1266,7 @@
 
 ''common''  –  '''lo kampu'''
 
-''common cold (disease)''  –  '''la Zukam'''
+''common cold (disease)''  –  '''la zukam'''
 
 ''community''  –  '''lo cecmu'''
 
@@ -1302,13 +1276,17 @@
 
 ''compassion)''  –  '''uu'''
 
+''compassion)''  –  '''uu'''
+
 ''compatible''  –  '''lo mapti'''
 
 ''compelled by force ...''  –  '''bai'''
 
 ''<small>to</small> compete''  –  '''jivna'''
 
-''competent''  –  '''lo kakne''', '''lo certu, lo kakne, lo certu'''. ,
+''competent''  –  '''lo kakne, lo certu'''
+
+''competent''  –  '''lo kakne, lo certu'''
 
 ''competition''  –  '''lo te jivna'''
 
@@ -1320,7 +1298,7 @@
 
 ''<small>to</small> complete''  –  '''jai gau mulno'''
 
-''completing ...''  –  '''mo'u'''
+''completing ...''  –  '''mo&apos;u'''
 
 ''complex''  –  '''lo pluja'''
 
@@ -1332,7 +1310,9 @@
 
 ''computer''  –  '''lo skami'''
 
-''computer program''  –  '''lo proga''', '''lo se sampla'''
+''computer program''  –  '''lo proga'''
+
+''computer program''  –  '''lo se sampla'''
 
 ''concealed''  –  '''lo se mipri'''
 
@@ -1352,13 +1332,13 @@
 
 ''condition (state)''  –  '''lo tcini'''
 
-''<small>on</small> condition that ...''  –  '''va'o'''
+''<small>on</small> condition that ...''  –  '''va&apos;o'''
 
 ''<small>to</small> conduct (guide)''  –  '''gidva'''
 
 ''cone''  –  '''lo konju'''
 
-''<small>to</small> confirm''  –  '''tolna'e'''
+''<small>to</small> confirm''  –  '''tolna&apos;e'''
 
 ''<small>to</small> confuse''  –  '''cfipu'''
 
@@ -1378,15 +1358,13 @@
 
 ''constant''  –  '''lo stodi'''
 
-''constant without interruption)''  –  '''lo klina'''
-
 ''<small>to</small> consume''  –  '''xaksu'''
 
 ''consumed''  –  '''lo se xaksu'''
 
 ''consumer''  –  '''lo xaksu'''
 
-''contacting ...''  –  '''re'o'''
+''contacting ...''  –  '''re&apos;o'''
 
 ''<small>to</small> contain''  –  '''vasru'''
 
@@ -1397,6 +1375,8 @@
 ''contemptible''  –  '''lo mabla'''
 
 ''content of a cup''  –  '''lo se kabri'''
+
+''content of a document''  –  '''lo se uencu'''
 
 ''content of a pack''  –  '''lo se bakfu'''
 
@@ -1426,7 +1406,7 @@
 
 ''<small>to</small> continue (persist)''  –  '''ranji'''
 
-''continuously''  –  '''ru'i'''
+''continuously''  –  '''ru&apos;i'''
 
 ''<small>to</small> contradict''  –  '''natfe'''
 
@@ -1512,7 +1492,9 @@
 
 ''creator''  –  '''lo finti'''
 
-''creature''  –  '''lo danlu''', '''lo se finti'''
+''creature''  –  '''lo danlu'''
+
+''creature''  –  '''lo se finti'''
 
 ''creditor of debt''  –  '''lo te dejni'''
 
@@ -1540,7 +1522,9 @@
 
 ''<small>to</small> cry''  –  '''klaku'''
 
-''<small>to</small> cry out''  –  '''krixa''', '''krixa'''
+''<small>to</small> cry out''  –  '''krixa'''
+
+''<small>to</small> cry out''  –  '''krixa'''
 
 ''crystal''  –  '''lo krili'''
 
@@ -1555,6 +1539,8 @@
 ''curious''  –  '''lo kucli'''
 
 ''current''  –  '''lo cabna'''
+
+''current (flow)''  –  '''lo flecu'''
 
 ''currently''  –  '''ca'''
 
@@ -1573,6 +1559,8 @@
 ''cyan (color)''  –  '''lo cicna'''
 
 ''cylinder''  –  '''lo slanu'''
+
+''D (hex digit)''  –  '''jau'''
 
 ''d (letter)''  –  '''dy'''
 
@@ -1612,7 +1600,7 @@
 
 ''dear me! (surprise)''  –  '''ue'''
 
-''death''  –  '''lo nu morsi''', '''lo nu co'a morsi'''
+''death''  –  '''lo nu morsi, lo nu co&apos;a morsi'''
 
 ''debaters''  –  '''lo casnu'''
 
@@ -1640,7 +1628,7 @@
 
 ''deficient''  –  '''lo claxu'''
 
-''delight (happiness)''  –  '''lo ka mutce lo ka gleki''', '''lo ka gleki'''
+''delight (happiness)''  –  '''lo ka mutce lo ka gleki, lo ka gleki'''
 
 ''delight (pleasure)''  –  '''lo ka se pluka'''
 
@@ -1710,7 +1698,7 @@
 
 ''dictionary''  –  '''lo vlaste'''
 
-''<small>to</small> die''  –  '''co'a morsi'''
+''<small>to</small> die''  –  '''co&apos;a morsi'''
 
 ''<small>to</small> differ from''  –  '''frica'''
 
@@ -1734,11 +1722,11 @@
 
 ''diplomatic negotiation''  –  '''lo te jansu'''
 
-''direct (straight''  –  '''lo klina'''
-
 ''direct (straight)''  –  '''lo sirji'''
 
-''<small>to</small> direct (to aim at)''  –  '''jai zu'e farna'''
+''direct (straight, constant without interruption)''  –  '''lo klina'''
+
+''<small>to</small> direct (to aim at)''  –  '''jai zu&apos;e farna'''
 
 ''<small>to</small> direct (to manage)''  –  '''sazri'''
 
@@ -1770,7 +1758,9 @@
 
 ''dish of a meal''  –  '''lo se sanmi'''
 
-''<small>to</small> disrupt''  –  '''dicra''', '''zunti'''
+''<small>to</small> disrupt''  –  '''dicra'''
+
+''<small>to</small> disrupt''  –  '''zunti'''
 
 ''disrupted''  –  '''lo se zunti'''
 
@@ -1790,7 +1780,7 @@
 
 ''disturbed''  –  '''lo se raktu'''
 
-''ditto (the same thing) — another one''  –  '''mi'u'''
+''ditto (the same thing) — another one''  –  '''mi&apos;u'''
 
 ''<small>to</small> dive into''  –  '''sfubu'''
 
@@ -1809,6 +1799,8 @@
 ''<small>to</small> do (to act)''  –  '''zukte'''
 
 ''doctor''  –  '''lo mikce'''
+
+''document''  –  '''lo uencu'''
 
 ''document to be read''  –  '''lo te tcidu'''
 
@@ -1844,11 +1836,11 @@
 
 ''<small>to</small> doubt''  –  '''senpi'''
 
-''doubtless (likely)''  –  '''la'a sai'''
+''doubtless (likely)''  –  '''la&apos;a sai'''
 
 ''doubtless (who doesn&apos;t doubt)''  –  '''lo na senpi'''
 
-''down from ...''  –  '''ni'a'''
+''down from ...''  –  '''ni&apos;a'''
 
 ''dozen''  –  '''gai'''
 
@@ -1898,9 +1890,13 @@
 
 ''dumplings''  –  '''lo pelmeni'''
 
-''during ...''  –  '''ca''', '''ze'i, ze'u'''
+''during ...''  –  '''ca'''
 
-''during ... ''  –  '''ze'a'''
+''during ...''  –  '''ze&apos;i'''
+
+''during ...''  –  '''ze&apos;u'''
+
+''during ... ''  –  '''ze&apos;a'''
 
 ''dust''  –  '''lo pulce'''
 
@@ -1908,19 +1904,25 @@
 
 ''<small>to</small> dwell''  –  '''xabju'''
 
+''E (hex digit)''  –  '''xei'''
+
 ''e (letter)''  –  '''e bu'''
 
-''e (number)''  –  '''te'o'''
+''e (number)''  –  '''te&apos;o'''
 
-''e.g.''  –  '''mu'a'''
+''e.g.''  –  '''mu&apos;a'''
 
-''each''  –  '''ro lo''', '''ro'''
+''each''  –  '''ro'''
 
-''each other''  –  '''zu'ai'''
+''each''  –  '''ro lo'''
+
+''each other''  –  '''zu&apos;ai'''
 
 ''ear''  –  '''lo kerlo'''
 
-''earlier event''  –  '''lo se balvi''', '''lo purci'''
+''earlier event''  –  '''lo purci'''
+
+''earlier event''  –  '''lo se balvi'''
 
 ''early event''  –  '''lo clira'''
 
@@ -1952,6 +1954,8 @@
 
 ''edge''  –  '''lo korbi'''
 
+''Eduard (personal name)''  –  '''la edvard'''
+
 ''eek! (fear)''  –  '''ii'''
 
 ''effect''  –  '''lo se rinka'''
@@ -1962,13 +1966,15 @@
 
 ''either ... or ...''  –  '''jo nai'''
 
+''either ... or ...''  –  '''o nai'''
+
 ''elastic''  –  '''lo pruni'''
 
 ''elbow''  –  '''lo cidni'''
 
 ''electric''  –  '''lo letri'''
 
-''electronic''  –  '''lo di'anzi'''
+''electronic''  –  '''lo di&apos;anzi'''
 
 ''elephant''  –  '''lo xanto'''
 
@@ -2008,7 +2014,7 @@
 
 ''<small>to</small> end''  –  '''jai gau fanmo'''
 
-''endeavor)''  –  '''a'i'''
+''endeavor)''  –  '''a&apos;i'''
 
 ''<small>to</small> endure''  –  '''renvi'''
 
@@ -2017,6 +2023,8 @@
 ''energy''  –  '''lo nejni'''
 
 ''engine''  –  '''lo matra'''
+
+''English''  –  '''lo glico'''
 
 ''enjoyable''  –  '''lo zabna'''
 
@@ -2030,7 +2038,7 @@
 
 ''environment''  –  '''lo se vanbi'''
 
-''<small>in</small> environment ...''  –  '''va'o'''
+''<small>in</small> environment ...''  –  '''va&apos;o'''
 
 ''<small>to</small> envy''  –  '''jilra'''
 
@@ -2038,13 +2046,15 @@
 
 ''<small>to be</small> equal to''  –  '''du'''
 
-''equally''  –  '''du'i'''
+''equally''  –  '''du&apos;i'''
 
-''equally (in importance)''  –  '''ra'u cu'i'''
+''equally (in importance)''  –  '''ra&apos;u cu&apos;i'''
 
 ''era''  –  '''lo cedra'''
 
-''<small>to</small> erode''  –  '''guska''', '''sraku'''
+''<small>to</small> erode''  –  '''guska'''
+
+''<small>to</small> erode''  –  '''sraku'''
 
 ''erosive''  –  '''lo guska'''
 
@@ -2056,7 +2066,7 @@
 
 ''<small>to</small> escape fate''  –  '''rivbi'''
 
-''eternally''  –  '''ze'e'''
+''eternally''  –  '''ze&apos;e'''
 
 ''ethereal''  –  '''lo pruxi'''
 
@@ -2065,6 +2075,10 @@
 ''ethics''  –  '''lo marde'''
 
 ''eureka! (discovery)''  –  '''ua'''
+
+''Europe''  –  '''la e&apos;uropas'''
+
+''European''  –  '''lo ropno'''
 
 ''<small>to</small> evaporate''  –  '''febvi'''
 
@@ -2082,11 +2096,13 @@
 
 ''every (each)''  –  '''ro lo'''
 
-''evidence''  –  '''lo tolna'e'''
+''evidence''  –  '''lo tolna&apos;e'''
 
 ''evil''  –  '''lo palci'''
 
 ''<small>to</small> evolve into''  –  '''farvi'''
+
+''Eww! (repulsion)''  –  '''a&apos;u nai'''
 
 ''exact''  –  '''lo satci'''
 
@@ -2096,7 +2112,9 @@
 
 ''excess''  –  '''lo zildukse'''
 
-''excrement''  –  '''lo kalci''', '''lo se vikmi'''
+''excrement''  –  '''lo kalci'''
+
+''excrement''  –  '''lo se vikmi'''
 
 ''<small>to</small> excrete''  –  '''vikmi'''
 
@@ -2114,7 +2132,7 @@
 
 ''<small>to</small> experience''  –  '''lifri'''
 
-''experienced by...''  –  '''ri'i'''
+''experienced by...''  –  '''ri&apos;i'''
 
 ''experienced event''  –  '''lo se lifri'''
 
@@ -2134,7 +2152,7 @@
 
 ''exponent''  –  '''lo te tenfa'''
 
-''exponential''  –  '''te'o'''
+''exponential''  –  '''te&apos;o'''
 
 ''exponential base''  –  '''lo se tenfa'''
 
@@ -2142,7 +2160,9 @@
 
 ''expounder''  –  '''lo ciksi'''
 
-''<small>to</small> express (to communicate)''  –  '''cusku''', '''smusku'''
+''<small>to</small> express (to communicate)''  –  '''cusku'''
+
+''<small>to</small> express (to communicate)''  –  '''smusku'''
 
 ''<small>to</small> extend''  –  '''kuspe'''
 
@@ -2153,6 +2173,8 @@
 ''extreme''  –  '''lo mutce'''
 
 ''eye''  –  '''lo kanla'''
+
+''F (hex digit)''  –  '''vai'''
 
 ''f (letter)''  –  '''fy'''
 
@@ -2172,7 +2194,9 @@
 
 ''<small>to</small> fall to''  –  '''farlu'''
 
-''false''  –  '''na''', '''lo jitfa'''
+''false''  –  '''lo jitfa'''
+
+''false''  –  '''na'''
 
 ''family''  –  '''lo lanzu'''
 
@@ -2196,7 +2220,9 @@
 
 ''<small>to</small> fasten''  –  '''lasna'''
 
-''fastened''  –  '''lo jorne''', '''lo se lasna'''
+''fastened''  –  '''lo jorne'''
+
+''fastened''  –  '''lo se lasna'''
 
 ''fastener''  –  '''lo lasna'''
 
@@ -2236,7 +2262,7 @@
 
 ''fertilized cell''  –  '''lo tsiju'''
 
-''few''  –  '''so'u'''
+''few''  –  '''so&apos;u'''
 
 ''field''  –  '''lo foldi'''
 
@@ -2274,7 +2300,7 @@
 
 ''<small>to</small> find''  –  '''tolcri'''
 
-''fine! (approval)''  –  '''i'e'''
+''fine! (approval)''  –  '''i&apos;e'''
 
 ''finger''  –  '''lo degji'''
 
@@ -2296,7 +2322,7 @@
 
 ''<small>to</small> fit (to suit)''  –  '''mapti'''
 
-''fitting (e.g. of a dress)''  –  '''lo no'e tagji'''
+''fitting (e.g. of a dress)''  –  '''lo no&apos;e tagji'''
 
 ''fitting (matching)''  –  '''lo mapti'''
 
@@ -2330,17 +2356,23 @@
 
 ''floor''  –  '''lo loldi'''
 
-''flow''  –  '''lo flu'ente'''
+''flow''  –  '''lo flu&apos;ente'''
 
-''<small>to</small> flow''  –  '''flu'ente'''
+''flow (current)''  –  '''lo flecu'''
+
+''<small>to</small> flow''  –  '''flecu'''
+
+''<small>to</small> flow''  –  '''flu&apos;ente'''
 
 ''flower''  –  '''lo flora'''
 
-''flu''  –  '''lo influ'enza'''
+''flower''  –  '''lo xrula'''
 
-''fluent''  –  '''lo flu'ente'''
+''flu''  –  '''lo influ&apos;enza'''
 
-''fluid''  –  '''lo flu'ente'''
+''fluent''  –  '''lo flu&apos;ente'''
+
+''fluid''  –  '''lo flu&apos;ente'''
 
 ''fluid of a well''  –  '''lo se jinto'''
 
@@ -2382,17 +2414,19 @@
 
 ''foot''  –  '''lo jamfu'''
 
-''for a long time''  –  '''ze'u'''
+''for a long time''  –  '''ze&apos;u'''
 
-''for a short time''  –  '''ze'i'''
+''for a short time''  –  '''ze&apos;i'''
 
-''for example''  –  '''mu'a'''
+''for example''  –  '''mu&apos;a'''
 
-''for one (not excluding other)''  –  '''po'o cu'i'''
+''for one (not excluding other)''  –  '''po&apos;o cu&apos;i'''
 
-''for some time''  –  '''ze'a'''
+''for some time''  –  '''ze&apos;a'''
 
-''for the benefit of ...''  –  '''xau''', '''se va'u'''
+''for the benefit of ...''  –  '''se va&apos;u'''
+
+''for the benefit of ...''  –  '''xau'''
 
 ''force''  –  '''lo bapli'''
 
@@ -2402,7 +2436,7 @@
 
 ''forest''  –  '''lo boske'''
 
-''<small>to</small> forget''  –  '''co'u morji'''
+''<small>to</small> forget''  –  '''co&apos;u morji'''
 
 ''<small>to</small> forgive''  –  '''fraxu'''
 
@@ -2416,11 +2450,11 @@
 
 ''form of energy''  –  '''lo te nejni'''
 
-''former''  –  '''pu''', '''pe pu'''
+''former''  –  '''pu, pe pu'''
 
 ''former event''  –  '''lo pu fasnu'''
 
-''forward''  –  '''mo'i ca'u'''
+''forward''  –  '''mo&apos;i ca&apos;u'''
 
 ''found (in possesion)''  –  '''lo se tolcri'''
 
@@ -2432,7 +2466,9 @@
 
 ''fox''  –  '''lo lorxu'''
 
-''fraction''  –  '''lo frinu''', '''lo parbi'''
+''fraction''  –  '''lo frinu'''
+
+''fraction''  –  '''lo parbi'''
 
 ''fragile''  –  '''lo ralci'''
 
@@ -2446,6 +2482,8 @@
 
 ''<small>to</small> freeze''  –  '''dunja'''
 
+''French''  –  '''lo fraso'''
+
 ''frequent event''  –  '''lo cafne'''
 
 ''fresh''  –  '''lo vifne'''
@@ -2456,13 +2494,13 @@
 
 ''frivolous''  –  '''lo xalbo'''
 
-''from center of ... and of distance ... around''  –  '''mi'i'''
+''from center of ... and of distance ... around''  –  '''mi&apos;i'''
 
-''from origin ...''  –  '''ra'i'''
+''from origin ...''  –  '''ra&apos;i'''
 
-''from source ...''  –  '''ra'i'''
+''from source ...''  –  '''ra&apos;i'''
 
-''from starting point ...''  –  '''ra'i'''
+''from starting point ...''  –  '''ra&apos;i'''
 
 ''<small>to</small> frown''  –  '''frumu'''
 
@@ -2502,7 +2540,7 @@
 
 ''function of bank''  –  '''lo te banxa'''
 
-''functional''  –  '''lo tolpo'u'''
+''functional''  –  '''lo tolpo&apos;u'''
 
 ''fundamental principle''  –  '''lo jicmu'''
 
@@ -2518,9 +2556,11 @@
 
 ''furniture''  –  '''lo nilce'''
 
-''furthermore''  –  '''ke'u nai'''
+''furthermore''  –  '''ke&apos;u nai'''
 
-''future event''  –  '''lo balvi''', '''lo se purci'''
+''future event''  –  '''lo balvi'''
+
+''future event''  –  '''lo se purci'''
 
 ''future tense''  –  '''ba'''
 
@@ -2528,7 +2568,9 @@
 
 ''gadri (grammatical particle)''  –  '''lo gadri'''
 
-''<small>to</small> gain (to become)''  –  '''co'a'''
+''Gah! (despair)''  –  '''a&apos;o nai'''
+
+''<small>to</small> gain (to become)''  –  '''co&apos;a'''
 
 ''<small>to</small> gain (to obtain)''  –  '''cpacu'''
 
@@ -2556,11 +2598,11 @@
 
 ''general''  –  '''lo kampu'''
 
-''generally (usually)''  –  '''so'e roi ku'''
+''generally (usually)''  –  '''so&apos;e roi ku'''
 
-''generously''  –  '''do'a'''
+''generously''  –  '''do&apos;a'''
 
-''gentleman''  –  '''lo nobli''', '''lo nobli nanmu'''
+''gentleman''  –  '''lo nobli, lo nobli nanmu'''
 
 ''<small>to</small> get''  –  '''cpacu'''
 
@@ -2576,7 +2618,7 @@
 
 ''<small>to</small> give''  –  '''dunda'''
 
-''given that ...''  –  '''se ji'u'''
+''given that ...''  –  '''se ji&apos;u'''
 
 ''giver''  –  '''lo dunda'''
 
@@ -2584,7 +2626,7 @@
 
 ''gland''  –  '''lo cigla'''
 
-''glass''  –  '''lo kabri''', '''lo blaci kabri'''
+''glass''  –  '''lo kabri, lo blaci kabri'''
 
 ''glass (substance)''  –  '''lo blaci'''
 
@@ -2596,7 +2638,7 @@
 
 ''<small>to</small> go up''  –  '''klama lo gapru'''
 
-''<small>with a</small> goal of ...''  –  '''te zu'e'''
+''<small>with a</small> goal of ...''  –  '''te zu&apos;e'''
 
 ''goat''  –  '''lo kanba'''
 
@@ -2606,9 +2648,9 @@
 
 ''goer''  –  '''lo klama'''
 
-''going from ...''  –  '''te ka'a'''
+''going from ...''  –  '''te ka&apos;a'''
 
-''going to ...''  –  '''se ka'a'''
+''going to ...''  –  '''se ka&apos;a'''
 
 ''<small>I am</small> going to''  –  '''ai'''
 
@@ -2620,7 +2662,7 @@
 
 ''good (beneficial)''  –  '''lo xamgu'''
 
-''goodbye!''  –  '''co'o'''
+''goodbye!''  –  '''co&apos;o'''
 
 ''goose''  –  '''lo gunse'''
 
@@ -2634,7 +2676,9 @@
 
 ''grammar''  –  '''lo gerna'''
 
-''grammatical clause''  –  '''lo se selbri''', '''lo bridi'''
+''grammatical clause''  –  '''lo bridi'''
+
+''grammatical clause''  –  '''lo se selbri'''
 
 ''grammatical particle''  –  '''lo cmavo'''
 
@@ -2642,7 +2686,7 @@
 
 ''grape''  –  '''lo vanjba'''
 
-''<small>to</small> grasp''  –  '''co'a jgari'''
+''<small>to</small> grasp''  –  '''co&apos;a jgari'''
 
 ''grass''  –  '''lo srasu'''
 
@@ -2652,11 +2696,11 @@
 
 ''grease''  –  '''lo grasu'''
 
-''great (huge)''  –  '''lo ve'u barda'''
+''great (huge)''  –  '''lo ve&apos;u barda'''
 
 ''great (superior)''  –  '''lo banli'''
 
-''greater than ...''  –  '''za'u'''
+''greater than ...''  –  '''za&apos;u'''
 
 ''green''  –  '''lo crino'''
 
@@ -2668,7 +2712,7 @@
 
 ''<small>to</small> grind''  –  '''zalvi'''
 
-''grippe''  –  '''lo influ'enza'''
+''grippe''  –  '''lo influ&apos;enza'''
 
 ''groove''  –  '''lo skuro'''
 
@@ -2686,9 +2730,9 @@
 
 ''<small>to</small> grow''  –  '''banro'''
 
-''grr! (aggression)''  –  '''le'o'''
+''grr! (aggression)''  –  '''le&apos;o'''
 
-''<small>to</small> guard (to protect)''  –  '''jai gau snura''', '''bandu'''
+''<small>to</small> guard (to protect)''  –  '''jai gau snura, bandu'''
 
 ''guess (hypothesis)''  –  '''lo se smadi'''
 
@@ -2702,7 +2746,9 @@
 
 ''guitar''  –  '''lo jgita'''
 
-''gun''  –  '''lo cecla''', '''lo se danti'''
+''gun''  –  '''lo cecla'''
+
+''gun''  –  '''lo se danti'''
 
 ''gut''  –  '''lo canti'''
 
@@ -2710,11 +2756,11 @@
 
 ''gymnastic feat''  –  '''lo se zajba'''
 
-''ha-ha! (amusement)''  –  '''u'i'''
+''ha-ha! (amusement)''  –  '''u&apos;i'''
 
 ''habit''  –  '''lo tcaci'''
 
-''habitually''  –  '''ta'e'''
+''habitually''  –  '''ta&apos;e'''
 
 ''hail''  –  '''lo bratu'''
 
@@ -2734,7 +2780,7 @@
 
 ''<small>to</small> happen''  –  '''fasnu'''
 
-''happening to...''  –  '''ri'i'''
+''happening to...''  –  '''ri&apos;i'''
 
 ''happy''  –  '''lo gleki'''
 
@@ -2764,7 +2810,7 @@
 
 ''<small>to</small> have (to possess)''  –  '''ponse'''
 
-''<small>to</small> have to do with''  –  '''se cuntu''', '''bilga lo ka se cuntu'''
+''<small>to</small> have to do with''  –  '''se cuntu, bilga lo ka se cuntu'''
 
 ''haven''  –  '''lo marbi'''
 
@@ -2796,7 +2842,7 @@
 
 ''having value''  –  '''lo se vamji'''
 
-''he''  –  '''le nakni''', '''le pa nakni'''
+''he''  –  '''le nakni, le pa nakni'''
 
 ''head''  –  '''lo stedu'''
 
@@ -2832,19 +2878,21 @@
 
 ''hemp''  –  '''lo marna'''
 
-''her (belonging to her)''  –  '''pe le fetsi'''
+''her (belonging to her)''  –  '''nei''', '''no&apos;a''', '''ri''' can be used to refer to earlier nouns. '''pe le fetsi''' used after nouns as in '''lo penbi pe le fetsi''', literally ''pen of her''.
 
-''here''  –  '''ne'a''', '''vi'''
+''here''  –  '''ne&apos;a'''
+
+''here''  –  '''vi'''
 
 ''here and now''  –  '''nau'''
 
 ''heritage''  –  '''lo se cerda'''
 
-''hey!''  –  '''ju'i'''
+''hey! (driving attention)''  –  '''ju&apos;i'''
 
 ''hey?! (surprise)''  –  '''ue'''
 
-''hh?''  –  '''ke'o'''
+''hh?''  –  '''ke&apos;o'''
 
 ''hi!''  –  '''coi'''
 
@@ -2862,19 +2910,21 @@
 
 ''higher (evolved)''  –  '''lo se farvi'''
 
-''hill''  –  '''lo ve'i cmana'''
+''hill''  –  '''lo ve&apos;i cmana'''
 
 ''hindered''  –  '''lo se zunti'''
 
-''his (belonging to him)''  –  '''pe le nakni'''. Used after nouns as in '''lo penbi pe le nakni''', literally ''pen of him''.
+''his (belonging to him)''  –  '''nei''', '''no&apos;a''', '''ri''' can be used to refer to earlier nouns. '''pe le kani''' used after nouns as in '''lo penbi pe le nakni''', literally ''pen of him''.
 
 ''history''  –  '''lo citri'''
 
 ''<small>to</small> hit''  –  '''darxi'''
 
-''hmm... (interest)''  –  '''a'u'''
+''hmm... (interest)''  –  '''a&apos;u'''
 
 ''hmph! (complaint)''  –  '''oi'''
+
+''Ho-hum (disinterest)''  –  '''a&apos;u cu&apos;i'''
 
 ''<small>to</small> hold (have and keep possession)''  –  '''ralte'''
 
@@ -2890,15 +2940,19 @@
 
 ''holy''  –  '''lo censa'''
 
-''home''  –  '''lo se xabju''', '''lo zdani'''
+''home''  –  '''lo se xabju'''
 
-''<small>at</small> home''  –  '''bu'u lo zdani'''
+''home''  –  '''lo zdani'''
+
+''<small>at</small> home''  –  '''bu&apos;u lo zdani'''
 
 ''home planet''  –  '''lo terdi'''
 
 ''homogeneous''  –  '''lo manfo'''
 
 ''honest''  –  '''lo stace'''
+
+''Hong Kong''  –  '''la si&apos;angan'''
 
 ''honor (respect)''  –  '''lo nu sinma'''
 
@@ -2910,9 +2964,11 @@
 
 ''hope (expected event)''  –  '''lo se pacna'''
 
-''<small>I</small> hope''  –  '''a'o'''
+''<small>I</small> hope''  –  '''a&apos;o'''
 
 ''<small>to</small> hope for''  –  '''pacna'''
+
+''hopefully''  –  '''a&apos;o'''
 
 ''horizontal''  –  '''lo pinta'''
 
@@ -2930,19 +2986,23 @@
 
 ''hotel''  –  '''lo xotli'''
 
+''hour (interval)''  –  '''lo cacra'''
+
+''hour (timestamp)''  –  prefix '''cy'''. E.g. '''de&apos;i li cy so''' means ''at 9 o&apos;clock''
+
 ''hour-long event''  –  '''lo cacra'''
 
 ''house''  –  '''lo dinju'''
 
-''how''  –  '''ta'i ma'''
+''how''  –  '''ta&apos;i ma'''
 
-''however''  –  '''ku'i'''
+''however''  –  '''ku&apos;i'''
 
 ''<small>to</small> howl''  –  '''cmoni'''
 
-''huge''  –  '''lo ve'u barda'''
+''huge''  –  '''lo ve&apos;u barda'''
 
-''huh? (confusion about something said)''  –  '''ki'a'''
+''huh? (confusion about something said)''  –  '''ki&apos;a'''
 
 ''human''  –  '''lo remna'''
 
@@ -2960,9 +3020,33 @@
 
 ''hydrogen''  –  '''lo cidro'''
 
-''i (imaginary i)''  –  '''ka'o'''
+''I''  –  '''mi'''
+
+''i (imaginary i)''  –  '''ka&apos;o'''
 
 ''i (letter)''  –  '''i bu'''
+
+''I am ... (self-identification of the speaker)''  –  '''mi&apos;e'''
+
+''I am done talking''  –  '''mu&apos;o'''
+
+''I am not (denial of the speaker&apos;s identity)''  –  '''mi&apos;e nai'''
+
+''I and you''  –  '''mi&apos;o'''
+
+''I got your message''  –  '''je&apos;e'''
+
+''I have no idea! (lack of certainty)''  –  '''ju&apos;o nai'''
+
+''I heard you''  –  '''ke&apos;o nai'''
+
+''I promise''  –  '''nu&apos;e'''
+
+''I repeat''  –  '''ke&apos;u'''
+
+''I understand (understanding about something said)''  –  '''ki&apos;a nai'''
+
+''I&apos;m sure (certainty)''  –  '''ju&apos;o'''
 
 ''ice''  –  '''lo bisli'''
 
@@ -2970,9 +3054,19 @@
 
 ''identical''  –  '''lo mintu'''
 
-''if''  –  '''fau''', '''va'o, ga nai ... gi'''
+''if''  –  '''fau, va&apos;o, ga nai ... gi'''
 
-''if and only if''  –  '''gi'o''', '''jo'''
+''if and only if''  –  '''gi&apos;o'''
+
+''if and only if''  –  '''go'''
+
+''if and only if''  –  '''gu&apos;o'''
+
+''if and only if''  –  '''jo'''
+
+''if and only if''  –  '''o'''
+
+''Ignore me!''  –  '''ju&apos;i nai'''
 
 ''ill''  –  '''lo bilma'''
 
@@ -2982,7 +3076,7 @@
 
 ''imaginary event''  –  '''lo xanri'''
 
-''imaginary i''  –  '''ka'o'''
+''imaginary i''  –  '''ka&apos;o'''
 
 ''immaterial''  –  '''lo mucti'''
 
@@ -2996,9 +3090,9 @@
 
 ''important''  –  '''lo vajni'''
 
-''improbably''  –  '''la'a nai'''
+''improbably''  –  '''la&apos;a nai'''
 
-''in ... (inside)''  –  '''ne'i'''
+''in ... (inside)''  –  '''ne&apos;i'''
 
 ''in a job''  –  '''lo se jibri'''
 
@@ -3008,43 +3102,45 @@
 
 ''in any case''  –  '''fau ro da'''
 
-''in context ...''  –  '''ci'e'''
+''in common with ...''  –  '''jo&apos;u'''
 
-''in contrast''  –  '''ku'i'''
+''in context ...''  –  '''ci&apos;e'''
+
+''in contrast''  –  '''ku&apos;i'''
 
 ''in control''  –  '''lo jitro'''
 
-''in detail''  –  '''to'u nai'''
+''in detail''  –  '''to&apos;u nai'''
 
-''in fact''  –  '''ca'a'''
+''in fact''  –  '''ca&apos;a'''
 
 ''in future''  –  '''ba'''
 
-''in general (usually)''  –  '''so'e roi ku'''
+''in general (usually)''  –  '''so&apos;e roi ku'''
 
 ''in language ...''  –  '''bau'''
 
-''in line''  –  '''ku'i nai'''
+''in line''  –  '''ku&apos;i nai'''
 
-''in my opinion''  –  '''pe'i'''
+''in my opinion''  –  '''pe&apos;i'''
 
 ''in operation''  –  '''lo akti'''
 
-''in other words''  –  '''va'i'''
+''in other words''  –  '''va&apos;i'''
 
 ''in past''  –  '''pu'''
 
-''in reference frame ...''  –  '''ma'i'''
+''in reference frame ...''  –  '''ma&apos;i'''
 
-''in short''  –  '''to'u'''
+''in short''  –  '''to&apos;u'''
 
 ''in some time''  –  '''za'''
 
-''in system ...''  –  '''ci'e'''
+''in system ...''  –  '''ci&apos;e'''
 
-''in the aftermath''  –  '''ba'o'''
+''in the aftermath''  –  '''ba&apos;o'''
 
-''incidentally (low in importance)''  –  '''ra'u nai'''
+''incidentally (low in importance)''  –  '''ra&apos;u nai'''
 
 ''<small>to</small> include (enclose)''  –  '''vasru'''
 
@@ -3052,7 +3148,7 @@
 
 ''increasing''  –  '''lo zenba'''
 
-''indeed''  –  '''je'a'''
+''indeed''  –  '''je&apos;a'''
 
 ''indivisible''  –  '''lo selci'''
 
@@ -3072,11 +3168,13 @@
 
 ''<small>to</small> influence''  –  '''xlura'''
 
-''influenza''  –  '''lo influ'enza'''
+''influenza''  –  '''lo influ&apos;enza'''
 
 ''<small>to</small> inform (to give information)''  –  '''jai gau djuno'''
 
-''information''  –  '''lo datni''', '''lo info'''
+''information''  –  '''lo datni'''
+
+''information''  –  '''lo info'''
 
 ''information on a tag''  –  '''lo te tcita'''
 
@@ -3090,7 +3188,9 @@
 
 ''<small>to</small> inhabit''  –  '''xabju'''
 
-''inhabitant''  –  '''lo xabju''', '''lo se zdani'''
+''inhabitant''  –  '''lo se zdani'''
+
+''inhabitant''  –  '''lo xabju'''
 
 ''<small>to</small> inhale''  –  '''sakci'''
 
@@ -3120,13 +3220,13 @@
 
 ''inserted''  –  '''lo se setca'''
 
-''inside''  –  '''ne'i'''
+''inside''  –  '''ne&apos;i'''
 
-''inside of ...''  –  '''ne'i'''
+''inside of ...''  –  '''ne&apos;i'''
 
 ''instant''  –  '''lo mokca'''
 
-''instead''  –  '''se ba'i'''
+''instead''  –  '''se ba&apos;i'''
 
 ''insurance compensation''  –  '''lo ve binra'''
 
@@ -3156,7 +3256,7 @@
 
 ''intermittent''  –  '''lo vitci'''
 
-''intermittently''  –  '''ru'i nai'''
+''intermittently''  –  '''ru&apos;i nai'''
 
 ''internet''  –  '''lo kibro'''
 
@@ -3168,7 +3268,7 @@
 
 ''intestine''  –  '''lo canti'''
 
-''into''  –  '''ne'i''', '''ne ne'i'''
+''into''  –  '''ne&apos;i, ne ne&apos;i'''
 
 ''intrinsic''  –  '''lo jinzi'''
 
@@ -3186,13 +3286,15 @@
 
 ''invoice''  –  '''lo janta'''
 
+''IRC user''  –  '''lo irci'''
+
 ''iron''  –  '''lo tirse'''
 
 ''ironic''  –  '''lo ranxi'''
 
 ''irregular''  –  '''lo vitci'''
 
-''irregularly''  –  '''di'i nai'''
+''irregularly''  –  '''di&apos;i nai'''
 
 ''irresolute''  –  '''lo senpi'''
 
@@ -3208,7 +3310,7 @@
 
 ''it (the object)''  –  '''le dacti'''
 
-''it seems''  –  '''si'au'''
+''it seems''  –  '''si&apos;au'''
 
 ''j (letter)''  –  '''jy'''
 
@@ -3216,7 +3318,13 @@
 
 ''jai gau tinsa''  –  '''fix (to make rigid) [to]'''
 
+''Japan''  –  '''la nipon'''
+
+''Japanese''  –  '''lo ponjo'''
+
 ''jar''  –  '''lo botpi'''
+
+''Jasmine (personal name)''  –  '''la jasmin'''
 
 ''jaw''  –  '''lo xedja'''
 
@@ -3234,9 +3342,13 @@
 
 ''journal''  –  '''lo karni'''
 
+''Judaic or Christian or Moslem''  –  '''lo jegvo'''
+
 ''judge''  –  '''lo pajni'''
 
-''<small>to</small> judge''  –  '''jdice''', '''pajni'''
+''<small>to</small> judge''  –  '''jdice'''
+
+''<small>to</small> judge''  –  '''pajni'''
 
 ''juice''  –  '''lo jisra'''
 
@@ -3246,7 +3358,7 @@
 
 ''just (recently)''  –  '''pu zi sai'''
 
-''justifiably''  –  '''ki'u'''
+''justifiably''  –  '''ki&apos;u'''
 
 ''justification''  –  '''lo krinu'''
 
@@ -3260,9 +3372,11 @@
 
 ''kernel''  –  '''lo kernelo'''
 
+''Kevin (personal name)''  –  '''la kevin'''
+
 ''key (of a lock)''  –  '''lo ckiku'''
 
-''kidding... (humorously)''  –  '''zo'o'''
+''kidding... (humorously)''  –  '''zo&apos;o'''
 
 ''<small>to</small> kill''  –  '''catra'''
 
@@ -3304,7 +3418,7 @@
 
 ''lacking ...''  –  '''se cau'''
 
-''lady''  –  '''lo nobli''', '''lo nobli ninmu'''
+''lady''  –  '''lo nobli, lo nobli ninmu'''
 
 ''lake''  –  '''lo lalxu'''
 
@@ -3316,7 +3430,9 @@
 
 ''language of a text''  –  '''lo se uenzi'''
 
-''large''  –  '''lo barda''', '''ve'u'''
+''large''  –  '''lo barda'''
+
+''large''  –  '''ve&apos;u'''
 
 ''<small>to</small> lash''  –  '''bikla'''
 
@@ -3324,7 +3440,9 @@
 
 ''late event''  –  '''lo lerci'''
 
-''later event''  –  '''lo balvi''', '''lo se purci'''
+''later event''  –  '''lo balvi'''
+
+''later event''  –  '''lo se purci'''
 
 ''lateral''  –  '''lo mlana'''
 
@@ -3334,7 +3452,9 @@
 
 ''<small>to</small> laugh''  –  '''cmila'''
 
-''<small>to</small> launch''  –  '''cecla''', '''renro'''
+''<small>to</small> launch''  –  '''cecla'''
+
+''<small>to</small> launch''  –  '''renro'''
 
 ''law''  –  '''lo flalu'''
 
@@ -3362,7 +3482,7 @@
 
 ''learner''  –  '''lo cilre'''
 
-''least''  –  '''to'e traji'''
+''least''  –  '''to&apos;e traji'''
 
 ''leather''  –  '''lo skapi'''
 
@@ -3370,7 +3490,7 @@
 
 ''left (in direction)''  –  '''lo zunle'''
 
-''leftwards''  –  '''zu'a'''
+''leftwards''  –  '''zu&apos;a'''
 
 ''leg''  –  '''lo tuple'''
 
@@ -3384,13 +3504,19 @@
 
 ''leopard''  –  '''lo bramlatu'''
 
-''less''  –  '''lo mleca''', '''lo se zmadu'''
+''less''  –  '''lo mleca'''
 
-''less than ...''  –  '''se me'a''', '''me'i'''
+''less''  –  '''lo se zmadu'''
+
+''less than ...''  –  '''me&apos;i'''
+
+''less than ...''  –  '''se me&apos;a'''
 
 ''<small>to</small> let (permit)''  –  '''permite'''
 
 ''<small>to</small> let happen''  –  '''curmi'''
+
+''Let&apos;s (suggestion)''  –  '''e&apos;u'''
 
 ''letter''  –  '''lo lerfu'''
 
@@ -3402,11 +3528,15 @@
 
 ''lever''  –  '''lo vraga'''
 
-''lid''  –  '''lo drudi''', '''lo du, lo gacri'''
+''lid''  –  '''lo drudi'''
+
+''lid''  –  '''lo du'''
+
+''lid''  –  '''lo gacri'''
 
 ''<small>to</small> lie (horizontally)''  –  '''vreta'''
 
-''life''  –  '''lo nu jmive''', '''lo nu renvi, lo se renvi'''
+''life''  –  '''lo nu jmive, lo nu renvi, lo se renvi'''
 
 ''<small>to</small> lift''  –  '''lafti'''
 
@@ -3434,7 +3564,7 @@
 
 ''limit''  –  '''lo jimte'''
 
-''limitedly''  –  '''ji'e'''
+''limitedly''  –  '''ji&apos;e'''
 
 ''line''  –  '''lo linji'''
 
@@ -3442,9 +3572,11 @@
 
 ''linen''  –  '''lo matli'''
 
-''link of a chain''  –  '''lo se li'anzi'''
+''link of a chain''  –  '''lo se li&apos;anzi'''
 
-''lion''  –  '''lo cinfo''', '''lo bramlatu'''
+''lion''  –  '''lo bramlatu'''
+
+''lion''  –  '''lo cinfo'''
 
 ''lip''  –  '''lo ctebi'''
 
@@ -3456,9 +3588,9 @@
 
 ''list''  –  '''lo liste'''
 
-''listening! (in radio communications)''  –  '''re'i'''
+''listening! (in radio communications)''  –  '''re&apos;i'''
 
-''little''  –  '''ve'i'''
+''little''  –  '''ve&apos;i'''
 
 ''<small>to</small> live (exist)''  –  '''zasti'''
 
@@ -3468,7 +3600,7 @@
 
 ''<small>to</small> live in''  –  '''xabju'''
 
-''lively (full of energy)''  –  '''jai zu'e renvi'''
+''lively (full of energy)''  –  '''jai zu&apos;e renvi'''
 
 ''liver''  –  '''lo livga'''
 
@@ -3498,9 +3630,21 @@
 
 ''logic''  –  '''lo logji'''
 
-''logically''  –  '''ni'i''', '''se ni'i'''
+''logically''  –  '''ni&apos;i'''
 
-''logically because ...''  –  '''ni'i''', '''se ni'i'''
+''logically''  –  '''se ni&apos;i'''
+
+''logically because ...''  –  '''ni&apos;i'''
+
+''logically because ...''  –  '''se ni&apos;i'''
+
+''Lojban (language)''  –  '''la lojban'''
+
+''Lojbanic''  –  '''lo lojbo'''
+
+''Lojbanist''  –  '''lo jbopre'''
+
+''London''  –  '''la london'''
 
 ''long''  –  '''lo clani'''
 
@@ -3512,7 +3656,9 @@
 
 ''<small>to</small> look at''  –  '''catlu'''
 
-''<small>to</small> look for''  –  '''mitysisku''', '''sisku'''
+''<small>to</small> look for''  –  '''mitysisku'''
+
+''<small>to</small> look for''  –  '''sisku'''
 
 ''<small>to</small> look like''  –  '''simlu'''
 
@@ -3520,7 +3666,7 @@
 
 ''loose''  –  '''lo kluza'''
 
-''loosely speaking''  –  '''sa'e nai'''
+''loosely speaking''  –  '''sa&apos;e nai'''
 
 ''lore''  –  '''lo saske'''
 
@@ -3554,7 +3700,7 @@
 
 ''luck (good or bad)''  –  '''lo funca'''
 
-''luckily''  –  '''fu'au'''
+''luckily''  –  '''fu&apos;au'''
 
 ''lujvo (compound verb made of affixes)''  –  '''lo lujvo'''
 
@@ -3586,15 +3732,17 @@
 
 ''main verb''  –  '''lo se sumti'''
 
-''main verb of a clause''  –  '''lo selbri''', '''lo se bridi'''
+''main verb of a clause''  –  '''lo se bridi'''
 
-''mainly (in importance)''  –  '''ra'u'''
+''main verb of a clause''  –  '''lo selbri'''
+
+''mainly (in importance)''  –  '''ra&apos;u'''
 
 ''maize''  –  '''lo zumri'''
 
 ''<small>to</small> make''  –  '''zbasu'''
 
-''make yourself at home''  –  '''fi'i'''
+''make yourself at home''  –  '''fi&apos;i'''
 
 ''male''  –  '''lo nakni'''
 
@@ -3612,11 +3760,11 @@
 
 ''manual''  –  '''lo macnu'''
 
-''many''  –  '''so'i'''
+''many''  –  '''so&apos;i'''
 
 ''mark''  –  '''lo barna'''
 
-''<small>to</small> mark (to put a mark)''  –  '''jmina lo barna''', '''jai gau barna'''
+''<small>to</small> mark (to put a mark)''  –  '''jmina lo barna, jai gau barna'''
 
 ''market (trading site)''  –  '''lo zarci'''
 
@@ -3650,9 +3798,9 @@
 
 ''mature''  –  '''lo makcu'''
 
-''<small>you</small> may''  –  '''e'a'''
+''<small>you</small> may''  –  '''e&apos;a'''
 
-''maybe (uncertainty)''  –  '''ju'o cu'i'''
+''maybe (uncertainty)''  –  '''ju&apos;o cu&apos;i'''
 
 ''meal''  –  '''lo sanmi'''
 
@@ -3690,13 +3838,15 @@
 
 ''meat''  –  '''lo rectu'''
 
-''medium (in difficulty/easiness)''  –  '''lo no'e frili''', '''lo no'e nandu'''
+''medium (in difficulty/easiness)''  –  '''lo no&apos;e frili, lo no&apos;e nandu'''
 
 ''medium of transmission''  –  '''lo xe benji'''
 
 ''<small>to</small> meet''  –  '''penmi'''
 
-''meh! (indifference)''  –  '''au cu'i'''
+''meh! (indifference)''  –  '''au cu&apos;i'''
+
+''Mei Li (personal name)''  –  '''la meilis'''
 
 ''<small>to</small> melt''  –  '''runme'''
 
@@ -3732,7 +3882,7 @@
 
 ''method of vaccination''  –  '''lo ve jinku'''
 
-''methodically''  –  '''ta'i'''
+''methodically''  –  '''ta&apos;i'''
 
 ''methodology of a science''  –  '''lo te saske'''
 
@@ -3744,7 +3894,9 @@
 
 ''milk''  –  '''lo ladru'''
 
-''mill''  –  '''lo fanri''', '''lo molki'''
+''mill''  –  '''lo fanri'''
+
+''mill''  –  '''lo molki'''
 
 ''millet''  –  '''lo cunmi'''
 
@@ -3752,9 +3904,9 @@
 
 ''mineral''  –  '''lo kunra'''
 
-''minus''  –  '''ni'u'''
+''minus''  –  '''ni&apos;u'''
 
-''minus (subtraction operator)''  –  '''vu'u'''
+''minus (subtraction operator)''  –  '''vu&apos;u'''
 
 ''minute-long event''  –  '''lo mentu'''
 
@@ -3814,6 +3966,8 @@
 
 ''month-long event''  –  '''lo masti'''
 
+''Moon (major natural satellite)''  –  '''lo lunra'''
+
 ''moon (satellite)''  –  '''lo mluni'''
 
 ''moral right''  –  '''lo krali'''
@@ -3822,17 +3976,25 @@
 
 ''morals''  –  '''lo marde'''
 
-''more''  –  '''lo se mleca''', '''lo zmadu'''
+''more''  –  '''lo se mleca'''
+
+''more''  –  '''lo zmadu'''
 
 ''more than ...''  –  '''se mau'''
 
-''more to come ...''  –  '''mu'o nai'''
+''more to come ...''  –  '''mu&apos;o nai'''
 
 ''morning''  –  '''lo cerni'''
 
+''Moscow''  –  '''la moskov'''
+
+''Moslem''  –  '''lo muslo'''
+
 ''moss''  –  '''lo clika'''
 
-''most''  –  '''so'e''', '''lo traji'''
+''most''  –  '''lo traji'''
+
+''most''  –  '''so&apos;e'''
 
 ''moth''  –  '''lo toldi'''
 
@@ -3866,7 +4028,9 @@
 
 ''musician''  –  '''lo zgipli'''
 
-''must ''  –  '''bilga'''
+''Muslim''  –  '''lo muslo'''
+
+''must''  –  '''bilga'''
 
 ''<small>to</small> mutually do''  –  '''simxu'''
 
@@ -3884,7 +4048,9 @@
 
 ''naked''  –  '''lo lunbe'''
 
-''name''  –  '''lo cmene''', '''lo sumti'''
+''name''  –  '''lo cmene'''
+
+''name''  –  '''lo sumti'''
 
 ''<small>to</small> name''  –  '''te cmene'''
 
@@ -3900,11 +4066,15 @@
 
 ''nature (property)''  –  '''lo jinzi'''
 
-''nay''  –  '''je'u nai'''
+''nay''  –  '''je&apos;u nai'''
 
-''near''  –  '''ne'a''', '''vi, lo jibni'''
+''near''  –  '''lo jibni'''
 
-''nearly (almost)''  –  '''so'a va'e'''
+''near''  –  '''ne&apos;a'''
+
+''near''  –  '''vi'''
+
+''nearly (almost)''  –  '''so&apos;a va&apos;e'''
 
 ''neat''  –  '''lo cnici'''
 
@@ -3938,15 +4108,19 @@
 
 ''never''  –  '''no roi'''
 
+''Nevermind!''  –  '''ju&apos;i nai'''
+
 ''new''  –  '''lo cnino'''
+
+''New York''  –  '''la nuiork'''
 
 ''news''  –  '''lo nuzba'''
 
 ''newspaper''  –  '''lo karni'''
 
-''next (following)''  –  '''lo za'u moi''', '''lo se lidne'''
+''next (following)''  –  '''lo za&apos;u moi, lo se lidne'''
 
-''next to ...''  –  '''ne'a'''
+''next to ...''  –  '''ne&apos;a'''
 
 ''nice''  –  '''lo zabna'''
 
@@ -3960,21 +4134,21 @@
 
 ''nitrogen''  –  '''lo trano'''
 
-''no (false)''  –  '''je'u nai'''
+''no (false)''  –  '''je&apos;u nai'''
 
 ''no (number)''  –  '''no'''
 
-''no less than ...''  –  '''su'o'''
+''no less than ...''  –  '''su&apos;o'''
 
-''no longer ...''  –  '''ba'o'''
+''no longer ...''  –  '''ba&apos;o'''
 
-''no more than ...''  –  '''su'e'''
+''no more than ...''  –  '''su&apos;e'''
 
-''no one''  –  '''no da''', '''no prenu'''
+''no one''  –  '''no da, no prenu'''
 
 ''noble''  –  '''lo nobli'''
 
-''nobody''  –  '''no da''', '''no prenu'''
+''nobody''  –  '''no da, no prenu'''
 
 ''noise''  –  '''lo savru'''
 
@@ -3988,13 +4162,15 @@
 
 ''norm''  –  '''lo cnano'''
 
+''North American''  –  '''lo bemro'''
+
 ''northern''  –  '''lo berti'''
 
 ''nose''  –  '''lo nazbi'''
 
-''not''  –  '''nai '''
+''not''  –  '''nai'''
 
-''not ...''  –  '''na'e'''
+''not ...''  –  '''na&apos;e'''
 
 ''not encrypted text''  –  '''lo se mifra'''
 
@@ -4004,13 +4180,15 @@
 
 ''not physical''  –  '''lo mucti'''
 
-''not yet''  –  '''nu'o'''
+''not yet''  –  '''nu&apos;o'''
 
-''nothing''  –  '''no da''', '''no dacti'''
+''nothing''  –  '''no da, no dacti'''
 
 ''noun''  –  '''lo sumti'''
 
-''now''  –  '''nau''', '''ca'''
+''now''  –  '''ca'''
+
+''now''  –  '''nau'''
 
 ''nucleus''  –  '''lo kernelo'''
 
@@ -4052,19 +4230,23 @@
 
 ''<small>to</small> observe''  –  '''zgana'''
 
-''observed by ...''  –  '''ga'a'''
+''observed by ...''  –  '''ga&apos;a'''
 
 ''observer''  –  '''lo zgana'''
 
 ''obstinate''  –  '''lo xarnu'''
 
-''<small>to</small> occur''  –  '''fasnu''', '''rapli'''
+''<small>to</small> occur''  –  '''fasnu'''
 
-''occurrence''  –  '''lo fasnu''', '''lo krefu'''
+''<small>to</small> occur''  –  '''rapli'''
 
-''of (belonging to)''  –  '''ne''', '''pe, be'''
+''occurrence''  –  '''lo fasnu'''
 
-''of course''  –  '''li'a'''
+''occurrence''  –  '''lo krefu'''
+
+''of (belonging to)''  –  '''ne, pe, be'''
+
+''of course''  –  '''li&apos;a'''
 
 ''<small>to</small> offer''  –  '''friti'''
 
@@ -4074,11 +4256,13 @@
 
 ''offspring''  –  '''lo panzi'''
 
-''often''  –  '''so'i roi'''
+''often''  –  '''so&apos;i roi'''
 
 ''<small>to happen</small> often''  –  '''cafne'''
 
 ''oh dear! (pity''  –  '''uu'''
+
+''OK (acceptance)''  –  '''i&apos;a'''
 
 ''old''  –  '''lo laldo'''
 
@@ -4086,17 +4270,19 @@
 
 ''omelette''  –  '''lo omle'''
 
-''on''  –  '''cpana''', '''cpana'''. ,
+''on condition that ...''  –  '''va&apos;o'''
 
-''on condition that ...''  –  '''va'o'''
+''on date/time ...''  –  '''de&apos;i'''
 
-''on date/time ...''  –  '''de'i'''
+''on the one hand''  –  '''zu&apos;u'''
 
-''on the one hand''  –  '''zu'u'''
+''on the other hand''  –  '''zu&apos;u nai'''
 
-''on the other hand''  –  '''zu'u nai'''
+''on time ...''  –  '''de&apos;i'''
 
-''on time ...''  –  '''de'i'''
+''<small>to be</small> on, upon''  –  '''cpana'''
+
+''<small>to be</small> on, upon''  –  '''cpana'''
 
 ''once (one day&#44; upon a time)''  –  '''ca da'''
 
@@ -4106,15 +4292,15 @@
 
 ''one]''  –  '''ei'''
 
-''oneself''  –  '''si'u nai'''
+''oneself''  –  '''si&apos;u nai'''
 
 ''onion''  –  '''lo sluni'''
 
-''only''  –  '''po'o'''
+''only''  –  '''po&apos;o'''
 
-''ooh! (wonder)''  –  '''u'e'''
+''ooh! (wonder)''  –  '''u&apos;e'''
 
-''oomph! (effort''  –  '''a'i'''
+''oomph! (effort''  –  '''a&apos;i'''
 
 ''open''  –  '''lo kalri'''
 
@@ -4130,7 +4316,7 @@
 
 ''opinion''  –  '''lo se jinvi'''
 
-''opinion (in my opinion)''  –  '''pe'i'''
+''opinion (in my opinion)''  –  '''pe&apos;i'''
 
 ''opponent in a competition''  –  '''lo se jivna'''
 
@@ -4172,19 +4358,19 @@
 
 ''other''  –  '''lo drata'''
 
-''other than ...''  –  '''na'e'''
+''other than ...''  –  '''na&apos;e'''
 
-''otherwise equal to ...''  –  '''pa'a'''
+''otherwise equal to ...''  –  '''pa&apos;a'''
 
 ''ouch! (complaint)''  –  '''oi'''
 
-''ought to (advice)''  –  '''e'u'''
+''ought to (advice)''  –  '''e&apos;u'''
 
-''ought to (obligation&#44; duty)''  –  '''e'i''', '''bilga'''
+''ought to (obligation&#44; duty)''  –  '''e&apos;i, bilga'''
 
-''ought to (probability)''  –  '''la'a'''
+''ought to (probability)''  –  '''la&apos;a'''
 
-''out (away from the inside)''  –  '''fa'a lo bartu'''
+''out (away from the inside)''  –  '''fa&apos;a lo bartu'''
 
 ''outcome of an event''  –  '''lo jalge'''
 
@@ -4192,19 +4378,17 @@
 
 ''outer space''  –  '''lo kensa'''
 
-''outgoing)''  –  '''lo jikca'''
-
-''outside''  –  '''se ne'i''', '''bu'u lo bartu'''
+''outside''  –  '''se ne&apos;i, bu&apos;u lo bartu'''
 
 ''outstanding''  –  '''lo zabna'''
 
-''outwards''  –  '''ze'o'''
+''outwards''  –  '''ze&apos;o'''
 
 ''oven''  –  '''lo toknu'''
 
-''over''  –  '''mu'o'''
+''over''  –  '''mu&apos;o'''
 
-''over and out (at the end of discussion)''  –  '''fe'o'''
+''over and out (at the end of discussion)''  –  '''fe&apos;o'''
 
 ''over there''  –  '''vu'''
 
@@ -4278,6 +4462,8 @@
 
 ''parent of a son''  –  '''lo se bersa'''
 
+''Paris''  –  '''la paris'''
+
 ''park''  –  '''lo panka'''
 
 ''part''  –  '''lo pagbu'''
@@ -4288,25 +4474,29 @@
 
 ''<small>to</small> participate at''  –  '''participe'''
 
-''party (celebration)''  –  '''lo nu salci''', '''lo te salci'''
+''party (celebration)''  –  '''lo nu salci, lo te salci'''
 
-''passenger''  –  '''lo klama''', '''lo se marce'''
+''passenger''  –  '''lo klama'''
+
+''passenger''  –  '''lo se marce'''
 
 ''passenger of a boat''  –  '''lo se bloti'''
 
 ''passenger of an aircraft''  –  '''lo se vinji'''
 
-''passing through ...''  –  '''pa'o'''
+''passing through ...''  –  '''pa&apos;o'''
 
 ''passport''  –  '''lo jaspu'''
 
-''past event''  –  '''lo se balvi''', '''lo purci'''
+''past event''  –  '''lo purci'''
+
+''past event''  –  '''lo se balvi'''
 
 ''past tense''  –  '''pu'''
 
 ''paste''  –  '''lo pesxu'''
 
-''patience!''  –  '''o'o'''
+''patience!''  –  '''o&apos;o'''
 
 ''patient (being cured)''  –  '''lo se mikce'''
 
@@ -4318,7 +4508,7 @@
 
 ''<small>to</small> pause for''  –  '''denpa'''
 
-''pausing ...''  –  '''de'a'''
+''pausing ...''  –  '''de&apos;a'''
 
 ''<small>to</small> pay''  –  '''pleji'''
 
@@ -4360,7 +4550,7 @@
 
 ''people to whom the rule is applied''  –  '''lo te javni'''
 
-''percent''  –  '''ce'i'''
+''percent''  –  '''ce&apos;i'''
 
 ''perfect''  –  '''lo prane'''
 
@@ -4370,7 +4560,7 @@
 
 ''performer''  –  '''lo tigni'''
 
-''perhaps''  –  '''ju'o cu'i'''
+''perhaps''  –  '''ju&apos;o cu&apos;i'''
 
 ''period''  –  '''lo ditcu'''
 
@@ -4396,9 +4586,9 @@
 
 ''petroleum''  –  '''lo ctile'''
 
-''pff! (commonplace)''  –  '''u'e nai'''
+''pff! (commonplace)''  –  '''u&apos;e nai'''
 
-''phew! (relaxation)''  –  '''o'u'''
+''phew! (relaxation)''  –  '''o&apos;u'''
 
 ''<small>to</small> phonate''  –  '''bacru'''
 
@@ -4438,7 +4628,7 @@
 
 ''<small>to</small> pinch''  –  '''batci'''
 
-''pink''  –  '''lo labyxu'e'''
+''pink''  –  '''lo labyxu&apos;e'''
 
 ''pipe''  –  '''lo xagri'''
 
@@ -4448,7 +4638,9 @@
 
 ''<small>to</small> place''  –  '''punji'''
 
-''place of a grammatical clause''  –  '''lo te selbri''', '''lo te bridi'''
+''place of a grammatical clause''  –  '''lo te bridi'''
+
+''place of a grammatical clause''  –  '''lo te selbri'''
 
 ''place of a verb argument''  –  '''lo te sumti'''
 
@@ -4504,11 +4696,13 @@
 
 ''pleasant event''  –  '''lo pluka'''
 
-''please''  –  '''pe'u''', '''e'o'''
+''please''  –  '''e&apos;o'''
+
+''please''  –  '''pe&apos;u'''
 
 ''<small>to</small> please''  –  '''pluka'''
 
-''please repeat!''  –  '''ke'o'''
+''please repeat!''  –  '''ke&apos;o'''
 
 ''pleased''  –  '''lo se pluka'''
 
@@ -4540,9 +4734,9 @@
 
 ''plum''  –  '''lo flaume'''
 
-''plural number''  –  '''za'u'''
+''plural number''  –  '''za&apos;u'''
 
-''plus''  –  '''su'i'''
+''plus''  –  '''su&apos;i'''
 
 ''pocket''  –  '''lo daski'''
 
@@ -4588,17 +4782,19 @@
 
 ''portioned''  –  '''lo se spisa'''
 
+''Portuguese''  –  '''lo porto'''
+
 ''possessed''  –  '''lo se ponse'''
 
 ''possible''  –  '''lo cumki'''
 
-''possibly''  –  '''la'a cu'i'''
+''possibly''  –  '''la&apos;a cu&apos;i'''
 
-''possibly can ...''  –  '''ka'e'''
+''possibly can ...''  –  '''ka&apos;e'''
 
-''possibly can and at least once actually is or does ...''  –  '''pu'i'''
+''possibly can and at least once actually is or does ...''  –  '''pu&apos;i'''
 
-''possibly can but actually not ...''  –  '''nu'o'''
+''possibly can but actually not ...''  –  '''nu&apos;o'''
 
 ''<small>to</small> post''  –  '''mrilu'''
 
@@ -4624,7 +4820,7 @@
 
 ''precious''  –  '''lo dirba'''
 
-''precisely speaking''  –  '''sa'e'''
+''precisely speaking''  –  '''sa&apos;e'''
 
 ''predicate''  –  '''lo se sumti'''
 
@@ -4646,7 +4842,7 @@
 
 ''pressure''  –  '''lo danre'''
 
-''pretty (moderately&#44; to some degree)''  –  '''so'o va'e'''
+''pretty (moderately&#44; to some degree)''  –  '''so&apos;o va&apos;e'''
 
 ''pretty (pleasing)''  –  '''pluka'''
 
@@ -4662,7 +4858,7 @@
 
 ''<small>to</small> prick''  –  '''tunta'''
 
-''primarily''  –  '''ra'u'''
+''primarily''  –  '''ra&apos;u'''
 
 ''principal''  –  '''lo ralju'''
 
@@ -4680,9 +4876,11 @@
 
 ''probable''  –  '''lo lakne'''
 
-''probably''  –  '''la'a'''
+''probably''  –  '''la&apos;a'''
 
-''problem''  –  '''lo se danfu''', '''lo nabmi'''
+''problem''  –  '''lo nabmi'''
+
+''problem''  –  '''lo se danfu'''
 
 ''process''  –  '''lo pruce'''
 
@@ -4722,7 +4920,7 @@
 
 ''<small>to</small> promise''  –  '''nupre'''
 
-''promise you ...''  –  '''nu'e'''
+''promise you ...''  –  '''nu&apos;e'''
 
 ''promised''  –  '''lo se nupre'''
 
@@ -4760,15 +4958,15 @@
 
 ''provided''  –  '''lo se sabji'''
 
-''provided that ...''  –  '''va'o'''
+''provided that ...''  –  '''va&apos;o'''
 
 ''provider''  –  '''lo sabji'''
 
-''provokation)''  –  '''e'e'''
+''provokation)''  –  '''e&apos;e'''
 
 ''pshaw! (disbelief)''  –  '''ia nai'''
 
-''psst!''  –  '''ju'i'''
+''psst!''  –  '''ju&apos;i'''
 
 ''pubic area''  –  '''lo plibu'''
 
@@ -4796,7 +4994,7 @@
 
 ''purple''  –  '''lo zirpu'''
 
-''<small>for a</small> purpose''  –  '''te zu'e'''
+''<small>for a</small> purpose''  –  '''te zu&apos;e'''
 
 ''purpose for a brush''  –  '''lo se burcu'''
 
@@ -4816,7 +5014,9 @@
 
 ''<small>to</small> push''  –  '''catke'''
 
-''<small>to</small> put''  –  '''punji''', '''setca'''
+''<small>to</small> put''  –  '''punji'''
+
+''<small>to</small> put''  –  '''setca'''
 
 ''quantity''  –  '''lo se klani'''
 
@@ -4824,13 +5024,15 @@
 
 ''queen''  –  '''lo nolraitru'''
 
-''question''  –  '''lo se retsku''', '''lo preti'''
+''question''  –  '''lo preti'''
+
+''question''  –  '''lo se retsku'''
 
 ''quick''  –  '''lo sutra'''
 
 ''quiet (producing soft sound)''  –  '''lo tolycladu'''
 
-''quitting ...''  –  '''co'u'''
+''quitting ...''  –  '''co&apos;u'''
 
 ''<small>to</small> quote''  –  '''sitna'''
 
@@ -4864,9 +5066,9 @@
 
 ''rat''  –  '''lo ratcu'''
 
-''rather (on the contrary)''  –  '''ku'i'''
+''rather (on the contrary)''  –  '''ku&apos;i'''
 
-''rather (preference)''  –  '''au'''. see '''au''': '''au''' + two clauses
+''rather (preference)''  –  see '''au''': '''au''' + two clauses
 
 ''rational event''  –  '''lo racli'''
 
@@ -4890,7 +5092,7 @@
 
 ''ready''  –  '''lo bredi'''
 
-''ready to receive''  –  '''re'i'''
+''ready to receive''  –  '''re&apos;i'''
 
 ''real (existing)''  –  '''lo zasti'''
 
@@ -4950,7 +5152,7 @@
 
 ''regular''  –  '''lo dikni'''
 
-''regularly''  –  '''di'i'''
+''regularly''  –  '''di&apos;i'''
 
 ''related''  –  '''lo ckini'''
 
@@ -5012,7 +5214,7 @@
 
 ''report (account)''  –  '''lo ve skicu'''
 
-''report (written account)''  –  '''lo ve skicu uencu''', '''lo uencu be lo ve skicu'''
+''report (written account)''  –  '''lo ve skicu uencu, lo uencu be lo ve skicu'''
 
 ''<small>to</small> represent (serve as a sign or signal for)''  –  '''sinxa'''
 
@@ -5036,11 +5238,17 @@
 
 ''respected''  –  '''lo se sinma'''
 
-''<small>to</small> respond''  –  '''spusku''', '''spuda'''
+''<small>to</small> respond''  –  '''spuda'''
 
-''responder''  –  '''lo spusku''', '''lo spuda'''
+''<small>to</small> respond''  –  '''spusku'''
 
-''response''  –  '''lo se spusku''', '''lo te spuda'''
+''responder''  –  '''lo spuda'''
+
+''responder''  –  '''lo spusku'''
+
+''response''  –  '''lo se spusku'''
+
+''response''  –  '''lo te spuda'''
 
 ''responsible for''  –  '''lo fuzme'''
 
@@ -5054,11 +5262,11 @@
 
 ''result of an event''  –  '''lo jalge'''
 
-''resulting from ...''  –  '''se ja'e'''
+''resulting from ...''  –  '''se ja&apos;e'''
 
-''resulting in ...''  –  '''ja'e'''
+''resulting in ...''  –  '''ja&apos;e'''
 
-''resuming ...''  –  '''di'a'''
+''resuming ...''  –  '''di&apos;a'''
 
 ''<small>to</small> retain''  –  '''ralte'''
 
@@ -5066,7 +5274,7 @@
 
 ''<small>to</small> return to''  –  '''volve'''
 
-''returning to main point''  –  '''ta'o nai'''
+''returning to main point''  –  '''ta&apos;o nai'''
 
 ''<small>to</small> revenge''  –  '''venfu'''
 
@@ -5096,13 +5304,13 @@
 
 ''right (direction)''  –  '''lo pritu'''
 
-''rightwards''  –  '''ri'u'''
+''rightwards''  –  '''ri&apos;u'''
 
 ''rigid''  –  '''lo tinsa'''
 
 ''ring''  –  '''lo djine'''
 
-''ring of a chain''  –  '''lo se li'anzi'''
+''ring of a chain''  –  '''lo se li&apos;anzi'''
 
 ''rite''  –  '''lo ritli'''
 
@@ -5122,7 +5330,7 @@
 
 ''rod''  –  '''lo grana'''
 
-''roger''  –  '''je'e'''
+''roger''  –  '''je&apos;e'''
 
 ''<small>to</small> roll''  –  '''gunro'''
 
@@ -5132,7 +5340,7 @@
 
 ''rope''  –  '''lo skori'''
 
-''rose (of color)''  –  '''lo labyxu'e'''
+''rose (of color)''  –  '''lo labyxu&apos;e'''
 
 ''rose (plant)''  –  '''lo rozgu'''
 
@@ -5144,7 +5352,7 @@
 
 ''rotten (bad)''  –  '''lo mabla'''
 
-''rotten (finished rotting)''  –  '''lo mo'u fusra'''
+''rotten (finished rotting)''  –  '''lo mo&apos;u fusra'''
 
 ''rotting''  –  '''lo fusra'''
 
@@ -5152,9 +5360,13 @@
 
 ''round''  –  '''lo cukla'''
 
-''route''  –  '''lo ve klama''', '''lo pluta'''
+''route''  –  '''lo pluta'''
 
-''<small>to</small> rub''  –  '''se mosra''', '''satre'''
+''route''  –  '''lo ve klama'''
+
+''<small>to</small> rub''  –  '''satre'''
+
+''<small>to</small> rub''  –  '''se mosra'''
 
 ''rubber''  –  '''lo ckabu'''
 
@@ -5167,6 +5379,10 @@
 ''runner''  –  '''lo bajra'''
 
 ''runner on a sled''  –  '''lo skiji'''
+
+''Russia''  –  '''la rosiias'''
+
+''Russian''  –  '''lo rusko'''
 
 ''rye''  –  '''lo mraji'''
 
@@ -5200,7 +5416,7 @@
 
 ''sane event''  –  '''lo racli'''
 
-''sarcastically''  –  '''xo'o'''
+''sarcastically''  –  '''xo&apos;o'''
 
 ''satellite (in outer space)''  –  '''lo mluni'''
 
@@ -5214,11 +5430,13 @@
 
 ''saucer''  –  '''lo palta'''
 
-''<small>to</small> save (keep safe)''  –  '''jai gau snura''', '''bandu'''
+''<small>to</small> save (keep safe)''  –  '''jai gau snura, bandu'''
 
 ''saxophone''  –  '''lo xagri'''
 
-''<small>to</small> say''  –  '''cusku''', '''smusku'''
+''<small>to</small> say''  –  '''cusku'''
+
+''<small>to</small> say''  –  '''smusku'''
 
 ''<small>to</small> say goodby to''  –  '''tolrinsa'''
 
@@ -5256,7 +5474,9 @@
 
 ''sealed with a lock''  –  '''lo se stela'''
 
-''<small>to</small> search for''  –  '''mitysisku''', '''sisku'''
+''<small>to</small> search for''  –  '''mitysisku'''
+
+''<small>to</small> search for''  –  '''sisku'''
 
 ''searcher''  –  '''lo mitysisku'''
 
@@ -5284,7 +5504,7 @@
 
 ''<small>to</small> seem to be''  –  '''simlu'''
 
-''seems''  –  '''si'au'''
+''seems''  –  '''si&apos;au'''
 
 ''seen''  –  '''lo se viska'''
 
@@ -5294,7 +5514,9 @@
 
 ''seller''  –  '''lo vecnu'''
 
-''selma&apos;o''  –  '''lo selma'o''', '''lo se cmavo'''
+''selma&apos;o''  –  '''lo se cmavo'''
+
+''selma&apos;o''  –  '''lo selma&apos;o'''
 
 ''selva''  –  '''lo boske'''
 
@@ -5306,9 +5528,9 @@
 
 ''<small>to</small> sense''  –  '''ganse'''
 
-''sent by ...''  –  '''be'i'''
+''sent by ...''  –  '''be&apos;i'''
 
-''sent to ...''  –  '''te be'i'''
+''sent to ...''  –  '''te be&apos;i'''
 
 ''sentence''  –  '''lo jufra'''
 
@@ -5316,9 +5538,9 @@
 
 ''sequence''  –  '''lo porsi'''
 
-''serene ''  –  '''lo tolxanka'''
+''serene''  –  '''lo tolxanka'''
 
-''seriously''  –  '''zo'o nai'''
+''seriously''  –  '''zo&apos;o nai'''
 
 ''servant''  –  '''lo selfu'''
 
@@ -5332,7 +5554,7 @@
 
 ''seven''  –  '''ze'''
 
-''several''  –  '''so'o'''
+''several''  –  '''so&apos;o'''
 
 ''<small>to</small> sew''  –  '''fenso'''
 
@@ -5350,7 +5572,7 @@
 
 ''shallow basin''  –  '''lo tansi'''
 
-''shame on me!''  –  '''o'a nai'''
+''shame on me!''  –  '''o&apos;a nai'''
 
 ''shameful event''  –  '''lo se ckeji'''
 
@@ -5362,7 +5584,7 @@
 
 ''<small>to</small> shatter''  –  '''porpi'''
 
-''she''  –  '''le fetsi''', '''le pa fetsi'''
+''she''  –  '''le fetsi, le pa fetsi'''
 
 ''sheep''  –  '''lo lanme'''
 
@@ -5408,9 +5630,9 @@
 
 ''side (lateral edge)''  –  '''lo mlana korbi'''
 
-''<small>by the</small> side of ...''  –  '''zo'a'''
+''<small>by the</small> side of ...''  –  '''zo&apos;a'''
 
-''<small>on this</small> side of ...''  –  '''zo'i'''
+''<small>on this</small> side of ...''  –  '''zo&apos;i'''
 
 ''sign''  –  '''lo sinxa'''
 
@@ -5422,17 +5644,19 @@
 
 ''similar''  –  '''lo simsa'''
 
-''similarly''  –  '''pa'a''', '''si'a'''
+''similarly''  –  '''pa&apos;a'''
+
+''similarly''  –  '''si&apos;a'''
 
 ''simple''  –  '''lo sampu'''
 
-''simply''  –  '''sa'u'''
+''simply''  –  '''sa&apos;u'''
 
 ''simultaneous''  –  '''lo cabna'''
 
 ''simultaneousely with ... (in time)''  –  '''ca'''
 
-''sincerely''  –  '''xo'o nai'''
+''sincerely''  –  '''xo&apos;o nai'''
 
 ''sine''  –  '''lo sinso'''
 
@@ -5440,7 +5664,9 @@
 
 ''singer''  –  '''lo sanga'''
 
-''sink''  –  '''lo patxu''', '''lo tansi'''
+''sink''  –  '''lo patxu'''
+
+''sink''  –  '''lo tansi'''
 
 ''sister''  –  '''lo mensi'''
 
@@ -5484,7 +5710,9 @@
 
 ''<small>to</small> slow down''  –  '''jabre'''
 
-''small''  –  '''lo cmalu''', '''ve'i'''
+''small''  –  '''lo cmalu'''
+
+''small''  –  '''ve&apos;i'''
 
 ''smart''  –  '''lo stati'''
 
@@ -5498,9 +5726,9 @@
 
 ''smoke''  –  '''lo danmo'''
 
-''<small>to</small> smoke''  –  '''damva'u'''
+''<small>to</small> smoke''  –  '''damva&apos;u'''
 
-''smoker''  –  '''lo damva'u'''
+''smoker''  –  '''lo damva&apos;u'''
 
 ''smooth''  –  '''lo xutla'''
 
@@ -5516,7 +5744,7 @@
 
 ''soap''  –  '''lo zbabu'''
 
-''social (being extroverted''  –  '''lo jikca'''
+''social (being extroverted, outgoing)''  –  '''lo jikca'''
 
 ''social gender''  –  '''lo te seksi'''
 
@@ -5538,7 +5766,7 @@
 
 ''soldier''  –  '''lo sonci'''
 
-''solely''  –  '''po'o'''
+''solely''  –  '''po&apos;o'''
 
 ''solid''  –  '''lo sligu'''
 
@@ -5550,7 +5778,7 @@
 
 ''<small>to</small> solve a problem (find a solution)''  –  '''facki lo danfu'''
 
-''some''  –  '''su'o'''
+''some''  –  '''su&apos;o'''
 
 ''someone awake''  –  '''lo cikna'''
 
@@ -5560,9 +5788,7 @@
 
 ''someone with authority''  –  '''lo catni'''
 
-''something''  –  '''zo'e''', '''da'''
-
-''something Islamic''  –  '''lo muslo'''
+''something''  –  '''zo&apos;e, da'''
 
 ''<small>there is</small> something''  –  '''da'''
 
@@ -5592,6 +5818,8 @@
 
 ''something inside''  –  '''lo se bartu'''
 
+''something Islamic''  –  '''lo muslo'''
+
 ''something lifted''  –  '''lo se lafti'''
 
 ''something outside''  –  '''lo bartu'''
@@ -5614,7 +5842,11 @@
 
 ''something with a knot''  –  '''lo se jgena'''
 
-''something with a lid''  –  '''lo se drudi''', '''lo se du, lo se gacri'''
+''something with a lid''  –  '''lo se drudi'''
+
+''something with a lid''  –  '''lo se du'''
+
+''something with a lid''  –  '''lo se gacri'''
 
 ''something with a limit''  –  '''lo se jimte'''
 
@@ -5622,7 +5854,7 @@
 
 ''something with an origin''  –  '''lo se krasi'''
 
-''sometimes (occasionally)''  –  '''me'i ro roi'''
+''sometimes (occasionally)''  –  '''me&apos;i ro roi'''
 
 ''son''  –  '''lo bersa'''
 
@@ -5632,7 +5864,7 @@
 
 ''sorghum''  –  '''lo sorgu'''
 
-''sorry! (repentance)''  –  '''u'u'''
+''sorry! (repentance)''  –  '''u&apos;u'''
 
 ''sort of''  –  '''lo sorta'''
 
@@ -5648,6 +5880,10 @@
 
 ''source''  –  '''lo krasi'''
 
+''source language for translation''  –  '''lo ve fanva'''
+
+''South American''  –  '''lo ketco'''
+
 ''southern''  –  '''lo snanu'''
 
 ''<small>to</small> sow''  –  '''sombo'''
@@ -5662,11 +5898,13 @@
 
 ''spaced (separated)''  –  '''lo sepli'''
 
+''Spanish''  –  '''lo spano'''
+
 ''<small>to</small> speak''  –  '''tavla'''
 
-''speaking impartially''  –  '''pa'e'''
+''speaking impartially''  –  '''pa&apos;e'''
 
-''special (of particular interest''  –  '''lo steci'''
+''special (of particular interest, value)''  –  '''lo steci'''
 
 ''species''  –  '''lo jutsi'''
 
@@ -5683,6 +5921,8 @@
 ''spider''  –  '''lo ankabuta'''
 
 ''spiral''  –  '''lo sarlu'''
+
+''spirit (ghost)''  –  '''lo pruxi'''
 
 ''spirits''  –  '''lo jikru'''
 
@@ -5722,7 +5962,7 @@
 
 ''springtime''  –  '''lo vensa'''
 
-''square root of -1''  –  '''ka'o'''
+''square root of -1''  –  '''ka&apos;o'''
 
 ''<small>to</small> squeeze''  –  '''danre'''
 
@@ -5756,7 +5996,7 @@
 
 ''<small>to</small> start''  –  '''cfari'''
 
-''starting ...''  –  '''co'a'''
+''starting ...''  –  '''co&apos;a'''
 
 ''state''  –  '''lo jecta'''
 
@@ -5780,7 +6020,7 @@
 
 ''stiff''  –  '''lo tinsa'''
 
-''still''  –  '''za'o'''
+''still''  –  '''za&apos;o'''
 
 ''stimulus for a response''  –  '''lo se spuda'''
 
@@ -5886,7 +6126,7 @@
 
 ''subject taught in a school''  –  '''lo te ckule'''
 
-''subjunctive mood''  –  '''da'i'''
+''subjunctive mood''  –  '''da&apos;i'''
 
 ''subordinate''  –  '''lo vipsi'''
 
@@ -5958,7 +6198,7 @@
 
 ''<small>to</small> surround''  –  '''sruri'''
 
-''surrounding ...''  –  '''ru'u'''
+''surrounding ...''  –  '''ru&apos;u'''
 
 ''<small>to</small> survive''  –  '''renvi'''
 
@@ -5974,7 +6214,9 @@
 
 ''swell''  –  '''lo zabna'''
 
-''<small>to</small> swell''  –  '''plana''', '''punli'''
+''<small>to</small> swell''  –  '''plana'''
+
+''<small>to</small> swell''  –  '''punli'''
 
 ''swelling''  –  '''lo punli'''
 
@@ -5982,7 +6224,9 @@
 
 ''swimmer''  –  '''lo limna'''
 
-''swollen''  –  '''lo plana''', '''lo punli'''
+''swollen''  –  '''lo plana'''
+
+''swollen''  –  '''lo punli'''
 
 ''<small>to</small> swoop into''  –  '''sfubu'''
 
@@ -6016,7 +6260,9 @@
 
 ''talent''  –  '''lo se stati'''
 
-''talented''  –  '''lo stati''', '''lo stati'''
+''talented''  –  '''lo stati'''
+
+''talented''  –  '''lo stati'''
 
 ''<small>to</small> talk to''  –  '''tavla'''
 
@@ -6024,11 +6270,17 @@
 
 ''tanru''  –  '''lo tanru'''
 
+''Taoist''  –  '''lo dadjo'''
+
 ''tar''  –  '''lo tarla'''
+
+''target language for translation''  –  '''lo te fanva'''
 
 ''tart''  –  '''lo torta'''
 
-''taste''  –  '''lo tasta''', '''lo vrusi'''
+''taste''  –  '''lo tasta'''
+
+''taste''  –  '''lo vrusi'''
 
 ''<small>to</small> taste (feel the taste)''  –  '''smaka'''
 
@@ -6056,7 +6308,9 @@
 
 ''teacher''  –  '''lo ctuca'''
 
-''team (crew)''  –  '''lo bende''', '''lo bende'''
+''team (crew)''  –  '''lo bende'''
+
+''team (crew)''  –  '''lo bende'''
 
 ''tear wept''  –  '''lo se klaku'''
 
@@ -6084,35 +6338,39 @@
 
 ''tested''  –  '''lo se cipra'''
 
-''text''  –  '''lo te gerna''', '''lo uenzi'''
+''text''  –  '''lo te gerna'''
+
+''text''  –  '''lo uenzi'''
 
 ''text to be read''  –  '''lo se tcidu'''
+
+''text to be translated''  –  '''lo se fanva'''
 
 ''text translated''  –  '''lo se traduki'''
 
 ''texture''  –  '''lo tengu'''
 
-''thank you!''  –  '''ki'e'''
+''thank you!''  –  '''ki&apos;e'''
 
 ''thankful''  –  '''lo ckire'''
 
 ''thanks to ...''  –  '''se xau'''
 
-''thanks!''  –  '''ki'e'''
+''thanks!''  –  '''ki&apos;e'''
 
-''that inalienably belongs to ...''  –  '''po'e'''
+''that inalienably belongs to ...''  –  '''po&apos;e'''
 
 ''that is about ...''  –  '''pe'''
 
 ''that one''  –  '''va'''
 
-''that one over there''  –  '''tu''', '''vu'''
+''that one over there''  –  '''tu'''
+
+''that one over there''  –  '''vu'''
 
 ''that one there''  –  '''ta'''
 
-''that&apos;s all I can say (in radio communications)''  –  '''mu'o'''
-
-''the Sun''  –  '''la Sol'''
+''that&apos;s all I can say (in radio communications)''  –  '''mu&apos;o'''
 
 ''the day before''  –  '''lo prulamdei'''
 
@@ -6120,13 +6378,19 @@
 
 ''the only difference''  –  '''lo te panra'''
 
+''the Sun''  –  '''la sol'''
+
 ''there''  –  '''va'''
 
-''there exists''  –  '''bu'a''', '''bu'e, bu'i'''
+''there exists''  –  '''bu&apos;a'''
 
-''they''  –  '''le za'u mei'''
+''there exists''  –  '''bu&apos;e'''
 
-''they say''  –  '''ti'e'''
+''there exists''  –  '''bu&apos;i'''
+
+''they''  –  '''le za&apos;u mei'''
+
+''they say''  –  '''ti&apos;e'''
 
 ''thick''  –  '''lo rotsu'''
 
@@ -6136,7 +6400,7 @@
 
 ''thing (material object)''  –  '''lo dacti'''
 
-''think (I think)''  –  '''pe'i'''
+''think (I think)''  –  '''pe&apos;i'''
 
 ''<small>to</small> think (opine)''  –  '''jinvi'''
 
@@ -6166,11 +6430,11 @@
 
 ''throat''  –  '''lo galxe'''
 
-''throughout a space''  –  '''vi'u'''
+''throughout a space''  –  '''vi&apos;u'''
 
-''throughout a space-time''  –  '''vi'e'''
+''throughout a space-time''  –  '''vi&apos;e'''
 
-''throughout an area''  –  '''vi'a'''
+''throughout an area''  –  '''vi&apos;a'''
 
 ''<small>to</small> throw''  –  '''renro'''
 
@@ -6212,23 +6476,23 @@
 
 ''tiring''  –  '''lo se tatpi'''
 
-''to ... (destination)''  –  '''se ka'a'''
+''to ... (destination)''  –  '''se ka&apos;a'''
 
-''to ... (towards)''  –  '''fa'a'''
+''to ... (towards)''  –  '''fa&apos;a'''
 
 ''<small>talking</small> to ...''  –  '''cusku fi'''
 
-''to observer ...''  –  '''ga'a'''
+''to observer ...''  –  '''ga&apos;a'''
 
-''to the degree of ...''  –  '''ji'e'''
+''to the degree of ...''  –  '''ji&apos;e'''
 
-''to the front of ...''  –  '''ca'u'''
+''to the front of ...''  –  '''ca&apos;u'''
 
-''to the left of ...''  –  '''zu'a'''
+''to the left of ...''  –  '''zu&apos;a'''
 
-''to the rear of ...''  –  '''ti'a'''
+''to the rear of ...''  –  '''ti&apos;a'''
 
-''to the right of ...''  –  '''ri'u'''
+''to the right of ...''  –  '''ri&apos;u'''
 
 ''tobacco''  –  '''lo tanko'''
 
@@ -6236,7 +6500,9 @@
 
 ''toe''  –  '''lo degji'''
 
-''together with ...''  –  '''ka'ai'''
+''together with ...''  –  '''ka&apos;ai'''
+
+''Tokio''  –  '''la toki&apos;os'''
 
 ''told about''  –  '''lo se skicu'''
 
@@ -6252,11 +6518,11 @@
 
 ''tongue''  –  '''lo tance'''
 
-''too''  –  '''ji'a'''
+''too''  –  '''ji&apos;a'''
 
-''too few''  –  '''mo'a'''
+''too few''  –  '''mo&apos;a'''
 
-''too many''  –  '''du'e'''
+''too many''  –  '''du&apos;e'''
 
 ''tool''  –  '''lo tutci'''
 
@@ -6280,9 +6546,9 @@
 
 ''touched''  –  '''lo se pencu'''
 
-''touching ...''  –  '''re'o'''
+''touching ...''  –  '''re&apos;o'''
 
-''towards ...''  –  '''fa'a'''
+''towards ...''  –  '''fa&apos;a'''
 
 ''town''  –  '''lo tcadu'''
 
@@ -6306,13 +6572,21 @@
 
 ''transformer''  –  '''lo galfi'''
 
+''<small>to</small> translate''  –  '''fanva'''
+
 ''<small>to</small> translate''  –  '''traduki'''
+
+''translation (text)''  –  '''lo xe fanva'''
+
+''translator''  –  '''lo fanva'''
 
 ''translator''  –  '''lo traduki'''
 
 ''transmission receiver''  –  '''lo te benji'''
 
-''<small>to</small> transmit''  –  '''benji''', '''cradi'''
+''<small>to</small> transmit''  –  '''benji'''
+
+''<small>to</small> transmit''  –  '''cradi'''
 
 ''transmitter''  –  '''lo benji'''
 
@@ -6338,7 +6612,7 @@
 
 ''trend''  –  '''lo farna'''
 
-''triangle''  –  '''lo ci'angulo'''
+''triangle''  –  '''lo ci&apos;angulo'''
 
 ''<small>to</small> trick''  –  '''tcica'''
 
@@ -6350,9 +6624,11 @@
 
 ''truck''  –  '''lo karce'''
 
-''true''  –  '''ja'a''', '''lo jetnu'''
+''true''  –  '''ja&apos;a'''
 
-''truly''  –  '''je'u'''
+''true''  –  '''lo jetnu'''
+
+''truly''  –  '''je&apos;u'''
 
 ''trumpet''  –  '''lo tabra'''
 
@@ -6388,13 +6664,15 @@
 
 ''u (letter)''  –  '''ubu'''
 
+''U.S. (American)''  –  '''lo merko'''
+
 ''umbrella''  –  '''lo santa'''
 
 ''uncle''  –  '''lo famti'''
 
-''under''  –  '''ni'a'''
+''under''  –  '''ni&apos;a'''
 
-''under conditions ...''  –  '''va'o'''
+''under conditions ...''  –  '''va&apos;o'''
 
 ''under control''  –  '''lo se jitro'''
 
@@ -6406,7 +6684,7 @@
 
 ''uniform''  –  '''lo manfo'''
 
-''uniquely''  –  '''po'o'''
+''uniquely''  –  '''po&apos;o'''
 
 ''unit''  –  '''lo gradu'''
 
@@ -6416,21 +6694,19 @@
 
 ''universe''  –  '''lo munje'''
 
-''unluckily''  –  '''fu'au nai'''
+''unluckily''  –  '''fu&apos;au nai'''
 
 ''unspoiled''  –  '''lo vifne'''
 
-''up from ...''  –  '''ga'u'''
+''up from ...''  –  '''ga&apos;u'''
 
-''up to limit ...''  –  '''ji'e'''
-
-''<small>to be</small> upon''  –  '''cpana''', '''cpana'''. ,
+''up to limit ...''  –  '''ji&apos;e'''
 
 ''<small>to</small> urinate''  –  '''pincivi'''
 
 ''urine''  –  '''lo pinca'''
 
-''usable''  –  '''lo tolpo'u'''
+''usable''  –  '''lo tolpo&apos;u'''
 
 ''<small>to</small> use''  –  '''pilno'''
 
@@ -6438,13 +6714,15 @@
 
 ''used''  –  '''lo se pilno'''
 
+''useful''  –  '''lo plixau'''
+
 ''user''  –  '''lo pilno'''
 
 ''user of a language''  –  '''lo se bangu'''
 
-''using ...''  –  '''se pi'o'''
+''using ...''  –  '''se pi&apos;o'''
 
-''usually''  –  '''so'e roi ku'''
+''usually''  –  '''so&apos;e roi ku'''
 
 ''utmost''  –  '''lo traji'''
 
@@ -6464,8 +6742,6 @@
 
 ''value''  –  '''lo vamji'''
 
-''value)''  –  '''lo steci'''
-
 ''van''  –  '''lo karce'''
 
 ''variable''  –  '''lo cenba'''
@@ -6474,7 +6750,9 @@
 
 ''vegetable''  –  '''lo stagi'''
 
-''vehicle''  –  '''lo xe klama''', '''lo marce'''
+''vehicle''  –  '''lo marce'''
+
+''vehicle''  –  '''lo xe klama'''
 
 ''vehicle with a cabin''  –  '''lo se sabnu'''
 
@@ -6490,6 +6768,8 @@
 
 ''version in development''  –  '''lo ve farvi'''
 
+''vertebral column''  –  '''loi verteba'''
+
 ''vertex of a cone''  –  '''lo te konju'''
 
 ''vertex of an angle''  –  '''lo se jganu'''
@@ -6500,7 +6780,7 @@
 
 ''vessel''  –  '''lo vasru'''
 
-''via a free will''  –  '''zu'e'''
+''via a free will''  –  '''zu&apos;e'''
 
 ''<small>to</small> vibrate''  –  '''desku'''
 
@@ -6586,11 +6866,11 @@
 
 ''way (road)''  –  '''lo dargu'''
 
-''we''  –  '''mi'ai'''
+''we''  –  '''mi&apos;ai'''
 
-''we with you''  –  '''ma'a'''
+''we with you''  –  '''ma&apos;a'''
 
-''we without you''  –  '''mi'a'''
+''we without you''  –  '''mi&apos;a'''
 
 ''weak''  –  '''lo ruble'''
 
@@ -6624,7 +6904,7 @@
 
 ''wet''  –  '''lo cilmo'''
 
-''what''  –  '''ma''', '''ma noi dacti'''
+''what''  –  '''ma, ma noi dacti'''
 
 ''what is above''  –  '''lo se cnita'''
 
@@ -6636,7 +6916,7 @@
 
 ''what is chosen''  –  '''lo se cuxna'''
 
-''what is more''  –  '''ke'u nai'''
+''what is more''  –  '''ke&apos;u nai'''
 
 ''what is on top''  –  '''lo cpana'''
 
@@ -6652,9 +6932,17 @@
 
 ''when''  –  '''ca ma'''
 
-''where''  –  '''bu'u ma'''
+''where''  –  '''bu&apos;u ma'''
 
-''whether or not''  –  '''gi'u''', '''ju'''
+''whether or not''  –  '''gi&apos;u'''
+
+''whether or not''  –  '''gu'''
+
+''whether or not''  –  '''gu&apos;u'''
+
+''whether or not''  –  '''ju'''
+
+''whether or not''  –  '''u'''
 
 ''which is about ...''  –  '''ne'''
 
@@ -6668,7 +6956,7 @@
 
 ''white''  –  '''lo blabi'''
 
-''who''  –  '''ma''', '''ma noi prenu'''
+''who''  –  '''ma, ma noi prenu'''
 
 ''who allows''  –  '''lo permite'''
 
@@ -6678,13 +6966,15 @@
 
 ''who is motivated''  –  '''lo te mukti'''
 
-''who says''  –  '''lo cusku''', '''lo smusku'''
+''who says''  –  '''lo cusku'''
+
+''who says''  –  '''lo smusku'''
 
 ''who strikes''  –  '''lo darxi'''
 
 ''who wears a garment''  –  '''lo dasni'''
 
-''whoa! (caution)''  –  '''o'i'''
+''whoa! (caution)''  –  '''o&apos;i'''
 
 ''wicked''  –  '''lo palci'''
 
@@ -6692,11 +6982,11 @@
 
 ''wife''  –  '''lo speni'''
 
-''wilco (expresses compliance)''  –  '''vi'o'''
+''wilco (expresses compliance)''  –  '''vi&apos;o'''
 
 ''wild''  –  '''lo cilce'''
 
-''will do that''  –  '''vi'o'''
+''will do that''  –  '''vi&apos;o'''
 
 ''<small>to</small> win''  –  '''jinga'''
 
@@ -6718,7 +7008,11 @@
 
 ''winter''  –  '''lo dunra'''
 
-''<small>to</small> wipe''  –  '''jai gau mosra''', '''lumci, se mosra'''
+''<small>to</small> wipe''  –  '''jai gau mosra'''
+
+''<small>to</small> wipe''  –  '''lumci'''
+
+''<small>to</small> wipe''  –  '''se mosra'''
 
 ''wise''  –  '''lo prije'''
 
@@ -6726,31 +7020,31 @@
 
 ''<small>to</small> wish''  –  '''dapma'''
 
-''with ... (together)''  –  '''ka'ai'''
+''with ... (together)''  –  '''ka&apos;ai'''
 
-''with ... (using)''  –  '''se pi'o'''
+''with ... (using)''  –  '''se pi&apos;o'''
 
 ''with ... being more''  –  '''mau'''
 
 ''with ... doing more''  –  '''mau'''
 
-''with a companion ...''  –  '''ka'ai'''
+''with a companion ...''  –  '''ka&apos;ai'''
 
 ''with active agent ...''  –  '''gau'''
 
-''with an actor ...''  –  '''zu'e'''
+''with an actor ...''  –  '''zu&apos;e'''
 
 ''with the event of ...''  –  '''fau'''
 
-''with the help of ...''  –  '''si'u'''
+''with the help of ...''  –  '''si&apos;u'''
 
 ''with the most one being ...''  –  '''rai'''
 
-''with the motive of ...''  –  '''mu'i'''
+''with the motive of ...''  –  '''mu&apos;i'''
 
-''within''  –  '''ne'i'''
+''within''  –  '''ne&apos;i'''
 
-''without help''  –  '''si'u nai'''
+''without help''  –  '''si&apos;u nai'''
 
 ''witness''  –  '''lo vedli'''
 
@@ -6762,7 +7056,7 @@
 
 ''womb''  –  '''lo gutra'''
 
-''<small>I</small> wonder ... (interest)''  –  '''a'u'''
+''<small>I</small> wonder ... (interest)''  –  '''a&apos;u'''
 
 ''wonderful (nice)''  –  '''lo zabna'''
 
@@ -6792,7 +7086,7 @@
 
 ''<small>to</small> worry (to be anxious) about''  –  '''xanka'''
 
-''worst''  –  '''lo traji be lo ka mabla''', '''lo te rai mabla'''
+''worst''  –  '''lo traji be lo ka mabla, lo te rai mabla'''
 
 ''wound''  –  '''lo cagna'''
 
@@ -6800,7 +7094,9 @@
 
 ''wretched''  –  '''lo mabla'''
 
-''wrinkle''  –  '''lo cinje''', '''lo te polje'''
+''wrinkle''  –  '''lo cinje'''
+
+''wrinkle''  –  '''lo te polje'''
 
 ''wrinkled''  –  '''lo se cinje'''
 
@@ -6834,15 +7130,17 @@
 
 ''year-long event''  –  '''lo nanca'''
 
-''<small>to</small> yell''  –  '''krixa''', '''krixa'''
+''<small>to</small> yell''  –  '''krixa'''
+
+''<small>to</small> yell''  –  '''krixa'''
 
 ''yellow''  –  '''lo pelxu'''
 
-''yes''  –  '''je'u'''
+''yes''  –  '''je&apos;u'''
 
 ''yesterday''  –  '''lo prulamdei'''
 
-''<small>not</small> yet''  –  '''nu'o'''
+''<small>not</small> yet''  –  '''nu&apos;o'''
 
 ''<small>to</small> yield to''  –  '''tolpro'''
 
@@ -6852,19 +7150,21 @@
 
 ''you''  –  '''do'''
 
-''you and I''  –  '''mi'o'''
+''you and I''  –  '''mi&apos;o'''
 
-''you and others''  –  '''do'o'''
+''you and others''  –  '''do&apos;o'''
 
-''you are welcome''  –  '''fi'i'''
+''you are welcome''  –  '''fi&apos;i'''
 
-''you are welcome (in reply to thanks)''  –  '''je'e'''
+''you are welcome (in reply to thanks)''  –  '''je&apos;e'''
 
 ''young''  –  '''lo citno'''
 
 ''young living being''  –  '''lo cifnu'''
 
 ''yow! (surprise)''  –  '''ue'''
+
+''Yuck! (repulsion)''  –  '''a&apos;u nai'''
 
 ''z (letter)''  –  '''zy'''
 
@@ -6874,13 +7174,12 @@
 
 ''<small>to be</small> zetta (in size)''  –  '''zetro'''
 
-''zi&apos;evla''  –  '''lo zi'evla'''
+''zi&apos;evla''  –  '''lo zi&apos;evla'''
 
 ''zigzag''  –  '''lo zigzagi'''
 
 ''zinc''  –  '''lo zinki'''
 
-''× (multiplication operator)''  –  '''pi'i'''
+''× (multiplication operator)''  –  '''pi&apos;i'''
 
-''— (subtraction operator)''  –  '''vu'u'''
-
+''— (subtraction operator)''  –  '''vu&apos;u'''

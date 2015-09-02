@@ -770,6 +770,7 @@ var camxes = (function(){
         "pause": parse_pause,
         "EOF": parse_EOF,
         "comma": parse_comma,
+        "dot": parse_dot,
         "non_lojban_word": parse_non_lojban_word,
         "non_space": parse_non_space,
         "space_char": parse_space_char,
@@ -33227,12 +33228,18 @@ var camxes = (function(){
         var pos0;
         
         pos0 = pos;
-        result1 = parse_non_space();
+        result1 = parse_dot();
+        if (result1 === null) {
+          result1 = parse_non_space();
+        }
         if (result1 !== null) {
           result0 = [];
           while (result1 !== null) {
             result0.push(result1);
-            result1 = parse_non_space();
+            result1 = parse_dot();
+            if (result1 === null) {
+              result1 = parse_non_space();
+            }
           }
         } else {
           result0 = null;
@@ -40910,6 +40917,41 @@ var camxes = (function(){
           result0 = null;
           if (reportFailures === 0) {
             matchFailed("[,]");
+          }
+        }
+        if (result0 !== null) {
+          result0 = (function(offset) {return "";})(pos0);
+        }
+        if (result0 === null) {
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_dot() {
+        var cacheKey = "dot@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0;
+        var pos0;
+        
+        pos0 = pos;
+        if (/^[.]/.test(input.charAt(pos))) {
+          result0 = input.charAt(pos);
+          pos++;
+        } else {
+          result0 = null;
+          if (reportFailures === 0) {
+            matchFailed("[.]");
           }
         }
         if (result0 !== null) {

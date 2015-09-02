@@ -405,7 +405,7 @@ sumti_3 = expr:(sumti_4_declaration / sumti_4_slice) {return _node("sumti_3", ex
 
 sumti_4_declaration = expr:(sumti_5_declaration) {return _node("sumti_4_declaration", expr);}
 sumti_5_declaration = expr:((full_NAhE sumti_6_declaration / sumti_6_declaration full_NAICAI?) full_INT* relative_clauses?) {return _node("sumti_5_declaration", expr);}
-sumti_6_declaration = expr:(LAhE_NAhE relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_clause / LE_clause full_INT* se_gadri_be_zo_lo) {return _node("sumti_6_declaration", expr);}
+sumti_6_declaration = expr:(LAhE_NAhE relative_clauses? (sumsmiZAMfe / sumsmiBFAM) LUhU_elidible / RAhOI_clause / ZO_clause / ZOI_clause / ZOhOI_clause / LOhU_space / loi_lerfu BOI_elidible !(BO_clause* full_INT* operand* !(joik_ek sumti) operator) !(operand KEhE) / LU_space / KOhA_clause / li_clause / LE_clause full_INT* se_gadri_be_zo_lo) {return _node("sumti_6_declaration", expr);}
 sumti_4_slice = expr:(mex !ROI_clause full_INT* (sumti_5_declaration / sumti_5_slice)) {return _node("sumti_4_slice", expr);}
 sumti_5_slice = expr:(sumti_6_slice full_NAICAI? full_INT*) {return _node("sumti_5_slice", expr);}
 sumti_6_slice = expr:(se_gadri_be_zo_lo) {return _node("sumti_6_slice", expr);}

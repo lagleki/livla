@@ -1301,7 +1301,7 @@ zoi_word = expr:( w:(non_space+) spaces &{ return (! _zoi_check_quote(w)); } ) {
 zoi_close = w:lojban_word &{ return (_zoi_check_delim(w)); }
 
 //// EXP-MODIF: ZOhOI/MEhOI implementation
-zohoi_word = non_space+ {return "~";} 
+zohoi_word = (dot / non_space)+ {return "~";} 
 
 //___________________________________________________________________
 
@@ -1536,6 +1536,7 @@ pause = expr:(comma* space_char+ / EOF)  {return _join(expr);}
 EOF = expr:(comma* !.)  {return _join(expr);}
 
 comma = [,] {return "";}
+dot = [.] {return "";}
 
 non_lojban_word = expr:(!lojban_word non_space+)  {return _join(expr);}
 

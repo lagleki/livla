@@ -62,6 +62,7 @@ var camxes = (function(){
         "LAhE_NAhE": parse_LAhE_NAhE,
         "bridi": parse_bridi,
         "normalbridi": parse_normalbridi,
+        "head": parse_head,
         "CU_space": parse_CU_space,
         "bridi_elided": parse_bridi_elided,
         "bridi_sei": parse_bridi_sei,
@@ -2530,7 +2531,7 @@ var camxes = (function(){
         }
         
         var result0, result1, result2;
-        var pos0, pos1, pos2;
+        var pos0, pos1;
         
         pos0 = pos;
         result0 = [];
@@ -2541,21 +2542,7 @@ var camxes = (function(){
         }
         if (result0 !== null) {
           pos1 = pos;
-          pos2 = pos;
-          result1 = parse_loisumsmiBFZAM();
-          result1 = result1 !== null ? result1 : "";
-          if (result1 !== null) {
-            result2 = parse_CU_space();
-            if (result2 !== null) {
-              result1 = [result1, result2];
-            } else {
-              result1 = null;
-              pos = pos2;
-            }
-          } else {
-            result1 = null;
-            pos = pos2;
-          }
+          result1 = parse_head();
           result1 = result1 !== null ? result1 : "";
           if (result1 !== null) {
             result2 = parse_bridi_tail();
@@ -2569,6 +2556,40 @@ var camxes = (function(){
             result1 = null;
             pos = pos1;
           }
+          if (result1 !== null) {
+            result0 = [result0, result1];
+          } else {
+            result0 = null;
+            pos = pos0;
+          }
+        } else {
+          result0 = null;
+          pos = pos0;
+        }
+        
+        cache[cacheKey] = {
+          nextPos: pos,
+          result:  result0
+        };
+        return result0;
+      }
+      
+      function parse_head() {
+        var cacheKey = "head@" + pos;
+        var cachedResult = cache[cacheKey];
+        if (cachedResult) {
+          pos = cachedResult.nextPos;
+          return cachedResult.result;
+        }
+        
+        var result0, result1;
+        var pos0;
+        
+        pos0 = pos;
+        result0 = parse_loisumsmiBFZAM();
+        result0 = result0 !== null ? result0 : "";
+        if (result0 !== null) {
+          result1 = parse_CU_space();
           if (result1 !== null) {
             result0 = [result0, result1];
           } else {
@@ -3419,7 +3440,7 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4, result5, result6, result7;
+        var result0, result1, result2, result3, result4, result5, result6;
         var pos0, pos1, pos2, pos3, pos4;
         
         pos0 = pos;
@@ -3480,18 +3501,11 @@ var camxes = (function(){
                 pos = pos3;
               }
               if (result4 !== null) {
-                result5 = parse_loisumsmiBFZAM();
-                result5 = result5 !== null ? result5 : "";
+                result5 = parse_head();
                 if (result5 !== null) {
-                  result6 = parse_CU_space();
+                  result6 = parse_bridi_tail_2();
                   if (result6 !== null) {
-                    result7 = parse_bridi_tail_2();
-                    if (result7 !== null) {
-                      result2 = [result2, result3, result4, result5, result6, result7];
-                    } else {
-                      result2 = null;
-                      pos = pos2;
-                    }
+                    result2 = [result2, result3, result4, result5, result6];
                   } else {
                     result2 = null;
                     pos = pos2;
@@ -3567,18 +3581,11 @@ var camxes = (function(){
                   pos = pos3;
                 }
                 if (result4 !== null) {
-                  result5 = parse_loisumsmiBFZAM();
-                  result5 = result5 !== null ? result5 : "";
+                  result5 = parse_head();
                   if (result5 !== null) {
-                    result6 = parse_CU_space();
+                    result6 = parse_bridi_tail_2();
                     if (result6 !== null) {
-                      result7 = parse_bridi_tail_2();
-                      if (result7 !== null) {
-                        result2 = [result2, result3, result4, result5, result6, result7];
-                      } else {
-                        result2 = null;
-                        pos = pos2;
-                      }
+                      result2 = [result2, result3, result4, result5, result6];
                     } else {
                       result2 = null;
                       pos = pos2;
@@ -3639,7 +3646,7 @@ var camxes = (function(){
           return cachedResult.result;
         }
         
-        var result0, result1, result2, result3, result4, result5, result6;
+        var result0, result1, result2, result3, result4, result5;
         var pos0, pos1, pos2, pos3;
         
         pos0 = pos;
@@ -3673,20 +3680,13 @@ var camxes = (function(){
             }
           }
           if (result2 !== null) {
-            result3 = parse_loisumsmiBFZAM();
-            result3 = result3 !== null ? result3 : "";
+            result3 = parse_head();
             if (result3 !== null) {
-              result4 = parse_CU_space();
+              result4 = parse_bridi_tail_3();
               if (result4 !== null) {
-                result5 = parse_bridi_tail_3();
+                result5 = parse_tail_loi_sumsmi();
                 if (result5 !== null) {
-                  result6 = parse_tail_loi_sumsmi();
-                  if (result6 !== null) {
-                    result2 = [result2, result3, result4, result5, result6];
-                  } else {
-                    result2 = null;
-                    pos = pos2;
-                  }
+                  result2 = [result2, result3, result4, result5];
                 } else {
                   result2 = null;
                   pos = pos2;
@@ -3731,20 +3731,13 @@ var camxes = (function(){
               }
             }
             if (result2 !== null) {
-              result3 = parse_loisumsmiBFZAM();
-              result3 = result3 !== null ? result3 : "";
+              result3 = parse_head();
               if (result3 !== null) {
-                result4 = parse_CU_space();
+                result4 = parse_bridi_tail_3();
                 if (result4 !== null) {
-                  result5 = parse_bridi_tail_3();
+                  result5 = parse_tail_loi_sumsmi();
                   if (result5 !== null) {
-                    result6 = parse_tail_loi_sumsmi();
-                    if (result6 !== null) {
-                      result2 = [result2, result3, result4, result5, result6];
-                    } else {
-                      result2 = null;
-                      pos = pos2;
-                    }
+                    result2 = [result2, result3, result4, result5];
                   } else {
                     result2 = null;
                     pos = pos2;

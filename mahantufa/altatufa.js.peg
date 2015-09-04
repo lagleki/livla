@@ -592,7 +592,7 @@ pre_clause = BAhE_clause? si_clause?
 // Do *NOT* delete the line above!
 
 // SU clauses
-su_clause = (erasable_clause / su_valsi)* SU_clause  {return _node("su_clause", expr); }
+su_clause = expr:((erasable_clause / su_valsi)* SU_clause) {return _node("su_clause", expr); }
 
 // Handling of SI and interactions with zo and lo'u...le'u
 

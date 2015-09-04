@@ -18989,7 +18989,7 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 !== null) {
-          result0 = (function(offset) {return _node("su_clause", expr); })(pos0);
+          result0 = (function(offset, expr) {return _node("su_clause", expr); })(pos0, result0);
         }
         if (result0 === null) {
           pos = pos0;

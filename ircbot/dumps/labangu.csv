@@ -2888,8 +2888,8 @@ gi'i,"
 '''gi'i''' <small>[connective for clause tail]</small> — question
 :'''do klama gi'i stali''' — ''Are you going or staying?''"
 gi'o,"
-'''gi'o''' <small>[connective for clause tail]</small> — ''if and only if''
-:'''i ro da ka'e prenu gi'o ka'e tavla''' — ''Everyone can be a person if and only if can talk.''
+'''gi'o''' <small>[connective for clause tail]</small> — ''both or none''
+:'''i ro da ka'e prenu gi'o ka'e tavla''' — ''Everyone either can be a person and can talk, or have none of that.''
 :Comment: describes event requiring both connected main verbs to be true in respect to their shared nouns."
 gi'u,"
 '''gi'u''' <small>[connective for clause tail]</small> — ''whether or not''
@@ -2945,7 +2945,7 @@ gluta,"
 :'''lo gluta pu jai gau stodi fai lo xance be ra lo ka mligla''' — ''The gloves kept her hands warm.''
 :Related words: '''taxfu'''"
 go,"
-'''go''' <small>[forethought conjunction]</small> — ''if and only if''
+'''go''' <small>[forethought conjunction]</small> — ''both or none''
 :'''go la alis ba lumci lo kumfa gi la kevin cu sidju la alis''' — ''Alice will clean a room if, and only if, Kevin helps her.''
 :Comment: used to connect nouns, adverbs, verbs, clauses. Shows that the construct inside '''ga''' ... '''gi''' is true only if the cosntruct after '''gi''' is true."
 go'a,"
@@ -3025,7 +3025,7 @@ gu'i,"
 '''gu'i''' <small>[forethought conjunction for tanru]</small> — question
 :'''lu do gu'i citka gi pinxe li'u lu ge li'u''' — ''&quot;Do you eat or drink?&quot; &quot;Both.&quot;''"
 gu'o,"
-'''gu'o''' <small>[forethought conjunction for tanru]</small> — ''if and only if''
+'''gu'o''' <small>[forethought conjunction for tanru]</small> — ''both or none''
 :'''ai mi te vecnu lo gu'o cnino gi kargu karce''' — ''I'm going to buy an expensive car if and only if it is new.''"
 gu'u,"
 '''gu'u''' <small>[forethought conjunction for tanru]</small> — ''whether or not''
@@ -3208,7 +3208,7 @@ ja,"
 '''ja''' <small>[conjunction]</small> — ''and/or''
 :'''ba'a le tanxe cu barda ja tilju''' — ''I expect the box to be big or heavy (at least one of the two characteristics).''"
 ja'a,"
-'''ja'a''' <small>[preposition of truth]</small> — ''It is true that ...''
+'''ja'a''' <small>[preposition of truth/falsehood]</small> — ''It is true that ...''
 :'''mi ja'a jimpe''' — ''I do understand.''"
 ja'a ,"
 '''ja'a ''' <small>[2nd meaning]</small> — left affirmer in conjunctions
@@ -3726,7 +3726,7 @@ jmive,"
 :'''le danlu cu jmive lo ka ruble muvdu''' — ''The animal is alive since it is weakly moving.''
 :Related words: '''lifri''', '''morsi''', '''stuzi''', '''zvati''', '''xabju'''"
 jo,"
-'''jo''' <small>[conjunction]</small> — ''if and only if''
+'''jo''' <small>[conjunction]</small> — ''both or none''
 :'''ai mi te vecnu lo kargu jo cnino karce''' — ''I'm going to buy an expensive car if and only if it is new.''"
 jo nai,"
 '''jo nai''' <small>[conjunction]</small> — ''either ... or ...''
@@ -5516,7 +5516,7 @@ muzga,"
 my,"
 '''my''' <small>[pronoun]</small> — ''m'' (letter)"
 na,"
-'''na''' <small>[preposition of truth]</small> — ''It is not true that ...''
+'''na''' <small>[preposition of truth/falsehood]</small> — ''It is not true that ...''
 :'''na ku lo mi speni cu citno''' — ''It's not true that my wife is young.''"
 na ,"
 '''na ''' <small>[2nd meaning]</small> — left negator in conjunctions
@@ -5845,8 +5845,8 @@ nuzba,"
 ny,"
 '''ny''' <small>[pronoun]</small> — ''n'' (letter)"
 o,"
-'''o''' <small>[conjunction for nouns]</small> — ''if and only if''
-:'''la alis o la kevin cu lumci lo kumfa''' — ''Alice cleans a room if and only if, Kevin does (either both of them clean a room or none).''
+'''o''' <small>[conjunction for nouns]</small> — ''both or none''
+:'''la alis o la kevin cu lumci lo kumfa''' — ''Either both Alice and Kevin clean a room or none.''
 :Comment: describes event requiring both connected nouns to be true in respect to the clause.
 :Related words: '''jo''', '''a''', '''e''', '''ji''', '''o''', '''u'''"
 o bu,"

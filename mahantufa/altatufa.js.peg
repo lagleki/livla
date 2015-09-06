@@ -1247,7 +1247,7 @@ BRIVLA = expr:(gismu_2 / lujvo / fuhivla / CMEVLA ) {return ["BRIVLA", expr];}
 gismu_2 = expr:(gismu) {return ["gismu", expr];}
 //// EXP-DEL: LA, for brivla/cmevla merge
 // EXP-MODIF: attempt to formalize lo'ai..sa'ai..le'ai replacement expressions
-CMAVO = expr:(A / BAI / BAhE / BE / BEI / BEhO / BIhI / BO / BOI / BU / BY / CAhA / CAI / CEI / CEhE / CO / COI / CU / CUhE / DOhU / FA / FAhA / FAhO / FEhU / FIhO / FOI / FUhA / FUhE / FUhO / GA / GAhO / GEhU / GI / GIhA / GOI / GOhA / GUhA / I / JA / JAI / JOhI / JOI / KE / KEhE / KEI / KI / KOhA / KU / KUhE / KUhO / LAU / LAhE / LE / LEhAI / LEhU / LI / LIhU / LOhAI / LOhO / LOhU / LU / LUhU / MAI / ME / MEhU / MOhE / MOI / NA / NAhE / MAhO / NIhO / NOI / NU / NUhA / NUhI / NUhU / PA / PEhE / PEhO / PU / RAhO / ROI / SE / SEI / SEhU / SI / SOI / SU / TAhE / TEhU / TEI / TO / TOI / TUhE / TUhU / UI / VA / VAU / VEI / VEhO / VUhU / VEhA / VIhA / VUhO / XI / ZAhO / ZEhA / ZEI / ZI / ZIhE / ZO / ZOI / ZOhU / cmavo) {return ["CMAVO", expr];}
+CMAVO = expr:(A / BAI / BAhE / BE / BEI / BEhO / BIhI / BO / BOI / BU / BY / CAhA / CAI / CEI / CEhE / CO / COI / CU / CUhE / DOhU / FA / FAhA / FAhO / FEhU / FIhO / FOI / FUhA / FUhE / FUhO / GA / GAhO / GEhU / GI / GIhA / GOI / GOhA / GUhA / I / JA / JAI / JOhI / JOI / KE / KEhE / KEI / KI / KOhA / KU / KUhE / KUhO / LAU / LAhE / LE / LEhAI / LEhU / LI / LIhU / LOhAI / LOhO / LOhU / LU / LUhU / MAI / ME / MEhU / MOhE / MOI / NA / NAhE / MAhO / NIhO / NOI / NU / NUhA / NUhI / NUhU / PA / PEhE / PEhO / PU / RAhO / ROI / SE / SEI / SEhU / SI / SOI / SU / TAhE / TEhU / TEI / TO / TOI / TUhE / TUhU / UI / VA / VAU / VEI / VEhO / VUhU / VEhA / VIhA / VUhO / XI / ZAhO / ZEhA / ZI / ZIhE / ZO / ZOI / ZOhU / cmavo) {return ["CMAVO", expr];}
 
 // This is a Parsing Expression Grammar for the morphology of Lojban.
 // See http://www.pdos.lcs.mit.edu/~baford/packrat/
@@ -1812,8 +1812,6 @@ Y = &cmavo expr:( y+ ) &post_word {return _join(expr);}
 ZAhO = &cmavo expr:( c o Ih i / p u H o / c o H u / m o H u / c a H o / c o H a / d e H a / b a H o / d i H a / z a H o / x a H o ) &post_word {return ["ZAhO", _join(expr)];}
 
 ZEhA = &cmavo expr:( z e H u / z e H a / z e Ih i / z e H e ) &post_word {return ["ZEhA", _join(expr)];}
-
-ZEI = &cmavo expr:( z e i ) &post_word {return ["ZEI", _join(expr)];}
 
 ZI = &cmavo expr:( z u / z a / z i ) &post_word {return ["ZI", _join(expr)];}
 

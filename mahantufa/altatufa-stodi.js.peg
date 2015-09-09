@@ -131,7 +131,7 @@ text = expr:(intro_null nion_0 intro_si_clause faho_clause EOF?) {return _node_n
 nion_0 = expr:((NIhO_elided !NIhO_clause)? nion) {return _node("paragraph1", expr);}
 nion = expr:((NIhO_clause nion)+ / ion) {return _node("paragraph", expr);}
 ion = expr:((I_clause_elidible bridi_elided (ijobon / ijon) / I_clause_elidible bridi_ext (&I_clause ijon)*) (I_clause bridi_ext)*) {return _node("sentence", expr);}
-bridi_ext = expr:(tagBAM? TUhE_space / subbridi (&I_clause ijobon)*){return _node("subsentence", expr);}
+bridi_ext = expr:(tagBAM? TUhE_space / subbridi (IAU_clause full_INT* sumsmiBAM?)? (&I_clause ijobon)*){return _node("subsentence", expr);}
 TUhE_space = expr:(TUhE_clause full_INT* nion_0 TUhU_elidible full_INT*) {return _node("TUhE_scope", expr);}
 ijon = expr:(I_clause_elidible je su_clause* bridi_ext) {return _node("ijon", expr);}
 ijobon = expr:(I_clause_elidible jebo su_clause* bridi_ext) {return _node("ijobon", expr);}
@@ -196,7 +196,7 @@ KE_space_bridi_nulgek = expr:(KE_clause full_INT* gek_bridi_tail_nul KEhE_elidib
 //dont allow joi-ning non-ZAMs with ZAMs?: termset is {ge caku gi baku}:
 //```term_no_ZAM = expr:(tag_term_no_ZAM / termset) {return _node("term", expr);}
 
-subbridi = expr:(prenexe* bridi postnexe* (IAU_clause sumsmiBAM?)?) {return _node("subbridi", expr);}
+subbridi = expr:(prenexe* bridi postnexe*) {return _node("subbridi", expr);}
 prenexe = expr:(loisumsmiBFZAM ZOhU_clause) {return _node("prenexe", expr);}
 postnexe = expr:(SE_clause ZOhU_clause loisumsmiBFZAM) {return _node("prenexe", expr);}
 gek_sentence = expr:(tagBAM_0* (gek subbridi gik subbridi tail_loi_sumsmi / KE_space_gek_sentence)) {return _node("gek_sentence", expr);}
@@ -880,7 +880,7 @@ I_pre = pre_clause I spaces?
 I_clause_elidible = expr:(I_pre_elidible post_clause_for_xohe_mai ) {return _node("I_clause", expr); }
 I_pre_elidible = (pre_clause I / I_elidible) spaces?
 
-IAU_clause = pre:IAU_pre post:post_clause {return _node2("IAU_clause", pre, post); }
+IAU_clause = pre:IAU_pre post:post_clause_limited {return _node2("IAU_clause", pre, post); }
 IAU_pre = pre_clause IAU spaces?
 
 //         jeks; logical connectives within tanru 

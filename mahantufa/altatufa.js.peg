@@ -196,8 +196,9 @@ KE_space_bridi_nulgek = expr:(KE_clause full_INT* gek_bridi_tail_nul KEhE_elidib
 //dont allow joi-ning non-ZAMs with ZAMs?: termset is {ge caku gi baku}:
 //```term_no_ZAM = expr:(tag_term_no_ZAM / termset) {return _node("term", expr);}
 
-subbridi = expr:(prenexe* bridi (IAU_clause sumsmiBAM?)?) {return _node("subbridi", expr);}
+subbridi = expr:(prenexe* bridi postnexe* (IAU_clause sumsmiBAM?)?) {return _node("subbridi", expr);}
 prenexe = expr:(loisumsmiBFZAM ZOhU_clause) {return _node("prenexe", expr);}
+postnexe = expr:(SE_clause ZOhU_clause loisumsmiBFZAM) {return _node("prenexe", expr);}
 gek_sentence = expr:(tagBAM_0* (gek subbridi gik subbridi tail_loi_sumsmi / KE_space_gek_sentence)) {return _node("gek_sentence", expr);}
 KE_space_gek_sentence = expr:(KE_clause full_INT* gek_sentence KEhE_elidible full_INT*) {return _node("KE_space_gek_sentence", expr);}
 
@@ -526,10 +527,10 @@ lerfu_word = expr:(PA_clause BY_clause / BY_clause / LAU_clause lerfu_word / TEI
 
 //todo: make like normal mex
 mex_2_xohe = expr:(operand_xohe) {return _node("mex_2", expr); }
-operand_xohe = expr:((PA_clause_xohe BOI_elidible)  full_NAICAI?) {return _node("operand", expr); }
+operand_xohe = expr:((PA_clause_xohe BOI_elidible) full_NAICAI?) {return _node("operand", expr); }
 
 //todo: merge all mex, PA, letterals and cnima'o here into one
-li_clause = expr:(LI_clause (((full_INT / PA_clause / loi_lerfu)+ !mex_for_li) BOI_elidible / mex_for_li )? LOhO_elidible full_INT*) {return _node("li_clause", expr); }
+li_clause = expr:(LI_clause (((full_INT / PA_clause / loi_lerfu)+ !mex_for_li) BOI_elidible / full_INT? mex_for_li )? LOhO_elidible full_INT*) {return _node("li_clause", expr); }
 
 // TERJONMAhO
 gihek = expr:(gihenjoma) {return _node("gihek", expr); }

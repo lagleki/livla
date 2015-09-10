@@ -19,22 +19,6 @@
 // 8)  () serves to indicate the grouping of the other operators.
 //
 // Longest match wins.
-// How to compile using Node.js: (Added by Masato Hagiwara)
-
-// // load peg.js and the file system module
-// > var PEG = require("pegjs")
-// > var fs = require("fs")
-// // read peg and build a parser
-// > var camxes_peg = fs.readFileSync("/path/to/camxes.js.peg").toString();
-// > var camxes = PEG.buildParser(camxes_peg, {cache: true});
-// // test it
-// > camxes.parse("ko'a broda");
-// [ 'text',
-//   [ 'NIhO_node',
-//     [ 'paragraphs', [Object] ] ] ]
-// // write to a file
-// > fs.writeFileSync("/path/to/camxes.js", camxes.toSource());
-
 
 // ___ GRAMMAR ___
 
@@ -130,8 +114,11 @@
 text = expr:(intro_null nion_0 intro_si_clause faho_clause EOF?) {return _node_nonempty("text", expr);}
 nion_0 = expr:((NIhO_elided !NIhO_clause)? nion) {return _node("paragraph1", expr);}
 nion = expr:((NIhO_clause nion)+ / ion) {return _node("paragraph", expr);}
-ion = expr:((I_clause_elidible bridi_elided (ijobon / ijon) / I_clause_elidible bridi_ext (&I_clause ijon)*) (I_clause bridi_ext)*) {return _node("sentence", expr);}
-bridi_ext = expr:(tagBAM? TUhE_space / subbridi (IAU_clause full_INT* sumsmiBAM?)? (&I_clause ijobon)*){return _node("subsentence", expr);}
+//todo: iau in the first sentence not supported
+ion = expr:((I_clause_elidible bridi_elided (ijobon / ijon) / I_clause_elidible bridi_ext_ijon) (I_clause bridi_ext_ijon)*) {return _node("sentence", expr);}
+bridi_ext_ijon = bridi_ext (&I_clause ijon)* (IAU_clause full_INT* sumsmiBAM?)?
+//todo: bridi_elided must include (&I_clause ijobon)*
+bridi_ext = expr:(tagBAM? TUhE_space / subbridi (&I_clause ijobon)*){return _node("subsentence", expr);}
 TUhE_space = expr:(TUhE_clause full_INT* nion_0 TUhU_elidible full_INT*) {return _node("TUhE_scope", expr);}
 ijon = expr:(I_clause_elidible je su_clause* bridi_ext) {return _node("ijon", expr);}
 ijobon = expr:(I_clause_elidible jebo su_clause* bridi_ext) {return _node("ijobon", expr);}
@@ -230,7 +217,7 @@ sumsmiBAM_1 = sumsmiBAMprep_1 / sumsmiBAMpostp_1
 
 sumsmiBAMprep = expr:(sumsmiBAMprep_0 (joik_jek sumsmiBAM_0)*) {return _node("sumsmi", expr);}
 sumsmiBAMprep_0 = expr:(sumsmiBAMprep_1 (jebo sumsmiBAM_1)*) {return _node("sumsmi_0", expr);}
-sumsmiBAMprep_1 = expr:(tagBAM_0 (sumti / (KU_clause full_NAICAI? full_INT* / sumtifazohe !bridi_tail))) {return _node("sumsmi_1", expr);}
+sumsmiBAMprep_1 = expr:(tagBAM_0 (sumti / (KU_clause full_NAICAI? full_INT* / sumtifazohe (&sumsmiBFAM / !selbri)))) {return _node("sumsmi_1", expr);}
 
 sumsmiBAMpostp = expr:(sumsmiBAMpostp_0 (joik_jek sumsmiBAM_0)*) {return _node("sumsmi", expr);}
 sumsmiBAMpostp_0 = expr:(sumsmiBAMpostp_1 (jebo sumsmiBAM_1)*) {return _node("sumsmi_0", expr);}
@@ -249,7 +236,7 @@ sumsmiFAM_1 = sumsmiFAMprep_1 / sumsmiFAMpostp_1
 
 sumsmiFAMprep = expr:(sumsmiFAMprep_0 (joik_jek sumsmiFAM_0)*) {return _node("sumsmi", expr);}
 sumsmiFAMprep_0 = expr:(sumsmiFAMprep_1 (jebo sumsmiFAM_1)*) {return _node("sumsmi_0", expr);}
-sumsmiFAMprep_1 = expr:((tagFAM_0 (sumti / (KU_clause full_NAICAI? full_INT* / sumtifazohe !bridi_tail !gik)))) {return _node("sumsmi_1", expr);}
+sumsmiFAMprep_1 = expr:((tagFAM_0 (sumti / (KU_clause full_NAICAI? full_INT* / sumtifazohe (&sumsmiBFAM / !selbri) !gik)))) {return _node("sumsmi_1", expr);}
 
 sumsmiFAMpostp = expr:(sumsmiFAMpostp_0 (joik_jek sumsmiFAM_0)*) {return _node("sumsmi", expr);}
 sumsmiFAMpostp_0 = expr:(sumsmiFAMpostp_1 (jebo sumsmiFAM_1)*) {return _node("sumsmi_0", expr);}

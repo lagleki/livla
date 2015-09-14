@@ -2,8 +2,8 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
    <ShortName>ile-sutysisku</ShortName>
    <Description>Search the Interlingue / Occidental dictionary la sutysisku.</Description>
-   <Tags>sutsis sutysisku muplis vlasisku jbovlaste lojban vlaste dictionary</Tags>
-   <Contact>gleki.is.my.name@gmail.com</Contact>
+   <Tags>sutsis sutysisku muplis vlasisku jbovlaste lojban vlaste dictionary la bangu</Tags>
+   <Contact>bangu@lojban.org</Contact>
    <Url type="text/html"
         template="http://mw.lojban.org/extensions/ilmentufa/i/ile/index.html#sisku/{searchTerms}"/>
  </OpenSearchDescription>

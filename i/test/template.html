@@ -47,6 +47,12 @@
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
+	.notes {
+		margin-left: 10px;
+	}
+	.mupligreku {
+		border: 1px dotted #aaa;padding: 5px;
+	}
 	.subdefinitions {
 		padding-left: 20px;
 		border-left:solid 3px #1E90FF;
@@ -299,11 +305,11 @@
 		}
 		if (def.e) {
 		out.append(
-			$('<div>').addClass('notes examples').html("<table style='width:100%'>"+lojTemplate((def.e+"\n").replace(/;/g,"\n").replace(/(.*?) — (.*?)\n/g,"<tr><td><b>$1<\/b><\/td><td><i>$2<\/i><\/td><\/tr>\n")) + '</table> '));
+			$('<div>').addClass('examples').html("<table style='width:100%;border-collapse:collapse;margin-top:10px;margin-bottom:10px;'>"+lojTemplate((def.e+"\n").replace(/;/g,"\n").replace(/(.*?) — (.*?)\n/g,"<tr><td class='mupligreku'><b>$1<\/b><\/td><td class='mupligreku'><i>$2<\/i><\/td><\/tr>\n")) + '</table> '));
 		}
 		if (def.k) {
 		out.append(
-			$('<div>').addClass('notes related').html('See also: ' + lojTemplate(def.k) + ' '));
+			$('<div>').addClass('related').html('See also: ' + lojTemplate(def.k) + ' '));
 		}
 		if ((def.r||[]).length > 0) {// && window.xuzganalojudri
 			var rafsi = $("<div>").addClass('rafsi');

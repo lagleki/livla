@@ -594,7 +594,7 @@ su_valsi = expr:(si_word / !SU_clause !FAhO_clause any_word spaces?) {return _no
 
 
 // ___ ELIDIBLE FAMYMAHO ___  (EXPERIMENTAL)
-FA_clause_elided = {return ["DOhE"];}
+FA_clause_elided = {return ["FN"];}
 
 BEhO_elidible = expr:(BEhO_clause?) {return (expr == "") ? ["BEhO"] : _node("BEhO", expr);}//+
 BOI_elidible = expr:(BOI_clause?)   {return (expr == "") ? ["BOI"]  : _node("BOI", expr);}

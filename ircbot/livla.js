@@ -215,7 +215,8 @@ var updatexmldumps = function (callback) {
 			});
 		});
 	}catch(err){console.log('Error when autoupdating: ' + err);}
-	sutysiskuningau("ithkuil");sutysiskuningau("zamenhofo");sutysiskuningau("laadan");sutysiskuningau("ile");sutysiskuningau("ldp");labangu();
+	sutysiskuningau("ithkuil");sutysiskuningau("zamenhofo");sutysiskuningau("laadan");sutysiskuningau("ile");sutysiskuningau("ldp");
+	//labangu();
 	//updategloss();# not yet ready function
 };
 var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),{encoding: 'utf8'}));//store en dump in memory
@@ -804,6 +805,8 @@ coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./glosswor
 	if(typeof coun!=='undefined'){for (i=0;i<coun.length;i++){stra.push(coun[i].attr("word").value());}}
 coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./definition,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\") or contains(translate(./notes,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 	if(typeof coun!=='undefined'){for (i=0;i<coun.length;i++){stra.push(coun[i].attr("word").value());}}
+coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./definition,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\") or contains(translate(./related,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
+	if(typeof coun!=='undefined'){for (i=0;i<coun.length;i++){stra.push(coun[i].attr("word").value());}}
 
 stra=stra.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]);
 
@@ -1387,6 +1390,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		try{pars+=",\"d\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")+"\"";}catch(err){}
 		try{pars+=",\"n\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")+"\"";}catch(err){}
 		try{pars+=",\"g\":\""+rev[i].find("glossword/@word").join(";").replace(/ word=\"(.*?)\"/g,"$1").replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
+		try{pars+=",\"r\":\""+rev[i].find("related[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")+"\"";}catch(err){}
 		var ra=rev[i].find("rafsi//text()[1]");
 		if (xugismu(hi)===true){
 			ra.push(hi);

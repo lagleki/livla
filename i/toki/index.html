@@ -250,7 +250,7 @@
 	function lojTemplate(s) {
 		s = s.replace(/\$.*?\$/g, function(c) {
 		c = c.substring(1, c.length-1);
-		return c.replace(/(\w)_\{?(\d+)\}?/g, "$1<sub>$2</sub>").replace(/[\{\}]/g,'');
+		return c.replace(/(\w)_\{?([_\w\(\)\d]+)\}?/g, "<i>$1<sub>$2</sub></i>").replace(/(\w)_\{?(\d+)\}?/g, "$1<sub>$2</sub>").replace(/<sub>([^<]*?)_([^<]*?)<\/sub>/igm,"<sub>$1 $2</sub>").replace(/[\{\}]/g,'');
 		});
 		s = s.replace(/\{(.*?)\}/g, function(c) {
 		var c = c.substring(1, c.length-1);

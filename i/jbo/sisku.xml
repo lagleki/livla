@@ -2,8 +2,8 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
    <ShortName>jbo-sutysisku</ShortName>
    <Description>sisku sepi'o lo lojbo vlaste be fa la jbovlaste.</Description>
-   <Tags>sutsis sutysisku muplis vlasisku jbovlaste lojban vlaste dictionary</Tags>
-   <Contact>gleki.is.my.name@gmail.com</Contact>
+   <Tags>sutsis sutysisku muplis vlasisku jbovlaste lojban vlaste dictionary la bangu</Tags>
+   <Contact>bangu@lojban.org</Contact>
    <Url type="text/html"
         template="http://mw.lojban.org/extensions/ilmentufa/i/jbo/index.html#sisku/{searchTerms}"/>
  </OpenSearchDescription>

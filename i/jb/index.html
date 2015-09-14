@@ -8,13 +8,13 @@
 	<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
 	<meta property="og:title" content="lai sutysisku"/>
 	<meta property="og:type" content="article"/>
-	<meta property="og:url" content="http://mw.lojban.org/extensions/ilmentufa/i/ru/index.html"/>
+	<meta property="og:url" content="http://mw.lojban.org/extensions/ilmentufa/i/jb/index.html"/>
 	<meta property="og:image" content="//mw.lojban.org/images/1/11/sutysisku2015-06-22.png"/>
 	<meta property="og:site_name" content="La Sutysisku"/>
 	<meta property="fb:app_id" content="191051864394489"/>
-	<meta property="og:description" content="Словарь ложбана (Lojban), английского и других языков, который может работать без подключения к интернету."/>
+	<meta property="og:description" content="A dictionary for Lojban (La Bangu project), English and other languages that can work offline."/>
 	<link rel="shortcut icon" href="../sutysisku.png" />
-	<link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/ru/sisku.xml" title="ru-sutysisku">
+	<link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/jb/sisku.xml" title="jb-sutysisku">
   <style type="text/css">
 	.container .credit {
 		margin: 20px 0;
@@ -46,6 +46,12 @@
 	.definition {
 		margin-top: 10px;
 		margin-bottom: 10px;
+	}
+	.notes {
+		margin-left: 10px;
+	}
+	.mupligreku {
+		border: 1px dotted #aaa;padding: 5px;
 	}
 	.subdefinitions {
 		padding-left: 20px;
@@ -167,7 +173,7 @@
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
 		<span id='plise'><a id='st' href="../"><img src="../sutysisku.png" height='16' width='16'><span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-		<input id='typehere' placeholder="поиск" type='text' autofocus>
+		<input id='typehere' placeholder="search" type='text' autofocus>
 		</div>
 	</div>
 	<div class='content' style="height:100%;
@@ -177,10 +183,10 @@
 	box-sizing:border-box;
 	overflow:auto;">
 		<div id='content-panel'>
-			<div id='description'><p><b>la sutysisku</b> - быстрый словарь ложбана.<p>- Будет ли эта страничка открываться, если у меня будет недоступен интернет?<br>- Да, если это случится, всё равно откройте этот же адрес с этого же самого браузера.<br> Страничка всё равно должна открыться. Требуется последняя версия браузера Chrome, Яндекс Браузера, Safari или Firefox. Работает на устройствах Android и Apple.<br><br>Больше информации о ложбане доступно на <a href='http://lojban.org' target='_blank'>сайте языка Lojban</a>. Предложения можно писать на адрес <a href='mailto:gleki.is.my.name@gmail.com' target='_blank'>gleki.is.my.name@gmail.com</a>.</p><div id='searchengine' style='position: absolute;right: 10px;'><i><a href='#' title='en-sutysisku' onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Добавить как средство поиска</a></i></div></div>
+			<div id='description'><p><b>la sutysisku</b> is a fast dictionary of La Bangu project for the Lojban language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://lojban.org' target='_blank'>Lojban Wiki</a>.</p><div id='searchengine' style='position: absolute;margin-top:30px;right: 10px;'><i><a href='#' title='en-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Add as a search engine</a></i></div></div>
 		<div id='output'></div>
 		<div id='loading'>
-		  <span class='message'>Загружаем словарь ...</span><br>
+		  <span class='message'>Loading dictionary ...</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
 		</div>
@@ -297,6 +303,14 @@
 		if (def.n) {
 		out.append(
 			$('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
+		}
+		if (def.e) {
+		out.append(
+			$('<div>').addClass('examples').html("<table style='width:100%;border-collapse:collapse;margin-top:10px;margin-bottom:10px;'>"+lojTemplate((def.e+"\n").replace(/;/g,"\n").replace(/(.*?) — (.*?)\n/g,"<tr><td class='mupligreku'><b>$1<\/b><\/td><td class='mupligreku'><i>$2<\/i><\/td><\/tr>\n")) + '</table> '));
+		}
+		if (def.k) {
+		out.append(
+			$('<div>').addClass('related').html('See also: ' + lojTemplate(def.k) + ' '));
 		}
 		if ((def.r||[]).length > 0) {// && window.xuzganalojudri
 			var rafsi = $("<div>").addClass('rafsi');

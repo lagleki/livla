@@ -19,9 +19,8 @@
 	.container .credit {
 		margin: 20px 0;
 	}
-	#typehere{height:31px;
+	#typehere{height:auto;
 		font-size:140%;
-		line-height:140%;
 	}
 
 	body {
@@ -167,15 +166,7 @@
 <body style="margin: 0;height: 100vh;">
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
-		<span id='plise'><a id='st' href="../"><img src="../sutysisku.png" height='16' width='16'><span class='site-title'><font color="#fff">la sutysisku</font></span></a></span>
-		<div style="
-		-webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
-  -moz-box-flex: 1;         /* OLD - Firefox 19- */
-  width: 20%;               /* For old syntax, otherwise collapses. */
-  -webkit-flex: 1;          /* Chrome */
-  -ms-flex: 1;              /* IE 10 */
-  flex: 1;     
-  "></div>
+		<span id='plise'><a id='st' href="../"><img src="../sutysisku.png" height='16' width='16'><span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
 		<input id='typehere' placeholder="search" type='text' autofocus>
 		</div>
 	</div>
@@ -259,7 +250,7 @@
 	function lojTemplate(s) {
 		s = s.replace(/\$.*?\$/g, function(c) {
 		c = c.substring(1, c.length-1);
-		return c.replace(/(\w)_\{?(\d+)\}?/g, "$1<sub>$2</sub>").replace(/[\{\}]/g,'');
+		return c.replace(/(\w)_\{?([_\w\(\)\d]+)\}?/g, "<i>$1<sub>$2</sub></i>").replace(/(\w)_\{?(\d+)\}?/g, "$1<sub>$2</sub>").replace(/<sub>([^<]*?)_([^<]*?)<\/sub>/igm,"<sub>$1 $2</sub>").replace(/[\{\}]/g,'');
 		});
 		s = s.replace(/\{(.*?)\}/g, function(c) {
 		var c = c.substring(1, c.length-1);

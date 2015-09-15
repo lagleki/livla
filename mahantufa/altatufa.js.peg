@@ -174,7 +174,7 @@ bridi_sei = expr:((loisumsmiBFZAM CU_space)? bridi_tail_nul)  {return _node("bri
 bridi_tail_nul = expr:(bridi_tail_1_nul) {return _node("bridi_tail_nul", expr);}
 bridi_tail_1_nul = expr:(bridi_tail_2_nul) {return _node("bridi_tail_1_nul", expr);}
 bridi_tail_2_nul = expr:(bridi_tail_3_nul) {return _node("bridi_tail_2_nul", expr);}
-bridi_tail_3_nul = expr:(KE_space_bridi_nul / gek_bridi_tail_nul / (selbri_may_elide / gek_sentence)) {return _node("bridi_tail_3_nul", expr);}
+bridi_tail_3_nul = expr:(KE_space_bridi_nul / gek_bridi_tail_nul / (selbri / gek_sentence)) {return _node("bridi_tail_3_nul", expr);}
 KE_space_bridi_nul = expr:(KE_clause full_INT* !(selbri_2 KEhE) bridi_tail_nul KEhE_elidible full_INT*) {return _node("KE_bridi_nul_scope", expr);}
 gek_bridi_tail_nul = expr:(tagBAM_0* (gek bridi_tail_nul gik bridi_tail_nul / KE_space_bridi_nulgek)) {return _node("gek_bridi_tail_nul", expr);}
 KE_space_bridi_nulgek = expr:(KE_clause full_INT* gek_bridi_tail_nul KEhE_elidible full_INT*) {return _node("KE_bridi_nul_gek_scope", expr);}
@@ -401,7 +401,8 @@ sumti_6_slice = expr:(se_gadri_be_zo_lo) {return _node("sumti_6_slice", expr);}
 
 LU_space = expr:(LU_clause text LIhU_elidible full_INT*) {return _node("LU_space", expr);}
 LOhU_space = expr:(LOhU_clause full_INT*) {return _node("LOhU_space", expr);}
-se_gadri_be_zo_lo = (relative_clauses_ne / relative_clauses?) (mex !ROI_clause)? bridi_sei relative_clauses? KU_elidible
+se_gadri_be_zo_lo = (relative_clauses_ne &se_gadri_be_zo_lo_tail / relative_clauses?) se_gadri_be_zo_lo_tail
+se_gadri_be_zo_lo_tail = (mex !ROI_clause)? bridi_sei relative_clauses? KU_elidible
 
 //todo: sumti structure is now new
 sumtinoi = expr:(sumti_1noi) {return _node("sumti", expr);}

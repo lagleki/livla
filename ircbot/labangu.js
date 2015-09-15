@@ -10,6 +10,35 @@ var labangu = function(){
 	    uri: uri, method: "GET"
 	}).on("error", function (err) {
 	}).pipe(fs.createWriteStream(t)).on("finish", function () {
+		var tr = path.join(__dirname,"dumps","eng2jbo.tsv");
+		requestd = request.defaults({jar: true});
+		uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/pub?gid=1968461413&single=true&output=tsv";
+		requestd({
+			uri: uri, method: "GET"
+		}).on("error", function (err) {}).pipe(fs.createWriteStream(tr)).on("finish", function () {
+		var takei = fs.readFileSync(tr,{encoding: 'utf8'});
+		var x = take.replace(/_/g,"").replace(/'/g,"&apos;").split('\n');
+		x.shift();
+		x=x.sort(
+				function (a, b) {
+    				return a.toLowerCase().localeCompare(b.toLowerCase());
+				}
+			);//x is our array
+		for (var i=0; i<x.length; i++) {
+		    y = x[i].split('\t');
+		    y[0]=("''"+y[0]+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''");
+		    y[1]=y[1].replace(/^([^\{\}@]+)$/,"'''$1'''");
+		    x[i]=y[0] + "  –  "+y[1];
+		    //x[i] = y;
+		}
+		//alllojban[j]=alllojban[j].replace(/(, )+$/,"");
+		//alllojbancomment[j]=alllojbancomment[j].replace(/(, )+$/,"").replace(/_/g,"").replace(/'/g,"&apos;").replace(/[\{\}]/g,"'''").replace(/@@@/g,"''").trim();
+		//out+=("''"+allenglish[j].replace(/_/g,"").replace(/'/g,"&apos;").replace(/^([ ]+)/,"")+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''")+"  –  '''"+alllojban[j].replace(/, /,"''', '''")+"'''";
+		takei = fs.writeFileSync(tr+".temp",x.join("\n\n").replace(/\{(.*?)\}/g,"'''$1'''").replace(/@@@(.*?)@@@/g,"''$1''"));
+		fs.renameSync(tr+".temp",tr);console.log("La Bangu Eng2Jbo updated");
+		});
+		//todo: reuse takei for .xml dump
+		//now jbo2eng
 		var take = fs.readFileSync(t,{encoding: 'utf8'})+"\n";
 		take=take.replace(/➜/igm,"=>");
 		take=take.replace(/&/igm,"&amp;");
@@ -57,7 +86,7 @@ var labangu = function(){
 		take = fs.writeFileSync(tr+".temp",x.join("\n\n").replace(/\{(.*?)\}/g,"'''$1'''").replace(/@@@(.*?)@@@/g,"''$1''"));
 		fs.renameSync(tr+".temp",tr);console.log("La Bangu Eng2Jbo updated");
 	});
-	//
+	//start la sutysisku's dump preparations, make from .xml file
 	// LUJVO CONSTRUCTOR PART
 	var C="("+"[bcdfgjklmnprstvxz]"+")";
 	var V="("+"[aeiou]"+")";
@@ -75,7 +104,7 @@ var labangu = function(){
 		var myreg = new RegExp("^"+gism+V+"$", "gm");
 		if((inp.match(myreg)||[]).length==1){return true;}else{return false;}
 	};
-	//la sutysisku's dump
+	//actual la sutysisku's dump
 	var lng='jb';
 	var xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),{encoding: 'utf8'}));
 	var pars='var documentStore = [';

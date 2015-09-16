@@ -17,7 +17,7 @@ var labangu = function(){
 			uri: uri, method: "GET"
 		}).on("error", function (err) {}).pipe(fs.createWriteStream(tr)).on("finish", function () {
 		var takei = fs.readFileSync(tr,{encoding: 'utf8'});
-		var x = take.replace(/_/g,"").replace(/'/g,"&apos;").split('\n');
+		var x = takei.replace(/_/g,"").replace(/'/g,"&apos;").split('\n');
 		x.shift();
 		x=x.sort(
 				function (a, b) {
@@ -36,8 +36,11 @@ var labangu = function(){
 		//out+=("''"+allenglish[j].replace(/_/g,"").replace(/'/g,"&apos;").replace(/^([ ]+)/,"")+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''")+"  –  '''"+alllojban[j].replace(/, /,"''', '''")+"'''";
 		takei = fs.writeFileSync(tr+".temp",x.join("\n\n").replace(/\{(.*?)\}/g,"'''$1'''").replace(/@@@(.*?)@@@/g,"''$1''"));
 		fs.renameSync(tr+".temp",tr);console.log("La Bangu Eng2Jbo updated");
-		});
 		//todo: reuse takei for .xml dump
+		for (var xx in x){
+			x[xx] = x[xx].replace(/'''(.*?)'''/g,"{$1}").replace(/^''(.*?)''  –  (.*?)$/,"<valsi word=\"$1\" lang=\"en\">\n\t<definition>$2</definition>\n</valsi>");
+		}
+		takei = x.join("\n\n").replace(/<(|\/)(small)>|&nbsp;/igm,"");
 		//now jbo2eng
 		var take = fs.readFileSync(t,{encoding: 'utf8'})+"\n";
 		take=take.replace(/➜/igm,"=>");
@@ -54,9 +57,10 @@ var labangu = function(){
 		take=take.replace(/^:Related words: (.*?)$/igm,"\t<related>$1</related>");
 		take=take.replace(/^: *(.*?)$/igm,"\t<gloss>$1</gloss>");
 		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"$1");
-		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"English (La Bangu)\">\n"+take+"</direction>\n</dictionary>";
+		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"English (La Bangu)\">\n" + take + "\n" + takei + "</direction>\n</dictionary>";
 		take = fs.writeFileSync(t+".temp",take);
 		fs.renameSync(t+".temp",path.join(__dirname,"dumps","jb.xml"));console.log("La Bangu updated");
+	});
 	});
 	//
 	var tr = path.join(__dirname,"dumps","eng2jbo.tsv");
@@ -114,6 +118,7 @@ var labangu = function(){
 			pars+="{\"w\":\""+hi+"\"";
 			try{pars+=",\"t\":\""+rev[i].attr("type").value().replace(/\\/g,"\\\\")+"\"";}catch(err){}
 			try{pars+=",\"s\":\""+rev[i].find("selmaho[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")+"\"";}catch(err){}
+			try{pars+=",\"l\":\""+rev[i].attr("lang").value()+"\"";}catch(err){}
 			try{pars+=",\"d\":\""+rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")+"\"";}catch(err){}
 			try{pars+=",\"n\":\""+rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")+"\"";}catch(err){}
 			try{pars+=",\"g\":\""+rev[i].find("glossword/@word").join(";").replace(/ word=\"(.*?)\"/g,"$1").replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
@@ -136,7 +141,7 @@ var labangu = function(){
 		}
 		pars+="];\n";
 		var tt = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
-		pars = fs.writeFileSync(tt+".temp",pars);
+		pars = fs.writeFileSync(tt+".temp",pars.replace(/,\"[eg]\":\"\"/g,""));
 		fs.renameSync(tt+".temp",tt);
 		tt = path.join(__dirname,"../i/"+lng+"/","webapp.appcache");
 		/*var d = new Date();

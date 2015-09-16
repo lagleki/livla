@@ -54,19 +54,24 @@
 		margin-left: 10px;
 	}
 	.mupligreku {
-		border: 1px dotted #aaa;padding: 5px;
+		border: 1px dashed #ccc;padding: 5px;
 	}
 	.subdefinitions {
 		padding-left: 20px;
 		border-left:solid 3px #1E90FF;
 	}
 	.term {
-		padding-top: 12px;
-		padding-bottom: 9px;
-		border-bottom-color: rgba(0, 0, 0, 0.0980392);
-		border-bottom-style: solid;
-		border-bottom-width: 1px;
+		margin-top: 9px;
+		padding: 9px;
+		/*border-color: #ccc;
+		border-style: solid;
+		border-width: 0px;
+		box-shadow: 3px 3px 1px #ccc;*/
 		text-align: justify;
+		background: white;
+	}
+	.term:hover {
+		outline: #999999 solid 3px;
 	}
 	.rafsi {
 		margin-top: 8px;
@@ -110,6 +115,8 @@
 		padding-left: 5px;
 		padding-right: 5px;
 		overflow:auto;
+		background: #222222 linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent) !important;
+		background-size: 40px 40px !important;
 	}
 	#header-wrapper {
 		max-width: 700px;
@@ -186,10 +193,10 @@
 	box-sizing:border-box;
 	overflow:auto;">
 		<div id='content-panel'>
-			<div id='description'><p><b>la sutysisku</b> est un dictionnaire rapide pour le lojban.<p>- Est-ce que je peux l'utiliser lorsque je suis déconnecté d'Internet ?<br>- Oui, si cela arrive essayez d'ouvrir cette adresse avec votre navigateur. Elle devrait s'ouvrir même hors-connexion. Une version récente de Chrome, Safari ou Firefox est nécéssaire.<br><br>Pour plus d'informations, visitez <a href='http://mw.lojban.org' target='_blank'>le Wiki du Lojban</a>.</p><div id='searchengine' style='position: absolute;right: 10px;'><i><a href='#' title='en-sutysisku' onclick="window.external.AddSearchProvider('http://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Ajouter en tant que moteur de recherche</a></i></div></div>
-		<div id='output'></div>
-		<div id='loading'>
-		  <span class='message'>Nous chargeons le dictionnaire ...</span><br>
+			<div id='description' class="term"><p><b>la sutysisku</b> est un dictionnaire rapide pour le lojban.<p>- Est-ce que je peux l'utiliser lorsque je suis déconnecté d'Internet ?<br>- Oui, si cela arrive essayez d'ouvrir cette adresse avec votre navigateur. Elle devrait s'ouvrir même hors-connexion. Une version récente de Chrome, Safari ou Firefox est nécéssaire.<br><br>Pour plus d'informations, visitez <a href='http://mw.lojban.org' target='_blank'>le Wiki du Lojban</a>.</p><p><span id='searchengine'><i><a href='#' title='fr-facile-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/fr-facile/sisku.xml')">Ajouter en tant que moteur de recherche</a></i></span></p></div>
+			<div id='output'></div>
+			<div id='loading' class="term">
+				<span class='message'>Nous chargeons le dictionnaire ...</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
 		</div>
@@ -293,7 +300,7 @@
 		);
 		if (def.d) {
 		$("<div>").addClass('definition').html(
-			lojTemplate(def.d.replace(/\//g," / ")) + ' ').appendTo(out);
+			lojTemplate(def.d.replace(/\//g," / ").replace(/@@@(.*?)@@@/g,"<i>$1</i>")) + ' ').appendTo(out);
 		} else {
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
@@ -309,7 +316,7 @@
 		}
 		if (def.e) {
 		out.append(
-			$('<div>').addClass('examples').html("<table style='width:100%;border-collapse:collapse;margin-top:10px;margin-bottom:10px;'>"+lojTemplate((def.e+"\n").replace(/;/g,"\n").replace(/(.*?) — (.*?)\n/g,"<tr><td class='mupligreku'><b>$1<\/b><\/td><td class='mupligreku'><i>$2<\/i><\/td><\/tr>\n")) + '</table> '));
+			$('<div>').addClass('examples').html("<table style='width:100%;border-collapse:collapse;margin-top:10px;margin-bottom:10px;'>"+lojTemplate((def.e+"\n").replace(/%/g,"\n").replace(/(.*?) — (.*?)\n/g,"<tr><td class='mupligreku'><b>$1<\/b><\/td><td class='mupligreku'><i>$2<\/i><\/td><\/tr>\n")) + '</table> '));
 		}
 		if (def.k) {
 		out.append(

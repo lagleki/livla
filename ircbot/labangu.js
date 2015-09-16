@@ -124,7 +124,7 @@ var labangu = function(){
 			try{pars+=",\"g\":\""+rev[i].find("glossword/@word").join(";").replace(/ word=\"(.*?)\"/g,"$1").replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 			try{pars+=",\"k\":\""+rev[i].find("related[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")+"\"";}catch(err){}
 			try{
-				pars+=",\"e\":\""+rev[i].find("example").toString().replace(/>,</g,">;<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g,"$1 — $2").replace(/"/g,"'").replace(/\\/g,"\\\\")+"\"";
+				pars+=",\"e\":\""+rev[i].find("example").toString().replace(/>,</g,">%<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g,"$1 — $2").replace(/"/g,"'").replace(/\\/g,"\\\\")+"\"";
 				//console.log(rev[i].find("example").toString());
 			}catch(err){}
 			var ra=rev[i].find("rafsi//text()[1]");
@@ -141,7 +141,7 @@ var labangu = function(){
 		}
 		pars+="];\n";
 		var tt = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
-		pars = fs.writeFileSync(tt+".temp",pars.replace(/,\"[eg]\":\"\"/g,""));
+		pars = fs.writeFileSync(tt+".temp",pars.replace(/,\"[eg]\":\"\"/g,"").replace(/&amp;/g,"&"));
 		fs.renameSync(tt+".temp",tt);
 		tt = path.join(__dirname,"../i/"+lng+"/","webapp.appcache");
 		/*var d = new Date();

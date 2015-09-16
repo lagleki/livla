@@ -43,9 +43,18 @@
       font-style: italic;
       color: rgb(118, 118, 118);
 	}
+	.nalojbo {
+      color: #6A5ACD;
+	}
 	.definition {
 		margin-top: 10px;
 		margin-bottom: 10px;
+	}
+	.notes {
+		margin-left: 10px;
+	}
+	.mupligreku {
+		border: 1px dotted #aaa;padding: 5px;
 	}
 	.subdefinitions {
 		padding-left: 20px;
@@ -265,17 +274,18 @@
 		var fmm,tfm;
 		if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a> ";}else{fmm=''}
 		tfm = arraySearch(fm,def.w);
-		if (tfm!==false) {tfm = $("<div>").addClass('tfm').html('<sup>[<a href="#sisku/' + tfm + '">' + tfm + "</a>&nbsp;&nbsp;...&nbsp;]</sup>&nbsp;&nbsp;");}else{tfm=''}
+		if (tfm!==false) {tfm = $("<div>").addClass(kl).html('<sup>[<a href="#sisku/' + tfm + '">' + tfm + "</a>&nbsp;&nbsp;...&nbsp;]</sup>&nbsp;&nbsp;");}else{tfm=''}
 		var ss;
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
 		var jvs = def.t;
-		if(window.xuzganalojudri){jvs+="<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
+		if(window.xuzganalojudri && !def.l){jvs+="<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
 		if (def.t==='decomposing ...'){if ((def.rafsiDocuments||[]).length==0){ return;}jvs=window.bangudecomp;}
-		var word='<a href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
+		var kl='';if(def.l){kl="nalojbo";};
+		var word='<a class="' + kl + '" href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
 		if (def.w == query){word=def.w + ' ';}
 		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
 		.append(tfm)
-		.append($("<h4>").html(word))
+		.append($("<h4>").addClass(kl).html(word))
 		.append($("<h4>").addClass('tfm').html(fmm))
 		.append($("<div style='flex:1;'>"))
 		.append($("<div>").addClass('type').html(jvs))
@@ -293,12 +303,19 @@
 		subDefs.appendTo(out);
 		}
 
-
 		if (def.n) {
 		out.append(
 			$('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
 		}
-		if ((def.r||[]).length > 0) {// && window.xuzganalojudri
+		if (def.e) {
+		out.append(
+			$('<div>').addClass('examples').html("<table style='width:100%;border-collapse:collapse;margin-top:10px;margin-bottom:10px;'>"+lojTemplate((def.e+"\n").replace(/;/g,"\n").replace(/(.*?) — (.*?)\n/g,"<tr><td class='mupligreku'><b>$1<\/b><\/td><td class='mupligreku'><i>$2<\/i><\/td><\/tr>\n")) + '</table> '));
+		}
+		if (def.k) {
+		out.append(
+			$('<div>').addClass('related').html('See also: ' + lojTemplate(def.k) + ' '));
+		}
+		if ((def.r||[]).length > 0 && !def.l) {// && window.xuzganalojudri
 			var rafsi = $("<div>").addClass('rafsi');
 			rafsi.append("rafsi: ");
 			for (var i = 0; i < def.r.length; i++) {

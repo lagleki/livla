@@ -219,7 +219,7 @@ var updatexmldumps = function (callback) {
 	//labangu();
 	//updategloss();# not yet ready function
 };
-var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),{encoding: 'utf8'}));//store en dump in memory
+var xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),{encoding: 'utf8'}).replace(/(&lt;|<)script.*?(&gt;|>).*?(&lt;|<)/g,"&lt;").replace(/(&lt;|<)\/script(&gt;|>)/g,""));//store en dump in memory
 
 setInterval(function(){updatexmldumps()}, 3*86400000); //update logs once a djedi
 
@@ -1378,7 +1378,12 @@ var katna= function(lin,lng,flag,xmlDoc){
 
 var sutysiskuningau = function(lng){//write a new file parsed.js that would be used by la sutysisku
 if (typeof lng==='undefined'){lng='en';}
-if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),{encoding: 'utf8'}));}
+if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),{encoding: 'utf8'}).replace(/(&lt;|<)script.*?(&gt;|>).*?(&lt;|<)/g,"&lt;").replace(/(&lt;|<)\/script(&gt;|>)/g,""));}
+var x = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),{encoding: 'utf8'}).split("\n");
+console.log("Start");
+for (var bi in x){
+	if (x[bi].search("\bro lo do zbepi\b")>-1){console.log(x[bi])}
+}
 
 var pars='var documentStore = [';
 var rev = xmlDoc.find("/dictionary/direction[1]/valsi");

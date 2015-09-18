@@ -111,7 +111,13 @@ function initializer(injector, callback) {
 		doc.t = (typeof doc.t === 'undefined') ? '' : doc.t;var bng;var docd;
 		docd = doc.d;
 		if (doc.s){text = [doc.w, (doc.t||''), doc.s, docd, doc.n, (doc.g||''), (doc.r||[]).join(' ')].join(' ');}
-		else{text = [doc.w, (doc.t||''), docd, doc.n, (doc.g||''), (doc.r||[]).join(' ')].join(' ');}
+		else{
+			text = [doc.w, docd, doc.n];
+			try{text.push(doc.t);}catch(err){}
+			try{text.push(doc.g);}catch(err){}
+			try{text.push(doc.r.join(' '));}catch(err){}
+			text=text.join(' ');
+		}
 		wordsArray.push(text);
 		valuesArray.push(key);
 	}

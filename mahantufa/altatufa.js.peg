@@ -174,7 +174,7 @@ bridi_sei = expr:((loisumsmiBFZAM CU_space)? bridi_tail_nul)  {return _node("bri
 bridi_tail_nul = expr:(bridi_tail_1_nul) {return _node("bridi_tail_nul", expr);}
 bridi_tail_1_nul = expr:(bridi_tail_2_nul) {return _node("bridi_tail_1_nul", expr);}
 bridi_tail_2_nul = expr:(bridi_tail_3_nul) {return _node("bridi_tail_2_nul", expr);}
-bridi_tail_3_nul = expr:(KE_space_bridi_nul / gek_bridi_tail_nul / (selbri_may_elide / gek_sentence)) {return _node("bridi_tail_3_nul", expr);}
+bridi_tail_3_nul = expr:(KE_space_bridi_nul / gek_bridi_tail_nul / (selbri / gek_sentence)) {return _node("bridi_tail_3_nul", expr);}
 KE_space_bridi_nul = expr:(KE_clause full_INT* !(selbri_2 KEhE) bridi_tail_nul KEhE_elidible full_INT*) {return _node("KE_bridi_nul_scope", expr);}
 gek_bridi_tail_nul = expr:(tagBAM_0* (gek bridi_tail_nul gik bridi_tail_nul / KE_space_bridi_nulgek)) {return _node("gek_bridi_tail_nul", expr);}
 KE_space_bridi_nulgek = expr:(KE_clause full_INT* gek_bridi_tail_nul KEhE_elidible full_INT*) {return _node("KE_bridi_nul_gek_scope", expr);}
@@ -406,7 +406,8 @@ sumti_6_slice = expr:(se_gadri_be_zo_lo) {return _node("sumti_6_slice", expr);}
 
 LU_space = expr:(LU_clause text LIhU_elidible full_INT*) {return _node("LU_space", expr);}
 LOhU_space = expr:(LOhU_clause full_INT*) {return _node("LOhU_space", expr);}
-se_gadri_be_zo_lo = (relative_clauses_ne / relative_clauses?) (mex !ROI_clause)? bridi_sei relative_clauses? KU_elidible
+se_gadri_be_zo_lo = (relative_clauses_ne &se_gadri_be_zo_lo_tail / relative_clauses?) se_gadri_be_zo_lo_tail
+se_gadri_be_zo_lo_tail = (mex sumti / (mex !ROI_clause !DUhU_clause)? bridi_sei relative_clauses? KU_elidible) 
 
 //todo: sumti structure is now new
 sumtinoi = expr:(sumti_1noi) {return _node("sumti", expr);}
@@ -498,7 +499,7 @@ selbrisle_2_inner = loi_SEJAI_element selbrisle_2 / selbrisle_2_root
 selbrisle_2nf = expr:((full_NAhE selbrisle_2nf_inner / selbrisle_2nf_inner full_NAICAI?) full_INT*) {return _node("selbrisle_2nf", expr); }
 selbrisle_2nf_inner = loi_SEJAI_element selbrisle_2nf / selbrisle_2_root
 selbrisle_2_root = BRIVLA_clause / GOhA_clause RAhO_clause? / KE_space_selbri_3 / ME_clause (sumti / mex) MEhU_elidible MOI_clause? / mex MOI_clause / NUhA_clause operator / NU_space / MEhOI_clause
-NU_space = expr:(NU_clause (joik_jek NU_clause)* subbridi KEI_elidible full_INT*) {return _node("NU_spacenoi", expr); }
+NU_space = expr:((NU_clause / DUhU_clause) (joik_jek (NU_clause / DUhU_clause))* subbridi KEI_elidible full_INT*) {return _node("NU_spacenoi", expr); }
 KE_space_selbri_3 = expr:(KE_clause full_INT* selbri_3 KEhE_elidible full_INT*) {return _node("KE_space_selbri_3", expr);}
 loi_SEJAI_element = (SE_clause / JAI_clause (tagBFAM_0+ / tagDAM))+
 
@@ -1034,6 +1035,9 @@ NU_clause = pre:NU_pre post:post_clause {return _node2("NU_clause", pre, post); 
 NU_pre = pre_clause NU spaces?
 NU_clause_elidible = pre:NU_pre_elidible post:post_clause {return _node2("NU_clause", pre, post); }
 NU_pre_elidible = pre_clause NU_elidible spaces?
+
+DUhU_clause = pre:DUhU_pre post:post_clause {return _node2("DUhU_clause", pre, post); }
+DUhU_pre = pre_clause DUhU spaces?
 
 //         change operator to selbri; inverse of MOhE 
 NUhA_clause = pre:NUhA_pre post:post_clause {return _node2("NUhA_clause", pre, post); }
@@ -1723,7 +1727,9 @@ NIhO = &cmavo expr:( n i H o / n o Ih i ) &post_word {return ["NIhO", _join(expr
 NOI = &cmavo expr:( v o i / n o i / p o i ) &post_word {return ["NOI", _join(expr)];}
 
 //// EXP-ADD: poi'i, kai'u
-NU = &cmavo expr:(p o i H i / k a i H u / n i / d u H u / s i H o / n u / l i H i / k a / j e i / s u H u / z u H o / m u H e / p u H u / z a Ih i ) &post_word {return ["NU", _join(expr)];}
+NU = &cmavo expr:(p o i H i / k a i H u / n i / s i H o / n u / l i H i / k a / j e i / s u H u / z u H o / m u H e / p u H u / z a Ih i ) &post_word {return ["NU", _join(expr)];}
+
+DUhU = &cmavo expr:(d u H u) &post_word {return ["DUhU", _join(expr)];}
 
 NUhA = &cmavo expr:( n u H a ) &post_word {return ["NUhA", _join(expr)];}
 

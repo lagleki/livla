@@ -54,19 +54,25 @@
 		margin-left: 10px;
 	}
 	.mupligreku {
-		border: 1px dashed #ccc;padding: 5px;
+		border: 1px dashed #aaa;padding: 5px;
 	}
 	.subdefinitions {
-		padding-left: 20px;
+		padding-left: 0px;
 		border-left:solid 3px #1E90FF;
+	}
+	.terminner {
+		margin-top: 9px;
+		padding: 9px;
+		border-top: solid 1px #ccc;
+		border-right: solid 1px #ccc;
+		border-bottom: solid 1px #ccc;
+		box-shadow: 3px 3px 1px #ccc;
+		text-align: justify;
+		background: white;
 	}
 	.term {
 		margin-top: 9px;
 		padding: 9px;
-		/*border-color: #ccc;
-		border-style: solid;
-		border-width: 0px;
-		box-shadow: 3px 3px 1px #ccc;*/
 		text-align: justify;
 		background: white;
 	}
@@ -92,12 +98,12 @@
 		font-size: 18px;
 		padding: 0;
 		background: rgb(109,179,242); /* Old browsers */
-		background: -moz-linear-gradient(top,  rgba(109,179,242,1) 0%, rgba(84,163,238,1) 50%, rgba(54,144,240,1) 51%, rgba(30,105,222,1) 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(109,179,242,1)), color-stop(50%,rgba(84,163,238,1)), color-stop(51%,rgba(54,144,240,1)), color-stop(100%,rgba(30,105,222,1))); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%); /* IE10+ */
-		background: linear-gradient(to bottom,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%); /* W3C */
+		background: -moz-linear-gradient(top,  rgba(109,179,242,1) 0%, rgba(84,163,238,1) 15%, rgba(54,144,240,1) 86%, rgba(30,105,222,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(109,179,242,1)), color-stop(15%,rgba(84,163,238,1)), color-stop(86%,rgba(54,144,240,1)), color-stop(100%,rgba(30,105,222,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 15%,rgba(54,144,240,1) 86%,rgba(30,105,222,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 15%,rgba(54,144,240,1) 86%,rgba(30,105,222,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 15%,rgba(54,144,240,1) 86%,rgba(30,105,222,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 15%,rgba(54,144,240,1) 86%,rgba(30,105,222,1) 100%); /* W3C */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de',GradientType=0 ); /* IE6-9 */
 		color: #FFF;
 	}
@@ -110,6 +116,7 @@
 	.site-title {
 		font-size: 18px;
 		font-weight: bold;
+		padding-left: 2px;
 	}
 	.content {
 		padding-left: 5px;
@@ -275,9 +282,10 @@
 		return s;
 	}
 
-	function displayDocument(def) {
+	function displayDocument(def,inner) {
 		if (!def){def=[];}
-		var out = $("<div>").addClass('term');
+		var out;
+		if(inner===1){out=$("<div>").addClass('terminner');} else {out=$("<div>").addClass('term');}
 		var fmm,tfm;
 		if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a> ";}else{fmm=''}
 		tfm = arraySearch(fm,def.w);
@@ -305,7 +313,7 @@
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
 		for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {
-			if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i]).appendTo(subDefs);}
+			if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i],1).appendTo(subDefs);}
 		}
 		subDefs.appendTo(out);
 		}
@@ -429,7 +437,7 @@
 	function displayResults() {
 		var displayUpTo = Math.min(limit, results.length);
 			var sc = (window.arrcll||[])[query];
-			if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('definition').html(window.cllnotci+"<br/>"+sc+"<hr>").appendTo(output);}
+			if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('term').html(window.cllnotci+"<br/>"+sc).appendTo(output);}
 		for (; resultCount < displayUpTo; resultCount++) {
 		try{displayDocument(results[resultCount]).appendTo(output);}catch(err){}
 		}

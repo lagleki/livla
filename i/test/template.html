@@ -130,7 +130,7 @@
 		width: 100%;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: 5px;
+		margin-top: 6px;
 	    display: -webkit-flex; /* Safari */
 	    -webkit-align-items: center; /* Safari 7.0+ */
 	    display: flex;
@@ -289,7 +289,13 @@
 		var fmm,tfm;
 		if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a> ";}else{fmm=''}
 		tfm = arraySearch(fm,def.w);
-		if (tfm!==false) {tfm = $("<div>").addClass(kl).html('<sup>[<a href="#sisku/' + tfm + '">' + tfm + "</a>&nbsp;&nbsp;...&nbsp;]</sup>&nbsp;&nbsp;");}else{tfm=''}
+		if (tfm!==false) {
+			var sh=[];
+			for (var key in fm){
+				if (fm[key]===def.w){sh.push('<a href="#sisku/' + key + '">' + key + '</a>');}
+			}
+			tfm = $("<div>").addClass(kl).html('<i><sup>['+sh.join(", ")+'&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;');
+		}else{tfm=''}
 		var ss;
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
 		var jvs = def.t;

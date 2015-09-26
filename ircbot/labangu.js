@@ -45,8 +45,8 @@ var labangu = function(){
 		var take = fs.readFileSync(t,{encoding: 'utf8'})+"\n";
 		take=take.replace(/➜/igm,"=>");
 		take=take.replace(/&/igm,"&amp;");
-		take=take.replace(/<sub>([^<]*?) ([^<]*?)<\/sub>/igm,"<sub>$1_$2</sub>");
-		take=take.replace(/''x<sub>([^<]*?)<\/sub><sub>([^<]*?)<\/sub>''/igm,"$x_$1_$2$");
+		//take=take.replace(/<sub>([^< ]*?) ([^< ]*?)/ig,"<sub>$1_$2");
+		take=take.replace(/''x<sub>([^<]*?)<\/sub><sub>([^<]*?)<\/sub>''/igm,"$x $1 $2$");
 		take=take.replace(/<(|\/)(small)>|&nbsp;/igm,"");
 		take=take.replace(/^(.+?),\"(\n|\r)(.+?) \[(.+?)\] — (.+?)(\n|\r)/igm,"<valsi word=\"$1\" class=\"$4\">\n\t<definition>$5</definition>\n");
 		take=take.replace(/^(.+?),\"(\n|\r)(.+?) — (.+?)(\n|\r)/igm,"<valsi word=\"$1\">\n\t<definition>$4</definition>\n");
@@ -58,6 +58,7 @@ var labangu = function(){
 		take=take.replace(/^: *(.*?)$/igm,"\t<gloss>$1</gloss>");
 		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"$1");
 		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"English (La Bangu)\">\n" + take + "\n" + takei + "</direction>\n</dictionary>";
+		take=take.replace(/ {2,}/g," ");
 		take = fs.writeFileSync(t+".temp",take);
 		fs.renameSync(t+".temp",path.join(__dirname,"dumps","jb.xml"));console.log("La Bangu updated");
 	});

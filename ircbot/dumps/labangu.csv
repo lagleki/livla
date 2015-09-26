@@ -94,7 +94,7 @@ au,"
 :'''au e'o tcati''' — ''I'd like some tea, please.''
 :'''au cu'i do jai gau bredi fai lo cidja''' — ''You prepare the food or not ... I don't have any preferences.''
 :'''au nai do cliva''' — ''I don't want you to leave.''
-:'''au mi stali bu'u lo zdani gi'enai kansa le nakni''' — ''I'd rather stay at home than come with him.''
+:'''au mi stali bu'u lo zdani gi'e nai kansa le nakni''' — ''I'd rather stay at home than come with him.''
 :Related words: '''djica'''"
 ba,"
 '''ba''' <small>[preposition of tense]</small> — ''after ...'' (in time), adverb: ''in future'' (expresses future tense)
@@ -198,7 +198,7 @@ bambola,"
 '''bambola''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a doll
 :'''lo bambola''' — doll. 
 :'''le nixli cu nelci lo va bambola''' — ''The girl likes that doll.''
-:Related words: '''keitci''', '''kelci'''"
+:Related words: '''keltci''', '''kelci'''"
 bambu,"
 '''bambu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bamboo of variety  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo bambu''' — bamboo. 
@@ -4076,17 +4076,17 @@ kecti,"
 :Related words: '''cinmo''', '''xendo'''"
 kei,"
 '''kei''' <small>[terminator]</small> — ends a construct started with: '''nu'''"
-keitci,"
-'''keitci''' — ''x<sub>1</sub><sub>(entity)</sub>''  ia a toy played by  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo keitci''' — player. '''lo se keitci''' — game (played). 
-:'''lo pa nixli ca'o zukte lo ka se keitci lo bambola pe vo'a''' — ''A girl is playing with her doll.''
-:Comment: use '''kelci''' for playing games, of which '''keitci''' may be a component.
-:Related words: '''kelci''', '''bambola''', '''verba''', '''zdile''', '''jivna''', '''jinga'''"
 kelci,"
 '''kelci''' — ''x<sub>1</sub><sub>(entity)</sub>''  plays game  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kelci''' — player. '''lo se kelci''' — game (played). 
 :'''xu do kelci la fudbol''' — ''Do you play soccer?''
-:Related words: '''keitci''', '''jivna''', '''jinga''', '''zdile'''"
+:Related words: '''keltci''', '''jivna''', '''jinga''', '''zdile'''"
+keltci,"
+'''keltci''' — ''x<sub>1</sub><sub>(entity)</sub>''  ia a toy played by  ''x<sub>2</sub><sub>(entity)</sub>'' 
+:'''lo keltci''' — player. '''lo se keltci''' — game (played). 
+:'''lo pa nixli ca'o zukte lo ka se keltci lo bambola pe vo'a''' — ''A girl is playing with her doll.''
+:Comment: use '''kelci''' for playing games, of which '''keltci''' may be a component.
+:Related words: '''kelci''', '''bambola''', '''verba''', '''zdile''', '''jivna''', '''jinga'''"
 kelvo,"
 '''kelvo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  degrees Kelvin
 :'''lo vacri ca kelvo li ji'i re ze ci''' — ''It's around 273 degrees Kelvin (0 degrees Celsius).''
@@ -7796,9 +7796,10 @@ srana,"
 :'''xu lo nu do litru cu srana lo jibri be do''' — ''Is your journey a business trip?''
 :Related words: '''ckini''', '''ponse''', '''steci'''"
 srasu,"
-'''srasu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is grass of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
-:'''lo srasu''' — grass. 
+'''srasu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a blade of grass of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
+:'''lo srasu''' — blade of grass. 
 :'''lo bakni cu nitcu lo srasu''' — ''Cows need grass.''
+:Comment: ''expanse of grass'' is '''loi srasu'''
 :Related words: '''spati'''"
 srera,"
 '''srera''' — ''x<sub>1</sub><sub>(entity)</sub>''  errs in doing  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -9582,7 +9583,7 @@ zigzagi,"
 :'''lo pluta be lo cmana pu zigzagi''' — ''The route to the mountain zigzagged.''
 :Related words: '''boxna''', '''linji'''"
 zildukse,"
-'''zildukse''' — ''x<sub>1</sub><sub>(entity)</sub>''  is in excess, is too much for  ''x<sub>2</sub><sub>(property of x1)</sub>''  to take place<sub>(clause)</sub>'' 
+'''zildukse''' — ''x<sub>1</sub><sub>(entity)</sub>''  is in excess, is too much for  ''x<sub>2</sub><sub>(property of x1)</sub>''  to take place
 :'''lo zildukse''' — excess. 
 :'''lo nu mi tatpi cu zildukse lo nu mi sidju do''' — ''I'm too tired to help you.''
 :Related words: '''bancu''', '''banzu''', '''ricfu''', '''zmadu'''"

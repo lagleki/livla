@@ -5,5 +5,5 @@
    <Tags>sutsis sutysisku muplis vlasisku jbovlaste lojban vlaste dictionary la bangu</Tags>
    <Contact>bangu@lojban.org</Contact>
    <Url type="text/html"
-        template="http://mw.lojban.org/extensions/ilmentufa/i/en/index.html#sisku/{searchTerms}"/>
+        template="https://mw.lojban.org/extensions/ilmentufa/i/en/index.html#sisku/{searchTerms}"/>
  </OpenSearchDescription>

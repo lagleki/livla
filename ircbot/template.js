@@ -22,7 +22,7 @@ langs.forEach(function(thisa){
 	m = file.match(/opdescr *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");
 	b = b.replace("%1%",m);
 
-	b = b.replace("%ogurl%","http://mw.lojban.org/extensions/ilmentufa/i/"+thisa+"/index.html");
+	b = b.replace("%ogurl%","https://mw.lojban.org/extensions/ilmentufa/i/"+thisa+"/index.html");
 	b = b.replace("%searchurl%","/extensions/ilmentufa/i/"+thisa+"/sisku.xml");
 	b = b.replace("%searchtitle%",thisa+"-sutysisku");
 	try{m = file.match(/titlelogo *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");}catch(err){m="<span id='plise'><a id='st' href=\"../\"><img src=\"../sutysisku.png\" height='16' width='16'><span class='site-title'><font color=\"#fff\">la sutysisku</font></span></a></span>";}
@@ -34,7 +34,7 @@ templ = fs.readFileSync(path.join(__dirname,"../i/test","sisku.xml"),{encoding: 
 langs.forEach(function(thisa){
 	var file = fs.readFileSync(path.join(__dirname,"../i",thisa,"bangu.js"),{encoding: 'utf8'});
 	//var m = file.match(/window\.bangudesc *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");
-	b = templ.replace("%1%","http://mw.lojban.org/extensions/ilmentufa/i/"+thisa+"/index.html#sisku/{searchTerms}");
+	b = templ.replace("%1%","https://mw.lojban.org/extensions/ilmentufa/i/"+thisa+"/index.html#sisku/{searchTerms}");
 	b = b.replace("%2%",thisa+"-sutysisku");
 	m = file.match(/siskudescr *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");
 	b = b.replace("%3%",m);

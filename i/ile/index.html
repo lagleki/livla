@@ -8,8 +8,8 @@
 	<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
 	<meta property="og:title" content="lai sutysisku"/>
 	<meta property="og:type" content="article"/>
-	<meta property="og:url" content="http://mw.lojban.org/extensions/ilmentufa/i/ile/index.html"/>
-	<meta property="og:image" content="//mw.lojban.org/images/1/11/sutysisku2015-06-22.png"/>
+	<meta property="og:url" content="https://mw.lojban.org/extensions/ilmentufa/i/ile/index.html"/>
+	<meta property="og:image" content="https://mw.lojban.org/images/1/11/sutysisku2015-06-22.png"/>
 	<meta property="og:site_name" content="La Sutysisku"/>
 	<meta property="fb:app_id" content="191051864394489"/>
 	<meta property="og:description" content="A dictionary for Interlingue / Occidental, Lojban, English and other languages that can work offline."/>
@@ -272,8 +272,11 @@
 
 	function lojTemplate(s) {
 		s = s.replace(/\$.*?\$/g, function(c) {
+		c=c.replace(/ /g,"_");
 		c = c.substring(1, c.length-1);
-		return c.replace(/(\w)_\{?([_\w\(\)\d]+)\}?/g, "<i>$1<sub>$2</sub></i>").replace(/(\w)_\{?(\d+)\}?/g, "$1<sub>$2</sub>").replace(/<sub>([^<]*?)_([^<]*?)<\/sub>/igm,"<sub>$1 $2</sub>").replace(/[\{\}]/g,'');
+		c=c.replace(/^(\w)_\{?([_\w\(\)\d]+)\}?$/g, "<i>$1<sub>$2</sub></i>").replace(/^(\w)_\{?(\d+)\}?$/g, "$1<sub>$2</sub>").replace(/[\{\}]/g,'');
+		c=c.replace(/_/g," ");
+		return c;
 		});
 		s = s.replace(/\{(.*?)\}/g, function(c) {
 		var c = c.substring(1, c.length-1);

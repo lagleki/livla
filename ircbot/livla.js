@@ -163,7 +163,7 @@ loadNotci();
 var updatexmldumps = function (callback) {
 	var err;
 	var velruhe = { cfari: {}, mulno: {}, nalmulselfaho: {} };
-	try{
+	//try{
 		var langs=["jbo","en","ru","es","fr","ja","de","eo","zh","en-simple","fr-facile","hu","sv"];
 		var request = require("request");
 		request = request.defaults({jar: true, strictSSL: false});
@@ -183,16 +183,21 @@ var updatexmldumps = function (callback) {
 					callback(velruhe);
 				}
 			}).pipe(fs.createWriteStream(t + ".temp")).on("finish", function () {
-				fs.renameSync(t+".temp", t);console.log(thisa + ' updated');
-				velruhe.mulno[thisa] = true;
-				if (thisa == "en") {
-					xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),{encoding: 'utf8'}));
-				}
-				delete velruhe.cfari[thisa];
-				sutysiskuningau(thisa);
-				//global.gc();
+				var ij;
+				try{//validate xml
+					ij = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",thisa + ".xml.temp"),{encoding: 'utf8'}));
+					fs.renameSync(t+".temp", t);console.log(thisa + ' updated');
+					velruhe.mulno[thisa] = true;
+					if (thisa == "en") {
+						xmlDocEn = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps","en" + ".xml"),{encoding: 'utf8'}));
+					}
+					delete velruhe.cfari[thisa];
+					sutysiskuningau(thisa);
+					//global.gc();
+				}catch(err){velruhe.nalmulselfaho[thisa] = true;delete velruhe.cfari[thisa];}
+				ij='';
 				if (callback && Object.keys(velruhe.cfari).length === 0) {
-					callback(velruhe);
+				callback(velruhe);
 				}
 			}); 
 		});
@@ -214,7 +219,7 @@ var updatexmldumps = function (callback) {
 				}
 			});
 		});
-	}catch(err){console.log('Error when autoupdating: ' + err);}
+	//}catch(err){console.log('Error when autoupdating: ' + err);}
 	sutysiskuningau("ithkuil");sutysiskuningau("en-pt-BR");sutysiskuningau("zamenhofo");sutysiskuningau("laadan");sutysiskuningau("ile");sutysiskuningau("ldp");
 	//labangu();
 	//updategloss();# not yet ready function

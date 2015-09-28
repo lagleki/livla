@@ -226,7 +226,7 @@
 	}
 	var ready = false;
 	$(document).ready(function () {
-		if ($(window).width() < 500) {$('#plise').remove();$("#typehere").css({ 'width':'90%','margin-right': '0.5em'});}
+		if ($(window).width() >= 500) {$('#plise').css( "display", "block !important").show();}else{$("#typehere").css({ 'width':'90%','margin-right': '0.5em'});}
 		if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 		doSearch();
 	});

@@ -189,7 +189,7 @@
 <body style="margin: 0;height: 100vh;">
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
-		<span id='plise'><a id='st' href="../"><img src="../sutysisku.png" height='16' width='16'><span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
+		<span id='plise' style='display: none;'><a id='st' href="../"><img src="../sutysisku.png" height='16' width='16'><span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
 		<input id='typehere' placeholder="語を入力" type='text' autofocus>
 		</div>
 	</div>
@@ -226,7 +226,7 @@
 	}
 	var ready = false;
 	$(document).ready(function () {
-		if ($(window).width() < 500) {$('#plise').remove();$("#typehere").css({ 'width':'90%','margin-right': '0.5em'});}
+		if ($(window).width() >= 500) {$('#plise').css( "display", "block !important").show();}else{$("#typehere").css({ 'width':'90%','margin-right': '0.5em'});}
 		if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 		doSearch();
 	});

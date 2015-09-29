@@ -56,7 +56,7 @@ var labangu = function(){
 		take=take.replace(/^:Comment: (.*?)$/igm,"\t<notes>$1</notes>");
 		take=take.replace(/^:Related words: (.*?)$/igm,"\t<related>$1</related>");
 		take=take.replace(/^: *(.*?)$/igm,"\t<gloss>$1</gloss>");
-		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"$1");
+		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"'$1'");
 		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"English (La Bangu)\">\n" + take + "\n" + takei + "</direction>\n</dictionary>";
 		take=take.replace(/ {2,}/g," ");
 		take = fs.writeFileSync(t+".temp",take);

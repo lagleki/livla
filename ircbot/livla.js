@@ -754,7 +754,10 @@ var gchild='';
 	try{gchild += xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/definition[1]").text();}catch(err){}
 	if (cmalu===true){try{gchild +=' | ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text();}catch(err){}
 try{gchild +=' | ' + xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/user[1]/username[1]").text();}catch(err){}}
-	try{var jk = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/example").toString().replace(/>,</g,">\n<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g,"$1 — $2").replace(/("|&amp;quot;)/g,"'").replace(/\\/g,"\\\\");if(jk){gchild +='\nExamples:\n' + jk;}}catch(err){}
+	var jk;
+	try{jk = xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/gloss[1]").text().replace(/("|&amp;quot;)/g,"'").replace(/\\/g,"\\\\");if(jk){gchild +='\nAs a noun: ' + jk;}}catch(err){}
+	jk='';
+	try{jk = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/example").toString().replace(/>,</g,">\n<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g,"$1 — $2").replace(/("|&amp;quot;)/g,"'").replace(/\\/g,"\\\\");if(jk){gchild +='\nExamples:\n' + jk;}}catch(err){}
 
 if (gchild===''){
 	if (flag!==1){
@@ -774,8 +777,9 @@ if (gchild===''){
 		lin= '';
 	}
 }else{
-	gchild=gchild.replace(/[_\$]/igm,"").replace(/`/g,"'").substring(0,700);
-		if (gchild.length>=700){
+	gchild=gchild.replace(/[_\$]/igm,"").replace(/`/g,"'");
+		if (gchild.length>=700 && lng!=="jb"){
+			gchild=gchild.substring(0,700);
 			gchild+='...\n[mo\'u se katna] http://jbovlaste.lojban.org/dict/'+ lin;
 		}
 		if (xulujvo(lin)===true){
@@ -1385,12 +1389,7 @@ var katna= function(lin,lng,flag,xmlDoc){
 
 var sutysiskuningau = function(lng){//write a new file parsed.js that would be used by la sutysisku
 if (typeof lng==='undefined'){lng='en';}
-if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),{encoding: 'utf8'}).replace(/(&lt;|<)script.*?(&gt;|>).*?(&lt;|<)/g,"&lt;").replace(/(&lt;|<)\/script(&gt;|>)/g,""));}
-var x = fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),{encoding: 'utf8'}).split("\n");
-console.log("Start");
-for (var bi in x){
-	if (x[bi].search("\bro lo do zbepi\b")>-1){console.log(x[bi])}
-}
+	xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),{encoding: 'utf8'}).replace(/(&lt;|<)script.*?(&gt;|>).*?(&lt;|<)/g,"&lt;").replace(/(&lt;|<)\/script(&gt;|>)/g,""));
 
 var pars='var documentStore = [';
 var rev = xmlDoc.find("/dictionary/direction[1]/valsi");

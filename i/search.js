@@ -10,10 +10,17 @@ function search(query, callback) {
 	var rafsiDecompositions = parseLujvo(query);
 	for (i = 0; i < rafsiDecompositions.length; i++) {
 		var decomposition = rafsiDecompositions[i];
+		var decompnew = "\t"+decomposition.join("\t").toLowerCase()+"\t";
+		/*var tmpnew = documentStore.filter(function(val){
+			return (decompnew.search("\t"+val.w+"\t")>0);
+		});
+		console.log(tmpnew.join("\t"));*/
 		if (decomposition.length>1){
 				var tmp=(decomposition.map(
 					function(r){
-						return rafsi[r] || (documentStore.filter(function(val){return val.w==r.replace("Q","");})[0]);
+						return rafsi[r] || (documentStore.filter(function(val){
+							return val.w==r.replace("Q","").toLowerCase();
+						})[0]);
 					})||[]).filter(function(n){ return n != undefined });
 		results.push({
 			t: "decomposing ...",

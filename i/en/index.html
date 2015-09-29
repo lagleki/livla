@@ -274,7 +274,7 @@
 		s = s.replace(/\$.*?\$/g, function(c) {
 		c=c.replace(/ /g,"_");
 		c = c.substring(1, c.length-1);
-		c=c.replace(/^(\w)_\{?([_\w\(\)\d]+)\}?$/g, "<i>$1<sub>$2</sub></i>").replace(/^(\w)_\{?(\d+)\}?$/g, "$1<sub>$2</sub>").replace(/[\{\}]/g,'');
+		c=c.replace(/^(\w)_\{?([_\w\(\)\d,]+)\}?$/g, "<i>$1<sub>$2</sub></i>").replace(/[\{\}]/g,'');
 		c=c.replace(/_/g," ");
 		return c;
 		});

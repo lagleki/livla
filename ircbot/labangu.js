@@ -46,7 +46,7 @@ var labangu = function(){
 		take=take.replace(/➜/igm,"=>");
 		take=take.replace(/&/igm,"&amp;");
 		//take=take.replace(/<sub>([^< ]*?) ([^< ]*?)/ig,"<sub>$1_$2");
-		take=take.replace(/''x<sub>([^<]*?)<\/sub><sub>([^<]*?)<\/sub>''/igm,"$x $1 $2$");
+		take=take.replace(/''x<sub>([^<]*?)<\/sub><sub>([^<]*?)<\/sub>''/igm,"$x_$1 $2$");
 		take=take.replace(/<(|\/)(small)>|&nbsp;/igm,"");
 		take=take.replace(/^(.+?),\"(\n|\r)(.+?) \[(.+?)\] — (.+?)(\n|\r)/igm,"<valsi word=\"$1\" class=\"$4\">\n\t<definition>$5</definition>\n");
 		take=take.replace(/^(.+?),\"(\n|\r)(.+?) — (.+?)(\n|\r)/igm,"<valsi word=\"$1\">\n\t<definition>$4</definition>\n");

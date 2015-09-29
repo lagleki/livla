@@ -2726,10 +2726,8 @@ ga,"
 :Comment: used to connect nouns, adverbs, verbs, clauses. Shows that at least one of the constructs inside '''ga''' ... '''gi''' is true."
 ga'a,"
 '''ga'a''' <small>[preposition from '''zgana''']</small> — ''to observer ...'', ''observed by ...'', adverb: ''being observed''
-:'''ca cerni ga'a mi''' — ''I can see it's morning now.''
-:'''ko ga'a tirna mi''' — ''Listen to me!''
-:'''ko ga'a viska le pixra''' — ''Look at the picture!''
-:Comment: not limited to vision. When used as an adverb (without a noun after it) the clause itself describes the means of observing and x<sub>1</sub> of the clause is the observer. When used as a preposition (with a noun after it) the clause itself describes what is being observed.."
+:'''ga'a mi ca cerni''' — ''To me it's morning now.''
+:Comment: not limited to vision. When used as a preposition (with a noun after it) the clause itself describes what is being observed. When used after '''ne''' the clause itself describes sense via one observes.."
 ga'i,"
 '''ga'i''' <small>[interjection]</small> — expressing hauteur, '''ga'i''' '''cu'i''' — expressing equal rank, '''ga'i''' '''nai''' — meekness (used with one of lower rank)
 :'''do nitcu ma doi pikci ga'i''' — ''What do you need, you beggar?''
@@ -9671,6 +9669,8 @@ zu'ai,"
 :Comment: the mass of members is described in the first place (e.g. by connecting nouns with '''ce''')."
 zu'e,"
 '''zu'e''' <small>[preposition from '''zukte''']</small> — ''with an actor ...'', adverb: ''via a free will''
+:'''ko jai zu'e tirna mi''' — ''Listen to me!''
+:'''zu'e ko viska le pixra''' — ''Look at the picture!''
 :'''zu'e nai je fa mi viska lo dinju''' — ''A building caught my eye.''
 :'''zu'e je fa mi tirna lo zgike''' — ''I listened to the music.''
 :Comment: the clause describes the event done by the actor."

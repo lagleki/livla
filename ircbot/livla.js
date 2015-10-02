@@ -221,8 +221,11 @@ var updatexmldumps = function (callback) {
 		});
 	//}catch(err){console.log('Error when autoupdating: ' + err);}
 	//sutysiskuningau("ithkuil");
-	//sutysiskuningau("en-pt-BR");
-	sutysiskuningau("zamenhofo");sutysiskuningau("laadan");sutysiskuningau("ile");sutysiskuningau("ldp");
+	sutysiskuningau("en-pt-BR");
+	sutysiskuningau("zamenhofo");
+	sutysiskuningau("laadan");
+	sutysiskuningau("ile");
+	sutysiskuningau("ldp");
 	//labangu();
 	//updategloss();# not yet ready function
 };

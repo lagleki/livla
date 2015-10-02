@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="jbovlaste.xsl"?>
 <dictionary>
 <direction from="English" to="Brazilian Portuguese">
@@ -11734,7 +11734,7 @@
 </valsi>
 
 <valsi word="ampersand" type="n">
-	<notes>(the symbol &)</notes>
+	<notes>(the symbol &amp;)</notes>
 	<definition>e comercial <u>m</u></definition>
 </valsi>
 
@@ -31054,7 +31054,7 @@
 </valsi>
 
 <valsi word="bracket" type="n">
-	<notes>(generically any of "(", ")", "[", "]", "<u>", "</u>", "<" and ">")</notes>
+	<notes>(generically any of "(", ")", "[", "]", "&lt;" and "&gt;")</notes>
 	<definition>parêntese <u>m</u></definition>
 </valsi>
 
@@ -88528,7 +88528,7 @@ EVA
 
 <valsi word="get" type="v">
 	<notes>(become)</notes>
-	<definition>tornar-se, ficar, (get + <adjective> is often translated by a reflexive verb in Portuguese; get drunk = embriagar-se)</definition>
+	<definition>tornar-se, ficar, (get + &lt;adjective&gt; is often translated by a reflexive verb in Portuguese; get drunk = embriagar-se)</definition>
 </valsi>
 
 <valsi word="get" type="v">
@@ -128852,7 +128852,7 @@ EVA
 </valsi>
 
 <valsi word="mesology" type="n">
-	<notes>(branch of biology & environmental/sociological influence)</notes>
+	<notes>(branch of biology &amp; environmental/sociological influence)</notes>
 	<definition>mesologia <u>f</u></definition>
 </valsi>
 
@@ -223626,9 +223626,9 @@ EVA
 	<definition>zigoto <u>m</u></definition>
 </valsi>
 
-<valsi word="&" type="conj">
+<valsi word="&amp;" type="conj">
 	<notes>(abbreviation of and)</notes>
-	<definition>&</definition>
+	<definition>&amp;</definition>
 </valsi>
 
 <valsi word="100 percent" type="adj">

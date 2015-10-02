@@ -1,0 +1,175 @@
+@import (once) "variables";
+@import (once) "transform";
+
+.rating {
+	cursor: pointer;
+	display: inline-block;
+	.clear-float;
+
+	.star {
+		cursor: pointer;
+		display: block;
+		float: left;
+		color: @gray;
+		font-size: 20px;
+		z-index: 1;
+		position: relative;
+		width: 20px;
+		height: 24px;
+		vertical-align: middle;
+		line-height: 22px;
+
+		&:before, &:after  {
+			position: absolute;
+			content: '\2605';
+			display: block;
+			z-index: 2;
+			top: 0 ;
+			left: 0;
+			vertical-align: middle;
+		}
+
+		&.on {
+			color: gold;
+
+			&.half {
+				color: @gray;
+				&:after {
+					color: gold;
+				}
+			}
+		}
+
+		&.half {
+			&:after {
+				z-index: 3;
+				width: 8px;
+				overflow: hidden;
+			}
+		}
+	}
+
+    &.poor {
+        .star.on {
+            color: @red;
+
+            &.half {
+                color: @gray;
+                &:after {
+                    color: @red;
+                }
+            }
+        }
+    }
+    &.regular {
+        .star.on {
+            color: gold;
+
+            &.half {
+                color: @gray;
+                &:after {
+                    color: gold;
+                }
+            }
+        }
+    }
+    &.good {
+        .star.on {
+            color: @green;
+
+            &.half {
+                color: @gray;
+                &:after {
+                    color: @green;
+                }
+            }
+        }
+    }
+
+	&:not(.static) {
+
+
+        .star:hover {
+            color: gold ;
+            &.half, &.on.half {
+                color:gold;
+                &:after {
+                    color:gold;
+                }
+            }
+        }
+
+		&:hover > .star, &:hover > .star:after {
+			color: gold ;
+            &.half, &.on.half {
+                color:gold;
+                &:after {
+                    color:gold;
+                }
+            }
+		}
+
+        .star:hover ~ .star, .star:hover ~ .star:after {
+            color: gray ;
+            &.half, &.on.half {
+                color:gray;
+                &:after {
+                    color:gray;
+                }
+            }
+        }
+
+	}
+
+}
+
+.rating {
+	&.small {
+		.star {
+			width: 14px;
+			height: 16px;
+			font-size: 14px;
+			line-height: 14px;
+
+			&.half {
+				&:after {
+					width: 6px;
+				}
+			}
+		}
+	}
+
+	&.large {
+		.star {
+			width: 28px;
+			height: 30px;
+			font-size: 32px;
+			line-height: 24px;
+
+			&.half {
+				&:after {
+					width: 13px;
+				}
+			}
+		}
+	}
+}
+
+.rating {
+	.score {
+		display: block;
+		font-size: .8rem;
+	}
+
+	&.small {
+		.score {
+			font-size: .6rem;
+		}
+	}
+
+	&.large {
+		.score {
+			font-size: 1rem;
+		}
+	}
+}

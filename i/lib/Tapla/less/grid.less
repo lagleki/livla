@@ -1,0 +1,128 @@
+@import (once) "variables";
+@import (once) "utils";
+@import (once) "transform";
+
+
+.grid {
+	display: block;
+	position: relative;
+	margin: .625rem 0;
+	.clear-float;
+
+	.row {
+		width: 100%;
+		display: block;
+		.margin(0, 0, @gridMargin, 0);
+		.clear-float;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		& > .cell {
+			display: block;
+			float: left;
+			width: 100%;
+			min-height: 10px;
+			.margin(0, 0, 0, @gridMargin);
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+
+		.generate-cell(@gridColumns);
+
+		.generate-cell(@n, @i: 2) when (@i =< @n){
+			@width: 0% + ( 100 - (@i - 1) * @gridMargin ) / @i;
+
+			&.cells@{i} {
+				& > .cell {
+					width: (@width);
+
+					.generate-colspan(@i);
+					.generate-colspan(@j, @k: 2) when (@k =< @j){
+						&.colspan@{k} {
+							width: @width * @k + ((@k - 1) * @gridMargin);
+						}
+						.generate-colspan(@j, (@k + 1));
+					}
+
+					.generate-offset(@i);
+					.generate-offset(@j, @k: 1) when (@k =< @j){
+						&.offset@{k} {
+							margin-left: @width * @k + ((@k - 1) * @gridMargin) + @gridMargin;
+						}
+						.generate-offset(@j, (@k + 1));
+					}
+				}
+			}
+
+			.generate-cell(@n, (@i + 1));
+		}
+	}
+
+	.row:empty {
+		display: none;
+	}
+}
+
+.grid.condensed {
+	display: block;
+	position: relative;
+	margin: .625rem 0;
+	.clear-float;
+
+	.row {
+		width: 100%;
+		display: block;
+		.margin(0, 0, @gridMarginCondensed, 0);
+		.clear-float;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		& > .cell {
+			display: block;
+			float: left;
+			width: 100%;
+			min-height: 10px;
+			.margin(0, 0, 0, @gridMarginCondensed);
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+
+		.generate-cell(@gridColumns);
+
+		.generate-cell(@n, @i: 2) when (@i =< @n){
+			@width: 0% + ( 100 - (@i - 1) * @gridMarginCondensed ) / @i;
+
+			&.cells@{i} {
+				& > .cell {
+					width: (@width);
+
+					.generate-colspan(@i);
+					.generate-colspan(@j, @k: 2) when (@k =< @j){
+						&.colspan@{k} {
+							width: @width * @k + ((@k - 1) * @gridMarginCondensed);
+						}
+						.generate-colspan(@j, (@k + 1));
+					}
+
+                    .generate-offset(@i);
+                    .generate-offset(@j, @k: 1) when (@k =< @j){
+                        &.offset@{k} {
+                            margin-left: @width * @k + ((@k - 1) * @gridMarginCondensed);
+                        }
+                        .generate-offset(@j, (@k + 1));
+                    }
+
+                }
+			}
+
+			.generate-cell(@n, (@i + 1));
+		}
+	}
+}
+

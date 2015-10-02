@@ -1,0 +1,89 @@
+@import (once) "variables";
+@import (once) "utils";
+
+.countdown {
+	display: inline-block;
+	font-weight: 700;
+	font-size: 1rem;
+	margin: .1em 0 1.2em;
+
+	.part {
+		display: inline-block;
+		position: relative;
+
+		&.days, &.hours, &.minutes, &.seconds {
+			&:after {
+				position: absolute;
+				content: attr(data-day-text);
+				text-align: center;
+				top: 100%;
+				left: 0;
+				width: 100%;
+				font-size: .6em;
+				color: inherit;
+			}
+		}
+
+		&.disabled {
+			.digit {
+				opacity: .3;
+				box-shadow: none;
+			}
+		}
+	}
+
+	.digit, .divider {
+		display: inline-block;
+		padding: .3125em .625em;
+		background-color: @cyan;
+		color: @white;
+		cursor: default;
+		.block-shadow;
+		.text-shadow;
+		.transition(.5s);
+	}
+
+	.digit, .divider {
+		margin-left: 4px;
+	}
+
+	.divider {
+		padding: .125em .25em;
+		color: @dark;
+		background-color: transparent;
+		box-shadow: none;
+	}
+
+	&.tick {
+		.divider {
+			opacity: 0;
+		}
+	}
+
+	&.labels-top {
+		margin: 1.2em 0 .1em;
+
+		.part {
+			&.days, &.hours, &.minutes, &.seconds {
+				&:after {
+					top: 0;
+					left: 0;
+					margin-top: -1.5em;
+				}
+			}
+		}
+	}
+
+	&.rounded {
+		.part {
+			.digit {
+				border-radius: .5em;
+			}
+		}
+	}
+
+	.digit.scaleIn {
+		.transition(.5s);
+		.scale(1.1);
+	}
+}

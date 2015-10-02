@@ -5,6 +5,8 @@ ircbot/dumps/*.temp
 !ircbot/dumps/guaspi.xml
 !ircbot/dumps/toki.xml
 !ircbot/dumps/zamenhofo.xml
+!ircbot/dumps/en-pt-BR.xml
+!ircbot/dumps/ithkuil.xml
 ircbot/dumps/*.pdf
 ircbot/tatoeba*
 ircbot/dumps/*.sql

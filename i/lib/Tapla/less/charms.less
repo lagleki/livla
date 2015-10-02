@@ -1,0 +1,75 @@
+@import (once) "variables";
+@import (once) "utils";
+
+.charm {
+	display: block;
+	position: fixed;
+	z-index: @zindexCharms;
+	background: @dark;
+	color: @grayLighter;
+	padding: .625rem;
+
+    .charm-closer {
+        position: absolute;
+        height: 1rem;
+        width: 1rem;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 1rem;
+        font-weight: normal;
+        padding: 0 0 .625rem 0;
+        z-index: 3;
+        outline: none;
+        cursor: pointer;
+
+        color: @winFlatSystemButtonRestColor;
+        top: .25rem;
+        right: .25rem;
+
+        &:after {
+            content: '\D7';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -.65rem;
+            margin-left: -.35rem;
+        }
+
+        &:hover {
+            color: @white;
+        }
+
+        &:active {
+            color: @white;
+        }
+    }
+}
+
+.charm {
+	&.right-side {
+		width: auto;
+		right: 0;
+		top: 0;
+        left: auto;
+		bottom: 0;
+	}
+	&.left-side {
+		width: auto;
+		left: 0;
+		top: 0;
+		bottom: 0;
+	}
+	&.top-side {
+		height: auto;
+		left: 0;
+		right: 0;
+		top: 0;
+	}
+	&.bottom-side {
+		height: auto;
+		left: 0;
+		right: 0;
+        top: auto;
+		bottom: 0;
+	}
+}

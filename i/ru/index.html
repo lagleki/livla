@@ -245,6 +245,7 @@
 		  return;
 		}
 		results = ev.data.results;
+		displayCLL();
 		displayResults();
 		} else if (ev.data.kind == 'loading') {
 		$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 50});$("#progressbar").css({ 'height': '10px;'});});
@@ -257,9 +258,13 @@
 		$("#loading").remove();
 		$("#search").show();
 	}
+	function displayCLL(){
+		var sc = (window.arrcll||[])[query];
+		if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('term').html(window.cllnotci+"<br/>"+sc).appendTo(output);}
+	}
 
 	function checkScrolledNearBottom(ev) {
-		var target = ev.detail.target;
+		var target = ev.target;
 		var windowBottom = target.scrollTop + window.innerHeight;
 		var outputBottom = output.height() - 700;
 		var isClose = windowBottom >= outputBottom;
@@ -268,6 +273,8 @@
 		displayResults();
 		}
 	}
+	document.getElementsByClassName('content')[0]
+		.addEventListener('scroll', checkScrolledNearBottom);
 	output.scroll();
 
 	function lojTemplate(s) {
@@ -392,10 +399,9 @@
 
 		var searchId = ++searchIdCounter;
 		output.empty();
-		limit = 50;
+		limit = 30;
 		resultCount = 0;
-		worker.postMessage(
-		  {kind: 'newSearch', 'query': query, 'searchId': searchId});
+		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
 		displayResults;
 		displayDescription();
 	}
@@ -445,8 +451,6 @@
 
 	function displayResults() {
 		var displayUpTo = Math.min(limit, results.length);
-			var sc = (window.arrcll||[])[query];
-			if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('term').html(window.cllnotci+"<br/>"+sc).appendTo(output);}
 		for (; resultCount < displayUpTo; resultCount++) {
 		try{displayDocument(results[resultCount]).appendTo(output);}catch(err){}
 		}

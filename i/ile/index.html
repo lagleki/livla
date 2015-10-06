@@ -274,7 +274,7 @@
 		s = s.replace(/\$.*?\$/g, function(c) {
 		c=c.replace(/ /g,"_");
 		c = c.substring(1, c.length-1);
-		c=c.replace(/^(\w)_\{?([_\w\(\)\d,]+)\}?$/g, "<i>$1<sub>$2</sub></i>").replace(/[\{\}]/g,'');
+		c=c.replace(/^(\w)_\{?([_\w\(\)\{\}\d,]+)\}?$/g, "<i>$1<sub>$2</sub></i>").replace(/[\{\}]/g,'');
 		c=c.replace(/_/g," ");
 		return c;
 		});
@@ -282,7 +282,7 @@
 		var c = c.substring(1, c.length-1);
 		return '<a href="#sisku/' + encodeURIComponent(c) + '">' + c + "</a>"
 		});
-		return s;
+		return s.replace(/\bx([0-9]+)\b/g,"<i>x<sub>$1</sub></i>");
 	}
 
 	function displayDocument(def,inner) {

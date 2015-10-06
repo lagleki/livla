@@ -2207,7 +2207,7 @@ dukti,"
 :Related words: '''ranxi''', '''ragve'''"
 dunda,"
 '''dunda''' — ''x<sub>1</sub><sub>(entity)</sub>''  gives or donates  ''x<sub>2</sub><sub>(entity, property of x1)</sub>''  to  ''x<sub>3</sub><sub>(entity)</sub>'' 
-:'''lo dunda''' — giver. '''lo se dunda''' — gift. '''lo te dunda''' — receiver of a gift. 
+:'''lo dunda''' — giver. '''lo se dunda''' — gift, present. '''lo te dunda''' — receiver of a gift. 
 :'''mi pu dunda lo plise do''' — ''I gave you an apple.''
 :Comment: '''lo''' '''se''' '''dunda''' doesn't need to be only ''special present''.
 :Related words: '''benji''', '''muvdu''', '''canja''', '''pleji''', '''vecnu''', '''friti''', '''sfasa''', '''dapma''', '''cnemu''', '''prali'''"
@@ -4043,7 +4043,7 @@ kavbu,"
 :'''lo te kavbu''' — trap used for capture. 
 :'''mi pu kavbu lo ka bilma fi la zukam vau lo ka cadzu bu'u lo bartu''' — ''I caught cold by walking outside.''
 :'''le nanla pu kavbu le bolci pa xance''' — ''The boy caught the ball with one hand.''
-:Comment: '''kalte''' is ''to hunt'', '''jersi''' is @@to follow, to chase''.
+:Comment: '''kalte''' is ''to hunt'', '''jersi''' is ''to follow, to chase''.
 :Related words: '''jersi''', '''kalte''', '''pinfu''', '''sisku''', '''se''' '''rinju'''"
 ke,"
 '''ke''' — starts a new group inside a construct
@@ -4483,7 +4483,7 @@ kusru,"
 ky,"
 '''ky''' <small>[pronoun]</small> — ''k'' (letter)"
 la,"
-'''la''' <small>[gadri]</small> — turn verb into name (sumti)
+'''la''' <small>[lo gadri]</small> — turn verb into name (sumti)
 :'''la alis ba vitke la paris''' — ''Alice will visit Paris.''
 :'''zo bruna cmene la kevin lo mi pendo''' — ''Brother is how friends call Kevin.''
 :Comment: ''the one that is called ...'' Creates personal name from verbs or cmevla."
@@ -4539,7 +4539,7 @@ lafti,"
 :'''xu do kakne lo ka lafti le rokci''' — ''Can you lift the stone?''
 :Related words: '''farlu''', '''plipe'''"
 lai,"
-'''lai''' <small>[gadri]</small> — turn verb into name (sumti) denoting a mass
+'''lai''' <small>[lo gadri]</small> — turn verb into name (sumti) denoting a mass
 :'''lai djonson pu se zdani ti''' — ''The Johnsons lived here.''
 :Comment: ''the mass of those that are called ...'' Creates personal name that denote a mass."
 lakne,"
@@ -4636,13 +4636,13 @@ lazni,"
 :'''mi lazni lo ka catlu lo matra''' — ''I am lazy to look at the engine.''
 :Related words: '''nejni''', '''vreta''', '''gunka'''"
 le,"
-'''le''' <small>[gadri]</small> — turn verb into noun just mentioned
+'''le''' <small>[lo gadri]</small> — turn verb into noun just mentioned
 :'''mi pu viska lo fetsi i le fetsi cu melbi''' — ''I saw a female. She is pretty.''
 :Comment: ''the'', creates pronoun like ''she'', ''he'' from noun. '''le fetsi''' is ''she'', '''le nakni''' is ''he'', '''le''' '''za'u''' '''mei''' is ''they''."
 le'ai,"
 '''le'ai''' <small>[terminator]</small> — ends a construct started with: '''lo'ai''', '''sa'ai'''"
 le'e,"
-'''le'e''' <small>[gadri]</small> — turn verb into noun denoting a typical thing previously mentioned
+'''le'e''' <small>[lo gadri]</small> — turn verb into noun denoting a typical thing previously mentioned
 :'''lo'e cipni cu kakne lo ka vofli i mi tadni le'e cipni''' — ''Typical birds can fly. And I study such birds.''
 :Comment: ''the typical one that does or is ...'' (previously defined).
 :Related words: '''le''', '''lo''', '''lo'e'''"
@@ -4662,7 +4662,7 @@ lebna,"
 :Comment: '''lebna''' implies possession taken, '''cpacu''' doesn't imply previous possession, '''vimcu''' doesn't imply acquiring possession.
 :Related words: '''punji''', '''cpacu''', '''vimcu''', '''canci''', '''cliva'''"
 lei,"
-'''lei''' <small>[gadri]</small> — turn verb into noun denoting a mass previously mentioned
+'''lei''' <small>[lo gadri]</small> — turn verb into noun denoting a mass previously mentioned
 :'''mi pu zgana loi prenu je ba co'a sanli i ba bo mi pu muvdu fa'a lei prenu''' — ''I noticed a crowd and stood up. After that, I moved into the direction of the crowd.''
 :Comment: ''the ...'', ''the mass of those that are ...'' (previously mentioned)."
 lenjo,"
@@ -4808,7 +4808,7 @@ livla,"
 :'''lo livla na banzu''' — ''There isn't enough fuel.''
 :Related words: '''nejni''', '''xaksu''', '''jelca'''"
 lo,"
-'''lo''' <small>[gadri]</small> — turn verb into noun
+'''lo''' <small>[lo gadri]</small> — turn verb into noun
 :'''lo mlatu cu danlu''' — ''Cat is an animal.''
 :'''lo pa sazri ca denpa''' — ''A driver waits.''
 :'''lo za'u sazri ca denpa''' — ''Drivers wait.''
@@ -4820,7 +4820,7 @@ lo'ai,"
 :'''sa'ai ba klama le'ai pei''' — ''Is it &quot;will go&quot; that should have been said?''
 :Comment: You may just start with '''sa'ai''' if it's obvious what is corrected. The word '''le'ai''' on its own indicates that an obvious mistake was made. '''le'ai''' '''dai''' indicates that the other partner made a mistake. '''le'ai''' '''pei''' asks whether the partner made a mistake. '''le'ai''' '''nai''' explicitly denies mistakes."
 lo'e,"
-'''lo'e''' <small>[gadri]</small> — turn verb into noun denoting a typical thing
+'''lo'e''' <small>[lo gadri]</small> — turn verb into noun denoting a typical thing
 :'''lo'e cipni cu kakne lo ka vofli''' — ''Typical birds can fly.''
 :Comment: ''the typical one that does or is ...''."
 lo'o,"
@@ -4835,7 +4835,7 @@ logji,"
 :'''lo du'u lo prina be fi lo nixli jamfu cu nenri lo dinju cu logji lo du'u la alis pu zvati ti''' — ''By the fact that there are footprints of a girl inside the house, I conclude that Alice was here.''
 :Related words: '''nibli'''"
 loi,"
-'''loi''' <small>[gadri]</small> — turn verb into noun denoting a mass
+'''loi''' <small>[lo gadri]</small> — turn verb into noun denoting a mass
 :'''loi tadni pu sruri le dinju''' — ''Students surrounded the building.''
 :Comment: ''the mass of those that are ...''. Creates noun that denotes a mass."
 lojbo,"

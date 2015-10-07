@@ -3,7 +3,7 @@
 // the template is taken from template.html file
 
 //config
-var langs = ["en","ru","eo","fr-facile","ile","ithkuil","ja","jbo","laadan","ldp","ru","zamenhofo","toki","jb","en-pt-BR"];
+var langs = ["en","ru","eo","es","fr-facile","ile","ithkuil","ja","jbo","laadan","ldp","ru","zamenhofo","toki","jb","en-pt-BR"];
 
 ///script
 var fs = require("fs"),path = require("path-extra");

@@ -128,8 +128,8 @@ intro_si_clause = expr:(si_clause? SI*)  {return _node_nonempty("intro_si_clause
 faho_clause = expr:((FAhO_clause dot_star)?) {return _node("faho_clause", expr);}
 
 // INTERJECTIONS
-full_INT = expr:(FUhE_clause? (INT_root  INT_suffix? / INT_root_elided INT_suffix)+ FUhO_clause?){return _node("full interjection", expr); }
-INT_root = expr:(UI_clause !BU_clause full_NAICAI? / free){return _node("interjection root", expr); }
+full_INT = expr:(FUhE_clause? (INT_root  INT_suffix? / INT_root_elided INT_suffix)+){return _node("full interjection", expr); }
+INT_root = expr:(UI_clause !BU_clause full_NAICAI? / FUhO_clause / free){return _node("interjection root", expr); }
 INT_suffix = expr:((DAI_clause !BU_clause full_NAICAI?)+){return _node("interjection categorizer", expr); }
 INT_root_elided = expr:(JUhA_elided_clause !BU_clause){return _node("interjection root elided", expr); }
 free = expr:(SEI_clause bridi_sei SEhU_elidible / vocative (sumti_le_elidible / sumtido) DOhU_elidible / mex MAI_clause / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }

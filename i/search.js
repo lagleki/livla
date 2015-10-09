@@ -7,11 +7,11 @@ function search(query, callback) {
 	var resultCount = 0;
 	var results = [];
 	var greatMatches = [];
-	var rafsiDecompositions = parseLujvo(query);
+	var rafsiDecompositions = decomposeString(query);
 	for (i = 0; i < rafsiDecompositions.length; i++) {
 		var decomposition = rafsiDecompositions[i];
-		var decompnew = "\t"+decomposition.join("\t").toLowerCase()+"\t";
-		/*var tmpnew = documentStore.filter(function(val){
+		/*var decompnew = "\t"+decomposition.join("\t").toLowerCase()+"\t";
+		var tmpnew = documentStore.filter(function(val){
 			return (decompnew.search("\t"+val.w+"\t")>0);
 		});
 		console.log(tmpnew.join("\t"));*/
@@ -34,6 +34,7 @@ function search(query, callback) {
 	var normalMatches = [];
 	var selmahoMatches = [];
 	searchEngine.lookup(query, function(engineResults) {
+		console.log(engineResults);
 		if (!engineResults) {
 			callback(results);
 			return;
@@ -44,7 +45,8 @@ function search(query, callback) {
 		for (var i = 0; i < engineResults.getSize(); i++) {
 			var key = engineResults.getItem(i);
 			var doc = documentStore[key];
-			if (!doc) {
+			
+			if (!doc) {//todo: try decomposing it as a lujvo
 				continue;
 			}
 				if (doc.w === query||(doc.g||'')===query||(query>0 && (doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){

@@ -403,6 +403,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
     sendTo = to; // send publicly
   }
   if (1==1) {  //sendTo == to Public
+	text = text.replace(/^\<.*?\>\: /,"");//dealing with Slack 
   	//notci functions first:
 	if (text.indexOf(replier+': tell ') == '0'){
 		text = text.substr(12).trim().replace("\\t"," ").replace(" ","\t");

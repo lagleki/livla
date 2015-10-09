@@ -40,12 +40,12 @@ var CVV="("+C+"(?:ai|au|ei|oi|"+V+"(?:'|h)"+V+")"+")";
 var CVC="("+C+V+C+")";
 var gism="("+CC+V+C+"|"+C+V+C_C+")";
 
-function parseLujvo(lujvo) {
+function decomposeString(lujvo,q) {
 	var m = lujvo.match("([a-z']+) zei ([a-z']+)");
 	if ((window.xuzganalojudri!==true)||(xulujvo(lujvo) !== true)){
 		return [lujvo.split(" ").map(function(arg){return arg+"Q";})];
 	}
-	else if (m) {
+	else if (m && q) {
 			return [[m[1]+"Q",m[2]]];
 		}
 	else {

@@ -44,7 +44,24 @@
       color: rgb(118, 118, 118);
 	}
 	.nalojbo {
-      color: #6A5ACD;
+		color: #6A5ACD;
+	}
+	.valsi {
+		/* These are technically the same, but use both */
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+		
+		-ms-word-break: break-all;
+		/* This is the dangerous one in WebKit, as it breaks things wherever */
+		word-break: break-all;
+		/* Instead use this non-standard one: */
+		word-break: break-word;
+		
+		/* Adds a hyphen where the word breaks, if supported (No Blink) */
+		-ms-hyphens: auto;
+		-moz-hyphens: auto;
+		-webkit-hyphens: auto;
+		hyphens: auto;
 	}
 	.definition {
 		margin-top: 10px;
@@ -311,10 +328,10 @@
 		var jvs = def.t;
 		if(window.xuzganalojudri && !def.l){jvs+="<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
 		if (def.t==='decomposing ...'){if ((def.rafsiDocuments||[]).length==0){ return;}jvs=window.bangudecomp;}
-		var kl='';if(def.l){kl="nalojbo";};
+		var kl='valsi';if(def.l){kl="valsi nalojbo";};
 		var word='<a class="' + kl + '" href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
 		if (def.w == query){word=def.w + ' ';}
-		out.append($("<heading style='align-items:flex-end;flex-direction:row;display:flex;flex:1;'>")
+		out.append($("<heading style='align-items:flex-start;flex-direction:row;display:flex;flex:1;'>")
 		.append(tfm)
 		.append($("<h4>").addClass(kl).html(word))
 		.append($("<h4>").addClass('tfm').html(fmm))

@@ -414,7 +414,7 @@ bi'u,"
 :Comment: the situation may be not new but that the noun marked with '''bi'u''' appears in it is new. '''bi'u''' introduces new objects, events facts, not just rephrases earlier facts..
 :Related words: '''cnino'''"
 bidju,"
-'''bidju''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bead or pebble
+'''bidju''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bead, pebble
 :'''lo bidju''' — pebble, bead. 
 :'''mu bidju pu zvati ti''' — ''There were five pebbles here.''
 :Related words: '''bolci''', '''canre''', '''lakse''', '''dirgo'''"
@@ -434,7 +434,7 @@ bilga,"
 :'''mi bilga lo ka jai gau volve fai lo vi cukta ca lo cabdei vau lo pu se nupre be mi''' — ''I must return this book today fulfilling my earlier promise.''
 :Related words: '''zifre''', '''fuzme'''"
 bilma,"
-'''bilma''' — ''x<sub>1</sub><sub>(entity)</sub>''  is ill or sick with symptoms  ''x<sub>2</sub><sub>(property of x1)</sub>''  from disease  ''x<sub>3</sub><sub>(clause)</sub>'' 
+'''bilma''' — ''x<sub>1</sub><sub>(entity)</sub>''  is ill, sick with symptoms  ''x<sub>2</sub><sub>(property of x1)</sub>''  from disease  ''x<sub>3</sub><sub>(clause)</sub>'' 
 :'''lo bilma''' — ill. '''lo se bilma''' — symptom of an illness. '''lo te bilma''' — disease. 
 :'''ra pu terpa lo ka co'a bilma fi la zukam''' — ''She was afraid to catch a cold.''
 :'''mi bilma lo ka cortu lo denci vau lo influ'enza''' — ''I've got the flu and my teeth hurt.''
@@ -1010,7 +1010,7 @@ ci'angulo,"
 :'''ma se sinxa lo vi ci'angulo''' — ''What does this triangle signify?''"
 ci'e,"
 '''ci'e''' <small>[preposition from '''ciste''']</small> — ''in system/context ...''
-:'''ci'e la internet lo vrici prenu ka'e simxu lo ka jikca''' — ''In the system of the internet, various people can socialize with each other.''"
+:'''ci'e la internet lo vrici prenu ka'e jikca zu'ai''' — ''In the system of the internet, various people can socialize with each other.''"
 ci'i,"
 '''ci'i''' <small>[digit/number]</small> — infinite number
 :'''ci'i da te cuxna''' — ''There is an infinite number of possibilities.''
@@ -1720,7 +1720,7 @@ da'a,"
 :'''da'a re lo prenu pu zvati va''' — ''All but two people were present there.''"
 da'i,"
 '''da'i''' <small>[interjection]</small> — ''supposing'', '''da'i''' '''nai''' — ''in fact''
-:'''da'i mi ricfu''' — ''You could be rich.''
+:'''da'i mi ricfu''' — ''I could be rich.''
 :'''da'i nai mi se zdani lo daplu''' — ''I do live on an island.''
 :Related words: '''se''' '''xanri''', '''sruma'''"
 dacru,"
@@ -2395,7 +2395,7 @@ fanza,"
 :Related words: '''fengu''', '''raktu''', '''dicra''', '''tunta''', '''zunti''', '''jicla'''"
 fapro,"
 '''fapro''' — ''x<sub>1</sub><sub>(entity)</sub>''  opposes, doesn't surrender to  ''x<sub>2</sub><sub>(entity)</sub>''  about  ''x<sub>3</sub><sub>(entity, property of x1)</sub>'' ; x<sub>1</sub> refuses to do x<sub>3</sub>
-:'''mi pu na ka'e fapro lo nu do cisma''' — ''I couldn't resist your smile.''
+:'''mi pu fliba lo ka fapro lo nu do cisma''' — ''I couldn't resist your smile.''
 :'''xu do fapro fi lo ka sidju mi''' — ''Do you refuse to help me?''
 :Related words: '''bandu''', '''bradi''', '''darlu''', '''damba''', '''jivna''', '''lanxe''', '''rivbi''', '''sarji''', '''xarnu'''"
 farlu,"
@@ -3868,7 +3868,7 @@ ka'ai,"
 :'''mi cadzu ka'ai lo gerku''' — ''I walk with a dog.''"
 ka'e,"
 '''ka'e''' <small>[preposition of potential]</small> — ''possibly can ...''
-:'''mi na ka'e denpa''' — ''I can't wait.''
+:'''ro da ka'e te tavla''' — ''Everything can be talked about.''
 :Comment: not necessarily ''innately capable'', might describe what can potentially happen to the thing described."
 ka'o,"
 '''ka'o''' <small>[digit/number]</small> — ''imaginary i'', square root of -1
@@ -3986,7 +3986,7 @@ kanpe,"
 kanro,"
 '''kanro''' — ''x<sub>1</sub><sub>(entity)</sub>''  is healthy or well in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo kanro''' — healthy. 
-:'''mi kanro lo ka cortu lo galxe''' — ''I'm healthy in that my throat doesn't ache.''
+:'''mi kanro lo ka na cortu lo galxe''' — ''I'm healthy in that my throat doesn't ache.''
 :Related words: '''bilma''', '''mikce'''"
 kansa,"
 '''kansa''' — ''x<sub>1</sub><sub>(entity)</sub>''  accompanies  ''x<sub>2</sub><sub>(entity)</sub>''  in state  ''x<sub>3</sub><sub>(clause)</sub>'' 
@@ -4524,7 +4524,8 @@ lacpu,"
 :Related words: '''catke''', '''sakci''', '''cokcu'''"
 lacri,"
 '''lacri''' — ''x<sub>1</sub><sub>(entity)</sub>''  relies, counts on, trusts  ''x<sub>2</sub><sub>(entity)</sub>''  to bring about, ensure, maintain state  ''x<sub>3</sub><sub>(property of x1 with '''kau''')</sub>'' 
-:'''mi xebni lo ka lacri lo karce lo ka klama lo jai se djica be mi fu ma kau''' — ''I hate having to rely on my car to get where I want.''
+:'''mi lacri do lo ka ma kau sidju''' — ''I rely on you to help me.''
+:'''mi xebni lo ka lacri lo karce pe mi lo ka klama lo jai se djica be mi fu ma kau''' — ''I hate having to rely on my car to get where I want.''
 :Related words: '''minde''', '''nitcu''', '''tinbe'''"
 ladru,"
 '''ladru''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some milk from  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -4839,7 +4840,7 @@ loi,"
 lojbo,"
 '''lojbo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is Lojbanic in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo lojbo''' — Lojbanic. 
-:'''mi lojbo fe po'o lo ka se cinri la lojban i je mi na tavla bau la lojban''' — ''I'm a Lojbanic person only in that I'm interested in Lojban; I don't speak it.''
+:'''mi lojbo no drata be lo ka se cinri la lojban i je mi na tavla bau la lojban''' — ''I'm a Lojbanic person only in that I'm interested in Lojban; I don't speak it.''
 :Related words: '''bangu''', '''logji'''"
 loldi,"
 '''loldi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a floor, ground of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -6327,11 +6328,11 @@ po'e,"
 :Comment: '''po'e''' is used organs, limbs of body, for parental relationships. '''pe''' is a more generic particle."
 po'o,"
 '''po'o''' <small>[interjection]</small> — ''uniquely, only, solely'' (the only relevant case), '''po'o''' '''cu'i''' — ''for one'' (not excluding other), '''po'o''' '''nai''' — ''among others''
-:'''i fa po'o lo troci cu snada i je ku'i lo troci po'o cu fliba''' — ''Only the one who tries, succeeds, and the one who only tries, fails.''
+:'''i lo troci ku po'o snada i je ku'i lo troci po'o cu fliba''' — ''Only the one who tries, succeeds, and the one who only tries, fails.''
 :'''po'o mi na kansa le fetsi''' — ''The only thing is, I'm not with her.''
-:'''mi pu te vecnu fe po'o lo jisra''' — ''I bought only some juice.''
+:'''mi pu te vecnu ke po'o lo jisra''' — ''I bought only some juice.''
 :'''mi na zanru lo ve sfasa noi po'o cu'i zekri''' — ''I don't approve of punishments which, for one, are a crime.''
-:'''mi pu te vecnu fe po'o nai lo titla''' — ''I bought candies among other things.''
+:'''mi pu te vecnu ke po'o nai lo titla''' — ''I bought candies among other things.''
 :Related words: '''pa''' '''mei''', '''mulno''', '''te''' '''panra'''"
 poi,"
 '''poi''' — turn clause into relative clause
@@ -6362,7 +6363,7 @@ porsi,"
 '''porsi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a sequence ordered by rules  ''x<sub>2</sub><sub>(relation between members of x1, contains two places for '''ce'u''')</sub>''  on unordered  ''x<sub>3</sub><sub>(group of same type as x1)</sub>'' 
 :'''lo porsi''' — sequence. 
 :'''li pa ce'o li re ce'o li ci cu porsi lo ka ce'u mleca ce'u vau lo namcu''' — ''1, 2, 3 is a sequence of numbers where a number to the left is less than the number to the right.''
-:'''mi pu zgana fe po'o lo porsi be fi lo valsi i je mi na pu jimpe lo smuni be le porsi''' — ''I could only see a sequence of words, the sequence the meaning of which I couldn't understand.''
+:'''mi pu ganse no drata be lo porsi be fi lo valsi i je mi na pu jimpe lo smuni be le porsi''' — ''I could only see a sequence of words, the sequence the meaning of which I couldn't understand.''
 :Related words: '''lidne''', '''liste''', '''cmima'''"
 porto,"
 '''porto''' — ''x<sub>1</sub><sub>(entity)</sub>''  is Portuguese in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -6679,7 +6680,7 @@ rectu,"
 remna,"
 '''remna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a human
 :'''lo remna''' — human. 
-:'''xu fa po'o lo remna ka'e cmila''' — ''Can only humans laugh?''
+:'''xu no drata be lo remna ka'e cmila''' — ''Can only humans laugh?''
 :Related words: '''nanmu''', '''ninmu''', '''prenu'''"
 renro,"
 '''renro''' — ''x<sub>1</sub><sub>(entity)</sub>''  throws or launches  ''x<sub>2</sub><sub>(entity)</sub>''  to or at  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -7152,7 +7153,7 @@ se me'a,"
 se ni'i,"
 '''se ni'i''' <small>[preposition from '''se''' '''nibli''']</small> — ''logically because ...'', adverb: ''logically''
 :'''ro gerku cu danlu i se ni'i nai bo ro danlu cu gerku''' — ''All dogs are animals. However, it doesn't follow from that that all animals are dogs.''
-:'''mi pu na zvati le tcadu i se ni'i bo ka'e nai ku mi penmi la kevin''' — ''I wasn't in the city so I couldn't meet Kevin.''"
+:'''mi pu na zvati le tcadu i se ni'i bo na ka'e ku mi penmi la kevin''' — ''I wasn't in the city so I couldn't meet Kevin.''"
 se pi'o,"
 '''se pi'o''' <small>[preposition from '''se''' '''pilno''']</small> — ''with ...'', ''using ...''
 :'''mi citka se pi'o lo forca i mi pe se pi'o lo forca cu citka''' — ''I eat with a fork.''
@@ -7568,7 +7569,7 @@ smani,"
 smoka,"
 '''smoka''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a sock
 :'''lo smoka''' — sock. 
-:'''mi na ka'e tolcri lo smoka pe mi''' — ''I can't find my socks.''
+:'''mi fliba lo ka tolcri lo smoka pe mi''' — ''I can't find my socks.''
 :Related words: '''cutci''', '''taxfu'''"
 smuci,"
 '''smuci''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a spoon or scoop
@@ -7888,7 +7889,7 @@ stici,"
 stidi,"
 '''stidi''' — ''x<sub>1</sub><sub>(entity)</sub>''  suggests  ''x<sub>2</sub><sub>(property of x3)</sub>''  to  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo stidi''' — advisor. '''lo se stidi''' — piece of advice, suggestion, proposal. 
-:'''do ka'e stidi tu'a ma noi gusta''' — ''What restaurant would you recommend?''
+:'''da'i do stidi tu'a ma noi gusta''' — ''What restaurant would you recommend?''
 :'''lo se stidi be le prenu pu du lo nu daspo lo dinju''' — ''Her proposal was to destroy the building.''
 :Related words: '''tcica''', '''xlura'''"
 stika,"
@@ -8540,8 +8541,7 @@ troci,"
 '''troci''' — ''x<sub>1</sub><sub>(entity)</sub>''  tries to do  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo se troci''' — something tried. 
 :'''mi ba troci lo ka cpare lo tricu''' — ''I will try to climb the tree.''
-:'''fa po'o lo troci cu snada''' — ''Only the one who tries succeeds.''
-:'''ku'i lo troci po'o cu fliba''' — ''But the one who only tries fails.''
+:'''lo troci ku po'o cu snada i ku'i lo troci po'o cu fliba''' — ''Only the one who tries succeeds. But the one who only tries fails.''
 :Related words: '''fliba''', '''snada''', '''cipra'''"
 tsali,"
 '''tsali''' — ''x<sub>1</sub><sub>(entity)</sub>''  is strong in property  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -8990,7 +8990,7 @@ vlile,"
 vlipa,"
 '''vlipa''' — ''x<sub>1</sub><sub>(entity)</sub>''  has the power to bring about  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo vlipa''' — powerful. '''lo se vlipa''' — power, might. 
-:'''fa po'o lo mamta be mi cu vlipa lo ka bapli lo nu mi cliva''' — ''Only my mother has power to make me leave.''
+:'''no drata be lo mamta be mi cu vlipa lo ka bapli lo nu mi cliva''' — ''Only my mother has power to make me leave.''
 :Related words: '''tsali''', '''jitro''', '''ruble'''"
 vo,"
 '''vo''' <small>[digit/number]</small> — ''4'', ''four''

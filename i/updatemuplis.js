@@ -93,13 +93,13 @@ var tatocreatedb = function(){
 			    var l = line.split("\t");
 			    stmt.run(l[0],l[1],l[2]);
 			});
-			lr.on('end', endfuncone.bind(null,db,LineByLineReader));
+			lr.on('end', add_links.bind(null,db,LineByLineReader));
 		//});
 	});
 	//global.gc();
 	//db=null;
 };
-var endfuncone = function (db,LineByLineReader) {
+var add_links = function (db,LineByLineReader) {
 			var stmtq = db.prepare("INSERT INTO linkstemp VALUES (?,?)");
 			var tjorne = path.join(__dirname,"../ircbot/dumps","tatoebalinks/links.csv");
 			lrq = new LineByLineReader(tjorne);
@@ -111,10 +111,10 @@ var endfuncone = function (db,LineByLineReader) {
 			    var l = line.split("\t");
 			    stmtq.run(l[0],l[1],l[2]);
 			});
-			lrq.on('end', endfuncthree.bind(null,db,LineByLineReader));
+			lrq.on('end', add_tags.bind(null,db,LineByLineReader));
 };
 
-var endfuncthree = function (db,LineByLineReader) {
+var add_tags = function (db,LineByLineReader) {
 			var stmtq = db.prepare("INSERT INTO tagstemp VALUES (?,?)");
 			var ttcita = path.join(__dirname,"../ircbot/dumps","tatoebatags/tags.csv");
 			var lrs = new LineByLineReader(ttcita);
@@ -126,10 +126,25 @@ var endfuncthree = function (db,LineByLineReader) {
 			    var l = line.split("\t");
 			    stmtq.run(l[0],l[1]);
 			});
-			lrs.on('end', endfunc.bind(null,db,LineByLineReader));
+			lrs.on('end', add_sentences_in_lists.bind(null,db,LineByLineReader));
 };
 
-var endfunc = function (db,LineByLineReader) {
+var add_sentences_in_lists = function (db,LineByLineReader) {
+			var stmtq = db.prepare("INSERT INTO tagstemp VALUES (?,?)");
+			var ttcita = path.join(__dirname,"../ircbot/dumps","tatoebatags/sentences_in_lists.csv");
+			var lrs = new LineByLineReader(ttcita);
+			lrs.on('error', function (err) {
+			    // 'err' contains error object
+			});
+			lrs.on('line', function (line) {
+			    // 'line' contains the current line without the trailing newline character. write it to a new file
+			    var l = line.split("\t");
+			    stmtq.run(l[0],l[1]);
+			});
+			lrs.on('end', add_finish.bind(null,db,LineByLineReader));
+};
+
+var add_finish = function (db,LineByLineReader) {
 db.serialize(function() {
 	db.run("COMMIT");
 	db.run("PRAGMA shrink_memory");

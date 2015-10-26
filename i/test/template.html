@@ -363,7 +363,7 @@
 		out.append(
 			$('<div>').addClass('related').html('See also: ' + lojTemplate(def.k) + ' '));
 		}
-		if ((def.r||[]).length > 0 && !def.l) {// && window.xuzganalojudri
+		if ((def.r||[]).length > 0 && !def.l && window.xuzganalojudri) {
 			var rafsi = $("<div>").addClass('rafsi');
 			rafsi.append("rafsi: ");
 			for (var i = 0; i < def.r.length; i++) {

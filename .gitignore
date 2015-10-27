@@ -6,6 +6,7 @@ ircbot/dumps/*.temp
 !ircbot/dumps/toki.xml
 !ircbot/dumps/zamenhofo.xml
 !ircbot/dumps/en-pt-BR.xml
+!ircbot/dumps/ldp.xml
 !ircbot/dumps/ithkuil.xml
 ircbot/dumps/*.pdf
 ircbot/tatoeba*

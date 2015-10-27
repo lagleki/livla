@@ -42,7 +42,7 @@ var selectinto = function(){
 	//wstream.write('var documentStore = [\n');
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
-		db.each("SELECT t.sentence as t_s, tt.sentence as tt_s FROM tatoeba t join links l on (t.idsentence=l.fir) join tatoeba tt on (l.sec=tt.idsentence) where (t.lang='eng' and tt.lang='jbo') limit 100;", function(err, row) {
+		db.each("SELECT t.sentence as t_s, tt.sentence as tt_s FROM tatoeba t join links l on (t.idsentence=l.fir) join tatoeba tt on (l.sec=tt.idsentence) where ((t.lang='eng' and tt.lang='jbo') or (tt.lang='eng' and t.lang='jbo')) group by t_s,tt_s limit 100;", function(err, row) {
 			//if (row.l_f!==null){
 				console.log(row.t_s + " ||| " + row.tt_s);
 			//}

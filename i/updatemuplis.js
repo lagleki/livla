@@ -2,8 +2,8 @@
 var fs = require("fs"),path = require("../ircbot/node_modules/path-extra/lib/path.js");
 var download=0;
 var refresh=0;
-var domuplis=1;
-var selectinto_=0;
+var domuplis=0;
+var selectinto_=1;
 
 var goahead = function (){
 	if (download===1){download_sentences();}
@@ -42,12 +42,20 @@ var selectinto = function(){
 	//wstream.write('var documentStore = [\n');
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
-		db.each("SELECT t.sentence as t_s, tt.sentence as tt_s FROM tatoeba t join links l on (t.idsentence=l.fir) join tatoeba tt on (l.sec=tt.idsentence) where ((t.lang='eng' and tt.lang='jbo') or (tt.lang='eng' and t.lang='jbo')) group by t_s,tt_s limit 100;", function(err, row) {
-			//if (row.l_f!==null){
-				console.log(row.t_s + " ||| " + row.tt_s);
+		db.run("DROP TABLE IF EXISTS 'merga'");
+		db.run("CREATE TABLE merga (ts TEXT, tts TEXT)");
+		db.each("SELECT tat.sentence as one,tati.sentence as six,group_concat(distinct tag.tag) as five FROM tatoeba as tat left join links on links.fir=tat.idsentence left join tatoeba as tati on links.sec=tati.idsentence left join tags as tag on tag.ids=tat.idsentence where (tat.lang='jbo' and not exists (select a.ids from tags as a where (a.ids=tat.idsentence and a.tag='@needs native check'))) group by tat.sentence,tati.sentence limit 100000", function(err, row) {
+		//db.each("SELECT t.sentence as t_s, tt.sentence as tt_s into merga FROM tatoeba t left join links l on (t.idsentence=l.fir or t.idsentence=l.sec) left join tatoeba tt on ((l.sec=tt.idsentence or l.fir=tt.idsentence) and tt.idsentence<>t.idsentence) where ((t.lang='eng' and tt.lang='jbo') or (tt.lang='eng' and t.lang='jbo')) group by t_s,tt_s limit 100000;", function(err, row) {
+			//if (row.t_s!==null && row.tt_s!==null){
+				console.log(row.one + " ||| " + row.six);
 			//}
 		});
 		db.run("COMMIT");
+		/*db.each("SELECT count(*) as name FROM merga limit 100;", function(err, row) {
+			//if (row.t_s!==null && row.tt_s!==null){
+				console.log(row.name);
+			//}
+		});*/
 	});
 	db.close(function(){
 		//wstream.write('];\n');

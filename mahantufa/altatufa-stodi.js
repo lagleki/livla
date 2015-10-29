@@ -1918,14 +1918,7 @@ var camxes = (function(){
             result1 = null;
           }
           if (result1 !== null) {
-            result2 = parse_FUhO_clause();
-            result2 = result2 !== null ? result2 : "";
-            if (result2 !== null) {
-              result0 = [result0, result1, result2];
-            } else {
-              result0 = null;
-              pos = pos1;
-            }
+            result0 = [result0, result1];
           } else {
             result0 = null;
             pos = pos1;
@@ -1991,7 +1984,10 @@ var camxes = (function(){
           pos = pos1;
         }
         if (result0 === null) {
-          result0 = parse_free();
+          result0 = parse_FUhO_clause();
+          if (result0 === null) {
+            result0 = parse_free();
+          }
         }
         if (result0 !== null) {
           result0 = (function(offset, expr) {return _node("interjection root", expr); })(pos0, result0);
@@ -17687,7 +17683,16 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_PA_clause();
+        result1 = parse_PA_clause();
+        if (result1 !== null) {
+          result0 = [];
+          while (result1 !== null) {
+            result0.push(result1);
+            result1 = parse_PA_clause();
+          }
+        } else {
+          result0 = null;
+        }
         if (result0 !== null) {
           result1 = parse_BY_clause();
           if (result1 !== null) {

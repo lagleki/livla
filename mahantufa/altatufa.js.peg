@@ -516,7 +516,7 @@ operator = joik
 //operator = expr:(full_NAhE operator / (SE_clause operator / MAhO_clause sumti_le_elidible TEhU_elidible / joik) full_NAICAI?) {return _node("operator", expr); }
 operand = expr:(((((PA_clause+ / lerfu_word) BOI_elidible / VEI_clause full_INT* mex VEhO_elidible full_INT* / MOhE_clause sumti_le_elidible TEhU_elidible / LAhE_NAhE mex LUhU_elidible)  full_NAICAI?) / full_NAhE operand) full_INT*) {return _node("operand", expr); }
 loi_lerfu = expr:(lerfu_word+) {return _node("loi_lerfu", expr); }
-lerfu_word = expr:(PA_clause BY_clause / BY_clause / LAU_clause lerfu_word / TEI_clause loi_lerfu FOI_clause) {return _node("lerfu_word", expr); }
+lerfu_word = expr:(PA_clause+ BY_clause / BY_clause / LAU_clause lerfu_word / TEI_clause loi_lerfu FOI_clause) {return _node("lerfu_word", expr); }
 
 //todo: make like normal mex
 mex_2_xohe = expr:(operand_xohe) {return _node("mex_2", expr); }

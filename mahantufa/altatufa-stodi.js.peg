@@ -128,8 +128,8 @@ intro_si_clause = expr:(si_clause? SI*)  {return _node_nonempty("intro_si_clause
 faho_clause = expr:((FAhO_clause dot_star)?) {return _node("faho_clause", expr);}
 
 // INTERJECTIONS
-full_INT = expr:(FUhE_clause? (INT_root  INT_suffix? / INT_root_elided INT_suffix)+ FUhO_clause?){return _node("full interjection", expr); }
-INT_root = expr:(UI_clause !BU_clause full_NAICAI? / free){return _node("interjection root", expr); }
+full_INT = expr:(FUhE_clause? (INT_root  INT_suffix? / INT_root_elided INT_suffix)+){return _node("full interjection", expr); }
+INT_root = expr:(UI_clause !BU_clause full_NAICAI? / FUhO_clause / free){return _node("interjection root", expr); }
 INT_suffix = expr:((DAI_clause !BU_clause full_NAICAI?)+){return _node("interjection categorizer", expr); }
 INT_root_elided = expr:(JUhA_elided_clause !BU_clause){return _node("interjection root elided", expr); }
 free = expr:(SEI_clause bridi_sei SEhU_elidible / vocative (sumti_le_elidible / sumtido) DOhU_elidible / mex MAI_clause / TO_clause text TOI_elidible / xi_clause / LOhAI_clause) {return _node("free", expr); }
@@ -516,7 +516,7 @@ operator = joik
 //operator = expr:(full_NAhE operator / (SE_clause operator / MAhO_clause sumti_le_elidible TEhU_elidible / joik) full_NAICAI?) {return _node("operator", expr); }
 operand = expr:(((((PA_clause+ / lerfu_word) BOI_elidible / VEI_clause full_INT* mex VEhO_elidible full_INT* / MOhE_clause sumti_le_elidible TEhU_elidible / LAhE_NAhE mex LUhU_elidible)  full_NAICAI?) / full_NAhE operand) full_INT*) {return _node("operand", expr); }
 loi_lerfu = expr:(lerfu_word+) {return _node("loi_lerfu", expr); }
-lerfu_word = expr:(PA_clause BY_clause / BY_clause / LAU_clause lerfu_word / TEI_clause loi_lerfu FOI_clause) {return _node("lerfu_word", expr); }
+lerfu_word = expr:(PA_clause+ BY_clause / BY_clause / LAU_clause lerfu_word / TEI_clause loi_lerfu FOI_clause) {return _node("lerfu_word", expr); }
 
 //todo: make like normal mex
 mex_2_xohe = expr:(operand_xohe) {return _node("mex_2", expr); }

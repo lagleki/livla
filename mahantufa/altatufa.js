@@ -17683,7 +17683,16 @@ var camxes = (function(){
         
         pos0 = pos;
         pos1 = pos;
-        result0 = parse_PA_clause();
+        result1 = parse_PA_clause();
+        if (result1 !== null) {
+          result0 = [];
+          while (result1 !== null) {
+            result0.push(result1);
+            result1 = parse_PA_clause();
+          }
+        } else {
+          result0 = null;
+        }
         if (result0 !== null) {
           result1 = parse_BY_clause();
           if (result1 !== null) {

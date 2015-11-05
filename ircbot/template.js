@@ -3,7 +3,7 @@
 // the template is taken from template.html file
 
 //config
-var langs = ["en","ru","eo","es","fr-facile","ile","ithkuil","ja","jbo","laadan","ldp","ru","zamenhofo","toki","jb","en-pt-BR"];
+var langs = ["en","ru","eo","es","fr-facile","ile","ithkuil","ja","jbo","laadan","ldp","ru","zamenhofo","toki","jb","en-pt-BR","muplis"];
 
 ///script
 var fs = require("fs"),path = require("path-extra");
@@ -25,7 +25,7 @@ langs.forEach(function(thisa){
 	b = b.replace("%ogurl%","https://mw.lojban.org/extensions/ilmentufa/i/"+thisa+"/index.html");
 	b = b.replace("%searchurl%","/extensions/ilmentufa/i/"+thisa+"/sisku.xml");
 	b = b.replace("%searchtitle%",thisa+"-sutysisku");
-	try{m = file.match(/titlelogo *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");}catch(err){m="<span id='plise' style='display: none;'><a id='st' href=\"../\"><img src=\"../sutysisku.png\" height='16' width='16'><span class='site-title'><font color=\"#fff\">la sutysisku</font></span></a></span>";}
+	try{m = file.match(/titlelogo *= *[\"'](.*?)[\"'];*$/)[1].replace(/\\\"/g,"\"");}catch(err){m="<span id='plise' style='display: none;'><a id='st' href=\"../\"><img src=\"../sutysisku.png\" height='16' width='16'><span class='site-title'><font color=\"#fff\">la sutysisku</font></span></a></span>";}
 	b = b.replace("%titlelogo%",m);
 	fs.writeFileSync(path.join(__dirname,"../i",thisa,"index.html"), b);
 });

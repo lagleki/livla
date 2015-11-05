@@ -9,6 +9,8 @@ ircbot/dumps/*.temp
 !ircbot/dumps/ldp.xml
 !ircbot/dumps/ithkuil.xml
 ircbot/dumps/*.pdf
-ircbot/tatoeba*
+ircbot/dumps/tatoeba*
+ircbot/dumps/*.temp
+ircbot/dumps/*.bz2
 ircbot/dumps/*.sql
 i/data/*.*

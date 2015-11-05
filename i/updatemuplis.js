@@ -2,17 +2,19 @@
 var fs = require("fs"),path = require("../ircbot/node_modules/path-extra/lib/path.js");
 var download=0;
 var refresh=0;
-var domuplis=0;
-var selectinto_=1;
+var ningau_la_muplis_=0;
+var selectinto_=0;
+generateorphanenglishsentences_=1;
 
 var goahead = function (){
 	if (download===1){download_sentences();}
 	if (refresh===1){tatocreatedb();}
-	if (domuplis===1){mupliscreatedump();}
+	if (ningau_la_muplis_===1){ningau_la_muplis();}
 	if (selectinto_===1){selectinto();}
+	if (generateorphanenglishsentences_===1){generateorphanenglishsentences();}
 };
 
-var mupliscreatedump = function(){
+var ningau_la_muplis = function(){
 	var LineByLineReader = require('line-by-line');
 	var sqlite3 = require('sqlite3').verbose();
 	var db = new sqlite3.Database(path.join(__dirname,"../ircbot/dumps","1.sql"));
@@ -20,7 +22,7 @@ var mupliscreatedump = function(){
 	wstream.write('var documentStore = [\n');
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
-		db.each("SELECT tat.sentence as one,tati.sentence as six,group_concat(distinct tag.tag) as five FROM tatoeba as tat left join links on links.fir=tat.idsentence left join tatoeba as tati on links.sec=tati.idsentence left join tags as tag on tag.ids=tat.idsentence where (tat.lang='jbo' and not exists (select a.ids from tags as a where (a.ids=tat.idsentence and a.tag='@needs native check'))) group by tat.sentence,tati.sentence limit 100000", function(err, row) {
+		db.each("SELECT tat.sentence as one,tati.sentence as six,group_concat(distinct tag.tag) as five FROM tatoeba as tat left join links on links.fir=tat.idsentence left join tatoeba as tati on links.sec=tati.idsentence left join tags as tag on tag.ids=tat.idsentence where (tat.lang='jbo' and not exists (select a.ids from tags as a where (a.ids=tat.idsentence and a.tag='@needs native check'))) group by tat.sentence,tati.sentence limit 1000000", function(err, row) {
 			
 			if (row.five===null){
 			wstream.write("{w:\""+row.one.replace(/"/g,"'")+"\",d:\""+(row.six||"").replace(/"/g,"'").replace(/[\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/gi," ").replace(/\\/g,"\\\\".replace("\\","\\\\"))+"\"},\n");}else
@@ -30,7 +32,7 @@ var mupliscreatedump = function(){
 	});
 	db.close(function(){
 		wstream.write('];\n');wstream.end();
-		//fs.renameSync(path.join(__dirname,"data","parsed-tatoeba.js.temp"), path.join(__dirname,"data","parsed-tatoeba.js"));
+		fs.renameSync(path.join(__dirname,"data","parsed-tatoeba.js.temp"), path.join(__dirname,"data","parsed-tatoeba.js"));
 	});
 };
 
@@ -39,28 +41,46 @@ var selectinto = function(){
 	var sqlite3 = require('sqlite3').verbose();
 	var db = new sqlite3.Database(path.join(__dirname,"../ircbot/dumps","1.sql"));
 	var wstream = fs.createWriteStream(path.join(__dirname,"data","workontagstatoeba.js.temp"));
-	//wstream.write('var documentStore = [\n');
+	wstream.write("<!DOCTYPE HTML>\n<html><meta http-equiv=Content-Type content='text/html;charset=UTF-8'><head><link rel='stylesheet' href='kampu.css'></head><body><table id='lojban'>\n");
+	db.serialize(function() {
+		db.run("BEGIN TRANSACTION");
+		//db.run("DROP TABLE IF EXISTS 'merga'");
+		//db.run("CREATE TABLE merga (ts TEXT, tts TEXT)");
+		db.each("SELECT tat.sentence as one,tati.sentence as six,tat.lang as lan FROM tatoeba as tat left join links on links.fir=tat.idsentence left join tatoeba as tati on links.sec=tati.idsentence where ((tat.lang='jbo' and tati.lang='eng') or (tat.lang='jbo' and tati.lang='eng')) group by tat.sentence,tati.sentence limit 1000000", function(err, row) {//generate eng-jbo dict. this query is fine, just make sure that jbo is in the first column, otherwise fliflop
+			if (row.lan==='jbo'){
+				wstream.write("<tr><td align='right'>"+row.one+"</td><td>"+(row.six||"")+"</tr>\n");
+			}else{
+				wstream.write("<tr><td align='right'>"+(row.six||"")+"</td><td>"+row.one+"</tr>\n");
+			}
+		});
+		db.run("COMMIT");
+	});
+	db.close(function(){
+		wstream.write('</table></body></html>\n');
+		wstream.end();
+		fs.renameSync(path.join(__dirname,"data","workontagstatoeba.js.temp"), path.join(__dirname,"data","eng-jbo-tatoeba.html"));
+	});
+};
+
+var generateorphanenglishsentences = function(){
+	var LineByLineReader = require('line-by-line');
+	var sqlite3 = require('sqlite3').verbose();
+	var db = new sqlite3.Database(path.join(__dirname,"../ircbot/dumps","1.sql"));
+	var wstream = fs.createWriteStream(path.join(__dirname,"data","workontagstatoeba.js.temp"));
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
 		db.run("DROP TABLE IF EXISTS 'merga'");
-		db.run("CREATE TABLE merga (ts TEXT, tts TEXT)");
-		db.each("SELECT tat.sentence as one,tati.sentence as six,group_concat(distinct tag.tag) as five FROM tatoeba as tat left join links on links.fir=tat.idsentence left join tatoeba as tati on links.sec=tati.idsentence left join tags as tag on tag.ids=tat.idsentence where (tat.lang='jbo' and not exists (select a.ids from tags as a where (a.ids=tat.idsentence and a.tag='@needs native check'))) group by tat.sentence,tati.sentence limit 100000", function(err, row) {
-		//db.each("SELECT t.sentence as t_s, tt.sentence as tt_s into merga FROM tatoeba t left join links l on (t.idsentence=l.fir or t.idsentence=l.sec) left join tatoeba tt on ((l.sec=tt.idsentence or l.fir=tt.idsentence) and tt.idsentence<>t.idsentence) where ((t.lang='eng' and tt.lang='jbo') or (tt.lang='eng' and t.lang='jbo')) group by t_s,tt_s limit 100000;", function(err, row) {
-			//if (row.t_s!==null && row.tt_s!==null){
-				console.log(row.one + " ||| " + row.six);
-			//}
+		//db.run("CREATE TABLE merga (ts TEXT, tts TEXT)");
+		db.each("SELECT tat.idsentence as one,tat.sentence as two,group_concat(distinct tati.sentence) as three FROM tatoeba as tat left left join audio as a on (a.ids=tat.idsentence) join links on links.fir=tat.idsentence left join tatoeba as tati on (links.sec=tati.idsentence and tati.lang='jbo') left join tags as tag on tag.ids=tat.idsentence where (tat.lang='eng' and a.ids is not null) group by one order by one asc limit 1000000", function(err, row) {
+			if (row.three===null){
+				wstream.write(row.one + "\t"+row.two+ "\t"+row.three + "\n");
+			}
 		});
 		db.run("COMMIT");
-		/*db.each("SELECT count(*) as name FROM merga limit 100;", function(err, row) {
-			//if (row.t_s!==null && row.tt_s!==null){
-				console.log(row.name);
-			//}
-		});*/
 	});
 	db.close(function(){
-		//wstream.write('];\n');
 		wstream.end();
-		fs.renameSync(path.join(__dirname,"data","workontagstatoeba.js.temp"), path.join(__dirname,"data","workontagstatoeba.js"));
+		fs.renameSync(path.join(__dirname,"data","workontagstatoeba.js.temp"), path.join(__dirname,"data","orphan-english.csv"));
 	});
 };
 
@@ -81,7 +101,7 @@ var tatocreatedb = function(){
 		db.run("DROP TABLE IF EXISTS 'audio'");
 		db.run("CREATE TABLE tatoeba (idsentence INTEGER, lang TEXT, sentence TEXT)");
 		db.run("CREATE TABLE links (fir INTEGER, sec INTEGER)");
-		db.run("CREATE TABLE tags (ids INTEGER, tag INTEGER)");
+		db.run("CREATE TABLE tags (ids INTEGER, tag TEXT)");
 		db.run("CREATE TABLE audio (ids INTEGER)");
 		//db.run("PRAGMA synchronous = OFF");
 		db.run("BEGIN TRANSACTION");
@@ -131,7 +151,7 @@ var add_tags = function (db,LineByLineReader,stmtq) {
 				var l = line.split("\t");
 				stmtr.run(l[0],l[1]);
 			});
-			lrs.on('end', add_finish.bind(null,db,LineByLineReader,stmtr));
+			lrs.on('end', add_sentences_with_audio.bind(null,db,LineByLineReader,stmtr));
 };
 
 //disabled for now
@@ -155,8 +175,8 @@ var add_finish = function (db,LineByLineReader,stmts) {
 db.serialize(function() {
 	stmts.finalize();
 	db.run("COMMIT");
-	/*db.run("PRAGMA shrink_memory");
-	db.run("DROP TABLE IF EXISTS 'tatoeba'");
+	db.run("PRAGMA shrink_memory");
+	/*db.run("DROP TABLE IF EXISTS 'tatoeba'");
 	db.run("DROP TABLE IF EXISTS 'links'");
 	db.run("DROP TABLE IF EXISTS 'tags'");
 	db.run("DROP TABLE IF EXISTS 'audio'");

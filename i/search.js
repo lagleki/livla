@@ -30,6 +30,7 @@ function search(query, callback) {
 		});
 		}
 	}
+	var exactMatches = [];
 	var goodMatches = [];
 	var normalMatches = [];
 	var selmahoMatches = [];
@@ -49,7 +50,11 @@ function search(query, callback) {
 			if (!doc) {//todo: try decomposing it as a lujvo
 				continue;
 			}
-				if (doc.w === query||(doc.g||'')===query||(query>0 && (doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
+				if (doc.w === query){
+					exactMatches.push(doc);
+					continue;
+				}
+				if ((doc.g||'')===query||(query>0 && (doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
 					greatMatches.push(doc);
 					continue;
 				}
@@ -67,7 +72,7 @@ function search(query, callback) {
 				}
 				else {results.push(doc);}
 		}
-		results = greatMatches.concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(results);
+		results = exactMatches.concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(results);
 		callback(results);
 	});
 }

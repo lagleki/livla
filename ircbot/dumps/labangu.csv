@@ -223,6 +223,7 @@ bangu,"
 '''bangu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a language used by  ''x<sub>2</sub><sub>(entity)</sub>''  to express  ''x<sub>3</sub><sub>(proposition)</sub>'' 
 :'''lo bangu''' — language. '''lo se bangu''' — user of a language. 
 :'''xu do se bangu la lojban''' — ''Do you speak Lojban?''
+:'''zoi ry.привет.ry. se bangu lo rusko''' — ''&quot;привет&quot; is a Russian text.''
 :'''le nanmu pu pilno lo bangu be fi lo mabla''' — ''The man used dirty language.''
 :Related words: '''tance''', '''cusku''', '''ve''' '''tavla''', '''valsi''', '''gerna''', '''jufra''', '''natmi''', '''slaka'''"
 banli,"
@@ -930,7 +931,7 @@ cei,"
 cenba,"
 '''cenba''' — ''x<sub>1</sub><sub>(entity)</sub>''  varies in  ''x<sub>2</sub><sub>(property of x1)</sub>''  in amount  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo cenba''' — variable. 
-:'''do cenba lo ni ma kau se cpedu vau lo barda''' — ''Your demands vary to much degree.''
+:'''do cenba lo ka ma kau se cpedu vau lo barda''' — ''Your demands vary to much degree.''
 :Comment: '''binxo''' describes that entity turns into another entity, '''galfi''' is ''to turn one entity into another one''. '''cenba''' describes how entity changes its state while remaining the same entity, '''stika''' is ''to make entity change its state''.
 :Related words: '''cenba''', '''galfi''', '''stika''', '''stodi''', '''zasni''', '''binxo'''"
 censa,"
@@ -1213,7 +1214,7 @@ citka,"
 citno,"
 '''citno''' — ''x<sub>1</sub><sub>(entity)</sub>''  is young in that it has  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo citno''' — young. 
-:'''le nixli cu citno lo ni lifri ma kau''' — ''The girl is young in how much she experienced.''
+:'''le nixli cu citno lo ka lifri ma kau''' — ''The girl is young in how much she experienced.''
 :Related words: '''laldo''', '''cnino''', '''slabu''', '''verba'''"
 citri,"
 '''citri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a history of  ''x<sub>2</sub><sub>(entity)</sub>''  according to  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -1320,6 +1321,7 @@ clani,"
 :'''i la tom cu clani lo ka sraji''' — ''Tom is tall.''
 :'''le cmana cu clani''' — ''The mountain is high.''
 :'''le nu penmi pu clani lo ka se ditcu''' — ''The meeting was long.''
+:'''clani lo ka mitre li re''' — ''The length is two meters.''
 :Comment: the first largest dimension. '''ganra''', '''rotsu''' and '''clani''' specify the three dimensions of objects. '''clani''' can be used to describe 'tall' or 'high' (in the sense of vertical length). For lengthy time intervals '''barda''' is also used (choice depends on personal philosophy of the speaker).
 :Related words: '''slabu''', '''condi''', '''ganra''', '''rotsu''', '''tordu''', '''barda''', '''ganra''', '''gutci''', '''minli''', '''rotsu'''"
 claxu,"
@@ -1963,7 +1965,7 @@ denci,"
 denmi,"
 '''denmi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is dense in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo denmi''' — dense. 
-:'''lo karce flu'ente cu denmi lo ni se pagbu lo karce bu'u lo klaji''' — ''The car traffic is intense in the streets.''
+:'''lo karce flu'ente cu denmi lo ka se pagbu lo xo kau karce bu'u lo klaji''' — ''The car traffic is intense in the streets.''
 :Related words: '''carmi''', '''midju''', '''viknu'''"
 denpa,"
 '''denpa''' — ''x<sub>1</sub><sub>(entity)</sub>''  waits or pauses for  ''x<sub>2</sub><sub>(clause)</sub>''  at state  ''x<sub>3</sub><sub>(property of x1)</sub>''  before doing  ''x<sub>4</sub><sub>(property of x1)</sub>'' 
@@ -3717,7 +3719,7 @@ jmive,"
 :Related words: '''lifri''', '''morsi''', '''stuzi''', '''zvati''', '''xabju'''"
 jo,"
 '''jo''' <small>[conjunction]</small> — ''both or none''
-:'''ai mi te vecnu lo kargu jo cnino karce''' — ''I'm going to buy an expensive car if and only if it is new.''"
+:'''ai mi te vecnu lo karce poi kargu jo cnino''' — ''I'm going to buy an expensive car if and only if it is new (or not to buy any cars if they don't satisfy this condition).''"
 jo nai,"
 '''jo nai''' <small>[conjunction]</small> — ''either ... or ...''
 :'''mi tavla i jo nai do tavla''' — ''Either I talk or you talk.''"
@@ -3858,7 +3860,7 @@ ka,"
 :'''mi djica lo ka sipna''' — ''I want to sleep.''
 :'''la alis cu nitcu lo ka te dunda lo birje''' — ''Alice needs to be given beer.''
 :'''ta'i ku do ba cirko lo ka sinma ce'u''' — ''This way you will lose the respect.''
-:'''lo pa tadji be lo ka se pendo cu ka pendo''' — ''The only way to have a friend is to be a friend.''
+:'''no drata be lo ka pendo cu tadji lo ka se pendo''' — ''The only way to have a friend is to be a friend (literally ""Nothing but being a friend is the way to have a friend"").''
 :Comment: x<sub>1 (property)</sub> is the property of the clause that follows. Has at least one '''ce'u''' inside referring to a noun of the outer clause. '''ka''' without a '''ce'u''' inside is the same as '''ka ce'u'''. Used to express infinitives."
 ka bu,"
 '''ka bu''' — refers to the last '''ka'''-clause used
@@ -5129,7 +5131,7 @@ mebri,"
 :Related words: '''stedu''', '''flira'''"
 megdo,"
 '''megdo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a million of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''mi ponse lo megdo lo rupnu be li ci''' — ''I own three million dollars.''
+:'''mi ponse lo megdo be lo rupnu be li ci''' — ''I own three million dollars.''
 :'''e'o do cuxna fi lo pixra poi klani su'e lo megdo be li pa bei lo ka se bitni li bi''' — ''Please choose an image that does not exceed 1 Megabyte.''
 :Related words: '''centi'''"
 mei,"
@@ -5303,6 +5305,7 @@ mlatu,"
 :'''lo mlatu''' — cat. 
 :'''lo ka kucli cu catra lo mlatu''' — ''Curiosity killed the cat.''
 :'''mi ralte lo mlatu e lo gerku''' — ''I keep a cat and a dog.''
+:Comment: Also applies to feline animals like tigers, lions.
 :Related words: '''bramlatu''', '''cinfo''', '''ratcu''', '''gerku'''"
 mleca,"
 '''mleca''' — ''x<sub>1</sub><sub>(entity)</sub>''  is less than  ''x<sub>2</sub><sub>(entity)</sub>''  in  ''x<sub>3</sub><sub>(property of x1 and x2 with '''kau''')</sub>''  by amount  ''x<sub>4</sub><sub>(entity)</sub>'' 
@@ -5664,8 +5667,8 @@ nenri,"
 :Related words: '''se''' '''vasru''', '''jbini''', '''zvati''', '''cpana''', '''sruri''', '''senta''', '''snuji''', '''bartu''', '''diklo''', '''jibni''', '''jinru''', '''setca'''"
 ni,"
 '''ni''' <small>[clause prefix]</small> — turn clause into verb
-:'''lo ni clani cu mitre li re''' — ''The length is two meters.''
-:Comment: x<sub>1</sub> is the amount described in the clause that follows."
+:'''mi zenba lo ni sutra''' — ''My rapidity increases.''
+:Comment: x<sub>1</sub> is the property showing the degree of the event described in the clause that follows."
 ni'a,"
 '''ni'a''' <small>[preposition of cardinal direction]</small> — ''down from ...'', adverb: ''under''
 :'''gau ko stodi ni'a loi papri''' — ''Keep it under papers.''"
@@ -6533,8 +6536,8 @@ ra'oi,"
 ra'u,"
 '''ra'u''' <small>[interjection]</small> — ''primarily'', ''mainly'' (in importance), '''ra'u''' '''cu'i''' — ''equally'' (in importance), '''ra'u''' '''nai''' — ''incidentally'' (low in importance)
 :'''ra'u ko tolxanka denpa''' — ''Above all, be patient.''
-:'''ei mi gunka i je ra'u cu'i ei mi surla''' — ''I need to work.''
-:'''ra'u nai mi na se spaji''' — ''But with equal importance I need to relax. Incidentally, I'm not surprised.''
+:'''ei mi gunka i je ra'u cu'i ei mi surla''' — ''I need to work. But with equal importance I need to relax.''
+:'''ra'u nai mi na se spaji''' — ''Incidentally, I'm not surprised.''
 :Related words: '''ralju''', '''vajni'''"
 racli,"
 '''racli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is rational or sane
@@ -7807,7 +7810,7 @@ srera,"
 sruma,"
 '''sruma''' — ''x<sub>1</sub><sub>(entity)</sub>''  assumes that  ''x<sub>2</sub><sub>(property of x3)</sub>''  is true about  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo se sruma''' — assumed. 
-:'''mi sruma lo ka racli vau lo nu ca'o smaji''' — ''I think it'd be rational to continue keeping silence.''
+:'''mi sruma lo nu racli vau lo nu ca'o smaji''' — ''I think it'd be rational to continue keeping silence.''
 :Related words: '''smadi''', '''birti'''"
 sruri,"
 '''sruri''' — ''x<sub>1</sub><sub>(entity)</sub>''  encloses or surrounds  ''x<sub>2</sub><sub>(entity)</sub>''  in direction  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -7896,7 +7899,7 @@ stidi,"
 stika,"
 '''stika''' — ''x<sub>1</sub><sub>(entity)</sub>''  adjusts, makes  ''x<sub>2</sub><sub>(property of x1)</sub>''  change, vary in degree  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo se stika''' — adjusted. 
-:'''i ro lo linji ka'e stika lo ni clani vau ro lo klani''' — ''Any line segment can be changed in its length to any degree.''
+:'''i ro lo linji ka'e stika lo ka clani ma kau vau ro da''' — ''Any line segment can be changed in its length to any degree.''
 :Comment: '''binxo''' describes that entity turns into another entity, '''galfi''' is ''to turn one entity into another one''. '''cenba''' describes how entity changes its state while remaining the same entity, '''stika''' is ''to make entity change its state''.
 :Related words: '''cenba''', '''galfi''', '''binxo''', '''zasni''', '''stodi'''"
 stizu,"
@@ -8703,10 +8706,10 @@ uencu,"
 :'''mi jinvi lo du'u lo vi uenci be lo nu farvi fa le bangu cu mutce lo ka vajni''' — ''I think that these documents containing the development of the language are very important.''
 :Related words: '''uenzi''', '''jaspu''', '''xatra''', '''pikta''', '''karni''', '''papri''', '''pelji''', '''vreji''', '''cukta''', '''ciska''', '''tcidu'''"
 uenzi,"
-'''uenzi''' — ''x<sub>1</sub><sub>(text)</sub>''  is a text in language  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''lo uenzi''' — text. '''lo se uenzi''' — language of a text. 
-:'''zoi ry.привет.ry. uenzi lo rusko''' — ''&quot;привет&quot; is a Russian text.''
-:Related words: '''cusku''', '''traduki'''"
+'''uenzi''' — ''x<sub>1</sub><sub>(text)</sub>''  is a text about  ''x<sub>2</sub><sub>(entity)</sub>'' 
+:'''lo uenzi''' — text. '''lo se uenzi''' — content of a text. 
+:'''ti uenzi lo vajni nu fasnu''' — ''This is a text about important events.''
+:Related words: '''cusku''', '''traduki''', '''bangu''', '''tcidu''', '''lerfu''', '''ciska'''"
 ui,"
 '''ui''' <small>[interjection]</small> — ''Whee! Yay! Hooray! Yippie! Yahoo!'' (happiness), '''ui''' '''nai''' — ''Alas!'' (unhappiness)
 :'''ui mi pu penmi le fetsi zu'e mi''' — ''Yay, I had a meeting with her.''

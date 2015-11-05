@@ -326,11 +326,18 @@
 		var ss;
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
 		var jvs = def.t;
-		if(window.xuzganalojudri && !def.l){jvs+="<font color=\"#aaa\"><a style=\"color: #aaa;\" target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
+		if(window.xuzganalojudri && !def.l){jvs+="<font color='#aaa'><a style='color: #aaa;' target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
 		if (def.t==='decomposing ...'){if ((def.rafsiDocuments||[]).length==0){ return;}jvs=window.bangudecomp;}
-		var kl='valsi';if(def.l){kl="valsi nalojbo";};
+		var kl='valsi';if(def.l){kl='valsi nalojbo';};
 		var word='<a class="' + kl + '" href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
 		if (def.w == query){word=def.w + ' ';}
+		var deft='';
+		if (def.t.search('sampu staile')>=0){deft += "<img src='plise.png' height='16' width='16' title='lo staile poi sampu'>"};
+		if (def.t.search('mansa staile')>=0){deft += "<img src='pelxuplise.png' height='16' width='16' title=\"lo staile poi na mutce cinri\">"};
+		if (def.t.search('plixau jufra')>=0){deft += "<img src='crinoplise.png' height='16' width='16' title=\"lo jufra poi ka'e xamgu lo di'i fanva\">"};
+		if (def.t.search('cnano staile')>=0){deft += "<img src='blabiplise.png' height='16' width='16' title=\"lo staile poi ka'e pluja\">"};
+		if (def.t.search('non-standard')>=0){deft += "<img src='cicnaplise.png' height='16' width='16' title=\"na'e catni se ciska staile\">"};
+		if (deft!==''){jvs=deft;}
 		out.append($("<heading style='align-items:flex-start;flex-direction:row;display:flex;flex:1;'>")
 		.append(tfm)
 		.append($("<h4>").addClass(kl).html(word))

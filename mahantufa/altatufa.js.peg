@@ -504,7 +504,7 @@ KE_space_selbri_3 = expr:(KE_clause full_INT* selbri_3 KEhE_elidible full_INT*) 
 loi_SEJAI_element = (SE_clause / JAI_clause (tagBFAM_0+ / tagDAM))+
 
 // MEX
-mex = !lerfu_word mex_for_li
+mex = mex_for_li
 mex_for_li = expr:(mex_1 (operator mex_1)*) {return _node("mex", expr); }
 mex_1 = expr:(KE_space_mex_2_loi / mex_2_loi ) {return _node("mex_1", expr); }
 mex_2_loi = mex_2 (operator BO_clause mex_2)*

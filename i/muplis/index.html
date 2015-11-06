@@ -110,23 +110,22 @@
 	}
 
 	.core-header {
-		//height: 48px;
 		width:auto;
 		font-size: 18px;
 		padding: 0;
-		background: rgb(233,168,56); /* Old browsers */
-		background: -moz-linear-gradient(top,  rgba(233,168,56,1) 0%, rgba(213,147,34,1) 13%, rgba(224,156,38,1) 88%, rgba(165,114,25,1) 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(233,168,56,1)), color-stop(13%,rgba(213,147,34,1)), color-stop(88%,rgba(224,156,38,1)), color-stop(100%,rgba(165,114,25,1))); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top,  rgba(233,168,56,1) 0%,rgba(213,147,34,1) 13%,rgba(224,156,38,1) 88%,rgba(233,168,56,1) 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top,  rgba(233,168,56,1) 0%,rgba(213,147,34,1) 13%,rgba(224,156,38,1) 88%,rgba(165,114,25,1) 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top,  rgba(233,168,56,1) 0%,rgba(213,147,34,1) 13%,rgba(224,156,38,1) 88%,rgba(165,114,25,1) 100%); /* IE10+ */
-		background: linear-gradient(to bottom,  rgba(233,168,56,1) 0%,rgba(213,147,34,1) 13%,rgba(224,156,38,1) 88%,rgba(165,114,25,1) 100%); /* W3C */
+		background: rgb(109,179,242); /* Old browsers */
+		background: -moz-linear-gradient(top,  rgba(109,179,242,1) 0%, rgba(84,163,238,1) 50%, rgba(54,144,240,1) 51%, rgba(30,105,222,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(109,179,242,1)), color-stop(50%,rgba(84,163,238,1)), color-stop(51%,rgba(54,144,240,1)), color-stop(100%,rgba(30,105,222,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(109,179,242,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(109,179,242,1) 0%,rgba(84,163,238,1) 50%,rgba(54,144,240,1) 51%,rgba(30,105,222,1) 100%); /* W3C */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de',GradientType=0 ); /* IE6-9 */
 		color: #FFF;
 	}
 
 	::selection {
-		background: rgba(213,147,34,1);
+		background: rgba(84,163,238,1);
 		color: #fff;
 		text-shadow: none;
 	}
@@ -488,7 +487,7 @@
 		}
 		return +new Date();
 	}
-	// Check if a new cache is available on page load.
+	// jimpe lo du'u xu kau lo cnino sorcu ka'e se pilno fau lo nu jai gau akti fai lo cnino papri
 	var appCache = window.applicationCache;
 	appCache.update();
 	if (appCache.status == window.applicationCache.UPDATEREADY) {

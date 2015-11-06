@@ -9,8 +9,11 @@ window.arrcll = {};
 siskudescr="Search the dictionary of Lojban sentences la muplis.";
 opdescr = "A dictionary of sentences for Lojban, English and other languages that can work offline.";
 titlelogo = "<span id='plise'><img src='plise.png' height='16' width='16' title='lo staile poi sampu'><img src='pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'><img src='crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'><img src='cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'><a id='st' href='../'><span class='site-title'><font color='#fff'>la muplis</font></span></a></span>";
-mupliskari1 = "233,168,56";
-mupliskari2 = "213,147,34";
-mupliskari3 = "224,156,38";
-mupliskari4 = "165,114,25";
-//38
+mupliskari1 = "109,179,242";
+mupliskari2 = "84,163,238";
+mupliskari3 = "54,144,240";
+mupliskari4 = "30,105,222";
+grad_pos1 = "0%";
+grad_pos2 = "50%";
+grad_pos3 = "51%";
+grad_pos4 = "100%";

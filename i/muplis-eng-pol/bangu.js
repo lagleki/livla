@@ -1,0 +1,20 @@
+// JavaScript Document
+window.bangulo = "getting the dictionary";
+window.bangubuild = "creating the index";
+window.bangudesc = "<p><b>La Muplis</b> is a fast tool to search sentenes from <a href='http://tatoeba.org/eng' target='_blank'>Tatoeba.org</a> database in Polish and English.</p><p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br>To increase the overall quality of the sentences displayed this app<br>1. includes only sentences owned by tatoeba.org users,<br>2. excludes sentences tagged as \"needs native check\".</p><span id='searchengine'><i><a href='#' title='jbo-sutysisku' onclick=\"window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/muplis-eng-pol/sisku.xml')\">Add as a search engine...</a></i></span>";
+window.bangusisku='search';
+window.xuzganalojudri = false;
+window.bangudecomp = 'decomposing...';
+window.arrcll = {};
+siskudescr="Search la muplis, the dictionary of English and Polish sentences.";
+opdescr = "A dictionary of sentences for English, Polish and other languages that can work offline.";
+titlelogo = "<span id='plise'><img src='plise.png' height='16' width='16' title='lo staile poi sampu'><img src='pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'><img src='crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'><img src='cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'><a id='st' href='%upper%'><span class='site-title'><font color='#fff'>la muplis</font></span></a></span>";
+mupliskari1 = "109,179,242";
+mupliskari2 = "84,163,238";
+mupliskari3 = "54,144,240";
+mupliskari4 = "30,105,222";
+grad_pos1 = "0%";
+grad_pos2 = "50%";
+grad_pos3 = "51%";
+grad_pos4 = "100%";
+upperdir = "../muplis.html";

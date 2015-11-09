@@ -7,7 +7,7 @@ function search(query, callback) {
 	var resultCount = 0;
 	var results = [];
 	var greatMatches = [];
-	var rafsiDecompositions = decomposeString(query);
+	var rafsiDecompositions = decomposeString(query);//no! we must decompose parts of search string, not the whole string. and then push to exactMatch
 	for (i = 0; i < rafsiDecompositions.length; i++) {
 		var decomposition = rafsiDecompositions[i];
 		/*var decompnew = "\t"+decomposition.join("\t").toLowerCase()+"\t";

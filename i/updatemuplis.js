@@ -2,10 +2,11 @@
 var fs = require("fs"),path = require("../ircbot/node_modules/path-extra/lib/path.js");
 var download=0;
 var refresh=0;
-var ningau_la_muplis_=1;
+var ningau_la_muplis_=0;
 var ningau_la_muplis_poholska_=0;
 var selectinto_=0;
 generateorphanenglishsentences_=0;
+gettagsstats_ = 1;
 
 var goahead = function (){
 	if (download===1){download_sentences();}
@@ -14,6 +15,7 @@ var goahead = function (){
 	if (ningau_la_muplis_poholska_===1){ningau_la_muplis_poholska();}
 	if (selectinto_===1){selectinto();}
 	if (generateorphanenglishsentences_===1){generateorphanenglishsentences();}
+	if (gettagsstats_===1){gettagsstats();}
 };
 
 var ningau_la_muplis = function(){
@@ -105,6 +107,26 @@ var generateorphanenglishsentences = function(){
 	db.close(function(){
 		wstream.end();
 		fs.renameSync(path.join(__dirname,"data","workontagstatoeba.js.temp"), path.join(__dirname,"data","orphan-english.csv"));
+	});
+};
+
+var gettagsstats = function(){
+	var LineByLineReader = require('line-by-line');
+	var sqlite3 = require('sqlite3').verbose();
+	var db = new sqlite3.Database(path.join(__dirname,"../ircbot/dumps","1.sql"));
+	var wstream = fs.createWriteStream(path.join(__dirname,"data","workontagstatoeba.js.temp"));
+	db.serialize(function() {
+		db.run("BEGIN TRANSACTION");
+		db.each("SELECT tag.tag as tagg, count(tag.tag) as cou, tat.lang as lan FROM tags as tag join tatoeba as tat on (tag.ids = tat.idsentence) group by tagg, lan order by lan, cou desc limit 1000000", function(err, row) {
+			if (row.tagg!==null){
+				wstream.write(row.lan + "\t"+row.cou+ "\t"+row.tagg + "\n");
+			}
+		});
+		db.run("COMMIT");
+	});
+	db.close(function(){
+		wstream.end();
+		fs.renameSync(path.join(__dirname,"data","workontagstatoeba.js.temp"), path.join(__dirname,"data","tatoeba-tags-stats.csv"));
 	});
 };
 

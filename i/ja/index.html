@@ -183,14 +183,14 @@
 		height: 10px;
 	}
 	#blackBar{
-	position:absolute;
-	top:0;
-	left:0;
-	right:0;
-	width:100%;
-	height:48px;
-	background-color:black;
-		}
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		width:100%;
+		height:48px;
+		background-color:black;
+	}
   </style>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="la muplis">
@@ -206,7 +206,9 @@
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
 		<span id='plise' style='display: none;'><a id='st' href="../"><img src="../sutysisku.png" height='16' width='16'><span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-		<input id='typehere' placeholder="語を入力" type='text' autofocus>
+		<form>
+			<input id='typehere' placeholder="語を入力" type='text' autofocus>
+		</form>
 		</div>
 	</div>
 	<div class='content' style="height:100%;
@@ -451,7 +453,7 @@
 		}
 		lastQueried = now();
 		var split = location.href.split('#')[1];if(split===null){split='';}
-		$("#st").attr("href","../#" + split);
+		$("#st").attr("href",$("#st").attr("href").split('#', 1)[0] + "#" + split);
 	}
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);

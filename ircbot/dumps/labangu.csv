@@ -754,6 +754,7 @@ cacra,"
 '''cacra''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  hours in duration
 :'''lo cacra''' — hour-long event. 
 :'''ca ku lo nicte cu cacra li mu''' — ''At this time, night is 5 hours long.''
+:Comment: if x<sub>2</sub> is not used denotes one hour in duration
 :Related words: '''junla''', '''mentu''', '''snidu''', '''tcika''', '''temci'''"
 cadzu,"
 '''cadzu''' — ''x<sub>1</sub><sub>(entity)</sub>''  walks on surface  ''x<sub>2</sub><sub>(entity)</sub>''  with limbs  ''x<sub>3</sub>
@@ -956,12 +957,12 @@ cerda,"
 :'''mi cerda lo dinju lo patfu be mi lo se djica be ri''' — ''I inherited the house from my father according to his will.''
 :Related words: '''jgina'''"
 cermurse,"
-'''cermurse''' — ''x<sub>1</sub><sub>(entity)</sub>''  is the dawn of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
+'''cermurse''' — ''x<sub>1</sub><sub>(entity)</sub>''  happens at the dawn of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo cermurse''' — dawn. 
 :'''mi ba klama lo boske ca lo cermurse be lo bavlamdei''' — ''I will go to forest tomorrow at dawn.''
 :Related words: '''cerni''', '''kandi''', '''vanci'''"
 cerni,"
-'''cerni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a morning of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
+'''cerni''' — ''x<sub>1</sub><sub>(entity)</sub>''  happens in the morning of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo cerni''' — morning. 
 :'''cerni coi''' — ''Good morning!''
 :'''ti cerni lo cnino djedi''' — ''It is the morning of a new day.''
@@ -1593,7 +1594,7 @@ ctile,"
 :'''ti minji lo nu cokcu lo ctile''' — ''This is a machine for pumping out oil.''
 :Related words: '''grasu'''"
 ctino,"
-'''ctino''' — ''x<sub>1</sub><sub>(entity)</sub>''  as a shadow of  ''x<sub>2</sub><sub>(entity)</sub>''  made by light source  ''x<sub>3</sub><sub>(entity)</sub>'' 
+'''ctino''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a shadow of  ''x<sub>2</sub><sub>(entity)</sub>''  made by light source  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo ctino''' — shadow. 
 :'''mi pu terpa tu'a lo ctino be lo tricu bei lo lunra''' — ''I was afraid of shadows of trees in moonlight.''
 :Related words: '''manku''', '''gusni'''"
@@ -2102,9 +2103,10 @@ djacu,"
 :'''le nakni pu pinxe lo djacu lo pa kabri''' — ''He drank some water from the cup.''
 :Related words: '''lalxu''', '''rirxe''', '''xamsi''', '''limna''', '''litki''', '''lumci''', '''bumru''', '''jinto'''"
 djedi,"
-'''djedi''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  full days long
+'''djedi''' — ''x<sub>1</sub><sub>(clause)</sub>''  happens during  ''x<sub>2</sub><sub>(number)</sub>''  full days
 :'''lo djedi''' — day (full day). '''lo se djedi''' — number of full days. 
 :'''mi volve ba zi lo djedi be li pa no''' — ''I will return in 10 days.''
+:Comment: if x<sub>2</sub> is not used denotes one full day in duration
 :Related words: '''donri''', '''detri''', '''jeftu''', '''masti''', '''nanca''', '''nicte''', '''tcika'''"
 djica,"
 '''djica''' — ''x<sub>1</sub><sub>(entity)</sub>''  desires or wants  ''x<sub>2</sub><sub>(clause, property of x1)</sub>''  for purpose  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
@@ -2151,7 +2153,7 @@ doi,"
 '''doi''' <small>[vocative]</small> — general vocative, identifies intended listener.
 :'''doi nobli do co'u morji fi lo do ckiku''' — ''Oh, sir! You forgot your keys.''"
 donri,"
-'''donri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is daytime of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
+'''donri''' — ''x<sub>1</sub><sub>(entity)</sub>''  happens during daytime of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo donri''' — day (daylight time), daytime. 
 :'''ca lo donri be lo prulamdei ra pu stali lo zdani''' — ''Yesterday in the daytime, he stayed at home.''
 :Related words: '''nicte''', '''djedi''', '''tcika'''"
@@ -3430,6 +3432,7 @@ jeftu,"
 '''jeftu''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  weeks long
 :'''lo jeftu''' — week-long event. 
 :'''mi'o ba volve ti za lo jeftu be li re''' — ''We'll return here in two weeks.''
+:Comment: if x<sub>2</sub> is not used denotes one week in duration
 :Related words: '''detri''', '''djedi''', '''masti''', '''nanca'''"
 jegvo,"
 '''jegvo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is Abrahamic (Judaic, or Christian, or Moslem) in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -5062,6 +5065,7 @@ masti,"
 '''masti''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  months long
 :'''lo masti''' — month-long event. 
 :'''lo pu dunra cu masti li ci''' — ''The past winter lasted for 3 months.''
+:Comment: if x<sub>2</sub> is not used denotes one month in duration
 :Related words: '''detri''', '''djedi''', '''jeftu''', '''nanca'''"
 matci,"
 '''matci''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a mat or pad
@@ -5165,6 +5169,7 @@ mentu,"
 '''mentu''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  minutes long
 :'''lo mentu''' — minute-long event. 
 :'''lo nu penmi cu mentu be li ji'i xa no''' — ''The meeting is approximately 60 minutes long.''
+:Comment: if x<sub>2</sub> is not used denotes one minute in duration
 :Related words: '''junla''', '''cacra''', '''snidu''', '''tcika'''"
 merko,"
 '''merko''' — ''x<sub>1</sub><sub>(entity)</sub>''  is U.S. American in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -5567,6 +5572,7 @@ nanca,"
 :'''lo nanca''' — year-long event. 
 :'''mi nanca li re mu''' — ''I am 25 years old.''
 :'''mi se zdani ti ze'a lo nanca be li vo''' — ''I have been living here for 4 years.''
+:Comment: if x<sub>2</sub> is not used denotes one year in duration
 :Related words: '''detri''', '''djedi''', '''jeftu''', '''masti'''"
 nandu,"
 '''nandu''' — ''x<sub>1</sub><sub>(property of x2)</sub>''  is difficult or challenging for  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -5688,7 +5694,7 @@ nibli,"
 :'''lo ka frili na nibli lo ka xamgu''' — ''Being easy doesn't imply that it is good.''
 :Related words: '''natfe''', '''rinka''', '''mukti''', '''krinu''', '''ni'i''', '''jalge''', '''logji'''"
 nicte,"
-'''nicte''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a nighttime of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
+'''nicte''' — ''x<sub>1</sub><sub>(entity)</sub>''  happens during nighttime of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo nicte''' — night-time. 
 :'''nicte di'ai''' — ''Good night! (a well-wish)''
 :'''ca lo nicte be lo cabdei mi ba zvati le boske''' — ''Tonight I will be in the forest.''
@@ -7607,6 +7613,7 @@ snidu,"
 '''snidu''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  seconds long
 :'''lo snidu''' — second-long event. 
 :'''lo nu mi pu bajra cu snidu li pa mu''' — ''I ran in 15 seconds.''
+:Comment: if x<sub>2</sub> is not used denotes one second in duration
 :Related words: '''cacra''', '''junla''', '''mentu''', '''tcika''', '''centi'''"
 snime,"
 '''snime''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some snow
@@ -8752,7 +8759,7 @@ va'o,"
 '''va'o''' <small>[preposition from '''vanbi''']</small> — ''provided that ...'', ''on condition that ...'', ''under conditions ...'', ''in environment ...''
 :'''mi ba zukte i va'o bo do stali''' — ''I will do it provided that you stay.''"
 vacmurse,"
-'''vacmurse''' — ''x<sub>1</sub><sub>(entity)</sub>''  is the twilight of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
+'''vacmurse''' — ''x<sub>1</sub><sub>(entity)</sub>''  happens at the twilight of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo vacmurse''' — twilight. 
 :'''ca lo vacmurse be lo prulamdei le festi pu tsuku lo mi dinju''' — ''Yesterday at twilight, she arrived at my house.''
 :Related words: '''cerni''', '''kandi''', '''vanci'''"
@@ -8792,7 +8799,7 @@ vanbi,"
 :'''lo vanbi be lo vi jufra cu sinxa lo nu lo cusku pu na junri''' — ''The context of this sentence is a sign that the author wasn't serious.''
 :Related words: '''va'o''', '''sruri''', '''jibni''', '''jbini''', '''ferti''', '''tcini'''"
 vanci,"
-'''vanci''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an evening of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
+'''vanci''' — ''x<sub>1</sub><sub>(entity)</sub>''  happens in the evening of day  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo vanci''' — evening. 
 :'''vanci coi''' — ''Good evening!''
 :'''vanci''' — ''It's evening.''

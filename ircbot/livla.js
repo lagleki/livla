@@ -225,6 +225,7 @@ var updatexmldumps = function (callback) {
 	sutysiskuningau("zamenhofo");
 	sutysiskuningau("laadan");
 	sutysiskuningau("ile");
+	sutysiskuningau("toki");
 	sutysiskuningau("ldp");
 	//labangu();
 	//updategloss();# not yet ready function

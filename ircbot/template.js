@@ -3,7 +3,7 @@
 // the template is taken from template.html file
 
 //config
-var langs = ["en","ru","eo","es","fr-facile","ile","ithkuil","ja","jbo","laadan","ldp","ru","zamenhofo","toki","jb","en-pt-BR","muplis"];
+var langs = ["en","ru","eo","es","fr-facile","ile","ithkuil","ja","jbo","laadan","ldp","ru","zamenhofo","toki","jb","en-pt-BR","muplis","muplis-eng-pol"];
 
 ///script
 var fs = require("fs"),path = require("path-extra");
@@ -25,7 +25,9 @@ langs.forEach(function(thisa){
 	b = b.replace("%ogurl%","https://mw.lojban.org/extensions/ilmentufa/i/"+thisa+"/index.html");
 	b = b.replace("%searchurl%","/extensions/ilmentufa/i/"+thisa+"/sisku.xml");
 	b = b.replace("%searchtitle%",thisa+"-sutysisku");
-	try{m = file.match(/titlelogo *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1].replace(/\\\"/g,"\"");}catch(err){m="<span id='plise' style='display: none;'><a id='st' href=\"../\"><img src=\"../sutysisku.png\" height='16' width='16'><span class='site-title'><font color=\"#fff\">la sutysisku</font></span></a></span>";}b = b.replace(/%titlelogo%/g,m);
+	var upper;
+	try{upper = file.match(/upperdir *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1].replace(/\\\"/g,"\"");}catch(err){upper="../";}
+	try{m = file.match(/titlelogo *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1].replace(/\\\"/g,"\"").replace(/%upper%/g,upper);}catch(err){m="<span id='plise' style='display: none;'><a id='st' href=\""+upper+"\"><img src=\"../sutysisku.png\" height='16' width='16'><span class='site-title'><font color=\"#fff\">la sutysisku</font></span></a></span>";}b = b.replace(/%titlelogo%/g,m);
 	try{m=file.match(/mupliskari1 *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1];}catch(err){m="56,136,233";}b = b.replace(/%mupliskari1%/g,m);
 	try{m=file.match(/mupliskari2 *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1];}catch(err){m="34,87,213";}b = b.replace(/%mupliskari2%/g,m);
 	try{m=file.match(/mupliskari3 *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1];}catch(err){m="38,99,224";}b = b.replace(/%mupliskari3%/g,m);

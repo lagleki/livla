@@ -218,7 +218,7 @@
 	box-sizing:border-box;
 	overflow:auto;">
 		<div id='content-panel'>
-			<div id='description' class="term"><p><b>la sutysisku</b> is a fast dictionary for the Esperanto language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br><br>For more resources visit <a href='https://www.facebook.com/groups/tiddlydict' target='_blank'>Facebook TiddlyDict group</a> or e-mail <a href='mailto:gleki.is.my.name@gmail.com' target='_blank'>gleki.is.my.name@gmail.com</a>.</p><p><span id='searchengine'><i><a href='#' title='en-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Adici kiel serĉilo</a></i></span></p></div>
+			<div id='description' class="term"><p><b>la sutysisku</b> is a fast dictionary for the Esperanto language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br><br>For more resources visit <a href='https://www.facebook.com/groups/tiddlydict' target='_blank'>Facebook TiddlyDict group</a> or e-mail <a href='mailto:gleki.is.my.name@gmail.com' target='_blank'>gleki.is.my.name@gmail.com</a>.</p><p><span id='searchengine'><i><a href='#' title='zamenhofo-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/zamenhofo/sisku.xml')">Adici kiel serĉilo</a></i></span></p></div>
 			<div id='output'></div>
 			<div id='loading' class="term">
 				<span class='message'>Loading dictionary ...</span><br>
@@ -253,22 +253,22 @@
 	//$("#progressbar > div").css({ 'height': '10px;' });.wrap("<div class='Your-CSS-Scope-Class'></div>");
 	worker.onmessage = function(ev) {
 		if (!ev.data) {
-		console.error(ev);
-		throw new Error("got bad data from worker: " + JSON.stringify(ev.data))
+			console.error(ev);
+			throw new Error("got bad data from worker: " + JSON.stringify(ev.data))
 		}
 		if (ev.data.kind == 'ready') {
-		engineReady();
+			engineReady();
 		} else if (ev.data.kind == 'searchResults') {
-		if (ev.data.query !== query) {
-		  return;
-		}
-		results = ev.data.results;
-		displayCLL();
-		displayResults();
+			if (ev.data.query !== query) {return;}
+			results = ev.data.results;
+			output.empty();
+			displayCLL();
+			displayResults();
+			displayDescription();
 		} else if (ev.data.kind == 'loading') {
-		$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 50});$("#progressbar").css({ 'height': '10px;'});});
+			$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 50});$("#progressbar").css({ 'height': '10px;'});});
 		} else if (ev.data.kind == 'progress') {
-		$(function() {$( "#progressbar" ).progressbar({value: ev.data.percent * 100});});
+			$(function() {$( "#progressbar" ).progressbar({value: ev.data.percent * 100});});
 		}
 	};
 	function engineReady(arg) {
@@ -418,31 +418,30 @@
 		if (query === prevQuery) {
 		return;
 		}
-		//typehere.val(query);
 		prevQuery = query;
-		updateUrl(query);
+		updateUrl();
 
 		var searchId = ++searchIdCounter;
-		output.empty();
 		limit = 30;
 		resultCount = 0;
 		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
-		displayResults;
-		displayDescription();
+		//displayResults;
+		//displayDescription();
+		//console.log(Date.now());
 	}
 	//setup before functions
-	var typingTimer;               //timer identifier
+	var typingTimer;  //timer identifier
 	var doneTypingInterval = 200;  //time in ms, 5 second for example
 	//typehere.on('change',function(){console.log(typehere.val());doSearch});
 	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
-	function updateUrl(query) {
+	function updateUrl() {
 		var url = '';
 		if (query.length > 0) {
 		url = '#sisku/' + query.replace(/ /g,"_");
 		}
-		if (url == window.location.pathname || url == '') {
+		if (url == window.location.pathname || url == '' || document.referrer === document.location.href) {//todo: if the same url dont push to history, store previous url in var
 		return;
 		}
 		var difference = now() - lastQueried;
@@ -457,13 +456,13 @@
 	}
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
-		query = '';
+		//query = '';
 		if (searchMatch) {
 		query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ").trim();
 		}
 		typehere.val(query);
 		if (ready) {
-		doSearch();
+			doSearch();
 		}
 	}
 	handleUrl();

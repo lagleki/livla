@@ -44,7 +44,7 @@ bangu.js
 //ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css
 //ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 
-#../loading.gif
+../x.gif
 
 #../favicons/apple-touch-icon-114x114.png
 #../favicons/apple-touch-icon-120x120.png

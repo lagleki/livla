@@ -195,7 +195,6 @@
 	  background: #fff url(../x.gif) no-repeat right -18px center;
 	  border: 1px solid #999;
 	  padding: 3px 26px 3px 4px;     /* Use the same right padding (18) in jQ! */
-	  border-radius: 3px;
 	  transition: background 0.4s;
 	}
 	.clearable.x  { background-position: right 5px center; } /* (jQ) Show icon */
@@ -438,6 +437,7 @@
 	}
 	function doSearch() {
 		query = typehere.val().replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim();
+		if (query ===''){displayDescription();}
 		if (query === prevQuery) {
 		return;
 		}

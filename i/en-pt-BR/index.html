@@ -19,9 +19,6 @@
 	.container .credit {
 		margin: 20px 0;
 	}
-	#typehere{height:auto;
-		font-size:140%;
-	}
 
 	body {
 		font-family: Tahoma, Lato, sans-serif;font-size:90%;overflow:hidden;
@@ -191,7 +188,10 @@
 		height:48px;
 		background-color:black;
 	}
+	#output{padding-bottom:20%;}
 	.clearable{
+		height:auto;
+		font-size:140%;
 	  background: #fff url(../x.gif) no-repeat right -18px center;
 	  border: 1px solid #999;
 	  padding: 3px 26px 3px 4px;     /* Use the same right padding (18) in jQ! */
@@ -228,11 +228,11 @@
 	overflow:auto;">
 		<div id='content-panel'>
 			<div id='description' class="term"><p><b>la sutysisku</b> is a fast English - Brazilian Portuguese dictionary.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p><p><span id='searchengine'><i><a href='#' title='en-pt-BR-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/en-pt-BR/sisku.xml')">Add as a search engine</a></i></span></p></div>
-			<div id='output'></div>
 			<div id='loading' class="term">
 				<span class='message'>Loading dictionary ...</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
+			<div id='output'></div>
 		</div>
 	</div>
 <script>
@@ -266,7 +266,7 @@
 	}
 	var ready = false;
 	$(document).ready(function () {
-		if ($(window).width() >= 500) {$('#plise').css( "display", "block !important").show();}else{$("#typehere").css({ 'width':'90%','margin-right': '0.5em'});}
+		if ($(window).width() >= 500) {$('#plise').css( "display", "block !important").show();}else{$("#typehere").css();}
 		if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 		doSearch();
 	});

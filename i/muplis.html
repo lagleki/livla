@@ -14,14 +14,48 @@
 	<meta property="fb:app_id" content="191051864394489"/>
 	<meta property="og:description" content="La Muplis and La Sutysisku for different languages"/>
 	<link rel="shortcut icon" href="sutysisku.png" />
-    <link href="lib/Metro-UI-CSS/build/css/metro.css" rel="stylesheet">
-    <script src="../jquery-1.9.1.min.js"></script>
-    <script src="lib/Metro-UI-CSS/build/js/metro.js"></script>
-    <meta name="google-site-verification" content="PLrgMIQTHAFBmdub2mDKoLAsIUDhjmibAyTb1C7ldLQ" />
+	<link href="lib/Metro-UI-CSS/build/css/metro.css" rel="stylesheet">
+	<script src="../jquery-1.9.1.min.js"></script>
+	<script src="lib/Metro-UI-CSS/build/js/metro.js"></script>
+	<meta name="google-site-verification" content="PLrgMIQTHAFBmdub2mDKoLAsIUDhjmibAyTb1C7ldLQ" />
+	<style>
+	.container {
+		margin:0px 0;
+		width:100%;
+		min-width:300px;
+		background:#eee;
+	}
+	
+	.fluid-width {
+		display: inline-block;
+		overflow: hidden;
+		min-width: 200px;
+	}
+	h1 {
+		float: left;
+		margin: 0;
+		padding: 0;
+		display: block;
+		white-space: nowrap;
+		max-width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 7vw;
+	}
+	</style>
 </head>
 <body style="overflow:hidden;">
-<h1 style="margin-left:10px;">La Muplis and La Sutysisku for different languages</h1>
-<div class="tile-container ribbed-grayDarker" style='margin: 0;height: 100vh;height:100%;overflow-y:auto;'>
+<div class="container">
+	<div class="fluid-width">
+		<h1 style="margin-left:10px;">La Muplis and La Sutysisku</h1>
+	</div>
+</div>
+<div class="container">
+	<div class="fluid-width">
+		<h2 style="font-size: 1em; margin-left:20px;">for different languages</h2>
+	</div>
+</div>
+<div class="tile-container ribbed-grayDarker" style='padding-bottom:20%;margin: 0;height: 90vh;height:90%;overflow-y:auto;'>
 	<div class="tile-wide bg-transparent fg-white text-shadow" data-role="tile"><div class="tile-content"><span class="tile-badge bg-darker">English - polski</span><div class="image-container image-format-square" style="width: 100%;"><div class="frame"><a href='muplis-eng-pol/index.html'><div style="width: 100%; height: 150px; border-radius: 0px; background-image: url(muplis-eng-pol.png); background-color: #2371e2; background-size: initial; background-repeat: no-repeat;"></div></a></div></div></div></div>
 	<div class="tile bg-transparent fg-white text-shadow" data-role="tile"><div class="tile-content"><span class="tile-badge bg-darker">Esperanto - English</span><div class="image-container image-format-square" style="width: 100%;"><div class="frame"><a href='zamenhofo/index.html'><div style="width: 100%; height: 150px; border-radius: 0px; background-image: url(https://mw.lojban.org/images/2/20/lanci_epo.svg); background-size: cover; background-repeat: no-repeat;"></div></a></div></div></div></div>
 	<div class="tile bg-transparent fg-white text-shadow" data-role="tile"><div class="tile-content"><span class="tile-badge bg-darker">toki pona - English</span><div class="image-container image-format-square" style="width: 100%;"><div class="frame"><a href='toki/index.html'><div style="width: 100%; height: 150px; border-radius: 0px; background-image: url(Toki_pona.svg); background-size: cover; background-repeat: no-repeat;"></div></a></div></div></div></div>
@@ -31,9 +65,9 @@
 <script>
 	var split = location.href.split('#')[1];if(split===null||typeof split==='undefined'){split='';}
 	$(function(){
-	    $('a').each(function() {
-	        $(this).attr('href', this.href.split('#')[0]+'#'+split);
-	    });
+		$('a').each(function() {
+		    $(this).attr('href', this.href.split('#')[0]+'#'+split);
+		});
 	});
 
 </script>

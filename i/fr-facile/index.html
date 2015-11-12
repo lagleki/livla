@@ -19,9 +19,6 @@
 	.container .credit {
 		margin: 20px 0;
 	}
-	#typehere{height:auto;
-		font-size:140%;
-	}
 
 	body {
 		font-family: Tahoma, Lato, sans-serif;font-size:90%;overflow:hidden;
@@ -191,7 +188,10 @@
 		height:48px;
 		background-color:black;
 	}
+	#output{padding-bottom:20%;}
 	.clearable{
+		height:auto;
+		font-size:140%;
 	  background: #fff url(../x.gif) no-repeat right -18px center;
 	  border: 1px solid #999;
 	  padding: 3px 26px 3px 4px;     /* Use the same right padding (18) in jQ! */
@@ -228,11 +228,11 @@
 	overflow:auto;">
 		<div id='content-panel'>
 			<div id='description' class="term"><p><b>la sutysisku</b> est un dictionnaire rapide pour le lojban.<p>- Est-ce que je peux l'utiliser lorsque je suis déconnecté d'Internet ?<br>- Oui, si cela arrive essayez d'ouvrir cette adresse avec votre navigateur. Elle devrait s'ouvrir même hors-connexion. Une version récente de Chrome, Safari ou Firefox est nécéssaire.<br><br>Pour plus d'informations, visitez <a href='https://mw.lojban.org' target='_blank'>le Wiki du Lojban</a>.</p><p><span id='searchengine'><i><a href='#' title='fr-facile-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/fr-facile/sisku.xml')">Ajouter en tant que moteur de recherche</a></i></span></p></div>
-			<div id='output'></div>
 			<div id='loading' class="term">
 				<span class='message'>Nous chargeons le dictionnaire ...</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
+			<div id='output'></div>
 		</div>
 	</div>
 <script>
@@ -266,7 +266,7 @@
 	}
 	var ready = false;
 	$(document).ready(function () {
-		if ($(window).width() >= 500) {$('#plise').css( "display", "block !important").show();}else{$("#typehere").css({ 'width':'90%','margin-right': '0.5em'});}
+		if ($(window).width() >= 500) {$('#plise').css( "display", "block !important").show();}else{$("#typehere").css();}
 		if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 		doSearch();
 	});

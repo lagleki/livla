@@ -3496,7 +3496,7 @@ jgalu,"
 jganu,"
 '''jganu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an angle from vertex  ''x<sub>2</sub><sub>(entity)</sub>''  subtended by lateral  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo jganu''' — angle. '''lo se jganu''' — vertex of an angle. '''lo te jganu''' — lateral of an angle. 
-:'''ti jganu lo stero be li re lo mitre be li pi mu''' — ''This angle subtends two steradians and has the lateral of 0.5 meters.''
+:'''ti jganu me'o a bu lo mitre be li pi mu gi'e stero be li re''' — ''This is an angle from vertex A having the lateral of 0.5 meters and subtending two steradians.''
 :Related words: '''kojna''', '''linji''', '''konju''', '''mokca'''"
 jgari,"
 '''jgari''' — ''x<sub>1</sub><sub>(entity)</sub>''  holds, clutches  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -6558,7 +6558,7 @@ ractu,"
 :Related words: '''mabru''', '''kerlo'''"
 radno,"
 '''radno''' — ''x<sub>1</sub><sub>(entity)</sub>''  is  ''x<sub>2</sub><sub>(number: by default 1)</sub>''  radians
-:'''ti jganu lo radno be li pa lo mitre be li pi mu''' — ''This angle subtends one radian and has the lateral of 0.5 meters.''
+:'''ti noi jganu cu radno li pa''' — ''This angle subtends one radian.''
 :Related words: '''jganu''', '''centi'''"
 rafsi,"
 '''rafsi''' — ''x<sub>1</sub><sub>(text)</sub>''  is an affix for word  ''x<sub>2</sub><sub>(text)</sub>'' 
@@ -7010,9 +7010,9 @@ salci,"
 :'''mi pu salci lo nu mi nanca be li pa no vau lo ka litru la nipon''' — ''I celebrated my 10th birthday by travelling to Japan.''
 :Related words: '''sinma''', '''jbena'''"
 salpo,"
-'''salpo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is sloped with angle  ''x<sub>2</sub><sub>(entity)</sub>''  to horizon  ''x<sub>3</sub><sub>(entity)</sub>'' 
+'''salpo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is sloped with angle  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo salpo''' — sloped. 
-:'''ti salpo lo radno be li pa lo pinta''' — ''This slope is one radian in angle towards the horizontal surface.''
+:'''ti salpo lo jganu be fi lo pinta''' — ''This is a slope towards the horizontal surface.''
 :Related words: '''kurfa''', '''tutci'''"
 salta,"
 '''salta''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a salad with ingredients  ''x<sub>2</sub><sub>(entity)</sub>'' 

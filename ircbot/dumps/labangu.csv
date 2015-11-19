@@ -1047,7 +1047,7 @@ cidro,"
 cifnu,"
 '''cifnu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a baby, young living being of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo cifnu''' — baby, young living being, infant. 
-:'''xu lo cifnu xa'o jimpe lo lojbo se cusku''' — ''Does the infant understand Lojban yet?''
+:'''xu lo cifnu xa'o jimpe lo lojbo se smusku''' — ''Does the infant understand Lojban yet?''
 :Related words: '''makcu''', '''verba''', '''citno''', '''panzi'''"
 cigla,"
 '''cigla''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a gland secreting  ''x<sub>2</sub><sub>(entity)</sub>''  in body  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -1761,7 +1761,7 @@ dakli,"
 damba,"
 '''damba''' — ''x<sub>1</sub><sub>(entity)</sub>''  fights or struggles with  ''x<sub>2</sub><sub>(entity)</sub>''  over issue  ''x<sub>3</sub><sub>(clause)</sub>'' 
 :'''lo damba''' — fighter. 
-:'''mi pu damba lo mi mensi lo du'u ma kau klama ka'ai loi rirni''' — ''I fought with my sister of who will go with parents.''
+:'''mi pu damba lo mi mensi lo du'u ma kau klama ka'ai loi rirni''' — ''I fought with my sister of who would go with parents.''
 :Comment: war ('''lo''' '''nu''' '''jamna''') usually consists of battles ('''lo''' '''nu''' '''damba''').
 :Related words: '''bradi''', '''gunta''', '''talsa''', '''darlu''', '''fapro''', '''jamna''', '''sonci'''"
 damri,"
@@ -2260,7 +2260,7 @@ e'a,"
 :'''e'a nai crepu lo flora''' — ''You may not pick the flowers.''
 :Related words: '''permite'''"
 e'e,"
-'''e'e''' <small>[interjection]</small> — ''Come on!'' (instigation, provokation), '''e'e''' '''nai''' — discouragement, demoralization
+'''e'e''' <small>[interjection]</small> — ''Come on!'' (encouragement, instigation, provokation), '''e'e''' '''nai''' — discouragement, demoralization
 :'''e'e klama lo zdani''' — ''Let's go home.''
 :'''do e'e co'u denpa''' — ''C'mon, what are you waiting for?''
 :'''e'e do jarco lo ka vlipa''' — ''Show your strength, go for it!''
@@ -2781,7 +2781,7 @@ ganlo,"
 ganra,"
 '''ganra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is broad or wide in length/width etc.  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo ganra''' — broad, wide. 
-:'''le tricu cu rotsu lo ka se midju''' — ''The tree is thick in the middle.''
+:'''le tricu cu ganra lo ka se midju''' — ''The tree is thick in the middle.''
 :Comment: the second largest dimension. '''ganra''', '''rotsu''' and '''clani''' specify the three dimensions of objects.
 :Related words: '''clani''', '''jarki''', '''rotsu''', '''condi''', '''barda''', '''gutci''', '''minli'''"
 ganse,"
@@ -5690,7 +5690,7 @@ ni'u,"
 :'''li ni'u ci du li re vu'u mu''' — '' '-3 = 2 - 5'.''"
 nibli,"
 '''nibli''' — ''x<sub>1</sub><sub>(proposition)</sub>''  implies  ''x<sub>2</sub><sub>(proposition)</sub>'' 
-:'''lo ka djica da cu nibli lo ka claxu da''' — ''Wanting something implies lacking it.''
+:'''da zo'u lo ka djica da cu nibli lo ka claxu da''' — ''Wanting something implies lacking it.''
 :'''lo ka frili na nibli lo ka xamgu''' — ''Being easy doesn't imply that it is good.''
 :Related words: '''natfe''', '''rinka''', '''mukti''', '''krinu''', '''ni'i''', '''jalge''', '''logji'''"
 nicte,"
@@ -5766,6 +5766,7 @@ noi,"
 '''noi''' — turn clause into incidental relative clause
 :'''mi nelci la jasmin noi mi ta'e zgana bu'u lo panka''' — ''I like Jasmine, whom I habitually see in the park.''
 :'''mi nelci la jasmin''' — ''I like Jasmine.''
+:'''mi tavla do noi mi prami ke'a''' — ''I'm talking to you whom I love.''
 :Comment: ''who'', ''which''. Starts relative clause that only adds additional information."
 nolraitru,"
 '''nolraitru''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a monarch (king or queen) of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -7151,6 +7152,11 @@ se ka'a,"
 '''se ka'a''' <small>[preposition from '''se''' '''klama''']</small> — ''going to ...''
 :'''mi pu cadzu se ka'a le rirxe''' — ''I walked to the river.''
 :Comment: in the clause where '''seka'a''' is used x<sub>1</sub> is the one who goes."
+se la'u,"
+'''se la'u''' <small>[preposition]</small> — ''to the degree of ... (number follows)''
+:'''le prenu cu clani se la'u li so'i''' — ''The person is very tall.''
+:'''se la'u li so'i le dinju cu banli''' — ''To a large degree the building is great.''
+:Comment: shows the degree in which the verb is true."
 se mau,"
 '''se mau''' <small>[preposition from '''se''' '''zmadu''']</small> — ''more than ...''
 :'''nelci do fa mi ne se mau la alis''' — ''I like you more than Alice likes you.''
@@ -9576,9 +9582,10 @@ zi'evla,"
 :Comment: '''zi'evla''' is a type of Lojban verb defined by the form of the word.
 :Related words: '''selbrivla''', '''gismu''', '''lujvo''', '''cmavo'''"
 zi'o,"
-'''zi'o''' <small>[pronoun]</small> — marks the place as deleted from the place structure thus forming a new verb
+'''zi'o''' <small>[pronoun]</small> — marks the place as deleted from the place structure, not applicable thus forming a new verb
 :'''zi'o traduki zo coi zoi gy.hello!.gy.''' — '''''coi''' is translated as &quot;Hello!&quot;''
-:'''loi jmive cu se zbasu zi'o lo selci''' — ''Living beings are made from cells.''"
+:'''loi jmive cu se zbasu zi'o lo selci''' — ''Living beings are made from cells.''
+:Comment: a place marked with '''zi'o''' becomes irrelevant."
 zifre,"
 '''zifre''' — ''x<sub>1</sub><sub>(entity)</sub>''  is at liberty or free to do or be  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo zifre''' — free to ... (at liberty). 

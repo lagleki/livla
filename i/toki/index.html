@@ -191,8 +191,6 @@
 	#output{padding-bottom:20%;}
 	.clearable{
 		height:auto;
-		margin-left:4px;
-		margin-right:4px;
 		font-size:140%;
 		background: #fff url(../x.gif) no-repeat right -18px center;
 		border: 1px solid #999;
@@ -269,7 +267,12 @@
 	}
 	var ready = false;
 	$(document).ready(function () {
-		if ($(window).width() >= 500) {$('#plise').css( "display", "block !important").show();$('#mipri').css( "display", "block !important").show();}else{$("#typehere").css("width",$(window).width()-40);}
+		if ($(window).width() >= 500) {
+			$('#plise').css( "display", "block !important").show();
+			$('#mipri').css( "display", "block !important").show();
+		}else{
+			$("#typehere").css({"width":$(window).width()-40,'margin-left':'4px','margin-right':'4px'});
+		}
 		if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 		doSearch();
 	});

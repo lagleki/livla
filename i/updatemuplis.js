@@ -6,7 +6,8 @@ var ningau_la_muplis_=0;
 var ningau_la_muplis_poholska_=0;
 var selectinto_=0;
 generateorphanenglishsentences_=0;
-gettagsstats_ = 1;
+generateorphanfrenchsentences_=1;
+gettagsstats_ = 0;
 
 var goahead = function (){
 	if (download===1){download_sentences();}
@@ -15,6 +16,7 @@ var goahead = function (){
 	if (ningau_la_muplis_poholska_===1){ningau_la_muplis_poholska();}
 	if (selectinto_===1){selectinto();}
 	if (generateorphanenglishsentences_===1){generateorphanenglishsentences();}
+	if (generateorphanfrenchsentences_===1){generateorphanfrenchsentences();}
 	if (gettagsstats_===1){gettagsstats();}
 };
 
@@ -95,8 +97,6 @@ var generateorphanenglishsentences = function(){
 	var wstream = fs.createWriteStream(path.join(__dirname,"data","workontagstatoeba.js.temp"));
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
-		db.run("DROP TABLE IF EXISTS 'merga'");
-		//db.run("CREATE TABLE merga (ts TEXT, tts TEXT)");
 		db.each("SELECT tat.idsentence as one,tat.sentence as two,group_concat(distinct tati.sentence) as three FROM tatoeba as tat left left join audio as a on (a.ids=tat.idsentence) join links on links.fir=tat.idsentence left join tatoeba as tati on (links.sec=tati.idsentence and tati.lang='jbo') left join tags as tag on tag.ids=tat.idsentence where (tat.lang='eng' and a.ids is not null) group by one order by one asc limit 1000000", function(err, row) {
 			if (row.three===null){
 				wstream.write(row.one + "\t"+row.two+ "\t"+row.three + "\n");
@@ -107,6 +107,27 @@ var generateorphanenglishsentences = function(){
 	db.close(function(){
 		wstream.end();
 		fs.renameSync(path.join(__dirname,"data","workontagstatoeba.js.temp"), path.join(__dirname,"data","orphan-english.csv"));
+	});
+};
+
+var generateorphanfrenchsentences = function(){
+	var LineByLineReader = require('line-by-line');
+	var sqlite3 = require('sqlite3').verbose();
+	var db = new sqlite3.Database(path.join(__dirname,"../ircbot/dumps","1.sql"));
+	var wstream = fs.createWriteStream(path.join(__dirname,"data","workontagstatoeba.js.temp"));
+	db.serialize(function() {
+		db.run("BEGIN TRANSACTION");
+		db.each("SELECT tat.idsentence as one,tat.sentence as two,group_concat(distinct tati.sentence) as three, tag.tag as four FROM tatoeba as tat left left join audio as a on (a.ids=tat.idsentence) join links on links.fir=tat.idsentence left join tatoeba as tati on (links.sec=tati.idsentence and tati.lang='jbo') left join tags as tag on tag.ids=tat.idsentence where (tat.lang='fra' and tag.tag='OK') group by one order by one asc limit 1000000", function(err, row) {
+			//tat.lang='fra' and a.ids is not null 
+			if (row.three===null && row.four ==='OK'){
+				wstream.write(row.one + "\t"+row.two+"\n");
+			}
+		});
+		db.run("COMMIT");
+	});
+	db.close(function(){
+		wstream.end();
+		fs.renameSync(path.join(__dirname,"data","workontagstatoeba.js.temp"), path.join(__dirname,"data","orphan-francais.csv"));
 	});
 };
 

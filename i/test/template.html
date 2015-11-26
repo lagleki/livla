@@ -229,6 +229,7 @@
 	overflow:auto;">
 		<div id='content-panel'>
 			<div id='description' class="term">%bangudesc%</div>
+			<div id='purci' style="display:none;" class="term"></div>
 			<div id='loading' class="term">
 				<span class='message'>%bangulo%</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
@@ -245,6 +246,25 @@
 	var worker = new Worker('worker.js');
 	var resultCount;
 	var results = [];
+	//lo diklo sorcu xau lo uenzi poi pu se mitysisku
+	var purc = JSON.parse(localStorage.getItem('purci'));
+	if(purc===null){
+		purc = [];
+		//purc.push(JSON.parse(localStorage.getItem('purci')));
+		//localStorage.setItem('purci', JSON.stringify(a));
+	}
+	function SaveDataToLocalStorage(data)
+	{
+	    // Parse the serialized data back into an aray of objects
+	    var a = JSON.parse(localStorage.getItem('purci'))||[];
+	    // Push the new data (whether it be an object or anything else) onto the array
+	    a.unshift(data);
+	    if (a.length>10) {a.length=10;}
+	    // Alert the array value
+	    console.log(a);  // Should be something like [Object array]
+	    // Re-serialize the array back into a string and store it in localStorage
+	    localStorage.setItem('purci', JSON.stringify(a));
+	}
 	// CLEARABLE INPUT
 	function tog(v){return v?'addClass':'removeClass';} 
 	$(document).on('input', '.clearable', function(){
@@ -326,7 +346,7 @@
 	function lojTemplate(s) {
 	  s = s.replace(/\$.*?\$/g, function(c) {
 	    c = c.substring(1, c.length-1);
-	    return c.replace(/(\w)_\{?(\d+)\}?/g, "<i>$1<sub>$2</sub></i>")
+	    return c.replace(/(\w+)_\{?(\d+)\}?/g, "<i>$1<sub>$2</sub></i>")
 	  });
 	  s = s.replace(/\{(.*?)\}/g, function(c) {
 	    var c = c.substring(1, c.length-1);
@@ -433,9 +453,16 @@
 		if (query == '') {
 		output.hide();
 		description.show();
+		$('#purci').css('display','block');
+		var arrpurc = JSON.parse(localStorage.getItem('purci'))
+		arrpurc.forEach(function(part, index, ar) {
+			ar[index] = '<a href="#sisku/' + ar[index] + '">' + ar[index] + "</a>";
+		});
+		$('#purci').html((window.purci||"Last searched: ") + arrpurc.join(", "));
 		} else {
-		output.show();
-		description.hide();
+			output.show();
+			description.hide();
+			$('#purci').css('display','none');
 		}
 	}
 	function doSearch() {
@@ -476,6 +503,7 @@
 		lastQueried = now();
 		var split = location.href.split('#')[1];if(split===null){split='';}
 		$("#st").attr("href",$("#st").attr("href").split('#', 1)[0] + "#" + split);
+		SaveDataToLocalStorage(query);
 	}
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);

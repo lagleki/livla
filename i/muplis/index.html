@@ -229,6 +229,7 @@
 	overflow:auto;">
 		<div id='content-panel'>
 			<div id='description' class="term"><p><b>la .muplis.</b> cu sutra tutci lo nu mitysisku lo mupli pe ju'oi <a href='http://tatoeba.org/jbo' target='_blank'>Tatoeba.org</a></p><p>- .i xu mi kakne lo ka pilno la .muplis. vau va'o lo nu na ka'e kibro pilno<br>- .i ja'a go'i .i va'o lo nu kibro kakne na ku cu .e'u troci lo ka gau do lo brauzero cu cpacu lo se judri be lo me dei moi<br> .i la'a sai lo mutpapri cu tolcanci to'e ri'a nai .i lo cnino klesi be la xromium ja la'oi Safari ja la'oi Firefox cu jai sarcu lo nu pilno la .muplis.<br>.i lo tcita pe di'e ka'e sidju do lo ka jimpe fi lo ni zabna fa lo jufra<br>.i la'e zoi <img src='plise.png' height='16' width='16' title='lo staile poi sampu'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu sampu<br>.i la'e zoi <img src='pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'> zoi tcita lo jufra poi lo staile be tu'a ke'a na mutce cinri<br>.i la'e zoi <img src='crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'> zoi tcita lo jufra poi ka&#39;e xamgu lo di&#39;i fanva<br>.i la'e zoi <img src='blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'> zoi tcita lo jufra poi lo staile be tu'a ke'a ka'e pluja<br>.i la'e zoi <img src='cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu na&#39;e catni<br><br>.i lo nu djica co zenba co cilre tu'a la .muplis. cu .e'u banzu lo nu vitke <a href='https://mw.lojban.org' target='_blank'>lo lojbo uitki</a>.</p><span id='searchengine'><i><a href='#' title='jbo-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/muplis/sisku.xml')">jmina zo'e ne tai lo sisku matra</a></i></span></div>
+			<div id='purci' style="display:none;" class="term"></div>
 			<div id='loading' class="term">
 				<span class='message'>ca'o cpacu lo vlaste</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
@@ -245,6 +246,25 @@
 	var worker = new Worker('worker.js');
 	var resultCount;
 	var results = [];
+	//lo diklo sorcu xau lo uenzi poi pu se mitysisku
+	var purc = JSON.parse(localStorage.getItem('purci'));
+	if(purc===null){
+		purc = [];
+		//purc.push(JSON.parse(localStorage.getItem('purci')));
+		//localStorage.setItem('purci', JSON.stringify(a));
+	}
+	function SaveDataToLocalStorage(data)
+	{
+	    // Parse the serialized data back into an aray of objects
+	    var a = JSON.parse(localStorage.getItem('purci'))||[];
+	    // Push the new data (whether it be an object or anything else) onto the array
+	    a.unshift(data);
+	    if (a.length>10) {a.length=10;}
+	    // Alert the array value
+	    console.log(a);  // Should be something like [Object array]
+	    // Re-serialize the array back into a string and store it in localStorage
+	    localStorage.setItem('purci', JSON.stringify(a));
+	}
 	// CLEARABLE INPUT
 	function tog(v){return v?'addClass':'removeClass';} 
 	$(document).on('input', '.clearable', function(){
@@ -326,7 +346,7 @@
 	function lojTemplate(s) {
 	  s = s.replace(/\$.*?\$/g, function(c) {
 	    c = c.substring(1, c.length-1);
-	    return c.replace(/(\w)_\{?(\d+)\}?/g, "<i>$1<sub>$2</sub></i>")
+	    return c.replace(/(\w+)_\{?(\d+)\}?/g, "<i>$1<sub>$2</sub></i>")
 	  });
 	  s = s.replace(/\{(.*?)\}/g, function(c) {
 	    var c = c.substring(1, c.length-1);
@@ -433,9 +453,16 @@
 		if (query == '') {
 		output.hide();
 		description.show();
+		$('#purci').css('display','block');
+		var arrpurc = JSON.parse(localStorage.getItem('purci'))
+		arrpurc.forEach(function(part, index, ar) {
+			ar[index] = '<a href="#sisku/' + ar[index] + '">' + ar[index] + "</a>";
+		});
+		$('#purci').html((window.purci||"Last searched: ") + arrpurc.join(", "));
 		} else {
-		output.show();
-		description.hide();
+			output.show();
+			description.hide();
+			$('#purci').css('display','none');
 		}
 	}
 	function doSearch() {
@@ -476,6 +503,7 @@
 		lastQueried = now();
 		var split = location.href.split('#')[1];if(split===null){split='';}
 		$("#st").attr("href",$("#st").attr("href").split('#', 1)[0] + "#" + split);
+		SaveDataToLocalStorage(query);
 	}
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);

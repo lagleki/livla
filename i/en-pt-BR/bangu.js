@@ -8,3 +8,4 @@ siskudescr="Search the English - Brazilian Portuguese dictionary la sutysisku.";
 opdescr = "A dictionary for English, Brazilian Portugese, Lojban and other languages that can work offline.";
 window.bangu = 'english';
 window.xuzganalojudri = false;
+window.purci = "Last searched: ";

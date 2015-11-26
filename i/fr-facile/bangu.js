@@ -7,3 +7,4 @@ window.bangudecomp = 'decomposing ...';
 window.bangu = 'french';
 siskudescr="Search the Lojban dictionary la jbovlaste.";
 opdescr = "A dictionary for Lojban, English and other languages that can work offline.";
+window.purci = "Vu la dernière fois ";

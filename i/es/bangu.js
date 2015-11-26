@@ -9,3 +9,4 @@ opdescr = "Un diccionario de offline para Lojban, inglés y otros idiomas.";
 window.bangu = 'español';
 window.xuzganalojudri = true;
 window.judri = "http://jbovlaste.lojban.org/dict/";
+window.purci = "Visto por última vez";

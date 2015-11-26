@@ -136,7 +136,7 @@
 
 text = expr:(intro_null NAI_clause* text_part_2 (!gek joik_jek)? text_1? faho_clause EOF?) {return _node_nonempty("text", expr);}
 
-intro_null = expr:(spaces? su_clause* intro_si_clause) {return _node_nonempty("intro_null", expr); }
+intro_null = expr:(initial_spaces? su_clause* intro_si_clause) {return _node_nonempty("intro_null", expr); }
 
 text_part_2 = expr:((CMEVLA_clause+ / indicators?) free*) {return _node_nonempty("text_part_2", expr); }
 

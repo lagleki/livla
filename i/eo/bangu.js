@@ -6,3 +6,4 @@ window.bangusisku='serĉi';
 window.bangudecomp = 'fendando ...';
 siskudescr="Search the Lojban dictionary la jbovlaste.";
 opdescr = "A dictionary for Lojban, English and other languages that can work offline.";
+window.purci = "Last searched: ";

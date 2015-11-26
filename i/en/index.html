@@ -247,17 +247,12 @@
 	var resultCount;
 	var results = [];
 	//lo diklo sorcu xau lo uenzi poi pu se mitysisku
-	var purc = JSON.parse(localStorage.getItem('purci'));
-	if(purc===null){
-		purc = [];
-		//purc.push(JSON.parse(localStorage.getItem('purci')));
-		//localStorage.setItem('purci', JSON.stringify(a));
-	}
 	function SaveDataToLocalStorage(data)
 	{
 	    // Parse the serialized data back into an aray of objects
 	    var a = JSON.parse(localStorage.getItem('purci'))||[];
 	    // Push the new data (whether it be an object or anything else) onto the array
+	    if (a[0]===data) return;
 	    a.unshift(data);
 	    if (a.length>10) {a.length=10;}
 	    // Alert the array value

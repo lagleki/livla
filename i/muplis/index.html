@@ -252,7 +252,8 @@
 	    // Parse the serialized data back into an aray of objects
 	    var a = JSON.parse(localStorage.getItem('purci'))||[];
 	    // Push the new data (whether it be an object or anything else) onto the array
-	    if (a[0]===data) return;
+	    var index = a.indexOf(data);
+	    if (index>=0){a.splice(index,1);}
 	    a.unshift(data);
 	    if (a.length>10) {a.length=10;}
 	    // Alert the array value

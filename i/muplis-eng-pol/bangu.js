@@ -18,3 +18,4 @@ grad_pos2 = "50%";
 grad_pos3 = "51%";
 grad_pos4 = "100%";
 upperdir = "../muplis.html";
+window.purci = "Last searched: ";

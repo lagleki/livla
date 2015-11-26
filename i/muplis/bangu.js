@@ -17,3 +17,4 @@ grad_pos1 = "0%";
 grad_pos2 = "50%";
 grad_pos3 = "51%";
 grad_pos4 = "100%";
+window.purci = "Last searched: ";

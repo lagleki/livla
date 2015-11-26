@@ -3,7 +3,7 @@
 // 
 // All rules have the form:
 // 
-// 	name = peg_expression
+//     name = peg_expression
 // 
 // which means that the grammatical construct "name" is parsed using
 // "peg_expression".  
@@ -40,14 +40,15 @@
 // ___ GRAMMAR ___
 
 {
+  var _g_zoi_delim;
   function _join(arg)
   {
     if (typeof(arg) == "string")
       return arg;
     else
     {
-      ret = "";
-      for (v in arg) { ret += _join(arg[v]); }
+      var ret = "";
+      for (var v in arg) { ret += _join(arg[v]); }
       return ret;
     }
   }
@@ -70,7 +71,7 @@
       return arg;
     var ret = [];
     if (label != undefined) ret.push( label );
-    for (v in arg)
+    for (var v in arg)
     {
       if (arg[v].length != 0)
         ret.push( _node_int( undefined, arg[v] ) );
@@ -92,33 +93,33 @@
   // === ZOI functions === //
 
   function _zoi_assign_delim(word) {
-	var a = word.toString().split(",");
-	if (a.length > 0) _g_zoi_delim = a[a.length - 1];
-	else _g_zoi_delim = "";
-	return word;
+    var a = word.toString().split(",");
+    if (a.length > 0) _g_zoi_delim = a[a.length - 1];
+    else _g_zoi_delim = "";
+    return word;
   }
 
   function _zoi_check_quote(word) {
-	if (typeof(word) == "object") word = word.toString();
+    if (typeof(word) == "object") word = word.toString();
     if (!is_string(word)) {
-	  alert("ZOI word is not a string");
-	  return false;
-	} else {
-      return (word.replace(/,/gm,"") === _g_zoi_delim);
-	}
+      alert("ZOI word is not a string");
+      return false;
+    } else {
+      return (word.toLowerCase().replace(/,/gm,"").replace(/h/g, "'") === _g_zoi_delim);
+    }
   }
   
   function _zoi_check_delim(word) {
-	if (typeof(word) == "object") word = word.toString();
+    if (typeof(word) == "object") word = word.toString();
     if (!is_string(word)) {
-	  alert("ZOI word is not a string");
-	  return false;
-	} else {
-	  word = word.split(",");
-	  if (word.length > 0) word = word[word.length - 1];
-	  else word = "";
+      alert("ZOI word is not a string");
+      return false;
+    } else {
+      word = word.split(",");
+      if (word.length > 0) word = word[word.length - 1];
+      else word = "";
       return (word === _g_zoi_delim);
-	}
+    }
   }
   
   function is_string(v) {
@@ -128,7 +129,7 @@
 
 text = expr:(intro_null NAI_clause* text_part_2 (!text_1 joik_jek)? text_1? faho_clause EOF?) {return _node_nonempty("text", expr);}
 
-intro_null = expr:(spaces? su_clause* intro_si_clause) {return _node_nonempty("intro_null", expr); }
+intro_null = expr:(initial_spaces? su_clause* intro_si_clause) {return _node_nonempty("intro_null", expr); }
 
 //// EXP-MODIF: brivla/cmevla merge
 text_part_2 = expr:(indicators? free*) {return _node_nonempty("text_part_2", expr); }
@@ -140,9 +141,9 @@ faho_clause = expr:((FAhO_clause dot_star)?) {return _node("faho_clause", expr);
 // Please note that the "text_1" item in the text_1 production does
 // *not* match the BNF. This is due to a bug in the BNF.  The change
 // here was made to match grammar.300
-text_1 = expr:(I_clause (jek / joik)? (stag? BO_clause)? free* text_1? / NIhO_clause+ free* su_clause* paragraphs? / paragraphs) {return _node("text_1", expr);}
+text_1 = expr:(I_clause (jek / joik)? (stag? BO_clause)? free* text_1? / NIhO_clause+ free* su_clause* paragraphs? / paragraphs) {return _node_nonempty("text_1", expr);}
 
-paragraphs = expr:(paragraph (NIhO_clause+ free* su_clause* paragraphs)?) {return _node("paragraphs", expr);}
+paragraphs = expr:(paragraph? (NIhO_clause+ free* su_clause* paragraphs)?) {return _node_nonempty("paragraphs", expr);}
 
 paragraph = expr:((statement / fragment) (I_clause !jek !joik !joik_jek free* (statement / fragment)?)*) {return _node("paragraph", expr);}
 
@@ -189,7 +190,7 @@ bridi_tail_start = expr:(ME_clause / NUhA_clause / NU_clause / NA_clause !KU_cla
 bridi_tail_1 = expr:(bridi_tail_2 ((gihek / JA_clause) !(stag? BO_clause) !(stag? KE_clause) free* bridi_tail_2 tail_terms)*) {return _node("bridi_tail_1", expr);}
 
 //// EXP-MODIF: GI TAG BO + JACU
-bridi_tail_2 = expr:(CU_elidible bridi_tail_3 (((gihek / JA_clause) stag? / GI_clause stag) BO_clause free* bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2", expr);}
+bridi_tail_2 = expr:(CU_elidible free* bridi_tail_3 (((gihek / JA_clause) stag? / GI_clause stag) BO_clause free* bridi_tail_2 tail_terms)?) {return _node("bridi_tail_2", expr);}
 
 bridi_tail_3 = expr:((terms CU_elidible)* selbri tail_terms / gek_sentence) {return _node("bridi_tail_3", expr);}
 
@@ -353,7 +354,7 @@ mex_1 = expr:( mex_2 (operator stag? BO_clause free* mex_1)? ) {return _node("me
 
 mex_2 = expr:( number BOI_elidible free* / lerfu_string BOI_elidible free* / VEI_clause free* mex VEhO_elidible free* / NIhE_clause free* selbri TEhU_elidible free* / MOhE_clause sumti TEhU_elidible free* / gek mex gik mex_2 / (LAhE_clause free* / NAhE_clause free* BO_clause? free*) mex LUhU_elidible free* / PEhO_clause free* operator mex+ KUhE_elidible free* / FUhA_clause rp_expression ) {return _node("mex_2", expr); }
 
-rp_expression = expr:( mex (rp_expression operator)* ) {return _node("rp_expression", expr); }
+rp_expression = expr:( mex_1 (rp_expression operator)* ) {return _node("rp_expression", expr); }
 
 //mex_sa = expr:(mex_start (!mex_start (sa_word / SA_clause !mex_start) )* SA_clause &mex) {return _node("mex_sa", expr); }
 
@@ -370,7 +371,7 @@ operator_sa = expr:(operator_start (!operator_start (sa_word / SA_clause !operat
 
 operator_start = expr:(guhek / KE_clause / SE_clause? NAhE_clause / SE_clause? MAhO_clause / SE_clause? VUhU_clause) {return _node("operator_start", expr); }
 
-operator_1 = expr:(operator_2 / guhek operator_1 gik operator_2 / operator_2 (jek / joik) stag? BO_clause free* operator_1) {return _node("operator_1", expr); }
+operator_1 = expr:(guhek operator_1 gik operator_2 / operator_2 (jek / joik) stag? BO_clause free* operator_1 / operator_2) {return _node("operator_1", expr); }
 
 operator_2 = expr:(mex_operator / KE_clause free* operator KEhE_elidible free*) {return _node("operator_2", expr); }
 
@@ -433,9 +434,11 @@ joik_jek = expr:(joik free* / jek free* / VUhU_clause free* ) {return _node("joi
 gek = expr:(gak SE_clause? joik_jek / SE_clause? GA_clause free* / joik GI_clause free* / stag gik) {return _node("gek", expr); }
 
 //// EXP-ADD: GAJA
-gak = expr:(ga_clause free*) {return _node("gak", expr); }
+gak = expr:(ga_clause !gek free*) {return _node("gak", expr); }
 
-guhek = expr:(SE_clause? GUhA_clause free*) {return _node("guhek", expr); }
+guhek = expr:(guk SE_clause? joik_jek / SE_clause? GUhA_clause free*) {return _node("guhek", expr); }
+
+guk = expr:(gu_clause !gek free*) {return _node("guk", expr); }
 
 gik = expr:(GI_clause free*) {return _node("gik", expr); }
 
@@ -477,7 +480,7 @@ bu_clause_no_pre = expr:(pre_zei_bu (bu_tail? zei_tail)* bu_tail post_clause) {r
 zei_tail = expr:(ZEI_clause any_word)+ {return _node("zei_tail", expr); }
 bu_tail = expr:BU_clause+ {return _node("bu_tail", expr); }
 
-pre_zei_bu = expr:(!BU_clause !ZEI_clause !SI_clause !SA_clause !SU_clause !FAhO_clause any_word_SA_handling si_clause?) {return _node("pre_zei_bu", expr); }
+pre_zei_bu = expr:(!ZOI_start !BU_clause !ZEI_clause !SI_clause !SA_clause !SU_clause !FAhO_clause any_word_SA_handling si_clause?) {return _node("pre_zei_bu", expr); }
 // LOhU_pre / ZO_pre / ZOI_pre / !ZEI_clause !BU_clause !FAhO_clause !SI_clause !SA_clause !SU_clause any_word_SA_handling si_clause?
 // pre_zei_bu_no_SA = LOhU_pre / ZO_pre / ZOI_pre / !ZEI_clause !BU_clause !FAhO_clause !SI_clause !SA_clause !SU_clause any_word si_clause?
 
@@ -518,7 +521,7 @@ sa_word = pre_zei_bu
 
 si_word = pre_zei_bu
 
-su_word = !NIhO_clause !LU_clause !TUhE_clause !TO_clause !SU_clause !FAhO_clause any_word_SA_handling
+su_word = !ZOI_start !NIhO_clause !LU_clause !TUhE_clause !TO_clause !SU_clause !FAhO_clause any_word_SA_handling
 
 
 // ___ ELIDIBLE TERMINATORS ___  (EXPERIMENTAL)
@@ -1334,6 +1337,7 @@ ZOI_clause = pre:ZOI_pre post:ZOI_post {return _node2("ZOI_clause", pre, post); 
 //// EXP-EDIT: ZOI fix
 ZOI_pre = pre_clause ZOI spaces? zoi_open spaces? zoi_word* zoi_close spaces?
 ZOI_post = post_clause
+ZOI_start = !ZOI_pre ZOI
 // ZOI_no_SA_handling = pre_clause ZOI spaces? zoi_open zoi_word* zoi_close spaces?
 
 //         prenex terminator (not elidable) 
@@ -1371,6 +1375,11 @@ ga_clause = pre:ga_pre post:ga_post {return _node2("ga_clause", pre, post); }
 ga_pre = pre_clause ga_word spaces?
 ga_post = post_clause
 ga_word = &cmavo expr:( g a ) &post_word {return ["ga_word", _join(expr)];}
+
+gu_clause = pre:gu_pre post:gu_post {return _node2("gu_clause", pre, post); }
+gu_pre = pre_clause gu_word spaces?
+gu_post = post_clause
+gu_word = &cmavo expr:( g u ) &post_word {return ["gu_word", _join(expr)];}
 
 
 // ___ MORPHOLOGY ___
@@ -1433,7 +1442,7 @@ any_word = expr:lojban_word spaces? { return expr; }
 //// EXP-MODIF: ZOI-fix
 zoi_open = w:lojban_word { return _zoi_assign_delim(w); }
 zoi_word = expr:( w:(non_space+) spaces &{ return (! _zoi_check_quote(w)); } ) {return "";}
-zoi_close = w:lojban_word &{ return (_zoi_check_delim(w)); }
+zoi_close = w:any_word &{ return (_zoi_check_delim(w)); }
 
 //// EXP-MODIF: ZOhOI/MEhOI implementation
 zohoi_word = non_space+ {return "~";} 
@@ -1462,31 +1471,27 @@ cmavo_form = expr:(!h !cluster onset (nucleus h)* (!stressed nucleus / nucleus !
 
 //___________________________________________________________________
 
-brivla = expr:(!cmavo initial_rafsi* brivla_core) { return _join(expr); }
+brivla = expr:(!cmavo !slihykru initial_rafsi* brivla_core) { return _join(expr); }
 
 brivla_core = expr:(fuhivla / gismu / CVV_final_rafsi / stressed_initial_rafsi short_final_rafsi) { return _join(expr); }
 
 stressed_initial_rafsi = expr:(stressed_extended_rafsi / stressed_y_rafsi / stressed_y_less_rafsi) { return _join(expr); }
 
-initial_rafsi = expr:(extended_rafsi / y_rafsi / !any_extended_rafsi y_less_rafsi !any_extended_rafsi) { return _join(expr); }
+initial_rafsi = expr:(extended_rafsi / y_rafsi / !any_fuhivla_rafsi y_less_rafsi !any_fuhivla_rafsi) { return _join(expr); }
 
 //___________________________________________________________________
 
-any_extended_rafsi = expr:(fuhivla / extended_rafsi / stressed_extended_rafsi) { return _join(expr); }
+any_fuhivla_rafsi = expr:(fuhivla / fuhivla_rafsi / stressed_fuhivla_rafsi) { return _join(expr); }
 
 fuhivla = expr:(fuhivla_head stressed_syllable consonantal_syllable* final_syllable) { return _join(expr); }
 
-stressed_extended_rafsi = expr:(stressed_brivla_rafsi / stressed_fuhivla_rafsi) { return _join(expr); }
+stressed_extended_rafsi = expr:(stressed_hy_rafsi / stressed_fuhivla_rafsi) { return _join(expr); }
 
-extended_rafsi = expr:(brivla_rafsi / fuhivla_rafsi) { return _join(expr); }
+extended_rafsi = expr:(hy_rafsi / fuhivla_rafsi) { return _join(expr); }
 
-stressed_brivla_rafsi = expr:(&unstressed_syllable brivla_head stressed_syllable h y) { return _join(expr); }
+stressed_fuhivla_rafsi = expr:(fuhivla_head stressed_syllable consonantal_syllable* onset y) { return _join(expr); }
 
-brivla_rafsi = expr:(&(syllable consonantal_syllable* syllable) brivla_head h y h?) { return _join(expr); }
-
-stressed_fuhivla_rafsi = expr:(fuhivla_head stressed_syllable consonantal_syllable* !h onset y) { return _join(expr); }
-
-fuhivla_rafsi = expr:(&unstressed_syllable fuhivla_head !h onset y h?) { return _join(expr); }
+fuhivla_rafsi = expr:(&unstressed_syllable fuhivla_head onset y h?) { return _join(expr); }
 
 fuhivla_head = expr:(!rafsi_string brivla_head) { return _join(expr); }
 
@@ -1495,6 +1500,8 @@ brivla_head = expr:(!cmavo !slinkuhi !h &onset unstressed_syllable*) { return _j
 slinkuhi = expr:(!rafsi_string consonant rafsi_string) { return _join(expr); }
 
 rafsi_string = expr:(y_less_rafsi* (gismu / CVV_final_rafsi / stressed_y_less_rafsi short_final_rafsi / y_rafsi / stressed_y_rafsi / stressed_y_less_rafsi? initial_pair y / hy_rafsi / stressed_hy_rafsi)) { return _join(expr); }
+
+slihykru = (CCV_rafsi / stressed_CCV_rafsi) h y onset
 
 //___________________________________________________________________
 
@@ -1520,7 +1527,7 @@ y_rafsi = expr:((long_rafsi / CVC_rafsi) y h?) { return _join(expr); }
 
 y_less_rafsi = expr:(!y_rafsi !stressed_y_rafsi !hy_rafsi !stressed_hy_rafsi (CVC_rafsi / CCV_rafsi / CVV_rafsi) !h) { return _join(expr); }
 
-hy_rafsi = expr:((long_rafsi vowel / CCV_rafsi / CVV_rafsi) h y h?)
+hy_rafsi = expr:((long_rafsi unstressed_vowel / CCV_rafsi / CVV_rafsi) h y h?)
 
 stressed_hy_rafsi = expr:((long_rafsi stressed_vowel / stressed_CCV_rafsi / stressed_CVV_rafsi) h y)
 
@@ -1570,7 +1577,7 @@ nucleus = expr:(vowel / diphthong / y !nucleus) {return _join(expr);}
 
 //_________________________________________________________________
 
-glide = expr:(i / u) &nucleus {return expr;}
+glide = expr:(i / u) &nucleus !glide {return expr;}
 
 diphthong = expr:(a u !u / (a i / e i / o i) !i) !nucleus {return _join(expr);}
 
@@ -1586,7 +1593,7 @@ o = comma* [oO] {return "o";}
 
 u = comma* [uU] {return "u";}
 
-y = comma* [yY] {return "y";}
+y = comma* [yY] !(!y nucleus) {return "y";}
 
 
 //___________________________________________________________________

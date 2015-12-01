@@ -229,7 +229,7 @@
 			<div id='purci' style="display:none;" class="term"></div>
 			<div id='loading' class="term">
 				<span class='message'>getting the dictionary</span><br>
-				<div id="progressbar" style="margin:2px;"></div>
+				<div id="progressbar" style="margin:auto;"></div>
 			</div>
 			<div id='output'></div>
 		</div>
@@ -290,7 +290,7 @@
 		doSearch();
 	});
 
-	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").height('5').css({'width':'100','height':'10px');});
+	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").css('height','5px').css('width','100');});
 	worker.onmessage = function(ev) {
 		if (!ev.data) {
 			console.error(ev);
@@ -306,7 +306,7 @@
 			displayResults();
 			displayDescription();
 		} else if (ev.data.kind == 'loading') {
-			$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 51});$("#progressbar").css({ 'height': '10px'});});
+			$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 51});$("#progressbar").css({ 'height': '5px'});});
 		} else if (ev.data.kind == 'progress') {
 			$(function() {$( "#progressbar" ).progressbar({value: ev.data.percent * 100});});
 		}

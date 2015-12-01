@@ -449,12 +449,14 @@
 		if (query == '') {
 		output.hide();
 		description.show();
-		$('#purci').css('display','block');
 		var arrpurc = JSON.parse(localStorage.getItem('purci'))
-		arrpurc.forEach(function(part, index, ar) {
-			ar[index] = '<a href="#sisku/' + ar[index] + '">' + ar[index] + "</a>";
-		});
-		$('#purci').html((window.purci||"Last searched: ") + arrpurc.join(", "));
+		if(arrpurc.length>0){
+			arrpurc.forEach(function(part, index, ar) {
+				ar[index] = '<a href="#sisku/' + ar[index] + '">' + ar[index] + "</a>";
+			});
+			$('#purci').html((window.purci||"Last searched: ") + arrpurc.join(", "));
+			$('#purci').css('display','block');
+		}
 		} else {
 			output.show();
 			description.hide();

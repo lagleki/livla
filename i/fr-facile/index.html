@@ -176,9 +176,6 @@
 	 font-size:70%;
 	}
 	sub { top: 0.4em; }
-	.progressing {
-		height: 10px;
-	}
 	#blackBar{
 		position:absolute;
 		top:0;
@@ -232,7 +229,7 @@
 			<div id='purci' style="display:none;" class="term"></div>
 			<div id='loading' class="term">
 				<span class='message'>Nous chargeons le dictionnaire ...</span><br>
-				<div id="progressbar" style="margin:auto;"></div>
+				<div id="progressbar" style="margin:2px;"></div>
 			</div>
 			<div id='output'></div>
 		</div>
@@ -293,8 +290,7 @@
 		doSearch();
 	});
 
-	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").height('5').css('width','100');});
-	//$("#progressbar > div").css({ 'height': '10px;' });.wrap("<div class='Your-CSS-Scope-Class'></div>");
+	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").height('5').css({'width':'100','height':'10px');});
 	worker.onmessage = function(ev) {
 		if (!ev.data) {
 			console.error(ev);
@@ -310,7 +306,7 @@
 			displayResults();
 			displayDescription();
 		} else if (ev.data.kind == 'loading') {
-			$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 50});$("#progressbar").css({ 'height': '10px;'});});
+			$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 51});$("#progressbar").css({ 'height': '10px'});});
 		} else if (ev.data.kind == 'progress') {
 			$(function() {$( "#progressbar" ).progressbar({value: ev.data.percent * 100});});
 		}

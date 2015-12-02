@@ -131,7 +131,7 @@
 		font-weight: bold;
 		padding-left: 2px;
 	}
-	.content {
+	#content {
 		padding-left: 5px;
 		padding-right: 5px;
 		overflow:auto;
@@ -218,7 +218,7 @@
 		</form>
 		</div>
 	</div>
-	<div class='content' style="height:100%;
+	<div id='content' style="height:100%;
 	border-top:48px solid transparent;
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
@@ -328,7 +328,7 @@
 		displayResults();
 		}
 	}
-	document.getElementsByClassName('content')[0]
+	document.getElementById('content')
 		.addEventListener('scroll', checkScrolledNearBottom);
 	output.scroll();
 
@@ -454,6 +454,7 @@
 			output.show();
 			description.hide();
 			$('#purci').css('display','none');
+			$('#content').scrollTop(0);
 		}
 	}
 	function doSearch() {

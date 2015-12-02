@@ -17,6 +17,11 @@ var xulujvo = function (inp){
 	if((inp.match(myreg)||[]).length==1){return true;}else{return false;}
 };
 
+var xugismu = function (inp){
+	var myreg = new RegExp("^"+gism+V+"$", "gm");
+	if((inp.match(myreg)||[]).length==1){return true;}else{return false;}
+};
+
 var jvokatna = function (lujvoi){
 	var tmp;
 	tmp=lujvoi.toLowerCase().replace(/h/g,"'").replace(/[^a-z']/img,"");

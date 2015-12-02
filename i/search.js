@@ -7,35 +7,30 @@ function search(query, callback) {
 	var resultCount = 0;
 	var results = [];
 	var greatMatches = [];
-	var rafsiDecompositions = decomposeString(query);//no! we must decompose parts of search string, not the whole string. and then push to exactMatch
-	for (i = 0; i < rafsiDecompositions.length; i++) {
-		var decomposition = rafsiDecompositions[i];
-		/*var decompnew = "\t"+decomposition.join("\t").toLowerCase()+"\t";
-		var tmpnew = documentStore.filter(function(val){
-			return (decompnew.search("\t"+val.w+"\t")>0);
-		});
-		console.log(tmpnew.join("\t"));*/
-		if (decomposition.length>1){
-				var tmp=(decomposition.map(
-					function(r){
-						return rafsi[r] || (documentStore.filter(function(val){
-							return val.w==r.replace("Q","").toLowerCase();
-						})[0]);
-					})||[]).filter(function(n){ return n != undefined });
+	var queryDecomposition = decomposeString(query);
+	if (queryDecomposition.length>1){
+		var ki=[];
+		for (var i=0;i<queryDecomposition.length;i++){
+			var luj=decomposeLujvo(queryDecomposition[i]);
+			ki.push(documentStore.filter(function(val){return val.w==queryDecomposition[i].toLowerCase();})[0]);
+			if (luj){
+				for (var ji in luj){
+					ki.push(rafsi[luj[ji]]);
+				}
+			}
+		}
 		results.push({
 			t: "decomposing ...",
 			w: query,
-			r: decomposition.filter(function(y){return y.search(/Q$/)===-1;}),
-			rafsiDocuments: tmp
+			//r: decomposition.filter(function(y){return y.search(/Q$/)===-1;}),
+			rafsiDocuments: ki.filter(function(n){ return n !== undefined })
 		});
-		}
 	}
 	var exactMatches = [];
 	var goodMatches = [];
 	var normalMatches = [];
 	var selmahoMatches = [];
 	searchEngine.lookup(query, function(engineResults) {
-		console.log(engineResults);
 		if (!engineResults) {
 			callback(results);
 			return;
@@ -47,7 +42,7 @@ function search(query, callback) {
 			var key = engineResults.getItem(i);
 			var doc = documentStore[key];
 			
-			if (!doc) {//todo: try decomposing it as a lujvo
+			if (!doc) {
 				continue;
 			}
 				if (doc.w === query){

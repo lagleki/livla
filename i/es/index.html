@@ -144,10 +144,10 @@
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: 6px;
-	    display: -webkit-flex; /* Safari */
-	    -webkit-align-items: center; /* Safari 7.0+ */
-	    display: flex;
-	    align-items: center;
+		display: -webkit-flex; /* Safari */
+		-webkit-align-items: center; /* Safari 7.0+ */
+		display: flex;
+		align-items: center;
 	}
 	#content-panel {
 		max-width: 700px;
@@ -246,30 +246,27 @@
 	//lo diklo sorcu xau lo uenzi poi pu se mitysisku
 	function SaveDataToLocalStorage(data)
 	{
-	    // Parse the serialized data back into an aray of objects
-	    var a = JSON.parse(localStorage.getItem('purci'))||[];
-	    // Push the new data (whether it be an object or anything else) onto the array
-	    var index = a.indexOf(data);
-	    if (index>=0){a.splice(index,1);}
-	    a.unshift(data);
-	    if (a.length>10) {a.length=10;}
-	    // Alert the array value
-	    console.log(a);  // Should be something like [Object array]
-	    // Re-serialize the array back into a string and store it in localStorage
-	    localStorage.setItem('purci', JSON.stringify(a));
+		// Parse the serialized data back into an aray of objects
+		var a = JSON.parse(localStorage.getItem('purci'))||[];
+		// Push the new data (whether it be an object or anything else) onto the array
+		var index = a.indexOf(data);
+		if (index>=0){a.splice(index,1);}
+		a.unshift(data);
+		if (a.length>10) {a.length=10;}
+		localStorage.setItem('purci', JSON.stringify(a));
 	}
 	// CLEARABLE INPUT
 	function tog(v){return v?'addClass':'removeClass';} 
 	$(document).on('input', '.clearable', function(){
-	    $(this)[tog(this.value)]('x');
+		$(this)[tog(this.value)]('x');
 	}).on('mousemove', '.x', function( e ){
-	    $(this)[tog(this.offsetWidth-26 < e.clientX-this.getBoundingClientRect().left)]('onX');
+		$(this)[tog(this.offsetWidth-26 < e.clientX-this.getBoundingClientRect().left)]('onX');
 	}).on('touchstart click', '.onX', function( ev ){
-	    ev.preventDefault();
-	    $(this).removeClass('x onX').val('').change();
-	    query='';
-	    prevQuery='';
-	    displayDescription();
+		ev.preventDefault();
+		$(this).removeClass('x onX').val('').change();
+		query='';
+		prevQuery='';
+		displayDescription();
 	});
 	var fm = {BE: "bei",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au",NAhU: "te'u",NIhE: "te'u",MOhE: "te'u"};
 	function arraySearch(arr,val) {
@@ -337,12 +334,12 @@
 
 	function lojTemplate(s) {
 	  s = s.replace(/\$.*?\$/g, function(c) {
-	    c = c.substring(1, c.length-1);
-	    return c.replace(/(\w+)_\{?(\d+)\}?/g, "<i>$1<sub>$2</sub></i>")
+		c = c.substring(1, c.length-1);
+		return c.replace(/(\w+)_\{?(\d+)\}?/g, "<i>$1<sub>$2</sub></i>")
 	  });
 	  s = s.replace(/\{(.*?)\}/g, function(c) {
-	    var c = c.substring(1, c.length-1);
-	    return '<a href="#sisku/' + encodeURIComponent(c) + '">' + c + "</a>"
+		var c = c.substring(1, c.length-1);
+		return '<a href="#sisku/' + encodeURIComponent(c) + '">' + c + "</a>"
 	  });
 	  return s;
 	}
@@ -445,7 +442,7 @@
 		if (query == '') {
 		output.hide();
 		description.show();
-		var arrpurc = JSON.parse(localStorage.getItem('purci'))
+		var arrpurc = JSON.parse(localStorage.getItem('purci'))||[];
 		if(arrpurc.length>0){
 			arrpurc.forEach(function(part, index, ar) {
 				ar[index] = '<a href="#sisku/' + ar[index] + '">' + ar[index] + "</a>";

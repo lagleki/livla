@@ -5,41 +5,53 @@ function search(query, callback) {
 	}
 	var searchId = ++searchIdCounter;
 	var resultCount = 0;
-	var results = [];
+	var preciseMatches = [];
 	var greatMatches = [];
 	var queryDecomposition = decomposeString(query);
+	var kij=[];
+	//preciseMatches
 	if (queryDecomposition.length>1){
 		var ki=[];
 		for (var i=0;i<queryDecomposition.length;i++){
 			var luj=decomposeLujvo(queryDecomposition[i]);
-			ki.push(documentStore.filter(function(val){return val.w==queryDecomposition[i].toLowerCase();})[0]);
+			ki.push(documentStore.filter(function (val){return val.w==queryDecomposition[i].toLowerCase();})[0]);
 			if (luj){
 				for (var ji in luj){
 					ki.push(rafsi[luj[ji]]);
 				}
 			}
 		}
-		results.push({
+		preciseMatches.push({
 			t: "decomposing ...",
 			w: query,
-			//r: decomposition.filter(function(y){return y.search(/Q$/)===-1;}),
 			rafsiDocuments: ki.filter(function(n){ return n !== undefined })
 		});
+	}
+	else if (query.indexOf('*')>=-1)
+	{
+		var queryRE="^"+query.replace(/\*/g,'.*')+"$";
+		kij.push(documentStore.filter(function(val){return (val.w.match(queryRE.toLowerCase())||[]).length > 0;}));
+		preciseMatches.push({
+			t: "decomposing ...",
+			w: query,
+			rafsiDocuments: kij[0].filter(function(n){ return n !== undefined })
+		});
+		console.log(JSON.stringify(kij));
 	}
 	var exactMatches = [];
 	var goodMatches = [];
 	var normalMatches = [];
 	var selmahoMatches = [];
-	searchEngine.lookup(query, function(engineResults) {
-		if (!engineResults) {
-			callback(results);
+	searchEngine.lookup(query, function(lo_matra_cu_cupra) {
+		if (!lo_matra_cu_cupra) {
+			callback(preciseMatches);
 			return;
 		}
 		if (searchId !== searchIdCounter) {
 			return;
 		}
-		for (var i = 0; i < engineResults.getSize(); i++) {
-			var key = engineResults.getItem(i);
+		for (var i = 0; i < lo_matra_cu_cupra.getSize(); i++) {
+			var key = lo_matra_cu_cupra.getItem(i);
 			var doc = documentStore[key];
 			
 			if (!doc) {
@@ -65,10 +77,10 @@ function search(query, callback) {
 					normalMatches.push(doc);
 					continue;
 				}
-				else {results.push(doc);}
+				else {preciseMatches.push(doc);}
 		}
-		results = exactMatches.concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(results);
-		callback(results);
+		if (kij.length===0){preciseMatches = exactMatches.concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(preciseMatches);}
+		callback(preciseMatches);
 	});
 }
 
@@ -97,7 +109,7 @@ function setupSearchEngine(callback, prgrss) {
             initializer: initializer
         }
 */
-var Stem = function(lng) {
+/*var Stem = function(lng) {
 	var testStemmer = new Snowball(lng);
 	return function(word) {
 	testStemmer.setCurrent(word);
@@ -107,7 +119,7 @@ var Stem = function(lng) {
 };
 function println(lng, word){
 	return new Stem(lng)(word);
-}
+}*/
 
 function initializer(injector, callback) {
 	var numTerms = objectSize(documentStore);

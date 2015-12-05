@@ -53,82 +53,57 @@ any_word = expr:(lojban_word) spaces? {return expr;}
 
 lojban_word = cmevla / cmavo / gismu / fuhivla / lujvo
 
-cmevla = expr:(jbocme / zifcme) { return ["cmevla", _join(expr)]; }
+cmevla = expr:(&zifcme (any_syllable)* &pause / zifcme) { return ["cmevla", _join(expr)]; }
 zifcme = (!h (nucleus / glide / h / consonant !pause)* consonant &pause)
-jbocme = (&zifcme (any_syllable)* &pause)
 
-cmavo = expr:(!cmevla !CVCy_lujvo cmavo_form &post_word) {return ["cmavo", _join(expr)];}
-cmavo_form = !h !cluster onset (nucleus h)* nucleus !cluster / y+
+cmavo = expr:(!cmevla !CVCy_lujvo !h !cluster onset (nucleus h)* nucleus !cluster &post_word) {return ["cmavo", _join(expr)];}
 
 gismu = expr:(gismu_like) {return ["gismu", _join(expr)];}
 gismu_like = CVC_CCV_rafsi &stress &final_syllable consonant vowel
 
-fuhivla = expr:(fuhivla_head stressed_syllable consonantal_syllable* final_syllable) {return ["fuhivla", _join(expr)];}
+fuhivla = expr:(fuhivla_like) {return ["fuhivla", _join(expr)];}
+fuhivla_like = fuhivla_head_extended final_syllable
+fuhivla_head_extended = fuhivla_head syllable &stress consonantal_syllable*
+fuhivla_head = !rafsi_string !cmavo !(!rafsi_string consonant rafsi_string) !h &onset unstressed_syllable*
 
 lujvo = expr:(!gismu !fuhivla brivla)  {return ["lujvo", _join(expr)];}
 
 brivla = !cmavo !(CCV_rafsi h y onset) initial_rafsi* brivla_core
-brivla_core = fuhivla / gismu_like / CVV_final_rafsi / (hy_rafsi &stress / stressed_fuhivla_rafsi / stressed_y_rafsi / stressed_y_less_rafsi) short_final_rafsi
+brivla_core = fuhivla_like / gismu_CVV_final_rafsi / ((hy_rafsi / y_rafsi / short_rafsi !y) &stress / stressed_fuhivla_rafsi) short_final_rafsi
 
 CVCy_lujvo = CVC_rafsi (!stress y h? initial_rafsi* brivla_core / &stress y short_final_rafsi)
-any_fuhivla_rafsi = fuhivla / fuhivla_rafsi / stressed_fuhivla_rafsi
-initial_rafsi = unstressed_hy_rafsi / fuhivla_rafsi / unstressed_y_rafsi / !any_fuhivla_rafsi y_less_rafsi !any_fuhivla_rafsi
-stressed_fuhivla_rafsi = fuhivla_head stressed_syllable consonantal_syllable* onset y
+any_fuhivla_rafsi = fuhivla_like / fuhivla_rafsi / stressed_fuhivla_rafsi
+initial_rafsi = (hy_rafsi / y_rafsi) !stress h? / fuhivla_rafsi / !any_fuhivla_rafsi y_less_rafsi !any_fuhivla_rafsi
+stressed_fuhivla_rafsi = fuhivla_head_extended onset y
 fuhivla_rafsi = &unstressed_syllable fuhivla_head onset y h?
-rafsi_string = y_less_rafsi* (gismu_like / CVV_final_rafsi / stressed_y_less_rafsi short_final_rafsi / unstressed_y_rafsi / stressed_y_rafsi / stressed_y_less_rafsi? initial_pair y / unstressed_hy_rafsi / hy_rafsi)
-CVV_final_rafsi = consonant stressed_vowel h &final_syllable vowel &post_word
+rafsi_string = y_less_rafsi* (gismu_CVV_final_rafsi / stressed_y_less_rafsi short_final_rafsi / y_rafsi !stress h? / y_rafsi &stress / stressed_y_less_rafsi? initial_pair y / hy_rafsi (!stress h? / &stress))
+gismu_CVV_final_rafsi = gismu_like / consonant vowel &stress h &final_syllable vowel &post_word
 short_final_rafsi = &final_syllable (consonant diphthong / initial_pair vowel) &post_word
-y_rafsi = (long_rafsi / short_rafsi) y
-stressed_y_rafsi = y_rafsi &stress
-unstressed_y_rafsi = y_rafsi !stress h?
+y_rafsi = (CVC_CCV_rafsi !stress consonant / short_rafsi) y
 
 short_rafsi = CVC_CCV_rafsi / CVV_rafsi
 stressed_y_less_rafsi = short_rafsi &stress !y
-y_less_rafsi = !unstressed_y_rafsi !stressed_y_rafsi short_rafsi !stress !h
-
-long_rafsi = CVC_CCV_rafsi !stress consonant
-stressed_long_rafsi = long_rafsi &stress
+y_less_rafsi = !y_rafsi short_rafsi !stress !h
 
 CVC_CCV_rafsi = CVC_rafsi / CCV_rafsi
 CVC_rafsi = consonant vowel consonant
 CCV_rafsi = initial_pair vowel
-CVV_rafsi = consonant (stressed_vowel h vowel / diphthong) r_hyphen?
-hy_rafsi = (long_rafsi vowel / CCV_rafsi / CVV_rafsi) h y
-unstressed_hy_rafsi = hy_rafsi !stress h?
-
-fuhivla_head = !rafsi_string !cmavo !(!rafsi_string consonant rafsi_string) !h &onset unstressed_syllable*
+CVV_rafsi = consonant (vowel &stress h vowel / diphthong) r_hyphen?
+hy_rafsi = (gismu_like / short_rafsi ) h y
 
 r_hyphen = r &consonant / n &r
-
 final_syllable = onset !y nucleus !cmevla &post_word
-
-stressed_syllable = syllable &stress
 unstressed_syllable = syllable !stress / consonantal_syllable
-
-stressed_diphthong = diphthong &stress
-unstressed_diphthong = diphthong !stress
-
-stressed_vowel = vowel &stress
-unstressed_vowel = vowel !stress
-
 stress = (consonant / glide)* h? y? syllable pause
-
 any_syllable = onset nucleus coda? / consonantal_syllable
-
 syllable = onset !y nucleus coda?
-
 consonantal_syllable = consonant &syllabic coda
 
 coda = !any_syllable consonant &any_syllable / syllabic? consonant? &pause
-
 onset = h / glide / initial
-
 nucleus = vowel / diphthong / y !nucleus
-
 glide = (i / u) &nucleus !glide
-
 diphthong = (a u !u / (a i / e i / o i) !i) !nucleus
-
 vowel = (a / e / i / o / u) !nucleus
 
 a = [a]
@@ -139,15 +114,11 @@ u = [u]
 y = [y] !(!y nucleus)
 
 cluster = consonant consonant+
-
 initial_pair = &initial consonant consonant !consonant
-
-initial = (affricate / sibilant? other? liquid?) !consonant !glide
+initial = (affricate / (c / s !x / (j / z) !n !liquid)? (p / t !l / k / f / x / b / d !l / g / v / m / n !liquid)? liquid?) !consonant !glide
 
 affricate = t c / t s / d j / d z
 liquid = l / r
-other = p / t !l / k / f / x / b / d !l / g / v / m / n !liquid
-sibilant = c / s !x / (j / z) !n !liquid
 consonant = voiced / unvoiced / syllabic
 syllabic = l / m / n / r
 voiced = b / d / g / j / v / z
@@ -175,7 +146,6 @@ h = ['h] &nucleus
 post_word = pause / !nucleus lojban_word
 
 pause = space_char+ / EOF
-non_space = !space_char .
 space_char = [.\t\n\r?!\u0020]
 spaces = (space_char / y)+ EOF? / EOF
 EOF = !.

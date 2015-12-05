@@ -6,7 +6,6 @@ function search(query, callback) {
 	var searchId = ++searchIdCounter;
 	var resultCount = 0;
 	var preciseMatches = [];
-	var greatMatches = [];
 	var queryDecomposition = decomposeString(query);
 	var kij=[];
 	//preciseMatches
@@ -35,13 +34,15 @@ function search(query, callback) {
 		preciseMatches.push({
 			t: "decomposing ...",
 			w: query,
-			rafsiDocuments: kij[0].filter(function(n){ return n !== undefined })
+			rafsiDocuments: (kij[0]).splice(0,50).filter(function(n){ return n !== undefined })
+			//todo: add notice that results were truncated
 		});
 	}
 	var exactMatches = [];
+	var greatMatches = [];
+	var selmahoMatches = [];
 	var goodMatches = [];
 	var normalMatches = [];
-	var selmahoMatches = [];
 	searchEngine.lookup(query, function(lo_matra_cu_cupra) {
 		if (!lo_matra_cu_cupra||kij.length!==0) {
 			callback(preciseMatches);

@@ -405,21 +405,21 @@
 		out.append(
 			$('<div>').addClass('related').html('See also: ' + lojTemplate(def.k) + ' '));
 		}
-		if ((def.r||[]).length > 0 && !def.l && window.xuzganalojudri && (def.t||'').match(/lujvo/)) {
+		if ((def.r||[]).length > 0 && !def.l && window.xuzganalojudri) {
 				var rafsi = $("<div>").addClass('rafsi');
 				rafsi.append("rafsi: ");
 				for (var i = 0; i < def.r.length; i++) {
 				var rafElem = $("<span>").appendTo(rafsi);
 				var raf = def.r[i];
-					//if ((def.t||'').match(/lujvo/)) {
+					if ((def.t||'').match(/lujvo/)) {
 						rafElem.append(
 							$("<a>").attr(
 								'href', '#sisku/' + encodeURIComponent(raf))
 							.text(raf)
 						);
-					/*} else {
+					} else {
 						rafElem.text(raf);
-					}*/
+					}
 					rafElem.append(' ');
 				}
 				rafsi.appendTo(out);

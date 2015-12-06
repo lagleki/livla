@@ -1594,6 +1594,7 @@ app.listen(3000);
 var ningaumahantufa = function(text,socket){
 	var fs = require("fs");
 	var PEG = require("pegjs");
+	var UglifyJS = require("uglify-js");
 	//write file
 	var whichfile = text.substr(0,text.indexOf(' '));
 	text = text.substr(text.indexOf(' ')+1);
@@ -1611,6 +1612,7 @@ var ningaumahantufa = function(text,socket){
 	buffer = new Buffer("\n\nmodule.exports = camxes;\n\nterm = process.argv[2];\nif (term !== undefined && typeof term.valueOf() === 'string')\n  console.log(JSON.stringify(camxes.parse(term)));\n\n");
 	fs.writeSync(fd, buffer, 0, buffer.length);
 	fs.close(fd);
+	fs.writeFileSync(whichfile, UglifyJS.minify(whichfile).code);
 	socket.emit('returner', {message: "snada"});
 	}
 	catch(e){socket.emit('returner', {message: e.message});}

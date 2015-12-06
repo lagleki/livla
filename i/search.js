@@ -23,7 +23,6 @@ function search(query, callback) {
 			w: query,
 			rafsiDocuments: kim.filter(function(n){ return n !== undefined })
 		});
-		console.log(kil);
 		return kil;
 	}
 	//preciseMatches

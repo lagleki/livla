@@ -10,7 +10,6 @@ function search(query, callback) {
 	var kij=[];
 	var ki=[];
 	function be(kil,lu){
-		console.log(kil);
 		var kim=[];
 		var luj=decomposeLujvo(lu);
 		if (luj){
@@ -45,7 +44,6 @@ function search(query, callback) {
 	}
 	else if (query.indexOf('*')>-1)
 	{
-		console.log(1);
 		var queryRE="^"+query.replace(/\*/g,'.*')+"$";
 		kij.push(documentStore.filter(function(val){return (val.w.match(queryRE.toLowerCase())||[]).length > 0;}));
 		preciseMatches.push({
@@ -72,15 +70,14 @@ function search(query, callback) {
 		for (var i = 0; i < lo_matra_cu_cupra.getSize(); i++) {
 			var key = lo_matra_cu_cupra.getItem(i);
 			var doc = documentStore[key];
-			
 			if (!doc) {
 				continue;
 			}
 				if (doc.w === query){
 					exactMatches.push(doc);
+					exactMatches=be(exactMatches,query);
 					continue;
 				}
-				exactMatches=be(exactMatches,query);
 				if ((doc.g||'')===query||(query>0 && (doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
 					greatMatches.push(doc);
 					continue;

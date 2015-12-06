@@ -8,13 +8,31 @@ function search(query, callback) {
 	var preciseMatches = [];
 	var queryDecomposition = decomposeString(query);
 	var kij=[];
+	var ki=[];
+	function be(kil,lu){
+		console.log(kil);
+		var kim=[];
+		var luj=decomposeLujvo(lu);
+		if (luj){
+			for (var ji in luj){
+				kim.push(rafsi[luj[ji]]);
+			}
+		}
+		kil.push({
+			t: "decomposing ...",
+			w: query,
+			rafsiDocuments: kim.filter(function(n){ return n !== undefined })
+		});
+		console.log(kil);
+		return kil;
+	}
 	//preciseMatches
 	if (queryDecomposition.length>1){
-		var ki=[];
 		for (var i=0;i<queryDecomposition.length;i++){
 			var luj=decomposeLujvo(queryDecomposition[i]);
-			ki.push(documentStore.filter(function (val){return val.w==queryDecomposition[i].toLowerCase();})[0]);
-			if (luj){
+			var isdef = documentStore.filter(function (val){return val.w==queryDecomposition[i].toLowerCase();})[0]
+			ki.push(isdef);
+			if (luj && !isdef){
 				for (var ji in luj){
 					ki.push(rafsi[luj[ji]]);
 				}
@@ -39,13 +57,14 @@ function search(query, callback) {
 		});
 	}
 	var exactMatches = [];
+	var lujvoDecompMatches = [];
 	var greatMatches = [];
 	var selmahoMatches = [];
 	var goodMatches = [];
 	var normalMatches = [];
 	searchEngine.lookup(query, function(lo_matra_cu_cupra) {
 		if (!lo_matra_cu_cupra||kij.length!==0) {
-			callback(preciseMatches);
+			callback(be(preciseMatches,query));
 			return;
 		}
 		if (searchId !== searchIdCounter||query.indexOf('*')>-1) {
@@ -62,6 +81,7 @@ function search(query, callback) {
 					exactMatches.push(doc);
 					continue;
 				}
+				exactMatches=be(exactMatches,query);
 				if ((doc.g||'')===query||(query>0 && (doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
 					greatMatches.push(doc);
 					continue;
@@ -80,7 +100,7 @@ function search(query, callback) {
 				}
 				else {preciseMatches.push(doc);}
 		}
-		preciseMatches = exactMatches.concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(preciseMatches);
+		preciseMatches = exactMatches.concat(lujvoDecompMatches).concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(preciseMatches);
 		callback(preciseMatches);
 	});
 }

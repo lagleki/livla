@@ -70,6 +70,13 @@ function search(query, callback) {
 		for (var i = 0; i < lo_matra_cu_cupra.getSize(); i++) {
 			var key = lo_matra_cu_cupra.getItem(i);
 			var doc = documentStore[key];
+			if (!doc.t){
+				if(xugismu(doc.w)===true){doc.t='gismu'}
+				else if(xulujvo(doc.w)===true){doc.t='lujvo'}
+				else if(xufuhivla(doc.w)===true){doc.t="fu'ivla"}
+				else if(xucmavo(doc.w)===true){doc.t="cmavo"}
+				else {doc.t=''}
+			}
 			if (!doc) {
 				continue;
 			}
@@ -147,11 +154,6 @@ function initializer(injector, callback) {
 	for (var key in documentStore) {
 		var doc = documentStore[key];
 		docd = doc.d;
-		if (!doc.t){
-			if(xugismu(doc.w)===true){doc.t='gismu'}
-			else if(xulujvo(doc.w)===true){doc.t='lujvo'}
-			else {doc.t=''}
-		}
 		if (doc.s){text = [doc.w, doc.s, docd, doc.n, (doc.g||''), (doc.r||[]).join(' ')].join(' ');}
 		else{
 			text = [doc.w, docd, doc.n];

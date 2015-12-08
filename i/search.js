@@ -75,6 +75,8 @@ function search(query, callback) {
 				else if(xulujvo(doc.w)===true){doc.t='lujvo'}
 				else if(xufuhivla(doc.w)===true){doc.t="fu'ivla"}
 				else if(xucmavo(doc.w)===true){doc.t="cmavo"}
+				else if(xucmavogunma(doc.w)===true){doc.t="cmavo compound"}
+				else if(xucmevla(doc.w)===true){doc.t="cmevla"}
 				else {doc.t=''}
 			}
 			if (!doc) {
@@ -103,6 +105,24 @@ function search(query, callback) {
 				}
 				else {preciseMatches.push(doc);}
 		}
+		function sor(ar){
+			var c;
+			var gism=[];
+			var cmav=[];
+			for (c=0;c<ar.length;c++){
+				if (ar[c].t==='gismu'){gism.push(ar.splice(c,1)[0]);}
+			}
+			for (c=0;c<ar.length;c++){
+				if (ar[c].t==='cmavo'){cmav.push(ar.splice(c,1)[0]);}
+			}
+			return gism.concat(cmav).concat(ar);			
+		}
+		exactMatches=sor(exactMatches);
+		greatMatches=sor(greatMatches);
+		selmahoMatches=sor(selmahoMatches);
+		goodMatches=sor(goodMatches);
+		normalMatches=sor(normalMatches);
+		preciseMatches=sor(preciseMatches);
 		preciseMatches = exactMatches.concat(lujvoDecompMatches).concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(preciseMatches);
 		callback(preciseMatches);
 	});

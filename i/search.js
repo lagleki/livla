@@ -9,6 +9,7 @@ function search(query, callback) {
 	var queryDecomposition = decomposeString(query);
 	var kij=[];
 	var ki=[];
+	try{console.log(window.limit);}catch(e){}
 	function be(kil,lu){
 		var kim=[];
 		var luj=decomposeLujvo(lu);
@@ -28,7 +29,7 @@ function search(query, callback) {
 	if (queryDecomposition.length>1){
 		for (var i=0;i<queryDecomposition.length;i++){
 			var luj=decomposeLujvo(queryDecomposition[i]);
-			var isdef = documentStore.filter(function (val){return val.w==queryDecomposition[i].toLowerCase();})[0]
+			var isdef = documentStore.filter(function (val){return val.w==queryDecomposition[i].toLowerCase();})[0];
 			ki.push(isdef);
 			if (luj && !isdef){
 				for (var ji in luj){
@@ -115,7 +116,11 @@ function search(query, callback) {
 			for (c=0;c<ar.length;c++){
 				if (ar[c].t==='cmavo'){cmav.push(ar.splice(c,1)[0]);}
 			}
-			return gism.concat(cmav).concat(ar);			
+			return gism.sort(sortMultiDimensional).concat(cmav.sort(sortMultiDimensional)).concat(ar.sort(sortMultiDimensional));
+		}
+		function sortMultiDimensional(a,b)
+		{
+			return ((a.d.length < (b.d||'').length) ? -1 : ((a.d.length > (b.d||'').length) ? 1 : 0));
 		}
 		exactMatches=sor(exactMatches);
 		greatMatches=sor(greatMatches);

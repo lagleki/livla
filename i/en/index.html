@@ -238,7 +238,6 @@
 	var typehere = $("#typehere");
 	var output = $("#output");
 	var description = $("#description");
-	var limit;
 	var query="";
 	var worker = new Worker('worker.js');
 	var resultCount;
@@ -324,7 +323,7 @@
 		var outputBottom = output.height() - 700;
 		var isClose = windowBottom >= outputBottom;
 		if(isClose) {
-		limit += 10;
+		window.limit += 10;
 		displayResults();
 		}
 	}
@@ -335,7 +334,7 @@
 	function lojTemplate(s) {
 	  s = s.replace(/\$.*?\$/g, function(c) {
 		c = c.substring(1, c.length-1);
-		return c.replace(/(\w+)_\{?(\d+)\}?/g, "<i>$1<sub>$2</sub></i>")
+		return c.replace(/(\w+)_\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>").replace(/(\w+)_(\d+)/g, "<i>$1<sub>$2</sub></i>").replace(/\{/g,'[').replace(/\}/g,']');
 	  });
 	  s = s.replace(/\{(.*?)\}/g, function(c) {
 		var c = c.substring(1, c.length-1);
@@ -470,7 +469,7 @@
 		updateUrl();
 
 		var searchId = ++searchIdCounter;
-		limit = 30;
+		window.limit = 30;
 		resultCount = 0;
 		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
 	}
@@ -521,7 +520,7 @@
 	})
 
 	function displayResults() {
-		var displayUpTo = Math.min(limit, results.length);
+		var displayUpTo = Math.min(window.limit, results.length);
 		for (; resultCount < displayUpTo; resultCount++) {
 		try{displayDocument(results[resultCount]).appendTo(output);}catch(err){}
 		}

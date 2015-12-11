@@ -1452,34 +1452,11 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 	}
 	pars+="];\n";
 	var t = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
-	eval(pars+'');
 	pars = fs.writeFileSync(t+".temp",pars);
 	fs.renameSync(t+".temp",t);
 	t = path.join(__dirname,"../i/"+lng+"/","webapp.appcache");
 	var d = new Date();
 	var n = d.getDate();
-	var wordsArray = [];
-	var valuesArray = [];
-	var text;
-	for (var key in documentStore) {
-		var doc = documentStore[key];
-		docd = doc.d;
-		if (doc.s){text = [doc.w, doc.s, docd, doc.n, (doc.g||''), (doc.r||[]).join(' ')].join(' ');}
-		else{
-			text = [doc.w, docd, doc.n];
-			try{text.push(doc.g);}catch(err){}
-			try{text.push(doc.r.join(' '));}catch(err){}
-			text=text.join(' ');
-		}
-		wordsArray.push(text);
-		valuesArray.push(key);
-	}
-	t = path.join(__dirname,"../i/data","indice-"+lng + ".js");
-	pars = fs.writeFileSync(t+".temp",JSON.stringify(wordsArray));
-	fs.renameSync(t+".temp",t);
-	t = path.join(__dirname,"../i/data","key-"+lng + ".js");
-	pars = fs.writeFileSync(t+".temp",JSON.stringify(valuesArray));
-	fs.renameSync(t+".temp",t);
 	if(n==1){
 		try{pars=fs.readFileSync(t,{encoding: 'utf8'});pars = fs.writeFileSync(t,pars);console.log(t + ' updated');}catch(err){}
 	}

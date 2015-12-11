@@ -9,7 +9,6 @@ function search(query, callback) {
 	var queryDecomposition = decomposeString(query);
 	var kij=[];
 	var ki=[];
-	try{console.log(window.limit);}catch(e){}
 	function be(kil,lu){
 		var kim=[];
 		var luj=decomposeLujvo(lu);
@@ -170,25 +169,19 @@ function println(lng, word){
 	return new Stem(lng)(word);
 }*/
 
+function SaveIndexToLocalStorage(data)
+{
+	// Parse the serialized data back into an aray of objects
+	var a = localStorage.getItem('purci')||[];
+	localStorage.setItem('wordsArray', JSON.stringify(wordsArray));
+	localStorage.setItem('valuesArray', JSON.stringify(valuesArray));
+}
+
 function initializer(injector, callback) {
 	var numTerms = objectSize(documentStore);
 	var synchro = fullproof.make_synchro_point(callback, numTerms);
-	var wordsArray = [];
-	var valuesArray = [];
-	var text;
-	for (var key in documentStore) {
-		var doc = documentStore[key];
-		docd = doc.d;
-		if (doc.s){text = [doc.w, doc.s, docd, doc.n, (doc.g||''), (doc.r||[]).join(' ')].join(' ');}
-		else{
-			text = [doc.w, docd, doc.n];
-			try{text.push(doc.g);}catch(err){}
-			try{text.push(doc.r.join(' '));}catch(err){}
-			text=text.join(' ');
-		}
-		wordsArray.push(text);
-		valuesArray.push(key);
-	}
+	var wordsArray = documentStore.map(function(r){return Object.keys(r).map(function (key) {return r[key];}).join(" ")});
+	var valuesArray = Object.keys(documentStore);
 	injector.injectBulk(wordsArray, valuesArray, callback, progress);
 }
 

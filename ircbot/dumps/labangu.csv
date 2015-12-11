@@ -361,7 +361,7 @@ benji,"
 :'''mi ba benji lo xatra do fu la internet fo lo mi zdani skami''' — ''I will send you a letter via the internet from my home computer.''
 :'''lo gunka pu benji lo sinxa lo drata gunka lo galtu lo sance''' — ''A worker sent a sound signal to another worker from the above.''
 :Comment: ''transmitter'' in English can denote both '''lo''' '''benji''' and '''lo''' '''xe''' '''benji'''.
-:Related words: '''muvdu''', '''dunda''', '''mrilu''', '''nirna''', '''volve''', '''cradi''', '''tivni''', '''preja''', '''be'i''', '''bevri''', '''mrilu''', '''tcana'''"
+:Related words: '''muvdu''', '''dunda''', '''mrilu''', '''nirna''', '''volta''', '''cradi''', '''tivni''', '''preja''', '''be'i''', '''bevri''', '''mrilu''', '''tcana'''"
 bersa,"
 '''bersa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a son of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo bersa''' — son. '''lo se bersa''' — parent of a son. 
@@ -427,12 +427,12 @@ bifce,"
 bikla,"
 '''bikla''' — ''x<sub>1</sub><sub>(entity)</sub>''  whips, lashes
 :'''lo bikla''' — whip. 
-:'''lo carvi pu bikla tai lo ka janli lo canko''' — ''The rain whipped against the window.''
+:'''lo carvi pu bikla ta'i lo ka janli lo canko''' — ''The rain whipped against the window.''
 :Related words: '''skori''', '''darxi'''"
 bilga,"
 '''bilga''' — ''x<sub>1</sub><sub>(entity)</sub>''  is obligated to do  ''x<sub>2</sub><sub>(property of x1)</sub>''  by agreement  ''x<sub>3</sub><sub>(proposition)</sub>'' 
 :'''lo se bilga''' — obligation, duty. 
-:'''mi bilga lo ka jai gau volve fai lo vi cukta ca lo cabdei vau lo pu se nupre be mi''' — ''I must return this book today fulfilling my earlier promise.''
+:'''mi bilga lo ka jai gau volta fai lo vi cukta ca lo cabdei vau lo pu se nupre be mi''' — ''I must return this book today fulfilling my earlier promise.''
 :Related words: '''zifre''', '''fuzme'''"
 bilma,"
 '''bilma''' — ''x<sub>1</sub><sub>(entity)</sub>''  is ill, sick with symptoms  ''x<sub>2</sub><sub>(property of x1)</sub>''  from disease  ''x<sub>3</sub><sub>(clause)</sub>'' 
@@ -922,7 +922,7 @@ cecmu,"
 :'''lo cecmu be lo cipni mo'u muvdu lo vi tcadu''' — ''A colony of birds moved to this city.''
 :Related words: '''bende''', '''kulnu''', '''natmi''', '''tcadu''', '''jecta''', '''girzu'''"
 cedra,"
-'''cedra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an era or age characterized by  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
+'''cedra''' — ''x<sub>1</sub><sub>(clause)</sub>''  is an era or age characterized by  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo cedra''' — era. 
 :'''lo cabna cu cedra lo nu pilno lo skami''' — ''These days are the era of using computers.''
 :Related words: '''ranji''', '''temci''', '''citsi'''"
@@ -1020,7 +1020,7 @@ ci'i,"
 :'''ci'i da te cuxna fi pa prenu i je ci'i re da te cuxna fi re prenu''' — ''There is an infinite number of possibilities for one man, and twice as many for two men.''
 :Comment: when followed by digits denotes aleph cardinality."
 ciblu,"
-'''ciblu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is blood or vital fluid of organism  ''x<sub>2</sub><sub>(entity)</sub>'' 
+'''ciblu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is blood of organism  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo ciblu''' — blood. 
 :'''lo ciblu be mi cu klesi li a bu ma'u bu''' — ''My blood type is A positive.''
 :Related words: '''risna''', '''flu'ente'''"
@@ -1974,7 +1974,7 @@ denpa,"
 :'''ko ze'i denpa''' — ''Wait a bit (=Just a moment).''
 :'''do pu denpa xu''' — ''Did you wait?''
 :'''ki'e sai''' — ''Thank you!''
-:'''mi denpa lo nu lo patfu cu volve vau lo ka kelci vau lo ka cliva''' — ''I am waiting for my father to arrive playing before leaving.''
+:'''mi denpa lo nu lo patfu cu volta vau lo ka kelci vau lo ka cliva''' — ''I am waiting for my father to arrive playing before leaving.''
 :Related words: '''dicra''', '''fanmo''', '''sisti''', '''fliba''', '''basna'''"
 denpa bu,"
 '''denpa bu''' <small>[pronoun]</small> — ''.'', ''full stop'', ''period'', ''dot''"
@@ -2106,7 +2106,7 @@ djacu,"
 djedi,"
 '''djedi''' — ''x<sub>1</sub><sub>(clause)</sub>''  happens during  ''x<sub>2</sub><sub>(number)</sub>''  full days
 :'''lo djedi''' — day (full day). '''lo se djedi''' — number of full days. 
-:'''mi volve ba zi lo djedi be li pa no''' — ''I will return in 10 days.''
+:'''mi volta ba zi lo djedi be li pa no''' — ''I will return in 10 days.''
 :Comment: if x<sub>2</sub> is not used denotes one full day in duration
 :Related words: '''donri''', '''detri''', '''jeftu''', '''masti''', '''nanca''', '''nicte''', '''tcika'''"
 djica,"
@@ -2465,7 +2465,7 @@ fegli,"
 :Related words: '''rigni''', '''melbi''', '''pluka'''"
 fei,"
 '''fei''' <small>[digit/number]</small> — hex digit ''B'' (decimal 11), ''eleven''
-:'''mi ba volve de'i li cy fei''' — ''I will return at 11 o'clock.''"
+:'''mi ba volta de'i li cy fei''' — ''I will return at 11 o'clock.''"
 femti,"
 '''femti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is 10<sup>-15</sup> of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo protoni cu femti lo mitre be li ji'i pa pi xa boi lo ka klani ma kau''' — ''A proton has a size of about 1.6 femtometres.''
@@ -3222,7 +3222,7 @@ ja'ai  ,"
 :'''mi djica na gi'e ja'ai bredi''' — ''I don't want but I'm ready.''"
 ja'e,"
 '''ja'e''' <small>[preposition from '''jalge''']</small> — ''resulting in ...''
-:'''i ja'e bo mi pu bilga lo ka volve''' — ''Therefore, I had to return.''
+:'''i ja'e bo mi pu bilga lo ka volta''' — ''Therefore, I had to return.''
 :'''mi pu tatpi i ja'e bo mi co'a sipna''' — ''I was so tired that I fell asleep.''"
 ja'o,"
 '''ja'o''' <small>[interjection]</small> — ''I conclude''
@@ -3432,7 +3432,7 @@ jecta,"
 jeftu,"
 '''jeftu''' — ''x<sub>1</sub><sub>(clause)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  weeks long
 :'''lo jeftu''' — week-long event. 
-:'''mi'o ba volve ti za lo jeftu be li re''' — ''We'll return here in two weeks.''
+:'''mi'o ba volta ti za lo jeftu be li re''' — ''We'll return here in two weeks.''
 :Comment: if x<sub>2</sub> is not used denotes one week in duration
 :Related words: '''detri''', '''djedi''', '''masti''', '''nanca'''"
 jegvo,"
@@ -3984,7 +3984,7 @@ kanla,"
 :Related words: '''jvinu''', '''kerlo''', '''viska''', '''kumte'''"
 kanpe,"
 '''kanpe''' — ''x<sub>1</sub><sub>(entity)</sub>''  expects  ''x<sub>2</sub><sub>(clause)</sub>''  with likelihood  ''x<sub>3</sub><sub>(number: from 0 to 1, by default '''li''' '''so'a''', i.e. near 1)</sub>'' 
-:'''fi li so'u fa mi pu kanpe lo nu do clira volve''' — ''I didn't expect you to return early.''
+:'''fi li so'u fa mi pu kanpe lo nu do clira volta''' — ''I didn't expect you to return early.''
 :'''lo nu mi tsuku pu na se kanpe da''' — ''My arrival wasn't expected by anyone.''
 :Comment: ''expecting'' here may imply even undesirable events that are nevertheless expected to occur.
 :Related words: '''djica''', '''pacna''', '''lakne''', '''cunso''', '''fau''', '''da'i'''"
@@ -4352,11 +4352,11 @@ krefu,"
 '''krefu''' — ''x<sub>1</sub><sub>(clause)</sub>''  is a recurrence of  ''x<sub>2</sub><sub>(clause)</sub>''  happening for the  ''x<sub>3</sub><sub>(number)</sub>''  -th time
 :'''lo krefu''' — recurrence, occurrence, case (recurrence). '''lo te krefu''' — number of recurrences. 
 :'''lo na te snada cu krefu lo nu troci vau li ci''' — ''The attempt ended in a failure for the third time.''
-:Related words: '''fukpi''', '''rapli''', '''cafne''', '''fasnu''', '''volve'''"
+:Related words: '''fukpi''', '''rapli''', '''cafne''', '''fasnu''', '''volta'''"
 krici,"
 '''krici''' — ''x<sub>1</sub><sub>(entity)</sub>''  believes  ''x<sub>2</sub><sub>(proposition)</sub>''  is true about  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo krici''' — believer. '''lo se krici''' — belief (fact in which one believes). 
-:'''mi pu krici lo ka volve vau do''' — ''I believed that you would return.''
+:'''mi pu krici lo ka volta vau do''' — ''I believed that you would return.''
 :Comment: believing doesn't require evidence or proof. For expressing opinions use '''jinvi'''.
 :Related words: '''jinvi''', '''djuno''', '''censa''', '''cevni''', '''lijda''', '''makfa''', '''malsi''', '''senpi''', '''birti'''"
 krili,"
@@ -4684,9 +4684,9 @@ lenku,"
 :'''le jisra pe ne'i lo lenku minji pu xlali''' — ''The juice in the fridge was no good.''
 :Related words: '''glare''', '''bisli'''"
 lerci,"
-'''lerci''' — ''x<sub>1</sub><sub>(entity)</sub>''  is late by standard  ''x<sub>2</sub><sub>(proposition)</sub>'' 
+'''lerci''' — ''x<sub>1</sub><sub>(clause)</sub>''  is late by standard  ''x<sub>2</sub><sub>(proposition)</sub>'' 
 :'''lo lerci''' — late event. 
-:'''lo nu mi volve lo zdani cu lerci lo se jinvi be lo mamta be mi''' — ''According to my mother, I returned home late.''
+:'''lo nu mi volta lo zdani cu lerci lo se jinvi be lo mamta be mi''' — ''According to my mother, I returned home late.''
 :Related words: '''clira'''"
 lerfu,"
 '''lerfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a letter, symbol in word or alphabet  ''x<sub>2</sub><sub>(entity, text)</sub>''  representing  ''x<sub>3</sub><sub>(entity, sound)</sub>'' 
@@ -5119,6 +5119,7 @@ me'i,"
 :'''me'i mu prenu ca zutse bu'u le kumfa''' — ''There are less than five people sitting in the room now.''"
 me'o,"
 '''me'o''' — turn number into text
+:'''ko catke la'e me'o so pa pa''' — ''Dial 911!''
 :'''me'o pa re ci''' — ''123 (as a text).''
 :Comment: marks the following sequence of numbers as a text."
 me'oi,"
@@ -5726,7 +5727,7 @@ nirna,"
 :Related words: '''ve''' '''benji'''"
 nitcu,"
 '''nitcu''' — ''x<sub>1</sub><sub>(entity)</sub>''  needs  ''x<sub>2</sub><sub>(clause, property of x1)</sub>''  for purpose  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''mi nitcu lo ka volve lo zdani vau lo ka cpacu lo ckiku''' — ''I need to return home to get the keys.''
+:'''mi nitcu lo ka volta lo zdani vau lo ka cpacu lo ckiku''' — ''I need to return home to get the keys.''
 :Related words: '''banzu''', '''cidja''', '''claxu''', '''pindi''', '''xebni''', '''sarcu''', '''lacri''', '''djica''', '''taske''', '''xagji'''"
 nivji,"
 '''nivji''' — ''x<sub>1</sub><sub>(entity)</sub>''  knits  ''x<sub>2</sub><sub>(entity)</sub>''  from yarn  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -5874,7 +5875,7 @@ o'u,"
 '''o'u''' <small>[interjection]</small> — ''Phew!'' (relaxation), '''o'u''' '''cu'i''' — composure, balance, sobriety, phlegm, '''o'u''' '''nai''' — stress, anxiety
 :'''o'u ba'o vlile tcima''' — ''Phew, the storm is over.''
 :'''o'u cu'i mi pu tinbe lo se flalu''' — ''I followed the law.''
-:'''o'u nai lo mi bersa za'o na volve''' — ''My son is still not back.''
+:'''o'u nai lo mi bersa za'o na volta''' — ''My son is still not back.''
 :Related words: '''surla''', '''dunku'''"
 oi,"
 '''oi''' <small>[interjection]</small> — ''Darn! Ouch! Hmph'' (complaint), '''oi''' '''nai''' — pleasure
@@ -6016,7 +6017,7 @@ parbi,"
 '''parbi''' — fraction  ''x<sub>1</sub><sub>(number)</sub>''  is a ratio of  ''x<sub>2</sub><sub>(entity)</sub>''  with respect to  ''x<sub>3</sub><sub>(same type as x2)</sub>'' 
 :'''lo parbi''' — fraction. '''lo se parbi''' — numerator. '''lo te parbi''' — denominator. 
 :'''li re parbi li vo li re''' — ''2 is the ratio of 4 with respect to 2.''
-:'''lo cmalu cu parbi lo temci be lo cabna bei lo nu cliva vau lo temci be lo nu cliva bei lo nu volve''' — ''It's a small fraction of the time from now until leaving with respect to the time from leaving until returning.''
+:'''lo cmalu cu parbi lo temci be lo cabna bei lo nu cliva vau lo temci be lo nu cliva bei lo nu volta''' — ''It's a small fraction of the time from now until leaving with respect to the time from leaving until returning.''
 :Related words: '''frinu''', '''dilcu''', '''mekso'''"
 parji,"
 '''parji''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a parasite of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -6127,7 +6128,7 @@ pensi,"
 '''pensi''' — ''x<sub>1</sub><sub>(entity)</sub>''  ponders, is pensive about  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo pensi''' — thinker. '''lo se pensi''' — thought. 
 :'''mi pensi lo nu mi pu zvati ma kau''' — ''I'm thinking of where I was.''
-:'''mi pu pensi lo nu mi volve le zdani''' — ''I was thinking of returning back home.''
+:'''mi pu pensi lo nu mi volta le zdani''' — ''I was thinking of returning back home.''
 :Comment: '''jinvi''' - ''to have an opinion that...'', '''jdice''' - ''to make a decision''.
 :Related words: '''pe'i''', '''jijnu''', '''menli''', '''morji''', '''sidbo''', '''jinvi''', '''se''' '''nabmi''', '''minra''', '''lanli''', '''besna''', '''saske''', '''skami'''"
 perli,"
@@ -6636,7 +6637,7 @@ rapli,"
 :'''lo rapli''' — repeating event. 
 :'''mi pu cusku zo coi le fetsi fi'o se rapli li ci''' — ''I said &quot;Hello!&quot; top her three times.''
 :'''lo pruce cu rapli li mu''' — ''The process occurs for the fifth time.''
-:Related words: '''roi''', '''cafne''', '''krefu''', '''fukpi''', '''pilji''', '''volve'''"
+:Related words: '''roi''', '''cafne''', '''krefu''', '''fukpi''', '''pilji''', '''volta'''"
 rarna,"
 '''rarna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is spontaneous or natural
 :'''lo rarna''' — spontaneous. 
@@ -6775,7 +6776,7 @@ rinka,"
 '''rinka''' — ''x<sub>1</sub><sub>(clause)</sub>''  causes effect  ''x<sub>2</sub><sub>(clause)</sub>'' 
 :'''lo rinka''' — cause. '''lo se rinka''' — effect. 
 :'''lo nu ctuca cu rinka lo nu farvi''' — ''Education is the agent of progress.''
-:Related words: '''gasnu''', '''krinu''', '''nibli''', te '''zukte''', se '''jalge''', '''bapli''', '''jitro''', '''ri'a''', '''mukti''', '''ciksi''', '''volve'''"
+:Related words: '''gasnu''', '''krinu''', '''nibli''', te '''zukte''', se '''jalge''', '''bapli''', '''jitro''', '''ri'a''', '''mukti''', '''ciksi''', '''volta'''"
 rinsa,"
 '''rinsa''' — ''x<sub>1</sub><sub>(entity)</sub>''  greets, welcomes  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''mi pu rinsa la alis ta'i lo ka jai gau slilu fai lo mi xance''' — ''I greeted Alice by waving my hand.''
@@ -7814,12 +7815,14 @@ srasu,"
 '''srasu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a blade of grass of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo srasu''' — blade of grass. 
 :'''lo bakni cu nitcu lo srasu''' — ''Cows need grass.''
-:Comment: ''expanse of grass'' is '''loi srasu'''
+:Comment: ''expanse of grass'' is '''loi srasu'''.
 :Related words: '''spati'''"
 srera,"
-'''srera''' — ''x<sub>1</sub><sub>(entity)</sub>''  errs in doing  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
+'''srera''' — ''x<sub>1</sub><sub>(entity)</sub>''  errs in doing  ''x<sub>2</sub><sub>(property of x1)</sub>'' ; when using '''kau''' x<sub>2</sub> can specify the actual act considered an error.
 :'''lo se srera''' — error, mistake. 
-:'''mi pu srera lo ka cuxna lo speni be mi''' — ''I made a mistake in choosing my spouse.''
+:'''mi pu srera lo ka cuxna ma kau noi speni mi''' — ''I made a mistake in choosing my spouse.''
+:'''mi pu srera lo ka klama la madrid''' — ''I made a mistake by going to Madrid.''
+:Comment: when using '''kau''' x<sub>2</sub> can specify the actual act considered an error.
 :Related words: '''drani''', '''cfila''', '''fliba'''"
 sruma,"
 '''sruma''' — ''x<sub>1</sub><sub>(entity)</sub>''  assumes that  ''x<sub>2</sub><sub>(property of x3)</sub>''  is true about  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -9041,11 +9044,11 @@ voksa,"
 :'''lo voksa''' — voice. 
 :'''lo voksa be lo ninmu cu to'e cladu''' — ''The woman's voice is quiet.''
 :Related words: '''sance''', '''tirna''', '''bacru'''"
-volve,"
-'''volve''' — ''x<sub>1</sub><sub>(entity)</sub>''  returns to  ''x<sub>2</sub><sub>(entity, property of x1)</sub>''  from  ''x<sub>3</sub><sub>(entity, property of x1)</sub>'' 
-:'''mi volve lo ka finti lo pemci vau lo ka finti lo prosa''' — ''I return to writing poems after writing prose.''
-:'''mi volve la kaliforni'as la nipon''' — ''I returned to California from Japan.''
-:'''ko jai gau volve fai lo jdini''' — ''Return the money.''
+volta,"
+'''volta''' — ''x<sub>1</sub><sub>(entity)</sub>''  returns to  ''x<sub>2</sub><sub>(entity, property of x1)</sub>''  from  ''x<sub>3</sub><sub>(entity, property of x1)</sub>'' 
+:'''mi volta lo ka finti lo pemci vau lo ka finti lo prosa''' — ''I return to writing poems after writing prose.''
+:'''mi volta la kaliforni'as la nipon''' — ''I returned to California from Japan.''
+:'''ko jai gau volta fai lo jdini''' — ''Return the money.''
 :Related words: '''trixe''', '''krefu''', '''benji''', '''rapli'''"
 vorme,"
 '''vorme''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a doorway between  ''x<sub>2</sub><sub>(entity group)</sub>'' 
@@ -9211,7 +9214,7 @@ xarju,"
 xarnu,"
 '''xarnu''' — ''x<sub>1</sub><sub>(entity)</sub>''  stubbornly opposes  ''x<sub>2</sub><sub>(entity)</sub>''  about  ''x<sub>3</sub><sub>(clause)</sub>'' ; x<sub>1</sub> is obstinate
 :'''lo xarnu''' — obstinate. 
-:'''le nakni cu xarnu lo mamta lo ka na volve lo zdani''' — ''He was obstinate in front of his mother in not returning home.''
+:'''le nakni cu xarnu lo mamta lo ka na volta lo zdani''' — ''He was obstinate in front of his mother in not returning home.''
 :'''le fetsi ca xarnu fi lo ka jinvi ma kau''' — ''She is obstinate in her opinion.''
 :Related words: '''tinsa''', '''pante''', '''bapli''', '''fapro'''"
 xasli,"
@@ -9403,7 +9406,7 @@ y'y,"
 :Comment: apostrophe is a letter in Lojban alphabet."
 za,"
 '''za''' <small>[preposition of group ZI]</small> — (time units) '' ... ago'', ''in ...'' (time units), adverb: ''some time ago'' (unspecified or known from context), ''in some time''
-:'''mi ba volve za lo djedi be li ci''' — ''I will return in three days.''
+:'''mi ba volta za lo djedi be li ci''' — ''I will return in three days.''
 :Related words: '''zi''', '''za''', '''zu'''"
 za'a,"
 '''za'a''' <small>[interjection]</small> — ''I observe''
@@ -9571,7 +9574,7 @@ zgipli,"
 :Related words: '''zgike''', '''pilno'''"
 zi,"
 '''zi''' <small>[preposition of group ZI]</small> — ''recently'', ''soon''
-:'''mi ba volve ba zi lo cacra be li pa''' — ''I will return soon, in an hour.''
+:'''mi ba volta ba zi lo cacra be li pa''' — ''I will return soon, in an hour.''
 :'''gau mi do ba djuno ba zi lo nu mi tsuku''' — ''I will inform you as soon as I arrive.''
 :Related words: '''zi''', '''za''', '''zu'''"
 zi'e,"

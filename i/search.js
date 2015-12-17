@@ -42,9 +42,9 @@ function search(query, callback) {
 			rafsiDocuments: ki.filter(function(n){ return n !== undefined })
 		});
 	}
-	else if (query.indexOf('*')>-1)
+	else if (query.indexOf('/')===0)
 	{
-		var queryRE="^"+query.replace(/\*/g,'.*')+"$";
+		var queryRE="^"+query.replace(/\//g,'')+"$";
 		kij.push(documentStore.filter(function(val){return (val.w.match(queryRE.toLowerCase())||[]).length > 0;}));
 		preciseMatches.push({
 			t: "decomposing ...",
@@ -120,7 +120,6 @@ function search(query, callback) {
 		normalMatches=sor(normalMatches);
 		preciseMatches=sor(preciseMatches);
 		preciseMatches = exactMatches.concat(lujvoDecompMatches).concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(preciseMatches);
-		//		console.log(JSON.stringify(preciseMatches));
 		callback(preciseMatches);
 	});
 }

@@ -82,7 +82,7 @@ arte,"
 arxokuna,"
 '''arxokuna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a raccoon of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo arxokuna''' — raccoon. 
-:'''pa arxokuna cu zvati lo mi jukpa kumfa''' — ''There's a raccoon in my kitchen.''
+:'''pa arxokuna cu zvati lo mi kumfa co nu jukpa''' — ''There's a raccoon in my kitchen.''
 :Related words: '''danlu''', '''mabru'''"
 asna,"
 '''asna''' — ''x<sub>1</sub><sub>(property of x2)</sub>''  is a posture, stance, asana of body  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -197,12 +197,12 @@ balvi,"
 bambola,"
 '''bambola''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a doll
 :'''lo bambola''' — doll. 
-:'''le nixli cu nelci lo va bambola''' — ''The girl likes that doll.''
+:'''le nixli cu nelci ta noi bambola''' — ''The girl likes that doll.''
 :Related words: '''keltci''', '''kelci'''"
 bambu,"
 '''bambu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bamboo of variety  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo bambu''' — bamboo. 
-:'''lo bambu cu torni lo brife''' — ''Bamboo bends before the wind.''
+:'''le bambu cu torni lo brife''' — ''Bamboo bends before the wind.''
 :Related words: '''spati''', '''tricu'''"
 bancu,"
 '''bancu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is beyond boundary  ''x<sub>2</sub><sub>(same type as x1)</sub>''  from  ''x<sub>3</sub><sub>(same type as x1)</sub>''  in  ''x<sub>4</sub><sub>(property of x1)</sub>'' 
@@ -217,7 +217,7 @@ bandu,"
 banfi,"
 '''banfi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an amphibian of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo banfi''' — amphibian. 
-:'''lo remna cu simlu lo ka banfi''' — ''Humans look like amphibians.''
+:'''lo remna cu simsa lo banfi la ka se tarmi''' — ''Humans look like amphibians.''
 :Related words: '''danlu''', '''respa'''"
 bangu,"
 '''bangu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a language used in  ''x<sub>2</sub><sub>(entity)</sub>''  to express  ''x<sub>3</sub><sub>(proposition)</sub>'' 
@@ -229,7 +229,7 @@ bangu,"
 banli,"
 '''banli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is great, magnificent in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo banli''' — great (superior). 
-:'''lo xamsi cu banli lo ka se jvinu ma kau le xotli kumfa''' — ''The sea looks magnificent from the hotel room.''
+:'''le xamsi cu banli lo ka se jvinu ma kau le kumfa be le xotli''' — ''The sea looks magnificent from the hotel room.''
 :Related words: '''barda''', '''nobli''', '''se''' '''sinma''', '''pluja''', '''misno''', '''vajni''', '''fasnu''', '''cizra''', '''traji''', '''mutce''', '''marvele'''"
 banro,"
 '''banro''' — ''x<sub>1</sub><sub>(entity)</sub>''  grows to size or into form  ''x<sub>2</sub><sub>(entity)</sub>''  from  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -262,7 +262,7 @@ barda,"
 bargu,"
 '''bargu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an arch over or around  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo bargu''' — arch. 
-:'''loi tricu cu bargu lo dargu''' — ''The trees form an arch over the road.''
+:'''lei tricu cu bargu lo dargu''' — ''The trees form an arch over the road.''
 :Related words: '''cripu''', '''korcu''', '''condi'''"
 barja,"
 '''barja''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bar serving  ''x<sub>2</sub><sub>(entity)</sub>''  to customers  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -272,7 +272,7 @@ barja,"
 barna,"
 '''barna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a mark, spot on  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo barna''' — mark, spot. 
-:'''lo barna be lo kamju cu dargu sinxa''' — ''The mark on the pillar is a road sign.''
+:'''le barna be le kamju cu flalu barna le dargu''' — ''The mark on the pillar is a road sign.''
 :Related words: '''sinxa''', '''pixra''', '''se''' '''ciska''', '''se''' '''prina'''"
 bartu,"
 '''bartu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is outside of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -358,7 +358,7 @@ bende,"
 benji,"
 '''benji''' — ''x<sub>1</sub><sub>(entity)</sub>''  transmits  ''x<sub>2</sub><sub>(entity)</sub>''  to receiver  ''x<sub>3</sub><sub>(entity)</sub>''  from origin  ''x<sub>4</sub><sub>(entity)</sub>''  via  ''x<sub>5</sub><sub>(entity)</sub>''
 :'''lo benji''' — transmitter. '''lo te benji''' — transmission receiver. '''lo ve benji''' — origin of a transmission. '''lo xe benji''' — medium of transmission. 
-:'''mi ba benji lo xatra do fu la internet fo lo mi zdani skami''' — ''I will send you a letter via the internet from my home computer.''
+:'''mi ba benji lo xatra do fu la internet fo lo skami pe lo mi zdani''' — ''I will send you a letter via the internet from my home computer.''
 :'''lo gunka pu benji lo sinxa lo drata gunka lo galtu lo sance''' — ''A worker sent a sound signal to another worker from the above.''
 :Comment: ''transmitter'' in English can denote both '''lo''' '''benji''' and '''lo''' '''xe''' '''benji'''.
 :Related words: '''muvdu''', '''dunda''', '''mrilu''', '''nirna''', '''volta''', '''cradi''', '''tivni''', '''preja''', '''be'i''', '''bevri''', '''mrilu''', '''tcana'''"
@@ -366,16 +366,16 @@ bersa,"
 '''bersa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a son of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo bersa''' — son. '''lo se bersa''' — parent of a son. 
 :'''mi se bersa re da''' — ''I have two sons.''
-:Related words: '''verba''', '''nanla''', '''nakni''', '''nanmu''', '''patfu''', '''mamta''', '''bruna''', '''rirni''', '''rorci''', '''panzi''', '''tixnu'''"
+:Related words: '''tixni''', '''se''' '''rirni''', '''verba''', '''nanla''', '''nakni''', '''patfu''', '''bruna'''"
 berti,"
 '''berti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is to the northern side of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo berti''' — northern. 
-:'''lo za'u grute purdi cu berti le tcadu''' — ''Fruit gardens are to the north of the city.''
+:'''lo za'u purdi be fi lo grute cu berti le tcadu''' — ''Fruit gardens are to the north of the city.''
 :Related words: '''snanu''', '''stici''', '''stuna''', '''farna'''"
 besna,"
 '''besna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a brain of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo besna''' — brain. 
-:'''ro remna cu se besna''' — ''All humans have brains.''
+:'''ro remna da se besna''' — ''All humans have brains.''
 :Related words: '''menli''', '''stedu''', '''rango''', '''pensi'''"
 betfu,"
 '''betfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a belly, abdomen, lower trunk of body  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -395,7 +395,7 @@ betri,"
 bevri,"
 '''bevri''' — ''x<sub>1</sub><sub>(entity)</sub>''  brings, transports, carries  ''x<sub>2</sub><sub>(entity)</sub>''  to  ''x<sub>3</sub><sub>(entity)</sub>''  from  ''x<sub>4</sub><sub>(entity)</sub>''  by path  ''x<sub>5</sub><sub>(entity)</sub>''
 :'''lo bevri''' — carrier. '''lo se bevri''' — cargo. 
-:'''mi pu bevri lo patxu be lo nudle fu'e ta'o fi lo purdi fo lo jukpa kumfa fu lo rokci dargu fu'o''' — ''I carried a bowl of noodles (to the garden from the kitchen via a rocky road).''
+:'''mi pu bevri lo patxu be lo nudle fu'e ta'o fi lo purdi fo lo nu jukpa vau kumfa fu lo rokci dargu fu'o''' — ''I carried a bowl of noodles (to the garden from the kitchen via a rocky road).''
 :'''la kevin pu bevri lo gerku lo zdani''' — ''Kevin brought a dog home.''
 :'''mi pu bevri lo fonxa fo lo daski''' — ''I took the phone out of the pocket.''
 :Comment: alternatively '''se''' '''ka'a''' can be used to specify where the thing is brought, '''te''' '''ka'a''' - from where it is brought, '''ve''' '''ka'a''' - via what path it is brought.
@@ -546,7 +546,7 @@ bolci,"
 bombila,"
 '''bombila''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a light bulb
 :'''lo bombila''' — light bulb. 
-:'''lo bombila cu spofu''' — ''The light bulb is broken.''
+:'''le bombila cu spofu''' — ''The light bulb is broken.''
 :Related words: '''minji''', '''cabra''', '''matra''', '''tutci'''"
 bongu,"
 '''bongu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bone of body part or body  ''x<sub>2</sub><sub>(entity)</sub>'' <sub>(entity)</sub>'' 
@@ -586,7 +586,7 @@ bramlatu,"
 bratu,"
 '''bratu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is hail
 :'''lo bratu''' — hail, sleet. 
-:'''lo bratu pu vlile''' — ''The hailstorm was violent.''
+:'''le bratu pu vlile''' — ''The hailstorm was violent.''
 :Related words: '''carvi''', '''snime''', '''bisli''', '''tcima'''"
 brazo,"
 '''brazo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is Brazilian in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -1315,7 +1315,7 @@ ckunu,"
 cladu,"
 '''cladu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is loud at observation point  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo cladu''' — loud (producing loud sound). '''lo se cladu''' — loud place. 
-:'''lo zgike cu cladu fe ji'a lo bu'u kumfa''' — ''The music is loud even when you are in this room.''
+:'''lo zgike cu cladu ke ji'a lo bu'u kumfa''' — ''The music is loud even when you are in this room.''
 :Related words: '''tolycladu''', '''sance''', '''savru'''"
 clani,"
 '''clani''' — ''x<sub>1</sub><sub>(entity)</sub>''  is long in length/width etc.  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -2438,7 +2438,8 @@ fau,"
 '''fau''' <small>[preposition]</small> — ''with the event of ...''
 :'''fau lo nu do djica vau ko cpedu fi mi''' — ''If you want, ask me.''
 :'''fau ro nu do nitcu da vau ko da lebna''' — ''Whenever you need something, take it.''
-:'''fau da'i ro da mi snada''' — ''I would succeed anyway.''"
+:'''fau da'i ro da mi snada''' — ''I would succeed anyway.''
+:'''da'i ma fasnu fau lo nu ro remna no roi sipna''' — ''What would happen if humans never slept?''"
 fe,"
 '''fe''' <small>[case tag]</small> — prefix for the 2nd place of the current clause
 :'''fe ma zvati fa la alis''' — ''Where is Alice?''"
@@ -3406,7 +3407,7 @@ je,"
 je'a,"
 '''je'a''' <small>[left scaler]</small> — ''indeed ...'' (affirms the position on the scale)
 :'''do je'a stati doi loi prenu''' — ''You are really smart, people.''
-:'''lei grute cu tasta je'a rigni''' — ''The fruits are indeed disgusting in taste.''"
+:'''lei grute cu se tasta lo je'a rigni''' — ''The fruits are indeed disgusting in taste.''"
 je'ai,"
 '''je'ai''' <small>[left scaler]</small> — asks which particle fits the place where '''je'ai''' is put: '''je'a''', '''na'e''', '''no'e''' or '''to'e'''
 :'''lu do je'ai nelci lo gerku li'u lu to'e li'u''' — ''&quot;You like/dislike dogs?&quot; &quot;I hate them.&quot;''"
@@ -3421,7 +3422,7 @@ je'i,"
 je'u,"
 '''je'u''' <small>[interjection]</small> — ''truly, yes'', '''je'u''' '''nai''' — ''no'' (false)
 :'''je'u do stati prenu''' — ''Truly, you are a smart person.''
-:'''lo je'u nai purdi cu se ponse lo za'u cizra prenu''' — ''This &quot;garden&quot; (which is in fact not a garden) is owed by some weird people.''
+:'''lo purdi je'u nai cu se ponse lo za'u cizra prenu''' — ''This &quot;garden&quot; (which is in fact not a garden) is owed by some weird people.''
 :'''xu do kansa mi'a i je'u nai''' — ''Are you with us? No.''
 :Related words: '''jetnu'''"
 jecta,"
@@ -3531,7 +3532,7 @@ ji,"
 ji'a,"
 '''ji'a''' <small>[interjection]</small> — ''additionally'', ''too''
 :'''mi ji'a je'a nelci''' — ''I like it too.''
-:'''lo xagji cribe cu citka fe ji'a sai lo insekto''' — ''A hungry bear will eat even insects.''
+:'''lo xagji cribe cu citka ke ji'a sai lo insekto''' — ''A hungry bear will eat even insects.''
 :Comment: '''ji'a''' means 'additionally', '''si'a''' means 'similarly' implying that there is another salient difference.
 :Related words: '''jmina'''"
 ji'e,"
@@ -3754,7 +3755,8 @@ ju,"
 :'''ei zukte i ju le nanmu cu klama''' — ''Let's do it whether or not he comes.''"
 ju'a,"
 '''ju'a''' <small>[interjection]</small> — ''I state'' (non-specified source of information)
-:'''ju'a ro da cu se senpi ei''' — ''Everything should be doubted, I say.''
+:'''la alis cu jinvi lo du'u ju'a le nakni cu fenki''' — ''Alice has an opinion that the man is crazy, and it is so, I say.''
+:Comment: '''ju'a''' is always assumed to be present in the main clause. Inner clauses within places are not stated with '''ju'a''' unless explicitly specified..
 :Related words: '''xusra'''"
 ju'e,"
 '''ju'e''' <small>[conjunction]</small> — forms two independent sentences
@@ -6599,7 +6601,7 @@ ralte,"
 :'''mi ralte re mlatu''' — ''I keep two cats.''
 :Related words: '''cirko''', '''rinju''', '''ponse''', '''jgari''', '''pinfu''', '''stali''', '''permite'''"
 rango,"
-'''rango''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bodily organ of  ''x<sub>2</sub><sub>(entity)</sub>''  performing function  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
+'''rango''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bodily organ of  ''x<sub>2</sub><sub>(entity)</sub>''  performing function  ''x<sub>3</sub><sub>(property of nonce place)</sub>'' 
 :'''lo rango''' — bodily organ. '''lo te rango''' — function of a bodily organ. 
 :'''lo risna cu sluji rango fi lo ka pambe lo ciblu vi'u lo xadni''' — ''The heart is the muscular organ that pumps blood throughout the body.''
 :'''ti rango lo insekto lo ka tirna''' — ''This is an organ of insects performing the function of listening.''
@@ -8405,7 +8407,7 @@ tixnu,"
 '''tixnu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a daughter of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo tixnu''' — daughter. '''lo se tixnu''' — parent of a daughter. 
 :'''ma nuzba lo tixnu be do''' — ''How is your daughter?''
-:Related words: '''bersa''', '''panzi'''"
+:Related words: '''bersa''', '''se''' '''rirni''', '''verba''', '''nixli''', '''fetsi''', '''mamta''', '''mensi'''"
 to,"
 '''to''' — '''to''' ... '''toi''' are parentheses, mark parenthetical comments
 :'''lei verba to lei rirni pu zvati lo zarci toi pu klama lo bartu''' — ''The children (the parents were at the store) went outside.''"
@@ -9366,7 +9368,7 @@ xrula,"
 '''xrula''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a flower of plant or species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo xrula''' — flower. 
 :'''lo vi xrula cu rozgu''' — ''This flower is a rose.''
-:Comment: synonym to '''xrula'''.
+:Comment: synonym to '''flora'''.
 :Related words: '''spati'''"
 xu,"
 '''xu''' <small>[interjection]</small> — true-false question, '''xu''' '''nai''' — false-true question

@@ -45,13 +45,8 @@ function search(query, callback) {
 	else if (query.indexOf('/')===0)
 	{
 		var queryRE="^"+query.replace(/\//g,'')+"$";
-		kij.push(documentStore.filter(function(val){return (val.w.match(queryRE.toLowerCase())||[]).length > 0;}));
-		preciseMatches.push({
-			t: "decomposing ...",
-			w: query,
-			rafsiDocuments: (kij[0]).splice(0,50).filter(function(n){ return n !== undefined })
-			//todo: add notice that results were truncated
-		});
+		preciseMatches=documentStore.filter(function(val){return (val.w.match(queryRE.toLowerCase())||[]).length > 0;}).splice(0,window.limit).filter(function(n){n=restore(n); return n !== undefined });
+		//todo: add notice that results were truncated
 	}
 	var exactMatches = [];
 	var lujvoDecompMatches = [];
@@ -60,7 +55,7 @@ function search(query, callback) {
 	var goodMatches = [];
 	var normalMatches = [];
 	searchEngine.lookup(query, function(lo_matra_cu_cupra) {
-		if (!lo_matra_cu_cupra||kij.length!==0) {
+		if (!lo_matra_cu_cupra||preciseMatches.length!==0) {
 			callback(be(preciseMatches,query));
 			return;
 		}
@@ -112,7 +107,6 @@ function search(query, callback) {
 		{
 			return (((a.d||'').length < (b.d||'').length) ? -1 : (((a.d||'').length > (b.d||'').length) ? 1 : 0));
 		}
-		//		console.log(JSON.stringify(exactMatches));
 		//exactMatches=sor(exactMatches);
 		greatMatches=sor(greatMatches);
 		selmahoMatches=sor(selmahoMatches);

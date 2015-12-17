@@ -69,16 +69,7 @@ function search(query, callback) {
 		}
 		for (var i = 0; i < lo_matra_cu_cupra.getSize(); i++) {
 			var key = lo_matra_cu_cupra.getItem(i);
-			var doc = documentStore[key];
-			if (!doc.t){
-				if(xugismu(doc.w)===true){doc.t='gismu'}
-				else if(xulujvo(doc.w)===true){doc.t='lujvo'}
-				else if(xufuhivla(doc.w)===true){doc.t="fu'ivla"}
-				else if(xucmavo(doc.w)===true){doc.t="cmavo"}
-				else if(xucmavogunma(doc.w)===true){doc.t="cmavo compound"}
-				else if(xucmevla(doc.w)===true){doc.t="cmevla"}
-				else {doc.t=''}
-			}
+			var doc = restore(documentStore[key]);
 			if (!doc) {
 				continue;
 			}
@@ -119,15 +110,17 @@ function search(query, callback) {
 		}
 		function sortMultiDimensional(a,b)
 		{
-			return ((a.d.length < (b.d||'').length) ? -1 : ((a.d.length > (b.d||'').length) ? 1 : 0));
+			return (((a.d||'').length < (b.d||'').length) ? -1 : (((a.d||'').length > (b.d||'').length) ? 1 : 0));
 		}
-		exactMatches=sor(exactMatches);
+		//		console.log(JSON.stringify(exactMatches));
+		//exactMatches=sor(exactMatches);
 		greatMatches=sor(greatMatches);
 		selmahoMatches=sor(selmahoMatches);
 		goodMatches=sor(goodMatches);
 		normalMatches=sor(normalMatches);
 		preciseMatches=sor(preciseMatches);
 		preciseMatches = exactMatches.concat(lujvoDecompMatches).concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(preciseMatches);
+		//		console.log(JSON.stringify(preciseMatches));
 		callback(preciseMatches);
 	});
 }

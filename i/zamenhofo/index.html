@@ -457,7 +457,10 @@
 		}
 	}
 	function plukaquery(arg){
+		if (arg.indexOf('/')!==0){
 		return arg.replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim()
+		}
+		else{return arg;}
 	}
 	function doSearch() {
 		query = plukaquery(typehere.val());
@@ -476,7 +479,7 @@
 	//setup before functions
 	var typingTimer;  //timer identifier
 	var doneTypingInterval = 200;  //time in ms, 5 second for example
-	//typehere.on('change',function(){doSearch});
+	typehere.on('input',function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
@@ -502,7 +505,7 @@
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
 		//query = '';
-		if (searchMatch) {
+		if (searchMatch && searchMatch.indexOf('/')===-1) {
 		query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ").trim();
 		}
 		typehere.val(query);

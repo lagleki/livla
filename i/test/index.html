@@ -342,6 +342,7 @@
 	  });
 	  return s;
 	}
+
 	function displayDocument(def,inner) {
 		if (!def){def=[];}
 		var out;
@@ -478,7 +479,7 @@
 	//setup before functions
 	var typingTimer;  //timer identifier
 	var doneTypingInterval = 200;  //time in ms, 5 second for example
-	//typehere.on('change',function(){doSearch});
+	typehere.on('input',function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 

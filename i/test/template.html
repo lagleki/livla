@@ -269,7 +269,8 @@
 	});
 	var fm = {BE: "bei",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au",NAhU: "te'u",NIhE: "te'u",MOhE: "te'u"};
 	function arraySearch(arr,val) {
-		for (var key in arr){
+		var key=arr.length;
+		while (key--){
 			if (arr[key]===val) return key
 		}
 		return false;
@@ -352,7 +353,8 @@
 		tfm = arraySearch(fm,def.w);
 		if (tfm!==false) {
 			var sh=[];
-			for (var key in fm){
+			var key = fm.length;
+			while (key--){
 				if (fm[key]===def.w){sh.push('<a href="#sisku/' + key + '">' + key + '</a>');}
 			}
 			tfm = $("<div>").addClass(kl).html('<i><sup>['+sh.join(", ")+'&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;');
@@ -409,7 +411,7 @@
 				var rafsi = $("<div>").addClass('rafsi');
 				rafsi.append("rafsi: ");
 				var i=def.r.length;
-				for (i--) {
+				while (i--) {
 				var rafElem = $("<span>").appendTo(rafsi);
 				var raf = def.r[i];
 					if ((def.t||'').match(/lujvo/)) {
@@ -478,9 +480,9 @@
 		resultCount = 0;
 		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
 	}
-	//setup before functions
-	var typingTimer;  //timer identifier
-	var doneTypingInterval = 200;  //time in ms, 5 second for example
+	//search after timeout
+	var typingTimer;
+	var doneTypingInterval = 200;
 	typehere.on('input',function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});

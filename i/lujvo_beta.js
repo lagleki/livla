@@ -75,7 +75,8 @@ function decomposeLujvo(str) {
 
 var rafsi = {};
 function onUpdateDocumentStore() {
-	for (var key in documentStore) {
+	var key = documentStore.length;
+	while (key--) {
 	var def = restore(documentStore[key]);
 		if ((def.t).match(/lujvo/)) {
 			continue;

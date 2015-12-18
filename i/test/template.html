@@ -386,7 +386,8 @@
 		} else {
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
-		for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {
+		var i=(def.rafsiDocuments||[]).length;
+		while (i--) {
 			if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i],1).appendTo(subDefs);}
 		}
 		subDefs.appendTo(out);
@@ -407,7 +408,8 @@
 		if ((def.r||[]).length > 0 && !def.l && window.xuzganalojudri) {
 				var rafsi = $("<div>").addClass('rafsi');
 				rafsi.append("rafsi: ");
-				for (var i = 0; i < def.r.length; i++) {
+				var i=def.r.length;
+				for (i--) {
 				var rafElem = $("<span>").appendTo(rafsi);
 				var raf = def.r[i];
 					if ((def.t||'').match(/lujvo/)) {

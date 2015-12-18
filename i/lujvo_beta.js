@@ -80,7 +80,8 @@ function onUpdateDocumentStore() {
 		if ((def.t).match(/lujvo/)) {
 			continue;
 		}
-		for (var i = 0; i < (def.r||[]).length; i++) {
+		var i=(def.r||[]).length;
+		while (i--) {
 			rafsi[(def.r[i]||'')] = def;
 		}
 	}

@@ -13,7 +13,8 @@ function search(query, callback) {
 		var kim=[];
 		var luj=decomposeLujvo(lu);
 		if (luj){
-			for (var ji in luj){
+			var ji=luj.length;
+			while (ji--){
 				kim.push(rafsi[luj[ji]]);
 			}
 		}
@@ -26,12 +27,14 @@ function search(query, callback) {
 	}
 	//preciseMatches
 	if (queryDecomposition.length>1){
-		for (var i=0;i<queryDecomposition.length;i++){
+		var i=queryDecomposition.length;
+		while (i--){
 			var luj=decomposeLujvo(queryDecomposition[i]);
 			var isdef = documentStore.filter(function (val){return val.w==queryDecomposition[i].toLowerCase();})[0];
 			ki.push(isdef);
 			if (luj && !isdef){
-				for (var ji in luj){
+				var ji=luj.length;
+				while (ji--){
 					ki.push(rafsi[luj[ji]]);
 				}
 			}
@@ -45,7 +48,7 @@ function search(query, callback) {
 	else if (query.indexOf('/')===0)
 	{
 		var queryRE="^"+query.replace(/\//g,'')+"$";
-		preciseMatches=documentStore.filter(function(val){return (val.w.match(queryRE.toLowerCase())||[]).length > 0;}).splice(0,window.limit).filter(function(n){n=restore(n); return n !== undefined });
+		preciseMatches=documentStore.filter(function(val){return (val.w.match(queryRE.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined });
 		//todo: add notice that results were truncated
 	}
 	var exactMatches = [];
@@ -62,7 +65,8 @@ function search(query, callback) {
 		if (searchId !== searchIdCounter||query.indexOf('*')>-1) {
 			return;
 		}
-		for (var i = 0; i < lo_matra_cu_cupra.getSize(); i++) {
+		var i=lo_matra_cu_cupra.getSize();
+		while (i--) {
 			var key = lo_matra_cu_cupra.getItem(i);
 			var doc = restore(documentStore[key]);
 			if (!doc) {
@@ -92,13 +96,14 @@ function search(query, callback) {
 				else {preciseMatches.push(doc);}
 		}
 		function sor(ar){
-			var c;
+			var c=ar.length;
 			var gism=[];
 			var cmav=[];
-			for (c=0;c<ar.length;c++){
+			while (c--){
 				if (ar[c].t==='gismu'){gism.push(ar.splice(c,1)[0]);}
 			}
-			for (c=0;c<ar.length;c++){
+			c=ar.length;
+			while (c--){
 				if (ar[c].t==='cmavo'){cmav.push(ar.splice(c,1)[0]);}
 			}
 			return gism.sort(sortMultiDimensional).concat(cmav.sort(sortMultiDimensional)).concat(ar.sort(sortMultiDimensional));
@@ -164,15 +169,8 @@ function SaveIndexToLocalStorage(data)
 }
 
 function initializer(injector, callback) {
-	var numTerms = objectSize(documentStore);
-	var synchro = fullproof.make_synchro_point(callback, numTerms);
 	var wordsArray = documentStore.map(function(r){return Object.keys(r).map(function (key) {return r[key];}).join(" ")});
 	var valuesArray = Object.keys(documentStore);
+	var synchro = fullproof.make_synchro_point(callback, valuesArray.length);
 	injector.injectBulk(wordsArray, valuesArray, callback, progress);
-}
-
-function objectSize(obj) {
-	var i = 0;
-	for (var key in obj) i++;
-	return i;
 }

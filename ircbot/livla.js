@@ -381,13 +381,13 @@ var processor = function(client, from, to, text, message) {
         if (text.indexOf(preasker) == '0' && from!==replier) {
         setTimeout(function() {client.say(sendTo, from + ': ' + ext(mizmiku));}, interm );
     }}
-	if (text.indexOf("doi " + asker) >-1 && from!==replier) {
+	if (~text.indexOf("doi " + asker) && from!==replier) {
       		setTimeout(function() {client.say(sendTo, tato.tatoebaprocessing(from));}, interm );
 	}
 	setInterval(function() {if (Date.now()-said>interv){said=Date.now();client.say(livlytcan, prereplier + vric());}}, interv);
   //}
   var sendTo = from; // send privately
-  if (to.indexOf('#') > -1) {
+  if (~to.indexOf('#')) {
     sendTo = to; // send publicly
   }
 };
@@ -404,7 +404,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
   var ret;
   if (!text) return;
   var sendTo = from; // send privately
-  if (to.indexOf('#') > -1) {
+  if (~to.indexOf('#')) {
     sendTo = to; // send publicly
   }
   if (1==1) {  //sendTo == to Public
@@ -432,7 +432,8 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		}
 	}
 	//now send back part
-		for (var l=0;l<notci.length;l++){
+		var l=notci.length;
+		while (l--){
 			//sendTo
 			if (notci[l].length === 0) continue; // prevent a crash if the line is empty
 			var cmenepagbu=notci[l].split("\t");//.substr(0, notci[l].indexOf('\t'));
@@ -577,10 +578,9 @@ return s;
 
 var jbopomofo = function (lin)
 {
- var inputlength = lin.length;
- input = lin.toLowerCase();
  var jbopotext = "";
- for (i = 0; i < inputlength; i++) {
+ var i=lin.length;
+ while (i--) {
  var character = lin.charAt(i);
 
  switch(character) {
@@ -1369,12 +1369,7 @@ if (typeof xmlDoc==='undefined'){
 	//{throw new Error('============');}
 
 	function sortFunction(a, b) {
-    if (a[2] === b[2]) {
-        return 0;
-    }
-    else {
-        return (a[2] < b[2]) ? -1 : 1;
-    }
+    (a[2] === b[2]) ? return 0 : return ((a[2] < b[2]) ? -1 : 1);
 	}
 	si=si.trim().split(" ").splice(0,5);
 	if (si.length>=5){si.push("...");}

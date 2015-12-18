@@ -1369,7 +1369,7 @@ if (typeof xmlDoc==='undefined'){
 	//{throw new Error('============');}
 
 	function sortFunction(a, b) {
-    (a[2] === b[2]) ? return 0 : return ((a[2] < b[2]) ? -1 : 1);
+    	return (a[2] === b[2]) ? 0 : ((a[2] < b[2]) ? -1 : 1);
 	}
 	si=si.trim().split(" ").splice(0,5);
 	if (si.length>=5){si.push("...");}

@@ -354,7 +354,7 @@
 		if (tfm!==false) {
 			var sh=[];
 			var key = fm.length;
-			while (key--){
+			for (key=0;key<fm.length;key++){
 				if (fm[key]===def.w){sh.push('<a href="#sisku/' + key + '">' + key + '</a>');}
 			}
 			tfm = $("<div>").addClass(kl).html('<i><sup>['+sh.join(", ")+'&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;');
@@ -388,8 +388,7 @@
 		} else {
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
-		var i=(def.rafsiDocuments||[]).length;
-		while (i--) {
+		for (i=0;i<i=(def.rafsiDocuments||[]).length;i++) {
 			if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i],1).appendTo(subDefs);}
 		}
 		subDefs.appendTo(out);
@@ -410,8 +409,7 @@
 		if ((def.r||[]).length > 0 && !def.l && window.xuzganalojudri) {
 				var rafsi = $("<div>").addClass('rafsi');
 				rafsi.append("rafsi: ");
-				var i=def.r.length;
-				while (i--) {
+				for (i=0; i<def.r.length;i++) {
 				var rafElem = $("<span>").appendTo(rafsi);
 				var raf = def.r[i];
 					if ((def.t||'').match(/lujvo/)) {

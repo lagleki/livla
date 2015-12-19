@@ -388,7 +388,7 @@
 		} else {
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
-		for (i=0;i<i=(def.rafsiDocuments||[]).length;i++) {
+		for (var i=0;i<(def.rafsiDocuments||[]).length;i++) {
 			if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i],1).appendTo(subDefs);}
 		}
 		subDefs.appendTo(out);

@@ -54,6 +54,7 @@ function search(query, callback) {
 	var selmahoMatches = [];
 	var goodMatches = [];
 	var normalMatches = [];
+	var defMatches = [];
 	searchEngine.lookup(query, function(lo_matra_cu_cupra) {
 		if (!lo_matra_cu_cupra||preciseMatches.length!==0) {
 			callback(be(preciseMatches,query));
@@ -73,7 +74,7 @@ function search(query, callback) {
 					exactMatches=be(exactMatches,query);
 					continue;
 				}
-				if ((doc.g||'')===query||(query>0 && (doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
+				else if ((doc.g||'')===query||(query>0 && (doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
 					greatMatches.push(doc);
 					continue;
 				}
@@ -89,7 +90,11 @@ function search(query, callback) {
 					normalMatches.push(doc);
 					continue;
 				}
-				else {preciseMatches.push(doc);}
+				else if (((doc.d||'').toLowerCase().search("\\b"+query+"\\b")>=0)){
+					defMatches.push(doc);
+					continue;
+				}
+				else {console.log(JSON.stringify(doc));preciseMatches.push(doc);}
 		}
 		function sor(ar){
 			var gism=[];
@@ -111,8 +116,9 @@ function search(query, callback) {
 		selmahoMatches=sor(selmahoMatches);
 		goodMatches=sor(goodMatches);
 		normalMatches=sor(normalMatches);
+		defMatches=sor(defMatches);
 		preciseMatches=sor(preciseMatches);
-		preciseMatches = exactMatches.concat(lujvoDecompMatches).concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(preciseMatches);
+		preciseMatches = exactMatches.concat(lujvoDecompMatches).concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(defMatches).concat(preciseMatches);
 		callback(preciseMatches);
 	});
 }
@@ -156,8 +162,6 @@ function println(lng, word){
 
 function SaveIndexToLocalStorage(data)
 {
-	// Parse the serialized data back into an aray of objects
-	var a = localStorage.getItem('purci')||[];
 	localStorage.setItem('wordsArray', JSON.stringify(wordsArray));
 	localStorage.setItem('valuesArray', JSON.stringify(valuesArray));
 }

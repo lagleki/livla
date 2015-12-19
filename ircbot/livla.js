@@ -579,8 +579,7 @@ return s;
 var jbopomofo = function (lin)
 {
  var jbopotext = "";
- var i=lin.length;
- while (i--) {
+ for (var i=0;i<lin.length;i++) {
  var character = lin.charAt(i);
 
  switch(character) {

@@ -29,7 +29,7 @@ net.kornr.unicode= net.kornr.unicode||{};
 					if (c < r[0]) {
 						step = -1;
 					}  else if (c > r[1]) {
-						step = +1
+						step = +1;
 					} else {
 						lastindex = index;
 						return true;
@@ -42,7 +42,7 @@ net.kornr.unicode= net.kornr.unicode||{};
 					step = c<r?-1:+1;
 				}
 				
-				if (direction == 0) {
+				if (direction === 0) {
 					direction = step;
 				} else if (direction != step) {
 					return false;
@@ -54,7 +54,7 @@ net.kornr.unicode= net.kornr.unicode||{};
 				}
 			}
 			return false;
-		}
+		};
 
 	}
 		
@@ -63,7 +63,7 @@ net.kornr.unicode= net.kornr.unicode||{};
 		if (data === undefined) {
 			return function() {
 				throw "Missing data, you need to include " + originFile;
-			}
+			};
 		}
 
 		var search_codepoint_in_array = make_search_function_in_array(data);
@@ -84,7 +84,7 @@ net.kornr.unicode= net.kornr.unicode||{};
 			break;
 			}
 			return false;
-		}
+		};
 	}
 	
 	/**
@@ -99,7 +99,7 @@ net.kornr.unicode= net.kornr.unicode||{};
 		if (data === undefined) {
 			return function() {
 				throw "Missing data, you need to include " + originFile;
-			}
+			};
 		}
 		
 		//

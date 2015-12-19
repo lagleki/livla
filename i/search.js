@@ -13,28 +13,25 @@ function search(query, callback) {
 		var kim=[];
 		var luj=decomposeLujvo(lu);
 		if (luj){
-			var ji=luj.length;
-			while (ji--){
+			for (var ji=0; ji<luj.lengh;ji++){
 				kim.push(rafsi[luj[ji]]);
 			}
+			kil.push({
+				t: "decomposing ...",
+				w: query,
+				rafsiDocuments: kim.filter(function(n){ return n !== undefined })
+			});
 		}
-		kil.push({
-			t: "decomposing ...",
-			w: query,
-			rafsiDocuments: kim.filter(function(n){ return n !== undefined })
-		});
 		return kil;
 	}
 	//preciseMatches
 	if (queryDecomposition.length>1){
-		var i=queryDecomposition.length;
-		while (i--){
+		for (var i=0;i<queryDecomposition.length;i++){
 			var luj=decomposeLujvo(queryDecomposition[i]);
 			var isdef = documentStore.filter(function (val){return val.w==queryDecomposition[i].toLowerCase();})[0];
 			ki.push(isdef);
 			if (luj && !isdef){
-				var ji=luj.length;
-				while (ji--){
+				for (var ji=0; ji<luj.lengh;ji++){
 					ki.push(rafsi[luj[ji]]);
 				}
 			}
@@ -65,8 +62,7 @@ function search(query, callback) {
 		if (searchId !== searchIdCounter||query.indexOf('*')>-1) {
 			return;
 		}
-		var i=lo_matra_cu_cupra.getSize();
-		while (i--) {
+		for (var i=0;i<lo_matra_cu_cupra.getSize();i++) {
 			var key = lo_matra_cu_cupra.getItem(i);
 			var doc = restore(documentStore[key]);
 			if (!doc) {
@@ -96,14 +92,12 @@ function search(query, callback) {
 				else {preciseMatches.push(doc);}
 		}
 		function sor(ar){
-			var c=ar.length;
 			var gism=[];
 			var cmav=[];
-			while (c--){
+			for (c=0;c<ar.length;c++){
 				if (ar[c].t==='gismu'){gism.push(ar.splice(c,1)[0]);}
 			}
-			c=ar.length;
-			while (c--){
+			for (c=0;c<ar.length;c++){
 				if (ar[c].t==='cmavo'){cmav.push(ar.splice(c,1)[0]);}
 			}
 			return gism.sort(sortMultiDimensional).concat(cmav.sort(sortMultiDimensional)).concat(ar.sort(sortMultiDimensional));

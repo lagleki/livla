@@ -227,7 +227,6 @@ var updatexmldumps = function (callback) {
 	sutysiskuningau("ile");
 	sutysiskuningau("toki");
 	sutysiskuningau("ldp");
-	//labangu();
 	//updategloss();# not yet ready function
 };
 
@@ -1473,9 +1472,9 @@ var labangu = function(){
 		take=take.replace(/^(.*?),\"\n/igm,"<valsi word=\"$1\"><definition>");
 		take=take.replace(/\"(\n|\r)/igm,"</definition></valsi>\n");
 		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"{$1}");
-		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"La Bangu English\">\n"+take+"</definition></valsi>\n</direction>\n</dictionary>";
+		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"English (The Crash Course)\">\n"+take+"</definition></valsi>\n</direction>\n</dictionary>";
 		take = fs.writeFileSync(t+".temp",take);
-		fs.renameSync(t+".temp",path.join(__dirname,"dumps","jb.xml"));console.log("La Bangu updated");
+		fs.renameSync(t+".temp",path.join(__dirname,"dumps","jb.xml"));console.log("The Crash Course dictionary updated");
 	});
 };
 

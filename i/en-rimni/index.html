@@ -8,13 +8,13 @@
 	<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
 	<meta property="og:title" content="lai sutysisku"/>
 	<meta property="og:type" content="article"/>
-	<meta property="og:url" content="https://mw.lojban.org/extensions/ilmentufa/i/en/index.html"/>
+	<meta property="og:url" content="https://mw.lojban.org/extensions/ilmentufa/i/en-rimni/index.html"/>
 	<meta property="og:image" content="https://mw.lojban.org/images/1/11/sutysisku2015-06-22.png"/>
 	<meta property="og:site_name" content="La Sutysisku"/>
 	<meta property="fb:app_id" content="191051864394489"/>
 	<meta property="og:description" content="An offline-enabled dictionary for Lojban, English and other languages."/>
 	<link rel="shortcut icon" href="../sutysisku.png" />
-	<link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/en/sisku.xml" title="en-sutysisku">
+	<link rel="search" type="application/opensearchdescription+xml" href="/extensions/ilmentufa/i/en-rimni/sisku.xml" title="en-rimni-sutysisku">
   <style type="text/css">
 	.container .credit {
 		margin: 20px 0;
@@ -269,7 +269,8 @@
 	});
 	var fm = {BE: "bei",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au",NAhU: "te'u",NIhE: "te'u",MOhE: "te'u"};
 	function arraySearch(arr,val) {
-		for (var key in arr){
+		var key=arr.length;
+		while (key--){
 			if (arr[key]===val) return key
 		}
 		return false;
@@ -352,7 +353,8 @@
 		tfm = arraySearch(fm,def.w);
 		if (tfm!==false) {
 			var sh=[];
-			for (var key in fm){
+			var key = fm.length;
+			for (key=0;key<fm.length;key++){
 				if (fm[key]===def.w){sh.push('<a href="#sisku/' + key + '">' + key + '</a>');}
 			}
 			tfm = $("<div>").addClass(kl).html('<i><sup>['+sh.join(", ")+'&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;');
@@ -386,7 +388,7 @@
 		} else {
 		var subDefs = $("<div>")
 			.addClass('definition').addClass('subdefinitions');
-		for (var i = 0; i < (def.rafsiDocuments||[]).length; i++) {
+		for (i=0;i<i=(def.rafsiDocuments||[]).length;i++) {
 			if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i],1).appendTo(subDefs);}
 		}
 		subDefs.appendTo(out);
@@ -407,7 +409,7 @@
 		if ((def.r||[]).length > 0 && !def.l && window.xuzganalojudri) {
 				var rafsi = $("<div>").addClass('rafsi');
 				rafsi.append("rafsi: ");
-				for (var i = 0; i < def.r.length; i++) {
+				for (i=0; i<def.r.length;i++) {
 				var rafElem = $("<span>").appendTo(rafsi);
 				var raf = def.r[i];
 					if ((def.t||'').match(/lujvo/)) {
@@ -476,9 +478,9 @@
 		resultCount = 0;
 		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
 	}
-	//setup before functions
-	var typingTimer;  //timer identifier
-	var doneTypingInterval = 200;  //time in ms, 5 second for example
+	//search after timeout
+	var typingTimer;
+	var doneTypingInterval = 200;
 	typehere.on('input',function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});

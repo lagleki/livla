@@ -972,7 +972,7 @@ cerni,"
 certu,"
 '''certu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is skilled at  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo certu''' — expert. '''lo se certu''' — field of expertise. 
-:'''fau ei ro da mi se zu'e se marvele lo nu le prenu cu xo kau va'e certu lo ka limna''' — ''I cannot but wonder at his skill in swimming.''
+:'''fau ei ro da mi se zu'e se marvele lo nu le prenu se la'u li xo kau certu lo ka limna''' — ''I cannot but wonder at his skill in swimming.''
 :Related words: '''djuno''', '''stati''', '''kakne'''"
 cevni,"
 '''cevni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a god of people or religion  ''x<sub>2</sub><sub>(entity)</sub>''  with dominion over  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
@@ -1175,7 +1175,7 @@ cipni,"
 cipra,"
 '''cipra''' — ''x<sub>1</sub><sub>(clause)</sub>''  is a test, act of examination, study of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo cipra''' — study, test (act of examination). '''lo se cipra''' — tested. 
-:'''lo nu catlu lo kanla be do cu cipra lo nu do xo kau va'e stace''' — ''To look into your eyes is a test of your sincerity.''
+:'''lo nu catlu lo kanla be do cu cipra lo nu do stace se la'u li xo kau''' — ''To look into your eyes is a test of your sincerity.''
 :'''mi pu gasnu lo cipra be tu'a le karce''' — ''I tested the car.''
 :'''ba zi ku mi jai se cipra''' — ''I will have a test soon.''
 :Related words: '''ciksi''', '''troci''', '''jarco''', '''pajni''', '''saske'''"
@@ -2189,7 +2189,7 @@ du,"
 :Related words: '''bitmu''', '''stedu''', '''galtu''', '''gapru''', '''loldi''', '''marbi''', '''gacri''', '''mapku'''"
 du'e,"
 '''du'e''' <small>[digit/number]</small> — ''too many''
-:'''le vacri ca du'e va'e glare''' — ''It's too hot.''
+:'''le vacri ca se la'u li du'e glare''' — ''It's too hot.''
 :'''du'e prenu cu zvati le klaji''' — ''There are too many people in the street.''
 :Comment: subjective estimate."
 du'i,"
@@ -2428,7 +2428,7 @@ fasnu,"
 fatci,"
 '''fatci''' — ''x<sub>1</sub><sub>(proposition)</sub>''  is a fact
 :'''lo fatci''' — fact, factual. 
-:'''i mi na ro va'e birti lo du'u ro lo se djuno be mi bei lo munje cu fatci''' — ''I'm not completely sure that all that I know about the world are actual facts.''
+:'''i mi na se la'u li ro birti lo du'u ro lo se djuno be mi bei lo munje cu fatci''' — ''I'm not completely sure that all that I know about the world are actual facts.''
 :Related words: '''datni''', '''jitfa''', '''xanri''', '''jetnu''', '''fasnu''', '''zasti''', '''cfika''', '''saske'''"
 fatri,"
 '''fatri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is distributed among  ''x<sub>2</sub><sub>(entity)</sub>''  with portions  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -3999,7 +3999,7 @@ kanro,"
 kansa,"
 '''kansa''' — ''x<sub>1</sub><sub>(entity)</sub>''  accompanies  ''x<sub>2</sub><sub>(entity)</sub>''  in state  ''x<sub>3</sub><sub>(clause)</sub>'' 
 :'''le mi gerku fe'e ro roi kansa mi''' — ''My dog is everywhere with me.''
-:'''ro roi pu pluka fa lo nu kansa do lo ka gunka''' — ''It was pleasant to work with you.''
+:'''ro roi pu pluka fa lo ka kansa do lo ka gunka''' — ''It was pleasant to work with you.''
 :Related words: '''kagni''', '''jorne''', '''gunma''', '''girzu''', '''lasna'''"
 kantu,"
 '''kantu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a quantum of  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -4023,7 +4023,7 @@ karda,"
 kargu,"
 '''kargu''' — ''x<sub>1</sub><sub>(entity, property of x2)</sub>''  is expensive to  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kargu''' — expensive. 
-:'''lo ka tai litru pu du'e va'e kargu mi''' — ''Such trip was too expensive to me.''
+:'''lo ka tai litru pu se la'u li du'e kargu mi''' — ''Such trip was too expensive to me.''
 :Related words: '''vamji''', '''dirba''', '''vajni''', '''jdima''', '''pleji''', '''canja''', '''jerna''', '''jinga''', '''jemna''', '''sfasa''', '''vecnu'''"
 karli,"
 '''karli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a belt or collar surrounding  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -5799,7 +5799,7 @@ nu'e,"
 '''nu'e''' <small>[vocative]</small> — ''I promise'', '''nu'e''' '''cu'i''' — ''No promises'', '''nu'e''' '''nai''' — ''I take my promise back''
 :'''mi ba no roi zukte lo simsa za'u re'u vau nu'e do''' — ''I will never do that again, I promise you.''
 :'''nu'e cu'i do mi ba troci''' — ''I'll try, but I don't promise anything.''
-:'''nu'e nai do du'e va'e tilju''' — ''I take my promise back, it's too heavy.''"
+:'''nu'e nai do i se la'u li du'e tilju''' — ''I take my promise back, it's too heavy.''"
 nu'o,"
 '''nu'o''' <small>[preposition of potential]</small> — ''possibly can but actually not ...''
 :'''mi nu'o zvati lo vu panka''' — ''I have never been to the park over there.''
@@ -7128,7 +7128,7 @@ savru,"
 '''savru''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a noise to  ''x<sub>2</sub><sub>(entity)</sub>''  perceived via  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
 :'''lo savru''' — noise. 
 :'''da savru bu'u lo kumfa''' — ''The room is noisy.''
-:'''lo vi ru'i nai gusni cu du'e va'e savru mi lo ka se viska''' — ''These flashes are too noisy.''
+:'''lo vi ru'i nai gusni se la'u li du'e savru mi lo ka se viska''' — ''These flashes are too noisy.''
 :Comment: noise can refer not only to sound but to any &quot;noisy&quot;, i.e. irritating or chaotic objects.
 :Related words: '''sance''', '''cladu''', '''kerlo''', '''smaji''', '''tirna''', '''siclu'''"
 sazri,"
@@ -7163,6 +7163,8 @@ se ka'a,"
 se la'u,"
 '''se la'u''' <small>[preposition]</small> — ''to the degree of ... (number follows)''
 :'''le prenu cu clani se la'u li so'i''' — ''The person is very tall.''
+:'''lo nu cuxna se la'u li du'e nandu''' — ''It's too hard to choose.''
+:'''ti se la'u li so'o boske''' — ''This is jungle, not a real forest.''
 :'''se la'u li so'i le dinju cu banli''' — ''To a large degree the building is great.''
 :Comment: shows the degree in which the verb is true."
 se mau,"
@@ -7375,7 +7377,7 @@ silna,"
 :Related words: '''sakta'''"
 simlu,"
 '''simlu''' — ''x<sub>1</sub><sub>(entity)</sub>''  seems to have  ''x<sub>2</sub><sub>(property of x1)</sub>''  to observer  ''x<sub>3</sub><sub>(entity)</sub>'' 
-:'''mi te simlu fi do fe lo ka du'e va'e tadni''' — ''It seems to me that you are studying too hard.''
+:'''mi te simlu fi do fe lo ka se la'u li du'e tadni''' — ''It seems to me that you are studying too hard.''
 :'''lo nu troci pu simlu lo ka na sarcu''' — ''The attempt seemed to be unnecessary.''
 :Related words: '''catlu''', '''viska''', '''simsa''', '''zgana''', '''ganse''', '''jarco'''"
 simsa,"
@@ -7661,7 +7663,7 @@ so,"
 so'a,"
 '''so'a''' <small>[digit/number]</small> — ''almost all''
 :'''so'a lo prenu ca zukcfu no da''' — ''Almost all people are idle now.''
-:'''le se gunka cu so'a va'e mulno''' — ''The work is almost done.''"
+:'''le se gunka se la'u li so'a mulno''' — ''The work is almost done.''"
 so'e,"
 '''so'e''' <small>[digit/number]</small> — ''most''
 :'''so'e lo prenu cu nelci lo plise''' — ''Most people like apples.''"
@@ -7693,7 +7695,7 @@ solji,"
 '''solji''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a quantity of gold
 :'''lo solji''' — gold. 
 :'''lo solji cu kargu''' — ''Gold is expensive.''
-:'''lo letri te jorne poi lo solji cu sefta cu rau va'e lo xe benji''' — ''Electrical junctions with gold surfaces are good transmitters.''
+:'''lo letri te jorne poi lo solji cu sefta se la'u li rau xe benji''' — ''Electrical junctions with gold surfaces are good transmitters.''
 :Related words: '''ricfu''', '''rijno''', '''narju''', '''pelxu'''"
 solri,"
 '''solri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is the sun of home planet  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -7969,7 +7971,8 @@ su'i,"
 su'o,"
 '''su'o''' <small>[digit/number]</small> — ''at least ...'', ''no less than ...''
 :'''su'o ci prenu pu cliva le zdani''' — ''At least three people left the building.''
-:'''su'o prenu ca jundi''' — ''At least one person is attentive now.''"
+:'''su'o prenu ca jundi''' — ''At least one person is attentive now.''
+:'''mi pu xagji se la'u li su'o''' — ''I was hungry to some degree.''"
 su'u,"
 '''su'u''' <small>[clause prefix]</small> — turn clause into verb
 :'''lo su'u mi tadni vau be lo pruce cu nandu''' — ''My learning is hard process.''
@@ -8765,9 +8768,7 @@ va,"
 :Comment: specifies the distance, e.g. in meters ."
 va'e,"
 '''va'e''' <small>[verb]</small> — turn number into verb denoting position on scale
-:'''ro prenu cu su'o va'e bebna''' — ''Every person is stupid to some degree.''
-:'''du'e va'e fa lo nu cuxna''' — ''It's too hard to choose.''
-:'''ti so'o va'e boske''' — ''This is jungle, not a real forest.''
+:'''ro prenu cu su'o va'e lo ka bebna''' — ''Every person is stupid to some degree.''
 :Comment: x<sub>1(property of nonce place with '''kau''')</sub> is at n-th position on scale x<sub>2(property of nonce place with '''kau''')</sub>. The number (n) is put in front of '''va'e'''."
 va'i,"
 '''va'i''' <small>[interjection]</small> — ''in other words''
@@ -8805,7 +8806,7 @@ vamji,"
 '''vamji''' — ''x<sub>1</sub><sub>(entity, property of x2)</sub>''  is what  ''x<sub>2</sub><sub>(entity)</sub>''  is worth of to  ''x<sub>3</sub><sub>(entity)</sub>''  for use  ''x<sub>4</sub><sub>(property of x2)</sub>'' 
 :'''lo vamji''' — value. '''lo se vamji''' — having value. 
 :'''lo vi cukta cu se vamji lo barda mi lo nu mi lanli ce'u''' — ''This book is worth a lot to me for studying.''
-:'''lo vi cukta cu se vamji lo ka so'i va'e zanru ce'u''' — ''This book is worth high praising.''
+:'''lo vi cukta cu se vamji lo ka carmi zanru ce'u''' — ''This book is worth high praising.''
 :Related words: '''jdima''', '''jerna''', '''vecnu''', '''dirba''', '''janta''', '''kargu''', '''pleji''', '''vajni'''"
 vamtu,"
 '''vamtu''' — ''x<sub>1</sub><sub>(entity)</sub>''  vomits  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -9332,12 +9333,12 @@ xo,"
 :'''lu do nanca li xo li'u lu pa ci li'u''' — ''&quot;How old are you?&quot; &quot;Thirteen.&quot;''"
 xo'e,"
 '''xo'e''' <small>[digit/number]</small> — a number unspecified or known from context
-:'''mi pu xagji xo'e va'e''' — ''I was hungry to some degree.''
+:'''re xo'e prenu pu zvati le kumfa''' — ''20 - 29 people were present in the room.''
 :Related words: '''tu'o''', '''xo''', '''zo'e''', '''co'e''', '''do'e'''"
 xo'o,"
 '''xo'o''' <small>[interjection suffix]</small> — verbal irony, '''xo'o''' '''nai''' — ''I mean it!'' (sincerely)
 :'''je'u xo'o do ne se mau djuno''' — ''Yes, of course, you know better (sarcastically)!''
-:'''xo'o nai sai do pu rau va'e gunka''' — ''With full sincerity, I can tell you that you worked enough.''
+:'''xo'o nai sai do pu se la'u li rau gunka''' — ''With full sincerity, I can tell you that you worked enough.''
 :Comment: For '''xo'o''' the intended meaning is the opposite of that expressed by the words used, in '''xo'o''' '''nai''' it explicitely marks the intended meaning as matching the words. Sarcasm isn't necessarily implied."
 xotli,"
 '''xotli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a hotel or inn
@@ -9709,7 +9710,7 @@ zu'i,"
 zu'u,"
 '''zu'u''' <small>[interjection]</small> — ''on the one hand'', '''zu'u''' '''nai''' — ''on the other hand''
 :'''zu'u le jufra cu satci lo ka se smuni''' — ''On the one hand, the sentence is exact in meaning.''
-:'''zu'u nai du'e va'e clani''' — ''On the other hand, it is too long.''
+:'''zu'u nai se la'u li du'e clani''' — ''On the other hand, it is too long.''
 :Related words: '''tcemi''', '''frica''', '''dukti'''"
 zukcfu,"
 '''zukcfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is busy doing  ''x<sub>2</sub><sub>(property of x1)</sub>''  for purpose  ''x<sub>3</sub><sub>(property of x1)</sub>'' 

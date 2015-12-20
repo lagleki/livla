@@ -65,7 +65,7 @@ function search(query, callback) {
 		}
 		for (var i=0;i<lo_matra_cu_cupra.getSize();i++) {
 			var key = lo_matra_cu_cupra.getItem(i);
-			var doc = restore(documentStore[key]);
+			var doc = restore(documentStore[key]);//todo: disable for la muplis or optimize for phrases
 			if (!doc) {
 				continue;
 			}
@@ -94,7 +94,7 @@ function search(query, callback) {
 					defMatches.push(doc);
 					continue;
 				}
-				else {console.log(JSON.stringify(doc));preciseMatches.push(doc);}
+				else {preciseMatches.push(doc);}
 		}
 		function sor(ar){
 			var gism=[];

@@ -90,7 +90,8 @@ function onUpdateDocumentStore() {
 
 function restore(doc){
 	if (!doc.t||doc.t===''){
-		if(xugismu(doc.w)===true){doc.t='gismu'}
+		if (!window.xuzganalojudri){doc.t=''}
+		else if(xugismu(doc.w)===true){doc.t='gismu'}
 		else if(xulujvo(doc.w)===true){doc.t='lujvo'}
 		else if(xufuhivla(doc.w)===true){doc.t="fu'ivla"}
 		else if(xucmavo(doc.w)===true){doc.t="cmavo"}

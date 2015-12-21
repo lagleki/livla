@@ -851,10 +851,14 @@ if (typeof coun!=='undefined'){
 	if (typeof cllarr !== 'undefined'){ien+= "\n" + cllarr.replace(/ /g,"\n")}
 }
 	try{var ali = xmlDocEn.find("/dictionary/direction[1]/valsi[starts-with(translate(./selmaho,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
-	var stra=[];
+	var stra=[];var te;
 	for (var i=0;i<ali.length;i++)
 	{
-		stra.push(ali[i].attr("word").value());
+		//te = xmlDocEn.get("/dictionary/direction[1]/valsi[translate(@word,\""+ali[i].attr("word").value()+"\",\""+ali[i].attr("word").value()+"\")=\""+ali[i].attr("word").value()+"\"]/selmaho[1]").text();
+		//console.log(te);
+		//if (te.search("^"+lin.toUpperCase()+"h")===-1){
+			stra.push(ali[i].attr("word").value());
+		//}
 	}	
 	gag=stra.join(", ").trim();
 	//if (stra.length==1){gag = gag + ' = ' + tordu(gag,lng);}

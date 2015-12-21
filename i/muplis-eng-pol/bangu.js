@@ -4,6 +4,7 @@ window.bangubuild = "creating the index";
 window.bangudesc = "<p><b>La Muplis</b> is a fast tool to search sentenes from <a href='http://tatoeba.org/eng' target='_blank'>Tatoeba.org</a> database in Polish and English.</p><p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br>To increase the overall quality of the sentences displayed this app<br>1. includes only sentences owned by tatoeba.org users,<br>2. excludes sentences tagged as \"needs native check\".</p><span id='searchengine'><i><a href='#' title='jbo-sutysisku' onclick=\"window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/muplis-eng-pol/sisku.xml')\">Add as a search engine...</a></i></span>";
 window.bangusisku='search';
 window.xuzganalojudri = false;
+window.muplis=true;
 window.bangudecomp = 'decomposing...';
 window.arrcll = {};
 siskudescr="Search la muplis, the dictionary of English and Polish sentences.";

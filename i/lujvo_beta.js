@@ -90,7 +90,7 @@ function onUpdateDocumentStore() {
 
 function restore(doc){
 	if (!doc.t||doc.t===''){
-		if (!window.xuzganalojudri){doc.t=''}
+		if (window.muplis){doc.t=''}
 		else if(xugismu(doc.w)===true){doc.t='gismu'}
 		else if(xulujvo(doc.w)===true){doc.t='lujvo'}
 		else if(xufuhivla(doc.w)===true){doc.t="fu'ivla"}

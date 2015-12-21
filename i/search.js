@@ -25,7 +25,7 @@ function search(query, callback) {
 		return kil;
 	}
 	//preciseMatches
-	if (queryDecomposition.length>1){
+	if (queryDecomposition.length>1 && !window.muplis){
 		for (var i=0;i<queryDecomposition.length;i++){
 			var luj=decomposeLujvo(queryDecomposition[i]);
 			var isdef = documentStore.filter(function (val){return val.w==queryDecomposition[i].toLowerCase();})[0];

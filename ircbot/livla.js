@@ -732,6 +732,17 @@ var ret;
 return ret.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n');
 };
 
+function lojTemplate(s) {
+	s = s.replace(/\$.*?\$/g, function(c) {
+		c = c.substring(1, c.length-1);
+		return c.replace(/(\w+)_\{(\d+)\}/g, "$1$2").replace(/(\w+)_(.+)/g, "$1$2").replace(/\{/g,'[').replace(/\}/g,']');
+	});
+	s = s.replace(/\[([^\[\]]*?)\]/g,"{$1}");
+	s = s.replace(/\{(.*?)\}/g, function(c) {
+		return c.substring(1, c.length-1);
+	});
+	return s;
+}
 
 var tordu = function (linf,lng,flag,xmlDoc,cmalu)
 {
@@ -786,7 +797,7 @@ if (gchild===''){
 		lin= '';
 	}
 }else{
-	gchild=gchild.replace(/[_\$]/igm,"").replace(/`/g,"'");
+	gchild=lojTemplate(gchild).replace(/`/g,"'");
 		if (gchild.length>=700 && lng!=="jb"){
 			gchild=gchild.substring(0,700);
 			gchild+='...\n[mo\'u se katna] http://jbovlaste.lojban.org/dict/'+ lin;

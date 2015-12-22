@@ -245,6 +245,7 @@
 	//lo diklo sorcu xau lo uenzi poi pu se mitysisku
 	function SaveDataToLocalStorage(data)
 	{
+		if (!results||results.length===0) return;
 		// Parse the serialized data back into an aray of objects
 		var a = JSON.parse(localStorage.getItem('purci'))||[];
 		// Push the new data (whether it be an object or anything else) onto the array
@@ -302,6 +303,7 @@
 			displayCLL();
 			displayResults();
 			displayDescription();
+			SaveDataToLocalStorage(query);
 		} else if (ev.data.kind == 'loading') {
 			$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 51});$("#progressbar").css({ 'height': '5px'});});
 		} else if (ev.data.kind == 'progress') {
@@ -503,7 +505,6 @@
 		lastQueried = now();
 		var split = location.href.split('#')[1];if(split===null){split='';}
 		$("#st").attr("href",$("#st").attr("href").split('#', 1)[0] + "#" + split);
-		SaveDataToLocalStorage(query);
 	}
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);

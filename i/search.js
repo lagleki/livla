@@ -66,7 +66,6 @@ function search(query, callback) {
 		for (var i=0;i<lo_matra_cu_cupra.getSize();i++) {
 			var key = lo_matra_cu_cupra.getItem(i);
 			var doc = restore(documentStore[key]);//todo: disable for la muplis or optimize for phrases
-			console.log(doc.w);
 			if (!doc) {
 				continue;
 			}

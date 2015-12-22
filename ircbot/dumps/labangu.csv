@@ -3195,7 +3195,7 @@ io,"
 irci,"
 '''irci''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an IRC user, chats in IRC on channel  ''x<sub>2</sub><sub>(entity)</sub>''  in network  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo irci''' — IRC user. 
-:'''la tom cu irci la'o .net.#lojban.net. la'oi freenode''' — ''Tom chats in IRC channel #lojban of freenode network.''
+:'''la tom cu irci la'o .net.#lojban.net. la'o gy.freenode.gy''' — ''Tom chats in IRC channel #lojban of freenode network.''
 :Related words: '''jikca''', '''kibro'''"
 iu,"
 '''iu''' <small>[interjection]</small> — ''Aww! Mm!'' (love), '''iu''' '''cu'i''' — ''no love lost'', '''iu''' '''nai''' — hatred
@@ -4508,13 +4508,8 @@ la'e,"
 la'o,"
 '''la'o''' — turn foreign text into noun that is a name
 :'''la'o gy.the wild bears.gy. jai cinri skina''' — ''&quot;The wild bears&quot; is an interesting movie.''
-:Comment: quotes a text that can be not Lojbanic. The quotation is to be wrapped with pauses from both sides and with an additional Lojbanic word around them from both sides. Usually the separating words is the name of the first letter of the language of the quotation.
-:Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
-la'oi,"
-'''la'oi''' — turn foreign word into noun that is a name
-:'''xu do se zdani la'oi virginia''' — ''Do you live in Virginia?''
-:Comment: '''la'oi''' and one single word after it make a name. The word after '''la'oi''': might be from any language and written in any script, it is delimited by pauses (in speech) or whitespaces (in writing) from both sides, it can't have pauses inside if pronounced, nor dots when written. For names  with pauses inside use '''la'o'''.
-:Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
+:Comment: quotes a text that can be not Lojbanic. The quotation is to be wrapped with pauses from both sides and with an additional Lojbanic word around them from both sides (this word must not be used within the text quoted). Usually the separating words is the name of the first letter of the language of the quotation.
+:Related words: '''zoi''', '''la'o''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''mu'oi'''"
 labno,"
 '''labno''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a wolf of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo labno''' — wolf. 
@@ -4920,7 +4915,7 @@ ma'oi,"
 '''ma'oi''' — quotes one next word and treats it as the name of a selma'o (class of particles). The quoted word must be delimited by pauses (in speech) or whitespace (in writing) 
 :'''zo di'ai cmavo ma'oi coi''' — '''''di'ai''' is a grammatical particle of class &quot;COI&quot; (vocative).''
 :Comment: selma'o are often written in English text in capital letters e.g.: COI.
-:Related words: '''ra'oi''', '''zo'oi'''"
+:Related words: '''ra'oi'''"
 ma'u,"
 '''ma'u''' <small>[digit/number]</small> — plus sign (number follows; by default any positive)
 :'''li ma'u re du li bi vu'u xa''' — ''&quot;+2 = 8 - 6.&quot;''"
@@ -5125,11 +5120,6 @@ me'o,"
 :'''ko catke la'e me'o so pa pa''' — ''Dial 911!''
 :'''me'o pa re ci''' — ''123 (as a text).''
 :Comment: marks the following sequence of numbers as a text."
-me'oi,"
-'''me'oi''' — turn foreign word into verb
-:'''la alis cu me'oi slob''' — ''Alice is a slob.''
-:Comment: '''me'oi''' and one single word after it make a verb. The word after '''me'oi''': might be from any language and written in any script, it is delimited by pauses (in speech) or whitespaces (in writing) from both sides, it can't have pauses inside if pronounced, nor dots when written. A quick way to borrow foreign words into Lojban.
-:Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
 me'u,"
 '''me'u''' <small>[terminator]</small> — ends a construct started with: '''me'''"
 mebri,"
@@ -5447,6 +5437,11 @@ mu'o,"
 '''mu'o''' <small>[vocative]</small> — ''I am done talking. Over. That's all I can say'' (in radio communications), '''mu'o''' '''nai''' — ''more to come ... I am not done talking''
 :'''i ro mai mi jinvi lo du'u za'u lo cukta cu jai sarcu mu'o''' — ''Finally, I think that more books are necessary, I'm done.''
 :'''ja'o dai le za'u sonci pu cliva le tcadu mu'o nai loi mi tadni''' — ''As you may conclude, the soldiers left the city ... no, that's not the end of the story, my students.''"
+mu'oi,"
+'''mu'oi''' — turn foreign text into verb
+:'''la alis cu mu'oi gy.prima donna.gy.''' — ''Alice is a prima donna.''
+:Comment: turns text that can be not Lojbanic into a verb. The text is to be wrapped with pauses from both sides and with an additional Lojbanic word around them from both sides (this word must not be used within the text quoted). Usually the separating words is the name of the first letter of the language of the text quoted..
+:Related words: '''zoi''', '''la'o''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''mu'oi'''"
 mucti,"
 '''mucti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is immaterial
 :'''lo mucti''' — immaterial, not physical. 
@@ -6547,7 +6542,7 @@ ra'oi,"
 '''ra'oi''' — quotes one next word and treats it as a rafsi. The quoted word must be delimited by pauses (in speech) or whitespace (in writing) 
 :'''ra'oi kla rafsi zo klama''' — '''''kla''' is an affix from the full verb '''klama'''.''
 :Comment: rafsi sometimes can be not legal words on their own so to quote them '''ra'oi''' is useful.
-:Related words: '''ma'oi''', '''zo'oi'''"
+:Related words: '''ma'oi''', '''zoi'''"
 ra'u,"
 '''ra'u''' <small>[interjection]</small> — ''primarily'', ''mainly'' (in importance), '''ra'u''' '''cu'i''' — ''equally'' (in importance), '''ra'u''' '''nai''' — ''incidentally'' (low in importance)
 :'''ra'u ko tolxanka denpa''' — ''Above all, be patient.''
@@ -7511,7 +7506,7 @@ slabu,"
 slaka,"
 '''slaka''' — ''x<sub>1</sub><sub>(text)</sub>''  is a syllable in language  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo slaka''' — syllable. 
-:'''zo'oi sla slaka la lojban''' — ''&quot;sla&quot; is a syllable in Lojban.''
+:'''zoi zoi.sla.zoi slaka la lojban''' — ''&quot;sla&quot; is a syllable in Lojban.''
 :Related words: '''sance''', '''valsi''', '''bangu'''"
 slaka bu,"
 '''slaka bu''' <small>[pronoun]</small> — ''&#44;'' (comma)"
@@ -7606,7 +7601,7 @@ smuni,"
 '''smuni''' — ''x<sub>1</sub><sub>(entity, text)</sub>''  is a meaning of  ''x<sub>2</sub><sub>(entity, text)</sub>''  accepted by observer  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo smuni''' — meaning. '''lo se smuni''' — meaningful. 
 :'''ma lojbo smuni zoi sy.hola.sy. poi spano''' — ''What is the Lojban for Spanish &quot;hola&quot;?''
-:'''mi pu te smuni zo'oi y lo nu mi na birti''' — ''By saying '''y''' I meant that I wasn't sure.''
+:'''mi pu te smuni zoi zoi.y.zoi lo nu mi na birti''' — ''By saying '''y''' I meant that I wasn't sure.''
 :Related words: '''jimpe''', '''sinxa''', '''valsi''', '''tanru''', '''gismu''', '''lujvo''', '''cmavo''', '''jufra'''"
 smusku,"
 '''smusku''' — ''x<sub>1</sub><sub>(entity)</sub>''  says  ''x<sub>2</sub><sub>(clause)</sub>''  for audience  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -8800,7 +8795,7 @@ vajni,"
 valsi,"
 '''valsi''' — ''x<sub>1</sub><sub>(text)</sub>''  is a word meaning  ''x<sub>2</sub><sub>(text)</sub>''  in language  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo valsi''' — word. '''lo se valsi''' — meaning of a word. 
-:'''zo'oi parte valsi zo pagbu lo spano''' — ''&quot;parte&quot; means &quot;part&quot; in Spanish language.''
+:'''zoi sy.parte.sy. valsi zo pagbu lo spano''' — ''&quot;parte&quot; means &quot;part&quot; in Spanish language.''
 :Related words: '''slaka''', '''bangu''', '''cmavo''', '''cmene''', '''gismu''', '''jufra''', '''rafsi''', '''smuni'''"
 vamji,"
 '''vamji''' — ''x<sub>1</sub><sub>(entity, property of x2)</sub>''  is what  ''x<sub>2</sub><sub>(entity)</sub>''  is worth of to  ''x<sub>3</sub><sub>(entity)</sub>''  for use  ''x<sub>4</sub><sub>(property of x2)</sub>'' 
@@ -9645,7 +9640,7 @@ zo,"
 '''zo''' — turn verb into noun that is a quote
 :'''zo gleki cmene mi''' — ''Gleki is my name.''
 :Comment: '''zo''' and one single Lojban word after it make a quotation, it works as a noun. To quote compound particles, compound verbs and phrases use '''lu''' ...'''li'u'''. To quote arbitrary sequences of words use '''lo'u''' ... '''le'u'''.
-:Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
+:Related words: '''zoi''', '''la'o''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''mu'oi'''"
 zo'a,"
 '''zo'a''' <small>[preposition of place]</small> — ''alongside, by the side of ...''
 :'''mi pu cliva lo karce zo'a le malsi''' — ''I left the car by the side of the temple.''"
@@ -9669,21 +9664,16 @@ zo'o,"
 :'''mi kakne lo ka plipe fi lo ve'i cmana vau zo'o cu'i''' — ''I might be able to jump from the hill.''
 :'''zo'o nai do fanza''' — ''Seriously, you are annoying.''
 :Related words: '''xajmi''', '''junri'''"
-zo'oi,"
-'''zo'oi''' — turn foreign word into noun that is a quote
-:'''zo'oi again se traduki fi lu za'u re'u li'u''' — ''&quot;Again&quot; is translated as '''za'u re'u'''.''
-:Comment: '''zo'oi''' and one single word after it make a quotation, it works as a noun. The word after '''zo'oi''': might be from any language and written in any script, it is delimited by pauses (in speech) or whitespaces (in writing) from both sides, it can't have pauses inside if pronounced, nor dots when written. To quote several words or one word with pauses inside use '''zoi'''.
-:Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
 zo'u,"
 '''zo'u''' — separates topic and comment
 :'''lo danlu zo'u mi nelci lo mlatu''' — ''As for animals, I like cats.''
 :'''vo da poi gerku vau re de poi prenu zo'u da batci de''' — ''There are four '''da''' (that are dogs) and there are two '''de''' (that are men) such that each dog ('''da''') bites the two men ('''de''').''
-:Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
+:Related words: '''zoi''', '''la'o''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''mu'oi'''"
 zoi,"
 '''zoi''' — turn foreign text into noun that is a quote
 :'''lu coi ro do li'u se traduki fi zoi gy.hello, everyone!.gy. noi glico''' — '''''coi ro do''' is translated to English as &quot;Hello, everyone!&quot;''
-:Comment: quotes a text that can be not Lojbanic. The quotation is to be wrapped with pauses from both sides and with an additional Lojbanic word around them from both sides. Usually the separating Lojbanic word is the first letter of the language in the quotation.
-:Related words: '''zo'oi''', '''zoi''', '''la'o''', '''la'oi''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''me'oi'''"
+:Comment: quotes a text that can be not Lojbanic. The quotation is to be wrapped with pauses from both sides and with an additional Lojbanic word around them from both sides (this word must not be used within the text quoted). Usually the separating Lojbanic word is the first letter of the language in the quotation.
+:Related words: '''zoi''', '''la'o''', '''zo''', '''lu''' ... '''li'u''', '''lo'e''', '''lo'u''', '''mu'oi'''"
 zu,"
 '''zu''' <small>[preposition of group ZI]</small> — ''long ago'', ''in a long time''
 :'''la alis pu cliva zu lo nanca be li pa no''' — ''Alice left ten years ago (a long time).''
@@ -9755,4 +9745,5 @@ zvati,"
 :'''mi pu zvati lo nu penmi''' — ''I was at the meeting.''
 :Comment: '''stuzi''' is for a stable/inherent location. '''cabna''' is time equivalent of '''zvati'''
 :Related words: '''stuzi''', '''jbini''', '''nenri''', '''se''' '''vasru''', '''cpana''', '''diklo''', '''jibni''', '''cabna''', '''lamji''', '''tcini''', '''xabju''', '''jmive''', '''jundi''', '''vitke'''"
-zy,
+zy,"
+'''zy''' <small>[pronoun]</small> — ''z'' (letter)"

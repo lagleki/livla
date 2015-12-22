@@ -25,7 +25,7 @@ function search(query, callback) {
 		return kil;
 	}
 	//preciseMatches
-	if (queryDecomposition.length>1 && !window.muplis){
+	if (!window.muplis && queryDecomposition.length>1){
 		for (var i=0;i<queryDecomposition.length;i++){
 			var luj=decomposeLujvo(queryDecomposition[i]);
 			var isdef = documentStore.filter(function (val){return val.w==queryDecomposition[i].toLowerCase();})[0];
@@ -66,6 +66,7 @@ function search(query, callback) {
 		for (var i=0;i<lo_matra_cu_cupra.getSize();i++) {
 			var key = lo_matra_cu_cupra.getItem(i);
 			var doc = restore(documentStore[key]);//todo: disable for la muplis or optimize for phrases
+			console.log(doc.w);
 			if (!doc) {
 				continue;
 			}
@@ -129,16 +130,22 @@ function setupSearchEngine(callback, prgrss) {
 	progress = prgrss;
 	var dbName = "sutysisku";
 	searchEngine = new fullproof.BooleanEngine();
-	var indexes = [{
+	var index = {
 			name: "normalindex",
 			analyzer: new fullproof.StandardAnalyzer(
-					fullproof.normalizer.to_lowercase_nomark),
+				fullproof.normalizer.to_lowercase_nomark),
 			capabilities: new fullproof.Capabilities().setUseScores(
-					false).setDbName(dbName),
+				false).setDbName(dbName),
 			initializer: initializer
-	}
-    ];
-	searchEngine.open(indexes, fullproof.make_callback(callback, true), fullproof.make_callback(callback, false));
+	};
+/*	var index2 = {
+			name: "stemmedindex",
+			analyzer: new fullproof.StandardAnalyzer(
+				fullproof.normalizer.to_lowercase_nomark, fullproof.english.metaphone),
+			capabilities: new fullproof.Capabilities().setStoreObjects(false).setUseScores(false).setDbName(dbName),
+			initializer: initializer
+	};*/
+	searchEngine.open([index], fullproof.make_callback(callback, true), fullproof.make_callback(callback, false));
 }
 /*,
 	{

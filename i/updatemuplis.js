@@ -3,10 +3,10 @@ var fs = require("fs"),path = require("../ircbot/node_modules/path-extra/lib/pat
 var download=0;
 var refresh=0;
 var ningau_la_muplis_=0;
-var ningau_la_muplis_poholska_=0;
+var ningau_la_muplis_poholska_=1;
 var selectinto_=0;
 generateorphanenglishsentences_=0;
-generateorphanfrenchsentences_=1;
+generateorphanfrenchsentences_=0;
 gettagsstats_ = 0;
 
 var goahead = function (){
@@ -50,7 +50,7 @@ var ningau_la_muplis_poholska = function(){
 	wstream.write('var documentStore = [\n');
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
-		db.each("SELECT tat.sentence as one,tati.sentence as six,group_concat(distinct tag.tag) as five FROM tatoeba as tat left join links on links.fir=tat.idsentence left join tatoeba as tati on links.sec=tati.idsentence left join tags as tag on tag.ids=tat.idsentence where (tat.username<>'\\N' and tati.username<>'\\N' and tat.lang='pol' and not exists (select a.ids from tags as a where (a.ids=tat.idsentence and a.tag='@needs native check'))) group by tat.sentence,tati.sentence limit 1000000", function(err, row) {
+		db.each("SELECT tat.sentence as one,tati.sentence as six,group_concat(distinct tag.tag) as five FROM tatoeba as tat left join links on links.fir=tat.idsentence left join tatoeba as tati on links.sec=tati.idsentence left join tags as tag on tag.ids=tat.idsentence where (tat.username<>'\\N' and tati.username<>'\\N' and tat.lang='pol' and tati.lang='eng' and not exists (select a.ids from tags as a where (a.ids=tat.idsentence and a.tag='@needs native check'))) group by tat.sentence,tati.sentence limit 1000000", function(err, row) {
 			
 			if (row.five===null){
 			wstream.write("{w:\""+row.one.replace(/"/g,"'")+"\",d:\""+(row.six||"").replace(/"/g,"'").replace(/[\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/gi," ").replace(/\\/g,"\\\\".replace("\\","\\\\"))+"\"},\n");}else

@@ -339,7 +339,7 @@
 		c = c.substring(1, c.length-1);
 		return c.replace(/(\w+)_\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>").replace(/(\w+)_(.+)/g, "<i>$1<sub>$2</sub></i>").replace(/\{/g,'[').replace(/\}/g,']');
 	  });
-	  s = s.replace(/\[([^\[\]]*?)\]/g,"{$1}");
+	  //s = s.replace(/\[([^\[\]]*?)\]/g,"{$1}");
 	  s = s.replace(/\{(.*?)\}/g, function(c) {
 		var c = c.substring(1, c.length-1);
 		return '<a href="#sisku/' + encodeURIComponent(c) + '">' + c + "</a>"

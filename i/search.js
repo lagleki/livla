@@ -10,10 +10,10 @@ function search(query, callback) {
 	var kij=[];
 	var ki=[];
 	function be(kil,lu){
-		var kim=[];
 		var luj=decomposeLujvo(lu);
 		if (luj){
-			for (var ji=0; ji<luj.lengh;ji++){
+			var kim=[];
+			for (var ji in luj){
 				kim.push(rafsi[luj[ji]]);
 			}
 			kil.push({
@@ -31,7 +31,7 @@ function search(query, callback) {
 			var isdef = documentStore.filter(function (val){return val.w==queryDecomposition[i].toLowerCase();})[0];
 			ki.push(isdef);
 			if (luj && !isdef){
-				for (var ji=0; ji<luj.lengh;ji++){
+				for (var ji in luj){
 					ki.push(rafsi[luj[ji]]);
 				}
 			}

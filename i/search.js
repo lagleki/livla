@@ -56,7 +56,6 @@ function search(query, callback) {
 	var normalMatches = [];
 	var defMatches = [];
 	searchEngine.lookup(query, function(lo_matra_cu_cupra) {
-		console.log(JSON.stringify(lo_matra_cu_cupra));
 		if (!lo_matra_cu_cupra) {
 			callback(be(preciseMatches,query));
 			return;

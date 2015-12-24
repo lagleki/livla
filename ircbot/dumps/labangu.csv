@@ -355,13 +355,13 @@ bemro,"
 bende,"
 '''bende''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a team or crew of persons  ''x<sub>2</sub><sub>(entity group)</sub>''  led by  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo bende''' — team (crew). '''lo se bende''' — member of a team. '''lo te bende''' — leader of a team. 
-:'''mi cmima lo bende be lo stati prenu bei la robin bei te fi'e lo ka tadni la lojban''' — ''I am a member of a team of smart people led by Robin and learning Lojban.''
+:'''mi cmima pa bende be lo stati prenu bei la robin bei te fi'e lo ka tadni la lojban''' — ''I am a member of a team of smart people led by Robin and learning Lojban.''
 :Related words: '''gunma''', '''girzu''', '''dansu''', '''jatna''', '''jitro''', '''kagni''', '''kamni''', '''minde''', '''ralju''', '''cecmu''', '''gidva'''"
 benji,"
 '''benji''' — ''x<sub>1</sub><sub>(entity)</sub>''  transmits  ''x<sub>2</sub><sub>(entity)</sub>''  to receiver  ''x<sub>3</sub><sub>(entity)</sub>''  from origin  ''x<sub>4</sub><sub>(entity)</sub>''  via  ''x<sub>5</sub><sub>(entity)</sub>''
 :'''lo benji''' — transmitter. '''lo te benji''' — transmission receiver. '''lo ve benji''' — origin of a transmission. '''lo xe benji''' — medium of transmission. 
 :'''mi ba benji lo xatra do fu la internet fo lo skami pe lo mi zdani''' — ''I will send you a letter via the internet from my home computer.''
-:'''lo gunka pu benji lo sinxa lo drata gunka lo galtu lo sance''' — ''A worker sent a sound signal to another worker from the above.''
+:'''pa gunka pu benji pa sinxa pa drata gunka lo galtu lo sance''' — ''A worker sent a sound signal to another worker from the above.''
 :Comment: ''transmitter'' in English can denote both '''lo''' '''benji''' and '''lo''' '''xe''' '''benji'''.
 :Related words: '''muvdu''', '''dunda''', '''mrilu''', '''nirna''', '''volta''', '''cradi''', '''tivni''', '''preja''', '''be'i''', '''bevri''', '''mrilu''', '''tcana'''"
 bersa,"
@@ -372,7 +372,7 @@ bersa,"
 berti,"
 '''berti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is to the northern side of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo berti''' — northern. 
-:'''lo za'u purdi be fi lo grute cu berti le tcadu''' — ''Fruit gardens are to the north of the city.''
+:'''za'u pa purdi be fi lo grute cu berti le tcadu''' — ''Fruit gardens are to the north of the city.''
 :Related words: '''snanu''', '''stici''', '''stuna''', '''farna'''"
 besna,"
 '''besna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a brain of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -387,7 +387,7 @@ betfu,"
 betka,"
 '''betka''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a beet of variety  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo betka''' — beet. 
-:'''ti ciblu na je betka''' — ''It's not blood. It's beet.''
+:'''ti na ciblu gi'e ja'a betka''' — ''It's not blood. It's beet.''
 :Related words: '''stagi'''"
 betri,"
 '''betri''' — ''x<sub>1</sub><sub>(property of x2)</sub>''  is a tragedy for  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -397,9 +397,9 @@ betri,"
 bevri,"
 '''bevri''' — ''x<sub>1</sub><sub>(entity)</sub>''  brings, transports, carries  ''x<sub>2</sub><sub>(entity)</sub>''  to  ''x<sub>3</sub><sub>(entity)</sub>''  from  ''x<sub>4</sub><sub>(entity)</sub>''  by path  ''x<sub>5</sub><sub>(entity)</sub>''
 :'''lo bevri''' — carrier. '''lo se bevri''' — cargo. 
-:'''mi pu bevri lo patxu be lo nudle fu'e ta'o fi lo purdi fo lo nu jukpa vau kumfa fu lo rokci dargu fu'o''' — ''I carried a bowl of noodles (to the garden from the kitchen via a rocky road).''
-:'''la kevin pu bevri lo gerku lo zdani''' — ''Kevin brought a dog home.''
-:'''mi pu bevri lo fonxa fo lo daski''' — ''I took the phone out of the pocket.''
+:'''mi pu bevri pa patxu be lo nudle fu'e ta'o fi pa purdi fo pa nu jukpa vau kumfa fu pa rokci dargu fu'o''' — ''I carried a bowl of noodles (to the garden from the kitchen via a rocky road).''
+:'''la kevin pu bevri pa gerku lo zdani''' — ''Kevin brought a dog home.''
+:'''mi pu bevri pa fonxa fo pa daski''' — ''I took the phone out of the pocket.''
 :Comment: alternatively '''se''' '''ka'a''' can be used to specify where the thing is brought, '''te''' '''ka'a''' - from where it is brought, '''ve''' '''ka'a''' - via what path it is brought.
 :Related words: '''bevri''', '''marce''', '''muvdu''', '''benji''', '''klama'''"
 bi,"
@@ -429,12 +429,12 @@ bifce,"
 bikla,"
 '''bikla''' — ''x<sub>1</sub><sub>(entity)</sub>''  whips, lashes
 :'''lo bikla''' — whip. 
-:'''lo carvi pu bikla ta'i lo ka janli lo canko''' — ''The rain whipped against the window.''
+:'''lo carvi pu bikla ta'i lo ka janli pa canko''' — ''The rain whipped against the window.''
 :Related words: '''skori''', '''darxi'''"
 bilga,"
 '''bilga''' — ''x<sub>1</sub><sub>(entity)</sub>''  is obligated to do  ''x<sub>2</sub><sub>(property of x1)</sub>''  by agreement  ''x<sub>3</sub><sub>(proposition)</sub>'' 
 :'''lo se bilga''' — obligation, duty. 
-:'''mi bilga lo ka jai gau volta fai lo vi cukta ca lo cabdei vau lo pu se nupre be mi''' — ''I must return this book today fulfilling my earlier promise.''
+:'''mi bilga lo ka jai gau volta fai ti noi cukta vau ca lo cabdei vau pa pu se nupre be mi''' — ''I must return this book today fulfilling my earlier promise.''
 :Related words: '''zifre''', '''fuzme'''"
 bilma,"
 '''bilma''' — ''x<sub>1</sub><sub>(entity)</sub>''  is ill, sick with symptoms  ''x<sub>2</sub><sub>(property of x1)</sub>''  from disease  ''x<sub>3</sub><sub>(clause)</sub>'' 
@@ -445,7 +445,7 @@ bilma,"
 binra,"
 '''binra''' — ''x<sub>1</sub><sub>(entity)</sub>''  insures  ''x<sub>2</sub><sub>(entity)</sub>''  against threat  ''x<sub>3</sub><sub>(clause)</sub>''  with benefit  ''x<sub>4</sub><sub>(entity)</sub>'' 
 :'''lo binra''' — insurer, underwriter. '''lo se binra''' — insured thing or person. '''lo ve binra''' — insurance compensation. 
-:'''lo kagni cu binra lo se esporte lo xrani lo ka pleji lo jdini''' — ''The company insures the sportsman against injuries by paying money as an insurance.''
+:'''le kagni cu binra lo se esporte lo xrani lo ka pleji lo jdini''' — ''The company insures the sportsman against injuries by paying money as an insurance.''
 :Related words: '''bandu''', '''cirko''', '''betri''', '''basti''', '''bilma'''"
 binxo,"
 '''binxo''' — ''x<sub>1</sub><sub>(entity)</sub>''  transforms into  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -461,7 +461,7 @@ birje,"
 birka,"
 '''birka''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an arm of body  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo birka''' — arm. 
-:'''ra jai se torni lo birka be mi''' — ''She twisted my arm.''
+:'''ra jai se torni pa birka be mi''' — ''She twisted my arm.''
 :Related words: '''jimca''', '''janco''', '''xance''', '''rebla'''"
 birti,"
 '''birti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is convinced that  ''x<sub>2</sub><sub>(proposition)</sub>''  is true
@@ -477,8 +477,8 @@ bisli,"
 bitmu,"
 '''bitmu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a wall of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo bitmu''' — fence, wall. '''lo se bitmu''' — building with walls. 
-:'''lo bitmu be lo purdi ce lo foldi cu rotsu''' — ''The fence between the garden and the field is thick.''
-:'''pa lo vi bitmu be le malsi cu sinxa lo pu nu le gugde cu vlipa''' — ''One of these walls of the temple is a sign of the past power of the country.''
+:'''lo bitmu be le purdi ce le foldi cu rotsu''' — ''The fence between the garden and the field is thick.''
+:'''pa me ti noi bitmu le malsi cu sinxa lo pu nu le gugde cu vlipa''' — ''One of these walls of the temple is a sign of the past power of the country.''
 :Related words: '''jbini''', '''sepli''', '''fendi''', '''canko''', '''drudi''', '''kumfa''', '''loldi''', '''senta''', '''snuji''', '''pagre''', '''gacri''', '''kuspe''', '''marbi''', '''vorme'''"
 bitni,"
 '''bitni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  bits in size
@@ -513,13 +513,13 @@ bliku,"
 blondine,"
 '''blondine''' — ''x<sub>1</sub><sub>(entity)</sub>''  is blond, fair-haired
 :'''lo blondine''' — blond. 
-:'''lo blondine nixli pu tsuku te zu'e lo ka penmi do''' — ''A girl with blond hair arrived to meet you.''
+:'''pa blondine nixli pu tsuku te zu'e lo ka penmi do''' — ''A girl with blond hair arrived to meet you.''
 :Comment: ''blond'' is a color special to mammal and human hair.
 :Related words: '''brunete''', '''kerfa'''"
 bloti,"
 '''bloti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a boat or ship for carrying  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo bloti''' — boat. '''lo se bloti''' — cargo of a boat, passenger of a boat. 
-:'''mi pu ca'o se bloti lo te falnu''' — ''I was a passenger on a sailboat.''
+:'''mi pu ca'o se bloti pa te falnu''' — ''I was a passenger on a sailboat.''
 :Related words: '''falnu''', '''fulta''', '''marce''', '''jatna''', '''sabnu'''"
 bo,"
 '''bo''' <small>[1st meaning]</small> — more tightly binds two parts inside a compound verb
@@ -543,7 +543,7 @@ boi,"
 bolci,"
 '''bolci''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a ball
 :'''lo bolci''' — ball, sphere. 
-:'''lo bolci pu gunro fe'e mo'u lo flu'ente''' — ''The ball rolled into the stream.''
+:'''le bolci pu gunro fe'e mo'u lo flu'ente''' — ''The ball rolled into the stream.''
 :Related words: '''bliku''', '''cukla''', '''bidju''', '''gunro'''"
 bombila,"
 '''bombila''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a light bulb
@@ -6675,6 +6675,7 @@ ratni,"
 rau,"
 '''rau''' <small>[digit/number]</small> — ''enough''
 :'''rau stizu cu zvati''' — ''There are enough chairs.''
+:'''le sakta cu me'i rau mei''' — ''The sugar is not enough.''
 :Comment: subjective estimate."
 re,"
 '''re''' <small>[digit/number]</small> — ''2'', ''two''

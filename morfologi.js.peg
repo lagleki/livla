@@ -1,4 +1,4 @@
-//simplified morphology parser: ybu, BU-letterals, y, zoi and non lojban text not supported. capital letters, illegal consonant pairs are preprocessed
+//simplified morphology parser: zoi and non lojban text not supported. capital letters, illegal consonant pairs are preprocessed
 {
   function _join(a)
   {

@@ -6,7 +6,7 @@ function search(query, callback) {
 	var searchId = ++searchIdCounter;
 	var resultCount = 0;
 	var preciseMatches = [];
-	var queryDecomposition = decomposeString(query);
+	var queryDecomposition = query.split(" ").map(function(arg){return arg;});
 	var kij=[];
 	var ki=[];
 	function be(kil,lu){

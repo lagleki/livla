@@ -22,7 +22,7 @@ gismu = long_rafsi &stress &final_syllable vowel &post_word
 fuhivla = fuhivla_head syllable &stress consonantal_syllable* final_syllable
 cmavo = !cmevla !(CVC !stress y h? lujvo_core / CVC &stress y short_final_rafsi) (!h !(consonant consonant+) onset (nucleus h)* nucleus / y+) &post_word
 
-lujvo_core = ( expr:(hy_rafsi / fuhivla_rafsi / y_rafsi / !any_fuhivla_rafsi y_less_rafsi !any_fuhivla_rafsi) {return [_join(expr),"-"];} )* ((expr:(fuhivla / gismu_CVV_final_rafsi / (stressed_hy_rafsi / stressed_fuhivla_rafsi / stressed_y_rafsi / CVC_CCV_CVV &stress)) {return [_join(expr),"-"];}) short_final_rafsi)
+lujvo_core = ( expr:(hy_rafsi / fuhivla_rafsi / y_rafsi / !any_fuhivla_rafsi y_less_rafsi !any_fuhivla_rafsi) {return [_join(expr),"-"];} )* (expr:(fuhivla / gismu_CVV_final_rafsi) {return [_join(expr)];} / (expr:((stressed_hy_rafsi / stressed_fuhivla_rafsi / stressed_y_rafsi / CVC_CCV_CVV &stress)) exp:(short_final_rafsi)) {return [_join(expr),"-",_join(exp)];} )
 
 any_fuhivla_rafsi = fuhivla / fuhivla_rafsi / stressed_fuhivla_rafsi
 rafsi_string = y_less_rafsi* (gismu_CVV_final_rafsi / CVC_CCV_CVV &stress !y short_final_rafsi / y_rafsi / stressed_y_rafsi / (CVC_CCV_CVV &stress !y)? initial_pair y / hy_rafsi / stressed_hy_rafsi)

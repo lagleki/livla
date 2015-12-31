@@ -16,7 +16,7 @@ function search(query, callback) {
 			for (var ji in luj){
 				kim.push(rafsi[luj[ji]]);
 			}
-			if (kil[kil.length-1].w===lu){
+			if (kil[0].w===lu && kil.length===1){
 				kil[kil.length-1].rafsiDocuments = kim.filter(function(n){ return n !== undefined });
 			}
 			else{

@@ -16,11 +16,16 @@ function search(query, callback) {
 			for (var ji in luj){
 				kim.push(rafsi[luj[ji]]);
 			}
+			if (kil[kil.length-1].w===lu){
+				kil[kil.length-1].rafsiDocuments = kim.filter(function(n){ return n !== undefined });
+			}
+			else{
 			kil.push({
 				t: "decomposing ...",
 				w: query,
 				rafsiDocuments: kim.filter(function(n){ return n !== undefined })
 			});
+			}
 		}
 		return kil;
 	}

@@ -925,7 +925,7 @@ cecmu,"
 :'''pa cecmu be lo cipni mo'u muvdu lo bu'u tcadu''' — ''A colony of birds moved to this city.''
 :Related words: '''bende''', '''kulnu''', '''natmi''', '''tcadu''', '''jecta''', '''girzu'''"
 cedra,"
-'''cedra''' — ''x<sub>1</sub><sub>(clause)</sub>''  is an era or age characterized by  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
+'''cedra''' — ''x<sub>1</sub><sub>(clause)</sub>''  is an era or age characterized by  ''x<sub>2</sub><sub>(clause)</sub>'' 
 :'''lo cedra''' — era. 
 :'''lo cabna cu cedra lo nu pilno lo skami''' — ''These days are the era of using computers.''
 :Related words: '''ranji''', '''temci''', '''citsi'''"
@@ -1108,7 +1108,7 @@ cimni,"
 '''cimni''' — ''x<sub>1</sub><sub>(entity)</sub>''  in infinite in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo cimni''' — infinite. 
 :'''si'au le nu penmi cu cimni lo ka ditcu''' — ''It seems to me, the meeting will never end.''
-:'''le munje ci cimni lo ka se canlu''' — ''The world is infinite in space.''
+:'''le munje cu cimni lo ka se canlu''' — ''The world is infinite in space.''
 :Related words: '''vitno''', '''renvi''', '''munje''', '''fanmo''', '''sisti'''"
 cinba,"
 '''cinba''' — ''x<sub>1</sub><sub>(entity)</sub>''  kisses  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -1879,7 +1879,7 @@ dasri,"
 datka,"
 '''datka''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a duck of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo datka''' — duck. 
-:'''so'o datka ru'i limna lo lalxu''' — ''Several ducks are swimming in the lake.''
+:'''so'o datka ru'i limna le lalxu''' — ''Several ducks are swimming in the lake.''
 :Related words: '''cipni'''"
 datni,"
 '''datni''' — ''x<sub>1</sub><sub>(property of x2)</sub>''  is information about  ''x<sub>2</sub><sub>(entity)</sub>''  gathered by method  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
@@ -2474,7 +2474,7 @@ fei,"
 :'''mi ba volta de'i li cy fei''' — ''I will return at 11 o'clock.''"
 femti,"
 '''femti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is 10<sup>-15</sup> of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''lo protoni cu femti lo mitre be li ji'i pa pi xa boi lo ka klani ma kau''' — ''A proton has a size of about 1.6 femtometres.''
+:'''lo pa protoni cu femti lo mitre be li ji'i pa pi xa boi lo ka klani ma kau''' — ''A proton has a size of about 1.6 femtometres.''
 :Related words: '''centi'''"
 fendi,"
 '''fendi''' — ''x<sub>1</sub><sub>(entity)</sub>''  divides  ''x<sub>2</sub><sub>(entity)</sub>''  into  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -2991,13 +2991,13 @@ grana,"
 grasu,"
 '''grasu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some grease, oil
 :'''lo grasu''' — grease. 
-:'''ko punji lo so'o grasu lo xislu''' — ''Put some grease on the wheel.''
+:'''ko punji lo so'o grasu le xislu''' — ''Put some grease on the wheel.''
 :'''ri se savru''' — ''It squeaks.''
 :Related words: '''ctile''', '''matne''', '''plana'''"
 gredile,"
 '''gredile''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a grill/grid/graticule consisting of lines  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo gredile''' — grill, grid. '''lo se gredile''' — line of a grid. 
-:'''ti gredile ci pinta ce re sraji''' — ''It's a grid with three horizontal and two vertical lines.''
+:'''ti gredile lo ci pinta ce lo re sraji''' — ''It's a grid with three horizontal and two vertical lines.''
 :Comment: see '''cartu''', '''sraji''', '''pinta''', '''kamju'''.
 :Related words: '''greku''', '''kamju''', '''sraji''', '''pinta'''"
 greku,"
@@ -3457,7 +3457,7 @@ jelca,"
 jemna,"
 '''jemna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a gem
 :'''lo jemna''' — gem. 
-:'''lo nixli pu tolcri lo rokci noi ba ku jai se facki fai lo ka jemna''' — ''A girl found a stone that later was turned out to be a gem.''
+:'''pa nixli pu tolcri pa rokci noi ba ku jai se facki fai lo ka jemna''' — ''A girl found a stone that later was turned out to be a gem.''
 :Related words: '''kunra''', '''rokci''', '''jadni''', '''dirba''', '''kargu''', '''krili''', '''pulji'''"
 jenca,"
 '''jenca''' — ''x<sub>1</sub><sub>(clause)</sub>''  shocks or stuns  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -3467,12 +3467,12 @@ jenca,"
 jendu,"
 '''jendu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an axle on which  ''x<sub>2</sub><sub>(entity)</sub>''  rotates
 :'''lo jendu''' — axle. 
-:'''lo jendu be lo re xislu cu mudri''' — ''The axle of the two wheels is wooden.''
+:'''le jendu be lo re xislu cu mudri''' — ''The axle of the two wheels is wooden.''
 :Related words: '''se''' '''carna''', '''gunro''', '''tutci'''"
 jenmi,"
 '''jenmi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an army serving  ''x<sub>2</sub><sub>(entity)</sub>''  in doing  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo jenmi''' — army. 
-:'''ti jenmi lo vi gugde lo ka jai gau co'u fagri''' — ''This is an army of firefighters of this country.''
+:'''ti jenmi lo vi gugde lo ka vimcu be lo fagri''' — ''This is an army of firefighters of this country.''
 :Related words: '''sonci''', '''xarci'''"
 jerna,"
 '''jerna''' — ''x<sub>1</sub><sub>(entity)</sub>''  deserves, earns salary or payment  ''x<sub>2</sub><sub>(entity, property of x1)</sub>''  for work  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
@@ -3484,18 +3484,18 @@ jerna,"
 jersi,"
 '''jersi''' — ''x<sub>1</sub><sub>(entity)</sub>''  chases  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo jersi''' — chaser. '''lo se jersi''' — chased. 
-:'''loi gerku cu jersi lo pa lorxu''' — ''Dogs are in pursuit of a fox.''
+:'''loi gerku cu jersi pa lorxu''' — ''Dogs are in pursuit of a fox.''
 :'''e'o do jersi mi''' — ''Please, follow me.''
 :Related words: '''kavbu''', '''rivbi''', '''kalte''', '''lidne'''"
 jesni,"
 '''jesni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a needle
 :'''lo jesni''' — needle. 
-:'''gau mi tunta fa lo mi tamji lo jesni''' — ''I pricked my thumb with a needle.''
+:'''gau mi tunta fa lo tamji be mi pa jesni''' — ''I pricked my thumb with a needle.''
 :Related words: '''konju''', '''pijne''', '''jipno''', '''kinli'''"
 jetnu,"
 '''jetnu''' — ''x<sub>1</sub><sub>(proposition)</sub>''  is true by standard  ''x<sub>2</sub><sub>(proposition)</sub>'' 
 :'''lo jetnu''' — true_. 
-:'''lo du'u lo remna cu xendo cu jetnu lo se jinvi lo prije''' — ''According to a wise person, it's true that all humans are kind.''
+:'''lo du'u lo remna cu xendo cu jetnu lo se jinvi pa prije''' — ''According to a wise person, it's true that all humans are kind.''
 :'''u'a la'e di'u se jetnu lo du'u mi drani''' — ''Aha, that proves that I am right.''
 :Related words: '''stace''', '''jitfa''', '''fatci''', '''birti''', '''cfika'''"
 jgalu,"
@@ -3565,15 +3565,15 @@ jibri,"
 :Related words: '''briju''', '''gunka'''"
 jicla,"
 '''jicla''' — ''x<sub>1</sub><sub>(entity)</sub>''  stirs fluid  ''x<sub>2</sub><sub>(entity)</sub>'' 
-:'''ko jicla lo tcati''' — ''Stir the tea.''
-:'''ko jicla lo stasu co'u lo nu ri febvi''' — ''Stir the soup until it boils.''
+:'''ko jicla le tcati''' — ''Stir the tea.''
+:'''ko jicla le stasu co'u lo nu ri febvi''' — ''Stir the soup until it boils.''
 :Related words: '''fanza''', '''tunta''', '''mixre'''"
 jicmu,"
 '''jicmu''' — ''x<sub>1</sub><sub>(proposition)</sub>''  is the fundamental principle, basis of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo jicmu''' — basis, fundamental principle. 
 :'''lo logji cu jicmu la lojban''' — ''Logic is the foundation of Lojban.''
-:'''lo tcica cu jicmu ro lo nu jamna''' — ''Trickery is the basic of every war.''
-:'''lo nu zgana gi'e lanli cu jicmu ro lo saske''' — ''Monitoring and analysis is the foundation of every science.''
+:'''lo tcica cu jicmu ro nu jamna''' — ''Trickery is the basic of every war.''
+:'''lo nu zgana gi'e lanli cu jicmu ro saske''' — ''Monitoring and analysis is the foundation of every science.''
 :Related words: '''jamfu''', '''zbepi''', '''genja''', '''krasi'''"
 jijnu,"
 '''jijnu''' — ''x<sub>1</sub><sub>(entity)</sub>''  intuitively knows  ''x<sub>2</sub><sub>(proposition)</sub>'' 
@@ -3602,7 +3602,7 @@ jilka,"
 jilra,"
 '''jilra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is envious or jealous of  ''x<sub>2</sub><sub>(entity)</sub>''  about  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
 :'''lo jilra''' — envious, jealous. 
-:'''mi pu jilra lo mi bruna lo se frili poi tai ke'a tavla fa ce'u bau la lojban''' — ''I envied the ease at which my brother talked in Lojban.''
+:'''mi pu jilra lo bruna be mi lo se frili poi tai ke'a tavla fa ce'u bau la lojban''' — ''I envied the ease at which my brother talked in Lojban.''
 :Related words: '''cinmo'''"
 jimca,"
 '''jimca''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a branch of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -3627,7 +3627,7 @@ jinci,"
 jinga,"
 '''jinga''' — ''x<sub>1</sub><sub>(entity)</sub>''  wins prize  ''x<sub>2</sub><sub>(entity, property of x1)</sub>''  from competitors  ''x<sub>3</sub><sub>(entity)</sub>''  in competition  ''x<sub>4</sub><sub>(clause)</sub>'' 
 :'''lo jinga''' — winner. '''lo se jinga''' — prize won. 
-:'''la alis pu jinga lo ralju lo drata nixli lo nu vi'i ve'u bajra''' — ''Alice won the main prize gaining the victory over other girls in a long distant race.''
+:'''la alis pu jinga lo ralju lo drata nixli pa nu vi'i ve'u bajra''' — ''Alice won the main prize gaining the victory over other girls in a long distant race.''
 :Related words: '''cirko''', '''jivna''', '''talsa''', '''cnemu''', '''prali''', '''pleji''', '''sfasa''', '''jdima''', '''jerna''', '''bradi''', '''kargu''', '''kelci'''"
 jinku,"
 '''jinku''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a vaccine protecting  ''x<sub>2</sub><sub>(entity)</sub>''  against  ''x<sub>3</sub><sub>(property of x2)</sub>''  introduced by method  ''x<sub>4</sub><sub>(property of x1)</sub>'' 
@@ -3637,7 +3637,8 @@ jinku,"
 jinme,"
 '''jinme''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a quantity of metal
 :'''lo jinme''' — metal. 
-:'''lo vi grana cu jinme i lo slami cu daspo lo jinme''' — ''This rod is metallic.''
+:'''ti noi grana cu jinme''' — ''This rod is metallic.''
+:'''lo slami cu daspo lo jinme''' — ''Acid destroys metal.''
 :Related words: '''cnisa''', '''gasta''', '''lastu''', '''margu''', '''nikle''', '''ransu''', '''romge''', '''sodna''', '''tinci''', '''tirse''', '''tunka''', '''zinki''', '''kunra''', '''sodva'''"
 jinru,"
 '''jinru''' — ''x<sub>1</sub><sub>(entity)</sub>''  is immersed or submerged in liquid  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -3657,7 +3658,7 @@ jinto,"
 jinvi,"
 '''jinvi''' — ''x<sub>1</sub><sub>(entity)</sub>''  opines or thinks that  ''x<sub>2</sub><sub>(proposition)</sub>''  is true about  ''x<sub>3</sub><sub>(entity)</sub>''  on grounds  ''x<sub>4</sub><sub>(proposition)</sub>'' 
 :'''lo jinvi''' — having an opinion. '''lo se jinvi''' — opinion. 
-:'''mi pu darsi lo ka tugni ra lo se jinvi be ra''' — ''I dared to support his opinion.''
+:'''mi pu darsi lo ka tugni ra pa se jinvi be ra''' — ''I dared to support his opinion.''
 :'''mi jinvi lo ka na jinga vau la alis lo du'u ri tatpi''' — ''I think Alice won't win since she is tired.''
 :Comment: for thinking (musing upon something) use '''pensi'''.
 :Related words: '''pe'i''', '''djuno''', '''krici''', '''ciksi''', '''jijnu''', '''nabmi''', '''pensi''', '''senpi''', '''sidbo''', '''birti''', '''pinka'''"
@@ -3675,8 +3676,8 @@ jipci,"
 jipno,"
 '''jipno''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a tip or point on object  ''x<sub>2</sub><sub>(entity)</sub>''  at location  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo jipno''' — tip. 
-:'''mi pu pencu lo plise se pi'o lo jipno be lo mi tance''' — ''I touched the apple with the tip of my tongue.''
-:'''lo jipno be lo mi nazbi mo'u dunja''' — ''The tip of my nose is frozen.''
+:'''mi pu pencu le plise se pi'o lo jipno be lo mi tance''' — ''I touched the apple with the tip of my tongue.''
+:'''lo jipno be lo nazbi be mi mo'u dunja''' — ''The tip of my nose is frozen.''
 :Related words: '''mokca''', '''jesni''', '''fanmo''', '''kojna''', '''krasi'''"
 jirna,"
 '''jirna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a horn of body  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -3696,7 +3697,7 @@ jitfa,"
 jitro,"
 '''jitro''' — ''x<sub>1</sub><sub>(entity)</sub>''  has control over  ''x<sub>2</sub><sub>(entity)</sub>''  in activity  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
 :'''lo jitro''' — in control. '''lo se jitro''' — under control. 
-:'''lo be mi jatna cu jitro mi lo ka gunka ti''' — ''My boss controls me in working on this.''
+:'''lo jatna be mi cu jitro mi lo ka gunka ti''' — ''My boss controls me in working on this.''
 :'''loi pulji cu jitro lo sruri''' — ''The police controls the surroundings.''
 :Comment: '''gidva''' - does not necessarily control or command.
 :Related words: '''bapli''', '''te''' '''bende''', '''gidva''', '''jatna''', '''macnu''', '''minde''', '''ponse''', '''ralju''', '''rinka''', '''sazri''', '''turni''', '''vlipa''', '''xance''', '''xlura'''"
@@ -3708,12 +3709,12 @@ jivbu,"
 jivna,"
 '''jivna''' — ''x<sub>1</sub><sub>(entity)</sub>''  competes with competitors  ''x<sub>2</sub><sub>(entity)</sub>''  in contest  ''x<sub>3</sub><sub>(clause)</sub>''  for the reward  ''x<sub>4</sub><sub>(entity)</sub>'' 
 :'''lo jivna''' — competitor. '''lo se jivna''' — opponent in a competition. '''lo te jivna''' — competition. '''lo ve jivna''' — prize in a competition. 
-:'''la alis pu jivna lo drata nixli lo nu vi'i ve'u bajra vau lo ka cpacu lo jdini''' — ''Alice competed with other girls in a long distance race with a monetary prize for the winner.''
+:'''la alis pu jivna lo drata nixli pa nu vi'i ve'u bajra vau lo ka cpacu lo jdini''' — ''Alice competed with other girls in a long distance race with a monetary prize for the winner.''
 :Related words: '''cnemu''', '''jinga''', '''talsa''', '''bradi''', '''fapro''', '''kelci'''"
 jmaji,"
 '''jmaji''' — ''x<sub>1</sub><sub>(entity group)</sub>''  gather at location  ''x<sub>2</sub><sub>(entity)</sub>''  from locations  ''x<sub>3</sub><sub>(entity group)</sub>'' 
 :'''lo jmaji''' — gatherers. '''lo se jmaji''' — location of gathering. 
-:'''lo jbopre pu jmaji lo dinju lo vrici gugde''' — ''Lojbanists gathered.''
+:'''lo jbopre pu jmaji pa dinju lo vrici gugde''' — ''Lojbanists from various countries gathered in a house.''
 :Related words: '''crepu'''"
 jmifa,"
 '''jmifa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a shoal or reef
@@ -3722,7 +3723,7 @@ jmifa,"
 :Related words: '''caxno'''"
 jmina,"
 '''jmina''' — ''x<sub>1</sub><sub>(entity)</sub>''  combines or adds  ''x<sub>2</sub><sub>(entity, property of x3)</sub>''  to  ''x<sub>3</sub><sub>(entity)</sub>''  with result  ''x<sub>4</sub><sub>(entity, property of x3)</sub>'' 
-:'''le sfofa cu jmina lo ka se kufra vau lo kumfa''' — ''The sofa adds comfort to the room.''
+:'''le sfofa cu jmina lo ka se kufra vau le kumfa''' — ''The sofa adds comfort to the room.''
 :'''mi jmina lo so'o crino spati lo nanba lo snuji''' — ''I add some greenery to bread getting a sandwich.''
 :Related words: '''zmadu''', '''banro''', '''sumji''', '''zenba''', '''setca'''"
 jmive,"
@@ -3753,7 +3754,7 @@ joi,"
 jorne,"
 '''jorne''' — ''x<sub>1</sub><sub>(entity)</sub>''  is joined to  ''x<sub>2</sub><sub>(entity)</sub>''  at location  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo jorne''' — tightened, connected, tied, joined, fastened. 
-:'''la alis cu jorne lo stizu lo skori''' — ''Alice it tied to the chair with a rope.''
+:'''la alis cu jorne pa stizu pa skori''' — ''Alice is tied to a chair with a rope.''
 :'''ko jorne la'e me'o so pa pa''' — ''Call 911!''
 :'''mi ba jorne do ba lo nu mi cliva lo ckule''' — ''I will call you after I leave the school.''
 :Comment: x<sub>1</sub> and x<sub>2</sub> form a union.
@@ -3789,18 +3790,19 @@ jubme,"
 judri,"
 '''judri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an address of  ''x<sub>2</sub><sub>(entity)</sub>''  in system  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo judri''' — address. '''lo te judri''' — address system. 
-:'''ma judri do lo tcadu''' — ''What is your address?''
+:'''ma judri do lo tcadu''' — ''What is your city address?''
 :'''ma judri do lo kibro ve mrilu''' — ''What is your e-mail address?''
 :Related words: '''tcita''', '''cmene''', '''ciste''', '''stuzi'''"
 jufra,"
 '''jufra''' — ''x<sub>1</sub><sub>(text)</sub>''  is a sentence or statement about  ''x<sub>2</sub><sub>(entity)</sub>''  in language  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo jufra''' — sentence. '''lo se jufra''' — topic of a sentence. '''lo te jufra''' — language of a sentence. 
-:'''lu i lo mlatu ci pinxe li'u jufra lo danlu la lojban''' — '''''i lo mlatu cu pinxe''' is a sentence about animals in Lojban language.''
+:'''lu i lo mlatu cu pinxe li'u jufra lo danlu la lojban''' — '''''i lo mlatu cu pinxe''' is a sentence about animals in Lojban language.''
 :Related words: '''valsi''', '''bangu''', '''gerna''', '''cusku''', '''smuni'''"
 jukpa,"
 '''jukpa''' — ''x<sub>1</sub><sub>(entity)</sub>''  cooks or prepares food  ''x<sub>2</sub><sub>(entity)</sub>''  by recipe  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo jukpa''' — cook. '''lo se jukpa''' — cooked food. '''lo te jukpa''' — recipe for cooking. 
-:'''le mamta pu jukpa le torta lo ka punji ri lo toknu''' — ''Mother cooked the cake by putting it in the oven.''
+:'''le mamta pu jukpa pa torta lo ka punji pa pu'o torta lo toknu''' — ''Mother cooked a cake by putting a raw ""cake"" in the oven.''
+:Comment: x<sub>2</sub> is the result of cooking, the product ready to use.
 :Related words: '''cupra''', '''bredi'''"
 julne,"
 '''julne''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a filter passing  ''x<sub>2</sub><sub>(entity)</sub>''  and prohibiting  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -3826,7 +3828,7 @@ junla,"
 :Related words: '''cacra''', '''mentu''', '''snidu''', '''tcika''', '''temci'''"
 junpero,"
 '''junpero''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a juniper (genus Juniperus) of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
-:'''mi pu jmina lo jimca be lo junpero lo fagri''' — ''I added juniper twigs to the fire.''
+:'''mi pu jmina so'o jimca be lo junpero lo fagri''' — ''I added some juniper twigs to the fire.''
 :Comment: Some junipers are commonly called &quot;cedars&quot;.
 :Related words: '''spati''', '''tricu''', '''ckunu'''"
 junri,"
@@ -3837,7 +3839,7 @@ junri,"
 junta,"
 '''junta''' — ''x<sub>1</sub><sub>(entity)</sub>''  is the weight of  ''x<sub>2</sub><sub>(entity group)</sub>''  in field  ''x<sub>3</sub>
 :'''lo junta''' — weight. 
-:'''lo kensa gunka cu se junta lo ki'ogra be li pa no no lo terdi''' — ''The space worker weights 100 kilograms in the gravity of the Earth.''
+:'''lo gunka pe lo kensa cu se junta lo ki'ogra be li pa no no le terdi''' — ''The space worker weights 100 kilograms in the gravity of the Earth.''
 :Related words: '''grake''', '''linto''', '''tilju''', '''bunda'''"
 jurme,"
 '''jurme''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bacteria or germ of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
@@ -3864,7 +3866,7 @@ juxre,"
 jvinu,"
 '''jvinu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a view of  ''x<sub>2</sub><sub>(entity)</sub>''  from viewpoint  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo jvinu''' — view. '''lo te jvinu''' — viewpoint. 
-:'''lo jvinu be lo xamsi bei lo mi kumfa cu banli''' — ''I have a great view of the sea from my room.''
+:'''lo jvinu be lo xamsi bei lo kumfa pe mi cu banli''' — ''I have a great view of the sea from my room.''
 :Related words: '''catlu''', '''kanla''', '''viska''', '''canko''', '''jarco'''"
 jy,"
 '''jy''' <small>[pronoun]</small> — ''j'' (letter)
@@ -3896,13 +3898,13 @@ ka'u,"
 kabri,"
 '''kabri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a cup or mug containing  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kabri''' — cup. '''lo se kabri''' — content of a cup. 
-:'''e'o do dunda lo kabri be lo ckafi mi''' — ''Please, give me a cup of coffee.''
+:'''e'o do dunda pa kabri be lo ckafi mi''' — ''Please, give me a cup of coffee.''
 :Comment: '''lo''' '''kabri''' is normally lifted when eaten from it, '''lo''' '''palta''' is not.
 :Related words: '''palta''', '''citka''', '''blaci''', '''tansi'''"
 kacma,"
 '''kacma''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a camera recording images of illumination type  ''x<sub>2</sub><sub>(entity)</sub>''  to medium  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo kacma''' — camera. 
-:'''ti kacma lo tcadu lo datni centero''' — ''This is a camera recording images of the city to the data center.''
+:'''ti kacma le tcadu pa datni centero''' — ''This is a camera recording images of the city to a data center.''
 :Related words: '''lenjo'''"
 kafke,"
 '''kafke''' — ''x<sub>1</sub><sub>(entity)</sub>''  coughs, farts, burps  ''x<sub>2</sub><sub>(entity)</sub>''  from orifice  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -3911,7 +3913,7 @@ kafke,"
 kagni,"
 '''kagni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a company, corporation chartered by authority  ''x<sub>2</sub><sub>(entity)</sub>''  for purpose  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo kagni''' — company, corporation, business (company). '''lo te kagni''' — business (commercial activity). 
-:'''lo kagni be lo jbopre bei lo nu kakpa lo ctile pu tolcri lo ctile lo loldi be lo xamsi''' — ''The Lojbanists' chartered oil drilling company discovered oil at the bed of the sea.''
+:'''pa kagni be lo jbopre bei lo nu kakpa lo ctile pu tolcri lo ctile lo loldi be lo xamsi''' — ''The Lojbanists' chartered oil drilling company discovered oil at the bed of the sea.''
 :Related words: '''kansa''', '''kamni''', '''banxa''', '''bende'''"
 kai,"
 '''kai''' <small>[preposition from '''ckaji''']</small> — ''characterizing ..., with ... having this property''
@@ -3924,7 +3926,7 @@ kajde,"
 kajna,"
 '''kajna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a shelf or counter on  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kajna''' — shelf. 
-:'''mi pu punji le pelji lo kajna be lo fagri stuzi''' — ''I put the paper on the mantel.''
+:'''mi pu punji le pelji le kajna be lo fagri stuzi''' — ''I put the paper on the mantel.''
 :Related words: '''balni'''"
 kakne,"
 '''kakne''' — ''x<sub>1</sub><sub>(entity)</sub>''  is capable of doing  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -3935,7 +3937,7 @@ kakne,"
 kakpa,"
 '''kakpa''' — ''x<sub>1</sub><sub>(entity)</sub>''  digs  ''x<sub>2</sub><sub>(entity)</sub>''  out of  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo kakpa''' — digger. 
-:'''la tom pu jai se bapli fai lo ka kakpa lo karce lo snime''' — ''Tom had to dig his car out of the snow.''
+:'''la tom pu jai se bapli fai lo ka kakpa pa karce pe vo'a lo snime''' — ''Tom had to dig his car out of the snow.''
 :Related words: '''katna''', '''plixa''', '''sraku''', '''canpa''', '''sraku'''"
 kalci,"
 '''kalci''' — ''x<sub>1</sub><sub>(entity)</sub>''  is excrement or feces of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -3945,14 +3947,14 @@ kalci,"
 kalri,"
 '''kalri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is open, giving access to place  ''x<sub>2</sub><sub>(entity)</sub>''  for object  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo kalri''' — open. 
-:'''lo canko cu kalri lo nenri lo vifne vacri''' — ''The window is open letting the fresh air in.''
-:'''gau ko kalri fa lo canko''' — ''Open the window.''
-:'''ko jai gau kalri fai lo canko''' — ''Open the window.''
+:'''le canko cu kalri lo nenri lo vifne vacri''' — ''The window is open letting the fresh air in.''
+:'''gau ko kalri fa le canko''' — ''Open the window.''
+:'''ko jai gau kalri fai le canko''' — ''Open the window.''
 :Related words: '''ganlo''', '''pagre''', '''canko''', '''vorme'''"
 kalsa,"
 '''kalsa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a chaos, chaotic in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo kalsa''' — chaos, chaotic. 
-:'''lo mi kumfa cu kalsa lo ka bu'u ce'u lo mi bukpu cu zvati ma kau''' — ''My room is a mess (in where are my clothes).''
+:'''lo kumfa pe mi cu kalsa lo ka bu'u ce'u lo bukpu pe mi cu zvati ma kau''' — ''My room is a mess (in where are my clothes).''
 :Related words: '''cunso''', '''cnici'''"
 kalte,"
 '''kalte''' — ''x<sub>1</sub><sub>(entity)</sub>''  hunts prey  ''x<sub>2</sub><sub>(entity)</sub>''  for purpose  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
@@ -3962,26 +3964,26 @@ kalte,"
 kamju,"
 '''kamju''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a column
 :'''lo kamju''' — pillar. 
-:'''le pa kamju cu sarji lo korbi be lo drudi''' — ''The column supports the edge of the roof.''
+:'''le pa kamju cu sarji lo korbi be le drudi''' — ''The column supports the edge of the roof.''
 :Related words: '''ckana''', '''garna''', '''sanli''', '''slanu'''"
 kamni,"
 '''kamni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a committee with task  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo kamni''' — committee. '''lo se kamni''' — purpose of a committee. 
-:'''lo kamni be lo ka jai gau farvi le bangu cu gunma za'u pa no prenu''' — ''There are more than 10 members in the committee for developing the language.''
+:'''le kamni be lo ka jai gau farvi le bangu cu gunma za'u pa no prenu''' — ''There are more than 10 members in the committee for developing the language.''
 :Related words: '''bende''', '''kagni'''"
 kampu,"
 '''kampu''' — ''x<sub>1</sub><sub>(property of x2)</sub>''  is universal among  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kampu''' — common, general, universal. '''lo se kampu''' — group with something in common. 
-:'''da zo'u lo ka dasni da cu kampu ro lo tadni''' — ''Wearing the same uniform is common for every student.''
+:'''pa da zo'u lo ka dasni da cu kampu ro tadni''' — ''Wearing the same uniform is common for every student.''
 :Related words: '''fadni''', '''cafne''', '''rirci''', '''fadni''', '''cnano''', '''tcaci''', '''lakne''', '''cmima''', '''simxu'''"
 kanba,"
 '''kanba''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a goat of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo kanba''' — goat. 
-:'''lo cirla cu se zbasu fi lo ladru be lo kanba''' — ''The cheese is made from goat's milk.''
+:'''le cirla cu se zbasu fi lo ladru be lo kanba''' — ''The cheese is made from goat's milk.''
 :Related words: '''lanme''', '''sunla'''"
 kancu,"
 '''kancu''' — ''x<sub>1</sub><sub>(entity)</sub>''  counts the number in  ''x<sub>2</sub><sub>(entity)</sub>''  to be  ''x<sub>3</sub><sub>(number)</sub>''  by units  ''x<sub>4</sub><sub>(property of x2)</sub>'' 
-:'''mi kancu lo prenu li pa re lo ka re mei''' — ''I counted the people as 12 couples.''
+:'''mi pu kancu le prenu li pa re lo ka re mei''' — ''I counted the people as 12 couples.''
 :Related words: '''namcu''', '''satci''', '''merli'''"
 kandi,"
 '''kandi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is dim, non-intense in  ''x<sub>2</sub><sub>(property of x1)</sub>''  received by observer  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -4006,21 +4008,21 @@ kanro,"
 :Related words: '''bilma''', '''mikce'''"
 kansa,"
 '''kansa''' — ''x<sub>1</sub><sub>(entity)</sub>''  accompanies  ''x<sub>2</sub><sub>(entity)</sub>''  in state  ''x<sub>3</sub><sub>(clause)</sub>'' 
-:'''le mi gerku fe'e ro roi kansa mi''' — ''My dog is everywhere with me.''
+:'''le gerku pe mi fe'e ro roi kansa mi''' — ''My dog is everywhere with me.''
 :'''ro roi pu pluka fa lo ka kansa do lo ka gunka''' — ''It was pleasant to work with you.''
 :Related words: '''kagni''', '''jorne''', '''gunma''', '''girzu''', '''lasna'''"
 kantu,"
 '''kantu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a quantum of  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo kantu''' — quantum. 
-:'''mi pu xaksu re kantu be lo cacra fau lo ka denpa tu'a do''' — ''I wasted two hours waiting for you.''
-:'''ti du re lo kantu be lo makfa''' — ''Here are two pieces of magic.''
+:'''mi pu xaksu re kantu be lo cacra ta'i lo ka denpa tu'a do''' — ''I wasted two hours waiting for you.''
+:'''ti du re kantu be lo makfa''' — ''Here are two pieces of magic.''
 :Comment: '''selci''' is for masses and most objects.
 :Related words: '''selci''', '''ratni''', '''gradu''', '''gusni''', '''nejni''', '''linji'''"
 karce,"
 '''karce''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a car, truck, van for carrying  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo karce''' — car, truck, van. '''lo se karce''' — cargo of a car. 
 :'''ti karce lo festi''' — ''It's a trash truck.''
-:'''do te mukti lo ka te vecnu lo karce pe ma noi kagni''' — ''A car of what company are you going to buy?''
+:'''do te mukti lo ka te vecnu lo pa karce pe ma noi kagni''' — ''A car of what company are you going to buy?''
 :Comment: '''karce''' and '''carce''' are designed to be with wheels, '''marce''' isn't and is more generic.
 :Related words: '''carce''', '''xislu''', '''marce''', '''sabnu'''"
 karda,"
@@ -4031,21 +4033,21 @@ karda,"
 kargu,"
 '''kargu''' — ''x<sub>1</sub><sub>(entity, property of x2)</sub>''  is expensive to  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kargu''' — expensive. 
-:'''lo ka tai litru pu se la'u li du'e kargu mi''' — ''Such trip was too expensive to me.''
+:'''lo ka tai litru cu kargu mi se la'u li du'e''' — ''Such trip is too expensive to me.''
 :Related words: '''vamji''', '''dirba''', '''vajni''', '''jdima''', '''pleji''', '''canja''', '''jerna''', '''jinga''', '''jemna''', '''sfasa''', '''vecnu'''"
 karli,"
 '''karli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a belt or collar surrounding  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo karli''' — collar. 
-:'''le fetsi pu punji lo karli lo sruri be lo cintura''' — ''She put a waist around her waist.''
+:'''le fetsi pu punji pa karli lo sruri be lo cintura''' — ''She put a waist around her waist.''
 :Related words: '''sruri''', '''djine'''"
 karni,"
 '''karni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a newspaper, magazine with content  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo karni''' — journal, newspaper, magazine, press (media). '''lo se karni''' — contents of a magazine. 
-:'''mi tcidu lo karni be lo pu zi nuzba''' — ''I'm reading a magazine about recent news.''
+:'''mi tcidu pa karni be lo pu zi nuzba''' — ''I'm reading a magazine about recent news.''
 :Related words: '''papri''', '''pelji''', '''tcidu'''"
 katna,"
 '''katna''' — ''x<sub>1</sub><sub>(entity)</sub>''  cuts  ''x<sub>2</sub><sub>(entity)</sub>''  into pieces  ''x<sub>3</sub><sub>(entity)</sub>'' 
-:'''mi pu katna lo nanba pa no da''' — ''I cur the bread into 10 pieces.''
+:'''mi pu katna le nanba lo pa no mei''' — ''I cut the bread into 10 pieces.''
 :Comment: '''sraku''' is for cutting into without division.
 :Related words: '''kakpa''', '''sraku''', '''plixa''', '''dakfu''', '''jinci''', '''porpi''', '''spofu''', '''tunta''', '''xrani''', '''fatri''', '''fendi''', '''balre''', '''dilcu'''"
 kau,"
@@ -4084,7 +4086,7 @@ ke'u,"
 :Related words: '''basna''', '''krefu''', '''rapli'''"
 kecti,"
 '''kecti''' — ''x<sub>1</sub><sub>(entity)</sub>''  feels sorry for  ''x<sub>2</sub><sub>(entity)</sub>''  about  ''x<sub>3</sub><sub>(proposition)</sub>'' 
-:'''mi kecti do lo nu do fliba lo ka jinga''' — ''I feel sorry for you that you failed to win.''
+:'''mi kecti do le nu do fliba lo ka jinga''' — ''I feel sorry for you that you failed to win.''
 :Related words: '''cinmo''', '''xendo'''"
 kei,"
 '''kei''' <small>[terminator]</small> — ends a construct started with: '''nu'''"
@@ -4107,7 +4109,7 @@ kelvo,"
 kenra,"
 '''kenra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a cancer disease in  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kenra''' — cancer. 
-:'''lo kenra be lo tatru ka'e te mikce''' — ''Breast cancer can be cured.''
+:'''lo kenra be lo tatru ka'e mo'u te mikce''' — ''Breast cancer can be cured.''
 :Related words: '''bilma''', '''mikce''', '''spita'''"
 kensa,"
 '''kensa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is outer space near  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -4132,12 +4134,12 @@ kernelo,"
 ketco,"
 '''ketco''' — ''x<sub>1</sub><sub>(entity)</sub>''  is South American in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo ketco''' — South American. 
-:'''ti'e le fetsi cu se krasi fe i'u cu'i lo ketco gugde''' — ''They say she is from some South American country.''
+:'''ti'e le fetsi cu se krasi lo ketco gugde ku i'u cu'i''' — ''They say she is from some South American country.''
 :Related words: '''brazo''', '''spano'''"
 kevna,"
 '''kevna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a cavity or hole in  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kevna''' — cavity, hole. 
-:'''da kevna lo drudi''' — ''There is a hole in the roof.''
+:'''da kevna le drudi''' — ''There is a hole in the roof.''
 :Related words: '''fenra''', '''kunti''', '''canlu''', '''canko''', '''galxe''', '''tubnu'''"
 ki,"
 '''ki''' <small>[preposition]</small> — sets the default tense. As a preposition sets the viewpoint in time-space
@@ -4165,7 +4167,7 @@ ki'ogra,"
 :Related words: '''kilto''', '''grake'''"
 ki'otre,"
 '''ki'otre''' — ''x<sub>1</sub><sub>(entity)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  kilometers in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''lo vi dargu cu ki'otre li pa lo ka clani''' — ''This box is one kilometer in length.''
+:'''ti noi dargu cu ki'otre li pa lo ka clani''' — ''This box is one kilometer in length.''
 :Related words: '''kilto''', '''mitre'''"
 ki'u,"
 '''ki'u''' <small>[preposition from '''krinu''']</small> — ''because of reason ...'', adverb: ''justifiably''
@@ -4173,7 +4175,7 @@ ki'u,"
 kibro,"
 '''kibro''' — ''x<sub>1</sub><sub>(entity)</sub>''  pertains to the internet in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo kibro''' — internet. 
-:'''lo mi pendo cu finti lo karni poi kibro lo ka se benji fu ma kau''' — ''My friend is an author of a magazine that is delivered via the internet.''
+:'''pa pendo be mi cu finti pa karni poi kibro lo ka se benji fu ma kau''' — ''A friend of mine is an author of a magazine that is delivered via the internet.''
 :Related words: '''skami''', '''se''' '''tcana''', '''jikca'''"
 kicne,"
 '''kicne''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a cushion
@@ -4188,17 +4190,17 @@ kijno,"
 kilto,"
 '''kilto''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a thousand of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo kilto''' — 1000_. 
-:'''lo xamsi cu kilto be lo mitre lo ka condi''' — ''The sea is 1'000 meters deep.''
+:'''le xamsi cu kilto be lo mitre lo ka condi''' — ''The sea is 1'000 meters deep.''
 :Related words: '''centi'''"
 kinli,"
 '''kinli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is sharp at location  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kinli''' — sharp. 
-:'''lo balre cu kinli lo jipno''' — ''The tip of the blade is sharp.''
+:'''le balre cu kinli lo jipno''' — ''The tip of the blade is sharp.''
 :Related words: '''balre''', '''dakfu''', '''jesni'''"
 klaji,"
 '''klaji''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a street or alley at  ''x<sub>2</sub><sub>(entity)</sub>''  allowing access to  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo klaji''' — street, avenue, alley. 
-:'''ti ralju klaji lo tcadu lo zarci poi vrici''' — ''This is the main street of the city giving access to various shops.''
+:'''ti ralju klaji le tcadu lo vrici zarci''' — ''This is the main street of the city giving access to various shops.''
 :Related words: '''panka''', '''pluta''', '''dargu''', '''naxle'''"
 klaku,"
 '''klaku''' — ''x<sub>1</sub><sub>(entity)</sub>''  weeps or cries tears  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -4209,8 +4211,8 @@ klama,"
 '''klama''' — ''x<sub>1</sub><sub>(entity)</sub>''  goes to  ''x<sub>2</sub><sub>(entity)</sub>''  from  ''x<sub>3</sub><sub>(entity)</sub>''  via the route  ''x<sub>4</sub><sub>(entity)</sub>''  using means  ''x<sub>5</sub><sub>(entity)</sub>''
 :'''lo klama''' — passenger, goer, rider. '''lo se klama''' — destination of a ride. '''lo te klama''' — origin of a ride. '''lo ve klama''' — route, track. '''lo xe klama''' — vehicle. 
 :'''xu do klama fi la nipon''' — ''Are you from Japan?''
-:'''lo dargu cu se kruca lo pu ve klama be lo ractu''' — ''The road crossed the rabbit's track.''
-:'''mi'a pu klama fu lo bloti fo lo lalxu fi le zdani fe lo daplu''' — ''We sailed on the boat along the lake from the home to an island.''
+:'''le dargu cu se kruca lo pu ve klama be lo ractu''' — ''The road crossed what was the rabbit's track.''
+:'''mi'a pu klama fu pa bloti fo pa lalxu fi le zdani fe pa daplu''' — ''We sailed on the boat along the lake from the home to an island.''
 :'''mi pu klama fi la nipon fu lo vinji''' — ''I flew from Japan.''
 :'''xu do pu klama fu lo aftobuso fe la paris''' — ''Did you ride the bus to Paris?''
 :'''le nakni pu klama lo nenri''' — ''He came in.''
@@ -4218,15 +4220,15 @@ klama,"
 klani,"
 '''klani''' — ''x<sub>1</sub><sub>(entity)</sub>''  is measured by  ''x<sub>2</sub><sub>(number)</sub>''  on  ''x<sub>3</sub><sub>(property of x1 with '''kau''')</sub>'' 
 :'''lo se klani''' — amount, quantity, level (degree or amount). 
-:'''lo pa mlatu cu klani li pi mu lo ka mitre ma kau lo ka clani''' — ''A cat is measured 0.5 meters in length.''
-:'''loi mlatu cu klani li ci lo ka gunma ma kau i je va'i lo mlatu cu vo mei''' — ''The mass of cats is measured as having 4 units, in other words, there are 4 cats.''
+:'''le pa mlatu cu klani li pi mu lo ka mitre ma kau lo ka clani''' — ''The cat is measured 0.5 meters in length.''
+:'''lei mlatu cu klani li ci lo ka gunma ma kau i je va'i le mlatu cu vo mei''' — ''The mass of the cats is measured as having 4 units, in other words, there are 4 cats.''
 :Comment: to specify the number of object '''loi''' is usually used in x<sub>1</sub> of '''klani'''. To specify size fill x<sub>3</sub> of '''klani'''.
 :Related words: '''pa''', '''namcu'''"
 klesi,"
 '''klesi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a type, kind, class of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  defined by  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo klesi''' — subset, type, kind, class. 
 :'''mi cmima lo klesi be lo se zdani bei lo ka vecnu''' — ''I belong to the merchant class of inhabitants.''
-:'''do na cmima lo mi klesi''' — ''You are not my type.''
+:'''do na cmima lo klesi pe mi''' — ''You are not my type.''
 :'''ti cmima lo klesi be lo notci bei lo drata''' — ''This is another type of message.''
 :Related words: '''me''', '''cmima''', '''jutsi''', '''ciste''', '''girzu''', '''lanzu''', '''vrici'''"
 klina,"
@@ -4244,7 +4246,7 @@ kliru,"
 kliti,"
 '''kliti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some clay
 :'''lo kliti''' — clay. 
-:'''xu do mo'u zbasu lo kabri lo ranti kliti''' — ''Have you worked the cup out of soft clay?''
+:'''xu do mo'u zbasu le kabri lo ranti kliti''' — ''Have you worked the cup out of soft clay?''
 :Related words: '''dertu''', '''pesxu''', '''staku'''"
 kluza,"
 '''kluza''' — ''x<sub>1</sub><sub>(entity)</sub>''  is loose, bloused on  ''x<sub>2</sub><sub>(entity)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
@@ -4289,7 +4291,7 @@ kobli,"
 kojna,"
 '''kojna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a corner in  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kojna''' — corner. 
-:'''lo baktu cu jibni lo kojna be le kumfa''' — ''The bucket is in a corner of the room.''
+:'''le baktu cu jibni pa kojna be le kumfa''' — ''The bucket is in a corner of the room.''
 :Related words: '''jipno''', '''konju''', '''bliku''', '''fanmo''', '''jganu''', '''krasi'''"
 kokso,"
 '''kokso''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a coconut of variety/cultivar  ''x<sub>2</sub><sub>(taxon)</sub>'' 
@@ -4300,7 +4302,7 @@ kolme,"
 '''kolme''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a quantity of coal
 :'''lo kolme''' — coal. 
 :'''lo kolme ca'o jelca''' — ''Coal is burning.''
-:'''mi mo'u xaksu lo kolme''' — ''I've used up the coal.''
+:'''mi mo'u xaksu le kolme''' — ''I've used up the coal.''
 :Related words: '''tabno''', '''tarla'''"
 kombitu,"
 '''kombitu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a comb for doing  ''x<sub>2</sub><sub>(entity)</sub>''  with teeth, needles  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -4310,18 +4312,18 @@ kombitu,"
 konju,"
 '''konju''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a cone with base  ''x<sub>2</sub><sub>(entity)</sub>''  and vertex  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo konju''' — cone. '''lo se konju''' — base of a cone. '''lo te konju''' — vertex of a cone. 
-:'''lo tarci jadni cu te konju fi lo tricu''' — ''The star is the tip of a tree.''
+:'''lo tarci jadni cu te konju fi le tricu''' — ''The star is the tip of the tree.''
 :Related words: '''jesni''', '''djine''', '''sovda''', '''kojna''', '''jganu'''"
 korbi,"
 '''korbi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an edge or border between  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo korbi''' — edge. '''lo se korbi''' — something with an edge. 
-:'''ti korbi lo re rirxe''' — ''This is the border between the two rivers.''
+:'''ti korbi re rirxe''' — ''This is the border between the two rivers.''
 :Related words: '''greku''', '''mlana''', '''jimte''', '''ctebi''', '''bartu'''"
 korcu,"
 '''korcu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is bent or crooked
 :'''lo korcu''' — bent. 
 :'''loi cidni be la alis mo'u korcu''' — ''Alice's knees buckled.''
-:'''lo jukpa pu korcu ga'u lo fagri''' — ''The cook leaned over the fire.''
+:'''le jukpa pu korcu ga'u lo fagri''' — ''The cook leaned over the fire.''
 :Related words: '''cinje''', '''polje''', '''sarlu''', '''sirji''', '''bargu''', '''genxu'''"
 korka,"
 '''korka''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some cork from tree  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -4331,12 +4333,12 @@ korka,"
 korvo,"
 '''korvo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a crow of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo korvo''' — crow, raven. 
-:'''le korvo cu xekri du'i lo kolme''' — ''The raven is black as coal.''
+:'''le korvo cu xekri du'i lo ka kolme''' — ''The raven is black as coal.''
 :Related words: '''cipni''', '''xekri'''"
 kosta,"
 '''kosta''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a jacket or sweater
 :'''lo kosta''' — jacket. 
-:'''ko co'a dasni lo kosta''' — ''Put the coat on.''
+:'''ko co'a dasni le kosta''' — ''Put the coat on.''
 :Related words: '''pastu''', '''sunla''', '''taxfu'''"
 krali,"
 '''krali''' — ''x<sub>1</sub><sub>(property of x2)</sub>''  is a legal/moral right of  ''x<sub>2</sub><sub>(entity)</sub>''  in legal system  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -4350,19 +4352,19 @@ kramu,"
 krasi,"
 '''krasi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an origin, source of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo krasi''' — origin, source. '''lo se krasi''' — something with an origin. 
-:'''lo jinto cu krasi lo vi rirxe''' — ''A well is a source of this river.''
+:'''pa jinto cu krasi ti noi rirxe''' — ''A well is a source of this river.''
 :'''lo tricu cu se krasi lo grute''' — ''Trees come from fruits.''
 :'''ma krasi do''' — ''What is your origin?''
 :Related words: '''fanmo''', '''ra'i''', '''sabji''', '''cfari''', '''jipno''', '''traji''', '''kojna''', '''genja''', '''jicmu''', '''sitna''', '''jinto'''"
 krati,"
 '''krati''' — ''x<sub>1</sub><sub>(entity)</sub>''  represents  ''x<sub>2</sub><sub>(entity)</sub>''  in function  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo krati''' — representative. 
-:'''lo krati be lo turni bei lo ka gubni te ckini co'a tavla loi se natmi''' — ''A representative of the governor in public relations started talking to the nation.''
+:'''pa krati be lo turni bei lo ka ckini fi lo gubni co'a tavla lei se natmi''' — ''A representative of the governor in public relations started talking to the nation.''
 :Related words: '''jansu''', '''catni''', '''vipsi''', '''pulji'''"
 krefu,"
 '''krefu''' — ''x<sub>1</sub><sub>(clause)</sub>''  is a recurrence of  ''x<sub>2</sub><sub>(clause)</sub>''  happening for the  ''x<sub>3</sub><sub>(number)</sub>''  -th time
 :'''lo krefu''' — recurrence, occurrence, case (recurrence). '''lo te krefu''' — number of recurrences. 
-:'''lo na te snada cu krefu lo nu troci vau li ci''' — ''The attempt ended in a failure for the third time.''
+:'''lo na te snada cu krefu lу nu troci vau li ci''' — ''The attempt ended in a failure for the third time.''
 :Related words: '''fukpi''', '''rapli''', '''cafne''', '''fasnu''', '''volta'''"
 krici,"
 '''krici''' — ''x<sub>1</sub><sub>(entity)</sub>''  believes  ''x<sub>2</sub><sub>(proposition)</sub>''  is true about  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -4393,7 +4395,7 @@ kruca,"
 '''kruca''' — ''x<sub>1</sub><sub>(entity)</sub>''  intersects  ''x<sub>2</sub><sub>(entity)</sub>''  at location  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo te kruca''' — point of an intersection. 
 :'''ko carna fi lo zunle bu'u lo te kruca''' — ''Turn left at the crossroad.''
-:'''mi pu denpa bu'u lo te kruca be lo ralju dargu bei lo dertu dargu''' — ''I was waiting at the place where the main road is intersected by a dirt road.''
+:'''mi pu denpa bu'u lo te kruca be lo ralju dargu bei lo dertu dargu''' — ''I was waiting at the place where the main road was intersected by a dirt road.''
 :Related words: '''cripu''', '''ragve'''"
 kruji,"
 '''kruji''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some cream
@@ -4423,17 +4425,17 @@ ku'o,"
 kubli,"
 '''kubli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a cube
 :'''lo kubli''' — cube. 
-:'''mi pu punji lo bisli poi kubli lo te runta''' — ''I put ice cubes into the drink.''
+:'''mi pu punji lo kubli bisli le te runta''' — ''I put ice cubes into the drink.''
 :Related words: '''kurfa''', '''bliku''', '''tanbo''', '''tapla''', '''tarmi'''"
 kucli,"
 '''kucli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is curious about  ''x<sub>2</sub><sub>(clause)</sub>'' 
 :'''lo kucli''' — curious. '''lo se kucli''' — subject of curiosity. 
-:'''mi kucli lo nu lo va ninmu cu zukte ma''' — ''I'm curious what is the woman doing.''
+:'''mi kucli lo nu ta noi ninmu cu zukte ma''' — ''I'm curious what is that woman doing?''
 :Related words: '''marvele''', '''sisku''', '''se''' '''cinri'''"
 kufra,"
 '''kufra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is comfortable with  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo kufra''' — comfortable. 
-:'''mi kufra lo ka vreta fi'o se jbini lo re kicne''' — ''I feel comfortable lying between the two pillows.''
+:'''mi kufra lo ka vreta bu'u lo jbini be re kicne''' — ''I feel comfortable lying between the two pillows.''
 :Related words: '''cinmo'''"
 kukte,"
 '''kukte''' — ''x<sub>1</sub><sub>(entity)</sub>''  is tasty or delicious to  ''x<sub>2</sub><sub>(object)</sub>'' 
@@ -4444,7 +4446,7 @@ kukte,"
 kulnu,"
 '''kulnu''' — ''x<sub>1</sub><sub>(property of x2)</sub>''  is culture of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kulnu''' — culture. 
-:'''lo ka citka lo insekto cu kulnu so'e lo remna''' — ''Eating insects is the culture of most of humans.''
+:'''lo ka citka lo insekto cu kulnu so'e remna''' — ''Eating insects is the culture of most of humans.''
 :Comment: x<sub>1</sub> are customs, ideas, arts, skills.
 :Related words: '''ka'u''', '''natmi''', '''cecmu'''"
 kumfa,"
@@ -4455,7 +4457,7 @@ kumfa,"
 kumte,"
 '''kumte''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a camel or llama of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo kumte''' — camel, llama. 
-:'''lo gidva be mi'ai cu kakne lo ka sazri lo kumte''' — ''Our guide can ride a camel.''
+:'''lo gidva be mi'a cu kakne lo ka sazri lo kumte''' — ''Our guide can ride a camel.''
 :Related words: '''sunla''', '''kanla''', '''xirma''', '''xasli'''"
 kunra,"
 '''kunra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an ore containing material  ''x<sub>2</sub><sub>(entity)</sub>''  mined from  ''x<sub>3</sub><sub>(entity)</sub>'' 
@@ -4465,12 +4467,12 @@ kunra,"
 kunti,"
 '''kunti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is empty of material  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kunti''' — empty. 
-:'''lo kabri cu kunti''' — ''The glass is empty.''
+:'''le kabri cu kunti''' — ''The glass is empty.''
 :Related words: '''culno''', '''tisna''', '''claxu''', '''canlu''', '''kevna''', '''setca'''"
 kurfa,"
 '''kurfa''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a rectangle defined by vertices  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo kurfa''' — rectangle. 
-:'''loi sonci pu kurfa vo mitre be li mu''' — ''Soldiers formed together a rectangle 5 meters in each side.''
+:'''loi sonci pu kurfa lo vo mitre be li mu''' — ''Soldiers formed together a rectangle 5 meters in each side.''
 :Related words: '''bliku''', '''kubli''', '''tapla''', '''salpo''', '''tarmi'''"
 kurji,"
 '''kurji''' — ''x<sub>1</sub><sub>(entity)</sub>''  takes care of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -4480,13 +4482,13 @@ kurji,"
 kurki,"
 '''kurki''' — ''x<sub>1</sub><sub>(entity)</sub>''  is bitter, acrid to  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo kurki''' — bitter (taste). 
-:'''lo birje cu kurki''' — ''The beer is bitter.''
+:'''le birje cu kurki''' — ''The beer is bitter.''
 :Related words: '''titla''', '''slari'''"
 kuspe,"
 '''kuspe''' — ''x<sub>1</sub><sub>(entity)</sub>''  extends or reaches over range  ''x<sub>2</sub><sub>(entity)</sub>'' ; x<sub>1</sub> has scope over x<sub>2</sub>
 :'''lo kuspe''' — having scope. '''lo se kuspe''' — scope. 
-:'''lu na ku mi nelci li'u zo'u lo ro bridi poi du lu mi nelci li'u cu se kuspe lu na ku li'u''' — ''As for '''i naku mi nelci''' the whole clause '''mi nelci''' is in the scope of '''naku'''.''
-:'''mi na kakne lo ka kuspe lo va forca''' — ''I can't get that fork.''
+:'''lu na ku mi nelci li'u zo'u lo mulno bridi poi du lu mi nelci li'u cu se kuspe lu na ku li'u''' — ''As for '''i naku mi nelci''' the whole clause '''mi nelci''' is in the scope of '''naku'''.''
+:'''mi na kakne lo ka kuspe ta noi forca''' — ''I can't get that fork.''
 :Related words: '''ranji''', '''renvi''', '''tcena''', '''bancu''', '''cripu''', '''ragve''', '''vorme''', '''canko''', '''bitmu''', '''sirji''', '''jbini''', '''jimte''', '''preja'''"
 kusru,"
 '''kusru''' — ''x<sub>1</sub><sub>(entity)</sub>''  is cruel to victim  ''x<sub>2</sub><sub>(entity)</sub>''  in actions  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
@@ -4522,7 +4524,7 @@ la'o,"
 labno,"
 '''labno''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a wolf of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo labno''' — wolf. 
-:'''mi pu tirna lo nu lo labno cu cmoni''' — ''I heard a wolf howling.''
+:'''mi pu tirna lo nu lo labno cu cmoni''' — ''I heard wolfs howling.''
 :Related words: '''gerku'''"
 labyxu'e,"
 '''labyxu'e''' — ''x<sub>1</sub><sub>(entity)</sub>''  is pink, of rose color
@@ -4542,7 +4544,7 @@ lacri,"
 ladru,"
 '''ladru''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some milk from  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo ladru''' — milk. 
-:'''e'o do dunda lo kabri be lo ladru mi''' — ''Please give me a glass of milk.''
+:'''e'o do dunda pa kabri be lo ladru mi''' — ''Please give me a glass of milk.''
 :Related words: '''lanbi''', '''mabru''', '''tatru''', '''cirla''', '''kruji'''"
 lafti,"
 '''lafti''' — ''x<sub>1</sub><sub>(entity)</sub>''  lifts  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -4567,7 +4569,7 @@ lakse,"
 laldo,"
 '''laldo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is old/aged in that it has  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo laldo''' — old, aged. 
-:'''lo vi kosta cu laldo lo ka ze'a ma kau se dasni''' — ''This jacket is old in how long it has been worn.''
+:'''ti noi kosta cu laldo lo ka ze'a ma kau se dasni''' — ''This jacket is old in how long it has been worn.''
 :Related words: '''citno''', '''slabu'''"
 lalxu,"
 '''lalxu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a lake at site  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -4582,7 +4584,7 @@ lamji,"
 lanbi,"
 '''lanbi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a quantity of protein
 :'''lo lanbi''' — protein. 
-:'''lo'e nanba cu vasru lo so'i lanbi''' — ''Bread contains a lot of protein.''
+:'''lo nanba cu vasru lo so'i lanbi''' — ''Bread contains a lot of protein.''
 :Related words: '''ladru''', '''sovda'''"
 lanci,"
 '''lanci''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a flag or banner symbolizing  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -4597,12 +4599,12 @@ lanka,"
 lanli,"
 '''lanli''' — ''x<sub>1</sub><sub>(entity)</sub>''  analyzes  ''x<sub>2</sub><sub>(entity)</sub>''  by method  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo lanli''' — analyst. '''lo se lanli''' — something analysed. '''lo te lanli''' — method of analysis. 
-:'''lo mikce cu lanli lo bilma lo ka tirna lo fepri''' — ''The doctor examines the patient by listening to the lungs.''
+:'''le mikce cu lanli lo bilma lo ka tirna lo fepri''' — ''The doctor examines the patient by listening to the lungs.''
 :Related words: '''cipra''', '''catlu''', '''zgana''', '''jarco''', '''pensi''', '''pinka'''"
 lanme,"
 '''lanme''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a sheep of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo lanme''' — sheep. 
-:'''lo vi cirla cu se zbasu fi lo ladru be lo lanme''' — ''This cheese is made from sheep's milk.''
+:'''ti noi cirla cu se zbasu fi lo ladru be lo lanme''' — ''This cheese is made from sheep's milk.''
 :Related words: '''kanba''', '''sunla'''"
 lante,"
 '''lante''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a can for  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -4628,7 +4630,7 @@ larcu,"
 lasna,"
 '''lasna''' — ''x<sub>1</sub><sub>(entity)</sub>''  fastens or binds  ''x<sub>2</sub><sub>(entity)</sub>''  to  ''x<sub>3</sub><sub>(entity)</sub>''  with  ''x<sub>4</sub><sub>(entity)</sub>'' 
 :'''lo lasna''' — fastener. '''lo se lasna''' — fastened. 
-:'''le prenu pu lasna la kevin lo kamju lo skori''' — ''The person tied Kevin to a pillar with a rope.''
+:'''le prenu pu lasna la kevin pa kamju pa skori''' — ''The person tied Kevin to a pillar with a rope.''
 :Related words: '''jorne''', '''fenso''', '''jgena''', '''batke''', '''dinko''', '''kansa'''"
 lastu,"
 '''lastu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a quantity of brass
@@ -4639,12 +4641,12 @@ lastu,"
 latna,"
 '''latna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a lotus of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo latna''' — lotus. 
-:'''lo latna co'a me lo flora poi se panci lo pluka''' — ''The lotus turns into a flower with a pleasant scent.''
+:'''le latna co'a me lo flora poi se panci lo pluka''' — ''The lotus turns into a flower with a pleasant scent.''
 :Related words: '''budjo''', '''censa''', '''lijda''', '''spati'''"
 lazni,"
 '''lazni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is lazy concerning action  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo lazni''' — lazy. '''lo se lazni''' — action lazily avoided. 
-:'''mi lazni lo ka catlu lo matra''' — ''I am lazy to look at the engine.''
+:'''mi lazni lo ka catlu le matra''' — ''I am lazy to look at the engine.''
 :Related words: '''nejni''', '''vreta''', '''gunka'''"
 le,"
 '''le''' <small>[lo gadri]</small> — turn verb into noun just mentioned
@@ -4669,7 +4671,7 @@ lebna,"
 '''lebna''' — ''x<sub>1</sub><sub>(entity)</sub>''  takes or seizes  ''x<sub>2</sub><sub>(entity, property of x3)</sub>''  from  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo se lebna''' — something taken. 
 :'''le za'u mei pu lebna fi mi fe lo ka se krali lo ka ponse le karce''' — ''They took my rights on owning the car.''
-:'''mi pu lebna lo titla le tanxe ca lo nu lo drata na jundi''' — ''I took a candy from the box when other weren't attentive.''
+:'''mi pu lebna pa titla le tanxe ca lo nu lo drata na jundi''' — ''I took a candy from the box when other weren't attentive.''
 :Comment: '''lebna''' implies possession taken, '''cpacu''' doesn't imply previous possession, '''vimcu''' doesn't imply acquiring possession.
 :Related words: '''punji''', '''cpacu''', '''vimcu''', '''canci''', '''cliva'''"
 lei,"
@@ -4681,13 +4683,13 @@ lenjo,"
 :'''lo lenjo''' — lens. '''lo se lenjo''' — rays focused by a lens. '''lo te lenjo''' — focus of a lens. 
 :'''ti lenjo lo gusni lo darno''' — ''This lens focusing light has a long focal length.''
 :'''mi co'a dasni loi lenjo te zu'e lo ka sfubu''' — ''I put on goggles in order to dive.''
-:'''ko bevri fi mi fe loi mi lenjo''' — ''Bring me my glasses.''
+:'''ko bevri fi mi fe loi lenjo pe mi''' — ''Bring me my glasses.''
 :Comment: x<sub>2</sub> is usually light. Light from the original object comes through x<sub>1</sub> in the form of x<sub>2</sub> onto x<sub>3</sub>.
 :Related words: '''kacma''', '''minra'''"
 lenku,"
 '''lenku''' — ''x<sub>1</sub><sub>(entity)</sub>''  is cold
 :'''lo lenku''' — cold. 
-:'''lo vacri ca'o lenku''' — ''It's getting cold.''
+:'''lo vacri cu zenba lo ni lenku''' — ''It's getting cold.''
 :'''le jisra pe ne'i lo lenku minji pu xlali''' — ''The juice in the fridge was no good.''
 :Related words: '''glare''', '''bisli'''"
 lerci,"
@@ -4769,12 +4771,12 @@ limxone,"
 lindi,"
 '''lindi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a lightning striking at  ''x<sub>2</sub><sub>(entity)</sub>''  from  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo lindi''' — lightning. 
-:'''sa'u tu pe pu cu lindi lo darno lo dilnu''' — ''That was just a lightning that stroke far away from here striking from a cloud.''
+:'''sa'u tu pe pu cu lindi lo darno pa dilnu''' — ''That was just a lightning that stroke far away from here striking from a cloud.''
 :Related words: '''letri'''"
 linji,"
 '''linji''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a line segment defined by points  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo linji''' — line. '''lo se linji''' — points defining a line. 
-:'''loi pulji pu se linji lo clani te zu'e lo ka kurji lo prenu poi cadzu''' — ''The police officers formed long lines in order to protect walking people.''
+:'''loi pulji pu se linji lo clani te zu'e lo ka kurji lo cadzu prenu''' — ''The police officers formed long lines in order to protect walking people.''
 :Related words: '''korcu''', '''sirji''', '''jganu''', '''kantu''', '''mokca'''"
 linto,"
 '''linto''' — ''x<sub>1</sub><sub>(entity)</sub>''  is lightweight
@@ -4785,7 +4787,7 @@ linto,"
 lisri,"
 '''lisri''' — ''x<sub>1</sub><sub>(text)</sub>''  is a story about  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo lisri''' — story, tale, yarn (story), narrative. '''lo se lisri''' — plot of a story. 
-:'''ko skicu lo lisri be lo crida mi''' — ''Tell me a story about fairies.''
+:'''ko skicu pa lisri be lo crida mi''' — ''Tell me a story about fairies.''
 :Related words: '''ranmi''', '''cfika''', '''skicu''', '''prosa''', '''pemci'''"
 liste,"
 '''liste''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a list, log of  ''x<sub>2</sub><sub>(entity group)</sub>'' 
@@ -4795,12 +4797,12 @@ liste,"
 :Related words: '''porsi''', '''girzu''', '''cmima'''"
 litce,"
 '''litce''' — ''x<sub>1</sub><sub>(entity)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  liters
-:'''lo vi djacu cu litce li re''' — ''It's two liters of water.''
+:'''ti noi djacu cu litce li re''' — ''It's two liters of water.''
 :Related words: '''centi'''"
 litki,"
 '''litki''' — ''x<sub>1</sub><sub>(entity)</sub>''  is liquid
 :'''lo litki''' — liquid. 
-:'''ko satre lo litki lo panje''' — ''Wipe the liquid with a sponge.''
+:'''ko satre le litki pa panje''' — ''Wipe the liquid with a sponge.''
 :Related words: '''cilmo''', '''djacu''', '''lumci''', '''runta''', '''pambe''', '''sudga''', '''gapci''', '''sligu''', '''flu'ente''', '''jduli'''"
 litru,"
 '''litru''' — ''x<sub>1</sub><sub>(entity)</sub>''  travels via route  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -4843,7 +4845,7 @@ lo'u,"
 logji,"
 '''logji''' — ''x<sub>1</sub><sub>(proposition)</sub>''  is a logic for reasoning about  ''x<sub>2</sub><sub>(proposition)</sub>'' 
 :'''lo logji''' — logic. 
-:'''lo du'u lo prina be fi lo nixli jamfu cu nenri lo dinju cu logji lo du'u la alis pu zvati ti''' — ''By the fact that there are footprints of a girl inside the house, I conclude that Alice was here.''
+:'''lo du'u lo prina be fi lo jamfu be pa nixli cu nenri le dinju cu logji lo du'u la alis pu zvati ti''' — ''By the fact that there are footprints of a girl inside the house, I conclude that Alice was here.''
 :Related words: '''nibli'''"
 loi,"
 '''loi''' <small>[lo gadri]</small> — turn verb into noun denoting a mass
@@ -4857,7 +4859,7 @@ lojbo,"
 loldi,"
 '''loldi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a floor, ground of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo loldi''' — floor. 
-:'''mi pu sipna bu'u lo loldi be lo mi kumfa''' — ''I slept on the floor of my room.''
+:'''mi pu sipna bu'u lo loldi be lo kumfa pe mi''' — ''I slept on the floor of my room.''
 :Related words: '''bitmu''', '''drudi''', '''dertu''', '''dizlo''', '''cnita''', '''zbepi''', '''sarji''', '''skalera'''"
 lorxu,"
 '''lorxu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a fox of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
@@ -4883,27 +4885,27 @@ lujvo,"
 lumci,"
 '''lumci''' — ''x<sub>1</sub><sub>(entity)</sub>''  washes  ''x<sub>2</sub><sub>(entity)</sub>''  of contaminant  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo lumci''' — washer. 
-:'''mi pu lumci lo za'u palta lo stali''' — ''I washed the dishes of the remains.''
+:'''mi pu lumci so'o palta lo stali''' — ''I washed off the remains from some dishes.''
 :Related words: '''djacu''', '''jinru''', '''litki''', '''zbabu''', '''jinsa''', '''curve'''"
 lunbe,"
 '''lunbe''' — ''x<sub>1</sub><sub>(entity)</sub>''  is naked or bare
 :'''lo lunbe''' — naked, bare. 
-:'''lo cifnu ca lunbe''' — ''The baby is naked.''
+:'''le cifnu ca lunbe''' — ''The baby is naked now.''
 :Related words: '''taxfu''', '''bandu'''"
 lunra,"
 '''lunra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is the Moon, major natural satellite of planet  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo lunra''' — Moon (major natural satellite). '''lo se lunra''' — planet with a moon. 
-:'''le terdi ce se lunra pa da''' — ''The Earth has one natural moon.''
+:'''le terdi cu se lunra pa da''' — ''The Earth has one natural moon.''
 :Related words: '''planeta''', '''solri''', '''terdi''', '''mluni'''"
 lunsa,"
 '''lunsa''' — ''x<sub>1</sub><sub>(entity)</sub>''  condenses
 :'''lo lunsa''' — condensing. 
-:'''lo bisli lunsa pu gacri lo dertu''' — ''The frost covered the ground.''
+:'''lo bisli lunsa pu gacri le dertu''' — ''Frost covered the ground.''
 :Related words: '''cilmo''', '''dunja''', '''febvi''', '''runme''', '''bumru'''"
 luska,"
 '''luska''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a mollusk of species  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo luska''' — mollusc. 
-:'''lo vi luska cu cpare co masno''' — ''This mollusk moves slowly.''
+:'''ti noi luska cu cpare co masno''' — ''This mollusk moves slowly.''
 :Related words: '''curnu''', '''danlu''', '''xamsi''', '''rirxe'''"
 ly,"
 '''ly''' <small>[pronoun]</small> — ''l'' (letter)
@@ -7965,6 +7967,7 @@ stura,"
 '''stura''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a structure or arrangement of  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo stura''' — structure. '''lo se stura''' — structured. 
 :'''lo stura be lo dinju cu pluja''' — ''The building has a complex structure.''
+:Comment: x<sub>2</sub> describes the whole set. For a particular member of a set use '''cmima'''.
 :Related words: '''ganzu''', '''morna''', '''ciste''', '''lujvo''', '''greku''', '''gerna'''"
 stuzi,"
 '''stuzi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an inherent site of  ''x<sub>2</sub><sub>(entity)</sub>'' 

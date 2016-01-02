@@ -1119,6 +1119,8 @@ lin=lin.toLowerCase();
 		lin=lin.replace(/-/g,' ');
 		lin=lin.replace(/ *(:|,)/g,'$1');
 		lin=lin.replace(/\*\*/g,'*');
+		lin=lin.replace(/\b([a-z']+?)\b\*/g,'');
+		lin=lin.replace(/ {2,}/g,' ').trim();
 	}catch(err){lin='O_0';}
 	return lin;
 };

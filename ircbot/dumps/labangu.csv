@@ -214,7 +214,7 @@ bancu,"
 :Related words: '''zildukse''', '''ragve''', '''zmadu''', '''kuspe'''"
 bandu,"
 '''bandu''' — ''x<sub>1</sub><sub>(entity)</sub>''  defends  ''x<sub>2</sub><sub>(entity)</sub>''  from threat  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
-:'''lo brife je lo carvi cu bandu le dinju lo ka jelca''' — ''Wind and rain protect the house from burning.''
+:'''lo brife e lo carvi cu bandu le dinju lo ka jelca''' — ''Wind and rain protect the house from burning.''
 :Related words: '''ckape''', '''fanta''', '''fapro''', '''marbi''', '''rivbi''', '''zunti''', '''snura''', '''binra''', '''lunbe''', '''pulji'''"
 banfi,"
 '''banfi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is an amphibian of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
@@ -477,7 +477,7 @@ bisli,"
 bitmu,"
 '''bitmu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a wall of construct  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo bitmu''' — fence, wall. '''lo se bitmu''' — building with walls. 
-:'''lo bitmu be le purdi jo'u le foldi cu rotsu''' — ''The fence between the garden and the field is thick.''
+:'''lo bitmu be le purdi e le foldi cu rotsu''' — ''The fence between the garden and the field is thick.''
 :'''pa me ti noi bitmu le malsi cu sinxa lo pu nu le gugde cu vlipa''' — ''One of these walls of the temple is a sign of the past power of the country.''
 :Related words: '''jbini''', '''sepli''', '''fendi''', '''canko''', '''drudi''', '''kumfa''', '''loldi''', '''senta''', '''snuji''', '''pagre''', '''gacri''', '''kuspe''', '''marbi''', '''vorme'''"
 bitni,"
@@ -5017,8 +5017,8 @@ mapni,"
 mapti,"
 '''mapti''' — ''x<sub>1</sub><sub>(entity)</sub>''  is compatible with or matches  ''x<sub>2</sub><sub>(entity)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo mapti''' — compatible, proper (fitting). 
-:'''lo se cusku be do na mapti lo se cusku be lo do jatna lo ka se smuni''' — ''Your words are inconsistent in meaning with what your boss said.''
-:'''ti ckiku lo na mapti be lo vi stela''' — ''The key is incompatible with this lock.''
+:'''lo se cusku be do na mapti lo se cusku be lo jatna pe do lo ka se smuni''' — ''Your words are inconsistent in meaning with what your boss said.''
+:'''ti ckiku lo na mapti be ti noi stela''' — ''This is a key incompatible with this lock.''
 :Related words: '''satci''', '''tugni''', '''sarxe''', '''drani''', '''tarmi''', '''ckini''', '''mintu'''"
 marbi,"
 '''marbi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a shelter protecting  ''x<sub>2</sub><sub>(entity)</sub>''  against threat  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
@@ -9741,7 +9741,7 @@ zukte,"
 zumri,"
 '''zumri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some corn or maize of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo zumri''' — maize. 
-:'''mi sombo lo samcu je lo zumri''' — ''I plant yams and maize.''
+:'''mi sombo lo samcu e lo zumri''' — ''I plant yams and maize.''
 :Related words: '''gurni'''"
 zungi,"
 '''zungi''' — ''x<sub>1</sub><sub>(entity)</sub>''  feels guilty about  ''x<sub>2</sub><sub>(clause, property of x1)</sub>'' 

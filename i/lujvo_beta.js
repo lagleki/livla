@@ -1,14 +1,15 @@
-var xuvalsi = function(str,type){
+var mavalsi = function(str){
 	var j;var re;
-	if (type!=='cmavo-compound'){
-		re = new RegExp("^"+type+",[^,]+$");
-		}
-		else{
-		re = new RegExp("^(cmavo,[^,]+){2,}$");
-		}
-	try{j = cmaxes.parse(str.toLowerCase().replace(/,/g,''));}catch(e){j='';}
-	return j.toString().match(re)!==null ? true : false;
+	try{j = cmaxes.parse(str.toLowerCase().replace(/,/g,'')).toString().split(",");}catch(e){j='';}
+	if (j.length===2){
+		return j[0];
+	}
+	else if (j.length>2 && j[0]==='cmavo'){
+		return 'cmavo compound';
+	}
+	else return '';
 };
+
 
 function decomposeLujvo(a) {
 	if (!window.xuzganalojudri) return;
@@ -35,14 +36,7 @@ function onUpdateDocumentStore() {
 
 function restore(doc){
 	if (!doc.t||doc.t===''){
-		if (window.muplis){doc.t=''}
-		else if(xuvalsi(doc.w,"gismu")){doc.t='gismu'}
-		else if(xuvalsi(doc.w,"cmavo")){doc.t="cmavo"}
-		else if(xuvalsi(doc.w,"fu'ivla")){doc.t="fu'ivla"}
-		else if(xuvalsi(doc.w,"cmavo compound")){doc.t="cmavo compound"}
-		else if(xuvalsi(doc.w,"lujvo")){doc.t='lujvo'}
-		else if(xuvalsi(doc.w,"cmevla")){doc.t="cmevla"}
-		else {doc.t=''}
+		if (window.muplis){doc.t=''}else{doc.t=mavalsi(doc.w);}
 	}
 	return doc;
 }

@@ -53,6 +53,7 @@ function search(query, callback) {
 		preciseMatches=documentStore.filter(function(val){return (val.w.match(queryRE.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined });
 		//todo: add notice that results were truncated
 	}
+	else {
 	var exactMatches = [];
 	var lujvoDecompMatches = [];
 	var greatMatches = [];
@@ -124,8 +125,8 @@ function search(query, callback) {
 		defMatches=sor(defMatches);
 		preciseMatches=sor(preciseMatches);
 		preciseMatches = exactMatches.concat(lujvoDecompMatches).concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(defMatches).concat(preciseMatches);
-		callback(preciseMatches);
-	});
+	});}
+	callback(preciseMatches);
 }
 
 var searchEngine;

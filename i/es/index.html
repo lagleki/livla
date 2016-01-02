@@ -389,10 +389,10 @@
 		$("<div>").addClass('definition').html(
 			lojTemplate(def.d.replace(/\//g," / ").replace(/@@@(.*?)@@@/g,"<i>$1</i>")) + ' ').appendTo(out);
 		}
-		if(def.rafsiDocuments) {
+		if((def.rafsiDocuments||[]).length>0) {
 			var subDefs = $("<div>").addClass('definition').addClass('subdefinitions');
-			for (var i=0;i<(def.rafsiDocuments||[]).length;i++) {
-				if (typeof def.rafsiDocuments[i] !=='undefined'){displayDocument(def.rafsiDocuments[i],1).appendTo(subDefs);}
+			for (var i=0;i<def.rafsiDocuments.length;i++) {
+				displayDocument(def.rafsiDocuments[i],1).appendTo(subDefs);
 			}
 			subDefs.appendTo(out);
 		}
@@ -483,7 +483,7 @@
 	}
 	//search after timeout
 	var typingTimer;
-	var doneTypingInterval = 200;
+	var doneTypingInterval = 100;
 	typehere.on('input',function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});

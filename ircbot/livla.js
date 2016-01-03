@@ -844,8 +844,8 @@ coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(./definiti
 stra=stra.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]);
 
 xo=stra.length;
-try{stra.splice(80);}catch(err){}
-if (stra.length>=80){stra.push("...");}
+try{stra.splice(30);}catch(err){}
+if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
 if (stra.length>1){gag = xo + " da se tolcri: " + gag;}
@@ -1052,7 +1052,7 @@ if (typeof xmlDoc==='undefined'){
 }
 var retur='y no da se tolcri';
 var items = [
-	["lo","a(n)"],["le","the"],["la","@@@"],["nu","event-of"],["zo","the-word:"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
+	["lo","those-which"],["le","the"],["la","@@@"],["nu","event-of"],["zo","the-word:"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
 	["na","not"],["na'e","not"],["nai","-not"],["nelci","fond-of"],["ka","being"],["tu'a","about"],
 	["ie","yeah"],["e'u","I-suggest"],["e'a","[permission-granted]"],["pei","?"],
 	["e","and"],["enai","and-not"],["a","and/or"],
@@ -1063,7 +1063,7 @@ var items = [
 	["zo'u",":"],
 	["pe","that-is-related-to"],
 	["za'a","as-I-ca-see"],["za'adai","as-you-can-see"],["pu","in-past"],["ba","in-future"],["vau","]"],["doi","oh"],["uinai","unfortunately"],["u'u","sorry"],
-	["ko","do-it-so-that-you"],["poi","that"],["noi",",which"],["me","among"],
+	["ko","do-it-so-that-you"],["poi","that"],["noi",",which"],["me","among"],["ra","recently-mentioned"],
 	//["bakni","is-a-cow"],
 	["mlatu@n","cat"],["dansu@n","dancer(s)"],["klama@n","comer"],
 	["slabu","is-familiar-to"],["dansu","dance(s)"],["mlatu","is-a-cat"],["klama","come(s)"],
@@ -1077,6 +1077,7 @@ var items = [
 var itemsu = [//universal glosses
 	["lu","<"],["li'u",">"],["i","."],["bo","-|-"],["sai","!"],["cai","!!!"],["na'e","!"],["da","X"],["de","Y"],["di","Z"],["cu",":"],["jo","⇔"],
 	["fa","(1:)"],["fe","(2:)"],["fi","(3:)"],["fo","(4:)"],["fu","(5:)"],
+	["se","1⇔2"],["te","1⇔3"],["ve","1⇔4"],["xe","1⇔5"],
 	["ba'e", "(NB!=>)"],
 	["na","!"]];
 lin=lin.toLowerCase();

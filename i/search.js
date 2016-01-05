@@ -16,8 +16,8 @@ function search(query, callback) {
       for (var ji in luj){
         kim.push(rafsi[luj[ji]]);
       }
-      if (kil[0].w===lu && kil.length===1){
-        kil[kil.length-1].rafsiDocuments = kim.filter(function(n){ return n !== undefined });
+      if (kil.length===1 && kil[0].w===lu){
+        kil[0].rafsiDocuments = kim.filter(function(n){ return n !== undefined });
       }
       else{
       kil.push({
@@ -63,6 +63,8 @@ function search(query, callback) {
   var defMatches = [];
   searchEngine.lookup(query, function(lo_matra_cu_cupra) {
     if (!lo_matra_cu_cupra) {
+      preciseMatches=be([],query);
+      if((preciseMatches[0].rafsiDocuments||[]).length>0)
       return;
     }
     if (searchId !== searchIdCounter||query.indexOf('*')>-1) {
@@ -125,6 +127,7 @@ function search(query, callback) {
     preciseMatches=sor(preciseMatches);
     preciseMatches = exactMatches.concat(lujvoDecompMatches).concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(defMatches).concat(preciseMatches);
   });}
+  if (preciseMatches.lengtth===0) return;
   callback(preciseMatches);
 }
 

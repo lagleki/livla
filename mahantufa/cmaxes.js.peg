@@ -19,7 +19,8 @@ jbovla = cmevla / expr:(cmavo) {return ["cmavo", _join(expr)];} / expr:(gismu) {
 
 cmevla = expr:((&zifcme (any_syllable)* &pause) / zifcme) {return ["cmevla", _join(expr)];}
 gismu = long_rafsi &stress &final_syllable pa_zei_karsna &post_word
-fuhivla = fuhivla_head slaka &stress consonantal_syllable* final_syllable
+fuhivla_trim = fuhivla_head slaka &stress consonantal_syllable* 
+fuhivla = fuhivla_trim final_syllable
 cmavo = !cmevla !(CVC !stress y h? lujvo_core / CVC &stress y short_final_rafsi) (!h !(zunsna zunsna+) onset (nucleus h)* nucleus / y+) &post_word
 
 lujvo_core = ( expr:(hy_rafsi / fuhivla_rafsi / y_rafsi / !any_fuhivla_rafsi y_less_rafsi !any_fuhivla_rafsi) {return [_join(expr),"-"];} )* (expr:(fuhivla / gismu_CVV_final_rafsi) {return [_join(expr)];} / (expr:((stressed_hy_rafsi / stressed_fuhivla_rafsi / stressed_y_rafsi / CVC_CCV_CVV &stress)) exp:(short_final_rafsi)) {return [_join(expr),"-",_join(exp)];} )
@@ -30,7 +31,7 @@ rafsi_string = y_less_rafsi* (gismu_CVV_final_rafsi / CVC_CCV_CVV &stress !y sho
 fuhivla_head = !rafsi_string !cmavo !(!rafsi_string zunsna rafsi_string) !h &onset unstressed_syllable*
 zifcme = !h (nucleus / glide / h / zunsna !pause)* zunsna &pause
 
-stressed_fuhivla_rafsi = expr:(fuhivla_head slaka &stress consonantal_syllable* onset) y {return [_join(expr),""];}//if onset is ' then dont return it
+stressed_fuhivla_rafsi = exp:(fuhivla_trim) h y {return [_join(exp),""];} / expr:(fuhivla_trim onset) y {return [_join(expr),""];}
 fuhivla_rafsi = expr:(&unstressed_syllable fuhivla_head onset) y h? {return [_join(expr),""];}
 
 stressed_y_rafsi = expr:(long_rafsi / CVC) &stress y {return [_join(expr),""];}

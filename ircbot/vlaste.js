@@ -61,7 +61,7 @@ var labangu = function(){
 		take=take.replace(/^:Comment: (.*?)$/igm,"\t<notes>$1</notes>");
 		take=take.replace(/^:Related words: (.*?)$/igm,"\t<related>$1</related>");
 		take=take.replace(/^: *(.*?)$/igm,"\t<gloss>$1</gloss>");
-		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"“$1”");
+		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"‘$1’");
 		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"English (The Crash Course)\">\n" + take + "\n" + takei + "</direction>\n</dictionary>";
 		take=take.replace(/ {2,}/g," ");
 		take = fs.writeFileSync(t+".temp",take);
@@ -96,7 +96,7 @@ var labangu = function(){
 	var pars='var documentStore = [';
 	var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 	String.prototype.unquote = function(){
-		return this.replace(/"([^"]+)"/g,"“$1”").replace(/\\/g,"\\\\");
+		return this.replace(/"([^"]+)"/g,"‘$1’").replace(/\\/g,"\\\\");
 	};
 		for (var i=0;i<rev.length;i++) {
 			var hi=rev[i].attr("word").value().replace("\\","\\\\");
@@ -109,7 +109,7 @@ var labangu = function(){
 			try{pars+=",\"g\":\""+rev[i].find("glossword/@word").join(";").replace(/ word=\"(.*?)\"/g,"$1").replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 			try{pars+=",\"k\":\""+rev[i].find("related[1]")[0].text().unquote()+"\"";}catch(err){}
 			try{
-				pars+=",\"e\":\""+rev[i].find("example").toString().replace(/>,</g,">%<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g,"$1 — $2").unquote()+"\"";
+				pars+=",\"e\":\""+rev[i].find("example").toString().replace(/"([^"]+)"/g,"‘$1’").replace(/>,</g,">%<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g,"$1 — $2").unquote()+"\"";
 				//console.log(rev[i].find("example").toString());
 			}catch(err){}
 			var ra=rev[i].find("rafsi//text()[1]");

@@ -3617,7 +3617,7 @@ jimte,"
 jinci,"
 '''jinci''' — ''x<sub>1</sub><sub>(entity)</sub>''  are shears or scissors for cutting  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo jinci''' — scissors. 
-:'''ti jinci lo pelji''' — ''These are scissor for cutting paper.''
+:'''ti jinci lo pelji''' — ''These are scissors for cutting paper.''
 :Related words: '''katna'''"
 jinga,"
 '''jinga''' — ''x<sub>1</sub><sub>(entity)</sub>''  wins prize  ''x<sub>2</sub><sub>(entity, property of x1)</sub>''  from competitors  ''x<sub>3</sub><sub>(entity)</sub>''  in competition  ''x<sub>4</sub><sub>(clause)</sub>'' 
@@ -5593,12 +5593,12 @@ nandu,"
 nanla,"
 '''nanla''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a boy
 :'''lo nanla''' — boy. 
-:'''lo va nanla cu mo''' — ''Who is that boy?''
+:'''ta noi nanla cu mo''' — ''Who is that boy?''
 :Related words: '''nixli''', '''verba''', '''nanmu''', '''bersa'''"
 nanmu,"
 '''nanmu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a man
 :'''lo nanmu''' — man. 
-:'''o'i le nanmu cu jgari lo xarci''' — ''Careful, the man is holding a gun!''
+:'''o'i le nanmu cu jgari pa xarci''' — ''Careful, the man is holding a gun!''
 :Related words: '''ninmu''', '''remna''', '''prenu''', '''makcu''', '''nanla''', '''bersa'''"
 nanvi,"
 '''nanvi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is 10<sup>-9</sup> of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
@@ -5607,7 +5607,7 @@ nanvi,"
 narge,"
 '''narge''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a nut from plant  ''x<sub>2</sub><sub>(entity)</sub>''  with shell  ''x<sub>3</sub><sub>(entity)</sub>''  and kernel  ''x<sub>4</sub><sub>(entity)</sub>'' 
 :'''lo narge''' — nut. '''lo te narge''' — nut shell. '''lo ve narge''' — nut kernel. 
-:'''ti narge lo kokso lo rotsu lo kukte''' — ''This is a coconut with a thick shell and a tasty kernel.''
+:'''ti narge pa kokso lo rotsu pa kukte''' — ''This is a coconut with a thick shell and a tasty kernel.''
 :Related words: '''grute''', '''stagi''', '''jbari''', '''midju'''"
 narju,"
 '''narju''' — ''x<sub>1</sub><sub>(entity)</sub>''  is orange (of color)
@@ -5664,7 +5664,7 @@ nei,"
 nejni,"
 '''nejni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is energy of  ''x<sub>2</sub><sub>(property of x3)</sub>''  of object  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo nejni''' — energy. '''lo se nejni''' — type of energy. '''lo te nejni''' — form of energy. 
-:'''ba barda fa lo nejni be lo ka muvdu bei lo rokci''' — ''It will consume a lot of energy to move this rock.''
+:'''ba barda fa lo nejni be lo ka muvdu bei ti noi rokci''' — ''It will consume a lot of energy to move this rock.''
 :Related words: '''marji''', '''tarmi''', '''kantu''', '''lazni''', '''livla'''"
 nelci,"
 '''nelci''' — ''x<sub>1</sub><sub>(entity)</sub>''  likes  ''x<sub>2</sub><sub>(clause)</sub>'' 
@@ -5713,7 +5713,7 @@ nicte,"
 nikle,"
 '''nikle''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a quantity of nickel
 :'''lo nikle''' — nickel. 
-:'''lo nikle cu me lo jinme poi jdari je se romge''' — ''Nickel is a hard metal with reflective surface.''
+:'''lo nikle cu me lo jinme poi jdari gi'e se romge''' — ''Nickel is a hard metal with reflective surface.''
 :Related words: '''jinme'''"
 nilce,"
 '''nilce''' — furniture  ''x<sub>1</sub><sub>(entity)</sub>''  furnishes  ''x<sub>2</sub><sub>(entity)</sub>''  serving the function  ''x<sub>3</sub><sub>(proposition)</sub>'' 
@@ -5723,33 +5723,33 @@ nilce,"
 nimre,"
 '''nimre''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a piece of citrus fruit of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
 :'''lo nimre''' — citrus. 
-:'''lo vi nimre cu kukte gi'i kurki''' — ''Is this citrus sweet or bitter?''
+:'''ti noi nimre cu kukte gi'i kurki''' — ''Is this citrus sweet or bitter?''
 :Related words: '''grute''', '''slari''', '''slami''', '''xukmi'''"
 ninmu,"
 '''ninmu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a woman
 :'''lo ninmu''' — woman. 
-:'''lo melbi ninmu poi se kerfa lo pelxu pu cadzu bu'u le panka''' — ''A pretty woman with yellow hair was walking in the park.''
+:'''pa melbi ninmu poi se kerfa lo pelxu pu cadzu bu'u le panka''' — ''A pretty woman with yellow hair was walking in the park.''
 :Related words: '''nanmu''', '''remna''', '''prenu''', '''makcu''', '''nixli'''"
 nirna,"
 '''nirna''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a nerve or neuron of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo nirna''' — nerve. 
-:'''lo nirna be lo mi pa degji cu spofu''' — ''Nerves in my finger don't work.''
+:'''lo nirna be pa degji be mi cu spofu''' — ''Nerves in my finger don't work.''
 :Related words: '''ve''' '''benji'''"
 nitcu,"
 '''nitcu''' — ''x<sub>1</sub><sub>(entity)</sub>''  needs  ''x<sub>2</sub><sub>(clause, property of x1)</sub>''  for purpose  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo nitcu''' — in need. 
-:'''mi nitcu lo ka volta lo zdani vau lo ka cpacu lo ckiku''' — ''I need to return home to get the keys.''
+:'''mi nitcu lo ka volta lo zdani vau lo ka cpacu lei ckiku''' — ''I need to return home to get the keys.''
 :Comment: '''nitcu''' is ''to be in need'', '''sarcu''' is ''is necessary, is a requirement''
 :Related words: '''banzu''', '''cidja''', '''claxu''', '''pindi''', '''xebni''', '''sarcu''', '''lacri''', '''djica''', '''taske''', '''xagji'''"
 nivji,"
 '''nivji''' — ''x<sub>1</sub><sub>(entity)</sub>''  knits  ''x<sub>2</sub><sub>(entity)</sub>''  from yarn  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo te nivji''' — yarn for knitting. 
-:'''le nixli cu nivji lo creka lo lanme sunla''' — ''The girl is knitting a sweater from fleece.''
+:'''le nixli cu nivji pa creka lo lanme sunla''' — ''The girl is knitting a sweater from fleece.''
 :Related words: '''cilta''', '''fenso''', '''jivbu''', '''pijne'''"
 nixli,"
 '''nixli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a girl
 :'''lo nixli''' — girl. 
-:'''lo nixli cu cisma fa'a mi''' — ''The girl smiled at me.''
+:'''le nixli cu cisma fa'a mi''' — ''The girl smiled at me.''
 :Related words: '''nanla''', '''verba''', '''ninmu'''"
 no,"
 '''no''' <small>[digit/number]</small> — ''0'', ''zero''
@@ -5789,8 +5789,8 @@ nolraitru,"
 notci,"
 '''notci''' — ''x<sub>1</sub><sub>(entity, text)</sub>''  is a notice about  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo notci''' — message. '''lo se notci''' — subject of a message. 
-:'''mi pu cusku fi lo jatna fe lu mi'a pu'o djuno li'u noi notci lo cipra''' — ''I made a statement to the boss about the experiment: &quot;We don't know yet.&quot;''
-:'''le turni ba cusku lo notci be lo cnino jikni''' — ''The governor will announce a new economic system.''
+:'''mi pu cusku fi lo jatna fe lu mi'a nu'o djuno li'u noi notci lo cipra''' — ''I made a statement to the boss about the experiment: &quot;We don't know yet.&quot;''
+:'''le turni ba cusku pa notci be lo cnino jikni''' — ''The governor will announce a new economic system.''
 :Comment: '''skicu''' is ''to tell'', '''cusku''' is ''to say'', '''tavla''' is ''to talk'', '''cusku''' '''lo''' '''notci''' is ''to notify''.
 :Related words: '''xatra''', '''nuzba''', '''mrilu''', '''morji'''"
 nu,"
@@ -5815,7 +5815,7 @@ nudle,"
 '''nudle''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a noodle
 :'''lo nudle''' — noodles. 
 :'''mi pu citka lo stasu poi vasru lo nudle''' — ''I ate a soup with noodles.''
-:'''mi pu citka lo nudle pa re'u ca lo cabdei''' — ''I ate noodles for the first time today.''
+:'''mi pu citka lo nudle ca lo cabdei pa re'u''' — ''Today was the first time I ate noodles.''
 :Related words: '''nanba''', '''skori''', '''gurni''', '''panlo''', '''toknu'''"
 nukni,"
 '''nukni''' — ''x<sub>1</sub><sub>(entity)</sub>''  has magenta color
@@ -5830,20 +5830,20 @@ nupre,"
 nurma,"
 '''nurma''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a countryside, rural area of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo nurma''' — countryside. 
-:'''lo nurma cu jai pluka''' — ''The countryside is pleasant.''
+:'''le nurma cu jai pluka''' — ''The countryside is pleasant.''
 :Related words: '''jarbu''', '''rarna''', '''tcadu''', '''cange'''"
 nutli,"
 '''nutli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is neutral in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo nutli''' — neutral. 
-:'''la lojban cu nutli lo ka ma kau mapti ce'u lo ka traji fi ro kulnu''' — ''Lojban is neutral in what culture out of all matches it best.''
+:'''la lojban cu nutli lo ka ma kau mapti ce'u lo ka traji fi lo kulnu''' — ''Lojban is neutral in terms of what culture matches it best.''
 :Related words: '''midju''', '''lanxe''', '''milxe''', '''mutce''', '''no'e'''"
 nuzba,"
 '''nuzba''' — ''x<sub>1</sub><sub>(proposition)</sub>''  is news about  ''x<sub>2</sub><sub>(entity)</sub>''  from  ''x<sub>3</sub><sub>(entity)</sub>''  to observer  ''x<sub>4</sub><sub>(entity)</sub>'' 
 :'''lo nuzba''' — news. 
-:'''ma nuzba''' — ''What's up?''
+:'''ma nuzba''' — ''What's up? What are the news?''
 :'''no da nuzba fi mi fo do''' — ''No news from me for you.''
 :'''lo nuzba be le tcini pu se terpa''' — ''News about the situation were frightening.''
-:'''nuzba fa lo nu mi pu te vecnu lo fonxa''' — ''The news are that I bought a phone.''
+:'''nuzba fa lo nu mi pu te vecnu pa fonxa''' — ''The news are that I bought a phone.''
 :'''lo du'u no da nuzba cu xamgu nuzba''' — ''No news are good news.''
 :Related words: '''cnino''', '''notci'''"
 ny,"
@@ -5930,7 +5930,7 @@ pagbu,"
 :Related words: '''mulno''', '''xadba''', '''spisa''', '''gunma''', '''rafsi'''"
 pagre,"
 '''pagre''' — ''x<sub>1</sub><sub>(entity)</sub>''  penetrates barrier  ''x<sub>2</sub><sub>(entity)</sub>''  to destination  ''x<sub>3</sub><sub>(entity)</sub>''  from origin  ''x<sub>4</sub><sub>(entity)</sub>'' 
-:'''le trene mo'u pagre lo manku kevna lo nurma lo jarbu''' — ''The train passed the dark hole to reach a rural area from the suburbs of the city.''
+:'''le trene mo'u pagre le manku kevna pa nurma lo jarbu''' — ''The train passed the dark hole to reach a rural area from the suburbs of the city.''
 :Related words: '''bitmu''', '''denci''', '''ganlo''', '''kalri''', '''vorme''', '''pluta''', '''canko''', '''ragve'''"
 pai,"
 '''pai''' <small>[digit/number]</small> — ''number pi'' (approximately ''3.14159'')
@@ -5976,14 +5976,14 @@ palta,"
 pambe,"
 '''pambe''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a pump inserting fluid  ''x<sub>2</sub><sub>(entity)</sub>''  to  ''x<sub>3</sub><sub>(entity)</sub>''  from  ''x<sub>4</sub><sub>(entity)</sub>'' 
 :'''lo pambe''' — pump. 
-:'''ti pambe lo vacri lo xislu lo bartu''' — ''This is a pump for filling up the air into the wheels from the outside.''
+:'''ti pambe lo vacri lo xislu lo bartu''' — ''This is a pump for filling up the air into wheels from the outside.''
 :Related words: '''gapci''', '''litki''', '''rinci''', '''fepri''', '''risna''', '''rinci''', '''tutci'''"
 panci,"
 '''panci''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a smell emitted by  ''x<sub>2</sub><sub>(entity)</sub>''  detected by observer  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo panci''' — smell, fragrance. 
 :'''mi sumne lo panci be lo najnimre i ri se panci lo flora''' — ''I can smell a scent of an orange. It has a scent of flowers.''
 :'''mi te panci lo najnimre lo flora''' — ''I can smell an orange smelling of flowers.''
-:'''lo kumfa cu je'a se panci lo mabla''' — ''The room really stinks.''
+:'''le kumfa cu je'a se panci lo mabla''' — ''The room really stinks.''
 :'''iu nai panci fa lo kalci''' — ''Yuck, it smells like shit.''
 :Related words: '''nazbi''', '''sumne''', '''cpina''', '''vrusi'''"
 panje,"
@@ -5995,7 +5995,7 @@ panje,"
 panka,"
 '''panka''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a park
 :'''lo panka''' — park. 
-:'''mi poi kansa loi pendo be mi cu nelci lo ka cadzu bu'u lo panka''' — ''I like to walk in the parks with my friends.''
+:'''mi nelci lo ka cadzu bu'u lo panka fau lo ka kansa loi pendo be mi''' — ''I like to walk in the parks with my friends.''
 :Related words: '''sorcu''', '''zdile''', '''klaji''', '''purdi'''"
 panlo,"
 '''panlo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a slice of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -6015,17 +6015,17 @@ panra,"
 pante,"
 '''pante''' — ''x<sub>1</sub><sub>(entity)</sub>''  protests or complains about  ''x<sub>2</sub><sub>(clause)</sub>''  to  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo pante''' — protester. 
-:'''lo za'u gunka pu pante lo ka te pleji ma kau vau loi turni ta'i lo ka de'a gunka''' — ''Workers complained about their salary to the management by halting their work.''
+:'''za'u pa gunka pu pante lo ka te pleji ma kau vau loi turni ta'i lo ka de'a gunka''' — ''Workers complained about their salary to the management by halting their work.''
 :Related words: '''xarnu'''"
 panzi,"
 '''panzi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a child of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo panzi''' — offspring. '''lo se panzi''' — biological parent. 
-:'''le nixli cu panzi mi''' — ''The girl is my child.''
+:'''le nixli cu panzi la alis''' — ''The girl is Alice's child.''
 :Related words: '''grute''', '''verba''', '''bersa''', '''tixnu''', '''se''' '''rorci''', '''patfu'''"
 papri,"
 '''papri''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a page of book or document  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo papri''' — page. '''lo se papri''' — paged document, paged book. 
-:'''ko catlu lo vi papri be le cukta''' — ''Look at this page of the book.''
+:'''ko catlu ti noi papri lo cukta''' — ''Look at this page of the book.''
 :Related words: '''karni''', '''pelji''', '''prina''', '''xatra''', '''vreji''', '''pezli''', '''cukta''', '''ciska'''"
 parbi,"
 '''parbi''' — fraction  ''x<sub>1</sub><sub>(number)</sub>''  is a ratio of  ''x<sub>2</sub><sub>(entity)</sub>''  with respect to  ''x<sub>3</sub><sub>(same type as x2)</sub>'' 
@@ -6046,7 +6046,7 @@ participe,"
 pastu,"
 '''pastu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a robe
 :'''lo pastu''' — robe, gown. 
-:'''do poi dasni lo vi pastu cu simlu lo ka citno nixli''' — ''In this dress, you look like a young girl.''
+:'''do poi dasni ti noi pastu cu simlu lo ka citno nixli''' — ''In this dress, you look like a young girl.''
 :Related words: '''kosta''', '''taxfu''', '''palku'''"
 patfu,"
 '''patfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a father of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -6061,7 +6061,7 @@ patlu,"
 patxu,"
 '''patxu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a pot with contents  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo patxu''' — pot, sink. '''lo se patxu''' — contents of a pot. 
-:'''mi pu bevri lo patxu be lo djacu''' — ''I brought a pot of water.''
+:'''mi pu bevri pa patxu be lo djacu''' — ''I brought a pot of water.''
 :Related words: '''tansi''', '''palne''', '''baktu''', '''botpi'''"
 pau,"
 '''pau''' <small>[interjection]</small> — optional question marker, '''pau''' '''nai''' — marks the question as a rhetorical one
@@ -6099,7 +6099,7 @@ pei,"
 pelji,"
 '''pelji''' — ''x<sub>1</sub><sub>(entity)</sub>''  is some paper
 :'''lo pelji''' — paper. 
-:'''mi pu ciska lo xatra lo blabi pelji''' — ''I wrote a letter on a white paper.''
+:'''mi pu ciska pa xatra lo blabi pelji''' — ''I wrote a letter on a white paper.''
 :Related words: '''karni''', '''papri''', '''prina'''"
 pelmeni,"
 '''pelmeni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a piece of dumplings/pelmeni containing  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -6125,7 +6125,7 @@ penbi,"
 pencu,"
 '''pencu''' — ''x<sub>1</sub><sub>(entity)</sub>''  touches  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo se pencu''' — touched. 
-:'''mi pu pencu lo vorme se pi'o lo canpa''' — ''I touched a worm with a spade.''
+:'''mi pu pencu lo vorme ta'i lo ka pilno pa canpa''' — ''I touched a worm with a spade.''
 :Comment: for the touch feeling use '''palpi'''.
 :Related words: '''ganse''', '''darxi''', '''jgari''', '''penmi''', '''jorne''', '''satre''', '''mosra''', '''zgana'''"
 pendo,"
@@ -6153,7 +6153,7 @@ perli,"
 permite,"
 '''permite''' — ''x<sub>1</sub><sub>(entity)</sub>''  allows, permits  ''x<sub>2</sub><sub>(entity)</sub>''  to do  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
 :'''lo permite''' — who allows. '''lo se permite''' — what is allowed. '''lo te permite''' — what is allowed. 
-:'''e'o do permite mi lo ka tcidu lo cukta ba lo nu do mo'u tcidu ri''' — ''Please, allow me to read the book after you finish reading it.''
+:'''e'o do permite mi lo ka tcidu le cukta ba lo nu do mo'u tcidu ri''' — ''Please, allow me to read the book after you finish reading it.''
 :'''le rirni pu permite le verba lo ka kelci bu'u le panka''' — ''The parent let the child play in the park.''
 :Related words: '''curmi''', '''rinju''', '''banzu''', '''ralte''', '''jimte''', '''jaspu''', '''zifre'''"
 pesxu,"
@@ -6163,7 +6163,7 @@ pesxu,"
 :Related words: '''marxa''', '''kliti''', '''tarla'''"
 petso,"
 '''petso''' — ''x<sub>1</sub><sub>(entity)</sub>''  is 10<sup>15</sup> of  ''x<sub>2</sub><sub>(same type as x1)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
-:'''lo gusni cu petso pa mitre be li ji'i so pi mu lo ka muvdu ca ro nanca''' — ''1 light-year is approximately 9.5 Petameters (Pm).''
+:'''lo gusni cu petso lo mitre be li ji'i so pi mu lo ka muvdu ca ro nanca''' — ''1 light-year is approximately 9.5 Petameters (Pm).''
 :Related words: '''centi'''"
 pezli,"
 '''pezli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a leaf of plant  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -6190,7 +6190,7 @@ picti,"
 pijne,"
 '''pijne''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a pin for piercing  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo pijne''' — pin. '''lo se pijne''' — pierced by a pin. 
-:'''ko dunda fi mi fe lo pijne be lo pelji''' — ''Give me a pin for fastening paper.''
+:'''ko dunda fi mi fe pa pijne be lo pelji''' — ''Give me a pin for fastening paper.''
 :Related words: '''jesni''', '''nivji''', '''fenso''', '''dinko''', '''tutci'''"
 pikci,"
 '''pikci''' — ''x<sub>1</sub><sub>(entity)</sub>''  pleads or begs  ''x<sub>2</sub><sub>(entity)</sub>''  for  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
@@ -6204,8 +6204,7 @@ pikta,"
 pilda,"
 '''pilda''' — ''x<sub>1</sub><sub>(entity)</sub>''  is pale
 :'''lo pilda''' — pale. 
-:'''lo flira be do cu pilda''' — ''Your face is pale.''
-:'''ma krinu''' — ''What happened?''
+:'''lo flira be do cu pilda i ma krinu''' — ''Your face is pale. What happened?''
 :Related words: '''kandi''', '''blabi''', '''grusi'''"
 pilji,"
 '''pilji''' — ''x<sub>1</sub><sub>(number)</sub>''  is the product of  ''x<sub>2</sub><sub>(number)</sub>''  multiplied by  ''x<sub>3</sub><sub>(number)</sub>'' 
@@ -6215,7 +6214,7 @@ pilji,"
 pilka,"
 '''pilka''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a crust, peel of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo pilka''' — crust, peel. 
-:'''lo najnimre co'u se pilka''' — ''The orange has been peeled off.''
+:'''le najnimre co'u se pilka''' — ''The orange has been peeled off.''
 :'''mi pu vimcu lo pilka be le plise''' — ''I peeled the apple off.''
 :'''lo pilka be lo plise cu cinla''' — ''The peel of the apple is thin.''
 :Related words: '''grute''', '''calku''', '''skapi''', '''gacri'''"
@@ -6253,7 +6252,7 @@ pinfu,"
 pinka,"
 '''pinka''' — ''x<sub>1</sub><sub>(entity, text)</sub>''  is a comment about  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo pinka''' — comment, remark. '''lo se pinka''' — subject of a comment. 
-:'''mi pu cusku fi loi rirni fe lo pinka be lo nu lo nu klama lo bartu ca lo nu carvi pu se srera''' — ''I commented to the parents that going outside while it had been raining had been a mistake.''
+:'''mi pu cusku fi loi rirni fe pa pinka be lo nu le nu klama lo bartu ca lo nu carvi pu se srera''' — ''I commented to the parents that going outside while it had been raining had been a mistake.''
 :'''au nai mi cusku lo pinka''' — ''I have no comment.''
 :'''le nakni pu cusku lo zabna pinka be le cukta''' — ''He made a nice comment about the book.''
 :Related words: '''cusku''', '''notci''', '''jinvi''', '''zgana''', '''lanli''', '''bacru''', '''ciska'''"

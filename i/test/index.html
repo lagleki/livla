@@ -432,7 +432,7 @@
     if (el.ctrlKey || el.metaKey) { // let the user open in new tabs
       return;
     }
-    window.history.pushState({}, null, $(el.target).attr('href'));
+    //window.history.pushState({}, null, $(el.target).attr('href'));
     handleUrl();
     return false;
     });
@@ -484,8 +484,8 @@
   //search after timeout
   var typingTimer;
   var doneTypingInterval = 100;
-  typehere.on('input',function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
-  typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval)});
+  typehere.on('input',function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval);return false;});
+  typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval);return false;});
   typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
   function updateUrl() {

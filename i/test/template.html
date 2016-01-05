@@ -432,7 +432,9 @@
     if (el.ctrlKey || el.metaKey) { // let the user open in new tabs
       return;
     }
-    //window.history.pushState({}, null, $(el.target).attr('href'));
+    if($(el.target).attr('href') !== location.href.substring(location.href.indexOf("#"))){
+      window.history.pushState({}, null, $(el.target).attr('href'));
+    }
     handleUrl();
     return false;
     });
@@ -493,8 +495,8 @@
     if (query.length > 0) {
     url = '#sisku/' + query.replace(/ /g,"_");
     }
-    if (url == window.location.pathname || url == '' || document.referrer === document.location.href) {//todo: if the same url dont push to history, store previous url in var
-    return;
+    if (window.location.pathname + url !== document.location.href || url == '' || document.referrer === document.location.href) {
+      return;
     }
     var difference = now() - lastQueried;
     if (difference > 2000) {

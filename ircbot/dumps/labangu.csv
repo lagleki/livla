@@ -6216,12 +6216,12 @@ pilka,"
 :'''lo pilka''' — crust, peel. 
 :'''le najnimre co'u se pilka''' — ''The orange has been peeled off.''
 :'''mi pu vimcu lo pilka be le plise''' — ''I peeled the apple off.''
-:'''lo pilka be lo plise cu cinla''' — ''The peel of the apple is thin.''
+:'''lo pilka be le plise cu cinla''' — ''The peel of the apple is thin.''
 :Related words: '''grute''', '''calku''', '''skapi''', '''gacri'''"
 pilno,"
 '''pilno''' — ''x<sub>1</sub><sub>(entity)</sub>''  uses  ''x<sub>2</sub><sub>(entity)</sub>''  for purpose  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo pilno''' — user. '''lo se pilno''' — used. 
-:'''le nixli pu pilno lo skami lo ka facki lo se nitcu''' — ''The girl used a computer to get the necessary information.''
+:'''le nixli pu pilno pa skami lo ka facki lo se nitcu''' — ''The girl used a computer to get the necessary information.''
 :Related words: '''tutci''', '''cabra''', '''minji''', '''gasnu''', '''zukte''', '''se''' '''pi'o''', '''sazri''', '''jibri'''"
 pimlu,"
 '''pimlu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a feather of  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -6247,7 +6247,7 @@ pindi,"
 pinfu,"
 '''pinfu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a prisoner of  ''x<sub>2</sub><sub>(entity)</sub>''  restrained by action  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
 :'''lo pinfu''' — prisoner. '''lo te pinfu''' — means of imprisonment. 
-:'''mi'a pu pinfu lo mi'a zdani lo nu snime carvi''' — ''We became prisoners of our home due to the snowfall.''
+:'''mi'a pu pinfu lo zdani be mi'a lo nu snime carvi''' — ''We became prisoners of our home due to the snowfall.''
 :Related words: '''zifre''', '''kavbu''', '''rinju''', '''ralte''', '''fanta''', '''cilce'''"
 pinka,"
 '''pinka''' — ''x<sub>1</sub><sub>(entity, text)</sub>''  is a comment about  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -6269,7 +6269,7 @@ pinta,"
 pinxe,"
 '''pinxe''' — ''x<sub>1</sub><sub>(entity)</sub>''  drinks  ''x<sub>2</sub><sub>(entity)</sub>''  out of  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo pinxe''' — drinker. '''lo se pinxe''' — something drunk, beverage. 
-:'''mi pinxe lo tcati lo kabri''' — ''I drink tea from the cup.''
+:'''mi pinxe lo tcati le kabri''' — ''I drink tea from the cup.''
 :'''mi pu pinxe lo glare ckafi lo kabri''' — ''I drank a cup of hot coffee from a cup.''
 :Related words: '''cidja''', '''citka''', '''taske''', '''tunlo''', '''xaksu''', '''barja''', '''birje'''"
 pipno,"
@@ -6280,7 +6280,7 @@ pipno,"
 pixra,"
 '''pixra''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a picture of  ''x<sub>2</sub><sub>(entity)</sub>''  made by  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo pixra''' — picture. '''lo se pixra''' — pictured. 
-:'''ti pixra lo zbani mi poi pu zvati la nipon''' — ''This is a picture of the coast that I made when I was in Japan.''
+:'''ti pixra pa zbani mi poi pu zvati la nipon''' — ''This is a picture of the coast that I made when I was in Japan.''
 :Related words: '''ciska''', '''cinta''', '''prina''', '''mupli''', '''barna''', '''skina'''"
 plana,"
 '''plana''' — ''x<sub>1</sub><sub>(entity)</sub>''  is fat or obese in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 

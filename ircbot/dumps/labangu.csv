@@ -245,7 +245,7 @@ banxa,"
 :Related words: '''sorcu''', '''zarci''', '''canja''', '''kagni'''"
 banzu,"
 '''banzu''' — ''x<sub>1</sub><sub>(clause)</sub>''  is enough for purpose  ''x<sub>2</sub><sub>(clause)</sub>''  to take place
-:'''lo nu mi se bangu la lojban na banzu lo nu mi jimpe do''' — ''My level of speaking Lojban isn't enough to understand you.''
+:'''lo nu mi tavla fo la lojban na banzu lo nu mi jimpe do''' — ''My level of speaking Lojban isn't enough to understand you.''
 :'''lo nu do ca klama cu da'i banzu lo nu do tsuku ca le se tcika''' — ''Leaving now would be enough for you to arrive on time.''
 :'''banzu lo se djica be mi''' — ''It's enough for me.''
 :Related words: '''zildukse''', '''claxu''', '''nitcu''', '''ricfu''', '''permite'''"
@@ -2642,7 +2642,7 @@ fragari,"
 fraso,"
 '''fraso''' — ''x<sub>1</sub><sub>(entity)</sub>''  is French in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo fraso''' — French. 
-:'''xu do se bangu lo fraso''' — ''Do you speak French?''
+:'''xu do tavla fo lo fraso''' — ''Do you speak French?''
 :Related words: '''ropno'''"
 fraxu,"
 '''fraxu''' — ''x<sub>1</sub><sub>(entity)</sub>''  forgives  ''x<sub>2</sub><sub>(entity)</sub>''  for  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
@@ -5286,9 +5286,12 @@ mirli,"
 :'''co'a lo ka jbena vau lo mirli cu kakne lo ka sanli''' — ''A baby deer can stand as soon as it is born.''
 :Related words: '''mabru''', '''danlu'''"
 misno,"
-'''misno''' — ''x<sub>1</sub><sub>(entity)</sub>''  is famous among  ''x<sub>2</sub><sub>(entity)</sub>'' 
+'''misno''' — ''x<sub>1</sub><sub>(clause)</sub>''  is famous among  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo misno''' — famous. 
-:'''la su'o da cu misno lo se bangu be la lojban''' — ''""Someone"" (having such a name) is famous among Lojban speakers.''
+:'''la su'o da cu jai misno lo pilno be la lojban''' — ''""Someone"" (having such a name) is famous among Lojban speakers.''
+:'''lo lisri be lo nu pa lo ralju dinju cu se darxi so'o vlipa dacti pu traji lo ka misno lo xabju be lo bu'u gugde ''' — ''The story of one of the main buildings being hit by some powerful objects was one of the most famous events for people of this country.''
+:'''la kevin co'a jai misno fai lo ka finti lo cfika''' — ''Kevin became famous as an author of fiction.''
+:'''la kevin pu zenba lo ka jai misno fai lo ka finti lo cfika''' — ''Kevin rose to fame by writing fiction.''
 :Related words: se '''sinma''', '''banli'''"
 mitre,"
 '''mitre''' — ''x<sub>1</sub><sub>(entity)</sub>''  is  ''x<sub>2</sub><sub>(number)</sub>''  meters in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
@@ -6320,17 +6323,17 @@ plise,"
 plita,"
 '''plita''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a geometrical plane defined by points  ''x<sub>2</sub><sub>(entity group)</sub>'' 
 :'''lo plita''' — plane (shape). 
-:'''lo toldi poi cpare lo flora pe lo loldi co'a se plita lo melbi''' — ''Butterflies creeping along the flowers formed a beautiful plane.''
+:'''lo toldi poi cpare lo za'u flora pe le loldi co'a se plita lo melbi''' — ''Butterflies creeping along the flowers formed a beautiful flat shape.''
 :Related words: '''xutla''', '''sefta''', '''tapla''', '''karda''', '''boxfo''', '''pinta'''"
 plixa,"
 '''plixa''' — ''x<sub>1</sub><sub>(entity)</sub>''  ploughs  ''x<sub>2</sub><sub>(entity)</sub>''  using  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo plixa''' — plowman, ploughman. '''lo se plixa''' — ploughed, plowed. '''lo te plixa''' — plough, plow. 
-:'''le te cange pu plixa lo dertu lo barda''' — ''The farmer ploughed the ground using a large plow.''
+:'''le te cange pu plixa lo dertu pa barda''' — ''The farmer ploughed the ground using a large plow.''
 :Related words: '''kakpa''', '''sraku''', '''katna''', '''skuro'''"
 plixau,"
 '''plixau''' — ''x<sub>1</sub><sub>(entity)</sub>''  is useful for user  ''x<sub>2</sub><sub>(entity)</sub>''  in  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo plixau''' — useful. 
-:'''lo ka tavla cu plixau do lo ka jai ri'a certu la lojban fai do''' — ''Talking would be useful for you in becoming an expert in Lojban.''
+:'''lo ka tavla cu plixau do lo rinka be lo nu do certu la lojban''' — ''Talking would be useful for you in becoming an expert in Lojban.''
 :Related words: '''pilno''', '''xamgu''', '''melbi''', '''xlali''', '''vrude''', '''zabna'''"
 pluja,"
 '''pluja''' — ''x<sub>1</sub><sub>(entity)</sub>''  is complex in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -6345,7 +6348,7 @@ pluka,"
 pluta,"
 '''pluta''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a route to  ''x<sub>2</sub><sub>(entity)</sub>''  from  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo pluta''' — route. 
-:'''lo nu klama lo zunle gi'e ba bo ze'a klama lo crane gi'e ba bo klama lo pritu cu pluta lo aftobuso tcana ti''' — ''The route to the bus station is the following: you turn left, then go straight for a while, and then turn right.''
+:'''pluta lo aftobuso tcana ti fa lo nu klama lo zunle gi'e ba bo ze'a klama lo crane gi'e ba bo klama lo pritu''' — ''The route to the bus station from here is the following: you turn left, then go straight for a while, and then turn right.''
 :Comment: for means to a goal '''lo''' '''se''' '''zukte''' is to be used.
 :Related words: '''litru''', '''flu'ente''', '''naxle''', '''dargu''', '''klaji''', '''tcana''', '''ve''' '''klama''', '''tadji''', '''zukte''', '''klama''', '''pagre'''"
 po'e,"
@@ -6368,7 +6371,7 @@ poi,"
 polje,"
 '''polje''' — ''x<sub>1</sub><sub>(entity)</sub>''  folds  ''x<sub>2</sub><sub>(entity)</sub>''  at location  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo se polje''' — folded. '''lo te polje''' — fold, wrinkle, creae. 
-:'''mi pu polje lo boxfo so'i da''' — ''I wrinkled the sheet of paper in several places.''
+:'''mi pu polje pa boxfo so'i da''' — ''I wrinkled the sheet of paper in several places.''
 :Related words: '''korcu''', '''cinje''', '''boxfo''', '''boxna'''"
 ponjo,"
 '''ponjo''' — ''x<sub>1</sub><sub>(entity)</sub>''  is Japanese in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -6378,7 +6381,7 @@ ponjo,"
 ponse,"
 '''ponse''' — ''x<sub>1</sub><sub>(entity)</sub>''  owns  ''x<sub>2</sub><sub>(entity)</sub>''  under law  ''x<sub>3</sub><sub>(proposition)</sub>'' 
 :'''lo ponse''' — owner, proprietor. '''lo se ponse''' — possessed, property (possessed). 
-:'''le prenu cu ponse lo karce lo zekri''' — ''The person owns the car illegally (not under official law).''
+:'''le prenu cu ponse pa karce lo zekri''' — ''The person owns the car illegally (not under official law).''
 :Related words: '''ckini''', '''ralte''', '''jitro''', '''steci''', '''srana''', '''tutra''', '''turni''', '''zivle'''"
 porpi,"
 '''porpi''' — ''x<sub>1</sub><sub>(entity)</sub>''  breaks or shatters into pieces  ''x<sub>2</sub><sub>(entity)</sub>'' 
@@ -6394,7 +6397,7 @@ porsi,"
 porto,"
 '''porto''' — ''x<sub>1</sub><sub>(entity)</sub>''  is Portuguese in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo porto''' — Portuguese. 
-:'''le ninmu cu se bangu lo porto''' — ''She speaks Portuguese.''
+:'''le ninmu cu tavla fo lo porto''' — ''She speaks Portuguese.''
 :Related words: '''brazo'''"
 prali,"
 '''prali''' — ''x<sub>1</sub><sub>(entity, property of x2)</sub>''  is a profit or benefit to  ''x<sub>2</sub><sub>(entity)</sub>''  resulting from  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
@@ -6950,7 +6953,7 @@ rupnu,"
 rusko,"
 '''rusko''' — ''x<sub>1</sub><sub>(entity)</sub>''  is Russian in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo rusko''' — Russian. 
-:'''xu do se bangu lo rusko''' — ''Do you speak Russian?''"
+:'''xu do tavla fo lo rusko''' — ''Do you speak Russian?''"
 rutni,"
 '''rutni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is artificially made by people  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo rutni''' — artificial. 
@@ -8276,7 +8279,7 @@ tcika,"
 tcila,"
 '''tcila''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a detail of  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo tcila''' — detail, feature. '''lo se tcila''' — detailed, having features. 
-:'''lo bangu be lo cecmu cu ro roi vajni tcila le cecmu''' — ''The language in a society is always its important detail.''
+:'''lo bangu cu ro roi vajni tcila le cecmu''' — ''Language is always an important detail of a society.''
 :Related words: '''diklo''', '''steci'''"
 tcilokoiotli,"
 '''tcilokoiotli''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a pumpkin of species  ''x<sub>2</sub><sub>(taxon)</sub>'' 
@@ -9087,7 +9090,7 @@ vraga,"
 vreji,"
 '''vreji''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a record of  ''x<sub>2</sub><sub>(entity)</sub>''  about  ''x<sub>3</sub><sub>(entity)</sub>''  in medium  ''x<sub>4</sub><sub>(entity)</sub>'' 
 :'''lo vreji''' — record (file), file (record). '''lo se vreji''' — recorded information. '''lo te vreji''' — information storage medium, data carrier. 
-:'''ti vreji lo pu se cusku be mi lo vrici bangu lo pelji''' — ''This is a paper record of what I said in past about computers.''
+:'''ti vreji lo pu se cusku be mi lo skami lo pelji''' — ''This is a paper record of what I said in past about computers.''
 :Related words: '''sorcu''', '''datni''', '''papri'''"
 vreta,"
 '''vreta''' — ''x<sub>1</sub><sub>(entity)</sub>''  lies, reclines on  ''x<sub>2</sub><sub>(entity)</sub>'' 

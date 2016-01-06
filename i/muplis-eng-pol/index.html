@@ -389,14 +389,6 @@
     $("<div>").addClass('definition').html(
       lojTemplate(def.d.replace(/\//g," / ").replace(/@@@(.*?)@@@/g,"<i>$1</i>")) + ' ').appendTo(out);
     }
-    if((def.rafsiDocuments||[]).length>0) {
-      var subDefs = $("<div>").addClass('definition').addClass('subdefinitions');
-      for (var i=0;i<def.rafsiDocuments.length;i++) {
-        displayDocument(def.rafsiDocuments[i],1).appendTo(subDefs);
-      }
-      subDefs.appendTo(out);
-    }
-
     if (def.n) {
     out.append(
       $('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
@@ -427,6 +419,13 @@
           rafElem.append(' ');
         }
         rafsi.appendTo(out);
+    }
+    if((def.rafsiDocuments||[]).length>0) {
+      var subDefs = $("<div>").addClass('definition').addClass('subdefinitions');
+      for (var i=0;i<def.rafsiDocuments.length;i++) {
+        displayDocument(def.rafsiDocuments[i],1).appendTo(subDefs);
+      }
+      subDefs.appendTo(out);
     }
     out.find('a').click(function(el) {
     if (el.ctrlKey || el.metaKey) { // let the user open in new tabs
@@ -495,7 +494,7 @@
     if (query.length > 0) {
     url = '#sisku/' + query.replace(/ /g,"_");
     }
-    if (window.location.pathname + url !== document.location.href || url == '' || document.referrer === document.location.href) {
+    if (url === location.href.substring(location.href.indexOf("#")) || url == '' || document.referrer === document.location.href) {
       return;
     }
     var difference = now() - lastQueried;

@@ -142,6 +142,10 @@ clientmensi.addListener('message', function(from, to, text, message) {
     processormensi(clientmensi, from, to, text, message);
 });
 
+clientmensi.addListener('error', function(message) {
+    throw new Error(message);
+});
+
 /*clientmensi.addListener('join', function(channel, nick, message) {
     fihido(channel,nick);
 });

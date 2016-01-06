@@ -495,7 +495,7 @@
     if (query.length > 0) {
     url = '#sisku/' + query.replace(/ /g,"_");
     }
-    if (window.location.pathname + url !== document.location.href || url == '' || document.referrer === document.location.href) {
+    if (url === location.href.substring(location.href.indexOf("#")) || url == '' || document.referrer === document.location.href) {
       return;
     }
     var difference = now() - lastQueried;

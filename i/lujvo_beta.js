@@ -29,6 +29,7 @@ function onUpdateDocumentStore() {
 			continue;
 		}
 		var i=(def.r||[]).length;
+		rafsi[def.w] = def;
 		while (i--) {
 			rafsi[(def.r[i]||'')] = def;
 		}

@@ -27,6 +27,7 @@ function search(query, callback) {
       });
       }
     }
+    
     return kil;
   }
   //preciseMatches
@@ -63,7 +64,7 @@ function search(query, callback) {
   var defMatches = [];
   searchEngine.lookup(query, function(lo_matra_cu_cupra) {
     if (!lo_matra_cu_cupra) {
-      preciseMatches=be([],query);
+      preciseMatches=be([],query)||[];
       if((preciseMatches[0].rafsiDocuments||[]).length>0)
       return;
     }

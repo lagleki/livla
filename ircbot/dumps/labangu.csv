@@ -194,7 +194,6 @@ balvi,"
 '''balvi''' — ''x<sub>1</sub><sub>(clause)</sub>''  is in the future of  ''x<sub>2</sub><sub>(clause)</sub>'' ; x<sub>1</sub> is later than x<sub>2</sub>
 :'''lo balvi''' — later event, future event. '''lo se balvi''' — earlier event, past event. 
 :'''lo nu la kevin cu cliva pu balvi lo nu mi tsuku le xotli''' — ''Kevin left, and that happened after my arrival to the hotel.''
-:Comment: x<sub>1</sub> is later than x<sub>2</sub>
 :Related words: '''lidne''', '''cabna''', '''purci''', '''farna'''"
 bambola,"
 '''bambola''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a doll
@@ -551,7 +550,7 @@ bombila,"
 :'''le bombila cu spofu''' — ''The light bulb is broken.''
 :Related words: '''minji''', '''cabra''', '''matra''', '''tutci'''"
 bongu,"
-'''bongu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bone of body part or body  ''x<sub>2</sub><sub>(entity)</sub>'' <sub>(entity)</sub>'' 
+'''bongu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a bone of body part or body  ''x<sub>2</sub><sub>(entity)</sub>'' 
 :'''lo bongu''' — bone. 
 :'''mi pu darxi lo mi bongu be lo tuple se pi'o pa grana''' — ''I hit my leg bone with a stick.''
 :Related words: '''greku''', '''denci''', '''jirna''', '''sarji'''"
@@ -4300,7 +4299,7 @@ kolme,"
 :'''mi mo'u xaksu le kolme''' — ''I've used up the coal.''
 :Related words: '''tabno''', '''tarla'''"
 kombitu,"
-'''kombitu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a comb for doing  ''x<sub>2</sub><sub>(entity)</sub>''  with teeth, needles  ''x<sub>3</sub><sub>(entity)</sub>'' 
+'''kombitu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a comb for doing  ''x<sub>2</sub><sub>(clause)</sub>''  with teeth, needles  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo kombitu''' — comb. '''lo te kombitu''' — tooth of a comb, needle of a comb. 
 :'''ti kombitu lo nu jai gau cnici fai lo kerfa vau lo cinla''' — ''This is a comb with thin teeth for putting hair in order.''
 :Related words: '''kerfa''', '''forca'''"
@@ -6155,7 +6154,7 @@ perli,"
 :Related words: '''grute'''"
 permite,"
 '''permite''' — ''x<sub>1</sub><sub>(entity)</sub>''  allows, permits  ''x<sub>2</sub><sub>(entity)</sub>''  to do  ''x<sub>3</sub><sub>(property of x2)</sub>'' 
-:'''lo permite''' — who allows. '''lo se permite''' — what is allowed. '''lo te permite''' — what is allowed. 
+:'''lo permite''' — who allows. '''lo se permite''' — who has permission. '''lo te permite''' — what is allowed. 
 :'''e'o do permite mi lo ka tcidu le cukta ba lo nu do mo'u tcidu ri''' — ''Please, allow me to read the book after you finish reading it.''
 :'''le rirni pu permite le verba lo ka kelci bu'u le panka''' — ''The parent let the child play in the park.''
 :Related words: '''curmi''', '''rinju''', '''banzu''', '''ralte''', '''jimte''', '''jaspu''', '''zifre'''"
@@ -6392,7 +6391,7 @@ porsi,"
 '''porsi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a sequence ordered by rules  ''x<sub>2</sub><sub>(relation between members of x1, contains two places for '''ce'u''')</sub>''  on unordered  ''x<sub>3</sub><sub>(group of same type as x1)</sub>'' 
 :'''lo porsi''' — sequence. 
 :'''li pa ce'o li re ce'o li ci cu porsi lo ka ce'u mleca ce'u vau lo namcu''' — ''1, 2, 3 is a sequence of numbers where a number to the left is less than the number to the right.''
-:'''mi pu ganse no drata be lo porsi be fi lo valsi i je mi na pu jimpe lo smuni be le porsi''' — ''I could only see a sequence of words, the sequence the meaning of which I couldn't understand.''
+:'''mi pu ganse lo porsi be fi lo valsi po'o i je mi na pu jimpe lo smuni be le porsi''' — ''I could only see a sequence of words, the sequence the meaning of which I couldn't understand.''
 :Related words: '''lidne''', '''liste''', '''cmima'''"
 porto,"
 '''porto''' — ''x<sub>1</sub><sub>(entity)</sub>''  is Portuguese in  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
@@ -6419,7 +6418,7 @@ prane,"
 preja,"
 '''preja''' — ''x<sub>1</sub><sub>(entity)</sub>''  spreads over  ''x<sub>2</sub><sub>(property of x1)</sub>''  from initial state  ''x<sub>3</sub><sub>(property of x1)</sub>'' 
 :'''lo se preja''' — area of expansion. 
-:'''lo carvi pu fanta lo nu lo fagri cu preja lo boske lo foldi''' — ''The rain kept the fire from spreading to the forest from the field.''
+:'''lo carvi pu fanta lo nu lo fagri cu preja lo boske le foldi''' — ''The rain kept the fire from spreading to the forest from the field.''
 :Related words: '''tcena''', '''kuspe''', '''ranji''', '''fatri''', '''muvdu''', '''benji'''"
 prenu,"
 '''prenu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a person
@@ -6446,7 +6445,7 @@ prina,"
 pritu,"
 '''pritu''' — ''x<sub>1</sub><sub>(entity)</sub>''  is to the right of  ''x<sub>2</sub><sub>(entity)</sub>''  in frame of reference  ''x<sub>3</sub><sub>(entity)</sub>'' 
 :'''lo pritu''' — right (direction). 
-:'''lo nanmu cu pritu lo dinju mi''' — ''The man is to the right of the house from my position.''
+:'''le nanmu cu pritu le dinju mi''' — ''The man is to the right of the house from my position.''
 :Related words: '''ri'u''', '''mlana''', '''crane''', '''trixe''', '''farna''', '''zunle'''"
 proga,"
 '''proga''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a computer program for doing  ''x<sub>2</sub><sub>(clause)</sub>'' 
@@ -6477,7 +6476,7 @@ prulamdei,"
 pruni,"
 '''pruni''' — ''x<sub>1</sub><sub>(entity)</sub>''  is elastic
 :'''lo pruni''' — elastic, spring (elastic). 
-:'''lo bolci cu plipe ki'u lo ka pruni''' — ''The ball bounces because it is elastic.''
+:'''le bolci cu plipe ki'u lo ka pruni''' — ''The ball bounces because it is elastic.''
 :Related words: '''ckabu''', '''tcena'''"
 pruxi,"
 '''pruxi''' — ''x<sub>1</sub><sub>(entity)</sub>''  is a ghost
@@ -7841,7 +7840,7 @@ srasu,"
 :Comment: ''expanse of grass'' is '''loi srasu'''.
 :Related words: '''spati'''"
 srera,"
-'''srera''' — ''x<sub>1</sub><sub>(entity)</sub>''  errs in doing  ''x<sub>2</sub><sub>(property of x1)</sub>'' ; when using '''kau''' x<sub>2</sub> can specify the actual act considered an error.
+'''srera''' — ''x<sub>1</sub><sub>(entity)</sub>''  errs in doing  ''x<sub>2</sub><sub>(property of x1)</sub>'' 
 :'''lo se srera''' — error, mistake. 
 :'''mi pu srera lo ka cuxna ma kau noi speni mi''' — ''I made a mistake in choosing my spouse.''
 :'''mi pu srera lo ka klama la madrid''' — ''I made a mistake by going to Madrid.''
@@ -8268,7 +8267,7 @@ tcidu,"
 :Related words: '''ciska''', '''cukta''', '''karni'''"
 tcika,"
 '''tcika''' — ''x<sub>1</sub><sub>(number)</sub>''  is the time of  ''x<sub>2</sub><sub>(clause)</sub>''  happening at place or timezone  ''x<sub>3</sub><sub>(entity)</sub>'' 
-:'''lo tcika''' — time of day. '''lo te tcika''' — time zone. '''lo ve tcika''' — time zone. 
+:'''lo tcika''' — time of day. '''lo te tcika''' — time zone. 
 :'''le fetsi pu tsuku mo'u le se tcika''' — ''She arrived on time.''
 :'''mi tsuku ba'o le se tcika''' — ''I arrived in time.''
 :'''li cy pa ci tcika lo nu ei mi'o cliva''' — ''1 pm is when we should leave.''
@@ -9597,7 +9596,7 @@ zgike,"
 :Related words: '''damri''', '''dansu''', '''flani''', '''janbe''', '''jgita''', '''pipno''', '''rilti''', '''tabra''', '''tonga''', '''xagri''', '''siclu'''"
 zgipli,"
 '''zgipli''' — ''x<sub>1</sub><sub>(entity)</sub>''  plays on a musical instrument  ''x<sub>2</sub><sub>(entity)</sub>''  music  ''x<sub>3</sub><sub>(entity)</sub>'' 
-:'''lo zgipli''' — musician. '''lo se zgipli''' — musical instrument. '''lo te zgipli''' — musical instrument. 
+:'''lo zgipli''' — musician. '''lo se zgipli''' — musical instrument. 
 :'''do certu lo ka zgipli lo flani lo melbi''' — ''You are a pro in playing beautiful melodies on the flute.''
 :Related words: '''zgike''', '''pilno'''"
 zi,"

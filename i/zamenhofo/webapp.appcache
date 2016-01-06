@@ -4,7 +4,7 @@ CACHE MANIFEST
 CACHE:
 index.html?version=16
 ../sutysisku.png
-../search.js
+../sisku.js
 worker.js
 bangu.js
 ../lujvo_beta.js

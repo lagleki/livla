@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-var fullproof = fullproof ||{};
+var fullproof = fullproof || {};
 fullproof.store = fullproof.store || {};
 (function(window) {
     "use strict";
 
     try {
-        fullproof.store.indexedDB =  window.indexedDB ||window.webkitIndexedDB || window.mozIndexedDB || window.msIndexedDB;
-        fullproof.store.IDBTransaction = window.IDBTransaction ||window.webkitIDBTransaction ||window.mozIDBTransaction || window.msIDBTransaction || {};
+        fullproof.store.indexedDB =  indexedDB || window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.msIndexedDB;
+        fullproof.store.IDBTransaction = IDBTransaction || window.IDBTransaction || window.webkitIDBTransaction || window.mozIDBTransaction || window.msIDBTransaction || {};
         fullproof.store.READWRITEMODE  = fullproof.store.IDBTransaction.readwrite || fullproof.store.IDBTransaction.READ_WRITE || "readwrite";
     } catch(e) {
         fullproof.store.indexedDB = window.indexedDB;
@@ -32,13 +32,13 @@ fullproof.store = fullproof.store || {};
     //
     // A few methods for dealing with indexedDB stores
     //
-    function install_on_request(req, success, error){
+    function install_on_request(req, success, error) {
         req.onsuccess = success;
         req.onerror = error;
         return req;
     }
 
-    function getOrCreateObjectStore(tx, name, parameter){
+    function getOrCreateObjectStore(tx, name, parameter) {
         if (tx.db.objectStoreNames.contains(name)) {
             return tx.objectStore(name);
         } else {
@@ -95,7 +95,7 @@ fullproof.store = fullproof.store || {};
         this.useScore = useScore;
         this.internalComparator = useScore?function(a,b) {
             return this.comparatorObject(a.value,b.value);
-        }:function(a,b){
+        }:function(a,b) {
             return this.comparatorObject(a,b);
         };
     }
@@ -205,7 +205,7 @@ fullproof.store = fullproof.store || {};
             }
             var tx = self.database.transaction([self.name], fullproof.store.READWRITEMODE);
             var inError = false;
-            tx.oncomplete = function(){
+            tx.oncomplete = function() {
                 if (offset+batchSize < words.length) {
                     fullproof.call_new_thread(storeData, self, words, data, callback, progress, offset + batchSize);
                 } else {
@@ -356,7 +356,7 @@ fullproof.store = fullproof.store || {};
                 }, errorCallback);
         }
 
-        function checkInit(self, database, indexRequestArray, callback, errorCallback){
+        function checkInit(self, database, indexRequestArray, callback, errorCallback) {
             createStores(database, indexRequestArray, self.metaStoreName);
             setupIndexes(self);
             // callInitializerIfNeeded(database, self, [].concat(indexRequestArray), callback, errorCallback);
@@ -370,7 +370,7 @@ fullproof.store = fullproof.store || {};
             errorCallback();
         };
         openRequest.onsuccess = function(ev) {
-            self.database = ev.result ||ev.target.result;
+            self.database = ev.result || ev.target.result;
 
             if (self.database.version !== undefined && self.database.setVersion && self.database.version != self.dbVersion) {
                 var versionreq = self.database.setVersion(self.dbVersion);
@@ -402,4 +402,4 @@ fullproof.store = fullproof.store || {};
         return this.stores[name];
     };
 
-})(window ||{});
+})(typeof window === 'undefined' ? {} : window);

@@ -213,8 +213,8 @@
   <div id="blackBar" class='core-header'>
     <div id='header-wrapper'>
     <span id='plise' style='display: none;'><a id='st' href="../"><img src="../sutysisku.png" height='16' width='16'><span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div id="mipri" style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-    <form>
-      <input class="clearable" id='typehere' placeholder="search" type='text' autofocus>
+    <form onsubmit="return false">
+      <input class="clearable" id='typehere' placeholder="search" type='text' autofocus autocomplete="off">
     </form>
     </div>
   </div>
@@ -485,8 +485,8 @@
   //search after timeout
   var typingTimer;
   var doneTypingInterval = 100;
-  typehere.on('input',function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval);return false;});
-  typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval);return false;});
+  typehere.on('input',function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval);});
+  typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval);});
   typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
   function updateUrl() {

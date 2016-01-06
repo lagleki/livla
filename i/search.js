@@ -62,6 +62,7 @@ function search(query, callback) {
   var goodMatches = [];
   var normalMatches = [];
   var defMatches = [];
+  var lastMatches = [];
   searchEngine.lookup(query, function(lo_matra_cu_cupra) {
     if (!lo_matra_cu_cupra) {
       preciseMatches=be([],query)||[];
@@ -102,7 +103,8 @@ function search(query, callback) {
           defMatches.push(doc);
           continue;
         }
-        else {preciseMatches.push(doc);}
+        else {lastMatches.push(doc);}
+        if (preciseMatches.length===0) preciseMatches=be([],query)||[];
     }
     function sor(ar){
       var gism=[];
@@ -125,10 +127,11 @@ function search(query, callback) {
     goodMatches=sor(goodMatches);
     normalMatches=sor(normalMatches);
     defMatches=sor(defMatches);
+    lastMatches=sor(lastMatches);
     preciseMatches=sor(preciseMatches);
-    preciseMatches = exactMatches.concat(lujvoDecompMatches).concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(defMatches).concat(preciseMatches);
+    preciseMatches = preciseMatches.concat(exactMatches).concat(lujvoDecompMatches).concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(defMatches).concat(lastMatches);
   });}
-  if (preciseMatches.lengtth===0) return;
+  if (preciseMatches.length===0) return;
   callback(preciseMatches);
 }
 

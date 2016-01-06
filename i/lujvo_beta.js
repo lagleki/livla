@@ -17,6 +17,7 @@ function decomposeLujvo(a) {
 	try{t= cmaxes.parse(a).toString().split(",");}catch(err){return;}
 	if (t[0]!=='lujvo') return;
 	t = t[1].split("-");
+	console.log(t);
 	return t;
 }
 

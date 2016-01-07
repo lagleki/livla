@@ -48,10 +48,10 @@ function search(query, callback) {
       rafsiDocuments: ki.filter(function(n){ return n !== undefined })
     });
   }
-  else if (query.indexOf('/')===0)
+  else if (query.indexOf('^')===0||query.slice(-1)==='$')
   {
-    var queryRE="^"+query.replace(/\//g,'')+"$";
-    preciseMatches=documentStore.filter(function(val){return (val.w.match(queryRE.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined });
+    //var queryRE=query.replace(/\//g,'')+"$";
+    preciseMatches=documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined });
     //todo: add notice that results were truncated
   }
   else {

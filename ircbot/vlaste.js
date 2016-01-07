@@ -1,9 +1,9 @@
-var labangu = function(){
+var update_cc_dict = function(){
 	var request = require("request");
 	var libxmljs = require("libxmljs");
 	var path = require("path-extra");
 	var fs = require("fs");
-	var t = path.join(__dirname,"dumps","labangu.csv");
+	var t = path.join(__dirname,"dumps","the_crash_course_dict.csv");
 	requestd = request.defaults({jar: true});
 	var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/export?format=csv&id=19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw&gid=1855189494";
 	requestd({
@@ -137,4 +137,4 @@ var labangu = function(){
 
 };
 
-labangu();
+update_cc_dict();

@@ -1,5 +1,7 @@
 ircbot/dumps/*.xml
 ircbot/dumps/*.temp
+ircbot/dumps/*.csv
+ircbot/dumps/*.tsv
 !ircbot/dumps/loglan.xml
 !ircbot/dumps/laadan.xml
 !ircbot/dumps/guaspi.xml

@@ -822,7 +822,7 @@ if (lin!==''){
 		lin+="\n"+more;
 	}
 }
-return lin.replace(/&quot;/g,"'");
+return lin.replace(/&quot;/g,"'").replace(/&gt;/g,'>');
 };
 
 var mulno = function (lin,lng,xmlDoc)

@@ -66,7 +66,7 @@ function search(query, callback) {
 	searchEngine.lookup(query, function(lo_matra_cu_cupra) {
 		if (!lo_matra_cu_cupra) {
 			preciseMatches=be([],query)||[];
-			if((preciseMatches[0].rafsiDocuments||[]).length>0)
+			//if(((preciseMatches[0]||[]).rafsiDocuments||[]).length>0)
 			return;
 		}
 		if (searchId !== searchIdCounter||query.indexOf('*')>-1) {
@@ -132,7 +132,7 @@ function search(query, callback) {
 		preciseMatches=sor(preciseMatches);
 		preciseMatches = preciseMatches.concat(exactMatches).concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(defMatches).concat(lastMatches);
 	});}
-	if (preciseMatches.length===0) return;
+	//if (preciseMatches.length===0) return;
 	callback(preciseMatches);
 }
 

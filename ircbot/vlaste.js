@@ -109,7 +109,7 @@ var update_cc_dict = function(){
 			try{pars+=",\"g\":\""+rev[i].find("glossword/@word").join(";").replace(/ word=\"(.*?)\"/g,"$1").replace(/"/g,"'").replace("\\","\\\\")+"\"";}catch(err){}
 			try{pars+=",\"k\":\""+rev[i].find("related[1]")[0].text().unquote()+"\"";}catch(err){}
 			try{
-				pars+=",\"e\":\""+rev[i].find("example").toString().replace(/"([^"]+)"/g,"‘$1’").replace(/>,</g,">%<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g,"$1 — $2").unquote()+"\"";
+				pars+=",\"e\":\""+rev[i].find("example").toString().replace(/>,</g,">%<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g,"$1 — $2").replace(/""([^\"]*?)""/g,'‘$1’')+"\"";
 				//console.log(rev[i].find("example").toString());
 			}catch(err){}
 			var ra=rev[i].find("rafsi//text()[1]");

@@ -484,7 +484,6 @@
 	}
 	//search after timeout
 	var typingTimer;
-	var doneTypingInterval = 200;
 	var delay = (function(){
 		var timer = 0;
 		return function(callback, ms){
@@ -493,12 +492,12 @@
 		};
 	})();
 	typehere.on('input',function(){
-		clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval);
+		clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 200);
 		delay(function(){
 			SaveDataToLocalStorage(query);
 		}, 2000 );
 	});
-	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, doneTypingInterval);});
+	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 200);});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
 	function updateUrl() {
@@ -516,8 +515,7 @@
 			window.history.replaceState({}, null, url);
 		}
 		lastQueried = now();
-		var split = location.href.split('#')[1];if(split===null){split='';}
-		$("#st").attr("href",$("#st").attr("href").split('#', 1)[0] + "#" + split);
+		updateMainLink();
 	}
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
@@ -527,11 +525,16 @@
 		}
 		typehere.val(query);
 		$('.clearable').trigger("input");
+		updateMainLink();
 		if (ready) {
 			doSearch();
 		}
 	}
 	handleUrl();
+	function updateMainLink(){
+		var split = location.href.split('#')[1];if(split===null){split='';}
+		$("#st").attr("href",$("#st").attr("href").split('#', 1)[0] + "#" + split);
+	}
 	window.addEventListener('popstate', handleUrl);
 	$(document.body).keyup(function(ev) {
 		if (ev.keyCode === 191) {  // The '/' character

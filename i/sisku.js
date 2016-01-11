@@ -6,10 +6,12 @@ function search(query, callback) {
 	var searchId = ++searchIdCounter;
 	var resultCount = 0;
 	var preciseMatches = [];
-	var queryDecomposition = query.split(" ").map(function(arg){return arg;});
+	var queryDecomposition = query.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');});
 	var kij=[];
 	var ki=[];
 	function be(kil,lu){
+		console.log(JSON.stringify(kil));
+		console.log(lu);
 		var luj=decomposeLujvo(lu);
 		if (luj){
 			var kim=[];
@@ -29,7 +31,6 @@ function search(query, callback) {
 		}
 		return kil;
 	}
-	//preciseMatches
 	if (!window.muplis && queryDecomposition.length>1){
 		for (var i=0;i<queryDecomposition.length;i++){
 			var isdef = documentStore.filter(function (o){return o.w==queryDecomposition[i].toLowerCase();})[0];//doesnt work with words with capital letters
@@ -51,7 +52,6 @@ function search(query, callback) {
 	}
 	else if (query.indexOf('^')===0||query.slice(-1)==='$')
 	{
-		//var queryRE=query.replace(/\//g,'')+"$";
 		preciseMatches=documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined });
 		//todo: add notice that results were truncated
 	}
@@ -104,8 +104,8 @@ function search(query, callback) {
 					continue;
 				}
 				else {lastMatches.push(doc);}
-				if (preciseMatches.length===0) preciseMatches=be([],query)||[];
 		}
+		if (exactMatches.length===0) {console.log(111);preciseMatches=be([],query)||[];}
 		function sor(ar){
 			if (ar.length===0) return ar;
 			var gism=[];
@@ -133,6 +133,7 @@ function search(query, callback) {
 		preciseMatches = preciseMatches.concat(exactMatches).concat(greatMatches).concat(selmahoMatches).concat(goodMatches).concat(normalMatches).concat(defMatches).concat(lastMatches);
 	});}
 	//if (preciseMatches.length===0) return;
+	//todo: if preciseMatches[0].w !== query and query.cmaxes==gendra then suggest adding it
 	callback(preciseMatches);
 }
 

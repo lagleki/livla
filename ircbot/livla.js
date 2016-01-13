@@ -1648,3 +1648,39 @@ var ningaumahantufa = function(text,socket){
 	}
 	catch(e){socket.emit('returner', {message: e.message});}
 };
+
+//MediaWiki editing
+var mw_edit = function(title,text,resume){
+	var mw = readConfig("mw-settings.json"); // Ensure existance
+	var mwSettings = JSON.parse(mw);
+	var user = mwSettings.ralju.user;
+	var pass = mwSettings.ralju.password;
+	var bot = require('nodemw');
+	var client = new bot(
+		{
+			"protocol": "https",
+			"server": "mw.lojban.org",  // host name of MediaWiki-powered site
+			"path": "",                  // path to api.php script
+			"debug": false,                // is more verbose when set to true
+			"username": user,             // account to be used when logIn is called (optional)
+			"password": pass,             // password to be used when logIn is called (optional)
+			"userAgent": "Custom UA",      // define custom bot's user agent
+			"concurrency": 5               // how many API requests can be run in parallel (defaults to 3)
+		}
+	);
+	
+	client.logIn(function(err) {
+		if (err) {
+			console.log(err);
+			return;
+		}
+		client.edit(title,text,resume,function(err, data) {
+			if (err) {
+				console.log(err);
+				return;
+			}
+			console.log(data);
+		}
+		);
+	});
+}

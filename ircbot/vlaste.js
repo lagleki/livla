@@ -3,6 +3,57 @@ var libxmljs = require("libxmljs");
 var path = require("path-extra");
 var fs = require("fs");
 
+//MediaWiki editing
+function readConfig(filename) {
+	var configDirectory = path.join(path.homedir(),".livla");
+	ensureDirExistence(configDirectory);
+	file = path.join(configDirectory, filename);
+	try {
+		return fs.readFileSync(file,{encoding: 'utf8'});
+	} catch (e) {
+		// If we get an “ENOENT” error, we return an empty string.
+		// Other errors are still thrown.
+		if (typeof(e.code) === "undefined" || e.code !== 'ENOENT') {
+			throw e;
+		}
+		return "";
+	}
+}
+var mw_edit = function(title,text,resume){
+	var mw = readConfig("mw-settings.json"); // Ensure existance
+	var mwSettings = JSON.parse(mw);
+	var user = mwSettings.ralju.user;
+	var pass = mwSettings.ralju.password;
+	var bot = require('nodemw');
+	var client = new bot(
+		{
+			"protocol": "https",
+			"server": "mw.lojban.org",  // host name of MediaWiki-powered site
+			"path": "",                  // path to api.php script
+			"debug": false,                // is more verbose when set to true
+			"username": user,             // account to be used when logIn is called (optional)
+			"password": pass,             // password to be used when logIn is called (optional)
+			"userAgent": "Custom UA",      // define custom bot's user agent
+			"concurrency": 5               // how many API requests can be run in parallel (defaults to 3)
+		}
+	);
+	
+	client.logIn(function(err) {
+		if (err) {
+			console.log(err);
+			return;
+		}
+		client.edit(title,text,resume,function(err, data) {
+			if (err) {
+				console.log(err);
+				return;
+			}
+			console.log(data);
+		}
+		);
+	});
+};
+
 function ensureDirExistence(path) {
 	// We first try to make a dir. If it was missing, now, it is not
 	// anymore.
@@ -67,23 +118,14 @@ var update_cc_dict = function(){
 		for (var i=0; i<x.length; i++) {
 		    y = x[i].split('\t');
 		    y[0]=("''"+y[0]+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''");
-		    /*var ah=y[1].split(", ");
-		    for (var j=0; j<ah.length;i++){
-		    	ah[j]=ah[j].replace(/^([^\{\}@]+)$/,"'''$1'''");
-		    }
-		    y[1]=ah.join(", ");*/
 		    y[1]=y[1].replace(/^([^\{\}@]+)$/,"'''$1'''").replace(/, /g,"''', '''");
 		    x[i]=y[0] + "  –  "+y[1];
-		    //x[i] = y;
 		}
-		//alllojban[j]=alllojban[j].replace(/(, )+$/,"");
-		//alllojbancomment[j]=alllojbancomment[j].replace(/(, )+$/,"").replace(/_/g,"").replace(/'/g,"&apos;").replace(/[\{\}]/g,"'''").replace(/@@@/g,"''").trim();
-		//out+=("''"+allenglish[j].replace(/_/g,"").replace(/'/g,"&apos;").replace(/^([ ]+)/,"")+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''")+"  –  '''"+alllojban[j].replace(/, /,"''', '''")+"'''";
 		var txt = x.join("\n\n").replace(/\{(.*?)\}/g,"'''$1'''").replace(/@@@(.*?)@@@/g,"''$1''");
 		takei = fs.writeFileSync(tr+".temp",txt);
 		fs.renameSync(tr+".temp",tr);console.log("The Crash Course Eng2Jbo .tsv file updated");
 
-		//bot.edit("L17-04", "-", "this is a test edit");
+		mw_edit("L17-04",txt,"zmiku se jmina");//title,text,resume
 		//todo: reuse takei for .xml dump
 		for (var xx in x){
 			x[xx] = x[xx].replace(/'''(.*?)'''/g,"{$1}").replace(/^''(.*?)''  –  (.*?)$/,"<valsi word=\"$1\" lang=\"en\">\n\t<definition>$2</definition>\n</valsi>");
@@ -109,6 +151,12 @@ var update_cc_dict = function(){
 		take=take.replace(/ {2,}/g," ");
 		take = fs.writeFileSync(t+".temp",take);
 		fs.renameSync(t+".temp",path.join(__dirname,"dumps","jb.xml"));console.log("The Crash Course dict. updated");
+		
+		var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/pub?single=true&gid=1855189494&range=B1:B3000&output=csv";
+		requestd({uri: uri,method: "GET"}, function(err, response, body) {
+			var d = body.split("\n").map(function(a){return a.replace(/^\"/,'').replace(/\"$/,'')}).join("\n");
+			mw_edit("L17-03",d,"zmiku se jmina");//title,text,resume
+		});
 	});
 	});
 	//

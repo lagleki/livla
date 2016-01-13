@@ -117,7 +117,7 @@ var update_cc_dict = function(){
 			);//x is our array
 		for (var i=0; i<x.length; i++) {
 		    y = x[i].split('\t');
-		    y[0]=("''"+y[0]+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''");
+		    y[0]=("''"+y[0].replace(/_$/g,'')+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''");
 		    y[1]=y[1].replace(/^([^\{\}@]+)$/,"'''$1'''").replace(/, /g,"''', '''");
 		    x[i]=y[0] + "  –  "+y[1];
 		}
@@ -145,6 +145,7 @@ var update_cc_dict = function(){
 		take=take.replace(/^:'''(.*?)''' — ''(.*?)''$/igm,"\t<example phrase=\"$1\">$2</example>");
 		take=take.replace(/^:Comment: (.*?)$/igm,"\t<notes>$1</notes>");
 		take=take.replace(/^:Related words: (.*?)$/igm,"\t<related>$1</related>");
+		take=take.replace(/^(: *.*?)_\. *$/igm,"$1.");
 		take=take.replace(/^: *(.*?)$/igm,"\t<gloss>$1</gloss>");
 		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"‘$1’");
 		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"English (The Crash Course)\">\n" + take + "\n" + takei + "</direction>\n</dictionary>";
@@ -154,7 +155,7 @@ var update_cc_dict = function(){
 		
 		var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/pub?single=true&gid=1855189494&range=B1:B3000&output=csv";
 		requestd({uri: uri,method: "GET"}, function(err, response, body) {
-			var d = body.split("\n").map(function(a){return a.replace(/^\"/,'').replace(/\"$/,'')}).join("\n");
+			var d = body.split("\n").map(function(a){return a.replace(/^\"+/,'').replace(/\"+$/,'')}).join("\n");
 			mw_edit("L17-03",d,"zmiku se jmina");//title,text,resume
 		});
 	});

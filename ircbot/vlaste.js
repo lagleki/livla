@@ -1,8 +1,48 @@
+var request = require("request");
+var libxmljs = require("libxmljs");
+var path = require("path-extra");
+var fs = require("fs");
+
+function ensureDirExistence(path) {
+	// We first try to make a dir. If it was missing, now, it is not
+	// anymore.
+	try {
+		fs.mkdirSync(path);
+	} catch (e) {
+		// If creation of the dir failed, there can be many reasons.
+		// However, if the reason is not “there was already a file
+		// there!”, we don't want to ignore the error, so we throw it
+		// again.
+		if (typeof(e.code) === "undefined" || e.code !== 'EEXIST') {
+			throw e;
+		}
+		// In the case where the path was taken, we want to be sure it
+		// is a directory. If the path existed *and* it is a directory,
+		// all is good.  Otherwise, we would be asking for trouble by
+		// trying to use a file, socket, or whatever as a directory.
+		if (!fs.statSync(path).isDirectory()) {
+			throw new Error("“" + path + "” is not a directory.");
+		}
+	}
+}
+
+function readConfig(filename) {
+	var configDirectory = path.join(path.homedir(),".livla");
+	ensureDirExistence(configDirectory);
+	file = path.join(configDirectory, filename);
+	try {
+		return fs.readFileSync(file,{encoding: 'utf8'});
+	} catch (e) {
+		// If we get an “ENOENT” error, we return an empty string.
+		// Other errors are still thrown.
+		if (typeof(e.code) === "undefined" || e.code !== 'ENOENT') {
+			throw e;
+		}
+		return "";
+	}
+}
+
 var update_cc_dict = function(){
-	var request = require("request");
-	var libxmljs = require("libxmljs");
-	var path = require("path-extra");
-	var fs = require("fs");
 	var t = path.join(__dirname,"dumps","the_crash_course_dict.csv");
 	requestd = request.defaults({jar: true});
 	var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/export?format=csv&id=19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw&gid=1855189494";
@@ -39,8 +79,11 @@ var update_cc_dict = function(){
 		//alllojban[j]=alllojban[j].replace(/(, )+$/,"");
 		//alllojbancomment[j]=alllojbancomment[j].replace(/(, )+$/,"").replace(/_/g,"").replace(/'/g,"&apos;").replace(/[\{\}]/g,"'''").replace(/@@@/g,"''").trim();
 		//out+=("''"+allenglish[j].replace(/_/g,"").replace(/'/g,"&apos;").replace(/^([ ]+)/,"")+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''")+"  –  '''"+alllojban[j].replace(/, /,"''', '''")+"'''";
-		takei = fs.writeFileSync(tr+".temp",x.join("\n\n").replace(/\{(.*?)\}/g,"'''$1'''").replace(/@@@(.*?)@@@/g,"''$1''"));
+		var txt = x.join("\n\n").replace(/\{(.*?)\}/g,"'''$1'''").replace(/@@@(.*?)@@@/g,"''$1''");
+		takei = fs.writeFileSync(tr+".temp",txt);
 		fs.renameSync(tr+".temp",tr);console.log("The Crash Course Eng2Jbo .tsv file updated");
+
+		//bot.edit("L17-04", "-", "this is a test edit");
 		//todo: reuse takei for .xml dump
 		for (var xx in x){
 			x[xx] = x[xx].replace(/'''(.*?)'''/g,"{$1}").replace(/^''(.*?)''  –  (.*?)$/,"<valsi word=\"$1\" lang=\"en\">\n\t<definition>$2</definition>\n</valsi>");

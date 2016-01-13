@@ -117,7 +117,7 @@ var update_cc_dict = function(){
 			);//x is our array
 		for (var i=0; i<x.length; i++) {
 		    y = x[i].split('\t');
-		    y[0]=("''"+y[0].replace(/_$/g,'')+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''");
+		    y[0]=("''"+y[0]+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''");
 		    y[1]=y[1].replace(/^([^\{\}@]+)$/,"'''$1'''").replace(/, /g,"''', '''");
 		    x[i]=y[0] + "  –  "+y[1];
 		}
@@ -155,7 +155,7 @@ var update_cc_dict = function(){
 		
 		var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/pub?single=true&gid=1855189494&range=B1:B3000&output=csv";
 		requestd({uri: uri,method: "GET"}, function(err, response, body) {
-			var d = body.split("\n").map(function(a){return a.replace(/^\"+/,'').replace(/\"+$/,'')}).join("\n");
+			var d = body.split("\n").map(function(a){a=a.replace(/[\"_]/,''); return a;}).join("\n").replace(/ {2,}/g,' ');
 			mw_edit("L17-03",d,"zmiku se jmina");//title,text,resume
 		});
 	});
@@ -202,7 +202,6 @@ var update_cc_dict = function(){
 			try{pars+=",\"k\":\""+rev[i].find("related[1]")[0].text().unquote()+"\"";}catch(err){}
 			try{
 				pars+=",\"e\":\""+rev[i].find("example").toString().replace(/>,</g,">%<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g,"$1 — $2").replace(/""([^\"]*?)""/g,'‘$1’')+"\"";
-				//console.log(rev[i].find("example").toString());
 			}catch(err){}
 			var ra=rev[i].find("rafsi//text()[1]");
 			if (xugismu(hi)===true){

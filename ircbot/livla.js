@@ -751,8 +751,7 @@ function lojTemplate(s) {
 
 var tordu = function (linf,lng,flag,xmlDoc,cmalu)
 {
-	var lin=linf.replace(/\"/g,'');
-	if(lin.charAt(0) === '.') lin = lin.substr(1);
+	var lin=linf.replace(/\"/g,'').replace(/\)$/, '').replace(/^[\(\.]/, '');
 	if (flag!==1){
 		if (lng==="en")
 		{

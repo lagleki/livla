@@ -519,7 +519,6 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text==replier+': ii': benji(source,socket,clientmensi,sendTo, io());break;
 		case text==replier+': aigne': benji(source,socket,clientmensi,sendTo, kurtyvla());break;
 		case text==replier+': help': benji(source,socket,clientmensi,sendTo, sidju());break;
-		case text==replier+': labangu': benji(source,socket,clientmensi,sendTo, labangu());break;
 		case text.indexOf("rot13:") == '0': benji(source,socket,clientmensi,sendTo, rotpaci(text.substr(6)));break;
 		case text.indexOf(prereplier + 'r ') == '0': benji(source,socket,clientmensi,sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
 		case text.indexOf(prereplier + 'gadri') == '0': benji(source,socket,clientmensi,sendTo, 'lo [PA] broda = zo\'e noi ke\'a broda [gi\'e zilkancu li PA lo broda]\nla [PA] broda = zo\'e noi lu [PA] broda li\'u cmene ke\'a mi\nlo PA sumti = lo PA me sumti\nla PA sumti = zo\'e noi lu PA sumti li\'u cmene ke\'a mi\nloi [PA] broda = lo gunma be lo [PA] broda\nlai [PA] broda = lo gunma be la [PA] broda\nloi PA sumti = lo gunma be lo PA sumti\nlai PA sumti = lo gunma be la PA sumti\nlo\'i [PA] broda = lo selcmi be lo [PA] broda\nla\'i [PA] broda = lo selcmi be la [PA] broda\nlo\'i PA sumti = lo selcmi be lo PA sumti\nla\'i PA sumti = lo selcmi be la PA sumti\nPA sumti = PA da poi ke\'a me sumti\nPA broda = PA da poi broda\npiPA sumti = lo piPA si\'e be pa me sumti');break;
@@ -1495,29 +1494,6 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 	if(n==1){
 		try{pars=fs.readFileSync(t,{encoding: 'utf8'});pars = fs.writeFileSync(t,pars);console.log(t + ' updated');}catch(err){}
 	}
-};
-
-var labangu = function(){
-	var request = require("request");
-	var fs = require("fs");
-	var t = path.join(__dirname,"dumps","labangu.csv");
-	requestd = request.defaults({jar: true});
-	var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/export?format=csv&id=19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw&gid=1855189494";
-	requestd({
-	    uri: uri, method: "GET"
-	}).on("error", function (err) {
-	}).pipe(fs.createWriteStream(t)).on("finish", function () {
-		var take = fs.readFileSync(t,{encoding: 'utf8'});
-		take=take.replace(/➜/igm,"=>");
-		take=take.replace(/&/igm,"&amp;");
-		take=take.replace(/<(|\/)(small|sub)>|&nbsp;/igm,"");
-		take=take.replace(/^(.*?),\"\n/igm,"<valsi word=\"$1\"><definition>");
-		take=take.replace(/\"(\n|\r)/igm,"</definition></valsi>\n");
-		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"{$1}");
-		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"English (The Crash Course)\">\n"+take+"</definition></valsi>\n</direction>\n</dictionary>";
-		take = fs.writeFileSync(t+".temp",take);
-		fs.renameSync(t+".temp",path.join(__dirname,"dumps","jb.xml"));console.log("The Crash Course dictionary updated");
-	});
 };
 
 var lmw = function (lin,sendTo){//to be done

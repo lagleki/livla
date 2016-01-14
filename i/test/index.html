@@ -302,9 +302,18 @@
 			results = ev.data.results;
 			output.empty();
 			displayCLL();
+			displayResults(false);
+			displayDescription();
+		}
+		else if (ev.data.kind == 'searchResultsm') {
+			if (ev.data.query !== query) {return;}
+			results = ev.data.results;
+			output.empty();
+			displayCLL();
 			displayResults();
 			displayDescription();
-		} else if (ev.data.kind == 'loading') {
+		}
+		else if (ev.data.kind == 'loading') {
 			$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 51});$("#progressbar").css({ 'height': '5px'});});
 		} else if (ev.data.kind == 'progress') {
 			$(function() {$( "#progressbar" ).progressbar({value: ev.data.percent * 100});});
@@ -480,6 +489,7 @@
 		var searchId = ++searchIdCounter;
 		window.limit = 30;
 		resultCount = 0;
+		worker.postMessage({kind: 'newSearchm', 'query': query});
 		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
 	}
 	//search after timeout
@@ -542,7 +552,8 @@
 		}
 	})
 
-	function displayResults() {
+	function displayResults(ui) {
+		if (!ui) resultCount=0;
 		var displayUpTo = Math.min(window.limit, results.length);
 		for (; resultCount < displayUpTo; resultCount++) {
 		try{displayDocument(results[resultCount]).appendTo(output);}catch(err){}

@@ -1,5 +1,5 @@
 var searchIdCounter = 0;
-function search(query, callback) {
+function search(query, full, callback) {
 	if (query.length === 0) {
 		return;
 	}
@@ -10,8 +10,6 @@ function search(query, callback) {
 	var kij=[];
 	var ki=[];
 	function be(kil,lu){
-		console.log(JSON.stringify(kil));
-		console.log(lu);
 		var luj=decomposeLujvo(lu);
 		if (luj){
 			var kim=[];
@@ -31,18 +29,23 @@ function search(query, callback) {
 		}
 		return kil;
 	}
-	if (!window.muplis && queryDecomposition.length>1){
-		for (var i=0;i<queryDecomposition.length;i++){
-			var isdef = documentStore.filter(function (o){return o.w==queryDecomposition[i].toLowerCase();})[0];//doesnt work with words with capital letters
+	function shortget(a,ki){
+		var isdef = documentStore.filter(function (o){return o.w==a.toLowerCase();})[0];//doesnt work with words with capital letters
 			ki.push(isdef);
 			if (!isdef){
-				var luj=decomposeLujvo(queryDecomposition[i]);
+				var luj=decomposeLujvo(a);
 				if(luj){
 					for (var ji in luj){
 						ki.push(rafsi[luj[ji]]);
 					}
 				}
 			}
+		return ki;
+	}
+	if (!window.muplis && queryDecomposition.length>1){
+		if (full) return;
+		for (var i=0;i<queryDecomposition.length;i++){
+			ki=shortget(queryDecomposition[i],ki);
 		}
 		preciseMatches.push({
 			t: "decomposing ...",
@@ -52,8 +55,12 @@ function search(query, callback) {
 	}
 	else if (query.indexOf('^')===0||query.slice(-1)==='$')
 	{
+		if (full) return;
 		preciseMatches=documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined });
 		//todo: add notice that results were truncated
+	}
+	else if (full){
+		preciseMatches=shortget(query,ki);
 	}
 	else {
 	var exactMatches = [];

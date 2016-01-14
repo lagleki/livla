@@ -3,18 +3,19 @@ importScripts('../data/parsed-tatoeba.js?version=10','../lujvo_beta.js','../lib/
 //, '../lib/fullproof/normalizers/english/metaphone.js'
 var searchId;
 this.onmessage = function(ev) {
-  if (ev.data.kind == 'newSearch') {
-    searchId = ev.data.searchId;
-    search(ev.data.query, function(results) {
-      postMessage({kind: 'searchResults', results: results,
-                   query:ev.data.query});
-    });
-  }
-};
+if (ev.data.kind == 'newSearch') {
+searchId = ev.data.searchId;
+search(ev.data.query, false, function(results) {
 
+postMessage({kind: 'searchResults', results: results,
+query:ev.data.query});
+});
+}
+else if (ev.data.kind == "newSearchm") { search(ev.data.query, true, function(results) { postMessage({kind: "searchResultsm", results: results, query:ev.data.query}); }); }
+};
 postMessage({kind: 'loading'});
 setupSearchEngine(function() {
-  postMessage({kind: 'ready'});
+postMessage({kind: 'ready'});
 }, function(percent) {
-  postMessage({kind: 'progress', percent: percent});
+postMessage({kind: 'progress', percent: percent});
 });

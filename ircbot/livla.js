@@ -1449,12 +1449,13 @@ var katna= function(lin,lng,flag,xmlDoc){
 var sutysiskuningau = function(lng){//write a new file parsed.js that would be used by la sutysisku
 if (typeof lng==='undefined'){lng='en';}
 	xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),{encoding: 'utf8'}).replace(/(&lt;|<)script.*?(&gt;|>).*?(&lt;|<)/g,"&lt;").replace(/(&lt;|<)\/script(&gt;|>)/g,""));
-
+var q;
 var pars='var documentStore = [';
 var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 	for (var i=0;i<rev.length;i++) {
 		var hi=rev[i].attr("word").value().replace("\\","\\\\");
-		pars+="{\"w\":\""+hi+"\"";
+		q=run_camxes(hi,3); q==="O_0" ? q=hi;
+		pars+="{\"w\":\""+q+"\"";
 		try{
 			if(rev[i].attr("type").value()!=='gismu' && xucmavogunma(hi)===false && xucmevla(hi)===false && xucmavo(hi)===false && xulujvo(hi)===false && xufuhivla(hi)===false){
 				pars+=",\"t\":\""+rev[i].attr("type").value().replace(/\\/g,"\\\\")+"\"";

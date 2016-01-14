@@ -4,12 +4,13 @@ var searchId;
 this.onmessage = function(ev) {
 if (ev.data.kind == 'newSearch') {
 searchId = ev.data.searchId;
-search(ev.data.query, false, function(results) {
+search(ev.data.query, true, function(results) {
 
 postMessage({kind: 'searchResults', results: results,
 query:ev.data.query});
 });
 }
+else if (ev.data.kind == "newSearchm") { search(ev.data.query, false, function(results) { postMessage({kind: "searchResultsm", results: results, query:ev.data.query})})} else if (ev.data.kind == "newSearchh"){search(ev.data.query.replace(/h/g,'\''), false, function(results){postMessage({kind: "searchResultsh", results: results, query:ev.data.query})})}
 };
 postMessage({kind: 'loading'});
 setupSearchEngine(function() {

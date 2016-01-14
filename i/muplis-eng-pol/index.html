@@ -302,7 +302,7 @@
 			results = ev.data.results;
 			output.empty();
 			displayCLL();
-			displayResults(false);
+			displayResults(true);
 			displayDescription();
 		}
 		else if (ev.data.kind == 'searchResultsm') {
@@ -498,7 +498,7 @@
 		resultCount = 0;
 		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
 		worker.postMessage({kind: 'newSearchm', 'query': query});
-		worker.postMessage({kind: 'newSearchh', 'query': query});
+		//worker.postMessage({kind: 'newSearchh', 'query': query});
 	}
 	//search after timeout
 	var typingTimer;

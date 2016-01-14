@@ -112,7 +112,7 @@ function search(query, full, callback) {
 				}
 				else {lastMatches.push(doc);}
 		}
-		if (exactMatches.length===0) {console.log(111);preciseMatches=be([],query)||[];}
+		if (exactMatches.length===0) {preciseMatches=be([],query)||[];}
 		function sor(ar){
 			if (ar.length===0) return ar;
 			var gism=[];
@@ -141,6 +141,7 @@ function search(query, full, callback) {
 	});}
 	//if (preciseMatches.length===0) return;
 	//todo: if preciseMatches[0].w !== query and query.cmaxes==gendra then suggest adding it
+	console.log(query+JSON.stringify(preciseMatches));
 	callback(preciseMatches);
 }
 

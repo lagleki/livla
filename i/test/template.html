@@ -310,7 +310,14 @@
 			results = ev.data.results;
 			output.empty();
 			displayCLL();
-			displayResults();
+			displayResults(false);
+			displayDescription();
+		}
+		else if (ev.data.kind == 'searchResultsh') {
+			if (ev.data.query !== query) {return;}
+			results = ev.data.results;
+			displayCLL();
+			displayResults(false);
 			displayDescription();
 		}
 		else if (ev.data.kind == 'loading') {
@@ -336,7 +343,7 @@
 		var isClose = windowBottom >= outputBottom;
 		if(isClose) {
 		window.limit += 10;
-		displayResults();
+		displayResults(true);
 		}
 	}
 	document.getElementById('content')
@@ -491,6 +498,7 @@
 		resultCount = 0;
 		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
 		worker.postMessage({kind: 'newSearchm', 'query': query});
+		worker.postMessage({kind: 'newSearchh', 'query': query});
 	}
 	//search after timeout
 	var typingTimer;

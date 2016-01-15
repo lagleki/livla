@@ -1454,7 +1454,8 @@ var pars='var documentStore = [';
 var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 	for (var i=0;i<rev.length;i++) {
 		var hi=rev[i].attr("word").value().replace("\\","\\\\");
-		q=run_camxes(hi,3); if(q==="O_0") q=hi;
+		//q=run_camxes(hi,3).toString().replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n"); if(q.indexOf("SyntaxError">=0))
+		q=hi;
 		pars+="{\"w\":\""+q+"\"";
 		try{
 			if(rev[i].attr("type").value()!=='gismu' && xucmavogunma(hi)===false && xucmevla(hi)===false && xucmavo(hi)===false && xulujvo(hi)===false && xufuhivla(hi)===false){

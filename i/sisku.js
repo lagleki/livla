@@ -1,5 +1,5 @@
 var searchIdCounter = 0;
-function search(query, full, callback) {
+function search(query, full, callback,hh) {
 	if (query.length === 0) {
 		return;
 	}
@@ -42,7 +42,7 @@ function search(query, full, callback) {
 			}
 		return ki;
 	}
-	if (!window.muplis && queryDecomposition.length>1){
+	if (!window.muplis && queryDecomposition.length>1 && !hh){
 		if (full) return;
 		for (var i=0;i<queryDecomposition.length;i++){
 			ki=shortget(queryDecomposition[i],ki);
@@ -53,16 +53,17 @@ function search(query, full, callback) {
 			rafsiDocuments: ki.filter(function(n){ return n !== undefined })
 		});
 	}
-	else if (query.indexOf('^')===0||query.slice(-1)==='$')
+	else if ((query.indexOf('^')===0||query.slice(-1)==='$') && !hh)
 	{
 		if (full) return;
 		preciseMatches=documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined });
 		//todo: add notice that results were truncated
 	}
 	else if (full){
-		preciseMatches=shortget(query,ki);
+	preciseMatches=shortget(query,ki);
 	}
 	else {
+	if (hh){if (query.indexOf("h")>=0) {query=query.replace(/h/g,'\'');}else{return;}}
 	var exactMatches = [];
 	var greatMatches = [];
 	var selmahoMatches = [];

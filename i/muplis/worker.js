@@ -11,7 +11,7 @@ postMessage({kind: 'searchResults', results: results,
 query:ev.data.query});
 });
 }
-else if (ev.data.kind == "newSearchm") { search(ev.data.query, false, function(results) { postMessage({kind: "searchResultsm", results: results, query:ev.data.query})})} else if (ev.data.kind == "newSearchh"){search(ev.data.query.replace(/h/g,'\''), false, function(results){postMessage({kind: "searchResultsh", results: results, query:ev.data.query})})}
+else if (ev.data.kind == "newSearchm") { search(ev.data.query, false, function(results) { postMessage({kind: "searchResultsm", results: results, query:ev.data.query})})} else if (ev.data.kind == "newSearchh"){search(ev.data.query, false, function(results){postMessage({kind: "searchResultsh", results: results, query:ev.data.query})},3)}
 };
 postMessage({kind: 'loading'});
 setupSearchEngine(function() {

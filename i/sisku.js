@@ -81,8 +81,7 @@ function search(query, full, callback,hh) {
 			return;
 		}
 		for (var i=0;i<lo_matra_cu_cupra.getSize();i++) {
-			var key = lo_matra_cu_cupra.getItem(i);
-			var doc = restore(documentStore[key]);//todo: disable for la muplis or optimize for phrases
+			var doc = restore(documentStore[lo_matra_cu_cupra.getItem(i)]);//todo: optimize for phrases
 			if (!doc) {
 				continue;
 			}

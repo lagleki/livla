@@ -4,14 +4,14 @@ var mavalsi = function(str){
 	var j;var re;
 	try{j = cmaxes.parse(str.toLowerCase().replace(/,/g,'')).toString().split(",");}catch(e){j='';}
 	if (j.length===2){
-		return j[0];
+		return [j[0],''];
 	}
 	else if (j.length>2 && j[0]==='cmavo'){
-		return 'cmavo compound';
+		return ['cmavo compound',j.filter(function(el, index) {return index % 2 === 1;}).join(" ")];
 	}
 	else
 	{
-		return '';
+		return ['',''];
 	}
 };
 
@@ -44,7 +44,11 @@ function onUpdateDocumentStore() {
 
 function restore(doc){
 	if (!doc.t||doc.t===''){
-		if (window.muplis){doc.t=''}else{doc.t=mavalsi(doc.w);}
+		if (window.muplis){doc.t=''}else{
+			var ye=mavalsi(doc.w);
+			doc.t=ye[0];
+			//if(doc.t==='cmavo compound'){doc.w=ye[1];console.log(doc.w);}
+		}
 	}
 	return doc;
 }

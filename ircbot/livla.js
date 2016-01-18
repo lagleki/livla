@@ -1215,10 +1215,11 @@ var xuvalsi = function(str,type){
 		re = new RegExp("^"+type+",[^,]+$");
 		}
 		else{
-		re = new RegExp("^(cmavo,[^,]+){2,}$");
+		re = new RegExp("^cmavo,([^,]+)([^,]+,[^,]+)+$");
 		}
-	try{j = cmaxes.parse(str.toLowerCase().replace(/,/g,''));}catch(e){j='';}
-	return j.toString().match(re)!==null ? true : false;
+	try{j = cmaxes.parse(str.toLowerCase().replace(/,/g,'')).toString();
+	}catch(e){j='';}
+	return j.match(re)!==null ? true : false;
 };
 var xugismu = function(str){
 	return xuvalsi (str,"gismu");

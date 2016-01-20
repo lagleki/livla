@@ -1,20 +1,6 @@
 window = this;
-importScripts('bangu.js','../data/parsed-laadan.js?version=6', '../lujvo_beta.js', '../lib/fullproof/unicode/categ_letters_numbers.js', '../lib/fullproof/unicode/normalizer_lowercase_nomark.js', '../lib/fullproof/unicode/unicode.js', '../lib/fullproof/analyzers.js', '../lib/fullproof/normalizers.js', '../lib/fullproof/misc/dataloader.js', '../lib/fullproof/capabilities.js', '../lib/fullproof/utils.js', '../lib/fullproof/common-engine.js', '../lib/fullproof/boolean-engine.js', '../lib/fullproof/resultsets.js', '../lib/fullproof/storemanager.js', '../lib/fullproof/stores/memory_store.js', '../sisku.js');
+importScripts('bangu.js','../data/parsed-laadan.js', '../lujvo_beta.js', '../sisku.js');
 var searchId;
-this.onmessage = function(ev) {
-if (ev.data.kind == 'newSearch') {
-searchId = ev.data.searchId;
-search(ev.data.query, true, function(results) {
-
-postMessage({kind: 'searchResults', results: results,
-query:ev.data.query});
-});
-}
-else if (ev.data.kind == "newSearchm") { search(ev.data.query, false, function(results) { postMessage({kind: "searchResultsm", results: results, query:ev.data.query})})} else if (ev.data.kind == "newSearchh"){search(ev.data.query, false, function(results){postMessage({kind: "searchResultsh", results: results, query:ev.data.query})},3)}
-};
+this.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;search(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};
 postMessage({kind: 'loading'});
-setupSearchEngine(function() {
 postMessage({kind: 'ready'});
-}, function(percent) {
-postMessage({kind: 'progress', percent: percent});
-});

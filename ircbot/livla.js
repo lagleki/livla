@@ -1250,6 +1250,7 @@ var jvokatna = function (lujvoi){
 	tmp=tmp.replace(myregexpi,"$1 ");
 	tmp=tmp.replace(/y/g," ");
 	tmp=tmp.replace(/ +/g," ");
+	tmp=tmp.replace(/ '/g," "); 
 return tmp.trim();
 };
 var rafyjongau = function (raf){//join given rafsi into a lujvo
@@ -1493,8 +1494,20 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 	t = path.join(__dirname,"../i/"+lng+"/","webapp.appcache");
 	var d = new Date();
 	var n = d.getDate();
-	if(n==1){
-		try{pars=fs.readFileSync(t,{encoding: 'utf8'});pars = fs.writeFileSync(t,pars);console.log(t + ' updated');}catch(err){}
+	if((n==1)||(n==11)||(n==21)){
+		try{
+			var n = d.getFullYear() + "-"
+                + (d.getMonth()+1)  + "-" 
+                + d.getDate() + "T"  
+                + d.getHours() + ":"  
+                + d.getMinutes() + ":" 
+                + d.getSeconds();
+			pars=fs.readFileSync(t,{encoding: 'utf8'});
+			pars = pars.replace(/\n# .+\n/,'\n# '+n+"\n");
+			pars = pars.replace(/\n\.\.\/lib.fullproof.+\n/g,"\n");
+			pars = fs.writeFileSync(t,pars);
+			console.log(t + ' updated');
+		}catch(err){}
 	}
 };
 

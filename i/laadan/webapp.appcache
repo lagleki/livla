@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# Version 1.89
+# 2016-1-20T4:11:28
 
 CACHE:
 index.html?version=16
@@ -11,19 +11,7 @@ bangu.js
 ../lujvo_beta.js
 ../data/parsed-laadan.js?version=6
 
-../lib/fullproof/unicode/categ_letters_numbers.js
-../lib/fullproof/unicode/normalizer_lowercase_nomark.js
-../lib/fullproof/unicode/unicode.js
-../lib/fullproof/analyzers.js
-../lib/fullproof/normalizers.js
-../lib/fullproof/misc/dataloader.js
-../lib/fullproof/capabilities.js
-../lib/fullproof/utils.js
 ../lib/fullproof/common-engine.js
-../lib/fullproof/boolean-engine.js
-../lib/fullproof/resultsets.js
-../lib/fullproof/storemanager.js
-../lib/fullproof/stores/memory_store.js
 
 #./lib/Lato/Lato-Black.ttf
 #./lib/Lato/Lato-BlackItalic.ttf

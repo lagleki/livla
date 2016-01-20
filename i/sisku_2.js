@@ -30,7 +30,9 @@ function search(query, callback) {
 		return kil;
 	}
 	function shortget(a,ki){
-		var isdef = documentStore.filter(function (o){return o.w==a.toLowerCase();})[0];//doesnt work with words with capital letters
+		var isdef = documentStore.filter(function (o){
+			return (o.w==a.toLowerCase())||(o.d=="{"+a.toLowerCase()+"}");
+		})[0];//doesnt work with words with capital letters
 			if (isdef)
 				{ki.push(isdef);}
 			else{
@@ -44,8 +46,10 @@ function search(query, callback) {
 		return ki;
 	}
 	if (!window.muplis && queryDecomposition.length>1){//multiple words are in the query
-		for (var p=0;p<queryDecomposition.length;p++){
-			ki=shortget(queryDecomposition[p],ki);
+		for (var s=0;s<queryDecomposition.length;s++){
+			for (var c=queryDecomposition.length-1;c>=s;c--){
+					ki=shortget(queryDecomposition.slice(s,c+1).join(" "),ki);
+			}
 		}
 		preciseMatches.push({
 			t: "decomposing ...",

@@ -51,6 +51,6 @@ langs.forEach(function(thisa){
 });
 
 langs.forEach(function(thisa){
-	b = "window = this;\nimportScripts('bangu.js','../data/parsed-"+thisa+".js', '../lujvo_beta.js', '../sisku.js');\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;search(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};\npostMessage({kind: 'loading'});\npostMessage({kind: 'ready'});";
+	b = "window = this;\nimportScripts('bangu.js','../data/parsed-"+thisa.replace(/^test$/,'en')+".js', '../lujvo_beta.js', '../sisku.js');\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;search(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};\npostMessage({kind: 'loading'});\npostMessage({kind: 'ready'});";
 	fs.writeFileSync(path.join(__dirname,"../i",thisa,"worker.js"), b);
 });

@@ -49,3 +49,8 @@ langs.forEach(function(thisa){
 	b = b.replace("%3%",m);
 	fs.writeFileSync(path.join(__dirname,"../i",thisa,"sisku.xml"), b);
 });
+
+langs.forEach(function(thisa){
+	b = "window = this;\nimportScripts('bangu.js','../data/parsed-"+thisa+".js', '../lujvo_beta.js', '../sisku.js');\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;search(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};\npostMessage({kind: 'loading'});\npostMessage({kind: 'ready'});";
+	fs.writeFileSync(path.join(__dirname,"../i",thisa,"worker.js"), b);
+});

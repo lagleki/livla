@@ -51,6 +51,8 @@ langs.forEach(function(thisa){
 });
 
 langs.forEach(function(thisa){
-	b = "window = this;\nimportScripts('bangu.js','../data/parsed-"+thisa.replace(/^test$/,'en')+".js', '../lujvo_beta.js', '../sisku.js');\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;search(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};\npostMessage({kind: 'loading'});\npostMessage({kind: 'ready'});";
+	var sisku="sisku.js"; if(thisa==='test'){sisku="sisku_2.js"}
+	var lujvo="lujvo_beta.js"; if(thisa==='test'){sisku="lujvo_2.js"}
+	b = "window = this;\nimportScripts('bangu.js','../data/parsed-"+thisa.replace(/^test$/,'en').replace(/^muplis/,"tatoeba")+".js', '../"+lujvo+"', '../"+sisku+"');\npostMessage({kind: 'loading'});\npostMessage({kind: 'ready'});\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;search(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};";
 	fs.writeFileSync(path.join(__dirname,"../i",thisa,"worker.js"), b);
 });

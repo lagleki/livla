@@ -4,7 +4,6 @@ function search(query, callback) {
 		return;
 	}
 	var searchId = ++searchIdCounter;
-	var resultCount = 0;
 	var preciseMatches = [];
 	var queryDecomposition = query.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');});
 	var kij=[];
@@ -17,13 +16,13 @@ function search(query, callback) {
 				kim.push(rafsi[luj[ji]]);
 			}
 			if (kil.length===1 && kil[0].w===lu){
-				kil[0].rafsiDocuments = kim.filter(function(n){ return n !== undefined });
+				kil[0].rafsiDocuments = kim.filter(function(n){ return n !== undefined }).map(function(a){return restore(a);});
 			}
 			else{
 			kil.push({
 				t: "decomposing ...",
 				w: query,
-				rafsiDocuments: kim.filter(function(n){ return n !== undefined })
+				rafsiDocuments: kim.filter(function(n){ return n !== undefined }).map(function(a){return restore(a);})
 			});
 			}
 		}
@@ -53,8 +52,8 @@ function search(query, callback) {
 		}
 		preciseMatches.push({
 			t: "decomposing ...",
-		  w: query,
-			rafsiDocuments: ki.filter(function(n){ return n !== undefined })
+			w: query,
+			rafsiDocuments: ki.filter(function(n){ return n !== undefined }).map(function(a){return restore(a);})
 		});
 	}
 	else if ((query.indexOf('^')===0||query.slice(-1)==='$'))
@@ -69,7 +68,7 @@ function search(query, callback) {
 		if (!lo_matra_cu_cupra) {
 			preciseMatches=be([],query)||[];
 		}
-		else if (searchId !== searchIdCounter||query.indexOf('*')>-1) {
+		else if (searchId !== searchIdCounter) {
 			return;
 		}
 		else{

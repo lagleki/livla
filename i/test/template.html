@@ -510,12 +510,12 @@
 		};
 	})();
 	typehere.on('input',function(){
-		clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 200);
+		clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 100);
 		delay(function(){
 			SaveDataToLocalStorage(query);
 		}, 2000 );
 	});
-	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 200);});
+	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 100);});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
 	function updateUrl() {

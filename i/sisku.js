@@ -8,6 +8,9 @@ function search(query, callback) {
 	var queryDecomposition = query.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');});
 	var kij=[];
 	var ki=[];
+	function julne(a){
+		return a.filter(function(n){ return n !== undefined }).map(function(a){return restore(a);});
+	}
 	function be(kil,lu){
 		var luj=decomposeLujvo(lu);
 		if (luj){
@@ -16,13 +19,13 @@ function search(query, callback) {
 				kim.push(rafsi[luj[ji]]);
 			}
 			if (kil.length===1 && kil[0].w===lu){
-				kil[0].rafsiDocuments = kim.filter(function(n){ return n !== undefined }).map(function(a){return restore(a);});
+				kil[0].rafsiDocuments = julne(kim);
 			}
 			else{
 			kil.push({
 				t: "decomposing ...",
 				w: query,
-				rafsiDocuments: kim.filter(function(n){ return n !== undefined }).map(function(a){return restore(a);})
+				rafsiDocuments: julne(kim)
 			});
 			}
 		}
@@ -53,7 +56,7 @@ function search(query, callback) {
 		preciseMatches.push({
 			t: "decomposing ...",
 			w: query,
-			rafsiDocuments: ki.filter(function(n){ return n !== undefined }).map(function(a){return restore(a);})
+			rafsiDocuments: julne(ki)
 		});
 	}
 	else if ((query.indexOf('^')===0||query.slice(-1)==='$'))

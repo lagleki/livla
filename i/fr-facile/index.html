@@ -212,7 +212,7 @@
 <body style="margin: 0;height: 100vh;">
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
-		<span id='plise' style='display: none;'><a id='st' href="../"><img src="../arrow-left.png" height='24' width='24'></a></span><span class='site-title' style='margin-left:10px;'><a id='title' href='#'><img src="../sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
+		<span id='plise' style='height:24px;'><a id='st' href="../"><img src="../arrow-left.png" height='24' width='24'></a></span><span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src="../sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
 		<form onsubmit="return false">
 			<input class="clearable" id='typehere' placeholder="chercher" type='text' autofocus autocomplete="off">
 		</form>
@@ -246,10 +246,7 @@
 	function SaveDataToLocalStorage(data)
 	{
 		if (!results||results.length===0|data==='') return;
-		// Parse the serialized data back into an array of objects
 		var a = JSON.parse(localStorage.getItem('purci'))||[];
-		// Push the new data (whether it be an object or anything else) onto the array
-		//todo: ko na jmina zi me'i ko'a i ko'a ~= 500 msec
 		var index = a.indexOf(data);
 		if (index>=0){a.splice(index,1);}
 		a.unshift(data);
@@ -283,10 +280,10 @@
 	var ready = false;
 	$(document).ready(function () {
 		if ($(window).width() >= 500) {
-			$('#plise').css( "display", "block !important").show();
+			$('#site-title').css( "display", "block !important").show();
 			$('#mipri').css( "display", "block !important").show();
 		}else{
-			$("#typehere").css({"width":$(window).width()-40,'margin-left':'4px','margin-right':'4px'});
+			$("#typehere").css({"width":$(window).width()-64,'margin-left':'4px','margin-right':'4px'});
 		}
 		if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 		doSearch();
@@ -305,7 +302,7 @@
 			results = ev.data.results;
 			output.empty();
 			displayCLL();
-			displayResults();
+			skicu_lo_ro_valsi();
 			displayDescription();
 		}
 		else if (ev.data.kind == 'loading') {
@@ -331,7 +328,7 @@
 		var isClose = windowBottom >= outputBottom;
 		if(isClose) {
 		window.limit += 10;
-		displayResults(true);
+		skicu_lo_ro_valsi(true);
 		}
 	}
 	document.getElementById('content')
@@ -351,7 +348,7 @@
 		return s;
 	}
 
-	function displayDocument(def,inner) {
+	function skicu_lo_valsi(def,inner) {
 		if (!def){def=[];}
 		var out;
 		if(inner===1){out=$("<div>").addClass('terminner');} else {out=$("<div>").addClass('term');}
@@ -386,8 +383,8 @@
 		.append($("<h4>").addClass(kl).html(word))
 		.append($("<h4>").addClass('tfm').html(fmm))
 		.append($("<div style='flex:1;'>"))
-		.append($("<div>").addClass('type').html(jvs))
 		.append(ss)
+		.append($("<div>").addClass('type').html(jvs))
 		);
 		if (def.d) {
 		$("<div>").addClass('definition').html(
@@ -427,7 +424,7 @@
 		if((def.rafsiDocuments||[]).length>0) {
 			var subDefs = $("<div>").addClass('definition').addClass('subdefinitions');
 			for (var i=0;i<def.rafsiDocuments.length;i++) {
-				displayDocument(def.rafsiDocuments[i],1).appendTo(subDefs);
+				skicu_lo_valsi(def.rafsiDocuments[i],1).appendTo(subDefs);
 			}
 			subDefs.appendTo(out);
 		}
@@ -545,11 +542,11 @@
 		}
 	})
 
-	function displayResults(ui) {
+	function skicu_lo_ro_valsi(ui) {
 		//if (!ui) resultCount=0;
 		var displayUpTo = Math.min(window.limit, results.length);
 		for (; resultCount < displayUpTo; resultCount++) {
-		try{displayDocument(results[resultCount]).appendTo(output);}catch(err){}
+		try{skicu_lo_valsi(results[resultCount]).appendTo(output);}catch(err){}
 		}
 	}
 

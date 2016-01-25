@@ -11,4 +11,4 @@ window.arrcll = {};
 siskudescr="Search the Interlingue / Occidental dictionary la sutysisku.";
 opdescr = "A dictionary for Interlingue / Occidental, Lojban, English and other languages that can work offline.";
 upperdir = "../muplis.html";
-window.purci = "Last searched: ";
+window.purc = "Last searched: ";

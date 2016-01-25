@@ -9,4 +9,4 @@ window.arrcll = {};
 siskudescr="Search the Lingwa de Planeta (Lidepla) dictionary la sutysisku.";
 opdescr = "A dictionary for Lidepla (Lingwa de Planeta), Lojban, English and other languages. Can work offline!";
 upperdir = "../muplis.html";
-window.purci = "Last searched: ";
+window.purc = "Last searched: ";

@@ -11,4 +11,4 @@ window.xuzganalojudri = true;
 window.judri = "http://jbovlaste.lojban.org/dict/";
 siskudescr="sisku se pi'o lo lojbo vlaste be fa la jbovlaste";
 opdescr = "lo vlaste pe la lojban je lo glibau je lo drata bangu je poi ka'e pilno fau lo nu na kibro jorne";
-window.purci = "(to ro moi lo ka se mitysisku toi) ";
+window.purc = "(to ro moi lo ka se mitysisku toi) ";

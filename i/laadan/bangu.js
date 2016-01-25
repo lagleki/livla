@@ -9,4 +9,4 @@ window.arrcll = {};
 siskudescr="Search the Laadan dictionary la sutysisku.";
 opdescr = "A dictionary for Láadan, Lojban, English and other languages that can work offline.";
 upperdir = "../muplis.html";
-window.purci = "Last searched: ";
+window.purc = "Last searched: ";

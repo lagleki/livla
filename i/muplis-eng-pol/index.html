@@ -229,8 +229,8 @@
 				<span class='message'>getting the dictionary</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
-			<div id='description' class="term"><p><b>La Muplis</b> is a fast tool to search sentenes from <a href='http://tatoeba.org/eng' target='_blank'>Tatoeba.org</a> database in Polish and English.</p><p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br>To increase the overall quality of the sentences displayed this app<br>1. includes only sentences owned by tatoeba.org users,<br>2. excludes sentences tagged as "needs native check".</p><span id='searchengine'><i><a href='#' title='jbo-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/muplis-eng-pol/sisku.xml')">Add as a search engine...</a></i></span></div>
 			<div id='purci' style="display:none;" class="term"></div>
+			<div id='description' class="term"><p><b>La Muplis</b> is a fast tool to search sentenes from <a href='http://tatoeba.org/eng' target='_blank'>Tatoeba.org</a> database in Polish and English.</p><p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br>To increase the overall quality of the sentences displayed this app<br>1. includes only sentences owned by tatoeba.org users,<br>2. excludes sentences tagged as "needs native check".</p><span id='searchengine'><i><a href='#' title='jbo-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/muplis-eng-pol/sisku.xml')">Add as a search engine...</a></i></span></div>
 			<div id='output'></div>
 		</div>
 	</div>
@@ -268,6 +268,9 @@
 		query='';
 		prevQuery='';
 		displayDescription();
+	}).on('click', '#title', function(ev){
+		query='';
+		typehere.val(query);
 	});
 	var fm = {BE: "bei",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au",NAhU: "te'u",NIhE: "te'u",MOhE: "te'u"};
 	function arraySearch(arr,val) {
@@ -510,12 +513,12 @@
 		};
 	})();
 	typehere.on('input',function(){
-		clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 200);
+		clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 100);
 		delay(function(){
 			SaveDataToLocalStorage(query);
 		}, 2000 );
 	});
-	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 200);});
+	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 100);});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
 	function updateUrl() {
@@ -537,7 +540,6 @@
 	}
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
-		//query = '';
 		if (searchMatch && searchMatch.indexOf('/')===-1) {
 		query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ").trim();
 		}

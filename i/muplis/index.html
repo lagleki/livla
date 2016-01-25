@@ -229,8 +229,8 @@
 				<span class='message'>ca'o cpacu lo vlaste</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
-			<div id='description' class="term"><p><b>la .muplis.</b> cu sutra tutci lo nu mitysisku lo mupli pe ju'oi <a href='http://tatoeba.org/jbo' target='_blank'>Tatoeba.org</a></p><p>- .i xu mi kakne lo ka pilno la .muplis. vau va'o lo nu na ka'e kibro pilno<br>- .i ja'a go'i .i va'o lo nu kibro kakne na ku cu .e'u troci lo ka gau do lo brauzero cu cpacu lo se judri be lo me dei moi<br> .i la'a sai lo mutpapri cu tolcanci to'e ri'a nai .i lo cnino klesi be la xromium ja la'oi Safari ja la'oi Firefox cu jai sarcu lo nu pilno la .muplis.<br>.i lo tcita pe di'e ka'e sidju do lo ka jimpe fi lo ni zabna fa lo jufra<br>.i la'e zoi <img src='plise.png' height='16' width='16' title='lo staile poi sampu'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu sampu<br>.i la'e zoi <img src='pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'> zoi tcita lo jufra poi lo staile be tu'a ke'a na mutce cinri<br>.i la'e zoi <img src='crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'> zoi tcita lo jufra poi ka&#39;e xamgu lo di&#39;i fanva<br>.i la'e zoi <img src='blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'> zoi tcita lo jufra poi lo staile be tu'a ke'a ka'e pluja<br>.i la'e zoi <img src='cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu na&#39;e catni<br><br>.i lo nu djica co zenba co cilre tu'a la .muplis. cu .e'u banzu lo nu vitke <a href='https://mw.lojban.org' target='_blank'>lo lojbo uitki</a>.</p><span id='searchengine'><i><a href='#' title='jbo-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/muplis/sisku.xml')">jmina zo'e ne tai lo sisku matra</a></i></span></div>
 			<div id='purci' style="display:none;" class="term"></div>
+			<div id='description' class="term"><p><b>la .muplis.</b> cu sutra tutci lo nu mitysisku lo mupli pe ju'oi <a href='http://tatoeba.org/jbo' target='_blank'>Tatoeba.org</a></p><p>- .i xu mi kakne lo ka pilno la .muplis. vau va'o lo nu na ka'e kibro pilno<br>- .i ja'a go'i .i va'o lo nu kibro kakne na ku cu .e'u troci lo ka gau do lo brauzero cu cpacu lo se judri be lo me dei moi<br> .i la'a sai lo mutpapri cu tolcanci to'e ri'a nai .i lo cnino klesi be la xromium ja la'oi Safari ja la'oi Firefox cu jai sarcu lo nu pilno la .muplis.<br>.i lo tcita pe di'e ka'e sidju do lo ka jimpe fi lo ni zabna fa lo jufra<br>.i la'e zoi <img src='plise.png' height='16' width='16' title='lo staile poi sampu'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu sampu<br>.i la'e zoi <img src='pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'> zoi tcita lo jufra poi lo staile be tu'a ke'a na mutce cinri<br>.i la'e zoi <img src='crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'> zoi tcita lo jufra poi ka&#39;e xamgu lo di&#39;i fanva<br>.i la'e zoi <img src='blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'> zoi tcita lo jufra poi lo staile be tu'a ke'a ka'e pluja<br>.i la'e zoi <img src='cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu na&#39;e catni<br><br>.i lo nu djica co zenba co cilre tu'a la .muplis. cu .e'u banzu lo nu vitke <a href='https://mw.lojban.org' target='_blank'>lo lojbo uitki</a>.</p><span id='searchengine'><i><a href='#' title='jbo-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/muplis/sisku.xml')">jmina zo'e ne tai lo sisku matra</a></i></span></div>
 			<div id='output'></div>
 		</div>
 	</div>
@@ -268,6 +268,9 @@
 		query='';
 		prevQuery='';
 		displayDescription();
+	}).on('click', '#title', function(ev){
+		query='';
+		typehere.val(query);
 	});
 	var fm = {BE: "bei",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au",NAhU: "te'u",NIhE: "te'u",MOhE: "te'u"};
 	function arraySearch(arr,val) {
@@ -510,12 +513,12 @@
 		};
 	})();
 	typehere.on('input',function(){
-		clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 200);
+		clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 100);
 		delay(function(){
 			SaveDataToLocalStorage(query);
 		}, 2000 );
 	});
-	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 200);});
+	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 100);});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
 	function updateUrl() {
@@ -537,7 +540,6 @@
 	}
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
-		//query = '';
 		if (searchMatch && searchMatch.indexOf('/')===-1) {
 		query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ").trim();
 		}

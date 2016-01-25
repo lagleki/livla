@@ -482,7 +482,7 @@
 		}
 	}
 	function plukaquery(arg){
-		if (arg.indexOf('/')!==0){
+		if (arg.charAt(0)!=='^' && arg.slice(-1)!=='$'){
 		return arg.replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim()
 		}
 		else{return arg;}

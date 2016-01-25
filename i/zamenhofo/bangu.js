@@ -9,4 +9,4 @@ window.arrcll = {};
 siskudescr="Search the Esperanto dictionary la sutysisku.";
 opdescr = "A dictionary for Esperanto, Lojban, English and other languages that can work offline.";
 upperdir = "../muplis.html";
-window.purci = "Last searched: ";
+window.purc = "Last searched: ";

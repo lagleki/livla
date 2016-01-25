@@ -456,7 +456,7 @@
 			arrpurc.forEach(function(part, index, ar) {
 				ar[index] = '<a href="#sisku/' + ar[index] + '">' + ar[index] + "</a>";
 			});
-			$('#purci').html((window.purci||"Last searched: ") + arrpurc.join(", "));
+			$('#purci').html((window.purc||"Last searched: ") + arrpurc.join(", "));
 			$('#purci').css('display','block');
 		}
 		} else {

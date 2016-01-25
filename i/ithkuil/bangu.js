@@ -11,4 +11,4 @@ window.cllnotci = 'The Reference Grammar on this topic:';
 window.arrcll = {};
 siskudescr="Search the Ithkuil dictionary la sutysisku.";
 opdescr = "A dictionary for Ithkuil, Lojban, English and other languages that can work offline.";
-window.purci = "Last searched: ";
+window.purc = "Last searched: ";

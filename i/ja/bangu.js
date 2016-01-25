@@ -6,4 +6,4 @@ window.bangusisku='語を入力';
 window.bangudecomp = '以下に分けます ...';
 siskudescr="ロジバン辞書 la jbovlaste で検索。";
 opdescr = "オフラインで使える、ロジバン・日本語・その他の言語対応辞書。";
-window.purci = "最終観察時: ";
+window.purc = "最終観察時: ";

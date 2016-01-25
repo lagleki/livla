@@ -9,4 +9,4 @@ window.arrcll = {};
 siskudescr="Search the toki pona dictionary la sutysisku.";
 opdescr = "A dictionary for toki pona, Lojban, English and other languages. Can work offline!";
 upperdir = "../muplis.html";
-
+window.purc = "Last searched: ";

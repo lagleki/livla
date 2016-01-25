@@ -212,7 +212,7 @@
 <body style="margin: 0;height: 100vh;">
 	<div id="blackBar" class='core-header'>
 		<div id='header-wrapper'>
-		<span id='plise' style='display: none;'><a id='st' href="../"><img src="../sutysisku.png" height='16' width='16'><span class='site-title'><font color="#fff">la sutysisku</font></span></a></span><div id="mipri" style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
+		<span id='plise' style='display: none;'><a id='st' href="../"><img src="../sutysisku.png" height='16' width='16'></a></span><span class='site-title' style='margin-left:5px;'><a id='title' href='#'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
 		<form onsubmit="return false">
 			<input class="clearable" id='typehere' placeholder="поиск" type='text' autofocus autocomplete="off">
 		</form>
@@ -229,8 +229,8 @@
 				<span class='message'>Загружаем словарь ...</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
-			<div id='description' class="term"><p><b>la sutysisku</b> - быстрый словарь ложбана.<p>- Будет ли эта страничка открываться, если у меня будет недоступен интернет?<br>- Да, если это случится, всё равно откройте этот же адрес с этого же самого браузера.<br> Страничка всё равно должна открыться. Требуется последняя версия браузера Chrome, Яндекс Браузера, Safari или Firefox. Работает на устройствах Android и Apple.<br><br>Больше информации о ложбане доступно на <a href='https://mw.lojban.org' target='_blank'>сайте языка Lojban</a>. Предложения можно писать на адрес <a href='mailto:gleki.is.my.name@gmail.com' target='_blank'>gleki.is.my.name@gmail.com</a>.</p><p><span id='searchengine'><i><a href='#' title='ru-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/ru/sisku.xml')">Добавить как средство поиска</a></i></span></p></div>
 			<div id='purci' style="display:none;" class="term"></div>
+			<div id='description' class="term"><p><b>la sutysisku</b> - быстрый словарь ложбана.<p>- Будет ли эта страничка открываться, если у меня будет недоступен интернет?<br>- Да, если это случится, всё равно откройте этот же адрес с этого же самого браузера.<br> Страничка всё равно должна открыться. Требуется последняя версия браузера Chrome, Яндекс Браузера, Safari или Firefox. Работает на устройствах Android и Apple.<br><br>Больше информации о ложбане доступно на <a href='https://mw.lojban.org' target='_blank'>сайте языка Lojban</a>. Предложения можно писать на адрес <a href='mailto:gleki.is.my.name@gmail.com' target='_blank'>gleki.is.my.name@gmail.com</a>.</p><p><span id='searchengine'><i><a href='#' title='ru-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/ru/sisku.xml')">Добавить как средство поиска</a></i></span></p></div>
 			<div id='output'></div>
 		</div>
 	</div>
@@ -268,6 +268,9 @@
 		query='';
 		prevQuery='';
 		displayDescription();
+	}).on('click', '#title', function(ev){
+		query='';
+		typehere.val(query);
 	});
 	var fm = {BE: "bei",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au",NAhU: "te'u",NIhE: "te'u",MOhE: "te'u"};
 	function arraySearch(arr,val) {
@@ -510,12 +513,12 @@
 		};
 	})();
 	typehere.on('input',function(){
-		clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 200);
+		clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 100);
 		delay(function(){
 			SaveDataToLocalStorage(query);
 		}, 2000 );
 	});
-	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 200);});
+	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 100);});
 	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
 
 	function updateUrl() {
@@ -537,7 +540,6 @@
 	}
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
-		//query = '';
 		if (searchMatch && searchMatch.indexOf('/')===-1) {
 		query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ").trim();
 		}

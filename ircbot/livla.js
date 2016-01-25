@@ -225,12 +225,12 @@ var updatexmldumps = function (callback) {
 		});
 	//}catch(err){console.log('Error when autoupdating: ' + err);}
 	//sutysiskuningau("ithkuil");
-	sutysiskuningau("en-pt-BR");
-	sutysiskuningau("zamenhofo");
-	sutysiskuningau("laadan");
-	sutysiskuningau("ile");
-	sutysiskuningau("toki");
-	sutysiskuningau("ldp");
+	sutysiskuningau("en-pt-BR",0);
+	sutysiskuningau("zamenhofo",0);
+	sutysiskuningau("laadan",0);
+	sutysiskuningau("ile",0);
+	sutysiskuningau("toki",0);
+	sutysiskuningau("ldp",0);
 	//updategloss();# not yet ready function
 };
 
@@ -1448,7 +1448,7 @@ var katna= function(lin,lng,flag,xmlDoc){
 };
 
 
-var sutysiskuningau = function(lng){//write a new file parsed.js that would be used by la sutysisku
+var sutysiskuningau = function(lng,lojbo){//write a new file parsed.js that would be used by la sutysisku
 if (typeof lng==='undefined'){lng='en';}
 	xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"dumps",lng + ".xml"),{encoding: 'utf8'}).replace(/(&lt;|<)script.*?(&gt;|>).*?(&lt;|<)/g,"&lt;").replace(/(&lt;|<)\/script(&gt;|>)/g,""));
 var q;
@@ -1476,7 +1476,7 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 				}
 			}catch(err){}
 		var ra=rev[i].find("rafsi//text()[1]");
-		if (xugismu(hi)===true){
+		if (lojbo!==0 && xugismu(hi)===true){
 			ra.push(hi);
 			if(hi.indexOf("brod")!==0){ra.push(hi.substr(0,4));}
 			if(hi.indexOf("broda")===0){ra.push("brod");}

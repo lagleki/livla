@@ -61,7 +61,8 @@ function search(query, callback) {
 		}
 		else {
 			lo_matra_cu_cupra=documentStore.filter(function(a){
-				return Object.keys(a).map(function (key) {return a[key];}).join(";").search(query+"|"+query.replace(/h/g,"'"))>=0;
+				var m = Object.keys(a).map(function (key) {return a[key];}).join(";");
+				return m.indexOf(query)>=0||m.indexOf(query.replace(/h/g,"'"))>=0;
 			});
 			if (!lo_matra_cu_cupra) {
 				preciseMatches=be([],query)||[];
@@ -70,6 +71,7 @@ function search(query, callback) {
 				return;
 			}
 		}
+		console.log((new Date()).getTime());
 		var exactMatches = [];
 		var greatMatches = [];
 		var selmahoMatches = [];
@@ -84,10 +86,11 @@ function search(query, callback) {
 			}
 				if (doc.w === query){
 					exactMatches.push(doc);
+					console.log(JSON.stringify(doc));
 					exactMatches=be(exactMatches,query);
 					continue;
 				}
-				else if ((doc.g||'')===query||(query>0 && (doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
+				else if ((doc.g||'')===query||((doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
 					greatMatches.push(doc);
 					continue;
 				}
@@ -142,5 +145,6 @@ function search(query, callback) {
 		.concat(defMatches)
 		.concat(lastMatches);
 	}
+	console.log((new Date()).getTime());
 	callback(preciseMatches);
 }

@@ -71,7 +71,6 @@ function search(query, callback) {
 				return;
 			}
 		}
-		console.log((new Date()).getTime());
 		var exactMatches = [];
 		var greatMatches = [];
 		var selmahoMatches = [];
@@ -86,7 +85,6 @@ function search(query, callback) {
 			}
 				if (doc.w === query){
 					exactMatches.push(doc);
-					console.log(JSON.stringify(doc));
 					exactMatches=be(exactMatches,query);
 					continue;
 				}
@@ -145,6 +143,5 @@ function search(query, callback) {
 		.concat(defMatches)
 		.concat(lastMatches);
 	}
-	console.log((new Date()).getTime());
 	callback(preciseMatches);
 }

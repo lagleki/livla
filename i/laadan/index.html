@@ -305,22 +305,7 @@
 			results = ev.data.results;
 			output.empty();
 			displayCLL();
-			displayResults(true);
-			displayDescription();
-		}
-		else if (ev.data.kind == 'searchResultsm') {
-			if (ev.data.query !== query) {return;}
-			results = ev.data.results;
-			output.empty();
-			displayCLL();
-			displayResults(false);
-			displayDescription();
-		}
-		else if (ev.data.kind == 'searchResultsh') {
-			if (ev.data.query !== query) {return;}
-			results = ev.data.results;
-			displayCLL();
-			displayResults(false);
+			displayResults();
 			displayDescription();
 		}
 		else if (ev.data.kind == 'loading') {
@@ -500,8 +485,6 @@
 		window.limit = 30;
 		resultCount = 0;
 		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
-		worker.postMessage({kind: 'newSearchm', 'query': query});
-		worker.postMessage({kind: 'newSearchh', 'query': query});
 	}
 	//search after timeout
 	var typingTimer;
@@ -563,7 +546,7 @@
 	})
 
 	function displayResults(ui) {
-		if (!ui) resultCount=0;
+		//if (!ui) resultCount=0;
 		var displayUpTo = Math.min(window.limit, results.length);
 		for (; resultCount < displayUpTo; resultCount++) {
 		try{displayDocument(results[resultCount]).appendTo(output);}catch(err){}

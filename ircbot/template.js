@@ -27,7 +27,7 @@ langs.forEach(function(thisa){
 	b = b.replace("%searchtitle%",thisa+"-sutysisku");
 	var upper;
 	try{upper = file.match(/upperdir *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1].replace(/\\\"/g,"\"");}catch(err){upper="../";}
-	try{m = file.match(/titlelogo *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1].replace(/\\\"/g,"\"").replace(/%upper%/g,upper);}catch(err){m="<span id='plise' style='display: none;'><a id='st' href=\""+upper+"\"><img src=\"../sutysisku.png\" height='16' width='16'></a></span><span class='site-title' style='margin-left:5px;'><a id='title' href='#'><font color='#fff'>la sutysisku</font></a></span>";}b = b.replace(/%titlelogo%/g,m);
+	try{m = file.match(/titlelogo *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1].replace(/\\\"/g,"\"").replace(/%upper%/g,upper);}catch(err){m="<span id='plise' style='display: none;'><a id='st' href=\""+upper+"\"><img src=\"../arrow-left.png\" height='24' width='24'></a></span><span class='site-title' style='margin-left:10px;'><a id='title' href='#'><img src=\"../sutysisku.png\" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span>";}b = b.replace(/%titlelogo%/g,m);
 	try{m=file.match(/mupliskari1 *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1];}catch(err){m="56,136,233";}b = b.replace(/%mupliskari1%/g,m);
 	try{m=file.match(/mupliskari2 *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1];}catch(err){m="34,87,213";}b = b.replace(/%mupliskari2%/g,m);
 	try{m=file.match(/mupliskari3 *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1];}catch(err){m="38,99,224";}b = b.replace(/%mupliskari3%/g,m);

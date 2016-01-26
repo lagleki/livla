@@ -9,7 +9,7 @@ window.bangudecomp = 'te katna';
 window.arrcll = {};
 siskudescr="Search the dictionary of Lojban sentences la muplis.";
 opdescr = "A dictionary of sentences for Lojban, English and other languages that can work offline.";
-titlelogo = "<span id='plise' style='display: none;'><img src='plise.png' height='16' width='16' title='lo staile poi sampu'><img src='pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'><img src='crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'><img src='cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'><a id='st' href='../'><span class='site-title'><font color='#fff'>la muplis</font></span></a></span>";
+titlelogo = "<span id='plise' style='height:24px;'><a id='st' href='../'><img src='../arrow-left.png' height='24' width='24'></a></span><span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src='plise.png' height='16' width='16' title='lo staile poi sampu'><img src='pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'><img src='crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'><img src='cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'><font color='#fff'>la muplis</font></a></span>";
 mupliskari1 = "109,179,242";
 mupliskari2 = "84,163,238";
 mupliskari3 = "54,144,240";

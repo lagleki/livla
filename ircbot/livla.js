@@ -37,6 +37,7 @@ var configmensi = {
     debug: false,
     messageSplit: 190,
     realName: 'http://lojban.org/papri/IRC_Bots',
+    userName: replier,
     floodProtection: true,
     floodProtectionDelay: 400
   }

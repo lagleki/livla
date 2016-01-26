@@ -21,7 +21,7 @@ function decomposeLujvo(a) {
 	var t;
 	if (a.indexOf(' zei ')>-1){return a.split(" zei ");}
 	try{t= cmaxes.parse(a).toString().split(",");}catch(err){return;}
-	if (t[0]!=='lujvo') return;
+	if (t[0]!=='lujvo'||t.length!==2) return;
 	t = t[1].split("-");
 	return t;
 }

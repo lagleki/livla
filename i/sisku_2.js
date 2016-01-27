@@ -1,8 +1,6 @@
 var searchIdCounter = 0;
 function search(query, callback) {
-	if (query.length === 0) {
-		return;
-	}
+	if (query.length === 0) return;
 	var searchId = ++searchIdCounter;
 	var preciseMatches = [];
 	var queryDecomposition = query.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');});
@@ -24,9 +22,7 @@ function search(query, callback) {
 			}
 			else{
 			kil.push({
-				t: "decomposing ...",
-				w: query,
-				rafsiDocuments: julne(kim)
+				t: "decomposing ...",w: query,rafsiDocuments: julne(kim)
 			});
 			}
 		}
@@ -34,16 +30,14 @@ function search(query, callback) {
 	}
 	function shortget(a,ki){
 		var isdef = documentStore.filter(function (o){
-			return (o.w==a.toLowerCase())||(o.d=="{"+a.toLowerCase()+"}");
-		})[0];//doesnt work with words with capital letters
+			return (o.w.toLowerCase()==a.toLowerCase())||(o.d.toLowerCase()=="{"+a.toLowerCase()+"}");
+		});
 			if (isdef)
-				{ki.push(isdef);}
+				{ki=ki.concat(isdef);}
 			else{
 				var luj=decomposeLujvo(a);
 				if(luj){
-					for (var ji in luj){
-						ki.push(rafsi[luj[ji]]);
-					}
+					for (var ji in luj){ki.push(rafsi[luj[ji]]);}
 				}
 			}
 		return ki;
@@ -51,14 +45,10 @@ function search(query, callback) {
 	if (!window.muplis && queryDecomposition.length>1){//multiple words are in the query
 		for (var s=0;s<queryDecomposition.length;s++){
 			for (var c=queryDecomposition.length-1;c>=s;c--){
-					ki=shortget(queryDecomposition.slice(s,c+1).join(" "),ki);
+				ki=shortget(queryDecomposition.slice(s,c+1).join(" "),ki);
 			}
 		}
-		preciseMatches.push({
-			t: "decomposing ...",
-			w: query,
-			rafsiDocuments: julne(ki)
-		});
+		preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(ki)});
 	}
 	else{
 		if ((query.indexOf('^')===0||query.slice(-1)==='$'))
@@ -67,7 +57,8 @@ function search(query, callback) {
 		}
 		else {
 			lo_matra_cu_cupra=documentStore.filter(function(a){
-				return Object.keys(a).map(function (key) {return a[key];}).join(";").search(query+"|"+query.replace(/h/g,"'"))>=0;
+				var m = Object.keys(a).map(function (key) {return a[key];}).join(";");
+				return m.indexOf(query)>=0||m.indexOf(query.replace(/h/g,"'"))>=0;
 			});
 			if (!lo_matra_cu_cupra) {
 				preciseMatches=be([],query)||[];
@@ -93,7 +84,7 @@ function search(query, callback) {
 					exactMatches=be(exactMatches,query);
 					continue;
 				}
-				else if ((doc.g||'')===query||(query>0 && (doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
+				else if ((doc.g||'')===query||((doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
 					greatMatches.push(doc);
 					continue;
 				}

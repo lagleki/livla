@@ -1,5 +1,5 @@
 window = this;
-importScripts('bangu.js','../data/parsed-en.js', '../lujvo_2.js', '../sisku_2.js');
+importScripts('bangu.js','../data/parsed-jb.js', '../lujvo_2.js', '../sisku_2.js');
 postMessage({kind: 'loading'});
 postMessage({kind: 'ready'});
 var searchId;

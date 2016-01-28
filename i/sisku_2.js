@@ -28,17 +28,22 @@ function search(query, callback) {
 		}
 		return kil;
 	}
-	function shortget(a,ki){
+	function shortget(a,ki,shi){
 		var isdef = documentStore.filter(function (o){
 			return (o.w.toLowerCase()==a.toLowerCase())||(o.d.toLowerCase()=="{"+a.toLowerCase()+"}");
 		});
-			if (isdef)
+			if (isdef && isdef.length>0)
 				{ki=ki.concat(isdef);}
-			else{
-				var luj=decomposeLujvo(a);
-				if(luj){
-					for (var ji in luj){ki.push(rafsi[luj[ji]]);}
+			else if (!shi){
+				var ye=mavalsi(a);
+				if(ye[0]==='cmavo compound'){
+					ye=ye[1].split(" ");
+					for (var jj in ye){
+						ki=shortget(ye[jj],ki,2);
+					}
 				}
+					var luj=decomposeLujvo(a);
+					if(luj){for (var ji in luj){ki.push(rafsi[luj[ji]]);}}
 			}
 		return ki;
 	}

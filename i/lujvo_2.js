@@ -2,11 +2,13 @@ var cmaxes=function(){function l(l){return'"'+l.replace(/\\/g,"\\\\").replace(/"
 
 var mavalsi = function(str){
 	var j;var re;
-	try{j = cmaxes.parse(str.toLowerCase().replace(/,/g,'')).toString().split(",");}catch(e){j='';}
+	try{
+		j = cmaxes.parse(str.toLowerCase().replace(/,/g,'')).toString().split(",");
+	}catch(e){j='';}
 	if (j.length===2){
 		return [j[0],''];
 	}
-	else if (j.length>2 && j[0]==='cmavo'){
+	else if (j.length>2 && j.filter(function(el, index) {return index % 2 === 0;}).toString().match(/^cmavo(,cmavo)+$/)){
 		return ['cmavo compound',j.filter(function(el, index) {return index % 2 === 1;}).join(" ")];
 	}
 	else

@@ -3,7 +3,7 @@ CACHE MANIFEST
 
 CACHE:
 index.html?version=32
-../jquery-1.9.1.min.js
+//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
 lib/Metro-UI-CSS/build/js/metro.js
 lib/Metro-UI-CSS/build/css/metro.css
 /images/2/20/lanci_epo.svg

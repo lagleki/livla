@@ -1650,12 +1650,12 @@ var ningaumahantufa = function(text,socket){
 	fs.writeFileSync(t,text);
 	// // read peg and build a parser
 	var camxes_peg = fs.readFileSync(whichfile+".peg").toString();
-	try{var camxes = PEG.buildParser(camxes_peg, {cache: true, trace: true});
+	try{var camxes = PEG.buildParser(camxes_peg, {cache: true, trace: false, output: "source", allowedStartRules: ["text"]});
 	// // write to a file
 	var fd = fs.openSync(whichfile, 'w+');
 	var buffer = new Buffer('var camxes = ');
 	fs.writeSync(fd, buffer, 0, buffer.length);
-	buffer = new Buffer(camxes.toSource());
+	buffer = new Buffer(camxes);
 	fs.writeSync(fd, buffer, 0, buffer.length);
 	buffer = new Buffer("\n\nmodule.exports = camxes;\n\nterm = process.argv[2];\nif (term !== undefined && typeof term.valueOf() === 'string')\n  console.log(JSON.stringify(camxes.parse(term)));\n\n");
 	fs.writeSync(fd, buffer, 0, buffer.length);

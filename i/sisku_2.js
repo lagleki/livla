@@ -7,24 +7,14 @@ function search(query, callback) {
 	var kij=[];
 	var ki=[];
 	var lo_matra_cu_cupra;
-	function julne(a){
-		return a.filter(function(n){ return n !== undefined }).map(function(a){return restore(a);});
-	}
+	function julne(a){return a.filter(function(n){ return n !== undefined }).map(function(a){return restore(a);});}
 	function be(kil,lu){
 		var luj=decomposeLujvo(lu);
 		if (luj){
 			var kim=[];
-			for (var ji in luj){
-				kim.push(rafsi[luj[ji]]);
-			}
-			if (kil.length===1 && kil[0].w===lu){
-				kil[0].rafsiDocuments = julne(kim);
-			}
-			else{
-			kil.push({
-				t: "decomposing ...",w: query,rafsiDocuments: julne(kim)
-			});
-			}
+			for (var ji in luj){kim.push(rafsi[luj[ji]]);}
+			if (kil.length===1 && kil[0].w===lu){kil[0].rafsiDocuments = julne(kim);}
+			else{kil.push({t: "decomposing ...",w: query,rafsiDocuments: julne(kim)});}
 		}
 		return kil;
 	}
@@ -32,19 +22,20 @@ function search(query, callback) {
 		var isdef = documentStore.filter(function (o){
 			return (o.w.toLowerCase()==a.toLowerCase())||(o.d.toLowerCase()=="{"+a.toLowerCase()+"}");
 		});
-			if (isdef && isdef.length>0)
-				{ki=ki.concat(isdef);}
-			else if (!shi){
+		if (isdef && isdef.length>0){ki=ki.concat(isdef);}
+		else if (!shi){
+			if (a.replace(/ zei /g,'-zei-').split(" ").length===1){
 				var ye=mavalsi(a);
 				if(ye[0]==='cmavo compound'){
 					ye=ye[1].split(" ");
-					for (var jj in ye){
-						ki=shortget(ye[jj],ki,2);
-					}
+					for (var jj in ye){ki=shortget(ye[jj],ki,2);}
 				}
-					var luj=decomposeLujvo(a);
-					if(luj){for (var ji in luj){ki.push(rafsi[luj[ji]]);}}
 			}
+			else{
+				var luj=decomposeLujvo(a);
+				if(luj){for (var ji in luj){ki.push(rafsi[luj[ji]]);}}
+			}
+		}
 		return ki;
 	}
 	if (!window.muplis && queryDecomposition.length>1){//multiple words are in the query
@@ -65,12 +56,8 @@ function search(query, callback) {
 				var m = Object.keys(a).map(function (key) {return a[key];}).join(";");
 				return m.indexOf(query)>=0||m.indexOf(query.replace(/h/g,"'"))>=0;
 			});
-			if (!lo_matra_cu_cupra) {
-				preciseMatches=be([],query)||[];
-			}
-			else if (searchId !== searchIdCounter) {
-				return;
-			}
+			if (!lo_matra_cu_cupra) {preciseMatches=be([],query)||[];}
+			else if (searchId !== searchIdCounter) {return;}
 		}
 		var exactMatches = [];
 		var greatMatches = [];
@@ -81,35 +68,33 @@ function search(query, callback) {
 		var lastMatches = [];
 		for (var i=0;i<lo_matra_cu_cupra.length;i++) {
 			var doc = restore(lo_matra_cu_cupra[i]);//todo: optimize for phrases
-			if (!doc) {
+			if (!doc) {continue;}
+			if (doc.w === query){
+				exactMatches.push(doc);
+				exactMatches=be(exactMatches,query);
 				continue;
 			}
-				if (doc.w === query){
-					exactMatches.push(doc);
-					exactMatches=be(exactMatches,query);
-					continue;
-				}
-				else if ((doc.g||'')===query||((doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
-					greatMatches.push(doc);
-					continue;
-				}
-				else if ((doc.s||'') === query){
-					selmahoMatches.push(doc);//selmaho
-					continue;
-				}
-				else if ((doc.g||'').search("\\b"+query+"\\b")>=0) {
-					goodMatches.push(doc);
-					continue;
-				}
-				else if ((doc.t == 'gismu' && ((doc.r || []).indexOf(query) != -1))) {
-					normalMatches.push(doc);
-					continue;
-				}
-				else if (((doc.d||'').toLowerCase().search("\\b"+query+"\\b")>=0)){
-					defMatches.push(doc);
-					continue;
-				}
-				else {lastMatches.push(doc);}
+			else if ((doc.g||'')===query||((doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
+				greatMatches.push(doc);
+				continue;
+			}
+			else if ((doc.s||'') === query){
+				selmahoMatches.push(doc);//selmaho
+				continue;
+			}
+			else if ((doc.g||'').search("\\b"+query+"\\b")>=0) {
+				goodMatches.push(doc);
+				continue;
+			}
+			else if ((doc.t == 'gismu' && ((doc.r || []).indexOf(query) != -1))) {
+				normalMatches.push(doc);
+				continue;
+			}
+			else if (((doc.d||'').toLowerCase().search("\\b"+query+"\\b")>=0)){
+				defMatches.push(doc);
+				continue;
+			}
+			else {lastMatches.push(doc);}
 		}
 		if (exactMatches.length===0) {preciseMatches=be([],query)||[];}
 		var sor = function (ar){

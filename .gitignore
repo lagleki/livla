@@ -16,4 +16,5 @@ ircbot/dumps/*.temp
 ircbot/dumps/*.bz2
 ircbot/dumps/*.sql
 i/data/*.*
+i/.git
 !i/data/parsed-tatoeba.js

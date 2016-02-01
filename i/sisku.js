@@ -35,15 +35,19 @@ function search(query, callback) {
 			if (isdef && isdef.length>0)
 				{ki=ki.concat(isdef);}
 			else if (!shi){
-				var ye=mavalsi(a);
-				if(ye[0]==='cmavo compound'){
-					ye=ye[1].split(" ");
-					for (var jj in ye){
-						ki=shortget(ye[jj],ki,2);
+				if (a.replace(/ zei /g,'-zei-').split(" ").length===1){
+					var ye=mavalsi(a);
+					if(ye[0]==='cmavo compound'){
+						ye=ye[1].split(" ");
+						for (var jj in ye){
+							ki=shortget(ye[jj],ki,2);
+						}
 					}
 				}
+				else{
 					var luj=decomposeLujvo(a);
 					if(luj){for (var ji in luj){ki.push(rafsi[luj[ji]]);}}
+				}
 			}
 		return ki;
 	}

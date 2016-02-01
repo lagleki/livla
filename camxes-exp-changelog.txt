@@ -131,4 +131,24 @@ This behavior is more in accordande with that of Jbofi'e, except that in Jbofi'e
 141223: Change "text" rule from node() to node_nonempty() to fix TO parsing (also in camxes-std)
 142512: t o h a i / v o h a i / x o h a i / s u h e i / s u h a i  added
 
+======
 
+150105: ban CGV strings anywhere per BPFK decision (http://mw.lojban.org/papri/BPFK_Section:_Ban_on_consonant-glide-vowel_strings )
+150107: fix slinkuhi detection in extended rafsi (https://groups.google.com/forum/#!msg/bpfk-list/P0YKLOBDvNY/6l6LXBXb81sJ )
+150116: (off only) show elided FEhU (this only included the source fix, not the compiled camxes.js)
+150131-150201: (exp only) add lo'ai sa'ai le'ai as lo'u-like free modifier
+150204: insert y into voiced-voiceless clusters (preprocessor)
+150219: (exp only) add cmavo: CAI (mau'i, dau'i, me'ai), COI (a'oi), KE (pi'ai), PA (xei), UI (fu'au, a'ei), XI (te'ai)
+150220: convert · to . (preprocessor)
+150324: complete the FEhU fix from 150116
+150325-150506: various additions to the grammar, later removed from here and spun off as altatufa (http://github.com/lagleki/glekitufa ):
+	* sentences and subsentences without selbri
+	* postpositions
+	* split nouns (fa ti fa je ta, fa ti fa noi nei)
+	* suffixed articles
+	* {ze'ei}
+	* sumti place detection
+	Some of these also survived into morfologi (https://github.com/mezohe/ilmentufa/tree/morfologi )
+150525: (off and exp) update to BPFK morphology 137 (allow glides after diphthongs and rafsi ending in Gy), and fix stressed {cmavrfy}-shaped rafsi
+		(exp only) fix {to'e TAG SELBRI} (parse as selbritcita, not sumti), allow {cu TERMS SELBRI} 
+			(see http://mw.lojban.org/papri/nu_curmi_lo_nu_lo_sumti_cu_jbini_zo_cu_joi_lo_selbri )

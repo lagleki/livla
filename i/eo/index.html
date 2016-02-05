@@ -296,17 +296,23 @@
 		return false;
 	}
 	var ready = false;
-	$(document).ready(function () {
-		if ($(window).width() >= 500) {
+	var cankocisni = function(){
+		if ($(window).width() >= 510) {
 			$('#site-title').css( "display", "block !important").show();
 			$('#mipri').css( "display", "block !important").show();
+			$("#typehere").css({"width":'auto','margin-left':'0px','margin-right':'0px'});
 		}else{
+			$('#site-title').css( "display", "block !important").hide();
+			$('#mipri').css( "display", "block !important").hide();
 			$("#typehere").css({"width":$(window).width()-64,'margin-left':'4px','margin-right':'4px'});
 		}
 		if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 		doSearch();
+	}
+	$(document).ready(cankocisni());
+	$(window).on('resize', function(){
+		console.log($(window).width());cankocisni();
 	});
-
 	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").css('height','5px').css('width','100');});
 	worker.onmessage = function(ev) {
 		if (!ev.data) {

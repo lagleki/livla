@@ -311,7 +311,7 @@
 	}
 	$(document).ready(cankocisni());
 	$(window).on('resize', function(){
-		console.log($(window).width());cankocisni();
+		cankocisni();
 	});
 	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").css('height','5px').css('width','100');});
 	worker.onmessage = function(ev) {

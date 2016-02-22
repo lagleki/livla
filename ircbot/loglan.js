@@ -7,7 +7,7 @@ return [
 	["zo'u","goi"],
 	["be","je"],["bei","jue"],
 	["sei","soi"],["fi'o","soi"],["xoi","soi"],
-	["du","bi"],
+	["du","bi"],["go'i","dua"],
 	["na ku","no"],
 	["ky","kei"],["ly","lei"],["my","mei"],["ny","nei"],["py","pei"],
 	["au","ae"],["da'i","eu"],

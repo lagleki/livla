@@ -8,7 +8,7 @@ var interm=2900;
 fram="../../../files/fndata-1.5/frame";
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
-var tcan='#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#fanva';
+var tcan='#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#fanva,#spero';
 var livlytcan='##jboselbau';//where la livla talks to la mensi
 var asker='livla';
 var replier='mensi';
@@ -436,8 +436,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		}
 	}
 	//now send back part
-		var l=notci.length;
-		while (l--){
+		for (var l=0;l<notci.length;l++){
 			//sendTo
 			if (notci[l].length === 0) continue; // prevent a crash if the line is empty
 			var cmenepagbu=notci[l].split("\t");//.substr(0, notci[l].indexOf('\t'));
@@ -1558,7 +1557,7 @@ var prettifylojbansentences = function(){//insert spaces to lojban sentences
         var words = fs.readFileSync(path.join(__dirname,"../","eikatna.txt"),'utf8').split("\n");
         var sj=[];
         for (var j=0;j<words.length;j++){
-                        sj.push(run_camxes(words[j],3));
+                        sj.push(run_camxesoff(words[j],3));
         }
         var content = fs.writeFileSync(path.join(__dirname,"../","sekatna.txt"),sj.join("\n").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n"));
         return 'mulno';

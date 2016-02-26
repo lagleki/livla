@@ -3,6 +3,7 @@ var fs = require("fs"),path = require("path-extra"),libxmljs = require("libxmljs
 require('v8-profiler');
 var s,t,notci,notcijudri,ljv='';
 var tato= require('./tatoeba.js');
+var gram= require('./gram.js');
 var interv=300000;
 var interm=2900;
 fram="../../../files/fndata-1.5/frame";
@@ -385,6 +386,10 @@ var processor = function(client, from, to, text, message) {
         if (text.indexOf(preasker) == '0' && from!==replier) {
         setTimeout(function() {client.say(sendTo, from + ': ' + ext(mizmiku));}, interm );
     }}
+	/*for (var h=o;h<gram.gram.length;h++){
+		var f = gram.gram;
+		if()
+	}()*/
 	if (~text.indexOf("doi " + asker) && from!==replier) {
       		setTimeout(function() {client.say(sendTo, tato.tatoebaprocessing(from));}, interm );
 	}

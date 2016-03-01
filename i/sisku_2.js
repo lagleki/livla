@@ -37,7 +37,6 @@ function search(query, callback) {
 			{
 				if (!shi){
 					if (a.replace(/ zei /g,'-zei-').split(" ").length===1){
-						
 						var ye=mavalsi(a);
 						if(ye[0]==='cmavo compound'){
 							ye=ye[1].split(" ");
@@ -67,7 +66,7 @@ function search(query, callback) {
 	else{
 		if ((query.indexOf('^')===0||query.slice(-1)==='$'))
 		{
-			lo_matra_cu_cupra=documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined });
+			preciseMatches=documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined });
 		}
 		else {
 			lo_matra_cu_cupra=documentStore.filter(function(a){
@@ -76,7 +75,7 @@ function search(query, callback) {
 			});
 			if (!lo_matra_cu_cupra||lo_matra_cu_cupra.length===0){
 				preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(shortget(query,[]))});
-				if (preciseMatches===[]) {
+				if (preciseMatches===[]||preciseMatches[0].rafsiDocuments[0].t==='cizra') {
 					preciseMatches=be([],query)||[];
 				}
 			}

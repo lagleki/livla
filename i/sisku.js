@@ -59,15 +59,15 @@ function search(query, callback) {
 	{
 		preciseMatches=documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined });
 	}
-	else {
-		if (!window.muplis && queryDecomposition.length>1){
+	else if (!window.muplis && queryDecomposition.length>1){
 			for (var s=0;s<queryDecomposition.length;s++){
 				for (var c=queryDecomposition.length-1;c>=s;c--){
 					ki=shortget(queryDecomposition.slice(s,c+1).join(" "),ki);
 				}
 			}
 			preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(ki)});
-		}
+	}
+	else {
 		lo_matra_cu_cupra=documentStore.filter(function(a){
 			var m = Object.keys(a).map(function (key) {return a[key];}).join(";");
 			return m.indexOf(query)>=0||m.indexOf(query.replace(/h/g,"'"))>=0;
@@ -152,8 +152,14 @@ function search(query, callback) {
 		}
 		//preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(shortget(query,[]))});
 		try{
-			if (preciseMatches===[]||preciseMatches[0].rafsiDocuments[0].t==='cizra') {
+			if (preciseMatches.length===0||preciseMatches[0].rafsiDocuments[0].t==='cizra') {
 				preciseMatches=be([],query)||[];
+			}
+		}catch(err){}
+		try{
+			console.log(JSON.stringify(preciseMatches));
+			if (preciseMatches[0].w!==query){
+				preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(shortget(query,[]))});
 			}
 		}catch(err){}
 	}

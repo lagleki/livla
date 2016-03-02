@@ -150,7 +150,7 @@ function search(query, callback) {
 			.concat(defMatches)
 			.concat(lastMatches);
 		}
-		preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(shortget(query,[]))});
+		//preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(shortget(query,[]))});
 		try{
 			if (preciseMatches===[]||preciseMatches[0].rafsiDocuments[0].t==='cizra') {
 				preciseMatches=be([],query)||[];

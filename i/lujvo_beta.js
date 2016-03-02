@@ -24,7 +24,7 @@ function decomposeLujvo(a) {
 	if (a.indexOf(' zei ')>-1){return a.split(" zei ");}
 	try{t= cmaxes.parse(a).toString().split(",");}catch(err){return;}
 	if (t[0]!=='lujvo'||t.length!==2) return;
-	t = t[1].replace(/[nr]-/g,'-').split("-");
+	t = t[1].split("-").map(function(a){return a.substring(0, 4);});
 	return t;
 }
 

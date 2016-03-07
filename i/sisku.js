@@ -157,9 +157,15 @@ function search(query, callback) {
 			}
 		}catch(err){}
 		try{
-			console.log(JSON.stringify(preciseMatches));
 			if (preciseMatches[0].w!==query){
-				preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(shortget(query,[]))});
+				var ty = julne(shortget(query,[]));
+				if (ty.length<=1){
+					preciseMatches=ty.concat(preciseMatches);
+				}
+				else{
+					preciseMatches={t: "decomposing ...",w: query,rafsiDocuments: ty}.concat(preciseMatches);
+				}
+				
 			}
 		}catch(err){}
 	}

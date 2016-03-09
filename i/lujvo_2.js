@@ -51,3 +51,7 @@ function restore(doc){
 	return doc;
 }
 onUpdateDocumentStore();
+
+window.storecache=documentStore.map(function(a){
+	return Object.keys(a).map(function (key) {return a[key];}).join(";").toLowerCase();
+});

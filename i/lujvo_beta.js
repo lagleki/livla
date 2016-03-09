@@ -24,10 +24,7 @@ function decomposeLujvo(a) {
 	if (a.indexOf(' zei ')>-1){return a.split(" zei ");}
 	try{t= cmaxes.parse(a).toString().split(",");}catch(err){return;}
 	if (t[0]!=='lujvo'||t.length!==2) return;
-	t = t[1].split("-").map(function(a){
-		if (a.length===5 && (a.charAt(a.length - 1)==='r'||a.charAt(a.length - 1)==='n')){ return a.substring(0, 4);}
-		else {return a;}
-	});
+	t = t[1].split("-").map(function(a){return a.substring(0, 4);});
 	return t;
 }
 
@@ -54,3 +51,7 @@ function restore(doc){
 	return doc;
 }
 onUpdateDocumentStore();
+
+window.storecache=documentStore.map(function(a){
+	return Object.keys(a).map(function (key) {return a[key];}).join(";").toLowerCase();
+});

@@ -42,7 +42,7 @@ function search(query, callback) {
 			if (!doc) {
 				continue;
 			}
-				if (doc.w === query){
+				if (doc.w === query||doc.w === query.replace(/h/g,"'")){
 					exactMatches.push(doc);
 					exactMatches=be(exactMatches,query);
 					continue;
@@ -120,14 +120,14 @@ function search(query, callback) {
 								ki=shortget(ye[jj],ki,2);
 							}
 						}
-						else{ki=ki.concat({t: "",d:"not found",w: a});}
+						else if (ye[0]!==''){console.log(ye);ki=ki.concat({t: "",d:"not found",w: a});}
 					}
 					else{
 						var luj=decomposeLujvo(a);
 						if(luj){for (var ji in luj){ki.push(rafsi[luj[ji]]);}}
 					}
 				}
-				else{ki=ki.concat({t: "",d:"not found",w: a});}
+				else{console.log(2);ki=ki.concat({t: "",d:"not found",w: a});}
 			}
 		return ki;
 	}

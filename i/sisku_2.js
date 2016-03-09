@@ -29,6 +29,81 @@ function search(query, callback) {
 		}
 		return kil;
 	}
+	function sortthem(lo_matra_cu_cupra){
+		var exactMatches = [];
+		var greatMatches = [];
+		var selmahoMatches = [];
+		var goodMatches = [];
+		var normalMatches = [];
+		var defMatches = [];
+		var lastMatches = [];
+		for (var i=0;i<lo_matra_cu_cupra.length;i++) {
+			var doc = restore(lo_matra_cu_cupra[i]);//todo: optimize for phrases
+			if (!doc) {
+				continue;
+			}
+				if (doc.w === query){
+					exactMatches.push(doc);
+					exactMatches=be(exactMatches,query);
+					continue;
+				}
+				else if ((doc.g||'')===query||((doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
+					greatMatches.push(doc);
+					continue;
+				}
+				else if ((doc.s||'') === query){
+					selmahoMatches.push(doc);//selmaho
+					continue;
+				}
+				else if ((doc.g||'').search("\\b"+query+"\\b")>=0) {
+					goodMatches.push(doc);
+					continue;
+				}
+				else if ((doc.t == 'gismu' && ((doc.r || []).indexOf(query) != -1))) {
+					normalMatches.push(doc);
+					continue;
+				}
+				else if (((doc.d||'').toLowerCase().search("\\b"+query+"\\b")>=0)){
+					defMatches.push(doc);
+					continue;
+				}
+				else {lastMatches.push(doc);}
+		}
+		if (exactMatches.length===0) {preciseMatches=be([],query)||[];}
+		var sor = function (ar){
+			if (ar.length===0) return ar;
+			var gism=[];
+			var cmav=[];
+			for (c=0;c<ar.length;c++){
+				if (ar[c].t==='gismu'){gism.push(ar.splice(c,1)[0]);}
+			}
+			for (c=0;c<ar.length;c++){
+				if (ar[c].t==='cmavo'){cmav.push(ar.splice(c,1)[0]);}
+			}
+			return gism.sort(sortMultiDimensional)
+			.concat(cmav.sort(sortMultiDimensional))
+			.concat(ar.sort(sortMultiDimensional));
+		};
+		var sortMultiDimensional = function (a,b)
+		{
+			return (((a.d||'').length < (b.d||'').length) ? -1 : (((a.d||'').length > (b.d||'').length) ? 1 : 0));
+		};
+		greatMatches=sor(greatMatches);
+		selmahoMatches=sor(selmahoMatches);
+		goodMatches=sor(goodMatches);
+		normalMatches=sor(normalMatches);
+		defMatches=sor(defMatches);
+		lastMatches=sor(lastMatches);
+		preciseMatches=sor(preciseMatches);
+		return preciseMatches
+		.concat(exactMatches)
+		.concat(greatMatches)
+		.concat(selmahoMatches)
+		.concat(goodMatches)
+		.concat(normalMatches)
+		.concat(defMatches)
+		.concat(lastMatches);
+	}
 	function shortget(a,ki,shi){
 		var isdef = documentStore.filter(function (o){
 			return (o.w.toLowerCase()==a.toLowerCase())||(o.d.toLowerCase()=="{"+a.toLowerCase()+"}");
@@ -58,7 +133,7 @@ function search(query, callback) {
 	}
 	if ((query.indexOf('^')===0||query.slice(-1)==='$'))
 	{
-		preciseMatches=documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined });
+		preciseMatches = sortthem(documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined }));
 	}
 	else if (!window.muplis && queryDecomposition.length>1){
 			for (var s=0;s<queryDecomposition.length;s++){
@@ -79,79 +154,7 @@ function search(query, callback) {
 			return;
 		}
 		else{
-			var exactMatches = [];
-			var greatMatches = [];
-			var selmahoMatches = [];
-			var goodMatches = [];
-			var normalMatches = [];
-			var defMatches = [];
-			var lastMatches = [];
-			for (var i=0;i<lo_matra_cu_cupra.length;i++) {
-				var doc = restore(lo_matra_cu_cupra[i]);//todo: optimize for phrases
-				if (!doc) {
-					continue;
-				}
-					if (doc.w === query){
-						exactMatches.push(doc);
-						exactMatches=be(exactMatches,query);
-						continue;
-					}
-					else if ((doc.g||'')===query||((doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
-						greatMatches.push(doc);
-						continue;
-					}
-					else if ((doc.s||'') === query){
-						selmahoMatches.push(doc);//selmaho
-						continue;
-					}
-					else if ((doc.g||'').search("\\b"+query+"\\b")>=0) {
-						goodMatches.push(doc);
-						continue;
-					}
-					else if ((doc.t == 'gismu' && ((doc.r || []).indexOf(query) != -1))) {
-						normalMatches.push(doc);
-						continue;
-					}
-					else if (((doc.d||'').toLowerCase().search("\\b"+query+"\\b")>=0)){
-						defMatches.push(doc);
-						continue;
-					}
-					else {lastMatches.push(doc);}
-			}
-			if (exactMatches.length===0) {preciseMatches=be([],query)||[];}
-			var sor = function (ar){
-				if (ar.length===0) return ar;
-				var gism=[];
-				var cmav=[];
-				for (c=0;c<ar.length;c++){
-					if (ar[c].t==='gismu'){gism.push(ar.splice(c,1)[0]);}
-				}
-				for (c=0;c<ar.length;c++){
-					if (ar[c].t==='cmavo'){cmav.push(ar.splice(c,1)[0]);}
-				}
-				return gism.sort(sortMultiDimensional)
-				.concat(cmav.sort(sortMultiDimensional))
-				.concat(ar.sort(sortMultiDimensional));
-			};
-			var sortMultiDimensional = function (a,b)
-			{
-				return (((a.d||'').length < (b.d||'').length) ? -1 : (((a.d||'').length > (b.d||'').length) ? 1 : 0));
-			};
-			greatMatches=sor(greatMatches);
-			selmahoMatches=sor(selmahoMatches);
-			goodMatches=sor(goodMatches);
-			normalMatches=sor(normalMatches);
-			defMatches=sor(defMatches);
-			lastMatches=sor(lastMatches);
-			preciseMatches=sor(preciseMatches);
-			preciseMatches = preciseMatches
-			.concat(exactMatches)
-			.concat(greatMatches)
-			.concat(selmahoMatches)
-			.concat(goodMatches)
-			.concat(normalMatches)
-			.concat(defMatches)
-			.concat(lastMatches);
+			preciseMatches = sortthem(lo_matra_cu_cupra);
 		}
 		//preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(shortget(query,[]))});
 		try{

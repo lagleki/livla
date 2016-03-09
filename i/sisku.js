@@ -6,7 +6,7 @@ function search(query, callback) {
 	var queryDecomposition = query.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');});
 	var kij=[];
 	var ki=[];
-	var lo_matra_cu_cupra;
+	var lo_matra_cu_cupra=[];
 	function julne(a){
 		return a.filter(function(n){ return n !== undefined }).map(function(a){return restore(a);});
 	}
@@ -15,7 +15,8 @@ function search(query, callback) {
 		if (luj){
 			var kim=[];
 			for (var ji in luj){
-				kim.push(rafsi[luj[ji]]);
+				var rf = rafsi[luj[ji]];
+				if (rf){kim.push(rf);}else{kim=kim.concat({t: "",d:"not found",w: "-"+luj[ji]+"-",r:[luj[ji]]});}
 			}
 			if (kil.length===1 && kil[0].w===lu){
 				kil[0].rafsiDocuments = julne(kim);
@@ -44,14 +45,14 @@ function search(query, callback) {
 								ki=shortget(ye[jj],ki,2);
 							}
 						}
-						else{ki=ki.concat({t: "cizra",d:"",w: a});}
+						else{ki=ki.concat({t: "",d:"not found",w: a});}
 					}
 					else{
 						var luj=decomposeLujvo(a);
 						if(luj){for (var ji in luj){ki.push(rafsi[luj[ji]]);}}
 					}
 				}
-				else{ki=ki.concat({t: "",d:"<font style=\"color:#FF0000;font-weight: bold;font-style: oblique;'\">not found",w: a});}
+				else{ki=ki.concat({t: "",d:"not found",w: a});}
 			}
 		return ki;
 	}
@@ -68,10 +69,12 @@ function search(query, callback) {
 			preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(ki)});
 	}
 	else {
-		lo_matra_cu_cupra=documentStore.filter(function(a){
-			var m = Object.keys(a).map(function (key) {return a[key];}).join(";");
-			return m.indexOf(query)>=0||m.indexOf(query.replace(/h/g,"'"))>=0;
-		});
+		for (var w=0;w<documentStore.length;w++){
+			var m = window.storecache[w];
+			if(m.indexOf(query.toLowerCase())>=0||m.indexOf(query.toLowerCase().replace(/h/g,"'"))>=0){
+				lo_matra_cu_cupra.push(documentStore[w]);
+			}
+		}
 		if (searchId !== searchIdCounter) {
 			return;
 		}
@@ -152,20 +155,15 @@ function search(query, callback) {
 		}
 		//preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(shortget(query,[]))});
 		try{
-			if (preciseMatches.length===0||preciseMatches[0].rafsiDocuments[0].t==='cizra') {
+			if (preciseMatches.length===0||preciseMatches[0].rafsiDocuments[0].d==='not found') {
 				preciseMatches=be([],query)||[];
 			}
 		}catch(err){}
 		try{
-			if (preciseMatches[0].w!==query){
+			if (preciseMatches.length===0||preciseMatches[0].w!==query){
 				var ty = julne(shortget(query,[]));
-				if (ty.length<=1){
-					preciseMatches=ty.concat(preciseMatches);
-				}
-				else{
-					preciseMatches={t: "decomposing ...",w: query,rafsiDocuments: ty}.concat(preciseMatches);
-				}
-				
+				if (ty.length<=1){preciseMatches=ty.concat(preciseMatches);}
+				else{preciseMatches=[{t: "decomposing ...",w: query,rafsiDocuments: ty}].concat(preciseMatches);}
 			}
 		}catch(err){}
 	}

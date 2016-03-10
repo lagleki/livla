@@ -105,6 +105,10 @@ function search(query, callback) {
 		.concat(lastMatches);
 	}
 	function shortget(a,ki,shi){
+		a = a.replace(/([cfkpstx])([bdgjvz])/igm,"$1y$2");
+		a = a.replace(/([bdgjvz])([cfkpstx])/igm,"$1y$2");
+		a = a.replace(/([bcdfgjklmnprstvxz])\1/igm,"$1y$2");
+		a = a.replace(/([aeiouy])\1/igm,"$1'$2");
 		var isdef = documentStore.filter(function (o){
 			return (o.w.toLowerCase()==a.toLowerCase())||(o.d.toLowerCase()=="{"+a.toLowerCase()+"}");
 		});
@@ -120,7 +124,7 @@ function search(query, callback) {
 								ki=shortget(ye[jj],ki,2);
 							}
 						}
-						else if (ye[0]!==''){console.log(ye);ki=ki.concat({t: "",d:"not found",w: a});}
+						else if (ye[0]!==''){console.log(JSON.stringify(ye));ki=ki.concat({t: "",d:"not found",w: a});}
 					}
 					else{
 						var luj=decomposeLujvo(a);

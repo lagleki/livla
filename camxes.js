@@ -56834,4 +56834,3 @@ module.exports = camxes;
 term = process.argv[2];
 if (term !== undefined && typeof term.valueOf() === 'string')
   console.log(JSON.stringify(camxes.parse(term)));
-

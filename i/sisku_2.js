@@ -3,7 +3,8 @@ function search(query, callback) {
 	if (query.length === 0) return;
 	var searchId = ++searchIdCounter;
 	var preciseMatches = [];
-	var queryDecomposition = query.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');});
+	var queryP=query.replace(/h/g,"'").toLowerCase();
+	var queryDecomposition = queryP.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');});
 	var kij=[];
 	var ki=[];
 	var lo_matra_cu_cupra=[];
@@ -42,7 +43,7 @@ function search(query, callback) {
 			if (!doc) {
 				continue;
 			}
-				if (doc.w === query||doc.w === query.replace(/h/g,"'")){
+				if (doc.w === query||doc.w === queryP){
 					exactMatches.push(doc);
 					exactMatches=be(exactMatches,query);
 					continue;
@@ -53,6 +54,7 @@ function search(query, callback) {
 				}
 				else if ((doc.s||'') === query){
 					selmahoMatches.push(doc);//selmaho
+					
 					continue;
 				}
 				else if ((doc.g||'').search("\\b"+query+"\\b")>=0) {
@@ -95,7 +97,7 @@ function search(query, callback) {
 		defMatches=sor(defMatches);
 		lastMatches=sor(lastMatches);
 		preciseMatches=sor(preciseMatches);
-		return preciseMatches
+		preciseMatches=preciseMatches
 		.concat(exactMatches)
 		.concat(greatMatches)
 		.concat(selmahoMatches)
@@ -103,6 +105,17 @@ function search(query, callback) {
 		.concat(normalMatches)
 		.concat(defMatches)
 		.concat(lastMatches);
+		try{
+			if(preciseMatches[0].w===queryP){
+				for (var tyt=1;tyt<preciseMatches.length;tyt++){
+					if(preciseMatches[tyt].l && (preciseMatches[tyt].d==="{"+queryP+"}")){
+						preciseMatches.splice(tyt,1);
+						tyt=tyt-1;
+					}
+				}
+			}
+		}catch(err){}
+		return preciseMatches;
 	}
 	function shortget(a,ki,shi){
 		a = a.replace(/([cfkpstx])([bdgjvz])/igm,"$1y$2");
@@ -124,14 +137,14 @@ function search(query, callback) {
 								ki=shortget(ye[jj],ki,2);
 							}
 						}
-						else if (ye[0]!==''){console.log(JSON.stringify(ye));ki=ki.concat({t: "",d:"not found",w: a});}
+						else if (ye[0]!==''){ki=ki.concat({t: "",d:"not found",w: a});}
 					}
 					else{
 						var luj=decomposeLujvo(a);
 						if(luj){for (var ji in luj){ki.push(rafsi[luj[ji]]);}}
 					}
 				}
-				else{console.log(2);ki=ki.concat({t: "",d:"not found",w: a});}
+				else{ki=ki.concat({t: "",d:"not found",w: a});}
 			}
 		return ki;
 	}
@@ -167,10 +180,19 @@ function search(query, callback) {
 			}
 		}catch(err){}
 		try{
-			if (preciseMatches.length===0||preciseMatches[0].w!==query){
-				var ty = julne(shortget(query,[]));
+			if (preciseMatches.length===0||preciseMatches[0].w!==queryP){
+				var ty = julne(shortget(queryP,[]));
 				if (ty.length<=1){preciseMatches=ty.concat(preciseMatches);}
-				else{preciseMatches=[{t: "decomposing ...",w: query,rafsiDocuments: ty}].concat(preciseMatches);}
+				else{
+					/*if(ty[0].w===queryP){
+						for (var tyt=1;tyt<ty.length;tyt++){
+							if(ty[tyt].l && (ty[tyt].d==="{"+queryP+"}")){
+								ty.splice(tyt,1);
+								tyt=tyt-1;
+							}
+						}
+					}*/
+					preciseMatches=[{t: "decomposing ...",w: query,rafsiDocuments: ty}].concat(preciseMatches);}
 			}
 		}catch(err){}
 	}

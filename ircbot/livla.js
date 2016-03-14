@@ -1070,7 +1070,7 @@ var items = [
 	["ku",","],
 	["zo'u",":"],
 	["pe","that-is-related-to"],
-	["za'a","as-I-ca-see"],["za'adai","as-you-can-see"],["pu","in-past"],["ba","in-future"],["vau","]"],["doi","oh"],["uinai","unfortunately"],["u'u","sorry"],
+	["za'a","as-I-can-see"],["za'adai","as-you-can-see"],["pu","in-past"],["ba","in-future"],["vau","]"],["doi","oh"],["uinai","unfortunately"],["u'u","sorry"],
 	["ko","do-it-so-that-you"],["poi","that"],["noi",",which"],["me","among"],["ra","recently-mentioned"],
 	//["bakni","is-a-cow"],
 	["mlatu@n","cat"],["dansu@n","dancer(s)"],["klama@n","comer"],

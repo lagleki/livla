@@ -6,6 +6,7 @@
 <head>
 	<title>la sutysisku zo'u: ze'i mitysisku lo valsi</title>
 	<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
+	<meta name="theme-color" content="#CF8B54">
 	<meta property="og:title" content="La Sutysisku"/>
 	<meta property="og:type" content="article"/>
 	<meta property="og:url" content="https://lojban.github.io/sutysisku/fr-facile/index.html"/>
@@ -412,7 +413,7 @@
 		);
 		if (def.d) {
 		$("<div>").addClass('definition').html(
-			lojTemplate(def.d.replace(/\//g," / ").replace(/@@@(.*?)@@@/g,"<i>$1</i>")) + ' ').appendTo(out);
+			lojTemplate(def.d.replace(/([^<])\/([^>])/g,"$1 / $2").replace(/@@@(.*?)@@@/g,"<i>$1</i>")) + ' ').appendTo(out);
 		}
 		if (def.n) {
 		out.append(

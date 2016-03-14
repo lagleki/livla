@@ -413,7 +413,7 @@
 		);
 		if (def.d) {
 		$("<div>").addClass('definition').html(
-			lojTemplate(def.d.replace(/\//g," / ").replace(/@@@(.*?)@@@/g,"<i>$1</i>")) + ' ').appendTo(out);
+			lojTemplate(def.d.replace(/([^<])\/([^>])/g,"$1 / $2").replace(/@@@(.*?)@@@/g,"<i>$1</i>")) + ' ').appendTo(out);
 		}
 		if (def.n) {
 		out.append(

@@ -416,8 +416,10 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
   if (~to.indexOf('#')) {
     sendTo = to; // send publicly
   }
-  if (1==1) {  //sendTo == to Public
-	text = text.replace(/^<.*?>: /,"");//dealing with Slack 
+	if (text.match(/^<(.*?)>: /,'')!==null){//dealing with Slack
+		from = text.match(/^<(.*?)>: /,'')[1];
+		text = text.replace(/^<.*?>: /,"");
+	}
   	//notci functions first:
 	if (text.indexOf(replier+': tell ') == '0'){
 		text = text.substr(12).trim().replace("\\t"," ").replace(" ","\t");
@@ -541,10 +543,6 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
  	case text.indexOf(prereplier) == '0' && text.indexOf(prereplier + 'xu') !== '0' && from!==asker: setTimeout(function() {benji(source,socket,clientmensi,sendTo, tato.tatoebaprocessing(from));}, interm );break;
  	case text.indexOf("doi " + replier) >-1 && from!==asker: setTimeout(function() {benji(source,socket,clientmensi,sendTo, tato.tatoebaprocessing(from));}, interm );break;*/
   	}
-
-
-
-  }
 };
 
     /*if (text.indexOf(prereplier + 'mi retsku') < 0 && from==asker && text.indexOf(prereplier + 'mi') == '0') {

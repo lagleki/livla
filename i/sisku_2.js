@@ -7,6 +7,7 @@ function search(query, callback) {
 	var queryDecomposition = queryP.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');});
 	var kij=[];
 	var ki=[];
+	var ff;
 	var lo_matra_cu_cupra=[];
 	function julne(a){
 		return a.filter(function(n){ return n !== undefined }).map(function(a){return restore(a);});
@@ -105,6 +106,7 @@ function search(query, callback) {
 		.concat(normalMatches)
 		.concat(defMatches)
 		.concat(lastMatches);
+		//console.log(JSON.stringify(preciseMatches));
 		try{
 			if(preciseMatches[0].w===queryP){
 				for (var tyt=1;tyt<preciseMatches.length;tyt++){
@@ -161,6 +163,8 @@ function search(query, callback) {
 			preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(ki)});
 	}
 	else {
+		ff = new Date().getTime();
+		console.log(queryP);
 		for (var w=0;w<documentStore.length;w++){
 			var m = window.storecache[w];
 			if(m.indexOf(query.toLowerCase())>=0||m.indexOf(query.toLowerCase().replace(/h/g,"'"))>=0){
@@ -196,5 +200,8 @@ function search(query, callback) {
 			}
 		}catch(err){}
 	}
+	var fg = new Date().getTime();
+	console.log(fg - ff);
+	//console.log(lo_matra_cu_cupra.length);
 	callback(preciseMatches);
 }

@@ -32,6 +32,7 @@ function search(query, callback) {
 		return kil;
 	}
 	function sortthem(lo_matra_cu_cupra){
+		ff = new Date().getTime();
 		var exactMatches = [];
 		var greatMatches = [];
 		var selmahoMatches = [];
@@ -72,6 +73,8 @@ function search(query, callback) {
 				}
 				else {lastMatches.push(doc);}
 		}
+		var fg = new Date().getTime();
+		console.log(fg-ff);
 		if (exactMatches.length===0) {preciseMatches=be([],query)||[];}
 		var sor = function (ar){
 			if (ar.length===0) return ar;
@@ -163,8 +166,6 @@ function search(query, callback) {
 			preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(ki)});
 	}
 	else {
-		ff = new Date().getTime();
-		console.log(queryP);
 		for (var w=0;w<documentStore.length;w++){
 			var m = window.storecache[w];
 			if(m.indexOf(query.toLowerCase())>=0||m.indexOf(query.toLowerCase().replace(/h/g,"'"))>=0){
@@ -177,7 +178,7 @@ function search(query, callback) {
 		else{
 			preciseMatches = sortthem(lo_matra_cu_cupra);
 		}
-		//preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(shortget(query,[]))});
+			//preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(shortget(query,[]))});
 		try{
 			if (preciseMatches.length===0||preciseMatches[0].rafsiDocuments[0].d==='not found') {
 				preciseMatches=be([],query)||[];
@@ -200,8 +201,6 @@ function search(query, callback) {
 			}
 		}catch(err){}
 	}
-	var fg = new Date().getTime();
-	console.log(fg - ff);
-	//console.log(lo_matra_cu_cupra.length);
+
 	callback(preciseMatches);
 }

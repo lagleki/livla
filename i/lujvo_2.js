@@ -42,7 +42,8 @@ function onUpdateDocumentStore() {
 
 function restore(doc){
 	if (!doc.t||doc.t===''){
-		if (window.muplis){doc.t=''}else{
+		if (window.muplis||!window.xuzganalojudri){doc.t=''}
+		else{
 			var ye=mavalsi(doc.w);
 			doc.t=ye[0];
 			//if(doc.t==='cmavo compound'){doc.w=ye[1];console.log(doc.w);}

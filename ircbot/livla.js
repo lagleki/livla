@@ -10,7 +10,7 @@ fram="../../../files/fndata-1.5/frame";
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
 var tcan='#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#fanva,#spero';
-var livlytcan='##jboselbau';//where la livla talks to la mensi
+var livlytcan='#fanva';//where la livla talks to la mensi
 var asker='livla';
 var replier='mensi';
 var server='irc.freenode.net';
@@ -897,7 +897,7 @@ var gag;
 var coun = xmlDocEn.find("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/rafsi/text()[1]");//official
 try{
 	var s=xmlDocEn.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text();
-	var tmp=s.replace(/^.*?-([a-z']+)-.*/,'$1');
+	var tmp=s.replace(/^.*? -([a-z']+)-.*/,'$1');
 	if (tmp!==s){coun.push(tmp);}
 	}catch(err){}//search in notes
 if (lin.substr(0,4)!=='brod' & xugismu(lin)===true){coun.push(lin.substr(0,4));}//long rafsi

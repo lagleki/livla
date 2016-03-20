@@ -392,7 +392,7 @@
 		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
 		var jvs = def.t;
 		if(window.xuzganalojudri && !def.l){jvs+="<font color='#aaa'><a style='color: #aaa;' target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
-		if (def.t==='decomposing ...'){if ((def.rafsiDocuments||[]).length==0){ return;}jvs=window.bangudecomp;}
+		//if (def.t==='decomposing ...'){if ((def.rafsiDocuments||[]).length==0){ return;}jvs=window.bangudecomp;}
 		var kl='valsi';if(def.l){kl='valsi nalojbo';};
 		var word='<a class="' + kl + '" href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
 		if (plukaquery(def.w) == query){word=def.w + ' ';}

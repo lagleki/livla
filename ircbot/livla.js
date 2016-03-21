@@ -1481,8 +1481,8 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		var ra=rev[i].find("rafsi//text()[1]");
 		if (lojbo!==0 && xugismu(hi)===true){
 			ra.push(hi);
-			if(hi.indexOf("brod")!==0){ra.push(hi.substr(0,4));}
-			if(hi.indexOf("broda")===0){ra.push("brod");}
+			if(hi.indexOf("brod")!==0){ra.push(hi.substr(0,4)+"y");}
+			if(hi.indexOf("broda")===0){ra.push("brody");}
 		}
 		ra=ra.join("\",\"");
 		

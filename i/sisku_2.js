@@ -7,7 +7,7 @@ function search(query, callback) {
 	var queryDecomposition = queryP.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');});
 	var kij=[];
 	var ki=[];
-	var ff;
+	//var ff;
 	var lo_matra_cu_cupra=[];
 	function julne(a){
 		return a.filter(function(n){ return n !== undefined }).map(function(a){return restore(a);});
@@ -32,7 +32,7 @@ function search(query, callback) {
 		return kil;
 	}
 	function sortthem(lo_matra_cu_cupra){
-		ff = new Date().getTime();
+		//ff = new Date().getTime();
 		var exactMatches = [];
 		var greatMatches = [];
 		var selmahoMatches = [];
@@ -50,7 +50,7 @@ function search(query, callback) {
 					exactMatches=be(exactMatches,query);
 					continue;
 				}
-				else if ((doc.g||'')===query||((doc.g||'').search("(^|;)"+query+"(;|$)")>=0)){
+				else if (doc.w.search("(^| )"+queryP+"( |$)")>=0||(doc.g||'')===query||((doc.g||'').search("(^|;)"+queryP+"(;|$)")>=0)){
 					greatMatches.push(doc);
 					continue;
 				}
@@ -73,8 +73,7 @@ function search(query, callback) {
 				}
 				else {lastMatches.push(doc);}
 		}
-		var fg = new Date().getTime();
-		console.log(fg-ff);
+		//var fg = new Date().getTime();
 		if (exactMatches.length===0) {preciseMatches=be([],query)||[];}
 		var sor = function (ar){
 			if (ar.length===0) return ar;

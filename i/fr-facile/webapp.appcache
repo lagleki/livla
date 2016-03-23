@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# 2016-3-21T2:55:16
+# 2016-3-21T23:41:36
 
 CACHE:
 index.html?version=17
@@ -12,9 +12,6 @@ bangu.js
 ../lujvo_beta.js
 ../data/parsed-fr-facile.js?version=6
 
-../lib/fullproof/normalizers.js
-../lib/fullproof/common-engine.js
-../lib/fullproof/stores/memory_store.js
 
 #./lib/Lato/Lato-Black.ttf
 #./lib/Lato/Lato-BlackItalic.ttf

@@ -41,13 +41,15 @@ langs.forEach(function(thisa){
 
 templ = fs.readFileSync(path.join(__dirname,"../i/test","sisku.xml"),{encoding: 'utf8'});var bng;var b;
 langs.forEach(function(thisa){
-	var file = fs.readFileSync(path.join(__dirname,"../i",thisa,"bangu.js"),{encoding: 'utf8'});
-	//var m = file.match(/window\.bangudesc *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");
-	b = templ.replace("%1%","https://lojban.github.io/sutysisku/"+thisa+"/index.html#sisku/{searchTerms}");
-	b = b.replace("%2%",thisa+"-sutysisku");
-	m = file.match(/siskudescr *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");
-	b = b.replace("%3%",m);
-	fs.writeFileSync(path.join(__dirname,"../i",thisa,"sisku.xml"), b);
+	if (thisa!=='test'){
+		var file = fs.readFileSync(path.join(__dirname,"../i",thisa,"bangu.js"),{encoding: 'utf8'});
+		//var m = file.match(/window\.bangudesc *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");
+		b = templ.replace("%1%","./index.html#sisku/{searchTerms}");
+		b = b.replace("%2%",thisa+"-sutysisku");
+		m = file.match(/siskudescr *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");
+		b = b.replace("%3%",m);
+		fs.writeFileSync(path.join(__dirname,"../i",thisa,"sisku.xml"), b);
+	}
 });
 
 langs.forEach(function(thisa){

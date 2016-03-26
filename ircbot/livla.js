@@ -472,6 +472,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf("raw:") == '0': text = text.substr(4).trim();benji(source,socket,clientmensi,sendTo, run_camxes(text, 0));break;
 		case text.indexOf("zei:") == '0': text = text.substr(4).trim();benji(source,socket,clientmensi,sendTo, zeizei(text));break;
 		case text.indexOf("anji:") == '0': text = text.substr(5).trim();benji(source,socket,clientmensi,sendTo, anji(text));break;
+		case text.indexOf("kru:") == '0': text = text.substr(5).trim();benji(source,socket,clientmensi,sendTo, kru(text));break;
 		case text.indexOf("off:") == '0': text = text.substr(4).trim();ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxesoff(ret[0], ret[1]));break;
 		case text.indexOf("alta:") == '0': text = text.substr(5).trim();ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxesalta(ret[0], ret[1]));break;
 		case text.indexOf("yacc:") == '0': tcepru(text.substr(5),sendTo,source,socket);break;
@@ -618,9 +619,25 @@ var jbopomofo = function (lin)
  case "'": jbopotext+="、";break;
  case ',': jbopotext+="〜";break;
  case ' ': jbopotext+=" ";break;
-}
-}
-return jbopotext;
+ }
+ }
+ return jbopotext;
+};
+
+var kru = function (arg)
+{
+	var t=run_camxes(arg,3).toString();
+	if (t.indexOf("SyntaxError")<0){
+		t=t.replace(/[a-z]+`/g,"").replace(/[a-z]+_[a-z]+/ig,"").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n");
+		t=t.replace(/h/g,"'").toLowerCase();
+		t=t.replace(/([ aeiou])u([aeiou])/g,'$1w$2');
+		t=t.replace(/([ aeiou])i([aeiou])/g,'$1į$2');
+		t=t.replace(/au/g,'ǎ');
+		t=t.replace(/ai/g,'ą');
+		t=t.replace(/ei/g,'ę');
+		t=t.replace(/oi/g,'ǫ');
+		return t;
+	}else{return "O_0";}
 };
 
 var rusko = function (lin)
@@ -1481,8 +1498,8 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		var ra=rev[i].find("rafsi//text()[1]");
 		if (lojbo!==0 && xugismu(hi)===true){
 			ra.push(hi);
-			if(hi.indexOf("brod")!==0){ra.push(hi.substr(0,4)+"y");}
-			if(hi.indexOf("broda")===0){ra.push("brody");}
+			if(hi.indexOf("brod")!==0){ra.push(hi.substr(0,4));}
+			if(hi.indexOf("broda")===0){ra.push("brod");}
 		}
 		ra=ra.join("\",\"");
 		

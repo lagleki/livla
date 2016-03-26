@@ -154,7 +154,7 @@ function search(query, callback) {
 	}
 	if ((query.indexOf('^')===0||query.slice(-1)==='$'))
 	{
-		preciseMatches = sortthem(documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100).filter(function(n){n=restore(n); return n !== undefined }));
+		preciseMatches = julne(sortthem(documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100)));
 	}
 	else if (!window.muplis && queryDecomposition.length>1){
 			for (var s=0;s<queryDecomposition.length;s++){
@@ -200,6 +200,5 @@ function search(query, callback) {
 			}
 		}catch(err){}
 	}
-
 	callback(preciseMatches);
 }

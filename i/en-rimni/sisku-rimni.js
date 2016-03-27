@@ -67,6 +67,7 @@ function search(query, callback) {
 	var preciseMatches=[];
 	var exactMatches = [];
 	var niceMatches = [];
+	var fineMatches = [];
 	var goodMatches = [];
 	var freeMatches = [];
 	var lastMatches = [];
@@ -77,6 +78,16 @@ function search(query, callback) {
 			if (!doc) continue;
 			var docw = doc.w.replace(/([aeiouǎąęǫ])/g,'$1-').split("-").slice(-3);
 			if (queryR && (docw[0].slice(-1) !== queryR[0].slice(-1))) continue;
+			
+			var left = docw[1].slice(-1);
+			var right = queryF[1].slice(-1);
+			var sli=false;
+			if ((left==='a' && right.search('[ou]')>=0)
+				||(left==='e' && right.search('[ai]')>=0)
+				||(left==='i' && right.search('[e]')>0)
+				||(left==='o' && right.search('[au]')>0)
+				||(left==='u' && right.search('[o]')>0)) sli=true;
+			
 			if (doc.w.willify() === query){
 				exactMatches.push(doc);
 				continue;
@@ -84,11 +95,19 @@ function search(query, callback) {
 			else if(queryR 
 					&& (docw[0].match(queryR[0])||[]).length>0
 					&& (docw[1].match(queryR[1])||[]).length>0
-					&& (docw[1].slice(-1) === queryF[1].slice(-1))
+					&& (left === right)
 					&& docw[2]===queryR[2]
 					){
 				niceMatches.push(doc);
 			}
+			else if(queryR 
+					&& (docw[0].match(queryR[0])||[]).length>0
+					&& (docw[1].match(queryR[1])||[]).length>0
+					&& sli
+					&& docw[2]===queryR[2]
+					){
+				fineMatches.push(doc);
+			}			
 			else if(queryR 
 					&& (docw[0].match(queryR[0])||[]).length>0
 					&& (docw[1].match(queryR[1])||[]).length>0
@@ -145,14 +164,16 @@ function search(query, callback) {
 			.concat(elses.sort(sortMultiDimensional));
 		};
 
-		exactMatches=sor(exactMatches);
+		//exactMatches=sor(exactMatches);
 		niceMatches=sor(niceMatches);
+		fineMatches=sor(fineMatches);
 		goodMatches=sor(goodMatches);
 		freeMatches=sor(freeMatches);
 		lastMatches=sor(lastMatches);
 		preciseMatches=
 		exactMatches
 		.concat(niceMatches)
+		.concat(fineMatches)
 		.concat(goodMatches)
 		.concat(freeMatches)
 		.concat(lastMatches);
@@ -162,7 +183,7 @@ function search(query, callback) {
 	String.prototype.willify = function () {
 		var t = "."+this.replace(/\./g,"").replace(/h/g,"'").toLowerCase();
 		t=t.replace(/([aeiou\.])u([aeiou])/g,'$1w$2');
-		t=t.replace(/([aeiou\.])i([aeiou])/g,'$1į$2');
+		t=t.replace(/([aeiou\.])i([aeiou])/g,'$1ɩ$2');
 		t=t.replace(/au/g,'ǎ');
 		t=t.replace(/ai/g,'ą');
 		t=t.replace(/ei/g,'ę');

@@ -4,7 +4,7 @@ function search(query, callback) {
 	var searchId = ++searchIdCounter;
 	var preciseMatches = [];
 	var queryP=query.replace(/h/g,"'").toLowerCase();
-	var queryDecomposition = queryP.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');});
+	var queryDecomposition = window.xuzganalojudri? queryP.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');}) : [ queryP ];
 	var kij=[];
 	var ki=[];
 	//var ff;

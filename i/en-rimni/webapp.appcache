@@ -1,15 +1,13 @@
 CACHE MANIFEST
-# 2015-12-17:v01
+# 2016-03-29:v01
 
 CACHE:
 index.html?version=32
 ../sutysisku.png
 ../arrow-left.png
-../sisku.js
+./sisku-rimni.js
 worker.js
 bangu.js
-# ../Snowball.js
-../lujvo_beta.js
 ../data/parsed-en.js
 
 #./lib/Lato/Lato-Black.ttf

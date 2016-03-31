@@ -1,3 +1,9 @@
+/*
+var log = console.log.bind(console);
+p = function (object) {
+  return JSON.stringify(object);
+};
+*/
 var searchIdCounter = 0;
 function search(query, callback) {
 	if (query.length === 0) return;

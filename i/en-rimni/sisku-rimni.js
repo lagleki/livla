@@ -69,7 +69,9 @@ function search(query, callback) {
 	var exactMatches = [];
 	var niceMatches = [];
 	var fineMatches = [];
+	var cuteMatches = [];
 	var goodMatches = [];
+	var normalMatches = [];
 	var satisfactoryMatches = [];
 	var freeMatches = [];
 	var lastMatches = [];
@@ -80,16 +82,15 @@ function search(query, callback) {
 			if (!doc) continue;
 			var docw = doc.w.willify().replace(/([aeiouǎąęǫ])/g,'$1-').split("-").slice(-3);
 			if (queryR && (docw[0].slice(-1) !== queryR[0].slice(-1))) continue;
-			var left = docw[1].slice(-1);
+			var right = docw[1].slice(-1);
 			var reversal = (docw[1].slice(-3,-1)===queryF[1].slice(-3,-1).split('').reverse().join(''));
-			var right = queryF[1].slice(-1);
+			var left = queryF[1].slice(-1);
 			var sli=false;
-			if ((left==='a' && right.search('[aou]')>=0)
-				||(left==='e' && right.search('[aei]')>=0)
-				||(left==='i' && right.search('[ei]')>=0)
+			if ((left==='a' && right.search('[eao]')>=0)
+				||(left==='e' && right.search('[iea]')>=0)
+				||(left==='i' && right.search('[ie]')>=0)
 				||(left==='o' && right.search('[aou]')>=0)
-				||(left==='u' && right.search('[ou]')>=0)) sli=true;
-			
+				||(left==='u' && right.search('[aou]')>=0)) sli=true;
 			if (doc.w.willify() === query){
 				exactMatches.push(doc);
 				continue;
@@ -111,6 +112,20 @@ function search(query, callback) {
 				fineMatches.push(doc);
 			}			
 			else if(queryR 
+					&& (docw[1].match(queryR[2].regexify())||[]).length>0
+					&& (left === right)
+					&& docw[2]===queryR[2]
+					){
+				cuteMatches.push(doc);
+			}
+			else if(queryR 
+					&& (docw[1].match(queryR[2].regexify())||[]).length>0
+					&& sli
+					&& docw[2]===queryR[2]
+					){
+				normalMatches.push(doc);
+			}
+			else if(queryR 
 					&& (docw[0].match(queryR[0])||[]).length>0
 					&& sli
 					&& reversal
@@ -118,6 +133,7 @@ function search(query, callback) {
 					){
 				goodMatches.push(doc);
 			}
+
 			else if(queryR 
 					&& (docw[0].match(queryR[0])||[]).length>0
 					&& (docw[1].match(queryR[1])||[]).length>0
@@ -135,8 +151,6 @@ function search(query, callback) {
 				lastMatches.push(doc);
 			}
 		}
-		//var fg = new Date().getTime();
-		//if (exactMatches.length===0) {preciseMatches=be([],query)||[];}
 		var sortMultiDimensional = function (a,b)
 		{
 			return (((a.d||'').length < (b.d||'').length) ? -1 : (((a.d||'').length > (b.d||'').length) ? 1 : 0));
@@ -177,6 +191,8 @@ function search(query, callback) {
 		niceMatches=sor(niceMatches);
 		fineMatches=sor(fineMatches);
 		goodMatches=sor(goodMatches);
+		cuteMatches=sor(cuteMatches);
+		normalMatches=sor(normalMatches);
 		satisfactoryMatches=sor(satisfactoryMatches);
 		freeMatches=sor(freeMatches);
 		lastMatches=sor(lastMatches);
@@ -184,6 +200,8 @@ function search(query, callback) {
 		exactMatches
 		.concat(niceMatches)
 		.concat(fineMatches)
+		.concat(cuteMatches)
+		.concat(normalMatches)
 		.concat(goodMatches)
 		.concat(satisfactoryMatches)
 		.concat(freeMatches)
@@ -203,6 +221,15 @@ function search(query, callback) {
 		return t;
 	};
 
+	String.prototype.regexify = function () {
+		var t = this;
+		t=t.replace(/[sz]/g,'[sz]');
+		t=t.replace(/[pb]/g,'[pb]');
+		t=t.replace(/[lmnr]/g,'[lmnr]');
+		t=t.replace(/[įw]/g,'[įw]');
+		return t;
+	};
+	
 	query=query.willify();//todo: more processing
 	
 	var queryR=query.replace(/([aeiouǎąęǫ])/g,'$1-').split("-").slice(-3);
@@ -219,11 +246,7 @@ function search(query, callback) {
 		.filter(function(n){n=restore(n); return n !== undefined }).sortthem();
 	}
 	else{
-		queryP=queryR.join("");
-		queryP=queryP.replace(/[sz]/g,'[sz]');
-		queryP=queryP.replace(/[pb]/g,'[pb]');
-		queryP=queryP.replace(/[lmnr]/g,'[lmnr]');
-		queryP=queryP.replace(/[įw]/g,'[įw]');
+		queryP=queryR.join("").regexify();
 		preciseMatches = documentStore
 		.filter(
 			function(val){

@@ -524,6 +524,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case text.indexOf(prereplier + "tatoget") == '0': tatoget();break;
 		case text.indexOf('ze:') == '0': zmifanva(source,socket,clientmensi,sendTo,text.substr(3),'en2jb');break;
 		case text.indexOf('zj:') == '0': zmifanva(source,socket,clientmensi,sendTo,text.substr(3),'jb2en');break;
+		case text==replier+': pseudogismu': benji(source,socket,clientmensi,sendTo, pseudogismu());break;
 		case text==replier+': ii': benji(source,socket,clientmensi,sendTo, io());break;
 		case text==replier+': aigne': benji(source,socket,clientmensi,sendTo, kurtyvla());break;
 		case text==replier+': help': benji(source,socket,clientmensi,sendTo, sidju());break;
@@ -1566,8 +1567,10 @@ var jbofihe = function(lin,sendTo,source,socket){
 var pseudogismu = function(){//a joke function. checks if an English word is  a valid gismu
 	var words = fs.readFileSync(path.join(__dirname,"../","vale.txt"),'utf8').split("\n");
 	var sj=[];
+	var f;
 	for (var j=0;j<words.length;j++){
-			sj.push(words[j]+" "+run_camxes(words[j].toLowerCase().replace(/sh/g,"c"),3));
+			f=run_camxes(words[j].toLowerCase().replace(/sh/g,"c"),3).toString();
+			if(f.indexOf("yntax")===-1){sj.push(words[j]+" "+f);}
 	}
 	var content = fs.writeFileSync(path.join(__dirname,"../","vale-result"),sj.join("\n"));
 };

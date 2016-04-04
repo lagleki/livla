@@ -2,7 +2,7 @@ CACHE MANIFEST
 # 2016-03-29:v01
 
 CACHE:
-index.html?version=32
+index.html
 ../sutysisku.png
 ../arrow-left.png
 ./sisku-rimni.js

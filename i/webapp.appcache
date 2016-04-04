@@ -1,8 +1,8 @@
 CACHE MANIFEST
-# 2015-11-05:v1
+# 2016-04-04:v1
 
 CACHE:
-index.html?version=32
+index.html?version=35
 //ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
 lib/Metro-UI-CSS/build/js/metro.js
 lib/Metro-UI-CSS/build/css/metro.css

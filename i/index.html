@@ -79,6 +79,16 @@
 	    });
 	});
 
+	var appCache = window.applicationCache;
+	appCache.update();
+	if (appCache.status == window.applicationCache.UPDATEREADY) {
+		appCache.swapCache();
+	}
+	window.applicationCache.addEventListener('updateready', function(e) {
+	if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+		window.location.reload();
+	}
+	}, false);
 </script>
 </body>
 </html>

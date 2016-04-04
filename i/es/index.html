@@ -558,7 +558,6 @@
 	})
 
 	function skicu_lo_ro_valsi(ui) {
-		//if (!ui) resultCount=0;
 		var displayUpTo = Math.min(window.limit, results.length);
 		for (; resultCount < displayUpTo; resultCount++) {
 		try{skicu_lo_valsi(results[resultCount]).appendTo(output);}catch(err){}

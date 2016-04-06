@@ -25,6 +25,16 @@ var ma_klesi_lo_valsi = function(str){
 
 var rafsi = {};
 
+
+var cmima = documentStore.length;
+while (cmima--) {
+var def = documentStore[cmima];
+	var i=(def.r||[]).length;
+	while (i--) {
+		rafsi[(def.r[i]||'')] = def;
+	}
+}
+
 function jmina_lo_se_claxu(doc){
 	if (!doc.t||doc.t===''){
 		if (window.muplis||!window.xuzganalojudri){doc.t=''}
@@ -34,15 +44,6 @@ function jmina_lo_se_claxu(doc){
 		}
 	}
 	return doc;
-}
-
-var cmima = documentStore.length;
-while (cmima--) {
-var def = documentStore[cmima];
-	var i=(def.r||[]).length;
-	while (i--) {
-		rafsi[(def.r[i]||'')] = def;
-	}
 }
 	
 window.storecache=documentStore.map(function(a){

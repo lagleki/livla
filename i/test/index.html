@@ -17,12 +17,12 @@
 	<link rel="shortcut icon" href="../sutysisku.png" />
 	<link rel="search" type="application/opensearchdescription+xml" href="/sutysisku/test/sisku.xml" title="test-sutysisku">
 	<style type="text/css">
-	.container .credit {
-		margin: 20px 0;
-	}
-
 	body {
-		font-family: Tahoma, Lato, sans-serif;font-size:90%;overflow:hidden;
+		font-family: Tahoma, Lato, sans-serif;
+		font-size:90%;
+		overflow:hidden;
+		margin: 0;
+		height: 100vh;
 	}
 
 	h4 {
@@ -103,11 +103,12 @@
 		margin-left: 15px;
 	}
 
-	.bug-tracker {
-		float:right;
-	}
-
 	.core-header {
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		height:48px;
 		width:auto;
 		font-size: 18px;
 		padding: 0;
@@ -121,7 +122,17 @@
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de',GradientType=0 ); /* IE6-9 */
 		color: #FFF;
 	}
-
+	#header-wrapper {
+		max-width: 700px;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 6px;
+		display: -webkit-flex; /* Safari */
+		-webkit-align-items: center; /* Safari 7.0+ */
+		display: flex;
+		align-items: center;
+	}
 	::selection {
 		background: rgba(56,136,233,1);
 		color: #fff;
@@ -136,19 +147,13 @@
 		padding-left: 5px;
 		padding-right: 5px;
 		overflow:auto;
+		height:100%;
+		border-top:48px solid transparent;
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
 		background: #222222 linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent) !important;
 		background-size: 40px 40px !important;
-	}
-	#header-wrapper {
-		max-width: 700px;
-		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 6px;
-		display: -webkit-flex; /* Safari */
-		-webkit-align-items: center; /* Safari 7.0+ */
-		display: flex;
-		align-items: center;
 	}
 	#content-panel {
 		max-width: 700px;
@@ -177,15 +182,7 @@
 	 font-size:70%;
 	}
 	sub { top: 0.4em; }
-	#blackBar{
-		position:absolute;
-		top:0;
-		left:0;
-		right:0;
-		width:100%;
-		height:48px;
-		background-color:black;
-	}
+
 	#output{padding-bottom:20%;}
 	.clearable{
 		height:auto;
@@ -238,8 +235,8 @@
 	  ga('set', 'forceSSL', true);
 	</script>
 </head>
-<body style="margin: 0;height: 100vh;">
-	<div id="blackBar" class='core-header'>
+<body>
+	<div class='core-header'>
 		<div id='header-wrapper'>
 		<span id='plise' style='height:24px;'><a id='st' href="../"><img src="../arrow-left.png" height='24' width='24'></a></span><span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src="../sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
 		<form onsubmit="return false">
@@ -247,19 +244,14 @@
 		</form>
 		</div>
 	</div>
-	<div id='content' style="height:100%;
-	border-top:48px solid transparent;
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	box-sizing:border-box;
-	overflow:auto;">
+	<div id='content'>
 		<div id='content-panel'>
 			<div id='loading' class="term">
 				<span class='message'>Loading dictionary ...</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
 			<div id='purci' style="display:none;" class="term"></div>
-			<div id='description' class="term"><p><b>la sutysisku</b> is a fast dictionary for the Lojban language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p><p><span id='searchengine'><i><a href='#' title='en-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Add as a search engine</a></i></span></p></div>
+		<div id='description' class="term"><p><b>la sutysisku</b> is a fast dictionary for the Lojban language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p><p><span id='searchengine'><i><a href='#' title='en-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Add as a search engine</a></i></span></p></div>
 			<div id='output'></div>
 		</div>
 	</div>

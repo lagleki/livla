@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2016-03-29T23:41:31
+# 2016-04-06T23:41:31
 
 CACHE:
 index.html?version=18
@@ -8,7 +8,7 @@ index.html?version=18
 ../sisku.js
 worker.js
 bangu.js
-../lujvo_beta.js
+
 ../data/parsed-ja.js
 
 #./lib/Lato/Lato-Black.ttf

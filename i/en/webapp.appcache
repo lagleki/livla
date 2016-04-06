@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2016-04-05T23:41:51
+# 2016-04-06T23:41:51
 
 CACHE:
 index.html?version=34
@@ -9,7 +9,7 @@ index.html?version=34
 worker.js
 bangu.js
 # ../Snowball.js
-../lujvo_beta.js
+
 ../data/parsed-en.js
 
 #./lib/Lato/Lato-Black.ttf

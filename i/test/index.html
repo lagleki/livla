@@ -17,6 +17,7 @@
 	<link rel="shortcut icon" href="../sutysisku.png" />
 	<link rel="search" type="application/opensearchdescription+xml" href="/sutysisku/test/sisku.xml" title="test-sutysisku">
 	<style type="text/css">
+
 	body {
 		font-family: Tahoma, Lato, sans-serif;
 		font-size:90%;
@@ -133,6 +134,7 @@
 		display: flex;
 		align-items: center;
 	}
+
 	::selection {
 		background: rgba(56,136,233,1);
 		color: #fff;
@@ -155,6 +157,7 @@
 		background: #222222 linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent) !important;
 		background-size: 40px 40px !important;
 	}
+
 	#content-panel {
 		max-width: 700px;
 		width: 100%;
@@ -182,7 +185,6 @@
 	 font-size:70%;
 	}
 	sub { top: 0.4em; }
-
 	#output{padding-bottom:20%;}
 	.clearable{
 		height:auto;
@@ -251,7 +253,7 @@
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
 			<div id='purci' style="display:none;" class="term"></div>
-		<div id='description' class="term"><p><b>la sutysisku</b> is a fast dictionary for the Lojban language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p><p><span id='searchengine'><i><a href='#' title='en-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Add as a search engine</a></i></span></p></div>
+			<div id='description' class="term"><p><b>la sutysisku</b> is a fast dictionary for the Lojban language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p><p><span id='searchengine'><i><a href='#' title='en-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Add as a search engine</a></i></span></p></div>
 			<div id='output'></div>
 		</div>
 	</div>
@@ -498,7 +500,7 @@
 		var searchId = ++searchIdCounter;
 		window.limit = 30;
 		resultCount = 0;
-		ga('send', 'pageview', 'search?query=' + query);
+		ga('send', 'pageview', '#sisku/' + query);
 		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
 	}
 	//search after timeout

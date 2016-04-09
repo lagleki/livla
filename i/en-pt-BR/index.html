@@ -17,12 +17,13 @@
 	<link rel="shortcut icon" href="../sutysisku.png" />
 	<link rel="search" type="application/opensearchdescription+xml" href="/sutysisku/en-pt-BR/sisku.xml" title="en-pt-BR-sutysisku">
 	<style type="text/css">
-	.container .credit {
-		margin: 20px 0;
-	}
 
 	body {
-		font-family: Tahoma, Lato, sans-serif;font-size:90%;overflow:hidden;
+		font-family: Tahoma, Lato, sans-serif;
+		font-size:90%;
+		overflow:hidden;
+		margin: 0;
+		height: 100vh;
 	}
 
 	h4 {
@@ -103,11 +104,12 @@
 		margin-left: 15px;
 	}
 
-	.bug-tracker {
-		float:right;
-	}
-
 	.core-header {
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		height:48px;
 		width:auto;
 		font-size: 18px;
 		padding: 0;
@@ -120,6 +122,17 @@
 		background: linear-gradient(to bottom,  rgba(56,136,233,1) 0%,rgba(34,87,213,1) 13%,rgba(38,99,224,1) 88%,rgba(25,65,165,1) 100%); /* W3C */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de',GradientType=0 ); /* IE6-9 */
 		color: #FFF;
+	}
+	#header-wrapper {
+		max-width: 700px;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 6px;
+		display: -webkit-flex; /* Safari */
+		-webkit-align-items: center; /* Safari 7.0+ */
+		display: flex;
+		align-items: center;
 	}
 
 	::selection {
@@ -136,20 +149,15 @@
 		padding-left: 5px;
 		padding-right: 5px;
 		overflow:auto;
+		height:100%;
+		border-top:48px solid transparent;
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
 		background: #222222 linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent) !important;
 		background-size: 40px 40px !important;
 	}
-	#header-wrapper {
-		max-width: 700px;
-		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 6px;
-		display: -webkit-flex; /* Safari */
-		-webkit-align-items: center; /* Safari 7.0+ */
-		display: flex;
-		align-items: center;
-	}
+
 	#content-panel {
 		max-width: 700px;
 		width: 100%;
@@ -177,15 +185,6 @@
 	 font-size:70%;
 	}
 	sub { top: 0.4em; }
-	#blackBar{
-		position:absolute;
-		top:0;
-		left:0;
-		right:0;
-		width:100%;
-		height:48px;
-		background-color:black;
-	}
 	#output{padding-bottom:20%;}
 	.clearable{
 		height:auto;
@@ -238,8 +237,8 @@
 	  ga('set', 'forceSSL', true);
 	</script>
 </head>
-<body style="margin: 0;height: 100vh;">
-	<div id="blackBar" class='core-header'>
+<body>
+	<div class='core-header'>
 		<div id='header-wrapper'>
 		<span id='plise' style='height:24px;'><a id='st' href="../"><img src="../arrow-left.png" height='24' width='24'></a></span><span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src="../sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
 		<form onsubmit="return false">
@@ -247,12 +246,7 @@
 		</form>
 		</div>
 	</div>
-	<div id='content' style="height:100%;
-	border-top:48px solid transparent;
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	box-sizing:border-box;
-	overflow:auto;">
+	<div id='content'>
 		<div id='content-panel'>
 			<div id='loading' class="term">
 				<span class='message'>Loading dictionary ...</span><br>
@@ -506,7 +500,7 @@
 		var searchId = ++searchIdCounter;
 		window.limit = 30;
 		resultCount = 0;
-		ga('send', 'pageview', 'search?query=' + query);
+		ga('send', 'pageview', '#sisku/' + query);
 		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
 	}
 	//search after timeout

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2016-04-09
+# 2016-04-11T01:40:10
 
 CACHE:
 index.html
@@ -7,6 +7,8 @@ index.html
 ../arrow-left.png
 ../sisku.js
 bangu.js
+../16.png
+../32.png
 worker.js
 
 ../data/parsed-jbo.js
@@ -55,8 +57,7 @@ worker.js
 
 
 NETWORK:
-https://ssl.google-analytics.com/
-http://www.google-analytics.com/
+*
 
 FALLBACK:
 /sisku/ ./

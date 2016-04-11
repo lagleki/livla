@@ -49,6 +49,28 @@ langs.forEach(function(thisa){
 		m = file.match(/siskudescr *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");
 		b = b.replace("%3%",m);
 		fs.writeFileSync(path.join(__dirname,"../i",thisa,"sisku.xml"), b);
+		//now update manifest
+		b = path.join(__dirname,"../i/"+thisa+"/","webapp.appcache");
+		var d = new Date();
+		var n = d.getDate();
+		try{
+			function addZero(i) {
+			    if (i < 10) {
+			        i = "0" + i;
+			    }
+			    return i;
+			}
+			var n = d.getFullYear() + "-"
+                + (addZero(d.getMonth()+1))  + "-" 
+                + addZero(d.getDate()) + "T"  
+                + addZero(d.getHours()) + ":"  
+                + addZero(d.getMinutes()) + ":" 
+                + addZero(d.getSeconds());
+			var pars=fs.readFileSync(b,{encoding: 'utf8'});
+			pars = pars.replace(/\n# .+\n/,'\n# '+n+"\n");
+			pars = fs.writeFileSync(b,pars);
+			console.log(b + ' updated');
+		}catch(err){}
 	}
 });
 

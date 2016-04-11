@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# 2016-3-21T23:41:32
+# 2016-04-11T01:40:10
 
 CACHE:
 index.html?version=16
@@ -56,8 +56,7 @@ worker.js
 
 
 NETWORK:
-https://ssl.google-analytics.com/
-http://www.google-analytics.com/
+*
 
 FALLBACK:
 /sisku/ ./

@@ -432,6 +432,10 @@ function siskurimni(query) {
 	var regexify = function (t) {
 		t=t.replace(/[sz]/g,'[sz]');
 		t=t.replace(/[pb]/g,'[pb]');
+		t=t.replace(/[td]/g,'[td]');
+		t=t.replace(/[cj]/g,'[cj]');
+		t=t.replace(/[kg]/g,'[kg]');
+		t=t.replace(/[pb]/g,'[pb]');
 		t=t.replace(/[lmnr]/g,'[lmnr]');
 		t=t.replace(/[ɩw]/g,'[ɩw]');
 		return t;

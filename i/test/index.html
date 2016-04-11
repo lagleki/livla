@@ -104,7 +104,7 @@
 		margin-left: 15px;
 	}
 
-	.core-header {
+	#galtu-dasri {
 		position:absolute;
 		top:0;
 		left:0;
@@ -123,7 +123,7 @@
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de',GradientType=0 ); /* IE6-9 */
 		color: #FFF;
 	}
-	#header-wrapper {
+	#se-vasru-lo-galtu-dasri {
 		max-width: 700px;
 		width: 100%;
 		margin-left: auto;
@@ -227,24 +227,23 @@
 	<script src="bangu.js"></script>
 	<link rel="manifest" href="../manifest.json">
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	
-	  ga('create', 'UA-45171210-6', 'auto');
-	  ga('send', 'pageview');
-	  ga('set', 'forceSSL', true);
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-45171210-6', 'auto', {'allowLinker': true});
+		ga('require', 'linker');
+		ga('linker:autoLink', ['mw.lojban.org/extensions/ilmentufa/i', 'lojban.github.io/sutysisku', 'https://lojban.herokuapp.com'] );
+		ga('set', 'forceSSL', true);
+		ga('send', 'pageview');
 	</script>
 </head>
 <body>
-	<div class='core-header'>
-		<div id='header-wrapper'>
-		<span id='plise' style='height:24px;'><a id='st' href="../"><img src="../arrow-left.png" height='24' width='24'></a></span><span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src="../sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-		<form onsubmit="return false">
+	<div id='galtu-dasri'>
+			<form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
+		<span id='plise' style='height:24px;'><a id='st' href="../"><img src="../arrow-left.png" height='24' width='24'></a></span><span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src="../sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="display:inline;-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
 			<input class="clearable" id='typehere' placeholder="search" type='text' autofocus autocomplete="off">
 		</form>
-		</div>
 	</div>
 	<div id='content'>
 		<div id='content-panel'>
@@ -256,7 +255,7 @@
 			<div id='description' class="term"><p><b>la sutysisku</b> is a fast dictionary for the Lojban language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p><p><span id='searchengine'><i><a href='#' title='en-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')">Add as a search engine</a></i></span></p></div>
 			<div id='output'></div>
 		</div>
-	</div>
+#	</div>
 <script>
 	var typehere = $("#typehere");
 	var output = $("#output");

@@ -218,10 +218,10 @@ var update_cc_dict = function(){
 			if (i<rev.length-1){pars+=",\n";}//\n
 		}
 		pars+="];\n";
-		var tt = path.join(__dirname,"../i/data","parsed-"+lng + ".js");
+		var tt = path.join(__dirname,"i/data","parsed-"+lng + ".js");
 		pars = fs.writeFileSync(tt+".temp",pars.replace(/,\"[eg]\":\"\"/g,"").replace(/&amp;/g,"&"));
 		fs.renameSync(tt+".temp",tt);
-		tt = path.join(__dirname,"../i/"+lng+"/","webapp.appcache");
+		tt = path.join(__dirname,"i/"+lng+"/","webapp.appcache");
 		/*var d = new Date();
 		var n = d.getDate();
 		if(n==1){*/

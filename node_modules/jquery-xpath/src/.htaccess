@@ -1,5 +1,0 @@
-## Rewrite engine
-RewriteEngine on
-
-##
-RewriteRule jquery.xpath.js ../res/assemble.php?path=../src/

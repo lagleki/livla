@@ -7,9 +7,9 @@ var langs = ["en","ru","eo","es","fr-facile","ile","ithkuil","ja","jbo","laadan"
 
 ///script
 var fs = require("fs"),path = require("path-extra");
-var templ = fs.readFileSync(path.join(__dirname,"../i/test","template.html"),{encoding: 'utf8'});var bng;var b;
+var templ = fs.readFileSync(path.join(__dirname,"i/test","template.html"),{encoding: 'utf8'});var bng;var b;
 langs.forEach(function(thisa){
-	var file = fs.readFileSync(path.join(__dirname,"../i",thisa,"bangu.js"),{encoding: 'utf8'});
+	var file = fs.readFileSync(path.join(__dirname,"i",thisa,"bangu.js"),{encoding: 'utf8'});
 	var m = file.match(/window\.bangudesc *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");
 	b = templ.replace("%bangudesc%",m);
 	
@@ -36,21 +36,21 @@ langs.forEach(function(thisa){
 	try{m=file.match(/grad_pos2 *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1];}catch(err){m="13%";}b = b.replace(/%grad_pos2%/g,m);
 	try{m=file.match(/grad_pos3 *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1];}catch(err){m="88%";}b = b.replace(/%grad_pos3%/g,m);
 	try{m=file.match(/grad_pos4 *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1];}catch(err){m="100%";}b = b.replace(/%grad_pos4%/g,m);
-	fs.writeFileSync(path.join(__dirname,"../i",thisa,"index.html"), b);
+	fs.writeFileSync(path.join(__dirname,"i",thisa,"index.html"), b);
 });
 
-templ = fs.readFileSync(path.join(__dirname,"../i/test","sisku.xml"),{encoding: 'utf8'});var bng;var b;
+templ = fs.readFileSync(path.join(__dirname,"i/test","sisku.xml"),{encoding: 'utf8'});var bng;var b;
 langs.forEach(function(thisa){
 	if (thisa!=='test'){
-		var file = fs.readFileSync(path.join(__dirname,"../i",thisa,"bangu.js"),{encoding: 'utf8'});
+		var file = fs.readFileSync(path.join(__dirname,"i",thisa,"bangu.js"),{encoding: 'utf8'});
 		//var m = file.match(/window\.bangudesc *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");
 		b = templ.replace("%1%","https://lojban.github.io/sutysisku/en/index.html#sisku/{searchTerms}");
 		b = b.replace("%2%",thisa+"-sutysisku");
 		m = file.match(/siskudescr *= *[\"'](.*?)[\"'];(\n|\r)/)[1].replace(/\\\"/g,"\"");
 		b = b.replace("%3%",m);
-		fs.writeFileSync(path.join(__dirname,"../i",thisa,"sisku.xml"), b);
+		fs.writeFileSync(path.join(__dirname,"i",thisa,"sisku.xml"), b);
 		//now update manifest
-		b = path.join(__dirname,"../i/"+thisa+"/","webapp.appcache");
+		b = path.join(__dirname,"i/"+thisa+"/","webapp.appcache");
 		var d = new Date();
 		var n = d.getDate();
 		try{
@@ -78,5 +78,5 @@ langs.forEach(function(thisa){
 	var sisku="sisku.js"; if(thisa==='test'){sisku="sisku_2.js"}
 	//var lujvo="lujvo_beta.js"; if(thisa==='test'){lujvo=""}
 	b = "window = this;\nimportScripts('bangu.js','../data/parsed-"+thisa.replace(/^test$/,'en').replace(/^muplis/,"tatoeba")+".js', '../"+sisku+"');\npostMessage({kind: 'loading'});\npostMessage({kind: 'ready'});\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;sisku(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};";
-	fs.writeFileSync(path.join(__dirname,"../i",thisa,"worker.js"), b);
+	fs.writeFileSync(path.join(__dirname,"i",thisa,"worker.js"), b);
 });

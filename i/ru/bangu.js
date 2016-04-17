@@ -8,3 +8,5 @@ window.bangu = 'russian';
 window.purc = "Ранее искали: ";
 siskudescr="Поиск в словаре языка ложбан la jbovlaste.";
 opdescr = "Словарь ложбана (Lojban), английского и других языков, который может работать без подключения к интернету.";
+window.xuzganalojudri = true;
+window.judri = "http://jbovlaste.lojban.org/dict/";

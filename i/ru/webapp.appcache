@@ -1,6 +1,5 @@
 CACHE MANIFEST
-
-# 2016-04-11T01:40:10
+# 2016-04-17T01:40:10
 
 CACHE:
 index.html?version=18
@@ -56,8 +55,7 @@ bangu.js
 
 
 NETWORK:
-https://ssl.google-analytics.com/
-http://www.google-analytics.com/
+*
 
 FALLBACK:
 /sisku/ ./

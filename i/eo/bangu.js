@@ -7,3 +7,5 @@ window.bangudecomp = 'fendando ...';
 siskudescr="Search the Lojban dictionary la jbovlaste.";
 opdescr = "A dictionary for Lojban, English and other languages that can work offline.";
 window.purc = "Last searched: ";
+window.xuzganalojudri = true;
+window.judri = "http://jbovlaste.lojban.org/dict/";

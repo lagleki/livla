@@ -215,23 +215,8 @@ function sisku(query, callback) {
 			}
 		return ki;
 	}
-	if ((query.indexOf('^')===0||query.slice(-1)==='$'))
-	{
-		preciseMatches = julne(sortthem(documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100)));
-	}
-	else if ((query.indexOf('@')===0||query.slice(-1)==='@'))
-	{
-		preciseMatches = siskurimni(query.replace(/^@+/,'').replace(/@+$/,''));
-	}
-	else if (!window.muplis && queryDecomposition.length>1){
-			for (var s=0;s<queryDecomposition.length;s++){
-				for (var c=queryDecomposition.length-1;c>=s;c--){
-					ki=shortget(queryDecomposition.slice(s,c+1).join(" "),ki);
-				}
-			}
-			preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(ki)});
-	}
-	else {
+	function cnanosisku(lo_matra_cu_cupra){
+		var preciseMatches=[];
 		for (var w=0;w<documentStore.length;w++){
 			var m = window.storecache[w];
 			if(m.indexOf(query.toLowerCase())>=0||m.indexOf(query.toLowerCase().replace(/h/g,"'"))>=0){
@@ -244,7 +229,6 @@ function sisku(query, callback) {
 		else{
 			preciseMatches = sortthem(lo_matra_cu_cupra);
 		}
-			//preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(shortget(query,[]))});
 		try{
 			if (preciseMatches.length===0||preciseMatches[0].rafsiDocuments[0].d==='not found') {
 				preciseMatches=be([],query)||[];
@@ -253,19 +237,37 @@ function sisku(query, callback) {
 		try{
 			if (preciseMatches.length===0||preciseMatches[0].w!==queryP){
 				var ty = julne(shortget(queryP,[]));
-				if (ty.length<=1){preciseMatches=ty.concat(preciseMatches);}
+				if (ty.length<=1){
+					preciseMatches=ty.concat(preciseMatches);
+				}
 				else{
-					/*if(ty[0].w===queryP){
-						for (var tyt=1;tyt<ty.length;tyt++){
-							if(ty[tyt].l && (ty[tyt].d==="{"+queryP+"}")){
-								ty.splice(tyt,1);
-								tyt=tyt-1;
-							}
-						}
-					}*/
-					preciseMatches=[{t: "decomposing ...",w: query,rafsiDocuments: ty}].concat(preciseMatches);}
+					preciseMatches=[{t: "decomposing ...",w: query,rafsiDocuments: ty}].concat(preciseMatches);
+				}
 			}
 		}catch(err){}
+		return preciseMatches;
+	}
+	
+	if ((query.indexOf('^')===0||query.slice(-1)==='$'))
+	{
+		preciseMatches = julne(sortthem(documentStore.filter(function(val){return (val.w.match(query.toLowerCase())||[]).length > 0;}).splice(0,100)));
+	}
+	else if ((query.indexOf('@')===0||query.slice(-1)==='@'))
+	{
+		preciseMatches = siskurimni(query.replace(/^@+/,'').replace(/@+$/,''));
+	}
+	else if (!window.muplis && queryDecomposition.length>1){
+		preciseMatches=cnanosisku(lo_matra_cu_cupra);
+		for (var s=0;s<queryDecomposition.length;s++){
+			for (var c=queryDecomposition.length-1;c>=s;c--){
+				ki=shortget(queryDecomposition.slice(s,c+1).join(" "),ki);
+			}
+		}
+		preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(ki)});
+	}
+	else {
+		//normal search
+		preciseMatches=cnanosisku(lo_matra_cu_cupra);
 	}
 	callback(preciseMatches);
 }

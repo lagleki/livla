@@ -1533,20 +1533,6 @@ var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 	}
 };
 
-var lmw = function (lin,sendTo){//to be done
-var request = require("request"); var body;
-var uri="http://mw.lojban.org/index.php?action=render&title="+lin;
-//var uri="http://mw.lojban.org/index.php?search="+lin+"&button=&title=Special%3ASearch";
-//https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&prop=extracts&format=json&exlimit=10&explaintext=&exsectionformat=plain&titles=India
-//http://mw.lojban.org/api.php?action=opensearch&search=.o%27i&format=json
-request({uri: uri,method: "GET"}, function(err, response, body) {
-	var i;i = body.replace(/<[^>]+>/g,'');
-	i=i.substring(0,200);
-	if (i.length>=200){i+='...';}
-	benji(source,socket,clientmensi,sendTo, i);
-});
-};
-
 var tcepru = function(lins,sendTo,source,socket){
 	var exec = require('child_process').exec;
 	exec(path.join(__dirname,"../tcepru/./parser") + ' <<<"'+lins+'" 2>/dev/null', function (error, stdout, stderr) {
@@ -1578,13 +1564,13 @@ var pseudogismu = function(){//a joke function. checks if an English word is  a 
 //pseudogismu();
 
 var prettifylojbansentences = function(){//insert spaces to lojban sentences
-        var words = fs.readFileSync(path.join(__dirname,"../","eikatna.txt"),'utf8').split("\n");
-        var sj=[];
-        for (var j=0;j<words.length;j++){
-                        sj.push(run_camxesoff(words[j],3));
-        }
-        var content = fs.writeFileSync(path.join(__dirname,"../","sekatna.txt"),sj.join("\n").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n"));
-        return 'mulno';
+	var words = fs.readFileSync(path.join(__dirname,"../","eikatna.txt"),'utf8').split("\n");
+	var sj=[];
+	for (var j=0;j<words.length;j++){
+		sj.push(run_camxesoff(words[j],3));
+	}
+	var content = fs.writeFileSync(path.join(__dirname,"../","sekatna.txt"),sj.join("\n").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n"));
+	return 'mulno';
 };
 
 var zeizei = function(text){//insert spaces to lojban sentences, split lujvo into zo zei zei lujvo

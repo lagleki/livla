@@ -1,3 +1,9 @@
+var log = console.log.bind(console);
+p = function (object) {
+  return JSON.stringify(object);
+};
+
+
 //livla bot
 var fs = require("fs"),path = require("path-extra"),libxmljs = require("libxmljs");
 require('v8-profiler');
@@ -207,21 +213,20 @@ var updatexmldumps = function (callback) {
 				}
 			}); 
 		});
+		var http = require('http');
 		langs.forEach(function(thisa) {//now update pdf
 			var uri="http://jbovlaste.lojban.org/export/latex-export.html?lang="+thisa;
 			jar.setCookie(cookie, uri);
 			request({uri: uri,method: "GET",jar: jar}, function(err, response, body) {
 				if(err) {console.log(err);}
 				else{
-					var content=body.replace(/\n/igm,'').replace(/.*<a href=\"(\/jbovlaste_export\/.*?\/.*?\.pdf)\">.*/igm,"http://jbovlaste.lojban.org$1");//now get the pdf itself
-					uri=content;
-						var http = require('http');
-						content = fs.createWriteStream(path.join(__dirname,"../dumps","lojban-" + thisa + ".pdf"));
-						var request = http.get(uri, function(response) {
-							response.pipe(content);
-						}).on('error', function(err) {
-							console.log("when updating " + thisa + " pdf: " + err);
-						});
+					var urli=body.replace(/\n/igm,'').replace(/.*<a href=\"(\/jbovlaste_export\/.*?\/.*?\.pdf)\">.*/igm,"http://jbovlaste.lojban.org$1");//now get the pdf itself
+					var content = fs.createWriteStream(path.join(__dirname,"../dumps","lojban-" + thisa + ".pdf"));
+					var request = http.get(urli, function(response) {
+						response.pipe(content);
+					}).on('error', function(err) {
+						console.log("when updating " + thisa + " pdf: " + err);
+					});
 				}
 			});
 		});

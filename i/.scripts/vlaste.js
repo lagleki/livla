@@ -97,7 +97,7 @@ function readConfig(filename) {
 }
 
 var update_cc_dict = function(){
-	var t = path.join(__dirname,dumps,"the_crash_course_dict.dumps");
+	var t = path.join(__dirname,dumps,"the_crash_course_dict.csv");
 	requestd = request.defaults({jar: true});
 	var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/export?format=csv&id=19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw&gid=1855189494";
 	requestd({

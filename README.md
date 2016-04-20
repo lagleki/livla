@@ -2,6 +2,14 @@ la glekitufa
 =========
 la glekitufa is a combine providing different options in learning and developing Lojban language.
 
+Installing:
+
+```
+npm install
+npm install --save libxmljs
+
+```
+
 la ilmentufa
 ===========
 'la ilmentufa' is a syntactical and not yet semantical parser for the Lojban language.

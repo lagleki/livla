@@ -17,7 +17,7 @@ module.exports.set = function(assert) {
     var elem = doc.node('name1');
 
     // this will set a namespace on the node
-    var ns = elem.namespace('http://my-namespace.com');
+    var ns = elem.namespace('http://my-namespace.com').namespace();
     assert.ok(ns);
     assert.equal(ns, elem.namespace());
     assert.equal(null, elem.namespace().prefix());
@@ -35,7 +35,7 @@ module.exports.with_prefix = function(assert) {
     assert.equal('http://my-namespace.com', ns.href());
 
     // this should detect existing namespace object
-    var ns2 = elem.namespace('pref', 'http://my-namespace.com');
+    var ns2 = elem.namespace('pref', 'http://my-namespace.com').namespace();
     assert.ok(ns2);
     assert.equal(ns, ns2);
     assert.equal(ns, elem.namespace());
@@ -88,7 +88,7 @@ module.exports.existing = function(assert) {
 module.exports.remove = function(assert) {
     var doc = libxml.Document();
     var elem = doc.node('name1');
-    var ns = elem.namespace('http://my-namespace.com');
+    var ns = elem.namespace('http://my-namespace.com').namespace();
     assert.ok(ns);
     assert.ok(ns == elem.namespace());
     elem.namespace(null);
@@ -101,9 +101,9 @@ module.exports.all = function(assert) {
     var root = document.node('root');
     var list = [];
 
-    list.push(root.namespace('com', 'http://example.com'));
-    list.push(root.namespace('net', 'http://example.net'));
-    list.push(root.namespace('http://example.org'));
+    list.push(root.namespace('com', 'http://example.com').namespace());
+    list.push(root.namespace('net', 'http://example.net').namespace());
+    list.push(root.namespace('http://example.org').namespace());
 
     assert.ok(root.namespaces().every(function(ns, index) {
         return ns.href() === list[index].href() && ns.prefix() === list[index].prefix();
@@ -168,3 +168,43 @@ module.exports.custom_ns = function(assert) {
   assert.equal(div.toString(), exp.toString());
   assert.done();
 }
+
+module.exports.local_namespaces = function(assert) {
+  var str = '<html xmlns="urn:example" xmlns:ex1="urn:example:1"><body xmlns:ex2="urn:example:2"/></html>';
+  var doc = libxml.parseXmlString(str);
+  assert.ok(doc);
+  var root = doc.root();
+  assert.ok(root);
+  var decls = root.namespaces(true)
+  assert.ok(decls);
+  assert.equal(2, decls.length);
+  decls.forEach(function(n) {
+    if (n.prefix()==null) {
+      assert.equal("urn:example", n.href());
+    }
+    else if (n.prefix() == "ex1") {
+      assert.equal("urn:example:1", n.href());
+    }
+    else {
+      assert.ok(false);
+    }
+  });
+  // body has a namespace, from the default declaration on html.
+  var body = root.get('ex:body', {ex: 'urn:example'});
+  assert.ok(body);
+  decls = body.namespaces(true);
+  assert.equal(1, decls.length);
+  assert.equal("urn:example:2", decls[0].href())
+
+  // Make sure default behavior still works,
+  // and doesn't get turned on by mistake
+  decls = body.namespaces();
+  assert.equal(3, decls.length);
+  decls = body.namespaces(false);
+  assert.equal(3, decls.length);
+  decls = body.namespaces(0);
+  assert.equal(3, decls.length);
+  decls = body.namespaces(1);
+  assert.equal(3, decls.length);
+  assert.done();
+};

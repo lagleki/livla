@@ -1,5 +1,8 @@
 /* config.h.  Generated from config.h.in by configure.  */
-/* config.h.in.  Generated from configure.in by autoheader.  */
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Type cast for the gethostbyname() argument */
+#define GETHOSTBYNAME_ARG_CAST /**/
 
 /* Define to 1 if you have the <ansidecl.h> header file. */
 /* #undef HAVE_ANSIDECL_H */
@@ -86,7 +89,7 @@
 /* #undef HAVE_LIBHISTORY */
 
 /* Have compression library */
-/* #undef HAVE_LIBLZMA */
+/* #define HAVE_LIBLZMA 1 */
 
 /* Define if pthread library is there (-lpthread) */
 /* #define HAVE_LIBPTHREAD */
@@ -104,10 +107,10 @@
 #define HAVE_LOCALTIME 1
 
 /* Define to 1 if you have the <lzma.h> header file. */
-/* #undef HAVE_LZMA_H */
+/* #define HAVE_LZMA_H 1 */
 
 /* Define to 1 if you have the <malloc.h> header file. */
-#define HAVE_MALLOC_H 1
+/* #define HAVE_MALLOC_H */
 
 /* Define to 1 if you have the <math.h> header file. */
 #define HAVE_MATH_H 1
@@ -154,7 +157,9 @@
 #define HAVE_RAND 1
 
 /* Define to 1 if you have the `rand_r' function. */
+#ifndef WIN32
 #define HAVE_RAND_R 1
+#endif
 
 /* Define to 1 if you have the <resolv.h> header file. */
 #define HAVE_RESOLV_H 1
@@ -246,7 +251,9 @@
 #define HAVE_TIME_H 1
 
 /* Define to 1 if you have the <unistd.h> header file. */
+#ifndef WIN32
 #define HAVE_UNISTD_H 1
+#endif
 
 /* Whether va_copy() is available */
 #define HAVE_VA_COPY 1
@@ -272,8 +279,7 @@
 /* Define as const if the declaration of iconv() needs const. */
 #define ICONV_CONST 
 
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
 #define LT_OBJDIR ".libs/"
 
 /* Name of package */
@@ -283,19 +289,22 @@
 #define PACKAGE_BUGREPORT ""
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME ""
+#define PACKAGE_NAME "libxml2"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING ""
+#define PACKAGE_STRING "libxml2 2.9.3"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME ""
+#define PACKAGE_TARNAME "libxml2"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION ""
+#define PACKAGE_VERSION "2.9.3"
+
+/* Type cast for the send() function 2nd arg */
+#define SEND_ARG2_CAST /**/
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
@@ -303,8 +312,11 @@
 /* Support for IPv6 */
 #define SUPPORT_IP6 /**/
 
+/* Define if va_list is an array type */
+#define VA_LIST_IS_ARRAY 1
+
 /* Version number of package */
-#define VERSION "2.9.0"
+#define VERSION "2.9.3"
 
 /* Determine what socket length (socklen_t) data type is */
 #define XML_SOCKLEN_T socklen_t

@@ -1,4 +1,4 @@
-node_modules/
+node_modules
 _build/
 .idea/
 dumps/*.xml
@@ -12,6 +12,7 @@ dumps/*.tsv
 !dumps/zamenhofo.xml
 !dumps/en-pt-BR.xml
 !dumps/ldp.xml
+!dumps/ile.xml
 !dumps/ithkuil.xml
 dumps/*.pdf
 dumps/tatoeba*

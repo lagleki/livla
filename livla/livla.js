@@ -222,6 +222,7 @@ var updatexmldumps = function (callback) {
 				else{
 					var urli=body.replace(/\n/igm,'').replace(/.*<a href=\"(\/jbovlaste_export\/.*?\/.*?\.pdf)\">.*/igm,"http://jbovlaste.lojban.org$1");//now get the pdf itself
 					var content = fs.createWriteStream(path.join(__dirname,"../dumps","lojban-" + thisa + ".pdf"));
+					console.log(urli);
 					var request = http.get(urli, function(response) {
 						response.pipe(content);
 					}).on('error', function(err) {
@@ -468,7 +469,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		switch(true) {
 		case txt.search(/ie( |)(nai( |)|)pei/) >= '0': benji(source,socket,clientmensi,sendTo, ext(tugni));break;
 		case txt.search(/\bna nelci/) >= '0': benji(source,socket,clientmensi,sendTo, ext(nelci));break;
-		case txt.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
+		//case txt.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
 		case txt.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;
 		case txt.indexOf("lujvo:") == '0': benji(source,socket,clientmensi,sendTo, triz(text.substr(6)));break;
 		//case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxes(ret[0], ret[1]));break;
@@ -1650,7 +1651,7 @@ io.sockets.on('connection', function(socket) {
     );
 });
 
-app.listen(3000);
+app.listen(3002);
 
 //mahantufa
 var ningaumahantufa = function(text,socket){

@@ -71,7 +71,7 @@ pa_zei_karsna = [aeiou] !nucleus
 
 i = [i]
 u = [u]
-y = [y] !(!y nucleus)
+y = [y] !pa_zei_karsna
 
 initial_pair = &onset zunsna zunsna !zunsna
 

@@ -52,7 +52,6 @@ function jmina_lo_se_claxu(doc){
 		else{
 			var ye=ma_klesi_lo_valsi(doc.w);
 			doc.t=ye[0];
-			//if(doc.t==='cmavo compound'){doc.w=ye[1];console.log(doc.w);}
 		}
 	}
 	return doc;
@@ -75,7 +74,7 @@ function sisku(query, callback) {
 	function julne(a){
 		return a.filter(function(n){ return n !== undefined }).map(function(a){return jmina_lo_se_claxu(a);});
 	}
-	function be(kil,lu){
+	function be(kil,lu,e){
 		var luj=ma_ve_lujvo(lu);
 		if (luj){
 			var kim=[];
@@ -91,6 +90,16 @@ function sisku(query, callback) {
 				t: "decomposing ...",w: query,rafsiDocuments: julne(kim)
 			});
 			}
+		}else if(e===1){
+			var kc=[];
+			var o;
+			for (var s=0;s<queryDecomposition.length;s++){
+				for (var c=queryDecomposition.length-1;c>=s;c--){
+					o=queryDecomposition.slice(s,c+1).join(" ");
+					if(o!==lu){kc=shortget(o,kc);}
+				}
+			}
+			kil[0].rafsiDocuments = julne(kc);
 		}
 		return kil;
 	}
@@ -110,7 +119,7 @@ function sisku(query, callback) {
 			}
 				if (doc.w === query||doc.w === queryP){
 					exactMatches.push(doc);
-					exactMatches=be(exactMatches,query);
+					exactMatches=be(exactMatches,query,1);
 					continue;
 				}
 				else if ((doc.r||[''])[0].search("\\b"+query+"\\b") >=0) {
@@ -216,6 +225,7 @@ function sisku(query, callback) {
 		return ki;
 	}
 	function cnanosisku(lo_matra_cu_cupra){
+		if (searchId !== searchIdCounter) return;
 		var preciseMatches=[];
 		for (var w=0;w<documentStore.length;w++){
 			var m = window.storecache[w];
@@ -223,12 +233,7 @@ function sisku(query, callback) {
 				lo_matra_cu_cupra.push(documentStore[w]);
 			}
 		}
-		if (searchId !== searchIdCounter) {
-			return;
-		}
-		else{
-			preciseMatches = sortthem(lo_matra_cu_cupra);
-		}
+		preciseMatches = sortthem(lo_matra_cu_cupra);
 		try{
 			if (preciseMatches.length===0||preciseMatches[0].rafsiDocuments[0].d==='not found') {
 				preciseMatches=be([],query)||[];
@@ -258,12 +263,6 @@ function sisku(query, callback) {
 	}
 	else if (!window.muplis && queryDecomposition.length>1){
 		preciseMatches=cnanosisku(lo_matra_cu_cupra);
-		for (var s=0;s<queryDecomposition.length;s++){
-			for (var c=queryDecomposition.length-1;c>=s;c--){
-				ki=shortget(queryDecomposition.slice(s,c+1).join(" "),ki);
-			}
-		}
-		preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(ki)});
 	}
 	else {
 		//normal search

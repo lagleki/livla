@@ -183,6 +183,7 @@ var updatexmldumps = function (callback) {
 		var cookie = request.cookie("jbovlastesessionid=U2FsdGVkX1%2FpiXtl1FSyMUZvFTudUq0N59YatQesEbsfdQ6owwMDeA%3D%3D");
 		langs.forEach(function(thisa) {
 			velruhe.cfari[thisa] = true;
+			log("+++");
 			var uri="http://jbovlaste.lojban.org/export/xml-export.html?lang="+thisa;
 			jar.setCookie(cookie, uri);
 			var t = path.join(__dirname,"../dumps",thisa + ".xml");
@@ -214,15 +215,19 @@ var updatexmldumps = function (callback) {
 			}); 
 		});
 		var http = require('http');
+		/*
 		langs.forEach(function(thisa) {//now update pdf
+			log("---");
 			var uri="http://jbovlaste.lojban.org/export/latex-export.html?lang="+thisa;
 			jar.setCookie(cookie, uri);
 			request({uri: uri,method: "GET",jar: jar}, function(err, response, body) {
 				if(err) {console.log(err);}
 				else{
-					var urli=body.replace(/\n/igm,'').replace(/.*<a href=\"(\/jbovlaste_export\/.*?\/.*?\.pdf)\">.*/igm,"http://jbovlaste.lojban.org$1");//now get the pdf itself
+					log(body.substring(0,100));
+					var urli=body.replace(/\n/igm,'').match(/\"(\/jbovlaste_export\/.*?\/.*?\.pdf)\"/i)[1];
+					//log(urli);
+					//gm,"http://jbovlaste.lojban.org$1");//now get the pdf itself
 					var content = fs.createWriteStream(path.join(__dirname,"../dumps","lojban-" + thisa + ".pdf"));
-					console.log(urli);
 					var request = http.get(urli, function(response) {
 						response.pipe(content);
 					}).on('error', function(err) {
@@ -230,7 +235,7 @@ var updatexmldumps = function (callback) {
 					});
 				}
 			});
-		});
+		});*/
 	//}catch(err){console.log('Error when autoupdating: ' + err);}
 	//sutysiskuningau("ithkuil");
 	sutysiskuningau("en-pt-BR",0);

@@ -196,11 +196,11 @@
 	}
 	.clearable.x  { background-position: right 5px center; } /* (jQ) Show icon */
 	.clearable.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
-	.clearable::-ms-clear {display: none; width:0; height:0;} /* Remove IE and Webkit default X */
-	.clearable::-webkit-search-decoration,
+	/*.clearable::-ms-clear {display: none; width:0; height:0;}*/ /* Remove IE and Webkit default X */
+	/*.clearable::-webkit-search-decoration,
 	.clearable::-webkit-search-cancel-button,
 	.clearable::-webkit-search-results-button,
-	.clearable::-webkit-search-results-decoration {display: none;}
+	.clearable::-webkit-search-results-decoration {-webkit-appearance: none;display: none; width:0; height:0;}*/
 	#mipri{display:none;}
 	</style>
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -246,7 +246,7 @@
 	<div id='galtu-dasri'>
 		<form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
 		%titlelogo%<div id="mipri" style="display:inline;-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-			<input class="clearable" id='typehere' placeholder="%2%" type='search' autofocus autocorrect="off" autocapitalize="off" autocomplete="false">
+			<input class="clearable" id='typehere' placeholder="%2%" type='text' autofocus autocorrect="off" autocapitalize="off" autocomplete="false">
 		</form>
 	</div>
 	<div id='content'>

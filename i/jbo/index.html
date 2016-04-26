@@ -196,7 +196,11 @@
 	}
 	.clearable.x  { background-position: right 5px center; } /* (jQ) Show icon */
 	.clearable.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
-	.clearable::-ms-clear {display: none; width:0; height:0;} /* Remove IE default X */
+	/*.clearable::-ms-clear {display: none; width:0; height:0;}*/ /* Remove IE and Webkit default X */
+	/*.clearable::-webkit-search-decoration,
+	.clearable::-webkit-search-cancel-button,
+	.clearable::-webkit-search-results-button,
+	.clearable::-webkit-search-results-decoration {-webkit-appearance: none;display: none; width:0; height:0;}*/
 	#mipri{display:none;}
 	</style>
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -242,7 +246,7 @@
 	<div id='galtu-dasri'>
 		<form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
 		<span id='plise' style='height:24px;'><a id='st' href="../"><img src="../arrow-left.png" height='24' width='24'></a></span><span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src="../sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="display:inline;-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-			<input class="clearable" id='typehere' placeholder="sisku" type='search' autofocus autocorrect="off" autocapitalize="off" autocomplete="false">
+			<input class="clearable" id='typehere' placeholder="sisku" type='text' autofocus autocorrect="off" autocapitalize="off" autocomplete="false">
 		</form>
 	</div>
 	<div id='content'>

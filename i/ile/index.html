@@ -255,6 +255,7 @@
 				<span class='message'>Loading dictionary ...</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
+			<div id='drata' style="display:none;" class="term"></div>
 			<div id='purci' style="display:none;" class="term"></div>
 			<div id='description' class="term"><p><b>la sutysisku</b> is a fast dictionary for Occidental / Interlingue language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://www.facebook.com/groups/tiddlydict' target='_blank'>TiddlyDict Facebook group</a>.</p><p><span id='searchengine'><i><a href='#' title='ile-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/ile/sisku.xml')">Add as a search engine</a></i></span></p></div>
 			<div id='output'></div>
@@ -477,10 +478,24 @@
 			});
 			$('#purci').html((window.purc||"Last searched: ") + arrpurc.join(", "));
 			$('#purci').css('display','block');
+			if (prevQuery && prevQuery!==''){
+				$('#drata').html(prevQuery + ': '
+				+ '<a href="../jbo/#sisku/' + prevQuery + '">lojbo</a>, '
+				+ '<a href="../muplis/#sisku/' + prevQuery + '">la muplis</a>, '
+				+ '<a href="../en/#sisku/' + prevQuery + '">English</a>, '
+				+ '<a href="../ja/#sisku/' + prevQuery + '">日本語</a>, '
+				+ '<a href="../fr-facile/#sisku/' + prevQuery + '">français facile</a>, '
+				+ '<a href="../es/#sisku/' + prevQuery + '">español</a>, '
+				+ '<a href="../ru/#sisku/' + prevQuery + '">русский</a>, '
+				+ '<a href="../eo/#sisku/' + prevQuery + '">Esperanto</a>'
+				);
+				$('#drata').css('display','block');
+			}
 		}
 		} else {
 			output.show();
 			description.hide();
+			$('#drata').css('display','none');
 			$('#purci').css('display','none');
 			$('#content').scrollTop(0);
 		}

@@ -255,6 +255,7 @@
 				<span class='message'>%bangulo%</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
+			<div id='drata' style="display:none;" class="term"></div>
 			<div id='purci' style="display:none;" class="term"></div>
 			<div id='description' class="term">%bangudesc%</div>
 			<div id='output'></div>
@@ -477,10 +478,24 @@
 			});
 			$('#purci').html((window.purc||"Last searched: ") + arrpurc.join(", "));
 			$('#purci').css('display','block');
+			if (prevQuery && prevQuery!==''){
+				$('#drata').html(prevQuery + ': '
+				+ '<a href="../jbo/#sisku/' + prevQuery + '">lojbo</a>, '
+				+ '<a href="../muplis/#sisku/' + prevQuery + '">la muplis</a>, '
+				+ '<a href="../en/#sisku/' + prevQuery + '">English</a>, '
+				+ '<a href="../ja/#sisku/' + prevQuery + '">日本語</a>, '
+				+ '<a href="../fr-facile/#sisku/' + prevQuery + '">français facile</a>, '
+				+ '<a href="../es/#sisku/' + prevQuery + '">español</a>, '
+				+ '<a href="../ru/#sisku/' + prevQuery + '">русский</a>, '
+				+ '<a href="../eo/#sisku/' + prevQuery + '">Esperanto</a>'
+				);
+				$('#drata').css('display','block');
+			}
 		}
 		} else {
 			output.show();
 			description.hide();
+			$('#drata').css('display','none');
 			$('#purci').css('display','none');
 			$('#content').scrollTop(0);
 		}

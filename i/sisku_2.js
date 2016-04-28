@@ -74,6 +74,17 @@ function sisku(query, callback) {
 	function julne(a){
 		return a.filter(function(n){ return n !== undefined }).map(function(a){return jmina_lo_se_claxu(a);});
 	}
+	function sohivalsi(queryDecomposition,e,lu){
+		var kd=[];
+		var o;
+		for (var s=0;s<queryDecomposition.length;s++){
+			for (var c=queryDecomposition.length-1;c>=s;c--){
+				o=queryDecomposition.slice(s,c+1).join(" ");
+				if(!e||(e===1 && o!==lu)){kd=shortget(o,kd);}
+			}
+		}
+		return kd;
+	}
 	function be(kil,lu,e){
 		var luj=ma_ve_lujvo(lu);
 		if (luj){
@@ -91,15 +102,7 @@ function sisku(query, callback) {
 			});
 			}
 		}else if(e===1){
-			var kc=[];
-			var o;
-			for (var s=0;s<queryDecomposition.length;s++){
-				for (var c=queryDecomposition.length-1;c>=s;c--){
-					o=queryDecomposition.slice(s,c+1).join(" ");
-					if(o!==lu){kc=shortget(o,kc);}
-				}
-			}
-			kil[0].rafsiDocuments = julne(kc);
+			kil[0].rafsiDocuments = julne(sohivalsi(queryDecomposition,1,lu));
 		}
 		return kil;
 	}
@@ -263,6 +266,9 @@ function sisku(query, callback) {
 	}
 	else if (!window.muplis && queryDecomposition.length>1){
 		preciseMatches=cnanosisku(lo_matra_cu_cupra);
+		if (preciseMatches.length===0){
+			preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(sohivalsi(queryDecomposition))});
+		}
 	}
 	else {
 		//normal search

@@ -479,7 +479,7 @@
 			$('#purci').html((window.purc||"Last searched: ") + arrpurc.join(", "));
 			$('#purci').css('display','block');
 			if (prevQuery && prevQuery!==''){
-				$('#drata').html(prevQuery + ': '
+				$('#drata').html('<b>' + prevQuery + '</b>: '
 				+ '<a href="../jbo/#sisku/' + prevQuery + '">lojbo</a>, '
 				+ '<a href="../muplis/#sisku/' + prevQuery + '">la muplis</a>, '
 				+ '<a href="../en/#sisku/' + prevQuery + '">English</a>, '

@@ -86,6 +86,35 @@
 		text-align: justify;
 		background: white;
 	}
+	.drata {
+		margin-top: 0px;
+		margin-bottom: 15px;
+		margin-left: 10%;
+		padding: 8px 12px 6px;
+		text-align: justify;
+		//background: #F7F7F2;
+		background: white;
+		border-bottom-left-radius: 15px 15px;
+		border-bottom-right-radius: 15px 15px;
+		border-width: 0px;
+		border-style: solid;
+		border-top: none;
+		box-shadow:
+		0 0 0 1px #3888E9,
+		0 0 0 2px #2257D5,
+		0 0 0 3px #2663E0,
+		0 0 0 4px #1941A5;
+		-moz-box-shadow:
+		0 0 0 1px #3888E9,
+		0 0 0 2px #2257D5,
+		0 0 0 3px #2663E0,
+		0 0 0 4px #1941A5;
+		-webkit-box-shadow:
+		0 0 0 1px #3888E9,
+		0 0 0 2px #2257D5,
+		0 0 0 3px #2663E0,
+		0 0 0 4px #1941A5;
+		}
 	.term {
 		margin-top: 9px;
 		padding: 9px;
@@ -255,7 +284,7 @@
 				<span class='message'>Nous chargeons le dictionnaire ...</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
-			<div id='drata' style="display:none;" class="term"></div>
+			<div id='drata' style="display:none;" class="drata"></div>
 			<div id='purci' style="display:none;" class="term"></div>
 			<div id='description' class="term"><p><b>la sutysisku</b> est un dictionnaire rapide pour le lojban.<p>- Est-ce que je peux l'utiliser lorsque je suis déconnecté d'Internet ?<br>- Oui, si cela arrive essayez d'ouvrir cette adresse avec votre navigateur. Elle devrait s'ouvrir même hors-connexion. Une version récente de Chrome, Safari ou Firefox est nécéssaire.<br><br>Pour plus d'informations, visitez <a href='https://mw.lojban.org' target='_blank'>le Wiki du Lojban</a>.</p><p><span id='searchengine'><i><a href='#' title='fr-facile-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/fr-facile/sisku.xml')">Ajouter en tant que moteur de recherche</a></i></span></p></div>
 			<div id='output'></div>
@@ -317,10 +346,6 @@
 	});
 	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").css('height','5px').css('width','100');});
 	worker.onmessage = function(ev) {
-		if (!ev.data) {
-			console.error(ev);
-			throw new Error("got bad data from worker: " + JSON.stringify(ev.data))
-		}
 		if (ev.data.kind == 'ready') {
 			engineReady();
 		} else if (ev.data.kind == 'searchResults') {
@@ -465,7 +490,7 @@
 	}
 
 	var searchIdCounter = 0;
-	var prevQuery;
+	var prevQuery,lastQuery;
 	var lastQueried = now();
 	function displayDescription() {
 		if (query == '') {
@@ -478,16 +503,16 @@
 			});
 			$('#purci').html((window.purc||"Last searched: ") + arrpurc.join(", "));
 			$('#purci').css('display','block');
-			if (prevQuery && prevQuery!==''){
-				$('#drata').html('<b>' + prevQuery + '</b>: '
-				+ '<a href="../jbo/#sisku/' + prevQuery + '">lojbo</a>, '
-				+ '<a href="../muplis/#sisku/' + prevQuery + '">la muplis</a>, '
-				+ '<a href="../en/#sisku/' + prevQuery + '">English</a>, '
-				+ '<a href="../ja/#sisku/' + prevQuery + '">日本語</a>, '
-				+ '<a href="../fr-facile/#sisku/' + prevQuery + '">français facile</a>, '
-				+ '<a href="../es/#sisku/' + prevQuery + '">español</a>, '
-				+ '<a href="../ru/#sisku/' + prevQuery + '">русский</a>, '
-				+ '<a href="../eo/#sisku/' + prevQuery + '">Esperanto</a>'
+			if (lastQuery && lastQuery!==''){
+				$('#drata').html('<b>' + lastQuery + '</b>: '
+				+ '<a href="../jbo/#sisku/' + lastQuery + '">lojbo</a>, '
+				+ '<a href="../muplis/#sisku/' + lastQuery + '">la muplis</a>, '
+				+ '<a href="../en/#sisku/' + lastQuery + '">English</a>, '
+				+ '<a href="../ja/#sisku/' + lastQuery + '">日本語</a>, '
+				+ '<a href="../fr-facile/#sisku/' + lastQuery + '">français facile</a>, '
+				+ '<a href="../es/#sisku/' + lastQuery + '">español</a>, '
+				+ '<a href="../ru/#sisku/' + lastQuery + '">русский</a>, '
+				+ '<a href="../eo/#sisku/' + lastQuery + '">Esperanto</a>'
 				);
 				$('#drata').css('display','block');
 			}
@@ -513,6 +538,7 @@
 		return;
 		}
 		prevQuery = query;
+		lastQuery = query;
 		updateUrl();
 
 		var searchId = ++searchIdCounter;

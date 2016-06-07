@@ -1,12 +1,13 @@
 // JavaScript Document
-var fs = require("fs"),path = require("../ircbot/node_modules/path-extra/lib/path.js");
+var fs = require("fs"),path = require("path-extra");
 var download=0;
 var refresh=0;
 var ningau_la_muplis_=0;
-var ningau_la_muplis_poholska_=1;
+var ningau_la_muplis_poholska_=0;
 var selectinto_=0;
 generateorphanenglishsentences_=0;
 generateorphanfrenchsentences_=0;
+generatenotownedlojbosentences_=1;
 gettagsstats_ = 0;
 
 var goahead = function (){
@@ -17,14 +18,15 @@ var goahead = function (){
 	if (selectinto_===1){selectinto();}
 	if (generateorphanenglishsentences_===1){generateorphanenglishsentences();}
 	if (generateorphanfrenchsentences_===1){generateorphanfrenchsentences();}
+	if (generatenotownedlojbosentences_===1){generatenotownedlojbosentences();}
 	if (gettagsstats_===1){gettagsstats();}
 };
 
 var ningau_la_muplis = function(){
 	var LineByLineReader = require('line-by-line');
 	var sqlite3 = require('sqlite3').verbose();
-	var db = new sqlite3.Database(path.join(__dirname,"dumps","1.sql"));
-	var wstream = fs.createWriteStream(path.join(__dirname,"data","parsed-tatoeba.js.temp"));
+	var db = new sqlite3.Database(path.join(__dirname,"../../dumps","1.sql"));
+	var wstream = fs.createWriteStream(path.join(__dirname,"../data","parsed-tatoeba.js.temp"));
 	wstream.write('var documentStore = [\n');
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
@@ -38,15 +40,15 @@ var ningau_la_muplis = function(){
 	});
 	db.close(function(){
 		wstream.write('];\n');wstream.end();
-		fs.renameSync(path.join(__dirname,"i/data","parsed-tatoeba.js.temp"), path.join(__dirname,"data","parsed-tatoeba.js"));
+		fs.renameSync(path.join(__dirname,"../data","parsed-tatoeba.js.temp"), path.join(__dirname,"../data","parsed-tatoeba.js"));
 	});
 };
 
 var ningau_la_muplis_poholska = function(){
 	var LineByLineReader = require('line-by-line');
 	var sqlite3 = require('sqlite3').verbose();
-	var db = new sqlite3.Database(path.join(__dirname,"dumps","1.sql"));
-	var wstream = fs.createWriteStream(path.join(__dirname,"data","parsed-tatoeba.js.temp"));
+	var db = new sqlite3.Database(path.join(__dirname,"../../dumps","1.sql"));
+	var wstream = fs.createWriteStream(path.join(__dirname,"../data","parsed-tatoeba.js.temp"));
 	wstream.write('var documentStore = [\n');
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
@@ -60,15 +62,15 @@ var ningau_la_muplis_poholska = function(){
 	});
 	db.close(function(){
 		wstream.write('];\n');wstream.end();
-		fs.renameSync(path.join(__dirname,"data","parsed-tatoeba.js.temp"), path.join(__dirname,"data","parsed-tatoeba-eng-pol.js"));
+		fs.renameSync(path.join(__dirname,"../data","parsed-tatoeba.js.temp"), path.join(__dirname,"../data","parsed-tatoeba-eng-pol.js"));
 	});
 };
 
 var selectinto = function(){
 	var LineByLineReader = require('line-by-line');
 	var sqlite3 = require('sqlite3').verbose();
-	var db = new sqlite3.Database(path.join(__dirname,"dumps","1.sql"));
-	var wstream = fs.createWriteStream(path.join(__dirname,"data","workontagstatoeba.js.temp"));
+	var db = new sqlite3.Database(path.join(__dirname,"../../dumps","1.sql"));
+	var wstream = fs.createWriteStream(path.join(__dirname,"../data","workontagstatoeba.js.temp"));
 	wstream.write("<!DOCTYPE HTML>\n<html><meta http-equiv=Content-Type content='text/html;charset=UTF-8'><head><link rel='stylesheet' href='kampu.css'></head><body><table id='lojban'>\n");
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
@@ -86,15 +88,15 @@ var selectinto = function(){
 	db.close(function(){
 		wstream.write('</table></body></html>\n');
 		wstream.end();
-		fs.renameSync(path.join(__dirname,"data","workontagstatoeba.js.temp"), path.join(__dirname,"data","eng-jbo-tatoeba.html"));
+		fs.renameSync(path.join(__dirname,"../data","workontagstatoeba.js.temp"), path.join(__dirname,"../data","eng-jbo-tatoeba.html"));
 	});
 };
 
 var generateorphanenglishsentences = function(){
 	var LineByLineReader = require('line-by-line');
 	var sqlite3 = require('sqlite3').verbose();
-	var db = new sqlite3.Database(path.join(__dirname,"dumps","1.sql"));
-	var wstream = fs.createWriteStream(path.join(__dirname,"data","workontagstatoeba.js.temp"));
+	var db = new sqlite3.Database(path.join(__dirname,"../../dumps","1.sql"));
+	var wstream = fs.createWriteStream(path.join(__dirname,"../data","workontagstatoeba.js.temp"));
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
 		db.each("SELECT tat.idsentence as one,tat.sentence as two,group_concat(distinct tati.sentence) as three FROM tatoeba as tat left left join audio as a on (a.ids=tat.idsentence) join links on links.fir=tat.idsentence left join tatoeba as tati on (links.sec=tati.idsentence and tati.lang='jbo') left join tags as tag on tag.ids=tat.idsentence where (tat.lang='eng' and a.ids is not null) group by one order by one asc limit 1000000", function(err, row) {
@@ -106,15 +108,15 @@ var generateorphanenglishsentences = function(){
 	});
 	db.close(function(){
 		wstream.end();
-		fs.renameSync(path.join(__dirname,"data","workontagstatoeba.js.temp"), path.join(__dirname,"data","orphan-english.csv"));
+		fs.renameSync(path.join(__dirname,"../data","workontagstatoeba.js.temp"), path.join(__dirname,"../data","orphan-english.csv"));
 	});
 };
 
 var generateorphanfrenchsentences = function(){
 	var LineByLineReader = require('line-by-line');
 	var sqlite3 = require('sqlite3').verbose();
-	var db = new sqlite3.Database(path.join(__dirname,"dumps","1.sql"));
-	var wstream = fs.createWriteStream(path.join(__dirname,"data","workontagstatoeba.js.temp"));
+	var db = new sqlite3.Database(path.join(__dirname,"../../dumps","1.sql"));
+	var wstream = fs.createWriteStream(path.join(__dirname,"../data","workontagstatoeba.js.temp"));
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
 		db.each("SELECT tat.idsentence as one,tat.sentence as two,group_concat(distinct tati.sentence) as three, tag.tag as four FROM tatoeba as tat left left join audio as a on (a.ids=tat.idsentence) join links on links.fir=tat.idsentence left join tatoeba as tati on (links.sec=tati.idsentence and tati.lang='jbo') left join tags as tag on tag.ids=tat.idsentence where (tat.lang='fra' and tag.tag='OK') group by one order by one asc limit 1000000", function(err, row) {
@@ -127,15 +129,37 @@ var generateorphanfrenchsentences = function(){
 	});
 	db.close(function(){
 		wstream.end();
-		fs.renameSync(path.join(__dirname,"data","workontagstatoeba.js.temp"), path.join(__dirname,"data","orphan-francais.csv"));
+		fs.renameSync(path.join(__dirname,"../data","workontagstatoeba.js.temp"), path.join(__dirname,"../data","orphan-francais.csv"));
+	});
+};
+
+//tat.username<>'\\N' and tati.username<>'\\N'
+var generatenotownedlojbosentences = function(){
+	var LineByLineReader = require('line-by-line');
+	var sqlite3 = require('sqlite3').verbose();
+	var db = new sqlite3.Database(path.join(__dirname,"../../dumps","1.sql"));
+	var wstream = fs.createWriteStream(path.join(__dirname,"../data","workontagstatoeba.js.temp"));
+	db.serialize(function() {
+		db.run("BEGIN TRANSACTION");
+		db.each("SELECT tat.idsentence as one FROM tatoeba as tat where (tat.lang='jbo' and tat.username='\\N') group by one order by one asc limit 1000000", function(err, row) {
+			//tat.lang='fra' and a.ids is not null 
+			//if (row.three===null && row.four ==='OK'){
+				wstream.write(row.one +"\n");
+			//}
+		});
+		db.run("COMMIT");
+	});
+	db.close(function(){
+		wstream.end();
+		fs.renameSync(path.join(__dirname,"../data","workontagstatoeba.js.temp"), path.join(__dirname,"../data","not-owned-lojbo-sentences.csv"));
 	});
 };
 
 var gettagsstats = function(){
 	var LineByLineReader = require('line-by-line');
 	var sqlite3 = require('sqlite3').verbose();
-	var db = new sqlite3.Database(path.join(__dirname,"dumps","1.sql"));
-	var wstream = fs.createWriteStream(path.join(__dirname,"data","workontagstatoeba.js.temp"));
+	var db = new sqlite3.Database(path.join(__dirname,"../../dumps","1.sql"));
+	var wstream = fs.createWriteStream(path.join(__dirname,"../data","workontagstatoeba.js.temp"));
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
 		db.each("SELECT tag.tag as tagg, count(tag.tag) as cou, tat.lang as lan FROM tags as tag join tatoeba as tat on (tag.ids = tat.idsentence) group by tagg, lan order by lan, cou desc limit 1000000", function(err, row) {
@@ -147,16 +171,16 @@ var gettagsstats = function(){
 	});
 	db.close(function(){
 		wstream.end();
-		fs.renameSync(path.join(__dirname,"data","workontagstatoeba.js.temp"), path.join(__dirname,"data","tatoeba-tags-stats.csv"));
+		fs.renameSync(path.join(__dirname,"../data","workontagstatoeba.js.temp"), path.join(__dirname,"../data","tatoeba-tags-stats.csv"));
 	});
 };
 
 var tatocreatedb = function(){
 	//tatogettwo();
-	var tsorcu = path.join(__dirname,"dumps","tatoeba/sentences_detailed.csv");
+	var tsorcu = path.join(__dirname,"../../dumps","tatoeba/sentences_detailed.csv");
 	var LineByLineReader = require('line-by-line');
 	var sqlite3 = require('sqlite3').verbose();
-	var db = new sqlite3.Database(path.join(__dirname,"dumps","1.sql"));
+	var db = new sqlite3.Database(path.join(__dirname,"../../dumps","1.sql"));
 	db.serialize(function() {
 		//db.run("PRAGMA locking_mode = EXCLUSIVE");
 		db.run("PRAGMA journal_mode = OFF");
@@ -192,7 +216,7 @@ var tatocreatedb = function(){
 var add_links = function (db,LineByLineReader,stmt) {
 			stmt.finalize();
 			var stmtq = db.prepare("INSERT INTO links VALUES (?,?)");
-			var tjorne = path.join(__dirname,"dumps","tatoeba/links.csv");
+			var tjorne = path.join(__dirname,"../../dumps","tatoeba/links.csv");
 			lrq = new LineByLineReader(tjorne);
 			lrq.on('error', function (err) {
 				// 'err' contains error object
@@ -208,7 +232,7 @@ var add_links = function (db,LineByLineReader,stmt) {
 var add_tags = function (db,LineByLineReader,stmtq) {
 			stmtq.finalize();
 			var stmtr = db.prepare("INSERT INTO tags VALUES (?,?)");
-			var ttcita = path.join(__dirname,"dumps","tatoeba/tags.csv");
+			var ttcita = path.join(__dirname,"../../dumps","tatoeba/tags.csv");
 			var lrs = new LineByLineReader(ttcita);
 			lrs.on('error', function (err) {
 			// 'err' contains error object
@@ -225,7 +249,7 @@ var add_tags = function (db,LineByLineReader,stmtq) {
 var add_sentences_with_audio = function (db,LineByLineReader,stmtr) {
 			stmtr.finalize();
 			var stmts = db.prepare("INSERT INTO audio VALUES (?)");
-			var tvoksa = path.join(__dirname,"dumps","tatoeba/sentences_with_audio.csv");
+			var tvoksa = path.join(__dirname,"../../dumps","tatoeba/sentences_with_audio.csv");
 			var lrt = new LineByLineReader(tvoksa);
 			lrt.on('error', function (err) {
 				// 'err' contains error object
@@ -262,9 +286,9 @@ db.serialize(function() {
 var download_sentences = function(){
 	var request = require("request");
 	var fs = require("fs");
-	var t = path.join(__dirname,"dumps","tatoeba.tar.bz2");
-	var ttemp = path.join(__dirname,"dumps","tatoeba.tar.bz2.temp");
-	var tbakfu = path.join(__dirname,"dumps","tatoeba");
+	var t = path.join(__dirname,"../../dumps","tatoeba.tar.bz2");
+	var ttemp = path.join(__dirname,"../../dumps","tatoeba.tar.bz2.temp");
+	var tbakfu = path.join(__dirname,"../../dumps","tatoeba");
 	var uri="http://downloads.tatoeba.org/exports/sentences_detailed.tar.bz2";
 	requestd = request.defaults({jar: true});
 	requestd({
@@ -285,9 +309,9 @@ var download_sentences = function(){
 };
 
 var download_links = function(){
-	var tlink = path.join(__dirname,"dumps","links.tar.bz2");
-	var tlinktemp = path.join(__dirname,"dumps","links.tar.bz2.temp");
-	var tlinkbakfu = path.join(__dirname,"dumps","tatoeba");
+	var tlink = path.join(__dirname,"../../dumps","links.tar.bz2");
+	var tlinktemp = path.join(__dirname,"../../dumps","links.tar.bz2.temp");
+	var tlinkbakfu = path.join(__dirname,"../../dumps","tatoeba");
 	var uri = 'http://downloads.tatoeba.org/exports/links.tar.bz2';
 	requestd({
 		uri: uri, method: "GET"
@@ -307,9 +331,9 @@ var download_links = function(){
 };
 
 var download_tags = function(){
-	var ttags = path.join(__dirname,"dumps","tags.tar.bz2");
-	var ttagstemp = path.join(__dirname,"dumps","tags.tar.bz2.temp");
-	var ttagsbakfu = path.join(__dirname,"dumps","tatoeba");
+	var ttags = path.join(__dirname,"../../dumps","tags.tar.bz2");
+	var ttagstemp = path.join(__dirname,"../../dumps","tags.tar.bz2.temp");
+	var ttagsbakfu = path.join(__dirname,"../../dumps","tatoeba");
 	var uri = 'http://downloads.tatoeba.org/exports/tags.tar.bz2';
 	requestd({
 		uri: uri, method: "GET"
@@ -329,9 +353,9 @@ var download_tags = function(){
 };
 
 var download_audio = function(){
-	var ttags = path.join(__dirname,"dumps","sentences_with_audio.tar.bz2");
-	var ttagstemp = path.join(__dirname,"dumps","sentences_with_audio.tar.bz2.temp");
-	var ttagsbakfu = path.join(__dirname,"dumps","tatoeba");
+	var ttags = path.join(__dirname,"../../dumps","sentences_with_audio.tar.bz2");
+	var ttagstemp = path.join(__dirname,"../../dumps","sentences_with_audio.tar.bz2.temp");
+	var ttagsbakfu = path.join(__dirname,"../../dumps","tatoeba");
 	var uri = 'http://downloads.tatoeba.org/exports/sentences_with_audio.tar.bz2';
 	requestd({
 		uri: uri, method: "GET"

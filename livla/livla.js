@@ -472,8 +472,8 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		///
 		var txt = text. toLowerCase();
 		switch(true) {
-		case txt.search(/ie( |)(nai( |)|)pei/) >= '0': benji(source,socket,clientmensi,sendTo, ext(tugni));break;
-		case txt.search(/\bna nelci/) >= '0': benji(source,socket,clientmensi,sendTo, ext(nelci));break;
+		//case txt.search(/ie( |)(nai( |)|)pei/) >= '0': benji(source,socket,clientmensi,sendTo, ext(tugni));break;
+		//case txt.search(/\bna nelci/) >= '0': benji(source,socket,clientmensi,sendTo, ext(nelci));break;
 		//case txt.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
 		case txt.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;
 		case txt.indexOf("lujvo:") == '0': benji(source,socket,clientmensi,sendTo, triz(text.substr(6)));break;
@@ -593,7 +593,7 @@ s=tato.tatoebaprocessing();
 i++;//in case we found nothing exit
 }
 if (s==="" && i<20000){s=": e'u do sisku tu'a lo nalkunti uenzi";}
-if (i>=20000){s="no da se tolcri";}
+if (i>=20000){s="no da se zvafa'i";}
 return s;
 };
 
@@ -884,8 +884,8 @@ try{stra.splice(30);}catch(err){}
 if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
-if (stra.length>1){gag = xo + " da se tolcri: " + gag;}
-if(gag===''){gag='lo nu mulno sisku zo\'u: y no da se tolcri';if (ljv!==''){gag+= "\n" + ljv;}}
+if (stra.length>1){gag = xo + " da se zvafa'i: " + gag;}
+if(gag===''){gag='lo nu mulno sisku zo\'u: y no da se zvafa\'i';if (ljv!==''){gag+= "\n" + ljv;}}
 return gag;
 };
 
@@ -894,7 +894,7 @@ var selmaho = function (lin)
 var gag='';var ien='';
 var coun = xmlDocEn.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]");
 if (typeof coun!=='undefined'){
-	ien='.i lu ' + lin + ' li\'u cmavo zo\'oi ' + coun.text();
+	ien='.i lu ' + lin + ' li\'u cmavo lu ' + coun.text() + ' li\'u';
 	var cll= require('./cll.js');
 	var cllarr = cll.cllk()[coun.text()];
 	if (typeof cllarr !== 'undefined'){ien+= "\n" + cllarr.replace(/ /g,"\n")}
@@ -916,7 +916,7 @@ switch(true){
 case (ien!=='') && (gag !==''): gag=ien.concat("\ncmavo: ").concat(gag);break;
 case (ien==='') && (gag !==''): gag="cmavo: " + gag;break;
 case (ien!=='') && (gag ===''): gag=ien;break;
-case (ien==='') && (gag ===''): gag='y no da se tolcri';break;
+case (ien==='') && (gag ===''): gag='y no da se zvafa\'i';break;
 }
 return gag;
 };
@@ -931,8 +931,8 @@ try{
 	if (tmp!==s){coun.push(tmp);}
 	}catch(err){}//search in notes
 if (lin.substr(0,4)!=='brod' & xugismu(lin)===true){coun.push(lin.substr(0,4));}//long rafsi
-if (coun.length!==0){coun= coun.join (' .e zo\'oi ');}else{coun='';}
-if (coun.length!==0){coun='zo\'oi ' + coun + ' rafsi zo ' + lin;}
+if (coun.length!==0){coun= coun.join (' .e ra\'oi ');}else{coun='';}
+if (coun.length!==0){coun='ra\'oi ' + coun + ' rafsi zo ' + lin;}
 
 var rev = xmlDocEn.get("/dictionary/direction[1]/valsi[rafsi=\""+lin+"\"]");
 //now try -raf- in notes
@@ -944,12 +944,12 @@ if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi
 if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi[@word=\""+lin+"o\" and (@type=\"fu'ivla\" or @type=\"experimental gismu\" or @type=\"gismu\")]");}
 if (typeof rev==='undefined'){rev = xmlDocEn.get("/dictionary/direction[1]/valsi[@word=\""+lin+"u\" and (@type=\"fu'ivla\" or @type=\"experimental gismu\" or @type=\"gismu\")]");}
 
-if (typeof rev!=='undefined' && rev.attr("word").value()!==lin){rev='zo ' + rev.attr("word").value() + ' se rafsi zo\'oi '+lin;}else{rev='';}
+if (typeof rev!=='undefined' && rev.attr("word").value()!==lin){rev='zo ' + rev.attr("word").value() + ' se rafsi ra\'oi '+lin;}else{rev='';}
 switch(true){
 case (coun!=='') && (rev !==''): gag=coun.concat(" .i ").concat(rev);break;
 case (coun==='') && (rev !==''): gag=rev;break;
 case (coun!=='') && (rev ===''): gag=coun;break;
-case (coun==='') && (rev ===''): gag='y no da se tolcri';break;
+case (coun==='') && (rev ===''): gag='y no da se zvafa\'i';break;
 }
 return gag;
 };
@@ -994,7 +994,7 @@ for (var i=0;i<arrf.length;i++)
 	break;}
 }
 
-if (gag!==''){return gag;}else{return 'no da se tolcri'}
+if (gag!==''){return gag;}else{return 'no da se zvafa\'i'}
 };
 
 var framemulno = function (lin)
@@ -1015,7 +1015,7 @@ for (var i=0;i<arrf.length;i++)
 	if (stra.length>=40){stra.push("...");}
 	gag=stra.join(", ").trim();
 	if (stra.length==1){gag = frame(stra[0]);}
-	if (gag!==''){return gag;}else{return 'no da se tolcri'}
+	if (gag!==''){return gag;}else{return 'no da se zvafa\'i'}
 return gag;
 };
 
@@ -1061,7 +1061,7 @@ var items = logl.loglandic();
 var finti = function (lin)
 {
 lin=lin.replace(/\"/g,'');
-var retur='y no da se tolcri';
+var retur='y no da se zvafa\'i';
 var coun = xmlDocEn.find("/dictionary/direction[1]/valsi[contains(translate(./user/username,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 var stra=[];
 	for (var i=0;i<coun.length;i++)
@@ -1073,8 +1073,8 @@ try{stra.splice(30);}catch(err){}
 if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
-if (stra.length>1){gag = cnt + " da se tolcri: " + gag;}
-if(gag===''){gag='y no da se tolcri';}
+if (stra.length>1){gag = cnt + " da se zvafa\'i: " + gag;}
+if(gag===''){gag='y no da se zvafa\'i';}
 return gag;
 };
 
@@ -1086,7 +1086,7 @@ lin=lin.replace(/\"/g,'');
 if (typeof xmlDoc==='undefined'){
 	if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"../dumps",lng + ".xml"),{encoding: 'utf8'}));}
 }
-var retur='y no da se tolcri';
+var retur='y no da se zvafa\'i';
 var items = [
 	["lo","those-which"],["le","the"],["la","@@@"],["nu","event-of"],["zo","the-word:"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
 	["na","not"],["na'e","not"],["nai","-not"],["nelci","fond-of"],["ka","being"],["tu'a","about"],
@@ -1165,7 +1165,7 @@ lin=lin.toLowerCase();
 var valsicmene = function (lin,lng)
 {
 lin=lin.replace(/\"/g,'');var xo;
-var retur='y no da se tolcri';
+var retur='y no da se zvafa\'i';
 var xmlDoc;
 if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc= libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"../dumps",lng + ".xml"),{encoding: 'utf8'}));}
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
@@ -1179,8 +1179,8 @@ try{stra.splice(30);}catch(err){}
 if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
-if (stra.length>1){gag = xo + " da se tolcri: " + gag;}
-if(gag===''){gag='y no da se tolcri';}
+if (stra.length>1){gag = xo + " da se zvafa\'i: " + gag;}
+if(gag===''){gag='y no da se zvafa\'i';}
 return gag;
 };
 

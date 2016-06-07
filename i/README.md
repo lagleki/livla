@@ -1,4 +1,4 @@
-## A lojban dictionary
+## A dictionary for Lojban, English and other languages
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
@@ -15,13 +15,12 @@ Libraries under lib/ have their own license, as does the data in the data/ direc
 
 	la sutysisku itself is released under the MIT license.
 
-##### Scary Warning: App Cache
+### Testing
 
-The app cache is great for users, reliably giving excellent speed, however
-for development it's less than ideal. For best results, do most development
-without the appcache – just remove the manifest declaration at the top of index.
-html – then add it back in before pushing your changes up.
+/test folder doesn't have manifest file so it's fine for testing
 
-Otherwise you'll likely see none of your changes reflected until you refresh
-a couple times (or more).
+### Updating
 
+from the root glekitufa directory run
+
+```cd i ; node .scripts/template.js ; node .scripts/vlaste.js ; git add . ; git commit -m "commit" ; git push ; cd .. ```

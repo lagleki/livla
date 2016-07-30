@@ -15,8 +15,8 @@ var interm=2900;
 fram="../../../files/fndata-1.5/frame";
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
-var tcan='#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#fanva,#spero';
-var livlytcan='#fanva';//where la livla talks to la mensi
+var tcan='#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot';
+var livlytcan='#lojbanme';//where la livla talks to la mensi
 var asker='livla';
 var replier='mensi';
 var server='irc.freenode.net';
@@ -1149,7 +1149,8 @@ lin=lin.toLowerCase();
 			if (typeof cnt!=='undefined'){lin[i]=cnt.attr("word").value().replace(/ /gm,"-").replace(/$/gm,"%%%");}
 		}
 		//}
-		lin=lin.join(" ").replace(/ /gm,"* ").replace(/$/gm,"*").replace(/%%%\*/gm,"");
+		if(check===2){lin=lin.join(" + ");}else{lin=lin.join(" ");}
+		lin=lin.replace(/ /gm,"* ").replace(/$/gm,"*").replace(/%%%\*/gm,"");
 		lin=lin.replace(/(@@@ .)/ig,function(v) { return v.toUpperCase(); }).replace(/@@@/ig,'');//uppercase for {la}
 		lin=lin.replace(/,+ *\./g,'.');
 		lin=lin.replace(/(^.)/ig,function(v) { return v.toUpperCase(); }).replace(/ +/ig,' ').replace(/( \. *[^ ])/ig,function(v) { return v.toUpperCase(); }).replace(/ \./ig,'.');//punctuation prettification
@@ -1157,6 +1158,7 @@ lin=lin.toLowerCase();
 		lin=lin.replace(/ *(:|,)/g,'$1');
 		lin=lin.replace(/\*\*/g,'*');
 		lin=lin.replace(/\@?\b([a-z']+?)\b\*/g,'');
+		lin=lin.replace(/( \+\*){1,}/g,' +')
 		lin=lin.replace(/ {2,}/g,' ').trim();
 	}catch(err){lin='O_0';}
 	return lin;
@@ -1475,8 +1477,8 @@ var katna= function(lin,lng,flag,xmlDoc){
 	for (var o=0;o<lin.length;o++){
 		lin[o]=selrafsi(lin[o],xmlDoc);
 	}
-	lin = lin.join(" ");
-	if (flag!==1){lin = lin + " ≈ " + gloso(lin,lng,1,xmlDoc);}
+	lin = lin.join(" + ");
+	if (flag!==1 && (lng!=='jbo')){lin = lin + " ≈ " + gloso(lin,lng,1,xmlDoc);}
 	return lin;
 };
 
@@ -1621,7 +1623,7 @@ var tersmu = function(lin,sendTo,source,socket){
 };
 
 var mensimikce = function(text){//eliza bot analog
-var Mensibot = require('../mahantufa/mensimikce.js');
+var Mensibot = require('../mikce/mensimikce.js');
 //Mensibot.start(); // initializes Mensi and returns a greeting message
 var r = Mensibot.reply(text).toString();
 Mensibot = null;

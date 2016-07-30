@@ -7,7 +7,7 @@ var ningau_la_muplis_poholska_=0;
 var selectinto_=0;
 generateorphanenglishsentences_=0;
 generateorphanfrenchsentences_=0;
-generatenotownedlojbosentences_=1;
+tempo_=1;
 gettagsstats_ = 0;
 
 var goahead = function (){
@@ -18,7 +18,7 @@ var goahead = function (){
 	if (selectinto_===1){selectinto();}
 	if (generateorphanenglishsentences_===1){generateorphanenglishsentences();}
 	if (generateorphanfrenchsentences_===1){generateorphanfrenchsentences();}
-	if (generatenotownedlojbosentences_===1){generatenotownedlojbosentences();}
+	if (tempo_===1){tempo();}
 	if (gettagsstats_===1){gettagsstats();}
 };
 
@@ -134,17 +134,22 @@ var generateorphanfrenchsentences = function(){
 };
 
 //tat.username<>'\\N' and tati.username<>'\\N'
-var generatenotownedlojbosentences = function(){
+var tempo = function(){
+	var init = new Date('2013-01-01T00:00:00');
+	var dat;
 	var LineByLineReader = require('line-by-line');
 	var sqlite3 = require('sqlite3').verbose();
 	var db = new sqlite3.Database(path.join(__dirname,"../../dumps","1.sql"));
 	var wstream = fs.createWriteStream(path.join(__dirname,"../data","workontagstatoeba.js.temp"));
 	db.serialize(function() {
 		db.run("BEGIN TRANSACTION");
-		db.each("SELECT tat.idsentence as one FROM tatoeba as tat where (tat.lang='jbo' and tat.username='\\N') group by one order by one asc limit 1000000", function(err, row) {
+		db.each("SELECT tat.idsentence as one,tat.mod as two, tat.username as three FROM tatoeba as tat where (tat.lang='jbo' and tat.username='gleki') group by one order by one asc limit 1000000", function(err, row) {
 			//tat.lang='fra' and a.ids is not null 
-			//if (row.three===null && row.four ==='OK'){
+			//if (; ===null && row.four ==='OK'){
+				dat = new Date(row.two.replace(/ /,"T"));
+				if (dat<init){
 				wstream.write(row.one +"\n");
+				}
 			//}
 		});
 		db.run("COMMIT");
@@ -190,14 +195,14 @@ var tatocreatedb = function(){
 		db.run("DROP TABLE IF EXISTS 'links'");
 		db.run("DROP TABLE IF EXISTS 'tags'");
 		db.run("DROP TABLE IF EXISTS 'audio'");
-		db.run("CREATE TABLE tatoeba (idsentence INTEGER, lang TEXT, sentence TEXT, username TEXT)");
+		db.run("CREATE TABLE tatoeba (idsentence INTEGER, lang TEXT, sentence TEXT, username TEXT, ad TEXT, mod TEXT)");
 		db.run("CREATE TABLE links (fir INTEGER, sec INTEGER)");
 		db.run("CREATE TABLE tags (ids INTEGER, tag TEXT)");
 		db.run("CREATE TABLE audio (ids INTEGER)");
 		//db.run("PRAGMA synchronous = OFF");
 		db.run("BEGIN TRANSACTION");
 		//db.parallelize(function() {
-			var stmt = db.prepare("INSERT INTO tatoeba VALUES (?,?,?,?)");
+			var stmt = db.prepare("INSERT INTO tatoeba VALUES (?,?,?,?,?,?)");
 			lr = new LineByLineReader(tsorcu);
 			lr.on('error', function (err) {
 				// 'err' contains error object
@@ -205,7 +210,8 @@ var tatocreatedb = function(){
 			lr.on('line', function (line) {
 				// 'line' contains the current line without the trailing newline character. write it to a new file
 				var l = line.split("\t");
-				stmt.run(l[0],l[1],l[2],l[3]);
+				stmt.run(l[0],l[1],l[2],l[3],l[4],l[5]);
+				//console.log(l[5]);
 			});
 			lr.on('end', add_links.bind(null,db,LineByLineReader,stmt));
 		//});

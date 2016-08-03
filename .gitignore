@@ -14,6 +14,7 @@ dumps/*.tsv
 !dumps/ldp.xml
 !dumps/ile.xml
 !dumps/ithkuil.xml
+!dumps/krasi.xml
 dumps/*.pdf
 dumps/tatoeba*
 dumps/*.temp

@@ -15,7 +15,7 @@ var interm=2900;
 fram="../../../files/fndata-1.5/frame";
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
-var tcan='#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot';
+var tcan='#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau';
 var livlytcan='#lojbanme';//where la livla talks to la mensi
 var asker='livla';
 var replier='mensi';
@@ -30,7 +30,7 @@ var config = {
   options: {
     channels: [livlytcan],
     debug: false,
-    messageSplit: 190,
+    messageSplit: 1900,
     realName: 'http://lojban.org/papri/IRC_Bots',
     floodProtection: true,
     floodProtectionDelay: 400
@@ -42,7 +42,7 @@ var configmensi = {
   options: {
     channels: [livlytcan, tcan],
     debug: false,
-    messageSplit: 190,
+    messageSplit: 1900,
     realName: 'http://lojban.org/papri/IRC_Bots',
     userName: replier,
     floodProtection: true,
@@ -463,7 +463,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 			if (from.match(sem)!==null)
 			{
 				cmenepagbu=notci[l].split("\t");
-				benji(source,socket,clientmensi,sendTo,(from + ": cu'u la'o gy." + cmenepagbu[0] + ".gy.: "+cmenepagbu[2]).replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n'));
+				benji(source,socket,clientmensi,sendTo,(from + ": cu'u la'o gy." + cmenepagbu[0] + ".gy.: "+cmenepagbu[2]).replace(/(.{190,250})(, |[ \.\"\/])/g,'$1$2\n'));
 				notci.splice(l,1);l=l-1;
 				fs.writeFile(notcijudri, notci.join("\n"));
 			}
@@ -475,6 +475,9 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		//case txt.search(/ie( |)(nai( |)|)pei/) >= '0': benji(source,socket,clientmensi,sendTo, ext(tugni));break;
 		//case txt.search(/\bna nelci/) >= '0': benji(source,socket,clientmensi,sendTo, ext(nelci));break;
 		//case txt.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
+		case txt.trim() == '#ermenefti': benji(source,socket,clientmensi,sendTo, "https://mw.lojban.org/papri/Hermeneutics");break;
+		case txt.trim() == '#telegram': benji(source,socket,clientmensi,sendTo, "#lojban https://telegram.me/joinchat/BLVsYz3hCF-CtYw0-2IkqQ\n#ckule https://telegram.me/joinchat/BLVsYz4hC9ulWahupDLovA\n#jbosnu https://telegram.me/joinchat/BLVsYz20Boixl0xN-0TrPw\n#spero https://telegram.me/joinchat/BcR2JD4jiwqqDSiyRWwgdQ\n##jboselbau https://telegram.me/joinchat/CJYorT2ma6UVfhb9YThEqw");break;
+case txt.trim() == '#uilkinse': benji(source,socket,clientmensi,sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");break;
 		case txt.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;
 		case txt.indexOf("lujvo:") == '0': benji(source,socket,clientmensi,sendTo, triz(text.substr(6)));break;
 		//case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxes(ret[0], ret[1]));break;
@@ -526,6 +529,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		case txt.indexOf('finti:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'en','finti'));break;
 		case txt.indexOf('rafsi:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'en','raf'));break;
 		case txt.search("ra'oi [a-z']+ rafsi ma") == '0': var reg = /ra'oi ([a-z']+) rafsi ma/;var mat=reg.exec(text);benji(source,socket,clientmensi,sendTo, vlaste(mat[1],'en','raf'));break;
+case txt.search("(\.i |i |)ma rafsi zo [a-z']+") == '0': var reg = /.*ma rafsi zo ([a-z']+).*/;var mat=reg.exec(text);benji(source,socket,clientmensi,sendTo, vlaste(mat[1],'en','raf'));break;
 		case txt.indexOf('toki:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(5),'toki'));break;
 		case txt.indexOf('laadan:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(7),'laadan'));break;
 		case txt.indexOf('loglan:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(7),'loglan'));break;
@@ -767,7 +771,7 @@ var ret;
 				ret=tordu(lin.replace(/\"/g,''), lng,"","",cmalu);break;
 			}
 	}
-return ret.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n');
+return ret.replace(/(.{190,250})(, |[ \.\"\/])/g,'$1$2\n');
 };
 
 function lojTemplate(s) {
@@ -1055,7 +1059,7 @@ var items = logl.loglandic();
 		lin=lin.join(" ").replace(/ /gm,"* ").replace(/$/gm,"*").replace(/A\*/gm,"").replace(/A$/gm,"");
 	}
 }catch(err){lin='O_0';}
-	return lin.replace(/(.{80,120})(, |[ \.\"\/])/g,'$1$2\n').trim();
+	return lin.replace(/(.{190,250})(, |[ \.\"\/])/g,'$1$2\n').trim();
 };
 
 var finti = function (lin)

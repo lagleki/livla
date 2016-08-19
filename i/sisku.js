@@ -238,7 +238,7 @@ function sisku(query, callback) {
 		}
 		preciseMatches = sortthem(lo_matra_cu_cupra);
 		try{
-			if (preciseMatches.length===0||preciseMatches[0].rafsiDocuments[0].d==='not found') {
+			if (preciseMatches.length===0) {
 				preciseMatches=be([],query)||[];
 			}
 		}catch(err){}

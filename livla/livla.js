@@ -476,6 +476,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
 		//case txt.search(/\bna nelci/) >= '0': benji(source,socket,clientmensi,sendTo, ext(nelci));break;
 		//case txt.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
 		case txt.trim() == '#ermenefti': benji(source,socket,clientmensi,sendTo, "https://mw.lojban.org/papri/Hermeneutics");break;
+    case txt.trim() == '#slak': benji(source,socket,clientmensi,sendTo, "https://slaka.herokuapp.com");break;
 		case txt.trim() == '#telegram': benji(source,socket,clientmensi,sendTo, "#lojban https://telegram.me/joinchat/BLVsYz3hCF-CtYw0-2IkqQ\n#ckule https://telegram.me/joinchat/BLVsYz4hC9ulWahupDLovA\n#jbosnu https://telegram.me/joinchat/BLVsYz20Boixl0xN-0TrPw\n#spero https://telegram.me/joinchat/BcR2JD4jiwqqDSiyRWwgdQ\n##jboselbau https://telegram.me/joinchat/CJYorT2ma6UVfhb9YThEqw");break;
 case txt.trim() == '#uilkinse': benji(source,socket,clientmensi,sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");break;
 		case txt.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;

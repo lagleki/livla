@@ -12,6 +12,7 @@ var tato= require('./tatoeba.js');
 var gram= require('./gram.js');
 var interv=300000;
 var interm=2900;
+var nodasezvafahi = 'no da se zvafa\'i';
 fram="../../../files/fndata-1.5/frame";
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
@@ -598,7 +599,7 @@ s=tato.tatoebaprocessing();
 i++;//in case we found nothing exit
 }
 if (s==="" && i<20000){s=": e'u do sisku tu'a lo nalkunti uenzi";}
-if (i>=20000){s="no da se zvafa'i";}
+if (i>=20000){s=nodasezvafahi;}
 return s;
 };
 
@@ -890,7 +891,7 @@ if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
 if (stra.length>1){gag = xo + " da se zvafa'i: " + gag;}
-if(gag===''){gag='lo nu mulno sisku zo\'u: y no da se zvafa\'i';if (ljv!==''){gag+= "\n" + ljv;}}
+if(gag===''){gag='lo nu mulno sisku zo\'u: no da se zvafa\'i';if (ljv!==''){gag+= "\n" + ljv;}}
 return gag;
 };
 
@@ -921,7 +922,7 @@ switch(true){
 case (ien!=='') && (gag !==''): gag=ien.concat("\ncmavo: ").concat(gag);break;
 case (ien==='') && (gag !==''): gag="cmavo: " + gag;break;
 case (ien!=='') && (gag ===''): gag=ien;break;
-case (ien==='') && (gag ===''): gag='y no da se zvafa\'i';break;
+case (ien==='') && (gag ===''): gag=nodasezvafahi;break;
 }
 return gag;
 };
@@ -954,7 +955,7 @@ switch(true){
 case (coun!=='') && (rev !==''): gag=coun.concat(" .i ").concat(rev);break;
 case (coun==='') && (rev !==''): gag=rev;break;
 case (coun!=='') && (rev ===''): gag=coun;break;
-case (coun==='') && (rev ===''): gag='y no da se zvafa\'i';break;
+case (coun==='') && (rev ===''): gag=nodasezvafahi;break;
 }
 return gag;
 };
@@ -999,7 +1000,7 @@ for (var i=0;i<arrf.length;i++)
 	break;}
 }
 
-if (gag!==''){return gag;}else{return 'no da se zvafa\'i'}
+if (gag!==''){return gag;}else{return nodasezvafahi}
 };
 
 var framemulno = function (lin)
@@ -1020,7 +1021,7 @@ for (var i=0;i<arrf.length;i++)
 	if (stra.length>=40){stra.push("...");}
 	gag=stra.join(", ").trim();
 	if (stra.length==1){gag = frame(stra[0]);}
-	if (gag!==''){return gag;}else{return 'no da se zvafa\'i'}
+	if (gag!==''){return gag;}else{return nodasezvafahi}
 return gag;
 };
 
@@ -1066,7 +1067,7 @@ var items = logl.loglandic();
 var finti = function (lin)
 {
 lin=lin.replace(/\"/g,'');
-var retur='y no da se zvafa\'i';
+var retur=nodasezvafahi;
 var coun = xmlDocEn.find("/dictionary/direction[1]/valsi[contains(translate(./user/username,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
 var stra=[];
 	for (var i=0;i<coun.length;i++)
@@ -1079,7 +1080,7 @@ if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
 if (stra.length>1){gag = cnt + " da se zvafa\'i: " + gag;}
-if(gag===''){gag='y no da se zvafa\'i';}
+if(gag===''){gag=nodasezvafahi;}
 return gag;
 };
 
@@ -1091,7 +1092,7 @@ lin=lin.replace(/\"/g,'');
 if (typeof xmlDoc==='undefined'){
 	if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"../dumps",lng + ".xml"),{encoding: 'utf8'}));}
 }
-var retur='y no da se zvafa\'i';
+var retur=nodasezvafahi;
 var items = [
 	["lo","those-which"],["le","the"],["la","@@@"],["nu","event-of"],["zo","the-word:"],["coi","hello"],["co'o","goodbye"],["ro","each-of"],["ma","what"],["mo","is-what"],
 	["na","not"],["na'e","not"],["nai","-not"],["nelci","fond-of"],["ka","being"],["tu'a","about"],
@@ -1172,7 +1173,7 @@ lin=lin.toLowerCase();
 var valsicmene = function (lin,lng)
 {
 lin=lin.replace(/\"/g,'');var xo;
-var retur='y no da se zvafa\'i';
+var retur=nodasezvafahi;
 var xmlDoc;
 if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc= libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"../dumps",lng + ".xml"),{encoding: 'utf8'}));}
 var coun = xmlDoc.find("/dictionary/direction[1]/valsi[contains(translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\"),\""+lin+"\")]");
@@ -1187,7 +1188,7 @@ if (stra.length>=30){stra.push("...");}
 var gag=stra.join(", ").trim();
 if (stra.length==1){gag = tordu(gag,lng);}
 if (stra.length>1){gag = xo + " da se zvafa\'i: " + gag;}
-if(gag===''){gag='y no da se zvafa\'i';}
+if(gag===''){gag=nodasezvafahi;}
 return gag;
 };
 

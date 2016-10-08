@@ -289,6 +289,8 @@ function extract_mode(input) {
     return [input.substr(3), 5];
   } else if (input.indexOf("-f+s ") == '0') {
     return [input.substr(5), 6];
+  } else if (input.indexOf("+j ") == '0') {
+    return [input.substr(3), 1];
   } else return [input, 2];
 }
 
@@ -1415,7 +1417,8 @@ if (typeof lng==='undefined'){lng='en';}
 if (typeof xmlDoc==='undefined'){
   if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"../dumps",lng + ".xml"),{encoding: 'utf8'}));}
 }
-  var ar=inp.trim().split(" ");
+  var sep = " ";if(flag===1){sep = " + ";}
+  var ar=inp.trim().split(sep);
   for(var l=0;l<ar.length;l++){
     if (l==ar.length-1){
     ar[l]=rafsiselfu(ar[l],1).split(" ");}else{

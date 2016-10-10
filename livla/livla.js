@@ -541,6 +541,7 @@ case txt.search("(\.i |i |)ma rafsi zo [a-z']+") == '0': var reg = /.*ma rafsi z
     case txt.indexOf('loi:') == '0': benji(source,socket,clientmensi,sendTo, loglo(text.substr(4),''));break;
     case txt.indexOf('coi:') == '0': benji(source,socket,clientmensi,sendTo, loglo(text.substr(4),'coi'));break;
     case txt.indexOf(prereplier + 'mhnt ') == '0': ningaumahantufa(text.substr(12),socket);break;
+    case txt.indexOf(prereplier + 'getgr ') == '0': getmahantufagrammar(text.substr(13),socket);break;
     case txt.indexOf(prereplier + "tatoget") == '0': tatoget();break;
     case txt.indexOf('ze:') == '0': zmifanva(source,socket,clientmensi,sendTo,text.substr(3),'en2jb');break;
     case txt.indexOf('zj:') == '0': zmifanva(source,socket,clientmensi,sendTo,text.substr(3),'jb2en');break;
@@ -1678,11 +1679,12 @@ var ningaumahantufa = function(text,socket){
   var whichfile = text.substr(0,text.indexOf(' '));
   text = text.substr(text.indexOf(' ')+1);
   var t = path.join(__dirname,"."+whichfile+".peg");
+  console.log(text);
   fs.writeFileSync(t,text);
   // // read peg and build a parser
   var camxes_peg = fs.readFileSync(whichfile+".peg").toString();
   try{
-    var camxes = PEG.buildParser(camxes_peg, {cache: true, trace: false, output: "source", allowedStartRules: ["text"]});
+    var camxes = PEG.generate(camxes_peg, {cache: true, trace: false, output: "source", allowedStartRules: ["text"]});
     // // write to a file
     var fd = fs.openSync(whichfile, 'w+');
     var buffer = new Buffer('var camxes = ');
@@ -1692,8 +1694,21 @@ var ningaumahantufa = function(text,socket){
     buffer = new Buffer("\n\nmodule.exports = camxes;\n\nterm = process.argv[2];\nif (term !== undefined && typeof term.valueOf() === 'string')\n  console.log(JSON.stringify(camxes.parse(term)));\n\n");
     fs.writeSync(fd, buffer, 0, buffer.length);
     fs.close(fd);
-    fs.writeFileSync(whichfile, UglifyJS.minify(whichfile).code);
-    socket.emit('returner', {message: "snada"});
+    var ya = UglifyJS.minify(whichfile).code;
+    fs.writeFileSync(whichfile, ya);
+    socket.emit('returner', {message: "snada", data_js: ya});
   }
   catch(e){socket.emit('returner', {message: e.message});}
+};
+
+var getmahantufagrammar = function(name,socket){
+  var fs = require("fs");
+  var grammar_file = fs.readFileSync(path.join(__dirname, name + ".peg")).toString();
+  var grammar_file_js = fs.readFileSync(path.join(__dirname, name)).toString();
+  try{
+    socket.emit('returner_file', {message: "snada", data: grammar_file, data_js: grammar_file_js});
+  }
+  catch(e){
+    socket.emit('returner_file', {message: "fliba", data: e.message});
+  }
 };

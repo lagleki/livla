@@ -123,7 +123,7 @@ cehe_sa <- CEhE_clause (!CEhE_clause (sa_word / SA_clause !CEhE_clause))* SA_cla
 
 term <- term_sa* term_1
 
-term_1 <- sumti / ( !gek (tag !selbri / FA_clause free*) (sumti / KU_elidible free*) ) / termset / NA_clause KU_clause free*
+term_1 <- sumti / ( !gek (tag !(!tag selbri) / FA_clause free*) (sumti / KU_elidible free*) ) / termset / NA_clause KU_clause free*
 
 nonabs_term <- term_sa* (sumti / ( !gek (tag / FA_clause free*) (sumti / KU_elidible free*) ) / termset / NA_clause KU_clause free*)
 
@@ -1219,7 +1219,7 @@ ZOhU_post <- post_clause
 
 CMEVLA <- cmevla
 BRIVLA <- gismu / lujvo / fuhivla
-# gismu_2 = expr:(gismu) {return ["gismu", expr];}
+
 CMAVO <- A / BAI / BAhE / BE / BEI / BEhO / BIhE / BIhI / BO / BOI / BU / BY / CAhA / CAI / CEI / CEhE / CO / COI / CU / CUhE / DAhO / DOI / DOhU / FA / FAhA / FAhO / FEhE / FEhU / FIhO / FOI / FUhA / FUhE / FUhO / GA / GAhO / GEhU / GI / GIhA / GOI / GOhA / GUhA / I / JA / JAI / JOhI / JOI / KE / KEhE / KEI / KI / KOhA / KU / KUhE / KUhO / LA / LAU / LAhE / LE / LEhU / LI / LIhU / LOhO / LOhU / LU / LUhU / MAhO / MAI / ME / MEhU / MOhE / MOhI / MOI / NA / NAI / NAhE / NAhU / NIhE / NIhO / NOI / NU / NUhA / NUhI / NUhU / PA / PEhE / PEhO / PU / RAhO / ROI / SA / SE / SEI / SEhU / SI / SOI / SU / TAhE / TEhU / TEI / TO / TOI / TUhE / TUhU / UI / VA / VAU / VEI / VEhO / VUhU / VEhA / VIhA / VUhO / XI / ZAhO / ZEhA / ZEI / ZI / ZIhE / ZO / ZOI / ZOhU / cmavo
 
 # This is a Parsing Expression Grammar for the morphology of Lojban.
@@ -1556,7 +1556,7 @@ BOI <- &cmavo ( b o i ) &post_word
 
 BU <- &cmavo ( b u ) &post_word
 
-BY <- &cmavo (ybu / j o h o / r u h o / g e h o / j e h o / l o h a / n a h a / s e h e / t o h a / g a h e / y h y / b y / c y / d y / f y / g y / j y / k y / l y / m y / n y / p y / r y / s y / t y / v y / x y / z y ) &post_word
+BY <- &cmavo ( ybu / j o h o / r u h o / g e h o / j e h o / l o h a / n a h a / s e h e / t o h a / g a h e / y h y / b y / c y / d y / f y / g y / j y / k y / l y / m y / n y / p y / r y / s y / t y / v y / x y / z y ) &post_word
 
 CAhA <- &cmavo ( c a h a / p u h i / n u h o / k a h e ) &post_word
 
@@ -1777,4 +1777,3 @@ ZO <- &cmavo ( z o ) &post_word
 ZOI <- &cmavo ( z o i / l a h o ) &post_word
 
 ZOhU <- &cmavo ( z o h u ) &post_word
-

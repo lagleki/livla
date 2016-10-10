@@ -15,9 +15,9 @@
 
 text = pause? expr:(any_word*) {return _node_int(expr);}
 any_word = expr:(jbovla) pause? {return expr;}
-jbovla = cmevla / expr:(cmavo) {return ["cmavo", _join(expr)];} / expr:(gismu) {return ["gismu", _join(expr)];} / expr:(!gismu !fuhivla !cmavo !(ini_vwl h y onset) lujvo_core) {return ["lujvo", _join(expr)];} / expr:(fuhivla) {return ["fu'ivla", _join(expr)];}
+jbovla = cmevla / expr:(cmavo) {return ["cmavo", _join(expr)];} / expr:(gismu) {return ["gismu", _join(expr)];} / expr:(!gismu !fuhivla !cmavo !(ini_vwl h y onset) lujvo_core) {return ["lujvo", _join(expr)];} / expr:(fuhivla) {return ["fu'ivla", _join(expr)];} / expr:(nul) {return ["null", _join(expr)];}
 
-cmevla = expr:((&zifcme (any_syllable)* &pause) / zifcme) {return ["cmevla", _join(expr)];}
+cmevla = expr:((&zifcme any_syllable+ &pause) / zifcme) {return ["cmevla", _join(expr)];}
 gismu = long_rafsi &stress &final_syllable pa_zei_karsna &post_word
 fuhivla_trim = fuhivla_head slaka &stress consonantal_syllable* 
 fuhivla = fuhivla_trim final_syllable
@@ -71,7 +71,7 @@ pa_zei_karsna = [aeiou] !nucleus
 
 i = [i]
 u = [u]
-y = [y] !pa_zei_karsna
+y = [y] !(!y nucleus)
 
 initial_pair = &onset zunsna zunsna !zunsna
 
@@ -96,3 +96,5 @@ h = ['] &nucleus
 post_word = pause / !nucleus jbovla
 
 pause = [.\t\n\r?!\u0020]+ / !.
+
+nul = [^ ]+

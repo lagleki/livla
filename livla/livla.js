@@ -447,7 +447,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
   }
     //notci functions in lojban as an alternative:
   if (text.indexOf(replier+': doi ') == '0'){
-    text = text.substr(11).trim().replace("\\t"," ").replace(" ","\t");
+    text = text.substr(11).trim().replace(/^la /,'').replace("\\t"," ").replace(" ","\t");
     switch(true) {
     case from.match(text.substr(0, text.indexOf('\t')))!==null: benji(source,socket,clientmensi,sendTo,from+": e'u do cusku di'u lo nei si'unai");break;
     case text.substr(0, text.indexOf('\t'))==replier: benji(source,socket,clientmensi,sendTo,from+": xu do je'a jinvi lodu'u mi bebna i oi");break;

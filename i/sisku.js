@@ -34,7 +34,12 @@ function ma_ve_lujvo(a) {
   if (a.indexOf(' zei ')>-1){return a.split(" zei ");}
   try{t= cmaxes.parse(a).toString().split(",");}catch(err){return;}
   if (t[0]!=='lujvo'||t.length!==2) return;
-  t = t[1].split("-").map(function(a){return a.substring(0, 4);});
+  t = t[1].split("-").map(
+  function(a){
+    var k = a.substring(0, 4);
+    if(a.length===5 && k==='brod'){k=a;}
+    return k;
+  });
   return t;
 }
 

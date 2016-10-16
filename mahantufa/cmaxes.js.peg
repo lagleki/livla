@@ -13,9 +13,9 @@
   }
 }
 
-text = pause? expr:(any_word*) {return _node_int(expr);}
-any_word = expr:(jbovla) pause? {return expr;}
-jbovla = cmevla / expr:(cmavo) {return ["cmavo", _join(expr)];} / expr:(gismu) {return ["gismu", _join(expr)];} / expr:(!gismu !fuhivla !cmavo !(ini_vwl h y onset) lujvo_core) {return ["lujvo", _join(expr)];} / expr:(fuhivla) {return ["fu'ivla", _join(expr)];} / expr:(nul) {return ["null", _join(expr)];}
+text = expr:(any_word*) {return _node_int(expr);}
+any_word = expr:(jbovla) {return expr;}
+jbovla = pause_0 / cmevla / expr:(cmavo) {return ["cmavo", _join(expr)];} / expr:(gismu) {return ["gismu", _join(expr)];} / expr:(!gismu !fuhivla !cmavo !(ini_vwl h y onset) lujvo_core) {return ["lujvo", _join(expr)];} / expr:(fuhivla) {return ["fu'ivla", _join(expr)];}
 
 cmevla = expr:((&zifcme any_syllable+ &pause) / zifcme) {return ["cmevla", _join(expr)];}
 gismu = long_rafsi &stress &final_syllable pa_zei_karsna &post_word
@@ -23,7 +23,7 @@ fuhivla_trim = fuhivla_head slaka &stress consonantal_syllable*
 fuhivla = fuhivla_trim final_syllable
 cmavo = !cmevla !(CVC !stress y h? lujvo_core / CVC &stress y short_final_rafsi) (!h !(zunsna zunsna+) onset (nucleus h)* nucleus / y+) &post_word
 
-lujvo_core = ( expr:(hy_rafsi / fuhivla_rafsi / y_rafsi / !any_fuhivla_rafsi y_less_rafsi !any_fuhivla_rafsi) {return [_join(expr),"-"];} )* (expr:(fuhivla / gismu_CVV_final_rafsi) {return [_join(expr)];} / (expr:((stressed_hy_rafsi / stressed_fuhivla_rafsi / stressed_y_rafsi / CVC_CCV_CVV &stress)) exp:(short_final_rafsi)) {return [_join(expr),"-",_join(exp)];} )
+lujvo_core = ( expr:(hy_rafsi / fuhivla_rafsi / y_rafsi / !any_fuhivla_rafsi y_less_rafsi !any_fuhivla_rafsi) {return [_join(expr),"-"];} )* (expr:(fuhivla / gismu_CVV_final_rafsi) {return [_join(expr)];} / (expi:((stressed_hy_rafsi / stressed_fuhivla_rafsi / stressed_y_rafsi / CVC_CCV_CVV &stress)) exp:(short_final_rafsi) {return [_join(expi),"-",_join(exp)];}) )
 
 any_fuhivla_rafsi = fuhivla / fuhivla_rafsi / stressed_fuhivla_rafsi
 rafsi_string = y_less_rafsi* (gismu_CVV_final_rafsi / CVC_CCV_CVV &stress !y short_final_rafsi / y_rafsi / stressed_y_rafsi / (CVC_CCV_CVV &stress !y)? initial_pair y / hy_rafsi / stressed_hy_rafsi)
@@ -93,8 +93,10 @@ x = [x] !glaide
 t = [t] !glaide
 h = ['] &nucleus
 
-post_word = pause / !nucleus jbovla
+post_word = pause / !nucleus jbovla / [\}]
 
-pause = [.\t\n\r?!\u0020]+ / !.
+pause = pause_0 / !.
+
+pause_0 = expr:([^abcdefgijklmnoprstuvxyzABCDEFGIJKLMNOPRSTUVXYZ']+) {return ["space", _join(expr)];}
 
 nul = [^ ]+

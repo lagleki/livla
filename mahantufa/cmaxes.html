@@ -1,104 +1,118 @@
 <!doctype html>
 <html>
-	<head>
-		<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
-        <script src='//vrici.lojban.org:3000/socket.io/socket.io.js'></script>
-        <script id="myscript" type="text/javascript" src="cmaxes.js"></script>
-        <script>
-            function run_camxes() {
-				try {
-				  var input = $('#input_textarea').val();
-				  input = camxes_preprocessing(input);
-			      var result = camxes.parse(input);
-			    } catch (e) {
-			      $('#parse_result').text( e.toString() );
-			      return;
-			    }
-			    var result_str = JSON.stringify(result, undefined, 2);
-				/* We get the output mode selected in the combobox */
-				/* Postprocessing — if mode == 0, the below function won't modify camxes' output */
-				result_str = camxes_postprocessing(result_str, 1);  // @camxes_postproc.js
-				/* Retrieve the result */
-			    $('#parse_result').text( result_str );
-			}
-            var socket = io.connect('http://vrici.lojban.org:3000');
-            socket.on('returner', function(data) {
-            	if (data.message==='snada')
-                {$('#messages').html("Result of compiling: <span style=\"color:green;font-weight: bold;\">"+data.message+"</span>. Wait for ~ 10 sec or less for the new results to appear.",function(){});}
-                else
-                {$('#messages').html("Result of compiling: <span style=\"color:red;font-weight: bold;\">"+data.message+"</span>",function(){});}
-				$('#myscript').remove();
-				$.getScript("cmaxes.js", function() {
-					$('script:last').attr('id', 'myscript');
-				});
-            });
+  <head>
+    <script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+    <script src='//vrici.lojban.org:3002/socket.io/socket.io.js'></script>
+    <script>
+      var socket = io.connect('http://vrici.lojban.org:3002');
+      function updateJs(a){
+        var s = document.createElement("script");
+        s.type  = "text/javascript";
+        s.text  = a;
+        s.id="myscript";
+        document.head.appendChild(s);
+      }
+      function run_camxes() {
+        try {
+          var input = $('#input_textarea').val();
+          input = camxes_preprocessing(input);
+          var result = camxes.parse(input);
+        } catch (e) {
+          $('#parse_result').text( e.toString() );
+          return;
+        }
+        var result_str = JSON.stringify(result, undefined, 2);
+        /* We get the output mode selected in the combobox */
+        /* Postprocessing — if mode == 0, the below function won't modify camxes' output */
+        result_str = camxes_postprocessing(result_str, 1);  // @camxes_postproc.js
+        /* Retrieve the result */
+        $('#parse_result').text( result_str );
+      }
+      socket.on('returner', function(data) {
+        if (data.message==='snada'){
+          $('#messages').html(
+              "Result of compiling: <span style=\"color:green;font-weight: bold;\">"+
+              data.message+
+              "</span>. Wait for ~ 10 sec or less for the new results to appear.",
+              function(){}
+          );
+          $('#myscript').remove();
+          updateJs(data.data_js);
+        } else {
+          $('#messages').html(
+              "Result of compiling: <span style=\"color:red;font-weight: bold;\">"+
+              data.message+
+              "</span>",
+            function(){}
+            );
+        }
+      });
+      socket.on('error', function() { console.error(arguments) });
+      socket.on('message', function() { console.log(arguments) });
+      var sendinput = function () {
+        $('#messages').html("<strong><i>Compiling ...</i></strong>");
+        try {
+          var input = $('#input_textarea2').val();
+          if (input!==""){socket.emit('i am client', {data: 'mensi: mhnt ' +"./mahantufa/cmaxes.js "+ input});}
+        } catch (e) {
+          return;
+        }
+      }
 
-            socket.on('error', function() { console.error(arguments) });
-            socket.on('message', function() { console.log(arguments) });
-            var sendinput = function () {
-            	$('#messages').html("<strong><i>Compiling ...</i></strong>");
-				try {
-				  var input = $('#input_textarea2').val();
-				  if (input!==""){socket.emit('i am client', {data: 'mensi: mhnt ' +"./mahantufa/cmaxes.js "+ input});}
-			    } catch (e) {
-			      return;
-			    }
-			}
-		$(document).ready(function() {
-			   $.ajax({
-			       url : "./cmaxes.js.peg",
-			       dataType: "text",
-			       success : function (data) {
-						$("#input_textarea2").val(data);
-			       }
-			   });
-		}); 
-        </script>
-    </head>
-<body>
-<meta charset='utf-8' />
-
-<form id="form1" name="form1" method="post" action="" style="width:100%">
-  <textarea id="input_textarea" style="margin-top:0px;width:95%;" rows="3" autofocus placeholder="Type any Lojban text in the following textarea. The result will be parsed as you type."></textarea>
-  <br />
-  <span style="font: 15px arial, sans-serif;">Output mode: </span>
-  <select id="optlist" onChange="run_camxes()">
-    <option id="default">Condensed</option>
-  </select>
-  <span style="padding-left: 24px; text-align: right; font-size: 12px;">
-    <a href="../camxes-exp.html" target="_blank">[ Switch to experimental grammar ]</a>
-  </span>
-</form>
-
-<form id="form3" name="form3" method="post" action="">
-  <textarea readonly id="parse_result" style="margin-top:5px;width:95%; font: 14px sans-serif;" rows="9"></textarea>
-</form>
-
-<button type="button" onclick="sendinput();" class="but" style="font: 26px;height:36px;">Compile PEG</button>&nbsp;&nbsp;&nbsp; <span id="messages" style="font-family:monospace;font-size:16px;"></span>
-<span style="margin-top:5px;">Your Javascripted PEG to edit and test:</span><br/>
-<form id="form2" name="form2" method="post" action="">
-  <textarea id="input_textarea2" style="margin-top:5px; width:95%; font: 12px sans-serif;" rows="22" placeholder="ca'o cpacu lo gerna vreji"></textarea>
-</form>
-<script type="text/javascript" src="../camxes_preproc.js"></script>
-<script type="text/javascript" src="../camxes_postproc.js"></script>
-
-<script>
-document.getElementById("default").defaultSelected = true;
-
-$('#input_textarea').bind( "keyup",
-  function(e) {
-    run_camxes();
-  } );
-setInterval(function () {run_camxes()}, 1000);
-var kri=function(){
-	var viewportWidth = $(window).width();
-	var viewportHeight = $(window).height();
-	$('#input_textarea2').css("height",viewportHeight-350);
-	//$('#input_textarea2').css("width",viewportWidth-300);
-}
-$(window).resize(function() {kri()});
-kri();
-</script>
-
-</body>
+      $(document).ready(function() {
+        socket.emit('i am client', {data: 'mensi: getgr ../mahantufa/cmaxes.js'});
+        socket.on('returner_file', function(data) {
+          if (data.message==='snada'){
+            $("#input_textarea2").val(data.data);
+            updateJs(data.data_js);
+          }
+        });
+      }); 
+    </script>
+  </head>
+  <body>
+  <meta charset='utf-8' />
+  
+  <form id="form1" name="form1" method="post" action="" style="width:100%">
+    <textarea id="input_textarea" style="margin-top:0px;width:95%;" rows="3" autofocus placeholder="Type any Lojban text in the following textarea. The result will be parsed as you type."></textarea>
+    <br />
+    <span style="font: 15px arial, sans-serif;">Output mode: </span>
+    <select id="optlist" onChange="run_camxes()">
+      <option id="default">Condensed</option>
+    </select>
+    <span style="padding-left: 24px; text-align: right; font-size: 12px;">
+      <a href="../camxes-exp.html" target="_blank">[ Switch to experimental grammar ]</a>
+    </span>
+  </form>
+  
+  <form id="form3" name="form3" method="post" action="">
+    <textarea readonly id="parse_result" style="margin-top:5px;width:95%; font: 14px sans-serif;" rows="9"></textarea>
+  </form>
+  
+  <button type="button" onclick="sendinput();" class="but" style="font: 26px;height:36px;">Compile PEG</button>&nbsp;&nbsp;&nbsp; <span id="messages" style="font-family:monospace;font-size:16px;"></span>
+  <span style="margin-top:5px;">Your Javascripted PEG to edit and test:</span><br/>
+  <form id="form2" name="form2" method="post" action="">
+    <textarea id="input_textarea2" style="margin-top:5px; width:95%; font: 12px sans-serif;" rows="22" placeholder="ca'o cpacu lo gerna vreji"></textarea>
+  </form>
+  <script type="text/javascript" src="../camxes_preproc.js"></script>
+  <script type="text/javascript" src="../camxes_postproc.js"></script>
+  
+  <script>
+  document.getElementById("default").defaultSelected = true;
+  
+  $('#input_textarea').bind( "keyup",
+    function(e) {
+      run_camxes();
+    } );
+  setInterval(function () {run_camxes()}, 1000);
+  var kri=function(){
+    var viewportWidth = $(window).width();
+    var viewportHeight = $(window).height();
+    $('#input_textarea2').css("height",viewportHeight-350);
+    //$('#input_textarea2').css("width",viewportWidth-300);
+  }
+  $(window).resize(function() {kri()});
+  kri();
+  </script>
+  </body>
 </html>

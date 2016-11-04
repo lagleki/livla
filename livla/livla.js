@@ -5,27 +5,28 @@ p = function (object) {
 
 
 //livla bot
-var fs = require("fs"),path = require("path-extra"),ospath = require("ospath"),libxmljs = require("libxmljs");
+const fs = require("fs"),path = require("path-extra"),ospath = require("ospath"),libxmljs = require("libxmljs");
 require('v8-profiler');
-var s,t,notci,notcijudri,ljv='';
-var tato= require('./tatoeba.js');
-var gram= require('./gram.js');
-var interv=300000;
-var interm=2900;
-var nodasezvafahi = 'no da se zvafa\'i';
-fram="../../../files/fndata-1.5/frame";
+const tato= require('./tatoeba.js');
+const gram= require('./gram.js');
+let s,t,notci,notcijudri,ljv='';
+const interv=300000;
+const interm=2900;
+const nodasezvafahi = 'no da se zvafa\'i';
+const tersepli = " + ";
+const fram="../../../files/fndata-1.5/frame";
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
-var tcan='#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau';
-var livlytcan='#lojbanme';//where la livla talks to la mensi
-var asker='livla';
-var replier='mensi';
-var server='irc.freenode.net';
-var stodipilno=['gleki','xalbo'];
+const tcan='#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau';
+const livlytcan='#lojbanme';//where la livla talks to la mensi
+const asker='livla';
+const replier='mensi';
+const server='irc.freenode.net';
+const stodipilno=['gleki','xalbo'];
 // End default configuration
 
 loadConfig();
-var config = {
+const config = {
   server: server,
   nick: asker,
   options: {
@@ -37,7 +38,7 @@ var config = {
     floodProtectionDelay: 400
   }
 };
-var configmensi = {
+const configmensi = {
   server: server,
   nick: replier,
   options: {
@@ -50,7 +51,7 @@ var configmensi = {
     floodProtectionDelay: 400
   }
 };
-var userSettings = {}; // Saving user preferences
+let userSettings = {}; // Saving user preferences
 userSettings[asker] = {
   "language": "jbo" // Not used, but someone might like to have bots speak to each other in another language
 },
@@ -473,15 +474,18 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
     }
     // 
     ///
-    var txt = text. toLowerCase();
+    var txt = text.toLowerCase();
     switch(true) {
     //case txt.search(/ie( |)(nai( |)|)pei/) >= '0': benji(source,socket,clientmensi,sendTo, ext(tugni));break;
     //case txt.search(/\bna nelci/) >= '0': benji(source,socket,clientmensi,sendTo, ext(nelci));break;
     //case txt.indexOf("lmw:") == '0': lmw(text.substr(4),sendTo);break;
     case txt.trim() == '#ermenefti': benji(source,socket,clientmensi,sendTo, "https://mw.lojban.org/papri/Hermeneutics");break;
     case txt.trim() == '#slak': benji(source,socket,clientmensi,sendTo, "https://slaka.herokuapp.com");break;
-    case txt.trim() == '#telegram': benji(source,socket,clientmensi,sendTo, "#lojban https://telegram.me/joinchat/BLVsYz3hCF-CtYw0-2IkqQ\n#ckule https://telegram.me/joinchat/BLVsYz4hC9ulWahupDLovA\n#jbosnu https://telegram.me/joinchat/BLVsYz20Boixl0xN-0TrPw\n#spero https://telegram.me/joinchat/BcR2JD4jiwqqDSiyRWwgdQ\n##jboselbau https://telegram.me/joinchat/CJYorT2ma6UVfhb9YThEqw");break;
-case txt.trim() == '#uilkinse': benji(source,socket,clientmensi,sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");break;
+    case txt.trim() == '#telegram': benji(source,socket,clientmensi,sendTo, "#lojban https://telegram.me/joinchat/BLVsYz3hCF-CtYw0-2IkqQ\n#ckule https://telegram.me/joinchat/BLVsYz4hC9ulWahupDLovA\n#jbosnu https://telegram.me/joinchat/BLVsYz20Boixl0xN-0TrPw\n#spero https://telegram.me/joinchat/BcR2JD4jiwqmtuJrXWxkOQ\n##jboselbau https://telegram.me/joinchat/CJYorT2ma6UVfhb9YThEqw");break;
+    case txt.trim() == '#uilkinse': benji(source,socket,clientmensi,sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");break;
+    case txt.trim() == '#noiha': benji(source,socket,clientmensi,sendTo, "ko\'a broda poi\'a brodo = lo nu ko\'a broda cu fasnu gi\'e brodo\nko\'a broda noi\'a brodo = lo nu ko\'a broda cu fasnu .i lo go\'i cu brodo\nko\'a broda soi\'a brodo = lo nu ko\'a broda cu brodo\nko\'a broda soi ke\'a brodo = ko\'a broda .i lo nu go\'i cu brodo");break;
+    case txt.trim() == '#n-paradigm': benji(source,socket,clientmensi,sendTo, "beu  B  Bekti  (object)  ‘-/in’  Patients, Parts, Properties\ncau  C  Canli  (quantity)  ‘by/for’  Quantities, Amounts, Values\ndio  D  Dirco  (direction)  ‘to/for’  Recipients, Beneficiaries, Destinations\nfoa  F  Folma  (full)  ‘in/of’  Wholes, Sets, Collectivities\njui  J  Junti  (young)  ‘than’  Lessers in greater/lesser than relations\nkao  K  Kakto  (act)  ‘-/by’  Actors, Agents, Doers\nneu  N  Nerbi  (necessary)  ‘under’  Conditions, Fields, Circumstances\npou  P  Proju  (produce)  ‘-’  Products, Outputs, Purposes\ngoa  G  Groda  (big)  ‘than’  Greaters in greater/lesser than relations\nsau  S  Satci  (start)  ‘from’  Sources, Origins, Reasons, Causes\nveu  V  Vetci  (event)  ‘by/via’  Events, States, Deeds, Means, Routes, Effects");break;
+    case (txt.indexOf(prereplier + 'gadri') == '0'||txt.trim() == '#gadri'): benji(source,socket,clientmensi,sendTo, 'lo broda = su\'oi da poi ge ke\'a broda gi ro\'oi broda cu me ke\'a\nlo [PA] broda = zo\'e noi ke\'a broda [gi\'e zilkancu li PA lo broda]\nla [PA] broda = zo\'e noi lu [PA] broda li\'u cmene ke\'a mi\nlo PA sumti = lo PA me sumti\nla PA sumti = zo\'e noi lu PA sumti li\'u cmene ke\'a mi\nloi [PA] broda = lo gunma be lo [PA] broda\nlai [PA] broda = lo gunma be la [PA] broda\nloi PA sumti = lo gunma be lo PA sumti\nlai PA sumti = lo gunma be la PA sumti\nlo\'i [PA] broda = lo selcmi be lo [PA] broda\nla\'i [PA] broda = lo selcmi be la [PA] broda\nlo\'i PA sumti = lo selcmi be lo PA sumti\nla\'i PA sumti = lo selcmi be la PA sumti\nPA sumti = PA da poi ke\'a me sumti\nPA broda = PA da poi broda\npiPA sumti = lo piPA si\'e be pa me sumti');break;
     case txt.indexOf("nlp:") == '0': stnlp(text.substr(4),sendTo);break;
     case txt.indexOf("lujvo:") == '0': benji(source,socket,clientmensi,sendTo, triz(text.substr(6)));break;
     //case text.indexOf("cipra:") == '0': text = text.substr(6);ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxes(ret[0], ret[1]));break;
@@ -551,7 +555,6 @@ case txt.search("(\.i |i |)ma rafsi zo [a-z']+") == '0': var reg = /.*ma rafsi z
     case txt==replier+': help': benji(source,socket,clientmensi,sendTo, sidju());break;
     case txt.indexOf("rot13:") == '0': benji(source,socket,clientmensi,sendTo, rotpaci(text.substr(6)));break;
     case txt.indexOf(prereplier + 'r ') == '0': benji(source,socket,clientmensi,sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
-    case txt.indexOf(prereplier + 'gadri') == '0': benji(source,socket,clientmensi,sendTo, 'lo broda = su\'oi da poi ge ke\'a broda gi ro\'oi broda cu me ke\'a\nlo [PA] broda = zo\'e noi ke\'a broda [gi\'e zilkancu li PA lo broda]\nla [PA] broda = zo\'e noi lu [PA] broda li\'u cmene ke\'a mi\nlo PA sumti = lo PA me sumti\nla PA sumti = zo\'e noi lu PA sumti li\'u cmene ke\'a mi\nloi [PA] broda = lo gunma be lo [PA] broda\nlai [PA] broda = lo gunma be la [PA] broda\nloi PA sumti = lo gunma be lo PA sumti\nlai PA sumti = lo gunma be la PA sumti\nlo\'i [PA] broda = lo selcmi be lo [PA] broda\nla\'i [PA] broda = lo selcmi be la [PA] broda\nlo\'i PA sumti = lo selcmi be lo PA sumti\nla\'i PA sumti = lo selcmi be la PA sumti\nPA sumti = PA da poi ke\'a me sumti\nPA broda = PA da poi broda\npiPA sumti = lo piPA si\'e be pa me sumti');break;
     case txt.indexOf(prereplier + 'j ') == '0': benji(source,socket,clientmensi,sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
     case txt.indexOf('tatoeba:') == '0': benji(source,socket,clientmensi,sendTo, sisku(text.substr(8).trim()));break;
     case txt.indexOf(prereplier) == '0': text = text.substr(prereplier.length+1).trim();benji(source,socket,clientmensi,sendTo, mensimikce(text));break;
@@ -1158,7 +1161,7 @@ lin=lin.toLowerCase();
       if (typeof cnt!=='undefined'){lin[i]=cnt.attr("word").value().replace(/ /gm,"-").replace(/$/gm,"%%%");}
     }
     //}
-    if(check===2){lin=lin.join(" + ");}else{lin=lin.join(" ");}
+    if(check===2){lin=lin.join(tersepli);}else{lin=lin.join(" ");}
     lin=lin.replace(/ /gm,"* ").replace(/$/gm,"*").replace(/%%%\*/gm,"");
     lin=lin.replace(/(@@@ .)/ig,function(v) { return v.toUpperCase(); }).replace(/@@@/ig,'');//uppercase for {la}
     lin=lin.replace(/,+ *\./g,'.');
@@ -1418,7 +1421,7 @@ if (typeof lng==='undefined'){lng='en';}
 if (typeof xmlDoc==='undefined'){
   if (lng==="en"){xmlDoc=xmlDocEn;}else{xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"../dumps",lng + ".xml"),{encoding: 'utf8'}));}
 }
-  var sep = " ";if(flag===1){sep = " + ";}
+  var sep = " ";if(flag===1){sep = tersepli;}
   var ar=inp.trim().split(sep);
   for(var l=0;l<ar.length;l++){
     if (l==ar.length-1){
@@ -1487,7 +1490,7 @@ var katna= function(lin,lng,flag,xmlDoc){
   for (var o=0;o<lin.length;o++){
     lin[o]=selrafsi(lin[o],xmlDoc);
   }
-  lin = lin.join(" + ");
+  lin = lin.join(tersepli);
   if (flag!==1 && (lng!=='jbo')){lin = lin + " ≈ " + gloso(lin,lng,1,xmlDoc);}
   return lin;
 };
@@ -1641,10 +1644,9 @@ return r;
 };
 //NAXLE
 
-var http = require('http'),
-    fs = require('fs'),
-    // NEVER use a Sync function except at start-up!
-    index = fs.readFileSync(__dirname + '/naxle.html');
+var http = require('http');
+// NEVER use a Sync function except at start-up!
+let index = fs.readFileSync(__dirname + '/naxle.html');
 
 // Send index.html to all requests
 var app = http.createServer(function(req, res) {
@@ -1653,11 +1655,11 @@ var app = http.createServer(function(req, res) {
 });
 
 // Socket.io server listens to our app
-var io = require('socket.io').listen(app);
+var ik = require('socket.io').listen(app);
 
-io.sockets.on('connection', function(socket) {
+ik.sockets.on('connection', function(socket) {
     //socket.emit('welcome', { message: 'Welcome!' +socket.id});
-  //io.to(socket.id).emit("returner", { message: message: vlaste(data.data,'en') });
+  //ik.to(socket.id).emit("returner", { message: message: vlaste(data.data,'en') });
     socket.on(
       'i am client', function(data){
         //clientmensi, from, to, text, message,source

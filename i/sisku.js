@@ -372,6 +372,7 @@ function siskurimni(query) {
       var expgism=[];
       var cmav=[];
       var expcmav=[];
+      var mahorpoi=[];
       var elses=[];
       //ar.filter(function(a){return a.t==='gismu';})
       for (c=0;c<ar.length;c++){
@@ -387,6 +388,9 @@ function siskurimni(query) {
         else if (ar[c].t==='experimental cmavo'){
           expcmav.push(ar[c]);
         }
+        else if (ar[c].t==='cmavo-compound'){
+          mahorpoi.push(ar[c]);
+        }
         else{
           elses.push(ar[c]);
         }
@@ -395,6 +399,7 @@ function siskurimni(query) {
       .concat(expgism.sort(sortMultiDimensional))
       .concat(cmav.sort(sortMultiDimensional))
       .concat(expcmav.sort(sortMultiDimensional))
+      .concat(mahorpoi.sort(sortMultiDimensional))
       .concat(elses.sort(sortMultiDimensional));
     };
 

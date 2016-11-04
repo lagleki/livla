@@ -388,7 +388,7 @@ function siskurimni(query) {
         else if (ar[c].t==='experimental cmavo'){
           expcmav.push(ar[c]);
         }
-        else if (ar[c].t==='cmavo-compound'){
+        else if (ar[c].t==='cmavo compound'){
           mahorpoi.push(ar[c]);
         }
         else{

@@ -17,7 +17,7 @@ const tersepli = " + ";
 const fram="../../../files/fndata-1.5/frame";
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
-const tcan='#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau';
+const tcan='#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau,##esperanto';
 const livlytcan='#lojbanme';//where la livla talks to la mensi
 const asker='livla';
 const replier='mensi';

@@ -240,6 +240,7 @@ var updatexmldumps = function (callback) {
     });*/
   //}catch(err){console.log('Error when autoupdating: ' + err);}
   //sutysiskuningau("ithkuil");
+  sutysiskuningau("2002",0);
   sutysiskuningau("en-pt-BR",0);
   sutysiskuningau("zamenhofo",0);
   sutysiskuningau("laadan",0);
@@ -483,6 +484,8 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
     case txt.trim() == '#slak': benji(source,socket,clientmensi,sendTo, "https://slaka.herokuapp.com");break;
     case txt.trim() == '#telegram': benji(source,socket,clientmensi,sendTo, "#lojban https://telegram.me/joinchat/BLVsYz3hCF-CtYw0-2IkqQ\n#ckule https://telegram.me/joinchat/BLVsYz4hC9ulWahupDLovA\n#jbosnu https://telegram.me/joinchat/BLVsYz20Boixl0xN-0TrPw\n#spero https://telegram.me/joinchat/BcR2JD4jiwqmtuJrXWxkOQ\n##jboselbau https://telegram.me/joinchat/CJYorT2ma6UVfhb9YThEqw");break;
     case txt.trim() == '#uilkinse': benji(source,socket,clientmensi,sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");break;
+case txt.trim() == '#camxes': benji(source,socket,clientmensi,sendTo, "https://lojban.github.io/ilmentufa/camxes.html\nhttps://lojban.github.io/ilmentufa/glosser/glosser.htm");break;
+case txt.trim() == '#sepulka': benji(source,socket,clientmensi,sendTo, "https://mw.lojban.org/papri/sepulka/en");break;
     case txt.trim() == '#noiha': benji(source,socket,clientmensi,sendTo, "ko\'a broda poi\'a brodo = lo nu ko\'a broda cu fasnu gi\'e brodo\nko\'a broda noi\'a brodo = lo nu ko\'a broda cu fasnu .i lo go\'i cu brodo\nko\'a broda soi\'a brodo = lo nu ko\'a broda cu brodo\nko\'a broda soi ke\'a brodo = ko\'a broda .i lo nu go\'i cu brodo");break;
     case txt.trim() == '#n-paradigm': benji(source,socket,clientmensi,sendTo, "beu  B  Bekti  (object)  ‘-/in’  Patients, Parts, Properties\ncau  C  Canli  (quantity)  ‘by/for’  Quantities, Amounts, Values\ndio  D  Dirco  (direction)  ‘to/for’  Recipients, Beneficiaries, Destinations\nfoa  F  Folma  (full)  ‘in/of’  Wholes, Sets, Collectivities\njui  J  Junti  (young)  ‘than’  Lessers in greater/lesser than relations\nkao  K  Kakto  (act)  ‘-/by’  Actors, Agents, Doers\nneu  N  Nerbi  (necessary)  ‘under’  Conditions, Fields, Circumstances\npou  P  Proju  (produce)  ‘-’  Products, Outputs, Purposes\ngoa  G  Groda  (big)  ‘than’  Greaters in greater/lesser than relations\nsau  S  Satci  (start)  ‘from’  Sources, Origins, Reasons, Causes\nveu  V  Vetci  (event)  ‘by/via’  Events, States, Deeds, Means, Routes, Effects");break;
     case (txt.indexOf(prereplier + 'gadri') == '0'||txt.trim() == '#gadri'): benji(source,socket,clientmensi,sendTo, 'lo broda = su\'oi da poi ge ke\'a broda gi ro\'oi broda cu me ke\'a\nlo [PA] broda = zo\'e noi ke\'a broda [gi\'e zilkancu li PA lo broda]\nla [PA] broda = zo\'e noi lu [PA] broda li\'u cmene ke\'a mi\nlo PA sumti = lo PA me sumti\nla PA sumti = zo\'e noi lu PA sumti li\'u cmene ke\'a mi\nloi [PA] broda = lo gunma be lo [PA] broda\nlai [PA] broda = lo gunma be la [PA] broda\nloi PA sumti = lo gunma be lo PA sumti\nlai PA sumti = lo gunma be la PA sumti\nlo\'i [PA] broda = lo selcmi be lo [PA] broda\nla\'i [PA] broda = lo selcmi be la [PA] broda\nlo\'i PA sumti = lo selcmi be lo PA sumti\nla\'i PA sumti = lo selcmi be la PA sumti\nPA sumti = PA da poi ke\'a me sumti\nPA broda = PA da poi broda\npiPA sumti = lo piPA si\'e be pa me sumti');break;
@@ -516,6 +519,7 @@ var processormensi = function(clientmensi, from, to, text, message,source,socket
     // Give definition of valsi in specified language
     case txt.indexOf('?:') == '0': var inLanguage = defaultLanguage;inLanguage = RetrieveUsersLanguage(from, inLanguage);benji(source,socket,clientmensi,sendTo, vlaste(text.substr(2), inLanguage));break; // Gives definition of valsi in the default language set to user
     case txt.indexOf('jbo:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(4),'jbo'));break; // Gives definition of valsi in Lojban
+    case txt.indexOf('2002:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(5),'2002'));break;
     case txt.indexOf('en:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'en'));break; // Gives definition of valsi in English
     case txt.indexOf('ru:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'ru'));break;
     case txt.indexOf('es:') == '0': benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'es'));break;

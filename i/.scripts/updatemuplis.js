@@ -1,14 +1,16 @@
 // JavaScript Document
-var fs = require("fs"),path = require("path-extra");
 var download=0;
 var refresh=0;
-var ningau_la_muplis_=0;
+var ningau_la_muplis_=1;
 var ningau_la_muplis_poholska_=0;
 var selectinto_=0;
 generateorphanenglishsentences_=0;
 generateorphanfrenchsentences_=0;
-tempo_=1;
+tempo_=0;
 gettagsstats_ = 0;
+
+// code
+var fs = require("fs"),path = require("path-extra");
 
 var goahead = function (){
 	if (download===1){download_sentences();}

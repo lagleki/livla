@@ -15,6 +15,7 @@ dumps/*.tsv
 !dumps/ile.xml
 !dumps/ithkuil.xml
 !dumps/krasi.xml
+!dumps/2002.xml
 dumps/*.pdf
 dumps/tatoeba*
 dumps/*.temp

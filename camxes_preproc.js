@@ -1,4 +1,4 @@
-﻿function camxes_preprocessing(input) {
+function camxes_preprocessing(input) {
 	if (!(typeof input.valueOf() === 'string'))
 		return "ERROR: Wrong input type.";
 	input = input.replace(/’/gm,"'");
@@ -19,7 +19,7 @@
 	input = input.replace(/[éèêë]/g,"E");
 	input = input.replace(/[íìîïĭị]/g,"I");
 	input = input.replace(/[óòôö]/g,"O");
-	input = input.replace(/[úùûüŭụw]/g,"U");
+	input = input.replace(/[úùûüŭụ]/g,"U");
 	input = input.replace(/[ýỳŷÿ]/g,"Y");
 	// --- //
 	input = input.replace(/sh/igm,"c");

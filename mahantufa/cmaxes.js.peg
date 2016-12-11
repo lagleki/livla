@@ -65,13 +65,16 @@ consonantal_syllable = zunsna &syllabic coda
 coda = !any_syllable zunsna &any_syllable / syllabic? zunsna? &pause
 onset = h / glaide / (affricate / (cs !x / jz !(n / l / r))? (pfbgvkx / (t / d / n !r) !l / m)? (l / r)?) !zunsna !glaide
 nucleus = pa_zei_karsna / re_zei_karsna / y !nucleus
-glaide = (i / u) &nucleus !glaide
-re_zei_karsna = ([a] u !u / [aeo] i !i) !nucleus
+glaide = (ɩ / w) &nucleus !glaide
+re_zei_karsna = ([a] w !u / [aeo] ɩ !i) !nucleus
 pa_zei_karsna = [aeiou] !nucleus
 
 i = [i]
 u = [u]
 y = [y] !(!y nucleus)
+
+ɩ = [iɩ]
+w = [uw] {return ["u",""]}
 
 initial_pair = &onset zunsna zunsna !zunsna
 
@@ -91,12 +94,12 @@ jz = [jz] !glaide
 cs = [cs] !glaide
 x = [x] !glaide
 t = [t] !glaide
-h = ['] &nucleus
+h = [,'] &nucleus
 
 post_word = pause / !nucleus jbovla / [\}]
 
 pause = pause_0 / !.
 
-pause_0 = expr:([^abcdefgijklmnoprstuvxyzABCDEFGIJKLMNOPRSTUVXYZ']+) {return ["space", _join(expr)];}
+pause_0 = expr:([^a-zA-Z,']+) {return ["space", _join(expr)];}
 
 nul = [^ ]+

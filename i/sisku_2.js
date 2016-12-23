@@ -94,7 +94,7 @@ function sisku(query, callback) {
     }
     return kd;
   }
-  function be(kil,lu,e){
+  function be(kil,lu){
     var luj=ma_ve_lujvo(lu);
     if (luj){
       var kim=[];
@@ -110,8 +110,6 @@ function sisku(query, callback) {
         t: "decomposing ...",w: query,rafsiDocuments: julne(kim)
       });
       }
-    }else if(e===1){
-      kil[0].rafsiDocuments = julne(sohivalsi(queryDecomposition,1,lu));
     }
     return kil;
   }

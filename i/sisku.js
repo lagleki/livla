@@ -93,7 +93,7 @@ function sisku(query, callback) {
     }
     return kd;
   }
-  function be(kil,lu,e){
+  function be(kil,lu){
     var luj=ma_ve_lujvo(lu);
     if (luj){
       var kim=[];
@@ -109,8 +109,6 @@ function sisku(query, callback) {
         t: "decomposing ...",w: query,rafsiDocuments: julne(kim)
       });
       }
-    }else if(e===1){
-      kil[0].rafsiDocuments = julne(sohivalsi(queryDecomposition,1,lu));
     }
     return kil;
   }
@@ -128,7 +126,7 @@ function sisku(query, callback) {
       if (doc) {
         if (doc.w === query||doc.w === queryP){
           exactMatches.push(doc);
-          exactMatches=be(exactMatches,query,1);
+          exactMatches=be(exactMatches,query);
         } else if ((doc.r||[''])[0].search("\\b"+query+"\\b") >=0) {
           normalMatches.push(doc);
         } else if (doc.w.search("(^| )"+queryP+"( |$)")>=0||(doc.g||'')===query||((doc.g||'').search("(^|;)"+queryP+"(;|$)")>=0)){

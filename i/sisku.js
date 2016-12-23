@@ -260,9 +260,9 @@ function sisku(query, callback) {
   }
   else if (!window.muplis && queryDecomposition.length>1){
     preciseMatches=cnanosisku(lo_matra_cu_cupra);
-    if (preciseMatches.length===0){
+    //if (preciseMatches.length===0){
       preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(sohivalsi(queryDecomposition))});
-    }
+    //}
   }
   else {
     //normal search

@@ -11,37 +11,34 @@ var cmaxes=function(){"use strict";function t(t,r){function e(){this.constructor
 var ma_klesi_lo_valsi = function(str){
   if (!window.xuzganalojudri||str.search(/[^aeiouyAEIOY]'/)>-1) return ['',''];
   var j;var re;
-  try{
+  try {
     j = cmaxes.parse(str.toLowerCase().replace(/,/g,'')).toString().split(",");
+    if (str.indexOf(' zei ')>-1) return ['zei-lujvo',str];
   }
-  catch(e)
-  {
+  catch(e) {
     j='';
   }
-  if (j.length===2){
+  if (j.length===2) {
     return [j[0],''];
   }
   else if (j.length>2 && j.filter(function(el, index) {return index % 2 === 0;}).toString().match(/^cmavo(,cmavo)+$/)){
     return ['cmavo compound',j.filter(function(el, index) {return index % 2 === 1;}).join(" ")];
   }
-  else
-  {
-    return ['',''];
-  }
+  else return ['',''];
 };
 
 function ma_ve_lujvo(a) {
   if (!window.xuzganalojudri) return;
+  if (a.indexOf(' zei ')>-1) return ["@"].concat(a.split(" "));
   var t;
-  if (a.indexOf(' zei ')>-1){return a.split(" zei ");}
-  try{t= cmaxes.parse(a).toString().split(",");}catch(err){return;}
+  try{t=cmaxes.parse(a).toString().split(",");}catch(err){return;}
   if (t[0]!=='lujvo'||t.length!==2) return;
   t = t[1].split("-").map(
-  function(a){
-    var k = a.substring(0, 4);
-    if(a.length===5 && k==='brod'){k=a;}
-    return k;
-  });
+    function(a){
+      var k = a.substring(0, 4);
+      if(a.length===5 && k==='brod'){k=a;}
+      return k;
+    });
   return t;
 }
 
@@ -57,8 +54,9 @@ var def = documentStore[cmima];
 
 function jmina_lo_se_claxu(doc){
   if (!doc.t||doc.t===''){
-    if (window.muplis||!window.xuzganalojudri){doc.t=''}
-    else{
+    if (window.muplis||!window.xuzganalojudri){
+      doc.t=''
+    } else {
       var ye=ma_klesi_lo_valsi(doc.w);
       doc.t=ye[0];
     }
@@ -81,7 +79,8 @@ function sisku(query, callback) {
   //var ff;
   var lo_matra_cu_cupra=[];
   function julne(a){
-    return a.filter(function(n){ return n !== undefined }).map(function(a){return jmina_lo_se_claxu(a);});
+    
+    return a.filter(function(n){ return n !== undefined; }).map(function(a){return jmina_lo_se_claxu(a);});
   }
   function sohivalsi(queryDecomposition,e,lu){
     var kd=[];
@@ -94,13 +93,27 @@ function sisku(query, callback) {
     }
     return kd;
   }
-  function be(kil,lu){
+  function be(kil,lu,e){
     var luj=ma_ve_lujvo(lu);
     if (luj){
       var kim=[];
-      for (var ji in luj){
-        var rf = rafsi[luj[ji]];
-        if (rf){kim.push(rf);}else{kim=kim.concat({t: "",d:"not found",w: "-"+luj[ji]+"-",r:[luj[ji]]});}
+      if(luj[0]==="@"){
+        luj.shift();
+        kim=luj.slice();
+        for (var w=0;w<documentStore.length;w++){
+          var def = documentStore[w];
+          for (var j=0;j<luj.length;j++){
+            if(def.w === luj[j]){
+              kim[j] = documentStore[w];
+            }
+          }
+        }
+      }
+      else {
+        for (var ji in luj){
+          var rf = rafsi[luj[ji]];
+          if (rf){kim.push(rf);}else{kim=kim.concat({t: "",d:"not found",w: "-"+luj[ji]+"-",r:[luj[ji]]});}
+        }
       }
       if (kil.length===1 && kil[0].w===lu){
         kil[0].rafsiDocuments = julne(kim);
@@ -113,8 +126,7 @@ function sisku(query, callback) {
     }
     return kil;
   }
-  function sortthem(lo_matra_cu_cupra){
-    //ff = new Date().getTime();
+  function sortthem(lo_matra_cu_cupra,multi){
     var exactMatches = [];
     var greatMatches = [];
     var selmahoMatches = [];
@@ -125,31 +137,26 @@ function sisku(query, callback) {
     for (var i=0;i<lo_matra_cu_cupra.length;i++) {
       var doc = jmina_lo_se_claxu(lo_matra_cu_cupra[i]);//todo: optimize for phrases
       if (doc) {
-        if (doc.w === query||doc.w === queryP){
+        if ((doc.w === query)||(doc.w === queryP)){
           exactMatches.push(doc);
           exactMatches=be(exactMatches,query,1);
-        }
-        else if ((doc.r||[''])[0].search("\\b"+query+"\\b") >=0) {
+        } else if ((doc.r||[''])[0].search("\\b"+query+"\\b") >=0) {
           normalMatches.push(doc);
-        }
-        else if (doc.w.search("(^| )"+queryP+"( |$)")>=0||(doc.g||'')===query||((doc.g||'').search("(^|;)"+queryP+"(;|$)")>=0)){
+        } else if (doc.w.search("(^| )"+queryP+"( |$)")>=0||(doc.g||'')===query||((doc.g||'').search("(^|;)"+queryP+"(;|$)")>=0)){
           greatMatches.push(doc);
-        }
-        else if ((doc.s||'') === query){
+        } else if ((doc.s||'') === query){
           selmahoMatches.push(doc);//selmaho
-        }
-        else if ((doc.g||'').search("\\b"+query+"\\b")>=0) {
+        } else if ((doc.g||'').search("\\b"+query+"\\b")>=0) {
           goodMatches.push(doc);
-        }
-  
-        else if (((doc.d||'').toLowerCase().search("\\b"+query+"\\b")>=0)){
+        } else if (((doc.d||'').toLowerCase().search("\\b"+query+"\\b")>=0)){
           defMatches.push(doc);
+        } else {
+          lastMatches.push(doc);
         }
-        else {lastMatches.push(doc);}
       }
     }
     //var fg = new Date().getTime();
-    if (exactMatches.length===0) {preciseMatches=be([],query)||[];}
+    if (exactMatches.length===0 && !multi) {preciseMatches=be([],query)||[];}
     var sor = function (ar){
       if (ar.length===0) return ar;
       var gism=[];
@@ -204,29 +211,40 @@ function sisku(query, callback) {
       return (o.w.toLowerCase()==a.toLowerCase())||(o.d.toLowerCase()=="{"+a.toLowerCase()+"}");
     });
       if (isdef && isdef.length>0){ki=ki.concat(isdef);}
-      else
-      {
+      else {
         if (!shi){
           if (a.replace(/ zei /g,'-zei-').split(" ").length===1){
             var ye=ma_klesi_lo_valsi(a);
-            if(ye[0]==='cmavo compound'){
+            if(ye[0]==='cmavo compound'||ye[0]==='zei-lujvo'){
               ye=ye[1].split(" ");
               for (var jj in ye){
                 ki=shortget(ye[jj],ki,2);
               }
             }
             else if (ye[0]!==''){ki=ki.concat({t: "",d:"not found",w: a});}
-          }
-          else{
+          } else{
             var luj=ma_ve_lujvo(a);
-            if(luj){for (var ji in luj){ki.push(rafsi[luj[ji]]);}}
+            if(((luj||[])[0]||'')==="@"){
+              luj.shift();
+              var kim=[];
+              kim=luj.slice();
+              for (var w=0;w<documentStore.length;w++){
+                var def = documentStore[w];
+                for (var j=0;j<luj.length;j++){
+                  if(def.w === luj[j]){
+                    kim[j] = documentStore[w];
+                  }
+                }
+              }
+              ki.concat(kim);
+            }
+            else if(luj){for (var ji in luj){ki.push(rafsi[luj[ji]]);}}
           }
-        }
-        else{ki=ki.concat({t: "",d:"not found",w: a});}
+        } else{ki=ki.concat({t: "",d:"not found",w: a});}
       }
     return ki;
   }
-  function cnanosisku(lo_matra_cu_cupra){
+  function cnanosisku(lo_matra_cu_cupra,multi){
     if (searchId !== searchIdCounter) return;
     var preciseMatches=[];
     for (var w=0;w<documentStore.length;w++){
@@ -235,7 +253,8 @@ function sisku(query, callback) {
         lo_matra_cu_cupra.push(documentStore[w]);
       }
     }
-    preciseMatches = sortthem(lo_matra_cu_cupra);
+    preciseMatches = sortthem(lo_matra_cu_cupra,multi);
+    if (multi) return preciseMatches;
     try{
       if (preciseMatches.length===0) {
         preciseMatches=be([],query)||[];
@@ -264,10 +283,8 @@ function sisku(query, callback) {
     preciseMatches = siskurimni(query.replace(/^@+/,'').replace(/@+$/,''));
   }
   else if (!window.muplis && queryDecomposition.length>1){
-    preciseMatches=cnanosisku(lo_matra_cu_cupra);
-    //if (preciseMatches.length===0){
-      preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(sohivalsi(queryDecomposition))});
-    //}
+    preciseMatches=cnanosisku(lo_matra_cu_cupra,true);
+    preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(sohivalsi(queryDecomposition))});
   }
   else {
     //normal search
@@ -375,7 +392,6 @@ function siskurimni(query) {
       var expgism=[];
       var cmav=[];
       var expcmav=[];
-      var mahorpoi=[];
       var elses=[];
       //ar.filter(function(a){return a.t==='gismu';})
       for (c=0;c<ar.length;c++){
@@ -391,9 +407,6 @@ function siskurimni(query) {
         else if (ar[c].t==='experimental cmavo'){
           expcmav.push(ar[c]);
         }
-        else if (ar[c].t==='cmavo-compound'){
-          mahorpoi.push(ar[c]);
-        }
         else{
           elses.push(ar[c]);
         }
@@ -402,7 +415,6 @@ function siskurimni(query) {
       .concat(expgism.sort(sortMultiDimensional))
       .concat(cmav.sort(sortMultiDimensional))
       .concat(expcmav.sort(sortMultiDimensional))
-      .concat(mahorpoi.sort(sortMultiDimensional))
       .concat(elses.sort(sortMultiDimensional));
     };
 

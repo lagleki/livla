@@ -253,7 +253,7 @@ function sisku(query, callback) {
         lo_matra_cu_cupra.push(documentStore[w]);
       }
     }
-    preciseMatches = sortthem(lo_matra_cu_cupra,multi);
+    try{preciseMatches = sortthem(lo_matra_cu_cupra,multi);}catch(e){}
     if (multi) return preciseMatches;
     try{
       if (preciseMatches.length===0) {

@@ -83,7 +83,7 @@ return [
 	["stodi","恆"],["stura","構"],["stuzi","位"],["suksa","忽"],["sumti","題"],["sunga","蒜"],["surla","鬆"],
 	["sutra","速"],["tadji","术"],["tadni","研"],["tagji","稛"],["talsa","挑"],["tamca","茄"],["tanru","㖮"],
 	["tansi","碗"],["tarbi","胎"],["tarla","焦"],["tarmi","格"],["tarti","表"],["tatpi","疲"],["tavla","聊"],
-	["taxfu","服"],["tcaci","習"],["tcadu","城"],["tcena","伸"],["tcidu","讀"],["tcika","刻"],["tcima","天气"],
+	["taxfu","服"],["tcaci","習"],["tcadu","城"],["tcati","茶"],["tcena","伸"],["tcidu","讀"],["tcika","刻"],["tcima","天气"],
 	["tcini","況"],["tcita","籤"],["temci","時"],["tengu","紋"],["terpa","怕"],["tinci","錫"],["tinsa","硬"],
 	["titla","甜"],["tixnu","娘"],["toknu","爐"],["tordu","短"],["torni","扭"],["traji","最"],
 	["trati","緊"],["trene","𤉖"],["tricu","樹"],["trixe","後"],["troci","試"],["tsani","天空"],["tsiju","種"],

@@ -1481,6 +1481,7 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     // 
     ///
     const txt = text.toLowerCase();
+    let inLanguage = defaultLanguage;
     switch(true) {
     //case txt.search(/ie( |)(nai( |)|)pei/) >= '0': benji(source,socket,clientmensi,sendTo, ext(tugni));break;
     //case txt.search(/\bna nelci/) >= '0': benji(source,socket,clientmensi,sendTo, ext(nelci));break;
@@ -1522,7 +1523,7 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     case txt.indexOf('bangu:') === 0: benji(source,socket,clientmensi,sendTo, bangu(text.substr(6).trim(), from));break;
 
     // Give definition of valsi in specified language
-    case txt.indexOf('?:') === 0: let inLanguage = defaultLanguage;inLanguage = RetrieveUsersLanguage(from, inLanguage);benji(source,socket,clientmensi,sendTo, vlaste(text.substr(2), inLanguage));break; // Gives definition of valsi in the default language set to user
+    case txt.indexOf('?:') === 0: inLanguage = RetrieveUsersLanguage(from, inLanguage);benji(source,socket,clientmensi,sendTo, vlaste(text.substr(2), inLanguage));break; // Gives definition of valsi in the default language set to user
     case txt.indexOf('jbo:') === 0: benji(source,socket,clientmensi,sendTo, vlaste(text.substr(4),'jbo'));break; // Gives definition of valsi in Lojban
     case txt.indexOf('2002:') === 0: benji(source,socket,clientmensi,sendTo, vlaste(text.substr(5),'2002'));break;
     case txt.indexOf('en:') === 0: benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'en'));break; // Gives definition of valsi in English
@@ -1565,7 +1566,9 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     case txt.indexOf(`${prereplier}r `) === 0: benji(source,socket,clientmensi,sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
     case txt.indexOf(`${prereplier}j `) === 0: benji(source,socket,clientmensi,sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
     case txt.indexOf('tatoeba:') === 0: benji(source,socket,clientmensi,sendTo, sisku(text.substr(8).trim()));break;
-    case txt.indexOf(prereplier) === 0: text = text.substr(prereplier.length+1).trim();benji(source,socket,clientmensi,sendTo, mensimikce(text));break;
+    case sendTo === from: inLanguage = RetrieveUsersLanguage(from, inLanguage);benji(source,socket,clientmensi,sendTo, vlaste(text, inLanguage)); // Gives definition of valsi in the default language set to user
+
+    // case txt.indexOf(prereplier) === 0: text = text.substr(prereplier.length+1).trim();benji(source,socket,clientmensi,sendTo, mensimikce(text));break;
   /*   case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: benji(source,socket,clientmensi,sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
     case text.indexOf(prereplier + 'xu do') === 0: 
     case text.indexOf(prereplier + 'do') === 0: setTimeout(function() {benji(source,socket,clientmensi,sendTo, from + mireturn());}, interm );break;

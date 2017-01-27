@@ -1,9 +1,10 @@
 // JavaScript Document
 var download=0;
 var refresh=0;
-var ningau_la_muplis_=1;
+var ningau_la_muplis_=0;
 var ningau_la_muplis_poholska_=0;
 var selectinto_=0;
+var jboenglish_dict_ = 1;
 generateorphanenglishsentences_=0;
 generateorphanfrenchsentences_=0;
 tempo_=0;
@@ -22,6 +23,7 @@ var goahead = function (){
 	if (generateorphanfrenchsentences_===1){generateorphanfrenchsentences();}
 	if (tempo_===1){tempo();}
 	if (gettagsstats_===1){gettagsstats();}
+	if (jboenglish_dict_===1){jboenglish_dict();}
 };
 
 var ningau_la_muplis = function(){
@@ -161,6 +163,30 @@ var tempo = function(){
 		fs.renameSync(path.join(__dirname,"../data","workontagstatoeba.js.temp"), path.join(__dirname,"../data","not-owned-lojbo-sentences.csv"));
 	});
 };
+
+var jboenglish_dict = function(){
+	var LineByLineReader = require('line-by-line');
+	var sqlite3 = require('sqlite3').verbose();
+	var db = new sqlite3.Database(path.join(__dirname,"../../dumps","1.sql"));
+	var wstream = fs.createWriteStream(path.join(__dirname,"../data","jbogli.temp"));
+	// wstream.write('var documentStore = [\n');
+	db.serialize(function() {
+		db.run("BEGIN TRANSACTION");
+		db.each("SELECT tat.idsentence as zer,tat.sentence as one,tati.sentence as six,group_concat(distinct tag.tag) as five FROM tatoeba as tat left join links on links.fir=tat.idsentence left join tatoeba as tati on links.sec=tati.idsentence left join tags as tag on tag.ids=tat.idsentence where (tat.username<>'\\N' and tati.username<>'\\N' and tat.lang='jbo' and tati.lang='eng' and not exists (select a.ids from tags as a where (a.ids=tat.idsentence and a.tag='@needs native check'))) group by tat.sentence,tati.sentence limit 1000000", function(err, row) {
+			
+			if (row.five===null){
+			wstream.write(row.zer + "\t" + row.one.replace(/"/g,"'")+"\t"+(row.six||"").replace(/"/g,"'").replace(/[\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/gi," ").replace(/\\/g,"\\\\".replace("\\","\\\\"))+"\n");}else
+			{wstream.write(row.zer + "\t" + row.one.replace(/"/g,"'")+"\t"+(row.six||"").replace(/"/g,"'").replace(/[\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/gi," ").replace(/\\/g,"\\\\".replace("\\","\\\\"))+"\t"+row.five+"\n");}
+		});
+		db.run("COMMIT");
+	});
+	db.close(function(){
+		// wstream.write('];\n');
+		wstream.end();
+		fs.renameSync(path.join(__dirname,"../data","jbogli.temp"), path.join(__dirname,"../data","jbogli.txt"));
+	});
+};
+
 
 var gettagsstats = function(){
 	var LineByLineReader = require('line-by-line');

@@ -1,6 +1,7 @@
 node_modules/
 _build/
 .idea/
+zasni/
 dumps/*.xml
 dumps/*.temp
 dumps/*.csv

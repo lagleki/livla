@@ -1245,24 +1245,24 @@ const jbofihe = (lin, sendTo, source, socket) => {
 };
 
 const pseudogismu = () => {//a joke function. checks if an English word is  a valid gismu
-  const words = fs.readFileSync(path.join(__dirname,"../","vale.txt"),'utf8').split("\n");
+  const words = fs.readFileSync(path.join(__dirname,"../zasni/","vale.txt"),'utf8').split("\n");
   const sj=[];
   let f;
   for (let j=0;j<words.length;j++){
       f=run_camxes(words[j].toLowerCase().replace(/sh/g,"c"),3).toString();
       if(f.indexOf("yntax")===-1){sj.push(`${words[j]} ${f}`);}
   }
-  fs.writeFileSync(path.join(__dirname,"../","vale-result"),sj.join("\n"));
+  fs.writeFileSync(path.join(__dirname,"../zasni/","vale-result"),sj.join("\n"));
 };
 //pseudogismu();
 
 const prettifylojbansentences = () => {//insert spaces to lojban sentences
-  const words = fs.readFileSync(path.join(__dirname,"../","eikatna.txt"),'utf8').split("\n");
+  const words = fs.readFileSync(path.join(__dirname,"../zasni/","eikatna.txt"),'utf8').split("\n");
   const sj=[];
   for (let j=0;j<words.length;j++){
     sj.push(run_camxesoff(words[j],3));
   }
-  fs.writeFileSync(path.join(__dirname,"../","sekatna.txt"),sj.join("\n").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n"));
+  fs.writeFileSync(path.join(__dirname,"../zasni/","sekatna.txt"),sj.join("\n").replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n"));
   return 'mulno';
 };
 
@@ -1539,8 +1539,8 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     case txt.indexOf('sv:') === 0: benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'sv'));break;
     case txt.indexOf('en-simple:') === 0: benji(source,socket,clientmensi,sendTo, vlaste(text.substr(10),'en-simple'));break;
     case txt.indexOf('jb:') === 0: benji(source,socket,clientmensi,sendTo, vlaste(text.substr(3),'jb'));break;
-    case txt.indexOf('krasi:') === 0: benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'krasi'));break; // Gives Lojban words etymologies
-    case txt.indexOf('dukti:') === 0: benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'dukti'));break; // Gives Lojban words antonyms
+    case txt.indexOf('krasi:') === 0: benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'krasi'));break; // etymologies of Lojban words
+    case txt.indexOf('dukti:') === 0: benji(source,socket,clientmensi,sendTo, vlaste(text.substr(6),'dukti'));break; // antonyms to Lojban words
 
     case txt.indexOf('selmaho:') === 0: benji(source,socket,clientmensi,sendTo, vlaste(text.substr(8),'en','selmaho'));break;
     case txt.indexOf('selma\'o:') === 0: benji(source,socket,clientmensi,sendTo, vlaste(text.substr(8),'en','selmaho'));break;
@@ -1566,7 +1566,7 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     case txt.indexOf(`${prereplier}r `) === 0: benji(source,socket,clientmensi,sendTo, rusko(text.substr(prereplier.length+1).trim()));break;
     case txt.indexOf(`${prereplier}j `) === 0: benji(source,socket,clientmensi,sendTo, jbopomofo(text.substr(prereplier.length+1).trim()));break;
     case txt.indexOf('tatoeba:') === 0: benji(source,socket,clientmensi,sendTo, sisku(text.substr(8).trim()));break;
-    case sendTo === from: inLanguage = RetrieveUsersLanguage(from, inLanguage);benji(source,socket,clientmensi,sendTo, vlaste(text, inLanguage)); // Gives definition of valsi in the default language set to user
+    case sendTo === from: inLanguage = RetrieveUsersLanguage(from, inLanguage);benji(source,socket,clientmensi,sendTo, vlaste(" " + text.trim(), inLanguage)); // Gives definition of valsi in the default language set to user
 
     // case txt.indexOf(prereplier) === 0: text = text.substr(prereplier.length+1).trim();benji(source,socket,clientmensi,sendTo, mensimikce(text));break;
   /*   case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: benji(source,socket,clientmensi,sendTo, preasker+ext(jee)+' ' + ext(pendo));break;

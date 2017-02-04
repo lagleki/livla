@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="data.rnc" type="application/relax-ng-compact-syntax"?>
-<data version="3.0">
-    <xi:include href="data.adj.xml"  xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="data.adv.xml"  xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="data.noun.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="data.verb.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-</data>

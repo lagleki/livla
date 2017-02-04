@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="index.rnc" type="application/relax-ng-compact-syntax"?>
-<indices version="3.0">
-    <xi:include href="index.adj.xml"  xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="index.adv.xml"  xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="index.noun.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="index.verb.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-</indices>

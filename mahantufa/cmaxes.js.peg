@@ -46,7 +46,8 @@ CVC = CV zunsna
 CVC_CCV = CVC / ini_vwl
 ini_vwl = initial_pair pa_zei_karsna
 
-CVC_CCV_CVV = CVC_CCV / zunsna (pa_zei_karsna !stress h pa_zei_karsna / re_zei_karsna) (r &zunsna / n &r)?
+CVC_CCV_CVV = CVC_CCV / CVVr
+CVVr = exp:(zunsna (pa_zei_karsna !stress h pa_zei_karsna / re_zei_karsna)) (r &zunsna / n &r)? {return [_join(exp),""];}
 gismu_CVV_final_rafsi = gismu / CV &stress h &final_syllable pa_zei_karsna &post_word
 short_final_rafsi = &final_syllable (zunsna re_zei_karsna / ini_vwl) &post_word
 

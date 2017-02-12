@@ -1,11 +1,11 @@
 // JavaScript Document
 window.bangulo = "Loading dictionary ...";
 window.bangubuild = 'Building index...';
-window.bangudesc = "<p><b>la sutysisku</b> is a fast dictionary for 'The Crash Course in Lojban' project.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p><p><span id='searchengine'><i><a href='#' title='en-sutysisku' onclick=\"window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')\">Add as a search engine</a></i></span></p>";
+window.bangudesc = "<p><b>la sutysisku</b> is a fast dictionary with examples for Lojban language. It is also used in 'The Crash Course in Lojban' textbook.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p><p><span id='searchengine'><i><a href='#' title='en-sutysisku' onclick=\"window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/en/sisku.xml')\">Add as a search engine</a></i></span></p>";
 window.bangusisku='search';
 window.bangudecomp = 'decomposing ...';
-siskudescr="Search the dictionary of 'The Crash Course in Lojban'.";
-opdescr = "A dictionary for Lojban ('The Crash Course' project), English and other languages. Also works offline.";
+siskudescr="Search Dictionary with Examples used in 'The Crash Course in Lojban'.";
+opdescr = "A dictionary for Lojban language (with examples), English and other languages. Also works offline.";
 window.bangu = 'english';
 window.xuzganalojudri = true;
 window.judri = "http://jbovlaste.lojban.org/dict/";

@@ -1,11 +1,13 @@
 CACHE MANIFEST
-# 2017-2-11T0:28:15
+# 2017-03-01T09:27:17
 
 CACHE:
 index.html?version=18
 ../sutysisku.png
 ../arrow-left.png
 ../sisku.js
+../16.png
+../32.png
 worker.js
 bangu.js
 

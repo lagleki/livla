@@ -86,35 +86,6 @@
 		text-align: justify;
 		background: white;
 	}
-	.drata {
-		margin-top: 0px;
-		margin-bottom: 15px;
-		margin-left: 10%;
-		padding: 8px 12px 6px;
-		text-align: justify;
-		//background: #F7F7F2;
-		background: white;
-		border-bottom-left-radius: 15px 15px;
-		border-bottom-right-radius: 15px 15px;
-		border-width: 0px;
-		border-style: solid;
-		border-top: none;
-		box-shadow:
-		0 0 0 1px #3888E9,
-		0 0 0 2px #2257D5,
-		0 0 0 3px #2663E0,
-		0 0 0 4px #1941A5;
-		-moz-box-shadow:
-		0 0 0 1px #3888E9,
-		0 0 0 2px #2257D5,
-		0 0 0 3px #2663E0,
-		0 0 0 4px #1941A5;
-		-webkit-box-shadow:
-		0 0 0 1px #3888E9,
-		0 0 0 2px #2257D5,
-		0 0 0 3px #2663E0,
-		0 0 0 4px #1941A5;
-		}
 	.term {
 		margin-top: 9px;
 		padding: 9px;
@@ -132,7 +103,94 @@
 		font-style: italic;
 		margin-left: 15px;
 	}
+<%
+	.drata{
+		border-left:1px solid #ccc;
+	}
+	.bangu_wrapper{
+		width:  20vw;
+		overflow: hidden;
+	}
+	.bangu_one {
+		// overflow: hidden;
+		-moz-box-shadow:inset 0px 1px 0px 0px #85CC98;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #85CC98;
+		box-shadow:inset 0px 1px 0px 0px #85CC98;
+		background-color:white;
+		border:1px solid #666;
+		border-top:0px;
+		border-left:0px;
+		display:inline-block;
+		color:#666;
+		padding:7px 7px;
+		max-width:15vw;
+		white-space: nowrap;
+		// text-overflow: ellipsis;
+	}
 
+	.bangu_wrapper .bangu_one:after {
+		content:  ' ';
+		position: absolute;
+		display:  block;
+		width:  100%;
+		height: 1em;
+		bottom: 0px;
+		left:   0px;
+		background:  #E0E0E0;
+	}
+
+	.bangu_wrapper .bangu_one:before {
+		content:  '...';
+		text-align:  right;
+		position: absolute;
+		display:  block;
+		width:  2em;
+		height: 1em;
+		bottom: 1em;
+		right:  20px;
+		background: -moz-linear-gradient(left,  rgba(224,224,224,0) 0%, rgba(224,224,224,1) 38%, rgba(224,224,224,1) 99%);
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(224,224,224,0)), color-stop(38%,rgba(224,224,224,1)), color-stop(99%,rgba(224,224,224,1)));
+		background: -webkit-linear-gradient(left,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
+		background: -o-linear-gradient(left,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
+		background: -ms-linear-gradient(left,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
+		background: linear-gradient(to right,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e0e0e0', endColorstr='#e0e0e0',GradientType=1 );
+	}
+	.bangu{
+		-moz-box-shadow:inset 0px 1px 0px 0px #85CC98;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #85CC98;
+		box-shadow:inset 0px 1px 0px 0px #85CC98;
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5AAD70), color-stop(1, #4BA563));
+		background:-moz-linear-gradient(top, #5AAD70 5%, #4BA563 100%);
+		background:-webkit-linear-gradient(top, #5AAD70 5%, #4BA563 100%);
+		background:-o-linear-gradient(top, #5AAD70 5%, #4BA563 100%);
+		background:-ms-linear-gradient(top, #5AAD70 5%, #4BA563 100%);
+		background:linear-gradient(to bottom, #5AAD70 5%, #4BA563 100%);
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5AAD70', endColorstr='#4BA563',GradientType=0);
+		background-color:#5AAD70;
+		border:1px solid #3b6e22;
+		border-top:0px;
+		border-left:0px;
+		display:inline-block;
+		color:#ffffff;
+		padding:7px 7px;
+		text-decoration:none;
+	}
+	.bangu:hover {
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #4BA563), color-stop(1, #5AAD70));
+		background:-moz-linear-gradient(top, #4BA563 5%, #5AAD70 100%);
+		background:-webkit-linear-gradient(top, #4BA563 5%, #5AAD70 100%);
+		background:-o-linear-gradient(top, #4BA563 5%, #5AAD70 100%);
+		background:-ms-linear-gradient(top, #4BA563 5%, #5AAD70 100%);
+		background:linear-gradient(to bottom, #4BA563 5%, #5AAD70 100%);
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4BA563', endColorstr='#5AAD70',GradientType=0);
+		background-color:#4BA563;
+	}
+	.bangu:active {
+		position:relative;
+		top:1px;
+	}
+%>
 	#galtu-dasri {
 		position:absolute;
 		top:0;
@@ -225,11 +283,6 @@
 	}
 	.clearable.x  { background-position: right 5px center; } /* (jQ) Show icon */
 	.clearable.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
-	/*.clearable::-ms-clear {display: none; width:0; height:0;}*/ /* Remove IE and Webkit default X */
-	/*.clearable::-webkit-search-decoration,
-	.clearable::-webkit-search-cancel-button,
-	.clearable::-webkit-search-results-button,
-	.clearable::-webkit-search-results-decoration {-webkit-appearance: none;display: none; width:0; height:0;}*/
 	#mipri{display:none;}
 	</style>
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -280,11 +333,11 @@
 	</div>
 	<div id='content'>
 		<div id='content-panel'>
+			<%<div id='drata' class="drata"></div>%>
 			<div id='loading' class="term">
 				<span class='message'>%bangulo%</span><br>
 				<div id="progressbar" style="margin:auto;"></div>
 			</div>
-			<div id='drata' style="display:none;" class="drata"></div>
 			<div id='purci' style="display:none;" class="term"></div>
 			<div id='description' class="term">%bangudesc%</div>
 			<div id='output'></div>
@@ -347,7 +400,8 @@
 	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").css('height','5px').css('width','100');});
 	worker.onmessage = function(ev) {
 		if (ev.data.kind == 'ready') {
-			engineReady();
+			ready = true;
+			$("#loading").remove();
 		} else if (ev.data.kind == 'searchResults') {
 			if (ev.data.query !== query) {return;}
 			results = ev.data.results;
@@ -362,11 +416,6 @@
 			$(function() {$( "#progressbar" ).progressbar({value: ev.data.percent * 100});});
 		}
 	};
-	function engineReady(arg) {
-		ready = true;
-		$("#loading").remove();
-		$("#search").show();
-	}
 	function displayCLL(){
 		var sc = (window.arrcll||[])[query];
 		if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('term').html(window.cllnotci+"<br/>"+sc).appendTo(output);}
@@ -490,7 +539,7 @@
 	}
 
 	var searchIdCounter = 0;
-	var prevQuery,lastQuery;
+	var prevQuery<%,drataQuery=''%>;
 	var lastQueried = now();
 	function displayDescription() {
 		if (query == '') {
@@ -498,30 +547,28 @@
 		description.show();
 		var arrpurc = JSON.parse(localStorage.getItem('purci'))||[];
 		if(arrpurc.length>0){
-			arrpurc.forEach(function(part, index, ar) {
-				ar[index] = '<a href="#sisku/' + ar[index] + '">' + ar[index] + "</a>";
-			});
-			$('#purci').html((window.purc||"Last searched: ") + arrpurc.join(", "));
+			$('#purci').html((window.purc||"Last searched: ") + arrpurc.map(function(a){return '<a href="#sisku/' + a + '">' + a + "</a>";}).join(", "));
 			$('#purci').css('display','block');
-			if (lastQuery && lastQuery!==''){
-				$('#drata').html('<b>' + lastQuery + '</b>: '
-				+ '<a href="../jbo/#sisku/' + lastQuery + '">lojbo</a>,&nbsp;&nbsp;'
-				+ '<a href="../muplis/#sisku/' + lastQuery + '">la muplis</a>,&nbsp;&nbsp;'
-				+ '<a href="../en/#sisku/' + lastQuery + '">English</a>,&nbsp;&nbsp;'
-				+ '<a href="../jb/#sisku/' + lastQuery + '">With Examples</a>,&nbsp;&nbsp;'
-				+ '<a href="../ja/#sisku/' + lastQuery + '">日本語</a>,&nbsp;&nbsp;'
-				+ '<a href="../fr-facile/#sisku/' + lastQuery + '">français facile</a>,&nbsp;&nbsp;'
-				+ '<a href="../es/#sisku/' + lastQuery + '">español</a>,&nbsp;&nbsp;'
-				+ '<a href="../ru/#sisku/' + lastQuery + '">русский</a>,&nbsp;&nbsp;'
-				+ '<a href="../eo/#sisku/' + lastQuery + '">Esperanto</a>'
-				);
-				$('#drata').css('display','block');
-			}
+			<%
+			if (!drataQuery||(drataQuery==='')){drataQuery = arrpurc[0]||'';}
+			$('#drata').html(((drataQuery!=='')? ('<span class="bangu_one">' + drataQuery + '</span>') : '')
+			+ '<a class="bangu" href="../jbo/#sisku/' + drataQuery + '">lojbo</a>'
+			+ '<a class="bangu" href="../muplis/#sisku/' + drataQuery + '">la muplis</a>'
+			+ '<a class="bangu" href="../en/#sisku/' + drataQuery + '">English</a>'
+			+ '<a class="bangu" href="../jb/#sisku/' + drataQuery + '">Examples</a>'
+			+ '<a class="bangu" href="../ja/#sisku/' + drataQuery + '">日本語</a>'
+			+ '<a class="bangu" href="../fr-facile/#sisku/' + drataQuery + '">français facile</a>'
+			+ '<a class="bangu" href="../es/#sisku/' + drataQuery + '">español</a>'
+			+ '<a class="bangu" href="../ru/#sisku/' + drataQuery + '">русский</a>'
+			+ '<a class="bangu" href="../eo/#sisku/' + drataQuery + '">Esperanto</a>'
+			);
+			$('#drata').css('display','block');
+			%>
 		}
 		} else {
 			output.show();
 			description.hide();
-			$('#drata').css('display','none');
+			<%$('#drata').css('display','none');%>
 			$('#purci').css('display','none');
 			$('#content').scrollTop(0);
 		}
@@ -534,12 +581,11 @@
 	}
 	function doSearch() {
 		query = plukaquery(typehere.val());
-		if (query ===''){displayDescription();}
+		if (query ===''){displayDescription();}<%else{drataQuery = query;}%>
 		if (query === prevQuery) {
 		return;
 		}
 		prevQuery = query;
-		lastQuery = query;
 		updateUrl();
 
 		var searchId = ++searchIdCounter;

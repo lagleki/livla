@@ -25,6 +25,13 @@ langs.forEach(function(thisa){
 	b = b.replace("%ogurl%","https://la-lojban.github.io/sutysisku/"+thisa+"/index.html");
 	b = b.replace("%searchurl%","/sutysisku/"+thisa+"/sisku.xml");
 	b = b.replace("%searchtitle%",thisa+"-sutysisku");
+	try{m = file.match(/window\.xuzganalojudri *= *[\"']*(.*?)[\"']*;(\n|\r)/)[1].replace(/\\\"/g,"\"");}catch(e){m="false";}
+	if (m==='true'){
+		b = b.replace(/(<\%|\%>)/g,"");
+	}
+	else {
+		b = b.replace(/<\%[\s\S]*?\%>/g,"");
+	}
 	var upper;
 	try{upper = file.match(/upperdir *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1].replace(/\\\"/g,"\"");}catch(err){upper="../";}
 	try{m = file.match(/titlelogo *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1].replace(/\\\"/g,"\"").replace(/%upper%/g,upper);}catch(err){m="<span id='plise' style='height:24px;'><a id='st' href=\""+upper+"\"><img src=\"../arrow-left.png\" height='24' width='24'></a></span><span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src=\"../sutysisku.png\" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span>";}b = b.replace(/%titlelogo%/g,m);
@@ -36,6 +43,11 @@ langs.forEach(function(thisa){
 	try{m=file.match(/grad_pos2 *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1];}catch(err){m="13%";}b = b.replace(/%grad_pos2%/g,m);
 	try{m=file.match(/grad_pos3 *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1];}catch(err){m="88%";}b = b.replace(/%grad_pos3%/g,m);
 	try{m=file.match(/grad_pos4 *= *[\"'](.*?)[\"'];*([\n\r]+|$)/)[1];}catch(err){m="100%";}b = b.replace(/%grad_pos4%/g,m);
+	//compress code
+	b = b.replace(/^[ \t]+/gm,"");
+	b = b.replace(/^\/\/.*$/gm,"");
+	b = b.replace(/\/\*[\s\S]*?\*\//gm,"");
+	b = b.replace(/<!--[\s\S]*-->/gm,"");
 	fs.writeFileSync(path.join(__dirname,"../../i",thisa,"index.html"), b);
 });
 

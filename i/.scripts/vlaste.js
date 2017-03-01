@@ -97,7 +97,7 @@ function readConfig(filename) {
 }
 
 var update_cc_dict = function(){
-	var t = path.join(__dirname,dumps,"the_crash_course_dict.csv");
+	var t = path.join(__dirname,dumps,"the_dict_with_examples.csv");
 	requestd = request.defaults({jar: true});
 	var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/export?format=csv&id=19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw&gid=1855189494";
 	requestd({
@@ -128,7 +128,7 @@ var update_cc_dict = function(){
 		}
 		var txt = x.join("\n\n").replace(/\{(.*?)\}/g,"'''$1'''").replace(/@@@(.*?)@@@/g,"''$1''");
 		takei = fs.writeFileSync(tr+".temp",txt);
-		fs.renameSync(tr+".temp",tr);console.log("The Crash Course Eng2Jbo .tsv file updated");
+		fs.renameSync(tr+".temp",tr);console.log("The Dictionary with Examples' Eng2Jbo .tsv file updated");
 
 		mw_edit("L17-04",txt,"zmiku se jmina");//title,text,resume
 		//todo: reuse takei for .xml dump
@@ -153,11 +153,11 @@ var update_cc_dict = function(){
 		take=take.replace(/^(: *.*?)_\. *$/igm,"$1.");
 		take=take.replace(/^: *(.*?)$/igm,"\t<gloss>$1</gloss>");
 		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"‘$1’");
-		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"English (The Crash Course)\">\n" + intro + "\n" + take + "\n" + takei + "</direction>\n</dictionary>";
+		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"English (with examples)\">\n" + intro + "\n" + take + "\n" + takei + "</direction>\n</dictionary>";
 		take=take.replace(/ {2,}/g," ");
 		take = fs.writeFileSync(t+".temp",take);
 		fs.renameSync(t+".temp",path.join(__dirname,dumps,"jb.xml"));
-		console.log("The Crash Course dict. updated");
+		console.log("Dictionary with Examples updated");
 		var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/pub?single=true&gid=1855189494&range=B1:B3000&output=csv";
 		requestd({uri: uri,method: "GET"}, function(err, response, body) {
 			var d = body.split("\n").map(function(a){a=a.replace(/[\"_]/,''); return a;}).join("\n").replace(/ {2,}/g,' ');

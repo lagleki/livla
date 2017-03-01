@@ -1,638 +1,577 @@
 <!DOCTYPE html>
 <html manifest='webapp.appcache'
-	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:og="http://ogp.me/ns#"
-	xmlns:fb="https://www.facebook.com/2008/fbml">
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:og="http://ogp.me/ns#"
+xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-	<title>la sutysisku zo'u: ze'i mitysisku lo valsi</title>
-	<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
-	<meta name="theme-color" content="#CF8B54">
-	<meta property="og:title" content="La Sutysisku"/>
-	<meta property="og:type" content="article"/>
-	<meta property="og:url" content="https://la-lojban.github.io/sutysisku/laadan/index.html"/>
-	<meta property="og:image" content="https://mw.lojban.org/images/1/11/sutysisku2015-06-22.png"/>
-	<meta property="og:site_name" content="La Sutysisku"/>
-	<meta property="fb:app_id" content="191051864394489"/>
-	<meta property="og:description" content="A dictionary for Láadan, Lojban, English and other languages that can work offline."/>
-	<link rel="shortcut icon" href="../sutysisku.png" />
-	<link rel="search" type="application/opensearchdescription+xml" href="/sutysisku/laadan/sisku.xml" title="laadan-sutysisku">
-	<style type="text/css">
+<title>la sutysisku zo'u: ze'i mitysisku lo valsi</title>
+<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
+<meta name="theme-color" content="#CF8B54">
+<meta property="og:title" content="La Sutysisku"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://la-lojban.github.io/sutysisku/laadan/index.html"/>
+<meta property="og:image" content="https://mw.lojban.org/images/1/11/sutysisku2015-06-22.png"/>
+<meta property="og:site_name" content="La Sutysisku"/>
+<meta property="fb:app_id" content="191051864394489"/>
+<meta property="og:description" content="A dictionary for Láadan, Lojban, English and other languages that can work offline."/>
+<link rel="shortcut icon" href="../sutysisku.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/sutysisku/laadan/sisku.xml" title="laadan-sutysisku">
+<style type="text/css">
 
-	body {
-		font-family: Tahoma, Lato, sans-serif;
-		font-size:90%;
-		overflow:hidden;
-		margin: 0;
-		height: 100vh;
-	}
+body {
+font-family: Tahoma, Lato, sans-serif;
+font-size:90%;
+overflow:hidden;
+margin: 0;
+height: 100vh;
+}
 
-	h4 {
-		display: inline;
-		margin: 0;
-	}
-	.type {
-			display: inline;
-			font-style: italic;
-			margin-left: 25px;
-			color: rgb(118, 118, 118);
-			font-size: 12px;
-	}
-	.tfm {
-			display: inline;
-			font-style: italic;
-			color: rgb(118, 118, 118);
-	}
-	.nalojbo {
-		color: #6A5ACD;
-	}
-	.valsi {
-		/* These are technically the same, but use both */
-		overflow-wrap: break-word;
-		word-wrap: break-word;
-		
-		-ms-word-break: break-all;
-		/* This is the dangerous one in WebKit, as it breaks things wherever */
-		word-break: break-all;
-		/* Instead use this non-standard one: */
-		word-break: break-word;
-		
-		/* Adds a hyphen where the word breaks, if supported (No Blink) */
-		-ms-hyphens: auto;
-		-moz-hyphens: auto;
-		-webkit-hyphens: auto;
-		hyphens: auto;
-	}
-	.definition {
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-	.notes {
-		margin-left: 10px;
-	}
-	.mupligreku {
-		border: 1px dashed #aaa;padding: 5px;
-	}
-	.subdefinitions {
-		padding-left: 0px;
-		border-left:solid 3px #1E90FF;
-	}
-	.terminner {
-		margin-top: 9px;
-		padding: 9px;
-		border-top: solid 1px #ccc;
-		border-right: solid 1px #ccc;
-		border-bottom: solid 1px #ccc;
-		box-shadow: 3px 3px 1px #ccc;
-		text-align: justify;
-		background: white;
-	}
-	.drata {
-		margin-top: 0px;
-		margin-bottom: 15px;
-		margin-left: 10%;
-		padding: 8px 12px 6px;
-		text-align: justify;
-		//background: #F7F7F2;
-		background: white;
-		border-bottom-left-radius: 15px 15px;
-		border-bottom-right-radius: 15px 15px;
-		border-width: 0px;
-		border-style: solid;
-		border-top: none;
-		box-shadow:
-		0 0 0 1px #3888E9,
-		0 0 0 2px #2257D5,
-		0 0 0 3px #2663E0,
-		0 0 0 4px #1941A5;
-		-moz-box-shadow:
-		0 0 0 1px #3888E9,
-		0 0 0 2px #2257D5,
-		0 0 0 3px #2663E0,
-		0 0 0 4px #1941A5;
-		-webkit-box-shadow:
-		0 0 0 1px #3888E9,
-		0 0 0 2px #2257D5,
-		0 0 0 3px #2663E0,
-		0 0 0 4px #1941A5;
-		}
-	.term {
-		margin-top: 9px;
-		padding: 9px;
-		text-align: justify;
-		background: white;
-	}
-	.term:hover {
-		outline: #999999 solid 3px;
-	}
-	.rafsi {
-		margin-top: 8px;
-		font-size: 90%;
-	}
-	.rafsi span {
-		font-style: italic;
-		margin-left: 15px;
-	}
+h4 {
+display: inline;
+margin: 0;
+}
+.type {
+display: inline;
+font-style: italic;
+margin-left: 25px;
+color: rgb(118, 118, 118);
+font-size: 12px;
+}
+.tfm {
+display: inline;
+font-style: italic;
+color: rgb(118, 118, 118);
+}
+.nalojbo {
+color: #6A5ACD;
+}
+.valsi {
 
-	#galtu-dasri {
-		position:absolute;
-		top:0;
-		left:0;
-		right:0;
-		height:48px;
-		width:auto;
-		font-size: 18px;
-		padding: 0;
-		background: rgb(56,136,233); /* Old browsers */
-		background: -moz-linear-gradient(top,  rgba(56,136,233,1) 0%, rgba(34,87,213,1) 13%, rgba(38,99,224,1) 88%, rgba(25,65,165,1) 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(56,136,233,1)), color-stop(13%,rgba(34,87,213,1)), color-stop(88%,rgba(38,99,224,1)), color-stop(100%,rgba(25,65,165,1))); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top,  rgba(56,136,233,1) 0%,rgba(34,87,213,1) 13%,rgba(38,99,224,1) 88%,rgba(56,136,233,1) 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top,  rgba(56,136,233,1) 0%,rgba(34,87,213,1) 13%,rgba(38,99,224,1) 88%,rgba(25,65,165,1) 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top,  rgba(56,136,233,1) 0%,rgba(34,87,213,1) 13%,rgba(38,99,224,1) 88%,rgba(25,65,165,1) 100%); /* IE10+ */
-		background: linear-gradient(to bottom,  rgba(56,136,233,1) 0%,rgba(34,87,213,1) 13%,rgba(38,99,224,1) 88%,rgba(25,65,165,1) 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de',GradientType=0 ); /* IE6-9 */
-		color: #FFF;
-	}
-	#se-vasru-lo-galtu-dasri {
-		max-width: 700px;
-		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 6px;
-		display: -webkit-flex; /* Safari */
-		-webkit-align-items: center; /* Safari 7.0+ */
-		display: flex;
-		align-items: center;
-	}
+overflow-wrap: break-word;
+word-wrap: break-word;
 
-	::selection {
-		background: rgba(56,136,233,1);
-		color: #fff;
-		text-shadow: none;
-	}
-	.site-title {
-		font-size: 18px;
-		font-weight: bold;
-		padding-left: 2px;
-	}
-	#content {
-		padding-left: 5px;
-		padding-right: 5px;
-		overflow:auto;
-		height:100%;
-		border-top:48px solid transparent;
-		-webkit-box-sizing:border-box;
-		-moz-box-sizing:border-box;
-		box-sizing:border-box;
-		background: #222222 linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent) !important;
-		background-size: 40px 40px !important;
-	}
+-ms-word-break: break-all;
 
-	#content-panel {
-		max-width: 700px;
-		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	a {
-		color: #2B79E0;
-		text-decoration: none;
-	}
-	
-	#description {
-		margin-top: 5px;
-		text-align: center;
-		text-shadow: 0px 1px 0px rgba(255,255,255,.5);
-		color: #333;
-	}
-	#loading {
-		text-align: center;
-	}
-	sup, sub {
-	 vertical-align: baseline;
-	 position: relative;
-	 top: -0.4em;
-	 font-size:70%;
-	}
-	sub { top: 0.4em; }
-	#output{padding-bottom:20%;}
-	.clearable{
-		height:auto;
-		font-size:140%;
-		background: #fff url(../x.gif) no-repeat right -18px center;
-		border: 1px solid #999;
-		padding: 3px 26px 2px 4px;     /* Use the same right padding (18) in jQ! */
-		transition: background 0.4s;
-	}
-	.clearable.x  { background-position: right 5px center; } /* (jQ) Show icon */
-	.clearable.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
-	/*.clearable::-ms-clear {display: none; width:0; height:0;}*/ /* Remove IE and Webkit default X */
-	/*.clearable::-webkit-search-decoration,
-	.clearable::-webkit-search-cancel-button,
-	.clearable::-webkit-search-results-button,
-	.clearable::-webkit-search-results-decoration {-webkit-appearance: none;display: none; width:0; height:0;}*/
-	#mipri{display:none;}
-	</style>
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:site" content="@lojban_org" />
-	<!--<meta property="al:android:url" content="la sutysisku://" />
-	<meta property="al:android:app_name" content="la sutysisku" />
-	<meta property="al:android:package" content="la sutysisku" />
-	<meta property="al:windows_phone:app_name" content="la sutysisku" />
-	<meta property="al:windows_phone:app_id" content="" />
-	<meta name="apple-itunes-app" content="app-id=" />
-	<meta name="google-play-app" content="app-id=" />-->
-	<meta content='la sutysisku' name='apple-mobile-web-app-title'>
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../144.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png" />
-	<link rel="icon" type="image/png" href="../32.png" sizes="32x32" />
-	<link rel="icon" type="image/png" href="../16.png" sizes="16x16" />
-	<meta name="application-name" content="la sutysisku"/>
-	<meta name="msapplication-TileColor" content="#00a300">
-	<meta name="msapplication-TileImage" content="../144.png">
-	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	<script src="bangu.js"></script>
-	<link rel="manifest" href="../manifest.json">
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-45171210-6', 'auto', {'allowLinker': true});
-		ga('require', 'linker');
-		ga('linker:autoLink', ['mw.lojban.org/extensions/ilmentufa/i', 'lojban.github.io/sutysisku', 'https://lojban.herokuapp.com'] );
-		ga('set', 'forceSSL', true);
-		ga('send', 'pageview');
-	</script>
+word-break: break-all;
+
+word-break: break-word;
+
+
+-ms-hyphens: auto;
+-moz-hyphens: auto;
+-webkit-hyphens: auto;
+hyphens: auto;
+}
+.definition {
+margin-top: 10px;
+margin-bottom: 10px;
+}
+.notes {
+margin-left: 10px;
+}
+.mupligreku {
+border: 1px dashed #aaa;padding: 5px;
+}
+.subdefinitions {
+padding-left: 0px;
+border-left:solid 3px #1E90FF;
+}
+.terminner {
+margin-top: 9px;
+padding: 9px;
+border-top: solid 1px #ccc;
+border-right: solid 1px #ccc;
+border-bottom: solid 1px #ccc;
+box-shadow: 3px 3px 1px #ccc;
+text-align: justify;
+background: white;
+}
+.term {
+margin-top: 9px;
+padding: 9px;
+text-align: justify;
+background: white;
+}
+.term:hover {
+outline: #999999 solid 3px;
+}
+.rafsi {
+margin-top: 8px;
+font-size: 90%;
+}
+.rafsi span {
+font-style: italic;
+margin-left: 15px;
+}
+
+#galtu-dasri {
+position:absolute;
+top:0;
+left:0;
+right:0;
+height:48px;
+width:auto;
+font-size: 18px;
+padding: 0;
+background: rgb(56,136,233); 
+background: -moz-linear-gradient(top,  rgba(56,136,233,1) 0%, rgba(34,87,213,1) 13%, rgba(38,99,224,1) 88%, rgba(25,65,165,1) 100%); 
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(56,136,233,1)), color-stop(13%,rgba(34,87,213,1)), color-stop(88%,rgba(38,99,224,1)), color-stop(100%,rgba(25,65,165,1))); 
+background: -webkit-linear-gradient(top,  rgba(56,136,233,1) 0%,rgba(34,87,213,1) 13%,rgba(38,99,224,1) 88%,rgba(56,136,233,1) 100%); 
+background: -o-linear-gradient(top,  rgba(56,136,233,1) 0%,rgba(34,87,213,1) 13%,rgba(38,99,224,1) 88%,rgba(25,65,165,1) 100%); 
+background: -ms-linear-gradient(top,  rgba(56,136,233,1) 0%,rgba(34,87,213,1) 13%,rgba(38,99,224,1) 88%,rgba(25,65,165,1) 100%); 
+background: linear-gradient(to bottom,  rgba(56,136,233,1) 0%,rgba(34,87,213,1) 13%,rgba(38,99,224,1) 88%,rgba(25,65,165,1) 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de',GradientType=0 ); 
+color: #FFF;
+}
+#se-vasru-lo-galtu-dasri {
+max-width: 700px;
+width: 100%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 6px;
+display: -webkit-flex; 
+-webkit-align-items: center; 
+display: flex;
+align-items: center;
+}
+
+::selection {
+background: rgba(56,136,233,1);
+color: #fff;
+text-shadow: none;
+}
+.site-title {
+font-size: 18px;
+font-weight: bold;
+padding-left: 2px;
+}
+#content {
+padding-left: 5px;
+padding-right: 5px;
+overflow:auto;
+height:100%;
+border-top:48px solid transparent;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;
+background: #222222 linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent) !important;
+background-size: 40px 40px !important;
+}
+
+#content-panel {
+max-width: 700px;
+width: 100%;
+margin-left: auto;
+margin-right: auto;
+}
+a {
+color: #2B79E0;
+text-decoration: none;
+}
+
+#description {
+margin-top: 5px;
+text-align: center;
+text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+color: #333;
+}
+#loading {
+text-align: center;
+}
+sup, sub {
+vertical-align: baseline;
+position: relative;
+top: -0.4em;
+font-size:70%;
+}
+sub { top: 0.4em; }
+#output{padding-bottom:20%;}
+.clearable{
+height:auto;
+font-size:140%;
+background: #fff url(../x.gif) no-repeat right -18px center;
+border: 1px solid #999;
+padding: 3px 26px 2px 4px;     
+transition: background 0.4s;
+}
+.clearable.x  { background-position: right 5px center; } 
+.clearable.onX{ cursor: pointer; }              
+#mipri{display:none;}
+</style>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@lojban_org" />
+
+<meta content='la sutysisku' name='apple-mobile-web-app-title'>
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="../32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="../16.png" sizes="16x16" />
+<meta name="application-name" content="la sutysisku"/>
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="msapplication-TileImage" content="../144.png">
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="bangu.js"></script>
+<link rel="manifest" href="../manifest.json">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-45171210-6', 'auto', {'allowLinker': true});
+ga('require', 'linker');
+ga('linker:autoLink', ['mw.lojban.org/extensions/ilmentufa/i', 'lojban.github.io/sutysisku', 'https://lojban.herokuapp.com'] );
+ga('set', 'forceSSL', true);
+ga('send', 'pageview');
+</script>
 </head>
 <body>
-	<div id='galtu-dasri'>
-		<form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
-		<span id='plise' style='height:24px;'><a id='st' href="../muplis.html"><img src="../arrow-left.png" height='24' width='24'></a></span><span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src="../sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="display:inline;-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-			<input class="clearable" id='typehere' placeholder="search" type='text' autofocus autocorrect="off" autocapitalize="off" autocomplete="false">
-		</form>
-	</div>
-	<div id='content'>
-		<div id='content-panel'>
-			<div id='loading' class="term">
-				<span class='message'>Loading dictionary ...</span><br>
-				<div id="progressbar" style="margin:auto;"></div>
-			</div>
-			<div id='drata' style="display:none;" class="drata"></div>
-			<div id='purci' style="display:none;" class="term"></div>
-			<div id='description' class="term"><p><b>la sutysisku</b> is a fast dictionary for the Láadan language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br><br>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p><p><span id='searchengine'><i><a href='#' title='laadan-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/laadan/sisku.xml')">Add as a search engine</a></i></span></p></div>
-			<div id='output'></div>
-		</div>
-	</div>
+<div id='galtu-dasri'>
+<form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
+<span id='plise' style='height:24px;'><a id='st' href="../muplis.html"><img src="../arrow-left.png" height='24' width='24'></a></span><span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src="../sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="display:inline;-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
+<input class="clearable" id='typehere' placeholder="search" type='text' autofocus autocorrect="off" autocapitalize="off" autocomplete="false">
+</form>
+</div>
+<div id='content'>
+<div id='content-panel'>
+
+<div id='loading' class="term">
+<span class='message'>Loading dictionary ...</span><br>
+<div id="progressbar" style="margin:auto;"></div>
+</div>
+<div id='purci' style="display:none;" class="term"></div>
+<div id='description' class="term"><p><b>la sutysisku</b> is a fast dictionary for the Láadan language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br><br>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p><p><span id='searchengine'><i><a href='#' title='laadan-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/laadan/sisku.xml')">Add as a search engine</a></i></span></p></div>
+<div id='output'></div>
+</div>
+</div>
 <script>
-	var typehere = $("#typehere");
-	var output = $("#output");
-	var description = $("#description");
-	var query="";
-	var worker = new Worker('worker.js');
-	var resultCount;
-	var results = [];
-	//lo diklo sorcu xau lo uenzi poi pu se mitysisku
-	function SaveDataToLocalStorage(data)
-	{
-		if (!results||results.length===0|data==='') return;
-		var a = JSON.parse(localStorage.getItem('purci'))||[];
-		var index = a.indexOf(data);
-		if (index>=0){a.splice(index,1);}
-		a.unshift(data);
-		if (a.length>10) {a.length=10;}
-		localStorage.setItem('purci', JSON.stringify(a));
-	}
-	// clearable input
-	function tog(v){return v?'addClass':'removeClass';} 
-	$(document).on('input', '.clearable', function(){
-		$(this)[tog(this.value)]('x');
-	}).on('mousemove', '.x', function( e ){
-		$(this)[tog(this.offsetWidth-26 < e.clientX-this.getBoundingClientRect().left)]('onX');
-	}).on('touchstart click', '.onX', function( ev ){
-		ev.preventDefault();
-		$(this).removeClass('x onX').val('').change();
-		query='';
-		prevQuery='';
-		displayDescription();
-	}).on('click', '#title', function(ev){
-		query='';
-		typehere.val(query);
-	});
-	var fm = {BE: "bei",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au",NAhU: "te'u",NIhE: "te'u",MOhE: "te'u"};
-	var ready = false;
-	var cankocisni = function(){
-		if ($(window).width() >= 510) {
-			$('#site-title').css( "display", "block !important").show();
-			$('#mipri').css( "display", "block !important").show();
-			$("#typehere").css({"width":'auto','margin-left':'0px','margin-right':'0px'});
-		}else{
-			$('#site-title').css( "display", "block !important").hide();
-			$('#mipri').css( "display", "block !important").hide();
-			$("#typehere").css({"width":$(window).width()-64,'margin-left':'4px','margin-right':'4px'});
-		}
-		if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
-		doSearch();
-	}
-	$(document).ready(cankocisni());
-	$(window).on('resize', function(){
-		cankocisni();
-	});
-	$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").css('height','5px').css('width','100');});
-	worker.onmessage = function(ev) {
-		if (ev.data.kind == 'ready') {
-			engineReady();
-		} else if (ev.data.kind == 'searchResults') {
-			if (ev.data.query !== query) {return;}
-			results = ev.data.results;
-			output.empty();
-			displayCLL();
-			skicu_lo_ro_valsi();
-			displayDescription();
-		}
-		else if (ev.data.kind == 'loading') {
-			$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 51});$("#progressbar").css({ 'height': '5px'});});
-		} else if (ev.data.kind == 'progress') {
-			$(function() {$( "#progressbar" ).progressbar({value: ev.data.percent * 100});});
-		}
-	};
-	function engineReady(arg) {
-		ready = true;
-		$("#loading").remove();
-		$("#search").show();
-	}
-	function displayCLL(){
-		var sc = (window.arrcll||[])[query];
-		if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('term').html(window.cllnotci+"<br/>"+sc).appendTo(output);}
-	}
+var typehere = $("#typehere");
+var output = $("#output");
+var description = $("#description");
+var query="";
+var worker = new Worker('worker.js');
+var resultCount;
+var results = [];
 
-	function checkScrolledNearBottom(ev) {
-		var target = ev.target;
-		var windowBottom = target.scrollTop + window.innerHeight;
-		var outputBottom = output.height() - 700;
-		var isClose = windowBottom >= outputBottom;
-		if(isClose) {
-		window.limit += 10;
-		skicu_lo_ro_valsi(true);
-		}
-	}
-	document.getElementById('content')
-		.addEventListener('scroll', checkScrolledNearBottom);
-	output.scroll();
+function SaveDataToLocalStorage(data)
+{
+if (!results||results.length===0|data==='') return;
+var a = JSON.parse(localStorage.getItem('purci'))||[];
+var index = a.indexOf(data);
+if (index>=0){a.splice(index,1);}
+a.unshift(data);
+if (a.length>10) {a.length=10;}
+localStorage.setItem('purci', JSON.stringify(a));
+}
 
-	function lojTemplate(s) {
-		s = s.replace(/\$.*?\$/g, function(c) {
-		c = c.substring(1, c.length-1);
-		return c.replace(/(\w+)_\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>").replace(/(\w+)_((?:\d+|\w))/g, "<i>$1<sub>$2</sub></i>").replace(/\{/g,'[').replace(/\}/g,']');
-		});
-		//s = s.replace(/\[([^\[\]]*?)\]/g,"{$1}");
-		s = s.replace(/\{(.*?)\}/g, function(c) {
-		var c = c.substring(1, c.length-1);
-		return '<a href="#sisku/' + encodeURIComponent(c) + '">' + c + "</a>"
-		});
-		return s;
-	}
+function tog(v){return v?'addClass':'removeClass';} 
+$(document).on('input', '.clearable', function(){
+$(this)[tog(this.value)]('x');
+}).on('mousemove', '.x', function( e ){
+$(this)[tog(this.offsetWidth-26 < e.clientX-this.getBoundingClientRect().left)]('onX');
+}).on('touchstart click', '.onX', function( ev ){
+ev.preventDefault();
+$(this).removeClass('x onX').val('').change();
+query='';
+prevQuery='';
+displayDescription();
+}).on('click', '#title', function(ev){
+query='';
+typehere.val(query);
+});
+var fm = {BE: "bei",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au",NAhU: "te'u",NIhE: "te'u",MOhE: "te'u"};
+var ready = false;
+var cankocisni = function(){
+if ($(window).width() >= 510) {
+$('#site-title').css( "display", "block !important").show();
+$('#mipri').css( "display", "block !important").show();
+$("#typehere").css({"width":'auto','margin-left':'0px','margin-right':'0px'});
+}else{
+$('#site-title').css( "display", "block !important").hide();
+$('#mipri').css( "display", "block !important").hide();
+$("#typehere").css({"width":$(window).width()-64,'margin-left':'4px','margin-right':'4px'});
+}
+if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
+doSearch();
+}
+$(document).ready(cankocisni());
+$(window).on('resize', function(){
+cankocisni();
+});
+$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").css('height','5px').css('width','100');});
+worker.onmessage = function(ev) {
+if (ev.data.kind == 'ready') {
+ready = true;
+$("#loading").remove();
+} else if (ev.data.kind == 'searchResults') {
+if (ev.data.query !== query) {return;}
+results = ev.data.results;
+output.empty();
+displayCLL();
+skicu_lo_ro_valsi();
+displayDescription();
+}
+else if (ev.data.kind == 'loading') {
+$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 51});$("#progressbar").css({ 'height': '5px'});});
+} else if (ev.data.kind == 'progress') {
+$(function() {$( "#progressbar" ).progressbar({value: ev.data.percent * 100});});
+}
+};
+function displayCLL(){
+var sc = (window.arrcll||[])[query];
+if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('term').html(window.cllnotci+"<br/>"+sc).appendTo(output);}
+}
 
-	function skicu_lo_valsi(def,inner) {
-		if (!def){def=[];}
-		var out;
-		if(inner===1){out=$("<div>").addClass('terminner');} else {out=$("<div>").addClass('term');}
-		var fmm,tfm;
-		if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;<i><sup>[&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a>]</sup></i>";}else{fmm=''}
-		var sh=[];
-		for (var key in fm){
-			if (fm[key]===def.w){sh.push('<a href="#sisku/' + key + '">' + key + '</a>');}
-		}
-		if (sh.length!==0){tfm = $("<div>").addClass(kl).html('<i><sup>['+sh.join(", ")+'&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;');}
-		else{tfm='';}
-		var ss;
-		if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
-		var jvs = def.t;
-		if(window.xuzganalojudri && !def.l){jvs+="<font color='#aaa'><a style='color: #aaa;' target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
-		//if (def.t==='decomposing ...'){if ((def.rafsiDocuments||[]).length==0){ return;}jvs=window.bangudecomp;}
-		var kl='valsi';if(def.l){kl='valsi nalojbo';};
-		var word='<a class="' + kl + '" href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
-		if (plukaquery(def.w) == query){word=def.w + ' ';}
-		var deft='';
-		if (def.t.search('sampu staile')>=0){deft += "<img src='plise.png' height='16' width='16' title='lo staile poi sampu'>"};
-		if (def.t.search('mansa staile')>=0){deft += "<img src='pelxuplise.png' height='16' width='16' title=\"lo staile poi na mutce cinri\">"};
-		if (def.t.search('plixau jufra')>=0){deft += "<img src='crinoplise.png' height='16' width='16' title=\"lo jufra poi ka'e xamgu lo di'i fanva\">"};
-		if (def.t.search('cnano staile')>=0){deft += "<img src='blabiplise.png' height='16' width='16' title=\"lo staile poi ka'e pluja\">"};
-		if (def.t.search('non-standard')>=0){deft += "<img src='cicnaplise.png' height='16' width='16' title=\"na'e catni se ciska staile\">"};
-		if (deft!==''){jvs=deft;}
-		out.append($("<heading style='align-items:flex-start;flex-direction:row;display:flex;flex:1;'>")
-		.append(tfm)
-		.append($("<h4>").addClass(kl).html(word))
-		.append($("<h4>").addClass('tfm').html(fmm))
-		.append($("<div style='flex:1;'>"))
-		.append(ss)
-		.append($("<div>").addClass('type').html(jvs))
-		);
-		if (def.d) {
-		$("<div>").addClass('definition').html(
-			lojTemplate(def.d.replace(/([^<])\/([^>])/g,"$1 / $2").replace(/@@@(.*?)@@@/g,"<i>$1</i>")) + ' ').appendTo(out);
-		}
-		if (def.n) {
-		out.append(
-			$('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
-		}
-		if (def.e) {
-		out.append(
-			$('<div>').addClass('examples').html("<table style='width:100%;border-collapse:collapse;margin-top:10px;margin-bottom:10px;'>"+lojTemplate((def.e+"\n").replace(/%/g,"\n").replace(/(.*?) — (.*?)\n/g,"<tr><td class='mupligreku'><b>$1<\/b><\/td><td class='mupligreku'><i>$2<\/i><\/td><\/tr>\n")) + '</table> '));
-		}
-		if (def.k) {
-		out.append(
-			$('<div>').addClass('related').html('See also: ' + lojTemplate(def.k) + ' '));
-		}
-		if ((def.r||[]).length > 0 && !def.l && window.xuzganalojudri) {
-				var rafsi = $("<div>").addClass('rafsi');
-				rafsi.append("rafsi: ");
-				for (i=0; i<def.r.length;i++) {
-				var rafElem = $("<span>").appendTo(rafsi);
-				var raf = def.r[i];
-					if ((def.t||'').match(/lujvo/)) {
-						rafElem.append(
-							$("<a>").attr(
-								'href', '#sisku/' + encodeURIComponent(raf))
-							.text(raf)
-						);
-					} else {
-						rafElem.text(raf);
-					}
-					rafElem.append(' ');
-				}
-				rafsi.appendTo(out);
-		}
-		if((def.rafsiDocuments||[]).length>0) {
-			var subDefs = $("<div>").addClass('definition').addClass('subdefinitions');
-			for (var i=0;i<def.rafsiDocuments.length;i++) {
-				skicu_lo_valsi(def.rafsiDocuments[i],1).appendTo(subDefs);
-			}
-			subDefs.appendTo(out);
-		}
-		out.find('a').click(function(el) {
-		if (el.ctrlKey || el.metaKey) { // let the user open in new tabs
-			return;
-		}
-		if($(el.target).attr('href') !== location.href.substring(location.href.indexOf("#"))){
-			window.history.pushState({}, null, $(el.target).attr('href'));
-		}
-		handleUrl();
-		return false;
-		});
-		return out;
-	}
+function checkScrolledNearBottom(ev) {
+var target = ev.target;
+var windowBottom = target.scrollTop + window.innerHeight;
+var outputBottom = output.height() - 700;
+var isClose = windowBottom >= outputBottom;
+if(isClose) {
+window.limit += 10;
+skicu_lo_ro_valsi(true);
+}
+}
+document.getElementById('content')
+.addEventListener('scroll', checkScrolledNearBottom);
+output.scroll();
 
-	var searchIdCounter = 0;
-	var prevQuery,lastQuery;
-	var lastQueried = now();
-	function displayDescription() {
-		if (query == '') {
-		output.hide();
-		description.show();
-		var arrpurc = JSON.parse(localStorage.getItem('purci'))||[];
-		if(arrpurc.length>0){
-			arrpurc.forEach(function(part, index, ar) {
-				ar[index] = '<a href="#sisku/' + ar[index] + '">' + ar[index] + "</a>";
-			});
-			$('#purci').html((window.purc||"Last searched: ") + arrpurc.join(", "));
-			$('#purci').css('display','block');
-			if (lastQuery && lastQuery!==''){
-				$('#drata').html('<b>' + lastQuery + '</b>: '
-				+ '<a href="../jbo/#sisku/' + lastQuery + '">lojbo</a>,&nbsp;&nbsp;'
-				+ '<a href="../muplis/#sisku/' + lastQuery + '">la muplis</a>,&nbsp;&nbsp;'
-				+ '<a href="../en/#sisku/' + lastQuery + '">English</a>,&nbsp;&nbsp;'
-				+ '<a href="../jb/#sisku/' + lastQuery + '">With Examples</a>,&nbsp;&nbsp;'
-				+ '<a href="../ja/#sisku/' + lastQuery + '">日本語</a>,&nbsp;&nbsp;'
-				+ '<a href="../fr-facile/#sisku/' + lastQuery + '">français facile</a>,&nbsp;&nbsp;'
-				+ '<a href="../es/#sisku/' + lastQuery + '">español</a>,&nbsp;&nbsp;'
-				+ '<a href="../ru/#sisku/' + lastQuery + '">русский</a>,&nbsp;&nbsp;'
-				+ '<a href="../eo/#sisku/' + lastQuery + '">Esperanto</a>'
-				);
-				$('#drata').css('display','block');
-			}
-		}
-		} else {
-			output.show();
-			description.hide();
-			$('#drata').css('display','none');
-			$('#purci').css('display','none');
-			$('#content').scrollTop(0);
-		}
-	}
-	function plukaquery(arg){
-		if (arg.charAt(0)!=='^' && arg.slice(-1)!=='$'){
-		return arg.replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim()
-		}
-		else{return arg;}
-	}
-	function doSearch() {
-		query = plukaquery(typehere.val());
-		if (query ===''){displayDescription();}
-		if (query === prevQuery) {
-		return;
-		}
-		prevQuery = query;
-		lastQuery = query;
-		updateUrl();
+function lojTemplate(s) {
+s = s.replace(/\$.*?\$/g, function(c) {
+c = c.substring(1, c.length-1);
+return c.replace(/(\w+)_\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>").replace(/(\w+)_((?:\d+|\w))/g, "<i>$1<sub>$2</sub></i>").replace(/\{/g,'[').replace(/\}/g,']');
+});
 
-		var searchId = ++searchIdCounter;
-		window.limit = 30;
-		resultCount = 0;
-		ga('send', 'pageview', '#sisku/' + query);
-		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
-	}
-	//search after timeout
-	var typingTimer;
-	var delay = (function(){
-		var timer = 0;
-		return function(callback, ms){
-			clearTimeout (timer);
-			timer = setTimeout(callback, ms);
-		};
-	})();
-	typehere.on('input',function(){
-		clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 250);
-		delay(function(){
-			SaveDataToLocalStorage(query);
-		}, 2000 );
-	});
-	typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 250);});
-	typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
+s = s.replace(/\{(.*?)\}/g, function(c) {
+var c = c.substring(1, c.length-1);
+return '<a href="#sisku/' + encodeURIComponent(c) + '">' + c + "</a>"
+});
+return s;
+}
 
-	function updateUrl() {
-		var url = '';
-		if (query.length > 0) {
-		url = '#sisku/' + query.replace(/ /g,"_");
-		}
-		if (url === location.href.substring(location.href.indexOf("#")) || url == '' || document.referrer === document.location.href) {
-			return;
-		}
-		var difference = now() - lastQueried;
-		if (difference > 2000) {
-			window.history.pushState({}, null, url);
-		} else {
-			window.history.replaceState({}, null, url);
-		}
-		lastQueried = now();
-		updateMainLink();
-	}
-	function handleUrl() {
-		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
-		if (searchMatch && searchMatch.indexOf('/')===-1) {
-		query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ").trim();
-		}
-		typehere.val(query);
-		$('.clearable').trigger("input");
-		updateMainLink();
-		if (ready) {
-			doSearch();
-		}
-	}
-	handleUrl();
-	function updateMainLink(){
-		var split = location.href.split('#')[1];if(split===null){split='';}
-		$("#st").attr("href",$("#st").attr("href").split('#', 1)[0] + "#" + split);
-	}
-	window.addEventListener('popstate', handleUrl);
-	$(document.body).keyup(function(ev) {
-		if (ev.keyCode === 191) {  // The '/' character
-		typehere.focus();
-		}
-	})
+function skicu_lo_valsi(def,inner) {
+if (!def){def=[];}
+var out;
+if(inner===1){out=$("<div>").addClass('terminner');} else {out=$("<div>").addClass('term');}
+var fmm,tfm;
+if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;<i><sup>[&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a>]</sup></i>";}else{fmm=''}
+var sh=[];
+for (var key in fm){
+if (fm[key]===def.w){sh.push('<a href="#sisku/' + key + '">' + key + '</a>');}
+}
+if (sh.length!==0){tfm = $("<div>").addClass(kl).html('<i><sup>['+sh.join(", ")+'&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;');}
+else{tfm='';}
+var ss;
+if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
+var jvs = def.t;
+if(window.xuzganalojudri && !def.l){jvs+="<font color='#aaa'><a style='color: #aaa;' target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
 
-	function skicu_lo_ro_valsi(ui) {
-		var displayUpTo = Math.min(window.limit, results.length);
-		for (; resultCount < displayUpTo; resultCount++) {
-		try{skicu_lo_valsi(results[resultCount]).appendTo(output);}catch(err){}
-		}
-	}
+var kl='valsi';if(def.l){kl='valsi nalojbo';};
+var word='<a class="' + kl + '" href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
+if (plukaquery(def.w) == query){word=def.w + ' ';}
+var deft='';
+if (def.t.search('sampu staile')>=0){deft += "<img src='plise.png' height='16' width='16' title='lo staile poi sampu'>"};
+if (def.t.search('mansa staile')>=0){deft += "<img src='pelxuplise.png' height='16' width='16' title=\"lo staile poi na mutce cinri\">"};
+if (def.t.search('plixau jufra')>=0){deft += "<img src='crinoplise.png' height='16' width='16' title=\"lo jufra poi ka'e xamgu lo di'i fanva\">"};
+if (def.t.search('cnano staile')>=0){deft += "<img src='blabiplise.png' height='16' width='16' title=\"lo staile poi ka'e pluja\">"};
+if (def.t.search('non-standard')>=0){deft += "<img src='cicnaplise.png' height='16' width='16' title=\"na'e catni se ciska staile\">"};
+if (deft!==''){jvs=deft;}
+out.append($("<heading style='align-items:flex-start;flex-direction:row;display:flex;flex:1;'>")
+.append(tfm)
+.append($("<h4>").addClass(kl).html(word))
+.append($("<h4>").addClass('tfm').html(fmm))
+.append($("<div style='flex:1;'>"))
+.append(ss)
+.append($("<div>").addClass('type').html(jvs))
+);
+if (def.d) {
+$("<div>").addClass('definition').html(
+lojTemplate(def.d.replace(/([^<])\/([^>])/g,"$1 / $2").replace(/@@@(.*?)@@@/g,"<i>$1</i>")) + ' ').appendTo(out);
+}
+if (def.n) {
+out.append(
+$('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
+}
+if (def.e) {
+out.append(
+$('<div>').addClass('examples').html("<table style='width:100%;border-collapse:collapse;margin-top:10px;margin-bottom:10px;'>"+lojTemplate((def.e+"\n").replace(/%/g,"\n").replace(/(.*?) — (.*?)\n/g,"<tr><td class='mupligreku'><b>$1<\/b><\/td><td class='mupligreku'><i>$2<\/i><\/td><\/tr>\n")) + '</table> '));
+}
+if (def.k) {
+out.append(
+$('<div>').addClass('related').html('See also: ' + lojTemplate(def.k) + ' '));
+}
+if ((def.r||[]).length > 0 && !def.l && window.xuzganalojudri) {
+var rafsi = $("<div>").addClass('rafsi');
+rafsi.append("rafsi: ");
+for (i=0; i<def.r.length;i++) {
+var rafElem = $("<span>").appendTo(rafsi);
+var raf = def.r[i];
+if ((def.t||'').match(/lujvo/)) {
+rafElem.append(
+$("<a>").attr(
+'href', '#sisku/' + encodeURIComponent(raf))
+.text(raf)
+);
+} else {
+rafElem.text(raf);
+}
+rafElem.append(' ');
+}
+rafsi.appendTo(out);
+}
+if((def.rafsiDocuments||[]).length>0) {
+var subDefs = $("<div>").addClass('definition').addClass('subdefinitions');
+for (var i=0;i<def.rafsiDocuments.length;i++) {
+skicu_lo_valsi(def.rafsiDocuments[i],1).appendTo(subDefs);
+}
+subDefs.appendTo(out);
+}
+out.find('a').click(function(el) {
+if (el.ctrlKey || el.metaKey) { // let the user open in new tabs
+return;
+}
+if($(el.target).attr('href') !== location.href.substring(location.href.indexOf("#"))){
+window.history.pushState({}, null, $(el.target).attr('href'));
+}
+handleUrl();
+return false;
+});
+return out;
+}
 
-	function now() {
-		if (window.performance) {
-		if (performance.now) {
-			return performance.now();
-		}
-		}
-		return +new Date();
-	}
-	// jimpe lo du'u xu kau lo cnino sorcu ka'e se pilno fau lo nu jai gau akti fai lo cnino papri
-	var appCache = window.applicationCache;
-	appCache.update();
-	if (appCache.status == window.applicationCache.UPDATEREADY) {
-		appCache.swapCache();
-	}
-		window.applicationCache.addEventListener('updateready', function(e) {
-		if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-			window.location.reload();
-		}
-		}, false);
-	</script>
+var searchIdCounter = 0;
+var prevQuery;
+var lastQueried = now();
+function displayDescription() {
+if (query == '') {
+output.hide();
+description.show();
+var arrpurc = JSON.parse(localStorage.getItem('purci'))||[];
+if(arrpurc.length>0){
+$('#purci').html((window.purc||"Last searched: ") + arrpurc.map(function(a){return '<a href="#sisku/' + a + '">' + a + "</a>";}).join(", "));
+$('#purci').css('display','block');
+
+}
+} else {
+output.show();
+description.hide();
+
+$('#purci').css('display','none');
+$('#content').scrollTop(0);
+}
+}
+function plukaquery(arg){
+if (arg.charAt(0)!=='^' && arg.slice(-1)!=='$'){
+return arg.replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim()
+}
+else{return arg;}
+}
+function doSearch() {
+query = plukaquery(typehere.val());
+if (query ===''){displayDescription();}
+if (query === prevQuery) {
+return;
+}
+prevQuery = query;
+updateUrl();
+
+var searchId = ++searchIdCounter;
+window.limit = 30;
+resultCount = 0;
+ga('send', 'pageview', '#sisku/' + query);
+worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
+}
+
+var typingTimer;
+var delay = (function(){
+var timer = 0;
+return function(callback, ms){
+clearTimeout (timer);
+timer = setTimeout(callback, ms);
+};
+})();
+typehere.on('input',function(){
+clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 250);
+delay(function(){
+SaveDataToLocalStorage(query);
+}, 2000 );
+});
+typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 250);});
+typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
+
+function updateUrl() {
+var url = '';
+if (query.length > 0) {
+url = '#sisku/' + query.replace(/ /g,"_");
+}
+if (url === location.href.substring(location.href.indexOf("#")) || url == '' || document.referrer === document.location.href) {
+return;
+}
+var difference = now() - lastQueried;
+if (difference > 2000) {
+window.history.pushState({}, null, url);
+} else {
+window.history.replaceState({}, null, url);
+}
+lastQueried = now();
+updateMainLink();
+}
+function handleUrl() {
+var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
+if (searchMatch && searchMatch.indexOf('/')===-1) {
+query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ").trim();
+}
+typehere.val(query);
+$('.clearable').trigger("input");
+updateMainLink();
+if (ready) {
+doSearch();
+}
+}
+handleUrl();
+function updateMainLink(){
+var split = location.href.split('#')[1];if(split===null){split='';}
+$("#st").attr("href",$("#st").attr("href").split('#', 1)[0] + "#" + split);
+}
+window.addEventListener('popstate', handleUrl);
+$(document.body).keyup(function(ev) {
+if (ev.keyCode === 191) {  // The '/' character
+typehere.focus();
+}
+})
+
+function skicu_lo_ro_valsi(ui) {
+var displayUpTo = Math.min(window.limit, results.length);
+for (; resultCount < displayUpTo; resultCount++) {
+try{skicu_lo_valsi(results[resultCount]).appendTo(output);}catch(err){}
+}
+}
+
+function now() {
+if (window.performance) {
+if (performance.now) {
+return performance.now();
+}
+}
+return +new Date();
+}
+
+var appCache = window.applicationCache;
+appCache.update();
+if (appCache.status == window.applicationCache.UPDATEREADY) {
+appCache.swapCache();
+}
+window.applicationCache.addEventListener('updateready', function(e) {
+if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+window.location.reload();
+}
+}, false);
+</script>
 </body>
 </html>

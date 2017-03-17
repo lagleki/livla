@@ -9,13 +9,13 @@ const fs = require("fs"),
   libxmljs = require("libxmljs");
 require('v8-profiler');
 const tato = require('./tatoeba.js');
-// const gram= require('./gram.js');
 let notci, notcijudri, ljv = '';
 const interv = 300000;
 const interm = 2900;
 const nodasezvafahi = 'no da se zvafa\'i';
 const tersepli = " + ";
 const fram = "../../../files/fndata-1.5/frame";
+const robangu = 'fr-facile|en|f@|ru|de|ja|jbo|guaspi|loglan|eo|fr|jb|2002|es|zh|sv|en-simple|krasi|dukti|laadan|toki';
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
 let tcan = '#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau,##esperanto';
@@ -254,39 +254,9 @@ function run_camxesalta(input, mode) {
     return '';
   }
 }
-//dict:
-// const emails = ["Please email any questions to gleki.is.my.name@gmail.com","Пишите любые вопросы по ложбану на gleki.is.my.name@gmail.com","mw.lojban.org","http://reddit.com/r/lojban/","Страница на русском: http://mw.lojban.org/index.php?title=%D0%94%D0%BE%D0%B1%D1%80%D0%BE%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D0%BE%D0%B2%D0%B0%D1%82%D1%8C!%20(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)&setlang=ru","http://mw.lojban.org/index.php?title=Bienvenue%20!%20(Fran%C3%A7ais)&setlang=fr"];
-// const gaga = ["ga ga u la la", "mama", "do re mi fa so la ti", ".iam .iam i la pitsa cu kukte","ba du bi du","lo mlatu cu fasnu","lo'e mlatu ca ta'e fasnu","lo gerku cu dacti ije lo mlatu cu fasnu i xu lo dacti ka'e catra lo fasnu","i mi troci lo ka catra lo ditcu"];
-// const pendo = ["pendo", "kamxada", "irci", "jikca djica","se jikca","zmiku","tavla","cusku"];
-// const nadjuno = ["sei mi stace mi na djuno", "oi se'i mi na vedli", "oi oi la'a", "xu srana lo cukta pe la luis karol","ko zo'ei ko djuno","do dukse kucli","la alis cu misno nixli","la alis na zasti uinai"];
-// const jee = ["je\'e", "mi jimpe doi", ".ua doi", "ki\'anai doi"];
-const mizmiku = ["lo ro re mi zmiku ije mi'a tavla ca po'o lonu no drata cu tavla", "uinai mi zmiku i ku'i mi mutce clite", "uinai mi zmiku", "doi pendo mi du'eroi na jimpe lo smuni i mi zmiku", "sei mi stace mi zmiku", "la gleki cu patfu mi noi zmiku", "mi na remna i e'u do retsku fi la gleki", "mi na'e remna", "doi pendo do e'o tolxanka", "mi na djica lo ka tavla do"];
-//const prije = ["lo je\'e", "mi jimpe doi", ".ua doi", "ok doi"];
-// const dozmiku = ["do zmiku i do zmiku sai","fi'o djuno mi do zmiku","mu'i ma do na stace mi lo nu do zmiku"];
-// const nazmiku=["mi na zmiku i mi tatpi lo nu spuda","mi remna i xu do na jimpe","do tavla fi lo zmiku xu i mi na me ri"];
-// const alis = ["ma se zvati la alis", "la alis se slabu xu lo drata jbopre", "la alis cu misno xu ninmu"];
-// const reply = ["xu doi lil do pendo mi i mi pu jinvi lodu'u do xamgu zmiku","do cusku lo kalci i do nitcu lo livla doi lil","lo zmiku cu ei na raktu lo prenu vau sei la aizek azimov pu xusra i je'epei","mi nelci i ie mi nelci", "ausai le'o mi catra do", "oisai do fenki", "lo nu go'i cu plixau","lu mi i mi i mi li'u a'enai i do jai fanza"];
-// const nagendra = ["na drani", "li'a na drani i do pu nitcu ma", "do na junri xu","ju'o do na\'e junri", "doi xendo mi tatpi","mi sruma lo nu do zmiku sa'u"];
-// const spuda = ["do puzabi\'oca mutce lo ka jai fanza", "do djica ma", "a'enai je'enai i mi djica lo ka sipna", "e'u do klama lo bartu","ke'o i ta'onai aunairu'e mi tavla do"];
-// const coi = ["coi", "co\'oi", "ju\'i", "be\'e"];
-// const mablagleki = ["la gleki cu tai mabla prenu", "xu la gleki cu fenki i .ies", "la gleki cu cmorguka i ie cmorguka", "lo'e me la gleki cu finti lo cizra zmiku","xu ro lo jbopre cu tai si'a fenki","lo'e arxokuna cu nelci lo ka zukte lo fanza"];
-// const nelci = ["i mi i mi i mi mo i mi na nelci","lo nu nelci zo'u ba'e mi nelci i ie mi nelci","sei mi stace mi bi'u na mutce nelci",`i ji'a mi na nelci mi'e la ${replier}`,"mi xebni","e'u do vrude pajni gi'e nai ze'i co'a cinmo lo ka nelci","ji'a mi mutce nelci i ie"];
-// const tugni = ["mi tugni i ie mi tugni","ba'e mi na tugni","ei mi tugni"];
-// const user = ["gleki", replier];
-// const grute = ["pelxu badna", "ranti kokso", "fanza plise", "grute", "xunre ka\'orta","zirpu betka","clazme","cirla","tricu","bunre narge","crino spati","dembi","figre","tamca","patlu","djacyzme"];
-
-const ext = arr => arr[Math.floor(arr.length * Math.random())];
-// const vricyjukpa = () => `ua ba'a lo ${ext(grute)}je lo ${ext(grute)} cu zabna`;
-
-// const mamta = ["mamta", "patfu", "plise", "gerku", "ractu", "ratcu", "se dunda", "mensi", "mlatu","panzi","tixnu","zdani","zmiku"];
-// const cinba = ["cinba", "prami", "prami cinba", "carmi cinba", "viska", "pencu", "sumne","darxi","smaka","jelcygau","cikre"];
-// const jukpa = ["mi ca jukpa lo ckafi", "mi co'i te vecnu lo pitsa", "mi citka lo mavystasu", "mi pinxe lo xalka i mi cinmo lo ka me la xalk i y mi crino xu", "doi cevni ko sidji mi lo ka bregau lo nanba i y ei mi jukpa lo nanba","ei pinxe si citka lo stasu","au smaka lo titnanba",vricyjukpa];
-// const natirna = ["na tirna mi'o", "cu xebni mi'o", "ca citka gi'enai tavla djica", "ca cipra zukte tu'a la cipra", "ca finti lo lojbo cukta gi'enai tirna do", "cu mutce tolcando .i ko na jai fanza", "ca naljundi i ko retsku fi lo jbocre","ca pincivi gi'enai jundi i do e'o na jai fanza","ca vikmi i ko smaji","ca citka", "ca sipna","ca jai bandu la lojbanistan i ko na jai daspo ri"," ca naljundi i e'u do tavla lo drata"," ca zukte lo se jibri i e'usai do jikca lo proga saske certu"];
-///dict
 
 const vric = () => {
   const vricar = [tato.tatoebaprocessing(replier)];
-  //prereplier + ext(dozmiku),ext(user) + ': ' + ext(coi) + ' ' + ext(pendo),ext(user) + ': ' + ext(jukpa),ext(user) + ': do ' + ext(grute), ext(user) + ': mi pu ' + ext(cinba) + ' lo ' + ext(mamta) + ' pe do',prereplier + 'mi retsku i do spusku',prereplier + 'u\'i ' + ext(gaga),ext(mablagleki),ext(emails),prereplier + 'sei mi kucli ' + ext(alis),tato.tatoebaprocessing(replier),tato.tatoebaprocessing(replier),tato.tatoebaprocessing(replier),tato.tatoebaprocessing(replier),tato.tatoebaprocessing(replier),
   return vricar[Math.floor(vricar.length * Math.random())];
 };
 
@@ -317,12 +287,6 @@ let processor = (client, from, to, text) => {
     setTimeout(() => {
       client.say(sendTo, `${text.substr(9+preasker.length)}: oidai mi darxi do lo trauta`);
     }, 0);
-  } else {
-    if (text.indexOf(preasker) === 0 && from !== replier) {
-      setTimeout(() => {
-        client.say(sendTo, `${from}: ${ext(mizmiku)}`);
-      }, interm);
-    }
   }
   if (~text.indexOf(`doi ${asker}`) && from !== replier) {
     setTimeout(() => {
@@ -348,35 +312,6 @@ const benji = (source, socket, clientmensi, sendTo, what) => {
     clientmensi.say(sendTo, what);
   }
 };
-
-/*clientmensi.addListener('join', function(channel, nick, message) {
-    fihido(channel,nick);
-});
-*/
-
-/*if (text.indexOf(prereplier + 'mi retsku') < 0 && from==asker && text.indexOf(prereplier + 'mi') == '0') {
-  benji(source,socket,clientmensi,sendTo, preasker + ext(reply));
-}*/
-/*if (text.indexOf("gleki: ") == '0' && from==asker) {
-    setTimeout(function() {benji(source,socket,clientmensi,sendTo, preasker + 'la gleki ' + ext(natirna));}, interm );
-}*/
-/*
-const mireturn = () => {
-s="";
-while (s.substr(0, 5) !== ": mi "){
-s=tato.tatoebaprocessing("");
-}
-return s;
-};
-
-const doreturn = () => {
-s="";
-while (s.substr(0, 5) !== ": do "){
-s=tato.tatoebaprocessing("");
-}
-return s;
-};
-*/
 
 const jbopomofo = lin => {
   let jbopotext = "";
@@ -603,11 +538,17 @@ const bangu = (lng, username) => {
     case "lv":
       ret = `Es ar '${username}' turpmāk runāšu latviešu valodā.`;
       break;
+    case "jbo":
+      ret = `.i ca\'e mi co\'a tavla fi la\'o zoi.'${username}.zoi. fo lo lojbo`;
+      break;
     case "en":
       ret = `I will speak to '${username}' in English from now on.`;
       break;
+    case "en":
+      ret = `Теперь я буду говорить с '${username}' по-русски.`;
+      break;
     default:
-      ret = `I will speak to '${username}' in '${lng.toUpperCase()}' from now on.`; // TODO: translate to lojban
+      ret = `.i ca\'e mi co\'a tavla fi la\'o zoi.'${username}.zoi. fo lo lojbo`;
       break;
   }
   updateUserSettings();
@@ -635,7 +576,6 @@ function lojTemplate(s) {
     c = c.substring(1, c.length - 1);
     return c.replace(/(\w+)_\{(\d+)\}/g, "$1$2").replace(/(\w+)_(.+)/g, "$1$2").replace(/\{/g, '[').replace(/\}/g, ']');
   });
-  //s = s.replace(/\[([^\[\]]*?)\]/g,"{$1}");
   s = s.replace(/\{(.*?)\}/g, c => c.substring(1, c.length - 1));
   return s;
 }
@@ -1081,7 +1021,7 @@ const kurtyvla = () => 'CommonSenseError: Expected normal word but Curtis found.
 
 const sidju = () => {
   const sidj = {
-    en: `Parsers: type "exp:" (experimental), "off:" (camxes), "gerna:" (jbofi'e), or "yacc:" (official yacc) followed by the text to show the structure of sentences.\nLojban dictionary: type "language-code: word", where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh,hu,sv. This searches in both directions.\n    Type "language-code:word" (i.e. without a space after ":") to get a shorter definition.\n    "selmaho: ca'a" gives "CAhA", "selmaho: CAhA" gives "bi'ai, ca'a, ..."\n    "rafsi: kulnu" gives "klu", "rafsi: klu" gives "kulnu"\nOther conlang dictionaries: "toki:", "laadan:", "loglan:"\nLojban <-> Loglan conversion (incomplete): "coi:", "loi:"\n"Tatoeba: klama" gets a random example sentence using "klama"\nDelayed messaging: type "${replier}: doi user message" to send "message" to "user" when they return`,
+    en: `Parsers: type "exp:" (experimental), "off:" (camxes), "gerna:" (jbofi'e), or "yacc:" (official yacc) followed by the text to show the structure of sentences.\nLojban dictionary: type ".language-code word", where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh,hu,sv. This searches in both directions.\n    Type "language-code:word" (without a space after ":") to get a shorter definition.\n    "selmaho: ca'a" gives "CAhA", "selmaho: CAhA" gives "bi'ai, ca'a, ..."\n    "rafsi: kulnu" gives "klu", "rafsi: klu" gives "kulnu"\nOther conlang dictionaries: ".toki ", ".laadan ", ".loglan "\nLojban <-> Loglan conversion (incomplete): ".coi ", ".loi "\n"Tatoeba: klama" gets a random example sentence using "klama"\nDelayed messaging: type "${replier}: doi user message" to send "message" to "user" when they return`,
   };
   return sidj.en;
 };
@@ -1292,11 +1232,11 @@ const gloso = (lin, lng, check, xmlDoc) => {
 const rotpaci = lin => lin.trim().replace(/[a-zA-Z]/g, c => String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26));
 
 //Stanford NLP
-//var StanfordSimpleNLP = require('stanford-simple-nlp');
-//var stanfordSimpleNLP = new StanfordSimpleNLP.StanfordSimpleNLP();
+//const  StanfordSimpleNLP = require('stanford-simple-nlp');
+//const stanfordSimpleNLP = new StanfordSimpleNLP.StanfordSimpleNLP();
 //stanfordSimpleNLP.loadPipelineSync();
 /*
-var stnlp = (source,socket,clientmensi,sendTo, lin) => {
+const stnlp = (source,socket,clientmensi,sendTo, lin) => {
   stanfordSimpleNLP.process(lin, (err, result) => {
     benji(source,socket,clientmensi,sendTo, JSON.stringify(result));
     });
@@ -1658,12 +1598,9 @@ const sutysiskuningau = (lng, lojbo) => { //write a new file parsed.js that woul
   const rev = xmlDoc.find("/dictionary/direction[1]/valsi");
   for (let i = 0; i < rev.length; i++) {
     const hi = rev[i].attr("word").value().replace("\\", "\\\\");
-    //q=run_camxes(hi,3).toString().replace(/h/g,"H").replace(/[^a-z \.\,'\n]/g,"").replace(/ +/g," ").replace(/ +\n/g,"\n"); if(q.indexOf("SyntaxError">=0))
     pars += `{"w":"${hi}"`;
     try {
-      //if(rev[i].attr("type").value()!=='gismu' && xucmavogunma(hi)===false && xucmevla(hi)===false && xucmavo(hi)===false && xulujvo(hi)===false && xufuhivla(hi)===false){
       pars += `,"t":"${rev[i].attr("type").value().replace(/\\/g,"\\\\")}"`;
-      //}
     } catch (err) {}
     try {
       pars += `,"s":"${rev[i].find("selmaho[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
@@ -1700,7 +1637,7 @@ const sutysiskuningau = (lng, lojbo) => { //write a new file parsed.js that woul
 
     if (ra.length !== 0) {
       pars += `,"r":["${ra}"]`;
-    } //else{pars+=",\"rafsi\":[]";}//not needed anymore due to gleki's fixes
+    }
     pars += "}";
     if (i < rev.length - 1) {
       pars += ",\n";
@@ -1941,7 +1878,7 @@ const updatexmldumps = callback => {
   // const http = require('http');
   /*
   langs.forEach(function(thisa) {//now update pdf
-    var uri="http://jbovlaste.lojban.org/export/latex-export.html?lang="+thisa;
+    let uri="http://jbovlaste.lojban.org/export/latex-export.html?lang="+thisa;
     jar.setCookie(cookie, uri);
     request({uri: uri,method: "GET",jar: jar}, function(err, response, body) {
       if(err) {lg(err);}
@@ -2045,10 +1982,9 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
   ///
   const txt = text.toLowerCase();
   let inLanguage = defaultLanguage;
+  const pp = txt.split(":").pop().trim();
+  const po = txt.split(" ").pop().trim();
   switch (true) {
-    //case txt.search(/ie( |)(nai( |)|)pei/) >= '0': benji(source,socket,clientmensi,sendTo, ext(tugni));break;
-    //case txt.search(/\bna nelci/) >= '0': benji(source,socket,clientmensi,sendTo, ext(nelci));break;
-    //case txt.indexOf("lmw:") === 0: lmw(text.substr(4),sendTo);break;
     case txt.trim() === '#ermenefti':
       benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/Hermeneutics");
       break;
@@ -2060,6 +1996,9 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       break;
     case txt.trim() === '#uilkinse':
       benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");
+      break;
+    case txt.trim() === '#selkunti':
+      benji(source, socket, clientmensi, sendTo, "Whorf described a workplace in which full gasoline drums were stored in one room and empty ones in another; he said that because of flammable vapor the \"empty\" drums were more dangerous than those that were full, although workers handled them less carefully to the point that they smoked in the room with \"empty\" drums, but not in the room with full ones. Whorf argued that by habitually speaking of the vapor-filled drums as empty and by extension as inert, the workers were oblivious to the risk posed by smoking near the 'empty drums'.");
       break;
     case txt.trim() === '#camxes':
       benji(source, socket, clientmensi, sendTo, "https://lojban.github.io/ilmentufa/camxes.html\nhttps://lojban.github.io/ilmentufa/glosser/glosser.htm");
@@ -2078,65 +2017,47 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       break;
       // case txt.indexOf("nlp:") === 0: stnlp(source,socket,clientmensi,sendTo,text.substr(4));break;
     case txt.indexOf("lujvo:") === 0:
-      benji(source, socket, clientmensi, sendTo, triz(text.substr(6)));
+      benji(source, socket, clientmensi, sendTo, triz(text.split(":").pop().trim()));
       break;
       //case text.indexOf("cipra:") === 0: text = text.substr(6);ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxes(ret[0], ret[1]));break;
     case txt.indexOf("exp:") === 0:
-      text = text.substr(4).trim();
-      ret = extract_mode(text);
+      ret = extract_mode(pp);
       benji(source, socket, clientmensi, sendTo, run_camxes(ret[0], ret[1]));
       break;
     case txt.indexOf("f:") === 0:
-      text = text.substr(2).trim();
-      benji(source, socket, clientmensi, sendTo, xufuhivla(text));
+      benji(source, socket, clientmensi, sendTo, xufuhivla(pp));
       break;
     case txt.indexOf("k:") === 0:
-      text = text.substr(2).trim();
-      benji(source, socket, clientmensi, sendTo, run_camxes(text, 3));
+      benji(source, socket, clientmensi, sendTo, run_camxes(pp, 3));
       break;
     case txt.indexOf("raw:") === 0:
-      text = text.substr(4).trim();
-      benji(source, socket, clientmensi, sendTo, run_camxes(text, 0));
+      benji(source, socket, clientmensi, sendTo, run_camxes(pp, 0));
       break;
     case txt.indexOf("zei:") === 0:
-      text = text.substr(4).trim();
-      benji(source, socket, clientmensi, sendTo, zeizei(text));
+      benji(source, socket, clientmensi, sendTo, zeizei(pp));
       break;
     case txt.indexOf("anji:") === 0:
-      text = text.substr(5).trim();
-      benji(source, socket, clientmensi, sendTo, anji(text));
+      benji(source, socket, clientmensi, sendTo, anji(pp));
       break;
     case txt.indexOf("kru:") === 0:
-      text = text.substr(5).trim();
-      benji(source, socket, clientmensi, sendTo, kru(text));
+      benji(source, socket, clientmensi, sendTo, kru(pp));
       break;
     case txt.indexOf("off:") === 0:
-      text = text.substr(4).trim();
-      ret = extract_mode(text);
+      ret = extract_mode(pp);
       benji(source, socket, clientmensi, sendTo, run_camxesoff(ret[0], ret[1]));
       break;
     case txt.indexOf("alta:") === 0:
-      text = text.substr(5).trim();
-      ret = extract_mode(text);
+      ret = extract_mode(pp);
       benji(source, socket, clientmensi, sendTo, run_camxesalta(ret[0], ret[1]));
       break;
-    case txt.indexOf("yacc:") === 0:
-      tcepru(text.substr(5), sendTo, source, socket);
+    case (txt.indexOf("yacc:") === 0||txt.indexOf("cowan:") === 0):
+      tcepru(pp, sendTo, source, socket);
       break;
-    case txt.indexOf("cowan:") === 0:
-      tcepru(text.substr(6), sendTo, source, socket);
-      break;
-    case txt.indexOf("jbofi'e:") === 0:
-      jbofihe(text.substr(8), sendTo, source, socket);
-      break;
-    case txt.indexOf("jbofihe:") === 0:
-      jbofihe(text.substr(8), sendTo, source, socket);
-      break;
-    case txt.indexOf("gerna:") === 0:
-      jbofihe(text.substr(6), sendTo, source, socket);
+    case (txt.indexOf("jbofi'e:") === 0||txt.indexOf("jbofihe:") === 0||txt.indexOf("gerna:") === 0):
+      jbofihe(pp, sendTo, source, socket);
       break;
     case txt.indexOf("tersmu:") === 0:
-      tersmu(text.substr(7), sendTo, source, socket);
+      tersmu(pp, sendTo, source, socket);
       break;
     case (txt.indexOf(`${replier}: ko ningau`) === 0 || text.indexOf(`${replier}: ko cnino`) === 0):
       setTimeout(() => {
@@ -2150,8 +2071,26 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
         benji(source, socket, clientmensi, sendTo, 'sei ca ca\'o jai gau cnino be fai lo pe mi sorcu');
       }, 1);
       break;
-    case txt.indexOf('guaspi:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(7), 'guaspi'));
+    case txt.indexOf("wikt:") === 0:
+      getDictionaryInfo(source,socket,clientmensi,sendTo, pp, "English");
+      break;
+    case txt.indexOf(".wikt ") === 0:
+      getDictionaryInfo(source,socket,clientmensi,sendTo, po, "English");
+      break;
+    case txt.indexOf(".djbo ") === 0:
+      getDictionaryInfo(source,socket,clientmensi,sendTo, po, "Lojban");
+      break;
+    case txt.indexOf(".den ") === 0:
+      getDictionaryInfo(source,socket,clientmensi,sendTo, po, "English");
+      break;
+    case txt.indexOf(".deo ") === 0:
+      getDictionaryInfo(source,socket,clientmensi,sendTo, po, "Esperanto");
+      break;
+    case txt.search('\.('+robangu+') ') === 0:
+      benji(source, socket, clientmensi, sendTo, vlaste(po, ln=txt.split(" ")[0].substr(1)));
+      break;
+    case txt.search('('+robangu+'):') === 0:
+      benji(source, socket, clientmensi, sendTo, vlaste(pp, txt.split(":")[0]));
       break;
     case txt.indexOf('frame: /full ') === 0:
       benji(source, socket, clientmensi, sendTo, vlaste(text.substr(12), 'en', 'framemulno'));
@@ -2165,77 +2104,22 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
 
       // Change default language
     case txt.indexOf('bangu:') === 0:
-      benji(source, socket, clientmensi, sendTo, bangu(text.substr(6).trim(), from));
+      benji(source, socket, clientmensi, sendTo, bangu(pp, from));
       break;
 
       // Give definition of valsi in specified language
     case txt.indexOf('?:') === 0:
       inLanguage = RetrieveUsersLanguage(from, inLanguage);
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(2), inLanguage));
+      benji(source, socket, clientmensi, sendTo, vlaste(pp, inLanguage));
       break; // Gives definition of valsi in the default language set to user
-    case txt.indexOf('jbo:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(4), 'jbo'));
-      break; // Gives definition of valsi in Lojban
-    case txt.indexOf('2002:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(5), '2002'));
-      break;
-    case txt.indexOf('en:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(3), 'en'));
-      break; // Gives definition of valsi in English
-    case txt.indexOf('ru:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(3), 'ru'));
-      break;
-    case txt.indexOf('es:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(3), 'es'));
-      break;
-    case txt.indexOf('fr:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(3), 'fr'));
-      break;
-    case txt.indexOf('fr-facile:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(10), 'fr-facile'));
-      break;
-    case txt.indexOf('f@:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(3), 'fr-facile'));
-      break;
-    case txt.indexOf('ja:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(3), 'ja'));
-      break;
-    case txt.indexOf('de:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(3), 'de'));
-      break;
-    case txt.indexOf('eo:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(3), 'eo'));
-      break;
-    case txt.indexOf('zh:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(3), 'zh'));
-      break;
-    case txt.indexOf('sv:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(3), 'sv'));
-      break;
-    case txt.indexOf('en-simple:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(10), 'en-simple'));
-      break;
-    case txt.indexOf('jb:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(3), 'jb'));
-      break;
-    case txt.indexOf('krasi:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(6), 'krasi'));
-      break; // etymologies of Lojban words
-    case txt.indexOf('dukti:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(6), 'dukti'));
-      break; // antonyms to Lojban words
-
-    case txt.indexOf('selmaho:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(8), 'en', 'selmaho'));
-      break;
-    case txt.indexOf('selma\'o:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(8), 'en', 'selmaho'));
+    case (txt.indexOf('selmaho:') === 0||txt.indexOf('selma\'o:') === 0):
+      benji(source, socket, clientmensi, sendTo, vlaste(pp, 'en', 'selmaho'));
       break;
     case txt.indexOf('finti:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(6), 'en', 'finti'));
+      benji(source, socket, clientmensi, sendTo, vlaste(pp, 'en', 'finti'));
       break;
     case txt.indexOf('rafsi:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(6), 'en', 'raf'));
+      benji(source, socket, clientmensi, sendTo, vlaste(pp, 'en', 'raf'));
       break;
     case txt.search("ra'oi [a-z']+ rafsi ma") === 0:
       const reg = /ra'oi ([a-z']+) rafsi ma/;
@@ -2247,23 +2131,14 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       const mt = rg.exec(text);
       benji(source, socket, clientmensi, sendTo, vlaste(mt[1], 'en', 'raf'));
       break;
-    case txt.indexOf('toki:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(5), 'toki'));
-      break;
-    case txt.indexOf('laadan:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(7), 'laadan'));
-      break;
-    case txt.indexOf('loglan:') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(text.substr(7), 'loglan'));
-      break;
     case txt.indexOf('gloss:') === 0:
-      benji(source, socket, clientmensi, sendTo, gloso(text.substr(6), 'en'));
+      benji(source, socket, clientmensi, sendTo, gloso(pp, 'en'));
       break;
-    case txt.indexOf('loi:') === 0:
-      benji(source, socket, clientmensi, sendTo, loglo(text.substr(4), ''));
+    case txt.indexOf('.loi ') === 0:
+      benji(source, socket, clientmensi, sendTo, loglo(po, ''));
       break;
-    case txt.indexOf('coi:') === 0:
-      benji(source, socket, clientmensi, sendTo, loglo(text.substr(4), 'coi'));
+    case txt.indexOf('.coi ') === 0:
+      benji(source, socket, clientmensi, sendTo, loglo(po, 'coi'));
       break;
     case txt.indexOf(`${prereplier}mhnt `) === 0:
       ningaumahantufa(text.substr(12), socket);
@@ -2272,10 +2147,10 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       getmahantufagrammar(text.substr(13), socket);
       break;
     case txt.indexOf('ze:') === 0:
-      zmifanva(source, socket, clientmensi, sendTo, text.substr(3), 'en2jb');
+      zmifanva(source, socket, clientmensi, sendTo, pp, 'en2jb');
       break;
     case txt.indexOf('zj:') === 0:
-      zmifanva(source, socket, clientmensi, sendTo, text.substr(3), 'jb2en');
+      zmifanva(source, socket, clientmensi, sendTo, pp, 'jb2en');
       break;
     case txt === `${replier}: pseudogismu`:
       benji(source, socket, clientmensi, sendTo, pseudogismu());
@@ -2290,7 +2165,7 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       benji(source, socket, clientmensi, sendTo, sidju());
       break;
     case txt.indexOf("rot13:") === 0:
-      benji(source, socket, clientmensi, sendTo, rotpaci(text.substr(6)));
+      benji(source, socket, clientmensi, sendTo, rotpaci(pp));
       break;
     case txt.indexOf(`${prereplier}r `) === 0:
       benji(source, socket, clientmensi, sendTo, rusko(text.substr(prereplier.length + 1).trim()));
@@ -2299,23 +2174,11 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       benji(source, socket, clientmensi, sendTo, jbopomofo(text.substr(prereplier.length + 1).trim()));
       break;
     case txt.indexOf('tatoeba:') === 0:
-      benji(source, socket, clientmensi, sendTo, sisku(text.substr(8).trim()));
+      benji(source, socket, clientmensi, sendTo, sisku(pp));
       break;
     case sendTo === from:
       inLanguage = RetrieveUsersLanguage(from, inLanguage);
       benji(source, socket, clientmensi, sendTo, vlaste(" " + text.trim(), inLanguage)); // Gives definition of valsi in the default language set to user
-
-      // case txt.indexOf(prereplier) === 0: text = text.substr(prereplier.length+1).trim();benji(source,socket,clientmensi,sendTo, mensimikce(text));break;
-      /*   case text.indexOf(prereplier + 'mi retsku') == '0' && from==asker: benji(source,socket,clientmensi,sendTo, preasker+ext(jee)+' ' + ext(pendo));break;
-        case text.indexOf(prereplier + 'xu do') === 0: 
-        case text.indexOf(prereplier + 'do') === 0: setTimeout(function() {benji(source,socket,clientmensi,sendTo, from + mireturn());}, interm );break;
-        case text.indexOf(prereplier + 'mi retsku') < 0 && text.indexOf(prereplier + 'mi') === 0: setTimeout(function() {benji(source,socket,clientmensi,sendTo, from + doreturn());}, interm );break;
-        case text.indexOf(prereplier + 'sei mi kucli') == '0' && from==asker: setTimeout(function() {benji(source,socket,clientmensi,sendTo, preasker + ext(nadjuno));}, interm );break;
-        case text.indexOf(prereplier + 'zmiku') >= 0 && from==asker: text.indexOf(prereplier + 'zmiku') >= 0 && from==asker;break;
-       case text.indexOf(prereplier + 'u\'i') == '0' && from==asker: setTimeout(function() {benji(source,socket,clientmensi,sendTo, preasker + ext(nagendra));}, interm );break;
-       case text.indexOf(prereplier + 'xu') == '0' && from!==asker: setTimeout(function() {benji(source,socket,clientmensi,sendTo, from + ': ' + ext(mizmiku));}, interm );break;
-       case text.indexOf(prereplier) == '0' && text.indexOf(prereplier + 'xu') !== '0' && from!==asker: setTimeout(function() {benji(source,socket,clientmensi,sendTo, tato.tatoebaprocessing(from));}, interm );break;
-       case text.indexOf("doi " + replier) >-1 && from!==asker: setTimeout(function() {benji(source,socket,clientmensi,sendTo, tato.tatoebaprocessing(from));}, interm );break;*/
   }
 };
 
@@ -2362,3 +2225,125 @@ ik.sockets.on('connection', socket => {
 });
 
 app.listen(3002);
+
+function getDictionaryInfo(source,socket,clientmensi,sendTo, word, wordLanguage) {
+  const request = require('request');
+  let wor=word.split("/");
+  if (wor.length>1){wordLanguage=wor[0];wor.splice(0,1);}
+  const qs = require('querystring');
+  wor=qs.escape(wor.join("/"));
+  const urli = "https://en.wiktionary.org/w/api.php?format=json&action=query&titles={word}&rvprop=content&prop=revisions&redirects=1&callback=?".replace("{word}", wor);
+  const options = {
+    url: urli,
+    headers: {
+      'User-Agent': 'request'
+    }
+  };
+
+  function callback(error, response, data) {
+    if (!error && response.statusCode == 200) {
+      const rule = /^.*?(\{.*\}).*?$/m;
+      data = rule.exec(data)[1]||'';
+      data = JSON.parse(data);
+      let results = {
+        title: "",
+        definitions: []
+      }
+
+      let title, content;
+
+      //no results found
+
+      if(!data || !data.query || !data.query.pages || data.query.pages[-1]) {
+        benji(source,socket,clientmensi,sendTo, nodasezvafahi);
+        return;
+      }
+
+      for (let page in data.query.pages) {
+        title = data.query.pages[page].title;
+        content = data.query.pages[page].revisions[0]["*"];
+      }
+
+      results.title = title;
+
+      let text = content.split("\n");
+
+      const heading1Regex = /^(==)([\w\s]+)(==)$/g;
+      const heading2Regex = /^(===)([\w\s]+)(===)$/g;
+      const heading3Regex = /^(====)([\w\s]+)(====)$/g;
+      const linkRegex = /(\[{2,})([\w\s-]+)(\]{2,})/g;
+      const type2LinkRegex = /(\[+)(\w+)([#|\w]+)(\]+)/g;
+      const wikipediaArticleRegex = /(\[+)(:?w:)([\w\s]+?)\|([\w\s]+?)(\]+)/g;
+      const formalizedTextRegex = /({{)l\|([\w\W]+?)\|([\w\W]+?)(}})/g;
+      const contextDataRegex = /(\[{2,})([\w\W]+?)(\]{2,})|({+)([\w\W]+?)(}+)/g;
+      const terbricmi = /({{sumti)\|([\w\W]+?)(}})/g;
+      const startingAndTrailingCommasRegex = /(^, )|(,$)/g;
+      const italicsRegex = /''/g;
+      const wordCharactersRegex = /\w/g;
+
+      let heading1, heading2, heading3;
+
+      function normalizeWikidata(text) {
+        text = text.replace(linkRegex, "$2"); //remove links to other words from definitions;
+        text = text.replace(type2LinkRegex, "$2"); //replace links of the form [[information|Information]]
+        text = text.replace(wikipediaArticleRegex, "$4"); //replace links to wikipedia articles with the link text
+        text = text.replace(formalizedTextRegex, "$3"); //strip formatting from formalized text
+        text = text.replace(terbricmi, "x$2"); //show places of terbricmi as intended
+        text = text.replace(contextDataRegex, ""); //get rid of any extra data that is not human-readiable
+        return text;
+      }
+
+
+      text.forEach(function (line) {
+        //console.log(line);
+        //update the current heading if needed
+        if (heading1Regex.test(line)) {
+          heading1 = line.replace(heading1Regex, "$2");
+        }
+        if (heading2Regex.test(line)) {
+          heading2 = line.replace(heading2Regex, "$2");
+        }
+        if(heading3Regex.test(line)) {
+          heading3 = line.replace(heading3Regex, "$2");
+        }
+
+        //handle a definition the line contains one
+
+        if (line.indexOf("# ") == 0 && heading1 == wordLanguage) {
+          let newDefinition = line.replace("# ", "");
+          newDefinition = normalizeWikidata(newDefinition);
+          newDefinition = newDefinition.replace(startingAndTrailingCommasRegex, ""); //remove starting and trailing commas that might occur (since some extra data that is removed occurs at the beginning and ends of definitions)
+          newDefinition = newDefinition.replace(italicsRegex, "").trim();
+
+          if (wordCharactersRegex.test(newDefinition)) { //makes sure there is actually a definition
+
+            let heading = heading2;
+
+            //sometimes, the word type will actually be in heading 3. If the heading 2 looks like it isn't a part of speech, use heading 3 instead.
+
+            if(heading.toLowerCase().indexOf("etymology") != -1 || heading.toLowerCase().indexOf("pronounciation") != -1) {
+              heading = heading3;
+            }
+            results.definitions.push({
+              meaning: newDefinition,
+              type: heading
+            });
+          }
+
+        }
+      });
+      if(!results.definitions||(results.definitions.length===0)) {
+        benji(source, socket, clientmensi, sendTo, nodasezvafahi);
+        return;
+      }
+      else {	
+        let acc=results.title+'\n';
+        for (let i = 0; i < results.definitions.length; i++) {
+          acc += results.definitions[i].type + ": " + results.definitions[i].meaning+'\n';
+        }
+        benji(source, socket, clientmensi, sendTo, acc);
+      }
+    }
+  }
+  request(options, callback);
+}

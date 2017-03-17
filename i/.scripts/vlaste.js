@@ -99,7 +99,7 @@ function readConfig(filename) {
 var update_cc_dict = function(){
 	var t = path.join(__dirname,dumps,"the_dict_with_examples.csv");
 	requestd = request.defaults({jar: true});
-	var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/export?format=csv&id=19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw&gid=1855189494";
+	var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/export?format=csv&range=A:B&id=19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw&gid=1855189494";
 	requestd({
 	    uri: uri, method: "GET"
 	}).on("error", function (err) {
@@ -111,7 +111,6 @@ var update_cc_dict = function(){
 			uri: uri, method: "GET"
 		}).on("error", function (err) {}).pipe(fs.createWriteStream(tr)).on("finish", function () {
 		var tr = path.join(__dirname,dumps,"eng2jbo.tsv");
-		console.log(tr);
 		var takei = fs.readFileSync(tr,{encoding: 'utf8'});
 		var x = takei.replace(/_/g,"").replace(/'/g,"&apos;").split('\n');
 		x.shift();
@@ -120,11 +119,15 @@ var update_cc_dict = function(){
     				return a.toLowerCase().localeCompare(b.toLowerCase());
 				}
 			);//x is our array
-		for (var i=0; i<x.length; i++) {
+		let xcll=x.slice();
+		for (let i=0; i<x.length; i++) {
 		    y = x[i].split('\t');
 		    y[0]=("''"+y[0]+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''");
+				y[2]=("''"+y[2]+"''").replace(/^''(.*?) \[(.*?)\]''$/,"''<small>$2</small> $1''");
 		    y[1]=y[1].replace(/^([^\{\}@]+)$/,"'''$1'''").replace(/, /g,"''', '''");
+				y[3]=y[3].replace(/^([^\{\}@]+)$/,"'''$1'''").replace(/, /g,"''', '''");
 		    x[i]=y[0] + "  –  "+y[1];
+				xcll[i]=y[1] + "  –  "+y[3];
 		}
 		var txt = x.join("\n\n").replace(/\{(.*?)\}/g,"'''$1'''").replace(/@@@(.*?)@@@/g,"''$1''");
 		takei = fs.writeFileSync(tr+".temp",txt);
@@ -164,7 +167,7 @@ var update_cc_dict = function(){
 			mw_edit("L17-03",d,"zmiku se jmina");//title,text,resume
 		});
 		//
-		var tr = path.join(__dirname,dumps,"eng2jbo.tsv");
+		tr = path.join(__dirname,dumps,"eng2jbo.tsv");
 		requestd = request.defaults({jar: true});
 		uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/pub?gid=1968461413&single=true&output=tsv";
 		//start la sutysisku's dump preparations, make from .xml file

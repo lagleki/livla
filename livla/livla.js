@@ -1982,8 +1982,8 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
   ///
   const txt = text.toLowerCase();
   let inLanguage = defaultLanguage;
-  const pp = txt.split(":").pop().trim();
-  const po = txt.split(" ").pop().trim();
+  const pp = (/:(.+)/.exec(txt)||['',''])[1].trim();
+  const po = (/ (.+)/.exec(txt)||['',''])[1].trim();
   switch (true) {
     case txt.trim() === '#ermenefti':
       benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/Hermeneutics");
@@ -2058,6 +2058,29 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       break;
     case txt.indexOf("tersmu:") === 0:
       tersmu(pp, sendTo, source, socket);
+      break;
+    case txt.indexOf(".off ") === 0:
+      ret = extract_mode(po);
+      benji(source, socket, clientmensi, sendTo, run_camxesoff(ret[0], ret[1]));
+      break;
+    case txt.indexOf(".exp ") === 0:
+      ret = extract_mode(po);
+      benji(source, socket, clientmensi, sendTo, run_camxes(ret[0], ret[1]));
+      break;
+    case txt.indexOf(".klesi ") === 0:
+      benji(source, socket, clientmensi, sendTo, run_camxes(po, 3));
+      break;
+    case txt.indexOf(".raw ") === 0:
+      benji(source, socket, clientmensi, sendTo, run_camxes(po, 0));
+      break;
+    case txt.indexOf(".zei ") === 0:
+      benji(source, socket, clientmensi, sendTo, zeizei(po));
+      break;
+    case txt.indexOf(".anji ") === 0:
+      benji(source, socket, clientmensi, sendTo, anji(po));
+      break;
+    case txt.indexOf(".kru ") === 0:
+      benji(source, socket, clientmensi, sendTo, kru(po));
       break;
     case (txt.indexOf(`${replier}: ko ningau`) === 0 || text.indexOf(`${replier}: ko cnino`) === 0):
       setTimeout(() => {
@@ -2134,6 +2157,9 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     case txt.indexOf('gloss:') === 0:
       benji(source, socket, clientmensi, sendTo, gloso(pp, 'en'));
       break;
+    case txt.indexOf('.gloss ') === 0:
+      benji(source, socket, clientmensi, sendTo, gloso(po, 'en'));
+      break;
     case txt.indexOf('.loi ') === 0:
       benji(source, socket, clientmensi, sendTo, loglo(po, ''));
       break;
@@ -2151,6 +2177,12 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       break;
     case txt.indexOf('zj:') === 0:
       zmifanva(source, socket, clientmensi, sendTo, pp, 'jb2en');
+      break;
+    case txt.indexOf('.ze ') === 0:
+      zmifanva(source, socket, clientmensi, sendTo, po, 'en2jb');
+      break;
+    case txt.indexOf('.zj ') === 0:
+      zmifanva(source, socket, clientmensi, sendTo, po, 'jb2en');
       break;
     case txt === `${replier}: pseudogismu`:
       benji(source, socket, clientmensi, sendTo, pseudogismu());
@@ -2198,7 +2230,7 @@ clientmensi.addListener('error', message => {
 
 const http = require('http');
 // NEVER use a Sync function except at start-up!
-let index = fs.readFileSync(`${__dirname}/naxle.html`);
+const index = fs.readFileSync(`${__dirname}/naxle.html`);
 
 // Send index.html to all requests
 const app = http.createServer((req, res) => {
@@ -2295,7 +2327,6 @@ function getDictionaryInfo(source,socket,clientmensi,sendTo, word, wordLanguage)
 
 
       text.forEach(function (line) {
-        //console.log(line);
         //update the current heading if needed
         if (heading1Regex.test(line)) {
           heading1 = line.replace(heading1Regex, "$2");

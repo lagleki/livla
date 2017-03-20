@@ -1,4 +1,4 @@
-window = this;
+window = this;var sorcu={};var bau = location.href.split('/').slice(-2)[0];if (bau==='test'){bau='en';}
 importScripts('bangu.js','../data/parsed-jb.js', '../sisku.js');
 postMessage({kind: 'loading'});
 postMessage({kind: 'ready'});

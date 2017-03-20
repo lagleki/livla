@@ -26,5 +26,11 @@
   },
   "devDependencies": {
     "eslint": "^3.8.1"
+  },
+  "scripts": {
+    "livla": "node node_modules/.bin/supervisor -w .,./livla -i ./dumps,./i,./mahantufa -- --expose-gc livla/livla.js",
+    "sutysisku": "cd i ; node .scripts/template.js ; git add . ; git commit -m 'commit' ; git push ; cd ..",
+    "snovlaste": "cd i ; node .scripts/vlaste.js ; node .scripts/template.js ; git checkout --orphan newBranch ; git add -A ; git commit -m 'commit' ; git branch -D master ; git branch -m master ; git push -f origin master ; git gc --aggressive --prune=all ; git push --set-upstream origin master ; cd ..",
+    "gitpush": "git add . ; git commit -a ;  git push"
   }
 }

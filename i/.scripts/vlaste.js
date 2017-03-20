@@ -191,7 +191,7 @@ var update_cc_dict = function(){
 		//actual la sutysisku's dump
 		var lng='jb';
 		var xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,dumps,lng + ".xml"),{encoding: 'utf8'}));
-		var pars='var documentStore = [';
+		var pars='sorcu[lng] = [';
 		var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		String.prototype.unquote = function(){
 			return this.replace(/"([^"]+)"/g,"‘$1’").replace(/\\/g,"\\\\");

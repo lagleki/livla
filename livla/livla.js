@@ -277,17 +277,14 @@ let sisku = lin => {
 };
 
 let processor = (client, from, to, text) => {
-  let sendTo = from; // send privately
-  if (~to.indexOf('#')) {
-    sendTo = to; // send publicly
-  }
+  let sendTo = to.indexOf('#') ? from : to; // send in private : publicly
   if (!text) return;
   said = Date.now();
-  if (text.indexOf(`${preasker}darxi la `) === 0 && from !== asker && from !== replier) {
+  /* if (text.indexOf(`${preasker}darxi la `) === 0 && from !== asker && from !== replier) {
     setTimeout(() => {
       client.say(sendTo, `${text.substr(9+preasker.length)}: oidai mi darxi do lo trauta`);
     }, 0);
-  }
+  }*/
   if (~text.indexOf(`doi ${asker}`) && from !== replier) {
     setTimeout(() => {
       client.say(sendTo, tato.tatoebaprocessing(from));
@@ -299,7 +296,6 @@ let processor = (client, from, to, text) => {
       client.say(livlytcan, prereplier + vric());
     }
   }, interv);
-  //}
 };
 
 const benji = (source, socket, clientmensi, sendTo, what) => {
@@ -1594,7 +1590,7 @@ const sutysiskuningau = (lng, lojbo) => { //write a new file parsed.js that woul
   const xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname, "../dumps", `${lng}.xml`), {
     encoding: 'utf8'
   }).replace(/(&lt;|<)script.*?(&gt;|>).*?(&lt;|<)/g, "&lt;").replace(/(&lt;|<)\/script(&gt;|>)/g, ""));
-  let pars = 'var documentStore = [';
+  let pars = 'sorcu["'+lng+'"] = [';
   const rev = xmlDoc.find("/dictionary/direction[1]/valsi");
   for (let i = 0; i < rev.length; i++) {
     const hi = rev[i].attr("word").value().replace("\\", "\\\\");

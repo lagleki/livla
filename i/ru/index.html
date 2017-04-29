@@ -13,11 +13,10 @@ xmlns:fb="https://www.facebook.com/2008/fbml">
 <meta property="og:image" content="https://mw.lojban.org/images/1/11/sutysisku2015-06-22.png"/>
 <meta property="og:site_name" content="La Sutysisku"/>
 <meta property="fb:app_id" content="191051864394489"/>
-<meta property="og:description" content="Словарь ложбана (Lojban), английского и других языков, который может работать без подключения к интернету."/>
-<link rel="shortcut icon" href="../sutysisku.png" />
+<meta property="og:description" content=""/>
+<link rel="shortcut icon" href="../pixra/sutysisku.png" />
 <link rel="search" type="application/opensearchdescription+xml" href="/sutysisku/ru/sisku.xml" title="ru-sutysisku">
 <style type="text/css">
-
 body {
 font-family: Tahoma, Lato, sans-serif;
 font-size:90%;
@@ -25,7 +24,6 @@ overflow:hidden;
 margin: 0;
 height: 100vh;
 }
-
 h4 {
 display: inline;
 margin: 0;
@@ -37,6 +35,12 @@ margin-left: 25px;
 color: rgb(118, 118, 118);
 font-size: 12px;
 }
+.heading{
+align-items:flex-start;
+flex-direction:row;
+display:flex;
+flex:1;
+}
 .tfm {
 display: inline;
 font-style: italic;
@@ -46,17 +50,11 @@ color: rgb(118, 118, 118);
 color: #6A5ACD;
 }
 .valsi {
-
 overflow-wrap: break-word;
 word-wrap: break-word;
-
 -ms-word-break: break-all;
-
 word-break: break-all;
-
 word-break: break-word;
-
-
 -ms-hyphens: auto;
 -moz-hyphens: auto;
 -webkit-hyphens: auto;
@@ -103,94 +101,6 @@ font-size: 90%;
 font-style: italic;
 margin-left: 15px;
 }
-
-.drata{
-border-left:1px solid #ccc;
-}
-.bangu_wrapper{
-width:  20vw;
-overflow: hidden;
-}
-.bangu_one {
-
--moz-box-shadow:inset 0px 1px 0px 0px #85CC98;
--webkit-box-shadow:inset 0px 1px 0px 0px #85CC98;
-box-shadow:inset 0px 1px 0px 0px #85CC98;
-background-color:white;
-border:1px solid #666;
-border-top:0px;
-border-left:0px;
-display:inline-block;
-color:#666;
-padding:7px 7px;
-max-width:15vw;
-white-space: nowrap;
-
-}
-
-.bangu_wrapper .bangu_one:after {
-content:  ' ';
-position: absolute;
-display:  block;
-width:  100%;
-height: 1em;
-bottom: 0px;
-left:   0px;
-background:  #E0E0E0;
-}
-
-.bangu_wrapper .bangu_one:before {
-content:  '...';
-text-align:  right;
-position: absolute;
-display:  block;
-width:  2em;
-height: 1em;
-bottom: 1em;
-right:  20px;
-background: -moz-linear-gradient(left,  rgba(224,224,224,0) 0%, rgba(224,224,224,1) 38%, rgba(224,224,224,1) 99%);
-background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(224,224,224,0)), color-stop(38%,rgba(224,224,224,1)), color-stop(99%,rgba(224,224,224,1)));
-background: -webkit-linear-gradient(left,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
-background: -o-linear-gradient(left,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
-background: -ms-linear-gradient(left,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
-background: linear-gradient(to right,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e0e0e0', endColorstr='#e0e0e0',GradientType=1 );
-}
-.bangu{
--moz-box-shadow:inset 0px 1px 0px 0px #85CC98;
--webkit-box-shadow:inset 0px 1px 0px 0px #85CC98;
-box-shadow:inset 0px 1px 0px 0px #85CC98;
-background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5AAD70), color-stop(1, #4BA563));
-background:-moz-linear-gradient(top, #5AAD70 5%, #4BA563 100%);
-background:-webkit-linear-gradient(top, #5AAD70 5%, #4BA563 100%);
-background:-o-linear-gradient(top, #5AAD70 5%, #4BA563 100%);
-background:-ms-linear-gradient(top, #5AAD70 5%, #4BA563 100%);
-background:linear-gradient(to bottom, #5AAD70 5%, #4BA563 100%);
-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5AAD70', endColorstr='#4BA563',GradientType=0);
-background-color:#5AAD70;
-border:1px solid #3b6e22;
-border-top:0px;
-border-left:0px;
-display:inline-block;
-color:#ffffff;
-padding:7px 7px;
-text-decoration:none;
-}
-.bangu:hover {
-background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #4BA563), color-stop(1, #5AAD70));
-background:-moz-linear-gradient(top, #4BA563 5%, #5AAD70 100%);
-background:-webkit-linear-gradient(top, #4BA563 5%, #5AAD70 100%);
-background:-o-linear-gradient(top, #4BA563 5%, #5AAD70 100%);
-background:-ms-linear-gradient(top, #4BA563 5%, #5AAD70 100%);
-background:linear-gradient(to bottom, #4BA563 5%, #5AAD70 100%);
-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4BA563', endColorstr='#5AAD70',GradientType=0);
-background-color:#4BA563;
-}
-.bangu:active {
-position:relative;
-top:1px;
-}
-
 #galtu-dasri {
 position:absolute;
 top:0;
@@ -221,16 +131,48 @@ display: -webkit-flex;
 display: flex;
 align-items: center;
 }
-
 ::selection {
 background: rgba(56,136,233,1);
 color: #fff;
 text-shadow: none;
 }
-.site-title {
+#site-title {
 font-size: 18px;
 font-weight: bold;
-padding-left: 2px;
+padding-left: 15px;
+display:none;
+}
+#mipri{display:none;}
+#typehere{
+margin-right:4px;
+height:auto;
+font-size:140%;
+background: #fff url(../pixra/x.gif) no-repeat right -18px center;
+border: 1px solid #999;
+padding: 3px 26px 2px 4px;     
+transition: background 0.4s;
+}
+#typehere.x  { background-position: right 5px center; } 
+#typehere.onX{ cursor: pointer; }              
+clearable{
+height:auto;
+font-size:140%;
+background: #fff url(../pixra/x.gif) no-repeat right -18px center;
+border: 1px solid #999;
+padding: 3px 26px 2px 4px;     
+transition: background 0.4s;
+}
+.clearable.x  { background-position: right 5px center; } 
+.clearable.onX{ cursor: pointer; }  
+@media screen and (min-width: 510px) {
+#site-title {display: block;}
+#mipri {display: block;}
+#typehere {display: block;width:auto;margin-left:0px;}
+}
+@media screen and (max-width: 509px) {//mobile
+#site-title {display: none;}
+#mipri {display: none;}
+#typehere {display: block;width:99%;margin-left:4px;}
 }
 #content {
 padding-left: 5px;
@@ -244,7 +186,7 @@ box-sizing:border-box;
 background: #222222 linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent) !important;
 background-size: 40px 40px !important;
 }
-
+#output{padding-bottom:20%;}
 #content-panel {
 max-width: 700px;
 width: 100%;
@@ -255,7 +197,6 @@ a {
 color: #2B79E0;
 text-decoration: none;
 }
-
 #description {
 margin-top: 5px;
 text-align: center;
@@ -272,38 +213,210 @@ top: -0.4em;
 font-size:70%;
 }
 sub { top: 0.4em; }
-#output{padding-bottom:20%;}
-.clearable{
-height:auto;
-font-size:140%;
-background: #fff url(../x.gif) no-repeat right -18px center;
-border: 1px solid #999;
-padding: 3px 26px 2px 4px;     
-transition: background 0.4s;
+#DIV_1 {
+border-collapse: collapse;
+bottom: 0px;
+box-shadow: rgb(255, 255, 204) 0px 0px 1px 0px inset;
+box-sizing: border-box;
+cursor: pointer;
+display: inline-block;
+left: 0px;
+position: relative;
+right: 0px;
+text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
+top: 0px;
+perspective-origin: 75px 75px;
+transform-origin: 75px 75px;
+user-select: none;
+font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
+margin: 5px;
 }
-.clearable.x  { background-position: right 5px center; } 
-.clearable.onX{ cursor: pointer; }              
-#mipri{display:none;}
+#DIV_1:hover {
+outline: rgb(153, 153, 153) solid 3px;
+}
+#DIV_1:active {
+position:relative;
+top:1px;
+}
+#DIV_2 {
+border-collapse: collapse;
+bottom: 0px;
+box-sizing: border-box;
+cursor: pointer;
+left: 0px;
+position: absolute;
+right: 0px;
+text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
+top: 0px;
+perspective-origin: 75px 75px;
+transform-origin: 75px 75px;
+user-select: none;
+font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
+overflow: hidden;
+}
+#SPAN_3 {
+border-collapse: collapse;
+bottom: 0px;
+box-sizing: border-box;
+cursor: pointer;
+display: block;
+position: absolute;
+right: 0px;
+text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
+z-index: 999;
+perspective-origin: 70px 26.5px;
+transform-origin: 70px 26.5px;
+user-select: none;
+background: rgba(255, 255, 255, 0.8) none repeat scroll 0% 0% / auto padding-box border-box;
+font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
+padding: 4px 4px;
+pointer-events: none;
+text-align: right;
+}
+#B_4 {
+border-collapse: collapse;
+box-sizing: border-box;
+cursor: pointer;
+text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
+user-select: none;
+font: normal normal bold normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
+}
+#DIV_5 {
+border-collapse: collapse;
+bottom: 0px;
+box-shadow: rgb(255, 255, 204) 0px 0px 1px 0px inset;
+box-sizing: border-box;
+cursor: pointer;
+display: inline-block;
+left: 0px;
+max-width: 100%;
+position: relative;
+right: 0px;
+text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
+top: 0px;
+vertical-align: middle;
+perspective-origin: 75px 75px;
+transform-origin: 75px 75px;
+user-select: none;
+font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
+}
+#DIV_6 {
+border-collapse: collapse;
+bottom: 0px;
+box-sizing: border-box;
+cursor: pointer;
+left: 0px;
+position: relative;
+right: 0px;
+text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
+top: 0px;
+perspective-origin: 75px 75px;
+transform-origin: 75px 75px;
+user-select: none;
+background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
+}
+#A_7 {
+border-collapse: collapse;
+box-sizing: border-box;
+color: rgb(32, 134, 191);
+text-decoration: none;
+text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
+column-rule-color: rgb(32, 134, 191);
+user-select: none;
+border: 0px none rgb(32, 134, 191);
+font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
+outline: rgb(32, 134, 191) none 0px;
+}
+#DIV_8 {
+border-collapse: collapse;
+box-sizing: border-box;
+color: rgb(32, 134, 191);
+text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
+column-rule-color: rgb(32, 134, 191);
+perspective-origin: 75px 75px;
+transform-origin: 75px 75px;
+user-select: none;
+background-position: center;
+background-color: #ffffff;
+background-size: contain;
+background-repeat: no-repeat;
+border: 0px none rgb(32, 134, 191);
+font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
+outline: rgb(32, 134, 191) none 0px;
+}
+#purci {
+margin-top: 0px;
+margin-bottom: 15px;
+margin-left: 10%;
+padding: 8px 12px 6px;
+text-align: justify;
+background: white;
+border-bottom-left-radius: 15px 15px;
+border-bottom-right-radius: 15px 15px;
+border-width: 0px;
+border-style: solid;
+border-top: none;
+box-shadow:
+0 0 0 1px #3888E9,
+0 0 0 2px #2257D5,
+0 0 0 3px #2663E0,
+0 0 0 4px #1941A5;
+-moz-box-shadow:
+0 0 0 1px #3888E9,
+0 0 0 2px #2257D5,
+0 0 0 3px #2663E0,
+0 0 0 4px #1941A5;
+-webkit-box-shadow:
+0 0 0 1px #3888E9,
+0 0 0 2px #2257D5,
+0 0 0 3px #2663E0,
+0 0 0 4px #1941A5;
+}
+#cpacu {
+position:relative;
+display:block;
+width:30%;
+margin:auto;
+background-color:#eee;
+padding:3px;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+-o-border-radius:3px;
+border-radius:3px;
+-webkit-box-shadow:inset 0 1px 3px rgba(0, 0, 0, .2);
+-moz-box-shadow:inset 0 1px 3px rgba(0, 0, 0, .2);
+-o-box-shadow:inset 0 1px 3px rgba(0, 0, 0, .2);
+box-shadow:inset 0 1px 3px rgba(0, 0, 0, .2)
+}
+#kernelo_lo_cpacu {
+height:5px;
+display:block;
+background-color:cornflowerblue;
+width:0%;
+border-radius:3px;
+-webkit-transition:width .8s ease;
+-moz-transition:width .8s ease;
+-o-transition:width .8s ease;
+transition:width .8s ease
+}
 </style>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@lojban_org" />
-
+<meta name="twitter:site" content="@GlekiArxokuna" />
 <meta content='la sutysisku' name='apple-mobile-web-app-title'>
-<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png" />
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png" />
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../144.png" />
-<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png" />
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png" />
-<link rel="icon" type="image/png" href="../32.png" sizes="32x32" />
-<link rel="icon" type="image/png" href="../16.png" sizes="16x16" />
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../pixra/57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../pixra/114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../pixra/72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../pixra/144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../pixra/120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../pixra/152.png" />
+<link rel="icon" type="image/png" href="../pixra/32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="../pixra/16.png" sizes="16x16" />
 <meta name="application-name" content="la sutysisku"/>
 <meta name="msapplication-TileColor" content="#00a300">
-<meta name="msapplication-TileImage" content="../144.png">
-<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<meta name="msapplication-TileImage" content="../pixra/144.png">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="bangu.js"></script>
 <link rel="manifest" href="../manifest.json">
 <script>
@@ -313,7 +426,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', 'UA-45171210-6', 'auto', {'allowLinker': true});
 ga('require', 'linker');
-ga('linker:autoLink', ['mw.lojban.org/extensions/ilmentufa/i', 'lojban.github.io/sutysisku', 'https://lojban.herokuapp.com'] );
+ga('linker:autoLink', ['la-lojban.github.io/sutysisku'] );
 ga('set', 'forceSSL', true);
 ga('send', 'pageview');
 </script>
@@ -321,31 +434,46 @@ ga('send', 'pageview');
 <body>
 <div id='galtu-dasri'>
 <form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
-<span id='plise' style='height:24px;'><a id='st' href="../"><img src="../arrow-left.png" height='24' width='24'></a></span><span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src="../sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="display:inline;-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
+<span id='site-title'><a id='title' href='#'><img src="../pixra/sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="display:inline;-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
 <input class="clearable" id='typehere' placeholder="поиск" type='text' autofocus autocorrect="off" autocapitalize="off" autocomplete="false">
 </form>
 </div>
 <div id='content'>
 <div id='content-panel'>
-<div id='drata' class="drata"></div>
+<div id='purci' style="display:none;"></div>
 <div id='loading' class="term">
 <span class='message'>Загружаем словарь ...</span><br>
-<div id="progressbar" style="margin:auto;"></div>
+<div id="cpacu">
+<span id='kernelo_lo_cpacu'></span>
 </div>
-<div id='purci' style="display:none;" class="term"></div>
-<div id='description' class="term"><p><b>la sutysisku</b> - быстрый словарь ложбана.<p>- Будет ли эта страничка открываться, если у меня будет недоступен интернет?<br>- Да, если это случится, всё равно откройте этот же адрес с этого же самого браузера.<br> Страничка всё равно должна открыться. Требуется последняя версия браузера Chrome, Яндекс Браузера, Safari или Firefox. Работает на устройствах Android и Apple.<br><br>Больше информации о ложбане доступно на <a href='https://mw.lojban.org' target='_blank'>сайте языка Lojban</a>. Предложения можно писать на адрес <a href='mailto:gleki.is.my.name@gmail.com' target='_blank'>gleki.is.my.name@gmail.com</a>.</p><p><span id='searchengine'><i><a href='#' title='ru-sutysisku' onclick="window.external.AddSearchProvider('https://mw.lojban.org/extensions/ilmentufa/i/ru/sisku.xml')">Добавить как средство поиска</a></i></span></p></div>
+</div>
+<div id='drata' style="text-align:center;"></div>
+<div id='description' class="term"><p><b>la sutysisku</b> - быстрый словарь ложбана.<p>- Будет ли эта страничка открываться, если у меня будет недоступен интернет?<br>- Да, если это случится, всё равно откройте этот же адрес с этого же самого браузера.<br> Страничка всё равно должна открыться. Требуется последняя версия браузера Chrome, Яндекс Браузера, Safari или Firefox. Работает на устройствах Android и Apple.<br><br>Больше информации о ложбане доступно на <a href='https://mw.lojban.org' target='_blank'>сайте языка Lojban</a>. Предложения можно писать на адрес <a href='mailto:gleki.is.my.name@gmail.com' target='_blank'>gleki.is.my.name@gmail.com</a>.</p><p><span id='searchengine'><i><a href='#' title='ru-sutysisku' onclick="window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/ru/sisku.xml')">Добавить как средство поиска</a></i></span></p></div>
 <div id='output'></div>
 </div>
 </div>
 <script>
-var typehere = $("#typehere");
-var output = $("#output");
-var description = $("#description");
+var typeh = document.getElementById('typehere');
+var outp = document.getElementById('output');
+var descr = document.getElementById('description');
+var drata = document.getElementById('drata');
+var purci = document.getElementById('purci');
+var pb = document.getElementById('kernelo_lo_cpacu');
 var query="";
 var worker = new Worker('worker.js');
 var resultCount;
 var results = [];
-
+function triggerEvent(el, type){
+if ('createEvent' in document) {
+var e = document.createEvent('HTMLEvents');
+e.initEvent(type, false, true);
+el.dispatchEvent(e);
+} else {
+var e = document.createEventObject();
+e.eventType = type;
+el.fireEvent('on'+e.eventType, e);
+}
+}
 function SaveDataToLocalStorage(data)
 {
 if (!results||results.length===0|data==='') return;
@@ -356,9 +484,8 @@ a.unshift(data);
 if (a.length>10) {a.length=10;}
 localStorage.setItem('purci', JSON.stringify(a));
 }
-
 function tog(v){return v?'addClass':'removeClass';} 
-$(document).on('input', '.clearable', function(){
+$(document).on('input', '#typehere', function(){
 $(this)[tog(this.value)]('x');
 }).on('mousemove', '.x', function( e ){
 $(this)[tog(this.offsetWidth-26 < e.clientX-this.getBoundingClientRect().left)]('onX');
@@ -370,201 +497,256 @@ prevQuery='';
 displayDescription();
 }).on('click', '#title', function(ev){
 query='';
-typehere.val(query);
+typeh.value = query;
 });
 var fm = {BE: "bei",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au",NAhU: "te'u",NIhE: "te'u",MOhE: "te'u"};
 var ready = false;
 var cankocisni = function(){
-if ($(window).width() >= 510) {
-$('#site-title').css( "display", "block !important").show();
-$('#mipri').css( "display", "block !important").show();
-$("#typehere").css({"width":'auto','margin-left':'0px','margin-right':'0px'});
-}else{
-$('#site-title').css( "display", "block !important").hide();
-$('#mipri').css( "display", "block !important").hide();
-$("#typehere").css({"width":$(window).width()-64,'margin-left':'4px','margin-right':'4px'});
+if (!(window.external && ('AddSearchProvider' in window.external))){
+var se=document.getElementById('searchengine');
+se.parentNode.removeChild(se);
 }
-if (!(window.external && ('AddSearchProvider' in window.external))){$('#searchengine').remove();}
 doSearch();
 }
-$(document).ready(cankocisni());
-$(window).on('resize', function(){
+if (document.readyState === 'complete' || document.readyState !== 'loading') {
 cankocisni();
-});
-$(function() {$( "#progressbar" ).progressbar({value: 37});$("#progressbar").css('height','5px').css('width','100');});
+} else {
+document.addEventListener('DOMContentLoaded', cankocisni);
+}
+pb.style.width = '37%';
 worker.onmessage = function(ev) {
 if (ev.data.kind == 'ready') {
 ready = true;
-$("#loading").remove();
+var l=document.getElementById('loading');
+l.parentNode.removeChild(l);
 } else if (ev.data.kind == 'searchResults') {
 if (ev.data.query !== query) {return;}
 results = ev.data.results;
-output.empty();
+outp.innerHTML = '';
 displayCLL();
 skicu_lo_ro_valsi();
 displayDescription();
 }
 else if (ev.data.kind == 'loading') {
-$("#loading .message").text(window.bangubuild);$(function() {$( "#progressbar" ).progressbar({value: 51});$("#progressbar").css({ 'height': '5px'});});
+$("#loading .message").text(window.bangubuild);
+pb.style.width = '51%';
 } else if (ev.data.kind == 'progress') {
-$(function() {$( "#progressbar" ).progressbar({value: ev.data.percent * 100});});
+pb.style.width = (ev.data.percent * 100) + '%';
 }
 };
 function displayCLL(){
 var sc = (window.arrcll||[])[query];
-if (typeof sc!=='undefined'){sc=sc.split(" ").map(function(arg){return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";}).join("");$("<div>").addClass('term').html(window.cllnotci+"<br/>"+sc).appendTo(output);}
+if (typeof sc!=='undefined'){
+sc=sc.split(" ").map(function(arg){
+return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";
+}).join("");
+var div = document.createElement('div');
+div.className = 'term';
+div.innerHTML = window.cllnotci+"<br/>"+sc;
+outp.appendChild(div);
 }
-
+}
 function checkScrolledNearBottom(ev) {
 var target = ev.target;
 var windowBottom = target.scrollTop + window.innerHeight;
-var outputBottom = output.height() - 700;
+var outputBottom = outp.clientHeight - 700;
 var isClose = windowBottom >= outputBottom;
 if(isClose) {
 window.limit += 10;
-skicu_lo_ro_valsi(true);
+skicu_lo_ro_valsi();
 }
 }
 document.getElementById('content')
 .addEventListener('scroll', checkScrolledNearBottom);
-output.scroll();
-
+triggerEvent(outp, 'scroll');
 function lojTemplate(s) {
 s = s.replace(/\$.*?\$/g, function(c) {
 c = c.substring(1, c.length-1);
 return c.replace(/(\w+)_\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>").replace(/(\w+)_((?:\d+|\w))/g, "<i>$1<sub>$2</sub></i>").replace(/\{/g,'[').replace(/\}/g,']');
 });
-
 s = s.replace(/\{(.*?)\}/g, function(c) {
 var c = c.substring(1, c.length-1);
 return '<a href="#sisku/' + encodeURIComponent(c) + '">' + c + "</a>"
 });
 return s;
 }
-
 function skicu_lo_valsi(def,inner) {
 if (!def){def=[];}
-var out;
-if(inner===1){out=$("<div>").addClass('terminner');} else {out=$("<div>").addClass('term');}
-var fmm,tfm;
-if (typeof fm[def.s]!=='undefined') {fmm = '&nbsp;&nbsp;<i><sup>[&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' + fm[def.s] + '">' + fm[def.s] + "</a>]</sup></i>";}else{fmm=''}
+var out=document.createElement('div');
+out.className=(inner===1)?'terminner':'term';
+var fmm = document.createElement('h4');
+if (typeof fm[def.s]!=='undefined') {
+fmm.className = 'tfm';
+fmm.innerHTML = '&nbsp;&nbsp;<i><sup>[&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' +
+fm[def.s] + '">' + fm[def.s] + "</a>]</sup></i>";
+}else{
+fmm.style.display='none';
+}
 var sh=[];
 for (var key in fm){
-if (fm[key]===def.w){sh.push('<a href="#sisku/' + key + '">' + key + '</a>');}
+if (fm[key]===def.w){
+sh.push('<a href="#sisku/' + key + '">' + key + '</a>');
 }
-if (sh.length!==0){tfm = $("<div>").addClass(kl).html('<i><sup>['+sh.join(", ")+'&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;');}
-else{tfm='';}
+}
+var tfm = document.createElement('div');
+if (sh.length!==0){
+tfm.classList.add(kl);
+tfm.innerHTML = '<i><sup>['+sh.join(", ")+'&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;';
+}
+else{
+tfm.style.display='none';
+}
 var ss;
-if (def.s) {ss = $("<div>").addClass('type').html('<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ');}else{ss=''}
-var jvs = def.t;
-if(window.xuzganalojudri && !def.l){jvs+="<font color='#aaa'><a style='color: #aaa;' target='_blank' href=\""+window.judri + def.w+ "\">#</a></font> ";}
-
-var kl='valsi';if(def.l){kl='valsi nalojbo';};
-var word='<a class="' + kl + '" href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
-if (plukaquery(def.w) == query){word=def.w + ' ';}
-var deft='';
-if (def.t.search('sampu staile')>=0){deft += "<img src='plise.png' height='16' width='16' title='lo staile poi sampu'>"};
-if (def.t.search('mansa staile')>=0){deft += "<img src='pelxuplise.png' height='16' width='16' title=\"lo staile poi na mutce cinri\">"};
-if (def.t.search('plixau jufra')>=0){deft += "<img src='crinoplise.png' height='16' width='16' title=\"lo jufra poi ka'e xamgu lo di'i fanva\">"};
-if (def.t.search('cnano staile')>=0){deft += "<img src='blabiplise.png' height='16' width='16' title=\"lo staile poi ka'e pluja\">"};
-if (def.t.search('non-standard')>=0){deft += "<img src='cicnaplise.png' height='16' width='16' title=\"na'e catni se ciska staile\">"};
-if (deft!==''){jvs=deft;}
-out.append($("<heading style='align-items:flex-start;flex-direction:row;display:flex;flex:1;'>")
-.append(tfm)
-.append($("<h4>").addClass(kl).html(word))
-.append($("<h4>").addClass('tfm').html(fmm))
-.append($("<div style='flex:1;'>"))
-.append(ss)
-.append($("<div>").addClass('type').html(jvs))
-);
+ss = document.createElement('div');
+if (def.s) {
+ss.className = 'type';
+ss.innerHTML = '<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ';
+}
+else {
+ss.style.display='none';
+}
+var jvs = document.createElement('div');
+jvs.className = 'type';
+jvs.innerHTML= def.t;
+if(window.xuzganalojudri && !def.l){
+jvs.innerHTML+="<font color='#aaa'><a style='color: #aaa;' target='_blank' href=\""+window.judri + 
+def.w + "\">#</a></font> ";
+}
+var kl='valsi';if(def.l) kl='valsi nalojbo';
+var word = document.createElement('h4');
+word.classList.add(kl);
+word.innerHTML ='<a class="' + kl + '" href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
+if (plukaquery(def.w) == query){word.innerHTML=def.w + ' ';}
+var heading = document.createElement('heading');
+heading.classList.add('heading');
+var flex = document.createElement('heading');
+flex.style.flex = 1;
+heading.appendChild(tfm);
+heading.appendChild(word);
+heading.appendChild(fmm);
+heading.appendChild(flex);
+heading.appendChild(ss);
+heading.appendChild(jvs);
+out.appendChild(heading);
 if (def.d) {
-$("<div>").addClass('definition').html(
-lojTemplate(def.d.replace(/([^<])\/([^>])/g,"$1 / $2").replace(/@@@(.*?)@@@/g,"<i>$1</i>")) + ' ').appendTo(out);
+var n = document.createElement('div');
+n.className = 'definition';
+n.innerHTML= lojTemplate(def.d.replace(/([^<])\/([^>])/g,"$1 / $2").replace(/@@@(.*?)@@@/g,"<i>$1</i>")) + ' ';
+out.appendChild(n);
 }
 if (def.n) {
-out.append(
-$('<div>').addClass('notes').html(lojTemplate(def.n) + ' '));
+var n = document.createElement('div');
+n.className = 'notes';
+n.innerHTML= lojTemplate(def.n) + ' ';
+out.appendChild(n);
 }
 if (def.e) {
-out.append(
-$('<div>').addClass('examples').html("<table style='width:100%;border-collapse:collapse;margin-top:10px;margin-bottom:10px;'>"+lojTemplate((def.e+"\n").replace(/%/g,"\n").replace(/(.*?) — (.*?)\n/g,"<tr><td class='mupligreku'><b>$1<\/b><\/td><td class='mupligreku'><i>$2<\/i><\/td><\/tr>\n")) + '</table> '));
+var n = document.createElement('div');
+n.className = 'examples';
+n.innerHTML= "<table style='width:100%;border-collapse:collapse;margin-top:10px;margin-bottom:10px;'>"+lojTemplate((def.e+"\n").replace(/%/g,"\n").replace(/(.*?) — (.*?)\n/g,"<tr><td class='mupligreku'><b>$1<\/b><\/td><td class='mupligreku'><i>$2<\/i><\/td><\/tr>\n")) + '</table> ';
+out.appendChild(n);
 }
 if (def.k) {
-out.append(
-$('<div>').addClass('related').html('See also: ' + lojTemplate(def.k) + ' '));
+var n = document.createElement('div');
+n.className = 'related';
+n.innerHTML= 'See also: ' + lojTemplate(def.k) + ' ';
+out.appendChild(n);
 }
 if ((def.r||[]).length > 0 && !def.l && window.xuzganalojudri) {
-var rafsi = $("<div>").addClass('rafsi');
-rafsi.append("rafsi: ");
+var rafsi = document.createElement('div');
+rafsi.className = 'rafsi';
+rafsi.innerHTML= "rafsi: ";
 for (i=0; i<def.r.length;i++) {
-var rafElem = $("<span>").appendTo(rafsi);
+var rafElem = document.createElement('span');
 var raf = def.r[i];
 if ((def.t||'').match(/lujvo/)) {
-rafElem.append(
-$("<a>").attr(
-'href', '#sisku/' + encodeURIComponent(raf))
-.text(raf)
-);
+var a = document.createElement('a');
+a.setAttribute('href', '#sisku/' + encodeURIComponent(raf));
+a.text=raf;
+rafElem.appendChild(a);
 } else {
-rafElem.text(raf);
+rafElem.innerHTML=raf;
 }
-rafElem.append(' ');
+rafElem.innerHTML = rafElem.innerHTML+' ';
+rafsi.appendChild(rafElem);
 }
-rafsi.appendTo(out);
+out.appendChild(rafsi);
 }
 if((def.rafsiDocuments||[]).length>0) {
-var subDefs = $("<div>").addClass('definition').addClass('subdefinitions');
+var subDefs = document.createElement('div');
+subDefs.classList.add('definition');
+subDefs.classList.add('subdefinitions');
 for (var i=0;i<def.rafsiDocuments.length;i++) {
-skicu_lo_valsi(def.rafsiDocuments[i],1).appendTo(subDefs);
+subDefs.appendChild(skicu_lo_valsi(def.rafsiDocuments[i],1));
 }
-subDefs.appendTo(out);
+out.appendChild(subDefs);
 }
-out.find('a').click(function(el) {
+out.addEventListener("click", function (event) {
+if (event.target.nodeName==='A') {
+var el = event.target;
+var title = event.target.getAttribute("title");
 if (el.ctrlKey || el.metaKey) { // let the user open in new tabs
 return;
 }
-if($(el.target).attr('href') !== location.href.substring(location.href.indexOf("#"))){
-window.history.pushState({}, null, $(el.target).attr('href'));
+if(el.getAttribute('href') !== location.href.substring(location.href.indexOf("#"))){
+window.history.pushState({}, null, el.getAttribute('href'));
 }
 handleUrl();
 return false;
+}
 });
 return out;
 }
-
 var searchIdCounter = 0;
 var prevQuery,drataQuery='';
-var lastQueried = now();
+var lastQueried = cati();
 function displayDescription() {
 if (query == '') {
-output.hide();
-description.show();
-var arrpurc = JSON.parse(localStorage.getItem('purci'))||[];
-if(arrpurc.length>0){
-$('#purci').html((window.purc||"Last searched: ") + arrpurc.map(function(a){return '<a href="#sisku/' + a + '">' + a + "</a>";}).join(", "));
-$('#purci').css('display','block');
-
-if (!drataQuery||(drataQuery==='')){drataQuery = arrpurc[0]||'';}
-$('#drata').html(((drataQuery!=='')? ('<span class="bangu_one">' + drataQuery + '</span>') : '')
-+ '<a class="bangu" href="../jbo/#sisku/' + drataQuery + '">lojbo</a>'
-+ '<a class="bangu" href="../muplis/#sisku/' + drataQuery + '">la muplis</a>'
-+ '<a class="bangu" href="../en/#sisku/' + drataQuery + '">English</a>'
-+ '<a class="bangu" href="../jb/#sisku/' + drataQuery + '">Examples</a>'
-+ '<a class="bangu" href="../ja/#sisku/' + drataQuery + '">日本語</a>'
-+ '<a class="bangu" href="../fr-facile/#sisku/' + drataQuery + '">français facile</a>'
-+ '<a class="bangu" href="../es/#sisku/' + drataQuery + '">español</a>'
-+ '<a class="bangu" href="../ru/#sisku/' + drataQuery + '">русский</a>'
-+ '<a class="bangu" href="../eo/#sisku/' + drataQuery + '">Esperanto</a>'
-);
-$('#drata').css('display','block');
-
+outp.style.display='none';
+descr.style.display='block';
+var arrpurc = JSON.parse(localStorage.getItem('purci')) || [];
+var obj = {
+"@cirkotci": ["lojbo sance", "../pixra/taplasance.png", 1, "../cirkotci.html"],
+"muplis": ["la muplis", "../pixra/taplamuplis.png", 2],
+"jb": ["English - Lojban examples", "https://mw.lojban.org/images/0/08/snime-1.svg", 1],
+"en": ["English-Lojban", "https://mw.lojban.org/images/d/d8/selsku_lanci_eng.svg", 1],
+"jbo": ["fanva fi lo lojbo ri", "https://mw.lojban.org/images/a/a9/lanci_jbo.svg", 1],
+"ja": ["日本 - <span style=\"white-space:pre;\">ロジバン</span>", "https://mw.lojban.org/images/4/46/selsku_lanci_jpn.svg", 1],
+"fr-facile": ["français facile - lojban", "https://mw.lojban.org/images/a/a7/selsku_lanci_fra.svg", 1],
+"ru": ["русский - ложбан", "https://mw.lojban.org/images/d/dc/selsku_lanci_rus.svg", 1],
+"eo": ["Esperanto - Loĵbano", "https://mw.lojban.org/images/2/20/lanci_epo.svg", 1],
+"es": ["español - lojban", "https://mw.lojban.org/images/2/26/selsku_lanci_spa.svg", 1],
+"@CC": ["The Crash Course", "https://mw.lojban.org/images/b/bd/cogwheel-5.svg", 1, "https://mw.lojban.org/papri/The_Crash_Course_in_Lojban"],
+}
+var acc = "";
+var cisn = 100;
+for (var key in obj) {
+acc += "<div id='DIV_1' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_2' style='height:" + (cisn) + "px;width:" + (
+obj[key][2] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][0] + "</b></span><div id='DIV_5' style='height:" + (cisn) +
+"px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><a href='" + ((key.indexOf(
+"@") === 0) ? obj[key][3] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + drataQuery)) + "' id='A_7'><div id='DIV_8' style='height:" +
+(cisn) + "px;width:" + (obj[key][2] * cisn) + "px;background-image:url(\"" + obj[key][1] + "\")'></div></a></div></div></div></div>"
+}
+if (!drataQuery || (drataQuery === '')) {
+drataQuery = arrpurc[0] || '';
+}
+drata.innerHTML = acc;
+drata.style.display='block';
+if (arrpurc.length > 0) {
+purci.innerHTML = (window.purc || "Last searched: ") +
+arrpurc.map(
+function(a) {
+return '<a href="#sisku/' + a + '">' + a + "</a>";
+}
+).join(", ");
+purci.style.display='block';
 }
 } else {
-output.show();
-description.hide();
-$('#drata').css('display','none');
-$('#purci').css('display','none');
-$('#content').scrollTop(0);
+outp.style.display = 'block';
+descr.style.display='none';
+drata.style.display='none';
+purci.style.display='none';
+document.getElementById('content').scrollTop = 0;
 }
 }
 function plukaquery(arg){
@@ -574,21 +756,19 @@ return arg.replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim()
 else{return arg;}
 }
 function doSearch() {
-query = plukaquery(typehere.val());
+query = plukaquery(typeh.value);
 if (query ===''){displayDescription();}else{drataQuery = query;}
 if (query === prevQuery) {
 return;
 }
 prevQuery = query;
 updateUrl();
-
 var searchId = ++searchIdCounter;
 window.limit = 30;
 resultCount = 0;
 ga('send', 'pageview', '#sisku/' + query);
 worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
 }
-
 var typingTimer;
 var delay = (function(){
 var timer = 0;
@@ -597,15 +777,17 @@ clearTimeout (timer);
 timer = setTimeout(callback, ms);
 };
 })();
-typehere.on('input',function(){
-clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 250);
+typeh.addEventListener("keyup", function(){typing()});
+typeh.addEventListener("keydown", function(){clearTimeout(typingTimer);displayDescription();});
+typeh.addEventListener("paste", typing(0));
+typeh.addEventListener("input", typing());
+typeh.addEventListener("textInput", typing());
+function typing(a){
+clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, a?a:250);
 delay(function(){
 SaveDataToLocalStorage(query);
 }, 2000 );
-});
-typehere.keyup(function(){clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, 250);});
-typehere.keydown(function(){clearTimeout(typingTimer);displayDescription});
-
+};
 function updateUrl() {
 var url = '';
 if (query.length > 0) {
@@ -614,13 +796,13 @@ url = '#sisku/' + query.replace(/ /g,"_");
 if (url === location.href.substring(location.href.indexOf("#")) || url == '' || document.referrer === document.location.href) {
 return;
 }
-var difference = now() - lastQueried;
+var difference = cati() - lastQueried;
 if (difference > 2000) {
 window.history.pushState({}, null, url);
 } else {
 window.history.replaceState({}, null, url);
 }
-lastQueried = now();
+lastQueried = cati();
 updateMainLink();
 }
 function handleUrl() {
@@ -628,7 +810,8 @@ var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
 if (searchMatch && searchMatch.indexOf('/')===-1) {
 query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ").trim();
 }
-typehere.val(query);
+typeh.value=query;
+triggerEvent(typeh, 'input');
 $('.clearable').trigger("input");
 updateMainLink();
 if (ready) {
@@ -638,23 +821,22 @@ doSearch();
 handleUrl();
 function updateMainLink(){
 var split = location.href.split('#')[1];if(split===null){split='';}
-$("#st").attr("href",$("#st").attr("href").split('#', 1)[0] + "#" + split);
 }
 window.addEventListener('popstate', handleUrl);
-$(document.body).keyup(function(ev) {
-if (ev.keyCode === 191) {  // The '/' character
-typehere.focus();
+function handler(e) {
+if(e.keyCode && e.keyCode===191){
+typeh.focus();
 }
-})
-
-function skicu_lo_ro_valsi(ui) {
+}
+if (document.attachEvent) document.attachEvent('onkeyup', handler);
+else document.addEventListener('keyup', handler);
+function skicu_lo_ro_valsi() {
 var displayUpTo = Math.min(window.limit, results.length);
 for (; resultCount < displayUpTo; resultCount++) {
-try{skicu_lo_valsi(results[resultCount]).appendTo(output);}catch(err){}
+outp.appendChild(skicu_lo_valsi(results[resultCount]));
 }
 }
-
-function now() {
+function cati() {
 if (window.performance) {
 if (performance.now) {
 return performance.now();
@@ -662,7 +844,6 @@ return performance.now();
 }
 return +new Date();
 }
-
 var appCache = window.applicationCache;
 appCache.update();
 if (appCache.status == window.applicationCache.UPDATEREADY) {

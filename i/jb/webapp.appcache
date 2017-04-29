@@ -1,61 +1,38 @@
 CACHE MANIFEST
-# 2017-03-20T04:00:14
+# 2017-04-07T22:08:44
 
 CACHE:
 index.html
-../sutysisku.png
-../arrow-left.png
+../data/parsed-jb.js
+
 ../sisku.js
 worker.js
 bangu.js
-../16.png
-../32.png
-# ../Snowball.js
-
-../data/parsed-jb.js
-
-#./lib/Lato/Lato-Black.ttf
-#./lib/Lato/Lato-BlackItalic.ttf
-#./lib/Lato/Lato-Bold.ttf
-#./lib/Lato/Lato-BoldItalic.ttf
-#./lib/Lato/Lato-Hairline.ttf
-#./lib/Lato/Lato-HairlineItalic.ttf
-#./lib/Lato/Lato-Italic.ttf
-#./lib/Lato/Lato-Light.ttf
-#./lib/Lato/Lato-LightItalic.ttf
-#./lib/Lato/Lato-Regular.ttf
-#./lib/Lato.css
 
 //ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
 //ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css
 //ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 
-../x.gif
-
-#../favicons/apple-touch-icon-114x114.png
-#../favicons/apple-touch-icon-120x120.png
-#../favicons/apple-touch-icon-144x144.png
-#../favicons/apple-touch-icon-152x152.png
-#../favicons/apple-touch-icon-180x180.png
-#../favicons/apple-touch-icon-57x57.png
-#../favicons/apple-touch-icon-60x60.png
-#../favicons/apple-touch-icon-72x72.png
-#../favicons/apple-touch-icon-76x76.png
-#../favicons/apple-touch-icon-precomposed.png
-#../favicons/apple-touch-icon.png
-#../favicons/browserconfig.xml
-#../favicons/favicon-160x160.png
-#../favicons/favicon-16x16.png
-#../favicons/favicon-192x192.png
-#../favicons/favicon-32x32.png
-#../favicons/favicon-96x96.png
-#../favicons/favicon.ico
-#../favicons/mstile-144x144.png
-#../favicons/mstile-150x150.png
-#../favicons/mstile-310x150.png
-#../favicons/mstile-310x310.png
-#../favicons/mstile-70x70.png
-
+../pixra/sutysisku.png
+../pixra/x.gif
+../pixra/arrow-left.png
+../pixra/16.png
+../pixra/32.png
+//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/images/ui-bg_flat_75_ffffff_40x100.png
+//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+../pixra/sutysisku.png
+https://mw.lojban.org/images/b/bd/cogwheel-5.svg
+../pixra/taplasance.png
+../pixra/taplamuplis.png
+https://mw.lojban.org/images/0/08/snime-1.svg
+https://mw.lojban.org/images/d/d8/selsku_lanci_eng.svg
+https://mw.lojban.org/images/a/a9/lanci_jbo.svg
+https://mw.lojban.org/images/4/46/selsku_lanci_jpn.svg
+https://mw.lojban.org/images/a/a7/selsku_lanci_fra.svg
+https://mw.lojban.org/images/d/dc/selsku_lanci_rus.svg
+https://mw.lojban.org/images/2/20/lanci_epo.svg
+https://mw.lojban.org/images/2/26/selsku_lanci_spa.svg
+https://mw.lojban.org/images/b/bd/cogwheel-5.svg
 
 NETWORK:
 *

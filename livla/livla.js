@@ -178,7 +178,6 @@ const updateUserSettings = callback => {
   }
 };
 
-const camxes = require('../camxes-exp.js');
 const camxes_pre = require('../camxes_preproc.js');
 const camxes_post = require('../camxes_postproc.js');
 

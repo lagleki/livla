@@ -1,5 +1,5 @@
 window = this;var sorcu={};var bau = location.href.split('/').slice(-2)[0];if (bau==='test'){bau='en';}
-importScripts('bangu.js','../data/parsed-en.js', '../sisku_2.js');
+importScripts('bangu.js','../data/parsed-en.js', './sisku_2.js');
 postMessage({kind: 'loading'});
 postMessage({kind: 'ready'});
 var searchId;

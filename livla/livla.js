@@ -6,7 +6,8 @@ const lg = console.log.bind(console);
 const fs = require("fs"),
   path = require("path-extra"),
   ospath = require("ospath"),
-  libxmljs = require("libxmljs");
+  libxmljs = require("libxmljs"),
+  lojban = require("lojban");
 require('v8-profiler');
 const tato = require('./tatoeba.js');
 let notci, notcijudri, ljv = '';
@@ -15,6 +16,7 @@ const interm = 2900;
 const nodasezvafahi = 'no da se zvafa\'i';
 const tersepli = " + ";
 const fram = "../../../files/fndata-1.5/frame";
+const langs = ["jbo", "en", "ru", "es", "fr", "ja", "de", "eo", "zh", "en-simple", "fr-facile", "hu", "sv"];
 const robangu = 'fr-facile|en|f@|ru|de|ja|jbo|guaspi|loglan|eo|fr|jb|2002|es|zh|sv|en-simple|krasi|dukti|laadan|toki';
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
@@ -180,56 +182,9 @@ const camxes = require('../camxes-exp.js');
 const camxes_pre = require('../camxes_preproc.js');
 const camxes_post = require('../camxes_postproc.js');
 
-function extract_mode(input) {
-  if (input.indexOf("+s ") === 0) {
-    return [input.substr(3), 3];
-  } else if (input.indexOf("-f ") === 0) {
-    return [input.substr(3), 5];
-  } else if (input.indexOf("-f+s ") === 0) {
-    return [input.substr(5), 6];
-  } else if (input.indexOf("+j ") === 0) {
-    return [input.substr(3), 1];
-  } else return [input, 2];
-}
-
 const irc = require('irc');
 const client = new irc.Client(configlivla.server, configlivla.nick, configlivla.options);
 const clientmensi = new irc.Client(configmensi.server, configmensi.nick, configmensi.options);
-
-function run_camxes(input, mode) {
-  let result;
-  let syntax_error = false;
-  result = camxes_pre.preprocessing(input);
-  try {
-    result = camxes.parse(result);
-  } catch (e) {
-    result = e;
-    syntax_error = true;
-  }
-  if (!syntax_error) {
-    result = JSON.stringify(result, undefined, 2);
-    result = camxes_post.postprocessing(result, mode);
-  }
-  return result;
-}
-
-function run_camxesoff(input, mode) {
-  const camxesoff = require('../camxes.js');
-  let result;
-  let syntax_error = false;
-  result = camxes_pre.preprocessing(input);
-  try {
-    result = camxesoff.parse(result);
-  } catch (e) {
-    result = e;
-    syntax_error = true;
-  }
-  if (!syntax_error) {
-    result = JSON.stringify(result, undefined, 2);
-    result = camxes_post.postprocessing(result, mode);
-  }
-  return result;
-}
 
 function run_camxesalta(input, mode) {
   try {
@@ -307,215 +262,6 @@ const benji = (source, socket, clientmensi, sendTo, what) => {
   } else {
     clientmensi.say(sendTo, what);
   }
-};
-
-const jbopomofo = lin => {
-  let jbopotext = "";
-  for (let i = 0; i < lin.length; i++) {
-    const character = lin.charAt(i);
-
-    switch (character) {
-      case 'a':
-        jbopotext += "ㄚ";
-        break;
-      case 'e':
-        jbopotext += "ㄜ";
-        break;
-      case 'i':
-        jbopotext += "ㄧ";
-        break;
-      case 'o':
-        jbopotext += "ㄛ";
-        break;
-      case 'u':
-        jbopotext += "ㄨ";
-        break;
-      case 'y':
-        jbopotext += "ㄩ";
-        break;
-      case 'f':
-        jbopotext += "ㄈ";
-        break;
-      case 'v':
-        jbopotext += "ㄑ";
-        break;
-      case 'x':
-        jbopotext += "ㄏ";
-        break;
-      case 's':
-        jbopotext += "ㄙ";
-        break;
-      case 'z':
-        jbopotext += "ㄗ";
-        break;
-      case 'c':
-        jbopotext += "ㄕ";
-        break;
-      case 'j':
-        jbopotext += "ㄓ";
-        break;
-      case 'p':
-        jbopotext += "ㄆ";
-        break;
-      case 'b':
-        jbopotext += "ㄅ";
-        break;
-      case 't':
-        jbopotext += "ㄊ";
-        break;
-      case 'd':
-        jbopotext += "ㄉ";
-        break;
-      case 'k':
-        jbopotext += "ㄎ";
-        break;
-      case 'g':
-        jbopotext += "ㄍ";
-        break;
-      case 'l':
-        jbopotext += "ㄌ";
-        break;
-      case 'r':
-        jbopotext += "ㄖ";
-        break;
-      case 'm':
-        jbopotext += "ㄇ";
-        break;
-      case 'n':
-        jbopotext += "ㄋ";
-        break;
-      case '`':
-        jbopotext += "¯";
-        break;
-      case '.':
-        jbopotext += "·";
-        break;
-      case "'":
-        jbopotext += "、";
-        break;
-      case ',':
-        jbopotext += "〜";
-        break;
-      case ' ':
-        jbopotext += " ";
-        break;
-    }
-  }
-  return jbopotext;
-};
-
-const kru = arg => {
-  let t = run_camxes(arg, 3).toString();
-  if (t.indexOf("SyntaxError") < 0) {
-    t = t.replace(/[a-z]+`/g, "").replace(/[a-z]+_[a-z]+/ig, "").replace(/h/g, "H").replace(/[^a-z \.\,'\n]/g, "").replace(/ +/g, " ").replace(/ +\n/g, "\n");
-    t = t.replace(/h/g, "'").toLowerCase();
-    t = t.replace(/([ aeiou])u([aeiou])/g, '$1w$2');
-    t = t.replace(/([ aeiou])i([aeiou])/g, '$1ɩ$2');
-    t = t.replace(/au/g, 'ǎ');
-    t = t.replace(/ai/g, 'ą');
-    t = t.replace(/ei/g, 'ę');
-    t = t.replace(/oi/g, 'ǫ');
-    return t;
-  } else {
-    return "O_0";
-  }
-};
-
-const rusko = lin => {
-  const inputlength = lin.length;
-  const input = lin.toLowerCase();
-  let jbopotext = "";
-  for (let i = 0; i < inputlength; i++) {
-    const character = input.charAt(i);
-
-    switch (character) {
-      case 'a':
-        jbopotext += "а";
-        break;
-      case 'e':
-        jbopotext += "э";
-        break;
-      case 'i':
-        jbopotext += "и";
-        break;
-      case 'o':
-        jbopotext += "о";
-        break;
-      case 'u':
-        jbopotext += "у";
-        break;
-      case 'y':
-        jbopotext += "ы";
-        break;
-      case 'f':
-        jbopotext += "ф";
-        break;
-      case 'v':
-        jbopotext += "в";
-        break;
-      case 'x':
-        jbopotext += "х";
-        break;
-      case 's':
-        jbopotext += "с";
-        break;
-      case 'z':
-        jbopotext += "з";
-        break;
-      case 'c':
-        jbopotext += "ш";
-        break;
-      case 'j':
-        jbopotext += "ж";
-        break;
-      case 'p':
-        jbopotext += "п";
-        break;
-      case 'b':
-        jbopotext += "б";
-        break;
-      case 't':
-        jbopotext += "т";
-        break;
-      case 'd':
-        jbopotext += "д";
-        break;
-      case 'k':
-        jbopotext += "к";
-        break;
-      case 'g':
-        jbopotext += "г";
-        break;
-      case 'l':
-        jbopotext += "л";
-        break;
-      case 'r':
-        jbopotext += "р";
-        break;
-      case 'm':
-        jbopotext += "м";
-        break;
-      case 'n':
-        jbopotext += "н";
-        break;
-      case '`':
-        jbopotext += "`";
-        break;
-      case '.':
-        jbopotext += ".";
-        break;
-      case "'":
-        jbopotext += "'";
-        break;
-      case ',':
-        jbopotext += ",";
-        break;
-      case ' ':
-        jbopotext += " ";
-        break;
-    }
-  }
-  return jbopotext;
 };
 
 const bangu = (lng, username) => {
@@ -629,15 +375,15 @@ const tordu = (linf, lng, flag, xmlDoc, cmalu) => {
 
   if (gchild === '') {
     if (flag !== 1) {
-      if (xulujvo(lin) === true) {
-        const f = triz(katna(lin, lng, 1, xmlDoc), 1, lng, xmlDoc);
+      if (lojban.xulujvo(lin) === true) {
+        const f = lojban.jvozba(lojban.jvokaha_gui(lin));
         if (f !== '') {
           lin = f;
         } else {
-          lin = `[< ${katna(lin,lng,'',xmlDoc)}] ${mulno(lin,lng,xmlDoc)}`;
+          lin = `[< ${lojban.jvokaha_gui(lin)}] ${mulno_smuvelcki(lin,lng,xmlDoc)}`;
         }
       } else {
-        lin = mulno(lin, lng, xmlDoc);
+        lin = mulno_smuvelcki(lin, lng, xmlDoc);
       }
     } else {
       lin = '';
@@ -648,8 +394,8 @@ const tordu = (linf, lng, flag, xmlDoc, cmalu) => {
       gchild = gchild.substring(0, 700);
       gchild += `...\n[mo'u se katna] http://jbovlaste.lojban.org/dict/${lin}`;
     }
-    if (xulujvo(lin) === true) {
-      lin += ` [< ${katna(lin,lng,'',xmlDoc)}]`;
+    if (lojban.xulujvo(lin) === true) {
+      lin += ` [< ${lojban.jvokaha_gui(lin)}]`;
     }
     lin = `${lin} = ${gchild}`;
   }
@@ -664,7 +410,7 @@ const tordu = (linf, lng, flag, xmlDoc, cmalu) => {
   return lin.replace(/&quot;/g, "'").replace(/&gt;/g, '>');
 };
 
-const mulno = (lin, lng, xmlDoc) => {
+const mulno_smuvelcki = (lin, lng, xmlDoc) => {
   lin = lin.replace(/\"/g, '');
   let xo;
   if (typeof xmlDoc === "undefined") {
@@ -979,7 +725,7 @@ const vlaste = (lin, lng, raf) => {
   let ret;
   switch (true) {
     case lin.substr(0, 5).trim() === "/full":
-      ret = mulno(lin.substr(6).trim(), lng);
+      ret = mulno_smuvelcki(lin.substr(6).trim(), lng);
       break;
     case lin.substr(0, 6).trim() === "/valsi":
       ret = valsicmene(lin.substr(7).trim(), lng);
@@ -1022,211 +768,6 @@ const sidju = () => {
   return sidj.en;
 };
 
-const loglo = (lin, direction) => {
-  lin = lin.toLowerCase();
-  const logl = require('./loglan.js');
-  const items = logl.loglandic();
-  let i, myregexp, j;
-  //now the function itself
-  try {
-    if (direction !== 'coi') {
-      //from lojban to loglan
-      lin = run_camxes(lin.replace(/[^a-z'\. ]/g, ''), 5).replace(/[^a-z'\. ]/g, '').trim().split(" ");
-      for (i = 0; i < items.length; i++) {
-        myregexp = new RegExp(`^${items[i][0]}$`, "gm");
-        for (j = 0; j < lin.length; j++) {
-          if (lin[j].match(myregexp) !== null) {
-            lin[j] = items[i][1].replace(/ /gm, "A ").replace(/$/gm, "A");
-          }
-        }
-      }
-      lin = lin.join(" ").replace(/ /gm, "* ").replace(/$/gm, "*").replace(/A\*/gm, "").replace(/A$/gm, "");
-    } else {
-      lin = lin.replace(/[^a-z', ]/g, '').replace(/\./g, ' ').replace(/ +/g, ' ').trim().split(" ");
-      for (i = 0; i < items.length; i++) {
-        myregexp = new RegExp(`^${items[i][1]}$`, "gm");
-        for (j = 0; j < lin.length; j++) {
-          if (lin[j].match(myregexp) !== null) {
-            lin[j] = items[i][0].replace(/ /gm, "A ").replace(/$/gm, "A");
-          }
-        }
-      }
-      lin = lin.join(" ").replace(/ /gm, "* ").replace(/$/gm, "*").replace(/A\*/gm, "").replace(/A$/gm, "");
-    }
-  } catch (err) {
-    lin = 'O_0';
-  }
-  return lin.replace(/(.{190,250})(, |[ \.\"\/])/g, '$1$2\n').trim();
-};
-
-const gloso = (lin, lng, check, xmlDoc) => {
-  lin = lin.replace(/\"/g, '');
-  if (typeof xmlDoc === 'undefined') {
-    if (lng === "en") {
-      xmlDoc = xmlDocEn;
-    } else {
-      xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname, "../dumps", `${lng}.xml`), {
-        encoding: 'utf8'
-      }));
-    }
-  }
-  const items = [
-    ["lo", "those-which"],
-    ["le", "the"],
-    ["la", "@@@"],
-    ["nu", "event-of"],
-    ["zo", "the-word:"],
-    ["coi", "hello"],
-    ["co'o", "goodbye"],
-    ["ro", "each-of"],
-    ["ma", "what"],
-    ["mo", "is-what"],
-    ["na", "not"],
-    ["na'e", "not"],
-    ["nai", "-not"],
-    ["nelci", "fond-of"],
-    ["ka", "being"],
-    ["tu'a", "about"],
-    ["ie", "yeah"],
-    ["e'u", "I-suggest"],
-    ["e'a", "[permission-granted]"],
-    ["pei", "?"],
-    ["e", "and"],
-    ["enai", "and-not"],
-    ["a", "and/or"],
-    ["jenai", "and-not"],
-    ["je", "and"],
-    ["ja", "and/or"],
-    ["gi'e", ",-and"],
-    ["gi'a", ",-and/or"],
-    ["bu'u", "at"],
-    ["ca", "at-present"],
-    ["ku", ","],
-    ["zo'u", ":"],
-    ["pe", "that-is-related-to"],
-    ["za'a", "as-I-can-see"],
-    ["za'adai", "as-you-can-see"],
-    ["pu", "in-past"],
-    ["ba", "in-future"],
-    ["vau", "]"],
-    ["doi", "oh"],
-    ["uinai", "unfortunately"],
-    ["u'u", "sorry"],
-    ["ko", "do-it-so-that-you"],
-    ["poi", "that"],
-    ["noi", ",which"],
-    ["me", "among"],
-    ["ra", "recently-mentioned"],
-    //["bakni","is-a-cow"],
-    ["mlatu@n", "cat"],
-    ["dansu@n", "dancer(s)"],
-    ["klama@n", "comer"],
-    ["slabu", "is-familiar-to"],
-    ["dansu", "dance(s)"],
-    ["mlatu", "is-a-cat"],
-    ["klama", "come(s)"],
-    ["pe'i", "in-my-opinion"],
-    ["ui", "yay"],
-    ["uinai", "unfortunately"],
-    ["ju", "whether-or-not"],
-    ["gu", "whether-or-not"],
-    ["gi'u", "whether-or-not"],
-    ["u", "whether-or-not"],
-    ["xu", "is-it-true-that"],
-    ["xunai", "isnt-it-so-that"],
-    ["ka'e", "possibly-can"],
-    ["re'u", "time"],
-    ["roi", "times"],
-    ["pa'o", "through"],
-    ["co'a", "become"],
-    ["mi", "me"] //dont copy
-  ];
-  const itemsu = [ //universal glosses
-    ["lu", "<"],
-    ["li'u", ">"],
-    ["i", "."],
-    ["bo", "-|-"],
-    ["sai", "!"],
-    ["cai", "!!!"],
-    ["na'e", "!"],
-    ["da", "X"],
-    ["de", "Y"],
-    ["di", "Z"],
-    ["cu", ":"],
-    ["jo", "⇔"],
-    ["fa", "(1:)"],
-    ["fe", "(2:)"],
-    ["fi", "(3:)"],
-    ["fo", "(4:)"],
-    ["fu", "(5:)"],
-    ["se", "1⇔2"],
-    ["te", "1⇔3"],
-    ["ve", "1⇔4"],
-    ["xe", "1⇔5"],
-    ["ba'e", "(NB!=>)"],
-    ["na", "!"]
-  ];
-  lin = lin.toLowerCase();
-  let i, myregexp, j;
-  try {
-    //from lojban to gloso
-
-    if (check !== 1) {
-      lin = run_camxes(lin.replace(/[^a-z'\. ]/g, ''), 2).replace(/h/g, "H").replace(/NF/g, "@nf").replace(/\bKU\b/g, "@ku").replace(/[^a-z@'\. ]/g, '').replace(/ {2,}/g, " ").replace(/ ([nd]ai)( |$)/img, "$1$2").replace(/ @nf @ku\b/g, "@n").replace(/ @nf\b/g, "").trim();
-    }
-    lg(lin);
-    lin = lin.split(" ");
-    for (i = 0; i < lin.length; i++) {
-      //if (xucmavo(lin[i])===true & check===1){}else{
-      if (lng === 'en') { //items are only for English. Think of some universal items.
-        for (j = 0; j < items.length; j++) {
-          myregexp = new RegExp(`^${items[j][0]}$`, "gim");
-          if (lin[i].match(myregexp) !== null) {
-            lin[i] = items[j][1].replace(/$/gm, "%%%");
-          } else if (lin[i].replace(/@n$/, "").match(myregexp) !== null) { //if noun not found
-            lin[i] = items[j][1].replace(/$/gm, "%%%");
-          }
-        }
-      }
-      for (j = 0; j < itemsu.length; j++) { //universal items, actually should use them later
-        myregexp = new RegExp(`^${itemsu[j][0]}$`, "gim");
-        if (lin[i].match(myregexp) !== null) {
-          lin[i] = itemsu[j][1].replace(/$/gm, "%%%");
-        }
-      }
-      lin[i] = lin[i].replace(/@n$/, "");
-      let cnt = xmlDoc.get(`/dictionary/direction[1]/valsi[translate(@word,"${lin[i].toUpperCase()}","${lin[i]}")="${lin[i]}"]/glossword[1]`);
-      if (typeof cnt === 'undefined') {
-        cnt = xmlDoc.get(`/dictionary/direction[1]/valsi[translate(@word,"${lin[i].toUpperCase()}","${lin[i]}")="${lin[i]}"]/keyword[@place="1"]`);
-      } //try keyword
-      if (typeof cnt !== 'undefined') {
-        lin[i] = cnt.attr("word").value().replace(/ /gm, "-").replace(/$/gm, "%%%");
-      }
-    }
-    //}
-    if (check === 2) {
-      lin = lin.join(tersepli);
-    } else {
-      lin = lin.join(" ");
-    }
-    lin = lin.replace(/ /gm, "* ").replace(/$/gm, "*").replace(/%%%\*/gm, "");
-    lin = lin.replace(/(@@@ .)/ig, v => v.toUpperCase()).replace(/@@@/ig, ''); //uppercase for {la}
-    lin = lin.replace(/,+ *\./g, '.');
-    lin = lin.replace(/(^.)/ig, v => v.toUpperCase()).replace(/ +/ig, ' ').replace(/( \. *[^ ])/ig, v => v.toUpperCase()).replace(/ \./ig, '.'); //punctuation prettification
-    lin = lin.replace(/-/g, ' ');
-    lin = lin.replace(/ *(:|,)/g, '$1');
-    lin = lin.replace(/\*\*/g, '*');
-    lin = lin.replace(/\@?\b([a-z']+?)\b\*/g, '');
-    lin = lin.replace(/( \+\*){1,}/g, ' +');
-    lin = lin.replace(/ {2,}/g, ' ').trim();
-  } catch (err) {
-    lin = 'O_0';
-  }
-  return lin;
-};
-
-const rotpaci = lin => lin.trim().replace(/[a-zA-Z]/g, c => String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26));
-
 //Stanford NLP
 //const  StanfordSimpleNLP = require('stanford-simple-nlp');
 //const stanfordSimpleNLP = new StanfordSimpleNLP.StanfordSimpleNLP();
@@ -1238,18 +779,6 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
     });
 };
 */
-// LUJVO CONSTRUCTOR PART
-const C = "(" + "[bcdfgjklmnprstvxz]" + ")";
-const V = "(" + "[aeiou]" + ")";
-// const Vy="("+"[aeiouy]"+")";
-const CC = "(" + "[bcfgkmpsvx][lr]|[td]r|[cs][pftkmn]|[jz][bvdgm]|t[cs]|d[jz]" + ")";
-const C_C = "(" + "[bdgjvzcfkpstx][lrmn]|[lrn][bdgjvzcfkpstx]|b[dgjvz]|d[bgjvz]|g[bdjvz]|j[bdgv]|v[bdgjz]|z[bdgv]|c[fkpt]|f[ckpstx]|k[cfpst]|p[cfkstx]|s[fkptx]|t[cfkpsx]|x[fpst]|l[rmn]|r[lmn]|m[lrnbdgjvcfkpstx]|n[lrm]" + ")";
-const CxC = "(" + "[lmnr][bcdfgjkpstvx]|l[mnrz]|mn|n[lmrz]|r[lmnz]|b[dgjmnvz]|d[bglmnv]|g[bdjmnvz]|[jz][lnr]|v[bdgjmnz]|f[ckmnpstx]|k[cfmnpst]|p[cfkmnstx]|sx|t[fklmnpx]|x[fmnpst]" + ")";
-const CyC = `((${C})\\2|[bdgjvz][cfkpstx]|[cfkpstx][bdgjvz]|[cjsz]{2,2}|[ck]x|x[ck]|mz)`;
-const CCV = `(${CC}${V})`;
-const CVV = `(${C}(?:ai|au|ei|oi|${V}'${V}))`;
-const CVC = `(${C}${V}${C})`;
-const gism = `(${CC}${V}${C}|${C}${V}${C_C})`;
 
 const zmifanva = (source, socket, clientm, sendTo, src, dir) => {
   const request = require("request");
@@ -1267,320 +796,6 @@ const zmifanva = (source, socket, clientm, sendTo, src, dir) => {
       }
     }
   });
-};
-
-const cmaxes=function(){"use strict";function t(t,r){function e(){this.constructor=t}e.prototype=r.prototype,t.prototype=new e}function r(t,e,n,u){this.message=t,this.expected=e,this.found=n,this.location=u,this.name="SyntaxError","function"==typeof Error.captureStackTrace&&Error.captureStackTrace(this,r)}function e(t,e){function n(t,r,e){return{type:"class",parts:t,inverted:r,ignoreCase:e}}function u(){return{type:"any"}}function o(){return{type:"end"}}function s(t){return{type:"other",description:t}}function i(r){var e,n=Rr[r];if(n)return n;for(e=r-1;!Rr[e];)e--;for(n=Rr[e],n={line:n.line,column:n.column};e<r;)10===t.charCodeAt(e)?(n.line++,n.column=1):n.column++,e++;return Rr[r]=n,n}function l(t,r){var e=i(t),n=i(r);return{start:{offset:t,line:e.line,column:e.column},end:{offset:r,line:n.line,column:n.column}}}function c(t){kr<Mr||(kr>Mr&&(Mr=kr,Or=[]),Or.push(t))}function a(t,e,n){return new r(r.buildMessage(t,e),t,e,n)}function f(){var t,r,e,n=64*kr+0,u=Zr[n];if(u)return kr=u.nextPos,u.result;for(t=kr,r=[],e=v();e!==Ft;)r.push(e),e=v();return r!==Ft&&(zr=t,r=bt(r)),t=r,Zr[n]={nextPos:kr,result:t},t}function v(){var t,r,e=64*kr+1,n=Zr[e];return n?(kr=n.nextPos,n.result):(t=kr,r=x(),r!==Ft&&(zr=t,r=Ct(r)),t=r,Zr[e]={nextPos:kr,result:t},t)}function x(){var t,r,e,n,u,o,s,i,l,c,a,f=64*kr+2,v=Zr[f];return v?(kr=v.nextPos,v.result):(t=gt(),t===Ft&&(t=P(),t===Ft&&(t=kr,r=A(),r!==Ft&&(zr=t,r=jt(r)),t=r,t===Ft&&(t=kr,r=d(),r!==Ft&&(zr=t,r=kt(r)),t=r,t===Ft&&(t=kr,r=kr,e=kr,Tr++,n=d(),Tr--,n===Ft?e=void 0:(kr=e,e=Ft),e!==Ft?(n=kr,Tr++,u=p(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(u=kr,Tr++,o=A(),Tr--,o===Ft?u=void 0:(kr=u,u=Ft),u!==Ft?(o=kr,Tr++,s=kr,i=O(),i!==Ft?(l=ht(),l!==Ft?(c=_(),c!==Ft?(a=L(),a!==Ft?(i=[i,l,c,a],s=i):(kr=s,s=Ft)):(kr=s,s=Ft)):(kr=s,s=Ft)):(kr=s,s=Ft),Tr--,s===Ft?o=void 0:(kr=o,o=Ft),o!==Ft?(s=g(),s!==Ft?(e=[e,n,u,o,s],r=e):(kr=r,r=Ft)):(kr=r,r=Ft)):(kr=r,r=Ft)):(kr=r,r=Ft)):(kr=r,r=Ft),r!==Ft&&(zr=t,r=zt(r)),t=r,t===Ft&&(t=kr,r=p(),r!==Ft&&(zr=t,r=Rt(r)),t=r))))),Zr[f]={nextPos:kr,result:t},t)}function P(){var t,r,e,n,u,o,s=64*kr+3,i=Zr[s];if(i)return kr=i.nextPos,i.result;if(t=kr,r=kr,e=kr,Tr++,n=F(),Tr--,n!==Ft?(kr=e,e=void 0):e=Ft,e!==Ft){if(n=[],u=G(),u!==Ft)for(;u!==Ft;)n.push(u),u=G();else n=Ft;n!==Ft?(u=kr,Tr++,o=At(),Tr--,o!==Ft?(kr=u,u=void 0):u=Ft,u!==Ft?(e=[e,n,u],r=e):(kr=r,r=Ft)):(kr=r,r=Ft)}else kr=r,r=Ft;return r===Ft&&(r=F()),r!==Ft&&(zr=t,r=Mt(r)),t=r,Zr[s]={nextPos:kr,result:t},t}function d(){var t,r,e,n,u,o,s,i=64*kr+4,l=Zr[i];return l?(kr=l.nextPos,l.result):(t=kr,r=U(),r!==Ft?(e=kr,Tr++,n=D(),Tr--,n!==Ft?(kr=e,e=void 0):e=Ft,e!==Ft?(n=kr,Tr++,u=B(),Tr--,u!==Ft?(kr=n,n=void 0):n=Ft,n!==Ft?(u=X(),u!==Ft?(o=kr,Tr++,s=pt(),Tr--,s!==Ft?(kr=o,o=void 0):o=Ft,o!==Ft?(r=[r,e,n,u,o],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[i]={nextPos:kr,result:t},t)}function h(){var t,r,e,n,u,o,s=64*kr+5,i=Zr[s];if(i)return kr=i.nextPos,i.result;if(t=kr,r=w(),r!==Ft)if(e=H(),e!==Ft)if(n=kr,Tr++,u=D(),Tr--,u!==Ft?(kr=n,n=void 0):n=Ft,n!==Ft){for(u=[],o=I();o!==Ft;)u.push(o),o=I();u!==Ft?(r=[r,e,n,u],t=r):(kr=t,t=Ft)}else kr=t,t=Ft;else kr=t,t=Ft;else kr=t,t=Ft;return Zr[s]={nextPos:kr,result:t},t}function p(){var t,r,e,n=64*kr+6,u=Zr[n];return u?(kr=u.nextPos,u.result):(t=kr,r=h(),r!==Ft?(e=B(),e!==Ft?(r=[r,e],t=r):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[n]={nextPos:kr,result:t},t)}function A(){var t,r,e,n,u,o,s,i,l,c,a,f=64*kr+7,v=Zr[f];if(v)return kr=v.nextPos,v.result;if(t=kr,r=kr,Tr++,e=P(),Tr--,e===Ft?r=void 0:(kr=r,r=Ft),r!==Ft)if(e=kr,Tr++,n=kr,u=R(),u!==Ft?(o=kr,Tr++,s=D(),Tr--,s===Ft?o=void 0:(kr=o,o=Ft),o!==Ft?(s=_(),s!==Ft?(i=ht(),i===Ft&&(i=null),i!==Ft?(l=g(),l!==Ft?(u=[u,o,s,i,l],n=u):(kr=n,n=Ft)):(kr=n,n=Ft)):(kr=n,n=Ft)):(kr=n,n=Ft)):(kr=n,n=Ft),n===Ft&&(n=kr,u=R(),u!==Ft?(o=kr,Tr++,s=D(),Tr--,s!==Ft?(kr=o,o=void 0):o=Ft,o!==Ft?(s=_(),s!==Ft?(i=J(),i!==Ft?(u=[u,o,s,i],n=u):(kr=n,n=Ft)):(kr=n,n=Ft)):(kr=n,n=Ft)):(kr=n,n=Ft)),Tr--,n===Ft?e=void 0:(kr=e,e=Ft),e!==Ft){if(n=kr,u=kr,Tr++,o=ht(),Tr--,o===Ft?u=void 0:(kr=u,u=Ft),u!==Ft){if(o=kr,Tr++,s=kr,i=ut(),i!==Ft){if(l=[],c=ut(),c!==Ft)for(;c!==Ft;)l.push(c),c=ut();else l=Ft;l!==Ft?(i=[i,l],s=i):(kr=s,s=Ft)}else kr=s,s=Ft;if(Tr--,s===Ft?o=void 0:(kr=o,o=Ft),o!==Ft)if(s=L(),s!==Ft){for(i=[],l=kr,c=Q(),c!==Ft?(a=ht(),a!==Ft?(c=[c,a],l=c):(kr=l,l=Ft)):(kr=l,l=Ft);l!==Ft;)i.push(l),l=kr,c=Q(),c!==Ft?(a=ht(),a!==Ft?(c=[c,a],l=c):(kr=l,l=Ft)):(kr=l,l=Ft);i!==Ft?(l=Q(),l!==Ft?(u=[u,o,s,i,l],n=u):(kr=n,n=Ft)):(kr=n,n=Ft)}else kr=n,n=Ft;else kr=n,n=Ft}else kr=n,n=Ft;if(n===Ft)if(n=[],u=_(),u!==Ft)for(;u!==Ft;)n.push(u),u=_();else n=Ft;n!==Ft?(u=kr,Tr++,o=pt(),Tr--,o!==Ft?(kr=u,u=void 0):u=Ft,u!==Ft?(r=[r,e,n,u],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)}else kr=t,t=Ft;else kr=t,t=Ft;return Zr[f]={nextPos:kr,result:t},t}function g(){var t,r,e,n,u,o,s,i,l=64*kr+8,c=Zr[l];if(c)return kr=c.nextPos,c.result;for(t=kr,r=[],e=kr,n=z(),n===Ft&&(n=S(),n===Ft&&(n=C(),n===Ft&&(n=kr,u=kr,Tr++,o=m(),Tr--,o===Ft?u=void 0:(kr=u,u=Ft),u!==Ft?(o=j(),o!==Ft?(s=kr,Tr++,i=m(),Tr--,i===Ft?s=void 0:(kr=s,s=Ft),s!==Ft?(u=[u,o,s],n=u):(kr=n,n=Ft)):(kr=n,n=Ft)):(kr=n,n=Ft)))),n!==Ft&&(zr=e,n=Ot(n)),e=n;e!==Ft;)r.push(e),e=kr,n=z(),n===Ft&&(n=S(),n===Ft&&(n=C(),n===Ft&&(n=kr,u=kr,Tr++,o=m(),Tr--,o===Ft?u=void 0:(kr=u,u=Ft),u!==Ft?(o=j(),o!==Ft?(s=kr,Tr++,i=m(),Tr--,i===Ft?s=void 0:(kr=s,s=Ft),s!==Ft?(u=[u,o,s],n=u):(kr=n,n=Ft)):(kr=n,n=Ft)):(kr=n,n=Ft)))),n!==Ft&&(zr=e,n=Ot(n)),e=n;return r!==Ft?(e=kr,n=p(),n===Ft&&(n=Z()),n!==Ft&&(zr=e,n=Tt(n)),e=n,e===Ft&&(e=kr,n=k(),n===Ft&&(n=E(),n===Ft&&(n=b(),n===Ft&&(n=kr,u=T(),u!==Ft?(o=kr,Tr++,s=D(),Tr--,s!==Ft?(kr=o,o=void 0):o=Ft,o!==Ft?(u=[u,o],n=u):(kr=n,n=Ft)):(kr=n,n=Ft)))),n!==Ft?(u=J(),u!==Ft?(zr=e,n=Zt(n,u),e=n):(kr=e,e=Ft)):(kr=e,e=Ft)),e!==Ft?(r=[r,e],t=r):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[l]={nextPos:kr,result:t},t}function m(){var t,r=64*kr+9,e=Zr[r];return e?(kr=e.nextPos,e.result):(t=p(),t===Ft&&(t=S(),t===Ft&&(t=E())),Zr[r]={nextPos:kr,result:t},t)}function y(){var t,r,e,n,u,o,s,i,l=64*kr+10,c=Zr[l];if(c)return kr=c.nextPos,c.result;for(t=kr,r=[],e=j();e!==Ft;)r.push(e),e=j();return r!==Ft?(e=Z(),e===Ft&&(e=kr,n=T(),n!==Ft?(u=kr,Tr++,o=D(),Tr--,o!==Ft?(kr=u,u=void 0):u=Ft,u!==Ft?(o=kr,Tr++,s=_(),Tr--,s===Ft?o=void 0:(kr=o,o=Ft),o!==Ft?(s=J(),s!==Ft?(n=[n,u,o,s],e=n):(kr=e,e=Ft)):(kr=e,e=Ft)):(kr=e,e=Ft)):(kr=e,e=Ft),e===Ft&&(e=C(),e===Ft&&(e=b(),e===Ft&&(e=kr,n=kr,u=T(),u!==Ft?(o=kr,Tr++,s=D(),Tr--,s!==Ft?(kr=o,o=void 0):o=Ft,o!==Ft?(s=kr,Tr++,i=_(),Tr--,i===Ft?s=void 0:(kr=s,s=Ft),s!==Ft?(u=[u,o,s],n=u):(kr=n,n=Ft)):(kr=n,n=Ft)):(kr=n,n=Ft),n===Ft&&(n=null),n!==Ft?(u=et(),u!==Ft?(o=_(),o!==Ft?(n=[n,u,o],e=n):(kr=e,e=Ft)):(kr=e,e=Ft)):(kr=e,e=Ft),e===Ft&&(e=z(),e===Ft&&(e=k())))))),e!==Ft?(r=[r,e],t=r):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[l]={nextPos:kr,result:t},t}function w(){var t,r,e,n,u,o,s,i,l=64*kr+11,c=Zr[l];if(c)return kr=c.nextPos,c.result;if(t=kr,r=kr,Tr++,e=y(),Tr--,e===Ft?r=void 0:(kr=r,r=Ft),r!==Ft)if(e=kr,Tr++,n=A(),Tr--,n===Ft?e=void 0:(kr=e,e=Ft),e!==Ft)if(n=kr,Tr++,u=kr,o=kr,Tr++,s=y(),Tr--,s===Ft?o=void 0:(kr=o,o=Ft),o!==Ft?(s=ut(),s!==Ft?(i=y(),i!==Ft?(o=[o,s,i],u=o):(kr=u,u=Ft)):(kr=u,u=Ft)):(kr=u,u=Ft),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft)if(u=kr,Tr++,o=ht(),Tr--,o===Ft?u=void 0:(kr=u,u=Ft),u!==Ft)if(o=kr,Tr++,s=L(),Tr--,s!==Ft?(kr=o,o=void 0):o=Ft,o!==Ft){for(s=[],i=N();i!==Ft;)s.push(i),i=N();s!==Ft?(r=[r,e,n,u,o,s],t=r):(kr=t,t=Ft)}else kr=t,t=Ft;else kr=t,t=Ft;else kr=t,t=Ft;else kr=t,t=Ft;else kr=t,t=Ft;return Zr[l]={nextPos:kr,result:t},t}function F(){var t,r,e,n,u,o,s,i=64*kr+12,l=Zr[i];if(l)return kr=l.nextPos,l.result;if(t=kr,r=kr,Tr++,e=ht(),Tr--,e===Ft?r=void 0:(kr=r,r=Ft),r!==Ft){for(e=[],n=Q(),n===Ft&&(n=V(),n===Ft&&(n=ht(),n===Ft&&(n=kr,u=ut(),u!==Ft?(o=kr,Tr++,s=At(),Tr--,s===Ft?o=void 0:(kr=o,o=Ft),o!==Ft?(u=[u,o],n=u):(kr=n,n=Ft)):(kr=n,n=Ft))));n!==Ft;)e.push(n),n=Q(),n===Ft&&(n=V(),n===Ft&&(n=ht(),n===Ft&&(n=kr,u=ut(),u!==Ft?(o=kr,Tr++,s=At(),Tr--,s===Ft?o=void 0:(kr=o,o=Ft),o!==Ft?(u=[u,o],n=u):(kr=n,n=Ft)):(kr=n,n=Ft))));e!==Ft?(n=ut(),n!==Ft?(u=kr,Tr++,o=At(),Tr--,o!==Ft?(kr=u,u=void 0):u=Ft,u!==Ft?(r=[r,e,n,u],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)}else kr=t,t=Ft;return Zr[i]={nextPos:kr,result:t},t}function E(){var t,r,e,n,u=64*kr+13,o=Zr[u];return o?(kr=o.nextPos,o.result):(t=kr,r=h(),r!==Ft?(e=ht(),e!==Ft?(n=_(),n!==Ft?(zr=t,r=Jt(r),t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),t===Ft&&(t=kr,r=kr,e=h(),e!==Ft?(n=L(),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),r!==Ft?(e=_(),e!==Ft?(zr=t,r=Nt(r),t=r):(kr=t,t=Ft)):(kr=t,t=Ft)),Zr[u]={nextPos:kr,result:t},t)}function S(){var t,r,e,n,u,o=64*kr+14,s=Zr[o];return s?(kr=s.nextPos,s.result):(t=kr,r=kr,e=kr,Tr++,n=N(),Tr--,n!==Ft?(kr=e,e=void 0):e=Ft,e!==Ft?(n=w(),n!==Ft?(u=L(),u!==Ft?(e=[e,n,u],r=e):(kr=r,r=Ft)):(kr=r,r=Ft)):(kr=r,r=Ft),r!==Ft?(e=_(),e!==Ft?(n=ht(),n===Ft&&(n=null),n!==Ft?(zr=t,r=Nt(r),t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[o]={nextPos:kr,result:t},t)}function b(){var t,r,e,n,u=64*kr+15,o=Zr[u];return o?(kr=o.nextPos,o.result):(t=kr,r=U(),r===Ft&&(r=R()),r!==Ft?(e=kr,Tr++,n=D(),Tr--,n!==Ft?(kr=e,e=void 0):e=Ft,e!==Ft?(n=_(),n!==Ft?(zr=t,r=Nt(r),t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[u]={nextPos:kr,result:t},t)}function C(){var t,r,e,n,u,o=64*kr+16,s=Zr[o];return s?(kr=s.nextPos,s.result):(t=kr,r=U(),r===Ft&&(r=R()),r!==Ft?(e=kr,Tr++,n=D(),Tr--,n===Ft?e=void 0:(kr=e,e=Ft),e!==Ft?(n=_(),n!==Ft?(u=ht(),u===Ft&&(u=null),u!==Ft?(zr=t,r=Nt(r),t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[o]={nextPos:kr,result:t},t)}function j(){var t,r,e,n,u,o,s,i,l,c,a=64*kr+17,f=Zr[a];return f?(kr=f.nextPos,f.result):(t=kr,r=kr,Tr++,e=C(),Tr--,e===Ft?r=void 0:(kr=r,r=Ft),r!==Ft?(e=kr,Tr++,n=b(),Tr--,n===Ft?e=void 0:(kr=e,e=Ft),e!==Ft?(n=kr,Tr++,u=z(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(u=kr,Tr++,o=k(),Tr--,o===Ft?u=void 0:(kr=u,u=Ft),u!==Ft?(o=T(),o!==Ft?(s=kr,Tr++,i=D(),Tr--,i===Ft?s=void 0:(kr=s,s=Ft),s!==Ft?(i=kr,Tr++,l=_(),Tr--,l===Ft?i=void 0:(kr=i,i=Ft),i!==Ft?(l=kr,Tr++,c=ht(),Tr--,c===Ft?l=void 0:(kr=l,l=Ft),l!==Ft?(r=[r,e,n,u,o,s,i,l],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[a]={nextPos:kr,result:t},t)}function k(){var t,r,e,n,u,o=64*kr+18,s=Zr[o];return s?(kr=s.nextPos,s.result):(t=kr,r=kr,e=U(),e!==Ft?(n=X(),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),r===Ft&&(r=T()),r!==Ft?(e=kr,Tr++,n=D(),Tr--,n!==Ft?(kr=e,e=void 0):e=Ft,e!==Ft?(n=ht(),n!==Ft?(u=_(),u!==Ft?(zr=t,r=Nt(r),t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[o]={nextPos:kr,result:t},t)}function z(){var t,r,e,n,u,o,s=64*kr+19,i=Zr[s];return i?(kr=i.nextPos,i.result):(t=kr,r=kr,e=U(),e!==Ft?(n=X(),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),r===Ft&&(r=T()),r!==Ft?(e=kr,Tr++,n=D(),Tr--,n===Ft?e=void 0:(kr=e,e=Ft),e!==Ft?(n=ht(),n!==Ft?(u=_(),u!==Ft?(o=ht(),o===Ft&&(o=null),o!==Ft?(zr=t,r=Nt(r),t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[s]={nextPos:kr,result:t},t)}function R(){var t,r,e,n=64*kr+20,u=Zr[n];return u?(kr=u.nextPos,u.result):(t=kr,r=q(),r!==Ft?(e=ut(),e!==Ft?(r=[r,e],t=r):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[n]={nextPos:kr,result:t},t)}function M(){var t,r=64*kr+21,e=Zr[r];return e?(kr=e.nextPos,e.result):(t=R(),t===Ft&&(t=O()),Zr[r]={nextPos:kr,result:t},t)}function O(){var t,r,e,n=64*kr+22,u=Zr[n];return u?(kr=u.nextPos,u.result):(t=kr,r=et(),r!==Ft?(e=X(),e!==Ft?(r=[r,e],t=r):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[n]={nextPos:kr,result:t},t)}function T(){var t,r,e,n,u,o,s,i=64*kr+23,l=Zr[i];return l?(kr=l.nextPos,l.result):(t=M(),t===Ft&&(t=kr,r=ut(),r!==Ft?(e=kr,n=X(),n!==Ft?(u=kr,Tr++,o=D(),Tr--,o===Ft?u=void 0:(kr=u,u=Ft),u!==Ft?(o=ht(),o!==Ft?(s=X(),s!==Ft?(n=[n,u,o,s],e=n):(kr=e,e=Ft)):(kr=e,e=Ft)):(kr=e,e=Ft)):(kr=e,e=Ft),e===Ft&&(e=W()),e!==Ft?(n=kr,u=ct(),u!==Ft?(o=kr,Tr++,s=ut(),Tr--,s!==Ft?(kr=o,o=void 0):o=Ft,o!==Ft?(u=[u,o],n=u):(kr=n,n=Ft)):(kr=n,n=Ft),n===Ft&&(n=kr,u=lt(),u!==Ft?(o=kr,Tr++,s=ct(),Tr--,s!==Ft?(kr=o,o=void 0):o=Ft,o!==Ft?(u=[u,o],n=u):(kr=n,n=Ft)):(kr=n,n=Ft)),n===Ft&&(n=null),n!==Ft?(r=[r,e,n],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)),Zr[i]={nextPos:kr,result:t},t)}function Z(){var t,r,e,n,u,o,s,i,l=64*kr+24,c=Zr[l];return c?(kr=c.nextPos,c.result):(t=d(),t===Ft&&(t=kr,r=q(),r!==Ft?(e=kr,Tr++,n=D(),Tr--,n!==Ft?(kr=e,e=void 0):e=Ft,e!==Ft?(n=ht(),n!==Ft?(u=kr,Tr++,o=B(),Tr--,o!==Ft?(kr=u,u=void 0):u=Ft,u!==Ft?(o=X(),o!==Ft?(s=kr,Tr++,i=pt(),Tr--,i!==Ft?(kr=s,s=void 0):s=Ft,s!==Ft?(r=[r,e,n,u,o,s],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)),Zr[l]={nextPos:kr,result:t},t)}function J(){var t,r,e,n,u,o=64*kr+25,s=Zr[o];return s?(kr=s.nextPos,s.result):(t=kr,r=kr,Tr++,e=B(),Tr--,e!==Ft?(kr=r,r=void 0):r=Ft,r!==Ft?(e=kr,n=ut(),n!==Ft?(u=W(),u!==Ft?(n=[n,u],e=n):(kr=e,e=Ft)):(kr=e,e=Ft),e===Ft&&(e=O()),e!==Ft?(n=kr,Tr++,u=pt(),Tr--,u!==Ft?(kr=n,n=void 0):n=Ft,n!==Ft?(r=[r,e,n],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[o]={nextPos:kr,result:t},t)}function N(){var t,r,e,n,u=64*kr+26,o=Zr[u];return o?(kr=o.nextPos,o.result):(t=kr,r=H(),r!==Ft?(e=kr,Tr++,n=D(),Tr--,n===Ft?e=void 0:(kr=e,e=Ft),e!==Ft?(r=[r,e],t=r):(kr=t,t=Ft)):(kr=t,t=Ft),t===Ft&&(t=I()),Zr[u]={nextPos:kr,result:t},t)}function U(){var t,r,e,n=64*kr+27,u=Zr[n];return u?(kr=u.nextPos,u.result):(t=kr,r=M(),r!==Ft?(e=ut(),e!==Ft?(r=[r,e],t=r):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[n]={nextPos:kr,result:t},t)}function q(){var t,r,e,n=64*kr+28,u=Zr[n];return u?(kr=u.nextPos,u.result):(t=kr,r=ut(),r!==Ft?(e=X(),e!==Ft?(r=[r,e],t=r):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[n]={nextPos:kr,result:t},t)}function B(){var t,r,e,n,u,o,s,i=64*kr+29,l=Zr[i];return l?(kr=l.nextPos,l.result):(t=kr,r=L(),r!==Ft?(e=kr,Tr++,n=_(),Tr--,n===Ft?e=void 0:(kr=e,e=Ft),e!==Ft?(n=Q(),n!==Ft?(u=kr,Tr++,o=P(),Tr--,o===Ft?u=void 0:(kr=u,u=Ft),u!==Ft?(o=kr,Tr++,s=pt(),Tr--,s!==Ft?(kr=o,o=void 0):o=Ft,o!==Ft?(r=[r,e,n,u,o],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[i]={nextPos:kr,result:t},t)}function D(){var t,r,e,n,u,o,s=64*kr+30,i=Zr[s];if(i)return kr=i.nextPos,i.result;for(t=kr,r=[],e=ut(),e===Ft&&(e=V());e!==Ft;)r.push(e),e=ut(),e===Ft&&(e=V());return r!==Ft?(e=ht(),e===Ft&&(e=null),e!==Ft?(n=_(),n===Ft&&(n=null),n!==Ft?(u=H(),u!==Ft?(o=At(),o!==Ft?(r=[r,e,n,u,o],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[s]={nextPos:kr,result:t},t}function G(){var t,r,e,n,u,o=64*kr+31,s=Zr[o];return s?(kr=s.nextPos,s.result):(t=kr,r=kr,Tr++,e=kr,n=L(),n!==Ft?(u=_(),u!==Ft?(n=[n,u],e=n):(kr=e,e=Ft)):(kr=e,e=Ft),Tr--,e===Ft?r=void 0:(kr=r,r=Ft),r!==Ft?(e=H(),e!==Ft?(r=[r,e],t=r):(kr=t,t=Ft)):(kr=t,t=Ft),t===Ft&&(t=I()),Zr[o]={nextPos:kr,result:t},t)}function H(){var t,r,e,n,u,o=64*kr+32,s=Zr[o];return s?(kr=s.nextPos,s.result):(t=kr,r=L(),r!==Ft?(e=kr,Tr++,n=_(),Tr--,n===Ft?e=void 0:(kr=e,e=Ft),e!==Ft?(n=Q(),n!==Ft?(u=K(),u===Ft&&(u=null),u!==Ft?(r=[r,e,n,u],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[o]={nextPos:kr,result:t},t)}function I(){var t,r,e,n,u=64*kr+33,o=Zr[u];return o?(kr=o.nextPos,o.result):(t=kr,r=ut(),r!==Ft?(e=kr,Tr++,n=ot(),Tr--,n!==Ft?(kr=e,e=void 0):e=Ft,e!==Ft?(n=K(),n!==Ft?(r=[r,e,n],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[u]={nextPos:kr,result:t},t)}function K(){var t,r,e,n,u,o=64*kr+34,s=Zr[o];return s?(kr=s.nextPos,s.result):(t=kr,r=kr,Tr++,e=G(),Tr--,e===Ft?r=void 0:(kr=r,r=Ft),r!==Ft?(e=ut(),e!==Ft?(n=kr,Tr++,u=G(),Tr--,u!==Ft?(kr=n,n=void 0):n=Ft,n!==Ft?(r=[r,e,n],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),t===Ft&&(t=kr,r=ot(),r===Ft&&(r=null),r!==Ft?(e=ut(),e===Ft&&(e=null),e!==Ft?(n=kr,Tr++,u=At(),Tr--,u!==Ft?(kr=n,n=void 0):n=Ft,n!==Ft?(r=[r,e,n],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)),Zr[o]={nextPos:kr,result:t},t)}function L(){var t,r,e,n,u,o,s,i,l=64*kr+35,c=Zr[l];return c?(kr=c.nextPos,c.result):(t=ht(),t===Ft&&(t=V(),t===Ft&&(t=kr,r=nt(),r===Ft&&(r=kr,e=kr,n=xt(),n!==Ft?(u=kr,Tr++,o=Pt(),Tr--,o===Ft?u=void 0:(kr=u,u=Ft),u!==Ft?(n=[n,u],e=n):(kr=e,e=Ft)):(kr=e,e=Ft),e===Ft&&(e=kr,n=vt(),n!==Ft?(u=kr,Tr++,o=lt(),o===Ft&&(o=st(),o===Ft&&(o=ct())),Tr--,o===Ft?u=void 0:(kr=u,u=Ft),u!==Ft?(n=[n,u],e=n):(kr=e,e=Ft)):(kr=e,e=Ft)),e===Ft&&(e=null),e!==Ft?(n=at(),n===Ft&&(n=kr,u=dt(),u===Ft&&(u=ft(),u===Ft&&(u=kr,o=lt(),o!==Ft?(s=kr,Tr++,i=ct(),Tr--,i===Ft?s=void 0:(kr=s,s=Ft),s!==Ft?(o=[o,s],u=o):(kr=u,u=Ft)):(kr=u,u=Ft))),u!==Ft?(o=kr,Tr++,s=st(),Tr--,s===Ft?o=void 0:(kr=o,o=Ft),o!==Ft?(u=[u,o],n=u):(kr=n,n=Ft)):(kr=n,n=Ft),n===Ft&&(n=it())),n===Ft&&(n=null),n!==Ft?(u=st(),u===Ft&&(u=ct()),u===Ft&&(u=null),u!==Ft?(e=[e,n,u],r=e):(kr=r,r=Ft)):(kr=r,r=Ft)):(kr=r,r=Ft)),r!==Ft?(e=kr,Tr++,n=ut(),Tr--,n===Ft?e=void 0:(kr=e,e=Ft),e!==Ft?(n=kr,Tr++,u=V(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(r=[r,e,n],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft))),Zr[l]={nextPos:kr,result:t},t)}function Q(){var t,r,e,n,u=64*kr+36,o=Zr[u];return o?(kr=o.nextPos,o.result):(t=X(),t===Ft&&(t=W(),t===Ft&&(t=kr,r=_(),r!==Ft?(e=kr,Tr++,n=Q(),Tr--,n===Ft?e=void 0:(kr=e,e=Ft),e!==Ft?(r=[r,e],t=r):(kr=t,t=Ft)):(kr=t,t=Ft))),Zr[u]={nextPos:kr,result:t},t)}function V(){var t,r,e,n,u,o=64*kr+37,s=Zr[o];return s?(kr=s.nextPos,s.result):(t=kr,r=tt(),r===Ft&&(r=rt()),r!==Ft?(e=kr,Tr++,n=Q(),Tr--,n!==Ft?(kr=e,e=void 0):e=Ft,e!==Ft?(n=kr,Tr++,u=V(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(r=[r,e,n],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[o]={nextPos:kr,result:t},t)}function W(){var r,e,n,u,o,s,i=64*kr+38,l=Zr[i];return l?(kr=l.nextPos,l.result):(r=kr,e=kr,Ut.test(t.charAt(kr))?(n=t.charAt(kr),kr++):(n=Ft,0===Tr&&c(qt)),n!==Ft?(u=rt(),u!==Ft?(o=kr,Tr++,s=$(),Tr--,s===Ft?o=void 0:(kr=o,o=Ft),o!==Ft?(n=[n,u,o],e=n):(kr=e,e=Ft)):(kr=e,e=Ft)):(kr=e,e=Ft),e===Ft&&(e=kr,Bt.test(t.charAt(kr))?(n=t.charAt(kr),kr++):(n=Ft,0===Tr&&c(Dt)),n!==Ft?(u=tt(),u!==Ft?(o=kr,Tr++,s=Y(),Tr--,s===Ft?o=void 0:(kr=o,o=Ft),o!==Ft?(n=[n,u,o],e=n):(kr=e,e=Ft)):(kr=e,e=Ft)):(kr=e,e=Ft)),e!==Ft?(n=kr,Tr++,u=Q(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[i]={nextPos:kr,result:r},r)}function X(){var r,e,n,u,o=64*kr+39,s=Zr[o];return s?(kr=s.nextPos,s.result):(r=kr,Gt.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(Ht)),e!==Ft?(n=kr,Tr++,u=Q(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[o]={nextPos:kr,result:r},r)}function Y(){var r,e=64*kr+40,n=Zr[e];return n?(kr=n.nextPos,n.result):(It.test(t.charAt(kr))?(r=t.charAt(kr),kr++):(r=Ft,0===Tr&&c(Kt)),Zr[e]={nextPos:kr,result:r},r)}function $(){var r,e=64*kr+41,n=Zr[e];return n?(kr=n.nextPos,n.result):(Lt.test(t.charAt(kr))?(r=t.charAt(kr),kr++):(r=Ft,0===Tr&&c(Qt)),Zr[e]={nextPos:kr,result:r},r)}function _(){var r,e,n,u,o,s,i=64*kr+42,l=Zr[i];return l?(kr=l.nextPos,l.result):(r=kr,Vt.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(Wt)),e!==Ft?(n=kr,Tr++,u=kr,o=kr,Tr++,s=_(),Tr--,s===Ft?o=void 0:(kr=o,o=Ft),o!==Ft?(s=Q(),s!==Ft?(o=[o,s],u=o):(kr=u,u=Ft)):(kr=u,u=Ft),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[i]={nextPos:kr,result:r},r)}function tt(){var r,e=64*kr+43,n=Zr[e];return n?(kr=n.nextPos,n.result):(Xt.test(t.charAt(kr))?(r=t.charAt(kr),kr++):(r=Ft,0===Tr&&c(Yt)),Zr[e]={nextPos:kr,result:r},r)}function rt(){var r,e,n=64*kr+44,u=Zr[n];return u?(kr=u.nextPos,u.result):(r=kr,$t.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(_t)),e!==Ft&&(zr=r,e=tr()),r=e,Zr[n]={nextPos:kr,result:r},r)}function et(){var t,r,e,n,u,o,s=64*kr+45,i=Zr[s];return i?(kr=i.nextPos,i.result):(t=kr,r=kr,Tr++,e=L(),Tr--,e!==Ft?(kr=r,r=void 0):r=Ft,r!==Ft?(e=ut(),e!==Ft?(n=ut(),n!==Ft?(u=kr,Tr++,o=ut(),Tr--,o===Ft?u=void 0:(kr=u,u=Ft),u!==Ft?(r=[r,e,n,u],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft)):(kr=t,t=Ft),Zr[s]={nextPos:kr,result:t},t)}function nt(){var t,r,e,n=64*kr+46,u=Zr[n];return u?(kr=u.nextPos,u.result):(t=kr,r=dt(),r!==Ft?(e=xt(),e!==Ft?(r=[r,e],t=r):(kr=t,t=Ft)):(kr=t,t=Ft),t===Ft&&(t=kr,r=ft(),r!==Ft?(e=vt(),e!==Ft?(r=[r,e],t=r):(kr=t,t=Ft)):(kr=t,t=Ft)),Zr[n]={nextPos:kr,result:t},t)}function ut(){var t,r=64*kr+47,e=Zr[r];return e?(kr=e.nextPos,e.result):(t=at(),t===Ft&&(t=ft(),t===Ft&&(t=vt(),t===Ft&&(t=xt(),t===Ft&&(t=dt(),t===Ft&&(t=ot()))))),Zr[r]={nextPos:kr,result:t},t)}function ot(){var t,r=64*kr+48,e=Zr[r];return e?(kr=e.nextPos,e.result):(t=st(),t===Ft&&(t=it(),t===Ft&&(t=lt(),t===Ft&&(t=ct()))),Zr[r]={nextPos:kr,result:t},t)}function st(){var r,e,n,u,o=64*kr+49,s=Zr[o];return s?(kr=s.nextPos,s.result):(r=kr,rr.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(er)),e!==Ft?(n=kr,Tr++,u=V(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[o]={nextPos:kr,result:r},r)}function it(){var r,e,n,u,o=64*kr+50,s=Zr[o];return s?(kr=s.nextPos,s.result):(r=kr,nr.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(ur)),e!==Ft?(n=kr,Tr++,u=V(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[o]={nextPos:kr,result:r},r)}function lt(){var r,e,n,u,o,s=64*kr+51,i=Zr[s];return i?(kr=i.nextPos,i.result):(r=kr,or.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(sr)),e!==Ft?(n=kr,Tr++,u=V(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(u=kr,Tr++,o=nt(),Tr--,o===Ft?u=void 0:(kr=u,u=Ft),u!==Ft?(e=[e,n,u],r=e):(kr=r,r=Ft)):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[s]={nextPos:kr,result:r},r)}function ct(){var r,e,n,u,o=64*kr+52,s=Zr[o];return s?(kr=s.nextPos,s.result):(r=kr,ir.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(lr)),e!==Ft?(n=kr,Tr++,u=V(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[o]={nextPos:kr,result:r},r)}function at(){var r,e,n,u,o=64*kr+53,s=Zr[o];return s?(kr=s.nextPos,s.result):(r=kr,cr.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(ar)),e!==Ft?(n=kr,Tr++,u=V(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[o]={nextPos:kr,result:r},r)}function ft(){var r,e,n,u,o=64*kr+54,s=Zr[o];return s?(kr=s.nextPos,s.result):(r=kr,fr.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(vr)),e!==Ft?(n=kr,Tr++,u=V(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[o]={nextPos:kr,result:r},r)}function vt(){var r,e,n,u,o=64*kr+55,s=Zr[o];return s?(kr=s.nextPos,s.result):(r=kr,xr.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(Pr)),e!==Ft?(n=kr,Tr++,u=V(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[o]={nextPos:kr,result:r},r)}function xt(){var r,e,n,u,o=64*kr+56,s=Zr[o];return s?(kr=s.nextPos,s.result):(r=kr,dr.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(hr)),e!==Ft?(n=kr,Tr++,u=V(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[o]={nextPos:kr,result:r},r)}function Pt(){var r,e,n,u,o=64*kr+57,s=Zr[o];return s?(kr=s.nextPos,s.result):(r=kr,pr.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(Ar)),e!==Ft?(n=kr,Tr++,u=V(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[o]={nextPos:kr,result:r},r)}function dt(){var r,e,n,u,o=64*kr+58,s=Zr[o];return s?(kr=s.nextPos,s.result):(r=kr,gr.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(mr)),e!==Ft?(n=kr,Tr++,u=V(),Tr--,u===Ft?n=void 0:(kr=n,n=Ft),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[o]={nextPos:kr,result:r},r)}function ht(){var r,e,n,u,o=64*kr+59,s=Zr[o];return s?(kr=s.nextPos,s.result):(r=kr,yr.test(t.charAt(kr))?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(wr)),e!==Ft?(n=kr,Tr++,u=Q(),Tr--,u!==Ft?(kr=n,n=void 0):n=Ft,n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),Zr[o]={nextPos:kr,result:r},r)}function pt(){var r,e,n,u=64*kr+60,o=Zr[u];return o?(kr=o.nextPos,o.result):(r=At(),r===Ft&&(r=kr,e=kr,Tr++,n=Q(),Tr--,n===Ft?e=void 0:(kr=e,e=Ft),e!==Ft?(n=x(),n!==Ft?(e=[e,n],r=e):(kr=r,r=Ft)):(kr=r,r=Ft),r===Ft&&(Fr.test(t.charAt(kr))?(r=t.charAt(kr),kr++):(r=Ft,0===Tr&&c(Er)))),Zr[u]={nextPos:kr,result:r},r)}function At(){var r,e,n=64*kr+61,u=Zr[n];return u?(kr=u.nextPos,u.result):(r=gt(),r===Ft&&(r=kr,Tr++,t.length>kr?(e=t.charAt(kr),kr++):(e=Ft,0===Tr&&c(Sr)),Tr--,e===Ft?r=void 0:(kr=r,r=Ft)),Zr[n]={nextPos:kr,result:r},r)}function gt(){var r,e,n,u=64*kr+62,o=Zr[u];if(o)return kr=o.nextPos,o.result;if(r=kr,e=[],br.test(t.charAt(kr))?(n=t.charAt(kr),kr++):(n=Ft,0===Tr&&c(Cr)),n!==Ft)for(;n!==Ft;)e.push(n),br.test(t.charAt(kr))?(n=t.charAt(kr),kr++):(n=Ft,0===Tr&&c(Cr));else e=Ft;return e!==Ft&&(zr=r,e=jr(e)),r=e,Zr[u]={nextPos:kr,result:r},r}function mt(t){if("string"==typeof t)return t;var r="";for(var e in t)r+=mt(t[e]);return r}function yt(t){if("string"==typeof t)return t;var r=[];for(var e in t)r.push(yt(t[e]));return r}e=void 0!==e?e:{};var wt,Ft={},Et={text:f},St=f,bt=function(t){return yt(t)},Ct=function(t){return t},jt=function(t){return["cmavo",mt(t)]},kt=function(t){return["gismu",mt(t)]},zt=function(t){return["lujvo",mt(t)]},Rt=function(t){return["fu'ivla",mt(t)]},Mt=function(t){return["cmevla",mt(t)]},Ot=function(t){return[mt(t),"-"]},Tt=function(t){return[mt(t)]},Zt=function(t,r){return[mt(t),"-",mt(r)]},Jt=function(t){return[mt(t),""]},Nt=function(t){return[mt(t),""]},Ut=/^[a]/,qt=n(["a"],!1,!1),Bt=/^[aeo]/,Dt=n(["a","e","o"],!1,!1),Gt=/^[aeiou]/,Ht=n(["a","e","i","o","u"],!1,!1),It=/^[i]/,Kt=n(["i"],!1,!1),Lt=/^[u]/,Qt=n(["u"],!1,!1),Vt=/^[y]/,Wt=n(["y"],!1,!1),Xt=/^[i\u0269]/,Yt=n(["i","ɩ"],!1,!1),$t=/^[uw]/,_t=n(["u","w"],!1,!1),tr=function(){return["u",""]},rr=/^[l]/,er=n(["l"],!1,!1),nr=/^[m]/,ur=n(["m"],!1,!1),or=/^[n]/,sr=n(["n"],!1,!1),ir=/^[r]/,lr=n(["r"],!1,!1),cr=/^[pfbgvkx]/,ar=n(["p","f","b","g","v","k","x"],!1,!1),fr=/^[d]/,vr=n(["d"],!1,!1),xr=/^[jz]/,Pr=n(["j","z"],!1,!1),dr=/^[cs]/,hr=n(["c","s"],!1,!1),pr=/^[x]/,Ar=n(["x"],!1,!1),gr=/^[t]/,mr=n(["t"],!1,!1),yr=/^[,']/,wr=n([",","'"],!1,!1),Fr=/^[}]/,Er=n(["}"],!1,!1),Sr=u(),br=/^[^a-zA-Z,']/,Cr=n([["a","z"],["A","Z"],",","'"],!0,!1),jr=function(t){return["space",mt(t)]},kr=(n([" "],!0,!1),0),zr=0,Rr=[{line:1,column:1}],Mr=0,Or=[],Tr=0,Zr={};if("startRule"in e){if(!(e.startRule in Et))throw new Error("Can't start parsing from rule \""+e.startRule+'".');St=Et[e.startRule]}if(wt=St(),wt!==Ft&&kr===t.length)return wt;throw wt!==Ft&&kr<t.length&&c(o()),a(Or,Mr<t.length?t.charAt(Mr):null,Mr<t.length?l(Mr,Mr+1):l(Mr,Mr))}return t(r,Error),r.buildMessage=function(t,r){function e(t){return t.charCodeAt(0).toString(16).toUpperCase()}function n(t){return t.replace(/\\/g,"\\\\").replace(/"/g,'\\"').replace(/\0/g,"\\0").replace(/\t/g,"\\t").replace(/\n/g,"\\n").replace(/\r/g,"\\r").replace(/[\x00-\x0F]/g,function(t){return"\\x0"+e(t)}).replace(/[\x10-\x1F\x7F-\x9F]/g,function(t){return"\\x"+e(t)})}function u(t){return t.replace(/\\/g,"\\\\").replace(/\]/g,"\\]").replace(/\^/g,"\\^").replace(/-/g,"\\-").replace(/\0/g,"\\0").replace(/\t/g,"\\t").replace(/\n/g,"\\n").replace(/\r/g,"\\r").replace(/[\x00-\x0F]/g,function(t){return"\\x0"+e(t)}).replace(/[\x10-\x1F\x7F-\x9F]/g,function(t){return"\\x"+e(t)})}function o(t){return l[t.type](t)}function s(t){var r,e,n=new Array(t.length);for(r=0;r<t.length;r++)n[r]=o(t[r]);if(n.sort(),n.length>0){for(r=1,e=1;r<n.length;r++)n[r-1]!==n[r]&&(n[e]=n[r],e++);n.length=e}switch(n.length){case 1:return n[0];case 2:return n[0]+" or "+n[1];default:return n.slice(0,-1).join(", ")+", or "+n[n.length-1]}}function i(t){return t?'"'+n(t)+'"':"end of input"}var l={literal:function(t){return'"'+n(t.text)+'"'},"class":function(t){var r,e="";for(r=0;r<t.parts.length;r++)e+=t.parts[r]instanceof Array?u(t.parts[r][0])+"-"+u(t.parts[r][1]):u(t.parts[r]);return"["+(t.inverted?"^":"")+e+"]"},any:function(t){return"any character"},end:function(t){return"end of input"},other:function(t){return t.description}};return"Expected "+s(t)+" but "+i(r)+" found."},{SyntaxError:r,parse:e}}();
-
-const xuvalsi = (str, type) => {
-  let j;
-  let re;
-  if (type !== 'cmavo-compound') {
-    re = new RegExp(`^${type},[^,]+$`);
-  } else {
-    re = new RegExp("^cmavo,([^,]+)([^,]+,[^,]+)+$");
-  }
-  try {
-    j = cmaxes.parse(str.toLowerCase().replace(/,/g, '')).toString();
-  } catch (e) {
-    j = '';
-  }
-  return j.match(re) !== null ? true : false;
-};
-const xugismu = str => xuvalsi(str, "gismu");
-const xulujvo = str => xuvalsi(str, "lujvo");
-const xufuhivla = str => xuvalsi(str, "fu'ivla");
-// const xucmavo = str => xuvalsi (str,"cmavo");
-// const xucmavogunma = str => xuvalsi (str,"cmavo-compound");
-// const xucmevla = str => xuvalsi (str,"cmevla");
-
-//now split
-const jvokatna = lujvoi => {
-  let tmp;
-  tmp = lujvoi.toLowerCase().replace(/[^a-z']/img, "");
-  const myregexp = new RegExp(`^(${CVV})[rn]`, "gm");
-  const myregexpi = new RegExp(`(${gism}${V}$|${gism}(?=y)|${CVV}|${CCV}|${CVC})`, "g");
-  tmp = tmp.replace(myregexp, "$1 ");
-  tmp = tmp.replace(myregexpi, "$1 ");
-  tmp = tmp.replace(/y/g, " ");
-  tmp = tmp.replace(/ +/g, " ");
-  tmp = tmp.replace(/ '/g, " ");
-  return tmp.trim();
-};
-const rafyjongau = raf => { //join given rafsi into a lujvo
-  let lujvo = '';
-  let lihenraf = '';
-  for (let i = 0; i < raf.length; i++) {
-    let my = new RegExp(`^${gism}$`, "gm");
-    if ((raf[i].match(my) || []).length === 1 && i !== raf.length - 1) {
-      raf[i] = `${raf[i]}y`;
-    }
-    if (lihenraf !== '') {
-      const pa = lihenraf.substr(lihenraf.length - 1);
-      const re = raf[i].substr(0, 1);
-      const pare = pa + re;
-      my = new RegExp(`^${CyC}$`, "gm");
-      if (pare.match(my)) {
-        raf[i] = `y${raf[i]}`;
-      }
-      if (pa === "n" && (raf[i].match(/^(?:d[jz]|t[cs])/) !== null)) {
-        raf[i] = `y${raf[i]}`;
-      }
-    } else {
-      my = new RegExp(`^${CVV}$`, "gm");
-      const myt = new RegExp(`^${CCV}$`, "gm");
-      if ((raf[i].match(my) || []).length === 1 && (raf.length > 2 || ((raf[1].match(myt) || []).length === 0))) {
-        if (raf[1].substr(0, 1) === 'r') {
-          raf[i] = `${raf[i]}n`;
-        } else {
-          raf[i] = `${raf[i]}r`;
-        }
-      }
-    }
-    lihenraf = raf[i];
-    lujvo = lujvo + raf[i];
-
-  }
-
-  // tosmabru test
-  let myg = new RegExp(`^(${CVC}+)(?:(${C})${V}${CC}${V}|(${C})${V}${C}y.+)$`, "m");
-  if (lujvo.match(myg) !== null) {
-    //If there aren't at least two CVCs before a 'y', no hyphen is needed.
-    const pre = lujvo.match(myg)[1];
-    let next;
-    if (typeof lujvo.match(myg)[7] !== 'undefined') {
-      next = lujvo.match(myg)[7];
-    } else {
-      next = lujvo.match(myg)[12];
-    }
-    next = pre.substr(pre.length - 1) + next;
-    myg = new RegExp(CxC, "gm");
-    let myrg = new RegExp(CC, "");
-    if (pre.match(myg) === null && next.match(myrg) !== null) {
-      myrg = new RegExp(`(${C})(${C})`, "m");
-      lujvo = lujvo.replace(myrg, "$1y$3");
-    }
-  }
-  return lujvo;
-};
-
-const jvomre = int => {
-  //lujvo scorer
-  // Remember, the goal is to get as low a score as possible.
-  const lujvo = int;
-  const l = lujvo.length;
-  const a = (lujvo.match(/'/gm) || []).length;
-  let h = (lujvo.match(/[yY]/gm) || []).length;
-  let reg = new RegExp(`^${CVV}[rn]${C}`, "g");
-  h = h + (lujvo.match(reg) || []).length;
-  let r = 0;
-  const ar = jvokatna(lujvo).split(" ");
-  for (let i = 0; i < ar.length; i++) {
-    reg = new RegExp(`^${C}${V}${C}${C}${V}$`, "g");
-    if (ar[i].match(reg) !== null) {
-      r += 1;
-    }
-    reg = new RegExp(`^${C}${V}${C}${C}$`, "g");
-    if (ar[i].match(reg) !== null) {
-      r += 2;
-    }
-    reg = new RegExp(`^${CC}${V}${C}${V}$`, "g");
-    if (ar[i].match(reg) !== null) {
-      r += 3;
-    }
-    reg = new RegExp(`^${CC}${V}${C}$`, "g");
-    if (ar[i].match(reg) !== null) {
-      r += 4;
-    }
-    reg = new RegExp(`^${CVC}$`, "g");
-    if (ar[i].match(reg) !== null) {
-      r += 5;
-    }
-    reg = new RegExp(`^${C}${V}'${V}$`, "g");
-    if (ar[i].match(reg) !== null) {
-      r += 6;
-    }
-    reg = new RegExp(`^${CCV}$`, "g");
-    if (ar[i].match(reg) !== null) {
-      r += 7;
-    }
-    reg = new RegExp(`^${C}(?:[aeo]i|au)$`, "g");
-    if (ar[i].match(reg) !== null) {
-      r += 8;
-    }
-  }
-  const vowels = (lujvo.match(/[aeiouAEIOU]/gm) || []).length;
-  return (1000 * l) - (500 * a) + (100 * h) - (10 * r) - vowels;
-};
-
-function cartProd(arr) {
-  if (arr.length === 0) {
-    return [];
-  } else if (arr.length === 1) {
-    return arr[0];
-  } else {
-    const result = [];
-    const allCasesOfRest = cartProd(arr.slice(1)); // recur with the rest of array
-    for (const c in allCasesOfRest) {
-      for (let i = 0; i < arr[0].length; i++) {
-        result.push(`${arr[0][i]} ${allCasesOfRest[c]}`);
-      }
-    }
-    return result;
-  }
-
-}
-/// LUJVO CONSTRUCTOR PART END
-
-const rafsiselfu = (
-  lin,
-  //only from brivla to rafsi, returns a string of rafsi
-  last
-) => {
-  let coun = xmlDocEn.find(`/dictionary/direction[1]/valsi[translate(@word,"${lin.toUpperCase()}","${lin}")="${lin}"]/rafsi/text()[1]`);
-  if (coun.length === 0) {
-    try {
-      coun = xmlDocEn.get(`/dictionary/direction[1]/valsi[translate(@word,"${lin.toUpperCase()}","${lin}")="${lin}"]/notes[1]`).text();
-      const tmp = coun.replace(/^.*?-([a-z']+)-.*/, '$1');
-      if (tmp !== coun) {
-        coun = tmp;
-      } else {
-        coun = '';
-      }
-    } catch (err) {
-      coun = '';
-    }
-  } else {
-    coun = coun.join(' ');
-  }
-  if (xugismu(lin) === true) {
-    coun = coun.split(" ");
-    if (last !== 1) {
-      if (lin.substr(0, 4) !== "brod") {
-        coun.push(lin.substr(0, 4));
-      }
-    } else {
-      coun.push(lin.substr(0, 5));
-    }
-    coun = coun.join(" ").trim();
-  }
-  return coun;
-  //if it's a gismu then add full 5-letter rafsi for it
-};
-
-//NOW TRY TO OUTPUT SCORE LUJVO FROM GIVEN GISMU (OR OTHER VALSI)
-const triz = (inp, flag, lng, xmlDoc) => {
-  if (typeof lng === 'undefined') {
-    lng = 'en';
-  }
-  if (typeof xmlDoc === 'undefined') {
-    if (lng === "en") {
-      xmlDoc = xmlDocEn;
-    } else {
-      xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname, "../dumps", `${lng}.xml`), {
-        encoding: 'utf8'
-      }));
-    }
-  }
-  let sep = " ";
-  if (flag === 1) {
-    sep = tersepli;
-  }
-  const ar = inp.trim().split(sep);
-  for (let l = 0; l < ar.length; l++) {
-    if (l === ar.length - 1) {
-      ar[l] = rafsiselfu(ar[l], 1).split(" ");
-    } else {
-      ar[l] = rafsiselfu(ar[l], 0).split(" ");
-    }
-  }
-  //we have ar, an array of arrays
-  const cart = cartProd(ar);
-  //
-  const sey = [];
-  for (let i = 0; i < cart.length; i++) {
-    sey.push([cart[i]]);
-    sey[i].push(rafyjongau(cart[i].split(" ")));
-    sey[i].push(jvomre(sey[i][1]));
-  }
-  sey.sort(sortFunction);
-  let si = '';
-  for (i = 0; i < cart.length; i++) {
-    if (xulujvo(sey[i][1]) === true) {
-      si += `${sey[i][1]}[${sey[i][2]}] `;
-    }
-  }
-  let tor = '';
-  for (i = 0; i < cart.length; i++) {
-    tor = tordu(sey[i][1], lng, 1, xmlDoc);
-    if (tor !== '' && (xulujvo(sey[i][1]) === true)) {
-      break;
-    }
-  }
-  //{throw new Error('============');}
-
-  function sortFunction(a, b) {
-    return (a[2] === b[2]) ? 0 : ((a[2] < b[2]) ? -1 : 1);
-  }
-  si = si.trim().split(" ").splice(0, 5);
-  if (si.length >= 5) {
-    si.push("...");
-  }
-  si = si.join(", ");
-  if (tor !== '') {
-    si += `\n${tor}`;
-  }
-  if (flag === 1) {
-    ljv = si;
-    si = tor;
-  }
-  return si;
-};
-
-const selrafsi = lin => {
-  let rev = xmlDocEn.get(`/dictionary/direction[1]/valsi[rafsi="${lin}"]`);
-  //now try -raf- in notes
-  if (typeof rev === 'undefined') {
-    rev = xmlDocEn.get(`/dictionary/direction[1]/valsi[contains(translate(./notes,"${lin.toUpperCase()}","${lin}")," -${lin}-")]`);
-  }
-  //now try to add a vowel
-  if (typeof rev === 'undefined') {
-    rev = xmlDocEn.get(`/dictionary/direction[1]/valsi[@word="${lin}a" and (@type="fu'ivla" or @type="experimental gismu" or @type="gismu")]`);
-  }
-  if (typeof rev === 'undefined') {
-    rev = xmlDocEn.get(`/dictionary/direction[1]/valsi[@word="${lin}e" and (@type="fu'ivla" or @type="experimental gismu" or @type="gismu")]`);
-  }
-  if (typeof rev === 'undefined') {
-    rev = xmlDocEn.get(`/dictionary/direction[1]/valsi[@word="${lin}i" and (@type="fu'ivla" or @type="experimental gismu" or @type="gismu")]`);
-  }
-  if (typeof rev === 'undefined') {
-    rev = xmlDocEn.get(`/dictionary/direction[1]/valsi[@word="${lin}o" and (@type="fu'ivla" or @type="experimental gismu" or @type="gismu")]`);
-  }
-  if (typeof rev === 'undefined') {
-    rev = xmlDocEn.get(`/dictionary/direction[1]/valsi[@word="${lin}u" and (@type="fu'ivla" or @type="experimental gismu" or @type="gismu")]`);
-  }
-  //may be it's already a word? then just return it.
-  if (typeof rev !== 'undefined') {
-    rev = rev.attr("word").value();
-  } else {
-    if (xugismu(lin) === true || xufuhivla(lin) === true) {
-      rev = lin;
-    } else {
-      rev = `${lin}*`;
-    }
-  }
-  return rev;
-};
-
-const katna = (lin, lng, flag, xmlDoc) => {
-  lin = jvokatna(lin).split(" ");
-  for (let o = 0; o < lin.length; o++) {
-    lin[o] = selrafsi(lin[o], xmlDoc);
-  }
-  lin = lin.join(tersepli);
-  if (flag !== 1 && (lng !== 'jbo')) {
-    lin = `${lin} ≈ ${gloso(lin,lng,1,xmlDoc)}`;
-  }
-  return lin;
 };
 
 const sutysiskuningau = (lng, lojbo) => { //write a new file parsed.js that would be used by la sutysisku
@@ -1687,7 +902,7 @@ const pseudogismu = () => { //a joke function. checks if an English word is  a v
   const sj = [];
   let f;
   for (let j = 0; j < words.length; j++) {
-    f = run_camxes(words[j].toLowerCase().replace(/sh/g, "c"), 3).toString();
+    f = lojban.ilmentufa_off(words[j].toLowerCase().replace(/sh/g, "c"), "J").toString();
     if (f.indexOf("yntax") === -1) {
       sj.push(`${words[j]} ${f}`);
     }
@@ -1696,51 +911,24 @@ const pseudogismu = () => { //a joke function. checks if an English word is  a v
 };
 
 const prettifylojbansentences = () => { //insert spaces to lojban sentences
-  const words = fs.readFileSync(path.join(__dirname, "../zasni/", "eikatna.txt"), 'utf8').split("\n");
-  const sj = [];
-  for (let j = 0; j < words.length; j++) {
-    sj.push(run_camxesoff(words[j], 3));
-  }
-  fs.writeFileSync(path.join(__dirname, "../zasni/", "sekatna.txt"), sj.join("\n").replace(/h/g, "H").replace(/[^a-z \.\,'\n]/g, "").replace(/ +/g, " ").replace(/ +\n/g, "\n"));
+  const input = path.join(__dirname, "../zasni/", "eikatna.txt");
+  const output = path.join(__dirname, "../zasni/","sekatna.txt");
+  fs.writeFileSync(output, '');
+  const byline = require('byline');
+  const stream = byline(fs.createReadStream(input));
+  stream.on('line', function(line) { 
+      return lojban.ilmentufa_off(line, "C").toString()
+               .replace(/h/g, "H")
+               .replace(/[^a-z \.\,'\n]/g, "")
+               .replace(/ +/g, " ")
+               .replace(/ +\n/g, "\n") +
+        '\n';
+  });
+  stream.pipe(fs.createWriteStream(output));
+  
   return 'mulno';
 };
 
-const zeizei = text => { //insert spaces to lojban sentences, split lujvo into zo zei zei lujvo
-  text = run_camxes(text, 3).toString();
-  try {
-    if (text.indexOf("SyntaxError") < 0) {
-      text = text.replace(/[a-z]+`/g, "").replace(/[a-z]+_[a-z]+/ig, "").replace(/h/g, "H").replace(/[^a-z \.\,'\n]/g, "").replace(/ +/g, " ").replace(/ +\n/g, "\n");
-      const sj = text.split(" ");
-      for (let j = 0; j < sj.length; j++) {
-        if (xulujvo(sj[j]) === true) {
-          sj[j] = katna(sj[j], "en", 1, xmlDocEn);
-          if (sj[j].search(/^((se|te|ve|xe|na'e|je'a|to'e) )+[^ ]+$/) === 0) {
-            sj[j] = sj[j].replace(/ /g, " ");
-          } else {
-            sj[j] = sj[j].replace(/ /g, " zei ");
-          }
-        }
-      }
-      text = sj.join(" ").trim();
-    } else {
-      text = 'O_0';
-    }
-  } catch (e) {}
-  return text;
-};
-
-const anji = text => {
-  const anj = require('./anji.js');
-  const anjarr = anj.anjik();
-  let myregexp;
-
-  text = zeizei(text).replace(/'/g, "h");
-  for (let j = 0; j < anjarr.length; j++) {
-    myregexp = new RegExp(`\\b${anjarr[j][0]}\\b`, "gim");
-    text = text.replace(myregexp, anjarr[j][1]);
-  }
-  return text;
-};
 
 const tersmu = (lin, sendTo, source, socket) => {
   const anj = require('../tersmu/all.js');
@@ -1823,7 +1011,6 @@ const updatexmldumps = callback => {
     nalmulselfaho: {}
   };
   //try{
-  const langs = ["jbo", "en", "ru", "es", "fr", "ja", "de", "eo", "zh", "en-simple", "fr-facile", "hu", "sv"];
   let request = require("request");
   request = request.defaults({
     jar: true,
@@ -1899,6 +1086,7 @@ const updatexmldumps = callback => {
   sutysiskuningau("zamenhofo", 0);
   sutysiskuningau("laadan", 0);
   sutysiskuningau("ile", 0);
+  sutysiskuningau("ina", 0);
   sutysiskuningau("toki", 0);
   sutysiskuningau("ldp", 0);
   //updategloss();# not yet ready function
@@ -1908,13 +1096,24 @@ setInterval(() => {
   updatexmldumps();
 }, 3 * 86400000); //update logs once a djedi
 
+const wiktionary = (source,socket,clientmensi,sendTo, te_gerna, bangu) => {
+  let wor;
+  if (!bangu){
+    let wor=te_gerna.split("/");
+    if (wor.length>1){
+      bangu=wor[0];
+      wor.splice(0,1);
+    }
+    else {bangu="English";}
+    wor=wor.join("");
+  }
+  lojban.wiktionary(te_gerna,bangu,(a=>benji(source, socket, clientmensi, sendTo, a)));
+}
+
 const processormensi = (clientmensi, from, to, text, message, source, socket) => {
   let ret;
   if (!text) return;
-  let sendTo = from; // send privately
-  if (~to.indexOf('#')) {
-    sendTo = to; // send publicly
-  }
+  let sendTo = to.indexOf('#') ? from : to;
   if (text.match(/^<(.*?)>: /, '') !== null) { //dealing with Slack
     from = text.match(/^<(.*?)>: /, '')[1];
     text = text.replace(/^<.*?>: /, "");
@@ -1924,16 +1123,17 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     text = text.substr(12).trim().replace("\\t", " ").replace(" ", "\t");
     switch (true) {
       case from.match(text.substr(0, text.indexOf('\t'))) !== null:
-        benji(source, socket, clientmensi, sendTo, `${from}: e'u do cusku di'u lo nei si'unai`);
+        benji(source, socket, clientmensi, sendTo, `${from}: tell it to yourself, Komonian`);
         break;
       case text.substr(0, text.indexOf('\t')) === replier:
-        benji(source, socket, clientmensi, sendTo, `${from}: xu do je'a jinvi lodu'u mi bebna i oi`);
+        benji(source, socket, clientmensi, sendTo, `${from}: hey, Carrot, really think I'm that stupid? `);
         break;
       default:
         const d = new Date();
         notci.push(`${from.replace(/^\.+/,"").replace(/\.+$/,"").trim()}\t${text} | ${d.toISOString()}`);
-        benji(source, socket, clientmensi, sendTo, `${from}: mi ba benji di'u ba lo nu la'o gy. ${text.substr(0, text.indexOf('\t'))} .gy. di'a cusku da`);
+        benji(source, socket, clientmensi, sendTo, `${from}: via Pepper's magic this will be sent to ${text.substr(0, text.indexOf('\t'))} after they return to the chat`);
         fs.writeFile(notcijudri, notci.join("\n"));
+        //loadNotci();
         break;
     }
   }
@@ -1952,6 +1152,7 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
         notci.push(`${from.replace(/^\.+/,"").replace(/\.+$/,"").trim()}\t${text} | ${ds.toISOString()}`);
         benji(source, socket, clientmensi, sendTo, `${from}: mi ba benji di'u ba lo nu la'o gy.${text.substr(0, text.indexOf('\t'))}.gy. di'a cusku da`);
         fs.writeFile(notcijudri, notci.join("\n"));
+        //loadNotci();
         break;
     }
   }
@@ -1972,14 +1173,16 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       notci.splice(l, 1);
       l = l - 1;
       fs.writeFile(notcijudri, notci.join("\n"));
+      //loadNotci();
     }
   }
   // 
   ///
   const txt = text.toLowerCase();
   let inLanguage = defaultLanguage;
-  const pp = (/:(.+)/.exec(txt)||['',''])[1].trim();
+  const pp = (/:(.+)/.exec(txt)||['',''])[1];
   const po = (/ (.+)/.exec(txt)||['',''])[1].trim();
+  console.log(pp);
   switch (true) {
     case txt.trim() === '#ermenefti':
       benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/Hermeneutics");
@@ -1992,6 +1195,9 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       break;
     case txt.trim() === '#uilkinse':
       benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");
+      break;
+    case txt.trim() === '#erneta':
+      benji(source, socket, clientmensi, sendTo, "http://jbotcan.org/lojban/en/SWH_confirmed.html");
       break;
     case txt.trim() === '#selkunti':
       benji(source, socket, clientmensi, sendTo, "Whorf described a workplace in which full gasoline drums were stored in one room and empty ones in another; he said that because of flammable vapor the \"empty\" drums were more dangerous than those that were full, although workers handled them less carefully to the point that they smoked in the room with \"empty\" drums, but not in the room with full ones. Whorf argued that by habitually speaking of the vapor-filled drums as empty and by extension as inert, the workers were oblivious to the risk posed by smoking near the 'empty drums'.");
@@ -2012,39 +1218,26 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       benji(source, socket, clientmensi, sendTo, 'lo broda = su\'oi da poi ge ke\'a broda gi ro\'oi broda cu me ke\'a\nlo [PA] broda = zo\'e noi ke\'a broda [gi\'e zilkancu li PA lo broda]\nla [PA] broda = zo\'e noi lu [PA] broda li\'u cmene ke\'a mi\nlo PA sumti = lo PA me sumti\nla PA sumti = zo\'e noi lu PA sumti li\'u cmene ke\'a mi\nloi [PA] broda = lo gunma be lo [PA] broda\nlai [PA] broda = lo gunma be la [PA] broda\nloi PA sumti = lo gunma be lo PA sumti\nlai PA sumti = lo gunma be la PA sumti\nlo\'i [PA] broda = lo selcmi be lo [PA] broda\nla\'i [PA] broda = lo selcmi be la [PA] broda\nlo\'i PA sumti = lo selcmi be lo PA sumti\nla\'i PA sumti = lo selcmi be la PA sumti\nPA sumti = PA da poi ke\'a me sumti\nPA broda = PA da poi broda\npiPA sumti = lo piPA si\'e be pa me sumti\nle broda poi brode = le broda je ckaji lo ka ce\'u brode\nle broda ku poi brode = lo me le broda ku je brode');
       break;
       // case txt.indexOf("nlp:") === 0: stnlp(source,socket,clientmensi,sendTo,text.substr(4));break;
+    case txt.indexOf(".lujvo ") === 0:
+      benji(source, socket, clientmensi, sendTo, JSON.stringify(lojban.jvozba(po.split(" "))));
+      break;
     case txt.indexOf("lujvo:") === 0:
-      benji(source, socket, clientmensi, sendTo, triz(text.split(":").pop().trim()));
+      benji(source, socket, clientmensi, sendTo, "Use '.lujvo ' instead.");
       break;
-      //case text.indexOf("cipra:") === 0: text = text.substr(6);ret = extract_mode(text);benji(source,socket,clientmensi,sendTo, run_camxes(ret[0], ret[1]));break;
     case txt.indexOf("exp:") === 0:
-      ret = extract_mode(pp);
-      benji(source, socket, clientmensi, sendTo, run_camxes(ret[0], ret[1]));
-      break;
-    case txt.indexOf("f:") === 0:
-      benji(source, socket, clientmensi, sendTo, xufuhivla(pp));
+      benji(source, socket, clientmensi, sendTo, "Use '.exp ' instead");
       break;
     case txt.indexOf("k:") === 0:
-      benji(source, socket, clientmensi, sendTo, run_camxes(pp, 3));
+      benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(pp, "C"));
       break;
     case txt.indexOf("raw:") === 0:
-      benji(source, socket, clientmensi, sendTo, run_camxes(pp, 0));
-      break;
-    case txt.indexOf("zei:") === 0:
-      benji(source, socket, clientmensi, sendTo, zeizei(pp));
+      benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(pp, "J"));
       break;
     case txt.indexOf("anji:") === 0:
-      benji(source, socket, clientmensi, sendTo, anji(pp));
-      break;
-    case txt.indexOf("kru:") === 0:
-      benji(source, socket, clientmensi, sendTo, kru(pp));
+      benji(source, socket, clientmensi, sendTo, "Use '.anji ' instead.");
       break;
     case txt.indexOf("off:") === 0:
-      ret = extract_mode(pp);
-      benji(source, socket, clientmensi, sendTo, run_camxesoff(ret[0], ret[1]));
-      break;
-    case txt.indexOf("alta:") === 0:
-      ret = extract_mode(pp);
-      benji(source, socket, clientmensi, sendTo, run_camxesalta(ret[0], ret[1]));
+      benji(source, socket, clientmensi, sendTo, "Use '.off ' instead.");
       break;
     case (txt.indexOf("yacc:") === 0||txt.indexOf("cowan:") === 0):
       tcepru(pp, sendTo, source, socket);
@@ -2055,28 +1248,26 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     case txt.indexOf("tersmu:") === 0:
       tersmu(pp, sendTo, source, socket);
       break;
+    case txt.indexOf(".alta ") === 0:
+      benji(source, socket, clientmensi, sendTo, run_camxesalta(po));
+      break;
     case txt.indexOf(".off ") === 0:
-      ret = extract_mode(po);
-      benji(source, socket, clientmensi, sendTo, run_camxesoff(ret[0], ret[1]));
+      benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po));
       break;
     case txt.indexOf(".exp ") === 0:
-      ret = extract_mode(po);
-      benji(source, socket, clientmensi, sendTo, run_camxes(ret[0], ret[1]));
-      break;
-    case txt.indexOf(".klesi ") === 0:
-      benji(source, socket, clientmensi, sendTo, run_camxes(po, 3));
+      benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_exp(po));
       break;
     case txt.indexOf(".raw ") === 0:
-      benji(source, socket, clientmensi, sendTo, run_camxes(po, 0));
+      benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "J"));
       break;
     case txt.indexOf(".zei ") === 0:
-      benji(source, socket, clientmensi, sendTo, zeizei(po));
+      benji(source, socket, clientmensi, sendTo, lojban.zeizei(po));
       break;
     case txt.indexOf(".anji ") === 0:
-      benji(source, socket, clientmensi, sendTo, anji(po));
+      benji(source, socket, clientmensi, sendTo, lojban.anji(po));
       break;
     case txt.indexOf(".kru ") === 0:
-      benji(source, socket, clientmensi, sendTo, kru(po));
+      benji(source, socket, clientmensi, sendTo, lojban.krulermorna(po));
       break;
     case (txt.indexOf(`${replier}: ko ningau`) === 0 || text.indexOf(`${replier}: ko cnino`) === 0):
       setTimeout(() => {
@@ -2090,23 +1281,20 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
         benji(source, socket, clientmensi, sendTo, 'sei ca ca\'o jai gau cnino be fai lo pe mi sorcu');
       }, 1);
       break;
-    case txt.indexOf("wikt:") === 0:
-      getDictionaryInfo(source,socket,clientmensi,sendTo, pp, "English");
-      break;
     case txt.indexOf(".wikt ") === 0:
-      getDictionaryInfo(source,socket,clientmensi,sendTo, po, "English");
+      wiktionary(source,socket,clientmensi,sendTo, po, "English");
       break;
     case txt.indexOf(".djbo ") === 0:
-      getDictionaryInfo(source,socket,clientmensi,sendTo, po, "Lojban");
+      wiktionary(source,socket,clientmensi,sendTo, po, "Lojban");
       break;
     case txt.indexOf(".den ") === 0:
-      getDictionaryInfo(source,socket,clientmensi,sendTo, po, "English");
+      wiktionary(source,socket,clientmensi,sendTo, po, "English");
       break;
     case txt.indexOf(".deo ") === 0:
-      getDictionaryInfo(source,socket,clientmensi,sendTo, po, "Esperanto");
+      wiktionary(source,socket,clientmensi,sendTo, po, "Esperanto");
       break;
-    case txt.search('\.('+robangu+') ') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(po, ln=txt.split(" ")[0].substr(1)));
+    case txt.search('\\.('+robangu+') ') === 0:
+      benji(source, socket, clientmensi, sendTo, vlaste(" "+po, ln=txt.split(" ")[0].substr(1)));
       break;
     case txt.search('('+robangu+'):') === 0:
       benji(source, socket, clientmensi, sendTo, vlaste(pp, txt.split(":")[0]));
@@ -2151,16 +1339,16 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       benji(source, socket, clientmensi, sendTo, vlaste(mt[1], 'en', 'raf'));
       break;
     case txt.indexOf('gloss:') === 0:
-      benji(source, socket, clientmensi, sendTo, gloso(pp, 'en'));
+      benji(source, socket, clientmensi, sendTo, lojban.gloss(pp, 'en'));
       break;
     case txt.indexOf('.gloss ') === 0:
-      benji(source, socket, clientmensi, sendTo, gloso(po, 'en'));
+      benji(source, socket, clientmensi, sendTo, lojban.gloss(po, 'en'));
       break;
     case txt.indexOf('.loi ') === 0:
-      benji(source, socket, clientmensi, sendTo, loglo(po, ''));
+      benji(source, socket, clientmensi, sendTo, lojban.lojban2loglan(po));
       break;
     case txt.indexOf('.coi ') === 0:
-      benji(source, socket, clientmensi, sendTo, loglo(po, 'coi'));
+      benji(source, socket, clientmensi, sendTo, lojban.loglan2lojban(po));
       break;
     case txt.indexOf(`${prereplier}mhnt `) === 0:
       ningaumahantufa(text.substr(12), socket);
@@ -2193,13 +1381,13 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       benji(source, socket, clientmensi, sendTo, sidju());
       break;
     case txt.indexOf("rot13:") === 0:
-      benji(source, socket, clientmensi, sendTo, rotpaci(pp));
+      benji(source, socket, clientmensi, sendTo, lojban.rotpaci(pp));
       break;
     case txt.indexOf(`${prereplier}r `) === 0:
-      benji(source, socket, clientmensi, sendTo, rusko(text.substr(prereplier.length + 1).trim()));
+      benji(source, socket, clientmensi, sendTo, lojban.rukylermorna(text.substr(prereplier.length + 1).trim()));
       break;
     case txt.indexOf(`${prereplier}j `) === 0:
-      benji(source, socket, clientmensi, sendTo, jbopomofo(text.substr(prereplier.length + 1).trim()));
+      benji(source, socket, clientmensi, sendTo, lojban.jbopomofo(text.substr(prereplier.length + 1).trim()));
       break;
     case txt.indexOf('tatoeba:') === 0:
       benji(source, socket, clientmensi, sendTo, sisku(pp));
@@ -2254,123 +1442,3 @@ ik.sockets.on('connection', socket => {
 
 app.listen(3002);
 
-function getDictionaryInfo(source,socket,clientmensi,sendTo, word, wordLanguage) {
-  const request = require('request');
-  let wor=word.split("/");
-  if (wor.length>1){wordLanguage=wor[0];wor.splice(0,1);}
-  const qs = require('querystring');
-  wor=qs.escape(wor.join("/"));
-  const urli = "https://en.wiktionary.org/w/api.php?format=json&action=query&titles={word}&rvprop=content&prop=revisions&redirects=1&callback=?".replace("{word}", wor);
-  const options = {
-    url: urli,
-    headers: {
-      'User-Agent': 'request'
-    }
-  };
-
-  function callback(error, response, data) {
-    if (!error && response.statusCode == 200) {
-      const rule = /^.*?(\{.*\}).*?$/m;
-      data = rule.exec(data)[1]||'';
-      data = JSON.parse(data);
-      let results = {
-        title: "",
-        definitions: []
-      }
-
-      let title, content;
-
-      //no results found
-
-      if(!data || !data.query || !data.query.pages || data.query.pages[-1]) {
-        benji(source,socket,clientmensi,sendTo, nodasezvafahi);
-        return;
-      }
-
-      for (let page in data.query.pages) {
-        title = data.query.pages[page].title;
-        content = data.query.pages[page].revisions[0]["*"];
-      }
-
-      results.title = title;
-
-      let text = content.split("\n");
-
-      const heading1Regex = /^(==)([\w\s]+)(==)$/g;
-      const heading2Regex = /^(===)([\w\s]+)(===)$/g;
-      const heading3Regex = /^(====)([\w\s]+)(====)$/g;
-      const linkRegex = /(\[{2,})([\w\s-]+)(\]{2,})/g;
-      const type2LinkRegex = /(\[+)(\w+)([#|\w]+)(\]+)/g;
-      const wikipediaArticleRegex = /(\[+)(:?w:)([\w\s]+?)\|([\w\s]+?)(\]+)/g;
-      const formalizedTextRegex = /({{)l\|([\w\W]+?)\|([\w\W]+?)(}})/g;
-      const contextDataRegex = /(\[{2,})([\w\W]+?)(\]{2,})|({+)([\w\W]+?)(}+)/g;
-      const terbricmi = /({{sumti)\|([\w\W]+?)(}})/g;
-      const startingAndTrailingCommasRegex = /(^, )|(,$)/g;
-      const italicsRegex = /''/g;
-      const wordCharactersRegex = /\w/g;
-
-      let heading1, heading2, heading3;
-
-      function normalizeWikidata(text) {
-        text = text.replace(linkRegex, "$2"); //remove links to other words from definitions;
-        text = text.replace(type2LinkRegex, "$2"); //replace links of the form [[information|Information]]
-        text = text.replace(wikipediaArticleRegex, "$4"); //replace links to wikipedia articles with the link text
-        text = text.replace(formalizedTextRegex, "$3"); //strip formatting from formalized text
-        text = text.replace(terbricmi, "x$2"); //show places of terbricmi as intended
-        text = text.replace(contextDataRegex, ""); //get rid of any extra data that is not human-readiable
-        return text;
-      }
-
-
-      text.forEach(function (line) {
-        //update the current heading if needed
-        if (heading1Regex.test(line)) {
-          heading1 = line.replace(heading1Regex, "$2");
-        }
-        if (heading2Regex.test(line)) {
-          heading2 = line.replace(heading2Regex, "$2");
-        }
-        if(heading3Regex.test(line)) {
-          heading3 = line.replace(heading3Regex, "$2");
-        }
-
-        //handle a definition the line contains one
-
-        if (line.indexOf("# ") == 0 && heading1 == wordLanguage) {
-          let newDefinition = line.replace("# ", "");
-          newDefinition = normalizeWikidata(newDefinition);
-          newDefinition = newDefinition.replace(startingAndTrailingCommasRegex, ""); //remove starting and trailing commas that might occur (since some extra data that is removed occurs at the beginning and ends of definitions)
-          newDefinition = newDefinition.replace(italicsRegex, "").trim();
-
-          if (wordCharactersRegex.test(newDefinition)) { //makes sure there is actually a definition
-
-            let heading = heading2;
-
-            //sometimes, the word type will actually be in heading 3. If the heading 2 looks like it isn't a part of speech, use heading 3 instead.
-
-            if(heading.toLowerCase().indexOf("etymology") != -1 || heading.toLowerCase().indexOf("pronounciation") != -1) {
-              heading = heading3;
-            }
-            results.definitions.push({
-              meaning: newDefinition,
-              type: heading
-            });
-          }
-
-        }
-      });
-      if(!results.definitions||(results.definitions.length===0)) {
-        benji(source, socket, clientmensi, sendTo, nodasezvafahi);
-        return;
-      }
-      else {	
-        let acc=results.title+'\n';
-        for (let i = 0; i < results.definitions.length; i++) {
-          acc += results.definitions[i].type + ": " + results.definitions[i].meaning+'\n';
-        }
-        benji(source, socket, clientmensi, sendTo, acc);
-      }
-    }
-  }
-  request(options, callback);
-}

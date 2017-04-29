@@ -1,4 +1,4 @@
-var documentStore = [
+sorcu["muplis"] = [
 {w:"'pamei je'i remei farna' '.i .yyy. remei'",d:"'One way or round trip?' 'Um... let me think. Round trip.'"},
 {w:".I ja'o .i'anai se'inai zo'ei do se smuni lo toldra",d:"Have fun being misunderstood then."},
 {w:".a'a .i ko di'a co'e .i ba ku ma fasnu",d:"Aha, go on, what happened next?"},

@@ -10,7 +10,6 @@ const fs = require("fs"),
   lojban = require("lojban");
 require('v8-profiler');
 const tato = require('./tatoeba.js');
-let notci, notcijudri;
 const interv = 300000;
 const interm = 2900;
 const nodasezvafahi = 'no da se zvafa\'i';
@@ -92,7 +91,7 @@ const ensureDirExistence=(path)=> {
 
 // Used to read the content of any file that is located in “~/.livla/”.
 // Return an empty string if the file does not exist.
-function readConfig(filename) {
+const readConfig = filename=> {
   const configDirectory = path.join(ospath.home(), ".livla");
   ensureDirExistence(configDirectory);
   const file = path.join(configDirectory, filename);
@@ -113,6 +112,7 @@ function readConfig(filename) {
 // Load every line of “~/.livla/notci.txt” into “notci”, as an array. 
 // Define “notcijudri” as the file path that will be used later when we want to
 // save the content of “notci”.
+let notci, notcijudri;
 const loadNotci=()=> {
   notci = readConfig("notci.txt").split("\n");
   notcijudri = path.join(ospath.home(), ".livla", "notci.txt");
@@ -387,7 +387,6 @@ const tordu = (linf, lng, flag, xmlDoc, cmalu) => {
 
 const mulno_smuvelcki = (lin, lng, xmlDoc) => {
   lin = lin.replace(/\"/g, '');
-  let xo;
   if (!xmlDoc) {
     if (lng === "en") {
       xmlDoc = xmlDocEn;
@@ -442,7 +441,7 @@ const mulno_smuvelcki = (lin, lng, xmlDoc) => {
     return a;
   }, []);
 
-  xo = stra.length;
+  const xo = stra.length;
   try {
     stra.splice(30);
   } catch (err) {}
@@ -456,10 +455,8 @@ const mulno_smuvelcki = (lin, lng, xmlDoc) => {
   if (stra.length > 1) {
     gag = `${xo} da se zvafa'i: ${gag}`;
   }
-  if (gag === '') {
-    gag = 'lo nu mulno sisku zo\'u: no da se zvafa\'i';
-  }
-  return gag;
+  if (gag !== '') return gag;
+  return nodasezvafahi;
 };
 
 const selmaho = lin => {
@@ -475,16 +472,9 @@ const selmaho = lin => {
     }
   }
   try {
-    const ali = xmlDocEn.find(`/dictionary/direction[1]/valsi[starts-with(translate(./selmaho,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
-    const stra = [];
-    for (let i = 0; i < ali.length; i++) {
-      //te = xmlDocEn.get("/dictionary/direction[1]/valsi[translate(@word,\""+ali[i].attr("word").value()+"\",\""+ali[i].attr("word").value()+"\")=\""+ali[i].attr("word").value()+"\"]/selmaho[1]").text();
-      //lg(te);
-      //if (te.search("^"+lin.toUpperCase()+"h")===-1){
-      stra.push(ali[i].attr("word").value());
-      //}
-    }
-    gag = stra.join(", ").trim();
+    gag = xmlDocEn.find(`/dictionary/direction[1]/valsi[starts-with(translate(./selmaho,"${lin.toUpperCase()}","${lin}"),"${lin}")]`)
+    .map(i=>{return i.attr("word").value();})
+    .join(", ").trim();
     //if (stra.length==1){gag = gag + ' = ' + tordu(gag,lng);}
   } catch (err) {}
   switch (true) {
@@ -497,30 +487,23 @@ const selmaho = lin => {
     case (ien !== '') && (gag === ''):
       gag = ien;
       break;
-    case (ien === '') && (gag === ''):
+    default:
       gag = nodasezvafahi;
-      break;
   }
   return gag;
 };
 
 const valsicmene = (lin, lng) => {
   lin = lin.replace(/\"/g, '');
-  let xo;
-  let xmlDoc;
-  if (lng === "en") {
-    xmlDoc = xmlDocEn;
-  } else {
-    xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname, "../dumps", `${lng}.xml`), {
-      encoding: 'utf8'
-    }));
-  }
+  const xmlDoc = (lng === "en")? xmlDocEn: libxmljs.parseXml(
+    fs.readFileSync(
+      path.join(__dirname, "../dumps", `${lng}.xml`), {encoding: 'utf8'}));
   const coun = xmlDoc.find(`/dictionary/direction[1]/valsi[contains(translate(@word,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
   const stra = [];
   for (let i = 0; i < coun.length; i++) {
     stra.push(coun[i].attr("word").value());
   }
-  xo = stra.length;
+  const xo = stra.length;
   try {
     stra.splice(30);
   } catch (err) {}
@@ -534,9 +517,7 @@ const valsicmene = (lin, lng) => {
   if (stra.length > 1) {
     gag = `${xo} da se zvafa'i: ${gag}`;
   }
-  if (gag === '') {
-    gag = nodasezvafahi;
-  }
+  if (gag === '') gag = nodasezvafahi;
   return gag;
 };
 
@@ -559,11 +540,8 @@ const frame = lin => {
     }
   }
 
-  if (gag !== '') {
-    return gag;
-  } else {
-    return nodasezvafahi;
-  }
+  if (gag !== '') return gag;
+  return nodasezvafahi;
 };
 
 const framemulno = lin => {
@@ -590,11 +568,8 @@ const framemulno = lin => {
   if (stra.length === 1) {
     gag = frame(stra[0]);
   }
-  if (gag !== '') {
-    return gag;
-  } else {
-    return nodasezvafahi;
-  }
+  if (gag !== '') return gag;
+  return nodasezvafahi;
 };
 
 const finti = lin => {
@@ -616,17 +591,11 @@ const finti = lin => {
   if (stra.length > 1) {
     gag = `${cnt} da se zvafa'i: ${gag}`;
   }
-  if (gag === '') {
-    gag = nodasezvafahi;
-  }
-  return gag;
+  if (gag !== '')return gag;
+  return nodasezvafahi;
 };
 
 const vlaste = (lin, lng, raf) => {
-  let cmalu;
-  if (lin.indexOf(" ") === 0) {
-    cmalu = true;
-  }
   lin = lin.toLowerCase().trim();
   let ret;
   switch (true) {
@@ -643,6 +612,7 @@ const vlaste = (lin, lng, raf) => {
       ret = framemulno(lin.replace(/[^a-z_'\.]/g, ''));
       break;
     default:
+      const cmalu=(lin.indexOf(" ") === 0)?true:false;
       if (raf === 'passive') {
         ret = tordu(lin.replace(/\"/g, ''), lng, raf, "", cmalu);
         break;
@@ -790,7 +760,7 @@ const prettifylojbansentences = () => { //insert spaces to lojban sentences
   const byline = require('byline');
   const stream = byline(fs.createReadStream(input));
   stream.on('line', line=> { 
-      return lojban.ilmentufa_off(line, "C").toString()
+      return JSON.stringify(lojban.ilmentufa_off(line, "C"))
                .replace(/h/g, "H")
                .replace(/[^a-z \.\,'\n]/g, "")
                .replace(/ +/g, " ")
@@ -819,7 +789,6 @@ const mensimikce = text => { //eliza bot analog
 
 //mahantufa
 const ningaumahantufa = (text, socket) => {
-  const PEG = require("pegjs");
   //write file
   const whichfile = text.substr(0, text.indexOf(' '));
   text = text.substr(text.indexOf(' ') + 1);
@@ -829,7 +798,7 @@ const ningaumahantufa = (text, socket) => {
   // // read peg and build a parser
   const camxes_peg = fs.readFileSync(`${whichfile}.peg`).toString();
   try {
-    const camxes = PEG.generate(camxes_peg, {
+    const camxes = require("pegjs").generate(camxes_peg, {
       cache: true,
       trace: false,
       output: "source",
@@ -858,13 +827,11 @@ const ningaumahantufa = (text, socket) => {
 };
 
 const getmahantufagrammar = (name, socket) => {
-  const grammar_file = fs.readFileSync(path.join(__dirname, `${name}.peg`)).toString();
-  const grammar_file_js = fs.readFileSync(path.join(__dirname, name)).toString();
   try {
     socket.emit('returner_file', {
       message: "snada",
-      data: grammar_file,
-      data_js: grammar_file_js
+      data: fs.readFileSync(path.join(__dirname, `${name}.peg`)).toString(),
+      data_js: fs.readFileSync(path.join(__dirname, name)).toString()
     });
   } catch (e) {
     socket.emit('returner_file', {
@@ -1277,12 +1244,11 @@ clientmensi.addListener('error', message => {
 
 //NAXLE
 
-const http = require('http');
 // NEVER use a Sync function except at start-up!
 const index = fs.readFileSync(`${__dirname}/naxle.html`);
 
 // Send index.html to all requests
-const app = http.createServer((req, res) => {
+const app = require('http').createServer((req, res) => {
   res.writeHead(200, {
     'Content-Type': 'text/html'
   });

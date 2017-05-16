@@ -1,9 +1,9 @@
 // JavaScript Document
 // This script generates .html files for la sutysisku of every localization
-// the template is taken from test/template.html file
+// the template is taken from cipra/template.html file
 
 //config
-const langs = ["en","ru","eo","es","fr-facile","ile","ina","ithkuil","ja","jbo","laadan","ldp","ru","zamenhofo","toki","jb","en-pt-BR","muplis","muplis-eng-pol","test"];
+const langs = ["en","ru","eo","es","fr-facile","ile","ina","ithkuil","ja","jbo","laadan","ldp","ru","zamenhofo","toki","jb","en-pt-BR","muplis","muplis-eng-pol","cipra"];
 
 function addZero(i) {
 		if (i < 10) {
@@ -39,7 +39,7 @@ function stripout(file_m,tag,output){
 
 ///script
 const fs = require("fs"),path = require("path-extra");
-const template = fs.readFileSync(path.join(__dirname,"../../i/test","template.html"),{encoding: 'utf8'});
+const template = fs.readFileSync(path.join(__dirname,"../../i/cipra","template.html"),{encoding: 'utf8'});
 langs.forEach(function(a){
 	const file = fs.readFileSync(path.join(__dirname,"../../i",a,"bangu.js"),{encoding: 'utf8'});
 	let b;
@@ -82,9 +82,9 @@ langs.forEach(function(a){
 	fs.writeFileSync(path.join(__dirname,"../../i",a,"index.html"), b);
 });
 
-const sisku = fs.readFileSync(path.join(__dirname,"../../i/test","sisku.xml"),{encoding: 'utf8'});
+const sisku = fs.readFileSync(path.join(__dirname,"../../i/cipra","sisku.xml"),{encoding: 'utf8'});
 langs.forEach(function(a){
-	if (a!=='test'){
+	if (a!=='cipra'){
 		const file = fs.readFileSync(path.join(__dirname,"../../i",a,"bangu.js"),{encoding: 'utf8'});
 		b = sisku.replace("%template%","https://la-lojban.github.io/sutysisku/en/index.html#sisku/{searchTerms}");
 		b = b.replace("%shortname%",a+"-sutysisku");
@@ -108,6 +108,6 @@ langs.forEach(function(a){
 
 langs.forEach(function(a){
 	const sisku="'../sisku.js";
-	const b = "window = this;var sorcu={};var bau = location.href.split('/').slice(-2)[0];if (bau==='test'){bau='en';}\nimportScripts('bangu.js','../data/parsed-"+a.replace(/^test$/,'en').replace(/^muplis/,"tatoeba")+".js', "+(a==='test'?"'./sisku_2.js":sisku)+"');\npostMessage({kind: 'loading'});\npostMessage({kind: 'ready'});\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;sisku(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};";
+	const b = "window = this;var sorcu={};var bau = location.href.split('/').slice(-2)[0];if (bau==='cipra'){bau='en';}\nimportScripts('bangu.js','../data/parsed-"+a.replace(/^cipra$/,'en').replace(/^muplis/,"tatoeba")+".js', "+(a==='cipra'?"'./sisku_2.js":sisku)+"');\npostMessage({kind: 'loading'});\npostMessage({kind: 'ready'});\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;sisku(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};";
 	fs.writeFileSync(path.join(__dirname,"../../i",a,"worker.js"), b);
 });

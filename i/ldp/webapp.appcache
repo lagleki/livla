@@ -1,7 +1,5 @@
 CACHE MANIFEST
-
-# 2017-4-11T21:15:22
-
+# 2017-05-16T03:14:03
 CACHE:
 index.html?version=32
 ../pixra/sutysisku.png
@@ -16,9 +14,7 @@ https://upload.wikimedia.org/wikipedia/commons/c/ce/150px-Interlingua-Logo.png
 ../pixra/Toki_pona.svg
 ../pixra/muplis-eng-pol.png
 ../pixra/16.png
-
 ../data/parsed-ldp.js
-
 #./lib/Lato/Lato-Black.ttf
 #./lib/Lato/Lato-BlackItalic.ttf
 #./lib/Lato/Lato-Bold.ttf
@@ -30,13 +26,7 @@ https://upload.wikimedia.org/wikipedia/commons/c/ce/150px-Interlingua-Logo.png
 #./lib/Lato/Lato-LightItalic.ttf
 #./lib/Lato/Lato-Regular.ttf
 #./lib/Lato.css
-
-//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
-//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css
-//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
-
 ../pixra/x.gif
-
 #../pixra/favicons/apple-touch-icon-114x114.png
 #../pixra/favicons/apple-touch-icon-120x120.png
 #../pixra/favicons/apple-touch-icon-144x144.png
@@ -60,10 +50,7 @@ https://upload.wikimedia.org/wikipedia/commons/c/ce/150px-Interlingua-Logo.png
 #../pixra/favicons/mstile-310x150.png
 #../pixra/favicons/mstile-310x310.png
 #../pixra/favicons/mstile-70x70.png
-
-
 NETWORK:
 *
-
 FALLBACK:
 /sisku/ ./

@@ -143,27 +143,29 @@ padding-left: 15px;
 display:none;
 }
 #mipri{display:none;}
+#clear {
+position: relative;
+padding: 10px;
+border:1px solid transparent;
+background-color: transparent;
+display: inline-block;
+vertical-align: middle;
+outline: 0;
+cursor: pointer;
+margin-left:-32px;
+background: #fff url(../pixra/x.gif) no-repeat right 0px center;
+}
 #typehere{
 margin-right:4px;
 height:auto;
 font-size:140%;
-background: #fff url(../pixra/x.gif) no-repeat right -18px center;
 border: 1px solid #999;
 padding: 3px 26px 2px 4px;     
 transition: background 0.4s;
 }
-#typehere.x  { background-position: right 5px center; } 
-#typehere.onX{ cursor: pointer; }              
-clearable{
-height:auto;
-font-size:140%;
-background: #fff url(../pixra/x.gif) no-repeat right -18px center;
-border: 1px solid #999;
-padding: 3px 26px 2px 4px;     
-transition: background 0.4s;
+#typehere:not(:valid) ~ .clear {
+display: none;
 }
-.clearable.x  { background-position: right 5px center; } 
-.clearable.onX{ cursor: pointer; }  
 @media screen and (min-width: 510px) {
 #site-title {display: block;}
 #mipri {display: block;}
@@ -416,7 +418,6 @@ transition:width .8s ease
 <meta name="application-name" content="la sutysisku"/>
 <meta name="msapplication-TileColor" content="#00a300">
 <meta name="msapplication-TileImage" content="../pixra/144.png">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="bangu.js"></script>
 <link rel="manifest" href="../manifest.json">
 <script>
@@ -435,14 +436,15 @@ ga('send', 'pageview');
 <div id='galtu-dasri'>
 <form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
 <span id='site-title'><a id='title' href='#'><img src="../pixra/sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span><div id="mipri" style="display:inline;-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-<input class="clearable" id='typehere' placeholder="serĉi" type='text' autofocus autocorrect="off" autocapitalize="off" autocomplete="false">
+<input id='typehere' type="text" name="focus" required placeholder="serĉi" autofocus autocorrect="off" autocapitalize="off" autocomplete="false"/>
+<button id="clear" type="reset"></button>
 </form>
 </div>
 <div id='content'>
 <div id='content-panel'>
 <div id='purci' style="display:none;"></div>
 <div id='loading' class="term">
-<span class='message'>Loading dictionary ...</span><br>
+<span id='caho_cpacu'>Loading dictionary ...</span><br>
 <div id="cpacu">
 <span id='kernelo_lo_cpacu'></span>
 </div>
@@ -476,7 +478,7 @@ el.fireEvent('on'+e.eventType, e);
 }
 function SaveDataToLocalStorage(data)
 {
-if (!results||results.length===0|data==='') return;
+if (!results||results.length===0||data==='') return;
 var a = JSON.parse(localStorage.getItem('purci'))||[];
 var index = a.indexOf(data);
 if (index>=0){a.splice(index,1);}
@@ -484,21 +486,13 @@ a.unshift(data);
 if (a.length>10) {a.length=10;}
 localStorage.setItem('purci', JSON.stringify(a));
 }
-function tog(v){return v?'addClass':'removeClass';} 
-$(document).on('input', '#typehere', function(){
-$(this)[tog(this.value)]('x');
-}).on('mousemove', '.x', function( e ){
-$(this)[tog(this.offsetWidth-26 < e.clientX-this.getBoundingClientRect().left)]('onX');
-}).on('touchstart click', '.onX', function( ev ){
-ev.preventDefault();
-$(this).removeClass('x onX').val('').change();
+function zero(e) {
+typeh.value ==='';
 query='';
-prevQuery='';
 displayDescription();
-}).on('click', '#title', function(ev){
-query='';
-typeh.value = query;
-});
+}
+document.getElementById('clear').addEventListener('click', zero);
+document.getElementById('title').addEventListener('click', zero);
 var fm = {BE: "bei",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au",NAhU: "te'u",NIhE: "te'u",MOhE: "te'u"};
 var ready = false;
 var cankocisni = function(){
@@ -528,7 +522,7 @@ skicu_lo_ro_valsi();
 displayDescription();
 }
 else if (ev.data.kind == 'loading') {
-$("#loading .message").text(window.bangubuild);
+document.getElementById('caho_cpacu').textContent = window.bangubuild;
 pb.style.width = '51%';
 } else if (ev.data.kind == 'progress') {
 pb.style.width = (ev.data.percent * 100) + '%';
@@ -720,8 +714,8 @@ var cisn = 100;
 for (var key in obj) {
 acc += "<div id='DIV_1' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_2' style='height:" + (cisn) + "px;width:" + (
 obj[key][2] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][0] + "</b></span><div id='DIV_5' style='height:" + (cisn) +
-"px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><a href='" + ((key.indexOf(
-"@") === 0) ? obj[key][3] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + drataQuery)) + "' id='A_7'><div id='DIV_8' style='height:" +
+"px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><a href=\"" + ((key.indexOf(
+"@") === 0) ? obj[key][3] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + drataQuery)) + "\" id='A_7'><div id='DIV_8' style='height:" +
 (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;background-image:url(\"" + obj[key][1] + "\")'></div></a></div></div></div></div>"
 }
 if (!drataQuery || (drataQuery === '')) {
@@ -809,7 +803,6 @@ query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ")
 }
 typeh.value=query;
 triggerEvent(typeh, 'input');
-$('.clearable').trigger("input");
 updateMainLink();
 if (ready) {
 doSearch();

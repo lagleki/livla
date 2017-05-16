@@ -34,8 +34,8 @@
   "main": "livla/livla.js",
   "scripts": {
     "livla": "node node_modules/.bin/supervisor -w .,./livla -i ./dumps,./i,./mahantufa -- --expose-gc livla/livla.js",
-    "sutysisku": "cd i ; node .scripts/template.js ; git add . ; git commit -m 'commit' ; git push ; cd ..",
-    "snovlaste": "cd i ; node .scripts/vlaste.js ; node .scripts/template.js ; git checkout --orphan newBranch ; git add -A ; git commit -m 'commit' ; git branch -D master ; git branch -m master ; git push -f origin master ; git gc --aggressive --prune=all ; git push --set-upstream origin master ; cd ..",
+    "sutysisku": "cd i ; node .scripts/morna.js ; git add . ; git commit -m 'commit' ; git push ; cd ..",
+    "snovlaste": "cd i ; node .scripts/vlaste.js ; node .scripts/morna.js ; git checkout --orphan newBranch ; git add -A ; git commit -m 'commit' ; git branch -D master ; git branch -m master ; git push -f origin master ; git gc --aggressive --prune=all ; git push --set-upstream origin master ; cd ..",
     "push": "git add . ; git commit -a ;  git push",
     "compile": "./node_modules/.bin/babel src/ -d lib/",
     "build": "babel src/ -d lib/",

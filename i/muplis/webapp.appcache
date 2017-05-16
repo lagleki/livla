@@ -1,18 +1,11 @@
 CACHE MANIFEST
-# 2017-04-07T22:08:44
-
+# 2017-05-16T03:14:03
 CACHE:
 index.html
 ../data/parsed-tatoeba.js
-
 ../sisku.js
 worker.js
 bangu.js
-
-//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
-//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css
-//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
-
 ../pixra/plise.png
 ../pixra/pelxuplise.png
 ../pixra/crinoplise.png
@@ -22,8 +15,6 @@ bangu.js
 ../pixra/arrow-left.png
 ../pixra/16.png
 ../pixra/32.png
-//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/images/ui-bg_flat_75_ffffff_40x100.png
-//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png
 ../pixra/sutysisku.png
 https://mw.lojban.org/images/b/bd/cogwheel-5.svg
 ../pixra/taplasance.png
@@ -37,10 +28,8 @@ https://mw.lojban.org/images/d/dc/selsku_lanci_rus.svg
 https://mw.lojban.org/images/2/20/lanci_epo.svg
 https://mw.lojban.org/images/2/26/selsku_lanci_spa.svg
 https://mw.lojban.org/images/b/bd/cogwheel-5.svg
-
 NETWORK:
 *
-
 FALLBACK:
 /sisku/ ./
 ../index.html ./

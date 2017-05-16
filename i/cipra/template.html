@@ -160,29 +160,29 @@
 		display:none;
 	}
 	#mipri{display:none;}
+	#clear {
+		position: relative;
+		padding: 10px;
+		border:1px solid transparent;
+		background-color: transparent;
+		display: inline-block;
+		vertical-align: middle;
+		outline: 0;
+		cursor: pointer;
+		margin-left:-32px;
+		background: #fff url(../pixra/x.gif) no-repeat right 0px center;
+	}
 	#typehere{
 		margin-right:4px;
 		height:auto;
 		font-size:140%;
-		background: #fff url(../pixra/x.gif) no-repeat right -18px center;
-		border: 1px solid #999;
-		padding: 3px 26px 2px 4px;     /* Use the same right padding (18) in jQ! */
-		transition: background 0.4s;
-	}
-	#typehere.x  { background-position: right 5px center; } /* (jQ) Show icon */
-	#typehere.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
-	
-	clearable{
-		height:auto;
-		font-size:140%;
-		background: #fff url(../pixra/x.gif) no-repeat right -18px center;
 		border: 1px solid #999;
 		padding: 3px 26px 2px 4px;     
 		transition: background 0.4s;
 	}
-	.clearable.x  { background-position: right 5px center; } 
-	.clearable.onX{ cursor: pointer; }  
-
+	#typehere:not(:valid) ~ .clear {
+		display: none;
+	}
 	@media screen and (min-width: 510px) {
 		#site-title {display: block;}
 		#mipri {display: block;}
@@ -466,7 +466,6 @@
 	<meta name="application-name" content="la sutysisku"/>
 	<meta name="msapplication-TileColor" content="#00a300">
 	<meta name="msapplication-TileImage" content="../pixra/144.png">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="bangu.js"></script>
 	<link rel="manifest" href="../manifest.json">
 	<script>
@@ -489,14 +488,15 @@
 	<div id='galtu-dasri'>
 		<form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
 		%titlelogo%<div id="mipri" style="display:inline;-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-			<input class="clearable" id='typehere' placeholder="%bangusisku%" type='text' autofocus autocorrect="off" autocapitalize="off" autocomplete="false">
+			<input id='typehere' type="text" name="focus" required placeholder="%bangusisku%" autofocus autocorrect="off" autocapitalize="off" autocomplete="false"/>
+			<button id="clear" type="reset"></button>
 		</form>
 	</div>
 	<div id='content'>
 		<div id='content-panel'>
 			<div id='purci' style="display:none;"></div>
 			<div id='loading' class="term">
-				<span class='message'>%bangulo%</span><br>
+				<span id='caho_cpacu'>%bangulo%</span><br>
 						<div id="cpacu">
 										<span id='kernelo_lo_cpacu'></span>
 						</div>
@@ -533,7 +533,7 @@
 	//lo diklo sorcu xau lo uenzi poi pu se mitysisku
 	function SaveDataToLocalStorage(data)
 	{
-		if (!results||results.length===0|data==='') return;
+		if (!results||results.length===0||data==='') return;
 		var a = JSON.parse(localStorage.getItem('purci'))||[];
 		var index = a.indexOf(data);
 		if (index>=0){a.splice(index,1);}
@@ -541,60 +541,13 @@
 		if (a.length>10) {a.length=10;}
 		localStorage.setItem('purci', JSON.stringify(a));
 	}
-	// clearable input
-	/*
-	function kus(ev){
-		ev.preventDefault();
-		var e=ev.target;
-		//e.classList.remove('x');
-		//e.classList.remove('onX');
-		e.value='';
-		triggerEvent(e, 'change');
+	function zero(e) {
+		typeh.value ==='';
 		query='';
-		prevQuery='';
 		displayDescription();
 	}
-	typeh.addEventListener('input', 
-												 function(ev){
-		var e=ev.target;
-		e.value?e.classList.add('x'):e.classList.remove('x');
-	});
-	var x = typeh.getElementsByClassName('x');
-	if (x && x[0]) {
-		x[0].addEventListener('mousemove', function(ev){
-			var e=ev.target;
-			//(e.offsetWidth-26 < e.clientX-e.getBoundingClientRect().left)?
-			//	e.classList.add('onX'):e.classList.remove('onX');
-		//$(this)[tog(this.offsetWidth-26 < e.clientX-this.getBoundingClientRect().left)]('onX');
-		});
-	}
-	var onX = typeh.getElementsByClassName('onX');
-	if (onX && onX[0]) {
-		onX[0].addEventListener('touchstart',kus);
-		onX[0].addEventListener('click', kus);
-	}
-	document.getElementById('title').addEventListener('click', 
-												 function(){
-		query='';
-		typeh.value = query;
-	});
-	*/
-	
-	function tog(v){return v?'addClass':'removeClass';} 
-	$(document).on('input', '#typehere', function(){
-		$(this)[tog(this.value)]('x');
-	}).on('mousemove', '.x', function( e ){
-		$(this)[tog(this.offsetWidth-26 < e.clientX-this.getBoundingClientRect().left)]('onX');
-	}).on('touchstart click', '.onX', function( ev ){
-		ev.preventDefault();
-		$(this).removeClass('x onX').val('').change();
-		query='';
-		prevQuery='';
-		displayDescription();
-	}).on('click', '#title', function(ev){
-		query='';
-		typeh.value = query;
-	});
+	document.getElementById('clear').addEventListener('click', zero);
+	document.getElementById('title').addEventListener('click', zero);
 	
 	var fm = {BE: "bei",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au",NAhU: "te'u",NIhE: "te'u",MOhE: "te'u"};
 	var ready = false;
@@ -628,7 +581,7 @@
 			displayDescription();
 		}
 		else if (ev.data.kind == 'loading') {
-			$("#loading .message").text(window.bangubuild);
+			document.getElementById('caho_cpacu').textContent = window.bangubuild;
 			pb.style.width = '51%';
 		} else if (ev.data.kind == 'progress') {
 			pb.style.width = (ev.data.percent * 100) + '%';
@@ -857,8 +810,8 @@ function displayDescription() {
     for (var key in obj) {
       acc += "<div id='DIV_1' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_2' style='height:" + (cisn) + "px;width:" + (
           obj[key][2] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][0] + "</b></span><div id='DIV_5' style='height:" + (cisn) +
-        "px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><a href='" + ((key.indexOf(
-          "@") === 0) ? obj[key][3] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + drataQuery)) + "' id='A_7'><div id='DIV_8' style='height:" +
+        "px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><a href=\"" + ((key.indexOf(
+          "@") === 0) ? obj[key][3] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + drataQuery)) + "\" id='A_7'><div id='DIV_8' style='height:" +
         (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;background-image:url(\"" + obj[key][1] + "\")'></div></a></div></div></div></div>"
     }
     if (!drataQuery || (drataQuery === '')) {
@@ -956,7 +909,6 @@ function displayDescription() {
 		}
 		typeh.value=query;
 		triggerEvent(typeh, 'input');
-		$('.clearable').trigger("input");
 		updateMainLink();
 		if (ready) {
 			doSearch();

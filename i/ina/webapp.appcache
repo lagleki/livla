@@ -1,6 +1,5 @@
 CACHE MANIFEST
-# 2017-4-11T21:15:20
-
+# 2017-05-16T03:14:03
 CACHE:
 index.html?version=32
 ../pixra/sutysisku.png
@@ -15,19 +14,10 @@ https://upload.wikimedia.org/wikipedia/commons/c/ce/150px-Interlingua-Logo.png
 ../pixra/Toki_pona.svg
 ../pixra/muplis-eng-pol.png
 ../pixra/16.png
-
 ../data/parsed-ina.js
-
-
-//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
-//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css
-//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
-
 ../pixra/x.gif
-
 NETWORK:
 *
-
 FALLBACK:
 /sisku/ ./
 ../index.html ./

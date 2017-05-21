@@ -172,7 +172,7 @@
 		margin-left:-32px;
 		background: #fff url(../pixra/x.gif) no-repeat right 0px center;
 	}
-	#typehere{
+	#ciska{
 		margin-right:4px;
 		height:auto;
 		font-size:140%;
@@ -180,18 +180,18 @@
 		padding: 3px 26px 2px 4px;     
 		transition: background 0.4s;
 	}
-	#typehere:not(:valid) ~ .clear {
+	#ciska:not(:valid) ~ .clear {
 		display: none;
 	}
 	@media screen and (min-width: 510px) {
 		#site-title {display: block;}
 		#mipri {display: block;}
-		#typehere {display: block;width:auto;margin-left:0px;}
+		#ciska {display: block;width:auto;margin-left:0px;}
 	}
 	@media screen and (max-width: 509px) {//mobile
 		#site-title {display: none;}
 		#mipri {display: none;}
-		#typehere {display: block;width:99%;margin-left:4px;}
+		#ciska {display: block;width:99%;margin-left:4px;}
 	}
 	#content {
 		padding-left: 5px;
@@ -488,7 +488,7 @@
 	<div id='galtu-dasri'>
 		<form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
 		%titlelogo%<div id="mipri" style="display:inline;-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
-			<input id='typehere' type="text" name="focus" required placeholder="%bangusisku%" autofocus autocorrect="off" autocapitalize="off" autocomplete="false"/>
+			<input id='ciska' type="text" name="focus" required placeholder="%bangusisku%" autofocus autocorrect="off" autocapitalize="off" autocomplete="false"/>
 			<button id="clear" type="reset"></button>
 		</form>
 	</div>
@@ -507,7 +507,7 @@
 		</div>
 	</div>
 <script>
-	var typeh = document.getElementById('typehere');
+	var ciska = document.getElementById('ciska');
 	var outp = document.getElementById('output');
 	var descr = document.getElementById('description');
 	var drata = document.getElementById('drata');
@@ -542,7 +542,7 @@
 		localStorage.setItem('purci', JSON.stringify(a));
 	}
 	function zero(e) {
-		typeh.value ==='';
+		ciska.value ==='';
 		query='';
 		displayDescription();
 	}
@@ -649,7 +649,8 @@
 		}
 		var tfm = document.createElement('div');
 		if (sh.length!==0){
-			tfm.classList.add(kl);
+			tfm.classList.add('valsi');
+			if(def.l) tfm.classList.add('nalojbo');
 			tfm.innerHTML = '<i><sup>['+sh.join(", ")+'&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;';
 		}
 		else{
@@ -671,11 +672,11 @@
 			jvs.innerHTML+="<font color='#aaa'><a style='color: #aaa;' target='_blank' href=\""+window.judri + 
 				def.w + "\">#</a></font> ";
 		}
-		var kl='valsi';if(def.l) kl='valsi nalojbo';
 		var word = document.createElement('h4');
-		word.classList.add(kl);
-		word.innerHTML ='<a class="' + kl + '" href="#sisku/'+def.w + '">' + def.w + "</a>" + ' ';
-		if (plukaquery(def.w) == query){word.innerHTML=def.w + ' ';}
+		word.classList.add('valsi');
+		if(def.l) word.classList.add('nalojbo');
+		word.innerHTML ='<a class="valsi' + (def.l?'':' nalojbo') + '" href="#sisku/'+def.w + '">' + escHtml(def.w) + "</a>" + ' ';
+		if (plukaquery(def.w) == query){word.innerHTML=query + ' ';}
 		//<muplis>
 		var deft='';
 		if (def.t.search('sampu staile')>=0){deft += "<img src='../pixra/plise.png' height='16' width='16' title='lo staile poi sampu'>"};
@@ -773,6 +774,14 @@ var searchIdCounter = 0;
 var prevQuery,drataQuery='';
 var lastQueried = cati();
 
+function escHtml(a){
+	return a
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#039;");
+}
 function displayDescription() {
   if (query == '') {
 		outp.style.display='none';
@@ -824,7 +833,7 @@ function displayDescription() {
       purci.innerHTML = (window.purc || "Last searched: ") +
 				arrpurc.map(
 					function(a) {
-        		return '<a href="#sisku/' + encodeURIComponent(a.replace(/ /g,"_")) + '">' + a + "</a>";
+        		return '<a href="#sisku/' + encodeURIComponent(a.replace(/ /g,"_")) + '">' + escHtml(a) + "</a>";
       		}
 				).join(", ");
       purci.style.display='block';
@@ -837,14 +846,15 @@ function displayDescription() {
 		document.getElementById('content').scrollTop = 0;
   }
 }
-	function plukaquery(arg){
-		if (arg.charAt(0)!=='^' && arg.slice(-1)!=='$'){
-		return arg.replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim()
+	function plukaquery(a){
+		arg=escHtml(a);
+		if (a.charAt(0)!=='^' && a.slice(-1)!=='$'){
+		return a.replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim()
 		}
-		else{return arg;}
+		else{return a;}
 	}
 	function doSearch() {
-		query = plukaquery(typeh.value);
+		query = plukaquery(ciska.value);
 		if (query ===''){displayDescription();}else{drataQuery = query;}
 		if (query === prevQuery) {
 		return;
@@ -873,11 +883,11 @@ function displayDescription() {
 		};
 	})();
 
-	typeh.addEventListener("keyup", function(){typing()});
-	typeh.addEventListener("keydown", function(){clearTimeout(typingTimer);displayDescription();});
-	typeh.addEventListener("paste", typing(0));
-	typeh.addEventListener("input", typing());
-	typeh.addEventListener("textInput", typing());
+	ciska.addEventListener("keyup", function(){typing()});
+	ciska.addEventListener("keydown", function(){clearTimeout(typingTimer);displayDescription();});
+	ciska.addEventListener("paste", typing(0));
+	ciska.addEventListener("input", typing());
+	ciska.addEventListener("textInput", typing());
 	function typing(a){
 		clearTimeout(typingTimer);typingTimer = setTimeout(doSearch, a?a:250);
 		delay(function(){
@@ -906,8 +916,8 @@ function displayDescription() {
 		if (searchMatch && searchMatch.indexOf('/')===-1) {
 		query = decodeURIComponent(searchMatch[1]).replace(/_/g," ").trim();
 		}
-		typeh.value=query;
-		triggerEvent(typeh, 'input');
+		ciska.value=query;
+		triggerEvent(ciska, 'input');
 		if (ready) {
 			doSearch();
 		}
@@ -916,7 +926,7 @@ function displayDescription() {
 	window.addEventListener('popstate', handleUrl);
 	function handler(e) {
 		if(e.keyCode && e.keyCode===191){
-			typeh.focus();
+			ciska.focus();
 		}
 	}
 

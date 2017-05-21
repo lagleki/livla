@@ -1013,6 +1013,9 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     case txt.trim() === '#uilkinse':
       benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");
       break;
+    case txt.trim() === '#smuvanbi':
+      benji(source, socket, clientmensi, sendTo, "To answer this question it's necessary to provide a full usage example or context where you would use this word/construct.");
+      break;
     case txt.trim() === '#mohu':
       benji(source, socket, clientmensi, sendTo, "http://filcat.uab.cat/clt/membres/postdoctorands/Borik/borik-reinhart-lola8.pdf");
       break;

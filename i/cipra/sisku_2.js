@@ -64,8 +64,9 @@ function sisku(query, callback) {
   if (query.length === 0) return;
   var searchId = ++searchIdCounter;
   var preciseMatches = [];
-  var queryP=query.replace(/h/g,"'").toLowerCase();
-  var queryDecomposition = window.xuzganalojudri? queryP.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');}) : [ queryP ];
+  query=query.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+  var query_apos=query.replace(/h/g,"'").toLowerCase();
+  var queryDecomposition = window.xuzganalojudri? query_apos.replace(/ zei /g,'-zei-').split(" ").map(function(a){return a.replace(/-zei-/g,' zei ');}) : [ query_apos ];
   var kij=[];
   var ki=[];
   //var ff;
@@ -129,18 +130,18 @@ function sisku(query, callback) {
     for (var i=0;i<lo_matra_cu_cupra.length;i++) {
       var doc = jmina_lo_se_claxu(lo_matra_cu_cupra[i]);//todo: optimize for phrases
       if (doc) {
-        if ((doc.w === query)||(doc.w === queryP)){
+        if ((doc.w === query)||(doc.w === query_apos)){
           exactMatches.push(doc);
           exactMatches=be(exactMatches,query,1);
         } else if ((doc.r||[''])[0].search("\\b"+query+"\\b") >=0) {
           normalMatches.push(doc);
-        } else if (doc.w.search("(^| )"+queryP+"( |$)")>=0||(doc.g||'')===query||((doc.g||'').search("(^|;)"+queryP+"(;|$)")>=0)){
+        } else if (doc.w.search("(^| )("+query_apos+"|"+query+")( |$)")>=0||(doc.g||'')===query){
           greatMatches.push(doc);
         } else if ((doc.s||'') === query){
           selmahoMatches.push(doc);//selmaho
-        } else if ((doc.g||'').search("\\b"+query+"\\b")>=0) {
+        } else if ((doc.g||'').search("\\b"+query+"\\b")>=0||doc.w.search("\\b("+query_apos+"|"+query+")")>=0||doc.w.search("("+query_apos+"|"+query+")\\b")>=0) {
           goodMatches.push(doc);
-        } else if (((doc.d||'').toLowerCase().search("\\b"+query+"\\b")>=0)){
+        } else if ((doc.d||'').toLowerCase().search("\\b"+query+"\\b")>=0){
           defMatches.push(doc);
         } else {
           lastMatches.push(doc);
@@ -182,9 +183,9 @@ function sisku(query, callback) {
     .concat(goodMatches)
     .concat(defMatches)
     .concat(lastMatches);
-    if(preciseMatches[0] && (preciseMatches[0].w===queryP)){
+    if(preciseMatches[0] && (preciseMatches[0].w===query_apos)){
       for (var tyt=1;tyt<preciseMatches.length;tyt++){
-        if(preciseMatches[tyt].l && (preciseMatches[tyt].d==="{"+queryP+"}")){
+        if(preciseMatches[tyt].l && (preciseMatches[tyt].d==="{"+query_apos+"}")){
           preciseMatches.splice(tyt,1);
           tyt=tyt-1;
         }
@@ -246,8 +247,8 @@ function sisku(query, callback) {
     preciseMatches = sortthem(lo_matra_cu_cupra,multi);
     if (multi) return preciseMatches;
     if (preciseMatches.length===0) preciseMatches=be([],query)||[];
-    if (preciseMatches.length===0||preciseMatches[0].w!==queryP){
-      var ty = julne(shortget(queryP,[]));
+    if (preciseMatches.length===0||preciseMatches[0].w!==query_apos){
+      var ty = julne(shortget(query_apos,[]));
       if (ty.length<=1){
         preciseMatches=ty.concat(preciseMatches);
       }
@@ -290,7 +291,7 @@ function siskurimni(query) {
   var _70_moi_lo_traji_rimni = [];
   var _80_moi_lo_traji_rimni = [];
   var _90_moi_lo_traji_rimni = [];
-  var queryP,queryF,queryR;
+  var query_apos,queryF,queryR;
   Array.prototype.cupra_lo_porsi = function (){
     for (var i=0;i<this.length;i++) {
       var doc = jmina_lo_se_claxu(this[i]);//todo: optimize for phrases
@@ -464,12 +465,12 @@ function siskurimni(query) {
     .filter(function(n){n=jmina_lo_se_claxu(n); return n !== undefined; }).cupra_lo_porsi();
   }
   else{
-    queryP=regexify(queryR.join(""));
+    query_apos=regexify(queryR.join(""));
     traji_rimni = sorcu[bau]
     .filter(
       function(val){
         return (krulermorna(val.w)
-        .match(queryP.toLowerCase()+"$")||[]).length > 0;
+        .match(query_apos.toLowerCase()+"$")||[]).length > 0;
       })
     .filter(function(n){return n !== undefined; })
     .cupra_lo_porsi();

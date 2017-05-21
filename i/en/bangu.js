@@ -5,7 +5,7 @@ window.bangudesc = "<h1 style='font-size:1em;font-weight:normal;'><b>la sutysisk
 window.bangusisku='search';
 window.bangudecomp = 'decomposing ...';
 siskudescr="Search the Lojban dictionary la jbovlaste.";
-opdescr = "An offline-enabled dictionary for Lojban, English and other languages.";
+opdescr = "Lojban dictionary: works offline (+ English and other languages)";
 window.bangu = 'english';
 window.xuzganalojudri = true;
 window.judri = "http://jbovlaste.lojban.org/dict/";

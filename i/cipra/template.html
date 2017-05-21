@@ -811,7 +811,7 @@ function displayDescription() {
       acc += "<div id='DIV_1' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_2' style='height:" + (cisn) + "px;width:" + (
           obj[key][2] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][0] + "</b></span><div id='DIV_5' style='height:" + (cisn) +
         "px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><a href=\"" + ((key.indexOf(
-          "@") === 0) ? obj[key][3] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + drataQuery)) + "\" id='A_7'><div id='DIV_8' style='height:" +
+          "@") === 0) ? obj[key][3] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + encodeURIComponent(drataQuery.replace(/ /g,"_")))) + "\" id='A_7'><div id='DIV_8' style='height:" +
         (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;background-image:url(\"" + obj[key][1] + "\")'></div></a></div></div></div></div>"
     }
     if (!drataQuery || (drataQuery === '')) {
@@ -824,7 +824,7 @@ function displayDescription() {
       purci.innerHTML = (window.purc || "Last searched: ") +
 				arrpurc.map(
 					function(a) {
-        		return '<a href="#sisku/' + a + '">' + a + "</a>";
+        		return '<a href="#sisku/' + encodeURIComponent(a.replace(/ /g,"_")) + '">' + a + "</a>";
       		}
 				).join(", ");
       purci.style.display='block';
@@ -888,7 +888,7 @@ function displayDescription() {
 	function updateUrl() {
 		var url = '';
 		if (query.length > 0) {
-		url = '#sisku/' + query.replace(/ /g,"_");
+		url = '#sisku/' + encodeURIComponent(query.replace(/ /g,"_"));
 		}
 		if (url === location.href.substring(location.href.indexOf("#")) || url == '' || document.referrer === document.location.href) {
 			return;
@@ -900,24 +900,19 @@ function displayDescription() {
 			window.history.replaceState({}, null, url);
 		}
 		lastQueried = cati();
-		updateMainLink();
 	}
 	function handleUrl() {
 		var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
 		if (searchMatch && searchMatch.indexOf('/')===-1) {
-		query = decodeURIComponent(searchMatch[1]).replace(/%20/g," ").replace(/_/g," ").trim();
+		query = decodeURIComponent(searchMatch[1]).replace(/_/g," ").trim();
 		}
 		typeh.value=query;
 		triggerEvent(typeh, 'input');
-		updateMainLink();
 		if (ready) {
 			doSearch();
 		}
 	}
 	handleUrl();
-	function updateMainLink(){
-		var split = location.href.split('#')[1];if(split===null){split='';}
-	}
 	window.addEventListener('popstate', handleUrl);
 	function handler(e) {
 		if(e.keyCode && e.keyCode===191){

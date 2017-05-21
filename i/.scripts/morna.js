@@ -45,8 +45,8 @@ langs.forEach(function(a){
 	let b;
 	b=gpr(file,"bangudesc",template);
 	b=gpr(file,"bangulo",b);
-	b=gpr(file,"bangusisku",b);
-	b=gpr(file,"opdescr",b);
+	b=gpr(file,"bangusisku",b,'',0);
+	b=gpr(file,"opdescr",b,'',0);
 	b=b
 		.replace("%ogurl%","https://la-lojban.github.io/sutysisku/"+a+"/index.html")
 		.replace("%searchurl%","/sutysisku/"+a+"/sisku.xml")

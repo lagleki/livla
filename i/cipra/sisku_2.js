@@ -311,7 +311,7 @@ function siskurimni(query) {
         _10_moi_lo_traji_rimni.push(doc);
         continue;
       }
-      else if((typeof queryR[2]!=='undefined') &&
+      else if(queryR[2] &&
           (docw[0].match(queryR[0])||[]).length>0 &&
           (docw[1].match(queryR[1])||[]).length>0 &&
           (left === right) &&
@@ -319,7 +319,7 @@ function siskurimni(query) {
           ){
         _20_moi_lo_traji_rimni.push(doc);
       }
-      else if((typeof queryR[2]!=='undefined') &&
+      else if(queryR[2] &&
           (docw[0].match(queryR[0])||[]).length>0 &&
           (docw[1].match(queryR[1])||[]).length>0 &&
           sli &&
@@ -327,21 +327,21 @@ function siskurimni(query) {
           ){
         _30_moi_lo_traji_rimni.push(doc);
       }      
-      else if((typeof queryR[2]!=='undefined') &&
+      else if(queryR[2] &&
           (docw[1].match(regexify(queryR[2]))||[]).length>0 &&
           (left === right) &&
           docw[2]===queryR[2]
           ){
         _40_moi_lo_traji_rimni.push(doc);
       }
-      else if((typeof queryR[2]!=='undefined') &&
+      else if(queryR[2] &&
           (docw[1].match(regexify(queryR[2]))||[]).length>0 &&
           sli &&
           docw[2]===queryR[2]
           ){
         _50_moi_lo_traji_rimni.push(doc);
       }
-      else if((typeof queryR[2]!=='undefined') &&
+      else if(queryR[2] &&
           (docw[0].match(queryR[0])||[]).length>0 &&
           sli &&
           reversal &&
@@ -350,14 +350,14 @@ function siskurimni(query) {
         _60_moi_lo_traji_rimni.push(doc);
       }
 
-      else if((typeof queryR[2]!=='undefined') &&
+      else if(queryR[2] &&
           (docw[0].match(queryR[0])||[]).length>0 &&
           (docw[1].match(queryR[1])||[]).length>0 &&
           docw[2]===queryR[2]
           ){
         _70_moi_lo_traji_rimni.push(doc);
       }
-      else if((typeof queryR[1]!=='undefined') &&
+      else if(queryR[1] &&
           (docw[0].match(queryR[0])||[]).length>0 &&
           (docw[1].match(queryR[1])||[]).length>0
           ){
@@ -438,23 +438,25 @@ function siskurimni(query) {
   };
 
   var regexify = function (t) {
-    t=t.replace(/[sz]/g,'[sz]');
-    t=t.replace(/[pb]/g,'[pb]');
-    t=t.replace(/[td]/g,'[td]');
-    t=t.replace(/[cj]/g,'[cj]');
-    t=t.replace(/[kg]/g,'[kg]');
-    t=t.replace(/[pb]/g,'[pb]');
     t=t.replace(/[lmnr]/g,'[lmnr]');
     t=t.replace(/[ɩw]/g,'[ɩw]');
+    t=t.replace(/[pb]/g,'[pb]');
+    t=t.replace(/[fv]/g,'[fv]');
+    t=t.replace(/[td]/g,'[td]');
+    t=t.replace(/[sz]/g,'[sz]');
+    t=t.replace(/[cj]/g,'[cj]');
+    t=t.replace(/[kg]/g,'[kg]');
+    t=t.replace(/x/g,'[xk]');
     return t;
   };
   
   query=krulermorna(query);
-  
   queryR=query.replace(/([aeiouǎąęǫ])/g,'$1-').split("-").slice(-3);
   queryF=queryR.slice();
   if(queryR.length>=2){queryR[1]=queryR[1].replace(/[aeiouǎąęǫ]/,'[aeiouǎąęǫ]');}
-  queryR[0]=/.*([aeiouǎąęǫ])/.exec(queryR[0])[1];
+  var r = /.*([aeiouǎąęǫ])/.exec(queryR[0]);
+  if (r===null) return traji_rimni;
+  queryR[0]=r[1];
   if(queryR.length===2){
     traji_rimni = sorcu[bau]
     .filter(

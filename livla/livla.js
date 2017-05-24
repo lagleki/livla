@@ -412,17 +412,15 @@ const mulno_smuvelcki = (lin, lng, xmlDoc) => {
   coun = xmlDoc.find(`/dictionary/direction[1]/valsi[contains(translate(./definition,"${lin.toUpperCase()}","${lin}"),"${lin}") or contains(translate(./related,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
   if (coun) stra = stra.concat(coun.map(i=>i.attr("word").value()));
 
-  try {stra = stra.reduce((a, b) => {
-    return (a.indexOf(b) < 0)? a.push(b): a;
-  }, []);}catch(e){}
-
+  stra = [...new Set(stra)];//deduplicate
   const xo = stra.length;
   try {
     stra.splice(30);
   } catch (err) {}
-  if (stra.length >= 30) {
+  if (xo > 30) {
     stra.push("...");
   }
+  
   let gag = stra.join(", ").trim();
   if (stra.length === 1) {
     gag = tordu(gag, lng);

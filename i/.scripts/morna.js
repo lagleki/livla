@@ -59,10 +59,17 @@ langs.forEach(function(a){
 	b=stripout(file,"muplis",b);
 	//colors for la muplis are different:
 	const upper=gp(file,'upperdir');
-	m=
-		"<span id='site-title'><a id='title' href='#'><img src=\"../pixra/sutysisku.png\" height='16'"+
-		" width='16'><font color='#fff'>"+
-		(gp(file,"muplis")?"la muplis":"la sutysisku")+
+	const muplis=gp(file,"muplis");
+	m="<span id='site-title'><a id='title' href='#'>"+
+		(muplis?"<img src=\"../pixra/plise.png\" height='16' width='16'>"+
+		"<img src=\"../pixra/pelxuplise.png\" height='16' width='16'>"+
+		"<img src=\"../pixra/crinoplise.png\" height='16' width='16'>"+
+		"<img src=\"../pixra/blabiplise.png\" height='16' width='16'>"+
+		"<img src=\"../pixra/cicnaplise.png\" height='16' width='16'>":
+		"<img src=\"../pixra/sutysisku.png\" height='16' width='16'>"
+		 ) +
+		"<font color='#fff'>"+
+		(muplis?"la muplis":"la sutysisku")+
 		"</font></a></span>";
 	b = b.replace(/%titlelogo%/g,m);
 	b = gpr(file,"mupliskari1",b,"56,136,233",0);

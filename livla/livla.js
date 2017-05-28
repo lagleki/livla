@@ -291,11 +291,10 @@ const lojTemplate=s=> {
 }
 
 const katna = (lin, lng, xmlDoc) => {
-  let a = lojban.jvokaha_gui(lin).join(" ");
+  const a = lojban.jvokaha_gui(lin).join(" ");
   const b = (lng !== 'jbo')? lojban.gloss(a,lng,xmlDoc).join(tersepli) : a;
   lg(b,a);
-  a = `${lin} ≈ ${b}`;
-  return a;
+  return `${lin} ≈ ${b}`;
 };
 
 const tordu = (linf, lng, flag, xmlDoc, cmalu) => {
@@ -352,10 +351,10 @@ const tordu = (linf, lng, flag, xmlDoc, cmalu) => {
   if (gchild === '') {
     if (flag !== 1) {
       if (lojban.xulujvo(lin)) {
-        const f = JSON.stringify(lojban.jvozba(lojban.jvokaha_gui(lin)));
-        if (f !== '') {
-          lin = f;
-        } else {
+        try {
+          const f=lojban.jvozba(lojban.jvokaha_gui(lin));
+          lin = f.map(x=>tordu(x.lujvo, lng, 1, xmlDoc, true)).join("\n");
+        } catch(e){
           lin = `[< ${katna(lin,lng,xmlDoc)}] ${mulno_smuvelcki(lin,lng,xmlDoc)}`;
         }
       } else {

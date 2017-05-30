@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2017-05-26T02:21:04
+# 2017-05-30T06:46:20
 CACHE:
 index.html
 ../data/parsed-tatoeba.js
@@ -13,9 +13,6 @@ bangu.js
 ../pixra/cicnaplise.png
 ../pixra/x.gif
 ../pixra/arrow-left.png
-../pixra/16.png
-../pixra/32.png
-../pixra/sutysisku.png
 https://mw.lojban.org/images/b/bd/cogwheel-5.svg
 ../pixra/taplasance.png
 ../pixra/taplamuplis.png

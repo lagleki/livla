@@ -47,6 +47,9 @@ langs.forEach(function(a){
 	b=gpr(file,"bangulo",b);
 	b=gpr(file,"bangusisku",b,'',0);
 	b=gpr(file,"opdescr",b,'',0);
+	b=gpr(file,"favicon",b,'../pixra/sutysisku.png',0);
+	b=gpr(file,"icon16",b,'../pixra/16.png',0);
+	b=gpr(file,"icon32",b,'../pixra/32.png',0);
 	b=b
 		.replace("%ogurl%","https://la-lojban.github.io/sutysisku/"+a+"/index.html")
 		.replace("%searchurl%","/sutysisku/"+a+"/sisku.xml")

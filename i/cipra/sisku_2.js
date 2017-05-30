@@ -113,7 +113,7 @@ function sisku(query, callback) {
       }
       else{
       kil.push({
-        t: "decomposing ...",w: query,rafsiDocuments: julne(kim)
+        t: window.bangudecomp,w: query,rafsiDocuments: julne(kim)
       });
       }
     }
@@ -253,7 +253,7 @@ function sisku(query, callback) {
         preciseMatches=ty.concat(preciseMatches);
       }
       else{
-        preciseMatches=[{t: "decomposing ...",w: query,rafsiDocuments: ty}].concat(preciseMatches);
+        preciseMatches=[{t: window.bangudecomp,w: query,rafsiDocuments: ty}].concat(preciseMatches);
       }
     }
     return preciseMatches;
@@ -269,7 +269,7 @@ function sisku(query, callback) {
   }
   else if (!window.muplis && queryDecomposition.length>1){
     preciseMatches=cnanosisku(lo_matra_cu_cupra,true);
-    preciseMatches.push({t: "decomposing ...",w: query,rafsiDocuments: julne(sohivalsi(queryDecomposition))});
+    preciseMatches.push({t: window.bangudecomp,w: query,rafsiDocuments: julne(sohivalsi(queryDecomposition))});
   }
   else {
     //normal search

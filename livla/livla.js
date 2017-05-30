@@ -1050,9 +1050,9 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     case (txt.indexOf("jbofi'e:") === 0||txt.indexOf("jbofihe:") === 0||txt.indexOf("gerna:") === 0):
       jbofihe(pp, sendTo, source, socket);
       break;
-    case txt.indexOf("tersmu:") === 0:
-      tersmu(pp, sendTo, source, socket);
-      break;
+    //case txt.indexOf(".tersmu ") === 0:
+    //  tersmu(po, sendTo, source, socket);
+    //  break;
     case txt.indexOf(".off ") === 0:
       benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po,"T"));
       break;

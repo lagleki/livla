@@ -20,3 +20,6 @@ gradpos3 = "51%";
 gradpos4 = "100%";
 window.purc = "Last searched: ";
 window.lojbo = true;
+favicon = '../pixra/crinoplise.png';
+icon16 = '../pixra/crinoplise.png';
+icon32 = '../pixra/crinoplise.png';

@@ -21,3 +21,6 @@ gradpos4 = "100%";
 upperdir = "../muplis.html";
 window.purc = "Last searched: ";
 window.lojbo = false;
+favicon = '../pixra/crinoplise.png';
+icon16 = '../pixra/crinoplise.png';
+icon32 = '../pixra/crinoplise.png';

@@ -109,7 +109,7 @@ const readConfig = filename=> {
   }
 }
 
-// Load every line of “~/.livla/notci.txt” into “notci”, as an array. 
+// Load every line of “~/.livla/notci.txt” into “notci”, as an array.
 // Define “notcijudri” as the file path that will be used later when we want to
 // save the content of “notci”.
 let notci, notcijudri;
@@ -421,7 +421,7 @@ const mulno_smuvelcki = (lin, lng, xmlDoc) => {
   if (xo > 30) {
     stra.push("...");
   }
-  
+
   let gag = stra.join(", ").trim();
   if (stra.length === 1) {
     gag = tordu(gag, lng);
@@ -676,10 +676,10 @@ const sutysiskuningau = (lng, lojbo) => { //write a new file parsed.js that woul
     } //\n
   }
   pars += "};\n";
-  let t = path.join(__dirname, "../i/data", `parsed-${lng}.js`);
+  let t = path.join(__dirname, "../sutysisku/data", `parsed-${lng}.js`);
   fs.writeFileSync(`${t}.temp`, pars);
   fs.renameSync(`${t}.temp`, t);
-  t = path.join(__dirname, `../i/${lng}/`, "webapp.appcache");
+  t = path.join(__dirname, `../sutysisku/${lng}/`, "webapp.appcache");
   const d = new Date();
   let n = d.getDate();
   if ((n === 1) || (n === 11) || (n === 21)) {
@@ -1004,7 +1004,7 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       //loadNotci();
     }
   }
-  // 
+  //
   const txt = text.toLowerCase();
   let inLanguage = defaultLanguage;
   const pp = (/:(.+)/.exec(text)||['',''])[1];
@@ -1254,4 +1254,3 @@ ik.sockets.on('connection', socket => {
 });
 
 app.listen(3002);
-

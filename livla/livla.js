@@ -291,7 +291,9 @@ const lojTemplate=s=> {
 }
 
 const katna = (lin, lng, xmlDoc) => {
-  const a = lojban.jvokaha_gui(lin).join(" ");
+  const l = lojban.jvokaha_gui(lin);
+  if (!l) return '';
+  const a = l.join(" ");
   const b = (lng !== 'jbo')? lojban.gloss(a,lng,xmlDoc).join(tersepli) : a;
   lg(b,a);
   return `${lin} ≈ ${b}`;
@@ -616,37 +618,45 @@ const sutysiskuningau = (lng, lojbo) => { //write a new file parsed.js that woul
   const xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname, "../dumps", `${lng}.xml`), {
     encoding: 'utf8'
   }).replace(/(&lt;|<)script.*?(&gt;|>).*?(&lt;|<)/g, "&lt;").replace(/(&lt;|<)\/script(&gt;|>)/g, ""));
-  let pars = 'sorcu["'+lng+'"] = [';
+  let pars = 'sorcu["'+lng+'"] = {';
   const rev = xmlDoc.find("/dictionary/direction[1]/valsi");
   for (let i = 0; i < rev.length; i++) {
     const hi = rev[i].attr("word").value().replace("\\", "\\\\");
-    pars += `{"w":"${hi}"`;
+    pars += `"${hi}":{`;
+    let wascomma='';
     try {
-      pars += `,"t":"${rev[i].attr("type").value().replace(/\\/g,"\\\\")}"`;
+      pars += `"d":"${rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
+      wascomma=',';
     } catch (err) {}
     try {
-      pars += `,"s":"${rev[i].find("selmaho[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
+      pars += `${wascomma}"t":"${rev[i].attr("type").value().replace(/\\/g,"\\\\")}"`;
+      wascomma=',';
     } catch (err) {}
     try {
-      pars += `,"d":"${rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
+      pars += `${wascomma}"s":"${rev[i].find("selmaho[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
+      wascomma=',';
     } catch (err) {}
     try {
-      pars += `,"n":"${rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
+      pars += `${wascomma}"n":"${rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
+      wascomma=',';
     } catch (err) {}
     try {
-      pars += `,"g":"${rev[i].find("glossword/@word").join(";").replace(/ word=\"(.*?)\"/g,"$1").replace(/"/g,"'").replace("\\","\\\\")}"`;
+      pars += `${wascomma}"g":"${rev[i].find("glossword/@word").join(";").replace(/ word=\"(.*?)\"/g,"$1").replace(/"/g,"'").replace("\\","\\\\")}"`;
+      wascomma=',';
     } catch (err) {}
     try {
-      pars += `,"k":"${rev[i].find("related[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
+      pars += `${wascomma}"k":"${rev[i].find("related[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
+      wascomma=',';
     } catch (err) {}
     try {
       const ex = rev[i].find("example").toString().replace(/>,</g, ">%<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g, "$1 — $2").replace(/"/g, "'").replace(/\\/g, "\\\\");
       if (ex !== '') {
-        pars += `,"e":"${ex}"`;
+        pars += `${wascomma}"e":"${ex}"`;
+        wascomma=',';
       }
     } catch (err) {}
     let ra = rev[i].find("rafsi//text()[1]");
-    if (lojbo !== 0 && xugismu(hi) === true) {
+    if (lojbo !== 0 && lojban.xugismu(hi) === true) {
       ra.push(hi);
       if (hi.indexOf("brod") !== 0) {
         ra.push(hi.substr(0, 4));
@@ -658,14 +668,14 @@ const sutysiskuningau = (lng, lojbo) => { //write a new file parsed.js that woul
     ra = ra.join("\",\"");
 
     if (ra.length !== 0) {
-      pars += `,"r":["${ra}"]`;
+      pars += `${wascomma}"r":["${ra}"]`;
     }
     pars += "}";
     if (i < rev.length - 1) {
       pars += ",\n";
     } //\n
   }
-  pars += "];\n";
+  pars += "};\n";
   let t = path.join(__dirname, "../i/data", `parsed-${lng}.js`);
   fs.writeFileSync(`${t}.temp`, pars);
   fs.renameSync(`${t}.temp`, t);
@@ -766,7 +776,8 @@ const ningaumahantufa = (text, socket) => {
       cache: true,
       trace: false,
       output: "source",
-      allowedStartRules: ["text"]
+      allowedStartRules: ["text"],
+      optimize: "size"
     });
     // // write to a file
     const fd = fs.openSync(whichfile, 'w+');
@@ -849,6 +860,7 @@ const updatexmldumps = callback => {
         sutysiskuningau(thisa);
         //global.gc();
       } catch (err) {
+        lg(thisa,err);
         velruhe.nalmulselfaho[thisa] = true;
         delete velruhe.cfari[thisa];
       }

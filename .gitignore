@@ -25,4 +25,3 @@ dumps/*.sql
 i/data/*.*
 i/.git
 !i/data/parsed-tatoeba.js
-!i/cipra/template.html

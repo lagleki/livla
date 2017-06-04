@@ -1,0 +1,31 @@
+node_modules/
+_build/
+.idea/
+zasni/
+dumps/*.xml
+dumps/*.temp
+dumps/*.csv
+dumps/*.tsv
+!dumps/loglan.xml
+!dumps/laadan.xml
+!dumps/guaspi.xml
+!dumps/toki.xml
+!dumps/zamenhofo.xml
+!dumps/en-pt-BR.xml
+!dumps/ldp.xml
+!dumps/ile.xml
+!dumps/ithkuil.xml
+!dumps/krasi.xml
+!dumps/2002.xml
+dumps/*.pdf
+dumps/tatoeba*
+dumps/*.temp
+dumps/*.bz2
+dumps/*.sql
+i/data/*.*
+i/.git
+!i/data/parsed-tatoeba.js
+<<<<<<< HEAD
+!i/cipra/template.html
+=======
+>>>>>>> ee94bba802c11f842a515a1e14d6f3a106138695

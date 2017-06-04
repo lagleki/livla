@@ -1,4 +1,5 @@
 // JavaScript Document
+window.nasezvafahi = '見つかりません';
 window.bangulo = "辞書を読み込んでいます ...";
 window.bangubuild = '索引を作成しています ...';
 window.bangudesc = "<b>la sutysisku</b> は、素早く検索できるロジバンの辞書です。<p>――インターネットに接続していない時にでも使えるの？<br>――使えます。接続していない時にこのブラウザから今のこのアドレスを開いてみて下さい。<br>開くはずです。 Chrome か Safari か Firefox の最新版が必要です。<br><br>他の教材については<a href='https://mw.lojban.org' target='_blank'>ロジバンのウィキ</a>を訪れて下さい。</p><p><span id='searchengine'><i><a href='#' title='ja-sutysisku' onclick=\"window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/ja/sisku.xml')\">検索エンジンとして追加</a></i></span></p>";

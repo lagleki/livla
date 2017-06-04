@@ -1,4 +1,5 @@
 // JavaScript Document
+window.nasezvafahi = 'not found';
 window.bangulo = "getting the dictionary";
 window.bangubuild = "creating the index";
 window.bangudesc = "<p><b>La Muplis</b> is a fast tool to search sentenes from <a href='http://tatoeba.org/eng' target='_blank'>Tatoeba.org</a> database in Polish and English.</p><p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br>To increase the overall quality of the sentences displayed this app<br>1. includes only sentences owned by tatoeba.org users,<br>2. excludes sentences tagged as \"needs native check\".</p><span id='searchengine'><i><a href='#' title='jbo-sutysisku' onclick=\"window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/muplis-eng-pol/sisku.xml')\">Add as a search engine...</a></i></span>";
@@ -21,6 +22,6 @@ gradpos4 = "100%";
 upperdir = "../muplis.html";
 window.purc = "Last searched: ";
 window.lojbo = false;
-favicon = '../pixra/crinoplise.png';
-icon16 = '../pixra/crinoplise.png';
-icon32 = '../pixra/crinoplise.png';
+favicon = '../pixra/plise.png';
+icon16 = '../pixra/plise.png';
+icon32 = '../pixra/plise.png';

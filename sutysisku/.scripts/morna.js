@@ -27,7 +27,7 @@ function stripout(file_m,tag,output){
 	for (let tagg in a_tag){
 		a_tag[tagg]=(file_m.match(new RegExp("window\."+a_tag[tagg]+" *= *[\"']?(.*?)[\"']?;(\\\n|\\\r)",""))||['',''])[1].replace(/\\\"/gm,"\"")=='true';
 	}
-	const m=a_tag.includes(true);		
+	const m=a_tag.includes(true);
 	const ku = m ? "$1" : "";const antiku = !m ? "$1" : "";
 	return output
 		.replace(new RegExp("\\\/\\\/<"+tag+">([\\s\\S]*?)\\\/\\\/<\\\/"+tag+">","gm"),ku)
@@ -39,9 +39,9 @@ function stripout(file_m,tag,output){
 
 ///script
 const fs = require("fs"),path = require("path-extra");
-const template = fs.readFileSync(path.join(__dirname,"../../i/cipra","template.html"),{encoding: 'utf8'});
+const template = fs.readFileSync(path.join(__dirname,"../../sutysisku/cipra","template.html"),{encoding: 'utf8'});
 langs.forEach(function(a){
-	const file = fs.readFileSync(path.join(__dirname,"../../i",a,"bangu.js"),{encoding: 'utf8'});
+	const file = fs.readFileSync(path.join(__dirname,"../../sutysisku",a,"bangu.js"),{encoding: 'utf8'});
 	let b;
 	b=gpr(file,"bangudesc",template);
 	b=gpr(file,"bangulo",b);
@@ -89,17 +89,17 @@ langs.forEach(function(a){
 	b = b.replace(/\/\*((?!\/\*)[\s\S]*?)\*\//gm,"");
 	b = b.replace(/<!--[\s\S]*?-->/gm,"");
 	b = b.replace(/\n\s*\n/g, '\n');
-	fs.writeFileSync(path.join(__dirname,"../../i",a,"index.html"), b);
+	fs.writeFileSync(path.join(__dirname,"../../sutysisku",a,"index.html"), b);
 });
 
-const sisku = fs.readFileSync(path.join(__dirname,"../../i/cipra","sisku.xml"),{encoding: 'utf8'});
+const sisku = fs.readFileSync(path.join(__dirname,"../../sutysisku/cipra","sisku.xml"),{encoding: 'utf8'});
 langs.forEach(function(a){
 	if (a!=='cipra'){
-		const file = fs.readFileSync(path.join(__dirname,"../../i",a,"bangu.js"),{encoding: 'utf8'});
+		const file = fs.readFileSync(path.join(__dirname,"../../sutysisku",a,"bangu.js"),{encoding: 'utf8'});
 		b = sisku.replace("%template%","https://la-lojban.github.io/sutysisku/en/index.html#sisku/{searchTerms}");
 		b = b.replace("%shortname%",a+"-sutysisku");
 		b=gpr(file,"siskudescr",b);
-		fs.writeFileSync(path.join(__dirname,"../../i",a,"sisku.xml"), b);
+		fs.writeFileSync(path.join(__dirname,"../../sutysisku",a,"sisku.xml"), b);
 		//now update manifest
 		b = path.join(__dirname,"../"+a+"/","webapp.appcache");
 		//change date in manifest
@@ -119,5 +119,5 @@ langs.forEach(function(a){
 langs.forEach(function(a){
 	const sisku="'../sisku.js";
 	const b = "window = this;var sorcu={};var bau = location.href.split('/').slice(-2)[0];if (bau==='cipra'){bau='en';}\nimportScripts('bangu.js','../data/parsed-"+a.replace(/^cipra$/,'en').replace(/^muplis/,"tatoeba")+".js', "+(a==='cipra'?"'./sisku_2.js":sisku)+"');\npostMessage({kind: 'loading'});\npostMessage({kind: 'ready'});\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;sisku(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};";
-	fs.writeFileSync(path.join(__dirname,"../../i",a,"worker.js"), b);
+	fs.writeFileSync(path.join(__dirname,"../../sutysisku",a,"worker.js"), b);
 });

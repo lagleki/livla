@@ -25,4 +25,5 @@ dumps/*.sql
 sutysisku/data/*.*
 sutysisku/.git
 sutysisku/.gitignore
+sutysisku/**/*.html
 !sutysisku/data/parsed-tatoeba.js

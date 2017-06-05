@@ -69,7 +69,6 @@ function sisku(query, callback) {
   if (query.length === 0) return;
   var searchId = ++searchIdCounter;
   var preciseMatches = [];
-  query = query.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
   var query_apos = query.replace(/h/g, "'").toLowerCase();
   var queryDecomposition = window.xuzganalojudri ? query_apos.replace(/ zei /g, '-zei-').split(" ").map(function(a) {
     return a.replace(/-zei-/g, ' zei ');
@@ -228,11 +227,11 @@ function sisku(query, callback) {
   function shortget(a, ki, shi) {
     a = a.replace(/([cfkpstx])([bdgjvz])/igm, "$1y$2");
     a = a.replace(/([bdgjvz])([cfkpstx])/igm, "$1y$2");
-    a = a.replace(/([bcdfgjklmnprstvxz])\1/igm, "$1y$1");
-    a = a.replace(/([aeiouy])\1/igm, "$1'$1");
+    a = a.replace(/([bcdfgjklmnprstvxz])\1/igm, "$1y$2");
+    a = a.replace(/([aeiouy])\1/igm, "$1'$2");
     var isdef = Object.keys(sorcu[bau]).filter(function(o) {
       return (o.toLowerCase() === a.toLowerCase()) || (sorcu[bau][o]["d"].toLowerCase() === "{" + a.toLowerCase() + "}");
-    });
+    }).map(function(w){var a = sorcu[bau][w];a["w"]=w;return a;});
     if (isdef && isdef.length > 0) {
       ki = ki.concat(isdef);
     } else {
@@ -314,7 +313,7 @@ function sisku(query, callback) {
   if ((query.indexOf('^') === 0 || query.slice(-1) === '$')) {
     preciseMatches = julne(sortthem(Object.keys(sorcu[bau]).filter(function(w) {
       return (w.match(query.toLowerCase()) || []).length > 0;
-    }).splice(0, 100)));
+    }).map(function(w){var a = sorcu[bau][w];a["w"]=w;return a;}).splice(0, 100)));
   } else if ((query.indexOf('@') === 0 || query.slice(-1) === '@')) {
     preciseMatches = siskurimni(query.replace(/^@+/, '').replace(/@+$/, ''));
   } else if (!window.muplis && queryDecomposition.length > 1) {
@@ -505,6 +504,7 @@ function siskurimni(query) {
           var queryRn = krulermorna(w).replace(/([aeiouǎąęǫ])/g, '$1-').split("-").slice(-3);
           return queryRn.length === 2 ? (queryRn[0].split('').slice(-1)[0] === queryR[0].split('').slice(-1)[0]) : false;
         })
+        .map(function(w){var a = sorcu[bau][w];a["w"]=w;return a;})
       .filter(function(n) {
         n = jmina_lo_se_claxu(n);
         return n !== undefined;
@@ -517,6 +517,7 @@ function siskurimni(query) {
           return (krulermorna(w)
             .match(query_apos.toLowerCase() + "$") || []).length > 0;
         })
+        .map(function(w){var a = sorcu[bau][w];a["w"]=w;return a;})
       .filter(function(n) {
         return n !== undefined;
       })

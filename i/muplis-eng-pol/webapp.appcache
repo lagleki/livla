@@ -1,0 +1,22 @@
+CACHE MANIFEST
+# 2017-06-05T23:22:25
+CACHE:
+index.html?version=32
+../pixra/sutysisku.png
+../pixra/arrow-left.png
+../sisku.js
+worker.js
+bangu.js
+https://upload.wikimedia.org/wikipedia/commons/b/bb/Unde_yelb.svg
+../pixra/ldp.svg
+https://upload.wikimedia.org/wikipedia/commons/c/ce/150px-Interlingua-Logo.png
+../pixra/Double_girl_sign.svg
+../pixra/Toki_pona.svg
+../pixra/muplis-eng-pol.png
+../pixra/16.png
+../data/parsed-tatoeba-eng-pol.js
+../pixra/x.gif
+NETWORK:
+*
+FALLBACK:
+/sisku/ ./

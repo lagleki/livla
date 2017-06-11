@@ -7,8 +7,10 @@ const fs = require("fs"),
   path = require("path-extra"),
   ospath = require("ospath"),
   libxmljs = require("libxmljs"),
+  twitter = require('twitter'),
   lojban = require("lojban");
 require('v8-profiler');
+
 const tato = require('./tatoeba.js');
 const interv = 300000;
 const interm = 2900;
@@ -20,12 +22,18 @@ const robangu = 'fr-facile|en|f@|ru|de|ja|jbo|guaspi|loglan|eo|fr|jb|2002|es|zh|
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
 let tcan = '#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau,##esperanto';
+let nuzbytcan = '#lojban';
 let livlytcan = '#lojbanme'; //where la livla talks to la mensi
 let asker = 'livla';
 let replier = 'mensi';
 let server = 'irc.freenode.net';
+let twitter_id = "550172170,475221831,848076906960388096,1748346150";
+let twitter_id_lojban_only = "";
+let consumer_key, consumer_secret, access_token_key, access_token_secret;
+
 // const stodipilno=['gleki','xalbo'];
 // End default configuration
+
 
 const configlivla = {
   server,
@@ -66,7 +74,7 @@ const prereplier = `${replier}: `;
 let said;
 
 // Ensure that a path exists, and that it is a dir.
-const ensureDirExistence=(path)=> {
+const ensureDirExistence = (path) => {
   // We first try to make a dir. If it was missing, now, it is not
   // anymore.
   try {
@@ -91,7 +99,7 @@ const ensureDirExistence=(path)=> {
 
 // Used to read the content of any file that is located in “~/.livla/”.
 // Return an empty string if the file does not exist.
-const readConfig = filename=> {
+const readConfig = filename => {
   const configDirectory = path.join(ospath.home(), ".livla");
   ensureDirExistence(configDirectory);
   const file = path.join(configDirectory, filename);
@@ -113,7 +121,7 @@ const readConfig = filename=> {
 // Define “notcijudri” as the file path that will be used later when we want to
 // save the content of “notci”.
 let notci, notcijudri;
-const loadNotci=()=> {
+const loadNotci = () => {
   notci = readConfig("notci.txt").split("\n");
   notcijudri = path.join(ospath.home(), ".livla", "notci.txt");
 }
@@ -121,7 +129,7 @@ const loadNotci=()=> {
 // Load the configuration from “~/.livla/config.json”, and modify the default
 // config accordingly.
 const loadConfig = () => {
-  const either=(a, b)=> {
+  const either = (a, b) => {
     if (!a) return b;
     return a;
   }
@@ -134,12 +142,18 @@ const loadConfig = () => {
   tcan = either(localConfig.tcan, tcan);
   livlytcan = either(localConfig.livlytcan, livlytcan);
   server = either(localConfig.server, server);
+  consumer_key = either(localConfig.consumer_key, "");
+  consumer_secret = either(localConfig.consumer_secret, "");
+  access_token_key = either(localConfig.access_token_key, "");
+  access_token_secret = either(localConfig.access_token_secret, "");
+  twitter_id = either(localConfig.twitter_id, twitter_id);
+  twitter_id_lojban_only = either(localConfig.twitter_id_lojban_only, twitter_id_lojban_only);
 }
 loadConfig();
 
 // Load the user configuration from “~/.livla/user-settings.json”
 // These are settings
-const loadUserSettings=()=>{
+const loadUserSettings = () => {
   const localConfig = readConfig("user-settings.json");
   if (localConfig.trim() === "")
     return;
@@ -229,14 +243,18 @@ let processorlivla = (client, from, to, text) => {
   }, interv);
 };
 
-const benji = (source, socket, clientmensi, sendTo, what) => {
+const benji = (source, socket, clientmensi, sendTo, what, action) => {
   if (source === "naxle") {
     socket.emit('returner', {
       message: what
     });
     return what;
   } else {
-    clientmensi.say(sendTo, what);
+    if (!action) {
+      clientmensi.say(sendTo, what);
+    } else {
+      clientmensi.action(sendTo, what);
+    }
   }
 };
 
@@ -281,7 +299,7 @@ const RetrieveUsersLanguage = (username, lng) => {
   return userSettings[username].language;
 };
 
-const lojTemplate=s=> {
+const lojTemplate = s => {
   s = s.replace(/\$.*?\$/g, c => {
     c = c.substring(1, c.length - 1);
     return c.replace(/(\w+)_\{(\d+)\}/g, "$1$2").replace(/(\w+)_(.+)/g, "$1$2").replace(/\{/g, '[').replace(/\}/g, ']');
@@ -290,147 +308,134 @@ const lojTemplate=s=> {
   return s;
 }
 
+
+const GetWordDef = (lin, lng, tordu, xmlDoc) => {
+  let acc = '';
+  let tmp = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\"" + lin.toUpperCase() + "\",\"" + lin + "\")=\"" + lin + "\"]/selmaho[1]");
+  if (tmp.length > 0) acc += `[${tmp[0].text()}] `;
+  tmp = xmlDoc.find(`/dictionary/direction[1]/valsi[translate(@word,"${lin.toUpperCase()}","${lin}")="${lin}"]/definition[1]`);
+  if (tmp.length > 0) acc += `${tmp[0].text()}`;
+  if (!tordu) {
+    tmp = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\"" + lin.toUpperCase() + "\",\"" + lin + "\")=\"" + lin + "\"]/notes[1]");
+    if (tmp.length > 0) acc += ` | ${tmp[0].text()}`;
+    tmp = xmlDoc.find("/dictionary/direction[1]/valsi[translate(@word,\"" + lin.toUpperCase() + "\",\"" + lin + "\")=\"" + lin + "\"]/user[1]/username[1]");
+    if (tmp.length > 0) acc += ` | ${tmp[0].text()}`;
+  }
+
+  //Dictionary with Examples
+  tmp = xmlDoc.find(`/dictionary/direction[1]/valsi[translate(@word,"${lin.toUpperCase()}","${lin}")="${lin}"]/gloss[1]`);
+  if (tmp.length > 0) {
+    tmp = tmp[0].text().replace(/("|&amp;quot;)/g, "'").replace(/\\/g, "\\\\");
+    acc += `\nAs a noun: ${tmp}`;
+  }
+  tmp = xmlDoc.find(`/dictionary/direction[1]/valsi[translate(@word,"${lin.toUpperCase()}","${lin}")="${lin}"]/example`);
+  if (tmp.length > 0) {
+    tmp = tmp[0].toString().replace(/>,</g, ">\n<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g, "$1 — $2").replace(/("|&amp;quot;)/g, "'").replace(/\\/g, "\\\\");
+    acc += `\nExamples:\n${tmp}`;
+  }
+  acc = lojTemplate(acc).replace(/`/g, "'").replace(/ {2,}/g, ' ');
+  if (acc.length >= 700 && lng !== "jb") {
+    acc = acc.substring(0, 700);
+    acc += `...\n[mo'u se katna] http://jbovlaste.lojban.org/dict/${lin}`;
+  }
+  if (acc.length > 0) {
+    acc = acc.replace(/&quot;/g, "'").replace(/&gt;/g, '>')
+    return `${lin} = ${acc}`;
+  }
+  return;
+}
+
+const GetXmldoc = (lng) => {
+  if (lng !== "en" || !xmlDocEn) {
+    const xmlPath = path.join(__dirname, "../dumps", `${lng}.xml`);
+    if (!fs.existsSync(xmlPath)) {
+      const errorMessage = `.i no da liste lo valsi be fi lo se sinxa be zoi zoi.${lng}.zoi`;
+      if (flag === 'passive') {
+        lg(errorMessage);
+        return '';
+      }
+      return errorMessage;
+    }
+    return libxmljs.parseXml(fs.readFileSync(xmlPath, {
+      encoding: 'utf8'
+    }));
+  }
+  return xmlDocEn;
+};
+
+const PrettyLujvoScore = (a) => a.map(x => x.lujvo + ": " + x.score).join(", ");
+
+const MultipleDefs = (valsi, lng, tordu) => {
+  let lin = valsi.replace(/\"/g, '').replace(/\)$/, '').replace(/^[\(\.]/, '');
+  xmlDoc = GetXmldoc(lng);
+  let pre = '';
+  if (lojban.xulujvo(valsi)) {
+    try {
+      const l = lojban.jvokaha_gui(valsi);
+      const f = lojban.jvozba(l).filter(x => /[aeiou]/.test(x.lujvo.slice(-1)));
+      const fslice = f.slice(0, Math.min(f.length, 3));
+      const arr_defs = fslice.map(x => {
+          return GetWordDef(x.lujvo, lng, tordu, xmlDoc);
+        })
+        .filter(Boolean);
+      const l_joined = l.join(" ");
+      const glossed = (lng !== 'jbo') ? lojban.gloss(l_joined, lng, xmlDoc, false).join(tersepli) : l_joined;
+      pre = `${PrettyLujvoScore(fslice)}\n${l_joined} ≈ ${glossed}\n`;
+      if (arr_defs.length > 0) {
+        return pre + `${arr_defs.join("\n")}`;
+      }
+    } catch (e) {
+      return e.toString();
+    }
+  }
+  //otherwise just
+  const mo = GetWordDef(valsi, lng, tordu, xmlDoc);
+  if (mo) return mo;
+  //if nothing found try full-text search
+  const mulno = mulno_sisku(lin, lng, xmlDoc);
+  if (mulno) return pre + mulno;
+  if (pre !== '') return pre;
+  return nodasezvafahi;
+};
+
+const mulno_sisku = (lin, lng, xmlDoc) => {
+  if (!xmlDoc) xmlDoc = GetXmldoc(lng);
+  let stra = [];
+  let coun = xmlDoc.find(`/dictionary/direction[1]/valsi[(translate(@word,"${lin.toUpperCase()}","${lin}")="${lin}")]`);
+  if (coun) stra = stra.concat(coun.map(i => i.attr("word").value()));
+  coun = xmlDoc.find(`/dictionary/direction[1]/valsi[(translate(./glossword/@word,"${lin.toUpperCase()}","${lin}")="${lin}") or (translate(./Engl,"${lin.toUpperCase()}","${lin}")="${lin}")]`);
+  if (coun) stra = stra.concat(coun.map(i => i.attr("word").value()));
+  coun = xmlDoc.find(`/dictionary/direction[1]/valsi[contains(translate(@word,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
+  if (coun) stra = stra.concat(coun.map(i => i.attr("word").value()));
+  coun = xmlDoc.find(`/dictionary/direction[1]/valsi[contains(translate(./glossword/@word,"${lin.toUpperCase()}","${lin}"),"${lin}") or contains(translate(./Engl,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
+  if (coun) stra = stra.concat(coun.map(i => i.attr("word").value()));
+  coun = xmlDoc.find(`/dictionary/direction[1]/valsi[contains(translate(./definition,"${lin.toUpperCase()}","${lin}"),"${lin}") or contains(translate(./notes,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
+  if (coun) stra = stra.concat(coun.map(i => i.attr("word").value()));
+  coun = xmlDoc.find(`/dictionary/direction[1]/valsi[contains(translate(./definition,"${lin.toUpperCase()}","${lin}"),"${lin}") or contains(translate(./related,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
+  if (coun) stra = stra.concat(coun.map(i => i.attr("word").value()));
+
+  stra = [...new Set(stra)]; //deduplicate
+  const xo = stra.length;
+  if (xo > 30) {
+    stra.splice(30);
+    stra.push("...");
+  }
+  if (stra.length > 1) {
+    return `${xo} da se zvafa'i: ${stra.join(", ").trim()}`;
+  }
+  if (stra.length === 1) {
+    return GetWordDef(stra[0], lng, false, xmlDoc)
+  }
+  return;
+}
+
 const katna = (lin, lng, xmlDoc) => {
   const l = lojban.jvokaha_gui(lin);
   if (!l) return '';
   const a = l.join(" ");
-  const b = (lng !== 'jbo')? lojban.gloss(a,lng,xmlDoc).join(tersepli) : a;
-  lg(b,a);
+  const b = (lng !== 'jbo') ? lojban.gloss(a, lng, xmlDoc).join(tersepli) : a;
+  lg(b, a);
   return `${lin} ≈ ${b}`;
-};
-
-const tordu = (linf, lng, flag, xmlDoc, cmalu) => {
-  let lin = linf.replace(/\"/g, '').replace(/\)$/, '').replace(/^[\(\.]/, '');
-  if (flag !== 1) {
-    if (lng === "en") {
-      xmlDoc = xmlDocEn;
-    } else {
-      const xmlPath = path.join(__dirname, "../dumps", `${lng}.xml`);
-      const errorMessage = `Dictionary for the desired "${lng}" language does not exist.`; //TODO: Translate to Lojban
-      if (!fs.existsSync(xmlPath)) {
-        if (flag === 'passive') {
-          lg(errorMessage);
-          return '';
-        }
-        return errorMessage;
-      }
-      xmlDoc = libxmljs.parseXml(fs.readFileSync(xmlPath, {
-        encoding: 'utf8'
-      }));
-    }
-  }
-
-  let gchild = '';
-  try {
-    gchild += `[${xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/selmaho[1]").text()}] `;
-  } catch (err) {}
-  try {
-    gchild += xmlDoc.get(`/dictionary/direction[1]/valsi[translate(@word,"${lin.toUpperCase()}","${lin}")="${lin}"]/definition[1]`).text();
-  } catch (err) {}
-  if (cmalu === true) {
-    try {
-      gchild += ` | ${xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/notes[1]").text()}`;
-    } catch (err) {}
-    try {
-      gchild += ` | ${xmlDoc.get("/dictionary/direction[1]/valsi[translate(@word,\""+lin.toUpperCase()+"\",\""+lin+"\")=\""+lin+"\"]/user[1]/username[1]").text()}`;
-    } catch (err) {}
-  }
-  let jk;
-  try {
-    jk = xmlDoc.get(`/dictionary/direction[1]/valsi[translate(@word,"${lin.toUpperCase()}","${lin}")="${lin}"]/gloss[1]`).text().replace(/("|&amp;quot;)/g, "'").replace(/\\/g, "\\\\");
-    if (jk) {
-      gchild += `\nAs a noun: ${jk}`;
-    }
-  } catch (err) {}
-  jk = '';
-  try {
-    jk = xmlDoc.find(`/dictionary/direction[1]/valsi[translate(@word,"${lin.toUpperCase()}","${lin}")="${lin}"]/example`).toString().replace(/>,</g, ">\n<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g, "$1 — $2").replace(/("|&amp;quot;)/g, "'").replace(/\\/g, "\\\\");
-    if (jk) {
-      gchild += `\nExamples:\n${jk}`;
-    }
-  } catch (err) {}
-
-  if (gchild === '') {
-    if (flag !== 1) {
-      if (lojban.xulujvo(lin)) {
-        try {
-          const f=lojban.jvozba(lojban.jvokaha_gui(lin));
-          lin = f.map(x=>tordu(x.lujvo, lng, 1, xmlDoc, true)).join("\n");
-        } catch(e){
-          lin = `[< ${katna(lin,lng,xmlDoc)}] ${mulno_smuvelcki(lin,lng,xmlDoc)}`;
-        }
-      } else {
-        lin = mulno_smuvelcki(lin, lng, xmlDoc);
-      }
-    } else {
-      lin = '';
-    }
-  } else {
-    gchild = lojTemplate(gchild).replace(/`/g, "'");
-    if (gchild.length >= 700 && lng !== "jb") {
-      gchild = gchild.substring(0, 700);
-      gchild += `...\n[mo'u se katna] http://jbovlaste.lojban.org/dict/${lin}`;
-    }
-    if (lojban.xulujvo(lin)) {
-      lin += ` [< ${katna(lin,lng,xmlDoc)}] `;
-    }
-    lin = `${lin} = ${gchild}`;
-  }
-  lg(`<${linf}|`);
-  if (lin !== '') {
-    const more = tordu(`${linf} `, lng, 1, xmlDoc, cmalu);
-    if (more !== '') {
-      lin += `\n${more}`;
-    }
-  }
-  return lin.replace(/&quot;/g, "'").replace(/&gt;/g, '>');
-};
-
-const mulno_smuvelcki = (lin, lng, xmlDoc) => {
-  lin = lin.replace(/\"/g, '');
-  if (!xmlDoc) {
-    if (lng === "en") {
-      xmlDoc = xmlDocEn;
-    } else {
-      xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname, "../dumps", `${lng}.xml`), {
-        encoding: 'utf8'
-      }));
-    }
-  }
-
-  let stra = [];
-  let i;
-  let coun = xmlDoc.find(`/dictionary/direction[1]/valsi[(translate(@word,"${lin.toUpperCase()}","${lin}")="${lin}")]`);
-  if (coun) stra = stra.concat(coun.map(i=>i.attr("word").value()));
-  coun = xmlDoc.find(`/dictionary/direction[1]/valsi[(translate(./glossword/@word,"${lin.toUpperCase()}","${lin}")="${lin}") or (translate(./Engl,"${lin.toUpperCase()}","${lin}")="${lin}")]`);
-  if (coun) stra = stra.concat(coun.map(i=>i.attr("word").value()));
-  coun = xmlDoc.find(`/dictionary/direction[1]/valsi[contains(translate(@word,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
-  if (coun) stra = stra.concat(coun.map(i=>i.attr("word").value()));
-  coun = xmlDoc.find(`/dictionary/direction[1]/valsi[contains(translate(./glossword/@word,"${lin.toUpperCase()}","${lin}"),"${lin}") or contains(translate(./Engl,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
-  if (coun) stra = stra.concat(coun.map(i=>i.attr("word").value()));
-  coun = xmlDoc.find(`/dictionary/direction[1]/valsi[contains(translate(./definition,"${lin.toUpperCase()}","${lin}"),"${lin}") or contains(translate(./notes,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
-  if (coun) stra = stra.concat(coun.map(i=>i.attr("word").value()));
-  coun = xmlDoc.find(`/dictionary/direction[1]/valsi[contains(translate(./definition,"${lin.toUpperCase()}","${lin}"),"${lin}") or contains(translate(./related,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
-  if (coun) stra = stra.concat(coun.map(i=>i.attr("word").value()));
-
-  stra = [...new Set(stra)];//deduplicate
-  const xo = stra.length;
-  try {
-    stra.splice(30);
-  } catch (err) {}
-  if (xo > 30) {
-    stra.push("...");
-  }
-
-  let gag = stra.join(", ").trim();
-  if (stra.length === 1) {
-    gag = tordu(gag, lng);
-  }
-  if (stra.length > 1) {
-    gag = `${xo} da se zvafa'i: ${gag}`;
-  }
-  if (gag !== '') return gag;
-  return nodasezvafahi;
 };
 
 const selmaho = lin => {
@@ -447,9 +452,10 @@ const selmaho = lin => {
   }
   try {
     gag = xmlDocEn.find(`/dictionary/direction[1]/valsi[starts-with(translate(./selmaho,"${lin.toUpperCase()}","${lin}"),"${lin}")]`)
-    .map(i=>{return i.attr("word").value();})
-    .join(", ").trim();
-    //if (stra.length==1){gag = gag + ' = ' + tordu(gag,lng);}
+      .map(i => {
+        return i.attr("word").value();
+      })
+      .join(", ").trim();
   } catch (err) {}
   switch (true) {
     case (ien !== '') && (gag !== ''):
@@ -464,32 +470,6 @@ const selmaho = lin => {
     default:
       gag = nodasezvafahi;
   }
-  return gag;
-};
-
-const valsicmene = (lin, lng) => {
-  lin = lin.replace(/\"/g, '');
-  const xmlDoc = (lng === "en")? xmlDocEn: libxmljs.parseXml(
-    fs.readFileSync(
-      path.join(__dirname, "../dumps", `${lng}.xml`), {encoding: 'utf8'}));
-  const coun = xmlDoc.find(`/dictionary/direction[1]/valsi[contains(translate(@word,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
-  let stra = [];
-  if (coun) stra = stra.concat(coun.map(i=>i.attr("word").value()));
-  const xo = stra.length;
-  try {
-    stra.splice(30);
-  } catch (err) {}
-  if (stra.length >= 30) {
-    stra.push("...");
-  }
-  let gag = stra.join(", ").trim();
-  if (stra.length === 1) {
-    gag = tordu(gag, lng);
-  }
-  if (stra.length > 1) {
-    gag = `${xo} da se zvafa'i: ${gag}`;
-  }
-  if (gag === '') gag = nodasezvafahi;
   return gag;
 };
 
@@ -548,7 +528,7 @@ const finti = lin => {
   lin = lin.replace(/\"/g, '');
   const coun = xmlDocEn.find(`/dictionary/direction[1]/valsi[contains(translate(./user/username,"${lin.toUpperCase()}","${lin}"),"${lin}")]`);
   let stra = [];
-  if (coun) stra = stra.concat(coun.map(i=>i.attr("word").value()));
+  if (coun) stra = stra.concat(coun.map(i => i.attr("word").value()));
   const cnt = stra.length;
   try {
     stra.splice(30);
@@ -557,39 +537,30 @@ const finti = lin => {
     stra.push("...");
   }
   let gag = stra.join(", ").trim();
-  // if (stra.length===1){gag = tordu(gag,lng);}
   if (stra.length > 1) {
     gag = `${cnt} da se zvafa'i: ${gag}`;
   }
-  if (gag !== '')return gag;
+  if (gag !== '') return gag;
   return nodasezvafahi;
 };
 
 const vlaste = (lin, lng, raf) => {
-  const cmalu=(lin.indexOf(" ") === 0)?true:false;
+  const tordu = (lin.indexOf(" ") !== 0);
   lin = lin.toLowerCase().trim();
   let ret;
-  switch (true) {
-    case lin.substr(0, 5).trim() === "/full":
-      ret = mulno_smuvelcki(lin.substr(6).trim(), lng);
-      break;
-    case lin.substr(0, 6).trim() === "/valsi":
-      ret = valsicmene(lin.substr(7).trim(), lng);
-      break;
-    case raf === 'frame':
-      ret = frame(lin.replace(/[^a-z_'\.]/g, ''));
-      break;
-    case raf === 'framemulno':
-      ret = framemulno(lin.replace(/[^a-z_'\.]/g, ''));
-      break;
-    default:
-      if (raf === 'passive') {
-        ret = tordu(lin.replace(/\"/g, ''), lng, raf, "", cmalu);
-        break;
-      } else {
-        ret = tordu(lin.replace(/\"/g, ''), lng, "", "", cmalu);
-        break;
-      }
+  if (!raf) {
+    if (lin.substr(0, 5).trim() === "/full") {
+      ret = mulno_sisku(lin.substr(6).trim(), lng);
+    } else {
+      ret = MultipleDefs(lin, lng, tordu);
+    }
+  } else {
+    lin = lin.replace(/[^a-z_'\.]/g, '');
+    if (raf === 'frame') {
+      ret = frame(lin);
+    } else {
+      ret = framemulno(lin);
+    }
   }
   return ret.replace(/(.{190,250})(, |[ \.\"\/])/g, '$1$2\n');
 };
@@ -618,41 +589,41 @@ const sutysiskuningau = (lng, lojbo) => { //write a new file parsed.js that woul
   const xmlDoc = libxmljs.parseXml(fs.readFileSync(path.join(__dirname, "../dumps", `${lng}.xml`), {
     encoding: 'utf8'
   }).replace(/(&lt;|<)script.*?(&gt;|>).*?(&lt;|<)/g, "&lt;").replace(/(&lt;|<)\/script(&gt;|>)/g, ""));
-  let pars = 'sorcu["'+lng+'"] = {';
+  let pars = 'sorcu["' + lng + '"] = {';
   const rev = xmlDoc.find("/dictionary/direction[1]/valsi");
   for (let i = 0; i < rev.length; i++) {
     const hi = rev[i].attr("word").value().replace("\\", "\\\\");
     pars += `"${hi}":{`;
-    let wascomma='';
+    let wascomma = '';
     try {
       pars += `"d":"${rev[i].find("definition[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
-      wascomma=',';
+      wascomma = ',';
     } catch (err) {}
     try {
       pars += `${wascomma}"t":"${rev[i].attr("type").value().replace(/\\/g,"\\\\")}"`;
-      wascomma=',';
+      wascomma = ',';
     } catch (err) {}
     try {
       pars += `${wascomma}"s":"${rev[i].find("selmaho[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
-      wascomma=',';
+      wascomma = ',';
     } catch (err) {}
     try {
       pars += `${wascomma}"n":"${rev[i].find("notes[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
-      wascomma=',';
+      wascomma = ',';
     } catch (err) {}
     try {
       pars += `${wascomma}"g":"${rev[i].find("glossword/@word").join(";").replace(/ word=\"(.*?)\"/g,"$1").replace(/"/g,"'").replace("\\","\\\\")}"`;
-      wascomma=',';
+      wascomma = ',';
     } catch (err) {}
     try {
       pars += `${wascomma}"k":"${rev[i].find("related[1]")[0].text().replace(/"/g,"'").replace(/\\/g,"\\\\")}"`;
-      wascomma=',';
+      wascomma = ',';
     } catch (err) {}
     try {
       const ex = rev[i].find("example").toString().replace(/>,</g, ">%<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g, "$1 — $2").replace(/"/g, "'").replace(/\\/g, "\\\\");
       if (ex !== '') {
         pars += `${wascomma}"e":"${ex}"`;
-        wascomma=',';
+        wascomma = ',';
       }
     } catch (err) {}
     let ra = rev[i].find("rafsi//text()[1]");
@@ -676,10 +647,10 @@ const sutysiskuningau = (lng, lojbo) => { //write a new file parsed.js that woul
     } //\n
   }
   pars += "};\n";
-  let t = path.join(__dirname, "../sutysisku/data", `parsed-${lng}.js`);
+  let t = path.join(__dirname, "../i/data", `parsed-${lng}.js`);
   fs.writeFileSync(`${t}.temp`, pars);
   fs.renameSync(`${t}.temp`, t);
-  t = path.join(__dirname, `../sutysisku/${lng}/`, "webapp.appcache");
+  t = path.join(__dirname, `../i/${lng}/`, "webapp.appcache");
   const d = new Date();
   let n = d.getDate();
   if ((n === 1) || (n === 11) || (n === 21)) {
@@ -724,24 +695,23 @@ const jbofihe = (lin, sendTo, source, socket) => {
  * @param callback
  */
 function fmap(callback) {
-    return this.reduce((accum, ...args) => {
-        let x = callback(...args);
-        if(x) {
-            accum.push(x);
-        }
-        return accum;
-    }, []);
+  return this.reduce((accum, ...args) => {
+    let x = callback(...args);
+    if (x) {
+      accum.push(x);
+    }
+    return accum;
+  }, []);
 }
 
 const pseudogismu = () => { //a joke function. checks if an English word is  a valid gismu
   const words = fs.readFileSync(path.join(__dirname, "../zasni/", "vale.txt"), 'utf8').split("\n");
   let f;
-  sj = words.fmap(j=>{
+  sj = words.fmap(j => {
     f = lojban.ilmentufa_off(j.toLowerCase().replace(/sh/g, "c"), "J").toString();
     if (f.indexOf("yntax") === -1) {
       return (`${j} ${f}`);
-    }
-    else return undefined;
+    } else return undefined;
   })
   fs.writeFileSync(path.join(__dirname, "../zasni/", "vale-result"), sj.join("\n"));
 };
@@ -749,7 +719,6 @@ const pseudogismu = () => { //a joke function. checks if an English word is  a v
 
 const tersmu = (lin, sendTo, source, socket) => {
   const anj = require('../tersmu/all.js');
-  //module.exports.ma = h$main;
   benji(source, socket, clientmensi, sendTo, anj.h$main(lin));
 };
 
@@ -845,7 +814,6 @@ const updatexmldumps = callback => {
         callback(velruhe);
       }
     }).pipe(fs.createWriteStream(`${t}.temp`)).on("finish", () => {
-      //let ij;
       try { //validate xml
         //ij = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"../dumps",`${thisa}.xml.temp`),{encoding: 'utf8'}));
         fs.renameSync(`${t}.temp`, t);
@@ -860,7 +828,7 @@ const updatexmldumps = callback => {
         sutysiskuningau(thisa);
         //global.gc();
       } catch (err) {
-        lg(thisa,err);
+        lg(thisa, err);
         velruhe.nalmulselfaho[thisa] = true;
         delete velruhe.cfari[thisa];
       }
@@ -908,35 +876,48 @@ setInterval(() => {
   updatexmldumps();
 }, 3 * 86400000); //update logs once a djedi
 
-const wiktionary = (source,socket,clientmensi,sendTo, te_gerna, bangu) => {
-  let wor=te_gerna;
-  if (!bangu){
-    wor=te_gerna.split("/");
-    if (wor.length>1){
-      bangu=wor[0];
-      switch(bangu){
-        case "en": bangu = "English";break;
-        case "es": bangu = "Spanish";break;
-        case "jbo": bangu = "Lojban";break;
-        case "ja": bangu = "Japanese";break;
-        case "zh": bangu = "Chinese";break;
-        case "ru": bangu = "Russian";break;
+const wiktionary = (source, socket, clientmensi, sendTo, te_gerna, bangu) => {
+  let wor = te_gerna;
+  if (!bangu) {
+    wor = te_gerna.split("/");
+    if (wor.length > 1) {
+      bangu = wor[0];
+      switch (bangu) {
+        case "en":
+          bangu = "English";
+          break;
+        case "es":
+          bangu = "Spanish";
+          break;
+        case "jbo":
+          bangu = "Lojban";
+          break;
+        case "ja":
+          bangu = "Japanese";
+          break;
+        case "zh":
+          bangu = "Chinese";
+          break;
+        case "ru":
+          bangu = "Russian";
+          break;
       }
-      wor.splice(0,1);
+      wor.splice(0, 1);
+    } else {
+      bangu = "English";
     }
-    else {bangu="English";}
-    wor=wor.join("");
+    wor = wor.join("");
   }
-  lojban.wiktionary(wor,bangu,(a=>benji(source, socket, clientmensi, sendTo, a)));
+  lojban.wiktionary(wor, bangu, (a => benji(source, socket, clientmensi, sendTo, a)));
 }
 
 const rafsi_giho_nai_se_rafsi_gui = (te_gerna) => {
-  const a = lojban.rafsi_giho_nai_se_rafsi_gui(te_gerna,xmlDocEn);
-  if (a.rafsi.length===0) {
-    return a.serafsi? `.i ra'oi ${te_gerna} rafsi zo ${a.serafsi}`:'.i no da se zvafa\'i';
+  const a = lojban.rafsi_giho_nai_se_rafsi_gui(te_gerna, xmlDocEn);
+  if (a.rafsi.length === 0) {
+    return a.serafsi ? `.i ra'oi ${te_gerna} rafsi zo ${a.serafsi}` : '.i no da se zvafa\'i';
   } else {
     const coun = `.i ra'oi ${a.rafsi.join(' .e ra\'oi ')} rafsi zo ${te_gerna}`;
-    return a.serafsi? coun.concat(" ").concat(`.i ra'oi ${te_gerna} rafsi zo ${a.serafsi}`): coun;
+    return a.serafsi ? coun.concat(" ").concat(`.i ra'oi ${te_gerna} rafsi zo ${a.serafsi}`) : coun;
   }
 }
 
@@ -1007,8 +988,8 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
   //
   const txt = text.toLowerCase();
   let inLanguage = defaultLanguage;
-  const pp = (/:(.+)/.exec(text)||['',''])[1];
-  const po = (/ (.+)/.exec(text)||['',''])[1].trim();
+  const pp = (/:(.+)/.exec(text) || ['', ''])[1];
+  const po = (/ (.+)/.exec(text) || ['', ''])[1].trim();
   switch (true) {
     case txt.trim() === '#ermenefti':
       benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/Hermeneutics");
@@ -1051,25 +1032,25 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       break;
       // case txt.indexOf("nlp:") === 0: stnlp(source,socket,clientmensi,sendTo,text.substr(4));break;
     case txt.indexOf(".lujvo ") === 0:
-      benji(source, socket, clientmensi, sendTo, JSON.stringify(lojban.jvozba(po.split(" "))));
+      benji(source, socket, clientmensi, sendTo, PrettyLujvoScore(lojban.jvozba(po.split(" "))));
       break;
     case txt.indexOf(".k ") === 0:
       benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "C"));
       break;
-    case (txt.indexOf("yacc:") === 0||txt.indexOf("cowan:") === 0):
+    case (txt.indexOf("yacc:") === 0 || txt.indexOf("cowan:") === 0):
       tcepru(pp, sendTo, source, socket);
       break;
-    case (txt.indexOf("jbofi'e:") === 0||txt.indexOf("jbofihe:") === 0||txt.indexOf("gerna:") === 0):
+    case (txt.indexOf("jbofi'e:") === 0 || txt.indexOf("jbofihe:") === 0 || txt.indexOf("gerna:") === 0):
       jbofihe(pp, sendTo, source, socket);
       break;
-    //case txt.indexOf(".tersmu ") === 0:
-    //  tersmu(po, sendTo, source, socket);
-    //  break;
+      //case txt.indexOf(".tersmu ") === 0:
+      //  tersmu(po, sendTo, source, socket);
+      //  break;
     case txt.indexOf(".off ") === 0:
-      benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po,"T"));
+      benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "T"));
       break;
     case txt.indexOf(".exp ") === 0:
-      benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_exp(po,"T"));
+      benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_exp(po, "T"));
       break;
     case txt.indexOf(".raw ") === 0:
       benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "J"));
@@ -1096,21 +1077,21 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       }, 1);
       break;
     case txt.indexOf(".wikt ") === 0:
-      wiktionary(source,socket,clientmensi,sendTo, po);
+      wiktionary(source, socket, clientmensi, sendTo, po);
       break;
     case txt.indexOf(".djbo ") === 0:
-      wiktionary(source,socket,clientmensi,sendTo, po, "Lojban");
+      wiktionary(source, socket, clientmensi, sendTo, po, "Lojban");
       break;
     case txt.indexOf(".den ") === 0:
-      wiktionary(source,socket,clientmensi,sendTo, po, "English");
+      wiktionary(source, socket, clientmensi, sendTo, po, "English");
       break;
     case txt.indexOf(".deo ") === 0:
-      wiktionary(source,socket,clientmensi,sendTo, po, "Esperanto");
+      wiktionary(source, socket, clientmensi, sendTo, po, "Esperanto");
       break;
-    case txt.search('\\.('+robangu+') ') === 0:
-      benji(source, socket, clientmensi, sendTo, vlaste(" "+po, ln=txt.split(" ")[0].substr(1)));
+    case txt.search('\\.(' + robangu + ') ') === 0:
+      benji(source, socket, clientmensi, sendTo, vlaste(" " + po, ln = txt.split(" ")[0].substr(1)));
       break;
-    case txt.search('('+robangu+'):') === 0:
+    case txt.search('(' + robangu + '):') === 0:
       benji(source, socket, clientmensi, sendTo, vlaste(pp, txt.split(":")[0]));
       break;
     case txt.indexOf('frame: /full ') === 0:
@@ -1129,7 +1110,7 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       inLanguage = RetrieveUsersLanguage(from, inLanguage);
       benji(source, socket, clientmensi, sendTo, vlaste(pp, inLanguage));
       break; // Gives definition of valsi in the default language set to user
-    case (txt.indexOf('.selmaho ') === 0||txt.indexOf('.selma\'o ') === 0):
+    case (txt.indexOf('.selmaho ') === 0 || txt.indexOf('.selma\'o ') === 0):
       benji(source, socket, clientmensi, sendTo, selmaho(po.replace(/[^a-z'\.\*0-9]/g, '')));
       break;
     case txt.indexOf('.finti ') === 0:
@@ -1197,7 +1178,7 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     case txt.indexOf("exp:") === 0:
       benji(source, socket, clientmensi, sendTo, "Use '.exp ' instead");
       break;
-     case txt.indexOf("anji:") === 0:
+    case txt.indexOf("anji:") === 0:
       benji(source, socket, clientmensi, sendTo, "Use '.anji ' instead.");
       break;
     case txt.indexOf("off:") === 0:
@@ -1254,3 +1235,29 @@ ik.sockets.on('connection', socket => {
 });
 
 app.listen(3002);
+const twit = new twitter({
+  consumer_key: consumer_key,
+  consumer_secret: consumer_secret,
+  access_token_key: access_token_key,
+  access_token_secret: access_token_secret
+});
+
+const arr_twitter_id = twitter_id.split(",");
+const arr_twitter_id_lojban_only = twitter_id_lojban_only.split(",");
+
+twit.stream('statuses/filter', {
+  follow: arr_twitter_id.concat(arr_twitter_id_lojban_only).join(",")
+}, function(stream) {
+  stream.on('data', function(l) {
+    if (l.text) {
+      const message = l.user.screen_name + ": " + l.text + " [https://twitter.com/" + l.user.screen_name + "/status/" + l.id_str + "]";
+      lg(message);
+      if (arr_twitter_id.indexOf(l.user.id) > -1 ||
+        (arr_twitter_id_lojban_only.indexOf(l.user.id) > -1 && l.text.indexOf("ojban") > -1)
+      ) {
+        benji(0, 0, clientmensi, nuzbytcan, message, true);
+      }
+      else{lg("not sent to IRC");}
+    }
+  });
+});

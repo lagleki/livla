@@ -1,0 +1,31 @@
+CACHE MANIFEST
+# 2017-6-11T1:14:47
+CACHE:
+index.html
+../data/parsed-ja.js
+../sisku.js
+worker.js
+bangu.js
+../pixra/sutysisku.png
+../pixra/x.gif
+../pixra/arrow-left.png
+../pixra/16.png
+../pixra/32.png
+../pixra/sutysisku.png
+https://mw.lojban.org/images/b/bd/cogwheel-5.svg
+../pixra/taplasance.png
+../pixra/taplamuplis.png
+https://mw.lojban.org/images/0/08/snime-1.svg
+https://mw.lojban.org/images/d/d8/selsku_lanci_eng.svg
+https://mw.lojban.org/images/a/a9/lanci_jbo.svg
+https://mw.lojban.org/images/4/46/selsku_lanci_jpn.svg
+https://mw.lojban.org/images/a/a7/selsku_lanci_fra.svg
+https://mw.lojban.org/images/d/dc/selsku_lanci_rus.svg
+https://mw.lojban.org/images/2/20/lanci_epo.svg
+https://mw.lojban.org/images/2/26/selsku_lanci_spa.svg
+https://mw.lojban.org/images/b/bd/cogwheel-5.svg
+NETWORK:
+*
+FALLBACK:
+/sisku/ ./
+../index.html ./

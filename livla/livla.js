@@ -27,7 +27,7 @@ let livlytcan = '#lojbanme'; //where la livla talks to la mensi
 let asker = 'livla';
 let replier = 'mensi';
 let server = 'irc.freenode.net';
-let twitter_id = "550172170,475221831,848076906960388096,1748346150";
+let twitter_id = "550172170,475221831,848076906960388096,1748346150,2565624726";
 let twitter_id_lojban_only = "";
 let consumer_key, consumer_secret, access_token_key, access_token_secret;
 
@@ -1209,7 +1209,7 @@ clientmensi.addListener('message', (from, to, text, message) => {
 });
 
 clientmensi.addListener('error', message => {
-  throw new Error(message);
+  console.log(message.toString());
 });
 
 //NAXLE
@@ -1257,14 +1257,11 @@ twit.stream('statuses/filter', {
 }, function(stream) {
   stream.on('data', function(l) {
     if (l.text) {
-      const message = l.user.screen_name + ": " + l.text + " [https://twitter.com/" + l.user.screen_name + "/status/" + l.id_str + "]";
-      lg(message);
-      if (arr_twitter_id.indexOf(l.user.id) > -1 ||
-        (arr_twitter_id_lojban_only.indexOf(l.user.id) > -1 && l.text.indexOf("ojban") > -1)
+      const message = "@" + l.user.screen_name + ": " + l.text + " [https://twitter.com/" + l.user.screen_name + "/status/" + l.id_str + "]";
+      if (arr_twitter_id.includes(l.user.id.toString()) ||
+        (arr_twitter_id_lojban_only.includes(l.user.id.toString()) && l.text.indexOf("ojban") > -1)
       ) {
         benji(0, 0, clientmensi, nuzbytcan, message, true);
-      } else {
-        lg("not sent to IRC");
       }
     }
   });

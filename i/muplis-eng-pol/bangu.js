@@ -8,6 +8,7 @@ window.xuzganalojudri = false;
 window.muplis=true;
 window.bangudecomp = 'decomposing...';
 window.arrcll = {};
+title="la muplis - English-Polish phrases";
 siskudescr="Search la muplis, the dictionary of English and Polish sentences.";
 opdescr = "A dictionary of sentences for English, Polish and other languages. Can work offline!";
 titlelogo = "<span id='plise' style='height:24px;'><a id='st' href='../'><img src='../pixra/arrow-left.png' height='24' width='24'></a></span><span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src='../pixra/plise.png' height='16' width='16' title='lo staile poi sampu'><img src='../pixra/pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'><img src='../pixra/crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='../pixra/blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'><img src='../pixra/cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'><font color='#fff'>la muplis</font></a></span>";

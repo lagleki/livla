@@ -7,6 +7,7 @@ window.bangusisku='поиск';
 window.bangudecomp = 'разбиваем слова ...';
 window.bangu = 'russian';
 window.purc = "Ранее искали: ";
+title="la sutysisku - словарь языка ложбан";
 siskudescr="Поиск в словаре языка ложбан la jbovlaste.";
 opdescr = "Словарь ложбана (Lojban), английского и других языков, может работать без подключения к интернету.";
 window.xuzganalojudri = true;

@@ -8,6 +8,7 @@ window.xuzganalojudri = false;
 window.muplis = true;
 window.bangudecomp = 'te katna';
 window.arrcll = {};
+title="Search for Lojban phrases - la muplis";
 siskudescr="Search the dictionary of Lojban sentences la muplis.";
 opdescr = "A dictionary of sentences for Lojban, English and other languages that can work offline.";
 titlelogo = "<span class='site-title' style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src='../pixra/plise.png' height='16' width='16' title='lo staile poi sampu'><img src='../pixra/pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'><img src='../pixra/crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='../pixra/blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'><img src='../pixra/cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'><font color='#fff'>la muplis</font></a></span>";

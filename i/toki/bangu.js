@@ -7,6 +7,7 @@ window.bangusisku='search';
 window.xuzganalojudri = false;
 window.bangudecomp = 'decomposing ...';
 window.arrcll = {};
+title="toki pona dictionary la sutysisku";
 siskudescr="Search the toki pona dictionary la sutysisku.";
 opdescr = "A dictionary for toki pona, Lojban, English and other languages. Can work offline!";
 upperdir = "../muplis.html";

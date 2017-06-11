@@ -11,7 +11,7 @@
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','GTM-PL4CFMX');</script>-->
 	<!-- End Google Tag Manager -->
-	<title>la sutysisku zo'u: ze'i mitysisku lo valsi</title>
+	<title>%title%</title>
 	<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
 	<meta name="theme-color" content="#CF8B54">
 	<meta property="og:title" content="La Sutysisku"/>
@@ -62,13 +62,13 @@
 		/* These are technically the same, but use both */
 		overflow-wrap: break-word;
 		word-wrap: break-word;
-		
+
 		-ms-word-break: break-all;
 		/* This is the dangerous one in WebKit, as it breaks things wherever */
 		word-break: break-all;
 		/* Instead use this non-standard one: */
 		word-break: break-word;
-		
+
 		/* Adds a hyphen where the word breaks, if supported (No Blink) */
 		-ms-hyphens: auto;
 		-moz-hyphens: auto;
@@ -152,7 +152,7 @@
 		color: #fff;
 		text-shadow: none;
 	}
-  
+
 	#site-title {
 		font-size: 18px;
 		font-weight: bold;
@@ -177,7 +177,7 @@
 		height:auto;
 		font-size:140%;
 		border: 1px solid #999;
-		padding: 3px 26px 2px 4px;     
+		padding: 3px 26px 2px 4px;
 		transition: background 0.4s;
 	}
 	#ciska:not(:valid) ~ .clear {
@@ -206,7 +206,7 @@
 		background-size: 40px 40px !important;
 	}
 	#output{padding-bottom:20%;}
-		
+
 	#content-panel {
 		max-width: 700px;
 		width: 100%;
@@ -217,7 +217,7 @@
 		color: #2B79E0;
 		text-decoration: none;
 	}
-	
+
 	#description {
 		margin-top: 5px;
 		text-align: center;
@@ -548,7 +548,7 @@
 	}
 	document.getElementById('clear').addEventListener('click', zero);
 	document.getElementById('title').addEventListener('click', zero);
-	
+
 	var fm = {BE: "bei",BEI: "be'o",BY: "boi",COI: "do'u",DOI: "do'u",FIhO: "fe'u",FUhE: "fu'o",GIhA: "vau",GOI: "ge'u",JOhI: "te'u",KE: "ke'e",LAhE: "lu'u",LA: "ku",LE: "ku",LI: "lo'o",LOhU: "le'u",LU: "li'u",ME: "me'u","NAhE+BO": "lu'u",NOI: "ku'o",NUhI: "nu'u",NU: "kei",PA: "boi",PEhO: "ku'e",SEI: "se'u",SOI: "se'u",TO: "toi",TUhE: "tu'u",VEI: "ve'o",LOhAI: "sa'ai",SAhAI: "le'ai",LOhOI: "ku'au",NAhU: "te'u",NIhE: "te'u",MOhE: "te'u"};
 	var ready = false;
 	var cankocisni = function(){
@@ -564,8 +564,8 @@
 	} else {
 		document.addEventListener('DOMContentLoaded', cankocisni);
 	}
-	
-	
+
+
 	pb.style.width = '37%';
 	worker.onmessage = function(ev) {
 		if (ev.data.kind == 'ready') {
@@ -613,7 +613,7 @@
 	document.getElementById('content')
 		.addEventListener('scroll', checkScrolledNearBottom);
 	triggerEvent(outp, 'scroll');
-	
+
 
 	function lojTemplate(s) {
 		s = s.replace(/\$.*?\$/g, function(c) {
@@ -632,7 +632,7 @@
 		if (!def){def=[];}
 		var out=document.createElement('div');
 		out.className=(inner===1)?'terminner':'term';
-		
+
 		var fmm = document.createElement('h4');
 		if (typeof fm[def.s]!=='undefined') {
 			fmm.className = 'tfm';
@@ -669,7 +669,7 @@
 		jvs.className = 'type';
 		jvs.innerHTML= def.t;
 		if(window.xuzganalojudri && !def.l){
-			jvs.innerHTML+="<font color='#aaa'><a style='color: #aaa;' target='_blank' href=\""+window.judri + 
+			jvs.innerHTML+="<font color='#aaa'><a style='color: #aaa;' target='_blank' href=\""+window.judri +
 				def.w + "\">#</a></font> ";
 		}
 		var word = document.createElement('h4');
@@ -690,7 +690,7 @@
 		heading.classList.add('heading');
 		var flex = document.createElement('heading');
 		flex.style.flex = 1;
-		
+
 		heading.appendChild(tfm);
 		heading.appendChild(word);
 		heading.appendChild(fmm);
@@ -698,7 +698,7 @@
 		heading.appendChild(ss);
 		heading.appendChild(jvs);
 		out.appendChild(heading);
-		
+
 		if (def.d) {
 			var n = document.createElement('div');
 			n.className = 'definition';
@@ -752,7 +752,7 @@
 			}
 			out.appendChild(subDefs);
 		}
-		
+
 		out.addEventListener("click", function (event) {
 			if (event.target.nodeName==='A') {
 				var el = event.target;
@@ -868,7 +868,7 @@ function displayDescription() {
 		ga('send', 'pageview', '#sisku/' + query);
 		//window.dataLayer = window.dataLayer || [];
 		/*dataLayer.push({
-			event: 'formSubmit', 
+			event: 'formSubmit',
 			customPagePath: '#sisku/' + query
 		});*/
 		worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});

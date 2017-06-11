@@ -1032,7 +1032,14 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       break;
       // case txt.indexOf("nlp:") === 0: stnlp(source,socket,clientmensi,sendTo,text.substr(4));break;
     case txt.indexOf(".lujvo ") === 0:
-      benji(source, socket, clientmensi, sendTo, PrettyLujvoScore(lojban.jvozba(po.split(" "))));
+      let ma_lujvo;
+      try {
+        ma_lujvo = lojban.jvozba(po.split(" "));
+        ma_lujvo = PrettyLujvoScore(ma_lujvo);
+      } catch (e) {
+        ma_lujvo = e.toString();
+      }
+      benji(source, socket, clientmensi, sendTo, ma_lujvo);
       break;
     case txt.indexOf(".k ") === 0:
       benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "C"));
@@ -1256,8 +1263,9 @@ twit.stream('statuses/filter', {
         (arr_twitter_id_lojban_only.indexOf(l.user.id) > -1 && l.text.indexOf("ojban") > -1)
       ) {
         benji(0, 0, clientmensi, nuzbytcan, message, true);
+      } else {
+        lg("not sent to IRC");
       }
-      else{lg("not sent to IRC");}
     }
   });
 });

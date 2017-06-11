@@ -1,0 +1,14 @@
+CACHE MANIFEST
+# 2017-04-01:v2
+CACHE:
+index.html?version=35
+lib/Metro-UI-CSS/build/js/metro.js
+lib/Metro-UI-CSS/build/css/metro.css
+./pixra/sutysisku.png
+./pixra/taplamuplis.png
+./pixra/taplasance.png
+./pixra/rimni.png
+./pixra/ldp.svg
+https://mw.lojban.org/images/2/20/lanci_epo.svg
+NETWORK:
+*

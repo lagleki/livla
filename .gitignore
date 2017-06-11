@@ -22,8 +22,7 @@ dumps/tatoeba*
 dumps/*.temp
 dumps/*.bz2
 dumps/*.sql
-sutysisku/data/*.*
-sutysisku/.git
-sutysisku/.gitignore
-sutysisku/**/*.html
-!sutysisku/data/parsed-tatoeba.js
+i/data/*.*
+i/.git
+i/.gitignore
+!i/data/parsed-tatoeba.js

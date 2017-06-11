@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
    <ShortName>ru-sutysisku</ShortName>
-   <Description></Description>
+   <Description>Поиск в словаре языка ложбан la jbovlaste.</Description>
    <Tags>sutsis sutysisku muplis vlasisku jbovlaste lojban vlaste dictionary la bangu</Tags>
    <Contact>bangu@lojban.org</Contact>
    <Url type="text/html"

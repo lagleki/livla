@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
    <ShortName>jb-sutysisku</ShortName>
-   <Description></Description>
+   <Description>Search Dictionary with Examples used in 'The Crash Course in Lojban'.</Description>
    <Tags>sutsis sutysisku muplis vlasisku jbovlaste lojban vlaste dictionary la bangu</Tags>
    <Contact>bangu@lojban.org</Contact>
    <Url type="text/html"

@@ -23,7 +23,7 @@
 			    $('#parse_result').text( result_str );
 			}
             var socket = io.connect('http://vrici.lojban.org:3000');
-            socket.on('returner', function(data) {
+            socket.on('la_livla_cu_cusku', function(data) {
             	if (data.message==='snada')
                 {$('#messages').html("Result of compiling: <span style=\"color:green;font-weight: bold;\">"+data.message+"</span>. Wait for ~ 10 sec or less for the new results to appear.",function(){});}
                 else
@@ -40,7 +40,7 @@
             	$('#messages').html("<strong><i>Compiling ...</i></strong>");
 				try {
 				  var input = $('#input_textarea2').val();
-				  if (input!==""){socket.emit('i am client', {data: 'mensi: mhnt ' +"./mahantufa/mahantufa.js "+ input});}
+				  if (input!==""){socket.emit('le_te_cusku_be_fi_la_livla', {data: 'mensi: mhnt ' +"./mahantufa/mahantufa.js "+ input});}
 			    } catch (e) {
 			      return;
 			    }
@@ -53,7 +53,7 @@
 			           $("#input_textarea2").val(data);
 			       }
 			   });
-		}); 
+		});
         </script>
     </head>
 <body>
@@ -106,4 +106,3 @@ setInterval(function () {run_camxes()}, 1000);
 
 </body>
 </html>
-

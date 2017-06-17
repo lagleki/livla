@@ -62,15 +62,6 @@ instead of those of “irc.freenode.net”.
 Issues related to the libxmljs installation
 =========
 
-If you get an fatal error about “ELF64” when querying a word, and you are on a
-32 bit system, the modules that come with the repository are compiled for a 64
-bit system. It should be safe to remove `ircbot/node_modules`, and then to
-issue the command `npm install`:
-
-```sh
- $ npm uninstall libxmljs ; npm install libxmljs
-```
-
 If you get an error about python 3 not being supported when trying `npm
 install`, installing python 2 and issuing a command of this style (adapt the
 path to your system) should solve the problem:

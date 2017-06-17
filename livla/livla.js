@@ -30,10 +30,11 @@ let server = 'irc.freenode.net';
 let twitter_id = "550172170,475221831,848076906960388096,1748346150,2565624726";
 let twitter_id_lojban_only = "";
 let consumer_key, consumer_secret, access_token_key, access_token_secret;
+let arr_twitter_id;
+let arr_twitter_id_lojban_only;
 
 // const stodipilno=['gleki','xalbo'];
 // End default configuration
-
 
 const configlivla = {
   server,
@@ -148,6 +149,39 @@ const loadConfig = () => {
   access_token_secret = either(localConfig.access_token_secret, "");
   twitter_id = either(localConfig.twitter_id, twitter_id);
   twitter_id_lojban_only = either(localConfig.twitter_id_lojban_only, twitter_id_lojban_only);
+  arr_twitter_id = twitter_id.split(",");
+  arr_twitter_id_lojban_only = twitter_id_lojban_only.split(",");
+  const twit = new twitter({
+    consumer_key: consumer_key,
+    consumer_secret: consumer_secret,
+    access_token_key: access_token_key,
+    access_token_secret: access_token_secret
+  });
+
+  twit.stream('statuses/filter', {
+    follow: arr_twitter_id.concat(arr_twitter_id_lojban_only).join(",")
+  }, function(stream) {
+    stream.on('data', function(l) {
+      if (l.text) {
+        const l_text = l.text.replace(/#[a-zA-Z]+/g,'').replace(/http.?:\/\/[a-zA-Z\/#\?&]*?/g,'');
+        const message = "@" + l.user.screen_name + ": " + l.text + " [https://twitter.com/" + l.user.screen_name + "/status/" + l.id_str + "]";
+        //try to parse individual words
+        const arr_text = l_text.split(" ");
+        const arr_text_len = arr_text.length;
+        const arr_text_lojbo_len = arr_text.filter(v=>lojban.ilmentufa_exp(v).indexOf("rror")===-1).length;
+        const lojbo = ((arr_text_lojbo_len / arr_text_len) >0.9) || (l_text.toLowerCase().indexOf("lojban") > -1);
+        if (arr_twitter_id.includes(l.user.id.toString()) === true ||
+          (arr_twitter_id_lojban_only.includes(l.user.id.toString()) === true && lojbo)
+        ) {
+          lg("did send ", l.user.screen_name, " ",l.user.id, "", l.text, "array: ",arr_twitter_id," and ", arr_twitter_id.includes(l.user.id.toString()), " of ", l.user.id.toString()," lojbo ",arr_text,arr_text_lojbo_len);
+          benji(0, 0, clientmensi, nuzbytcan, message, true);
+        }
+        else {
+          if (l.text.toLowerCase().indexOf("lojban") > -1) lg("not sent ", l.user.screen_name, " ",l.user.id, "", l.text, "array: ",arr_twitter_id," and ", arr_twitter_id.includes(l.user.id.toString()), " of ", l.user.id.toString()," lojbo ",arr_text,arr_text_lojbo_len);
+        }
+      }
+    });
+  });
 }
 loadConfig();
 
@@ -193,7 +227,7 @@ const updateUserSettings = callback => {
 };
 
 const irc = require('irc');
-const client = new irc.Client(configlivla.server, configlivla.nick, configlivla.options);
+//const client = new irc.Client(configlivla.server, configlivla.nick, configlivla.options);
 const clientmensi = new irc.Client(configmensi.server, configmensi.nick, configmensi.options);
 
 
@@ -220,16 +254,16 @@ let sisku = lin => {
   }
   return s;
 };
-
-let processorlivla = (client, from, to, text) => {
+/*
+const processorlivla = (client, from, to, text) => {
   let sendTo = to.indexOf('#') ? from : to; // send in private : publicly
   if (!text) return;
   said = Date.now();
-  /* if (text.indexOf(`${preasker}darxi la `) === 0 && from !== asker && from !== replier) {
+  if (text.indexOf(`${preasker}darxi la `) === 0 && from !== asker && from !== replier) {
     setTimeout(() => {
       client.say(sendTo, `${text.substr(9+preasker.length)}: oidai mi darxi do lo trauta`);
     }, 0);
-  }*/
+  }
   if (~text.indexOf(`doi ${asker}`) && from !== replier) {
     setTimeout(() => {
       client.say(sendTo, tato.tatoebaprocessing(from));
@@ -242,10 +276,10 @@ let processorlivla = (client, from, to, text) => {
     }
   }, interv);
 };
-
+*/
 const benji = (source, socket, clientmensi, sendTo, what, action) => {
   if (source === "naxle") {
-    socket.emit('returner', {
+    socket.emit('la_livla_cu_cusku', {
       message: what
     });
     return what;
@@ -307,7 +341,6 @@ const lojTemplate = s => {
   s = s.replace(/\{(.*?)\}/g, c => c.substring(1, c.length - 1));
   return s;
 }
-
 
 const GetWordDef = (lin, lng, tordu, xmlDoc) => {
   let acc = '';
@@ -759,12 +792,12 @@ const ningaumahantufa = (text, socket) => {
     fs.close(fd);
     const ya = require("uglify-js").minify(whichfile).code;
     fs.writeFileSync(whichfile, ya);
-    socket.emit('returner', {
+    socket.emit('la_livla_cu_cusku', {
       message: "snada",
       data_js: ya
     });
   } catch (e) {
-    socket.emit('returner', {
+    socket.emit('la_livla_cu_cusku', {
       message: e.message
     });
   }
@@ -772,13 +805,13 @@ const ningaumahantufa = (text, socket) => {
 
 const getmahantufagrammar = (name, socket) => {
   try {
-    socket.emit('returner_file', {
+    socket.emit('le_te_cusku_be_fi_la_livla_cu_cpacu_pa_vreji', {
       message: "snada",
       data: fs.readFileSync(path.join(__dirname, `${name}.peg`)).toString(),
       data_js: fs.readFileSync(path.join(__dirname, name)).toString()
     });
   } catch (e) {
-    socket.emit('returner_file', {
+    socket.emit('le_te_cusku_be_fi_la_livla_cu_cpacu_pa_vreji', {
       message: "fliba",
       data: e.message
     });
@@ -1071,7 +1104,8 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     case txt.indexOf(".kru ") === 0:
       benji(source, socket, clientmensi, sendTo, lojban.krulermorna(po));
       break;
-    case (txt.indexOf(`${replier}: ko ningau`) === 0 || text.indexOf(`${replier}: ko cnino`) === 0):
+    case (txt.indexOf(`${replier}: loadconfig`) === 0 ): loadConfig();benji(source, socket, clientmensi, sendTo, 'config reloaded from ~/.livla/config.json');break;
+    case (txt.indexOf(`${replier}: ko ningau`) === 0 || txt.indexOf(`${replier}: ko cnino`) === 0):
       setTimeout(() => {
         updatexmldumps(({
           nalmulselfaho
@@ -1199,10 +1233,11 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
       benji(source, socket, clientmensi, sendTo, vlaste(" " + text.trim(), inLanguage)); // Gives definition of valsi in the default language set to user
   }
 };
-
+/*
 client.addListener('message', (from, to, text, message) => {
   processorlivla(client, from, to, text, message);
 });
+*/
 
 clientmensi.addListener('message', (from, to, text, message) => {
   processormensi(clientmensi, from, to, text, message);
@@ -1232,7 +1267,7 @@ ik.sockets.on('connection', socket => {
   //socket.emit('welcome', { message: 'Welcome!' +socket.id});
   //ik.to(socket.id).emit("returner", { message: message: vlaste(data.data,'en') });
   socket.on(
-    'i am client', data => {
+    'le_te_cusku_be_fi_la_livla', data => {
       //clientmensi, from, to, text, message,source
       if (data.data.indexOf(`${prereplier}doi`) === 0 || data.data.indexOf(`${prereplier}tell`) === 0) {} else {
         processormensi(clientmensi, "mw.lojban.org", "", data.data, "", "naxle", socket);
@@ -1242,27 +1277,3 @@ ik.sockets.on('connection', socket => {
 });
 
 app.listen(3002);
-const twit = new twitter({
-  consumer_key: consumer_key,
-  consumer_secret: consumer_secret,
-  access_token_key: access_token_key,
-  access_token_secret: access_token_secret
-});
-
-const arr_twitter_id = twitter_id.split(",");
-const arr_twitter_id_lojban_only = twitter_id_lojban_only.split(",");
-
-twit.stream('statuses/filter', {
-  follow: arr_twitter_id.concat(arr_twitter_id_lojban_only).join(",")
-}, function(stream) {
-  stream.on('data', function(l) {
-    if (l.text) {
-      const message = "@" + l.user.screen_name + ": " + l.text + " [https://twitter.com/" + l.user.screen_name + "/status/" + l.id_str + "]";
-      if (arr_twitter_id.includes(l.user.id.toString()) ||
-        (arr_twitter_id_lojban_only.includes(l.user.id.toString()) && l.text.indexOf("ojban") > -1)
-      ) {
-        benji(0, 0, clientmensi, nuzbytcan, message, true);
-      }
-    }
-  });
-});

@@ -17,7 +17,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
         <script src='//vrici.lojban.org:3002/socket.io/socket.io.js'></script>
         <script>
             var socket = io.connect('//vrici.lojban.org:3002');
-            socket.on('returner', function(data) {
+            socket.on('la_livla_cu_cusku', function(data) {
                 $('#messages').val(data.message);
             });
             socket.on('error', function() { console.error(arguments) });
@@ -26,7 +26,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
             	if (typeof(prefix)===undefined){prefix=""}else{prefix+=": "};
 				try {
 				  var input = $('#input_textarea').val();
-				  if (input!==""){socket.emit('i am client', {data: prefix+input});}
+				  if (input!==""){socket.emit('le_te_cusku_be_fi_la_livla', {data: prefix+input});}
 			    } catch (e) {
 			      return;
 			    }
@@ -92,7 +92,7 @@ $('#input_textarea').bind( "keydown",
 
 function sendinputi() {
 	var input = $('#input_textarea').val();
-	socket.emit('i am client', {data: input});
+	socket.emit('le_te_cusku_be_fi_la_livla', {data: input});
 }
 </script>
 <center style="font: 15px arial, sans-serif;margin-top:2em;margin:0.5em;">i te pruce fa di'e</center>

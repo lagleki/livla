@@ -1559,7 +1559,7 @@ stressed_diphthong = expr:(&stressed diphthong / diphthong &stress) {return _joi
 
 stressed_vowel = expr:(&stressed vowel / vowel &stress) {return _join(expr);}
 
-unstressed_syllable = expr:(!stressed syllable !stress / consonantal_syllable) {return _join(expr);}
+unstressed_syllable = expr:(consonantal_syllable) {return _join(expr);}
 
 unstressed_diphthong = expr:(!stressed diphthong !stress) {return _join(expr);}
 

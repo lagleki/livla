@@ -15,20 +15,15 @@
       function run_camxes() {
         try {
           var input = $('#input_textarea').val();
-          input = camxes_preprocessing(input);
           var result = camxes.parse(input);
         } catch (e) {
           $('#parse_result').text( e.toString() );
           return;
         }
-        var result_str = JSON.stringify(result, undefined, 2);
-        /* We get the output mode selected in the combobox */
-        /* Postprocessing — if mode == 0, the below function won't modify camxes' output */
-        result_str = camxes_postprocessing(result_str, 1);  // @camxes_postproc.js
-        /* Retrieve the result */
+        var result_str = JSON.stringify(result);
         $('#parse_result').text( result_str );
       }
-      socket.on('returner', function(data) {
+      socket.on('la_livla_cu_cusku', function(data) {
         if (data.message==='snada'){
           $('#messages').html(
               "Result of compiling: <span style=\"color:green;font-weight: bold;\">"+
@@ -53,26 +48,26 @@
         $('#messages').html("<strong><i>Compiling ...</i></strong>");
         try {
           var input = $('#input_textarea2').val();
-          if (input!==""){socket.emit('i am client', {data: 'mensi: mhnt ' +"./mahantufa/cmaxes.js "+ input});}
+          if (input!==""){socket.emit('le_te_cusku_be_fi_la_livla', {data: 'mensi: mhnt ' +"./mahantufa/cmaxes.js "+ input});}
         } catch (e) {
           return;
         }
       }
 
       $(document).ready(function() {
-        socket.emit('i am client', {data: 'mensi: getgr ../mahantufa/cmaxes.js'});
-        socket.on('returner_file', function(data) {
+        socket.emit('le_te_cusku_be_fi_la_livla', {data: 'mensi: getgr ../mahantufa/cmaxes.js'});
+        socket.on('le_te_cusku_be_fi_la_livla_cu_cpacu_pa_vreji', function(data) {
           if (data.message==='snada'){
             $("#input_textarea2").val(data.data);
             updateJs(data.data_js);
           }
         });
-      }); 
+      });
     </script>
   </head>
   <body>
   <meta charset='utf-8' />
-  
+
   <form id="form1" name="form1" method="post" action="" style="width:100%">
     <textarea id="input_textarea" style="margin-top:0px;width:95%;" rows="3" autofocus placeholder="Type any Lojban text in the following textarea. The result will be parsed as you type."></textarea>
     <br />
@@ -84,22 +79,19 @@
       <a href="../camxes-exp.html" target="_blank">[ Switch to experimental grammar ]</a>
     </span>
   </form>
-  
+
   <form id="form3" name="form3" method="post" action="">
     <textarea readonly id="parse_result" style="margin-top:5px;width:95%; font: 14px sans-serif;" rows="9"></textarea>
   </form>
-  
+
   <button type="button" onclick="sendinput();" class="but" style="font: 26px;height:36px;">Compile PEG</button>&nbsp;&nbsp;&nbsp; <span id="messages" style="font-family:monospace;font-size:16px;"></span>
   <span style="margin-top:5px;">Your Javascripted PEG to edit and test:</span><br/>
   <form id="form2" name="form2" method="post" action="">
     <textarea id="input_textarea2" style="margin-top:5px; width:95%; font: 12px sans-serif;" rows="22" placeholder="ca'o cpacu lo gerna vreji"></textarea>
   </form>
-  <script type="text/javascript" src="../camxes_preproc.js"></script>
-  <script type="text/javascript" src="../camxes_postproc.js"></script>
-  
   <script>
   document.getElementById("default").defaultSelected = true;
-  
+
   $('#input_textarea').bind( "keyup",
     function(e) {
       run_camxes();

@@ -1,0 +1,8 @@
+// JavaScript Document
+window.nasezvafahi = 'ne troviĝas';
+window.bangulo = "Ŝargando vortaron ...";
+window.bangubuild = 'Konstruando indekson...';
+window.bangudecomp = 'fendando ...';
+window.purc = "Last searched: ";
+window.xuzganalojudri = true;
+window.judri = "http://jbovlaste.lojban.org/dict/";

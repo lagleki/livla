@@ -1,25 +1,18 @@
-la glekitufa
+la livla
 =========
-la glekitufa is a combine providing different options in learning and developing Lojban language.
+la livla is a combine providing different options in learning and developing Lojban language.
 
 Installing:
 
 ```
 npm install
-npm install --save libxmljs
 
 ```
 
 IRC Bots
 =========
 
-In order to run LIVLABOT run from the root of ilmentufa directory:
-
-```sh
-npm run livla
-```
-
-In order to autoupdate dumps immediately type "mensi: ko cnino"
+In order to update dumps type "mensi: ko cnino"
 
 More information can be found [here](http://mw.lojban.org/index.php?title=IRC_Bots#mensi.2C_livla).
 

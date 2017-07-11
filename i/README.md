@@ -11,16 +11,14 @@ To use it offline, simply try to load the site in your browser as usual. If your
 
 ### License
 
-Libraries under lib/ have their own license, as does the data in the data/ directory.
-
-	la sutysisku itself is released under the MIT license.
+la sutysisku is released under the MIT license.
 
 ### Testing
 
-/test folder doesn't have manifest file so it's fine for testing
+/cipra folder doesn't have manifest file so it's fine for testing
 
 ### Updating
 
-from the root glekitufa directory run
+from the root of lagleki/livla directory run
 
-```cd i ; node .scripts/template.js ; node .scripts/vlaste.js ; git add . ; git commit -m "commit" ; git push ; cd .. ```
+```npm run snovlaste```

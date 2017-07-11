@@ -11,7 +11,7 @@ const PARSE_MODE_TAG  = 1;
 const lerfu = ".'ptkflscmxbdgvrzjnqwaeiouy";
 
 ncp.limit = 16;
- 
+
 function comp (a, b) {
   return function (x) { return a(b(x)); };
 }
@@ -55,7 +55,7 @@ fs.readdir('./', (err, files) => {//pepp
 	      //return console.error(err);
 	    }
 	  });
-	  
+
 	  fs.readdir(dest, (err, files) => {//zj
 	      (files||[]).forEach(file => {
 			  let tetcidu = path.join(__dirname,dest,file);
@@ -76,11 +76,11 @@ fs.readdir('./', (err, files) => {//pepp
 	          let acc = '';
 	          let str = data.split("<tspan");
 	          for (let i=1;i<str.length;i++) {
-	          	  
+
 	          	  let ki = str[i].indexOf('>');
 				  str[i] = [str[i].slice(0,ki), str[i].slice(ki+1)];
 	          	  let kitwo = str[i][1].indexOf('<');
-	          	  str[i][1] = [str[i][1].slice(0,kitwo), str[i][1].slice(kitwo+1)] 
+	          	  str[i][1] = [str[i][1].slice(0,kitwo), str[i][1].slice(kitwo+1)]
 	          	  str[i][1][0] = translate(str[i][1][0]);
 	          	  str[i][1] = (str[i][1]).join('<');
 	          	  str[i] = str[i].join(">");
@@ -93,7 +93,7 @@ fs.readdir('./', (err, files) => {//pepp
 	          	  let ki = str[i].indexOf('>');
 				  str[i] = [str[i].slice(0,ki), str[i].slice(ki+1)];
 	          	  let kitwo = str[i][0].indexOf('<');
-	          	  let u = [str[i][0].slice(0,kitwo), str[i][0].slice(kitwo+1)] 
+	          	  let u = [str[i][0].slice(0,kitwo), str[i][0].slice(kitwo+1)]
 	          	  str[i][0] = u;
 	          	  str[i][0][0] = translate(u);
 	          	  str[i][0] = str[i].join("<");
@@ -102,7 +102,7 @@ fs.readdir('./', (err, files) => {//pepp
 	          }
 	          acc = str[0] + acc;*/
 	          //console.log(acc);
-	          
+
 
 	  	// try{fs.unlinkSync(tetcidu+"-new");}catch(err){}
 	          fs.writeFileSync(tetcidu+"-new", str, 'utf8', function (err) {
@@ -113,8 +113,3 @@ fs.readdir('./', (err, files) => {//pepp
     });
   });
 });
-
-
-
-
-

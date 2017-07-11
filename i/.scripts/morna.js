@@ -2,124 +2,123 @@
 // This script generates .html files for la sutysisku of every localization
 // the template is taken from cipra/template.html file
 
+//import
+const fs = require("fs"),
+  path = require("path-extra");
+
 //config
-const langs = ["en","ru","eo","es","fr-facile","ile","ina","ithkuil","ja","jbo","laadan","ldp","ru","zamenhofo","toki","jb","en-pt-BR","muplis","muplis-eng-pol","cipra"];
+const langs = [
+  "en",
+  "cll",
+  "ru",
+  "eo",
+  "es",
+  "fr-facile",
+  "ile",
+  "ina",
+  "ithkuil",
+  "ja",
+  "jbo",
+  "laadan",
+  "ldp",
+  "ru",
+  "zamenhofo",
+  "toki",
+  "jb",
+  "en-pt-BR",
+  "muplis",
+  "muplis-eng-pol",
+  "cipra"
+];
+//read template.html into var
+const template = fs.readFileSync(path.join(__dirname, "../../i/cipra", "template.html"), {encoding: 'utf8'});
+//read sisku.xml template into var
+const sisku = fs.readFileSync(path.join(__dirname, "../../i/cipra", "sisku.xml"), {encoding: 'utf8'});
 
+//functions
+//generic
 function addZero(i) {
-		if (i < 10) {
-				i = "0" + i;
-		}
-		return i;
-}
-//strip out template
-function gp(file_m,tag,prefix){
-	const m = (file_m.match(new RegExp("^ *(?:window\.|)" + tag +" *= *[\"']?(.*?)[\"']?;(\\\n|\\\r)","m"))||['','false'])[1].replace(/\\\"/g,"\"");
-	if (tag.indexOf("title")>-1) console.log(tag,m);
-	if (m=='true') return true;
-	if (m=='false') return undefined;
-	return m;
-}
-function gpr(file_m,tag,input,fallback,prefix){
-	const m = gp(file_m,tag,prefix)||(fallback?fallback:'');
-	return input.replace(new RegExp("%"+tag+"%","g"),m);
-}
-function stripout(file_m,tag,output){
-	let a_tag = tag.split("|");
-	for (let tagg in a_tag){
-		a_tag[tagg]=(file_m.match(new RegExp("window\."+a_tag[tagg]+" *= *[\"']?(.*?)[\"']?;(\\\n|\\\r)",""))||['',''])[1].replace(/\\\"/gm,"\"")=='true';
-	}
-	const m=a_tag.includes(true);
-	const ku = m ? "$1" : "";const antiku = !m ? "$1" : "";
-	return output
-		.replace(new RegExp("\\\/\\\/<"+tag+">([\\s\\S]*?)\\\/\\\/<\\\/"+tag+">","gm"),ku)
-		.replace(new RegExp("<"+tag+">([\\s\\S]*?)<\/"+tag+">","gm"),ku)
-		.replace(new RegExp("\\\/\\\/<"+tag+" false>([\\s\\S]*?)\\\/\\\/<\\\/"+tag+">","gm"),antiku)
-		.replace(new RegExp("<"+tag+" false>([\\s\\S]*?)<\/"+tag+">","gm"),antiku)
-	;
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
 }
 
-///script
-const fs = require("fs"),path = require("path-extra");
-const template = fs.readFileSync(path.join(__dirname,"../../i/cipra","template.html"),{encoding: 'utf8'});
-langs.forEach(function(a){
-	const file = fs.readFileSync(path.join(__dirname,"../../i",a,"bangu.js"),{encoding: 'utf8'});
-	let b;
-	b=gpr(file,"bangudesc",template);
-	b=gpr(file,"bangulo",b);
-	b=gpr(file,"bangusisku",b,'',0);
-	b=gpr(file,"opdescr",b,'',0);
-	b=gpr(file,"title",b,"la sutysisku zo'u: ze'i mitysisku lo valsi",0);
-	b=gpr(file,"favicon",b,'../pixra/sutysisku.png',0);
-	b=gpr(file,"icon16",b,'../pixra/16.png',0);
-	b=gpr(file,"icon32",b,'../pixra/32.png',0);
-	b=b
-		.replace("%ogurl%","https://la-lojban.github.io/sutysisku/"+a+"/index.html")
-		.replace("%searchurl%","/i/"+a+"/sisku.xml")
-		.replace("%searchtitle%",a+"-sutysisku");
-	////non-Lojban sutysisku
-	b=stripout(file,"xuzganalojudri\\|lojbo",b);
-	b=stripout(file,"xuzganalojudri",b);
-	b=stripout(file,"lojbo",b);
-	////muplis
-	b=stripout(file,"muplis",b);
-	//colors for la muplis are different:
-	const upper=gp(file,'upperdir');
-	const muplis=gp(file,"muplis");
-	m="<span id='site-title'><a id='title' href='#'>"+
-		(muplis?"<img src=\"../pixra/plise.png\" height='16' width='16'>"+
-		"<img src=\"../pixra/pelxuplise.png\" height='16' width='16'>"+
-		"<img src=\"../pixra/crinoplise.png\" height='16' width='16'>"+
-		"<img src=\"../pixra/blabiplise.png\" height='16' width='16'>"+
-		"<img src=\"../pixra/cicnaplise.png\" height='16' width='16'>":
-		"<img src=\"../pixra/sutysisku.png\" height='16' width='16'>"
-		 ) +
-		"<font color='#fff'>"+
-		(muplis?"la muplis":"la sutysisku")+
-		"</font></a></span>";
-	b = b.replace(/%titlelogo%/g,m);
-	b = gpr(file,"mupliskari1",b,"56,136,233",0);
-	b = gpr(file,"mupliskari2",b,"34,87,213",0);
-	b = gpr(file,"mupliskari3",b,"38,99,224",0);
-	b = gpr(file,"mupliskari4",b,"25,65,165",0);
-	b = gpr(file,"gradpos1",b,"0%",0);
-	b = gpr(file,"gradpos2",b,"13%",0);
-	b = gpr(file,"gradpos3",b,"88%",0);
-	b = gpr(file,"gradpos4",b,"100%",0);
-	//delete comments, compress code
-	b = b.replace(/^[ \t]+/gm,"");
-	b = b.replace(/^\/\/.*$/gm,"");
-	b = b.replace(/\/\*((?!\/\*)[\s\S]*?)\*\//gm,"");
-	b = b.replace(/<!--[\s\S]*?-->/gm,"");
-	b = b.replace(/\n\s*\n/g, '\n');
-	fs.writeFileSync(path.join(__dirname,"../../i",a,"index.html"), b);
-});
+//tempalting - remove parts not relevant to the current sutysisku
+String.prototype.stripout = function(config, tag) {
+  const tags = tag.split("\\|").map(j => (config[j] && config[j] !== 'false')
+    ? true
+    : false);
+  const m = tags.includes(true);
+  const ku = m
+    ? "$1"
+    : "";
+  const antiku = !m
+    ? "$1"
+    : "";
+  console.log(tag,m,"-"+ku+"-",antiku);
+  return this
+  //OR operator
+    .replace(new RegExp("\\\/\\\/<" + tag + ">([\\s\\S]*?)\\\/\\\/<\\\/" + tag + ">", "gm"), ku)
+    .replace(new RegExp("<" + tag + ">([\\s\\S]*?)<\/" + tag + ">", "gm"), ku)
+  //NOT operator
+    .replace(new RegExp("\\\/\\\/<" + tag + " false>([\\s\\S]*?)\\\/\\\/<\\\/" + tag + ">", "gm"), antiku)
+    .replace(new RegExp("<" + tag + " false>([\\s\\S]*?)<\/" + tag + ">", "gm"), antiku);
+}
 
-const sisku = fs.readFileSync(path.join(__dirname,"../../i/cipra","sisku.xml"),{encoding: 'utf8'});
-langs.forEach(function(a){
-	if (a!=='cipra'){
-		const file = fs.readFileSync(path.join(__dirname,"../../i",a,"bangu.js"),{encoding: 'utf8'});
-		b = sisku.replace("%template%","https://la-lojban.github.io/sutysisku/en/index.html#sisku/{searchTerms}");
-		b = b.replace("%shortname%",a+"-sutysisku");
-		b=gpr(file,"siskudescr",b);
-		fs.writeFileSync(path.join(__dirname,"../../i",a,"sisku.xml"), b);
-		//now update manifest
-		b = path.join(__dirname,"../"+a+"/","webapp.appcache");
-		//change date in manifest
-		const d = new Date();
-		const n = d.getFullYear() + "-"+
-							(addZero(d.getMonth()+1))  + "-" +
-							addZero(d.getDate()) + "T"  +
-							addZero(d.getHours()) + ":"  +
-							addZero(d.getMinutes()) + ":" +
-							addZero(d.getSeconds());
-		const pars=fs.readFileSync(b,{encoding: 'utf8'}).replace(/\n# .+\n/,'\n# '+n+"\n");
-		fs.writeFileSync(b,pars);
-		console.log(b + ' updated');
-	}
-});
+String.prototype.replaceMergefield = function(config) {
+  return Object.keys(config).reduce((acc, i) => {
+    return acc.replace(new RegExp("%" + i + "%", "g"), config[i]);
+  }, this);
+}
 
-langs.forEach(function(a){
-	const sisku="'../sisku.js";
-	const b = "window = this;var sorcu={};var bau = location.href.split('/').slice(-2)[0];if (bau==='cipra'){bau='en';}\nimportScripts('bangu.js','../data/parsed-"+a.replace(/^cipra$/,'en').replace(/^muplis/,"tatoeba")+".js', "+(a==='cipra'?"'./sisku_2.js":sisku)+"');\npostMessage({kind: 'loading'});\npostMessage({kind: 'ready'});\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;sisku(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};";
-	fs.writeFileSync(path.join(__dirname,"../../i",a,"worker.js"), b);
+//generate files
+langs.forEach(lang => {
+  //generate index.html
+  const config = JSON.parse(fs.readFileSync(path.join(__dirname, "../../i", lang, "config.json"), {encoding: 'utf8'}));
+  const config_fallback = {
+    "title": "la sutysisku zo'u: ze'i mitysisku lo valsi",
+    "favicon": '../pixra/sutysisku.png',
+    "icon16": '../pixra/16.png',
+    "icon32": '../pixra/32.png',
+    "ogurl": "https://la-lojban.github.io/sutysisku/" + lang + "/index.html",
+    "searchurl": "/i/" + lang + "/sisku.xml",
+    "searchtitle": lang + "-sutysisku",
+    "titlelogo": "<span id='site-title'><a id='title' href='#'><img src=\"../pixra/sutysisku.png\" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span>",
+    "mupliskari1": "56,136,233",
+    "mupliskari2": "34,87,213",
+    "mupliskari3": "38,99,224",
+    "mupliskari4": "25,65,165",
+    "gradpos1": "0%",
+    "gradpos2": "13%",
+    "gradpos3": "88%",
+    "gradpos4": "100%"
+  };
+  const output = template.replaceMergefield(config).replaceMergefield(config_fallback)
+  ////strip out according to Lojbanicity of the sutysisku
+    .stripout(config, "xuzganalojudri\\|lojbo").stripout(config, "xuzganalojudri").stripout(config, "lojbo").stripout(config, "muplis")
+  //delete comments, compress code
+    .replace(/^[ \t]+/gm, "").replace(/^\/\/.*$/gm, "").replace(/\/\*((?!\/\*)[\s\S]*?)\*\//gm, "").replace(/<!--[\s\S]*?-->/gm, "").replace(/\n\s*\n/g, '\n');
+  fs.writeFileSync(path.join(__dirname, "../../i", lang, "index.html"), output);
+
+  //generate sisku.xml and update webapp.cache
+  if (lang !== 'cipra') {
+    const file = fs.readFileSync(path.join(__dirname, "../../i", lang, "bangu.js"), {encoding: 'utf8'});
+    const b = sisku.replace("%template%", "https://la-lojban.github.io/sutysisku/en/index.html#sisku/{searchTerms}").replace("%shortname%", lang + "-sutysisku").replaceMergefield(config)
+    fs.writeFileSync(path.join(__dirname, "../../i", lang, "sisku.xml"), b);
+    //now update manifest
+    const webappcachefile = path.join(__dirname, "../" + lang + "/", "webapp.appcache");
+    //change date in manifest
+    const d = new Date();
+    const n = d.getFullYear() + "-" + (addZero(d.getMonth() + 1)) + "-" + addZero(d.getDate()) + "T" + addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getSeconds());
+    const pars = fs.readFileSync(webappcachefile, {encoding: 'utf8'}).replace(/\n# .+\n/, '\n# ' + n + "\n");
+    fs.writeFileSync(webappcachefile, pars);
+    console.log(webappcachefile + ' updated');
+  }
+
+  //generate sisku.js
+  const siskujsfile = "window = this;var sorcu={};var bau = location.href.split('/').slice(-2)[0];if (bau==='cipra'){bau='en';}\nimportScripts('bangu.js','../data/parsed-" + lang.replace(/^cipra$/, 'en').replace(/^muplis/, "tatoeba") + ".js', '" + (['cipra','cll'].includes(lang)
+    ? "./sisku.js"
+    : "../sisku.js") + "');\npostMessage({kind: 'loading'});\npostMessage({kind: 'ready'});\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;sisku(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};";
+  fs.writeFileSync(path.join(__dirname, "../../i", lang, "worker.js"), siskujsfile);
 });

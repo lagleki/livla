@@ -74,23 +74,19 @@ border: 1px dashed #aaa;padding: 5px;
 padding-left: 0px;
 border-left:solid 3px #1E90FF;
 }
-.terminner {
-margin-top: 9px;
-padding: 9px;
-border-top: solid 1px #ccc;
-border-right: solid 1px #ccc;
-border-bottom: solid 1px #ccc;
-box-shadow: 3px 3px 1px #ccc;
-text-align: justify;
-background: white;
-}
 .term {
 margin-top: 9px;
 padding: 9px;
 text-align: justify;
 background: white;
 }
-.term:hover {
+.terminner {
+border-top: solid 1px #ccc;
+border-right: solid 1px #ccc;
+border-bottom: solid 1px #ccc;
+box-shadow: 3px 3px 1px #ccc;
+}
+.termouter:hover {
 outline: #999999 solid 3px;
 }
 .rafsi {
@@ -122,59 +118,59 @@ color: #FFF;
 }
 #se-vasru-lo-galtu-dasri {
 max-width: 700px;
-width: 100%;
 margin-left: auto;
 margin-right: auto;
-margin-top: 6px;
-display: -webkit-flex; 
--webkit-align-items: center; 
-display: flex;
-align-items: center;
-}
-::selection {
-background: rgba(109,179,242,1);
-color: #fff;
-text-shadow: none;
+position:relative;
 }
 #site-title {
 font-size: 18px;
 font-weight: bold;
-padding-left: 15px;
 display:none;
+float:left;
+margin-top: 12px;
 }
-#mipri{display:none;}
+#ciska{
+height:auto;
+font-size:140%;
+border: 1px solid #999;
+padding: 3px 4px 2px 4px;
+transition: background 0.4s;
+float:right;
+margin-top: 6px;
+}
+#ciska:not(:valid) ~ #clear {
+display: none;
+}
 #clear {
-position: relative;
+position: absolute;
 padding: 10px;
 border:1px solid transparent;
-background-color: transparent;
 display: inline-block;
 vertical-align: middle;
 outline: 0;
 cursor: pointer;
 margin-left:-32px;
-background: #fff url(../pixra/x.gif) no-repeat right 0px center;
-}
-#ciska{
-margin-right:4px;
-height:auto;
-font-size:140%;
-border: 1px solid #999;
-padding: 3px 26px 2px 4px;
-transition: background 0.4s;
-}
-#ciska:not(:valid) ~ .clear {
-display: none;
+background: transparent url(../pixra/x.gif) no-repeat right 0px center;
+right:11px;
+margin-top: 13px;
 }
 @media screen and (min-width: 510px) {
 #site-title {display: block;}
-#mipri {display: block;}
-#ciska {display: block;width:auto;margin-left:0px;}
+.kicne{display:none;}
+#se-vasru-lo-galtu-dasri{display: block;}
+#purci{margin-left: 10%;}
 }
 @media screen and (max-width: 509px) {//mobile
 #site-title {display: none;}
-#mipri {display: none;}
-#ciska {display: block;width:99%;margin-left:4px;}
+.kicne{display:block;width:6px;}
+#ciska{width:100%;}
+#se-vasru-lo-galtu-dasri{display: inline-flex;width:100%;}
+#purci{margin-left:0%;}
+}
+::selection {
+background: rgba(109,179,242,1);
+color: #fff;
+text-shadow: none;
 }
 #content {
 padding-left: 5px;
@@ -350,7 +346,6 @@ outline: rgb(32, 134, 191) none 0px;
 #purci {
 margin-top: 0px;
 margin-bottom: 15px;
-margin-left: 10%;
 padding: 8px 12px 6px;
 text-align: justify;
 background: white;
@@ -435,8 +430,10 @@ ga('send', 'pageview');
 <body>
 <div id='galtu-dasri'>
 <form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
-<span id='site-title'><a id='title' href='#'><img src="../pixra/plise.png" height='16' width='16'><img src="../pixra/pelxuplise.png" height='16' width='16'><img src="../pixra/crinoplise.png" height='16' width='16'><img src="../pixra/blabiplise.png" height='16' width='16'><img src="../pixra/cicnaplise.png" height='16' width='16'><font color='#fff'>la muplis</font></a></span><div id="mipri" style="display:inline;-ms-flex: 1;-webkit-flex: 1;flex: 1;"></div>
+<span style='display: none;margin-left:10px;' id='site-title'><a id='title' href='#'><img src='../pixra/plise.png' height='16' width='16' title='lo staile poi sampu'><img src='../pixra/pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'><img src='../pixra/crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='../pixra/blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'><img src='../pixra/cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'><font color='#fff'>la muplis</font></a></span>
+<div class="kicne"></div>
 <input id='ciska' type="text" name="focus" required placeholder="sisku" autofocus autocorrect="off" autocapitalize="off" autocomplete="false"/>
+<div class="kicne"></div>
 <button id="clear" type="reset"></button>
 </form>
 </div>
@@ -450,7 +447,7 @@ ga('send', 'pageview');
 </div>
 </div>
 <div id='drata' style="text-align:center;"></div>
-<div id='description' class="term"><p><b>la .muplis.</b> cu sutra tutci lo nu mitysisku lo mupli pe ju'oi <a href='http://tatoeba.org/jbo' target='_blank'>Tatoeba.org</a></p><p>- .i xu mi kakne lo ka pilno la .muplis. vau va'o lo nu na ka'e kibro pilno<br>- .i ja'a go'i .i va'o lo nu kibro kakne na ku cu .e'u troci lo ka gau do lo brauzero cu cpacu lo se judri be lo me dei moi<br> .i la'a sai lo mutpapri cu tolcanci to'e ri'a nai .i lo cnino klesi be la xromium ja la'oi Safari ja la'oi Firefox cu jai sarcu lo nu pilno la .muplis.<br>.i lo tcita pe di'e ka'e sidju do lo ka jimpe fi lo ni zabna fa lo jufra<br>.i la'e zoi <img src='../pixra/plise.png' height='16' width='16' title='lo staile poi sampu'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu sampu<br>.i la'e zoi <img src='../pixra/pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'> zoi tcita lo jufra poi lo staile be tu'a ke'a na mutce cinri<br>.i la'e zoi <img src='../pixra/crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'> zoi tcita lo jufra poi ka&#39;e xamgu lo di&#39;i fanva<br>.i la'e zoi <img src='../pixra/blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'> zoi tcita lo jufra poi lo staile be tu'a ke'a ka'e pluja<br>.i la'e zoi <img src='../pixra/cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu na&#39;e catni<br><br>.i lo nu djica co zenba co cilre tu'a la .muplis. cu .e'u banzu lo nu vitke <a href='https://mw.lojban.org' target='_blank'>lo lojbo uitki</a>.</p><span id='searchengine'><i><a href='#' title='jbo-sutysisku' onclick="window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/muplis/sisku.xml')">jmina zo'e ne tai lo sisku matra</a></i></span></div>
+<div id='description' class="term"><p><b>la .muplis.</b> cu sutra tutci lo nu mitysisku lo mupli pe ju'oi <a href='http://tatoeba.org/jbo' target='_blank'>Tatoeba.org</a></p><p>- .i xu mi kakne lo ka pilno la .muplis. vau va'o lo nu na ka'e kibro pilno<br>- .i ja'a go'i .i va'o lo nu kibro kakne na ku cu .e'u troci lo ka gau do lo brauzero cu cpacu lo se judri be lo me dei moi<br> .i la'a sai lo mutpapri cu tolcanci to'e ri'a nai .i lo cnino klesi be la xromium ja la'oi Safari ja la'oi Firefox cu jai sarcu lo nu pilno la .muplis.<br>.i lo tcita pe di'e ka'e sidju do lo ka jimpe fi lo ni zabna fa lo jufra<br>.i la'e zoi <img src='../pixra/plise.png' height='16' width='16' title='lo staile poi sampu'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu sampu<br>.i la'e zoi <img src='../pixra/pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'> zoi tcita lo jufra poi lo staile be tu'a ke'a na mutce cinri<br>.i la'e zoi <img src='../pixra/crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'> zoi tcita lo jufra poi ka&#39;e xamgu lo di&#39;i fanva<br>.i la'e zoi <img src='../pixra/blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'> zoi tcita lo jufra poi lo staile be tu'a ke'a ka'e pluja<br>.i la'e zoi <img src='../pixra/cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu na&#39;e catni<br><br>.i lo nu djica co zenba co cilre tu'a la .muplis. cu .e'u banzu lo nu vitke <a href='https://mw.lojban.org' target='_blank'>lo lojbo uitki</a>.</p><span id='searchengine'><i><a href='#' title='jbo-sutysisku' onclick=\"window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/muplis/sisku.xml')\">jmina zo'e ne tai lo sisku matra</a></i></span></div>
 <div id='output'></div>
 </div>
 </div>
@@ -567,7 +564,8 @@ return s;
 function skicu_lo_valsi(def,inner) {
 if (!def){def=[];}
 var out=document.createElement('div');
-out.className=(inner===1)?'terminner':'term';
+out.className=(inner===1)?'terminner':'termouter';
+out.classList.add('term');
 var fmm = document.createElement('h4');
 if (typeof fm[def.s]!=='undefined') {
 fmm.className = 'tfm';

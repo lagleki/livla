@@ -1,0 +1,8 @@
+// JavaScript Document
+window.nasezvafahi = 'not found';
+window.bangudecomp = 'decomposing ...';
+window.bangubuild = 'Building index...';
+window.xuzganalojudri = true;
+window.judri = "http://jbovlaste.lojban.org/dict/";
+window.cllnotci = 'The Reference Grammar on this topic:';
+window.purc = "Last searched: ";

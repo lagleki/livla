@@ -7,7 +7,6 @@ const fs = require("fs"),
   path = require("path-extra"),
   ospath = require("ospath"),
   libxmljs = require("libxmljs"),
-  //twitter = require('twitter'),
   lojban = require("lojban");
 require('v8-profiler');
 
@@ -41,14 +40,12 @@ let livlytcan = '#lojbanme'; //where la livla talks to la mensi
 let asker = 'livla';
 let replier = 'mensi';
 let server = 'irc.freenode.net';
-let twitter_id = "550172170,475221831,848076906960388096,1748346150,2565624726,848076906960388100";
-let twitter_id_lojban_only = "";
+let twitter_id = "good_opinions,opinions_good,cunsku";
 let consumer_key,
   consumer_secret,
   access_token_key,
   access_token_secret;
 let arr_twitter_id;
-let arr_twitter_id_lojban_only;
 
 // const stodipilno=['gleki','xalbo'];
 // End default configuration
@@ -168,69 +165,30 @@ const ensureDirExistence = (path) => {
       access_token_key = either(localConfig.access_token_key, "");
       access_token_secret = either(localConfig.access_token_secret, "");
       twitter_id = either(localConfig.twitter_id, twitter_id);
-      twitter_id_lojban_only = either(localConfig.twitter_id_lojban_only, twitter_id_lojban_only);
       arr_twitter_id = twitter_id.split(",");
-      arr_twitter_id_lojban_only = twitter_id_lojban_only.split(",");
 
-      const Twitter = require('node-tweet-stream')
-        , t = new Twitter({
-          consumer_key,
-          consumer_secret,
-          token: access_token_key,
-          token_secret: access_token_secret
-        })
+      const Twitter = require('node-tweet-stream'),
+        t = new Twitter({consumer_key, consumer_secret, token: access_token_key, token_secret: access_token_secret})
 
-      t.on('tweet', function (l) {
+      t.on('tweet', function(l) {
         if (l.text) {
-          // const l_text = l.text.replace(/#[a-zA-Z]+/g, '').replace(/http.?:\/\/[a-zA-Z\/#\?&]*?/g, '').replace(/\\/g, '');
           const message = "@" + l.user.screen_name + ": " + l.text.replace(/[\n\r\t]/g, ' ') + " [https://twitter.com/" + l.user.screen_name + "/status/" + l.id_str + "]";
-          // const lojbo = (lojban.ilmentufa_exp(l_text).indexOf("rror") === -1 && l_text.split(" ").length > 1) || l.text.toLowerCase().indexOf("#lojban") > -1 || arr_twitter_id.includes(l.user.id.toString()) === true;
           const screen_name = l.user.screen_name;
-          const fine = !['good_opinions', 'opinions_good', 'cunsku'].includes(screen_name);
-          if (fine) {
+          if (!arr_twitter_id.includes(screen_name)) {
             benji(0, 0, clientmensi, nuzbytcan, message, true);
           }
         }
       })
 
-      t.on('error', function (err) {
-        console.log('Oh no')
+      t.on('error', function(err) {
+        console.log(err.toString())
       })
 
       t.track('#lojban');
-      t.track('#toaq');
+      t.track('#miToaq');
       t.track('#ToaqLanguage');
       t.track('#ithkuil');
       t.track('#loglan');
-      // 5 minutes later
-      //t.track('tacos')
-
-      // 10 minutes later
-      //t.untrack('pizza')
-
-      /*twit.stream('statuses/filter', {
-        //follow: arr_twitter_id.concat(arr_twitter_id_lojban_only).join(",")
-        track: '#lojban,#toaq'
-      }, function(stream) {
-        stream.on('error', function(error) {
-          lg("twitter streaming: ", error.toString());
-          //throw error;
-        });
-        stream.on('data', function(l) {
-          if (l.text) {
-            // const l_text = l.text.replace(/#[a-zA-Z]+/g, '').replace(/http.?:\/\/[a-zA-Z\/#\?&]*?/g, '').replace(/\\/g, '');
-            const message = "@" + l.user.screen_name + ": " + l.text.replace(/[\n\r\t]/g, ' ') + " [https://twitter.com/" + l.user.screen_name + "/status/" + l.id_str + "]";
-            // const lojbo = (lojban.ilmentufa_exp(l_text).indexOf("rror") === -1 && l_text.split(" ").length > 1) || l.text.toLowerCase().indexOf("#lojban") > -1 || arr_twitter_id.includes(l.user.id.toString()) === true;
-            const screen_name = l.user.screen_name;
-            const fine = !['good_opinions', 'opinions_good', 'cunsku'].includes(screen_name);
-            if (fine) {
-              benji(0, 0, clientmensi, nuzbytcan, message, true);
-            } else {
-              benji(0, 0, clientmensi, livlytcan, `${message} ||| ${l.text.toLowerCase().indexOf("#lojban")} ||| ${l.user.id}`, true);
-            }
-          }
-        });
-      });*/
     }
     loadConfig();
 

@@ -6,6 +6,7 @@ dumps/*.xml
 dumps/*.temp
 dumps/*.csv
 dumps/*.tsv
+!dumps/dukti.xml
 !dumps/loglan.xml
 !dumps/laadan.xml
 !dumps/guaspi.xml

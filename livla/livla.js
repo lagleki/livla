@@ -612,7 +612,7 @@ const processorlivla = (client, from, to, text) => {
 
     const sidju = () => {
       const sidj = {
-        en: `Parsers: type ".exp " (experimental), ".off " (camxes), ".gerna " (jbofi'e), or ".yacc " (official yacc) followed by the text to show the structure of sentences.\nLojban dictionary: type ".language-code word", where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh,hu,sv. This searches in both directions.\n    ".selmaho ca'a" gives "CAhA", ".selmaho CAhA" gives "bi'ai, ca'a, ..."\n    ".rafsi kulnu" gives "klu", ".rafsi klu" gives "kulnu"\nOther conlang dictionaries: ".toki ", ".laadan ", ".loglan "\nLojban <-> Loglan conversion (incomplete): ".coi ", ".loi "\n"Tatoeba: klama" gets a random example sentence using "klama"\nDelayed messaging: type "${replier}: doi user message" to send "message" to "user" when they return`
+        en: `Parsers: type ".ilm " (stable BPFK grammar), ".beta " (experimental), ".gerna " (jbofi'e), or ".yacc " (official yacc) followed by the text to show the structure of sentences.\nLojban dictionary: type ".language-code word", where language code is one of jbo,en,ru,es,fr,f@,ja,de,eo,zh,hu,sv. This searches in both directions.\n    ".selmaho ca'a" gives "CAhA", ".selmaho CAhA" gives "bi'ai, ca'a, ..."\n    ".rafsi kulnu" gives "klu", ".rafsi klu" gives "kulnu"\nOther conlang dictionaries: ".toki ", ".laadan ", ".loglan "\nLojban <-> Loglan conversion (incomplete): ".coi ", ".loi "\n"Tatoeba: klama" gets a random example sentence using "klama"\nDelayed messaging: type "${replier}: doi user message" to send "message" to "user" when they return`
       };
       return sidj.en;
     };
@@ -727,6 +727,8 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
         if (error !== null) {
           lin = 'O_0' + stderr.toString();
         }
+        if (lin === '')
+          lin = 'O_0';
         benji(source, socket, clientmensi, sendTo, lin.replace(/\n/g, ' ').replace(/ {2,}/g, ' '));
       });
     };
@@ -1046,6 +1048,12 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
         case txt.trim() === '#smuvanbi':
           benji(source, socket, clientmensi, sendTo, "To answer this question it's necessary to provide a full usage example or context where you would use this word/construct.");
           break;
+        case txt.trim() === '#purdi' || txt.trim() === '#gardenpath':
+          benji(source, socket, clientmensi, sendTo, ".i le nu tu purdi mi melbi");
+          break;
+        case txt.trim() === '#gaha':
+          benji(source, socket, clientmensi, sendTo, ".i .itku'ile ga'a mi");
+          break;
         case txt.trim() === '#mohu':
           benji(source, socket, clientmensi, sendTo, "http://filcat.uab.cat/clt/membres/postdoctorands/Borik/borik-reinhart-lola8.pdf");
           break;
@@ -1060,6 +1068,9 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
           break;
         case txt.trim() === '#sepulka':
           benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/sepulka/en");
+          break;
+        case txt.trim() === '#cilre':
+          benji(source, socket, clientmensi, sendTo, "An extensive description of Lojban language: http://lojban.org/publications/cll/cll_v1.1_xhtml-section-chunks/\nSlicker methods of learning Lojban : https://mw.lojban.org/papri/Learn_Lojban:_new_methods\nYou might also want to bookmark a Lojban dictionary; the two most popular ones are http://la-lojban.github.io/sutysisku/en/ and https://vlasisku.alexburka.com");
           break;
         case txt.trim() === '#noiha':
           benji(source, socket, clientmensi, sendTo, "ko\'a broda poi\'a brodo = lo nu ko\'a broda cu fasnu gi\'e brodo\nko\'a broda noi\'a brodo = lo nu ko\'a broda cu fasnu .i lo go\'i cu brodo\nko\'a broda soi\'a brodo = lo nu ko\'a broda cu brodo\nko\'a broda soi ke\'a brodo = ko\'a broda .i lo nu go\'i cu brodo");
@@ -1093,10 +1104,17 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
           //case txt.indexOf(".tersmu ") === 0:
           //  tersmu(po, sendTo, source, socket);
           //  break;
-        case txt.indexOf(".off ") === 0:
+        case(txt.indexOf(".jbofi'e ") === 0):
+          jbofihe(po, sendTo, source, socket);
+          break;
+        case txt.indexOf(".ilm ") === 0:
           benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "T"));
           break;
-        case txt.indexOf(".exp ") === 0:
+        case txt.indexOf(".ilm+") === 0:
+          const params = `${txt} `.split(" ")[0].split("+")[1].toUpperCase();
+          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, params));
+          break;
+        case txt.indexOf(".beta ") === 0:
           benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_exp(po, "T"));
           break;
         case txt.indexOf(".raw ") === 0:
@@ -1155,7 +1173,6 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
         case txt.indexOf('.bangu ') === 0:
           benji(source, socket, clientmensi, sendTo, bangu(po, from));
           break;
-
           // Give definition of valsi in specified language
         case txt.indexOf('?:') === 0:
           inLanguage = RetrieveUsersLanguage(from, inLanguage);
@@ -1225,6 +1242,9 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
           break;
         case txt.indexOf("lujvo:") === 0:
           benji(source, socket, clientmensi, sendTo, "Use '.lujvo ' instead.");
+          break;
+        case txt.indexOf(".off ") === 0 || txt.indexOf(".exp ") === 0:
+          benji(source, socket, clientmensi, sendTo, "Use '.ilm ' for la ilmentufa (PEG parser, BPFK proposals, stable implementation) or use '.beta ' for la ilmentufa (beta version)");
           break;
         case txt.indexOf("exp:") === 0:
           benji(source, socket, clientmensi, sendTo, "Use '.exp ' instead");

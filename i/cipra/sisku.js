@@ -145,6 +145,7 @@ function sisku(query, callback) {
 
   function sortthem(lo_matra_cu_cupra, multi) {
     var exactMatches = [],
+    glossedMatches = [],
     greatMatches = [],
     selmahoMatches = [],
     goodMatches = [],
@@ -157,9 +158,11 @@ function sisku(query, callback) {
         if ((doc.w === query) || (doc.w === query_apos)) {
           exactMatches.push(doc);
           exactMatches = be(exactMatches, query, 1);
+        } else if (doc.g && doc.g.search("^" + query + "(;|$)")===0) {
+          glossedMatches.push(doc);
         } else if ((doc.r || [''])[0].search("\\b" + query + "\\b") >= 0) {
           normalMatches.push(doc);
-        } else if (doc.w.search("(^| )(" + query_apos + "|" + query + ")( |$)") >= 0 || (doc.g || '') === query) {
+        } else if (doc.w.search("(^| )(" + query_apos + "|" + query + ")( |$)") >= 0) {
           greatMatches.push(doc);
         } else if ((doc.s || '') === query) {
           selmahoMatches.push(doc);
@@ -196,30 +199,32 @@ function sisku(query, callback) {
     var sortMultiDimensional = function(a, b) {
       return (((a.d || '').length < (b.d || '').length) ? -1 : (((a.d || '').length > (b.d || '').length) ? 1 : 0));
     };
+    preciseMatches = sor(preciseMatches);
+    glossedMatches = sor(glossedMatches);
+    normalMatches = sor(normalMatches);
     greatMatches = sor(greatMatches);
     selmahoMatches = sor(selmahoMatches);
     goodMatches = sor(goodMatches);
-    normalMatches = sor(normalMatches);
     defMatches = sor(defMatches);
     lastMatches = sor(lastMatches);
-    preciseMatches = sor(preciseMatches);
-    preciseMatches = preciseMatches
-      .concat(exactMatches)
-      .concat(normalMatches)
-      .concat(greatMatches)
-      .concat(selmahoMatches)
-      .concat(goodMatches)
-      .concat(defMatches)
-      .concat(lastMatches);
-    if (preciseMatches[0] && (preciseMatches[0].w === query_apos)) {
-      for (var tyt = 1; tyt < preciseMatches.length; tyt++) {
-        if (preciseMatches[tyt].l && (preciseMatches[tyt].d === "{" + query_apos + "}")) {
-          preciseMatches.splice(tyt, 1);
+    var firstMatches = preciseMatches
+    .concat(exactMatches)
+    .concat(glossedMatches);
+    var secondMatches = normalMatches
+    .concat(greatMatches)
+    .concat(selmahoMatches)
+    .concat(goodMatches)
+    .concat(defMatches)
+    .concat(lastMatches);
+    if (firstMatches && (firstMatches.w === query_apos)) {
+      for (var tyt = 1; tyt < firstMatches.length; tyt++) {
+        if (firstMatches[tyt].l && (firstMatches[tyt].d === "{" + query_apos + "}")) {
+          firstMatches.splice(tyt, 1);
           tyt = tyt - 1;
         }
       }
     }
-    return preciseMatches;
+    return [firstMatches.concat(secondMatches),firstMatches,secondMatches];
   }
 
   function shortget(a, ki, shi) {
@@ -280,7 +285,6 @@ function sisku(query, callback) {
 
   function cnanosisku(lo_matra_cu_cupra, multi) {
     if (searchId !== searchIdCounter) return;
-    var preciseMatches = [];
     for (var n in sorcu[bau]) {
       if (window.storecache[n].indexOf(query.toLowerCase()) >= 0) {
         var c = sorcu[bau][n];
@@ -288,22 +292,23 @@ function sisku(query, callback) {
         lo_matra_cu_cupra.push(c);
       }
     }
-    preciseMatches = sortthem(lo_matra_cu_cupra, multi);
-    if (multi) return preciseMatches;
-    if (preciseMatches.length === 0) preciseMatches = be([], query) || [];
-    if (preciseMatches.length === 0 || preciseMatches[0].w !== query_apos) {
+    var allMatches = sortthem(lo_matra_cu_cupra, multi);
+    if (multi) return allMatches[0];
+    if (allMatches[0].length === 0) allMatches[0] = be([], query) || [];
+    if (allMatches[0].length === 0 || allMatches[0][0].w !== query_apos) {
       var ty = julne_jmina_lo_se_claxu(shortget(query_apos, []));
       if (ty.length <= 1) {
-        preciseMatches = ty.concat(preciseMatches);
+        console.log('here');
+        allMatches[0] = ty.concat(allMatches[0]);
       } else {
-        preciseMatches = [{
+        allMatches[0] = allMatches[1].concat([{
           t: window.bangudecomp,
           w: query,
           rafsiDocuments: ty
-        }].concat(preciseMatches);
+        }]).concat(allMatches[2]);
       }
     }
-    return preciseMatches;
+    return allMatches[0];
   }
 
   if ((query.indexOf('^') === 0 || query.slice(-1) === '$')) {
@@ -317,7 +322,7 @@ function sisku(query, callback) {
         return b;
       }, [])
       .splice(0, 100)
-    ));
+    )[0]);
   } else if ((query.indexOf('@') === 0 || query.slice(-1) === '@')) {
     preciseMatches = siskurimni(query.replace(/^@+/, '').replace(/@+$/, ''));
   } else if (!window.muplis && queryDecomposition.length > 1) {
@@ -351,7 +356,7 @@ function siskurimni(query) {
     for (var i = 0; i < this.length; i++) {
       var doc = jmina_lo_se_claxu(this[i]); //todo: optimize for phrases
       if (!doc) continue;
-      var docw = krulermorna(doc.w).replace(/([aeiouǎąęǫ])/g, '$1-').split("-").slice(-3);
+      var docw = krulermorna(doc.w).replace(/([aeiouḁąęǫ])/g, '$1-').split("-").slice(-3);
       if (queryR && (docw[0].slice(-1) !== queryR[0].slice(-1))) continue;
       var right = docw[1].slice(-1);
       var reversal = (docw[1].slice(-3, -1) === queryF[1].slice(-3, -1).split('').reverse().join(''));
@@ -469,7 +474,7 @@ function siskurimni(query) {
     t = "." + t.replace(/\./g, "").replace(/h/g, "'").toLowerCase();
     t = t.replace(/([aeiou\.])u([aeiou])/g, '$1w$2');
     t = t.replace(/([aeiou\.])i([aeiou])/g, '$1ɩ$2');
-    t = t.replace(/au/g, 'ǎ');
+    t = t.replace(/au/g, 'ḁ');
     t = t.replace(/ai/g, 'ą');
     t = t.replace(/ei/g, 'ę');
     t = t.replace(/oi/g, 'ǫ');
@@ -491,18 +496,18 @@ function siskurimni(query) {
   };
 
   query = krulermorna(query);
-  queryR = query.replace(/([aeiouǎąęǫ])/g, '$1-').split("-").slice(-3);
+  queryR = query.replace(/([aeiouḁąęǫ])/g, '$1-').split("-").slice(-3);
   queryF = queryR.slice();
   if (queryR.length >= 2) {
-    queryR[1] = queryR[1].replace(/[aeiouǎąęǫ]/, '[aeiouǎąęǫ]');
+    queryR[1] = queryR[1].replace(/[aeiouḁąęǫ]/, '[aeiouḁąęǫ]');
   }
-  var r = /.*([aeiouǎąęǫ])/.exec(queryR[0]);
+  var r = /.*([aeiouḁąęǫ])/.exec(queryR[0]);
   if (r === null) return traji_rimni;
   queryR[0] = r[1];
   if (queryR.length === 2) {
     traji_rimni = Object.keys(sorcu[bau])
       .reduce(function(b, n) {
-        var queryRn = krulermorna(n).replace(/([aeiouǎąęǫ])/g, '$1-').split("-").slice(-3);
+        var queryRn = krulermorna(n).replace(/([aeiouḁąęǫ])/g, '$1-').split("-").slice(-3);
         var Is = queryRn.length === 2 ? (queryRn[0].split('').slice(-1)[0] === queryR[0].split('').slice(-1)[0]) : false;
         if (Is) {
           var c = sorcu[bau][n];

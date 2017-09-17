@@ -185,8 +185,8 @@ const ensureDirExistence = (path) => {
       })
 
       t.track('#lojban');
-      t.track('#miToaq');
-      t.track('#ToaqLanguage');
+      //t.track('#miToaq');
+      //t.track('#ToaqLanguage');
       t.track('#ithkuil');
       t.track('#loglan');
     }
@@ -752,7 +752,7 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
       const words = fs.readFileSync(path.join(__dirname, "../zasni/", "vale.txt"), 'utf8').split("\n");
       let f;
       sj = words.fmap(j => {
-        f = lojban.ilmentufa_off(j.toLowerCase().replace(/sh/g, "c"), "J").toString();
+        f = lojban.ilmentufa_off(j.toLowerCase().replace(/sh/g, "c"), "J")["kampu"];
         if (f.indexOf("yntax") === -1) {
           return (`${j} ${f}`);
         } else
@@ -909,7 +909,39 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
     setInterval(() => {
       updatexmldumps();
     }, 3 * 86400000); //update logs once a djedi
-
+    const wordnet = (source, socket, clientmensi, sendTo, te_gerna) => {
+      const natural = require('natural');
+      const wn = new natural.WordNet();
+      wn.lookup(te_gerna, function(defs) {
+        if (!defs || defs.length === 0)
+          benji(source, socket, clientmensi, sendTo, "[not found]");
+        defs.forEach((w) => {
+          const num = w.synsetOffset? `[${w.synsetOffset}] `:'';
+          const lemma = w.lemma
+            ? `"${w.lemma}" `
+            : '';
+          const pos = w.pos
+            ? `/${w.pos}/ `
+            : '';
+          // const wCnt = w.wCnt ? `frequency: ${w.wCnt}` : '';
+          const firstline = (lemma + pos + num).trim();
+          const prettyfirstline = (firstline !== '')
+            ? `${firstline} -\n`
+            : '';
+          const def = w.def
+            ? `..... ${w.def}\n`
+            : '';
+          const exp = (w.exp && w.exp.length > 0)
+            ? `..... examples: ${w.exp}\n`
+            : '';
+          const syns = w.synonyms
+            ? `..... synonyms: ${w.synonyms.toString().split(",").map(i=>i.replace(/_/g,' ')).join(", ")}\n`
+            : '';
+          const whole = prettyfirstline + def + exp + syns;
+          benji(source, socket, clientmensi, sendTo, whole);
+        });
+      });
+    }
     const wiktionary = (source, socket, clientmensi, sendTo, te_gerna, bangu) => {
       let wor = te_gerna;
       if (!bangu) {
@@ -1036,17 +1068,23 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
         case txt.trim() === '#ermenefti':
           benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/Hermeneutics");
           break;
+        case txt.trim() === '#bankle':
+          benji(source, socket, clientmensi, sendTo, "https://jbotcan.org/lojban/en/dialects");
+          break;
         case txt.trim() === '#slak':
           benji(source, socket, clientmensi, sendTo, "https://slaka.herokuapp.com");
           break;
         case txt.trim() === '#telegram':
-          benji(source, socket, clientmensi, sendTo, "#lojban https://telegram.me/joinchat/BLVsYz3hCF-CtYw0-2IkqQ\n#ckule https://telegram.me/joinchat/BLVsYz4hC9ulWahupDLovA\n#jbosnu https://telegram.me/joinchat/BLVsYz20Boixl0xN-0TrPw\n#spero https://telegram.me/joinchat/BcR2JD4jiwpKsTiof9rDRA\n##jboselbau https://telegram.me/joinchat/CJYorT2ma6UVfhb9YThEqw");
+          benji(source, socket, clientmensi, sendTo, "#lojban https://t.me/joinchat/BLVsYz3hCF8mCAb6fzW1Rw\n#ckule https://telegram.me/joinchat/BLVsYz4hC9ulWahupDLovA\n#jbosnu https://telegram.me/joinchat/BLVsYz20Boixl0xN-0TrPw\n#spero https://telegram.me/joinchat/BcR2JD4jiwpKsTiof9rDRA\n##jboselbau https://telegram.me/joinchat/CJYorT2ma6UVfhb9YThEqw");
           break;
         case txt.trim() === '#uilkinse':
           benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");
           break;
         case txt.trim() === '#smuvanbi':
           benji(source, socket, clientmensi, sendTo, "To answer this question it's necessary to provide a full usage example or context where you would use this word/construct.");
+          break;
+        case txt.trim() === '#jufra':
+          benji(source, socket, clientmensi, sendTo, "Just say an English sentence and we will translate it for you.");
           break;
         case txt.trim() === '#purdi' || txt.trim() === '#gardenpath':
           benji(source, socket, clientmensi, sendTo, ".i le nu tu purdi mi melbi");
@@ -1093,7 +1131,7 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
           benji(source, socket, clientmensi, sendTo, ma_lujvo);
           break;
         case txt.indexOf(".k ") === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "C"));
+          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "C")["kampu"]);
           break;
         case(txt.indexOf("yacc:") === 0 || txt.indexOf("cowan:") === 0):
           tcepru(pp, sendTo, source, socket);
@@ -1108,17 +1146,17 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
           jbofihe(po, sendTo, source, socket);
           break;
         case txt.indexOf(".ilm ") === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "T"));
+          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "T")["kampu"]);
           break;
         case txt.indexOf(".ilm+") === 0:
           const params = `${txt} `.split(" ")[0].split("+")[1].toUpperCase();
-          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, params));
+          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, params)["kampu"]);
           break;
         case txt.indexOf(".beta ") === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_exp(po, "T"));
+          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_exp(po, "T")["kampu"]);
           break;
         case txt.indexOf(".raw ") === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "J"));
+          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "J")["kampu"]);
           break;
         case txt.indexOf(".zei ") === 0:
           benji(source, socket, clientmensi, sendTo, lojban.zeizei(po));
@@ -1144,6 +1182,9 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
             );
             benji(source, socket, clientmensi, sendTo, 'sei ca ca\'o jai gau cnino be fai lo pe mi sorcu');
           }, 1);
+          break;
+        case txt.indexOf(".wn ") === 0:
+          wordnet(source, socket, clientmensi, sendTo, po);
           break;
         case txt.indexOf(".wikt ") === 0:
           wiktionary(source, socket, clientmensi, sendTo, po);

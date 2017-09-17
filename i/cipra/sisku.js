@@ -298,7 +298,6 @@ function sisku(query, callback) {
     if (allMatches[0].length === 0 || allMatches[0][0].w !== query_apos) {
       var ty = julne_jmina_lo_se_claxu(shortget(query_apos, []));
       if (ty.length <= 1) {
-        console.log('here');
         allMatches[0] = ty.concat(allMatches[0]);
       } else {
         allMatches[0] = allMatches[1].concat([{

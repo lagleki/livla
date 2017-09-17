@@ -4,18 +4,18 @@ xmlns="http://www.w3.org/1999/xhtml"
 xmlns:og="http://ogp.me/ns#"
 xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-<title>Lojban dictionary Red Book Sisku</title>
+<title>Esperanto-Thai dictionary la sutysisku</title>
 <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0" />
 <meta name="theme-color" content="#1941a5">
 <meta property="og:title" content="La Sutysisku"/>
 <meta property="og:type" content="article"/>
-<meta property="og:url" content="https://la-lojban.github.io/sutysisku/cll/index.html"/>
+<meta property="og:url" content="https://la-lojban.github.io/sutysisku/epo-tha/index.html"/>
 <meta property="og:image" content="https://mw.lojban.org/images/1/11/sutysisku2015-06-22.png"/>
 <meta property="og:site_name" content="La Sutysisku"/>
 <meta property="fb:app_id" content="191051864394489"/>
-<meta property="og:description" content="Lojban grammar tool: works offline (+ English and other languages)"/>
+<meta property="og:description" content="A dictionary for Esperanto, Thai, Lojban. Can work offline."/>
 <link rel="shortcut icon" href="../pixra/sutysisku.png" />
-<link rel="search" type="application/opensearchdescription+xml" href="/i/cll/sisku.xml" title="cll-sutysisku">
+<link rel="search" type="application/opensearchdescription+xml" href="/i/epo-tha/sisku.xml" title="epo-tha-sutysisku">
 <style type="text/css">
 body {
 font-family: Tahoma, Lato, sans-serif;
@@ -432,7 +432,7 @@ ga('send', 'pageview');
 <form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
 <span id='site-title'><a id='title' href='#'><img src="../pixra/sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span>
 <div class="kicne"></div>
-<input id='ciska' type="text" name="focus" required placeholder="search" autofocus autocorrect="off" autocapitalize="off" autocomplete="false"/>
+<input id='ciska' type="text" name="focus" required placeholder="serĉi" autofocus autocorrect="off" autocapitalize="off" autocomplete="false"/>
 <div class="kicne"></div>
 <button id="clear" type="reset"></button>
 </form>
@@ -441,13 +441,13 @@ ga('send', 'pageview');
 <div id='content-panel'>
 <div id='purci' style="display:none;"></div>
 <div id='loading' class="term">
-<span id='caho_cpacu'>Loading Red Book ...</span><br>
+<span id='caho_cpacu'>Loading dictionary ...</span><br>
 <div id="cpacu">
 <span id='kernelo_lo_cpacu'></span>
 </div>
 </div>
 <div id='drata' style="text-align:center;"></div>
-<div id='description' class="term"><h1 style='font-size:1em;font-weight:normal;'><b>Red Book Sisku</b> is a searchable version of the reference grammar of Lojban spoken/logical language.</h1><p>- Can I use it if I lose internet access?<br/>- Yes, if this happens try opening this very address from this browser.<br/>It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>Press "/" to focus the search field.<br/>To search for rhymes: enter a word and type "@" after it to find its rhymes sorted by relevance. "klama@" is an example.<br/>For advanced users: to enable regular expressions search in titles<br/>either start the string with "^" or end with "$":<br/>"^mi", "gau$" are examples. <br/>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p><p><span id='searchengine'><i><a href='#' title='cll-sutysisku' onclick="window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/cll/sisku.xml')">Add as a search engine</a></i></span></p></div>
+<div id='description' class="term"><p><b>la sutysisku</b> is a fast dictionary for the Esperanto language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br><br>For more resources visit <a href='https://www.facebook.com/groups/tiddlydict' target='_blank'>Facebook TiddlyDict group</a> or e-mail <a href='mailto:gleki.is.my.name@gmail.com' target='_blank'>gleki.is.my.name@gmail.com</a>.</p><p><span id='searchengine'><i><a href='#' title='zamenhofo-sutysisku' onclick="window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/zamenhofo/sisku.xml')">Adici kiel serĉilo</a></i></span></p></div>
 <div id='output'></div>
 </div>
 </div>
@@ -707,17 +707,15 @@ outp.style.display='none';
 descr.style.display='block';
 var arrpurc = JSON.parse(localStorage.getItem('purci')) || [];
 var obj = {
-"@cirkotci": ["lojbo sance", "../pixra/taplasance.png", 1, "../cirkotci.html"],
-"muplis": ["la muplis", "../pixra/taplamuplis.png", 2.1],
-"jb": ["English - Lojban examples", "https://mw.lojban.org/images/0/08/snime-1.svg", 1],
-"en": ["English-Lojban", "https://mw.lojban.org/images/d/d8/selsku_lanci_eng.svg", 1],
-"jbo": ["fanva fi lo lojbo ri", "https://mw.lojban.org/images/a/a9/lanci_jbo.svg", 1],
-"ja": ["日本 - <span style=\"white-space:pre;\">ロジバン</span>", "https://mw.lojban.org/images/4/46/selsku_lanci_jpn.svg", 1],
-"fr-facile": ["français facile - lojban", "https://mw.lojban.org/images/a/a7/selsku_lanci_fra.svg", 1],
-"ru": ["русский - ложбан", "https://mw.lojban.org/images/d/dc/selsku_lanci_rus.svg", 1],
-"eo": ["Esperanto - Loĵbano", "https://mw.lojban.org/images/2/20/lanci_epo.svg", 1],
-"es": ["español - lojban", "https://mw.lojban.org/images/2/26/selsku_lanci_spa.svg", 1],
-"@CC": ["The Crash Course", "https://mw.lojban.org/images/b/bd/cogwheel-5.svg", 1, "https://mw.lojban.org/papri/The_Crash_Course_in_Lojban"],
+"muplis-eng-pol": ["English - polski","../pixra/muplis-eng-pol.png",2.1],
+"en-pt-BR": ["English - Portugueze","../pixra/152.png",1],
+"zamenhofo": ["Esperanto - English","https://mw.lojban.org/images/2/20/lanci_epo.svg",1],
+"toki": ["toki pona - English","../pixra/Toki_pona.svg",1],
+"laadan": ["English - Láadan","../pixra/Double_girl_sign.svg",1],
+"ina": ["English - Interlingua","https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_Interlingua.svg",1],
+"ldp": ["English - Lingwa de Planeta","../pixra/ldp.svg",1],
+"ile": ["English - Occidental / Interlingue","https://upload.wikimedia.org/wikipedia/commons/5/5b/Flag_of_Interlingue.svg",1],
+"epo-thai": ["Esperanto - Thai","https://mw.lojban.org/images/2/20/lanci_epo.svg",1],
 }
 var acc = "";
 var cisn = 100;

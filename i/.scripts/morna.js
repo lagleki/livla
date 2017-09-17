@@ -23,6 +23,7 @@ const langs = [
   "ldp",
   "ru",
   "zamenhofo",
+  "epo-tha",
   "toki",
   "jb",
   "en-pt-BR",
@@ -43,6 +44,19 @@ function addZero(i) {
   }
   return i;
 }
+function rgbToHex(rgb) {
+  let hex = Number(rgb).toString(16);
+  if (hex.length < 2) {
+    hex = "0" + hex;
+  }
+  return hex;
+};
+function fullColorHex(r, g, b) {
+  const red = rgbToHex(r);
+  const green = rgbToHex(g);
+  const blue = rgbToHex(b);
+  return "#" + red + green + blue;
+};
 
 //tempalting - remove parts not relevant to the current sutysisku
 String.prototype.stripout = function(config, tag) {
@@ -56,14 +70,12 @@ String.prototype.stripout = function(config, tag) {
   const antiku = !m
     ? "$1"
     : "";
-  console.log(tag,m,"-"+ku+"-",antiku);
+  console.log(tag, m, "-" + ku + "-", antiku);
   return this
   //OR operator
-    .replace(new RegExp("\\\/\\\/<" + tag + ">([\\s\\S]*?)\\\/\\\/<\\\/" + tag + ">", "gm"), ku)
-    .replace(new RegExp("<" + tag + ">([\\s\\S]*?)<\/" + tag + ">", "gm"), ku)
+    .replace(new RegExp("\\\/\\\/<" + tag + ">([\\s\\S]*?)\\\/\\\/<\\\/" + tag + ">", "gm"), ku).replace(new RegExp("<" + tag + ">([\\s\\S]*?)<\/" + tag + ">", "gm"), ku)
   //NOT operator
-    .replace(new RegExp("\\\/\\\/<" + tag + " false>([\\s\\S]*?)\\\/\\\/<\\\/" + tag + ">", "gm"), antiku)
-    .replace(new RegExp("<" + tag + " false>([\\s\\S]*?)<\/" + tag + ">", "gm"), antiku);
+    .replace(new RegExp("\\\/\\\/<" + tag + " false>([\\s\\S]*?)\\\/\\\/<\\\/" + tag + ">", "gm"), antiku).replace(new RegExp("<" + tag + " false>([\\s\\S]*?)<\/" + tag + ">", "gm"), antiku);
 }
 
 String.prototype.replaceMergefield = function(config) {
@@ -94,6 +106,8 @@ langs.forEach(lang => {
     "gradpos3": "88%",
     "gradpos4": "100%"
   };
+  const arr = (config.mupliskari4 || config_fallback.mupliskari4).split(",").map(i=>i.trim());
+  config.mupliskariralju = fullColorHex(arr[0], arr[1], arr[2]);
   const output = template.replaceMergefield(config).replaceMergefield(config_fallback)
   ////strip out according to Lojbanicity of the sutysisku
     .stripout(config, "xuzganalojudri\\|lojbo").stripout(config, "xuzganalojudri").stripout(config, "lojbo").stripout(config, "muplis")
@@ -117,7 +131,7 @@ langs.forEach(lang => {
   }
 
   //generate sisku.js
-  const siskujsfile = "window = this;var sorcu={};var bau = location.href.split('/').slice(-2)[0];if (bau==='cipra'){bau='en';}\npostMessage({kind: 'loading'});\nimportScripts('bangu.js','../data/parsed-" + lang.replace(/^cipra$/, 'en').replace(/^muplis/, "tatoeba") + ".js', '" + (['cipra','cll'].includes(lang)
+  const siskujsfile = "window = this;var sorcu={};var bau = location.href.split('/').slice(-2)[0];if (bau==='cipra'){bau='en';}\npostMessage({kind: 'loading'});\nimportScripts('bangu.js','../data/parsed-" + lang.replace(/^cipra$/, 'en').replace(/^muplis/, "tatoeba") + ".js', '" + (['cipra', 'cll'].includes(lang)
     ? "./sisku.js"
     : "../sisku.js") + "');\npostMessage({kind: 'ready'});\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;sisku(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};";
   fs.writeFileSync(path.join(__dirname, "../../i", lang, "worker.js"), siskujsfile);

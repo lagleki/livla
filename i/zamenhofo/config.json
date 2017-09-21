@@ -7,5 +7,13 @@
  "siskudescr": "Search the Esperanto dictionary la sutysisku.",
  "opdescr": "A dictionary for Esperanto, Lojban, English and other languages that can work offline.",
  "upperdir": "../muplis.html",
- "lojbo": "false"
+ "lojbo": "false",
+ "omupliskari1": "109,242,179",
+ "omupliskari2": "84,238,163",
+ "omupliskari3": "54,240,144",
+ "omupliskari4": "30,222,105",
+ "gradpos1": "0%",
+ "gradpos2": "13%",
+ "gradpos3": "88%",
+ "gradpos4": "100%"
 }

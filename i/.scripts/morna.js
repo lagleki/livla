@@ -7,30 +7,33 @@ const fs = require("fs"),
   path = require("path-extra");
 
 //config
-const langs = [
-  "en",
-  "cll",
-  "ru",
-  "eo",
-  "es",
-  "fr-facile",
-  "ile",
-  "ina",
-  "ithkuil",
-  "ja",
-  "jbo",
-  "laadan",
-  "ldp",
-  "ru",
-  "zamenhofo",
-  "epo-tha",
-  "toki",
-  "jb",
-  "en-pt-BR",
-  "muplis",
-  "muplis-eng-pol",
-  "cipra"
-];
+const args = process.argv.slice(2);
+const langs = args.length > 0
+  ? args
+  : [
+    "en",
+    "cll",
+    "ru",
+    "eo",
+    "es",
+    "fr-facile",
+    "ile",
+    "ina",
+    "ithkuil",
+    "ja",
+    "jbo",
+    "laadan",
+    "ldp",
+    "ru",
+    "zamenhofo",
+    "epo-tha",
+    "toki",
+    "jb",
+    "en-pt-BR",
+    "muplis",
+    "muplis-eng-pol",
+    "cipra"
+  ];
 //read template.html into var
 const template = fs.readFileSync(path.join(__dirname, "../../i/cipra", "template.html"), {encoding: 'utf8'});
 //read sisku.xml template into var
@@ -70,7 +73,7 @@ String.prototype.stripout = function(config, tag) {
   const antiku = !m
     ? "$1"
     : "";
-  console.log(tag, m, "-" + ku + "-", antiku);
+  // console.log(tag, m, "-" + ku + "-", antiku);
   return this
   //OR operator
     .replace(new RegExp("\\\/\\\/<" + tag + ">([\\s\\S]*?)\\\/\\\/<\\\/" + tag + ">", "gm"), ku).replace(new RegExp("<" + tag + ">([\\s\\S]*?)<\/" + tag + ">", "gm"), ku)
@@ -106,7 +109,7 @@ langs.forEach(lang => {
     "gradpos3": "88%",
     "gradpos4": "100%"
   };
-  const arr = (config.mupliskari4 || config_fallback.mupliskari4).split(",").map(i=>i.trim());
+  const arr = (config.mupliskari4 || config_fallback.mupliskari4).split(",").map(i => i.trim());
   config.mupliskariralju = fullColorHex(arr[0], arr[1], arr[2]);
   const output = template.replaceMergefield(config).replaceMergefield(config_fallback)
   ////strip out according to Lojbanicity of the sutysisku

@@ -13,6 +13,21 @@ xmlns:fb="https://www.facebook.com/2008/fbml">
 <meta property="og:image" content="https://mw.lojban.org/images/1/11/sutysisku2015-06-22.png"/>
 <meta property="og:site_name" content="La Sutysisku"/>
 <meta property="fb:app_id" content="191051864394489"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@Jbotcan" />
+<meta name='apple-mobile-web-app-title' content='la sutysisku'>
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../pixra/57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../pixra/114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../pixra/72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../pixra/144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../pixra/120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../pixra/152.png" />
+<link rel="icon" type="image/png" href="../pixra/32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="../pixra/16.png" sizes="16x16" />
+<meta name="application-name" content="la sutysisku"/>
+<meta name="msapplication-TileColor" content="#1941a5">
+<meta name="msapplication-TileImage" content="../pixra/144.png">
 <meta property="og:description" content="A dictionary for English, Brazilian Portugese, Lojban and other languages that can work offline."/>
 <link rel="shortcut icon" href="../pixra/sutysisku.png" />
 <link rel="search" type="application/opensearchdescription+xml" href="/i/en-pt-BR/sisku.xml" title="en-pt-BR-sutysisku">
@@ -24,16 +39,40 @@ overflow:hidden;
 margin: 0;
 height: 100vh;
 }
+h1 {
+font-size: 1em;
+font-weight: normal;
+}
 h4 {
 display: inline;
 margin: 0;
 }
+.liste {
+list-style-image: url(../pixra/16.png);
+}
+code {
+border: 1px solid #aaa;
+display: inline-block;
+padding: 3px;
+border-radius: 3px;
+margin-left: 1px;
+margin-right: 1px;
+}
 .type {
 display: inline;
 font-style: italic;
-margin-left: 25px;
+margin-top: -13px 0 0 13px;
 color: rgb(118, 118, 118);
 font-size: 12px;
+display: inline;
+border: 1px solid rgb(118, 118, 118);
+background-color: #ffffff;
+padding: 5px 7px 5px 5px;
+border-radius: 5px;
+z-index: 1;
+}
+.type:hover {
+box-shadow: 0 0 3pt 1pt #999999;
 }
 .heading{
 align-items:flex-start;
@@ -88,6 +127,7 @@ box-shadow: 3px 3px 1px #ccc;
 }
 .termouter:hover {
 outline: #999999 solid 3px;
+z-index: 2;
 }
 .rafsi {
 margin-top: 8px;
@@ -129,7 +169,7 @@ float:left;
 margin-top: 12px;
 display: none;
 }
-#ciska{
+#ciska {
 height:auto;
 font-size:140%;
 border: 1px solid #999;
@@ -137,6 +177,7 @@ padding: 3px 4px 2px 4px;
 transition: background 0.4s;
 float:right;
 margin-top: 6px;
+border-radius: 3px;
 }
 #ciska:not(:valid) ~ #clear {
 display: none;
@@ -158,14 +199,14 @@ margin-top: 13px;
 #site-title {display: block;}
 .kicne{display:none;}
 #se-vasru-lo-galtu-dasri{display: block;}
-#purci{margin-left: 10%;}
+.purci{margin-left: 10%;}
 }
 @media screen and (max-width: 509px) {//mobile
 #site-title {display: none;}
 .kicne{display:block;width:6px;}
 #ciska{width:100%;}
 #se-vasru-lo-galtu-dasri{display: inline-flex;width:100%;}
-#purci{margin-left:0%;}
+.purci{margin-left:0%;}
 }
 ::selection {
 background: rgba(56,136,233,1);
@@ -176,7 +217,6 @@ text-shadow: none;
 padding-left: 5px;
 padding-right: 5px;
 overflow:auto;
-height:100%;
 border-top:48px solid transparent;
 -webkit-box-sizing:border-box;
 -moz-box-sizing:border-box;
@@ -184,7 +224,6 @@ box-sizing:border-box;
 background: #222222 linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent) !important;
 background-size: 40px 40px !important;
 }
-#output{padding-bottom:20%;}
 #content-panel {
 max-width: 700px;
 width: 100%;
@@ -196,7 +235,7 @@ color: #2B79E0;
 text-decoration: none;
 }
 #description {
-margin-top: 5px;
+margin: 5px 0 15px 0;
 text-align: center;
 text-shadow: 0px 1px 0px rgba(255,255,255,.5);
 color: #333;
@@ -343,7 +382,7 @@ border: 0px none rgb(32, 134, 191);
 font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
 outline: rgb(32, 134, 191) none 0px;
 }
-#purci {
+.purci {
 margin-top: 0px;
 margin-bottom: 15px;
 padding: 8px 12px 6px;
@@ -355,20 +394,20 @@ border-width: 0px;
 border-style: solid;
 border-top: none;
 box-shadow:
-0 0 0 1px #3888E9,
-0 0 0 2px #2257D5,
-0 0 0 3px #2663E0,
-0 0 0 4px #1941A5;
+0 0 0 1px rgb(56,136,233),
+0 0 0 2px rgb(34,87,213),
+0 0 0 3px rgb(38,99,224),
+0 0 0 4px rgb(25,65,165);
 -moz-box-shadow:
-0 0 0 1px #3888E9,
-0 0 0 2px #2257D5,
-0 0 0 3px #2663E0,
-0 0 0 4px #1941A5;
+0 0 0 1px rgb(56,136,233),
+0 0 0 2px rgb(34,87,213),
+0 0 0 3px rgb(38,99,224),
+0 0 0 4px rgb(25,65,165);
 -webkit-box-shadow:
-0 0 0 1px #3888E9,
-0 0 0 2px #2257D5,
-0 0 0 3px #2663E0,
-0 0 0 4px #1941A5;
+0 0 0 1px rgb(56,136,233),
+0 0 0 2px rgb(34,87,213),
+0 0 0 3px rgb(38,99,224),
+0 0 0 4px rgb(25,65,165);
 }
 #cpacu {
 position:relative;
@@ -398,21 +437,6 @@ border-radius:3px;
 transition:width .8s ease
 }
 </style>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@GlekiArxokuna" />
-<meta content='la sutysisku' name='apple-mobile-web-app-title'>
-<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../pixra/57.png" />
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../pixra/114.png" />
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../pixra/72.png" />
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../pixra/144.png" />
-<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../pixra/120.png" />
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../pixra/152.png" />
-<link rel="icon" type="image/png" href="../pixra/32.png" sizes="32x32" />
-<link rel="icon" type="image/png" href="../pixra/16.png" sizes="16x16" />
-<meta name="application-name" content="la sutysisku"/>
-<meta name="msapplication-TileColor" content="#00a300">
-<meta name="msapplication-TileImage" content="../pixra/144.png">
 <script src="bangu.js"></script>
 <link rel="manifest" href="../manifest.json">
 <script>
@@ -439,7 +463,7 @@ ga('send', 'pageview');
 </div>
 <div id='content'>
 <div id='content-panel'>
-<div id='purci' style="display:none;"></div>
+<div id='purci' class='purci' style="display:none;"></div>
 <div id='loading' class="term">
 <span id='caho_cpacu'>Loading dictionary ...</span><br>
 <div id="cpacu">
@@ -486,6 +510,7 @@ localStorage.setItem('purci', JSON.stringify(a));
 function zero(e) {
 ciska.value ==='';
 query='';
+prevQuery='';
 displayDescription();
 }
 document.getElementById('clear').addEventListener('click', zero);
@@ -499,10 +524,15 @@ se.parentNode.removeChild(se);
 }
 doSearch();
 }
+function calcVH() {
+document.getElementById("content").setAttribute("style", "height:" + Math.max(document.documentElement.clientHeight, window.innerHeight || 0) + "px;");
+}
+calcVH();
 if (document.readyState === 'complete' || document.readyState !== 'loading') {
 cankocisni();
 } else {
 document.addEventListener('DOMContentLoaded', cankocisni);
+document.addEventListener('resize', calcVH, true);
 }
 pb.style.width = '37%';
 worker.onmessage = function(ev) {
@@ -532,7 +562,7 @@ sc=sc.split(" ").map(function(arg){
 return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";
 }).join("");
 var div = document.createElement('div');
-div.className = 'term';
+div.className = 'purci';
 div.innerHTML = window.cllnotci+"<br/>"+sc;
 outp.appendChild(div);
 }
@@ -543,7 +573,7 @@ var windowBottom = target.scrollTop + window.innerHeight;
 var outputBottom = outp.clientHeight - 700;
 var isClose = windowBottom >= outputBottom;
 if(isClose) {
-window.limit += 10;
+window.jimte += 10;
 skicu_lo_ro_valsi();
 }
 }
@@ -602,8 +632,8 @@ var jvs = document.createElement('div');
 jvs.className = 'type';
 jvs.innerHTML= def.t;
 if(window.xuzganalojudri && !def.l){
-jvs.innerHTML+="<font color='#aaa'><a style='color: #aaa;' target='_blank' href=\""+window.judri +
-def.w + "\">#</a></font> ";
+jvs.innerHTML="<a style='color: #000;' target='_blank' href=\""+window.judri +
+def.w + "\">" + def.t + "<font color='#aaa'>#</font></a> ";
 }
 var word = document.createElement('h4');
 word.classList.add('valsi');
@@ -758,13 +788,11 @@ else{return a;}
 function doSearch() {
 query = plukaquery(ciska.value);
 if (query ===''){displayDescription();}else{drataQuery = query;}
-if (query === prevQuery) {
-return;
-}
+if ((query === prevQuery)) return;
 prevQuery = query;
 updateUrl();
 var searchId = ++searchIdCounter;
-window.limit = 30;
+window.jimte = 30;
 resultCount = 0;
 ga('send', 'pageview', '#sisku/' + query);
 worker.postMessage({kind: 'newSearch', 'query': query, 'searchId': searchId});
@@ -826,7 +854,7 @@ ciska.focus();
 if (document.attachEvent) document.attachEvent('onkeyup', handler);
 else document.addEventListener('keyup', handler);
 function skicu_lo_ro_valsi() {
-var displayUpTo = Math.min(window.limit, results.length);
+var displayUpTo = Math.min(window.jimte, results.length);
 for (; resultCount < displayUpTo; resultCount++) {
 outp.appendChild(skicu_lo_valsi(results[resultCount]));
 }

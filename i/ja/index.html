@@ -61,7 +61,7 @@ margin-right: 1px;
 .type {
 display: inline;
 font-style: italic;
-margin-top: -13px 0 0 13px;
+margin: -13px 0 0 13px;
 color: rgb(118, 118, 118);
 font-size: 12px;
 display: inline;
@@ -471,7 +471,7 @@ ga('send', 'pageview');
 </div>
 </div>
 <div id='drata' style="text-align:center;"></div>
-<div id='description' class="term"><h1><b>la sutysisku</b> は、素早く検索できるロジバンの辞書です。</h1><div style="text-align:justify;">――インターネットに接続していない時にでも使えるの？<br/>――使えます。接続していない時にこのブラウザから今のこのアドレスを開いてみて下さい。開くはずです。 Chrome か Safari か Firefox の最新版が必要です。<ul class='liste'><li>探索欄に焦点を当てさせるために、<code>「／」</code>というキーを押してください。</li><li>韻を探索するには、何らかの言葉を記入し、その後直ちに<code>「@」</code>を加えることで、一致さ によって整列された韻を探し当てることができます。たとえば<code>「klama@」</code>。</li><li></li></ul>他の教材については<a href='http://mw.lojban.org/index.php?title=Lojban&setlang=ja' target='_blank'>ロジバンのウィキ</a>を訪れて下さい。</div></div>
+<div id='description' class="term"><h1><b>la sutysisku</b> は、素早く検索できるロジバンの辞書です。</h1><div style="text-align:justify;">――インターネットに接続していない時にでも使えるの？<br/>――使えます。接続していない時にこのブラウザから今のこのアドレスを開いてみて下さい。開くはずです。 Chrome か Safari か Firefox の最新版が必要です。<ul class='liste'><li>探索欄に焦点を当てさせるために、<code>「／」</code>というキーを押してください。</li><li>韻を探索するには、何らかの言葉を記入し、その後直ちに<code>「@」</code>を加えることで、一致さ によって整列された韻を探し当てることができます。たとえば<code>「klama@」</code>。</li><li>上級ユーザーの場合：正規表現でタイトルに探索することを可能にするには、文字列が<code>「^」</code>で始め、又は文字列が<code>「$」</code>で終わることにしてください。例えば<code>「^mi, gau$」</code>。</li></ul>他の教材については<a href='http://mw.lojban.org/index.php?title=Lojban&setlang=ja' target='_blank'>ロジバンのウィキ</a>を訪れて下さい。</div></div>
 <div id='output'></div>
 </div>
 </div>
@@ -502,9 +502,9 @@ function SaveDataToLocalStorage(data)
 if (!results||results.length===0||data==='') return;
 var a = JSON.parse(localStorage.getItem('purci'))||[];
 var index = a.indexOf(data);
-if (index>=0){a.splice(index,1);}
+if (index>=0) a.splice(index,1);
 a.unshift(data);
-if (a.length>10) {a.length=10;}
+if (a.length>10) a.length=10;
 localStorage.setItem('purci', JSON.stringify(a));
 }
 function zero(e) {
@@ -541,7 +541,7 @@ ready = true;
 var l=document.getElementById('loading');
 l.parentNode.removeChild(l);
 } else if (ev.data.kind == 'searchResults') {
-if (ev.data.query !== query) {return;}
+if (ev.data.query !== query) return;
 results = ev.data.results;
 outp.innerHTML = '';
 displayCLL();
@@ -559,7 +559,7 @@ function displayCLL(){
 var sc = (window.arrcll||[])[query];
 if (typeof sc!=='undefined'){
 sc=sc.split(" ").map(function(arg){
-return "<p><a target='_blank' href=\""+arg+"\">"+arg+"</a></p>";
+return "<p><a target='_blank' href=\""+arg+"\">"+escHtml(arg)+"</a></p>";
 }).join("");
 var div = document.createElement('div');
 div.className = 'purci';
@@ -587,12 +587,12 @@ return c.replace(/(\w+)_\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>").replace(/(\w+)_((
 });
 s = s.replace(/\{(.*?)\}/g, function(c) {
 var c = c.substring(1, c.length-1);
-return '<a href="#sisku/' + encodeURIComponent(c) + '">' + c + "</a>"
+return '<a href="#sisku/' + encodeUrl(c) + '">' + escHtml(c) + "</a>"
 });
 return s;
 }
 function skicu_lo_valsi(def,inner) {
-if (!def){def=[];}
+if (!def)def=[];
 var out=document.createElement('div');
 out.className=(inner===1)?'terminner':'termouter';
 out.classList.add('term');
@@ -600,15 +600,13 @@ var fmm = document.createElement('h4');
 if (typeof fm[def.s]!=='undefined') {
 fmm.className = 'tfm';
 fmm.innerHTML = '&nbsp;&nbsp;<i><sup>[&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' +
-fm[def.s] + '">' + fm[def.s] + "</a>]</sup></i>";
+encodeUrl(fm[def.s]) + '">' + escHtml(fm[def.s]) + "</a>]</sup></i>";
 }else{
 fmm.style.display='none';
 }
 var sh=[];
 for (var key in fm){
-if (fm[key]===def.w){
-sh.push('<a href="#sisku/' + key + '">' + key + '</a>');
-}
+if (fm[key]===def.w) sh.push('<a href="#sisku/' + encodeUrl(key) + '">' + escHtml(key) + '</a>');
 }
 var tfm = document.createElement('div');
 if (sh.length!==0){
@@ -623,7 +621,7 @@ var ss;
 ss = document.createElement('div');
 if (def.s) {
 ss.className = 'type';
-ss.innerHTML = '<a href="#sisku/' + def.s + '">' + def.s + "</a>" + ' ';
+ss.innerHTML = '<a href="#sisku/' + encodeUrl(def.s) + '">' + escHtml(def.s) + "</a> ";
 }
 else {
 ss.style.display='none';
@@ -633,13 +631,13 @@ jvs.className = 'type';
 jvs.innerHTML= def.t;
 if(window.xuzganalojudri && !def.l){
 jvs.innerHTML="<a style='color: #000;' target='_blank' href=\""+window.judri +
-def.w + "\">" + def.t + "<font color='#aaa'>#</font></a> ";
+encodeUrl(def.w) + "\">" + escHtml(def.t) + "<font color='#aaa'>#</font></a> ";
 }
 var word = document.createElement('h4');
 word.classList.add('valsi');
 if(def.l) word.classList.add('nalojbo');
-word.innerHTML ='<a class="valsi' + (def.l?'':' nalojbo') + '" href="#sisku/'+def.w + '">' + escHtml(def.w) + "</a>" + ' ';
-if (plukaquery(def.w) == query){word.innerHTML=query + ' ';}
+word.innerHTML ='<a class="valsi' + (def.l?'':' nalojbo') + '" href="#sisku/'+encodeUrl(def.w) + '">' + escHtml(def.w) + "</a>" + ' ';
+if (plukaquery(def.w) == query) word.innerHTML=query + ' ';
 var heading = document.createElement('heading');
 heading.classList.add('heading');
 var flex = document.createElement('heading');
@@ -684,7 +682,7 @@ var rafElem = document.createElement('span');
 var raf = def.r[i];
 if ((def.t||'').match(/lujvo/)) {
 var a = document.createElement('a');
-a.setAttribute('href', '#sisku/' + encodeURIComponent(raf));
+a.setAttribute('href', '#sisku/' + encodeUrl(raf));
 a.text=raf;
 rafElem.appendChild(a);
 } else {
@@ -708,13 +706,13 @@ out.addEventListener("click", function (event) {
 if (event.target.nodeName==='A') {
 var el = event.target;
 var title = event.target.getAttribute("title");
-if (el.ctrlKey || el.metaKey) { // let the user open in new tabs
-return;
+if (el.ctrlKey || el.metaKey) return;
+if(el.getAttribute('href') !== location.href.substring(location.href.indexOf("#"))) {
+var searchMatch = el.getAttribute('href').match(/(\#sisku\/)(.*)/);
+next = searchMatch? searchMatch[1] + encodeUrl(searchMatch[2]):'';
+window.history.pushState({}, null, next);
 }
-if(el.getAttribute('href') !== location.href.substring(location.href.indexOf("#"))){
-window.history.pushState({}, null, el.getAttribute('href'));
-}
-handleUrl();
+cnino_urli();
 return false;
 }
 });
@@ -723,14 +721,6 @@ return out;
 var searchIdCounter = 0;
 var prevQuery,drataQuery='';
 var lastQueried = cati();
-function escHtml(a){
-return a
-.replace(/&/g, "&amp;")
-.replace(/</g, "&lt;")
-.replace(/>/g, "&gt;")
-.replace(/"/g, "&quot;")
-.replace(/'/g, "&#039;");
-}
 function displayDescription() {
 if (query == '') {
 outp.style.display='none';
@@ -755,19 +745,17 @@ for (var key in obj) {
 acc += "<div id='DIV_1' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_2' style='height:" + (cisn) + "px;width:" + (
 obj[key][2] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][0] + "</b></span><div id='DIV_5' style='height:" + (cisn) +
 "px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><a href=\"" + ((key.indexOf(
-"@") === 0) ? obj[key][3] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + encodeURIComponent(drataQuery.replace(/ /g,"_")))) + "\" id='A_7'><div id='DIV_8' style='height:" +
+"@") === 0) ? obj[key][3] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + encodeUrl(drataQuery))) + "\" id='A_7'><div id='DIV_8' style='height:" +
 (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;background-image:url(\"" + obj[key][1] + "\")'></div></a></div></div></div></div>"
 }
-if (!drataQuery || (drataQuery === '')) {
-drataQuery = arrpurc[0] || '';
-}
+if (!drataQuery || (drataQuery === '')) drataQuery = (arrpurc[0] || '');
 drata.innerHTML = acc;
 drata.style.display='block';
 if (arrpurc.length > 0) {
 purci.innerHTML = (window.purc || "Last searched: ") +
 arrpurc.map(
 function(a) {
-return '<a href="#sisku/' + encodeURIComponent(a.replace(/ /g,"_")) + '">' + escHtml(a) + "</a>";
+return '<a href="#sisku/' + encodeUrl(a) + '">' + escHtml(a) + "</a>";
 }
 ).join(", ");
 purci.style.display='block';
@@ -781,18 +769,24 @@ document.getElementById('content').scrollTop = 0;
 }
 }
 function plukaquery(a){
-arg=escHtml(a);
-if (a.charAt(0)!=='^' && a.slice(-1)!=='$'){
-return a.replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim()
-}
-else{return a;}
+if (a.charAt(0)!=='^' && a.slice(-1)!=='$') return a.replace(/[,\.]/g," ").replace(/ {2,}/g," ").trim();
+return a;
 }
 function doSearch() {
 query = plukaquery(ciska.value);
 if (query ===''){displayDescription();}else{drataQuery = query;}
-if ((query === prevQuery)) return;
+if (query === prevQuery) return;
 prevQuery = query;
-updateUrl();
+var url = '';
+if (query.length > 0) url = '#sisku/' + encodeUrl(query);
+if (url == '' || document.referrer === document.location.href) return;
+var difference = cati() - lastQueried;
+if (difference > 2000) {
+window.history.pushState({}, null, url);
+} else {
+window.history.replaceState({}, null, url);
+}
+lastQueried = cati();
 var searchId = ++searchIdCounter;
 window.jimte = 30;
 resultCount = 0;
@@ -818,43 +812,37 @@ delay(function(){
 SaveDataToLocalStorage(query);
 }, 2000 );
 };
-function updateUrl() {
-var url = '';
-if (query.length > 0) {
-url = '#sisku/' + encodeURIComponent(query.replace(/ /g,"_").replace(/&#39;/g,"'"));
-query = query.replace(/&#39;/g,"'");
-}
-if (url === location.href.substring(location.href.indexOf("#")) || url == '' || document.referrer === document.location.href) {
-return;
-}
-var difference = cati() - lastQueried;
-if (difference > 2000) {
-window.history.pushState({}, null, url);
-} else {
-window.history.replaceState({}, null, url);
-}
-lastQueried = cati();
-}
-function handleUrl() {
+function cnino_urli() {
 var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
-if (searchMatch && searchMatch.indexOf('/')===-1) {
-query = decodeURIComponent(searchMatch[1]).replace(/_/g," ").trim();
-}
+if (searchMatch && searchMatch.indexOf('/')===-1) query = decodeUrl(searchMatch[1]).trim();
 ciska.value=query;
 triggerEvent(ciska, 'input');
-if (ready) {
-doSearch();
+if (ready) doSearch();
 }
+cnino_urli();
+window.addEventListener('popstate', cnino_urli);
+function encodeUrl(uenzi){
+return encodeURIComponent(uenzi.replace(/ /g,"_")).replace(/'/g,"%27");
 }
-handleUrl();
-window.addEventListener('popstate', handleUrl);
+function decodeUrl(urli){
+return decodeURIComponent(urli.replace(/&amp;/g,"&").replace(/%27/g,"'")).replace(/_/g," ");
+}
+function escHtml(a){
+return a
+.replace(/</g, "&lt;")
+.replace(/>/g, "&gt;")
+.replace(/"/g, "&quot;")
+.replace(/'/g, "&#039;")
+;
+}
 function handler(e) {
-if(e.keyCode && e.keyCode===191){
-ciska.focus();
+if(e.keyCode && e.keyCode===191) ciska.focus();
 }
+if (document.attachEvent) {
+document.attachEvent('onkeyup', handler);
+} else {
+document.addEventListener('keyup', handler);
 }
-if (document.attachEvent) document.attachEvent('onkeyup', handler);
-else document.addEventListener('keyup', handler);
 function skicu_lo_ro_valsi() {
 var displayUpTo = Math.min(window.jimte, results.length);
 for (; resultCount < displayUpTo; resultCount++) {
@@ -863,21 +851,15 @@ outp.appendChild(skicu_lo_valsi(results[resultCount]));
 }
 function cati() {
 if (window.performance) {
-if (performance.now) {
-return performance.now();
-}
+if (performance.now) return performance.now();
 }
 return +new Date();
 }
 var appCache = window.applicationCache;
 appCache.update();
-if (appCache.status == window.applicationCache.UPDATEREADY) {
-appCache.swapCache();
-}
+if (appCache.status == window.applicationCache.UPDATEREADY) appCache.swapCache();
 window.applicationCache.addEventListener('updateready', function(e) {
-if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-window.location.reload();
-}
+if (window.applicationCache.status == window.applicationCache.UPDATEREADY) window.location.reload();
 }, false);
 </script>
 </body>

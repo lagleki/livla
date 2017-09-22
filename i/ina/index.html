@@ -356,19 +356,15 @@ font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-se
 #A_7 {
 border-collapse: collapse;
 box-sizing: border-box;
-color: rgb(32, 134, 191);
 text-decoration: none;
 text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
-column-rule-color: rgb(32, 134, 191);
 user-select: none;
-border: 0px none rgb(32, 134, 191);
+border: 0;
 font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
-outline: rgb(32, 134, 191) none 0px;
 }
 #DIV_8 {
 border-collapse: collapse;
 box-sizing: border-box;
-color: rgb(32, 134, 191);
 text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
 column-rule-color: rgb(32, 134, 191);
 perspective-origin: 75px 75px;
@@ -378,9 +374,7 @@ background-position: center;
 background-color: #ffffff;
 background-size: contain;
 background-repeat: no-repeat;
-border: 0px none rgb(32, 134, 191);
 font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
-outline: rgb(32, 134, 191) none 0px;
 }
 .purci {
 margin-top: 0px;
@@ -388,8 +382,8 @@ margin-bottom: 15px;
 padding: 8px 12px 6px;
 text-align: justify;
 background: white;
-border-bottom-left-radius: 15px 15px;
-border-bottom-right-radius: 15px 15px;
+border-bottom-left-radius: 7px 7px;
+border-bottom-right-radius: 7px 7px;
 border-width: 0px;
 border-style: solid;
 border-top: none;
@@ -437,8 +431,8 @@ border-radius:3px;
 transition:width .8s ease
 }
 </style>
-<script src="bangu.js"></script>
 <link rel="manifest" href="../manifest.json">
+<script src="bangu.js"></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -558,12 +552,13 @@ pb.style.width = (ev.data.percent * 100) + '%';
 function displayCLL(){
 var sc = (window.arrcll||[])[query];
 if (typeof sc!=='undefined'){
-sc=sc.split(" ").map(function(arg){
-return "<p><a target='_blank' href=\""+arg+"\">"+escHtml(arg)+"</a></p>";
-}).join("");
+sc=window.cllnotci+"<ul class='liste'>"+sc.split(" ").map(function(arg){
+var a = window.cylylypoicnino[arg]
+return "<li><a target='_blank' href=\"http:\/\/lojban.org\/publications/cll\/cll_v1.1_xhtml-section-chunks\/"+a.judri+"\">"+escHtml(a.cmene)+"</a></li>";
+}).join("")+"</ul>";
 var div = document.createElement('div');
 div.className = 'purci';
-div.innerHTML = window.cllnotci+"<br/>"+sc;
+div.innerHTML = sc;
 outp.appendChild(div);
 }
 }
@@ -612,13 +607,12 @@ var tfm = document.createElement('div');
 if (sh.length!==0){
 tfm.classList.add('valsi');
 if(def.l) tfm.classList.add('nalojbo');
-tfm.innerHTML = '<i><sup>['+sh.join(", ")+'&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;';
+tfm.innerHTML='<i><sup>['+sh.join(", ")+'&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;';
 }
 else{
 tfm.style.display='none';
 }
-var ss;
-ss = document.createElement('div');
+var ss=document.createElement('div');
 if (def.s) {
 ss.className = 'type';
 ss.innerHTML = '<a href="#sisku/' + encodeUrl(def.s) + '">' + escHtml(def.s) + "</a> ";

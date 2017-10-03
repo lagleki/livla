@@ -169,6 +169,7 @@ function sisku(query, callback) {
       [],
       [],
       [],
+      [],
       []
     ];
     for (var i = 0; i < mapti_vreji.length; i++) {
@@ -191,6 +192,8 @@ function sisku(query, callback) {
           ui[3].push(doc);
         } else if ((doc.g || '').search("\\b" + query + "\\b") >= 0 || doc.w.search("\\b(" + query_apos + "|" + query + ")") >= 0 || doc.w.search("(" + query_apos + "|" + query + ")\\b") >= 0) {
           ui[4].push(doc);
+        } else if ((doc.d || '').toLowerCase().search("^" + query + "\\b") >= 0) {
+          ui[8].push(doc);
         } else if ((doc.d || '').toLowerCase().search("\\b" + query + "\\b") >= 0) {
           ui[6].push(doc);
         } else {
@@ -233,8 +236,9 @@ function sisku(query, callback) {
     ui[4] = sor(ui[4]);
     ui[6] = sor(ui[6]);
     ui[7] = sor(ui[7]);
+    ui[8] = sor(ui[8]);
     var firstMatches = secupra_vreji.concat(ui[0]).concat(ui[1]);
-    var secondMatches = ui[5].concat(ui[2]).concat(ui[3]).concat(ui[4]).concat(ui[6]).concat(ui[7]);
+    var secondMatches = ui[5].concat(ui[2]).concat(ui[3]).concat(ui[4]).concat(ui[8]).concat(ui[6]).concat(ui[7]);
     if (firstMatches && (firstMatches.w === query_apos)) {
       for (var tyt = 1; tyt < firstMatches.length; tyt++) {
         if (firstMatches[tyt].l && (firstMatches[tyt].d === "{" + query_apos + "}")) {

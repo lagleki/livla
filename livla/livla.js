@@ -188,7 +188,7 @@ const ensureDirExistence = (path) => {
       //t.track('#miToaq');
       //t.track('#ToaqLanguage');
       t.track('#ithkuil');
-      t.track('#loglan');
+      // t.track('#loglan');
     }
     loadConfig();
 
@@ -916,7 +916,9 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
         if (!defs || defs.length === 0)
           benji(source, socket, clientmensi, sendTo, "[not found]");
         defs.forEach((w) => {
-          const num = w.synsetOffset? `[${w.synsetOffset}] `:'';
+          const num = w.synsetOffset
+            ? `[${w.synsetOffset}] `
+            : '';
           const lemma = w.lemma
             ? `"${w.lemma}" `
             : '';
@@ -935,7 +937,7 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
             ? `..... examples: ${w.exp}\n`
             : '';
           const syns = w.synonyms
-            ? `..... synonyms: ${w.synonyms.toString().split(",").map(i=>i.replace(/_/g,' ')).join(", ")}\n`
+            ? `..... synonyms: ${w.synonyms.toString().split(",").map(i => i.replace(/_/g, ' ')).join(", ")}\n`
             : '';
           const whole = prettyfirstline + def + exp + syns;
           benji(source, socket, clientmensi, sendTo, whole);
@@ -1064,244 +1066,267 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
       let inLanguage = defaultLanguage;
       const pp = (/:(.+)/.exec(text) || ['', ''])[1];
       const po = (/ (.+)/.exec(text) || ['', ''])[1].trim();
-      switch (true) {
-        case txt.trim() === '#ermenefti':
-          benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/Hermeneutics");
-          break;
-        case txt.trim() === '#bankle':
-          benji(source, socket, clientmensi, sendTo, "https://jbotcan.org/lojban/en/dialects");
-          break;
-        case txt.trim() === '#slak':
-          benji(source, socket, clientmensi, sendTo, "https://slaka.herokuapp.com");
-          break;
-        case txt.trim() === '#telegram':
-          benji(source, socket, clientmensi, sendTo, "#lojban https://t.me/joinchat/BLVsYz3hCF8mCAb6fzW1Rw\n#ckule https://telegram.me/joinchat/BLVsYz4hC9ulWahupDLovA\n#jbosnu https://telegram.me/joinchat/BLVsYz20Boixl0xN-0TrPw\n#spero https://telegram.me/joinchat/BcR2JD4jiwpKsTiof9rDRA\n##jboselbau https://telegram.me/joinchat/CJYorT2ma6UVfhb9YThEqw");
-          break;
-        case txt.trim() === '#uilkinse':
-          benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");
-          break;
-        case txt.trim() === '#smuvanbi':
-          benji(source, socket, clientmensi, sendTo, "To answer this question it's necessary to provide a full usage example or context where you would use this word/construct.");
-          break;
-        case txt.trim() === '#jufra':
-          benji(source, socket, clientmensi, sendTo, "Just say an English sentence and we will translate it for you.");
-          break;
-        case txt.trim() === '#purdi' || txt.trim() === '#gardenpath':
-          benji(source, socket, clientmensi, sendTo, ".i le nu tu purdi mi melbi");
-          break;
-        case txt.trim() === '#gaha':
-          benji(source, socket, clientmensi, sendTo, ".i .itku'ile ga'a mi");
-          break;
-        case txt.trim() === '#mohu':
-          benji(source, socket, clientmensi, sendTo, "http://filcat.uab.cat/clt/membres/postdoctorands/Borik/borik-reinhart-lola8.pdf");
-          break;
-        case txt.trim() === '#erneta':
-          benji(source, socket, clientmensi, sendTo, "http://jbotcan.org/lojban/en/SWH_confirmed.html");
-          break;
-        case txt.trim() === '#selkunti':
-          benji(source, socket, clientmensi, sendTo, "Whorf described a workplace in which full gasoline drums were stored in one room and empty ones in another; he said that because of flammable vapor the \"empty\" drums were more dangerous than those that were full, although workers handled them less carefully to the point that they smoked in the room with \"empty\" drums, but not in the room with full ones. Whorf argued that by habitually speaking of the vapor-filled drums as empty and by extension as inert, the workers were oblivious to the risk posed by smoking near the 'empty drums'.");
-          break;
-        case txt.trim() === '#camxes':
-          benji(source, socket, clientmensi, sendTo, "https://lojban.github.io/ilmentufa/camxes.html\nhttps://lojban.github.io/ilmentufa/glosser/glosser.htm");
-          break;
-        case txt.trim() === '#sepulka':
-          benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/sepulka/en");
-          break;
-        case txt.trim() === '#cilre':
-          benji(source, socket, clientmensi, sendTo, "An extensive description of Lojban language: http://lojban.org/publications/cll/cll_v1.1_xhtml-section-chunks/\nSlicker methods of learning Lojban : https://mw.lojban.org/papri/Learn_Lojban:_new_methods\nYou might also want to bookmark a Lojban dictionary; the two most popular ones are http://la-lojban.github.io/sutysisku/en/ and https://vlasisku.alexburka.com");
-          break;
-        case txt.trim() === '#noiha':
-          benji(source, socket, clientmensi, sendTo, "ko\'a broda poi\'a brodo = lo nu ko\'a broda cu fasnu gi\'e brodo\nko\'a broda noi\'a brodo = lo nu ko\'a broda cu fasnu .i lo go\'i cu brodo\nko\'a broda soi\'a brodo = lo nu ko\'a broda cu brodo\nko\'a broda soi ke\'a brodo = ko\'a broda .i lo nu go\'i cu brodo");
-          break;
-        case txt.trim() === '#n-paradigm':
-          benji(source, socket, clientmensi, sendTo, "beu  B  Bekti  (object)  ‘-/in’  Patients, Parts, Properties\ncau  C  Canli  (quantity)  ‘by/for’  Quantities, Amounts, Values\ndio  D  Dirco  (direction)  ‘to/for’  Recipients, Beneficiaries, Destinations\nfoa  F  Folma  (full)  ‘in/of’  Wholes, Sets, Collectivities\njui  J  Junti  (young)  ‘than’  Lessers in greater/lesser than relations\nkao  K  Kakto  (act)  ‘-/by’  Actors, Agents, Doers\nneu  N  Nerbi  (necessary)  ‘under’  Conditions, Fields, Circumstances\npou  P  Proju  (produce)  ‘-’  Products, Outputs, Purposes\ngoa  G  Groda  (big)  ‘than’  Greaters in greater/lesser than relations\nsau  S  Satci  (start)  ‘from’  Sources, Origins, Reasons, Causes\nveu  V  Vetci  (event)  ‘by/via’  Events, States, Deeds, Means, Routes, Effects");
-          break;
-        case(txt.indexOf(`${prereplier}gadri`) === 0 || txt.trim() === '#gadri'):
-          benji(source, socket, clientmensi, sendTo, 'lo broda = su\'oi da poi ge ke\'a broda gi ro\'oi broda cu me ke\'a\nlo [PA] broda = zo\'e noi ke\'a broda [gi\'e zilkancu li PA lo broda]\nla [PA] broda = zo\'e noi lu [PA] broda li\'u cmene ke\'a mi\nlo PA sumti = lo PA me sumti\nla PA sumti = zo\'e noi lu PA sumti li\'u cmene ke\'a mi\nloi [PA] broda = lo gunma be lo [PA] broda\nlai [PA] broda = lo gunma be la [PA] broda\nloi PA sumti = lo gunma be lo PA sumti\nlai PA sumti = lo gunma be la PA sumti\nlo\'i [PA] broda = lo selcmi be lo [PA] broda\nla\'i [PA] broda = lo selcmi be la [PA] broda\nlo\'i PA sumti = lo selcmi be lo PA sumti\nla\'i PA sumti = lo selcmi be la PA sumti\nPA sumti = PA da poi ke\'a me sumti\nPA broda = PA da poi broda\npiPA sumti = lo piPA si\'e be pa me sumti\nle broda poi brode = le broda je ckaji lo ka ce\'u brode\nle broda ku poi brode = lo me le broda ku je brode');
-          break;
-          // case txt.indexOf("nlp:") === 0: stnlp(source,socket,clientmensi,sendTo,text.substr(4));break;
-        case txt.indexOf(".lujvo ") === 0:
-          let ma_lujvo;
-          try {
-            ma_lujvo = lojban.jvozba(po.split(" "));
-            ma_lujvo = PrettyLujvoScore(ma_lujvo);
-          } catch (e) {
-            ma_lujvo = e.toString();
+      switch (txt.trim().charAt(0)) {
+        case "#":
+          switch (true) {
+            case txt.trim() === '#ermenefti':
+              benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/Hermeneutics");
+              break;
+            case txt.trim() === '#voksa':
+              benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/Recordings_of_live_Lojban_discussions");
+              break;
+            case txt.trim() === '#bankle':
+              benji(source, socket, clientmensi, sendTo, "https://jbotcan.org/lojban/en/dialects");
+              break;
+            case txt.trim() === '#slak':
+              benji(source, socket, clientmensi, sendTo, "https://slaka.herokuapp.com");
+              break;
+            case txt.trim() === '#telegram':
+              benji(source, socket, clientmensi, sendTo, "#lojban https://t.me/joinchat/BLVsYz3hCF8mCAb6fzW1Rw\n#ckule https://telegram.me/joinchat/BLVsYz4hC9ulWahupDLovA\n#jbosnu https://telegram.me/joinchat/BLVsYz20Boixl0xN-0TrPw\n#spero https://telegram.me/joinchat/BcR2JD4jiwpKsTiof9rDRA\n##jboselbau https://telegram.me/joinchat/CJYorT2ma6UVfhb9YThEqw");
+              break;
+            case txt.trim() === '#uilkinse':
+              benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");
+              break;
+            case txt.trim() === '#smuvanbi':
+              benji(source, socket, clientmensi, sendTo, "To answer this question it's necessary to provide a full usage example or context where you would use this word/construct.");
+              break;
+            case txt.trim() === '#jufra':
+              benji(source, socket, clientmensi, sendTo, "Just say an English sentence and we will translate it for you.");
+              break;
+            case txt.trim() === '#purdi' || txt.trim() === '#gardenpath':
+              benji(source, socket, clientmensi, sendTo, ".i le nu tu purdi mi melbi");
+              break;
+            case txt.trim() === '#gaha':
+              benji(source, socket, clientmensi, sendTo, ".i .itku'ile ga'a mi");
+              break;
+            case txt.trim() === '#mohu':
+              benji(source, socket, clientmensi, sendTo, "http://filcat.uab.cat/clt/membres/postdoctorands/Borik/borik-reinhart-lola8.pdf");
+              break;
+            case txt.trim() === '#erneta':
+              benji(source, socket, clientmensi, sendTo, "http://jbotcan.org/lojban/en/SWH_confirmed.html");
+              break;
+            case txt.trim() === '#selkunti':
+              benji(source, socket, clientmensi, sendTo, "Whorf described a workplace in which full gasoline drums were stored in one room and empty ones in another; he said that because of flammable vapor the \"empty\" drums were more dangerous than those that were full, although workers handled them less carefully to the point that they smoked in the room with \"empty\" drums, but not in the room with full ones. Whorf argued that by habitually speaking of the vapor-filled drums as empty and by extension as inert, the workers were oblivious to the risk posed by smoking near the 'empty drums'.");
+              break;
+            case txt.trim() === '#camxes':
+              benji(source, socket, clientmensi, sendTo, "https://lojban.github.io/ilmentufa/camxes.html\nhttps://lojban.github.io/ilmentufa/glosser/glosser.htm");
+              break;
+            case txt.trim() === '#sepulka':
+              benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/sepulka/en");
+              break;
+            case txt.trim() === '#cilre':
+              benji(source, socket, clientmensi, sendTo, "An extensive description of Lojban language: http://lojban.org/publications/cll/cll_v1.1_xhtml-section-chunks/\nSlicker methods of learning Lojban : https://mw.lojban.org/papri/Learn_Lojban:_new_methods\nYou might also want to bookmark a Lojban dictionary; the two most popular ones are http://la-lojban.github.io/sutysisku/en/ and https://vlasisku.alexburka.com");
+              break;
+            case txt.trim() === '#noiha':
+              benji(source, socket, clientmensi, sendTo, "ko\'a broda poi\'a brodo = lo nu ko\'a broda cu fasnu gi\'e brodo\nko\'a broda noi\'a brodo = lo nu ko\'a broda cu fasnu .i lo go\'i cu brodo\nko\'a broda soi\'a brodo = lo nu ko\'a broda cu brodo\nko\'a broda soi ke\'a brodo = ko\'a broda .i lo nu go\'i cu brodo");
+              break;
+            case txt.trim() === '#n-paradigm':
+              benji(source, socket, clientmensi, sendTo, "beu  B  Bekti  (object)  ‘-/in’  Patients, Parts, Properties\ncau  C  Canli  (quantity)  ‘by/for’  Quantities, Amounts, Values\ndio  D  Dirco  (direction)  ‘to/for’  Recipients, Beneficiaries, Destinations\nfoa  F  Folma  (full)  ‘in/of’  Wholes, Sets, Collectivities\njui  J  Junti  (young)  ‘than’  Lessers in greater/lesser than relations\nkao  K  Kakto  (act)  ‘-/by’  Actors, Agents, Doers\nneu  N  Nerbi  (necessary)  ‘under’  Conditions, Fields, Circumstances\npou  P  Proju  (produce)  ‘-’  Products, Outputs, Purposes\ngoa  G  Groda  (big)  ‘than’  Greaters in greater/lesser than relations\nsau  S  Satci  (start)  ‘from’  Sources, Origins, Reasons, Causes\nveu  V  Vetci  (event)  ‘by/via’  Events, States, Deeds, Means, Routes, Effects");
+              break;
+            case(txt.trim() === '#gadri'):
+              benji(source, socket, clientmensi, sendTo, 'lo broda = su\'oi da poi ge ke\'a broda gi ro\'oi broda cu me ke\'a\nlo [PA] broda = zo\'e noi ke\'a broda [gi\'e zilkancu li PA lo broda]\nla [PA] broda = zo\'e noi lu [PA] broda li\'u cmene ke\'a mi\nlo PA sumti = lo PA me sumti\nla PA sumti = zo\'e noi lu PA sumti li\'u cmene ke\'a mi\nloi [PA] broda = lo gunma be lo [PA] broda\nlai [PA] broda = lo gunma be la [PA] broda\nloi PA sumti = lo gunma be lo PA sumti\nlai PA sumti = lo gunma be la PA sumti\nlo\'i [PA] broda = lo selcmi be lo [PA] broda\nla\'i [PA] broda = lo selcmi be la [PA] broda\nlo\'i PA sumti = lo selcmi be lo PA sumti\nla\'i PA sumti = lo selcmi be la PA sumti\nPA sumti = PA da poi ke\'a me sumti\nPA broda = PA da poi broda\npiPA sumti = lo piPA si\'e be pa me sumti\nle broda poi brode = le broda je ckaji lo ka ce\'u brode\nle broda ku poi brode = lo me le broda ku je brode');
+              break;
           }
-          benji(source, socket, clientmensi, sendTo, ma_lujvo);
-          break;
-        case txt.indexOf(".k ") === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "C")["kampu"]);
-          break;
-        case(txt.indexOf("yacc:") === 0 || txt.indexOf("cowan:") === 0):
-          tcepru(pp, sendTo, source, socket);
-          break;
-        case(txt.indexOf("jbofi'e:") === 0 || txt.indexOf("jbofihe:") === 0 || txt.indexOf("gerna:") === 0):
-          jbofihe(pp, sendTo, source, socket);
-          break;
-          //case txt.indexOf(".tersmu ") === 0:
-          //  tersmu(po, sendTo, source, socket);
-          //  break;
-        case(txt.indexOf(".jbofi'e ") === 0):
-          jbofihe(po, sendTo, source, socket);
-          break;
-        case txt.indexOf(".ilm ") === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "T")["kampu"]);
-          break;
-        case txt.indexOf(".ilm+") === 0:
-          const params = `${txt} `.split(" ")[0].split("+")[1].toUpperCase();
-          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, params)["kampu"]);
-          break;
-        case txt.indexOf(".beta ") === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_exp(po, "T")["kampu"]);
-          break;
-        case txt.indexOf(".raw ") === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "J")["kampu"]);
-          break;
-        case txt.indexOf(".zei ") === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.zeizei(po));
-          break;
-        case txt.indexOf(".anji ") === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.anji(po));
-          break;
-        case txt.indexOf(".kru ") === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.krulermorna(po));
-          break;
-        case(txt.indexOf(`${replier}: loadconfig`) === 0):
-          loadConfig();
-          benji(source, socket, clientmensi, sendTo, 'config reloaded from ~/.livla/config.json');
-          break;
-        case(txt.indexOf(`${replier}: ko ningau`) === 0 || txt.indexOf(`${replier}: ko cnino`) === 0):
-          setTimeout(() => {
-            updatexmldumps(({nalmulselfaho}) => {
-              benji(source, socket, clientmensi, sendTo, 'i ba\'o jai gau cnino');
-              const selsre = Object.keys(nalmulselfaho);
-              if (selsre.length)
-                benji(source, socket, clientmensi, sendTo, `i na kakne lo ka jai gau cnino fai la'e zoi zoi ${selsre.join(' ')} zoi`);
+        case ".":
+          switch (true) {
+            case txt.indexOf(".lujvo ") === 0:
+              let ma_lujvo;
+              try {
+                ma_lujvo = lojban.jvozba(po.split(" "));
+                ma_lujvo = PrettyLujvoScore(ma_lujvo);
+              } catch (e) {
+                ma_lujvo = e.toString();
               }
-            );
-            benji(source, socket, clientmensi, sendTo, 'sei ca ca\'o jai gau cnino be fai lo pe mi sorcu');
-          }, 1);
-          break;
-        case txt.indexOf(".wn ") === 0:
-          wordnet(source, socket, clientmensi, sendTo, po);
-          break;
-        case txt.indexOf(".wikt ") === 0:
-          wiktionary(source, socket, clientmensi, sendTo, po);
-          break;
-        case txt.indexOf(".djbo ") === 0:
-          wiktionary(source, socket, clientmensi, sendTo, po, "Lojban");
-          break;
-        case txt.indexOf(".den ") === 0:
-          wiktionary(source, socket, clientmensi, sendTo, po, "English");
-          break;
-        case txt.indexOf(".deo ") === 0:
-          wiktionary(source, socket, clientmensi, sendTo, po, "Esperanto");
-          break;
-        case txt.search('\\.(' + robangu + ') ') === 0:
-          benji(source, socket, clientmensi, sendTo, vlaste(" " + po, ln = txt.split(" ")[0].substr(1)));
-          break;
-        case txt.search('(' + robangu + '):') === 0:
-          benji(source, socket, clientmensi, sendTo, vlaste(pp, txt.split(":")[0]));
-          break;
-        case txt.indexOf('frame: /full ') === 0:
-          benji(source, socket, clientmensi, sendTo, vlaste(text.substr(12), 'en', 'framemulno'));
-          break;
-        case txt.indexOf('frame:/full ') === 0:
-          benji(source, socket, clientmensi, sendTo, vlaste(text.substr(11), 'en', 'framemulno'));
-          break;
-          // Change default language
-        case txt.indexOf('.bangu ') === 0:
-          benji(source, socket, clientmensi, sendTo, bangu(po, from));
-          break;
-          // Give definition of valsi in specified language
-        case txt.indexOf('?:') === 0:
-          inLanguage = RetrieveUsersLanguage(from, inLanguage);
-          benji(source, socket, clientmensi, sendTo, vlaste(pp, inLanguage));
-          break; // Gives definition of valsi in the default language set to user
-        case(txt.indexOf('.selmaho ') === 0 || txt.indexOf('.selma\'o ') === 0):
-          benji(source, socket, clientmensi, sendTo, selmaho(po));
-          break;
-        case txt.indexOf('.finti ') === 0:
-          benji(source, socket, clientmensi, sendTo, finti(po.replace(/[^a-z'\.\*0-9]/g, '')));
-          break;
-        case txt.indexOf('.rafsi ') === 0:
-          benji(source, socket, clientmensi, sendTo, rafsi_giho_nai_se_rafsi_gui(po.replace(/[^a-z'\.]/g, '')));
-          break;
-        case txt.search("ra'oi [a-z']+ rafsi ma") === 0:
-          const reg = /ra'oi ([a-z']+) rafsi ma/;
-          benji(source, socket, clientmensi, sendTo, rafsi_giho_nai_se_rafsi_gui(reg.exec(text)[1].replace(/[^a-z'\.]/g, '')));
-          break;
-        case txt.search("(\.i |i |)ma rafsi zo [a-z']+") === 0:
-          const rg = /.*ma rafsi zo ([a-z']+).*/;
-          benji(source, socket, clientmensi, sendTo, rafsi_giho_nai_se_rafsi_gui(rg.exec(text)[1].replace(/[^a-z'\.]/g, '')));
-          break;
-        case txt.indexOf('.gloss ') === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.gloss(po, 'en').join(" "));
-          break;
-        case txt.indexOf('.loi ') === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.lojban2loglan(po));
-          break;
-        case txt.indexOf('.coi ') === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.loglan2lojban(po));
-          break;
-        case txt.indexOf(`${prereplier}mhnt `) === 0:
-          ningaumahantufa(text.substr(12), socket);
-          break;
-        case txt.indexOf(`${prereplier}getgr `) === 0:
-          getmahantufagrammar(text.substr(13), socket);
-          break;
-        case txt.indexOf('.ze ') === 0:
-          lojban.zmifanva(po, 'en2jb', (a) => benji(source, socket, clientmensi, sendTo, a));
-          break;
-        case txt.indexOf('.zj ') === 0:
-          lojban.zmifanva(po, 'jb2en', (a) => benji(source, socket, clientmensi, sendTo, a));
-          break;
-        case txt === `${replier}: pseudogismu`:
-          benji(source, socket, clientmensi, sendTo, pseudogismu());
-          break;
-        case txt === `${replier}: ii`:
-          benji(source, socket, clientmensi, sendTo, '.ii');
-          break;
-        case txt === `${replier}: aigne`:
-          benji(source, socket, clientmensi, sendTo, 'CommonSenseError: Expected normal word but Curtis found.');
-          break;
-        case txt === `${replier}: help`:
-          benji(source, socket, clientmensi, sendTo, sidju());
-          break;
-        case txt.indexOf(".rot13 ") === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.rotpaci(po));
-          break;
-        case txt.indexOf(`${prereplier}r `) === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.rukylermorna(text.substr(prereplier.length + 1).trim()));
-          break;
-        case txt.indexOf(`${prereplier}j `) === 0:
-          benji(source, socket, clientmensi, sendTo, lojban.jbopomofo(text.substr(prereplier.length + 1).trim()));
-          break;
-        case txt.indexOf('tatoeba:') === 0:
-          benji(source, socket, clientmensi, sendTo, sisku(pp));
-          break;
-        case txt.indexOf("lujvo:") === 0:
-          benji(source, socket, clientmensi, sendTo, "Use '.lujvo ' instead.");
-          break;
-        case txt.indexOf(".off ") === 0 || txt.indexOf(".exp ") === 0:
-          benji(source, socket, clientmensi, sendTo, "Use '.ilm ' for la ilmentufa (PEG parser, BPFK proposals, stable implementation) or use '.beta ' for la ilmentufa (beta version)");
-          break;
-        case txt.indexOf("exp:") === 0:
-          benji(source, socket, clientmensi, sendTo, "Use '.exp ' instead");
-          break;
-        case txt.indexOf("anji:") === 0:
-          benji(source, socket, clientmensi, sendTo, "Use '.anji ' instead.");
-          break;
-        case txt.indexOf("off:") === 0:
-          benji(source, socket, clientmensi, sendTo, "Use '.off ' instead.");
-          break;
-        case txt.indexOf('gloss:') === 0:
-          benji(source, socket, clientmensi, sendTo, "Use '.gloss ' instead.");
-          break;
-        case sendTo === from:
-          inLanguage = RetrieveUsersLanguage(from, inLanguage);
-          benji(source, socket, clientmensi, sendTo, vlaste(" " + text.trim(), inLanguage)); // Gives definition of valsi in the default language set to user
+              benji(source, socket, clientmensi, sendTo, ma_lujvo);
+              break;
+            case txt.indexOf(".k ") === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "C")["kampu"]);
+              break;
+            case(txt.indexOf(".jbofi'e ") === 0):
+              jbofihe(po, sendTo, source, socket);
+              break;
+            case txt.indexOf(".ilm ") === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "T")["kampu"]);
+              break;
+            case txt.indexOf(".ilm+") === 0:
+              const params = `${txt} `.split(" ")[0].split("+")[1].toUpperCase();
+              benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, params)["kampu"]);
+              break;
+            case txt.indexOf(".beta ") === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_exp(po, "T")["kampu"]);
+              break;
+            case txt.indexOf(".beta+") === 0:
+              const params2 = `${txt} `.split(" ")[0].split("+")[1].toUpperCase();
+              benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_exp(po, params2)["kampu"]);
+              break;
+            case txt.indexOf(".raw ") === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "J")["kampu"]);
+              break;
+            case txt.indexOf(".zei ") === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.zeizei(po));
+              break;
+            case txt.indexOf(".anji ") === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.anji(po));
+              break;
+            case txt.indexOf(".kru ") === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.krulermorna(po));
+              break;
+            case txt.indexOf(".wn ") === 0:
+              wordnet(source, socket, clientmensi, sendTo, po);
+              break;
+            case txt.indexOf(".wikt ") === 0:
+              wiktionary(source, socket, clientmensi, sendTo, po);
+              break;
+            case txt.indexOf(".djbo ") === 0:
+              wiktionary(source, socket, clientmensi, sendTo, po, "Lojban");
+              break;
+            case txt.indexOf(".den ") === 0:
+              wiktionary(source, socket, clientmensi, sendTo, po, "English");
+              break;
+            case txt.indexOf(".deo ") === 0:
+              wiktionary(source, socket, clientmensi, sendTo, po, "Esperanto");
+              break;
+            case txt.search('\\.(' + robangu + ') ') === 0:
+              benji(source, socket, clientmensi, sendTo, vlaste(" " + po, ln = txt.split(" ")[0].substr(1)));
+              break;
+            case txt.indexOf('.bangu ') === 0:
+              benji(source, socket, clientmensi, sendTo, bangu(po, from));
+              break;
+              // Give definition of valsi in specified language
+            case(txt.indexOf('.selmaho ') === 0 || txt.indexOf('.selma\'o ') === 0):
+              benji(source, socket, clientmensi, sendTo, selmaho(po));
+              break;
+            case txt.indexOf('.finti ') === 0:
+              benji(source, socket, clientmensi, sendTo, finti(po.replace(/[^a-z'\.\*0-9]/g, '')));
+              break;
+            case txt.indexOf('.rafsi ') === 0:
+              benji(source, socket, clientmensi, sendTo, rafsi_giho_nai_se_rafsi_gui(po.replace(/[^a-z'\.]/g, '')));
+              break;
+            case txt.indexOf('.gloss ') === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.gloss(po, 'en').join(" "));
+              break;
+            case txt.indexOf('.loi ') === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.lojban2loglan(po));
+              break;
+            case txt.indexOf('.coi ') === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.loglan2lojban(po));
+              break;
+            case txt.indexOf('.ze ') === 0:
+              lojban.zmifanva(po, 'en2jb', (a) => benji(source, socket, clientmensi, sendTo, a));
+              break;
+            case txt.indexOf('.zj ') === 0:
+              lojban.zmifanva(po, 'jb2en', (a) => benji(source, socket, clientmensi, sendTo, a));
+              break;
+            case txt.indexOf(".rot13 ") === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.rotpaci(po));
+              break;
+            case txt.indexOf(".off ") === 0 || txt.indexOf(".exp ") === 0:
+              benji(source, socket, clientmensi, sendTo, "Use '.ilm ' for la ilmentufa (PEG parser, BPFK proposals, stable implementation) or use '.beta ' for la ilmentufa (beta version)");
+              break;
+            case txt.search("(\.i |i |)ma rafsi zo [a-z']+") === 0:
+              const rg = /.*ma rafsi zo ([a-z']+).*/;
+              benji(source, socket, clientmensi, sendTo, rafsi_giho_nai_se_rafsi_gui(rg.exec(text)[1].replace(/[^a-z'\.]/g, '')));
+              break;
+          }
+        default:
+          switch (true) {
+            case(txt.indexOf(`${prereplier}gadri`) === 0):
+              benji(source, socket, clientmensi, sendTo, 'use #gadri instead');
+              break;
+              // case txt.indexOf("nlp:") === 0: stnlp(source,socket,clientmensi,sendTo,text.substr(4));break;
+            case(txt.indexOf("yacc:") === 0 || txt.indexOf("cowan:") === 0):
+              tcepru(pp, sendTo, source, socket);
+              break;
+              //case txt.indexOf(".tersmu ") === 0:
+              //  tersmu(po, sendTo, source, socket);
+              //  break;
+            case(txt.indexOf(`${replier}: loadconfig`) === 0):
+              loadConfig();
+              benji(source, socket, clientmensi, sendTo, 'config reloaded from ~/.livla/config.json');
+              break;
+            case(txt.indexOf(`${replier}: ko ningau`) === 0 || txt.indexOf(`${replier}: ko cnino`) === 0):
+              setTimeout(() => {
+                updatexmldumps(({nalmulselfaho}) => {
+                  benji(source, socket, clientmensi, sendTo, 'i ba\'o jai gau cnino');
+                  const selsre = Object.keys(nalmulselfaho);
+                  if (selsre.length)
+                    benji(source, socket, clientmensi, sendTo, `i na kakne lo ka jai gau cnino fai la'e zoi zoi ${selsre.join(' ')} zoi`);
+                  }
+                );
+                benji(source, socket, clientmensi, sendTo, 'sei ca ca\'o jai gau cnino be fai lo pe mi sorcu');
+              }, 1);
+              break;
+            case txt.search('(' + robangu + '):') === 0:
+              benji(source, socket, clientmensi, sendTo, vlaste(pp, txt.split(":")[0]));
+              break;
+            case txt.indexOf('frame: /full ') === 0:
+              benji(source, socket, clientmensi, sendTo, vlaste(text.substr(12), 'en', 'framemulno'));
+              break;
+            case txt.indexOf('frame:/full ') === 0:
+              benji(source, socket, clientmensi, sendTo, vlaste(text.substr(11), 'en', 'framemulno'));
+              break;
+              // Change default language
+            case txt.indexOf('?:') === 0:
+              inLanguage = RetrieveUsersLanguage(from, inLanguage);
+              benji(source, socket, clientmensi, sendTo, vlaste(pp, inLanguage));
+              break; // Gives definition of valsi in the default language set to user
+            case txt.search("ra'oi [a-z']+ rafsi ma") === 0:
+              const reg = /ra'oi ([a-z']+) rafsi ma/;
+              benji(source, socket, clientmensi, sendTo, rafsi_giho_nai_se_rafsi_gui(reg.exec(text)[1].replace(/[^a-z'\.]/g, '')));
+              break;
+            case txt.search("(\.i |i |)ma rafsi zo [a-z']+") === 0:
+              const rg = /.*ma rafsi zo ([a-z']+).*/;
+              benji(source, socket, clientmensi, sendTo, rafsi_giho_nai_se_rafsi_gui(rg.exec(text)[1].replace(/[^a-z'\.]/g, '')));
+              break;
+            case txt.indexOf(`${prereplier}mhnt `) === 0:
+              ningaumahantufa(text.substr(12), socket);
+              break;
+            case txt.indexOf(`${prereplier}getgr `) === 0:
+              getmahantufagrammar(text.substr(13), socket);
+              break;
+            case txt === `${replier}: pseudogismu`:
+              benji(source, socket, clientmensi, sendTo, pseudogismu());
+              break;
+            case txt === `${replier}: ii`:
+              benji(source, socket, clientmensi, sendTo, '.ii');
+              break;
+            case txt === `${replier}: aigne`:
+              benji(source, socket, clientmensi, sendTo, 'CommonSenseError: Expected normal word but Curtis found.');
+              break;
+            case txt === `${replier}: help`:
+              benji(source, socket, clientmensi, sendTo, sidju());
+              break;
+            case txt.indexOf(`${prereplier}r `) === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.rukylermorna(text.substr(prereplier.length + 1).trim()));
+              break;
+            case txt.indexOf(`${prereplier}j `) === 0:
+              benji(source, socket, clientmensi, sendTo, lojban.jbopomofo(text.substr(prereplier.length + 1).trim()));
+              break;
+            case txt.indexOf('tatoeba:') === 0:
+              benji(source, socket, clientmensi, sendTo, sisku(pp));
+              break;
+            case(txt.indexOf("jbofi'e:") === 0 || txt.indexOf("jbofihe:") === 0 || txt.indexOf("gerna:") === 0):
+              benji(source, socket, clientmensi, sendTo, "Use '.jbofihe ' instead");
+              break;
+            case txt.indexOf("lujvo:") === 0:
+              benji(source, socket, clientmensi, sendTo, "Use '.lujvo ' instead.");
+              break;
+            case txt.indexOf("exp:") === 0:
+              benji(source, socket, clientmensi, sendTo, "Use '.exp ' instead");
+              break;
+            case txt.indexOf("anji:") === 0:
+              benji(source, socket, clientmensi, sendTo, "Use '.anji ' instead.");
+              break;
+            case txt.indexOf("off:") === 0:
+              benji(source, socket, clientmensi, sendTo, "Use '.off ' instead.");
+              break;
+            case txt.indexOf('gloss:') === 0:
+              benji(source, socket, clientmensi, sendTo, "Use '.gloss ' instead.");
+              break;
+            case sendTo === from:
+              inLanguage = RetrieveUsersLanguage(from, inLanguage);
+              benji(source, socket, clientmensi, sendTo, vlaste(" " + text.trim(), inLanguage)); // Gives definition of valsi in the default language set to user
+          }
       }
     };
     /*

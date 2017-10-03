@@ -6,14 +6,14 @@ const fs = require("fs"),
 
 // download_sentences();
 // tatocreatedb();
-ningau_la_muplis();
+// ningau_la_muplis();
 // ningau_la_muplis_poholska();
 // selectinto();
 // generateorphanenglishsentences();}
 // generateorphanfrenchsentences();
 // tempo();
 // gettagsstats();
-// jboenglish_dict();
+jboenglish_dict();
 
 function ningau_la_muplis() {
   const db = new sqlite3.Database(path.join(__dirname, "../../dumps", "1.sql"));
@@ -152,12 +152,12 @@ function jboenglish_dict() {
   // wstream.write('var documentStore = [\n');
   db.serialize(function() {
     db.run("BEGIN TRANSACTION");
-    db.each("SELECT tat.idsentence as zer,tat.sentence as one,tati.sentence as six,group_concat(distinct tag.tag) as five FROM tatoeba as tat left join links on links.fir=tat.idsentence left join tatoeba as tati on links.sec=tati.idsentence left join tags as tag on tag.ids=tat.idsentence where (tat.username<>'\\N' and tati.username<>'\\N' and tat.lang='jbo' and tati.lang='eng' and not exists (select a.ids from tags as a where (a.ids=tat.idsentence and a.tag='@needs native check'))) group by tat.sentence,tati.sentence limit 1000000", function(err, row) {
-      if (row.five === null) {
-        wstream.write(row.zer + "\t" + row.one.replace(/"/g, "'") + "\t" + (row.six || "").replace(/"/g, "'").replace(/[\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/gi, " ").replace(/\\/g, "\\\\".replace("\\", "\\\\")) + "\n");
-      } else {
-        wstream.write(row.zer + "\t" + row.one.replace(/"/g, "'") + "\t" + (row.six || "").replace(/"/g, "'").replace(/[\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/gi, " ").replace(/\\/g, "\\\\".replace("\\", "\\\\")) + "\t" + row.five + "\n");
-      }
+    db.each("SELECT tat.idsentence as zer,tat.sentence as one,tati.sentence as six,group_concat(distinct tag.tag) as five,tat.username as author FROM tatoeba as tat left join links on links.fir=tat.idsentence left join tatoeba as tati on links.sec=tati.idsentence left join tags as tag on tag.ids=tat.idsentence where (tat.username<>'\\N' and tati.username<>'\\N' and tat.lang='jbo' and tati.lang='eng' and not exists (select a.ids from tags as a where (a.ids=tat.idsentence and a.tag='@needs native check'))) group by tat.sentence,tati.sentence limit 1000000", function(err, row) {
+      // if (row.five === null) {
+      //   wstream.write(row.zer + "\t" + row.one.replace(/"/g, "'") + "\t" + (row.six || "").replace(/"/g, "'").replace(/[\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/gi, " ").replace(/\\/g, "\\\\".replace("\\", "\\\\")) + "\n");
+      // } else {
+        wstream.write(row.zer + "\t" + row.one.replace(/"/g, "'") + "\t" + (row.six || "").replace(/"/g, "'").replace(/[\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/gi, " ").replace(/\\/g, "\\\\".replace("\\", "\\\\")) + "\t" + (row.five||null) + "\t" + (row.author||null) + "\n");
+      // }
     });
     db.run("COMMIT");
   });

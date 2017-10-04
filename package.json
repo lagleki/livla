@@ -11,6 +11,7 @@
     "lojban": "*",
     "natural": "^0.5.4",
     "node-tweet-stream": "^2.0.1",
+    "node-xml-compare": "^0.1.0",
     "nodemw": "~0.8.0",
     "ospath": "~1.2.2",
     "path-extra": "~0.2.1",

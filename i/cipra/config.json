@@ -7,5 +7,6 @@
  "siskudescr": "Search the Lojban dictionary la jbovlaste.",
  "opdescr": "An offline-enabled dictionary for Lojban, English and other languages.",
  "bangu": "english",
+ "lojbo": "true",
  "bangulo":"Loading dictionary ..."
 }

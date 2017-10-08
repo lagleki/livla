@@ -118,7 +118,7 @@ function sisku(query, callback) {
   function jmina_ro_cmima_be_lehivalsi(query_string, thisTitle, doc) {
     var luj = ma_ve_lujvo(query_string);
     if (!luj)
-      return [];
+      return [doc||{w: query_string}];
     var kim = [];
     if (luj[0] === "@") {
       luj.shift();
@@ -176,7 +176,7 @@ function sisku(query, callback) {
           doc.rafsiDocuments = JSON.parse(JSON.stringify(julne_setca_lotcila(sohivalsi(decompose(doc.w))))).filter(i => i.w !== doc.w);
           decomposed = true;
           if (doc.rafsiDocuments.length===0){
-            doc.rafsiDocuments = jmina_ro_cmima_be_lehivalsi(doc.w)[0].rafsiDocuments;
+            doc.rafsiDocuments = jmina_ro_cmima_be_lehivalsi(doc.w,false,doc)[0].rafsiDocuments;
           }
           ui[0].push(doc);
         } else if (doc.g && doc.g.search("^" + query + "(;|$)") === 0) {

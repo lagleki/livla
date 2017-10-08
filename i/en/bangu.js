@@ -1,5 +1,5 @@
 // JavaScript Document
-window.nasezvafahi = 'not found';
+window.nasezvafahi = 'No definition has been found';
 window.bangudecomp = 'decomposing ...';
 window.bangubuild = 'Building index...';
 window.xuzganalojudri = true;

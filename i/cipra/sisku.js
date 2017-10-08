@@ -11,8 +11,6 @@ var ma_klesi_lo_valsi = function(str) {
       return ['zei-lujvo', str];
     }
   catch (e) {}
-  if (j.length === 2)
-    return [j[0], ''];
   if (j.length > 2 && j.filter(function(el, index) {
     return index % 2 === 0;
   }).toString().match(/^cmavo(,cmavo)+$/)) {
@@ -141,7 +139,7 @@ function sisku(query, callback) {
         } else {
           kim = kim.concat({
             t: "",
-            d: window.nasezvafahi,
+            d: {nasezvafahi: true},
             w: luj[ji],
             r: [luj[ji]]
           });
@@ -292,7 +290,7 @@ function sisku(query, callback) {
           }
         }
       } else {
-        ki = ki.concat({t: "", d: window.nasezvafahi, w: a});
+        ki = ki.concat({t: "", d: {nasezvafahi: true}, w: a, rafsiDocuments: jmina_ro_cmima_be_lehivalsi(a)[0].rafsiDocuments});
       }
     }
     return ki;

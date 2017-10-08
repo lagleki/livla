@@ -102,6 +102,10 @@ display: inline;
 font-style: italic;
 color: rgb(118, 118, 118);
 }
+.nasezvafahi {
+font-style: italic;
+color: rgb(118, 118, 118);
+}
 .nalojbo {
 color: #6A5ACD;
 }
@@ -210,7 +214,7 @@ vertical-align: middle;
 outline: 0;
 cursor: pointer;
 margin-left: -32px;
-background: transparent url(../pixra/x.gif) no-repeat right 0px center;
+background: rgba(255,255,255,0.8) url(../pixra/x.gif) no-repeat right 0px center;
 right: 11px;
 margin-top: 13px;
 }
@@ -722,7 +726,12 @@ out.appendChild(heading);
 if (def.d) {
 var n = document.createElement('div');
 n.className = 'definition';
+if (def.d.nasezvafahi){
+n.classList.add('nasezvafahi');
+n.innerHTML = window.nasezvafahi;
+} else {
 n.innerHTML = lojTemplate(def.d.replace(/([^<])\/([^>])/g, "$1 / $2").replace(/@@@(.*?)@@@/g, "<i>$1</i>")) + ' ';
+}
 out.appendChild(n);
 }
 if (def.n) {

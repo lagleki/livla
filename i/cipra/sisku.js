@@ -117,7 +117,7 @@ function sisku(query, callback) {
     return kd;
   }
 
-  function jmina_ro_cmima_be_lehivalsi(query_string, thisTitle) {
+  function jmina_ro_cmima_be_lehivalsi(query_string, thisTitle, doc) {
     var luj = ma_ve_lujvo(query_string);
     if (!luj)
       return [];
@@ -152,7 +152,7 @@ function sisku(query, callback) {
       {
         t: window.bangudecomp,
         w: thisTitle
-          ? lu
+          ? ''
           : query,
         rafsiDocuments: julne_setca_lotcila(kim)
       }
@@ -175,10 +175,11 @@ function sisku(query, callback) {
       var doc = setca_lotcila(mapti_vreji[i]); //todo: optimize for phrases
       if (doc) {
         if ((doc.w === query) || (doc.w === query_apos)) {
-          var kj = JSON.parse(JSON.stringify(julne_setca_lotcila(sohivalsi(decompose(doc.w)))));
-          kj = kj.filter(i => i.w !== doc.w);
-          doc.rafsiDocuments = kj;
+          doc.rafsiDocuments = JSON.parse(JSON.stringify(julne_setca_lotcila(sohivalsi(decompose(doc.w))))).filter(i => i.w !== doc.w);
           decomposed = true;
+          if (doc.rafsiDocuments.length===0){
+            doc.rafsiDocuments = jmina_ro_cmima_be_lehivalsi(doc.w)[0].rafsiDocuments;
+          }
           ui[0].push(doc);
         } else if (doc.g && doc.g.search("^" + query + "(;|$)") === 0) {
           ui[1].push(doc);
@@ -199,9 +200,9 @@ function sisku(query, callback) {
         }
       }
     }
-    if (ui[0].length === 0 && !multi) {
-      secupra_vreji = jmina_ro_cmima_be_lehivalsi(query) || [];
-    }
+    // if (ui[0].length === 0 && !multi) {
+      // secupra_vreji = jmina_ro_cmima_be_lehivalsi(query) || [];
+    // }
     var sor = function(ar) {
       if (ar.length === 0)
         return ar;
@@ -266,10 +267,8 @@ function sisku(query, callback) {
               return (index % 2 !== 0);
             });
             for (var jj in ye) {
-              console.log(ye[jj]);
               ki = shortget(ye[jj].replace(/-/g,''), ki, 2);
             }
-            // ki = ki.concat(jmina_ro_cmima_be_lehivalsi(ye, true));
           }
         } else {
           var luj = ma_ve_lujvo(a);
@@ -316,17 +315,14 @@ function sisku(query, callback) {
       allMatches[0] = jmina_ro_cmima_be_lehivalsi(query) || [];
     if (allMatches[0].length === 0 || allMatches[0][0].w !== query_apos) {
       var ty = julne_setca_lotcila(shortget(query_apos, []));
-      if (ty.length <= 1) {
-        allMatches[0] = ty.concat(allMatches[0]);
-      } else {
-        allMatches[0] = allMatches[1].concat([
-          {
-            t: window.bangudecomp,
-            w: query,
-            rafsiDocuments: ty
-          }
-        ]).concat(allMatches[2]);
-      }
+      if (ty.length <= 1) return ty.concat(allMatches[0]);
+      return allMatches[1].concat([
+        {
+          t: window.bangudecomp,
+          w: query,
+          rafsiDocuments: ty
+        }
+      ]).concat(allMatches[2]);
     }
     return allMatches[0];
   }
@@ -460,15 +456,13 @@ function siskurimni(query) {
   query = krulermorna(query);
   queryR = query.replace(/([aeiouḁąęǫ])/g, '$1-').split("-").slice(-3);
   queryF = queryR.slice();
-  if (queryR.length >= 2) {
-    queryR[1] = queryR[1].replace(/[aeiouḁąęǫ]/, '[aeiouḁąęǫ]');
-  }
+  if (queryR.length >= 2) queryR[1] = queryR[1].replace(/[aeiouḁąęǫ]/, '[aeiouḁąęǫ]');
   var r = /.*([aeiouḁąęǫ])/.exec(queryR[0]);
   if (r === null)
     return [];
   queryR[0] = r[1];
   if (queryR.length === 2) {
-    return cupra_lo_porsi(Object.keys(sorcu[bau]).reduce(function(b, n) {
+    r=Object.keys(sorcu[bau]).reduce(function(b, n) {
       var queryRn = krulermorna(n).replace(/([aeiouḁąęǫ])/g, '$1-').split("-").slice(-3);
       var Is = queryRn.length === 2
         ? (queryRn[0].split('').slice(-1)[0] === queryR[0].split('').slice(-1)[0])
@@ -481,16 +475,17 @@ function siskurimni(query) {
           b.push(c);
         }
       return b;
-    }, []));
+    }, []);
   } else {
     query_apos = regexify(queryR.join(""));
-    return cupra_lo_porsi(Object.keys(sorcu[bau]).reduce(function(b, n) {
+    r=Object.keys(sorcu[bau]).reduce(function(b, n) {
       if ((krulermorna(n).match(query_apos.toLowerCase() + "$") || []).length > 0) {
         var c = sorcu[bau][n];
         c["w"] = n;
         b.push(c);
       }
       return b;
-    }, []));
+    }, []);
   }
+  return cupra_lo_porsi(r);
 }

@@ -27,3 +27,4 @@ i/data/*.*
 i/.git
 i/.gitignore
 !i/data/parsed-tatoeba.js
+*.log

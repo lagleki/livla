@@ -1,5 +1,5 @@
 // JavaScript Document
-window.nasezvafahi = 'introuvable';
+window.nasezvafahi = 'Aucune définition n\'a été trouvée.';
 window.bangubuild = "Nous construisons l'indice...";
 window.bangudecomp = 'décomposer...';
 window.purc = "Vu la dernière fois: ";

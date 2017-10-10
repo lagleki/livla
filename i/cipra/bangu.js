@@ -1,4 +1,5 @@
 // JavaScript Document
+window.muplis = false;
 window.nasezvafahi = 'No definition has been found, dude!';
 window.bangudecomp = 'decomposing ...';
 window.bangubuild = 'Building index...';

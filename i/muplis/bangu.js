@@ -5,3 +5,4 @@ window.xuzganalojudri = false;
 window.bangudecomp = 'te katna';
 window.arrcll = {};
 window.purc = "Last searched: ";
+window.muplis = true;

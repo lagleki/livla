@@ -316,7 +316,7 @@ const processorlivla = (client, from, to, text) => {
         case "en":
           ret = `I will speak to '${username}' in English from now on.`;
           break;
-        case "en":
+        case "ru":
           ret = `Теперь я буду говорить с '${username}' по-русски.`;
           break;
         default:

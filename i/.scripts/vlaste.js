@@ -141,21 +141,24 @@ var update_cc_dict = function(){
 		takei = x.join("\n\n").replace(/<(|\/)(small)>|&nbsp;/igm,"");
 		//now jbo2eng
 		var take = fs.readFileSync(t,{encoding: 'utf8'})+"\n";
-		take=take.replace(/➜/igm,"=>");
-		take=take.replace(/&/igm,"&amp;");
-		//take=take.replace(/<sub>([^< ]*?) ([^< ]*?)/ig,"<sub>$1_$2");
-		take=take.replace(/''x<sub>([^<]*?)<\/sub><sub>([^<]*?)<\/sub>''/igm,"$x_$1 $2$");
-		take=take.replace(/<(|\/)(small)>|&nbsp;/igm,"");
-		take=take.replace(/^(.+?),\"(\n|\r)(.+?) \[(.+?)\] — (.+?)(\n|\r)/igm,"<valsi word=\"$1\" class=\"$4\">\n\t<definition>$5</definition>\n");
-		take=take.replace(/^(.+?),\"(\n|\r)(.+?) — (.+?)(\n|\r)/igm,"<valsi word=\"$1\">\n\t<definition>$4</definition>\n");
-		take=take.replace(/\"<\/definition>\n/igm,"</definition>\"\n");
-		take=take.replace(/\"(\n|\r)/igm,"\n</valsi>\n");
-		take=take.replace(/^:'''(.*?)''' — ''(.*?)''$/igm,"\t<example phrase=\"$1\">$2</example>");
-		take=take.replace(/^:Comment: (.*?)$/igm,"\t<notes>$1</notes>");
-		take=take.replace(/^:Related words: (.*?)$/igm,"\t<related>$1</related>");
-		take=take.replace(/^(: *.*?)_\. *$/igm,"$1.");
-		take=take.replace(/^: *(.*?)$/igm,"\t<gloss>$1</gloss>");
-		take=take.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"‘$1’");
+		take=take.replace(/➜/igm,"=>")
+		.replace(/\$.*?\$/g,function(i){
+			console.log(i,i.substring(1, i.length - 1).replace(/(\w+)_(\d+)/, "$1<sub>$2</sub>"));
+			return i.substring(1, i.length - 1).replace(/(\w+)_(\d+)/, "$1<sub>$2</sub>");
+		})
+		.replace(/&/igm,"&amp;")
+		.replace(/''x<sub>([^<]*?)<\/sub><sub>([^<]*?)<\/sub>''/igm,"$x_$1 $2$")
+		.replace(/<(|\/)(small)>|&nbsp;/igm,"")
+		.replace(/^(.+?),\"(\n|\r)(.+?) \[(.+?)\] — (.+?)(\n|\r)/igm,"<valsi word=\"$1\" class=\"$4\">\n\t<definition>$5</definition>\n")
+		.replace(/^(.+?),\"(\n|\r)(.+?) — (.+?)(\n|\r)/igm,"<valsi word=\"$1\">\n\t<definition>$4</definition>\n")
+		.replace(/\"<\/definition>\n/igm,"</definition>\"\n")
+		.replace(/\"(\n|\r)/igm,"\n</valsi>\n")
+		.replace(/^:'''(.*?)''' — ''(.*?)''$/igm,"\t<example phrase=\"$1\">$2</example>")
+		.replace(/^:Comment: (.*?)$/igm,"\t<notes>$1</notes>")
+		.replace(/^:Related words: (.*?)$/igm,"\t<related>$1</related>")
+		.replace(/^(: *.*?)_\. *$/igm,"$1.")
+		.replace(/^: *(.*?)$/igm,"\t<gloss>$1</gloss>")
+		.replace(/'''(.*?)'''/igm,"{$1}").replace(/''(.*?)''/igm,"‘$1’");
 		take="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"jbovlaste.xsl\"?>\n<dictionary>\n<direction from=\"lojban\" to=\"English (with examples)\">\n" + intro + "\n" + take + "\n" + takei + "</direction>\n</dictionary>";
 		take=take.replace(/ {2,}/g," ");
 		take = fs.writeFileSync(t+".temp",take);
@@ -163,7 +166,9 @@ var update_cc_dict = function(){
 		console.log("Dictionary with Examples updated");
 		var uri="https://docs.google.com/spreadsheets/d/19faXeZCUuZ_uL6qcpQdMhetTXiKc5ZsOcZkYiAZ_pRw/pub?single=true&gid=1855189494&range=B1:B3000&output=csv";
 		requestd({uri: uri,method: "GET"}, function(err, response, body) {
-			var d = body.split("\n").map(function(a){a=a.replace(/[\"_]/,''); return a;}).join("\n").replace(/ {2,}/g,' ');
+			var d = body.replace(/\$.*?\$/g,function(i){
+				return i.substring(1, i.length - 1).replace(/(\w+)_(\d+)/, "$1<sub>$2</sub>");
+			}).split("\n").map(function(a){a=a.replace(/[\"_]/,''); return a;}).join("\n").replace(/ {2,}/g,' ');
 			mw_edit("L17-03",d,"zmiku se jmina");//title,text,resume
 		});
 		//
@@ -194,7 +199,7 @@ var update_cc_dict = function(){
 		var pars='sorcu["jb"] = {';
 		var rev = xmlDoc.find("/dictionary/direction[1]/valsi");
 		String.prototype.unquote = function(){
-			return this.replace(/"([^"]+)"/g,"‘$1’").replace(/\\/g,"\\\\");
+			return this.replace(/"([^"]+)"/g,"‘$1’").replace(/\\/g,"\\\\").replace(/"/g,"");
 		};
 		for (var i=0;i<rev.length;i++) {
 			var hi=rev[i].attr("word").value().replace("\\","\\\\");
@@ -229,7 +234,7 @@ var update_cc_dict = function(){
 				wascomma=',';
 			}catch(err){}
 			try{
-				pars+=wascomma+"\"e\":\""+rev[i].find("example").toString().replace(/>,</g,">%<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g,"$1 — $2").replace(/""([^\"]*?)""/g,'‘$1’')+"\"";
+				pars+=wascomma+"\"e\":\""+rev[i].find("example").toString().replace(/>,</g,">%<").replace(/<example phrase=\"(.*?)\">(.*?)<\/example>/g,"$1 — $2").replace(/"+([^\"]*?)"+/g,'‘$1’')+"\"";
 				wascomma=',';
 			}catch(err){}
 			var ra=rev[i].find("rafsi//text()[1]");

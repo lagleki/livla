@@ -1,29 +1,28 @@
 CACHE MANIFEST
-# 2017-10-09T21:49:33
+# 2017-11-22T08:35:28
 CACHE:
 index.html
 ../data/parsed-en.js
 ../sisku.js
 worker.js
 bangu.js
-../pixra/sutysisku.png
+../pixra/snime.svg
 ../pixra/x.gif
-../pixra/arrow-left.png
 ../pixra/16.png
 ../pixra/32.png
-../pixra/sutysisku.png
-https://mw.lojban.org/images/b/bd/cogwheel-5.svg
-../pixra/taplasance.png
-../pixra/taplamuplis.png
-https://mw.lojban.org/images/0/08/snime-1.svg
-https://mw.lojban.org/images/d/d8/selsku_lanci_eng.svg
-https://mw.lojban.org/images/a/a9/lanci_jbo.svg
-https://mw.lojban.org/images/4/46/selsku_lanci_jpn.svg
-https://mw.lojban.org/images/a/a7/selsku_lanci_fra.svg
-https://mw.lojban.org/images/d/dc/selsku_lanci_rus.svg
-https://mw.lojban.org/images/2/20/lanci_epo.svg
-https://mw.lojban.org/images/2/26/selsku_lanci_spa.svg
-https://mw.lojban.org/images/b/bd/cogwheel-5.svg
+../pixra/jbotcan.svg
+../pixra/taplasance.svg
+../pixra/taplamuplis.svg
+../pixra/snime-1.svg
+../pixra/selsku_lanci_eng.svg
+../pixra/selsku_lanci_zho.svg
+../pixra/lanci_jbo.svg
+../pixra/selsku_lanci_jpn.svg
+../pixra/selsku_lanci_fra.svg
+../pixra/selsku_lanci_rus.svg
+../pixra/lanci_epo.svg
+../pixra/selsku_lanci_spa.svg
+../pixra/cogwheel-5.svg
 NETWORK:
 *
 FALLBACK:

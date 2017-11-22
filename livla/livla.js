@@ -898,7 +898,7 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
       sutysiskuningau("2002", 0);
       sutysiskuningau("en-pt-BR", 0);
       sutysiskuningau("zamenhofo", 0);
-      sutysiskuningau("laadan", 0);
+      // sutysiskuningau("laadan", 0);
       sutysiskuningau("ile", 0);
       sutysiskuningau("ina", 0);
       sutysiskuningau("toki", 0);
@@ -1182,6 +1182,9 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
               break;
             case txt.indexOf(".den ") === 0:
               wiktionary(source, socket, clientmensi, sendTo, po, "English");
+              break;
+            case txt.indexOf(".dzh ") === 0:
+              wiktionary(source, socket, clientmensi, sendTo, po, "Chinese");
               break;
             case txt.indexOf(".deo ") === 0:
               wiktionary(source, socket, clientmensi, sendTo, po, "Esperanto");

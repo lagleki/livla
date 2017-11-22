@@ -1,0 +1,30 @@
+CACHE MANIFEST
+# 2017-11-22T08:35:28
+CACHE:
+index.html
+../data/parsed-zh.js
+../sisku.js
+worker.js
+bangu.js
+../pixra/snime.svg
+../pixra/x.gif
+../pixra/16.png
+../pixra/32.png
+../pixra/cogwheel-5.svg
+../pixra/taplasance.svg
+../pixra/taplamuplis.svg
+../pixra/snime-1.svg
+../pixra/selsku_lanci_eng.svg
+../pixra/selsku_lanci_zho.svg
+../pixra/lanci_jbo.svg
+../pixra/selsku_lanci_jpn.svg
+../pixra/selsku_lanci_fra.svg
+../pixra/selsku_lanci_rus.svg
+../pixra/lanci_epo.svg
+../pixra/selsku_lanci_spa.svg
+../pixra/cogwheel-5.svg
+NETWORK:
+*
+FALLBACK:
+/sisku/ ./
+../index.html ./

@@ -1,0 +1,22 @@
+CACHE MANIFEST
+# 2017-11-22T08:35:28
+CACHE:
+index.html?version=32
+../pixra/snime.svg
+../sisku.js
+worker.js
+bangu.js
+../pixra/Flag_of_Interlingue.svg
+../pixra/ldp.svg
+../pixra/Flag_of_Interlingua.svg
+../pixra/Double_girl_sign.svg
+../pixra/Toki_pona.svg
+../pixra/simplingua.svg
+../pixra/muplis-eng-pol.png
+../pixra/16.png
+../data/parsed-simplingua-zho.js
+../pixra/x.gif
+NETWORK:
+*
+FALLBACK:
+/sisku/ ./

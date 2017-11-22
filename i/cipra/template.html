@@ -84,7 +84,11 @@
 		}
 
 		.liste {
-			list-style-image: url(../pixra/16.png);
+			list-style-image: url(../pixra/cmalu_snime.svg);
+		}
+
+		.judri{
+			color: inherit;
 		}
 
 		code {
@@ -100,7 +104,7 @@
 			display: inline;
 			float: right;
 			font-style: italic;
-			margin: 0px 0 0 13px;
+			margin: -3px 0 0 13px;
 			color: rgb(118, 118, 118);
 			font-size: 12px;
 			border: 1px solid rgb(118, 118, 118);
@@ -130,6 +134,8 @@
 		.nasezvafahi {
 			font-style: italic;
 			color: rgb(118, 118, 118);
+			cursor: default;
+			user-select: none;
 		}
 
 		.nalojbo {
@@ -178,18 +184,37 @@
 			padding: 9px;
 			text-align: justify;
 			background: white;
+			//<muplis>
+			border-radius: 5px;
+			border: 1px solid #ddd;
+			//</muplis>
+		}
+
+		//<muplis>
+		.termouter {
+			box-shadow: 1px 1px 1px #ccc;
+		}
+		//</muplis>
+
+		.termouter:hover {
+			//<muplis false>
+			outline: #999999 solid 3px;
+			//</muplis>
+			//<muplis>
+			border: 1px solid #ccc;
+			box-shadow: 0;
+			//</muplis>
+			z-index: 2;
 		}
 
 		.terminner {
+			//<muplis>
+			border-radius: 0;
+			//</muplis>
 			border-top: solid 1px #ccc;
 			border-right: solid 1px #ccc;
 			border-bottom: solid 1px #ccc;
 			box-shadow: 3px 3px 1px #ccc;
-		}
-
-		.termouter:hover {
-			outline: #999999 solid 3px;
-			z-index: 2;
 		}
 
 		.rafsi {
@@ -270,42 +295,66 @@
 			outline: 0;
 			cursor: pointer;
 			margin-left: -32px;
-			background: rgba(255,255,255,0.8) url(../pixra/x.gif) no-repeat right 0px center;
 			right: 11px;
 			margin-top: 13px;
 		}
 
 		@media screen and (min-width: 510px) {
+			#clear {
+				background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat right 0px center;
+			}
+
 			#site-title {
 				display: block;
 			}
-			.kicne {
+
+			#kicne1, #kicne2 {
 				display: none;
 			}
+
 			#se-vasru-lo-galtu-dasri {
 				display: block;
 			}
+
 			.purci {
 				margin-left: 10%;
 			}
 		}
 
 		@media screen and (max-width: 509px) {
-			//mobile
+			#clear {
+				background: url(../pixra/snime.svg) no-repeat right 0px center;
+				background-size: 22px;
+				width: 23px;
+			}
+
 			#site-title {
 				display: none;
 			}
-			.kicne {
+
+			#kicne1 {
 				display: block;
 				width: 6px;
 			}
+
+			#kicne2 {
+				display: block;
+				width: 52px;
+			}
+
+			#ciska:not(:valid)~#kicne2 {
+				width: 6px;
+			}
+
 			#se-vasru-lo-galtu-dasri {
 				display: inline-flex;
 				width: 100%;
 			}
+
 			.purci {
 				margin-left: 0%;
 			}
+
 			#ciska {
 				width: 100%;
 			}
@@ -325,10 +374,26 @@
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
 			box-sizing: border-box;
+			//<muplis false>
 			background: #222222 linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent) !important;
 			background-size: 40px 40px !important;
+			//</muplis>
+			/*background: radial-gradient(circle farthest-side at 0% 50%, #FDBF00 23.5%, rgba(240, 166, 17, 0) 0)21px 30px,
+			radial-gradient(circle farthest-side at 0% 50%, #BB7000 24%, rgba(240, 166, 17, 0) 0)19px 30px,
+			linear-gradient(#FDBF00 14%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 85%, #FDBF00 0)0 0,
+			linear-gradient(150deg, #FDBF00 24%, #BB7000 0, #BB7000 26%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 74%, #BB7000 0, #BB7000 76%, #FDBF00 0)0 0,
+			linear-gradient(30deg, #FDBF00 24%, #BB7000 0, #BB7000 26%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 74%, #BB7000 0, #BB7000 76%, #FDBF00 0)0 0,
+			linear-gradient(90deg, #BB7000 2%, #FDBF00 0, #FDBF00 98%, #BB7000 0%)0 0 #FDBF00;
+			background-size: 40px 60px;*/
+			//<muplis>
+			background-color: #FDBF00;
+			background-image: url('../pixra/bifce.svg');
+			background-image: url('../pixra/bifce.svg'), -webkit-linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
+			background-image: url('../pixra/bifce.svg'), -o-linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
+			background-image: url('../pixra/bifce.svg') -moz-linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
+			background-image: url('../pixra/bifce.svg'), linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
+			//</muplis>
 		}
-
 		#content-panel {
 			max-width: 700px;
 			width: 100%;
@@ -385,6 +450,7 @@
 			user-select: none;
 			font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
 			margin: 5px;
+			/*outline: rgb(153, 153, 153) solid 1px;*/
 		}
 		/*#DIV_1*/
 
@@ -616,9 +682,9 @@
 	<div id='galtu-dasri'>
 		<form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
 			%titlelogo%
-			<div class="kicne"></div>
+			<div id="kicne1"></div>
 			<input id='ciska' type="text" name="focus" required placeholder="%bangusisku%" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
-			<div class="kicne"></div>
+			<div id="kicne2"></div>
 			<button id="clear" type="reset"></button>
 		</form>
 	</div>
@@ -701,7 +767,7 @@
 			};
 		})();
 
-		window.addEventListener('popstate', cnino_urli);
+		window.addEventListener('popstate', sisku_rahilejudri);
 		document.getElementById('clear').addEventListener('click', zero);
 		document.getElementById('title').addEventListener('click', zero);
 		purci.addEventListener("click", clicked);
@@ -711,7 +777,9 @@
 		} else {
 			document.addEventListener('keyup', handler);
 		}
-		ciska.addEventListener("keyup", function(){typing()});
+		ciska.addEventListener("keyup", function() {
+			typing()
+		});
 		ciska.addEventListener("keydown", function() {
 			clearTimeout(typingTimer);
 			displayDescription();
@@ -729,7 +797,7 @@
 
 		// triggerEvent(outp, 'scroll');
 		calcVH();
-		cnino_urli();
+		sisku_rahilejudri();
 
 		// functions
 		function triggerEvent(el, type) {
@@ -752,6 +820,13 @@
 			prevQuery = '';
 			displayDescription();
 		}
+
+		// function sance(e) {
+		// 	ciska.value === '';
+		// 	query = '';
+		// 	prevQuery = '';
+		// 	displaySounds();
+		// }
 
 		function cankocisni() {
 			if (!(window.external && ('AddSearchProvider' in window.external))) {
@@ -808,17 +883,17 @@
 			}
 		}
 
-		function lojTemplate(s) {
-			s = s.replace(/\$.*?\$/g, function(c) {
-				c = c.substring(1, c.length - 1);
-				return c.replace(/(\w+)_\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>").replace(/(\w+)_((?:\d+|\w))/g, "<i>$1<sub>$2</sub></i>").replace(/\{/g, '[').replace(/\}/g, ']');
-			});
-			//s = s.replace(/\[([^\[\]]*?)\]/g,"{$1}");
-			s = s.replace(/\{(.*?)\}/g, function(c) {
+		function lojTemplate(a) {
+			return a.replace(/\$.*?\$/g, function(c) {
+				return c.substring(1, c.length - 1)
+					.replace(/(\w+)_\{(\d+)\}/, "<i>$1<sub>$2</sub></i>")
+					.replace(/(\w+)_((?:\d+|\w))/, "<i>$1<sub>$2</sub></i>");
+				// .replace(/\{/g, '[')
+				// .replace(/\}/g, ']');
+			}).replace(/\{.*?\}/g, function(c) {
 				var c = c.substring(1, c.length - 1);
 				return '<a href="#sisku/' + encodeUrl(c) + '">' + escHtml(c) + "</a>"
 			});
-			return s;
 		}
 
 		function skicu_lo_valsi(def, inner) {
@@ -826,39 +901,33 @@
 			var out = document.createElement('div');
 			out.className = (inner === 1) ? 'terminner' : 'termouter';
 			out.classList.add('term');
-			var fmm = document.createElement('h4');
 			if (typeof fm[def.s] !== 'undefined') {
+				var fmm = document.createElement('h4');
 				fmm.className = 'tfm';
 				fmm.innerHTML = '&nbsp;&nbsp;<i><sup>[&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' +
 					encodeUrl(fm[def.s]) + '">' + escHtml(fm[def.s]) + "</a>]</sup></i>";
-			} else {
-				fmm.style.display = 'none';
 			}
 			var sh = [];
 			for (var key in fm) {
 				if (fm[key] === def.w) sh.push('<a href="#sisku/' + encodeUrl(key) + '">' + escHtml(key) + '</a>');
 			}
-			var tfm = document.createElement('div');
 			if (sh.length !== 0) {
+				var tfm = document.createElement('div');
 				tfm.classList.add('valsi');
 				if (def.l) tfm.classList.add('nalojbo');
 				tfm.innerHTML = '<i><sup>[' + sh.join(", ") + '&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;';
-			} else {
-				tfm.style.display = 'none';
 			}
-			var ss = document.createElement('div');
 			if (def.s) {
+				var ss = document.createElement('div');
 				ss.className = 'type';
 				ss.innerHTML = '<a href="#sisku/' + encodeUrl(def.s) + '">' + escHtml(def.s) + "</a> ";
-			} else {
-				ss.style.display = 'none';
 			}
 			var jvs = document.createElement('div');
 			jvs.className = 'type';
 			jvs.innerHTML = def.t;
 			if (window.xuzganalojudri && !def.l) {
 				jvs.innerHTML = "<a style='color: #000;' target='_blank' href=\"" + window.judri +
-					encodeUrl(def.w) + "\">" + escHtml(def.t) + "<font color='#aaa'>#</font></a> ";
+					encodeUrl(def.w).replace(/_/g, '%20') + "\">" + escHtml(def.t) + "<font color='#aaa'>#</font></a> ";
 			}
 			var word = document.createElement('h4');
 			word.classList.add('valsi');
@@ -879,18 +948,18 @@
 			var flex = document.createElement('heading');
 			flex.style.flex = 1;
 
-			heading.appendChild(tfm);
+			if (tfm) heading.appendChild(tfm);
 			heading.appendChild(word);
-			heading.appendChild(fmm);
+			if (fmm) heading.appendChild(fmm);
 			heading.appendChild(flex);
-			out.appendChild(jvs);
-			out.appendChild(ss);
+			if (jvs.innerHTML) out.appendChild(jvs);
+			if (ss) out.appendChild(ss);
 			out.appendChild(heading);
 
 			if (def.d) {
 				var n = document.createElement('div');
 				n.className = 'definition';
-				if (def.d.nasezvafahi){
+				if (def.d.nasezvafahi) {
 					n.classList.add('nasezvafahi');
 					n.innerHTML = window.nasezvafahi;
 				} else {
@@ -958,40 +1027,45 @@
 				var arrpurc = JSON.parse(localStorage.getItem('purci')) || [];
 				//<xuzganalojudri|lojbo>
 				var obj = {
-					"@cirkotci": ["lojbo sance", "../pixra/taplasance.png", 1, "../cirkotci.html"],
-					"muplis": ["la muplis", "../pixra/taplamuplis.png", 2.1],
-					"jb": ["English - Lojban examples", "https://mw.lojban.org/images/0/08/snime-1.svg", 1],
-					"en": ["English-Lojban", "https://mw.lojban.org/images/d/d8/selsku_lanci_eng.svg", 1],
-					"jbo": ["fanva fi lo lojbo ri", "https://mw.lojban.org/images/a/a9/lanci_jbo.svg", 1],
-					"ja": ["日本 - <span style=\"white-space:pre;\">ロジバン</span>", "https://mw.lojban.org/images/4/46/selsku_lanci_jpn.svg", 1],
-					"fr-facile": ["français facile - lojban", "https://mw.lojban.org/images/a/a7/selsku_lanci_fra.svg", 1],
-					"ru": ["русский - ложбан", "https://mw.lojban.org/images/d/dc/selsku_lanci_rus.svg", 1],
-					"eo": ["Esperanto - Loĵbano", "https://mw.lojban.org/images/2/20/lanci_epo.svg", 1],
-					"es": ["español - lojban", "https://mw.lojban.org/images/2/26/selsku_lanci_spa.svg", 1],
-					"@CC": ["The Crash Course", "https://mw.lojban.org/images/b/bd/cogwheel-5.svg", 1, "https://mw.lojban.org/papri/The_Crash_Course_in_Lojban"],
+					"@cirkotci": [0,"lojbo sance", "../pixra/taplasance.svg", 1, "../sance/"],
+					"muplis": [0,"la muplis", "../pixra/taplamuplis.svg", 2.1],
+					"jb": [0,"English - Lojban examples", "../pixra/snime-1.svg", 1],
+					"en": [0,"English-Lojban", "../pixra/selsku_lanci_eng.svg", 1],
+					"jbo": [0,"fanva fi lo lojbo ri", "../pixra/lanci_jbo.svg", 1],
+					"ja": [0,"日本 - <span style=\"white-space:pre;\">ロジバン</span>", "../pixra/selsku_lanci_jpn.svg", 1],
+					"fr-facile": [0,"français facile - lojban", "../pixra/selsku_lanci_fra.svg", 1],
+					"ru": [0,"русский - ложбан", "../pixra/selsku_lanci_rus.svg", 1],
+					"eo": [0,"Esperanto - Loĵbano", "../pixra/lanci_epo.svg", 1],
+					"es": [0,"español - lojban", "../pixra/selsku_lanci_spa.svg", 1],
+					"zh": [0,"中文 - 逻辑语", "../pixra/selsku_lanci_zho.svg", 1],
+					"@CC": ['.inglic.',"The Crash Course", "../pixra/cogwheel-5.svg", 1, "https://mw.lojban.org/papri/The_Crash_Course_in_Lojban"],
+					"@Jbotcan": ['.inglic.',"Lojban-Chan", "../pixra/jbotcan.svg", 1,"https://jbotcan.org"]
 				}
 				//</xuzganalojudri|lojbo>
 				//<lojbo false>
 				var obj = {
-					"muplis-eng-pol": ["English - polski", "../pixra/muplis-eng-pol.png", 2.1],
-					"en-pt-BR": ["English - Portugueze", "../pixra/152.png", 1],
-					"zamenhofo": ["Esperanto - English", "https://mw.lojban.org/images/2/20/lanci_epo.svg", 1],
-					"toki": ["toki pona - English", "../pixra/Toki_pona.svg", 1],
-					"laadan": ["English - Láadan", "../pixra/Double_girl_sign.svg", 1],
-					"ina": ["English - Interlingua", "https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_Interlingua.svg", 1],
-					"ldp": ["English - Lingwa de Planeta", "../pixra/ldp.svg", 1],
-					"ile": ["English - Occidental / Interlingue", "https://upload.wikimedia.org/wikipedia/commons/5/5b/Flag_of_Interlingue.svg", 1],
-					"epo-thai": ["Esperanto - Thai", "https://mw.lojban.org/images/2/20/lanci_epo.svg", 1],
+					"muplis-eng-pol": [0,"English - polski", "../pixra/muplis-eng-pol.png", 2.1],
+					"en-pt-BR": [0,"English - Portugueze", "../pixra/152.png", 1],
+					"zamenhofo": [0,"Esperanto - English", "../pixra/lanci_epo.svg", 1],
+					"toki": [0,"toki pona - English", "../pixra/Toki_pona.svg", 1],
+					"laadan": [0,"English - Láadan", "../pixra/Double_girl_sign.svg", 1],
+					"simplingua-zho": [0,"Simplingua - 中文", "../pixra/simplingua.svg", 1],
+					"ina": [0,"English - Interlingua", "../pixra/Flag_of_Interlingua.svg", 1],
+					"ldp": [0,"English - Lingwa de Planeta", "../pixra/ldp.svg", 1],
+					"ile": [0,"English - Occidental / Interlingue", "../pixra/Flag_of_Interlingue.svg", 1],
+					"epo-thai": [0,"Esperanto - Thai", "../pixra/lanci_epo.svg", 1],
 				}
 				//</lojbo>
 				var acc = "";
 				var cisn = 100;
 				for (var key in obj) {
-					acc += "<div id='DIV_1' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_2' style='height:" + (cisn) + "px;width:" + (
-							obj[key][2] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][0] + "</b></span><div id='DIV_5' style='height:" + (cisn) +
-						"px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><a href=\"" + ((key.indexOf(
-							"@") === 0) ? obj[key][3] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + encodeUrl(drataQuery))) + "\" id='A_7'><div id='DIV_8' style='height:" +
-						(cisn) + "px;width:" + (obj[key][2] * cisn) + "px;background-image:url(\"" + obj[key][1] + "\")'></div></a></div></div></div></div>"
+					if (obj[key][0]===0||obj[key][0]===window.bangu){
+						acc += "<div id='DIV_1' style='height:" + (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;'><div id='DIV_2' style='height:" + (cisn) + "px;width:" + (
+								obj[key][3] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][1] + "</b></span><div id='DIV_5' style='height:" + (cisn) +
+							"px;width:" + (obj[key][3] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;'><a" + ((obj[key][4]||'').indexOf("http")===0? " target='_blank'":'') + " href=\"" + ((key.indexOf(
+								"@") === 0) ? obj[key][4] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + encodeUrl(drataQuery))) + "\" id='A_7'><div id='DIV_8' style='height:" +
+							(cisn) + "px;width:" + (obj[key][3] * cisn) + "px;background-image:url(\"" + obj[key][2] + "\")'></div></a></div></div></div></div>";
+						}
 				}
 				if (!drataQuery || (drataQuery === '')) drataQuery = (arrpurc[0] || '');
 				drata.innerHTML = acc;
@@ -1015,6 +1089,15 @@
 			}
 		}
 
+		/*function displaySounds() {
+			sance.style.display = 'block';
+			outp.style.display = 'none';
+			descr.style.display = 'none';
+			drata.style.display = 'none';
+			purci.style.display = 'none';
+			document.getElementById('content').scrollTop = 0;
+		}*/
+
 		function plukaquery(a) {
 			if (a.charAt(0) !== '^' && a.slice(-1) !== '$') return a.replace(/[,\.]/g, " ").replace(/ {2,}/g, " ").trim();
 			return a;
@@ -1025,26 +1108,29 @@
 				var el = event.target;
 				var title = event.target.getAttribute("title");
 				if (el.ctrlKey || el.metaKey) return;
-				cnino_judri(el.getAttribute('href'));
-				cnino_urli();
+				lecnino_judri_gaumeluhacitri(el.getAttribute('href'));
+				sisku_rahilejudri();
 			}
 			return false;
 		}
 
-		function cnino_judri(a) {
+		function lecnino_judri_gaumeluhacitri(a) {
 			if (a !== location.href.substring(location.href.indexOf("#"))) {
 				a = a.match(/(\#sisku\/)(.*)/);
 				if (a) a = a[1] + encodeUrl(decodeUrl(a[2]));
-				window.history.pushState({}, null, a||'');
+				window.history.pushState({}, null, a || '');
 			}
 		}
 
-		function cnino_urli() {
+		function sisku_rahilejudri() {
 			var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
-			if (searchMatch && searchMatch.indexOf('/') === -1) query = decodeUrl(searchMatch[1]).trim();
-			ciska.value = query;
-			triggerEvent(ciska, 'input');
-			if (ready) doSearch();
+			if (searchMatch && searchMatch.indexOf('/') === -1) {
+				query = decodeUrl(searchMatch[1]).trim();
+				ciska.value = query;
+				triggerEvent(ciska, 'input');
+				if (ready) doSearch();
+			}
+			//if (window.location.href.match(/\#sance/)) displaySounds();
 		}
 
 		function doSearch() {
@@ -1066,7 +1152,7 @@
 			});
 			var difference = cati() - lastQueried;
 			if (difference > 2000) {
-				cnino_judri(url);
+				lecnino_judri_gaumeluhacitri(url);
 				ga('send', 'pageview', '#sisku/' + query);
 				if (einingau) window.location.reload();
 			} else {
@@ -1089,7 +1175,7 @@
 			typingTimer = setTimeout(doSearch, a ? a : 250);
 			delay(function() {
 				//lo diklo sorcu xau lo uenzi poi pu se mitysisku
-				if (query==='' || !results || results.length === 0) return;
+				if (query === '' || !results || results.length === 0) return;
 				var a = JSON.parse(localStorage.getItem('purci')) || [];
 				var index = a.indexOf(query);
 				if (index >= 0) a.splice(index, 1);

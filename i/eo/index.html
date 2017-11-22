@@ -46,8 +46,8 @@ ga('send', 'pageview');
 <meta name="msapplication-TileColor" content="#1941a5">
 <meta name="msapplication-TileImage" content="../pixra/144.png">
 <meta property="og:description" content="A dictionary for Lojban, English and other languages that can work offline." />
-<link rel="shortcut icon" href="../pixra/sutysisku.png" />
-<link rel="search" type="application/opensearchdescription+xml" href="/i/eo/sisku.xml" title="eo-sutysisku">
+<link rel="shortcut icon" href="../pixra/snime.svg" />
+<link rel="search" type="application/opensearchdescription+xml" href="/sutysisku/eo/sisku.xml" title="eo-sutysisku">
 <style type="text/css">
 body {
 font-family: Tahoma, Lato, sans-serif;
@@ -65,7 +65,10 @@ display: inline;
 margin: 0;
 }
 .liste {
-list-style-image: url(../pixra/16.png);
+list-style-image: url(../pixra/cmalu_snime.svg);
+}
+.judri{
+color: inherit;
 }
 code {
 border: 1px solid #aaa;
@@ -79,7 +82,7 @@ margin-right: 1px;
 display: inline;
 float: right;
 font-style: italic;
-margin: 0px 0 0 13px;
+margin: -3px 0 0 13px;
 color: rgb(118, 118, 118);
 font-size: 12px;
 border: 1px solid rgb(118, 118, 118);
@@ -105,6 +108,8 @@ color: rgb(118, 118, 118);
 .nasezvafahi {
 font-style: italic;
 color: rgb(118, 118, 118);
+cursor: default;
+user-select: none;
 }
 .nalojbo {
 color: #6A5ACD;
@@ -141,15 +146,15 @@ padding: 9px;
 text-align: justify;
 background: white;
 }
+.termouter:hover {
+outline: #999999 solid 3px;
+z-index: 2;
+}
 .terminner {
 border-top: solid 1px #ccc;
 border-right: solid 1px #ccc;
 border-bottom: solid 1px #ccc;
 box-shadow: 3px 3px 1px #ccc;
-}
-.termouter:hover {
-outline: #999999 solid 3px;
-z-index: 2;
 }
 .rafsi {
 margin-top: 8px;
@@ -214,15 +219,17 @@ vertical-align: middle;
 outline: 0;
 cursor: pointer;
 margin-left: -32px;
-background: rgba(255,255,255,0.8) url(../pixra/x.gif) no-repeat right 0px center;
 right: 11px;
 margin-top: 13px;
 }
 @media screen and (min-width: 510px) {
+#clear {
+background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat right 0px center;
+}
 #site-title {
 display: block;
 }
-.kicne {
+#kicne1, #kicne2 {
 display: none;
 }
 #se-vasru-lo-galtu-dasri {
@@ -233,11 +240,23 @@ margin-left: 10%;
 }
 }
 @media screen and (max-width: 509px) {
+#clear {
+background: url(../pixra/snime.svg) no-repeat right 0px center;
+background-size: 22px;
+width: 23px;
+}
 #site-title {
 display: none;
 }
-.kicne {
+#kicne1 {
 display: block;
+width: 6px;
+}
+#kicne2 {
+display: block;
+width: 52px;
+}
+#ciska:not(:valid)~#kicne2 {
 width: 6px;
 }
 #se-vasru-lo-galtu-dasri {
@@ -483,10 +502,10 @@ transition: width .8s ease
 <body>
 <div id='galtu-dasri'>
 <form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
-<span id='site-title'><a id='title' href='#'><img src="../pixra/sutysisku.png" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span>
-<div class="kicne"></div>
+<span id='site-title'><a id='title' href='#'><img src="../pixra/snime.svg" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span>
+<div id="kicne1"></div>
 <input id='ciska' type="text" name="focus" required placeholder="serĉi" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
-<div class="kicne"></div>
+<div id="kicne2"></div>
 <button id="clear" type="reset"></button>
 </form>
 </div>
@@ -565,7 +584,7 @@ clearTimeout(timer);
 timer = setTimeout(callback, ms);
 };
 })();
-window.addEventListener('popstate', cnino_urli);
+window.addEventListener('popstate', sisku_rahilejudri);
 document.getElementById('clear').addEventListener('click', zero);
 document.getElementById('title').addEventListener('click', zero);
 purci.addEventListener("click", clicked);
@@ -575,7 +594,9 @@ document.attachEvent('onkeyup', handler);
 } else {
 document.addEventListener('keyup', handler);
 }
-ciska.addEventListener("keyup", function(){typing()});
+ciska.addEventListener("keyup", function() {
+typing()
+});
 ciska.addEventListener("keydown", function() {
 clearTimeout(typingTimer);
 displayDescription();
@@ -591,7 +612,7 @@ document.addEventListener('DOMContentLoaded', cankocisni);
 cankocisni();
 }
 calcVH();
-cnino_urli();
+sisku_rahilejudri();
 function triggerEvent(el, type) {
 if ('createEvent' in document) {
 var e = document.createEvent('HTMLEvents');
@@ -657,55 +678,48 @@ window.jimte += 10;
 skicu_lo_ro_valsi();
 }
 }
-function lojTemplate(s) {
-s = s.replace(/\$.*?\$/g, function(c) {
-c = c.substring(1, c.length - 1);
-return c.replace(/(\w+)_\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>").replace(/(\w+)_((?:\d+|\w))/g, "<i>$1<sub>$2</sub></i>").replace(/\{/g, '[').replace(/\}/g, ']');
-});
-s = s.replace(/\{(.*?)\}/g, function(c) {
+function lojTemplate(a) {
+return a.replace(/\$.*?\$/g, function(c) {
+return c.substring(1, c.length - 1)
+.replace(/(\w+)_\{(\d+)\}/, "<i>$1<sub>$2</sub></i>")
+.replace(/(\w+)_((?:\d+|\w))/, "<i>$1<sub>$2</sub></i>");
+}).replace(/\{.*?\}/g, function(c) {
 var c = c.substring(1, c.length - 1);
 return '<a href="#sisku/' + encodeUrl(c) + '">' + escHtml(c) + "</a>"
 });
-return s;
 }
 function skicu_lo_valsi(def, inner) {
 if (!def) def = [];
 var out = document.createElement('div');
 out.className = (inner === 1) ? 'terminner' : 'termouter';
 out.classList.add('term');
-var fmm = document.createElement('h4');
 if (typeof fm[def.s] !== 'undefined') {
+var fmm = document.createElement('h4');
 fmm.className = 'tfm';
 fmm.innerHTML = '&nbsp;&nbsp;<i><sup>[&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#sisku/' +
 encodeUrl(fm[def.s]) + '">' + escHtml(fm[def.s]) + "</a>]</sup></i>";
-} else {
-fmm.style.display = 'none';
 }
 var sh = [];
 for (var key in fm) {
 if (fm[key] === def.w) sh.push('<a href="#sisku/' + encodeUrl(key) + '">' + escHtml(key) + '</a>');
 }
-var tfm = document.createElement('div');
 if (sh.length !== 0) {
+var tfm = document.createElement('div');
 tfm.classList.add('valsi');
 if (def.l) tfm.classList.add('nalojbo');
 tfm.innerHTML = '<i><sup>[' + sh.join(", ") + '&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;';
-} else {
-tfm.style.display = 'none';
 }
-var ss = document.createElement('div');
 if (def.s) {
+var ss = document.createElement('div');
 ss.className = 'type';
 ss.innerHTML = '<a href="#sisku/' + encodeUrl(def.s) + '">' + escHtml(def.s) + "</a> ";
-} else {
-ss.style.display = 'none';
 }
 var jvs = document.createElement('div');
 jvs.className = 'type';
 jvs.innerHTML = def.t;
 if (window.xuzganalojudri && !def.l) {
 jvs.innerHTML = "<a style='color: #000;' target='_blank' href=\"" + window.judri +
-encodeUrl(def.w) + "\">" + escHtml(def.t) + "<font color='#aaa'>#</font></a> ";
+encodeUrl(def.w).replace(/_/g, '%20') + "\">" + escHtml(def.t) + "<font color='#aaa'>#</font></a> ";
 }
 var word = document.createElement('h4');
 word.classList.add('valsi');
@@ -716,17 +730,17 @@ var heading = document.createElement('heading');
 heading.classList.add('heading');
 var flex = document.createElement('heading');
 flex.style.flex = 1;
-heading.appendChild(tfm);
+if (tfm) heading.appendChild(tfm);
 heading.appendChild(word);
-heading.appendChild(fmm);
+if (fmm) heading.appendChild(fmm);
 heading.appendChild(flex);
-out.appendChild(jvs);
-out.appendChild(ss);
+if (jvs.innerHTML) out.appendChild(jvs);
+if (ss) out.appendChild(ss);
 out.appendChild(heading);
 if (def.d) {
 var n = document.createElement('div');
 n.className = 'definition';
-if (def.d.nasezvafahi){
+if (def.d.nasezvafahi) {
 n.classList.add('nasezvafahi');
 n.innerHTML = window.nasezvafahi;
 } else {
@@ -791,26 +805,30 @@ outp.style.display = 'none';
 descr.style.display = 'block';
 var arrpurc = JSON.parse(localStorage.getItem('purci')) || [];
 var obj = {
-"@cirkotci": ["lojbo sance", "../pixra/taplasance.png", 1, "../cirkotci.html"],
-"muplis": ["la muplis", "../pixra/taplamuplis.png", 2.1],
-"jb": ["English - Lojban examples", "https://mw.lojban.org/images/0/08/snime-1.svg", 1],
-"en": ["English-Lojban", "https://mw.lojban.org/images/d/d8/selsku_lanci_eng.svg", 1],
-"jbo": ["fanva fi lo lojbo ri", "https://mw.lojban.org/images/a/a9/lanci_jbo.svg", 1],
-"ja": ["日本 - <span style=\"white-space:pre;\">ロジバン</span>", "https://mw.lojban.org/images/4/46/selsku_lanci_jpn.svg", 1],
-"fr-facile": ["français facile - lojban", "https://mw.lojban.org/images/a/a7/selsku_lanci_fra.svg", 1],
-"ru": ["русский - ложбан", "https://mw.lojban.org/images/d/dc/selsku_lanci_rus.svg", 1],
-"eo": ["Esperanto - Loĵbano", "https://mw.lojban.org/images/2/20/lanci_epo.svg", 1],
-"es": ["español - lojban", "https://mw.lojban.org/images/2/26/selsku_lanci_spa.svg", 1],
-"@CC": ["The Crash Course", "https://mw.lojban.org/images/b/bd/cogwheel-5.svg", 1, "https://mw.lojban.org/papri/The_Crash_Course_in_Lojban"],
+"@cirkotci": [0,"lojbo sance", "../pixra/taplasance.svg", 1, "../sance/"],
+"muplis": [0,"la muplis", "../pixra/taplamuplis.svg", 2.1],
+"jb": [0,"English - Lojban examples", "../pixra/snime-1.svg", 1],
+"en": [0,"English-Lojban", "../pixra/selsku_lanci_eng.svg", 1],
+"jbo": [0,"fanva fi lo lojbo ri", "../pixra/lanci_jbo.svg", 1],
+"ja": [0,"日本 - <span style=\"white-space:pre;\">ロジバン</span>", "../pixra/selsku_lanci_jpn.svg", 1],
+"fr-facile": [0,"français facile - lojban", "../pixra/selsku_lanci_fra.svg", 1],
+"ru": [0,"русский - ложбан", "../pixra/selsku_lanci_rus.svg", 1],
+"eo": [0,"Esperanto - Loĵbano", "../pixra/lanci_epo.svg", 1],
+"es": [0,"español - lojban", "../pixra/selsku_lanci_spa.svg", 1],
+"zh": [0,"中文 - 逻辑语", "../pixra/selsku_lanci_zho.svg", 1],
+"@CC": ['.inglic.',"The Crash Course", "../pixra/cogwheel-5.svg", 1, "https://mw.lojban.org/papri/The_Crash_Course_in_Lojban"],
+"@Jbotcan": ['.inglic.',"Lojban-Chan", "../pixra/jbotcan.svg", 1,"https://jbotcan.org"]
 }
 var acc = "";
 var cisn = 100;
 for (var key in obj) {
-acc += "<div id='DIV_1' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_2' style='height:" + (cisn) + "px;width:" + (
-obj[key][2] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][0] + "</b></span><div id='DIV_5' style='height:" + (cisn) +
-"px;width:" + (obj[key][2] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][2] * cisn) + "px;'><a href=\"" + ((key.indexOf(
-"@") === 0) ? obj[key][3] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + encodeUrl(drataQuery))) + "\" id='A_7'><div id='DIV_8' style='height:" +
-(cisn) + "px;width:" + (obj[key][2] * cisn) + "px;background-image:url(\"" + obj[key][1] + "\")'></div></a></div></div></div></div>"
+if (obj[key][0]===0||obj[key][0]===window.bangu){
+acc += "<div id='DIV_1' style='height:" + (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;'><div id='DIV_2' style='height:" + (cisn) + "px;width:" + (
+obj[key][3] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][1] + "</b></span><div id='DIV_5' style='height:" + (cisn) +
+"px;width:" + (obj[key][3] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;'><a" + ((obj[key][4]||'').indexOf("http")===0? " target='_blank'":'') + " href=\"" + ((key.indexOf(
+"@") === 0) ? obj[key][4] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + encodeUrl(drataQuery))) + "\" id='A_7'><div id='DIV_8' style='height:" +
+(cisn) + "px;width:" + (obj[key][3] * cisn) + "px;background-image:url(\"" + obj[key][2] + "\")'></div></a></div></div></div></div>";
+}
 }
 if (!drataQuery || (drataQuery === '')) drataQuery = (arrpurc[0] || '');
 drata.innerHTML = acc;
@@ -841,24 +859,26 @@ if (event.target.nodeName === 'A') {
 var el = event.target;
 var title = event.target.getAttribute("title");
 if (el.ctrlKey || el.metaKey) return;
-cnino_judri(el.getAttribute('href'));
-cnino_urli();
+lecnino_judri_gaumeluhacitri(el.getAttribute('href'));
+sisku_rahilejudri();
 }
 return false;
 }
-function cnino_judri(a) {
+function lecnino_judri_gaumeluhacitri(a) {
 if (a !== location.href.substring(location.href.indexOf("#"))) {
 a = a.match(/(\#sisku\/)(.*)/);
 if (a) a = a[1] + encodeUrl(decodeUrl(a[2]));
-window.history.pushState({}, null, a||'');
+window.history.pushState({}, null, a || '');
 }
 }
-function cnino_urli() {
+function sisku_rahilejudri() {
 var searchMatch = window.location.href.match(/\#sisku\/(.*)/);
-if (searchMatch && searchMatch.indexOf('/') === -1) query = decodeUrl(searchMatch[1]).trim();
+if (searchMatch && searchMatch.indexOf('/') === -1) {
+query = decodeUrl(searchMatch[1]).trim();
 ciska.value = query;
 triggerEvent(ciska, 'input');
 if (ready) doSearch();
+}
 }
 function doSearch() {
 query = plukaquery(ciska.value);
@@ -879,7 +899,7 @@ kind: 'newSearch',
 });
 var difference = cati() - lastQueried;
 if (difference > 2000) {
-cnino_judri(url);
+lecnino_judri_gaumeluhacitri(url);
 ga('send', 'pageview', '#sisku/' + query);
 if (einingau) window.location.reload();
 } else {
@@ -894,7 +914,7 @@ function typing(a) {
 clearTimeout(typingTimer);
 typingTimer = setTimeout(doSearch, a ? a : 250);
 delay(function() {
-if (query==='' || !results || results.length === 0) return;
+if (query === '' || !results || results.length === 0) return;
 var a = JSON.parse(localStorage.getItem('purci')) || [];
 var index = a.indexOf(query);
 if (index >= 0) a.splice(index, 1);

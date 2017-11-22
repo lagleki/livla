@@ -6,6 +6,7 @@ window.xuzganalojudri = true;
 window.judri = "http://jbovlaste.lojban.org/dict/";
 window.cllnotci = 'The Reference Grammar on this topic:';
 window.purc = "Last searched: ";
+window.bangu=".inglic.";
 window.arrcll = {
 A:"https://lojban.github.io/cll/14/6/",
 BAI:"https://lojban.github.io/cll/9/6/",

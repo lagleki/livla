@@ -7,6 +7,7 @@ window.xuzganalojudri = true;
 window.judri = "http://jbovlaste.lojban.org/dict/";
 window.cllnotci = 'The Reference Grammar on this topic:';
 window.purc = "Last searched: ";
+window.bangu=".inglic.";
 window.arrcll = {
 A:"14.6",
 BAI:"9.6",

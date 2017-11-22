@@ -11,8 +11,6 @@ var ma_klesi_lo_valsi = function(str) {
       return ['zei-lujvo', str];
     }
   catch (e) {}
-  if (j.length === 2)
-    return [j[0], ''];
   if (j.length > 2 && j.filter(function(el, index) {
     return index % 2 === 0;
   }).toString().match(/^cmavo(,cmavo)+$/)) {
@@ -58,10 +56,10 @@ for (var cmima in sorcu[bau]) {
 
 function setca_lotcila(doc) {
   if (!doc.t || doc.t === '') {
-    if (window.muplis || !window.xuzganalojudri) {
-      doc.t = '';
-    } else {
+    if (!window.muplis && window.xuzganalojudri) {
       doc.t = ma_klesi_lo_valsi(doc.w)[0];
+    } else {
+      doc.t = '';
     }
   }
   return doc;
@@ -117,10 +115,10 @@ function sisku(query, callback) {
     return kd;
   }
 
-  function jmina_ro_cmima_be_lehivalsi(query_string, thisTitle) {
+  function jmina_ro_cmima_be_lehivalsi(query_string, doc) {
     var luj = ma_ve_lujvo(query_string);
     if (!luj)
-      return [];
+      return doc?[doc]:[];
     var kim = [];
     if (luj[0] === "@") {
       luj.shift();
@@ -141,20 +139,20 @@ function sisku(query, callback) {
         } else {
           kim = kim.concat({
             t: "",
-            d: window.nasezvafahi,
+            d: {nasezvafahi: true},
             w: luj[ji],
             r: [luj[ji]]
           });
         }
       }
     }
+    var aw = julne_setca_lotcila(kim).filter(function(i){return !i.d.nasezvafahi});
     return [
       {
-        t: window.bangudecomp,
-        w: thisTitle
-          ? lu
-          : query,
-        rafsiDocuments: julne_setca_lotcila(kim)
+        t: aw.length>0? window.bangudecomp : ma_klesi_lo_valsi(query)[0],
+        w: query,
+        d: {nasezvafahi: true},
+        rafsiDocuments: aw
       }
     ];
   }
@@ -172,13 +170,15 @@ function sisku(query, callback) {
       []
     ];
     for (var i = 0; i < mapti_vreji.length; i++) {
+      start = new Date();
       var doc = setca_lotcila(mapti_vreji[i]); //todo: optimize for phrases
       if (doc) {
         if ((doc.w === query) || (doc.w === query_apos)) {
-          var kj = JSON.parse(JSON.stringify(julne_setca_lotcila(sohivalsi(decompose(doc.w)))));
-          kj = kj.filter(i => i.w !== doc.w);
-          doc.rafsiDocuments = kj;
+          doc.rafsiDocuments = JSON.parse(JSON.stringify(julne_setca_lotcila(sohivalsi(decompose(doc.w))))).filter(function(i){return i.w !== doc.w;});
           decomposed = true;
+          if (doc.rafsiDocuments.length===0){
+            doc.rafsiDocuments = jmina_ro_cmima_be_lehivalsi(doc.w,doc)[0].rafsiDocuments;
+          }
           ui[0].push(doc);
         } else if (doc.g && doc.g.search("^" + query + "(;|$)") === 0) {
           ui[1].push(doc);
@@ -199,9 +199,9 @@ function sisku(query, callback) {
         }
       }
     }
-    if (ui[0].length === 0 && !multi) {
-      secupra_vreji = jmina_ro_cmima_be_lehivalsi(query) || [];
-    }
+    // if (ui[0].length === 0 && !multi) {
+      // secupra_vreji = jmina_ro_cmima_be_lehivalsi(query) || [];
+    // }
     var sor = function(ar) {
       if (ar.length === 0)
         return ar;
@@ -262,7 +262,12 @@ function sisku(query, callback) {
               ki = shortget(ye[jj], ki, 2);
             }
           } else if (ye[0] !== '') {
-            ki = ki.concat(jmina_ro_cmima_be_lehivalsi(a, true));
+            var ye = ye.filter(function(element, index, array) {
+              return (index % 2 !== 0);
+            });
+            for (var jj in ye) {
+              ki = shortget(ye[jj].replace(/-/g,''), ki, 2);
+            }
           }
         } else {
           var luj = ma_ve_lujvo(a);
@@ -286,7 +291,9 @@ function sisku(query, callback) {
           }
         }
       } else {
-        ki = ki.concat({t: "", d: window.nasezvafahi, w: a});
+        var ff = jmina_ro_cmima_be_lehivalsi(a);
+        ff = (ff[0] && ff[0].rafsiDocuments)? ff[0].rafsiDocuments: undefined;
+        ki = ki.concat({t: "", d: {nasezvafahi: true}, w: a, rafsiDocuments: ff});
       }
     }
     return ki;
@@ -309,17 +316,15 @@ function sisku(query, callback) {
       allMatches[0] = jmina_ro_cmima_be_lehivalsi(query) || [];
     if (allMatches[0].length === 0 || allMatches[0][0].w !== query_apos) {
       var ty = julne_setca_lotcila(shortget(query_apos, []));
-      if (ty.length <= 1) {
-        allMatches[0] = ty.concat(allMatches[0]);
-      } else {
-        allMatches[0] = allMatches[1].concat([
-          {
-            t: window.bangudecomp,
-            w: query,
-            rafsiDocuments: ty
-          }
-        ]).concat(allMatches[2]);
-      }
+      if (window.muplis||!window.xuzganalojudri) ty = ty.filter(function(i){return !i.d || !i.d.nasezvafahi;});
+      if (ty.length <= 1) return ty.concat(allMatches[0]);
+      return allMatches[1].concat([
+        {
+          t: window.bangudecomp,
+          w: query,
+          rafsiDocuments: ty
+        }
+      ]).concat(allMatches[2]);
     }
     return allMatches[0];
   }
@@ -415,7 +420,7 @@ function siskurimni(query) {
     };
     var sor = function(ar) {
       if (ar.length === 0)
-        return ar;
+        return [];
       var gism = [];
       var expgism = [];
       var cmav = [];
@@ -453,15 +458,13 @@ function siskurimni(query) {
   query = krulermorna(query);
   queryR = query.replace(/([aeiouḁąęǫ])/g, '$1-').split("-").slice(-3);
   queryF = queryR.slice();
-  if (queryR.length >= 2) {
-    queryR[1] = queryR[1].replace(/[aeiouḁąęǫ]/, '[aeiouḁąęǫ]');
-  }
+  if (queryR.length >= 2) queryR[1] = queryR[1].replace(/[aeiouḁąęǫ]/, '[aeiouḁąęǫ]');
   var r = /.*([aeiouḁąęǫ])/.exec(queryR[0]);
   if (r === null)
     return [];
   queryR[0] = r[1];
   if (queryR.length === 2) {
-    return cupra_lo_porsi(Object.keys(sorcu[bau]).reduce(function(b, n) {
+    r=Object.keys(sorcu[bau]).reduce(function(b, n) {
       var queryRn = krulermorna(n).replace(/([aeiouḁąęǫ])/g, '$1-').split("-").slice(-3);
       var Is = queryRn.length === 2
         ? (queryRn[0].split('').slice(-1)[0] === queryR[0].split('').slice(-1)[0])
@@ -474,16 +477,17 @@ function siskurimni(query) {
           b.push(c);
         }
       return b;
-    }, []));
+    }, []);
   } else {
     query_apos = regexify(queryR.join(""));
-    return cupra_lo_porsi(Object.keys(sorcu[bau]).reduce(function(b, n) {
+    r=Object.keys(sorcu[bau]).reduce(function(b, n) {
       if ((krulermorna(n).match(query_apos.toLowerCase() + "$") || []).length > 0) {
         var c = sorcu[bau][n];
         c["w"] = n;
         b.push(c);
       }
       return b;
-    }, []));
+    }, []);
   }
+  return cupra_lo_porsi(r);
 }

@@ -1,0 +1,27 @@
+CACHE MANIFEST
+# 2017-10-13T08:41:18
+CACHE:
+index.html
+../pixra/snime.svg
+../pixra/arrow-left.png
+../pixra/16.png
+../pixra/32.png
+../pixra/snime.svg
+../pixra/cogwheel-5.svg
+../pixra/taplasance.svg
+../pixra/taplamuplis.svg
+../pixra/snime-1.svg
+../pixra/selsku_lanci_eng.svg
+../pixra/selsku_lanci_zho.svg
+../pixra/lanci_jbo.svg
+../pixra/selsku_lanci_jpn.svg
+../pixra/selsku_lanci_fra.svg
+../pixra/selsku_lanci_rus.svg
+../pixra/lanci_epo.svg
+../pixra/selsku_lanci_spa.svg
+../pixra/cogwheel-5.svg
+NETWORK:
+*
+FALLBACK:
+/sisku/ ./
+../index.html ./

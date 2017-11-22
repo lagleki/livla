@@ -1,6 +1,5 @@
 {
-  "bangudesc": "<h1><b>la sutysisku</b> is a fast dictionary for the Lojban language.</h1><div style=\"text-align:justify;\">- Can I use it if I lose internet access?<br/>- Yes, if this happens try opening this very address from this browser.<br/>It should still open. A latest version of Chrome, Safari or Firefox is required.<ul class='liste'><li>Press <code>/</code> to focus the search field.</li><li>To search for rhymes: enter a word and type <code>@</code> after it to find its rhymes sorted by relevance. <code>klama@</code> is an example.</li><li>For advanced users: to enable regular expressions search in titles either start the string with <code>^</code> or end with <code>$</code>: <code>^mi</code>, <code>gau$</code> are examples.</li></ul>For more resources visit <a href='https://jbotcan.org' target='_blank'>Lojban-Chan</a>.</div>",
-  "else": "<p><span id='searchengine'><i><a href='#' title='en-sutysisku' onclick=\"window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/en/sisku.xml')\">Add as a search engine</a></i></span></p>",
+  "bangudesc": "<h1><b>la sutysisku</b> is a fast dictionary for the Lojban language.</h1><div style=\"text-align:justify;\">- Can I use it if I lose internet access?<br/>- Yes, if this happens try opening this very address from this browser.<br/>It should still open. A latest version of Chrome, Safari or Firefox is required.<ul class='liste'><li>Press <code>/</code> to focus the search field.</li><li>To search for rhymes: enter a word and type <code>@</code> after it to find its rhymes sorted by relevance. <a href='#sisku/grana%40' class='judri'><code>grana@</code></a> is an example.</li><li>For advanced users: to enable regular expressions search in titles either start the string with <code>^</code> or end with <code>$</code>: <a href='#sisku/%5Eui' class='judri'><code>^ui</code>, <a href='#sisku/sku%24' class='judri'><code>sku$</code></a> are examples.</li></ul><p><span id='searchengine'><i><a href='#' title='en-sutysisku' onclick=\"window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/en/sisku.xml')\">Add as a search engine</a></i></span></p></div>",
   "bangusisku": "search",
   "bangulo": "Loading dictionary ...",
   "title": "Lojban dictionary la sutysisku",
@@ -8,6 +7,6 @@
   "opdescr": "Lojban dictionary: works offline (+ English and other languages)",
   "bangu": "english",
   "lojbo": "true",
-  "muplis": "true",
+  "muplis": "false",
   "xuzganalojudri": "true"
 }

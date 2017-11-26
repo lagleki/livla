@@ -182,7 +182,7 @@ function sisku(query, callback) {
           ui[0].push(doc);
         } else if (doc.g && doc.g.search("^" + query + "(;|$)") === 0) {
           ui[1].push(doc);
-        } else if ((doc.r || [''])[0].search("\\b" + query + "\\b") >= 0) {
+        } else if (doc.r && doc.r.join(" ").search("\\b" + query + "\\b") >= 0) {
           ui[5].push(doc);
         } else if (doc.w.search("(^| )(" + query_apos + "|" + query + ")( |$)") >= 0) {
           ui[2].push(doc);
@@ -229,6 +229,7 @@ function sisku(query, callback) {
     };
     // secupra_vreji = sor(secupra_vreji);
     ui = ui.map(function(i){return sor(i);});
+    console.log(JSON.stringify(ui));
     var firstMatches = secupra_vreji.concat(ui[0]).concat(ui[1]);
     var secondMatches = ui[5].concat(ui[2]).concat(ui[3]).concat(ui[4]).concat(ui[8]).concat(ui[6]).concat(ui[7]);
     if (firstMatches && (firstMatches.w === query_apos)) {

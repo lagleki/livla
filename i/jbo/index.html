@@ -519,7 +519,7 @@ transition: width .8s ease
 </div>
 </div>
 <div id='drata' style="text-align:center;"></div>
-<div id='descr' class="term termouter"><p><b>la sutysisku</b> cu sutra tutci co jbobau vlaste<p>- .i xu mi kakne lo ka pilno la sutysisku vau va'o lo nu na ka'e kibro pilno<br>- .i ja'a go'i .i va'o lo nu kibro kakne naku cu .e'u troci lo ka gau do lo brauzero cu cpacu lo se judri be lo me dei moi<br> .i la'a sai lo mutpapri cu tolcanci to'e ri'a nai .i lo cninytce klesi be la romge .a la tsafari .a la faglo'u cu jai sarcu lo nu pilno la sutysisku<br><br>.i lo nu djica co zenba co cilre tu'a la sutysisku cu .e'u banzu lo nu vitke <a href='https://mw.lojban.org' target='_blank'>la lojbo uitki</a>.<p><span id='searchengine'><i><a href='#' title='jbo-sutysisku' onclick="window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/jbo/sisku.xml')">jmina zo'e ne tai lo sisku matra</a></i></span></p></div>
+<div id='descr' class="term termouter"><p><b>la sutysisku</b> cu sutra tutci co jbobau vlaste<p>- .i xu mi kakne lo ka pilno la sutysisku vau va'o lo nu na ka'e kibro pilno<br>- .i ja'a go'i .i va'o lo nu kibro kakne naku cu .e'u troci lo ka gau do lo brauzero cu cpacu lo se judri be lo me dei moi<br> .i la'a sai lo mutpapri cu tolcanci to'e ri'a nai .i lo cninytce klesi be la romge .a la tsafari .a la faglo'u cu jai sarcu lo nu pilno la sutysisku<br><br>.i lo nu djica co zenba co cilre tu'a la sutysisku cu .e'u banzu lo nu vitke <a href='https://mw.lojban.org' target='_blank'>la lojbo uitki</a>.</div>
 <div id='outp'></div>
 </div>
 </div>
@@ -607,9 +607,9 @@ ciska.addEventListener("textInput", typing());
 if (document.readyState === 'loading') {
 pb.style.width = '37%';
 document.addEventListener('resize', calcVH, true);
-document.addEventListener('DOMContentLoaded', cankocisni);
+document.addEventListener('DOMContentLoaded', doSearch);
 } else {
-cankocisni();
+doSearch();
 }
 calcVH();
 sisku_rahilejudri();
@@ -629,13 +629,6 @@ ciska.value === '';
 query = '';
 prevQuery = '';
 displayDescription();
-}
-function cankocisni() {
-if (!(window.external && ('AddSearchProvider' in window.external))) {
-var se = document.getElementById('searchengine');
-se.parentNode.removeChild(se);
-}
-doSearch();
 }
 function calcVH() {
 document.getElementById("content").setAttribute("style", "height:" + Math.max(document.documentElement.clientHeight, window.innerHeight || 0) + "px;");

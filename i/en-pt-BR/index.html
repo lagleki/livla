@@ -519,7 +519,7 @@ transition: width .8s ease
 </div>
 </div>
 <div id='drata' style="text-align:center;"></div>
-<div id='descr' class="term termouter"><p><b>la sutysisku</b> is a fast English - Brazilian Portuguese dictionary.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p><p><span id='searchengine'><i><a href='#' title='en-pt-BR-sutysisku' onclick="window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/en-pt-BR/sisku.xml')">Add as a search engine</a></i></span></p></div>
+<div id='descr' class="term termouter"><p><b>la sutysisku</b> is a fast English - Brazilian Portuguese dictionary.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://mw.lojban.org' target='_blank'>Lojban Wiki</a>.</p></div>
 <div id='outp'></div>
 </div>
 </div>
@@ -607,9 +607,9 @@ ciska.addEventListener("textInput", typing());
 if (document.readyState === 'loading') {
 pb.style.width = '37%';
 document.addEventListener('resize', calcVH, true);
-document.addEventListener('DOMContentLoaded', cankocisni);
+document.addEventListener('DOMContentLoaded', doSearch);
 } else {
-cankocisni();
+doSearch();
 }
 calcVH();
 sisku_rahilejudri();
@@ -629,13 +629,6 @@ ciska.value === '';
 query = '';
 prevQuery = '';
 displayDescription();
-}
-function cankocisni() {
-if (!(window.external && ('AddSearchProvider' in window.external))) {
-var se = document.getElementById('searchengine');
-se.parentNode.removeChild(se);
-}
-doSearch();
 }
 function calcVH() {
 document.getElementById("content").setAttribute("style", "height:" + Math.max(document.documentElement.clientHeight, window.innerHeight || 0) + "px;");

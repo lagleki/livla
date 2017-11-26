@@ -790,9 +790,9 @@
 		if (document.readyState === 'loading') {
 			pb.style.width = '37%';
 			document.addEventListener('resize', calcVH, true);
-			document.addEventListener('DOMContentLoaded', cankocisni);
+			document.addEventListener('DOMContentLoaded', doSearch);
 		} else {
-			cankocisni();
+			doSearch();
 		}
 
 		// triggerEvent(outp, 'scroll');
@@ -827,14 +827,6 @@
 		// 	prevQuery = '';
 		// 	displaySounds();
 		// }
-
-		function cankocisni() {
-			if (!(window.external && ('AddSearchProvider' in window.external))) {
-				var se = document.getElementById('searchengine');
-				se.parentNode.removeChild(se);
-			}
-			doSearch();
-		}
 
 		function calcVH() {
 			document.getElementById("content").setAttribute("style", "height:" + Math.max(document.documentElement.clientHeight, window.innerHeight || 0) + "px;");

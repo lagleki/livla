@@ -182,17 +182,17 @@ function sisku(query, callback) {
           ui[0].push(doc);
         } else if (doc.g && doc.g.search("^" + query + "(;|$)") === 0) {
           ui[1].push(doc);
-        } else if ((doc.r || [''])[0].search("\\b" + query + "\\b") >= 0) {
+        } else if (doc.r && doc.r.join(" ").search("\\b" + query + "\\b") >= 0) {
           ui[5].push(doc);
         } else if (doc.w.search("(^| )(" + query_apos + "|" + query + ")( |$)") >= 0) {
           ui[2].push(doc);
-        } else if ((doc.s || '') === query) {
+        } else if (doc.s && doc.s === query) {
           ui[3].push(doc);
-        } else if ((doc.g || '').search("\\b" + query + "\\b") >= 0 || doc.w.search("\\b(" + query_apos + "|" + query + ")") >= 0 || doc.w.search("(" + query_apos + "|" + query + ")\\b") >= 0) {
+        } else if (doc.g && doc.g.search("\\b" + query + "\\b") >= 0 || doc.w.search("\\b(" + query_apos + "|" + query + ")") >= 0 || doc.w.search("(" + query_apos + "|" + query + ")\\b") >= 0) {
           ui[4].push(doc);
-        } else if ((doc.d || '').toLowerCase().search("^" + query + "\\b") >= 0) {
+        } else if (doc.d && doc.d.toLowerCase().search("^" + query + "\\b") >= 0) {
           ui[8].push(doc);
-        } else if ((doc.d || '').toLowerCase().search("\\b" + query + "\\b") >= 0) {
+        } else if (doc.d && doc.d.toLowerCase().search("\\b" + query + "\\b") >= 0) {
           ui[6].push(doc);
         } else {
           ui[7].push(doc);
@@ -220,21 +220,23 @@ function sisku(query, callback) {
       return gism.sort(sortMultiDimensional).concat(cmav.sort(sortMultiDimensional)).concat(ar.sort(sortMultiDimensional));
     };
     var sortMultiDimensional = function(a, b) {
-      return (((a.d || '').length < (b.d || '').length)
+      if (!a.d) a.d='';if (!b.d) b.d='';
+      return ((a.d.length < b.d.length)
         ? -1
-        : (((a.d || '').length > (b.d || '').length)
+        : ((a.d.length > b.d.length)
           ? 1
           : 0));
     };
     // secupra_vreji = sor(secupra_vreji);
     ui = ui.map(function(i){return sor(i);});
+    console.log(JSON.stringify(ui));
     var firstMatches = secupra_vreji.concat(ui[0]).concat(ui[1]);
     var secondMatches = ui[5].concat(ui[2]).concat(ui[3]).concat(ui[4]).concat(ui[8]).concat(ui[6]).concat(ui[7]);
     if (firstMatches && (firstMatches.w === query_apos)) {
       for (var a = 1; a < firstMatches.length; a++) {
         if (firstMatches[a].l && (firstMatches[a].d === "{" + query_apos + "}")) {
           firstMatches.splice(a, 1);
-          a = a - 1;
+          --a;
         }
       }
     }
@@ -337,8 +339,8 @@ function sisku(query, callback) {
         b.push(c);
       }
       return b;
-    }, []).splice(0, 100))[0]);
-  } else if ((query.indexOf('@') === 0 || query.slice(-1) === '@')) {
+    }, []).splice(0, 200))[0]);
+  } else if ((query.slice(-1) === '@'||query.indexOf('@') === 0)) {
     secupra_vreji = siskurimni(query.replace(/^@+/, '').replace(/@+$/, ''));
   } else if (!window.muplis && queryDecomposition.length > 1) {
     secupra_vreji = cnanosisku(mapti_vreji, true);
@@ -425,7 +427,7 @@ function siskurimni(query) {
       var expgism = [];
       var cmav = [];
       var expcmav = [];
-      var elses = [];
+      var drata = [];
       for (c = 0; c < ar.length; c++) {
         if (ar[c].t === 'gismu') {
           gism.push(ar[c]);
@@ -436,10 +438,10 @@ function siskurimni(query) {
         } else if (ar[c].t === 'experimental cmavo') {
           expcmav.push(ar[c]);
         } else {
-          elses.push(ar[c]);
+          drata.push(ar[c]);
         }
       }
-      return gism.sort(sortMultiDimensional).concat(expgism.sort(sortMultiDimensional)).concat(cmav.sort(sortMultiDimensional)).concat(expcmav.sort(sortMultiDimensional)).concat(elses.sort(sortMultiDimensional));
+      return gism.sort(sortMultiDimensional).concat(expgism.sort(sortMultiDimensional)).concat(cmav.sort(sortMultiDimensional)).concat(expcmav.sort(sortMultiDimensional)).concat(drata.sort(sortMultiDimensional));
     };
 
     return rimni.reduce(function(list, x) {
@@ -455,8 +457,7 @@ function siskurimni(query) {
     return t.replace(/[lmnr]/g, '[lmnr]').replace(/[ɩw]/g, '[ɩw]').replace(/[pb]/g, '[pb]').replace(/[fv]/g, '[fv]').replace(/[td]/g, '[td]').replace(/[sz]/g, '[sz]').replace(/[cj]/g, '[cj]').replace(/[kg]/g, '[kg]').replace(/x/g, '[xk]');
   };
 
-  query = krulermorna(query);
-  queryR = query.replace(/([aeiouḁąęǫ])/g, '$1-').split("-").slice(-3);
+  queryR = krulermorna(query).replace(/([aeiouḁąęǫ])/g, '$1-').split("-").slice(-3);
   queryF = queryR.slice();
   if (queryR.length >= 2) queryR[1] = queryR[1].replace(/[aeiouḁąęǫ]/, '[aeiouḁąęǫ]');
   var r = /.*([aeiouḁąęǫ])/.exec(queryR[0]);
@@ -466,10 +467,7 @@ function siskurimni(query) {
   if (queryR.length === 2) {
     r=Object.keys(sorcu[bau]).reduce(function(b, n) {
       var queryRn = krulermorna(n).replace(/([aeiouḁąęǫ])/g, '$1-').split("-").slice(-3);
-      var Is = queryRn.length === 2
-        ? (queryRn[0].split('').slice(-1)[0] === queryR[0].split('').slice(-1)[0])
-        : false;
-      if (Is) {
+      if (queryRn.length === 2 && (queryRn[0].split('').slice(-1)[0] === queryR[0].split('').slice(-1)[0])) {
         var c = sorcu[bau][n];
         c["w"] = n;
         c = setca_lotcila(c);

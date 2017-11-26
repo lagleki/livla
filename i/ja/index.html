@@ -519,7 +519,7 @@ transition: width .8s ease
 </div>
 </div>
 <div id='drata' style="text-align:center;"></div>
-<div id='descr' class="term termouter"><h1><b>la sutysisku</b> は、素早く検索できるロジバンの辞書です。</h1><div style="text-align:justify;">――インターネットに接続していない時にでも使えるの？<br/>――使えます。接続していない時にこのブラウザから今のこのアドレスを開いてみて下さい。開くはずです。 Chrome か Safari か Firefox の最新版が必要です。<ul class='liste'><li>探索欄に焦点を当てさせるために、<code>「／」</code>というキーを押してください。</li><li>韻を探索するには、何らかの言葉を記入し、その後直ちに<code>「@」</code>を加えることで、一致さ によって整列された韻を探し当てることができます。たとえば<code>「klama@」</code>。</li><li>上級ユーザーの場合：正規表現でタイトルに探索することを可能にするには、文字列が<code>「^」</code>で始め、又は文字列が<code>「$」</code>で終わることにしてください。例えば<code>「^mi, gau$」</code>。</li></ul>他の教材については<a href='http://mw.lojban.org/index.php?title=Lojban&setlang=ja' target='_blank'>ロジバンのウィキ</a>を訪れて下さい。<p><span id='searchengine'><i><a href='#' title='ja-sutysisku' onclick="window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/ja/sisku.xml')">検索エンジンとして追加</a></i></span></p></div></div>
+<div id='descr' class="term termouter"><h1><b>la sutysisku</b> は、素早く検索できるロジバンの辞書です。</h1><div style="text-align:justify;">――インターネットに接続していない時にでも使えるの？<br/>――使えます。接続していない時にこのブラウザから今のこのアドレスを開いてみて下さい。開くはずです。 Chrome か Safari か Firefox の最新版が必要です。<ul class='liste'><li>探索欄に焦点を当てさせるために、<code>「／」</code>というキーを押してください。</li><li>韻を探索するには、何らかの言葉を記入し、その後直ちに<code>「@」</code>を加えることで、一致さ によって整列された韻を探し当てることができます。たとえば<code>「klama@」</code>。</li><li>上級ユーザーの場合：正規表現でタイトルに探索することを可能にするには、文字列が<code>「^」</code>で始め、又は文字列が<code>「$」</code>で終わることにしてください。例えば<code>「^mi, gau$」</code>。</li></ul>他の教材については<a href='http://mw.lojban.org/index.php?title=Lojban&setlang=ja' target='_blank'>ロジバンのウィキ</a>を訪れて下さい。</div></div>
 <div id='outp'></div>
 </div>
 </div>
@@ -607,9 +607,9 @@ ciska.addEventListener("textInput", typing());
 if (document.readyState === 'loading') {
 pb.style.width = '37%';
 document.addEventListener('resize', calcVH, true);
-document.addEventListener('DOMContentLoaded', cankocisni);
+document.addEventListener('DOMContentLoaded', doSearch);
 } else {
-cankocisni();
+doSearch();
 }
 calcVH();
 sisku_rahilejudri();
@@ -629,13 +629,6 @@ ciska.value === '';
 query = '';
 prevQuery = '';
 displayDescription();
-}
-function cankocisni() {
-if (!(window.external && ('AddSearchProvider' in window.external))) {
-var se = document.getElementById('searchengine');
-se.parentNode.removeChild(se);
-}
-doSearch();
 }
 function calcVH() {
 document.getElementById("content").setAttribute("style", "height:" + Math.max(document.documentElement.clientHeight, window.innerHeight || 0) + "px;");

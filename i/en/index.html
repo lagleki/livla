@@ -519,7 +519,7 @@ transition: width .8s ease
 </div>
 </div>
 <div id='drata' style="text-align:center;"></div>
-<div id='descr' class="term termouter"><h1><b>la sutysisku</b> is a fast dictionary for the Lojban language.</h1><div style="text-align:justify;">- Can I use it if I lose internet access?<br/>- Yes, if this happens try opening this very address from this browser.<br/>It should still open. A latest version of Chrome, Safari or Firefox is required.<ul class='liste'><li>Press <code>/</code> to focus the search field.</li><li>To search for rhymes: enter a word and type <code>@</code> after it to find its rhymes sorted by relevance. <a href='#sisku/grana%40' class='judri'><code>grana@</code></a> is an example.</li><li>For advanced users: to enable regular expressions search in titles either start the string with <code>^</code> or end with <code>$</code>: <a href='#sisku/%5Eui' class='judri'><code>^ui</code>, <a href='#sisku/sku%24' class='judri'><code>sku$</code></a> are examples.</li></ul><p><span id='searchengine'><i><a href='#' title='en-sutysisku' onclick="window.external.AddSearchProvider('https://la-lojban.github.io/sutysisku/en/sisku.xml')">Add as a search engine</a></i></span></p></div></div>
+<div id='descr' class="term termouter"><h1><b>la sutysisku</b> is a fast dictionary for the Lojban language.</h1><div style="text-align:justify;">- Can I use it if I lose internet access?<br/>- Yes, if this happens try opening this very address from this browser.<br/>It should still open. A latest version of Chrome, Safari or Firefox is required.<ul class='liste'><li>Press <code>/</code> to focus the search field.</li><li>To search for rhymes: enter a word and type <code>@</code> after it to find its rhymes sorted by relevance. <a href='#sisku/grana%40' class='judri'><code>grana@</code></a> is an example.</li><li>For advanced users: to enable regular expressions search in titles either start the string with <code>^</code> or end with <code>$</code>: <a href='#sisku/%5Eui' class='judri'><code>^ui</code>, <a href='#sisku/sku%24' class='judri'><code>sku$</code></a> are examples.</li></ul></div></div>
 <div id='outp'></div>
 </div>
 </div>
@@ -607,9 +607,9 @@ ciska.addEventListener("textInput", typing());
 if (document.readyState === 'loading') {
 pb.style.width = '37%';
 document.addEventListener('resize', calcVH, true);
-document.addEventListener('DOMContentLoaded', cankocisni);
+document.addEventListener('DOMContentLoaded', doSearch);
 } else {
-cankocisni();
+doSearch();
 }
 calcVH();
 sisku_rahilejudri();
@@ -629,13 +629,6 @@ ciska.value === '';
 query = '';
 prevQuery = '';
 displayDescription();
-}
-function cankocisni() {
-if (!(window.external && ('AddSearchProvider' in window.external))) {
-var se = document.getElementById('searchengine');
-se.parentNode.removeChild(se);
-}
-doSearch();
 }
 function calcVH() {
 document.getElementById("content").setAttribute("style", "height:" + Math.max(document.documentElement.clientHeight, window.innerHeight || 0) + "px;");

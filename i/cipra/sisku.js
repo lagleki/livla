@@ -229,7 +229,6 @@ function sisku(query, callback) {
     };
     // secupra_vreji = sor(secupra_vreji);
     ui = ui.map(function(i){return sor(i);});
-    console.log(JSON.stringify(ui));
     var firstMatches = secupra_vreji.concat(ui[0]).concat(ui[1]);
     var secondMatches = ui[5].concat(ui[2]).concat(ui[3]).concat(ui[4]).concat(ui[8]).concat(ui[6]).concat(ui[7]);
     if (firstMatches && (firstMatches.w === query_apos)) {

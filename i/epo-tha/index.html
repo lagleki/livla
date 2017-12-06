@@ -215,7 +215,6 @@ display: none;
 position: absolute;
 padding: 10px;
 border: 1px solid transparent;
-display: inline-block;
 vertical-align: middle;
 outline: 0;
 cursor: pointer;
@@ -225,7 +224,7 @@ margin-top: 13px;
 }
 @media screen and (min-width: 510px) {
 #clear {
-background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat right 0px center;
+display: none;
 }
 #site-title {
 display: block;
@@ -245,6 +244,7 @@ margin-left: 10%;
 background: url(../pixra/snime.svg) no-repeat right 0px center;
 background-size: 22px;
 width: 23px;
+display: inline-block;
 }
 #site-title {
 display: none;
@@ -507,7 +507,7 @@ transition: width .8s ease
 <div id="kicne1"></div>
 <input id='ciska' type="text" name="focus" required placeholder="serĉi" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
 <div id="kicne2"></div>
-<button id="clear" type="reset"></button>
+<button id="clear" type="button"></button>
 </form>
 </div>
 <div id='content'>
@@ -626,7 +626,6 @@ el.fireEvent('on' + e.eventType, e);
 }
 }
 function zero(e) {
-ciska.value === '';
 query = '';
 prevQuery = '';
 displayDescription();

@@ -407,10 +407,14 @@ const processorlivla = (client, from, to, text) => {
       let lin = valsi.replace(/\"/g, '').replace(/\)$/, '').replace(/^[\(\.]/, '');
       xmlDoc = GetXmldoc(lng);
       let pre = '';
+      lg(lojban.xulujvo(valsi));
       if (lojban.xulujvo(valsi)) {
         try {
+          lg(111);
           const l = lojban.jvokaha_gui(valsi);
+          lg(l);
           const f = lojban.jvozba(l).filter(x => /[aeiou]/.test(x.lujvo.slice(-1)));
+          lg(f);
           const fslice = f.slice(0, Math.min(f.length, 3));
           const arr_defs = fslice.map(x => {
             return GetWordDef(x.lujvo, lng, tordu, xmlDoc);
@@ -424,6 +428,7 @@ const processorlivla = (client, from, to, text) => {
             return pre + `${arr_defs.join("\n")}`;
           }
         } catch (e) {
+          lg(e);
           return e.toString();
         }
       }
@@ -485,7 +490,7 @@ const processorlivla = (client, from, to, text) => {
         return '';
       const a = l.join(" ");
       const b = (lng !== 'jbo')
-        ? lojban.gloss(a, lng, xmlDoc).join(tersepli)
+        ? lojban.gloss(a, lng, xmlDoc, false).join(tersepli)
         : a;
       lg(b, a);
       return `${lin} ≈ ${b}`;
@@ -734,10 +739,10 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
     };
 
     /**
- * Filter-map. Like map, but skips undefined values.
- *
- * @param callback
- */
+    * Filter-map. Like map, but skips undefined values.
+    *
+    * @param callback
+    */
     function fmap(callback) {
       return this.reduce((accum, ...args) => {
         let x = callback(...args);
@@ -747,20 +752,6 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
         return accum;
       }, []);
     }
-
-    const pseudogismu = () => { //a joke function. checks if an English word is  a valid gismu
-      const words = fs.readFileSync(path.join(__dirname, "../zasni/", "vale.txt"), 'utf8').split("\n");
-      let f;
-      sj = words.fmap(j => {
-        f = lojban.ilmentufa_off(j.toLowerCase().replace(/sh/g, "c"), "J")["kampu"];
-        if (f.indexOf("yntax") === -1) {
-          return (`${j} ${f}`);
-        } else
-          return undefined;
-        }
-      )
-      fs.writeFileSync(path.join(__dirname, "../zasni/", "vale-result"), sj.join("\n"));
-    };
 
     const tersmu = (lin, sendTo, source, socket) => {
       const anj = require('../tersmu/all.js');
@@ -1206,7 +1197,7 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
               benji(source, socket, clientmensi, sendTo, rafsi_giho_nai_se_rafsi_gui(po.replace(/[^a-z'\.]/g, '')));
               break;
             case txt.indexOf('.gloss ') === 0:
-              benji(source, socket, clientmensi, sendTo, lojban.gloss(po, 'en').join(" "));
+              benji(source, socket, clientmensi, sendTo, lojban.gloss(po, 'en', false, true).join(" "));
               break;
             case txt.indexOf('.loi ') === 0:
               benji(source, socket, clientmensi, sendTo, lojban.lojban2loglan(po));
@@ -1286,9 +1277,6 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
               break;
             case txt.indexOf(`${prereplier}getgr `) === 0:
               getmahantufagrammar(text.substr(13), socket);
-              break;
-            case txt === `${replier}: pseudogismu`:
-              benji(source, socket, clientmensi, sendTo, pseudogismu());
               break;
             case txt === `${replier}: ii`:
               benji(source, socket, clientmensi, sendTo, '.ii');

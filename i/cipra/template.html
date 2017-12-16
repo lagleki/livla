@@ -311,15 +311,14 @@
 			font-weight: bold;
 			float: left;
 			margin-top: 12px;
-			display: none;
 		}
 
 		#ciska {
-			height: 29px;
-			font-size: 140%;
+			height: 30px;
+			font-size: 130%;
 			font-family: Arial, Helvetica, sans-serif;
 			border: 1px solid #999;
-			padding: 3px 4px 2px 4px;
+			padding: 2px 6px 2px 6px;
 			transition: background 0.4s;
 			float: right;
 			margin-top: 6px;
@@ -327,30 +326,27 @@
 			outline: 0;
 		}
 
-		#ciska:not(:valid)~#clear {
+		#ciska:not(:valid)~#kunti {
 			display: none;
 		}
 
-		#clear {
+		#kunti {
+			background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat left 5px center;
 			position: absolute;
-			padding: 10px;
+			padding: 22px 20px 10px 10px;
 			border: 1px solid transparent;
+			display: inline-block;
 			vertical-align: middle;
 			outline: 0;
 			cursor: pointer;
 			margin-left: -32px;
-			right: 11px;
-			margin-top: 13px;
+			right: 7px;
+			margin-top: 7px;
 		}
 
 		@media screen and (min-width: 510px) {
-			#clear {
-				/*background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat right 0px center;*/
-				display: none;
-			}
-
-			#site-title {
-				display: block;
+			#title > font {
+				width: auto;
 			}
 
 			#kicne1, #kicne2 {
@@ -367,14 +363,21 @@
 		}
 
 		@media screen and (max-width: 509px) {
-			#clear {
-				background: url(../pixra/snime.svg) no-repeat right 0px center;
-				background-size: 22px;
-				width: 23px;
-				display: inline-block;
+			div {
+				line-height: 150%;
 			}
 
-			#site-title {
+			#title > img {
+				padding: 0 4px 0 10px;
+				width: 23px;
+				height: 23px;
+			}
+
+			#title > img:nth-child(1) ~ img {
+				display: none;
+			}
+
+			#title > font {
 				display: none;
 			}
 
@@ -385,7 +388,7 @@
 
 			#kicne2 {
 				display: block;
-				width: 52px;
+				width: 6px;
 			}
 
 			#ciska:not(:valid)~#kicne2 {
@@ -415,7 +418,8 @@
 		#content {
 			padding-left: 5px;
 			padding-right: 5px;
-			overflow: auto; //height:100%;
+			overflow: auto;
+			/*height:100%;*/
 			border-top: 48px solid transparent;
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
@@ -485,12 +489,14 @@
 			box-shadow: rgb(255, 255, 204) 0px 0px 1px 0px inset;
 			box-sizing: border-box;
 			cursor: pointer;
-			display: inline-block; // height: 150px;
+			display: inline-block;
+			/*height: 150px;*/
 			left: 0px;
 			position: relative;
 			right: 0px;
 			text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
-			top: 0px; // width: 150px;
+			top: 0px;
+			/* width: 150px;*/
 			perspective-origin: 75px 75px;
 			transform-origin: 75px 75px;
 			user-select: none;
@@ -513,12 +519,14 @@
 			border-collapse: collapse;
 			bottom: 0px;
 			box-sizing: border-box;
-			cursor: pointer; // height: 150px;
+			cursor: pointer;
+			/* height: 150px;*/
 			left: 0px;
 			position: absolute;
 			right: 0px;
 			text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
-			top: 0px; // width: 150px;
+			top: 0px;
+			/*width: 150px;*/
 			perspective-origin: 75px 75px;
 			transform-origin: 75px 75px;
 			user-select: none;
@@ -532,12 +540,14 @@
 			bottom: 0px;
 			box-sizing: border-box;
 			cursor: pointer;
-			display: block; // height: 53px;
-			// left: 10px;
+			display: block;
+			/* height: 53px;*/
+			/*left: 10px;*/
 			position: absolute;
 			right: 0px;
-			text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px; // top: 97px;
-			// width: 140px;
+			text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
+			/*top: 97px;*/
+			/*width: 140px;*/
 			z-index: 999;
 			perspective-origin: 70px 26.5px;
 			transform-origin: 70px 26.5px;
@@ -566,14 +576,16 @@
 			box-shadow: rgb(255, 255, 204) 0px 0px 1px 0px inset;
 			box-sizing: border-box;
 			cursor: pointer;
-			display: inline-block; // height: 150px;
+			display: inline-block;
+			/*height: 150px;*/
 			left: 0px;
 			max-width: 100%;
 			position: relative;
 			right: 0px;
 			text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
 			top: 0px;
-			vertical-align: middle; // width: 150px;
+			vertical-align: middle
+			/*width: 150px;*/
 			perspective-origin: 75px 75px;
 			transform-origin: 75px 75px;
 			user-select: none;
@@ -585,12 +597,14 @@
 			border-collapse: collapse;
 			bottom: 0px;
 			box-sizing: border-box;
-			cursor: pointer; // height: 150px;
+			cursor: pointer;
+			/*height: 150px;*/
 			left: 0px;
 			position: relative;
 			right: 0px;
 			text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
-			top: 0px; // width: 150px;
+			top: 0px;
+			/*width: 150px;*/
 			perspective-origin: 75px 75px;
 			transform-origin: 75px 75px;
 			user-select: none;
@@ -639,7 +653,8 @@
 			margin-top: 0px;
 			margin-bottom: 15px;
 			padding: 8px 12px 6px;
-			text-align: justify; //background: #F7F7F2;
+			text-align: justify;
+			/*background: #F7F7F2;*/
 			background: white;
 			border-bottom-left-radius: 7px 7px;
 			border-bottom-right-radius: 7px 7px;
@@ -731,7 +746,7 @@
 			<div id="kicne1"></div>
 			<input id='ciska' type="text" name="focus" required placeholder="%bangusisku%" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
 			<div id="kicne2"></div>
-			<button id="clear" type="button"></button>
+			<button id="kunti" type="reset"></button>
 		</form>
 	</div>
 	<div id='content'>
@@ -814,7 +829,7 @@
 		})();
 
 		window.addEventListener('popstate', sisku_rahilejudri);
-		document.getElementById('clear').addEventListener('click', zero);
+		document.getElementById('kunti').addEventListener('click', zero);
 		document.getElementById('title').addEventListener('click', zero);
 		purci.addEventListener("click", clicked);
 		document.getElementById('content').addEventListener('scroll', checkScrolledNearBottom);
@@ -861,7 +876,7 @@
 		}
 
 		function zero(e) {
-			// ciska.value === '';
+			ciska.value === '';
 			query = '';
 			prevQuery = '';
 			displayDescription();

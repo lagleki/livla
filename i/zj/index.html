@@ -21,12 +21,12 @@ ga('linker:autoLink', ['la-lojban.github.io/sutysisku']);
 ga('set', 'forceSSL', true);
 ga('send', 'pageview');
 </script>
-<title>la sutysisku zo'u: ze'i mitysisku lo valsi</title>
+<title>Lojban with example phrases - la sutysisku</title>
 <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,viewport-fit=cover" />
 <meta name="theme-color" content="#1941a5">
 <meta property="og:title" content="La Sutysisku" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://la-lojban.github.io/sutysisku/ithkuil/index.html" />
+<meta property="og:url" content="https://la-lojban.github.io/sutysisku/jb/index.html" />
 <meta property="og:image" content="https://mw.lojban.org/images/1/11/sutysisku2015-06-22.png" />
 <meta property="og:site_name" content="La Sutysisku" />
 <meta property="fb:app_id" content="191051864394489" />
@@ -45,9 +45,9 @@ ga('send', 'pageview');
 <meta name="application-name" content="la sutysisku" />
 <meta name="msapplication-TileColor" content="#1941a5">
 <meta name="msapplication-TileImage" content="../pixra/144.png">
-<meta property="og:description" content="A dictionary for Ithkuil, Lojban, English and other languages that can work offline." />
+<meta property="og:description" content="A dictionary for Lojban language (with examples), English and other languages. Also works offline." />
 <link rel="shortcut icon" href="../pixra/snime.svg" />
-<link rel="search" type="application/opensearchdescription+xml" href="/sutysisku/ithkuil/sisku.xml" title="ithkuil-sutysisku">
+<link rel="search" type="application/opensearchdescription+xml" href="/sutysisku/jb/sisku.xml" title="jb-sutysisku">
 <style type="text/css">
 body {
 font-family: Tahoma, Lato, sans-serif;
@@ -196,34 +196,39 @@ float: left;
 margin-top: 12px;
 }
 #ciska {
-height: 30px;
-font-size: 130%;
+height: 29px;
+font-size: 140%;
 font-family: Arial, Helvetica, sans-serif;
 border: 1px solid #999;
-padding: 2px 6px 2px 6px;
+padding: 3px 4px 2px 4px;
 transition: background 0.4s;
 float: right;
 margin-top: 6px;
 border-radius: 3px;
 outline: 0;
 }
-#ciska:not(:valid)~#kunti {
+#ciska:not(:valid)~#clear {
 display: none;
 }
-#kunti {
-background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat left 5px center;
+#clear {
 position: absolute;
-padding: 22px 20px 10px 10px;
+padding: 10px;
 border: 1px solid transparent;
 display: inline-block;
 vertical-align: middle;
 outline: 0;
 cursor: pointer;
 margin-left: -32px;
-right: 7px;
-margin-top: 7px;
+right: 11px;
+margin-top: 13px;
 }
 @media screen and (min-width: 510px) {
+#clear {
+background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat right 0px center;
+}
+#site-title {
+display: block;
+}
 #title > font {
 width: auto;
 }
@@ -238,16 +243,13 @@ margin-left: 10%;
 }
 }
 @media screen and (max-width: 509px) {
-div {
-line-height: 150%;
+#clear {
+background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat right 0px center;
 }
 #title > img {
 padding: 0 4px 0 10px;
 width: 23px;
 height: 23px;
-}
-#title > img:nth-child(1) ~ img {
-display: none;
 }
 #title > font {
 display: none;
@@ -282,7 +284,7 @@ text-shadow: none;
 #content {
 padding-left: 5px;
 padding-right: 5px;
-overflow: auto;
+overflow: auto; //height:100%;
 border-top: 48px solid transparent;
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
@@ -328,12 +330,12 @@ bottom: 0px;
 box-shadow: rgb(255, 255, 204) 0px 0px 1px 0px inset;
 box-sizing: border-box;
 cursor: pointer;
-display: inline-block;
+display: inline-block; // height: 150px;
 left: 0px;
 position: relative;
 right: 0px;
 text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
-top: 0px;
+top: 0px; // width: 150px;
 perspective-origin: 75px 75px;
 transform-origin: 75px 75px;
 user-select: none;
@@ -351,12 +353,12 @@ top: 1px;
 border-collapse: collapse;
 bottom: 0px;
 box-sizing: border-box;
-cursor: pointer;
+cursor: pointer; // height: 150px;
 left: 0px;
 position: absolute;
 right: 0px;
 text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
-top: 0px;
+top: 0px; // width: 150px;
 perspective-origin: 75px 75px;
 transform-origin: 75px 75px;
 user-select: none;
@@ -368,10 +370,10 @@ border-collapse: collapse;
 bottom: 0px;
 box-sizing: border-box;
 cursor: pointer;
-display: block;
+display: block; // height: 53px;
 position: absolute;
 right: 0px;
-text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
+text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px; // top: 97px;
 z-index: 999;
 perspective-origin: 70px 26.5px;
 transform-origin: 70px 26.5px;
@@ -396,14 +398,14 @@ bottom: 0px;
 box-shadow: rgb(255, 255, 204) 0px 0px 1px 0px inset;
 box-sizing: border-box;
 cursor: pointer;
-display: inline-block;
+display: inline-block; // height: 150px;
 left: 0px;
 max-width: 100%;
 position: relative;
 right: 0px;
 text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
 top: 0px;
-vertical-align: middle
+vertical-align: middle; // width: 150px;
 perspective-origin: 75px 75px;
 transform-origin: 75px 75px;
 user-select: none;
@@ -413,12 +415,12 @@ font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-se
 border-collapse: collapse;
 bottom: 0px;
 box-sizing: border-box;
-cursor: pointer;
+cursor: pointer; // height: 150px;
 left: 0px;
 position: relative;
 right: 0px;
 text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
-top: 0px;
+top: 0px; // width: 150px;
 perspective-origin: 75px 75px;
 transform-origin: 75px 75px;
 user-select: none;
@@ -452,7 +454,7 @@ font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-se
 margin-top: 0px;
 margin-bottom: 15px;
 padding: 8px 12px 6px;
-text-align: justify;
+text-align: justify; //background: #F7F7F2;
 background: white;
 border-bottom-left-radius: 7px 7px;
 border-bottom-right-radius: 7px 7px;
@@ -510,7 +512,7 @@ transition: width .8s ease
 <div id="kicne1"></div>
 <input id='ciska' type="text" name="focus" required placeholder="search" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
 <div id="kicne2"></div>
-<button id="kunti" type="reset"></button>
+<button id="clear" type="reset"></button>
 </form>
 </div>
 <div id='content'>
@@ -523,7 +525,7 @@ transition: width .8s ease
 </div>
 </div>
 <div id='drata' style="text-align:center;"></div>
-<div id='descr' class="term termouter"><p><b>la sutysisku</b> is a fast dictionary for the Ithkuil language.<p>- Can I use it if I lose internet access?<br>- Yes, if this happens try opening this very address from this browser.<br> It should still open. A latest version of Chrome, Safari or Firefox is required.<br/>For more resources visit <a href='https://mw.lojban.org/papri/Not_ready:_Ithkuil_made_easy' target='_blank'>Lojban Wiki</a>.</p></div>
+<div id='descr' class="term termouter"><h1><b>la sutysisku</b> is a fast dictionary with examples for the Lojban language.</h1><div style="text-align:justify;">- Can I use it if I lose internet access?<br/>- Yes, if this happens try opening this very address from this browser.<br/>It should still open. A latest version of Chrome, Safari or Firefox is required.<ul class='liste'><li>Press <code>/</code> to focus the search field.</li><li>To search for rhymes: enter a word and type <code>@</code> after it to find its rhymes sorted by relevance. <a href='#sisku/grana%40' class='judri'><code>grana@</code></a> is an example.</li><li>For advanced users: to enable regular expressions search in titles either start the string with <code>^</code> or end with <code>$</code>: <a href='#sisku/%5Eui' class='judri'><code>^ui</code>, <a href='#sisku/sku%24' class='judri'><code>sku$</code></a> are examples.</li></ul></div></div>
 <div id='outp'></div>
 </div>
 </div>
@@ -589,7 +591,7 @@ timer = setTimeout(callback, ms);
 };
 })();
 window.addEventListener('popstate', sisku_rahilejudri);
-document.getElementById('kunti').addEventListener('click', zero);
+document.getElementById('clear').addEventListener('click', zero);
 document.getElementById('title').addEventListener('click', zero);
 purci.addEventListener("click", clicked);
 document.getElementById('content').addEventListener('scroll', checkScrolledNearBottom);
@@ -646,6 +648,7 @@ l.parentNode.removeChild(l);
 if (ev.data.query !== query) return;
 results = ev.data.results;
 outp.innerHTML = '';
+CLL();
 skicu_lo_ro_valsi();
 displayDescription();
 } else if (ev.data.kind == 'loading') {
@@ -655,6 +658,19 @@ pb.style.width = '51%';
 pb.style.width = (ev.data.percent * 100) + '%';
 }
 };
+function CLL() {
+var sc = (window.arrcll || [])[query];
+if (sc) {
+sc = window.cllnotci + "<ul class='liste'>" + sc.split(" ").map(function(arg) {
+var a = window.cylylypoicnino[arg]
+return "<li><a target='_blank' href=\"http:\/\/lojban.org\/publications/cll\/cll_v1.1_xhtml-section-chunks\/" + a.judri + "\">" + escHtml(a.cmene) + "</a></li>";
+}).join("") + "</ul>";
+var div = document.createElement('div');
+div.className = 'purci';
+div.innerHTML = sc;
+outp.appendChild(div);
+}
+}
 function checkScrolledNearBottom(ev) {
 if ((ev.target.scrollTop + window.innerHeight) >= (outp.clientHeight - 700)) {
 window.jimte += 10;
@@ -788,16 +804,19 @@ outp.style.display = 'none';
 descr.style.display = 'block';
 var arrpurc = JSON.parse(localStorage.getItem('purci')) || [];
 var obj = {
-"muplis-eng-pol": [0,"English - polski", "../pixra/muplis-eng-pol.png", 2.1],
-"en-pt-BR": [0,"English - Portugueze", "../pixra/152.png", 1],
-"zamenhofo": [0,"Esperanto - English", "../pixra/lanci_epo.svg", 1],
-"toki": [0,"toki pona - English", "../pixra/Toki_pona.svg", 1],
-"laadan": [0,"English - Láadan", "../pixra/Double_girl_sign.svg", 1],
-"simplingua-zho": [0,"Simplingua - 中文", "../pixra/simplingua.svg", 1],
-"ina": [0,"English - Interlingua", "../pixra/Flag_of_Interlingua.svg", 1],
-"ldp": [0,"English - Lingwa de Planeta", "../pixra/ldp.svg", 1],
-"ile": [0,"English - Occidental / Interlingue", "../pixra/Flag_of_Interlingue.svg", 1],
-"epo-thai": [0,"Esperanto - Thai", "../pixra/lanci_epo.svg", 1],
+"@cirkotci": [0,"lojbo sance", "../pixra/taplasance.svg", 1, "../sance/"],
+"muplis": [0,"la muplis", "../pixra/taplamuplis.svg", 2.1],
+"jb": [0,"English - Lojban examples", "../pixra/snime-1.svg", 1],
+"en": [0,"English-Lojban", "../pixra/selsku_lanci_eng.svg", 1],
+"jbo": [0,"fanva fi lo lojbo ri", "../pixra/lanci_jbo.svg", 1],
+"ja": [0,"日本 - <span style=\"white-space:pre;\">ロジバン</span>", "../pixra/selsku_lanci_jpn.svg", 1],
+"fr-facile": [0,"français facile - lojban", "../pixra/selsku_lanci_fra.svg", 1],
+"ru": [0,"русский - ложбан", "../pixra/selsku_lanci_rus.svg", 1],
+"eo": [0,"Esperanto - Loĵbano", "../pixra/lanci_epo.svg", 1],
+"es": [0,"español - lojban", "../pixra/selsku_lanci_spa.svg", 1],
+"zh": [0,"中文 - 逻辑语", "../pixra/selsku_lanci_zho.svg", 1],
+"@CC": ['.inglic.',"The Crash Course", "../pixra/cogwheel-5.svg", 1, "https://mw.lojban.org/papri/The_Crash_Course_in_Lojban"],
+"@Jbotcan": ['.inglic.',"Lojban-Chan", "../pixra/jbotcan.svg", 1,"https://jbotcan.org"]
 }
 var acc = "";
 var cisn = 100;

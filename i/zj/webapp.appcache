@@ -1,17 +1,16 @@
 CACHE MANIFEST
-# 2017-12-10T07:20:45
+# 2017-12-06T06:07:59
 CACHE:
 index.html
-../data/parsed-ru.js
+../data/parsed-jb.js
 ../sisku.js
 worker.js
 bangu.js
-../pixra/snime.svg
 ../pixra/x.gif
 ../pixra/16.png
 ../pixra/32.png
+../pixra/jbotcan.svg
 ../pixra/snime.svg
-../pixra/cogwheel-5.svg
 ../pixra/taplasance.svg
 ../pixra/taplamuplis.svg
 ../pixra/snime-1.svg

@@ -194,40 +194,38 @@ font-size: 18px;
 font-weight: bold;
 float: left;
 margin-top: 12px;
-display: none;
 }
 #ciska {
-height: 29px;
-font-size: 140%;
+height: 30px;
+font-size: 130%;
 font-family: Arial, Helvetica, sans-serif;
 border: 1px solid #999;
-padding: 3px 4px 2px 4px;
+padding: 2px 6px 2px 6px;
 transition: background 0.4s;
 float: right;
 margin-top: 6px;
 border-radius: 3px;
 outline: 0;
 }
-#ciska:not(:valid)~#clear {
+#ciska:not(:valid)~#kunti {
 display: none;
 }
-#clear {
+#kunti {
+background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat left 5px center;
 position: absolute;
-padding: 10px;
+padding: 22px 20px 10px 10px;
 border: 1px solid transparent;
+display: inline-block;
 vertical-align: middle;
 outline: 0;
 cursor: pointer;
 margin-left: -32px;
-right: 11px;
-margin-top: 13px;
+right: 7px;
+margin-top: 7px;
 }
 @media screen and (min-width: 510px) {
-#clear {
-display: none;
-}
-#site-title {
-display: block;
+#title > font {
+width: auto;
 }
 #kicne1, #kicne2 {
 display: none;
@@ -240,13 +238,18 @@ margin-left: 10%;
 }
 }
 @media screen and (max-width: 509px) {
-#clear {
-background: url(../pixra/snime.svg) no-repeat right 0px center;
-background-size: 22px;
-width: 23px;
-display: inline-block;
+div {
+line-height: 150%;
 }
-#site-title {
+#title > img {
+padding: 0 4px 0 10px;
+width: 23px;
+height: 23px;
+}
+#title > img:nth-child(1) ~ img {
+display: none;
+}
+#title > font {
 display: none;
 }
 #kicne1 {
@@ -255,7 +258,7 @@ width: 6px;
 }
 #kicne2 {
 display: block;
-width: 52px;
+width: 6px;
 }
 #ciska:not(:valid)~#kicne2 {
 width: 6px;
@@ -279,7 +282,7 @@ text-shadow: none;
 #content {
 padding-left: 5px;
 padding-right: 5px;
-overflow: auto; //height:100%;
+overflow: auto;
 border-top: 48px solid transparent;
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
@@ -325,12 +328,12 @@ bottom: 0px;
 box-shadow: rgb(255, 255, 204) 0px 0px 1px 0px inset;
 box-sizing: border-box;
 cursor: pointer;
-display: inline-block; // height: 150px;
+display: inline-block;
 left: 0px;
 position: relative;
 right: 0px;
 text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
-top: 0px; // width: 150px;
+top: 0px;
 perspective-origin: 75px 75px;
 transform-origin: 75px 75px;
 user-select: none;
@@ -348,12 +351,12 @@ top: 1px;
 border-collapse: collapse;
 bottom: 0px;
 box-sizing: border-box;
-cursor: pointer; // height: 150px;
+cursor: pointer;
 left: 0px;
 position: absolute;
 right: 0px;
 text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
-top: 0px; // width: 150px;
+top: 0px;
 perspective-origin: 75px 75px;
 transform-origin: 75px 75px;
 user-select: none;
@@ -365,10 +368,10 @@ border-collapse: collapse;
 bottom: 0px;
 box-sizing: border-box;
 cursor: pointer;
-display: block; // height: 53px;
+display: block;
 position: absolute;
 right: 0px;
-text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px; // top: 97px;
+text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
 z-index: 999;
 perspective-origin: 70px 26.5px;
 transform-origin: 70px 26.5px;
@@ -393,14 +396,14 @@ bottom: 0px;
 box-shadow: rgb(255, 255, 204) 0px 0px 1px 0px inset;
 box-sizing: border-box;
 cursor: pointer;
-display: inline-block; // height: 150px;
+display: inline-block;
 left: 0px;
 max-width: 100%;
 position: relative;
 right: 0px;
 text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
 top: 0px;
-vertical-align: middle; // width: 150px;
+vertical-align: middle
 perspective-origin: 75px 75px;
 transform-origin: 75px 75px;
 user-select: none;
@@ -410,12 +413,12 @@ font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-se
 border-collapse: collapse;
 bottom: 0px;
 box-sizing: border-box;
-cursor: pointer; // height: 150px;
+cursor: pointer;
 left: 0px;
 position: relative;
 right: 0px;
 text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
-top: 0px; // width: 150px;
+top: 0px;
 perspective-origin: 75px 75px;
 transform-origin: 75px 75px;
 user-select: none;
@@ -449,7 +452,7 @@ font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-se
 margin-top: 0px;
 margin-bottom: 15px;
 padding: 8px 12px 6px;
-text-align: justify; //background: #F7F7F2;
+text-align: justify;
 background: white;
 border-bottom-left-radius: 7px 7px;
 border-bottom-right-radius: 7px 7px;
@@ -507,7 +510,7 @@ transition: width .8s ease
 <div id="kicne1"></div>
 <input id='ciska' type="text" name="focus" required placeholder="語を入力" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
 <div id="kicne2"></div>
-<button id="clear" type="button"></button>
+<button id="kunti" type="reset"></button>
 </form>
 </div>
 <div id='content'>
@@ -586,7 +589,7 @@ timer = setTimeout(callback, ms);
 };
 })();
 window.addEventListener('popstate', sisku_rahilejudri);
-document.getElementById('clear').addEventListener('click', zero);
+document.getElementById('kunti').addEventListener('click', zero);
 document.getElementById('title').addEventListener('click', zero);
 purci.addEventListener("click", clicked);
 document.getElementById('content').addEventListener('scroll', checkScrolledNearBottom);
@@ -626,6 +629,7 @@ el.fireEvent('on' + e.eventType, e);
 }
 }
 function zero(e) {
+ciska.value === '';
 query = '';
 prevQuery = '';
 displayDescription();

@@ -67,7 +67,7 @@ margin: 0;
 .liste {
 list-style-image: url(../pixra/cmalu_snime.svg);
 }
-.judri{
+.judri {
 color: inherit;
 }
 code {
@@ -144,20 +144,24 @@ border-left: solid 3px #1E90FF;
 margin-top: 9px;
 padding: 9px;
 text-align: justify;
-background: white;
+background: white; 
 border-radius: 5px;
-border: 1px solid #ddd;
+border: 1px solid #ddd; 
+} 
+.plise {
+width: 18px;
+height: 18px;
 }
 .termouter {
 box-shadow: 1px 1px 1px #ccc;
-}
+} 
 .termouter:hover {
 border: 1px solid #ccc;
-box-shadow: 0;
+box-shadow: 0; 
 z-index: 2;
 }
 .terminner {
-border-radius: 0;
+border-radius: 0; 
 border-top: solid 1px #ccc;
 border-right: solid 1px #ccc;
 border-bottom: solid 1px #ccc;
@@ -211,7 +215,7 @@ padding: 2px 6px 2px 6px;
 transition: background 0.4s;
 float: right;
 margin-top: 6px;
-border-radius: 3px;
+border-radius: 2px;
 outline: 0;
 }
 #ciska:not(:valid)~#kunti {
@@ -231,10 +235,11 @@ right: 7px;
 margin-top: 7px;
 }
 @media screen and (min-width: 510px) {
-#title > font {
+#title>font {
 width: auto;
 }
-#kicne1, #kicne2 {
+#kicne1,
+#kicne2 {
 display: none;
 }
 #se-vasru-lo-galtu-dasri {
@@ -248,15 +253,15 @@ margin-left: 10%;
 div {
 line-height: 150%;
 }
-#title > img {
+#title>img {
 padding: 0 4px 0 10px;
 width: 23px;
 height: 23px;
 }
-#title > img:nth-child(1) ~ img {
+#title>img:nth-child(1)~img {
 display: none;
 }
-#title > font {
+#title>font {
 display: none;
 }
 #kicne1 {
@@ -293,13 +298,13 @@ overflow: auto;
 border-top: 48px solid transparent;
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
-box-sizing: border-box;
+box-sizing: border-box; 
 background-color: #FDBF00;
 background-image: url('../pixra/bifce.svg');
 background-image: url('../pixra/bifce.svg'), -webkit-linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
 background-image: url('../pixra/bifce.svg'), -o-linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
 background-image: url('../pixra/bifce.svg') -moz-linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
-background-image: url('../pixra/bifce.svg'), linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
+background-image: url('../pixra/bifce.svg'), linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000); 
 }
 #content-panel {
 max-width: 700px;
@@ -517,7 +522,7 @@ transition: width .8s ease
 <body>
 <div id='galtu-dasri'>
 <form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
-<span id='site-title'><a id='title' href='#'><img src='../pixra/plise.svg' height='16' width='16' title='lo staile poi sampu'><img src='../pixra/pelxuplise.svg' height='16' width='16' title='lo staile poi na mutce cinri'><img src='../pixra/crinoplise.svg' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='../pixra/blabiplise.svg' height='16' width='16' title='lo staile poi ka&#39;e pluja'><img src='../pixra/cicnaplise.svg' height='16' width='16' title='na&#39;e catni se ciska staile'><font color='#fff'>la muplis</font></a></span>
+<span id='site-title'><a id='title' href='#'><img src='../pixra/plise.svg' class='plise' title='lo staile poi sampu'><img src='../pixra/pelxuplise.svg' class='plise' title='lo staile poi na mutce cinri'><img src='../pixra/crinoplise.svg' class='plise' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='../pixra/blabiplise.svg' class='plise' title='lo staile poi ka&#39;e pluja'><img src='../pixra/cicnaplise.svg' class='plise' title='na&#39;e catni se ciska staile'><font color='#fff'>la muplis</font></a></span>
 <div id="kicne1"></div>
 <input id='ciska' type="text" name="focus" required placeholder="sisku" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
 <div id="kicne2"></div>
@@ -534,7 +539,7 @@ transition: width .8s ease
 </div>
 </div>
 <div id='drata' style="text-align:center;"></div>
-<div id='descr' class="term termouter"><h1>.i <b>la .muplis.</b> cu sutra tutci lo nu mitysisku lo mupli pe la'o zoi.<a href='http://tatoeba.org/jbo' target='_blank'>Tatoeba.org</a>.zoi.</h1><div style="text-align:justify;">ni'o xu va'o lo nu zu'i na ka'e pilno le kibro vau zu'i ka'e pilno la .muplis.<br>.i ja'a go'i .i .e'u va'o lo nu zu'i na kakne tu'a le kibro cu troci le ka gau zu'i le brauzero cu cpacu lo se judri be le me dei moi .i la'a sai le mutpapri cu tolcanci to'e ri'a nai .i lo cnino klesi be la xromium .a la'oi Safari .a la'oi Firefox cu jai sarcu le ka pilno la .muplis.<br/>ni'o le tcita pe di'e ka'e sidju do le ka jimpe fi le ni zabna fa le jufra<ul class='liste'><li>.i la'e zoi <img src='../pixra/plise.svg' height='16' width='16' title='lo staile poi sampu'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu sampu</li><li>.i la'e zoi <img src='../pixra/pelxuplise.svg' height='16' width='16' title='lo staile poi na mutce cinri'> zoi tcita lo jufra poi lo staile be tu'a ke'a na mutce cinri</li><li>.i la'e zoi <img src='../pixra/crinoplise.svg' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'> zoi tcita lo jufra poi ka&#39;e xamgu lo di&#39;i fanva</li><li>.i la'e zoi <img src='../pixra/blabiplise.svg' height='16' width='16' title='lo staile poi ka&#39;e pluja'> zoi tcita lo jufra poi lo staile be tu'a ke'a ka'e pluja</li><li>.i la'e zoi <img src='../pixra/cicnaplise.svg' height='16' width='16' title='na&#39;e catni se ciska staile'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu na&#39;e catni</li></ul>ni'o lo nu djica co zenba co cilre tu'a la .muplis. cu .e'u banzu lo nu vitke <a href='https://mw.lojban.org' target='_blank'>lo lojbo uitki</a>.</div></div>
+<div id='descr' class="term termouter"><h1>.i <b>la .muplis.</b> cu sutra tutci lo nu mitysisku lo mupli pe la'o zoi.<a href='http://tatoeba.org/jbo' target='_blank'>Tatoeba.org</a>.zoi.</h1><div style="text-align:justify;">ni'o xu va'o lo nu zu'i na ka'e pilno le kibro vau zu'i ka'e pilno la .muplis.<br>.i ja'a go'i .i .e'u va'o lo nu zu'i na kakne tu'a le kibro cu troci le ka gau zu'i le brauzero cu cpacu lo se judri be le me dei moi .i la'a sai le mutpapri cu tolcanci to'e ri'a nai .i lo cnino klesi be la xromium .a la'oi Safari .a la'oi Firefox cu jai sarcu le ka pilno la .muplis.<br/>ni'o le tcita pe di'e ka'e sidju do le ka jimpe fi le ni zabna fa le jufra<ul class='liste'><li>.i la'e zoi <img src='../pixra/plise.svg' class='plise' title='lo staile poi sampu'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu sampu</li><li>.i la'e zoi <img src='../pixra/pelxuplise.svg' class='plise' title='lo staile poi na mutce cinri'> zoi tcita lo jufra poi lo staile be tu'a ke'a na mutce cinri</li><li>.i la'e zoi <img src='../pixra/crinoplise.svg' class='plise' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'> zoi tcita lo jufra poi ka&#39;e xamgu lo di&#39;i fanva</li><li>.i la'e zoi <img src='../pixra/blabiplise.svg' class='plise' title='lo staile poi ka&#39;e pluja'> zoi tcita lo jufra poi lo staile be tu'a ke'a ka'e pluja</li><li>.i la'e zoi <img src='../pixra/cicnaplise.svg' class='plise' title='na&#39;e catni se ciska staile'> zoi tcita lo jufra poi lo staile be tu'a ke'a cu na&#39;e catni</li></ul>ni'o lo nu djica co zenba co cilre tu'a la .muplis. cu .e'u banzu lo nu vitke <a href='https://mw.lojban.org' target='_blank'>lo lojbo uitki</a>.</div></div>
 <div id='outp'></div>
 </div>
 </div>
@@ -667,10 +672,19 @@ pb.style.width = '51%';
 pb.style.width = (ev.data.percent * 100) + '%';
 }
 };
+function getCLLSections(te_gerna){
+return Object.keys(window.arrcll || []).reduce(function(init,i) {
+if (i.indexOf(te_gerna) === 0) {
+init=init.concat(window.arrcll[i]);
+}
+return init;
+},[]);
+}
 function CLL() {
-var sc = (window.arrcll || [])[query];
-if (sc) {
-sc = window.cllnotci + "<ul class='liste'>" + sc.split(" ").map(function(arg) {
+var sc=getCLLSections(query);
+if (sc.length===0 && results && results[0] && results[0].s) sc = getCLLSections(results[0].s);
+if (sc && sc.length>0) {
+sc = window.cllnotci + "<ul class='liste'>" + sc.map(function(arg) {
 var a = window.cylylypoicnino[arg]
 return "<li><a target='_blank' href=\"http:\/\/lojban.org\/publications/cll\/cll_v1.1_xhtml-section-chunks\/" + a.judri + "\">" + escHtml(a.cmene) + "</a></li>";
 }).join("") + "</ul>";
@@ -820,27 +834,27 @@ outp.style.display = 'none';
 descr.style.display = 'block';
 var arrpurc = JSON.parse(localStorage.getItem('purci')) || [];
 var obj = {
-"@cirkotci": [0,"lojbo sance", "../pixra/taplasance.svg", 1, "../sance/"],
-"muplis": [0,"la muplis", "../pixra/taplamuplis.svg", 2.1],
-"jb": [0,"English - Lojban examples", "../pixra/snime-1.svg", 1],
-"en": [0,"English-Lojban", "../pixra/selsku_lanci_eng.svg", 1],
-"jbo": [0,"fanva fi lo lojbo ri", "../pixra/lanci_jbo.svg", 1],
-"ja": [0,"日本 - <span style=\"white-space:pre;\">ロジバン</span>", "../pixra/selsku_lanci_jpn.svg", 1],
-"fr-facile": [0,"français facile - lojban", "../pixra/selsku_lanci_fra.svg", 1],
-"ru": [0,"русский - ложбан", "../pixra/selsku_lanci_rus.svg", 1],
-"eo": [0,"Esperanto - Loĵbano", "../pixra/lanci_epo.svg", 1],
-"es": [0,"español - lojban", "../pixra/selsku_lanci_spa.svg", 1],
-"zh": [0,"中文 - 逻辑语", "../pixra/selsku_lanci_zho.svg", 1],
-"@CC": ['.inglic.',"The Crash Course", "../pixra/cogwheel-5.svg", 1, "https://mw.lojban.org/papri/The_Crash_Course_in_Lojban"],
-"@Jbotcan": ['.inglic.',"Lojban-Chan", "../pixra/jbotcan.svg", 1,"https://jbotcan.org"]
+"@cirkotci": [0, "lojbo sance", "../pixra/taplasance.svg", 1, "../sance/"],
+"muplis": [0, "la muplis", "../pixra/taplamuplis.svg", 2.1],
+"jb": [0, "English - Lojban examples", "../pixra/snime-1.svg", 1],
+"en": [0, "English-Lojban", "../pixra/selsku_lanci_eng.svg", 1],
+"jbo": [0, "fanva fi lo lojbo ri", "../pixra/lanci_jbo.svg", 1],
+"ja": [0, "日本 - <span style=\"white-space:pre;\">ロジバン</span>", "../pixra/selsku_lanci_jpn.svg", 1],
+"fr-facile": [0, "français facile - lojban", "../pixra/selsku_lanci_fra.svg", 1],
+"ru": [0, "русский - ложбан", "../pixra/selsku_lanci_rus.svg", 1],
+"eo": [0, "Esperanto - Loĵbano", "../pixra/lanci_epo.svg", 1],
+"es": [0, "español - lojban", "../pixra/selsku_lanci_spa.svg", 1],
+"zh": [0, "中文 - 逻辑语", "../pixra/selsku_lanci_zho.svg", 1],
+"@CC": ['.inglic.', "The Crash Course", "../pixra/cogwheel-5.svg", 1, "https://mw.lojban.org/papri/The_Crash_Course_in_Lojban"],
+"@Jbotcan": ['.inglic.', "Lojban-Chan", "../pixra/jbotcan.svg", 1, "https://jbotcan.org"]
 }
 var acc = "";
 var cisn = 100;
 for (var key in obj) {
-if (obj[key][0]===0||obj[key][0]===window.bangu){
+if (obj[key][0] === 0 || obj[key][0] === window.bangu) {
 acc += "<div id='DIV_1' style='height:" + (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;'><div id='DIV_2' style='height:" + (cisn) + "px;width:" + (
 obj[key][3] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][1] + "</b></span><div id='DIV_5' style='height:" + (cisn) +
-"px;width:" + (obj[key][3] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;'><a" + ((obj[key][4]||'').indexOf("http")===0? " target='_blank'":'') + " href=\"" + ((key.indexOf(
+"px;width:" + (obj[key][3] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;'><a" + ((obj[key][4] || '').indexOf("http") === 0 ? " target='_blank'" : '') + " href=\"" + ((key.indexOf(
 "@") === 0) ? obj[key][4] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + encodeUrl(drataQuery))) + "\" id='A_7'><div id='DIV_8' style='height:" +
 (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;background-image:url(\"" + obj[key][2] + "\")'></div></a></div></div></div></div>";
 }

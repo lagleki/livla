@@ -1133,7 +1133,10 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
             case txt.indexOf(".k ") === 0:
               benji(source, socket, clientmensi, sendTo, lojban.ilmentufa_off(po, "C")["kampu"]);
               break;
-            case(txt.indexOf(".jbofi'e ") === 0):
+            case(txt.indexOf(".yacc ") === 0||txt.indexOf(".cowan ") === 0):
+              tcepru(po, sendTo, source, socket);
+              break;
+            case(txt.indexOf(".gerna ") === 0||txt.indexOf(".jbofi'e ") === 0):
               jbofihe(po, sendTo, source, socket);
               break;
             case txt.indexOf(".ilm ") === 0:
@@ -1197,7 +1200,7 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
               benji(source, socket, clientmensi, sendTo, rafsi_giho_nai_se_rafsi_gui(po.replace(/[^a-z'\.]/g, '')));
               break;
             case txt.indexOf('.gloss ') === 0:
-              benji(source, socket, clientmensi, sendTo, lojban.gloss(po, 'en', false, true).join(" "));
+              benji(source, socket, clientmensi, sendTo, lojban.gloss(po, 'en', false, false).join(" "));
               break;
             case txt.indexOf('.loi ') === 0:
               benji(source, socket, clientmensi, sendTo, lojban.lojban2loglan(po));

@@ -67,7 +67,7 @@ margin: 0;
 .liste {
 list-style-image: url(../pixra/cmalu_snime.svg);
 }
-.judri{
+.judri {
 color: inherit;
 }
 code {
@@ -144,20 +144,24 @@ border-left: solid 3px #1E90FF;
 margin-top: 9px;
 padding: 9px;
 text-align: justify;
-background: white;
+background: white; 
 border-radius: 5px;
-border: 1px solid #ddd;
+border: 1px solid #ddd; 
+} 
+.plise {
+width: 18px;
+height: 18px;
 }
 .termouter {
 box-shadow: 1px 1px 1px #ccc;
-}
+} 
 .termouter:hover {
 border: 1px solid #ccc;
-box-shadow: 0;
+box-shadow: 0; 
 z-index: 2;
 }
 .terminner {
-border-radius: 0;
+border-radius: 0; 
 border-top: solid 1px #ccc;
 border-right: solid 1px #ccc;
 border-bottom: solid 1px #ccc;
@@ -211,7 +215,7 @@ padding: 2px 6px 2px 6px;
 transition: background 0.4s;
 float: right;
 margin-top: 6px;
-border-radius: 3px;
+border-radius: 2px;
 outline: 0;
 }
 #ciska:not(:valid)~#kunti {
@@ -231,10 +235,11 @@ right: 7px;
 margin-top: 7px;
 }
 @media screen and (min-width: 510px) {
-#title > font {
+#title>font {
 width: auto;
 }
-#kicne1, #kicne2 {
+#kicne1,
+#kicne2 {
 display: none;
 }
 #se-vasru-lo-galtu-dasri {
@@ -248,15 +253,15 @@ margin-left: 10%;
 div {
 line-height: 150%;
 }
-#title > img {
+#title>img {
 padding: 0 4px 0 10px;
 width: 23px;
 height: 23px;
 }
-#title > img:nth-child(1) ~ img {
+#title>img:nth-child(1)~img {
 display: none;
 }
-#title > font {
+#title>font {
 display: none;
 }
 #kicne1 {
@@ -293,13 +298,13 @@ overflow: auto;
 border-top: 48px solid transparent;
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
-box-sizing: border-box;
+box-sizing: border-box; 
 background-color: #FDBF00;
 background-image: url('../pixra/bifce.svg');
 background-image: url('../pixra/bifce.svg'), -webkit-linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
 background-image: url('../pixra/bifce.svg'), -o-linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
 background-image: url('../pixra/bifce.svg') -moz-linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
-background-image: url('../pixra/bifce.svg'), linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
+background-image: url('../pixra/bifce.svg'), linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000); 
 }
 #content-panel {
 max-width: 700px;
@@ -517,7 +522,7 @@ transition: width .8s ease
 <body>
 <div id='galtu-dasri'>
 <form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
-<span id='site-title'><a id='title' href='#'><img src='../pixra/plise.png' height='16' width='16' title='lo staile poi sampu'><img src='../pixra/pelxuplise.png' height='16' width='16' title='lo staile poi na mutce cinri'><img src='../pixra/crinoplise.png' height='16' width='16' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='../pixra/blabiplise.png' height='16' width='16' title='lo staile poi ka&#39;e pluja'><img src='../pixra/cicnaplise.png' height='16' width='16' title='na&#39;e catni se ciska staile'><font color='#fff'>la muplis</font></a></span>
+<span id='site-title'><a id='title' href='#'><img src='../pixra/plise.png' class='plise' title='lo staile poi sampu'><img src='../pixra/pelxuplise.png' class='plise' title='lo staile poi na mutce cinri'><img src='../pixra/crinoplise.png' class='plise' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='../pixra/blabiplise.png' class='plise' title='lo staile poi ka&#39;e pluja'><img src='../pixra/cicnaplise.png' class='plise' title='na&#39;e catni se ciska staile'><font color='#fff'>la muplis</font></a></span>
 <div id="kicne1"></div>
 <input id='ciska' type="text" name="focus" required placeholder="search" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
 <div id="kicne2"></div>
@@ -806,24 +811,24 @@ outp.style.display = 'none';
 descr.style.display = 'block';
 var arrpurc = JSON.parse(localStorage.getItem('purci')) || [];
 var obj = {
-"muplis-eng-pol": [0,"English - polski", "../pixra/muplis-eng-pol.png", 2.1],
-"en-pt-BR": [0,"English - Portugueze", "../pixra/152.png", 1],
-"zamenhofo": [0,"Esperanto - English", "../pixra/lanci_epo.svg", 1],
-"toki": [0,"toki pona - English", "../pixra/Toki_pona.svg", 1],
-"laadan": [0,"English - Láadan", "../pixra/Double_girl_sign.svg", 1],
-"simplingua-zho": [0,"Simplingua - 中文", "../pixra/simplingua.svg", 1],
-"ina": [0,"English - Interlingua", "../pixra/Flag_of_Interlingua.svg", 1],
-"ldp": [0,"English - Lingwa de Planeta", "../pixra/ldp.svg", 1],
-"ile": [0,"English - Occidental / Interlingue", "../pixra/Flag_of_Interlingue.svg", 1],
-"epo-thai": [0,"Esperanto - Thai", "../pixra/lanci_epo.svg", 1],
+"muplis-eng-pol": [0, "English - polski", "../pixra/muplis-eng-pol.png", 2.1],
+"en-pt-BR": [0, "English - Portugueze", "../pixra/152.png", 1],
+"zamenhofo": [0, "Esperanto - English", "../pixra/lanci_epo.svg", 1],
+"toki": [0, "toki pona - English", "../pixra/Toki_pona.svg", 1],
+"laadan": [0, "English - Láadan", "../pixra/Double_girl_sign.svg", 1],
+"simplingua-zho": [0, "Simplingua - 中文", "../pixra/simplingua.svg", 1],
+"ina": [0, "English - Interlingua", "../pixra/Flag_of_Interlingua.svg", 1],
+"ldp": [0, "English - Lingwa de Planeta", "../pixra/ldp.svg", 1],
+"ile": [0, "English - Occidental / Interlingue", "../pixra/Flag_of_Interlingue.svg", 1],
+"epo-thai": [0, "Esperanto - Thai", "../pixra/lanci_epo.svg", 1],
 }
 var acc = "";
 var cisn = 100;
 for (var key in obj) {
-if (obj[key][0]===0||obj[key][0]===window.bangu){
+if (obj[key][0] === 0 || obj[key][0] === window.bangu) {
 acc += "<div id='DIV_1' style='height:" + (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;'><div id='DIV_2' style='height:" + (cisn) + "px;width:" + (
 obj[key][3] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][1] + "</b></span><div id='DIV_5' style='height:" + (cisn) +
-"px;width:" + (obj[key][3] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;'><a" + ((obj[key][4]||'').indexOf("http")===0? " target='_blank'":'') + " href=\"" + ((key.indexOf(
+"px;width:" + (obj[key][3] * cisn) + "px;'><div id='DIV_6' style='height:" + (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;'><a" + ((obj[key][4] || '').indexOf("http") === 0 ? " target='_blank'" : '') + " href=\"" + ((key.indexOf(
 "@") === 0) ? obj[key][4] : ("https://la-lojban.github.io/sutysisku/" + key + "/#sisku/" + encodeUrl(drataQuery))) + "\" id='A_7'><div id='DIV_8' style='height:" +
 (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;background-image:url(\"" + obj[key][2] + "\")'></div></a></div></div></div></div>";
 }

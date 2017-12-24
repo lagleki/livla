@@ -900,6 +900,12 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
     setInterval(() => {
       updatexmldumps();
     }, 3 * 86400000); //update logs once a djedi
+    const GimkaConflicts = (valsi)=>{
+      if (!valsi||valsi==="") return 'no input'
+      const gimka = require('../skripto/gimka.js');
+      const r = gimka.WhichIsInConflictAll(valsi)
+      return `[${r[0]}] - official gismu that conflict with {${valsi}}\n[${r[1]}] - experimental gismu that conflict with {${valsi}}`
+    }
     const wordnet = (source, socket, clientmensi, sendTo, te_gerna) => {
       const natural = require('natural');
       const wn = new natural.WordNet();
@@ -1201,6 +1207,9 @@ const stnlp = (source,socket,clientmensi,sendTo, lin) => {
               break;
             case txt.indexOf('.gloss ') === 0:
               benji(source, socket, clientmensi, sendTo, lojban.gloss(po, 'en', false, false).join(" "));
+              break;
+            case txt.indexOf('.gimka ') === 0:
+              benji(source, socket, clientmensi, sendTo, GimkaConflicts(po.replace(/[^a-z'\.\*0-9]/g, '')));
               break;
             case txt.indexOf('.loi ') === 0:
               benji(source, socket, clientmensi, sendTo, lojban.lojban2loglan(po));

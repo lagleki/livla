@@ -90,6 +90,7 @@
 		.judri {
 			color: inherit;
 		}
+
 		/*
 		.border_gradient {
 			border: 8px solid #000;
@@ -267,7 +268,7 @@
 			margin-left: 15px;
 		}
 
-		#galtu-dasri {
+		.galtu-dasri {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -293,6 +294,36 @@
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de', GradientType=0);
 			/* IE6-9 */
 			color: #FFF;
+			user-select: none;
+		}
+
+		.rimni-dasri {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 48px;
+			width: auto;
+			font-size: 18px;
+			padding: 0;
+			background: rgb(%rimniskari1%);
+			/* Old browsers */
+			background: -moz-linear-gradient(top, rgba(%rimniskari1%, 1) %gradpos1%, rgba(%rimniskari2%, 1) %gradpos2%, rgba(%rimniskari3%, 1) %gradpos3%, rgba(%rimniskari4%, 1) %gradpos4%);
+			/* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(%gradpos1%, rgba(%rimniskari1%, 1)), color-stop(%gradpos2%, rgba(%rimniskari2%, 1)), color-stop(%gradpos3%, rgba(%rimniskari3%, 1)), color-stop(%gradpos4%, rgba(%rimniskari4%, 1)));
+			/* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top, rgba(%rimniskari1%, 1) %gradpos1%, rgba(%rimniskari2%, 1) %gradpos2%, rgba(%rimniskari3%, 1) %gradpos3%, rgba(%rimniskari1%, 1) %gradpos4%);
+			/* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top, rgba(%rimniskari1%, 1) %gradpos1%, rgba(%rimniskari2%, 1) %gradpos2%, rgba(%rimniskari3%, 1) %gradpos3%, rgba(%rimniskari4%, 1) %gradpos4%);
+			/* Opera 11.10+ */
+			background: -ms-linear-gradient(top, rgba(%rimniskari1%, 1) %gradpos1%, rgba(%rimniskari2%, 1) %gradpos2%, rgba(%rimniskari3%, 1) %gradpos3%, rgba(%rimniskari4%, 1) %gradpos4%);
+			/* IE10+ */
+			background: linear-gradient(to bottom, rgba(%rimniskari1%, 1) %gradpos1%, rgba(%rimniskari2%, 1) %gradpos2%, rgba(%rimniskari3%, 1) %gradpos3%, rgba(%rimniskari4%, 1) %gradpos4%);
+			/* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de', GradientType=0);
+			/* IE6-9 */
+			color: #FFF;
+			user-select: none;
 		}
 
 		#se-vasru-lo-galtu-dasri {
@@ -314,11 +345,10 @@
 			font-size: 130%;
 			font-family: Arial, Helvetica, sans-serif;
 			border: 1px solid #999;
-			padding: 2px 6px 2px 6px;
+			padding: 2px 42px 2px 16px;
 			transition: background 0.4s;
 			float: right;
 			margin-top: 6px;
-			border-radius: 2px;
 			outline: 0;
 		}
 
@@ -326,17 +356,17 @@
 			display: none;
 		}
 
-		#kunti {
-			background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat left 5px center;
+		#sela {
+			background: rgba(255, 255, 255, 0.8) url(../pixra/menu.svg) no-repeat left 5px center;
 			position: absolute;
-			padding: 22px 20px 10px 10px;
+			padding: 22px 16px 10px 10px;
 			border: 1px solid transparent;
 			display: inline-block;
 			vertical-align: middle;
 			outline: 0;
 			cursor: pointer;
 			margin-left: -32px;
-			right: 7px;
+			right: 15px;
 			margin-top: 7px;
 		}
 
@@ -353,9 +383,13 @@
 			#se-vasru-lo-galtu-dasri {
 				display: block;
 			}
-
 			.purci {
 				margin-left: 10%;
+			}
+			#ciska {
+				border-radius: 10em;
+				-webkit-border-radius: 10em;
+				-moz-border-radius: 10em;
 			}
 		}
 
@@ -363,7 +397,9 @@
 			div {
 				line-height: 150%;
 			}
-
+			#sela {
+				right: 6px;
+			}
 			#title>img {
 				padding: 0 4px 0 10px;
 				width: 23px;
@@ -403,6 +439,8 @@
 
 			#ciska {
 				width: 100%;
+				padding: 2px 30px 2px 6px;
+				border-radius: 2px;
 			}
 		}
 
@@ -499,6 +537,7 @@
 			margin: 5px;
 			/*outline: rgb(153, 153, 153) solid 1px;*/
 		}
+
 		/*#DIV_1*/
 
 		#DIV_1:hover {
@@ -528,6 +567,7 @@
 			font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
 			overflow: hidden;
 		}
+
 		/*#DIV_2*/
 
 		#SPAN_3 {
@@ -553,6 +593,7 @@
 			pointer-events: none;
 			text-align: right;
 		}
+
 		/*#SPAN_3*/
 
 		#B_4 {
@@ -563,6 +604,7 @@
 			user-select: none;
 			font: normal normal bold normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
 		}
+
 		/*#B_4*/
 
 		#DIV_5 {
@@ -586,6 +628,7 @@
 			user-select: none;
 			font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
 		}
+
 		/*#DIV_5*/
 
 		#DIV_6 {
@@ -606,6 +649,7 @@
 			background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
 			font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
 		}
+
 		/*#DIV_6*/
 
 		#A_7 {
@@ -620,6 +664,7 @@
 			font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
 			/*outline: rgb(32, 134, 191) none 0px;*/
 		}
+
 		/*#A_7*/
 
 		#DIV_8 {
@@ -642,6 +687,7 @@
 			font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
 			/*outline: rgb(32, 134, 191) none 0px;*/
 		}
+
 		/*#DIV_8*/
 
 		.purci {
@@ -698,6 +744,44 @@
 			-o-transition: width .8s ease;
 			transition: width .8s ease
 		}
+
+		#menu {
+			position: absolute;
+			display: none;
+			/* padding: 22px 16px 10px 10px; */
+			/* border: 1px solid transparent; */
+			/* display: inline-block; */
+			/* vertical-align: middle; */
+			outline: 0;
+			cursor: pointer;
+			/* margin-left: -32px; */
+			right: 15px;
+			margin-top: 37px;
+			border: 1px solid #aaa;
+			z-index: 100;
+		}
+
+		#menu ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			width: 200px;
+			background-color: #f1f1f1;
+		}
+
+		#menu li {
+			display: block;
+			color: #000;
+			padding: 8px 16px;
+			text-decoration: none;
+		}
+
+		/* Change the link color on hover */
+
+		#menu li:hover {
+			background-color: #555;
+			color: white;
+		}
 	</style>
 	<link rel="manifest" href="../manifest.json">
 	<script src="bangu.js"></script>
@@ -735,13 +819,19 @@
 	<!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PL4CFMX"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
 	<!-- End Google Tag Manager (noscript) -->
-	<div id='galtu-dasri'>
-		<form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
+	<div id='galtu-dasri' class='galtu-dasri'>
+		<form id='se-vasru-lo-galtu-dasri' onsubmit="return false" novalidate>
 			%titlelogo%
 			<div id="kicne1"></div>
-			<input id='ciska' type="text" name="focus" required placeholder="%bangusisku%" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
+			<input id='ciska' class="ciska" type="text" name="focus" required placeholder="%bangusisku%" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
 			<div id="kicne2"></div>
-			<button id="kunti" type="reset"></button>
+			<button id="sela"></button>
+			<div id="menu">
+				<ul>
+					<li id="kunti">%kunti%</li>
+					<li id="rimni">%rimni%</li>
+				</ul>
+			</div>
 		</form>
 	</div>
 	<div id='content'>
@@ -764,8 +854,14 @@
 		var descr = document.getElementById('descr');
 		var drata = document.getElementById('drata');
 		var purci = document.getElementById('purci');
+		var sela = document.getElementById('sela');
 		var pb = document.getElementById('kernelo_lo_cpacu');
 		var worker = new Worker('worker.js');
+		var menu = document.getElementById('menu');
+		var SiteTitle = document.querySelector('#title > font');
+		var firstSiteTitleValue = SiteTitle.firstChild.nodeValue;
+		var dasri = document.getElementById('galtu-dasri');
+		var SiteImage = document.querySelectorAll('#title > img');
 
 		var fm = {
 			BE: "bei",
@@ -827,6 +923,8 @@
 		document.getElementById('kunti').addEventListener('click', zero);
 		document.getElementById('title').addEventListener('click', zero);
 		purci.addEventListener("click", clicked);
+		document.body.addEventListener('click', hidemenu, true);
+		document.body.addEventListener('mouseup', hidemenu, true);
 		document.getElementById('content').addEventListener('scroll', checkScrolledNearBottom);
 		if (document.attachEvent) {
 			document.attachEvent('onkeyup', handler);
@@ -871,12 +969,33 @@
 		}
 
 		function zero(e) {
-			ciska.value === '';
+			document.getElementsByTagName('input')[0].value = "";
+			// ciska.value === '';
 			query = '';
 			prevQuery = '';
 			displayDescription();
+			CnanoSutysisku();
 		}
 
+		function hidemenu() {
+			menu.style.display = 'none';
+		}
+		sela.addEventListener("click", function() {
+			if (menu.style.display !== 'block') {
+				menu.style.display = 'block';
+			} else {
+				menu.style.display = 'none';
+			}
+		});
+
+		document.getElementById('rimni').addEventListener("click", function() {
+			query = "@" + query.replace(/@+$/, '').replace(/^@+/, '');
+			if (query !== '@') {
+				ciska.value = query;
+				triggerEvent(ciska, 'input');
+				if (ready) doSearch();
+			}
+		});
 		// function sance(e) {
 		// 	ciska.value === '';
 		// 	query = '';
@@ -910,18 +1029,21 @@
 			}
 		};
 		//<xuzganalojudri|lojbo>
-		function getCLLSections(te_gerna){
-			return Object.keys(window.arrcll || []).reduce(function(init,i) {
+		function getCLLSections(te_gerna) {
+			return Object.keys(window.arrcll || []).reduce(function(init, i) {
 				if (i.indexOf(te_gerna) === 0) {
-					init=init.concat(window.arrcll[i]);
+					init = init.concat(window.arrcll[i]);
 				}
 				return init;
-			},[]);
+			}, []).filter(function(a, b, mi) {
+				return mi.indexOf(a) === b;
+			});
 		}
+
 		function CLL() {
-			var sc=getCLLSections(query);
-			if (sc.length===0 && results && results[0] && results[0].s) sc = getCLLSections(results[0].s);
-			if (sc && sc.length>0) {
+			var sc = getCLLSections(query);
+			if (sc.length === 0 && results && results[0] && results[0].s) sc = getCLLSections(results[0].s);
+			if (sc && sc.length > 0) {
 				sc = window.cllnotci + "<ul class='liste'>" + sc.map(function(arg) {
 					var a = window.cylylypoicnino[arg]
 					return "<li><a target='_blank' href=\"http:\/\/lojban.org\/publications/cll\/cll_v1.1_xhtml-section-chunks\/" + a.judri + "\">" + escHtml(a.cmene) + "</a></li>";
@@ -943,10 +1065,9 @@
 		function lojTemplate(a) {
 			return a.replace(/\$.*?\$/g, function(c) {
 				return c.substring(1, c.length - 1)
-					.replace(/(\w+)_\{(\d+)\}/, "<i>$1<sub>$2</sub></i>")
-					.replace(/(\w+)_((?:\d+|\w))/, "<i>$1<sub>$2</sub></i>");
-				// .replace(/\{/g, '[')
-				// .replace(/\}/g, ']');
+					.replace(/([a-zA-Z0-9]+)_?(\d+)/g, "<i>$1<sub>$2</sub></i>")
+					.replace(/([a-zA-Z0-9]+)_((?:\d+|[a-zA-Z0-9]+))/g, "<i>$1<sub>$2</sub></i>")
+					.replace(/([a-zA-Z0-9]+)_?\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>");
 			}).replace(/\{.*?\}/g, function(c) {
 				var c = c.substring(1, c.length - 1);
 				return '<a href="#sisku/' + encodeUrl(c) + '">' + escHtml(c) + "</a>"
@@ -1225,6 +1346,26 @@
 				event: 'formSubmit',
 				customPagePath: '#sisku/' + query
 			});*/
+			var ampersand = query.indexOf('@');
+			if (ampersand === 0 || ampersand === query.length - 1) {
+				SiteTitle.firstChild.nodeValue = window.rimni;
+				dasri.className = 'rimni-dasri';
+				for (var i = 0; i < SiteImage.length; i++) {
+					SiteImage[i].style.filter = "sepia(1.0)";
+					SiteImage[i].style.WebkitFilter = "sepia(1.0)";
+				}
+			} else {
+				CnanoSutysisku();
+			}
+		}
+
+		function CnanoSutysisku() {
+			SiteTitle.firstChild.nodeValue = firstSiteTitleValue;
+			dasri.className = 'galtu-dasri';
+			for (var i = 0; i < SiteImage.length; i++) {
+				SiteImage[i].style.filter = "none";
+				SiteImage[i].style.WebkitFilter = "none";
+			}
 		}
 
 		function typing(a) {
@@ -1263,6 +1404,7 @@
 
 		function handler(e) {
 			if (e.keyCode && e.keyCode === 191) ciska.focus();
+			menu.style.display = 'none';
 		}
 
 		function skicu_lo_ro_valsi() {

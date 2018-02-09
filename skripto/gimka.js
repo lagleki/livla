@@ -155,7 +155,7 @@ function WhichIsInConflict(candidate, arr_existing) {
   for (let i = 0; i < c_arr.length; i++) {
     //we need to check every rule
     for (let j = 0; j < clashing_letters.length; j++) {
-      let c_arr_new = c_arr;
+      let c_arr_new = c_arr.slice();
       c_arr_new[i] = c_arr_new[i].replace(clashing_letters[j][0], clashing_letters[j][1]);
       const c_arr_new_joined = c_arr_new.join("")
       const hasConflict = arr_existing.filter(i => i === c_arr_new_joined)
@@ -173,4 +173,5 @@ function WhichIsInConflictAll(valsi){
   return [off,exp]
 }
 
+// console.log(WhichIsInConflictAll(process.argv[2]))
 module.exports.WhichIsInConflictAll = WhichIsInConflictAll;

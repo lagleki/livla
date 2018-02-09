@@ -106,10 +106,16 @@ langs.forEach(lang => {
     "mupliskari2": "34,87,213",
     "mupliskari3": "38,99,224",
     "mupliskari4": "25,65,165",
+    "rimniskari1": "230,47,0",
+    "rimniskari2": "230,46,0",
+    "rimniskari3": "204,40,0",
+    "rimniskari4": "95,29,0",
     "gradpos1": "0%",
     "gradpos2": "13%",
     "gradpos3": "88%",
-    "gradpos4": "100%"
+    "gradpos4": "100%",
+    "kunti": "Clear",
+    "rimni": "Rhyme search"
   };
   const arr = (config.mupliskari4 || config_fallback.mupliskari4).split(",").map(i => i.trim());
   config.mupliskariralju = fullColorHex(arr[0], arr[1], arr[2]);

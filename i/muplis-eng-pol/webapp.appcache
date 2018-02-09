@@ -1,12 +1,12 @@
 CACHE MANIFEST
-# 2017-12-21T09:03:28
+# 2018-02-08T00:55:58
 CACHE:
 index.html?version=32
 ../sisku.js
 worker.js
 bangu.js
 ../pixra/bifce.svg
-../pixra/x.gif
+../pixra/menu.svg
 ../pixra/Flag_of_Interlingue.svg
 ../pixra/ldp.svg
 ../pixra/Flag_of_Interlingua.svg
@@ -16,7 +16,7 @@ bangu.js
 ../pixra/muplis-eng-pol.png
 ../pixra/16.png
 ../data/parsed-tatoeba-eng-pol.js
-../pixra/x.gif
+../pixra/menu.svg
 NETWORK:
 *
 FALLBACK:

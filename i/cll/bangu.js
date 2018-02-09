@@ -1,6 +1,8 @@
 // JavaScript Document
 window.nasezvafahi = 'not found';
+window.rimni="la rimni sutysisku";
 window.bangudecomp = 'decomposing ...';
+window.rimni="la rimni sutysisku";
 window.bangubuild = 'Building index...';
 window.xuzganalojudri = true;
 window.judri = "http://jbovlaste.lojban.org/dict/";

@@ -251,6 +251,7 @@ function sisku(query, callback) {
       }
       return b;
     }, []);
+
     if (isdef && isdef.length > 0) {
       ki = ki.concat(isdef);
     } else {
@@ -316,7 +317,7 @@ function sisku(query, callback) {
     if (allMatches[0].length === 0)
       allMatches[0] = jmina_ro_cmima_be_lehivalsi(query) || [];
     if (allMatches[0].length === 0 || allMatches[0][0].w !== query_apos) {
-      var ty = julne_setca_lotcila(shortget(query_apos, []));
+      var ty = /^[A-Zh]+[0-9\*]+$/.test(query) >= 0 ? [] : julne_setca_lotcila(shortget(query_apos, []));
       if (window.muplis||!window.xuzganalojudri) ty = ty.filter(function(i){return !i.d || !i.d.nasezvafahi;});
       if (ty.length <= 1) return ty.concat(allMatches[0]);
       return allMatches[1].concat([

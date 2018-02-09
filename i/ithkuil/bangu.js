@@ -1,5 +1,7 @@
 // JavaScript Document
+window.rimni="la rimni sutysisku";
 window.bangubuild = 'Building index...';
+window.rimni="la rimni sutysisku";
 window.bangudecomp = 'decomposing ...';
 window.xuzganalojudri = false;
 window.judri = "http://jbovlaste.lojban.org/dict/";

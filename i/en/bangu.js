@@ -1,11 +1,13 @@
 // JavaScript Document
 window.nasezvafahi = 'No definition has been found';
+window.rimni="la rimni sutysisku";
 window.bangudecomp = 'decomposing ...';
 window.bangubuild = 'Building index...';
 window.xuzganalojudri = true;
 window.judri = "http://jbovlaste.lojban.org/dict/";
 window.cllnotci = 'The Reference Grammar on this topic:';
 window.purc = "Last searched: ";
+window.rimni="la rimni sutysisku";
 window.bangu=".inglic.";
 window.arrcll={
 A:["14.6"],
@@ -46,7 +48,7 @@ GAhO:["14.16"],
 GEhU:["8.3"],
 GI:["14.5"],
 GIhA:["14.3"],
-GOI:["8.3"],
+GOI:["8.3","9.10"],
 GOhA:["7.6"],
 GUhA:["14.3"],
 I:["19.2"],
@@ -145,7 +147,9 @@ ZI:["10.4"],
 ZIhE:["8.4"],
 ZO:["19.10"],
 ZOI:["19.10"],
-ZOhU:["16.2","19.4"]
+ZOhU:["16.2","19.4"],
+"semau":["9.10"],
+"secu'u":["9.10"]
 };
 window.cylylypoicnino = {
 "1":{"judri":"chapter-about.html","cmene":"Lojban As We Mangle It In Lojbanistan: About This Book"},

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2017-12-21T09:03:27
+# 2018-02-08T00:55:58
 CACHE:
 index.html
 ../data/parsed-en.js
@@ -7,7 +7,7 @@ index.html
 worker.js
 bangu.js
 ../pixra/snime.svg
-../pixra/x.gif
+../pixra/menu.svg
 ../pixra/16.png
 ../pixra/32.png
 ../pixra/jbotcan.svg

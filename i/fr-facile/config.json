@@ -6,5 +6,7 @@
   "siskudescr": "Search the Lojban dictionary la jbovlaste.",
   "opdescr": "Un dictionnaire pour le lojban, l'anglais et d'autres langues. Fonctionne aussi hors-ligne.",
   "xuzganalojudri": "true",
-  "lojbo": "true"
+  "lojbo": "true",
+  "rimni": "Chercher des rimes",
+  "kunti": "Effacer"
 }

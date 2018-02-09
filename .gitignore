@@ -1,4 +1,8 @@
+*.pem
+*.crt
+*.key
 node_modules/
+skripto/node_modules/
 _build/
 .idea/
 zasni/

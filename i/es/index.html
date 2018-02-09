@@ -164,7 +164,7 @@ font-size: 90%;
 font-style: italic;
 margin-left: 15px;
 }
-#galtu-dasri {
+.galtu-dasri {
 position: absolute;
 top: 0;
 left: 0;
@@ -182,6 +182,27 @@ background: -ms-linear-gradient(top, rgba(56,136,233, 1) 0%, rgba(34,87,213, 1) 
 background: linear-gradient(to bottom, rgba(56,136,233, 1) 0%, rgba(34,87,213, 1) 13%, rgba(38,99,224, 1) 88%, rgba(25,65,165, 1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de', GradientType=0);
 color: #FFF;
+user-select: none;
+}
+.rimni-dasri {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+height: 48px;
+width: auto;
+font-size: 18px;
+padding: 0;
+background: rgb(230,47,0);
+background: -moz-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 13%, rgba(204,40,0, 1) 88%, rgba(95,29,0, 1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(230,47,0, 1)), color-stop(13%, rgba(230,46,0, 1)), color-stop(88%, rgba(204,40,0, 1)), color-stop(100%, rgba(95,29,0, 1)));
+background: -webkit-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 13%, rgba(204,40,0, 1) 88%, rgba(230,47,0, 1) 100%);
+background: -o-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 13%, rgba(204,40,0, 1) 88%, rgba(95,29,0, 1) 100%);
+background: -ms-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 13%, rgba(204,40,0, 1) 88%, rgba(95,29,0, 1) 100%);
+background: linear-gradient(to bottom, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 13%, rgba(204,40,0, 1) 88%, rgba(95,29,0, 1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de', GradientType=0);
+color: #FFF;
+user-select: none;
 }
 #se-vasru-lo-galtu-dasri {
 max-width: 700px;
@@ -200,27 +221,26 @@ height: 30px;
 font-size: 130%;
 font-family: Arial, Helvetica, sans-serif;
 border: 1px solid #999;
-padding: 2px 6px 2px 6px;
+padding: 2px 42px 2px 16px;
 transition: background 0.4s;
 float: right;
 margin-top: 6px;
-border-radius: 2px;
 outline: 0;
 }
 #ciska:not(:valid)~#kunti {
 display: none;
 }
-#kunti {
-background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat left 5px center;
+#sela {
+background: rgba(255, 255, 255, 0.8) url(../pixra/menu.svg) no-repeat left 5px center;
 position: absolute;
-padding: 22px 20px 10px 10px;
+padding: 22px 16px 10px 10px;
 border: 1px solid transparent;
 display: inline-block;
 vertical-align: middle;
 outline: 0;
 cursor: pointer;
 margin-left: -32px;
-right: 7px;
+right: 15px;
 margin-top: 7px;
 }
 @media screen and (min-width: 510px) {
@@ -237,10 +257,18 @@ display: block;
 .purci {
 margin-left: 10%;
 }
+#ciska {
+border-radius: 10em;
+-webkit-border-radius: 10em;
+-moz-border-radius: 10em;
+}
 }
 @media screen and (max-width: 509px) {
 div {
 line-height: 150%;
+}
+#sela {
+right: 6px;
 }
 #title>img {
 padding: 0 4px 0 10px;
@@ -273,6 +301,8 @@ margin-left: 0%;
 }
 #ciska {
 width: 100%;
+padding: 2px 30px 2px 6px;
+border-radius: 2px;
 }
 }
 ::selection {
@@ -500,18 +530,51 @@ border-radius: 3px;
 -o-transition: width .8s ease;
 transition: width .8s ease
 }
+#menu {
+position: absolute;
+display: none;
+outline: 0;
+cursor: pointer;
+right: 15px;
+margin-top: 37px;
+border: 1px solid #aaa;
+z-index: 100;
+}
+#menu ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+width: 200px;
+background-color: #f1f1f1;
+}
+#menu li {
+display: block;
+color: #000;
+padding: 8px 16px;
+text-decoration: none;
+}
+#menu li:hover {
+background-color: #555;
+color: white;
+}
 </style>
 <link rel="manifest" href="../manifest.json">
 <script src="bangu.js"></script>
 </head>
 <body>
-<div id='galtu-dasri'>
-<form id='se-vasru-lo-galtu-dasri' onsubmit="return false">
+<div id='galtu-dasri' class='galtu-dasri'>
+<form id='se-vasru-lo-galtu-dasri' onsubmit="return false" novalidate>
 <span id='site-title'><a id='title' href='#'><img src="../pixra/snime.svg" height='16' width='16'><font color='#fff'>la sutysisku</font></a></span>
 <div id="kicne1"></div>
-<input id='ciska' type="text" name="focus" required placeholder="buscar" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
+<input id='ciska' class="ciska" type="text" name="focus" required placeholder="buscar" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
 <div id="kicne2"></div>
-<button id="kunti" type="reset"></button>
+<button id="sela"></button>
+<div id="menu">
+<ul>
+<li id="kunti">Vaciar</li>
+<li id="rimni">Buscar rimas</li>
+</ul>
+</div>
 </form>
 </div>
 <div id='content'>
@@ -534,8 +597,14 @@ var outp = document.getElementById('outp');
 var descr = document.getElementById('descr');
 var drata = document.getElementById('drata');
 var purci = document.getElementById('purci');
+var sela = document.getElementById('sela');
 var pb = document.getElementById('kernelo_lo_cpacu');
 var worker = new Worker('worker.js');
+var menu = document.getElementById('menu');
+var SiteTitle = document.querySelector('#title > font');
+var firstSiteTitleValue = SiteTitle.firstChild.nodeValue;
+var dasri = document.getElementById('galtu-dasri');
+var SiteImage = document.querySelectorAll('#title > img');
 var fm = {
 BE: "bei",
 BEI: "be'o",
@@ -593,6 +662,8 @@ window.addEventListener('popstate', sisku_rahilejudri);
 document.getElementById('kunti').addEventListener('click', zero);
 document.getElementById('title').addEventListener('click', zero);
 purci.addEventListener("click", clicked);
+document.body.addEventListener('click', hidemenu, true);
+document.body.addEventListener('mouseup', hidemenu, true);
 document.getElementById('content').addEventListener('scroll', checkScrolledNearBottom);
 if (document.attachEvent) {
 document.attachEvent('onkeyup', handler);
@@ -630,11 +701,30 @@ el.fireEvent('on' + e.eventType, e);
 }
 }
 function zero(e) {
-ciska.value === '';
+document.getElementsByTagName('input')[0].value = "";
 query = '';
 prevQuery = '';
 displayDescription();
+CnanoSutysisku();
 }
+function hidemenu() {
+menu.style.display = 'none';
+}
+sela.addEventListener("click", function() {
+if (menu.style.display !== 'block') {
+menu.style.display = 'block';
+} else {
+menu.style.display = 'none';
+}
+});
+document.getElementById('rimni').addEventListener("click", function() {
+query = "@" + query.replace(/@+$/, '').replace(/^@+/, '');
+if (query !== '@') {
+ciska.value = query;
+triggerEvent(ciska, 'input');
+if (ready) doSearch();
+}
+});
 function calcVH() {
 document.getElementById("content").setAttribute("style", "height:" + Math.max(document.documentElement.clientHeight, window.innerHeight || 0) + "px;");
 }
@@ -657,18 +747,20 @@ pb.style.width = '51%';
 pb.style.width = (ev.data.percent * 100) + '%';
 }
 };
-function getCLLSections(te_gerna){
-return Object.keys(window.arrcll || []).reduce(function(init,i) {
+function getCLLSections(te_gerna) {
+return Object.keys(window.arrcll || []).reduce(function(init, i) {
 if (i.indexOf(te_gerna) === 0) {
-init=init.concat(window.arrcll[i]);
+init = init.concat(window.arrcll[i]);
 }
 return init;
-},[]);
+}, []).filter(function(a, b, mi) {
+return mi.indexOf(a) === b;
+});
 }
 function CLL() {
-var sc=getCLLSections(query);
-if (sc.length===0 && results && results[0] && results[0].s) sc = getCLLSections(results[0].s);
-if (sc && sc.length>0) {
+var sc = getCLLSections(query);
+if (sc.length === 0 && results && results[0] && results[0].s) sc = getCLLSections(results[0].s);
+if (sc && sc.length > 0) {
 sc = window.cllnotci + "<ul class='liste'>" + sc.map(function(arg) {
 var a = window.cylylypoicnino[arg]
 return "<li><a target='_blank' href=\"http:\/\/lojban.org\/publications/cll\/cll_v1.1_xhtml-section-chunks\/" + a.judri + "\">" + escHtml(a.cmene) + "</a></li>";
@@ -688,8 +780,9 @@ skicu_lo_ro_valsi();
 function lojTemplate(a) {
 return a.replace(/\$.*?\$/g, function(c) {
 return c.substring(1, c.length - 1)
-.replace(/(\w+)_\{(\d+)\}/, "<i>$1<sub>$2</sub></i>")
-.replace(/(\w+)_((?:\d+|\w))/, "<i>$1<sub>$2</sub></i>");
+.replace(/([a-zA-Z0-9]+)_?(\d+)/g, "<i>$1<sub>$2</sub></i>")
+.replace(/([a-zA-Z0-9]+)_((?:\d+|[a-zA-Z0-9]+))/g, "<i>$1<sub>$2</sub></i>")
+.replace(/([a-zA-Z0-9]+)_?\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>");
 }).replace(/\{.*?\}/g, function(c) {
 var c = c.substring(1, c.length - 1);
 return '<a href="#sisku/' + encodeUrl(c) + '">' + escHtml(c) + "</a>"
@@ -916,6 +1009,25 @@ lastQueried = cati();
 var searchId = ++searchIdCounter;
 window.jimte = 30;
 resultCount = 0;
+var ampersand = query.indexOf('@');
+if (ampersand === 0 || ampersand === query.length - 1) {
+SiteTitle.firstChild.nodeValue = window.rimni;
+dasri.className = 'rimni-dasri';
+for (var i = 0; i < SiteImage.length; i++) {
+SiteImage[i].style.filter = "sepia(1.0)";
+SiteImage[i].style.WebkitFilter = "sepia(1.0)";
+}
+} else {
+CnanoSutysisku();
+}
+}
+function CnanoSutysisku() {
+SiteTitle.firstChild.nodeValue = firstSiteTitleValue;
+dasri.className = 'galtu-dasri';
+for (var i = 0; i < SiteImage.length; i++) {
+SiteImage[i].style.filter = "none";
+SiteImage[i].style.WebkitFilter = "none";
+}
 }
 function typing(a) {
 clearTimeout(typingTimer);
@@ -945,6 +1057,7 @@ return a
 }
 function handler(e) {
 if (e.keyCode && e.keyCode === 191) ciska.focus();
+menu.style.display = 'none';
 }
 function skicu_lo_ro_valsi() {
 var displayUpTo = Math.min(window.jimte, results.length);

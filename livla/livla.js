@@ -474,7 +474,10 @@ const GetXmldoc = (lng) => {
   return xmlDocEn;
 };
 
-const PrettyLujvoScore = (a) => a.map(({
+const PrettyLujvoScore = (a) => a.filter(({
+  lujvo,
+  score
+}) => /[aeiou]/.test(lujvo.slice(-1)[0])).map(({
   lujvo,
   score
 }) => `${lujvo}: ${score}`).join(", ");
@@ -486,13 +489,10 @@ const MultipleDefs = (valsi, lng, tordu) => {
   lg(lojban.xulujvo(valsi));
   if (lojban.xulujvo(valsi)) {
     try {
-      lg(111);
       const l = lojban.jvokaha_gui(valsi);
-      lg(l);
       const f = lojban.jvozba(l).filter(({
         lujvo
       }) => /[aeiou]/.test(lujvo.slice(-1)));
-      lg(f);
       const fslice = f.slice(0, Math.min(f.length, 3));
       const arr_defs = fslice.map(({
         lujvo
@@ -878,7 +878,8 @@ const ningaumahantufa = (text, socket) => {
     fs.writeSync(fd, buffer, 0, buffer.length);
     buffer = new Buffer(camxes);
     fs.writeSync(fd, buffer, 0, buffer.length);
-    buffer = new Buffer("\n\nmodule.exports = camxes;\n\nterm = process.argv[2];\nif (term !== undefined && typeof term.valueOf() === 'string')\n  lg(JSON.stringify(camxes.parse(term)));\n\n");
+    // buffer = new Buffer("\n\nmodule.exports = camxes;\n\nterm = process.argv[2];\nif (term !== undefined && typeof term.valueOf() === 'string')\n  lg(JSON.stringify(camxes.parse(term)));\n\n");
+    buffer = new Buffer("");
     fs.writeSync(fd, buffer, 0, buffer.length);
     fs.close(fd);
     const ya = require("uglify-js").minify(whichfile).code;
@@ -1459,9 +1460,9 @@ clientmensi.addListener('error', message => {
 const app = require('express')();
 const https = require('https');
 const serverSocket = https.createServer({
-  key: fs.readFileSync(path.join(__dirname, '/../file.pem')),
-  cert: fs.readFileSync(path.join(__dirname, '/../file.crt')),
-  ca: fs.readFileSync(path.join(__dirname, '/../intermediate.key')),
+  key: fs.readFileSync(path.join(__dirname, '/../config/file.pem')),
+  cert: fs.readFileSync(path.join(__dirname, '/../config/file.crt')),
+  ca: fs.readFileSync(path.join(__dirname, '/../config/intermediate.key')),
   requestCert: true,
   rejectUnauthorized: false
 }, app);

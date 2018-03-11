@@ -1,6 +1,3 @@
-*.pem
-*.crt
-*.key
 node_modules/
 skripto/node_modules/
 _build/
@@ -31,4 +28,7 @@ i/data/*.*
 i/.git
 i/.gitignore
 !i/data/parsed-tatoeba.js
-*.log
+config/*.log
+config/*.crt
+config/*.pem
+config/*.key

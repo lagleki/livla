@@ -185,14 +185,6 @@ color: #FFF;
 user-select: none;
 }
 .rimni-dasri {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 48px;
-width: auto;
-font-size: 18px;
-padding: 0;
 background: rgb(230,47,0);
 background: -moz-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 13%, rgba(204,40,0, 1) 88%, rgba(95,29,0, 1) 100%);
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(230,47,0, 1)), color-stop(13%, rgba(230,46,0, 1)), color-stop(88%, rgba(204,40,0, 1)), color-stop(100%, rgba(95,29,0, 1)));
@@ -201,6 +193,14 @@ background: -o-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 13%,
 background: -ms-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 13%, rgba(204,40,0, 1) 88%, rgba(95,29,0, 1) 100%);
 background: linear-gradient(to bottom, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 13%, rgba(204,40,0, 1) 88%, rgba(95,29,0, 1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de', GradientType=0);
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+height: 48px;
+width: auto;
+font-size: 18px;
+padding: 0;
 color: #FFF;
 user-select: none;
 }
@@ -214,7 +214,27 @@ position: relative;
 font-size: 18px;
 font-weight: bold;
 float: left;
-margin-top: 12px;
+border-radius: 0px 0px 14px 14px;
+border-color: #333;
+border-width: 0px 1px 1px 1px;
+border-style: solid;
+height: 22px;
+padding: 12px 10px 14px 10px;
+}
+.desktop-mode-title-color {
+background: rgba(38,99,224, 1);
+}
+.desktop-mode-title-color>a {
+pointer-events: none;
+cursor: default;
+}
+.rimni-search-mode-title-color {
+background: linear-gradient( to top right, rgba(230,46,0, 1) 0%, rgba(204,40,0, 1) 40%);
+box-shadow: 1px 1px 30px rgba(95,29,0, 1);
+}
+.normal-search-mode-title-color {
+background: linear-gradient( to top right, rgba(63, 81, 181, 1) 0%, rgba(3, 155, 229, 1) 40%);
+box-shadow: 1px 1px 30px rgba(2, 119, 189, 1);
 }
 #ciska {
 height: 30px;
@@ -256,6 +276,8 @@ display: block;
 }
 .purci {
 margin-left: 10%;
+cursor: default;
+user-select: none;
 }
 #ciska {
 border-radius: 10em;
@@ -271,7 +293,6 @@ line-height: 150%;
 right: 6px;
 }
 #title>img {
-padding: 0 4px 0 10px;
 width: 23px;
 height: 23px;
 }
@@ -602,7 +623,8 @@ var pb = document.getElementById('kernelo_lo_cpacu');
 var worker = new Worker('worker.js');
 var menu = document.getElementById('menu');
 var SiteTitle = document.querySelector('#title > font');
-var firstSiteTitleValue = SiteTitle.firstChild.nodeValue;
+var SiteTitleFull = document.querySelector('#site-title');
+SiteTitleFull.classList.add("desktop-mode-title-color");
 var dasri = document.getElementById('galtu-dasri');
 var SiteImage = document.querySelectorAll('#title > img');
 var fm = {
@@ -659,7 +681,7 @@ timer = setTimeout(callback, ms);
 };
 })();
 window.addEventListener('popstate', sisku_rahilejudri);
-document.getElementById('kunti').addEventListener('click', zero);
+document.getElementById('kunti').addEventListener('click', zero.bind('kunti'));
 document.getElementById('title').addEventListener('click', zero);
 purci.addEventListener("click", clicked);
 document.body.addEventListener('click', hidemenu, true);
@@ -679,6 +701,7 @@ displayDescription();
 });
 ciska.addEventListener("paste", typing(0));
 ciska.addEventListener("input", typing());
+ciska.addEventListener("focus", doSearch);
 ciska.addEventListener("textInput", typing());
 if (document.readyState === 'loading') {
 pb.style.width = '37%';
@@ -701,6 +724,7 @@ el.fireEvent('on' + e.eventType, e);
 }
 }
 function zero(e) {
+if (this.toString() === 'kunti')
 document.getElementsByTagName('input')[0].value = "";
 query = '';
 prevQuery = '';
@@ -901,6 +925,10 @@ return out;
 }
 function displayDescription() {
 if (query == '') {
+SiteTitleFull.classList.remove("normal-search-mode-title-color");
+SiteTitleFull.classList.remove("rimni-search-mode-title-color");
+SiteTitleFull.classList.add("desktop-mode-title-color");
+dasri.className = 'galtu-dasri';
 outp.style.display = 'none';
 descr.style.display = 'block';
 var arrpurc = JSON.parse(localStorage.getItem('purci')) || [];
@@ -957,7 +985,6 @@ return a;
 function clicked(event) {
 if (event.target.nodeName === 'A') {
 var el = event.target;
-var title = event.target.getAttribute("title");
 if (el.ctrlKey || el.metaKey) return;
 lecnino_judri_gaumeluhacitri(el.getAttribute('href'));
 sisku_rahilejudri();
@@ -1011,19 +1038,22 @@ window.jimte = 30;
 resultCount = 0;
 var ampersand = query.indexOf('@');
 if (ampersand === 0 || ampersand === query.length - 1) {
-SiteTitle.firstChild.nodeValue = window.rimni;
+SiteTitleFull.classList.add("rimni-search-mode-title-color");
+SiteTitleFull.classList.remove("normal-search-mode-title-color");
+SiteTitleFull.classList.remove("desktop-mode-title-color");
 dasri.className = 'rimni-dasri';
 for (var i = 0; i < SiteImage.length; i++) {
 SiteImage[i].style.filter = "sepia(1.0)";
 SiteImage[i].style.WebkitFilter = "sepia(1.0)";
 }
 } else {
+SiteTitleFull.classList.add("normal-search-mode-title-color");
+SiteTitleFull.classList.remove("desktop-mode-title-color");
+dasri.className = 'galtu-dasri';
 CnanoSutysisku();
 }
 }
 function CnanoSutysisku() {
-SiteTitle.firstChild.nodeValue = firstSiteTitleValue;
-dasri.className = 'galtu-dasri';
 for (var i = 0; i < SiteImage.length; i++) {
 SiteImage[i].style.filter = "none";
 SiteImage[i].style.WebkitFilter = "none";

@@ -299,32 +299,32 @@
 		}
 
 		.rimni-dasri {
-			background: rgb(%rimniskari1%);
-			/* Old browsers */
-			background: -moz-linear-gradient(top, rgba(%rimniskari1%, 1) %gradpos1%, rgba(%rimniskari2%, 1) %gradpos2%, rgba(%rimniskari3%, 1) %gradpos3%, rgba(%rimniskari4%, 1) %gradpos4%);
-			/* FF3.6+ */
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(%gradpos1%, rgba(%rimniskari1%, 1)), color-stop(%gradpos2%, rgba(%rimniskari2%, 1)), color-stop(%gradpos3%, rgba(%rimniskari3%, 1)), color-stop(%gradpos4%, rgba(%rimniskari4%, 1)));
-			/* Chrome,Safari4+ */
-			background: -webkit-linear-gradient(top, rgba(%rimniskari1%, 1) %gradpos1%, rgba(%rimniskari2%, 1) %gradpos2%, rgba(%rimniskari3%, 1) %gradpos3%, rgba(%rimniskari1%, 1) %gradpos4%);
-			/* Chrome10+,Safari5.1+ */
-			background: -o-linear-gradient(top, rgba(%rimniskari1%, 1) %gradpos1%, rgba(%rimniskari2%, 1) %gradpos2%, rgba(%rimniskari3%, 1) %gradpos3%, rgba(%rimniskari4%, 1) %gradpos4%);
-			/* Opera 11.10+ */
-			background: -ms-linear-gradient(top, rgba(%rimniskari1%, 1) %gradpos1%, rgba(%rimniskari2%, 1) %gradpos2%, rgba(%rimniskari3%, 1) %gradpos3%, rgba(%rimniskari4%, 1) %gradpos4%);
-			/* IE10+ */
-			background: linear-gradient(to bottom, rgba(%rimniskari1%, 1) %gradpos1%, rgba(%rimniskari2%, 1) %gradpos2%, rgba(%rimniskari3%, 1) %gradpos3%, rgba(%rimniskari4%, 1) %gradpos4%);
-			/* W3C */
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de', GradientType=0);
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 48px;
-			width: auto;
-			font-size: 18px;
-			padding: 0;
-			/* IE6-9 */
-			color: #FFF;
-			user-select: none;
+		  background: rgb(%rimniskari1%);
+		  /* Old browsers */
+		  background: -moz-linear-gradient(top, rgba(%rimniskari1%, 1) %rimnigradpos1%, rgba(%rimniskari2%, 1) %rimnigradpos2%, rgba(%rimniskari3%, 1) %rimnigradpos3%, rgba(%rimniskari4%, 1) %rimnigradpos4%);
+		  /* FF3.6+ */
+		  background: -webkit-gradient(linear, left top, left bottom, color-stop(%rimnigradpos1%, rgba(%rimniskari1%, 1)), color-stop(%rimnigradpos2%, rgba(%rimniskari2%, 1)), color-stop(%rimnigradpos3%, rgba(%rimniskari3%, 1)), color-stop(%rimnigradpos4%, rgba(%rimniskari4%, 1)));
+		  /* Chrome,Safari4+ */
+		  background: -webkit-linear-gradient(top, rgba(%rimniskari1%, 1) %rimnigradpos1%, rgba(%rimniskari2%, 1) %rimnigradpos2%, rgba(%rimniskari3%, 1) %rimnigradpos3%, rgba(%rimniskari1%, 1) %rimnigradpos4%);
+		  /* Chrome10+,Safari5.1+ */
+		  background: -o-linear-gradient(top, rgba(%rimniskari1%, 1) %rimnigradpos1%, rgba(%rimniskari2%, 1) %rimnigradpos2%, rgba(%rimniskari3%, 1) %rimnigradpos3%, rgba(%rimniskari4%, 1) %rimnigradpos4%);
+		  /* Opera 11.10+ */
+		  background: -ms-linear-gradient(top, rgba(%rimniskari1%, 1) %rimnigradpos1%, rgba(%rimniskari2%, 1) %rimnigradpos2%, rgba(%rimniskari3%, 1) %rimnigradpos3%, rgba(%rimniskari4%, 1) %rimnigradpos4%);
+		  /* IE10+ */
+		  background: linear-gradient(to bottom, rgba(%rimniskari1%, 1) %rimnigradpos1%, rgba(%rimniskari2%, 1) %rimnigradpos2%, rgba(%rimniskari3%, 1) %rimnigradpos3%, rgba(%rimniskari4%, 1) %rimnigradpos4%);
+		  /* W3C */
+		  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de', GradientType=0);
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  height: 48px;
+		  width: auto;
+		  font-size: 18px;
+		  padding: 0;
+		  /* IE6-9 */
+		  color: #FFF;
+		  user-select: none;
 		}
 
 		#se-vasru-lo-galtu-dasri {
@@ -349,22 +349,19 @@
 
 		.desktop-mode-title-color {
 			background: rgba(%mupliskari3%, 1);
-		}
-
-		.desktop-mode-title-color>a {
-			pointer-events: none;
 			cursor: default;
 		}
 
 		.rimni-search-mode-title-color {
 			background: linear-gradient( to top right, rgba(%rimniskari2%, 1) 0%, rgba(%rimniskari3%, 1) 40%);
 			box-shadow: 1px 1px 30px rgba(%rimniskari4%, 1);
+			cursor: pointer;
 		}
 
 		.normal-search-mode-title-color {
-			background: linear-gradient( to top right, rgba(63, 81, 181, 1) 0%, rgba(3, 155, 229, 1) 40%);
+			background: linear-gradient( to top right, rgba(63, 81, 181, 1) 0%, rgba(4, 119, 218, 1) 40%);
 			box-shadow: 1px 1px 30px rgba(2, 119, 189, 1);
-			/* cursor: auto; */
+			cursor: pointer;
 			/* box-shadow: '0px 0px 40px 20px #2d68d4'; */
 		}
 
@@ -372,7 +369,7 @@
 			height: 30px;
 			font-size: 130%;
 			font-family: Arial, Helvetica, sans-serif;
-			border: 1px solid #999;
+			border: 1px solid #777;
 			padding: 2px 42px 2px 16px;
 			transition: background 0.4s;
 			float: right;
@@ -387,7 +384,7 @@
 		#sela {
 			background: rgba(255, 255, 255, 0.8) url(../pixra/menu.svg) no-repeat left 5px center;
 			position: absolute;
-			padding: 22px 16px 10px 10px;
+			padding: 24px 16px 8px 10px;
 			border: 1px solid transparent;
 			display: inline-block;
 			vertical-align: middle;
@@ -397,9 +394,11 @@
 			right: 15px;
 			margin-top: 7px;
 		}
-
+		#title{
+			cursor: default;
+		}
 		@media screen and (min-width: 510px) {
-			#title>font {
+			#title>#site-title>font {
 				width: auto;
 			}
 
@@ -417,9 +416,9 @@
 				user-select: none;
 			}
 			#ciska {
-				border-radius: 10em;
-				-webkit-border-radius: 10em;
-				-moz-border-radius: 10em;
+				border-radius: 1em;
+				-webkit-border-radius: 1em;
+				-moz-border-radius: 1em;
 			}
 		}
 
@@ -440,7 +439,7 @@
 				display: none;
 			}
 
-			#title>font {
+			#title>#site-title>font {
 				display: none;
 			}
 
@@ -551,7 +550,6 @@
 			bottom: 0px;
 			box-shadow: rgb(255, 255, 204) 0px 0px 1px 0px inset;
 			box-sizing: border-box;
-			cursor: pointer;
 			display: inline-block;
 			/*height: 150px;*/
 			left: 0px;
@@ -583,7 +581,6 @@
 			border-collapse: collapse;
 			bottom: 0px;
 			box-sizing: border-box;
-			cursor: pointer;
 			/* height: 150px;*/
 			left: 0px;
 			position: absolute;
@@ -604,7 +601,6 @@
 			border-collapse: collapse;
 			bottom: 0px;
 			box-sizing: border-box;
-			cursor: pointer;
 			display: block;
 			/* height: 53px;*/
 			/*left: 10px;*/
@@ -629,7 +625,6 @@
 		#B_4 {
 			border-collapse: collapse;
 			box-sizing: border-box;
-			cursor: pointer;
 			text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
 			user-select: none;
 			font: normal normal bold normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
@@ -642,7 +637,6 @@
 			bottom: 0px;
 			box-shadow: rgb(255, 255, 204) 0px 0px 1px 0px inset;
 			box-sizing: border-box;
-			cursor: pointer;
 			display: inline-block;
 			/*height: 150px;*/
 			left: 0px;
@@ -665,7 +659,6 @@
 			border-collapse: collapse;
 			bottom: 0px;
 			box-sizing: border-box;
-			cursor: pointer;
 			/*height: 150px;*/
 			left: 0px;
 			position: relative;
@@ -1023,7 +1016,7 @@
 		});
 
 		document.getElementById('rimni').addEventListener("click", function() {
-			query = "@" + query.replace(/@+$/, '').replace(/^@+/, '');
+			query = '@' + query.replace(/@+$/, '').replace(/^@+/, '');
 			if (query !== '@') {
 				ciska.value = query;
 				triggerEvent(ciska, 'input');
@@ -1099,9 +1092,10 @@
 		function lojTemplate(a) {
 			return a.replace(/\$.*?\$/g, function(c) {
 				return c.substring(1, c.length - 1)
-					.replace(/([a-zA-Z0-9]+)_?(\d+)/g, "<i>$1<sub>$2</sub></i>")
-					.replace(/([a-zA-Z0-9]+)_((?:\d+|[a-zA-Z0-9]+))/g, "<i>$1<sub>$2</sub></i>")
-					.replace(/([a-zA-Z0-9]+)_?\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>");
+					.replace(/([a-zA-Z]+[0-9]*)_?\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>")
+					.replace(/([a-zA-Z]+[0-9]*)_?(\d+)/g, "<i>$1<sub>$2</sub></i>")
+					.replace(/([a-zA-Z]+[0-9]*)_((?:\d+|[a-zA-Z0-9]+))/g, "<i>$1<sub>$2</sub></i>")
+					;
 			}).replace(/\{.*?\}/g, function(c) {
 				var c = c.substring(1, c.length - 1);
 				return '<a href="#sisku/' + encodeUrl(c) + '">' + escHtml(c) + "</a>"
@@ -1266,6 +1260,7 @@
 					"toki": [0, "toki pona - English", "../pixra/Toki_pona.svg", 1],
 					"laadan": [0, "English - Láadan", "../pixra/Double_girl_sign.svg", 1],
 					"simplingua-zho": [0, "Simplingua - 中文", "../pixra/simplingua.svg", 1],
+					"ktv-eng": [0, "Kotava - English", "../pixra/ktv-eng.svg", 1],
 					"ina": [0, "English - Interlingua", "../pixra/Flag_of_Interlingua.svg", 1],
 					"ldp": [0, "English - Lingwa de Planeta", "../pixra/ldp.svg", 1],
 					"ile": [0, "English - Occidental / Interlingue", "../pixra/Flag_of_Interlingue.svg", 1],

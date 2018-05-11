@@ -240,7 +240,9 @@ var update_cc_dict = function(){
 			var ra=rev[i].find("rafsi//text()[1]");
 			if (xugismu(hi)===true){
 				ra.push(hi);
-				if(hi.indexOf("brod")!==0){ra.push(hi.substr(0,4));}
+				if(hi.indexOf("brod")!==0){
+					ra.push(hi.substr(0,4)+"y");
+				}
 				if(hi.indexOf("broda")===0){ra.push("brod");}
 			}
 			ra=ra.join("\",\"");

@@ -34,7 +34,7 @@ const langs = [
 const robangu = 'fr-facile|en|ru|de|ja|jbo|guaspi|loglan|eo|fr|jb|2002|es|zh|sv|en-simple|krasi|dukti|laadan|toki';
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
-let tcan = '#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau,##esperanto';
+let tcan = '#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau,##esperanto,#polsk,#tokpona,#ponjbo';
 // let tcan = '#lojbanme';
 let nuzbytcan = '#lojban';
 let livlytcan = '#lojbanme'; //where la livla talks to la mensi
@@ -993,6 +993,7 @@ const updatexmldumps = callback => {
   sutysiskuningau("ile", 0);
   sutysiskuningau("ina", 0);
   sutysiskuningau("toki", 0);
+  sutysiskuningau("ktv-eng", 0);
   sutysiskuningau("ldp", 0);
   //updategloss();# not yet ready function
 };
@@ -1179,8 +1180,18 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
         case txt.trim() === '#slak':
           benji(source, socket, clientmensi, sendTo, "https://slaka.herokuapp.com");
           break;
+        case txt.trim() === '#maxefanva':
+          benji(source, socket, clientmensi, sendTo, "https://www.youtube.com/watch?v=lrWvEnWnpG8");
+          break;
         case txt.trim() === '#telegram':
-          benji(source, socket, clientmensi, sendTo, "#lojban https://t.me/joinchat/BLVsYz3hCF8mCAb6fzW1Rw\n#ckule https://telegram.me/joinchat/BLVsYz4hC9ulWahupDLovA\n#jbosnu https://telegram.me/joinchat/BLVsYz20Boixl0xN-0TrPw\n#spero https://telegram.me/joinchat/BcR2JD4jiwpKsTiof9rDRA\n##jboselbau https://telegram.me/joinchat/CJYorT2ma6UVfhb9YThEqw");
+          benji(source, socket, clientmensi, sendTo, `#lojban https://t.me/joinchat/BLVsYz3hCF8mCAb6fzW1Rw\n
+            #ckule https://t.me/joinchat/BLVsYz4hC9ulWahupDLovA\n
+            #jbosnu https://t.me/joinchat/BLVsYz20Boixl0xN-0TrPw\n
+            #spero https://t.me/joinchat/BcR2JD4jiwpKsTiof9rDRA\n
+            ##jboselbau https://t.me/joinchat/CJYorT2ma6UVfhb9YThEqw
+            #polsk https://t.me/joinchat/BLVsY0Zwl7cpY1WSDm_iTA\n
+            #ponjbo https://t.me/joinchat/BLVsY1CaPEK6UyBZmloTdg
+            `);
           break;
         case txt.trim() === '#uilkinse':
           benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");
@@ -1198,7 +1209,7 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
           benji(source, socket, clientmensi, sendTo, ".i .itku'ile ga'a mi");
           break;
         case txt.trim() === '#mohu':
-          benji(source, socket, clientmensi, sendTo, "http://www.let.uu.nl/~Iris.Mulders/personal/foundations/borik-reinhart.pdf");
+          benji(source, socket, clientmensi, sendTo, "https://www.dropbox.com/s/r4eowtdeorjyj56/borik-reinhart.pdf?dl=0");
           break;
         case txt.trim() === '#erneta':
           benji(source, socket, clientmensi, sendTo, "http://jbotcan.org/lojban/en/SWH_confirmed.html");
@@ -1400,6 +1411,9 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
         case txt === `${replier}: ju'i`:
           benji(source, socket, clientmensi, sendTo, `re'i`);
           break;
+        case txt === `${replier}: io`:
+          benji(source, socket, clientmensi, sendTo, `io`);
+          break;
         case txt === `${replier}: aigne`:
           benji(source, socket, clientmensi, sendTo, 'CommonSenseError: Expected normal word but Curtis found.');
           break;
@@ -1459,13 +1473,14 @@ clientmensi.addListener('error', message => {
 
 const app = require('express')();
 const https = require('https');
-const serverSocket = https.createServer({
-  key: fs.readFileSync(path.join(__dirname, '/../config/file.pem')),
-  cert: fs.readFileSync(path.join(__dirname, '/../config/file.crt')),
-  ca: fs.readFileSync(path.join(__dirname, '/../config/intermediate.key')),
-  requestCert: true,
+const server_options = {
+  key: fs.readFileSync(path.join(__dirname, '/../config/server2.key')),
+  cert: fs.readFileSync(path.join(__dirname, '/../config/server.crt')),
+  requestCert: false,
   rejectUnauthorized: false
-}, app);
+};
+
+const serverSocket = https.createServer(server_options, app);
 serverSocket.listen(3002);
 
 const io = require('socket.io').listen(serverSocket);

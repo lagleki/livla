@@ -12,7 +12,8 @@
     "json-query": "^2.2.2",
     "libxmljs": "~0.18.0",
     "line-by-line": "^0.1.6",
-    "lojban": "0.0.29",
+    "lojban": "^0.0.31",
+    "lzwcompress": "^0.2.4",
     "natural": "^0.5.4",
     "node-tweet-stream": "^2.0.1",
     "node-xml-compare": "^0.1.0",
@@ -46,9 +47,6 @@
     "reload": "node i/.scripts/morna.js",
     "snovlaste": "cd i ; node .scripts/vlaste.js ; node .scripts/morna.js ; git checkout --orphan newBranch ; git add -A ; git commit -m 'commit' ; git branch -D master ; git branch -m master ; git push -f origin master ; git gc --aggressive --prune=all ; git push --set-upstream origin master ; cd ..",
     "push": "git add . ; git commit -a ;  git push",
-    "compile": "./node_modules/.bin/babel src/ -d lib/",
-    "build": "babel src/ -d lib/",
-    "prepublish": "npm run build",
     "flow": "flow"
   }
 }

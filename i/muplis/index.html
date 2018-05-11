@@ -197,12 +197,12 @@ user-select: none;
 }
 .rimni-dasri {
 background: rgb(230,47,0);
-background: -moz-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 50%, rgba(204,40,0, 1) 51%, rgba(95,29,0, 1) 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(230,47,0, 1)), color-stop(50%, rgba(230,46,0, 1)), color-stop(51%, rgba(204,40,0, 1)), color-stop(100%, rgba(95,29,0, 1)));
-background: -webkit-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 50%, rgba(204,40,0, 1) 51%, rgba(230,47,0, 1) 100%);
-background: -o-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 50%, rgba(204,40,0, 1) 51%, rgba(95,29,0, 1) 100%);
-background: -ms-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 50%, rgba(204,40,0, 1) 51%, rgba(95,29,0, 1) 100%);
-background: linear-gradient(to bottom, rgba(230,47,0, 1) 0%, rgba(230,46,0, 1) 50%, rgba(204,40,0, 1) 51%, rgba(95,29,0, 1) 100%);
+background: -moz-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(119,29,29, 1) 10%, rgba(220,4,4, 1) 91%, rgba(95,29,0, 1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(230,47,0, 1)), color-stop(10%, rgba(119,29,29, 1)), color-stop(91%, rgba(220,4,4, 1)), color-stop(100%, rgba(95,29,0, 1)));
+background: -webkit-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(119,29,29, 1) 10%, rgba(220,4,4, 1) 91%, rgba(230,47,0, 1) 100%);
+background: -o-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(119,29,29, 1) 10%, rgba(220,4,4, 1) 91%, rgba(95,29,0, 1) 100%);
+background: -ms-linear-gradient(top, rgba(230,47,0, 1) 0%, rgba(119,29,29, 1) 10%, rgba(220,4,4, 1) 91%, rgba(95,29,0, 1) 100%);
+background: linear-gradient(to bottom, rgba(230,47,0, 1) 0%, rgba(119,29,29, 1) 10%, rgba(220,4,4, 1) 91%, rgba(95,29,0, 1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de', GradientType=0);
 position: absolute;
 top: 0;
@@ -234,24 +234,23 @@ padding: 12px 10px 14px 10px;
 }
 .desktop-mode-title-color {
 background: rgba(54,144,240, 1);
-}
-.desktop-mode-title-color>a {
-pointer-events: none;
 cursor: default;
 }
 .rimni-search-mode-title-color {
-background: linear-gradient( to top right, rgba(230,46,0, 1) 0%, rgba(204,40,0, 1) 40%);
+background: linear-gradient( to top right, rgba(119,29,29, 1) 0%, rgba(220,4,4, 1) 40%);
 box-shadow: 1px 1px 30px rgba(95,29,0, 1);
+cursor: pointer;
 }
 .normal-search-mode-title-color {
-background: linear-gradient( to top right, rgba(63, 81, 181, 1) 0%, rgba(3, 155, 229, 1) 40%);
+background: linear-gradient( to top right, rgba(63, 81, 181, 1) 0%, rgba(4, 119, 218, 1) 40%);
 box-shadow: 1px 1px 30px rgba(2, 119, 189, 1);
+cursor: pointer;
 }
 #ciska {
 height: 30px;
 font-size: 130%;
 font-family: Arial, Helvetica, sans-serif;
-border: 1px solid #999;
+border: 1px solid #777;
 padding: 2px 42px 2px 16px;
 transition: background 0.4s;
 float: right;
@@ -264,7 +263,7 @@ display: none;
 #sela {
 background: rgba(255, 255, 255, 0.8) url(../pixra/menu.svg) no-repeat left 5px center;
 position: absolute;
-padding: 22px 16px 10px 10px;
+padding: 24px 16px 8px 10px;
 border: 1px solid transparent;
 display: inline-block;
 vertical-align: middle;
@@ -274,8 +273,11 @@ margin-left: -32px;
 right: 15px;
 margin-top: 7px;
 }
+#title{
+cursor: default;
+}
 @media screen and (min-width: 510px) {
-#title>font {
+#title>#site-title>font {
 width: auto;
 }
 #kicne1,
@@ -291,9 +293,9 @@ cursor: default;
 user-select: none;
 }
 #ciska {
-border-radius: 10em;
--webkit-border-radius: 10em;
--moz-border-radius: 10em;
+border-radius: 1em;
+-webkit-border-radius: 1em;
+-moz-border-radius: 1em;
 }
 }
 @media screen and (max-width: 509px) {
@@ -310,7 +312,7 @@ height: 23px;
 #title>img:nth-child(1)~img {
 display: none;
 }
-#title>font {
+#title>#site-title>font {
 display: none;
 }
 #kicne1 {
@@ -394,7 +396,6 @@ border-collapse: collapse;
 bottom: 0px;
 box-shadow: rgb(255, 255, 204) 0px 0px 1px 0px inset;
 box-sizing: border-box;
-cursor: pointer;
 display: inline-block;
 left: 0px;
 position: relative;
@@ -418,7 +419,6 @@ top: 1px;
 border-collapse: collapse;
 bottom: 0px;
 box-sizing: border-box;
-cursor: pointer;
 left: 0px;
 position: absolute;
 right: 0px;
@@ -434,7 +434,6 @@ overflow: hidden;
 border-collapse: collapse;
 bottom: 0px;
 box-sizing: border-box;
-cursor: pointer;
 display: block;
 position: absolute;
 right: 0px;
@@ -452,7 +451,6 @@ text-align: right;
 #B_4 {
 border-collapse: collapse;
 box-sizing: border-box;
-cursor: pointer;
 text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
 user-select: none;
 font: normal normal bold normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
@@ -462,7 +460,6 @@ border-collapse: collapse;
 bottom: 0px;
 box-shadow: rgb(255, 255, 204) 0px 0px 1px 0px inset;
 box-sizing: border-box;
-cursor: pointer;
 display: inline-block;
 left: 0px;
 max-width: 100%;
@@ -480,7 +477,6 @@ font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-se
 border-collapse: collapse;
 bottom: 0px;
 box-sizing: border-box;
-cursor: pointer;
 left: 0px;
 position: relative;
 right: 0px;
@@ -600,7 +596,7 @@ color: white;
 <body>
 <div id='galtu-dasri' class='galtu-dasri'>
 <form id='se-vasru-lo-galtu-dasri' onsubmit="return false" novalidate>
-<span id='site-title'><a id='title' href='#'><img src='../pixra/plise.svg' class='plise' title='lo staile poi sampu'><img src='../pixra/pelxuplise.svg' class='plise' title='lo staile poi na mutce cinri'><img src='../pixra/crinoplise.svg' class='plise' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='../pixra/blabiplise.svg' class='plise' title='lo staile poi ka&#39;e pluja'><img src='../pixra/cicnaplise.svg' class='plise' title='na&#39;e catni se ciska staile'><font color='#fff'>la muplis</font></a></span>
+<a id='title' href='#'><span id='site-title'><img src='../pixra/plise.svg' class='plise' title='lo staile poi sampu'><img src='../pixra/pelxuplise.svg' class='plise' title='lo staile poi na mutce cinri'><img src='../pixra/crinoplise.svg' class='plise' title='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='../pixra/blabiplise.svg' class='plise' title='lo staile poi ka&#39;e pluja'><img src='../pixra/cicnaplise.svg' class='plise' title='na&#39;e catni se ciska staile'><font color='#fff'>la muplis</font></span></a>
 <div id="kicne1"></div>
 <input id='ciska' class="ciska" type="text" name="focus" required placeholder="sisku" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
 <div id="kicne2"></div>
@@ -757,7 +753,7 @@ menu.style.display = 'none';
 }
 });
 document.getElementById('rimni').addEventListener("click", function() {
-query = "@" + query.replace(/@+$/, '').replace(/^@+/, '');
+query = '@' + query.replace(/@+$/, '').replace(/^@+/, '');
 if (query !== '@') {
 ciska.value = query;
 triggerEvent(ciska, 'input');
@@ -819,9 +815,10 @@ skicu_lo_ro_valsi();
 function lojTemplate(a) {
 return a.replace(/\$.*?\$/g, function(c) {
 return c.substring(1, c.length - 1)
-.replace(/([a-zA-Z0-9]+)_?(\d+)/g, "<i>$1<sub>$2</sub></i>")
-.replace(/([a-zA-Z0-9]+)_((?:\d+|[a-zA-Z0-9]+))/g, "<i>$1<sub>$2</sub></i>")
-.replace(/([a-zA-Z0-9]+)_?\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>");
+.replace(/([a-zA-Z]+[0-9]*)_?\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>")
+.replace(/([a-zA-Z]+[0-9]*)_?(\d+)/g, "<i>$1<sub>$2</sub></i>")
+.replace(/([a-zA-Z]+[0-9]*)_((?:\d+|[a-zA-Z0-9]+))/g, "<i>$1<sub>$2</sub></i>")
+;
 }).replace(/\{.*?\}/g, function(c) {
 var c = c.substring(1, c.length - 1);
 return '<a href="#sisku/' + encodeUrl(c) + '">' + escHtml(c) + "</a>"

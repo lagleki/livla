@@ -23,6 +23,14 @@
 		ga('set', 'forceSSL', true);
 		ga('send', 'pageview');
 	</script>
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+	});
+	</script>
+	<script type="text/javascript" async
+	  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>
 	<!-- Google Tag Manager -->
 	<!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -1102,6 +1110,27 @@
 			});
 		}
 
+		function lojTemplate(a) {
+			return a
+			.replace(/\$.*?\$/g, function(c) {
+				return c
+					.replace(/\{/g, "\\curlyleft")
+					.replace(/\}/g, "\\curlyright")
+					;
+			})
+			.replace(/\{.*?\}/g, function(c) {
+				var c = c.substring(1, c.length - 1);
+				return '<a href="#sisku/' + encodeUrl(c) + '">' + escHtml(c) + "</a>"
+			})
+			.replace(/\$.*?\$/g, function(c) {
+				return c
+					.replace(/\\curlyleft/g, "{")
+					.replace(/\\curlyright/g, "}")
+					;
+			})
+			;
+		}
+
 		function skicu_lo_valsi(def, inner) {
 			if (!def) def = [];
 			var out = document.createElement('div');
@@ -1292,6 +1321,7 @@
 					purci.style.display = 'block';
 				}
 			} else {
+				MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 				outp.style.display = 'block';
 				descr.style.display = 'none';
 				drata.style.display = 'none';

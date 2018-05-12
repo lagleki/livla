@@ -21,6 +21,14 @@ ga('linker:autoLink', ['la-lojban.github.io/sutysisku']);
 ga('set', 'forceSSL', true);
 ga('send', 'pageview');
 </script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 <title>Search for Lojban phrases - la muplis</title>
 <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,viewport-fit=cover" />
 <meta name="theme-color" content="#1e69de">
@@ -824,6 +832,26 @@ var c = c.substring(1, c.length - 1);
 return '<a href="#sisku/' + encodeUrl(c) + '">' + escHtml(c) + "</a>"
 });
 }
+function lojTemplate(a) {
+return a
+.replace(/\$.*?\$/g, function(c) {
+return c
+.replace(/\{/g, "\\curlyleft")
+.replace(/\}/g, "\\curlyright")
+;
+})
+.replace(/\{.*?\}/g, function(c) {
+var c = c.substring(1, c.length - 1);
+return '<a href="#sisku/' + encodeUrl(c) + '">' + escHtml(c) + "</a>"
+})
+.replace(/\$.*?\$/g, function(c) {
+return c
+.replace(/\\curlyleft/g, "{")
+.replace(/\\curlyright/g, "}")
+;
+})
+;
+}
 function skicu_lo_valsi(def, inner) {
 if (!def) def = [];
 var out = document.createElement('div');
@@ -990,6 +1018,7 @@ return '<a href="#sisku/' + encodeUrl(a) + '">' + escHtml(a) + "</a>";
 purci.style.display = 'block';
 }
 } else {
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 outp.style.display = 'block';
 descr.style.display = 'none';
 drata.style.display = 'none';

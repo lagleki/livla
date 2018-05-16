@@ -34,7 +34,7 @@ const langs = [
 const robangu = 'fr-facile|en|ru|de|ja|jbo|guaspi|loglan|eo|fr|jb|2002|es|zh|sv|en-simple|krasi|dukti|laadan|toki';
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
-let tcan = '#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau,##esperanto,#polsk,#tokpona,#ponjbo';
+let tcan = '#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau,##esperanto,#polsk,#tokpona,#ponjbo,#rusko';
 // let tcan = '#lojbanme';
 let nuzbytcan = '#lojban';
 let livlytcan = '#lojbanme'; //where la livla talks to la mensi
@@ -387,7 +387,7 @@ const bangu = (lng, username) => {
     case "en":
       ret = `I will speak to '${username}' in English from now on.`;
       break;
-    case "en":
+    case "ru":
       ret = `Теперь я буду говорить с '${username}' по-русски.`;
       break;
     default:
@@ -445,8 +445,8 @@ const GetWordDef = (lin, lng, tordu, xmlDoc) => {
     acc += `\nExamples:\n${tmp}`;
   }
   acc = lojTemplate(acc).replace(/`/g, "'").replace(/ {2,}/g, ' ');
-  if (acc.length >= 700 && lng !== "jb") {
-    acc = acc.substring(0, 700);
+  if (acc.length >= 900 && lng !== "jb") {
+    acc = acc.substring(0, 900);
     acc += `...\n[mo'u se katna] http://jbovlaste.lojban.org/dict/${lin}`;
   }
   if (acc.length > 0) {
@@ -1190,7 +1190,8 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
             #spero https://t.me/joinchat/BcR2JD4jiwpKsTiof9rDRA\n
             ##jboselbau https://t.me/joinchat/CJYorT2ma6UVfhb9YThEqw
             #polsk https://t.me/joinchat/BLVsY0Zwl7cpY1WSDm_iTA\n
-            #ponjbo https://t.me/joinchat/BLVsY1CaPEK6UyBZmloTdg
+            #ponjbo https://t.me/joinchat/BLVsY1CaPEK6UyBZmloTdg\n
+            #rusko https://t.me/joinchat/BLVsY0srQSQCgg-dAXpChA
             `);
           break;
         case txt.trim() === '#uilkinse':

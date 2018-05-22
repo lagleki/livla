@@ -1191,8 +1191,7 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
             ##jboselbau https://t.me/joinchat/CJYorT2ma6UVfhb9YThEqw
             #polsk https://t.me/joinchat/BLVsY0Zwl7cpY1WSDm_iTA\n
             #ponjbo https://t.me/joinchat/BLVsY1CaPEK6UyBZmloTdg\n
-            #rusko https://t.me/joinchat/BLVsY0srQSQCgg-dAXpChA
-            `);
+            #rusko https://t.me/joinchat/BLVsY0srQSQCgg-dAXpChA`);
           break;
         case txt.trim() === '#uilkinse':
           benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins");

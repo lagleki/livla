@@ -41,7 +41,7 @@
 	<title>%title%</title>
 	<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,viewport-fit=cover" />
 	<meta name="theme-color" content="%mupliskariralju%">
-	<meta property="og:title" content="La Sutysisku" />
+	<meta property="og:title" content="%ogtitle%" />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content="%ogurl%" />
 	<meta property="og:image" content="https://mw.lojban.org/images/1/11/sutysisku2015-06-22.png" />
@@ -1006,10 +1006,15 @@
 			if (this.toString() === 'kunti')
 				document.getElementsByTagName('input')[0].value = "";
 			// ciska.value === '';
+			if (query!==''){
 			query = '';
 			prevQuery = '';
 			displayDescription();
 			CnanoSutysisku();
+			}
+			else{
+				doSearch();
+			}
 		}
 
 		function hidemenu() {

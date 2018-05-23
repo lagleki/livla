@@ -32,7 +32,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-
 <title>逻辑语词典 la sutysisku</title>
 <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,viewport-fit=cover" />
 <meta name="theme-color" content="#1941a5">
-<meta property="og:title" content="La Sutysisku" />
+<meta property="og:title" content="Sutysisku" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://la-lojban.github.io/sutysisku/zh/index.html" />
 <meta property="og:image" content="https://mw.lojban.org/images/1/11/sutysisku2015-06-22.png" />
@@ -730,10 +730,15 @@ el.fireEvent('on' + e.eventType, e);
 function zero(e) {
 if (this.toString() === 'kunti')
 document.getElementsByTagName('input')[0].value = "";
+if (query!==''){
 query = '';
 prevQuery = '';
 displayDescription();
 CnanoSutysisku();
+}
+else{
+doSearch();
+}
 }
 function hidemenu() {
 menu.style.display = 'none';

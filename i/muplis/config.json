@@ -19,5 +19,6 @@
  "lojbo": "true",
  "favicon": "../pixra/plise.svg",
  "icon16": "../pixra/plise.svg",
- "icon32": "../pixra/plise.svg"
+ "icon32": "../pixra/plise.svg",
+ "ogtitle": "Muplis"
 }

@@ -100,6 +100,7 @@ langs.forEach(lang => {
     "icon16": '../pixra/16.png',
     "icon32": '../pixra/32.png',
     "ogurl": "https://la-lojban.github.io/sutysisku/" + lang + "/index.html",
+    "ogtitle": "Sutysisku",
     "searchurl": "/sutysisku/" + lang + "/sisku.xml",
     "searchtitle": lang + "-sutysisku",
     "titlelogo": "<a id='title' href='#'><span id='site-title'><img src=\"../pixra/snime.svg\" height='16' width='16'><font color='#fff'>la sutysisku</font></span></a>",

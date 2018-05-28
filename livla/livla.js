@@ -193,7 +193,7 @@ const loadConfig = () => {
   })
 
   t.on('error', err => {
-    console.log(err.toString())
+    lg(err.toString())
   })
 
   t.track('#lojban');
@@ -292,7 +292,7 @@ function CheckRecentChanges() {
     status: 'I am a tweet'
   }, (error, tweet, response) => {
     if (!error) {
-      console.log(tweet);
+      lg(tweet);
     }
   });
   // https://mw.lojban.org/api.php?action=query&list=recentchanges&rcprop=title|ids|sizes|flags|user&rclimit=3&rcnamespace=0&format=json
@@ -486,7 +486,6 @@ const MultipleDefs = (valsi, lng, tordu) => {
   let lin = valsi.replace(/\"/g, '').replace(/\)$/, '').replace(/^[\(\.]/, '');
   xmlDoc = GetXmldoc(lng);
   let pre = '';
-  lg(lojban.xulujvo(valsi));
   if (lojban.xulujvo(valsi)) {
     try {
       const l = lojban.jvokaha_gui(valsi);
@@ -572,7 +571,6 @@ const katna = (lin, lng, xmlDoc) => {
   const b = (lng !== 'jbo') ?
     lojban.gloss(a, lng, xmlDoc, false).join(tersepli) :
     a;
-  lg(b, a);
   return `${lin} ≈ ${b}`;
 };
 
@@ -860,7 +858,6 @@ const ningaumahantufa = (text, socket) => {
   const whichfile = text.substr(0, text.indexOf(' '));
   text = text.substr(text.indexOf(' ') + 1);
   const t = path.join(__dirname, `.${whichfile}.peg`);
-  lg(text);
   fs.writeFileSync(t, text);
   // // read peg and build a parser
   const camxes_peg = fs.readFileSync(`${whichfile}.peg`).toString();
@@ -1164,7 +1161,6 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
   let inLanguage = defaultLanguage;
   const pp = (/:(.+)/.exec(text) || ['', ''])[1];
   const po = (/ (.+)/.exec(text) || ['', ''])[1].trim();
-  console.log(txt);
   switch (txt.trim().charAt(0)) {
     case "#":
       switch (true) {
@@ -1295,6 +1291,9 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
           break;
         case txt.indexOf(".den ") === 0:
           wiktionary(source, socket, clientmensi, sendTo, po, "English");
+          break;
+        case txt.indexOf(".dru ") === 0:
+          wiktionary(source, socket, clientmensi, sendTo, po, "Russian");
           break;
         case txt.indexOf(".dzh ") === 0:
           wiktionary(source, socket, clientmensi, sendTo, po, "Chinese");
@@ -1466,7 +1465,7 @@ clientmensi.addListener('message', (from, to, text, message) => {
 });
 
 clientmensi.addListener('error', message => {
-  console.log(message.toString());
+  lg(message.toString());
 });
 
 //NAXLE

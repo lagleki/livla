@@ -243,7 +243,7 @@ function sisku(query, callback) {
 
   function shortget(a, ki, shi) {
     var isdef = Object.keys(sorcu[bau]).reduce(function(b, n) {
-      if ((n.toLowerCase() === a.toLowerCase()) || (sorcu[bau][n]["d"].toLowerCase() === "{" + a.toLowerCase() + "}")) {
+      if ((n.toLowerCase() === a.toLowerCase()) || (sorcu[bau][n]["d"] && sorcu[bau][n]["d"].toLowerCase() === "{" + a.toLowerCase() + "}")) {
         var c = sorcu[bau][n];
         c["w"] = n;
         b.push(c);

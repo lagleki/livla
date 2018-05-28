@@ -8,9 +8,9 @@ const fs = require("fs"),
 
 //config
 const args = process.argv.slice(2);
-const langs = args.length > 0
-  ? args
-  : [
+const langs = args.length > 0 ?
+  args :
+  [
     "en",
     "cll",
     "ru",
@@ -38,9 +38,13 @@ const langs = args.length > 0
     "cipra"
   ];
 //read template.html into var
-const template = fs.readFileSync(path.join(__dirname, "../../i/cipra", "template.html"), {encoding: 'utf8'});
+const template = fs.readFileSync(path.join(__dirname, "../../i/cipra", "template.html"), {
+  encoding: 'utf8'
+});
 //read sisku.xml template into var
-const sisku = fs.readFileSync(path.join(__dirname, "../../i/cipra", "sisku.xml"), {encoding: 'utf8'});
+const sisku = fs.readFileSync(path.join(__dirname, "../../i/cipra", "sisku.xml"), {
+  encoding: 'utf8'
+});
 
 //functions
 //generic
@@ -50,6 +54,7 @@ function addZero(i) {
   }
   return i;
 }
+
 function rgbToHex(rgb) {
   let hex = Number(rgb).toString(16);
   if (hex.length < 2) {
@@ -57,6 +62,7 @@ function rgbToHex(rgb) {
   }
   return hex;
 };
+
 function fullColorHex(r, g, b) {
   const red = rgbToHex(r);
   const green = rgbToHex(g);
@@ -66,21 +72,21 @@ function fullColorHex(r, g, b) {
 
 //tempalting - remove parts not relevant to the current sutysisku
 String.prototype.stripout = function(config, tag) {
-  const tags = tag.split("\\|").map(j => (config[j] && config[j] !== 'false')
-    ? true
-    : false);
+  const tags = tag.split("\\|").map(j => (config[j] && config[j] !== 'false') ?
+    true :
+    false);
   const m = tags.includes(true);
-  const ku = m
-    ? "$1"
-    : "";
-  const antiku = !m
-    ? "$1"
-    : "";
+  const ku = m ?
+    "$1" :
+    "";
+  const antiku = !m ?
+    "$1" :
+    "";
   // console.log(tag, m, "-" + ku + "-", antiku);
   return this
-  //OR operator
+    //OR operator
     .replace(new RegExp("\\\/\\\/<" + tag + ">([\\s\\S]*?)\\\/\\\/<\\\/" + tag + ">", "gm"), ku).replace(new RegExp("<" + tag + ">([\\s\\S]*?)<\/" + tag + ">", "gm"), ku)
-  //NOT operator
+    //NOT operator
     .replace(new RegExp("\\\/\\\/<" + tag + " false>([\\s\\S]*?)\\\/\\\/<\\\/" + tag + ">", "gm"), antiku).replace(new RegExp("<" + tag + " false>([\\s\\S]*?)<\/" + tag + ">", "gm"), antiku);
 }
 
@@ -93,7 +99,9 @@ String.prototype.replaceMergefield = function(config) {
 //generate files
 langs.forEach(lang => {
   //generate index.html
-  const config = JSON.parse(fs.readFileSync(path.join(__dirname, "../../i", lang, "config.json"), {encoding: 'utf8'}));
+  const config = JSON.parse(fs.readFileSync(path.join(__dirname, "../../i", lang, "config.json"), {
+    encoding: 'utf8'
+  }));
   const config_fallback = {
     "title": "la sutysisku zo'u: ze'i mitysisku lo valsi",
     "favicon": '../pixra/snime.svg',
@@ -126,15 +134,17 @@ langs.forEach(lang => {
   const arr = (config.mupliskari4 || config_fallback.mupliskari4).split(",").map(i => i.trim());
   config.mupliskariralju = fullColorHex(arr[0], arr[1], arr[2]);
   const output = template.replaceMergefield(config).replaceMergefield(config_fallback)
-  ////strip out according to Lojbanicity of the sutysisku
+    ////strip out according to Lojbanicity of the sutysisku
     .stripout(config, "xuzganalojudri\\|lojbo").stripout(config, "xuzganalojudri").stripout(config, "lojbo").stripout(config, "muplis")
-  //delete comments, compress code
+    //delete comments, compress code
     .replace(/^[ \t]+/gm, "").replace(/^\/\/.*$/gm, "").replace(/\/\*((?!\/\*)[\s\S]*?)\*\//gm, "").replace(/<!--[\s\S]*?-->/gm, "").replace(/\n\s*\n/g, '\n');
   fs.writeFileSync(path.join(__dirname, "../../i", lang, "index.html"), output);
 
   //generate sisku.xml and update webapp.cache
   if (lang !== 'cipra') {
-    const file = fs.readFileSync(path.join(__dirname, "../../i", lang, "bangu.js"), {encoding: 'utf8'});
+    const file = fs.readFileSync(path.join(__dirname, "../../i", lang, "bangu.js"), {
+      encoding: 'utf8'
+    });
     const b = sisku.replace("%template%", "https://la-lojban.github.io/sutysisku/en/index.html#sisku/{searchTerms}").replace("%shortname%", lang + "-sutysisku").replaceMergefield(config)
     fs.writeFileSync(path.join(__dirname, "../../i", lang, "sisku.xml"), b);
     //now update manifest
@@ -142,14 +152,16 @@ langs.forEach(lang => {
     //change date in manifest
     const d = new Date();
     const n = d.getFullYear() + "-" + (addZero(d.getMonth() + 1)) + "-" + addZero(d.getDate()) + "T" + addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getSeconds());
-    const pars = fs.readFileSync(webappcachefile, {encoding: 'utf8'}).replace(/\n# .+\n/, '\n# ' + n + "\n");
+    const pars = fs.readFileSync(webappcachefile, {
+      encoding: 'utf8'
+    }).replace(/\n# .+\n/, '\n# ' + n + "\n");
     fs.writeFileSync(webappcachefile, pars);
     console.log(webappcachefile + ' updated');
   }
 
   //generate sisku.js
-  const siskujsfile = "window = this;var sorcu={};var bau = location.href.split('/').slice(-2)[0];if (bau==='cipra'){bau='en';}\npostMessage({kind: 'loading'});\nimportScripts('bangu.js','../data/parsed-" + lang.replace(/^cipra$/, 'en').replace(/^muplis/, "tatoeba") + ".js', '" + (['cipra', 'cll'].includes(lang)
-    ? "./sisku.js"
-    : "../sisku.js") + "');\npostMessage({kind: 'ready'});\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;sisku(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};";
+  const siskujsfile = "window = this;var sorcu={};var bau = location.href.split('/').slice(-2)[0];if (bau==='cipra'){bau='en';}\npostMessage({kind: 'loading'});\nimportScripts('bangu.js','../data/parsed-" + lang.replace(/^cipra$/, 'en').replace(/^muplis/, "tatoeba") + ".js', '" + (['cipra', 'cll'].includes(lang) ?
+    "./sisku.js" :
+    "../sisku.js") + "');\npostMessage({kind: 'ready'});\nvar searchId;\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {searchId = ev.data.searchId;sisku(ev.data.query, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query});});}};";
   fs.writeFileSync(path.join(__dirname, "../../i", lang, "worker.js"), siskujsfile);
 });

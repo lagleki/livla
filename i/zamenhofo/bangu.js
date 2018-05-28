@@ -6,4 +6,4 @@ window.xuzganalojudri = false;
 window.rimni="la rimni sutysisku";
 window.bangudecomp = 'fendando ...';
 window.arrcll = {};
-window.purc = "Last searched: ";
+window.purc = "Lastaj serĉoj: ";

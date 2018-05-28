@@ -23,6 +23,9 @@ ga('send', 'pageview');
 </script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
+showMathMenu: false,
+extensions: ["tex2jax.js"],
+jax: ["input/TeX", "output/HTML-CSS"],
 tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 });
 </script>
@@ -36,12 +39,12 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://la-lojban.github.io/sutysisku/muplis-eng-pol/index.html" />
 <meta property="og:image" content="https://mw.lojban.org/images/1/11/sutysisku2015-06-22.png" />
-<meta property="og:site_name" content="La Sutysisku" />
+<meta property="og:site_name" content="Sutysisku" />
 <meta property="fb:app_id" content="191051864394489" />
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@Jbotcan" />
-<meta name='apple-mobile-web-app-title' content='la sutysisku'>
+<meta name='apple-mobile-web-app-title' content="Sutysisku">
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../pixra/57.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../pixra/114.png" />
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../pixra/72.png" />
@@ -50,7 +53,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-
 <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../pixra/152.png" />
 <link rel="icon" type="image/png" href="../pixra/plise.png" sizes="32x32" />
 <link rel="icon" type="image/png" href="../pixra/plise.png" sizes="16x16" />
-<meta name="application-name" content="la sutysisku" />
+<meta name="application-name" content="Sutysisku" />
 <meta name="msapplication-TileColor" content="#1e69de">
 <meta name="msapplication-TileImage" content="../pixra/144.png">
 <meta property="og:description" content="A dictionary of sentences for English, Polish and other languages. Can work offline!" />
@@ -700,6 +703,7 @@ timer = setTimeout(callback, ms);
 };
 })();
 window.addEventListener('popstate', sisku_rahilejudri);
+window.addEventListener('resize', calcVH, true);
 document.getElementById('kunti').addEventListener('click', zero.bind('kunti'));
 document.getElementById('title').addEventListener('click', zero);
 purci.addEventListener("click", clicked);
@@ -724,7 +728,6 @@ ciska.addEventListener("focus", doSearch);
 ciska.addEventListener("textInput", typing());
 if (document.readyState === 'loading') {
 pb.style.width = '37%';
-document.addEventListener('resize', calcVH, true);
 document.addEventListener('DOMContentLoaded', doSearch);
 } else {
 doSearch();
@@ -801,19 +804,7 @@ skicu_lo_ro_valsi();
 MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 }
 }
-function lojTemplate(a) {
-return a.replace(/\$.*?\$/g, function(c) {
-return c.substring(1, c.length - 1)
-.replace(/([a-zA-Z]+[0-9]*)_?\{(\d+)\}/g, "<i>$1<sub>$2</sub></i>")
-.replace(/([a-zA-Z]+[0-9]*)_?(\d+)/g, "<i>$1<sub>$2</sub></i>")
-.replace(/([a-zA-Z]+[0-9]*)_((?:\d+|[a-zA-Z0-9]+))/g, "<i>$1<sub>$2</sub></i>")
-;
-}).replace(/\{.*?\}/g, function(c) {
-var c = c.substring(1, c.length - 1);
-return '<a href="#sisku/' + encodeUrl(c) + '">' + escHtml(c) + "</a>"
-});
-}
-function lojTemplate(a) {
+function melbi_uenzi(a) {
 return a
 .replace(/\$.*?\$/g, function(c) {
 return c
@@ -821,6 +812,7 @@ return c
 .replace(/\}/g, "\\curlyright")
 ;
 })
+.replace(/([^<])\/([^>])/g, "$1 / $2").replace(/@@@(.*?)@@@/g, "<i>$1</i>")
 .replace(/\{.*?\}/g, function(c) {
 var c = c.substring(1, c.length - 1);
 return '<a href="#sisku/' + encodeUrl(c) + '">' + escHtml(c) + "</a>"
@@ -896,27 +888,27 @@ if (def.d.nasezvafahi) {
 n.classList.add('nasezvafahi');
 n.innerHTML = window.nasezvafahi;
 } else {
-n.innerHTML = lojTemplate(def.d.replace(/([^<])\/([^>])/g, "$1 / $2").replace(/@@@(.*?)@@@/g, "<i>$1</i>")) + ' ';
+n.innerHTML = melbi_uenzi(def.d) + ' ';
 }
 out.appendChild(n);
 }
 if (def.n) {
 var n = document.createElement('div');
 n.className = 'notes';
-n.innerHTML = lojTemplate(def.n) + ' ';
+n.innerHTML = melbi_uenzi(def.n) + ' ';
 out.appendChild(n);
 }
 if (def.e) {
 var n = document.createElement('div');
 n.className = 'examples';
-n.innerHTML = "<table style='width:100%;border-collapse:collapse;margin-top:10px;margin-bottom:10px;'>" + lojTemplate((def.e + "\n").replace(/%/g, "\n").replace(/(.*?) — (.*?)\n/g,
+n.innerHTML = "<table style='width:100%;border-collapse:collapse;margin-top:10px;margin-bottom:10px;'>" + melbi_uenzi((def.e + "\n").replace(/%/g, "\n").replace(/(.*?) — (.*?)\n/g,
 "<tr><td class='mupligreku'><b>$1<\/b><\/td><td class='mupligreku'><i>$2<\/i><\/td><\/tr>\n")) + '</table> ';
 out.appendChild(n);
 }
 if (def.k) {
 var n = document.createElement('div');
 n.className = 'related';
-n.innerHTML = 'See also: ' + lojTemplate(def.k) + ' ';
+n.innerHTML = 'See also: ' + melbi_uenzi(def.k) + ' ';
 out.appendChild(n);
 }
 if ((def.r || []).length > 0 && !def.l && window.xuzganalojudri) {

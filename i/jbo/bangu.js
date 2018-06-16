@@ -6,4 +6,4 @@ window.rimni="la rimni sutysisku";
 window.bangudecomp = 'te katna';
 window.xuzganalojudri = true;
 window.judri = "http://jbovlaste.lojban.org/dict/";
-window.purc = "(to ro moi lo ka se mitysisku toi) ";
+window.purc = "(to ro moi le ka se mitysisku toi) ";

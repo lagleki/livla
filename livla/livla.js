@@ -1302,7 +1302,12 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
           wiktionary(source, socket, clientmensi, sendTo, po, "Esperanto");
           break;
         case txt.search(`\\.(${robangu}) `) === 0:
-          benji(source, socket, clientmensi, sendTo, vlaste(` ${po}`, ln = txt.split(" ")[0].substr(1)));
+          const ln = txt.split(" ")[0].substr(1);
+          if (sendTo === '#jbosnu' && ln !== 'jbo') {
+            benji(source, socket, clientmensi, sendTo, "ko lojbo .iu");
+          } else {
+            benji(source, socket, clientmensi, sendTo, vlaste(` ${po}`, ln));
+          }
           break;
         case txt.indexOf('.bangu ') === 0:
           benji(source, socket, clientmensi, sendTo, bangu(po, from));

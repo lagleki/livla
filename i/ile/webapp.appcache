@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2018-06-15T23:57:34
+# 2018-06-18T07:12:43
 CACHE:
 index.html?version=32
 ../pixra/snime.svg
@@ -7,6 +7,7 @@ index.html?version=32
 ../sisku.js
 worker.js
 bangu.js
+../pixra/cll.png
 ../pixra/Flag_of_Interlingue.svg
 ../pixra/ldp.svg
 ../pixra/Flag_of_Interlingua.svg
@@ -16,7 +17,7 @@ bangu.js
 ../pixra/muplis-eng-pol.png
 ../pixra/16.png
 ../data/parsed-ile.js
-../pixra/menu.svg
+../pixra/x.gif
 NETWORK:
 *
 FALLBACK:

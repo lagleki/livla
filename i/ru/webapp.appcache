@@ -1,13 +1,14 @@
 CACHE MANIFEST
-# 2018-06-15T23:57:34
+# 2018-06-18T07:12:43
 CACHE:
 index.html
 ../data/parsed-ru.js
 ../sisku.js
 worker.js
 bangu.js
+../pixra/cll.png
 ../pixra/snime.svg
-../pixra/menu.svg
+../pixra/x.gif
 ../pixra/16.png
 ../pixra/32.png
 ../pixra/snime.svg

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2018-06-15T23:57:34
+# 2018-06-18T07:12:43
 CACHE:
 index.html?version=32
 ../pixra/snime.svg
@@ -7,6 +7,7 @@ index.html?version=32
 ../sisku.js
 worker.js
 bangu.js
+../pixra/cll.png
 ../pixra/Flag_of_Interlingue.svg
 ../pixra/ldp.svg
 ../pixra/Flag_of_Interlingua.svg
@@ -40,7 +41,7 @@ bangu.js
 #./lib/Lato/Lato-LightItalic.ttf
 #./lib/Lato/Lato-Regular.ttf
 #./lib/Lato.css
-../pixra/menu.svg
+../pixra/x.gif
 #../pixra/favicons/apple-touch-icon-114x114.png
 #../pixra/favicons/apple-touch-icon-120x120.png
 #../pixra/favicons/apple-touch-icon-144x144.png

@@ -83,6 +83,9 @@ border-radius: 3px;
 margin-left: 1px;
 margin-right: 1px;
 }
+.hilite {
+background-color: #d1ff9e;
+}
 .type {
 display: inline;
 float: right;
@@ -254,23 +257,31 @@ outline: 0;
 #ciska:not(:valid)~#kunti {
 display: none;
 }
-#sela {
-background: rgba(255, 255, 255, 0.8) url(../pixra/menu.svg) no-repeat left 5px center;
+#ciska:not(:valid)~#clear {
+display: none;
+}
+#clear {
 position: absolute;
-padding: 24px 16px 8px 10px;
+padding: 10px;
 border: 1px solid transparent;
 display: inline-block;
 vertical-align: middle;
 outline: 0;
 cursor: pointer;
 margin-left: -32px;
-right: 15px;
-margin-top: 7px;
+right: 11px;
+margin-top: 13px;
 }
 #title {
 cursor: default;
 }
+#purci {
+display: inline;
+}
 @media screen and (min-width: 510px) {
+#clear {
+background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat right 0px center;
+}
 #title>#site-title>font {
 width: auto;
 }
@@ -281,7 +292,7 @@ display: none;
 #se-vasru-lo-galtu-dasri {
 display: block;
 }
-.purci {
+.sidju {
 margin-left: 10%;
 cursor: default;
 user-select: none;
@@ -293,11 +304,13 @@ border-radius: 1em;
 }
 }
 @media screen and (max-width: 509px) {
+#clear {
+background: url(../pixra/snime.svg) no-repeat right 0px center;
+background-size: 22px;
+width: 23px;
+}
 div {
 line-height: 150%;
-}
-#sela {
-right: 6px;
 }
 #title>#site-title>img {
 width: 23px;
@@ -324,7 +337,7 @@ width: 6px;
 display: inline-flex;
 width: 100%;
 }
-.purci {
+.sidju {
 margin-left: 0%;
 }
 #ciska {
@@ -381,6 +394,43 @@ font-size: 70%;
 sub {
 top: 0.4em;
 }
+.tutci {
+-moz-box-shadow: inset 0px -3px 7px 0px #29bbff;
+-webkit-box-shadow: inset 0px -3px 7px 0px #29bbff;
+box-shadow: inset 0px -3px 7px 0px #29bbff;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+background: -moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+background: -webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+background: -o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+background: -ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa', GradientType=0);
+background-color: #2dabf9;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+border: 1px solid #000000;
+display: inline-block;
+cursor: pointer;
+color: #ffffff;
+padding: 3px 10px;
+text-decoration: none;
+text-shadow: 0px 1px 0px #263666;
+}
+.tutci:hover {
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+background: -moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+background: -webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+background: -o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+background: -ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9', GradientType=0);
+background-color: #0688fa;
+}
+.tutci:active {
+position: relative;
+top: 1px;
+}
 #DIV_1 {
 display: inline-block;
 position: relative;
@@ -402,7 +452,7 @@ box-sizing: border-box;
 position: absolute;
 right: 0px;
 z-index: 999;
-background: rgba(255, 255, 255, 0.8) none repeat scroll 0% 0% / auto padding-box border-box;
+background: rgba(255, 255, 255, 0.6) none repeat scroll 0% 0% / auto padding-box border-box;
 font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
 padding: 4px 4px;
 pointer-events: none;
@@ -427,7 +477,7 @@ background-color: #ffffff;
 background-size: contain;
 background-repeat: no-repeat;
 }
-.purci {
+.sidju {
 margin-top: 0px;
 margin-bottom: 15px;
 padding: 8px 12px 6px;
@@ -479,33 +529,6 @@ border-radius: 3px;
 -o-transition: width .8s ease;
 transition: width .8s ease
 }
-#menu {
-position: absolute;
-display: none;
-outline: 0;
-cursor: pointer;
-right: 15px;
-margin-top: 37px;
-border: 1px solid #aaa;
-z-index: 100;
-}
-#menu ul {
-list-style-type: none;
-margin: 0;
-padding: 0;
-width: 200px;
-background-color: #f1f1f1;
-}
-#menu li {
-display: block;
-color: #000;
-padding: 8px 16px;
-text-decoration: none;
-}
-#menu li:hover {
-background-color: #555;
-color: white;
-}
 </style>
 <link rel="manifest" href="../manifest.json">
 <script src="bangu.js"></script>
@@ -517,18 +540,14 @@ color: white;
 <div id="kicne1"></div>
 <input id='ciska' class="ciska" type="text" name="focus" required placeholder="sisku le ka lojbo" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
 <div id="kicne2"></div>
-<button id="sela"></button>
-<div id="menu">
-<ul>
-<li id="kunti">jai gau kunti</li>
-<li id="rimni">mitysisku su'o rimni</li>
-</ul>
-</div>
+<button id="clear" type="reset"></button>
 </form>
 </div>
 <div id='content'>
 <div id='content-panel'>
-<div id='purci' class='purci' style="display:none;"></div>
+<div id='sidju' class='sidju'><a class='tutci' id='rimni'>mitysisku su'o rimni</a>
+<div id="purci"></div>
+</div>
 <div id='loading' class="term">
 <span id='caho_cpacu'>ca'o cpacu lo vlaste</span><br>
 <div id="cpacu">
@@ -546,10 +565,9 @@ var outp = document.getElementById('outp');
 var descr = document.getElementById('descr');
 var drata = document.getElementById('drata');
 var purci = document.getElementById('purci');
-var sela = document.getElementById('sela');
+var sidju = document.getElementById('sidju');
 var pb = document.getElementById('kernelo_lo_cpacu');
 var worker = new Worker('worker.js');
-var menu = document.getElementById('menu');
 var SiteTitle = document.querySelector('#title > font');
 var SiteTitleFull = document.querySelector('#site-title');
 SiteTitleFull.classList.add("desktop-mode-title-color");
@@ -611,11 +629,9 @@ timer = setTimeout(callback, ms);
 })();
 window.addEventListener('popstate', sisku_rahilejudri);
 window.addEventListener('resize', calcVH, true);
-document.getElementById('kunti').addEventListener('click', zero.bind('kunti'));
+document.getElementById('clear').addEventListener('click', zero);
 document.getElementById('title').addEventListener('click', zero);
 purci.addEventListener("click", clicked);
-document.body.addEventListener('click', hidemenu, true);
-document.body.addEventListener('mouseup', hidemenu, true);
 document.getElementById('content').addEventListener('scroll', checkScrolledNearBottom);
 if (document.attachEvent) {
 document.attachEvent('onkeyup', handler);
@@ -641,6 +657,19 @@ doSearch();
 }
 calcVH();
 sisku_rahilejudri();
+document.getElementById('rimni').addEventListener("click", function() {
+query = plukaquery(ciska.value);
+if (query === '') {
+var arrpurc = JSON.parse(localStorage.getItem('purci')) || [];
+if (arrpurc && arrpurc[0]) query = arrpurc[0];
+}
+query = '@' + query.replace(/@+$/, '').replace(/^@+/, '');
+if (query !== '@') {
+ciska.value = query;
+triggerEvent(ciska, 'input');
+if (ready) doSearch();
+}
+});
 function triggerEvent(el, type) {
 if ('createEvent' in document) {
 var e = document.createEvent('HTMLEvents');
@@ -664,24 +693,6 @@ CnanoSutysisku();
 doSearch();
 }
 }
-function hidemenu() {
-menu.style.display = 'none';
-}
-sela.addEventListener("click", function() {
-if (menu.style.display !== 'block') {
-menu.style.display = 'block';
-} else {
-menu.style.display = 'none';
-}
-});
-document.getElementById('rimni').addEventListener("click", function() {
-query = '@' + query.replace(/@+$/, '').replace(/^@+/, '');
-if (query !== '@') {
-ciska.value = query;
-triggerEvent(ciska, 'input');
-if (ready) doSearch();
-}
-});
 function calcVH() {
 document.getElementById("content").setAttribute("style", "height:" + Math.max(document.documentElement.clientHeight, window.innerHeight || 0) + "px;");
 }
@@ -723,7 +734,7 @@ var a = window.cylylypoicnino[arg]
 return "<li><a target='_blank' href=\"http:\/\/lojban.org\/publications/cll\/cll_v1.1_xhtml-section-chunks\/" + a.judri + "\">" + escHtml(a.cmene) + "</a></li>";
 }).join("") + "</ul>";
 var div = document.createElement('div');
-div.className = 'purci';
+div.className = 'sidju';
 div.innerHTML = sc;
 outp.appendChild(div);
 }
@@ -762,7 +773,7 @@ return hilite(c)
 })
 }
 function hilite(txt) {
-return txt.replace(rock, "<span style='background-color: #ffd881'>$1</span>")
+return txt.replace(rock, "<span class='hilite'>$1</span>")
 }
 function skicu_lo_valsi(def, inner) {
 if (!def) def = [];
@@ -892,10 +903,11 @@ descr.style.display = 'block';
 var arrpurc = JSON.parse(localStorage.getItem('purci')) || [];
 var obj = {
 "@cirkotci": [0, "lojbo sance", "../pixra/taplasance.svg", 1, "../sance/"],
+"@CLL": ['.inglic.', "Reference Grammar", "../pixra/cll.png", 1, "http://lojban.org/publications/cll/cll_v1.1_xhtml-no-chunks/"],
 "muplis": [0, "la muplis", "../pixra/taplamuplis.svg", 2.1],
 "jb": [0, "English - Lojban examples", "../pixra/snime-1.svg", 1],
 "en": [0, "English-Lojban", "../pixra/selsku_lanci_eng.svg", 1],
-"jbo": [0, "fanva fi lo lojbo ri", "../pixra/lanci_jbo.svg", 1],
+"jbo": [0, "fanva fi le'e lojbo ri", "../pixra/lanci_jbo.svg", 1],
 "ja": [0, "日本 - <span style=\"white-space:pre;\">ロジバン</span>", "../pixra/selsku_lanci_jpn.svg", 1],
 "fr-facile": [0, "français facile - lojban", "../pixra/selsku_lanci_fra.svg", 1],
 "ru": [0, "русский - ложбан", "../pixra/selsku_lanci_rus.svg", 1],
@@ -919,20 +931,20 @@ if (!drataQuery || (drataQuery === '')) drataQuery = (arrpurc[0] || '');
 drata.innerHTML = acc;
 drata.style.display = 'block';
 if (arrpurc.length > 0) {
-purci.innerHTML = window.purc +
+purci.innerHTML = " " + window.purc +
 arrpurc.map(
 function(a) {
 return '<a href="#sisku/' + encodeUrl(a) + '">' + escHtml(a) + "</a>";
 }
 ).join(", ");
-purci.style.display = 'block';
+sidju.style.display = 'block';
 }
 } else {
 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 outp.style.display = 'block';
 descr.style.display = 'none';
 drata.style.display = 'none';
-purci.style.display = 'none';
+sidju.style.display = 'none';
 document.getElementById('content').scrollTop = 0;
 }
 }
@@ -967,7 +979,7 @@ if (ready) doSearch();
 }
 function doSearch() {
 query = plukaquery(ciska.value);
-rock = new RegExp("(" + query + "|" + query.replace(/'/g, "h") + ")", "gi");
+rock = new RegExp("(" + query.replace(/ /g, "|") + "|" + query.replace(/'/g, "h").replace(/ /g, "|") + ")", "gi");
 if (query === '') {
 displayDescription();
 } else {
@@ -1050,7 +1062,6 @@ return a;
 }
 function handler(e) {
 if (e.keyCode && e.keyCode === 191) ciska.focus();
-menu.style.display = 'none';
 }
 function skicu_lo_ro_valsi() {
 var displayUpTo = Math.min(window.jimte, results.length);

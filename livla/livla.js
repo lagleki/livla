@@ -31,7 +31,7 @@ const langs = [
   "hu",
   "sv"
 ];
-const robangu = 'fr-facile|en|ru|de|ja|jbo|guaspi|loglan|eo|fr|jb|2002|es|zh|sv|en-simple|krasi|dukti|laadan|toki';
+const robangu = 'fr-facile|en|ru|de|ja|jbo|guaspi|loglan|eo|fr|2002|es|zh|sv|en-simple|krasi|dukti|laadan|toki';
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
 let tcan = '#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau,##esperanto,#polsk,#tokpona,#ponjbo,#rusko';
@@ -763,7 +763,7 @@ const sutysiskuningau = (lng, lojbo) => { //write a new file parsed.js that woul
     if (lojbo !== 0 && lojban.xugismu(hi) === true) {
       ra.push(hi);
       if (hi.indexOf("brod") !== 0) {
-        ra.push(hi.substr(0, 4));
+        ra.push(hi.substr(0, 4) + "y");
       }
       if (hi.indexOf("broda") === 0) {
         ra.push("brod");
@@ -1353,6 +1353,9 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
         case txt.indexOf('.tatoeba ') === 0:
           benji(source, socket, clientmensi, sendTo, sisku(po));
           break;
+        case txt.indexOf(".jb ") === 0:
+          benji(source, socket, clientmensi, sendTo, "Dictionary with Examples can be temporaily accessed via\n1. https://la-lojban.github.io/sutysisku/jb/\n2. https://mw.lojban.org/papri/L17-B");
+          break;
       }
       break;
     default:
@@ -1475,25 +1478,26 @@ clientmensi.addListener('error', message => {
 
 //NAXLE
 
-const app = require('express')();
-const https = require('https');
-const server_options = {
-  key: fs.readFileSync(path.join(__dirname, '/../config/server2.key')),
-  cert: fs.readFileSync(path.join(__dirname, '/../config/server.crt')),
-  requestCert: false,
-  rejectUnauthorized: false
-};
+// NEVER use a Sync function except at start-up!
+const index = fs.readFileSync(`${__dirname}/naxle.html`);
 
-const serverSocket = https.createServer(server_options, app);
-serverSocket.listen(3002);
-
-const io = require('socket.io').listen(serverSocket);
-
-io.sockets.on('connection', (socket) => {
-  socket.on('le_te_cusku_be_fi_la_livla', data => {
-    //clientmensi, from, to, text, message,source
-    // if (!(data.data.indexOf(`${prereplier}doi`) === 0) && !(data.data.indexOf(`${prereplier}tell`) === 0)) {
-    processormensi(clientmensi, "mw.lojban.org", "", data.data, "", "naxle", socket);
-    // }
+// Send index.html to all requests
+const app = require('http').createServer((req, res) => {
+  res.writeHead(200, {
+    'Content-Type': 'text/html'
   });
+  res.end(index);
 });
+
+// Socket.io server listens to our app
+const io = require('socket.io').listen(app);
+
+io.sockets.on('connection', socket => {
+  socket.on('le_te_cusku_be_fi_la_livla', data => {
+    if (data.data.indexOf(`${prereplier}doi`) === 0 || data.data.indexOf(`${prereplier}tell`) === 0) {} else {
+      processormensi(clientmensi, "mw.lojban.org", "", data.data, "", "naxle", socket);
+    }
+  })
+});
+
+app.listen(3002);

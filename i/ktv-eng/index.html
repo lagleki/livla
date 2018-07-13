@@ -168,7 +168,7 @@ box-shadow: 3px 3px 1px #ccc;
 margin-top: 8px;
 font-size: 90%;
 }
-.rafsi span {
+.rafsi .pamei {
 font-style: italic;
 margin-left: 15px;
 }
@@ -253,6 +253,7 @@ transition: background 0.4s;
 float: right;
 margin-top: 6px;
 outline: 0;
+min-width: 0;
 }
 #ciska:not(:valid)~#kunti {
 display: none;
@@ -262,15 +263,13 @@ display: none;
 }
 #clear {
 position: absolute;
-padding: 10px;
 border: 1px solid transparent;
 display: inline-block;
 vertical-align: middle;
 outline: 0;
 cursor: pointer;
-margin-left: -32px;
-right: 11px;
-margin-top: 13px;
+margin-top: 7px;
+height: 0;
 }
 #title {
 cursor: default;
@@ -280,7 +279,12 @@ display: inline;
 }
 @media screen and (min-width: 510px) {
 #clear {
-background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat right 0px center;
+padding: 22px 30px 10px 30px;
+right: 0px;
+background-color: transparent;
+background-image: url(../pixra/x.svg);
+background-position: center;
+background-repeat: no-repeat;
 }
 #title>#site-title>font {
 width: auto;
@@ -305,9 +309,14 @@ border-radius: 1em;
 }
 @media screen and (max-width: 509px) {
 #clear {
-background: url(../pixra/snime.svg) no-repeat right 0px center;
-background-size: 22px;
+padding: 22px 20px 10px 20px;
+right: 5px;
 width: 23px;
+background-color: rgba(255, 255, 255, 0.8);
+background-image: url(../pixra/x.svg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: 22px;
 }
 div {
 line-height: 150%;
@@ -416,6 +425,7 @@ color: #ffffff;
 padding: 3px 10px;
 text-decoration: none;
 text-shadow: 0px 1px 0px #263666;
+height:21px;
 }
 .tutci:hover {
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
@@ -463,6 +473,7 @@ text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
 font: normal normal bold normal 14px / 15.4px "Segoe UI", "Open Sans", sans-serif, serif;
 }
 #A_7 {
+display: inline-block;
 border-collapse: collapse;
 box-sizing: border-box;
 text-decoration: none;
@@ -841,6 +852,7 @@ rafsi.className = 'rafsi';
 rafsi.innerHTML = "rafsi: ";
 for (i = 0; i < def.r.length; i++) {
 var rafElem = document.createElement('span');
+rafElem.className = 'pamei';
 var raf = def.r[i];
 if ((def.t || '').match(/lujvo/)) {
 var a = document.createElement('a');

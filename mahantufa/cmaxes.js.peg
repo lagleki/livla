@@ -34,8 +34,8 @@ zifcme = !h (nucleus / glaide / h / zunsna !pause)* zunsna &pause
 stressed_fuhivla_rafsi = exp:(fuhivla_trim) expr:(h y) {return [_join(exp),"-",_join(expr)]} / exp:(fuhivla_trim onset) expr:(y) {return [_join(exp),"-",_join(expr)];}
 fuhivla_rafsi = &unstressed_syllable exp:(fuhivla_head) expr:(h y) {return [_join(exp),"-",_join(expr)]} / exp:(fuhivla_head onset) expr:(y h?) {return [_join(exp),"-",_join(expr)]}
 
-stressed_y_rafsi = exp:((long_rafsi / CVC)) &stress expr:(y) {return [_join(exp),"-",_join(expr)]}
-y_rafsi = exp:((long_rafsi / CVC )) !stress expr:(y h?) {return [_join(exp),"-",_join(expr)]}
+stressed_y_rafsi = exp:((long_rafsi / CVC) &stress y) {return [_join(exp)]}
+y_rafsi = exp:((long_rafsi / CVC ) !stress y) expr:(h?) {return [_join(exp),"-",_join(expr)]}
 
 y_less_rafsi = !y_rafsi !stressed_y_rafsi !hy_rafsi !stressed_hy_rafsi CVC_CCV_CVV !stress !y !h
 

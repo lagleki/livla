@@ -16,7 +16,7 @@
   </style>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js'></script>
   <script>
-    var socket = io.connect('//vrici.lojban.org:3002');
+    var socket = io.connect('//jbotcan.org:8008');
     socket.on('la_livla_cu_cusku', function(data) {
       var messages = document.getElementById('messages');
       messages.value = data.message;
@@ -155,7 +155,7 @@
         top: 1px;
       }
     </style>
-    <button type="button" onclick="sendinput('raw');" class="but" style="width:auto;">raw output</button> <button type="button" onclick="sendinput('off');" class="but" style="width:auto;">standard grammar</button> <button type="button" onclick="sendinput('yacc');"
+    <button type="button" onclick="sendinput('raw');" class="but" style="width:auto;">raw output</button> <button type="button" onclick="sendinput('ilm');" class="but" style="width:auto;">standard grammar</button> <button type="button" onclick="sendinput('yacc');"
       class="but" style="width:auto;">YACC</button> <button type="button" onclick="sendinput('gerna');" class="but" style="width:auto;">jbofi'e</button> - parsers<br/>
     <button type="button" onclick="sendinput('zei');" class="but" style="width:auto;">Split</button> compound particles and turn lujvo into zei-lujvo. <button type="button" onclick="sendinput('anji');" class="but" style="width:auto;">anji ( 漢字 )</button>
     <hr>

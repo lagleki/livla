@@ -273,7 +273,7 @@
 			font-size: 90%;
 		}
 
-		.rafsi span {
+		.rafsi .pamei {
 			font-style: italic;
 			margin-left: 15px;
 		}
@@ -384,6 +384,7 @@
 			float: right;
 			margin-top: 6px;
 			outline: 0;
+			min-width: 0;
 		}
 
 		#ciska:not(:valid)~#kunti {
@@ -396,15 +397,13 @@
 
 		#clear {
 			position: absolute;
-			padding: 10px;
 			border: 1px solid transparent;
 			display: inline-block;
 			vertical-align: middle;
 			outline: 0;
 			cursor: pointer;
-			margin-left: -32px;
-			right: 11px;
-			margin-top: 13px;
+			margin-top: 7px;
+			height: 0;
 		}
 
 		#title {
@@ -417,7 +416,12 @@
 
 		@media screen and (min-width: 510px) {
 			#clear {
-				background: rgba(255, 255, 255, 0.8) url(../pixra/x.gif) no-repeat right 0px center;
+				padding: 22px 30px 10px 30px;
+				right: 0px;
+				background-color: transparent;
+				background-image: url(../pixra/x.svg);
+				background-position: center;
+				background-repeat: no-repeat;
 			}
 
 			#title>#site-title>font {
@@ -446,9 +450,14 @@
 
 		@media screen and (max-width: 509px) {
 			#clear {
-				background: url(../pixra/snime.svg) no-repeat right 0px center;
-				background-size: 22px;
+				padding: 22px 20px 10px 20px;
+				right: 5px;
 				width: 23px;
+				background-color: rgba(255, 255, 255, 0.8);
+				background-image: url(../pixra/x.svg);
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 22px;
 			}
 
 			div {
@@ -595,6 +604,7 @@
 			padding: 3px 10px;
 			text-decoration: none;
 			text-shadow: 0px 1px 0px #263666;
+			height:21px;
 		}
 
 		.tutci:hover {
@@ -699,6 +709,7 @@
 		}
 
 		#A_7 {
+			display: inline-block;
 			border-collapse: collapse;
 			box-sizing: border-box;
 			/*color: rgb(32, 134, 191);*/
@@ -1203,6 +1214,7 @@
 				rafsi.innerHTML = "rafsi: ";
 				for (i = 0; i < def.r.length; i++) {
 					var rafElem = document.createElement('span');
+					rafElem.className = 'pamei';
 					var raf = def.r[i];
 					if ((def.t || '').match(/lujvo/)) {
 						var a = document.createElement('a');
@@ -1244,6 +1256,7 @@
 				var obj = {
 					"@cirkotci": [0, "lojbo sance", "../pixra/taplasance.svg", 1, "../sance/"],
 					"@CLL": ['.inglic.', "Reference Grammar", "../pixra/cll.png", 1, "http://lojban.org/publications/cll/cll_v1.1_xhtml-no-chunks/"],
+					"@Jbotcan": ['.inglic.', "Lojban-Chan", "../pixra/jbotcan.svg", 1, "https://jbotcan.org"],
 					"muplis": [0, "la muplis", "../pixra/taplamuplis.svg", 2.1],
 					"jb": [0, "English - Lojban examples", "../pixra/snime-1.svg", 1],
 					"en": [0, "English-Lojban", "../pixra/selsku_lanci_eng.svg", 1],
@@ -1254,8 +1267,7 @@
 					"eo": [0, "Esperanto - Loĵbano", "../pixra/lanci_epo.svg", 1],
 					"es": [0, "español - lojban", "../pixra/selsku_lanci_spa.svg", 1],
 					"zh": [0, "中文 - 逻辑语", "../pixra/selsku_lanci_zho.svg", 1],
-					"@CC": ['.inglic.', "The Crash Course", "../pixra/cogwheel-5.svg", 1, "https://mw.lojban.org/papri/The_Crash_Course_in_Lojban"],
-					"@Jbotcan": ['.inglic.', "Lojban-Chan", "../pixra/jbotcan.svg", 1, "https://jbotcan.org"]
+					"@CC": ['.inglic.', "The Crash Course", "../pixra/cogwheel-5.svg", 1, "https://mw.lojban.org/papri/The_Crash_Course_in_Lojban"]
 				}
 				//</xuzganalojudri|lojbo>
 				//<lojbo false>

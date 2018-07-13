@@ -1,6 +1,16 @@
 CACHE MANIFEST
-# 2018-06-18T07:12:43
+# 2018-07-13T04:48:02
 CACHE:
+https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML
+https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/config/TeX-MML-AM_CHTML.js?V=2.7.4
+https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/jax/input/TeX/config.js?V=2.7.4
+https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/jax/output/HTML-CSS/config.js?V=2.7.4
+https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/extensions/tex2jax.js?V=2.7.4
+https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/jax/output/CommonHTML/jax.js?V=2.7.4
+https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/jax/output/CommonHTML/fonts/TeX/fontdata.js?V=2.7.4
+https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff
+https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff
+
 index.html?version=32
 ../pixra/snime.svg
 ../sisku.js
@@ -16,7 +26,7 @@ bangu.js
 ../pixra/muplis-eng-pol.png
 ../pixra/16.png
 ../data/parsed-ldp.js
-../pixra/x.gif
+../pixra/x.svg
 NETWORK:
 *
 FALLBACK:

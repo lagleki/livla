@@ -26,6 +26,34 @@ MathJax.Hub.Config({ showMathMenu: false, extensions: ["tex2jax.js"], jax: ["inp
 </script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
+<script>
+ArcBTracker = {
+fire: function(env) {
+if (typeof(env) == "undefined") {
+env = {};
+}
+env.u = document.location.href;
+env.bw = window.innerWidth;
+env.bh = window.innerHeight;
+if (document.referrer && document.referrer != "") {
+env.ref = document.referrer;
+}
+env.rnd = Math.floor(Math.random() * 10e12);
+var params = [];
+for (var key in env) {
+if (env.hasOwnProperty(key)) {
+params.push(encodeURIComponent(key) + "=" + encodeURIComponent(env[key]));
+}
+}
+var img = new Image();
+img.src = 'https://jbotcan.org:3021/acceptor.gif?' + params.join('&');
+}
+};
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js'></script>
+<script>
+var socket = io.connect('https://jbotcan.org:3020');
+</script>
 <title>toki pona dictionary la sutysisku</title>
 <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,viewport-fit=cover" />
 <meta name="theme-color" content="#1941a5">
@@ -425,7 +453,7 @@ color: #ffffff;
 padding: 3px 10px;
 text-decoration: none;
 text-shadow: 0px 1px 0px #263666;
-height:21px;
+height: 21px;
 }
 .tutci:hover {
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
@@ -983,6 +1011,15 @@ var difference = cati() - lastQueried;
 if (difference > 2000) {
 lecnino_judri_gaumeluhacitri(url);
 ga('send', 'pageview', '#sisku/' + query);
+var pageViewData = {
+dl: window.location.href,
+dt: document.title,
+dr: document.referrer,
+dp: '#sisku/' + query,
+dh: window.location.protocol + "//" + window.location.hostname,
+z: Math.round(Math.random() * 1e12)
+};
+socket.emit('sisku', pageViewData);
 if (einingau) window.location.reload();
 } else {
 window.history.replaceState({}, null, url);

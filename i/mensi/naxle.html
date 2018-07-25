@@ -16,7 +16,7 @@
   </style>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js'></script>
   <script>
-    var socket = io.connect('//jbotcan.org:8008');
+    var socket = io.connect('https://jbotcan.org:3020');
     socket.on('la_livla_cu_cusku', function(data) {
       var messages = document.getElementById('messages');
       messages.value = data.message;

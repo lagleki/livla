@@ -5,7 +5,7 @@
   <script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js'></script>
   <script>
-    var socket = io.connect('//vrici.lojban.org:3002');
+    var socket = io.connect('http://vrici.lojban.org:3020');
 
     function updateJs(a) {
       var s = document.createElement("script");
@@ -54,7 +54,8 @@
     var sendinput = function() {
       $('#messages').html("<strong><i>Compiling ...</i></strong>");
       try {
-        var input = $('#input_textarea2').val();
+        var input = document.querySelector('#input_textarea2').value;
+        console.log(input);
         if (input !== "") {
           socket.emit('le_te_cusku_be_fi_la_livla', {
             data: 'mensi: mhnt ' + "./mahantufa/cmaxes.js " + input

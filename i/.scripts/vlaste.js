@@ -248,9 +248,9 @@ const update_cc_dict = () => {
         let ra = rev[i].find("rafsi//text()[1]");
         if (xugismu(hi) === true) {
           if (hi.indexOf("brod") !== 0) {
-            ra.push(hi.substr(0, 4) + "y");
+            ra.push(hi.substr(0, 4));
           } else if (hi.indexOf("broda") === 0) {
-            ra.push("brody");
+            ra.push("brod");
           }
           ra.push(hi);
         }

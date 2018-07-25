@@ -35,9 +35,8 @@ const robangu = 'fr-facile|en|ru|de|ja|jbo|guaspi|loglan|eo|fr|2002|es|zh|sv|en-
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
 let tcan = '#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau,##esperanto,#polsk,#tokpona,#ponjbo,#rusko';
-// let tcan = '#lojbanme';
+let localConfig;
 let nuzbytcan = '#lojban';
-let livlytcan = '#lojbanme'; //where la livla talks to la mensi
 let asker = 'livla';
 let replier = 'mensi';
 let server = 'irc.freenode.net';
@@ -50,12 +49,13 @@ let arr_twitter_id;
 
 // const stodipilno=['gleki','xalbo'];
 // End default configuration
+const config = require(path.join(__dirname, '../config/config.json'));
 
 const configlivla = {
   server,
   nick: asker,
   options: {
-    channels: [livlytcan],
+    channels: [],
     debug: false,
     messageSplit: 1900,
     realName: 'http://lojban.org/papri/IRC_Bots',
@@ -68,7 +68,7 @@ const configmensi = {
   nick: replier,
   options: {
     channels: [
-      livlytcan, tcan
+      tcan
     ],
     debug: false,
     messageSplit: 1900,
@@ -153,7 +153,7 @@ const loadConfig = () => {
       return b;
     return a;
   }
-  let localConfig = readConfig("config.json");
+  localConfig = readConfig("config.json");
   if (localConfig.trim() === "")
     return; // Empty config, we do nothing.
   localConfig = JSON.parse(localConfig);
@@ -161,7 +161,6 @@ const loadConfig = () => {
   asker = either(localConfig.asker, asker);
   replier = either(localConfig.replier, replier);
   tcan = either(localConfig.tcan, tcan);
-  livlytcan = either(localConfig.livlytcan, livlytcan);
   server = either(localConfig.server, server);
   consumer_key = either(localConfig.consumer_key, "");
   consumer_secret = either(localConfig.consumer_secret, "");
@@ -302,6 +301,9 @@ function CheckRecentChanges() {
 
 const irc = require('irc');
 //const client = new irc.Client(configlivla.server, configlivla.nick, configlivla.options);
+if (localConfig.livlytcan)configmensi.options.channels.push(localConfig.livlytcan);
+let fff = configmensi.options.channels;
+lg(fff);
 const clientmensi = new irc.Client(configmensi.server, configmensi.nick, configmensi.options);
 
 //    camxes = {};
@@ -761,13 +763,13 @@ const sutysiskuningau = (lng, lojbo) => { //write a new file parsed.js that woul
     } catch (err) {}
     let ra = rev[i].find("rafsi//text()[1]");
     if (lojbo !== 0 && lojban.xugismu(hi) === true) {
-      ra.push(hi);
       if (hi.indexOf("brod") !== 0) {
-        ra.push(hi.substr(0, 4) + "y");
+        ra.push(hi.substr(0, 4));
       }
       if (hi.indexOf("broda") === 0) {
         ra.push("brod");
       }
+      ra.push(hi);
     }
     ra = ra.join("\",\"");
 
@@ -1100,7 +1102,9 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
   }
   //notci functions first:
   if (text.indexOf(`${replier}: tell `) === 0) {
-    text = text.substr(12).trim().replace("\\t", " ").replace(" ", "\t");
+    text = text.substr(12).trim().replace("\\t", " ").replace(" ", "\t").split("\t");
+    if (text[0]) text[0] = text[0].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]$/g,"").replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,".*").replace(/[^a-zA-Z]/g,'.');
+    text = text.join("\t");
     switch (true) {
       case from.match(text.substr(0, text.indexOf('\t'))) !== null:
         benji(source, socket, clientmensi, sendTo, `${from}: tell it to yourself, Komonian`);
@@ -1122,10 +1126,10 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
     text = text.substr(11).trim().replace(/^la /, '').replace("\\t", " ").replace(" ", "\t");
     switch (true) {
       case from.match(text.substr(0, text.indexOf('\t'))) !== null:
-        benji(source, socket, clientmensi, sendTo, `${from}: e'u do cusku di'u lo nei si'unai`);
+        benji(source, socket, clientmensi, sendTo, `${from}: e'u do cusku di'u le nei si'unai`);
         break;
       case text.substr(0, text.indexOf('\t')) === replier:
-        benji(source, socket, clientmensi, sendTo, `${from}: xu do je'a jinvi lodu'u mi bebna i oi`);
+        benji(source, socket, clientmensi, sendTo, `${from}: xu do je'a jinvi ledu'u mi bebna i oi`);
         break;
       default:
         const ds = new Date();
@@ -1492,12 +1496,38 @@ const app = require('http').createServer((req, res) => {
 // Socket.io server listens to our app
 const io = require('socket.io').listen(app);
 
+const IPFromRequest = ({
+  headers,
+  connection,
+  params
+}) => {
+  let ip;
+  if (headers && headers['x-forwarded-for']) {
+    ip = headers['x-forwarded-for'].split(', ').shift();
+  } else if (connection && connection.remoteAddress) {
+    ip = connection.remoteAddress;
+  } else if (params && params.ip) {
+    ip = params.ip;
+  } else {
+    ip = "127.0.0.1";
+  }
+  return ip;
+}
+
+const ua = require('universal-analytics');
+
 io.sockets.on('connection', socket => {
   socket.on('le_te_cusku_be_fi_la_livla', data => {
     if (data.data.indexOf(`${prereplier}doi`) === 0 || data.data.indexOf(`${prereplier}tell`) === 0) {} else {
       processormensi(clientmensi, "mw.lojban.org", "", data.data, "", "naxle", socket);
     }
   })
+  socket.on('sisku', data => {
+    const ip = IPFromRequest(socket.request);
+    const visitor = ua(config.GoogleAnalytics, ip, {strictCidFormat: false});
+    data.uip = ip;
+    visitor.pageview(data).send()
+  })
 });
 
-app.listen(3002);
+app.listen(3020);

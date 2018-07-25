@@ -28,6 +28,43 @@
 	</script>
 	<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
 	</script>
+	<script>
+		ArcBTracker = {
+			fire: function(env) {
+				if (typeof(env) == "undefined") {
+					env = {};
+				}
+
+				// send some miscellaneous info about the request
+				env.u = document.location.href;
+				env.bw = window.innerWidth;
+				env.bh = window.innerHeight;
+
+				// example of sending a cookie named 'guid'
+				// env.guid = (document.cookie.match(/guid=([^\_]*)_([^;]*)/) || [])[2];
+
+				if (document.referrer && document.referrer != "") {
+					env.ref = document.referrer;
+				}
+
+				env.rnd = Math.floor(Math.random() * 10e12);
+
+				var params = [];
+				for (var key in env) {
+					if (env.hasOwnProperty(key)) {
+						params.push(encodeURIComponent(key) + "=" + encodeURIComponent(env[key]));
+					}
+				}
+
+				var img = new Image();
+				img.src = 'https://jbotcan.org:3021/acceptor.gif?' + params.join('&');
+			}
+		};
+	</script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js'></script>
+	<script>
+		var socket = io.connect('https://jbotcan.org:3020');
+	</script>
 	<!-- Google Tag Manager -->
 	<!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -604,7 +641,7 @@
 			padding: 3px 10px;
 			text-decoration: none;
 			text-shadow: 0px 1px 0px #263666;
-			height:21px;
+			height: 21px;
 		}
 
 		.tutci:hover {
@@ -1382,6 +1419,15 @@
 			if (difference > 2000) {
 				lecnino_judri_gaumeluhacitri(url);
 				ga('send', 'pageview', '#sisku/' + query);
+				var pageViewData = {
+					dl: window.location.href,
+					dt: document.title,
+					dr: document.referrer,
+					dp: '#sisku/' + query,
+					dh: window.location.protocol + "//" + window.location.hostname,
+					z: Math.round(Math.random() * 1e12)
+				};
+				socket.emit('sisku', pageViewData);
 				if (einingau) window.location.reload();
 			} else {
 				window.history.replaceState({}, null, url);

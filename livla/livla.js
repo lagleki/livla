@@ -1224,7 +1224,7 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
           benji(source, socket, clientmensi, sendTo, "https://mw.lojban.org/papri/sepulka/en");
           break;
         case txt.trim() === '#cilre':
-          benji(source, socket, clientmensi, sendTo, "An extensive description of Lojban language: http://lojban.org/publications/cll/cll_v1.1_xhtml-section-chunks/\nSlicker methods of learning Lojban: https://mw.lojban.org/papri/Learn_Lojban:_new_methods\nYou might also want to bookmark a Lojban dictionary; the two most popular ones are http://la-lojban.github.io/sutysisku/en/ and https://vlasisku.alexburka.com\nAlso use this channel to ask any questions.");
+          benji(source, socket, clientmensi, sendTo, "An extensive description of Lojban language: http://lojban.org/publications/cll/cll_v1.1_xhtml-section-chunks/\nSlicker methods of learning Lojban: https://mw.lojban.org/papri/Learn_Lojban:_new_methods\nYou might also want to bookmark a Lojban dictionary; the two most popular ones are http://la-lojban.github.io/sutysisku/en/ and http://vlasisku.lojban.org\nAlso use this channel to ask any questions.");
           break;
         case txt.trim() === '#noiha':
           benji(source, socket, clientmensi, sendTo, "ko\'a broda poi\'a brodo = lo nu ko\'a broda cu fasnu gi\'e brodo\nko\'a broda noi\'a brodo = lo nu ko\'a broda cu fasnu .i lo go\'i cu brodo\nko\'a broda soi\'a brodo = lo nu ko\'a broda cu brodo\nko\'a broda soi ke\'a brodo = ko\'a broda .i lo nu go\'i cu brodo");

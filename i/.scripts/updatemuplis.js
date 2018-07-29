@@ -2,7 +2,7 @@
 const fs = require("fs"),
   path = require("path-extra"),
   LineByLineReader = require('line-by-line'),
-  sqlite3 = require('sqlite3').verbose();
+  sqlite3 = require('better-sqlite3').verbose();
 
 // download_sentences();
 // tatocreatedb();

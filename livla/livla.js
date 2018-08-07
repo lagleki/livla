@@ -7,7 +7,8 @@ const fs = require("fs"),
   path = require("path-extra"),
   ospath = require("ospath"),
   libxmljs = require("libxmljs"),
-  lojban = require("lojban");
+  R = require('ramda'),
+  lojban = require("lojban")
 const fastXmlParser = require('fast-xml-parser');
 
 const tato = require('./tatoeba.js');
@@ -39,6 +40,7 @@ let localConfig;
 let nuzbytcan = '#lojban';
 let asker = 'livla';
 let replier = 'mensi';
+let password = '';
 let server = 'irc.freenode.net';
 let twitter_id = "good_opinions,opinions_good,cunsku";
 let consumer_key,
@@ -51,33 +53,6 @@ let arr_twitter_id;
 // End default configuration
 const config = require(path.join(__dirname, '../config/config.json'));
 
-const configlivla = {
-  server,
-  nick: asker,
-  options: {
-    channels: [],
-    debug: false,
-    messageSplit: 1900,
-    realName: 'http://lojban.org/papri/IRC_Bots',
-    floodProtection: true,
-    floodProtectionDelay: 400
-  }
-};
-const configmensi = {
-  server,
-  nick: replier,
-  options: {
-    channels: [
-      tcan
-    ],
-    debug: false,
-    messageSplit: 1900,
-    realName: 'http://lojban.org/papri/IRC_Bots',
-    userName: replier,
-    floodProtection: true,
-    floodProtectionDelay: 400
-  }
-};
 let userSettings = {}; // Saving user preferences
 userSettings[asker] = {
   "language": "jbo" // Not used, but someone might like to have bots speak to each other in another language
@@ -148,25 +123,26 @@ const loadNotci = () => {
 // Load the configuration from “~/.livla/config.json”, and modify the default
 // config accordingly.
 const loadConfig = () => {
-  const either = (a, b) => {
-    if (!a)
-      return b;
-    return a;
+  const either = (obj, a, b) => {
+    a = R.path(a.split("."), obj);
+    if (a) return a;
+    return b;
   }
   localConfig = readConfig("config.json");
   if (localConfig.trim() === "")
     return; // Empty config, we do nothing.
   localConfig = JSON.parse(localConfig);
 
-  asker = either(localConfig.asker, asker);
-  replier = either(localConfig.replier, replier);
-  tcan = either(localConfig.tcan, tcan);
-  server = either(localConfig.server, server);
-  consumer_key = either(localConfig.consumer_key, "");
-  consumer_secret = either(localConfig.consumer_secret, "");
-  access_token_key = either(localConfig.access_token_key, "");
-  access_token_secret = either(localConfig.access_token_secret, "");
-  twitter_id = either(localConfig.twitter_id, twitter_id);
+  asker = either(localConfig, "asker.name", asker);
+  replier = either(localConfig, "replier.name", replier);
+  tcan = either(localConfig, "tcan", tcan);
+  server = either(localConfig, "server", server);
+  password = either(localConfig, "replier.password", "");
+  consumer_key = either(localConfig, "consumer_key", "");
+  consumer_secret = either(localConfig, "consumer_secret", "");
+  access_token_key = either(localConfig, "access_token_key", "");
+  access_token_secret = either(localConfig, "access_token_secret", "");
+  twitter_id = either(localConfig, "twitter_id", twitter_id);
   arr_twitter_id = twitter_id.split(",");
 
   const Twitter = require('node-tweet-stream'),
@@ -202,6 +178,23 @@ const loadConfig = () => {
   // t.track('#loglan');
 }
 loadConfig();
+
+const configmensi = {
+  server,
+  nick: replier,
+  options: {
+    channels: [
+      tcan
+    ],
+    password,
+    debug: false,
+    messageSplit: 1900,
+    realName: 'http://lojban.org/papri/IRC_Bots',
+    userName: replier,
+    floodProtection: true,
+    floodProtectionDelay: 400
+  }
+};
 
 // Load the user configuration from “~/.livla/user-settings.json”
 // These are settings
@@ -301,7 +294,7 @@ function CheckRecentChanges() {
 
 const irc = require('irc');
 //const client = new irc.Client(configlivla.server, configlivla.nick, configlivla.options);
-if (localConfig.livlytcan)configmensi.options.channels.push(localConfig.livlytcan);
+if (localConfig.livlytcan) configmensi.options.channels.push(localConfig.livlytcan);
 let fff = configmensi.options.channels;
 lg(fff);
 const clientmensi = new irc.Client(configmensi.server, configmensi.nick, configmensi.options);
@@ -1103,7 +1096,10 @@ const processormensi = (clientmensi, from, to, text, message, source, socket) =>
   //notci functions first:
   if (text.indexOf(`${replier}: tell `) === 0) {
     text = text.substr(12).trim().replace("\\t", " ").replace(" ", "\t").split("\t");
-    if (text[0]) text[0] = text[0].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]$/g,"").replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,".*").replace(/[^a-zA-Z]/g,'.');
+    if (text[0]) text[0] = text[0]
+      .replace(/[0-9.,\/#!$%\^&\*;:{}=\-_`~()]$/g, "")
+      .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ".*")
+      .replace(/[^a-zA-Z]/g, '.');
     text = text.join("\t");
     switch (true) {
       case from.match(text.substr(0, text.indexOf('\t'))) !== null:
@@ -1524,7 +1520,9 @@ io.sockets.on('connection', socket => {
   })
   socket.on('sisku', data => {
     const ip = IPFromRequest(socket.request);
-    const visitor = ua(config.GoogleAnalytics, ip, {strictCidFormat: false});
+    const visitor = ua(config.GoogleAnalytics, ip, {
+      strictCidFormat: false
+    });
     data.uip = ip;
     visitor.pageview(data).send()
   })

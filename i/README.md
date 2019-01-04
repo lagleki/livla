@@ -1,7 +1,5 @@
 ## A dictionary for Lojban, English and other languages
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
 ### Features
 * Fast
 * Full text search

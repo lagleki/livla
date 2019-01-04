@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2018-07-16T08:21:13
+# 2018-12-26T00:29:10
 CACHE:
 https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML
 https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/config/TeX-MML-AM_CHTML.js?V=2.7.4
@@ -14,7 +14,7 @@ https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/Mat
 index.html?version=32
 ../pixra/snime.svg
 ../pixra/arrow-left.png
-../sisku.js
+../sisku.js?sisku=2018_12_26_00_29_10
 worker.js
 bangu.js
 ../pixra/cll.png
@@ -26,7 +26,7 @@ bangu.js
 ../pixra/simplingua.svg
 ../pixra/muplis-eng-pol.png
 ../pixra/16.png
-../data/parsed-ithkuil.js
+../data/parsed-ithkuil.js?sisku=2018_12_26_00_29_10
 ../lib/fullproof/unicode/categ_letters_numbers.js
 ../lib/fullproof/unicode/normalizer_lowercase_nomark.js
 ../lib/fullproof/unicode/unicode.js

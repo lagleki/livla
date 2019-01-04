@@ -12,8 +12,8 @@ https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/Mat
 https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff
 
 index.html
-../data/parsed-jb.js
-../sisku.js
+../data/parsed-jb.js?sisku=0123
+../sisku.js?sisku=0123
 worker.js
 bangu.js
 ../pixra/cll.png

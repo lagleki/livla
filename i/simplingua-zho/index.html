@@ -53,6 +53,16 @@ img.src = 'https://jbotcan.org:3021/acceptor.gif?' + params.join('&');
 <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js'></script>
 <script>
 var socket = io.connect('https://jbotcan.org:3020');
+socket.on('la_arxivo_cu_cusku', function(data) {
+if(seskari ==='arxivo'){
+results = data.message;
+outp.innerHTML = '';
+window.jimte = 30;
+resultCount = 0;
+skicu_lo_ro_valsi();
+displayDescription(true);
+}
+});
 </script>
 <title>Simplingua dictionary la sutysisku</title>
 <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,viewport-fit=cover" />
@@ -82,6 +92,9 @@ var socket = io.connect('https://jbotcan.org:3020');
 <link rel="shortcut icon" href="../pixra/snime.svg" />
 <link rel="search" type="application/opensearchdescription+xml" href="/sutysisku/simplingua-zho/sisku.xml" title="simplingua-zho-sutysisku">
 <style type="text/css">
+#arxivo {
+display: none;
+}
 body {
 font-family: Tahoma, Lato, sans-serif;
 font-size: 90%;
@@ -584,7 +597,7 @@ transition: width .8s ease
 </div>
 <div id='content'>
 <div id='content-panel'>
-<div id='sidju' class='sidju'><a class='tutci' id='rimni'>Rhyme search</a>
+<div id='sidju' class='sidju'><a class='tutci' id='rimni'>Rhyme search</a><a class='tutci' id='cnano'>Normal search</a><a class='tutci' id='arxivo'>arxivo</a>
 <div id="purci"></div>
 </div>
 <div id='loading' class="term">
@@ -599,6 +612,7 @@ transition: width .8s ease
 </div>
 </div>
 <script>
+var seskari = localStorage.getItem('seskari') || 'cnano';
 var ciska = document.getElementById('ciska');
 var outp = document.getElementById('outp');
 var descr = document.getElementById('descr');
@@ -655,7 +669,6 @@ var einingau;
 var resultCount;
 var results = [];
 var ready;
-var searchIdCounter = 0;
 var prevQuery, drataQuery = '';
 var lastQueried = cati();
 var typingTimer;
@@ -697,17 +710,34 @@ doSearch();
 calcVH();
 sisku_rahilejudri();
 document.getElementById('rimni').addEventListener("click", function() {
+if (!ready) return;
+seskari = 'rimni';
 query = plukaquery(ciska.value);
 if (query === '') {
 var arrpurc = JSON.parse(localStorage.getItem('purci')) || [];
 if (arrpurc && arrpurc[0]) query = arrpurc[0];
 }
-query = '@' + query.replace(/@+$/, '').replace(/^@+/, '');
-if (query !== '@') {
+query = query.replace(/@+$/, '');
+if (query === '') return;
 ciska.value = query;
 triggerEvent(ciska, 'input');
-if (ready) doSearch();
+doSearch();
+});
+document.getElementById('cnano').addEventListener("click", function() {
+seskari = 'cnano';
+if (!ready) return;
+doSearch();
+});
+document.getElementById('arxivo').addEventListener("click", function() {
+seskari = 'arxivo';
+query = ciska.value;
+if (query === '') {
+var arrpurc = JSON.parse(localStorage.getItem('purci')) || [];
+if (arrpurc && arrpurc[0]) query = arrpurc[0];
 }
+socket.emit('cpedu_fi_la_arxivo', {
+data: query
+});
 });
 function triggerEvent(el, type) {
 if ('createEvent' in document) {
@@ -789,7 +819,7 @@ return hilite(c)
 function hilite(txt) {
 return txt.replace(rock, "<span class='hilite'>$1</span>")
 }
-function skicu_lo_valsi(def, inner) {
+function skicu_pavalsi(def, inner) {
 if (!def) def = [];
 var out = document.createElement('div');
 out.className = (inner === 1) ? 'terminner' : 'termouter';
@@ -815,12 +845,24 @@ var ss = document.createElement('div');
 ss.className = 'type';
 ss.innerHTML = '<a href="#sisku/' + encodeUrl(def.s) + '">' + hilite(escHtml(def.s)) + "</a> ";
 }
+if (def.t) {
 var jvs = document.createElement('div');
 jvs.className = 'type';
 jvs.innerHTML = def.t;
 if (window.xuzganalojudri && !def.l) {
 jvs.innerHTML = "<a style='color: #000;' target='_blank' href=\"" + window.judri +
 encodeUrl(def.w).replace(/_/g, '%20') + "\">" + escHtml(def.t) + "<font color='#aaa'>#</font></a> ";
+}
+}
+if (def.date) {
+var jvs = document.createElement('div');
+jvs.className = 'type';
+jvs.innerHTML = def.date;
+}
+if (def.from) {
+var ss = document.createElement('div');
+ss.className = 'type';
+ss.innerHTML = def.from;
 }
 var word = document.createElement('h4');
 word.classList.add('valsi');
@@ -838,7 +880,7 @@ if (tfm) heading.appendChild(tfm);
 heading.appendChild(word);
 if (fmm) heading.appendChild(fmm);
 heading.appendChild(flex);
-if (jvs.innerHTML) out.appendChild(jvs);
+if (jvs) out.appendChild(jvs);
 if (ss) out.appendChild(ss);
 out.appendChild(heading);
 if (def.d) {
@@ -849,7 +891,7 @@ if (def.d.nasezvafahi) {
 n.classList.add('nasezvafahi');
 n.innerHTML = window.nasezvafahi;
 } else {
-n.innerHTML = melbi_uenzi(def.d) + ' ';
+n.innerHTML = melbi_uenzi(def.d).replace(/\n/g,'<br/>') + ' ';
 }
 out.appendChild(n);
 }
@@ -900,14 +942,14 @@ var subDefs = document.createElement('div');
 subDefs.classList.add('definition');
 subDefs.classList.add('subdefinitions');
 for (var i = 0; i < def.rafsiDocuments.length; i++) {
-subDefs.appendChild(skicu_lo_valsi(def.rafsiDocuments[i], 1));
+subDefs.appendChild(skicu_pavalsi(def.rafsiDocuments[i], 1));
 }
 out.appendChild(subDefs);
 }
 out.addEventListener("click", clicked);
 return out;
 }
-function displayDescription() {
+function displayDescription(ban_tex) {
 if (query == '') {
 SiteTitleFull.classList.remove("normal-search-mode-title-color");
 SiteTitleFull.classList.remove("rimni-search-mode-title-color");
@@ -952,7 +994,7 @@ return '<a href="#sisku/' + encodeUrl(a) + '">' + escHtml(a) + "</a>";
 sidju.style.display = 'block';
 }
 } else {
-MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+if (!ban_tex) MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 outp.style.display = 'block';
 descr.style.display = 'none';
 drata.style.display = 'none';
@@ -961,7 +1003,7 @@ document.getElementById('content').scrollTop = 0;
 }
 }
 function plukaquery(a) {
-if (a.charAt(0) !== '^' && a.slice(-1) !== '$') return a.replace(/[,\.]/g, " ").replace(/ {2,}/g, " ").trim();
+if (a.charAt(0) !== '^' && a.slice(-1) !== '$') return a.replace(/[,\.]/g, " ").replace(/ {2,}/g, " ").replace(/’/g,"'").trim();
 return a;
 }
 function clicked(event) {
@@ -1003,9 +1045,9 @@ var url = '';
 if (query.length > 0) url = '#sisku/' + encodeUrl(query);
 if (url == '' || document.referrer === document.location.href) return;
 worker.postMessage({
-kind: 'newSearch',
+'kind': 'newSearch',
 'query': query,
-'searchId': searchId
+'type': seskari
 });
 var difference = cati() - lastQueried;
 if (difference > 2000) {
@@ -1025,11 +1067,10 @@ if (einingau) window.location.reload();
 window.history.replaceState({}, null, url);
 }
 lastQueried = cati();
-var searchId = ++searchIdCounter;
 window.jimte = 30;
 resultCount = 0;
 var ampersand = query.indexOf('@');
-if (ampersand === 0 || ampersand === query.length - 1) {
+if (seskari==='rimni') {
 SiteTitleFull.classList.add("rimni-search-mode-title-color");
 SiteTitleFull.classList.remove("normal-search-mode-title-color");
 SiteTitleFull.classList.remove("desktop-mode-title-color");
@@ -1038,7 +1079,7 @@ for (var i = 0; i < SiteImage.length; i++) {
 SiteImage[i].style.filter = "sepia(1.0)";
 SiteImage[i].style.WebkitFilter = "sepia(1.0)";
 }
-} else {
+} else if (seskari === 'cnano'){
 SiteTitleFull.classList.add("normal-search-mode-title-color");
 SiteTitleFull.classList.remove("desktop-mode-title-color");
 dasri.className = 'galtu-dasri';
@@ -1087,7 +1128,7 @@ if (e.keyCode && e.keyCode === 191) ciska.focus();
 function skicu_lo_ro_valsi() {
 var displayUpTo = Math.min(window.jimte, results.length);
 for (; resultCount < displayUpTo; resultCount++) {
-outp.appendChild(skicu_lo_valsi(results[resultCount]));
+outp.appendChild(skicu_pavalsi(results[resultCount]));
 }
 }
 function cati() {

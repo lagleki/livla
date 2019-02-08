@@ -756,7 +756,7 @@ const vlaste = (lin, lng, raf) => {
 
 const sidju = () => {
   const sidj = {
-    en: `Parsers: type ".ilm " (stable BPFK grammar), ".beta " (experimental), ".gerna " (jbofi'e), or ".yacc " (official yacc) followed by the text to show the structure of sentences.\nLojban dictionary: type ".language-code word", where language code is one of jbo,en,ru,es,fr,fr-facile,ja,de,eo,zh,hu,sv. This searches in both directions.\n    ".selmaho ca'a" gives "CAhA", ".selmaho CAhA" gives "bi'ai, ca'a, ..."\n    ".rafsi kulnu" gives "klu", ".rafsi klu" gives "kulnu"\nOther conlang dictionaries: ".toki ", ".laadan ", ".loglan "\nLojban <-> Loglan conversion (incomplete): ".coi ", ".loi "\n"Tatoeba: klama" gets a random example sentence using "klama"\nDelayed messaging: type "${replier}: doi user message" to send "message" to "user" when they return`
+    en: `Parsers: type ".ilm " (stable BPFK grammar), ".beta " (experimental), ".jbofihe " (jbofi'e), or ".yacc " (official yacc) followed by the text to show the structure of sentences.\nLojban dictionary: type ".language-code word", where language code is one of jbo,en,ru,es,fr,fr-facile,ja,de,eo,zh,hu,sv. This searches in both directions.\n    ".selmaho ca'a" gives "CAhA", ".selmaho CAhA" gives "bi'ai, ca'a, ..."\n    ".rafsi kulnu" gives "klu", ".rafsi klu" gives "kulnu"\nOther conlang dictionaries: ".toki ", ".laadan ", ".loglan "\nLojban <-> Loglan conversion (incomplete): ".coi ", ".loi "\n"Tatoeba: klama" gets a random example sentence using "klama"\nDelayed messaging: type "${replier}: doi user message" to send "message" to "user" when they return`
   };
   return sidj.en;
 };
@@ -1303,7 +1303,7 @@ const processormensi = (
             text.indexOf("\t")
           )} after they return to the chat`
         );
-        fs.writeFile(notcijudri, notci.join("\n"));
+        fs.writeFileSync(notcijudri, notci.join("\n"));
         //loadNotci();
         break;
     }
@@ -1353,7 +1353,7 @@ const processormensi = (
             text.indexOf("\t")
           )}.gy. di'a cusku da`
         );
-        fs.writeFile(notcijudri, notci.join("\n"));
+        fs.writeFileSync(notcijudri, notci.join("\n"));
       //loadNotci();
     }
   }
@@ -1382,7 +1382,7 @@ const processormensi = (
       );
       notci.splice(l, 1);
       l = l - 1;
-      fs.writeFile(notcijudri, notci.join("\n"));
+      fs.writeFileSync(notcijudri, notci.join("\n"));
       //loadNotci();
     }
   }
@@ -1541,7 +1541,7 @@ const processormensi = (
             "https://mw.lojban.org/papri/sepulka/en"
           );
           break;
-        case txt.trim() === "#cilre":
+        case (txt.trim() === "#cilre"||txt.trim() === "#ckule"||txt.trim() === "#lojban"):
           benji(
             source,
             socket,
@@ -1952,26 +1952,6 @@ const processormensi = (
         case txt.indexOf("tatoeba:") === 0:
           benji(source, socket, clientmensi, sendTo, sisku(pp));
           break;
-        case txt.indexOf("jbofi'e:") === 0 ||
-          txt.indexOf("jbofihe:") === 0 ||
-          txt.indexOf("gerna:") === 0:
-          benji(source, socket, clientmensi, sendTo, "Use '.jbofihe ' instead");
-          break;
-        case txt.indexOf("lujvo:") === 0:
-          benji(source, socket, clientmensi, sendTo, "Use '.lujvo ' instead.");
-          break;
-        case txt.indexOf("exp:") === 0:
-          benji(source, socket, clientmensi, sendTo, "Use '.exp ' instead");
-          break;
-        case txt.indexOf("anji:") === 0:
-          benji(source, socket, clientmensi, sendTo, "Use '.anji ' instead.");
-          break;
-        case txt.indexOf("off:") === 0:
-          benji(source, socket, clientmensi, sendTo, "Use '.off ' instead.");
-          break;
-        case txt.indexOf("gloss:") === 0:
-          benji(source, socket, clientmensi, sendTo, "Use '.gloss ' instead.");
-          break;
         case sendTo === from:
           inLanguage = RetrieveUsersLanguage(from, inLanguage);
           benji(
@@ -1997,7 +1977,7 @@ clientmensi.addListener("message", (from, to, text, message) => {
 });
 
 clientmensi.addListener("error", message => {
-  lg('error on mensi\'s listening',message.toString());
+  lg('error on mensi\'s listening',JSON.stringify(message));
 });
 
 //NAXLE

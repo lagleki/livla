@@ -5,7 +5,7 @@
 # COPYRIGHT
 #
 
-PREFIX=./
+PREFIX=/usr/local
 EXEDIR=$(PREFIX)/bin
 LIBDIR=$(PREFIX)/lib/jbofihe
 DICTNAME=smujmaji.dat
@@ -93,7 +93,7 @@ elitabs.c : output2elide.pl rpc2x_act.output
 
 elide.o : elide.c elitabs.c
 
-dictaccs.o : dictaccs.c 
+dictaccs.o : dictaccs.c
 
 dictdata.c: gismu_cmavo.dict
 	cat gismu_cmavo.dict places.dat extradict patterns | perl dict2inc.pl > dictdata.c
@@ -118,7 +118,7 @@ smujajgau.o : smujajgau.c
 
 vlatai.o : morf.c morf.h morf_enc.c morf_lex.c morfvlex.c
 	$(CC) $(CFLAGS) -c -o vlatai.o -DTEST_MORF morf.c
-    
+
 vlatai : vlatai.o morf_dfa.o bccheck.o canonluj.o
 	$(CC) -o vlatai -DTEST_MORF $(CFLAGS) vlatai.o morf_dfa.o bccheck.o canonluj.o
 
@@ -157,7 +157,7 @@ txtman: jbofihe.txt cmafihe.txt smujajgau.txt jvocuhadju.txt vlatai.txt
 
 gismu_cmavo.dict: mkdict.pl
 	perl mkdict.pl > gismu_cmavo.dict
-    
+
 
 dictionary : smujajgau gismu_cmavo.dict
 	rm -f $(DICTNAME)

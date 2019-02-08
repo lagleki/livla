@@ -3,22 +3,22 @@ extern elide_trace_shift(int,int);
 extern report_trace_shift(int);
 extern report_trace_reduce(int, int);
 extern report_trace_error(short *yyss, short *yyssp);
-/* A Bison parser, made by GNU Bison 2.6.4.  */
+/* A Bison parser, made by GNU Bison 3.0.5.  */
 
 /* Bison implementation for Yacc-like parsers in C
-   
-      Copyright (C) 1984, 1989-1990, 2000-2012 Free Software Foundation, Inc.
-   
+
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018 Free Software Foundation, Inc.
+
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
@@ -31,7 +31,7 @@ extern report_trace_error(short *yyss, short *yyssp);
    special exception, which will cause the skeleton and the resulting
    Bison output files to be licensed under the GNU General Public
    License without this special exception.
-   
+
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
@@ -49,7 +49,7 @@ extern report_trace_error(short *yyss, short *yyssp);
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "2.6.4"
+#define YYBISON_VERSION "3.0.5"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -68,15 +68,15 @@ extern report_trace_error(short *yyss, short *yyssp);
 #define yyparse         full_yyparse
 #define yylex           yylex
 #define yyerror         yyerror
-#define yylval          yylval
-#define yychar          full_yychar
 #define yydebug         yydebug
 #define yynerrs         full_yynerrs
+
+#define yylval          yylval
+#define yychar          full_yychar
 #define yylloc          full_yylloc
 
 /* Copy the first part of user declarations.  */
-/* Line 358 of yacc.c  */
-#line 178 "rpc2x_full_act.y"
+#line 178 "rpc2x_full_act.y" /* yacc.c:339  */
 
 #define YYDEBUG 1
 
@@ -96,14 +96,13 @@ extern int last_tok_line;
 extern int last_tok_column;
 
 
-/* Line 358 of yacc.c  */
-#line 96 "rpc2x_full_act.tab.c"
+#line 95 "rpc2x_full_act.tab.c" /* yacc.c:339  */
 
-# ifndef YY_NULL
+# ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
-#   define YY_NULL nullptr
+#   define YY_NULLPTR nullptr
 #  else
-#   define YY_NULL 0
+#   define YY_NULLPTR 0
 #  endif
 # endif
 
@@ -116,7 +115,7 @@ extern int last_tok_column;
 #endif
 
 
-/* Enabling traces.  */
+/* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
 #endif
@@ -124,216 +123,203 @@ extern int last_tok_column;
 extern int yydebug;
 #endif
 
-/* Tokens.  */
+/* Token type.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
-   /* Put the tokens into the symbol table, so that GDB and other debuggers
-      know about them.  */
-   enum yytokentype {
-     GARBAGE = 258,
-     A = 259,
-     BAhE = 260,
-     BAI = 261,
-     BE = 262,
-     BEhO = 263,
-     BEI = 264,
-     BIhE = 265,
-     BIhI = 266,
-     BO = 267,
-     BOI = 268,
-     BRIVLA = 269,
-     BU = 270,
-     BY = 271,
-     CAhA = 272,
-     CAI = 273,
-     CEhE = 274,
-     CEI = 275,
-     CMENE = 276,
-     CO = 277,
-     COI = 278,
-     CU = 279,
-     CUhE = 280,
-     DAhO = 281,
-     DOhU = 282,
-     DOI = 283,
-     FA = 284,
-     FAhA = 285,
-     FAhO = 286,
-     FEhE = 287,
-     FEhU = 288,
-     FIhO = 289,
-     FOI = 290,
-     FUhA = 291,
-     FUhE = 292,
-     FUhO = 293,
-     GA = 294,
-     GAhO = 295,
-     GEhU = 296,
-     GI = 297,
-     GIhA = 298,
-     GOhA = 299,
-     GOI = 300,
-     GUhA = 301,
-     I = 302,
-     JA = 303,
-     JAI = 304,
-     JOhI = 305,
-     JOI = 306,
-     KE = 307,
-     KEhE = 308,
-     KEI = 309,
-     KI = 310,
-     KOhA = 311,
-     KUhE = 312,
-     KUhO = 313,
-     KU = 314,
-     LA = 315,
-     LAhE = 316,
-     LAU = 317,
-     LE = 318,
-     LEhU = 319,
-     LI = 320,
-     LIhU = 321,
-     LOhO = 322,
-     LOhU = 323,
-     LU = 324,
-     LUhU = 325,
-     MAhO = 326,
-     MAI = 327,
-     ME = 328,
-     MEhU = 329,
-     MOhE = 330,
-     MOhI = 331,
-     MOI = 332,
-     NA = 333,
-     NAhE = 334,
-     NAhU = 335,
-     NAI = 336,
-     NIhE = 337,
-     NIhO = 338,
-     NOI = 339,
-     NU = 340,
-     NUhA = 341,
-     NUhI = 342,
-     NUhU = 343,
-     PA = 344,
-     PEhA = 345,
-     PEhE = 346,
-     PEhO = 347,
-     POhA = 348,
-     PU = 349,
-     RAhO = 350,
-     ROI = 351,
-     SA = 352,
-     SE = 353,
-     SEhU = 354,
-     SEI = 355,
-     SI = 356,
-     SOI = 357,
-     SU = 358,
-     TAhE = 359,
-     TEhU = 360,
-     TEI = 361,
-     TO = 362,
-     TOI = 363,
-     TUhE = 364,
-     TUhU = 365,
-     UI = 366,
-     VA = 367,
-     VAU = 368,
-     VEhA = 369,
-     VEhO = 370,
-     VEI = 371,
-     VIhA = 372,
-     VUhO = 373,
-     VUhU = 374,
-     XI = 375,
-     Y = 376,
-     ZAhO = 377,
-     ZEhA = 378,
-     ZEI = 379,
-     ZI = 380,
-     ZIhE = 381,
-     ZO = 382,
-     ZOhU = 383,
-     ZOI = 384,
-     PRIVATE_START_EK = 385,
-     PRIVATE_START_GIHEK = 386,
-     PRIVATE_START_GUHEK = 387,
-     PRIVATE_START_JEK = 388,
-     PRIVATE_END_JEK = 389,
-     PRIVATE_START_JOIK = 390,
-     PRIVATE_END_JOIK = 391,
-     PRIVATE_START_GEK = 392,
-     PRIVATE_START_BAI = 393,
-     PRIVATE_EK_KE = 394,
-     PRIVATE_EK_BO = 395,
-     PRIVATE_JEK_KE = 396,
-     PRIVATE_JEK_BO = 397,
-     PRIVATE_JOIK_KE = 398,
-     PRIVATE_JOIK_BO = 399,
-     PRIVATE_I_JEKJOIK = 400,
-     PRIVATE_I_BO = 401,
-     PRIVATE_GIHEK_KE = 402,
-     PRIVATE_GIHEK_BO = 403,
-     PRIVATE_NAhE_BO = 404,
-     PRIVATE_NAhE_time = 405,
-     PRIVATE_NAhE_space = 406,
-     PRIVATE_NAhE_CAhA = 407,
-     PRIVATE_NA_KU = 408,
-     PRIVATE_NUMBER_MAI = 409,
-     PRIVATE_NUMBER_MOI = 410,
-     PRIVATE_NUMBER_ROI = 411,
-     PRIVATE_START_TENSE = 412,
-     PRIVATE_END_TENSE = 413,
-     PRIVATE_EOF_MARK = 414,
-     IMPOSSIBLE_TOKEN = 415
-   };
+  enum yytokentype
+  {
+    GARBAGE = 258,
+    A = 259,
+    BAhE = 260,
+    BAI = 261,
+    BE = 262,
+    BEhO = 263,
+    BEI = 264,
+    BIhE = 265,
+    BIhI = 266,
+    BO = 267,
+    BOI = 268,
+    BRIVLA = 269,
+    BU = 270,
+    BY = 271,
+    CAhA = 272,
+    CAI = 273,
+    CEhE = 274,
+    CEI = 275,
+    CMENE = 276,
+    CO = 277,
+    COI = 278,
+    CU = 279,
+    CUhE = 280,
+    DAhO = 281,
+    DOhU = 282,
+    DOI = 283,
+    FA = 284,
+    FAhA = 285,
+    FAhO = 286,
+    FEhE = 287,
+    FEhU = 288,
+    FIhO = 289,
+    FOI = 290,
+    FUhA = 291,
+    FUhE = 292,
+    FUhO = 293,
+    GA = 294,
+    GAhO = 295,
+    GEhU = 296,
+    GI = 297,
+    GIhA = 298,
+    GOhA = 299,
+    GOI = 300,
+    GUhA = 301,
+    I = 302,
+    JA = 303,
+    JAI = 304,
+    JOhI = 305,
+    JOI = 306,
+    KE = 307,
+    KEhE = 308,
+    KEI = 309,
+    KI = 310,
+    KOhA = 311,
+    KUhE = 312,
+    KUhO = 313,
+    KU = 314,
+    LA = 315,
+    LAhE = 316,
+    LAU = 317,
+    LE = 318,
+    LEhU = 319,
+    LI = 320,
+    LIhU = 321,
+    LOhO = 322,
+    LOhU = 323,
+    LU = 324,
+    LUhU = 325,
+    MAhO = 326,
+    MAI = 327,
+    ME = 328,
+    MEhU = 329,
+    MOhE = 330,
+    MOhI = 331,
+    MOI = 332,
+    NA = 333,
+    NAhE = 334,
+    NAhU = 335,
+    NAI = 336,
+    NIhE = 337,
+    NIhO = 338,
+    NOI = 339,
+    NU = 340,
+    NUhA = 341,
+    NUhI = 342,
+    NUhU = 343,
+    PA = 344,
+    PEhA = 345,
+    PEhE = 346,
+    PEhO = 347,
+    POhA = 348,
+    PU = 349,
+    RAhO = 350,
+    ROI = 351,
+    SA = 352,
+    SE = 353,
+    SEhU = 354,
+    SEI = 355,
+    SI = 356,
+    SOI = 357,
+    SU = 358,
+    TAhE = 359,
+    TEhU = 360,
+    TEI = 361,
+    TO = 362,
+    TOI = 363,
+    TUhE = 364,
+    TUhU = 365,
+    UI = 366,
+    VA = 367,
+    VAU = 368,
+    VEhA = 369,
+    VEhO = 370,
+    VEI = 371,
+    VIhA = 372,
+    VUhO = 373,
+    VUhU = 374,
+    XI = 375,
+    Y = 376,
+    ZAhO = 377,
+    ZEhA = 378,
+    ZEI = 379,
+    ZI = 380,
+    ZIhE = 381,
+    ZO = 382,
+    ZOhU = 383,
+    ZOI = 384,
+    PRIVATE_START_EK = 385,
+    PRIVATE_START_GIHEK = 386,
+    PRIVATE_START_GUHEK = 387,
+    PRIVATE_START_JEK = 388,
+    PRIVATE_END_JEK = 389,
+    PRIVATE_START_JOIK = 390,
+    PRIVATE_END_JOIK = 391,
+    PRIVATE_START_GEK = 392,
+    PRIVATE_START_BAI = 393,
+    PRIVATE_EK_KE = 394,
+    PRIVATE_EK_BO = 395,
+    PRIVATE_JEK_KE = 396,
+    PRIVATE_JEK_BO = 397,
+    PRIVATE_JOIK_KE = 398,
+    PRIVATE_JOIK_BO = 399,
+    PRIVATE_I_JEKJOIK = 400,
+    PRIVATE_I_BO = 401,
+    PRIVATE_GIHEK_KE = 402,
+    PRIVATE_GIHEK_BO = 403,
+    PRIVATE_NAhE_BO = 404,
+    PRIVATE_NAhE_time = 405,
+    PRIVATE_NAhE_space = 406,
+    PRIVATE_NAhE_CAhA = 407,
+    PRIVATE_NA_KU = 408,
+    PRIVATE_NUMBER_MAI = 409,
+    PRIVATE_NUMBER_MOI = 410,
+    PRIVATE_NUMBER_ROI = 411,
+    PRIVATE_START_TENSE = 412,
+    PRIVATE_END_TENSE = 413,
+    PRIVATE_EOF_MARK = 414,
+    IMPOSSIBLE_TOKEN = 415
+  };
 #endif
 
-
+/* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef int YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
-# define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
 #endif
 
+/* Location type.  */
 #if ! defined YYLTYPE && ! defined YYLTYPE_IS_DECLARED
-typedef struct YYLTYPE
+typedef struct YYLTYPE YYLTYPE;
+struct YYLTYPE
 {
   int first_line;
   int first_column;
   int last_line;
   int last_column;
-} YYLTYPE;
-# define yyltype YYLTYPE /* obsolescent; will be withdrawn */
+};
 # define YYLTYPE_IS_DECLARED 1
 # define YYLTYPE_IS_TRIVIAL 1
 #endif
 
+
 extern YYSTYPE yylval;
 extern YYLTYPE full_yylloc;
-#ifdef YYPARSE_PARAM
-#if defined __STDC__ || defined __cplusplus
-int full_yyparse (void *YYPARSE_PARAM);
-#else
-int full_yyparse ();
-#endif
-#else /* ! YYPARSE_PARAM */
-#if defined __STDC__ || defined __cplusplus
 int full_yyparse (void);
-#else
-int full_yyparse ();
-#endif
-#endif /* ! YYPARSE_PARAM */
 
 
 
 /* Copy the second part of user declarations.  */
 
-/* Line 377 of yacc.c  */
-#line 332 "rpc2x_full_act.tab.c"
+#line 318 "rpc2x_full_act.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -347,11 +333,8 @@ typedef unsigned char yytype_uint8;
 
 #ifdef YYTYPE_INT8
 typedef YYTYPE_INT8 yytype_int8;
-#elif (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
-typedef signed char yytype_int8;
 #else
-typedef short int yytype_int8;
+typedef signed char yytype_int8;
 #endif
 
 #ifdef YYTYPE_UINT16
@@ -371,8 +354,7 @@ typedef short int yytype_int16;
 #  define YYSIZE_T __SIZE_TYPE__
 # elif defined size_t
 #  define YYSIZE_T size_t
-# elif ! defined YYSIZE_T && (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
+# elif ! defined YYSIZE_T
 #  include <stddef.h> /* INFRINGES ON USER NAME SPACE */
 #  define YYSIZE_T size_t
 # else
@@ -394,6 +376,33 @@ typedef short int yytype_int16;
 # endif
 #endif
 
+#ifndef YY_ATTRIBUTE
+# if (defined __GNUC__                                               \
+      && (2 < __GNUC__ || (__GNUC__ == 2 && 96 <= __GNUC_MINOR__)))  \
+     || defined __SUNPRO_C && 0x5110 <= __SUNPRO_C
+#  define YY_ATTRIBUTE(Spec) __attribute__(Spec)
+# else
+#  define YY_ATTRIBUTE(Spec) /* empty */
+# endif
+#endif
+
+#ifndef YY_ATTRIBUTE_PURE
+# define YY_ATTRIBUTE_PURE   YY_ATTRIBUTE ((__pure__))
+#endif
+
+#ifndef YY_ATTRIBUTE_UNUSED
+# define YY_ATTRIBUTE_UNUSED YY_ATTRIBUTE ((__unused__))
+#endif
+
+#if !defined _Noreturn \
+     && (!defined __STDC_VERSION__ || __STDC_VERSION__ < 201112)
+# if defined _MSC_VER && 1200 <= _MSC_VER
+#  define _Noreturn __declspec (noreturn)
+# else
+#  define _Noreturn YY_ATTRIBUTE ((__noreturn__))
+# endif
+#endif
+
 /* Suppress unused-variable warnings by "using" E.  */
 #if ! defined lint || defined __GNUC__
 # define YYUSE(E) ((void) (E))
@@ -401,23 +410,25 @@ typedef short int yytype_int16;
 # define YYUSE(E) /* empty */
 #endif
 
-/* Identity function, used to suppress warnings about constant conditions.  */
-#ifndef lint
-# define YYID(N) (N)
+#if defined __GNUC__ && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
+/* Suppress an incorrect diagnostic about yylval being uninitialized.  */
+# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN \
+    _Pragma ("GCC diagnostic push") \
+    _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")\
+    _Pragma ("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")
+# define YY_IGNORE_MAYBE_UNINITIALIZED_END \
+    _Pragma ("GCC diagnostic pop")
 #else
-#if (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
-static int
-YYID (int yyi)
-#else
-static int
-YYID (yyi)
-    int yyi;
+# define YY_INITIAL_VALUE(Value) Value
 #endif
-{
-  return yyi;
-}
+#ifndef YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+# define YY_IGNORE_MAYBE_UNINITIALIZED_END
 #endif
+#ifndef YY_INITIAL_VALUE
+# define YY_INITIAL_VALUE(Value) /* Nothing. */
+#endif
+
 
 #if ! defined yyoverflow || YYERROR_VERBOSE
 
@@ -436,8 +447,7 @@ YYID (yyi)
 #    define alloca _alloca
 #   else
 #    define YYSTACK_ALLOC alloca
-#    if ! defined _ALLOCA_H && ! defined EXIT_SUCCESS && (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
+#    if ! defined _ALLOCA_H && ! defined EXIT_SUCCESS
 #     include <stdlib.h> /* INFRINGES ON USER NAME SPACE */
       /* Use EXIT_SUCCESS as a witness for stdlib.h.  */
 #     ifndef EXIT_SUCCESS
@@ -449,8 +459,8 @@ YYID (yyi)
 # endif
 
 # ifdef YYSTACK_ALLOC
-   /* Pacify GCC's `empty if-body' warning.  */
-#  define YYSTACK_FREE(Ptr) do { /* empty */; } while (YYID (0))
+   /* Pacify GCC's 'empty if-body' warning.  */
+#  define YYSTACK_FREE(Ptr) do { /* empty */; } while (0)
 #  ifndef YYSTACK_ALLOC_MAXIMUM
     /* The OS might guarantee only one guard page at the bottom of the stack,
        and a page size can be as small as 4096 bytes.  So we cannot safely
@@ -466,7 +476,7 @@ YYID (yyi)
 #  endif
 #  if (defined __cplusplus && ! defined EXIT_SUCCESS \
        && ! ((defined YYMALLOC || defined malloc) \
-	     && (defined YYFREE || defined free)))
+             && (defined YYFREE || defined free)))
 #   include <stdlib.h> /* INFRINGES ON USER NAME SPACE */
 #   ifndef EXIT_SUCCESS
 #    define EXIT_SUCCESS 0
@@ -474,15 +484,13 @@ YYID (yyi)
 #  endif
 #  ifndef YYMALLOC
 #   define YYMALLOC malloc
-#   if ! defined malloc && ! defined EXIT_SUCCESS && (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
+#   if ! defined malloc && ! defined EXIT_SUCCESS
 void *malloc (YYSIZE_T); /* INFRINGES ON USER NAME SPACE */
 #   endif
 #  endif
 #  ifndef YYFREE
 #   define YYFREE free
-#   if ! defined free && ! defined EXIT_SUCCESS && (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
+#   if ! defined free && ! defined EXIT_SUCCESS
 void free (void *); /* INFRINGES ON USER NAME SPACE */
 #   endif
 #  endif
@@ -492,8 +500,8 @@ void free (void *); /* INFRINGES ON USER NAME SPACE */
 
 #if (! defined yyoverflow \
      && (! defined __cplusplus \
-	 || (defined YYLTYPE_IS_TRIVIAL && YYLTYPE_IS_TRIVIAL \
-	     && defined YYSTYPE_IS_TRIVIAL && YYSTYPE_IS_TRIVIAL)))
+         || (defined YYLTYPE_IS_TRIVIAL && YYLTYPE_IS_TRIVIAL \
+             && defined YYSTYPE_IS_TRIVIAL && YYSTYPE_IS_TRIVIAL)))
 
 /* A type that is properly aligned for any stack member.  */
 union yyalloc
@@ -519,16 +527,16 @@ union yyalloc
    elements in the stack, and YYPTR gives the new location of the
    stack.  Advance YYPTR to a properly aligned location for the next
    stack.  */
-# define YYSTACK_RELOCATE(Stack_alloc, Stack)				\
-    do									\
-      {									\
-	YYSIZE_T yynewbytes;						\
-	YYCOPY (&yyptr->Stack_alloc, Stack, yysize);			\
-	Stack = &yyptr->Stack_alloc;					\
-	yynewbytes = yystacksize * sizeof (*Stack) + YYSTACK_GAP_MAXIMUM; \
-	yyptr += yynewbytes / sizeof (*yyptr);				\
-      }									\
-    while (YYID (0))
+# define YYSTACK_RELOCATE(Stack_alloc, Stack)                           \
+    do                                                                  \
+      {                                                                 \
+        YYSIZE_T yynewbytes;                                            \
+        YYCOPY (&yyptr->Stack_alloc, Stack, yysize);                    \
+        Stack = &yyptr->Stack_alloc;                                    \
+        yynewbytes = yystacksize * sizeof (*Stack) + YYSTACK_GAP_MAXIMUM; \
+        yyptr += yynewbytes / sizeof (*yyptr);                          \
+      }                                                                 \
+    while (0)
 
 #endif
 
@@ -547,7 +555,7 @@ union yyalloc
           for (yyi = 0; yyi < (Count); yyi++)   \
             (Dst)[yyi] = (Src)[yyi];            \
         }                                       \
-      while (YYID (0))
+      while (0)
 #  endif
 # endif
 #endif /* !YYCOPY_NEEDED */
@@ -563,17 +571,19 @@ union yyalloc
 #define YYNNTS  163
 /* YYNRULES -- Number of rules.  */
 #define YYNRULES  961
-/* YYNRULES -- Number of states.  */
+/* YYNSTATES -- Number of states.  */
 #define YYNSTATES  1754
 
-/* YYTRANSLATE(YYLEX) -- Bison symbol number corresponding to YYLEX.  */
+/* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
+   by yylex, with out-of-bounds checking.  */
 #define YYUNDEFTOK  2
 #define YYMAXUTOK   415
 
-#define YYTRANSLATE(YYX)						\
+#define YYTRANSLATE(YYX)                                                \
   ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
 
-/* YYTRANSLATE[YYLEX] -- Bison symbol number corresponding to YYLEX.  */
+/* YYTRANSLATE[TOKEN-NUM] -- Symbol number corresponding to TOKEN-NUM
+   as returned by yylex, without out-of-bounds checking.  */
 static const yytype_uint8 yytranslate[] =
 {
        0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -621,541 +631,7 @@ static const yytype_uint8 yytranslate[] =
 };
 
 #if YYDEBUG
-/* YYPRHS[YYN] -- Index of the first RHS symbol of rule number YYN in
-   YYRHS.  */
-static const yytype_uint16 yyprhs[] =
-{
-       0,     0,     3,     5,     8,    11,    15,    19,    26,    33,
-      39,    45,    50,    56,    62,    67,    72,    76,    83,    90,
-      96,   102,   107,   113,   119,   124,   129,   133,   139,   145,
-     150,   155,   159,   164,   169,   173,   177,   180,   186,   192,
-     197,   202,   206,   211,   216,   220,   224,   227,   233,   239,
-     244,   249,   253,   258,   263,   267,   271,   274,   279,   284,
-     288,   292,   295,   299,   303,   306,   309,   311,   314,   316,
-     318,   319,   321,   323,   325,   328,   335,   342,   348,   354,
-     360,   365,   371,   377,   382,   387,   392,   396,   401,   406,
-     409,   413,   417,   419,   421,   425,   427,   429,   433,   437,
-     440,   442,   445,   447,   449,   452,   454,   458,   461,   466,
-     470,   475,   479,   481,   484,   488,   495,   501,   507,   512,
-     519,   525,   531,   536,   542,   547,   552,   556,   558,   565,
-     571,   577,   582,   588,   593,   598,   602,   605,   607,   610,
-     612,   614,   617,   619,   623,   626,   628,   630,   632,   634,
-     638,   641,   646,   650,   652,   654,   657,   660,   663,   665,
-     667,   669,   672,   674,   683,   691,   699,   706,   710,   713,
-     715,   721,   726,   728,   733,   739,   744,   749,   753,   756,
-     758,   760,   764,   767,   770,   772,   778,   785,   791,   797,
-     802,   808,   813,   818,   822,   826,   829,   831,   834,   836,
-     843,   849,   856,   862,   868,   873,   879,   884,   886,   891,
-     895,   897,   899,   901,   903,   905,   907,   909,   911,   913,
-     917,   920,   923,   926,   930,   933,   938,   942,   947,   951,
-     955,   958,   964,   967,   970,   972,   976,   979,   981,   986,
-     990,   992,   996,  1000,  1003,  1007,  1010,  1016,  1021,  1026,
-    1030,  1032,  1037,  1041,  1046,  1050,  1052,  1056,  1062,  1067,
-    1072,  1076,  1082,  1087,  1092,  1096,  1098,  1103,  1106,  1108,
-    1111,  1113,  1116,  1118,  1123,  1127,  1129,  1131,  1134,  1136,
-    1140,  1143,  1149,  1154,  1159,  1163,  1169,  1174,  1179,  1183,
-    1185,  1191,  1196,  1201,  1205,  1208,  1210,  1215,  1219,  1222,
-    1224,  1227,  1229,  1236,  1242,  1248,  1253,  1259,  1264,  1269,
-    1273,  1282,  1290,  1298,  1305,  1313,  1320,  1327,  1333,  1339,
-    1344,  1349,  1353,  1358,  1362,  1366,  1369,  1373,  1376,  1378,
-    1381,  1384,  1386,  1389,  1392,  1394,  1396,  1398,  1403,  1407,
-    1409,  1411,  1417,  1422,  1427,  1431,  1437,  1442,  1447,  1451,
-    1454,  1456,  1458,  1462,  1465,  1470,  1474,  1476,  1479,  1481,
-    1483,  1488,  1492,  1497,  1501,  1505,  1509,  1515,  1520,  1525,
-    1529,  1531,  1535,  1541,  1546,  1551,  1555,  1561,  1566,  1571,
-    1575,  1577,  1582,  1586,  1593,  1599,  1604,  1606,  1611,  1615,
-    1617,  1620,  1623,  1625,  1629,  1632,  1635,  1637,  1639,  1647,
-    1654,  1660,  1667,  1673,  1678,  1685,  1691,  1696,  1702,  1707,
-    1711,  1713,  1717,  1720,  1722,  1724,  1726,  1728,  1730,  1732,
-    1738,  1743,  1748,  1752,  1757,  1761,  1766,  1770,  1774,  1777,
-    1782,  1786,  1790,  1793,  1797,  1800,  1805,  1809,  1813,  1816,
-    1819,  1821,  1828,  1834,  1840,  1845,  1851,  1856,  1861,  1865,
-    1872,  1878,  1884,  1889,  1895,  1900,  1905,  1909,  1916,  1922,
-    1928,  1933,  1939,  1944,  1949,  1953,  1958,  1962,  1966,  1969,
-    1973,  1976,  1982,  1987,  1992,  1996,  1998,  2000,  2004,  2007,
-    2009,  2013,  2015,  2021,  2026,  2028,  2035,  2041,  2047,  2052,
-    2057,  2061,  2063,  2066,  2070,  2074,  2078,  2082,  2084,  2089,
-    2093,  2098,  2102,  2106,  2112,  2117,  2122,  2126,  2128,  2133,
-    2137,  2139,  2145,  2150,  2155,  2159,  2163,  2166,  2170,  2173,
-    2179,  2184,  2189,  2193,  2199,  2204,  2209,  2213,  2216,  2218,
-    2220,  2224,  2230,  2235,  2240,  2244,  2246,  2251,  2255,  2260,
-    2264,  2266,  2270,  2272,  2276,  2279,  2285,  2290,  2295,  2299,
-    2305,  2310,  2315,  2319,  2325,  2330,  2335,  2339,  2344,  2350,
-    2355,  2360,  2364,  2372,  2379,  2386,  2392,  2394,  2396,  2399,
-    2402,  2404,  2407,  2410,  2412,  2414,  2417,  2421,  2427,  2432,
-    2437,  2441,  2446,  2450,  2454,  2457,  2463,  2468,  2473,  2477,
-    2482,  2486,  2490,  2493,  2500,  2506,  2512,  2517,  2523,  2528,
-    2533,  2537,  2544,  2550,  2556,  2561,  2567,  2572,  2577,  2581,
-    2589,  2596,  2603,  2609,  2616,  2622,  2628,  2633,  2640,  2646,
-    2652,  2657,  2663,  2668,  2673,  2677,  2685,  2692,  2699,  2705,
-    2712,  2718,  2724,  2729,  2737,  2744,  2751,  2757,  2764,  2770,
-    2776,  2781,  2787,  2792,  2797,  2801,  2807,  2812,  2817,  2821,
-    2829,  2836,  2843,  2849,  2855,  2860,  2865,  2869,  2875,  2880,
-    2885,  2889,  2897,  2904,  2911,  2917,  2924,  2930,  2936,  2941,
-    2948,  2954,  2960,  2965,  2974,  2982,  2990,  2997,  3003,  3008,
-    3013,  3017,  3023,  3028,  3033,  3037,  3045,  3052,  3059,  3065,
-    3072,  3078,  3084,  3089,  3096,  3102,  3108,  3113,  3122,  3130,
-    3138,  3145,  3152,  3158,  3164,  3169,  3176,  3182,  3188,  3193,
-    3202,  3210,  3218,  3225,  3231,  3236,  3241,  3245,  3250,  3254,
-    3258,  3261,  3266,  3270,  3274,  3280,  3285,  3290,  3294,  3299,
-    3303,  3307,  3310,  3314,  3317,  3320,  3322,  3324,  3326,  3328,
-    3333,  3337,  3342,  3346,  3351,  3355,  3360,  3364,  3369,  3373,
-    3378,  3382,  3388,  3393,  3398,  3402,  3405,  3407,  3411,  3415,
-    3422,  3428,  3434,  3439,  3446,  3452,  3458,  3463,  3469,  3474,
-    3479,  3483,  3489,  3494,  3499,  3503,  3511,  3518,  3525,  3531,
-    3538,  3544,  3550,  3555,  3562,  3568,  3574,  3579,  3585,  3590,
-    3595,  3599,  3607,  3614,  3621,  3627,  3634,  3640,  3646,  3651,
-    3658,  3664,  3670,  3675,  3681,  3686,  3691,  3695,  3700,  3704,
-    3710,  3715,  3719,  3723,  3726,  3728,  3733,  3737,  3741,  3744,
-    3748,  3751,  3754,  3756,  3760,  3763,  3766,  3768,  3771,  3773,
-    3775,  3779,  3782,  3784,  3788,  3791,  3794,  3796,  3799,  3801,
-    3807,  3811,  3816,  3819,  3824,  3827,  3831,  3833,  3838,  3841,
-    3845,  3847,  3851,  3853,  3856,  3860,  3863,  3866,  3868,  3871,
-    3873,  3879,  3884,  3888,  3893,  3897,  3900,  3905,  3909,  3912,
-    3917,  3921,  3924,  3928,  3931,  3933,  3937,  3940,  3942,  3944,
-    3947,  3949,  3952,  3957,  3961,  3964,  3966,  3969,  3971,  3974,
-    3976,  3979,  3981,  3983,  3985,  3987,  3989,  3991,  3993,  4001,
-    4008,  4014,  4019,  4026,  4032,  4037,  4041,  4043,  4049,  4054,
-    4059,  4063,  4069,  4074,  4079,  4083,  4090,  4096,  4102,  4107,
-    4113,  4118,  4123,  4127,  4131,  4134,  4138,  4142,  4146,  4151,
-    4155,  4160,  4164,  4171,  4177,  4183,  4188,  4191,  4193,  4195,
-    4198,  4200,  4204,  4207,  4210,  4212,  4215,  4217,  4220,  4222,
-    4225,  4227,  4229,  4231,  4233,  4236,  4238,  4241,  4243,  4246,
-    4248,  4251
-};
-
-/* YYRHS -- A `-1'-separated list of the rules' RHS.  */
-static const yytype_int16 yyrhs[] =
-{
-     162,     0,    -1,   163,    -1,   164,   159,    -1,   164,     1,
-      -1,   163,   164,   159,    -1,   163,   164,     1,    -1,   320,
-     321,   306,   282,   306,   165,    -1,   320,   321,   306,   279,
-     306,   165,    -1,   320,   321,   306,   282,   165,    -1,   320,
-     321,   306,   279,   165,    -1,   320,   321,   306,   165,    -1,
-     320,   321,   282,   306,   165,    -1,   320,   321,   279,   306,
-     165,    -1,   320,   321,   282,   165,    -1,   320,   321,   279,
-     165,    -1,   320,   321,   165,    -1,   320,   317,   306,   282,
-     306,   165,    -1,   320,   317,   306,   279,   306,   165,    -1,
-     320,   317,   306,   282,   165,    -1,   320,   317,   306,   279,
-     165,    -1,   320,   317,   306,   165,    -1,   320,   317,   282,
-     306,   165,    -1,   320,   317,   279,   306,   165,    -1,   320,
-     317,   282,   165,    -1,   320,   317,   279,   165,    -1,   320,
-     317,   165,    -1,   320,   306,   282,   306,   165,    -1,   320,
-     306,   279,   306,   165,    -1,   320,   306,   282,   165,    -1,
-     320,   306,   279,   165,    -1,   320,   306,   165,    -1,   320,
-     282,   306,   165,    -1,   320,   279,   306,   165,    -1,   320,
-     282,   165,    -1,   320,   279,   165,    -1,   320,   165,    -1,
-     321,   306,   282,   306,   165,    -1,   321,   306,   279,   306,
-     165,    -1,   321,   306,   282,   165,    -1,   321,   306,   279,
-     165,    -1,   321,   306,   165,    -1,   321,   282,   306,   165,
-      -1,   321,   279,   306,   165,    -1,   321,   282,   165,    -1,
-     321,   279,   165,    -1,   321,   165,    -1,   317,   306,   282,
-     306,   165,    -1,   317,   306,   279,   306,   165,    -1,   317,
-     306,   282,   165,    -1,   317,   306,   279,   165,    -1,   317,
-     306,   165,    -1,   317,   282,   306,   165,    -1,   317,   279,
-     306,   165,    -1,   317,   282,   165,    -1,   317,   279,   165,
-      -1,   317,   165,    -1,   306,   282,   306,   165,    -1,   306,
-     279,   306,   165,    -1,   306,   282,   165,    -1,   306,   279,
-     165,    -1,   306,   165,    -1,   282,   306,   165,    -1,   279,
-     306,   165,    -1,   282,   165,    -1,   279,   165,    -1,   165,
-      -1,   166,   169,    -1,   166,    -1,   169,    -1,    -1,   167,
-      -1,   322,    -1,   168,    -1,   167,   168,    -1,   146,    47,
-     281,   290,    12,   306,    -1,   146,    47,   278,   290,    12,
-     306,    -1,   146,    47,   290,    12,   306,    -1,   146,    47,
-     281,   290,    12,    -1,   146,    47,   278,   290,    12,    -1,
-     146,    47,   290,    12,    -1,   146,    47,   281,    12,   306,
-      -1,   146,    47,   278,    12,   306,    -1,   146,    47,    12,
-     306,    -1,   146,    47,   281,    12,    -1,   146,    47,   278,
-      12,    -1,   146,    47,    12,    -1,   145,    47,   282,   306,
-      -1,   145,    47,   279,   306,    -1,    47,   306,    -1,   145,
-      47,   282,    -1,   145,    47,   279,    -1,    47,    -1,   170,
-      -1,   169,   322,   170,    -1,   172,    -1,   179,    -1,   170,
-     171,   172,    -1,   170,   171,   179,    -1,   170,   171,    -1,
-      47,    -1,    47,   306,    -1,   173,    -1,   174,    -1,   180,
-     173,    -1,   176,    -1,   174,   175,   176,    -1,   174,   175,
-      -1,   145,    47,   282,   306,    -1,   145,    47,   282,    -1,
-     145,    47,   279,   306,    -1,   145,    47,   279,    -1,   178,
-      -1,   178,   177,    -1,   178,   177,   176,    -1,   146,    47,
-     281,   290,    12,   306,    -1,   146,    47,   281,   290,    12,
-      -1,   146,    47,   281,    12,   306,    -1,   146,    47,   281,
-      12,    -1,   146,    47,   278,   290,    12,   306,    -1,   146,
-      47,   278,   290,    12,    -1,   146,    47,   278,    12,   306,
-      -1,   146,    47,   278,    12,    -1,   146,    47,   290,    12,
-     306,    -1,   146,    47,   290,    12,    -1,   146,    47,    12,
-     306,    -1,   146,    47,    12,    -1,   181,    -1,   287,   109,
-     306,   165,   110,   306,    -1,   287,   109,   306,   165,   110,
-      -1,   287,   109,   165,   110,   306,    -1,   287,   109,   165,
-     110,    -1,   109,   306,   165,   110,   306,    -1,   109,   306,
-     165,   110,    -1,   109,   165,   110,   306,    -1,   109,   165,
-     110,    -1,   276,   306,    -1,   276,    -1,   277,   306,    -1,
-     277,    -1,   254,    -1,    78,   306,    -1,    78,    -1,   194,
-     113,   306,    -1,   194,   113,    -1,   180,    -1,   226,    -1,
-     253,    -1,   252,    -1,   194,   128,   306,    -1,   194,   128,
-      -1,   194,    24,   306,   185,    -1,   194,    24,   185,    -1,
-     182,    -1,   183,    -1,   194,   131,    -1,   194,   147,    -1,
-     194,   148,    -1,   160,    -1,   185,    -1,   181,    -1,   180,
-     184,    -1,   187,    -1,   187,   186,    52,   306,   185,    53,
-     306,   192,    -1,   187,   186,    52,   306,   185,    53,   192,
-      -1,   187,   186,    52,   185,    53,   306,   192,    -1,   187,
-     186,    52,   185,    53,   192,    -1,   147,   277,   290,    -1,
-     147,   277,    -1,   188,    -1,   187,   277,   306,   188,   192,
-      -1,   187,   277,   188,   192,    -1,   190,    -1,   188,   189,
-     188,   192,    -1,   148,   277,   290,    12,   306,    -1,   148,
-     277,   290,    12,    -1,   148,   277,    12,   306,    -1,   148,
-     277,    12,    -1,   191,   192,    -1,   193,    -1,   231,    -1,
-     194,   113,   306,    -1,   194,   113,    -1,   113,   306,    -1,
-     113,    -1,   284,   184,   286,   184,   192,    -1,   287,    52,
-     306,   193,    53,   306,    -1,   287,    52,   306,   193,    53,
-      -1,   287,    52,   193,    53,   306,    -1,   287,    52,   193,
-      53,    -1,    52,   306,   193,    53,   306,    -1,    52,   306,
-     193,    53,    -1,    52,   193,    53,   306,    -1,    52,   193,
-      53,    -1,    78,   306,   193,    -1,    78,   193,    -1,   195,
-      -1,   194,   195,    -1,   196,    -1,   195,    91,   306,   281,
-     306,   196,    -1,   195,    91,   306,   281,   196,    -1,   195,
-      91,   306,   278,   306,   196,    -1,   195,    91,   306,   278,
-     196,    -1,   195,    91,   281,   306,   196,    -1,   195,    91,
-     281,   196,    -1,   195,    91,   278,   306,   196,    -1,   195,
-      91,   278,   196,    -1,   197,    -1,   196,    19,   306,   197,
-      -1,   196,    19,   197,    -1,   198,    -1,   200,    -1,   199,
-      -1,   202,    -1,   205,    -1,   201,    -1,   203,    -1,   204,
-      -1,   208,    -1,    29,   306,   208,    -1,    29,   208,    -1,
-     287,   208,    -1,   287,   205,    -1,   287,    59,   306,    -1,
-     287,    59,    -1,   153,    78,    59,   306,    -1,   153,    78,
-      59,    -1,    29,   306,    59,   306,    -1,    29,   306,    59,
-      -1,    29,    59,   306,    -1,    29,    59,    -1,   206,   284,
-     207,   286,   207,    -1,   206,   207,    -1,    87,   306,    -1,
-      87,    -1,   194,    88,   306,    -1,   194,    88,    -1,   209,
-      -1,   209,   118,   306,   226,    -1,   209,   118,   226,    -1,
-     212,    -1,   212,   210,   211,    -1,   143,   281,   290,    -1,
-     143,   281,    -1,   139,   276,   290,    -1,   139,   276,    -1,
-      52,   306,   208,    53,   306,    -1,    52,   306,   208,    53,
-      -1,    52,   208,    53,   306,    -1,    52,   208,    53,    -1,
-     213,    -1,   212,   281,   306,   213,    -1,   212,   281,   213,
-      -1,   212,   276,   306,   213,    -1,   212,   276,   213,    -1,
-     215,    -1,   215,   214,   213,    -1,   144,   281,   290,    12,
-     306,    -1,   144,   281,   290,    12,    -1,   144,   281,    12,
-     306,    -1,   144,   281,    12,    -1,   140,   276,   290,    12,
-     306,    -1,   140,   276,   290,    12,    -1,   140,   276,    12,
-     306,    -1,   140,   276,    12,    -1,   216,    -1,   284,   208,
-     286,   215,    -1,   217,   226,    -1,   217,    -1,   218,   226,
-      -1,   218,    -1,   254,   219,    -1,   219,    -1,   254,   231,
-      59,   306,    -1,   254,   231,    59,    -1,   220,    -1,   221,
-      -1,    56,   306,    -1,    56,    -1,   274,    13,   306,    -1,
-     274,    13,    -1,    63,   306,   223,    59,   306,    -1,    63,
-     306,   223,    59,    -1,    63,   223,    59,   306,    -1,    63,
-     223,    59,    -1,    60,   306,   223,    59,   306,    -1,    60,
-     306,   223,    59,    -1,    60,   223,    59,   306,    -1,    60,
-     223,    59,    -1,   222,    -1,    65,   306,   255,    67,   306,
-      -1,    65,   306,   255,    67,    -1,    65,   255,    67,   306,
-      -1,    65,   255,    67,    -1,   127,   306,    -1,   127,    -1,
-      69,   164,    66,   306,    -1,    69,   164,    66,    -1,    68,
-     306,    -1,    68,    -1,   129,   306,    -1,   129,    -1,    61,
-     306,   226,   208,    70,   306,    -1,    61,   306,   226,   208,
-      70,    -1,    61,   306,   208,    70,   306,    -1,    61,   306,
-     208,    70,    -1,    61,   226,   208,    70,   306,    -1,    61,
-     226,   208,    70,    -1,    61,   208,    70,   306,    -1,    61,
-     208,    70,    -1,   149,    79,    12,   306,   226,   208,    70,
-     306,    -1,   149,    79,    12,   306,   226,   208,    70,    -1,
-     149,    79,    12,   306,   208,    70,   306,    -1,   149,    79,
-      12,   306,   208,    70,    -1,   149,    79,    12,   226,   208,
-      70,   306,    -1,   149,    79,    12,   226,   208,    70,    -1,
-     149,    79,    12,   208,    70,   306,    -1,   149,    79,    12,
-     208,    70,    -1,    60,   306,   226,   321,   306,    -1,    60,
-     306,   226,   321,    -1,    60,   306,   321,   306,    -1,    60,
-     306,   321,    -1,    60,   226,   321,   306,    -1,    60,   226,
-     321,    -1,    60,   321,   306,    -1,    60,   321,    -1,   219,
-     226,   224,    -1,   219,   224,    -1,   224,    -1,   226,   224,
-      -1,   225,   226,    -1,   225,    -1,   254,   208,    -1,   254,
-     231,    -1,   231,    -1,   227,    -1,   228,    -1,   227,   126,
-     306,   228,    -1,   227,   126,   228,    -1,   229,    -1,   230,
-      -1,    45,   306,   197,    41,   306,    -1,    45,   306,   197,
-      41,    -1,    45,   197,    41,   306,    -1,    45,   197,    41,
-      -1,    84,   306,   184,    58,   306,    -1,    84,   306,   184,
-      58,    -1,    84,   184,    58,   306,    -1,    84,   184,    58,
-      -1,   287,   232,    -1,   232,    -1,   233,    -1,    78,   306,
-     231,    -1,    78,   231,    -1,   234,    22,   306,   233,    -1,
-     234,    22,   233,    -1,   234,    -1,   234,   235,    -1,   235,
-      -1,   238,    -1,   235,   282,   306,   238,    -1,   235,   282,
-     238,    -1,   235,   279,   306,   238,    -1,   235,   279,   238,
-      -1,   235,   236,   237,    -1,   143,   281,   290,    -1,    52,
-     306,   234,    53,   306,    -1,    52,   306,   234,    53,    -1,
-      52,   234,    53,   306,    -1,    52,   234,    53,    -1,   240,
-      -1,   240,   239,   238,    -1,   144,   281,   290,    12,   306,
-      -1,   144,   281,   290,    12,    -1,   144,   281,    12,   306,
-      -1,   144,   281,    12,    -1,   142,   278,   290,    12,   306,
-      -1,   142,   278,   290,    12,    -1,   142,   278,    12,   306,
-      -1,   142,   278,    12,    -1,   241,    -1,   241,    12,   306,
-     240,    -1,   241,    12,   240,    -1,    79,   306,   285,   231,
-     286,   240,    -1,    79,   285,   231,   286,   240,    -1,   285,
-     231,   286,   240,    -1,   242,    -1,   241,    20,   306,   242,
-      -1,   241,    20,   242,    -1,   243,    -1,   243,   252,    -1,
-      14,   306,    -1,    14,    -1,    44,    95,   306,    -1,    44,
-      95,    -1,    44,   306,    -1,    44,    -1,   244,    -1,    73,
-     306,   208,    74,   306,    77,   306,    -1,    73,   306,   208,
-      74,   306,    77,    -1,    73,   306,   208,    74,   306,    -1,
-      73,   306,   208,    74,    77,   306,    -1,    73,   306,   208,
-      74,    77,    -1,    73,   306,   208,    74,    -1,    73,   208,
-      74,   306,    77,   306,    -1,    73,   208,    74,   306,    77,
-      -1,    73,   208,    74,   306,    -1,    73,   208,    74,    77,
-     306,    -1,    73,   208,    74,    77,    -1,    73,   208,    74,
-      -1,   245,    -1,    86,   306,   266,    -1,    86,   266,    -1,
-     246,    -1,   247,    -1,   248,    -1,   124,    -1,   249,    -1,
-     250,    -1,    52,   306,   234,    53,   306,    -1,    52,   306,
-     234,    53,    -1,    52,   234,    53,   306,    -1,    52,   234,
-      53,    -1,   155,   272,    77,   306,    -1,   155,   272,    77,
-      -1,   155,   274,    77,   306,    -1,   155,   274,    77,    -1,
-      98,   306,   243,    -1,    98,   243,    -1,    49,   306,   287,
-     243,    -1,    49,   287,   243,    -1,    49,   306,   243,    -1,
-      49,   243,    -1,    79,   306,   243,    -1,    79,   243,    -1,
-     251,   184,    54,   306,    -1,   251,   184,    54,    -1,    85,
-      81,   306,    -1,    85,   306,    -1,    85,    81,    -1,    85,
-      -1,   251,   281,   306,    85,    81,   306,    -1,   251,   281,
-     306,    85,    81,    -1,   251,   281,   306,    85,   306,    -1,
-     251,   281,   306,    85,    -1,   251,   281,    85,    81,   306,
-      -1,   251,   281,    85,    81,    -1,   251,   281,    85,   306,
-      -1,   251,   281,    85,    -1,   251,   278,   306,    85,    81,
-     306,    -1,   251,   278,   306,    85,    81,    -1,   251,   278,
-     306,    85,   306,    -1,   251,   278,   306,    85,    -1,   251,
-     278,    85,    81,   306,    -1,   251,   278,    85,    81,    -1,
-     251,   278,    85,   306,    -1,   251,   278,    85,    -1,     7,
-     306,   197,   253,     8,   306,    -1,     7,   306,   197,   253,
-       8,    -1,     7,   197,   253,     8,   306,    -1,     7,   197,
-     253,     8,    -1,     7,   306,   197,     8,   306,    -1,     7,
-     306,   197,     8,    -1,     7,   197,     8,   306,    -1,     7,
-     197,     8,    -1,     9,   306,   197,   253,    -1,     9,   197,
-     253,    -1,     9,   306,   197,    -1,     9,   197,    -1,   272,
-      13,   306,    -1,   272,    13,    -1,   116,   306,   255,   115,
-     306,    -1,   116,   306,   255,   115,    -1,   116,   255,   115,
-     306,    -1,   116,   255,   115,    -1,   257,    -1,   256,    -1,
-      36,   306,   261,    -1,    36,   261,    -1,   258,    -1,   257,
-     262,   258,    -1,   259,    -1,   259,    10,   306,   262,   258,
-      -1,   259,    10,   262,   258,    -1,   267,    -1,    92,   306,
-     262,   260,    57,   306,    -1,    92,   306,   262,   260,    57,
-      -1,    92,   262,   260,    57,   306,    -1,    92,   262,   260,
-      57,    -1,   262,   260,    57,   306,    -1,   262,   260,    57,
-      -1,   259,    -1,   260,   259,    -1,   261,   261,   262,    -1,
-     267,   261,   262,    -1,   261,   267,   262,    -1,   267,   267,
-     262,    -1,   264,    -1,   262,   282,   306,   264,    -1,   262,
-     282,   264,    -1,   262,   279,   306,   264,    -1,   262,   279,
-     264,    -1,   262,   236,   263,    -1,    52,   306,   262,    53,
-     306,    -1,    52,   306,   262,    53,    -1,    52,   262,    53,
-     306,    -1,    52,   262,    53,    -1,   265,    -1,   285,   264,
-     286,   265,    -1,   265,   239,   264,    -1,   266,    -1,    52,
-     306,   262,    53,   306,    -1,    52,   306,   262,    53,    -1,
-      52,   262,    53,   306,    -1,    52,   262,    53,    -1,    98,
-     306,   266,    -1,    98,   266,    -1,    79,   306,   266,    -1,
-      79,   266,    -1,    71,   306,   255,   105,   306,    -1,    71,
-     306,   255,   105,    -1,    71,   255,   105,   306,    -1,    71,
-     255,   105,    -1,    80,   306,   231,   105,   306,    -1,    80,
-     306,   231,   105,    -1,    80,   231,   105,   306,    -1,    80,
-     231,   105,    -1,   119,   306,    -1,   119,    -1,   269,    -1,
-     269,   210,   268,    -1,    52,   306,   267,    53,   306,    -1,
-      52,   306,   267,    53,    -1,    52,   267,    53,   306,    -1,
-      52,   267,    53,    -1,   270,    -1,   269,   281,   306,   270,
-      -1,   269,   281,   270,    -1,   269,   278,   306,   270,    -1,
-     269,   278,   270,    -1,   271,    -1,   271,   214,   270,    -1,
-     254,    -1,   274,    13,   306,    -1,   274,    13,    -1,    82,
-     306,   231,   105,   306,    -1,    82,   306,   231,   105,    -1,
-      82,   231,   105,   306,    -1,    82,   231,   105,    -1,    75,
-     306,   208,   105,   306,    -1,    75,   306,   208,   105,    -1,
-      75,   208,   105,   306,    -1,    75,   208,   105,    -1,    50,
-     306,   260,   105,   306,    -1,    50,   306,   260,   105,    -1,
-      50,   260,   105,   306,    -1,    50,   260,   105,    -1,   284,
-     267,   286,   271,    -1,    61,   306,   267,    70,   306,    -1,
-      61,   306,   267,    70,    -1,    61,   267,    70,   306,    -1,
-      61,   267,    70,    -1,   149,    79,    12,   306,   267,    70,
-     306,    -1,   149,    79,    12,   306,   267,    70,    -1,   149,
-      79,    12,   267,    70,   306,    -1,   149,    79,    12,   267,
-      70,    -1,   273,    -1,    89,    -1,   273,    89,    -1,   273,
-     275,    -1,   275,    -1,   274,    89,    -1,   274,   275,    -1,
-      16,    -1,    15,    -1,    62,   275,    -1,   106,   274,    35,
-      -1,   130,    78,    98,     4,    81,    -1,   130,    78,    98,
-       4,    -1,   130,    78,     4,    81,    -1,   130,    78,     4,
-      -1,   130,    98,     4,    81,    -1,   130,    98,     4,    -1,
-     130,     4,    81,    -1,   130,     4,    -1,   131,    78,    98,
-      43,    81,    -1,   131,    78,    98,    43,    -1,   131,    78,
-      43,    81,    -1,   131,    78,    43,    -1,   131,    98,    43,
-      81,    -1,   131,    98,    43,    -1,   131,    43,    81,    -1,
-     131,    43,    -1,   133,    78,    98,    48,    81,   134,    -1,
-     133,    78,    98,    48,   134,    -1,   133,    78,    48,    81,
-     134,    -1,   133,    78,    48,   134,    -1,   133,    98,    48,
-      81,   134,    -1,   133,    98,    48,   134,    -1,   133,    48,
-      81,   134,    -1,   133,    48,   134,    -1,   133,    78,    98,
-      48,    81,   134,    -1,   133,    78,    98,    48,   134,    -1,
-     133,    78,    48,    81,   134,    -1,   133,    78,    48,   134,
-      -1,   133,    98,    48,    81,   134,    -1,   133,    98,    48,
-     134,    -1,   133,    48,    81,   134,    -1,   133,    48,   134,
-      -1,   141,   133,    78,    98,    48,    81,   134,    -1,   141,
-     133,    78,    98,    48,   134,    -1,   141,   133,    78,    48,
-      81,   134,    -1,   141,   133,    78,    48,   134,    -1,   141,
-     133,    98,    48,    81,   134,    -1,   141,   133,    98,    48,
-     134,    -1,   141,   133,    48,    81,   134,    -1,   141,   133,
-      48,   134,    -1,   133,    78,    98,    48,    81,   134,    -1,
-     133,    78,    98,    48,   134,    -1,   133,    78,    48,    81,
-     134,    -1,   133,    78,    48,   134,    -1,   133,    98,    48,
-      81,   134,    -1,   133,    98,    48,   134,    -1,   133,    48,
-      81,   134,    -1,   133,    48,   134,    -1,   141,   133,    78,
-      98,    48,    81,   134,    -1,   141,   133,    78,    98,    48,
-     134,    -1,   141,   133,    78,    48,    81,   134,    -1,   141,
-     133,    78,    48,   134,    -1,   141,   133,    98,    48,    81,
-     134,    -1,   141,   133,    98,    48,   134,    -1,   141,   133,
-      48,    81,   134,    -1,   141,   133,    48,   134,    -1,   142,
-     133,    78,    98,    48,    81,   134,    -1,   142,   133,    78,
-      98,    48,   134,    -1,   142,   133,    78,    48,    81,   134,
-      -1,   142,   133,    78,    48,   134,    -1,   142,   133,    98,
-      48,    81,   134,    -1,   142,   133,    98,    48,   134,    -1,
-     142,   133,    48,    81,   134,    -1,   142,   133,    48,   134,
-      -1,   135,    98,    51,    81,   136,    -1,   135,    98,    51,
-     136,    -1,   135,    51,    81,   136,    -1,   135,    51,   136,
-      -1,   135,    98,    11,    81,   136,    -1,   135,    98,    11,
-     136,    -1,   135,    11,    81,   136,    -1,   135,    11,   136,
-      -1,   135,    40,    98,    11,    81,    40,   136,    -1,   135,
-      40,    98,    11,    40,   136,    -1,   135,    40,    11,    81,
-      40,   136,    -1,   135,    40,    11,    40,   136,    -1,   135,
-      98,    51,    81,   136,    -1,   135,    98,    51,   136,    -1,
-     135,    51,    81,   136,    -1,   135,    51,   136,    -1,   135,
-      98,    11,    81,   136,    -1,   135,    98,    11,   136,    -1,
-     135,    11,    81,   136,    -1,   135,    11,   136,    -1,   135,
-      40,    98,    11,    81,    40,   136,    -1,   135,    40,    98,
-      11,    40,   136,    -1,   135,    40,    11,    81,    40,   136,
-      -1,   135,    40,    11,    40,   136,    -1,   143,   135,    98,
-      51,    81,   136,    -1,   143,   135,    98,    51,   136,    -1,
-     143,   135,    51,    81,   136,    -1,   143,   135,    51,   136,
-      -1,   143,   135,    98,    11,    81,   136,    -1,   143,   135,
-      98,    11,   136,    -1,   143,   135,    11,    81,   136,    -1,
-     143,   135,    11,   136,    -1,   143,   135,    40,    98,    11,
-      81,    40,   136,    -1,   143,   135,    40,    98,    11,    40,
-     136,    -1,   143,   135,    40,    11,    81,    40,   136,    -1,
-     143,   135,    40,    11,    40,   136,    -1,   135,    98,    51,
-      81,   136,    -1,   135,    98,    51,   136,    -1,   135,    51,
-      81,   136,    -1,   135,    51,   136,    -1,   135,    98,    11,
-      81,   136,    -1,   135,    98,    11,   136,    -1,   135,    11,
-      81,   136,    -1,   135,    11,   136,    -1,   135,    40,    98,
-      11,    81,    40,   136,    -1,   135,    40,    98,    11,    40,
-     136,    -1,   135,    40,    11,    81,    40,   136,    -1,   135,
-      40,    11,    40,   136,    -1,   143,   135,    98,    51,    81,
-     136,    -1,   143,   135,    98,    51,   136,    -1,   143,   135,
-      51,    81,   136,    -1,   143,   135,    51,   136,    -1,   143,
-     135,    98,    11,    81,   136,    -1,   143,   135,    98,    11,
-     136,    -1,   143,   135,    11,    81,   136,    -1,   143,   135,
-      11,   136,    -1,   143,   135,    40,    98,    11,    81,    40,
-     136,    -1,   143,   135,    40,    98,    11,    40,   136,    -1,
-     143,   135,    40,    11,    81,    40,   136,    -1,   143,   135,
-      40,    11,    40,   136,    -1,   144,   135,    98,    51,    81,
-     136,    -1,   144,   135,    98,    51,   136,    -1,   144,   135,
-      51,    81,   136,    -1,   144,   135,    51,   136,    -1,   144,
-     135,    98,    11,    81,   136,    -1,   144,   135,    98,    11,
-     136,    -1,   144,   135,    11,    81,   136,    -1,   144,   135,
-      11,   136,    -1,   144,   135,    40,    98,    11,    81,    40,
-     136,    -1,   144,   135,    40,    98,    11,    40,   136,    -1,
-     144,   135,    40,    11,    81,    40,   136,    -1,   144,   135,
-      40,    11,    40,   136,    -1,   137,    98,    39,    81,   306,
-      -1,   137,    98,    39,    81,    -1,   137,    98,    39,   306,
-      -1,   137,    98,    39,    -1,   137,    39,    81,   306,    -1,
-     137,    39,    81,    -1,   137,    39,   306,    -1,   137,    39,
-      -1,   137,   281,    42,   306,    -1,   137,   281,    42,    -1,
-     137,   290,   286,    -1,   132,    98,    46,    81,   306,    -1,
-     132,    98,    46,    81,    -1,   132,    98,    46,   306,    -1,
-     132,    98,    46,    -1,   132,    46,    81,   306,    -1,   132,
-      46,    81,    -1,   132,    46,   306,    -1,   132,    46,    -1,
-      42,    81,   306,    -1,    42,    81,    -1,    42,   306,    -1,
-      42,    -1,   288,    -1,   290,    -1,   289,    -1,   288,   283,
-     306,   289,    -1,   288,   283,   289,    -1,   288,   280,   306,
-     289,    -1,   288,   280,   289,    -1,   288,   283,   306,   291,
-      -1,   288,   283,   291,    -1,   288,   280,   306,   291,    -1,
-     288,   280,   291,    -1,   290,   283,   306,   289,    -1,   290,
-     283,   289,    -1,   290,   280,   306,   289,    -1,   290,   280,
-     289,    -1,    34,   306,   231,    33,   306,    -1,    34,   306,
-     231,    33,    -1,    34,   231,    33,   306,    -1,    34,   231,
-      33,    -1,   291,   306,    -1,   291,    -1,   290,   280,   291,
-      -1,   290,   283,   291,    -1,   157,    79,   292,    81,    55,
-     158,    -1,   157,    79,   292,    81,   158,    -1,   157,    79,
-     292,    55,   158,    -1,   157,    79,   292,   158,    -1,   157,
-      79,   293,    81,    55,   158,    -1,   157,    79,   293,    81,
-     158,    -1,   157,    79,   293,    55,   158,    -1,   157,    79,
-     293,   158,    -1,   157,   292,    81,    55,   158,    -1,   157,
-     292,    81,   158,    -1,   157,   292,    55,   158,    -1,   157,
-     292,   158,    -1,   157,   293,    81,    55,   158,    -1,   157,
-     293,    81,   158,    -1,   157,   293,    55,   158,    -1,   157,
-     293,   158,    -1,   157,    79,   294,   298,    17,    55,   158,
-      -1,   157,    79,   294,   298,    17,   158,    -1,   157,    79,
-     294,   298,    55,   158,    -1,   157,    79,   294,   298,   158,
-      -1,   157,    79,   294,    17,    55,   158,    -1,   157,    79,
-     294,    17,   158,    -1,   157,    79,   294,    55,   158,    -1,
-     157,    79,   294,   158,    -1,   157,   294,   298,    17,    55,
-     158,    -1,   157,   294,   298,    17,   158,    -1,   157,   294,
-     298,    55,   158,    -1,   157,   294,   298,   158,    -1,   157,
-     294,    17,    55,   158,    -1,   157,   294,    17,   158,    -1,
-     157,   294,    55,   158,    -1,   157,   294,   158,    -1,   157,
-      79,   298,   294,    17,    55,   158,    -1,   157,    79,   298,
-     294,    17,   158,    -1,   157,    79,   298,   294,    55,   158,
-      -1,   157,    79,   298,   294,   158,    -1,   157,    79,   298,
-      17,    55,   158,    -1,   157,    79,   298,    17,   158,    -1,
-     157,    79,   298,    55,   158,    -1,   157,    79,   298,   158,
-      -1,   157,   298,   294,    17,    55,   158,    -1,   157,   298,
-     294,    17,   158,    -1,   157,   298,   294,    55,   158,    -1,
-     157,   298,   294,   158,    -1,   157,   298,    17,    55,   158,
-      -1,   157,   298,    17,   158,    -1,   157,   298,    55,   158,
-      -1,   157,   298,   158,    -1,   157,    17,    55,   158,    -1,
-     157,    17,   158,    -1,   157,    79,    17,    55,   158,    -1,
-     157,    79,    17,   158,    -1,   157,    55,   158,    -1,   157,
-      25,   158,    -1,    98,     6,    -1,     6,    -1,   125,   297,
-     295,   305,    -1,   125,   297,   305,    -1,   125,   297,   295,
-      -1,   125,   297,    -1,   125,   295,   305,    -1,   125,   305,
-      -1,   125,   295,    -1,   125,    -1,   297,   295,   305,    -1,
-     297,   305,    -1,   297,   295,    -1,   297,    -1,   295,   305,
-      -1,   305,    -1,   295,    -1,   123,    94,    81,    -1,   123,
-      94,    -1,   123,    -1,    94,    81,   125,    -1,    94,    81,
-      -1,    94,   125,    -1,    94,    -1,   297,   296,    -1,   296,
-      -1,   112,   300,   301,    76,   299,    -1,   112,   300,   301,
-      -1,   112,   300,    76,   299,    -1,   112,   300,    -1,   112,
-     301,    76,   299,    -1,   112,   301,    -1,   112,    76,   299,
-      -1,   112,    -1,   300,   301,    76,   299,    -1,   300,   301,
-      -1,   300,    76,   299,    -1,   300,    -1,   301,    76,   299,
-      -1,   301,    -1,    76,   299,    -1,    30,    81,   112,    -1,
-      30,    81,    -1,    30,   112,    -1,    30,    -1,   300,   299,
-      -1,   299,    -1,   114,   117,    30,    81,   302,    -1,   114,
-     117,    30,   302,    -1,   114,   117,   302,    -1,   114,    30,
-      81,   302,    -1,   114,    30,   302,    -1,   114,   302,    -1,
-     117,    30,    81,   302,    -1,   117,    30,   302,    -1,   117,
-     302,    -1,   114,   117,    30,    81,    -1,   114,   117,    30,
-      -1,   114,   117,    -1,   114,    30,    81,    -1,   114,    30,
-      -1,   114,    -1,   117,    30,    81,    -1,   117,    30,    -1,
-     117,    -1,   302,    -1,   302,   303,    -1,   303,    -1,    32,
-     304,    -1,   156,   272,    96,    81,    -1,   156,   272,    96,
-      -1,   104,    81,    -1,   104,    -1,   122,    81,    -1,   122,
-      -1,   305,   304,    -1,   304,    -1,   306,   307,    -1,   307,
-      -1,   308,    -1,   310,    -1,   311,    -1,   312,    -1,   313,
-      -1,   314,    -1,   100,   306,   194,    24,   306,   309,    99,
-      -1,   100,   306,   194,    24,   309,    99,    -1,   100,   306,
-     194,   309,    99,    -1,   100,   306,   309,    99,    -1,   100,
-     194,    24,   306,   309,    99,    -1,   100,   194,    24,   309,
-      99,    -1,   100,   194,   309,    99,    -1,   100,   309,    99,
-      -1,   231,    -1,   102,   306,   208,   208,    99,    -1,   102,
-     306,   208,    99,    -1,   102,   208,   208,    99,    -1,   102,
-     208,    99,    -1,   315,   226,   231,   226,    27,    -1,   315,
-     226,   231,    27,    -1,   315,   231,   226,    27,    -1,   315,
-     231,    27,    -1,   315,   226,   321,   306,   226,    27,    -1,
-     315,   226,   321,   306,    27,    -1,   315,   321,   306,   226,
-      27,    -1,   315,   321,   306,    27,    -1,   315,   226,   321,
-     226,    27,    -1,   315,   226,   321,    27,    -1,   315,   321,
-     226,    27,    -1,   315,   321,    27,    -1,   315,   208,    27,
-      -1,   315,    27,    -1,   154,   272,    72,    -1,   154,   274,
-      72,    -1,   107,   164,   108,    -1,   120,   306,   272,    13,
-      -1,   120,   272,    13,    -1,   120,   306,   274,    13,    -1,
-     120,   274,    13,    -1,   120,   306,   116,   306,   255,   115,
-      -1,   120,   306,   116,   255,   115,    -1,   120,   116,   306,
-     255,   115,    -1,   120,   116,   255,   115,    -1,   316,    28,
-      -1,   316,    -1,    28,    -1,    23,    81,    -1,    23,    -1,
-     316,    23,    81,    -1,   316,    23,    -1,    37,   318,    -1,
-     318,    -1,   318,   319,    -1,   319,    -1,   111,    81,    -1,
-     111,    -1,    18,    81,    -1,    18,    -1,   121,    -1,    26,
-      -1,    38,    -1,   320,    81,    -1,    81,    -1,   321,    21,
-      -1,    21,    -1,   323,   306,    -1,   323,    -1,   323,    83,
-      -1,    83,    -1
-};
-
-/* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
+  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
        0,   202,   202,   209,   211,   213,   215,   223,   225,   227,
@@ -1321,13 +797,13 @@ static const char *const yytname[] =
   "free_seq", "free", "metalinguistic", "metalinguistic_main_selbri",
   "reciprocity", "free_vocative", "utterance_ordinal", "parenthetical",
   "subscript", "vocative", "coi_nai_seq", "indicators", "indicator_seq",
-  "indicator", "NAI_seq", "CMENE_seq", "NIhO_seq_free_seq", "NIhO_seq", YY_NULL
+  "indicator", "NAI_seq", "CMENE_seq", "NIhO_seq_free_seq", "NIhO_seq", YY_NULLPTR
 };
 #endif
 
 # ifdef YYPRINT
-/* YYTOKNUM[YYLEX-NUM] -- Internal token number corresponding to
-   token YYLEX-NUM.  */
+/* YYTOKNUM[NUM] -- (External) token number corresponding to the
+   (internal) symbol number NUM (which must be that of a token).  */
 static const yytype_uint16 yytoknum[] =
 {
        0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
@@ -1350,418 +826,18 @@ static const yytype_uint16 yytoknum[] =
 };
 # endif
 
-/* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
-static const yytype_uint16 yyr1[] =
-{
-       0,   161,   162,   163,   163,   163,   163,   164,   164,   164,
-     164,   164,   164,   164,   164,   164,   164,   164,   164,   164,
-     164,   164,   164,   164,   164,   164,   164,   164,   164,   164,
-     164,   164,   164,   164,   164,   164,   164,   164,   164,   164,
-     164,   164,   164,   164,   164,   164,   164,   164,   164,   164,
-     164,   164,   164,   164,   164,   164,   164,   164,   164,   164,
-     164,   164,   164,   164,   164,   164,   164,   165,   165,   165,
-     165,   166,   166,   167,   167,   168,   168,   168,   168,   168,
-     168,   168,   168,   168,   168,   168,   168,   168,   168,   168,
-     168,   168,   168,   169,   169,   170,   170,   170,   170,   170,
-     171,   171,   172,   173,   173,   174,   174,   174,   175,   175,
-     175,   175,   176,   176,   176,   177,   177,   177,   177,   177,
-     177,   177,   177,   177,   177,   177,   177,   178,   178,   178,
-     178,   178,   178,   178,   178,   178,   179,   179,   179,   179,
-     179,   179,   179,   179,   179,   179,   179,   179,   179,   180,
-     180,   181,   181,   181,   181,   181,   181,   181,   182,   183,
-     184,   184,   185,   185,   185,   185,   185,   186,   186,   187,
-     187,   187,   188,   188,   189,   189,   189,   189,   190,   190,
-     191,   192,   192,   192,   192,   193,   193,   193,   193,   193,
-     193,   193,   193,   193,   193,   193,   194,   194,   195,   195,
-     195,   195,   195,   195,   195,   195,   195,   196,   196,   196,
-     197,   197,   197,   197,   197,   197,   197,   197,   198,   199,
-     199,   200,   201,   202,   202,   203,   203,   204,   204,   204,
-     204,   205,   205,   206,   206,   207,   207,   208,   208,   208,
-     209,   209,   210,   210,   210,   210,   211,   211,   211,   211,
-     212,   212,   212,   212,   212,   213,   213,   214,   214,   214,
-     214,   214,   214,   214,   214,   215,   215,   216,   216,   216,
-     216,   217,   217,   218,   218,   219,   219,   219,   219,   219,
-     219,   219,   219,   219,   219,   219,   219,   219,   219,   219,
-     219,   219,   219,   219,   219,   219,   219,   219,   219,   219,
-     219,   219,   220,   220,   220,   220,   220,   220,   220,   220,
-     221,   221,   221,   221,   221,   221,   221,   221,   222,   222,
-     222,   222,   222,   222,   222,   222,   223,   223,   223,   223,
-     224,   224,   224,   225,   225,   226,   227,   227,   227,   228,
-     228,   229,   229,   229,   229,   230,   230,   230,   230,   231,
-     231,   232,   232,   232,   233,   233,   233,   234,   234,   235,
-     235,   235,   235,   235,   235,   236,   237,   237,   237,   237,
-     238,   238,   239,   239,   239,   239,   239,   239,   239,   239,
-     240,   240,   240,   240,   240,   240,   241,   241,   241,   242,
-     242,   243,   243,   243,   243,   243,   243,   243,   243,   243,
-     243,   243,   243,   243,   243,   243,   243,   243,   243,   243,
-     243,   243,   243,   243,   243,   243,   243,   243,   243,   244,
-     244,   244,   244,   245,   245,   245,   245,   246,   246,   247,
-     247,   248,   248,   249,   249,   250,   250,   251,   251,   251,
-     251,   251,   251,   251,   251,   251,   251,   251,   251,   251,
-     251,   251,   251,   251,   251,   251,   251,   252,   252,   252,
-     252,   252,   252,   252,   252,   253,   253,   253,   253,   254,
-     254,   254,   254,   254,   254,   255,   255,   256,   256,   257,
-     257,   258,   258,   258,   259,   259,   259,   259,   259,   259,
-     259,   260,   260,   261,   261,   261,   261,   262,   262,   262,
-     262,   262,   262,   263,   263,   263,   263,   264,   264,   264,
-     265,   265,   265,   265,   265,   266,   266,   266,   266,   266,
-     266,   266,   266,   266,   266,   266,   266,   266,   266,   267,
-     267,   268,   268,   268,   268,   269,   269,   269,   269,   269,
-     270,   270,   271,   271,   271,   271,   271,   271,   271,   271,
-     271,   271,   271,   271,   271,   271,   271,   271,   271,   271,
-     271,   271,   271,   271,   271,   271,   272,   273,   273,   273,
-     274,   274,   274,   275,   275,   275,   275,   276,   276,   276,
-     276,   276,   276,   276,   276,   277,   277,   277,   277,   277,
-     277,   277,   277,   278,   278,   278,   278,   278,   278,   278,
-     278,   279,   279,   279,   279,   279,   279,   279,   279,   279,
-     279,   279,   279,   279,   279,   279,   279,   280,   280,   280,
-     280,   280,   280,   280,   280,   280,   280,   280,   280,   280,
-     280,   280,   280,   280,   280,   280,   280,   280,   280,   280,
-     280,   281,   281,   281,   281,   281,   281,   281,   281,   281,
-     281,   281,   281,   282,   282,   282,   282,   282,   282,   282,
-     282,   282,   282,   282,   282,   282,   282,   282,   282,   282,
-     282,   282,   282,   282,   282,   282,   282,   283,   283,   283,
-     283,   283,   283,   283,   283,   283,   283,   283,   283,   283,
-     283,   283,   283,   283,   283,   283,   283,   283,   283,   283,
-     283,   283,   283,   283,   283,   283,   283,   283,   283,   283,
-     283,   283,   283,   284,   284,   284,   284,   284,   284,   284,
-     284,   284,   284,   284,   285,   285,   285,   285,   285,   285,
-     285,   285,   286,   286,   286,   286,   287,   287,   288,   288,
-     288,   288,   288,   288,   288,   288,   288,   288,   288,   288,
-     288,   289,   289,   289,   289,   289,   290,   290,   290,   291,
-     291,   291,   291,   291,   291,   291,   291,   291,   291,   291,
-     291,   291,   291,   291,   291,   291,   291,   291,   291,   291,
-     291,   291,   291,   291,   291,   291,   291,   291,   291,   291,
-     291,   291,   291,   291,   291,   291,   291,   291,   291,   291,
-     291,   291,   291,   291,   291,   291,   291,   291,   291,   291,
-     291,   291,   291,   292,   293,   294,   294,   294,   294,   294,
-     294,   294,   294,   294,   294,   294,   294,   294,   294,   294,
-     295,   295,   295,   296,   296,   296,   296,   297,   297,   298,
-     298,   298,   298,   298,   298,   298,   298,   298,   298,   298,
-     298,   298,   298,   298,   299,   299,   299,   299,   300,   300,
-     301,   301,   301,   301,   301,   301,   301,   301,   301,   301,
-     301,   301,   301,   301,   301,   301,   301,   301,   301,   302,
-     302,   303,   304,   304,   304,   304,   304,   304,   305,   305,
-     306,   306,   307,   307,   307,   307,   307,   307,   308,   308,
-     308,   308,   308,   308,   308,   308,   309,   310,   310,   310,
-     310,   311,   311,   311,   311,   311,   311,   311,   311,   311,
-     311,   311,   311,   311,   311,   312,   312,   313,   314,   314,
-     314,   314,   314,   314,   314,   314,   315,   315,   315,   316,
-     316,   316,   316,   317,   317,   318,   318,   319,   319,   319,
-     319,   319,   319,   319,   320,   320,   321,   321,   322,   322,
-     323,   323
-};
-
-/* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
-static const yytype_uint8 yyr2[] =
-{
-       0,     2,     1,     2,     2,     3,     3,     6,     6,     5,
-       5,     4,     5,     5,     4,     4,     3,     6,     6,     5,
-       5,     4,     5,     5,     4,     4,     3,     5,     5,     4,
-       4,     3,     4,     4,     3,     3,     2,     5,     5,     4,
-       4,     3,     4,     4,     3,     3,     2,     5,     5,     4,
-       4,     3,     4,     4,     3,     3,     2,     4,     4,     3,
-       3,     2,     3,     3,     2,     2,     1,     2,     1,     1,
-       0,     1,     1,     1,     2,     6,     6,     5,     5,     5,
-       4,     5,     5,     4,     4,     4,     3,     4,     4,     2,
-       3,     3,     1,     1,     3,     1,     1,     3,     3,     2,
-       1,     2,     1,     1,     2,     1,     3,     2,     4,     3,
-       4,     3,     1,     2,     3,     6,     5,     5,     4,     6,
-       5,     5,     4,     5,     4,     4,     3,     1,     6,     5,
-       5,     4,     5,     4,     4,     3,     2,     1,     2,     1,
-       1,     2,     1,     3,     2,     1,     1,     1,     1,     3,
-       2,     4,     3,     1,     1,     2,     2,     2,     1,     1,
-       1,     2,     1,     8,     7,     7,     6,     3,     2,     1,
-       5,     4,     1,     4,     5,     4,     4,     3,     2,     1,
-       1,     3,     2,     2,     1,     5,     6,     5,     5,     4,
-       5,     4,     4,     3,     3,     2,     1,     2,     1,     6,
-       5,     6,     5,     5,     4,     5,     4,     1,     4,     3,
-       1,     1,     1,     1,     1,     1,     1,     1,     1,     3,
-       2,     2,     2,     3,     2,     4,     3,     4,     3,     3,
-       2,     5,     2,     2,     1,     3,     2,     1,     4,     3,
-       1,     3,     3,     2,     3,     2,     5,     4,     4,     3,
-       1,     4,     3,     4,     3,     1,     3,     5,     4,     4,
-       3,     5,     4,     4,     3,     1,     4,     2,     1,     2,
-       1,     2,     1,     4,     3,     1,     1,     2,     1,     3,
-       2,     5,     4,     4,     3,     5,     4,     4,     3,     1,
-       5,     4,     4,     3,     2,     1,     4,     3,     2,     1,
-       2,     1,     6,     5,     5,     4,     5,     4,     4,     3,
-       8,     7,     7,     6,     7,     6,     6,     5,     5,     4,
-       4,     3,     4,     3,     3,     2,     3,     2,     1,     2,
-       2,     1,     2,     2,     1,     1,     1,     4,     3,     1,
-       1,     5,     4,     4,     3,     5,     4,     4,     3,     2,
-       1,     1,     3,     2,     4,     3,     1,     2,     1,     1,
-       4,     3,     4,     3,     3,     3,     5,     4,     4,     3,
-       1,     3,     5,     4,     4,     3,     5,     4,     4,     3,
-       1,     4,     3,     6,     5,     4,     1,     4,     3,     1,
-       2,     2,     1,     3,     2,     2,     1,     1,     7,     6,
-       5,     6,     5,     4,     6,     5,     4,     5,     4,     3,
-       1,     3,     2,     1,     1,     1,     1,     1,     1,     5,
-       4,     4,     3,     4,     3,     4,     3,     3,     2,     4,
-       3,     3,     2,     3,     2,     4,     3,     3,     2,     2,
-       1,     6,     5,     5,     4,     5,     4,     4,     3,     6,
-       5,     5,     4,     5,     4,     4,     3,     6,     5,     5,
-       4,     5,     4,     4,     3,     4,     3,     3,     2,     3,
-       2,     5,     4,     4,     3,     1,     1,     3,     2,     1,
-       3,     1,     5,     4,     1,     6,     5,     5,     4,     4,
-       3,     1,     2,     3,     3,     3,     3,     1,     4,     3,
-       4,     3,     3,     5,     4,     4,     3,     1,     4,     3,
-       1,     5,     4,     4,     3,     3,     2,     3,     2,     5,
-       4,     4,     3,     5,     4,     4,     3,     2,     1,     1,
-       3,     5,     4,     4,     3,     1,     4,     3,     4,     3,
-       1,     3,     1,     3,     2,     5,     4,     4,     3,     5,
-       4,     4,     3,     5,     4,     4,     3,     4,     5,     4,
-       4,     3,     7,     6,     6,     5,     1,     1,     2,     2,
-       1,     2,     2,     1,     1,     2,     3,     5,     4,     4,
-       3,     4,     3,     3,     2,     5,     4,     4,     3,     4,
-       3,     3,     2,     6,     5,     5,     4,     5,     4,     4,
-       3,     6,     5,     5,     4,     5,     4,     4,     3,     7,
-       6,     6,     5,     6,     5,     5,     4,     6,     5,     5,
-       4,     5,     4,     4,     3,     7,     6,     6,     5,     6,
-       5,     5,     4,     7,     6,     6,     5,     6,     5,     5,
-       4,     5,     4,     4,     3,     5,     4,     4,     3,     7,
-       6,     6,     5,     5,     4,     4,     3,     5,     4,     4,
-       3,     7,     6,     6,     5,     6,     5,     5,     4,     6,
-       5,     5,     4,     8,     7,     7,     6,     5,     4,     4,
-       3,     5,     4,     4,     3,     7,     6,     6,     5,     6,
-       5,     5,     4,     6,     5,     5,     4,     8,     7,     7,
-       6,     6,     5,     5,     4,     6,     5,     5,     4,     8,
-       7,     7,     6,     5,     4,     4,     3,     4,     3,     3,
-       2,     4,     3,     3,     5,     4,     4,     3,     4,     3,
-       3,     2,     3,     2,     2,     1,     1,     1,     1,     4,
-       3,     4,     3,     4,     3,     4,     3,     4,     3,     4,
-       3,     5,     4,     4,     3,     2,     1,     3,     3,     6,
-       5,     5,     4,     6,     5,     5,     4,     5,     4,     4,
-       3,     5,     4,     4,     3,     7,     6,     6,     5,     6,
-       5,     5,     4,     6,     5,     5,     4,     5,     4,     4,
-       3,     7,     6,     6,     5,     6,     5,     5,     4,     6,
-       5,     5,     4,     5,     4,     4,     3,     4,     3,     5,
-       4,     3,     3,     2,     1,     4,     3,     3,     2,     3,
-       2,     2,     1,     3,     2,     2,     1,     2,     1,     1,
-       3,     2,     1,     3,     2,     2,     1,     2,     1,     5,
-       3,     4,     2,     4,     2,     3,     1,     4,     2,     3,
-       1,     3,     1,     2,     3,     2,     2,     1,     2,     1,
-       5,     4,     3,     4,     3,     2,     4,     3,     2,     4,
-       3,     2,     3,     2,     1,     3,     2,     1,     1,     2,
-       1,     2,     4,     3,     2,     1,     2,     1,     2,     1,
-       2,     1,     1,     1,     1,     1,     1,     1,     7,     6,
-       5,     4,     6,     5,     4,     3,     1,     5,     4,     4,
-       3,     5,     4,     4,     3,     6,     5,     5,     4,     5,
-       4,     4,     3,     3,     2,     3,     3,     3,     4,     3,
-       4,     3,     6,     5,     5,     4,     2,     1,     1,     2,
-       1,     3,     2,     2,     1,     2,     1,     2,     1,     2,
-       1,     1,     1,     1,     2,     1,     2,     1,     2,     1,
-       2,     1
-};
-
-/* YYDEFACT[STATE-NAME] -- Default reduction number in state STATE-NUM.
-   Performed when YYTABLE doesn't specify something else to do.  Zero
-   means the default is an error.  */
-static const yytype_uint16 yydefact[] =
-{
-      70,     0,     0,   392,   574,   573,   950,   957,   940,   952,
-     938,     0,     0,     0,   953,   396,     0,    92,     0,     0,
-     278,     0,     0,     0,     0,     0,   299,    70,     0,   142,
-       0,   955,   961,     0,   440,     0,   234,   567,     0,     0,
-       0,     0,    70,    70,   948,     0,     0,   951,   416,   295,
-     301,     0,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,     0,     0,   158,     0,    70,     0,
-      66,    68,    71,    73,    69,    93,    95,   102,   103,   105,
-     112,    96,   145,   127,   153,   154,   159,   162,   169,   172,
-       0,   179,     0,   196,   198,   207,   210,   212,   211,   215,
-     213,   216,   217,   214,     0,   218,   237,   240,   250,   255,
-     265,   268,   270,   272,   275,   276,   289,   146,   335,   336,
-     339,   340,   180,   350,   351,   356,   358,   359,   370,   380,
-     386,   389,   397,   410,   413,   414,   415,   417,   418,     0,
-     148,   147,   140,     0,   566,     0,   570,   137,   139,    70,
-      70,     0,     0,     0,   736,   738,   737,   756,    70,   891,
-     892,   893,   894,   895,   896,   897,     0,   937,    70,   944,
-     946,    70,    70,    72,   959,     0,     0,     0,     0,     0,
-     468,     0,   391,   949,   939,   230,   220,     0,     0,     0,
-       0,     0,     0,   943,   394,   395,     0,     0,    89,     0,
-     432,     0,     0,     0,     0,     0,     0,     0,     0,   277,
-       0,     0,   328,   331,     0,   334,     0,     0,   325,     0,
-       0,     0,   575,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,     0,     0,     0,   528,     0,   542,
-       0,   476,   475,   479,   481,     0,   497,   507,   510,   484,
-     529,   535,   540,     0,     0,     0,     0,   298,     0,     0,
-       0,     0,   195,   353,     0,   141,   434,     0,     0,     0,
-     160,     0,     0,     0,     0,   439,   438,   412,     0,   233,
-     428,     0,     0,   906,     0,     0,     0,     0,     0,     0,
-       0,     0,    70,   947,     0,     0,     0,     0,     0,     0,
-     294,   300,   584,     0,     0,   592,     0,     0,   731,     0,
-       0,     0,     0,     0,     0,     0,     0,   720,     0,     0,
-       0,     0,   756,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,   814,     0,     0,   857,     0,     0,     0,
-       0,   836,     0,   885,   846,   874,   877,   887,   832,   822,
-       0,     0,     0,     0,   829,   838,   826,     0,   859,   850,
-     852,   878,   880,   889,   828,     1,     0,     4,     3,    67,
-      74,     0,   100,    99,     0,   107,     0,   113,   104,     0,
-       0,     0,     0,     0,     0,   184,   178,     0,     0,   144,
-     150,   155,   156,   157,   197,     0,     0,     0,   232,     0,
-       0,     0,     0,     0,     0,     0,     0,     0,     0,   267,
-     269,     0,     0,   357,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,   390,     0,     0,     0,     0,   271,     0,
-     470,   568,   569,   280,   571,   572,   136,   138,    65,    70,
-      64,    70,     0,   218,     0,     0,   224,    70,   222,   221,
-     349,     0,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,   755,    61,    70,    70,   890,   924,     0,     0,     0,
-       0,   942,   936,    56,    70,    70,    70,   945,   954,    36,
-      70,    70,    70,    70,    70,   956,    46,    70,    70,    70,
-     960,   958,   464,     0,     0,     0,   466,   467,   229,   228,
-     219,     0,     0,   754,     0,   393,   344,     0,     0,   430,
-     431,     0,     0,     0,   193,   422,     0,     0,     0,   327,
-       0,   288,   330,   329,   323,   332,   333,     0,     0,   321,
-     324,   309,     0,     0,     0,   284,     0,   478,     0,     0,
-     491,     0,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,   518,     0,     0,     0,     0,     0,     0,     0,   516,
-       0,   527,     0,   293,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,     0,   544,     0,     0,     0,   297,
-     409,     0,     0,   194,   352,     0,   433,     0,   161,   348,
-       0,   437,   411,   427,     0,     0,     0,     0,   905,   910,
-       0,     0,   576,   927,   135,     0,   474,     0,     0,     0,
-     929,   931,     0,     0,     0,   583,   580,     0,   582,   591,
-     588,     0,   590,   729,   730,   727,     0,   608,     0,     0,
-       0,     0,   660,     0,     0,     0,   656,     0,     0,   718,
-     719,   716,     0,     0,     0,     0,   722,   735,     0,     0,
-     723,     0,     0,     0,     0,     0,     0,     0,    91,    90,
-      86,     0,     0,     0,     0,   226,   925,   926,   424,   426,
-       0,   808,   812,   855,   856,   881,   811,   853,     0,     0,
-       0,     0,     0,   834,   835,   813,   884,     0,   842,   844,
-     873,   871,   865,   876,   868,   886,   831,   821,   818,   820,
-       0,     0,     0,   770,     0,     0,   774,     0,     0,   790,
-       0,   827,   825,   837,   824,     0,     0,   806,     0,     0,
-     858,   848,     0,   879,   888,     6,     5,    94,   101,    97,
-      98,     0,   106,     0,     0,   114,   168,     0,     0,     0,
-       0,     0,   183,   182,   152,     0,   143,   149,     0,     0,
-       0,   209,     0,   236,     0,   239,     0,   245,   243,     0,
-     241,   254,     0,   252,     0,     0,     0,   256,   338,     0,
-     355,     0,     0,     0,     0,   364,   363,     0,   361,     0,
-       0,     0,   371,   382,     0,   388,     0,     0,     0,     0,
-     436,   456,     0,   448,     0,   274,   469,   279,    63,    62,
-       0,     0,     0,     0,     0,   223,     0,    70,     0,     0,
-       0,     0,     0,     0,     0,     0,     0,     0,     0,   742,
-     746,     0,   740,   744,     0,   750,   757,     0,   748,   758,
-       0,    60,    70,    59,    70,   923,     0,     0,   914,     0,
-     922,     0,     0,   941,    55,    70,    54,    70,    51,    70,
-      70,    35,    70,    34,    70,    31,    70,    70,    26,    70,
-      70,    70,    16,    70,    70,    70,    45,    70,    44,    70,
-      41,    70,    70,   463,   460,   462,     0,   465,   227,   753,
-     752,   343,   342,   429,     0,   192,   421,     0,   191,   420,
-     326,   287,   322,   286,   319,   320,   308,   307,   305,     0,
-     283,   282,     0,     0,     0,     0,   477,   556,   492,     0,
-     514,     0,   561,     0,   522,     0,   552,     0,   517,   526,
-       0,   548,     0,     0,     0,   515,     0,   292,   480,     0,
-       0,     0,   502,   490,   501,     0,   499,     0,   509,     0,
-     530,   539,     0,   537,     0,   541,   543,     0,     0,   291,
-     296,   408,   406,   403,     0,     0,   347,   346,     0,     0,
-     904,     0,     0,   901,   909,   908,     0,   134,   133,   473,
-     472,   935,     0,     0,     0,   928,   930,   579,   578,   581,
-     587,   586,   589,   728,   725,   726,   607,     0,   604,     0,
-       0,   606,   659,     0,     0,     0,   655,     0,   658,     0,
-     654,   717,   714,   715,     0,   648,     0,     0,     0,   644,
-       0,     0,   721,   733,   734,   757,   758,     0,   616,     0,
-       0,     0,     0,   672,     0,     0,     0,   668,     0,     0,
-      88,    87,    83,    85,     0,    84,     0,    80,     0,     0,
-       0,   225,   423,   425,   807,   854,     0,   810,     0,     0,
-     762,     0,     0,   766,     0,     0,   782,     0,     0,     0,
-     798,     0,   833,   845,     0,   840,     0,   872,   864,   870,
-     862,   875,   867,   830,   819,   817,   816,   883,   769,     0,
-     768,   773,     0,   772,     0,   788,   789,     0,     0,   786,
-     823,     0,   804,   805,     0,     0,   802,   849,     0,   851,
-     111,   109,   126,     0,     0,     0,   167,     0,     0,   171,
-       0,   177,     0,   173,   181,   151,   206,     0,   204,     0,
-       0,     0,   208,   235,     0,   238,   244,   242,     0,     0,
-     253,   251,   264,     0,   260,     0,   337,   354,     0,     0,
-       0,     0,   365,     0,     0,   362,   360,   379,     0,   375,
-       0,   381,   387,     0,   600,     0,     0,     0,   435,   454,
-     455,   452,   446,   447,   444,   273,     0,   266,   385,   189,
-       0,   131,     0,     0,   624,     0,     0,     0,     0,   684,
-       0,     0,     0,   680,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
-     741,   745,   739,   743,   749,     0,   747,    58,    57,   912,
-       0,   920,     0,     0,   913,   921,   918,     0,    53,    52,
-      50,    70,    49,    70,    33,    32,    30,    70,    29,    70,
-      25,    70,    24,    70,    21,    70,    70,    15,    70,    14,
-      70,    11,    70,    70,    43,    42,    40,    70,    39,    70,
-     459,   461,   458,   751,   341,   190,   419,   285,   318,   306,
-     304,   303,   281,   493,   495,   494,   496,   555,   554,   513,
-     512,   560,   559,   521,   520,   551,   550,   525,   524,   547,
-     546,   488,     0,     0,     0,   483,     0,     0,     0,   489,
-     500,   498,     0,     0,   538,   536,   557,   508,   290,   407,
-     405,   402,   400,   384,     0,   345,     0,   903,     0,     0,
-     900,   907,   132,   471,   934,   933,     0,   577,   585,   724,
-     603,     0,   602,   605,   664,     0,     0,     0,   657,   653,
-     713,   647,     0,     0,     0,   643,     0,   646,     0,   642,
-     732,   615,     0,   612,     0,     0,   614,   671,     0,     0,
-       0,   667,     0,   670,     0,   666,    82,    79,    81,    78,
-      77,   317,     0,     0,     0,   809,   761,     0,   760,   765,
-       0,   764,     0,   780,   781,     0,     0,   778,     0,   796,
-     797,     0,     0,   794,   841,     0,   843,   863,   869,   861,
-     866,   815,   882,   767,   771,   787,     0,   784,   785,   803,
-       0,   800,   801,   847,   110,   108,   125,   122,     0,   118,
-       0,   124,     0,     0,   170,   176,   175,   205,   203,   202,
-       0,   200,     0,   231,   249,     0,   263,   262,   259,   258,
-       0,   672,     0,     0,     0,   668,     0,     0,   369,     0,
-     378,   377,   374,   373,   599,     0,   596,     0,     0,   598,
-     453,   450,   451,   445,   442,   443,   185,   188,   187,   130,
-     129,   623,     0,   620,     0,     0,   622,   683,     0,     0,
-       0,   679,     0,   682,     0,   678,     0,   632,     0,     0,
-       0,     0,   640,     0,     0,     0,     0,   696,     0,     0,
-       0,   692,     0,     0,     0,   708,     0,     0,     0,   704,
-       0,     0,   911,   919,   916,     0,   917,    48,    47,    28,
-      27,    23,    22,    20,    70,    19,    70,    13,    12,    10,
-      70,     9,    70,    38,    37,   457,   302,   553,   511,   558,
-     519,   549,   523,   545,   487,   486,   565,     0,   482,   506,
-       0,   534,     0,   404,   401,   399,   383,   902,     0,   899,
-     932,   601,   663,   662,     0,   652,     0,     0,     0,   645,
-     641,   611,     0,   610,   613,   676,     0,     0,     0,   669,
-     665,    76,    75,   316,   315,   313,     0,   759,   763,   779,
-       0,   776,   777,   795,     0,   792,   793,   839,   860,   783,
-     799,   121,   120,   117,   116,   123,   166,     0,     0,   174,
-     201,   199,   248,   247,   261,   257,   671,     0,     0,     0,
-     667,     0,   670,     0,   666,   368,   367,   376,   372,   595,
-       0,   594,   597,   449,   441,   186,   128,   619,     0,   618,
-     621,   688,     0,     0,     0,   681,   677,   631,     0,   628,
-       0,     0,   630,   639,     0,   636,     0,     0,   638,   695,
-       0,     0,     0,   691,     0,   694,     0,   690,   707,     0,
-       0,     0,   703,     0,   706,     0,   702,   915,    18,    17,
-       8,     7,   485,   564,   563,   505,   504,   533,   532,   398,
-     898,   661,   651,   650,     0,   609,   675,   674,     0,   314,
-     312,   311,   775,   791,   119,   115,   165,   164,     0,   246,
-     676,     0,     0,     0,   669,   665,   366,   593,   617,   687,
-     686,     0,   627,     0,   626,   629,   635,     0,   634,   637,
-     700,     0,     0,     0,   693,   689,   712,     0,     0,     0,
-     705,   701,   562,   503,   531,   649,   673,   310,   163,   675,
-     674,     0,   685,   625,   633,   699,   698,     0,   711,   710,
-       0,   673,   697,   709
-};
-
-/* YYDEFGOTO[NTERM-NUM].  */
-static const yytype_int16 yydefgoto[] =
-{
-      -1,    67,    68,    69,    70,    71,    72,    73,    74,    75,
-     373,    76,    77,    78,   375,    79,   377,    80,    81,    82,
-      83,    84,    85,   442,    86,   381,    87,    88,   384,    89,
-      90,   386,    91,    92,    93,    94,    95,    96,    97,    98,
-      99,   100,   101,   102,   103,   104,   398,   105,   106,   403,
-     760,   107,   108,   408,   109,   110,   111,   112,   113,   114,
-     115,   116,   211,   212,   213,   117,   118,   119,   120,   121,
-     122,   123,   124,   125,   126,   566,   775,   127,   420,   128,
-     129,   130,   131,   132,   133,   134,   135,   136,   137,   138,
-     139,   140,   141,   176,   240,   241,   242,   243,   244,   541,
-     902,   245,   932,   246,   247,   248,   249,   940,   250,   251,
-     252,   143,   144,   145,   146,   147,   148,   426,   568,   648,
-     320,   569,   649,   151,   152,   801,   153,   154,   155,   156,
-     157,   351,   352,   353,   354,   355,   356,   357,   358,   359,
-     360,   361,   362,   363,   364,   461,   159,   160,   286,   161,
-     162,   163,   164,   165,   166,   167,   168,   169,   170,   171,
-     172,   173,   174
-};
-
-/* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
-   STATE-NUM.  */
 #define YYPACT_NINF -703
+
+#define yypact_value_is_default(Yystate) \
+  (!!((Yystate) == (-703)))
+
+#define YYTABLE_NINF -653
+
+#define yytable_value_is_error(Yytable_value) \
+  0
+
+  /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
+     STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
     4720,  6970,  6970,  1157,  -703,  -703,    58,  -703,    75,  -703,
@@ -1942,7 +1018,190 @@ static const yytype_int16 yypact[] =
     1968,  1953,  -703,  -703
 };
 
-/* YYPGOTO[NTERM-NUM].  */
+  /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
+     Performed when YYTABLE does not specify something else to do.  Zero
+     means the default is an error.  */
+static const yytype_uint16 yydefact[] =
+{
+      70,     0,     0,   392,   574,   573,   950,   957,   940,   952,
+     938,     0,     0,     0,   953,   396,     0,    92,     0,     0,
+     278,     0,     0,     0,     0,     0,   299,    70,     0,   142,
+       0,   955,   961,     0,   440,     0,   234,   567,     0,     0,
+       0,     0,    70,    70,   948,     0,     0,   951,   416,   295,
+     301,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,   158,     0,    70,     0,
+      66,    68,    71,    73,    69,    93,    95,   102,   103,   105,
+     112,    96,   145,   127,   153,   154,   159,   162,   169,   172,
+       0,   179,     0,   196,   198,   207,   210,   212,   211,   215,
+     213,   216,   217,   214,     0,   218,   237,   240,   250,   255,
+     265,   268,   270,   272,   275,   276,   289,   146,   335,   336,
+     339,   340,   180,   350,   351,   356,   358,   359,   370,   380,
+     386,   389,   397,   410,   413,   414,   415,   417,   418,     0,
+     148,   147,   140,     0,   566,     0,   570,   137,   139,    70,
+      70,     0,     0,     0,   736,   738,   737,   756,    70,   891,
+     892,   893,   894,   895,   896,   897,     0,   937,    70,   944,
+     946,    70,    70,    72,   959,     0,     0,     0,     0,     0,
+     468,     0,   391,   949,   939,   230,   220,     0,     0,     0,
+       0,     0,     0,   943,   394,   395,     0,     0,    89,     0,
+     432,     0,     0,     0,     0,     0,     0,     0,     0,   277,
+       0,     0,   328,   331,     0,   334,     0,     0,   325,     0,
+       0,     0,   575,     0,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,   528,     0,   542,
+       0,   476,   475,   479,   481,     0,   497,   507,   510,   484,
+     529,   535,   540,     0,     0,     0,     0,   298,     0,     0,
+       0,     0,   195,   353,     0,   141,   434,     0,     0,     0,
+     160,     0,     0,     0,     0,   439,   438,   412,     0,   233,
+     428,     0,     0,   906,     0,     0,     0,     0,     0,     0,
+       0,     0,    70,   947,     0,     0,     0,     0,     0,     0,
+     294,   300,   584,     0,     0,   592,     0,     0,   731,     0,
+       0,     0,     0,     0,     0,     0,     0,   720,     0,     0,
+       0,     0,   756,     0,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,   814,     0,     0,   857,     0,     0,     0,
+       0,   836,     0,   885,   846,   874,   877,   887,   832,   822,
+       0,     0,     0,     0,   829,   838,   826,     0,   859,   850,
+     852,   878,   880,   889,   828,     1,     0,     4,     3,    67,
+      74,     0,   100,    99,     0,   107,     0,   113,   104,     0,
+       0,     0,     0,     0,     0,   184,   178,     0,     0,   144,
+     150,   155,   156,   157,   197,     0,     0,     0,   232,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,   267,
+     269,     0,     0,   357,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,   390,     0,     0,     0,     0,   271,     0,
+     470,   568,   569,   280,   571,   572,   136,   138,    65,    70,
+      64,    70,     0,   218,     0,     0,   224,    70,   222,   221,
+     349,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+       0,   755,    61,    70,    70,   890,   924,     0,     0,     0,
+       0,   942,   936,    56,    70,    70,    70,   945,   954,    36,
+      70,    70,    70,    70,    70,   956,    46,    70,    70,    70,
+     960,   958,   464,     0,     0,     0,   466,   467,   229,   228,
+     219,     0,     0,   754,     0,   393,   344,     0,     0,   430,
+     431,     0,     0,     0,   193,   422,     0,     0,     0,   327,
+       0,   288,   330,   329,   323,   332,   333,     0,     0,   321,
+     324,   309,     0,     0,     0,   284,     0,   478,     0,     0,
+     491,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+       0,   518,     0,     0,     0,     0,     0,     0,     0,   516,
+       0,   527,     0,   293,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,     0,     0,   544,     0,     0,     0,   297,
+     409,     0,     0,   194,   352,     0,   433,     0,   161,   348,
+       0,   437,   411,   427,     0,     0,     0,     0,   905,   910,
+       0,     0,   576,   927,   135,     0,   474,     0,     0,     0,
+     929,   931,     0,     0,     0,   583,   580,     0,   582,   591,
+     588,     0,   590,   729,   730,   727,     0,   608,     0,     0,
+       0,     0,   660,     0,     0,     0,   656,     0,     0,   718,
+     719,   716,     0,     0,     0,     0,   722,   735,     0,     0,
+     723,     0,     0,     0,     0,     0,     0,     0,    91,    90,
+      86,     0,     0,     0,     0,   226,   925,   926,   424,   426,
+       0,   808,   812,   855,   856,   881,   811,   853,     0,     0,
+       0,     0,     0,   834,   835,   813,   884,     0,   842,   844,
+     873,   871,   865,   876,   868,   886,   831,   821,   818,   820,
+       0,     0,     0,   770,     0,     0,   774,     0,     0,   790,
+       0,   827,   825,   837,   824,     0,     0,   806,     0,     0,
+     858,   848,     0,   879,   888,     6,     5,    94,   101,    97,
+      98,     0,   106,     0,     0,   114,   168,     0,     0,     0,
+       0,     0,   183,   182,   152,     0,   143,   149,     0,     0,
+       0,   209,     0,   236,     0,   239,     0,   245,   243,     0,
+     241,   254,     0,   252,     0,     0,     0,   256,   338,     0,
+     355,     0,     0,     0,     0,   364,   363,     0,   361,     0,
+       0,     0,   371,   382,     0,   388,     0,     0,     0,     0,
+     436,   456,     0,   448,     0,   274,   469,   279,    63,    62,
+       0,     0,     0,     0,     0,   223,     0,    70,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,   742,
+     746,     0,   740,   744,     0,   750,   757,     0,   748,   758,
+       0,    60,    70,    59,    70,   923,     0,     0,   914,     0,
+     922,     0,     0,   941,    55,    70,    54,    70,    51,    70,
+      70,    35,    70,    34,    70,    31,    70,    70,    26,    70,
+      70,    70,    16,    70,    70,    70,    45,    70,    44,    70,
+      41,    70,    70,   463,   460,   462,     0,   465,   227,   753,
+     752,   343,   342,   429,     0,   192,   421,     0,   191,   420,
+     326,   287,   322,   286,   319,   320,   308,   307,   305,     0,
+     283,   282,     0,     0,     0,     0,   477,   556,   492,     0,
+     514,     0,   561,     0,   522,     0,   552,     0,   517,   526,
+       0,   548,     0,     0,     0,   515,     0,   292,   480,     0,
+       0,     0,   502,   490,   501,     0,   499,     0,   509,     0,
+     530,   539,     0,   537,     0,   541,   543,     0,     0,   291,
+     296,   408,   406,   403,     0,     0,   347,   346,     0,     0,
+     904,     0,     0,   901,   909,   908,     0,   134,   133,   473,
+     472,   935,     0,     0,     0,   928,   930,   579,   578,   581,
+     587,   586,   589,   728,   725,   726,   607,     0,   604,     0,
+       0,   606,   659,     0,     0,     0,   655,     0,   658,     0,
+     654,   717,   714,   715,     0,   648,     0,     0,     0,   644,
+       0,     0,   721,   733,   734,   757,   758,     0,   616,     0,
+       0,     0,     0,   672,     0,     0,     0,   668,     0,     0,
+      88,    87,    83,    85,     0,    84,     0,    80,     0,     0,
+       0,   225,   423,   425,   807,   854,     0,   810,     0,     0,
+     762,     0,     0,   766,     0,     0,   782,     0,     0,     0,
+     798,     0,   833,   845,     0,   840,     0,   872,   864,   870,
+     862,   875,   867,   830,   819,   817,   816,   883,   769,     0,
+     768,   773,     0,   772,     0,   788,   789,     0,     0,   786,
+     823,     0,   804,   805,     0,     0,   802,   849,     0,   851,
+     111,   109,   126,     0,     0,     0,   167,     0,     0,   171,
+       0,   177,     0,   173,   181,   151,   206,     0,   204,     0,
+       0,     0,   208,   235,     0,   238,   244,   242,     0,     0,
+     253,   251,   264,     0,   260,     0,   337,   354,     0,     0,
+       0,     0,   365,     0,     0,   362,   360,   379,     0,   375,
+       0,   381,   387,     0,   600,     0,     0,     0,   435,   454,
+     455,   452,   446,   447,   444,   273,     0,   266,   385,   189,
+       0,   131,     0,     0,   624,     0,     0,     0,     0,   684,
+       0,     0,     0,   680,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+     741,   745,   739,   743,   749,     0,   747,    58,    57,   912,
+       0,   920,     0,     0,   913,   921,   918,     0,    53,    52,
+      50,    70,    49,    70,    33,    32,    30,    70,    29,    70,
+      25,    70,    24,    70,    21,    70,    70,    15,    70,    14,
+      70,    11,    70,    70,    43,    42,    40,    70,    39,    70,
+     459,   461,   458,   751,   341,   190,   419,   285,   318,   306,
+     304,   303,   281,   493,   495,   494,   496,   555,   554,   513,
+     512,   560,   559,   521,   520,   551,   550,   525,   524,   547,
+     546,   488,     0,     0,     0,   483,     0,     0,     0,   489,
+     500,   498,     0,     0,   538,   536,   557,   508,   290,   407,
+     405,   402,   400,   384,     0,   345,     0,   903,     0,     0,
+     900,   907,   132,   471,   934,   933,     0,   577,   585,   724,
+     603,     0,   602,   605,   664,     0,     0,     0,   657,   653,
+     713,   647,     0,     0,     0,   643,     0,   646,     0,   642,
+     732,   615,     0,   612,     0,     0,   614,   671,     0,     0,
+       0,   667,     0,   670,     0,   666,    82,    79,    81,    78,
+      77,   317,     0,     0,     0,   809,   761,     0,   760,   765,
+       0,   764,     0,   780,   781,     0,     0,   778,     0,   796,
+     797,     0,     0,   794,   841,     0,   843,   863,   869,   861,
+     866,   815,   882,   767,   771,   787,     0,   784,   785,   803,
+       0,   800,   801,   847,   110,   108,   125,   122,     0,   118,
+       0,   124,     0,     0,   170,   176,   175,   205,   203,   202,
+       0,   200,     0,   231,   249,     0,   263,   262,   259,   258,
+       0,   672,     0,     0,     0,   668,     0,     0,   369,     0,
+     378,   377,   374,   373,   599,     0,   596,     0,     0,   598,
+     453,   450,   451,   445,   442,   443,   185,   188,   187,   130,
+     129,   623,     0,   620,     0,     0,   622,   683,     0,     0,
+       0,   679,     0,   682,     0,   678,     0,   632,     0,     0,
+       0,     0,   640,     0,     0,     0,     0,   696,     0,     0,
+       0,   692,     0,     0,     0,   708,     0,     0,     0,   704,
+       0,     0,   911,   919,   916,     0,   917,    48,    47,    28,
+      27,    23,    22,    20,    70,    19,    70,    13,    12,    10,
+      70,     9,    70,    38,    37,   457,   302,   553,   511,   558,
+     519,   549,   523,   545,   487,   486,   565,     0,   482,   506,
+       0,   534,     0,   404,   401,   399,   383,   902,     0,   899,
+     932,   601,   663,   662,     0,   652,     0,     0,     0,   645,
+     641,   611,     0,   610,   613,   676,     0,     0,     0,   669,
+     665,    76,    75,   316,   315,   313,     0,   759,   763,   779,
+       0,   776,   777,   795,     0,   792,   793,   839,   860,   783,
+     799,   121,   120,   117,   116,   123,   166,     0,     0,   174,
+     201,   199,   248,   247,   261,   257,   671,     0,     0,     0,
+     667,     0,   670,     0,   666,   368,   367,   376,   372,   595,
+       0,   594,   597,   449,   441,   186,   128,   619,     0,   618,
+     621,   688,     0,     0,     0,   681,   677,   631,     0,   628,
+       0,     0,   630,   639,     0,   636,     0,     0,   638,   695,
+       0,     0,     0,   691,     0,   694,     0,   690,   707,     0,
+       0,     0,   703,     0,   706,     0,   702,   915,    18,    17,
+       8,     7,   485,   564,   563,   505,   504,   533,   532,   398,
+     898,   661,   651,   650,     0,   609,   675,   674,     0,   314,
+     312,   311,   775,   791,   119,   115,   165,   164,     0,   246,
+     676,     0,     0,     0,   669,   665,   366,   593,   617,   687,
+     686,     0,   627,     0,   626,   629,   635,     0,   634,   637,
+     700,     0,     0,     0,   693,   689,   712,     0,     0,     0,
+     705,   701,   562,   503,   531,   649,   673,   310,   163,   675,
+     674,     0,   685,   625,   633,   699,   698,     0,   711,   710,
+       0,   673,   697,   709
+};
+
+  /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int16 yypgoto[] =
 {
     -703,  -703,  -703,  1024,  3270,  -703,  -703,  2033,  2041,  1742,
@@ -1964,10 +1223,31 @@ static const yytype_int16 yypgoto[] =
      271,   -17,  -703
 };
 
-/* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
-   positive, shift that token.  If negative, reduce the rule which
-   number is the opposite.  If YYTABLE_NINF, syntax error.  */
-#define YYTABLE_NINF -653
+  /* YYDEFGOTO[NTERM-NUM].  */
+static const yytype_int16 yydefgoto[] =
+{
+      -1,    67,    68,    69,    70,    71,    72,    73,    74,    75,
+     373,    76,    77,    78,   375,    79,   377,    80,    81,    82,
+      83,    84,    85,   442,    86,   381,    87,    88,   384,    89,
+      90,   386,    91,    92,    93,    94,    95,    96,    97,    98,
+      99,   100,   101,   102,   103,   104,   398,   105,   106,   403,
+     760,   107,   108,   408,   109,   110,   111,   112,   113,   114,
+     115,   116,   211,   212,   213,   117,   118,   119,   120,   121,
+     122,   123,   124,   125,   126,   566,   775,   127,   420,   128,
+     129,   130,   131,   132,   133,   134,   135,   136,   137,   138,
+     139,   140,   141,   176,   240,   241,   242,   243,   244,   541,
+     902,   245,   932,   246,   247,   248,   249,   940,   250,   251,
+     252,   143,   144,   145,   146,   147,   148,   426,   568,   648,
+     320,   569,   649,   151,   152,   801,   153,   154,   155,   156,
+     157,   351,   352,   353,   354,   355,   356,   357,   358,   359,
+     360,   361,   362,   363,   364,   461,   159,   160,   286,   161,
+     162,   163,   164,   165,   166,   167,   168,   169,   170,   171,
+     172,   173,   174
+};
+
+  /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
+     positive, shift that token.  If negative, reduce the rule whose
+     number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int16 yytable[] =
 {
      177,   177,   723,   537,   754,   205,   413,   271,   928,   783,
@@ -2839,12 +2119,6 @@ static const yytype_int16 yytable[] =
        0,     0,     0,    56,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,    61
 };
-
-#define yypact_value_is_default(Yystate) \
-  (!!((Yystate) == (-703)))
-
-#define yytable_value_is_error(Yytable_value) \
-  YYID (0)
 
 static const yytype_int16 yycheck[] =
 {
@@ -3718,8 +2992,8 @@ static const yytype_int16 yycheck[] =
       -1,    -1,    -1,    -1,    -1,   149
 };
 
-/* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
-   symbol of state STATE-NUM.  */
+  /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
+     symbol of state STATE-NUM.  */
 static const yytype_uint16 yystos[] =
 {
        0,     7,     9,    14,    15,    16,    18,    21,    23,    26,
@@ -3900,30 +3174,220 @@ static const yytype_uint16 yystos[] =
       40,   136,   136,   136
 };
 
-#define yyerrok		(yyerrstatus = 0)
-#define yyclearin	(yychar = YYEMPTY)
-#define YYEMPTY		(-2)
-#define YYEOF		0
+  /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
+static const yytype_uint16 yyr1[] =
+{
+       0,   161,   162,   163,   163,   163,   163,   164,   164,   164,
+     164,   164,   164,   164,   164,   164,   164,   164,   164,   164,
+     164,   164,   164,   164,   164,   164,   164,   164,   164,   164,
+     164,   164,   164,   164,   164,   164,   164,   164,   164,   164,
+     164,   164,   164,   164,   164,   164,   164,   164,   164,   164,
+     164,   164,   164,   164,   164,   164,   164,   164,   164,   164,
+     164,   164,   164,   164,   164,   164,   164,   165,   165,   165,
+     165,   166,   166,   167,   167,   168,   168,   168,   168,   168,
+     168,   168,   168,   168,   168,   168,   168,   168,   168,   168,
+     168,   168,   168,   169,   169,   170,   170,   170,   170,   170,
+     171,   171,   172,   173,   173,   174,   174,   174,   175,   175,
+     175,   175,   176,   176,   176,   177,   177,   177,   177,   177,
+     177,   177,   177,   177,   177,   177,   177,   178,   178,   178,
+     178,   178,   178,   178,   178,   178,   179,   179,   179,   179,
+     179,   179,   179,   179,   179,   179,   179,   179,   179,   180,
+     180,   181,   181,   181,   181,   181,   181,   181,   182,   183,
+     184,   184,   185,   185,   185,   185,   185,   186,   186,   187,
+     187,   187,   188,   188,   189,   189,   189,   189,   190,   190,
+     191,   192,   192,   192,   192,   193,   193,   193,   193,   193,
+     193,   193,   193,   193,   193,   193,   194,   194,   195,   195,
+     195,   195,   195,   195,   195,   195,   195,   196,   196,   196,
+     197,   197,   197,   197,   197,   197,   197,   197,   198,   199,
+     199,   200,   201,   202,   202,   203,   203,   204,   204,   204,
+     204,   205,   205,   206,   206,   207,   207,   208,   208,   208,
+     209,   209,   210,   210,   210,   210,   211,   211,   211,   211,
+     212,   212,   212,   212,   212,   213,   213,   214,   214,   214,
+     214,   214,   214,   214,   214,   215,   215,   216,   216,   216,
+     216,   217,   217,   218,   218,   219,   219,   219,   219,   219,
+     219,   219,   219,   219,   219,   219,   219,   219,   219,   219,
+     219,   219,   219,   219,   219,   219,   219,   219,   219,   219,
+     219,   219,   220,   220,   220,   220,   220,   220,   220,   220,
+     221,   221,   221,   221,   221,   221,   221,   221,   222,   222,
+     222,   222,   222,   222,   222,   222,   223,   223,   223,   223,
+     224,   224,   224,   225,   225,   226,   227,   227,   227,   228,
+     228,   229,   229,   229,   229,   230,   230,   230,   230,   231,
+     231,   232,   232,   232,   233,   233,   233,   234,   234,   235,
+     235,   235,   235,   235,   235,   236,   237,   237,   237,   237,
+     238,   238,   239,   239,   239,   239,   239,   239,   239,   239,
+     240,   240,   240,   240,   240,   240,   241,   241,   241,   242,
+     242,   243,   243,   243,   243,   243,   243,   243,   243,   243,
+     243,   243,   243,   243,   243,   243,   243,   243,   243,   243,
+     243,   243,   243,   243,   243,   243,   243,   243,   243,   244,
+     244,   244,   244,   245,   245,   245,   245,   246,   246,   247,
+     247,   248,   248,   249,   249,   250,   250,   251,   251,   251,
+     251,   251,   251,   251,   251,   251,   251,   251,   251,   251,
+     251,   251,   251,   251,   251,   251,   251,   252,   252,   252,
+     252,   252,   252,   252,   252,   253,   253,   253,   253,   254,
+     254,   254,   254,   254,   254,   255,   255,   256,   256,   257,
+     257,   258,   258,   258,   259,   259,   259,   259,   259,   259,
+     259,   260,   260,   261,   261,   261,   261,   262,   262,   262,
+     262,   262,   262,   263,   263,   263,   263,   264,   264,   264,
+     265,   265,   265,   265,   265,   266,   266,   266,   266,   266,
+     266,   266,   266,   266,   266,   266,   266,   266,   266,   267,
+     267,   268,   268,   268,   268,   269,   269,   269,   269,   269,
+     270,   270,   271,   271,   271,   271,   271,   271,   271,   271,
+     271,   271,   271,   271,   271,   271,   271,   271,   271,   271,
+     271,   271,   271,   271,   271,   271,   272,   273,   273,   273,
+     274,   274,   274,   275,   275,   275,   275,   276,   276,   276,
+     276,   276,   276,   276,   276,   277,   277,   277,   277,   277,
+     277,   277,   277,   278,   278,   278,   278,   278,   278,   278,
+     278,   279,   279,   279,   279,   279,   279,   279,   279,   279,
+     279,   279,   279,   279,   279,   279,   279,   280,   280,   280,
+     280,   280,   280,   280,   280,   280,   280,   280,   280,   280,
+     280,   280,   280,   280,   280,   280,   280,   280,   280,   280,
+     280,   281,   281,   281,   281,   281,   281,   281,   281,   281,
+     281,   281,   281,   282,   282,   282,   282,   282,   282,   282,
+     282,   282,   282,   282,   282,   282,   282,   282,   282,   282,
+     282,   282,   282,   282,   282,   282,   282,   283,   283,   283,
+     283,   283,   283,   283,   283,   283,   283,   283,   283,   283,
+     283,   283,   283,   283,   283,   283,   283,   283,   283,   283,
+     283,   283,   283,   283,   283,   283,   283,   283,   283,   283,
+     283,   283,   283,   284,   284,   284,   284,   284,   284,   284,
+     284,   284,   284,   284,   285,   285,   285,   285,   285,   285,
+     285,   285,   286,   286,   286,   286,   287,   287,   288,   288,
+     288,   288,   288,   288,   288,   288,   288,   288,   288,   288,
+     288,   289,   289,   289,   289,   289,   290,   290,   290,   291,
+     291,   291,   291,   291,   291,   291,   291,   291,   291,   291,
+     291,   291,   291,   291,   291,   291,   291,   291,   291,   291,
+     291,   291,   291,   291,   291,   291,   291,   291,   291,   291,
+     291,   291,   291,   291,   291,   291,   291,   291,   291,   291,
+     291,   291,   291,   291,   291,   291,   291,   291,   291,   291,
+     291,   291,   291,   292,   293,   294,   294,   294,   294,   294,
+     294,   294,   294,   294,   294,   294,   294,   294,   294,   294,
+     295,   295,   295,   296,   296,   296,   296,   297,   297,   298,
+     298,   298,   298,   298,   298,   298,   298,   298,   298,   298,
+     298,   298,   298,   298,   299,   299,   299,   299,   300,   300,
+     301,   301,   301,   301,   301,   301,   301,   301,   301,   301,
+     301,   301,   301,   301,   301,   301,   301,   301,   301,   302,
+     302,   303,   304,   304,   304,   304,   304,   304,   305,   305,
+     306,   306,   307,   307,   307,   307,   307,   307,   308,   308,
+     308,   308,   308,   308,   308,   308,   309,   310,   310,   310,
+     310,   311,   311,   311,   311,   311,   311,   311,   311,   311,
+     311,   311,   311,   311,   311,   312,   312,   313,   314,   314,
+     314,   314,   314,   314,   314,   314,   315,   315,   315,   316,
+     316,   316,   316,   317,   317,   318,   318,   319,   319,   319,
+     319,   319,   319,   319,   320,   320,   321,   321,   322,   322,
+     323,   323
+};
 
-#define YYACCEPT	goto yyacceptlab
-#define YYABORT		goto yyabortlab
-#define YYERROR		goto yyerrorlab
+  /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
+static const yytype_uint8 yyr2[] =
+{
+       0,     2,     1,     2,     2,     3,     3,     6,     6,     5,
+       5,     4,     5,     5,     4,     4,     3,     6,     6,     5,
+       5,     4,     5,     5,     4,     4,     3,     5,     5,     4,
+       4,     3,     4,     4,     3,     3,     2,     5,     5,     4,
+       4,     3,     4,     4,     3,     3,     2,     5,     5,     4,
+       4,     3,     4,     4,     3,     3,     2,     4,     4,     3,
+       3,     2,     3,     3,     2,     2,     1,     2,     1,     1,
+       0,     1,     1,     1,     2,     6,     6,     5,     5,     5,
+       4,     5,     5,     4,     4,     4,     3,     4,     4,     2,
+       3,     3,     1,     1,     3,     1,     1,     3,     3,     2,
+       1,     2,     1,     1,     2,     1,     3,     2,     4,     3,
+       4,     3,     1,     2,     3,     6,     5,     5,     4,     6,
+       5,     5,     4,     5,     4,     4,     3,     1,     6,     5,
+       5,     4,     5,     4,     4,     3,     2,     1,     2,     1,
+       1,     2,     1,     3,     2,     1,     1,     1,     1,     3,
+       2,     4,     3,     1,     1,     2,     2,     2,     1,     1,
+       1,     2,     1,     8,     7,     7,     6,     3,     2,     1,
+       5,     4,     1,     4,     5,     4,     4,     3,     2,     1,
+       1,     3,     2,     2,     1,     5,     6,     5,     5,     4,
+       5,     4,     4,     3,     3,     2,     1,     2,     1,     6,
+       5,     6,     5,     5,     4,     5,     4,     1,     4,     3,
+       1,     1,     1,     1,     1,     1,     1,     1,     1,     3,
+       2,     2,     2,     3,     2,     4,     3,     4,     3,     3,
+       2,     5,     2,     2,     1,     3,     2,     1,     4,     3,
+       1,     3,     3,     2,     3,     2,     5,     4,     4,     3,
+       1,     4,     3,     4,     3,     1,     3,     5,     4,     4,
+       3,     5,     4,     4,     3,     1,     4,     2,     1,     2,
+       1,     2,     1,     4,     3,     1,     1,     2,     1,     3,
+       2,     5,     4,     4,     3,     5,     4,     4,     3,     1,
+       5,     4,     4,     3,     2,     1,     4,     3,     2,     1,
+       2,     1,     6,     5,     5,     4,     5,     4,     4,     3,
+       8,     7,     7,     6,     7,     6,     6,     5,     5,     4,
+       4,     3,     4,     3,     3,     2,     3,     2,     1,     2,
+       2,     1,     2,     2,     1,     1,     1,     4,     3,     1,
+       1,     5,     4,     4,     3,     5,     4,     4,     3,     2,
+       1,     1,     3,     2,     4,     3,     1,     2,     1,     1,
+       4,     3,     4,     3,     3,     3,     5,     4,     4,     3,
+       1,     3,     5,     4,     4,     3,     5,     4,     4,     3,
+       1,     4,     3,     6,     5,     4,     1,     4,     3,     1,
+       2,     2,     1,     3,     2,     2,     1,     1,     7,     6,
+       5,     6,     5,     4,     6,     5,     4,     5,     4,     3,
+       1,     3,     2,     1,     1,     1,     1,     1,     1,     5,
+       4,     4,     3,     4,     3,     4,     3,     3,     2,     4,
+       3,     3,     2,     3,     2,     4,     3,     3,     2,     2,
+       1,     6,     5,     5,     4,     5,     4,     4,     3,     6,
+       5,     5,     4,     5,     4,     4,     3,     6,     5,     5,
+       4,     5,     4,     4,     3,     4,     3,     3,     2,     3,
+       2,     5,     4,     4,     3,     1,     1,     3,     2,     1,
+       3,     1,     5,     4,     1,     6,     5,     5,     4,     4,
+       3,     1,     2,     3,     3,     3,     3,     1,     4,     3,
+       4,     3,     3,     5,     4,     4,     3,     1,     4,     3,
+       1,     5,     4,     4,     3,     3,     2,     3,     2,     5,
+       4,     4,     3,     5,     4,     4,     3,     2,     1,     1,
+       3,     5,     4,     4,     3,     1,     4,     3,     4,     3,
+       1,     3,     1,     3,     2,     5,     4,     4,     3,     5,
+       4,     4,     3,     5,     4,     4,     3,     4,     5,     4,
+       4,     3,     7,     6,     6,     5,     1,     1,     2,     2,
+       1,     2,     2,     1,     1,     2,     3,     5,     4,     4,
+       3,     4,     3,     3,     2,     5,     4,     4,     3,     4,
+       3,     3,     2,     6,     5,     5,     4,     5,     4,     4,
+       3,     6,     5,     5,     4,     5,     4,     4,     3,     7,
+       6,     6,     5,     6,     5,     5,     4,     6,     5,     5,
+       4,     5,     4,     4,     3,     7,     6,     6,     5,     6,
+       5,     5,     4,     7,     6,     6,     5,     6,     5,     5,
+       4,     5,     4,     4,     3,     5,     4,     4,     3,     7,
+       6,     6,     5,     5,     4,     4,     3,     5,     4,     4,
+       3,     7,     6,     6,     5,     6,     5,     5,     4,     6,
+       5,     5,     4,     8,     7,     7,     6,     5,     4,     4,
+       3,     5,     4,     4,     3,     7,     6,     6,     5,     6,
+       5,     5,     4,     6,     5,     5,     4,     8,     7,     7,
+       6,     6,     5,     5,     4,     6,     5,     5,     4,     8,
+       7,     7,     6,     5,     4,     4,     3,     4,     3,     3,
+       2,     4,     3,     3,     5,     4,     4,     3,     4,     3,
+       3,     2,     3,     2,     2,     1,     1,     1,     1,     4,
+       3,     4,     3,     4,     3,     4,     3,     4,     3,     4,
+       3,     5,     4,     4,     3,     2,     1,     3,     3,     6,
+       5,     5,     4,     6,     5,     5,     4,     5,     4,     4,
+       3,     5,     4,     4,     3,     7,     6,     6,     5,     6,
+       5,     5,     4,     6,     5,     5,     4,     5,     4,     4,
+       3,     7,     6,     6,     5,     6,     5,     5,     4,     6,
+       5,     5,     4,     5,     4,     4,     3,     4,     3,     5,
+       4,     3,     3,     2,     1,     4,     3,     3,     2,     3,
+       2,     2,     1,     3,     2,     2,     1,     2,     1,     1,
+       3,     2,     1,     3,     2,     2,     1,     2,     1,     5,
+       3,     4,     2,     4,     2,     3,     1,     4,     2,     3,
+       1,     3,     1,     2,     3,     2,     2,     1,     2,     1,
+       5,     4,     3,     4,     3,     2,     4,     3,     2,     4,
+       3,     2,     3,     2,     1,     3,     2,     1,     1,     2,
+       1,     2,     4,     3,     2,     1,     2,     1,     2,     1,
+       2,     1,     1,     1,     1,     1,     1,     1,     7,     6,
+       5,     4,     6,     5,     4,     3,     1,     5,     4,     4,
+       3,     5,     4,     4,     3,     6,     5,     5,     4,     5,
+       4,     4,     3,     3,     2,     3,     3,     3,     4,     3,
+       4,     3,     6,     5,     5,     4,     2,     1,     1,     2,
+       1,     3,     2,     2,     1,     2,     1,     2,     1,     2,
+       1,     1,     1,     1,     2,     1,     2,     1,     2,     1,
+       2,     1
+};
 
 
-/* Like YYERROR except do call yyerror.  This remains here temporarily
-   to ease the transition to the new meaning of YYERROR, for GCC.
-   Once GCC version 2 has supplanted version 1, this can go.  However,
-   YYFAIL appears to be in use.  Nevertheless, it is formally deprecated
-   in Bison 2.4.2's NEWS entry, where a plan to phase it out is
-   discussed.  */
+#define yyerrok         (yyerrstatus = 0)
+#define yyclearin       (yychar = YYEMPTY)
+#define YYEMPTY         (-2)
+#define YYEOF           0
 
-#define YYFAIL		goto yyerrlab
-#if defined YYFAIL
-  /* This is here to suppress warnings from the GCC cpp's
-     -Wunused-macros.  Normally we don't worry about that warning, but
-     some users do, and we want to make it easy for users to remove
-     YYFAIL uses, which will produce warnings from Bison 2.5.  */
-#endif
+#define YYACCEPT        goto yyacceptlab
+#define YYABORT         goto yyabortlab
+#define YYERROR         goto yyerrorlab
+
 
 #define YYRECOVERING()  (!!yyerrstatus)
 
@@ -3940,13 +3404,14 @@ do                                                              \
   else                                                          \
     {                                                           \
       yyerror (YY_("syntax error: cannot back up")); \
-      YYERROR;							\
-    }								\
-while (YYID (0))
+      YYERROR;                                                  \
+    }                                                           \
+while (0)
 
+/* Error token number */
+#define YYTERROR        1
+#define YYERRCODE       256
 
-#define YYTERROR	1
-#define YYERRCODE	256
 
 /* YYLLOC_DEFAULT -- Set CURRENT to span from RHS[1] to RHS[N].
    If N is 0, then set CURRENT to the empty location which ends
@@ -3955,7 +3420,7 @@ while (YYID (0))
 #ifndef YYLLOC_DEFAULT
 # define YYLLOC_DEFAULT(Current, Rhs, N)                                \
     do                                                                  \
-      if (YYID (N))                                                     \
+      if (N)                                                            \
         {                                                               \
           (Current).first_line   = YYRHSLOC (Rhs, 1).first_line;        \
           (Current).first_column = YYRHSLOC (Rhs, 1).first_column;      \
@@ -3969,36 +3434,11 @@ while (YYID (0))
           (Current).first_column = (Current).last_column =              \
             YYRHSLOC (Rhs, 0).last_column;                              \
         }                                                               \
-    while (YYID (0))
+    while (0)
 #endif
 
 #define YYRHSLOC(Rhs, K) ((Rhs)[K])
 
-
-
-/* YY_LOCATION_PRINT -- Print the location on the stream.
-   This macro was not mandated originally: define only if we know
-   we won't break user code: when these are the locations we know.  */
-
-#ifndef YY_LOCATION_PRINT
-# if defined YYLTYPE_IS_TRIVIAL && YYLTYPE_IS_TRIVIAL
-#  define YY_LOCATION_PRINT(File, Loc)			\
-     fprintf (File, "%d.%d-%d.%d",			\
-	      (Loc).first_line, (Loc).first_column,	\
-	      (Loc).last_line,  (Loc).last_column)
-# else
-#  define YY_LOCATION_PRINT(File, Loc) ((void) 0)
-# endif
-#endif
-
-
-/* YYLEX -- calling `yylex' with the right arguments.  */
-
-#ifdef YYLEX_PARAM
-# define YYLEX yylex (YYLEX_PARAM)
-#else
-# define YYLEX yylex ()
-#endif
 
 /* Enable debugging if requested.  */
 #if YYDEBUG
@@ -4008,58 +3448,86 @@ while (YYID (0))
 #  define YYFPRINTF fprintf
 # endif
 
-# define YYDPRINTF(Args)			\
-do {						\
-  if (yydebug)					\
-    YYFPRINTF Args;				\
-} while (YYID (0))
-
-# define YY_SYMBOL_PRINT(Title, Type, Value, Location)			  \
-do {									  \
-  if (yydebug)								  \
-    {									  \
-      YYFPRINTF (stderr, "%s ", Title);					  \
-      yy_symbol_print (stderr,						  \
-		  Type, Value, Location); \
-      YYFPRINTF (stderr, "\n");						  \
-    }									  \
-} while (YYID (0))
+# define YYDPRINTF(Args)                        \
+do {                                            \
+  if (yydebug)                                  \
+    YYFPRINTF Args;                             \
+} while (0)
 
 
-/*--------------------------------.
-| Print this symbol on YYOUTPUT.  |
-`--------------------------------*/
+/* YY_LOCATION_PRINT -- Print the location on the stream.
+   This macro was not mandated originally: define only if we know
+   we won't break user code: when these are the locations we know.  */
 
-/*ARGSUSED*/
-#if (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
+#ifndef YY_LOCATION_PRINT
+# if defined YYLTYPE_IS_TRIVIAL && YYLTYPE_IS_TRIVIAL
+
+/* Print *YYLOCP on YYO.  Private, do not rely on its existence. */
+
+YY_ATTRIBUTE_UNUSED
+static unsigned
+yy_location_print_ (FILE *yyo, YYLTYPE const * const yylocp)
+{
+  unsigned res = 0;
+  int end_col = 0 != yylocp->last_column ? yylocp->last_column - 1 : 0;
+  if (0 <= yylocp->first_line)
+    {
+      res += YYFPRINTF (yyo, "%d", yylocp->first_line);
+      if (0 <= yylocp->first_column)
+        res += YYFPRINTF (yyo, ".%d", yylocp->first_column);
+    }
+  if (0 <= yylocp->last_line)
+    {
+      if (yylocp->first_line < yylocp->last_line)
+        {
+          res += YYFPRINTF (yyo, "-%d", yylocp->last_line);
+          if (0 <= end_col)
+            res += YYFPRINTF (yyo, ".%d", end_col);
+        }
+      else if (0 <= end_col && yylocp->first_column < end_col)
+        res += YYFPRINTF (yyo, "-%d", end_col);
+    }
+  return res;
+ }
+
+#  define YY_LOCATION_PRINT(File, Loc)          \
+  yy_location_print_ (File, &(Loc))
+
+# else
+#  define YY_LOCATION_PRINT(File, Loc) ((void) 0)
+# endif
+#endif
+
+
+# define YY_SYMBOL_PRINT(Title, Type, Value, Location)                    \
+do {                                                                      \
+  if (yydebug)                                                            \
+    {                                                                     \
+      YYFPRINTF (stderr, "%s ", Title);                                   \
+      yy_symbol_print (stderr,                                            \
+                  Type, Value, Location); \
+      YYFPRINTF (stderr, "\n");                                           \
+    }                                                                     \
+} while (0)
+
+
+/*----------------------------------------.
+| Print this symbol's value on YYOUTPUT.  |
+`----------------------------------------*/
+
 static void
 yy_symbol_value_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep, YYLTYPE const * const yylocationp)
-#else
-static void
-yy_symbol_value_print (yyoutput, yytype, yyvaluep, yylocationp)
-    FILE *yyoutput;
-    int yytype;
-    YYSTYPE const * const yyvaluep;
-    YYLTYPE const * const yylocationp;
-#endif
 {
   FILE *yyo = yyoutput;
   YYUSE (yyo);
+  YYUSE (yylocationp);
   if (!yyvaluep)
     return;
-  YYUSE (yylocationp);
 # ifdef YYPRINT
   if (yytype < YYNTOKENS)
     YYPRINT (yyoutput, yytoknum[yytype], *yyvaluep);
-# else
-  YYUSE (yyoutput);
 # endif
-  switch (yytype)
-    {
-      default:
-	break;
-    }
+  YYUSE (yytype);
 }
 
 
@@ -4067,23 +3535,11 @@ yy_symbol_value_print (yyoutput, yytype, yyvaluep, yylocationp)
 | Print this symbol on YYOUTPUT.  |
 `--------------------------------*/
 
-#if (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
 static void
 yy_symbol_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep, YYLTYPE const * const yylocationp)
-#else
-static void
-yy_symbol_print (yyoutput, yytype, yyvaluep, yylocationp)
-    FILE *yyoutput;
-    int yytype;
-    YYSTYPE const * const yyvaluep;
-    YYLTYPE const * const yylocationp;
-#endif
 {
-  if (yytype < YYNTOKENS)
-    YYFPRINTF (yyoutput, "token %s (", yytname[yytype]);
-  else
-    YYFPRINTF (yyoutput, "nterm %s (", yytname[yytype]);
+  YYFPRINTF (yyoutput, "%s %s (",
+             yytype < YYNTOKENS ? "token" : "nterm", yytname[yytype]);
 
   YY_LOCATION_PRINT (yyoutput, *yylocationp);
   YYFPRINTF (yyoutput, ": ");
@@ -4096,16 +3552,8 @@ yy_symbol_print (yyoutput, yytype, yyvaluep, yylocationp)
 | TOP (included).                                                   |
 `------------------------------------------------------------------*/
 
-#if (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
 static void
 yy_stack_print (yytype_int16 *yybottom, yytype_int16 *yytop)
-#else
-static void
-yy_stack_print (yybottom, yytop)
-    yytype_int16 *yybottom;
-    yytype_int16 *yytop;
-#endif
 {
   YYFPRINTF (stderr, "Stack now");
   for (; yybottom <= yytop; yybottom++)
@@ -4116,50 +3564,42 @@ yy_stack_print (yybottom, yytop)
   YYFPRINTF (stderr, "\n");
 }
 
-# define YY_STACK_PRINT(Bottom, Top)				\
-do {								\
-  if (yydebug)							\
-    yy_stack_print ((Bottom), (Top));				\
-} while (YYID (0))
+# define YY_STACK_PRINT(Bottom, Top)                            \
+do {                                                            \
+  if (yydebug)                                                  \
+    yy_stack_print ((Bottom), (Top));                           \
+} while (0)
 
 
 /*------------------------------------------------.
 | Report that the YYRULE is going to be reduced.  |
 `------------------------------------------------*/
 
-#if (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
 static void
-yy_reduce_print (YYSTYPE *yyvsp, YYLTYPE *yylsp, int yyrule)
-#else
-static void
-yy_reduce_print (yyvsp, yylsp, yyrule)
-    YYSTYPE *yyvsp;
-    YYLTYPE *yylsp;
-    int yyrule;
-#endif
+yy_reduce_print (yytype_int16 *yyssp, YYSTYPE *yyvsp, YYLTYPE *yylsp, int yyrule)
 {
+  unsigned long int yylno = yyrline[yyrule];
   int yynrhs = yyr2[yyrule];
   int yyi;
-  unsigned long int yylno = yyrline[yyrule];
   YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
-	     yyrule - 1, yylno);
+             yyrule - 1, yylno);
   /* The symbols being reduced.  */
   for (yyi = 0; yyi < yynrhs; yyi++)
     {
       YYFPRINTF (stderr, "   $%d = ", yyi + 1);
-      yy_symbol_print (stderr, yyrhs[yyprhs[yyrule] + yyi],
-		       &(yyvsp[(yyi + 1) - (yynrhs)])
-		       , &(yylsp[(yyi + 1) - (yynrhs)])		       );
+      yy_symbol_print (stderr,
+                       yystos[yyssp[yyi + 1 - yynrhs]],
+                       &(yyvsp[(yyi + 1) - (yynrhs)])
+                       , &(yylsp[(yyi + 1) - (yynrhs)])                       );
       YYFPRINTF (stderr, "\n");
     }
 }
 
-# define YY_REDUCE_PRINT(Rule)		\
-do {					\
-  if (yydebug)				\
-    yy_reduce_print (yyvsp, yylsp, Rule); \
-} while (YYID (0))
+# define YY_REDUCE_PRINT(Rule)          \
+do {                                    \
+  if (yydebug)                          \
+    yy_reduce_print (yyssp, yyvsp, yylsp, Rule); \
+} while (0)
 
 /* Nonzero means print parse trace.  It is left uninitialized so that
    multiple parsers can coexist.  */
@@ -4173,7 +3613,7 @@ int yydebug;
 
 
 /* YYINITDEPTH -- initial size of the parser's stacks.  */
-#ifndef	YYINITDEPTH
+#ifndef YYINITDEPTH
 # define YYINITDEPTH 200
 #endif
 
@@ -4196,15 +3636,8 @@ int yydebug;
 #   define yystrlen strlen
 #  else
 /* Return the length of YYSTR.  */
-#if (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
 static YYSIZE_T
 yystrlen (const char *yystr)
-#else
-static YYSIZE_T
-yystrlen (yystr)
-    const char *yystr;
-#endif
 {
   YYSIZE_T yylen;
   for (yylen = 0; yystr[yylen]; yylen++)
@@ -4220,16 +3653,8 @@ yystrlen (yystr)
 #  else
 /* Copy YYSRC to YYDEST, returning the address of the terminating '\0' in
    YYDEST.  */
-#if (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
 static char *
 yystpcpy (char *yydest, const char *yysrc)
-#else
-static char *
-yystpcpy (yydest, yysrc)
-    char *yydest;
-    const char *yysrc;
-#endif
 {
   char *yyd = yydest;
   const char *yys = yysrc;
@@ -4259,27 +3684,27 @@ yytnamerr (char *yyres, const char *yystr)
       char const *yyp = yystr;
 
       for (;;)
-	switch (*++yyp)
-	  {
-	  case '\'':
-	  case ',':
-	    goto do_not_strip_quotes;
+        switch (*++yyp)
+          {
+          case '\'':
+          case ',':
+            goto do_not_strip_quotes;
 
-	  case '\\':
-	    if (*++yyp != '\\')
-	      goto do_not_strip_quotes;
-	    /* Fall through.  */
-	  default:
-	    if (yyres)
-	      yyres[yyn] = *yyp;
-	    yyn++;
-	    break;
+          case '\\':
+            if (*++yyp != '\\')
+              goto do_not_strip_quotes;
+            /* Fall through.  */
+          default:
+            if (yyres)
+              yyres[yyn] = *yyp;
+            yyn++;
+            break;
 
-	  case '"':
-	    if (yyres)
-	      yyres[yyn] = '\0';
-	    return yyn;
-	  }
+          case '"':
+            if (yyres)
+              yyres[yyn] = '\0';
+            return yyn;
+          }
     do_not_strip_quotes: ;
     }
 
@@ -4302,12 +3727,11 @@ static int
 yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
                 yytype_int16 *yyssp, int yytoken)
 {
-  YYSIZE_T yysize0 = yytnamerr (YY_NULL, yytname[yytoken]);
+  YYSIZE_T yysize0 = yytnamerr (YY_NULLPTR, yytname[yytoken]);
   YYSIZE_T yysize = yysize0;
-  YYSIZE_T yysize1;
   enum { YYERROR_VERBOSE_ARGS_MAXIMUM = 5 };
   /* Internationalized format string. */
-  const char *yyformat = YY_NULL;
+  const char *yyformat = YY_NULLPTR;
   /* Arguments of yyformat. */
   char const *yyarg[YYERROR_VERBOSE_ARGS_MAXIMUM];
   /* Number of reported tokens (one for the "unexpected", one per
@@ -4315,10 +3739,6 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
   int yycount = 0;
 
   /* There are many possibilities here to consider:
-     - Assume YYFAIL is not used.  It's too flawed to consider.  See
-       <http://lists.gnu.org/archive/html/bison-patches/2009-12/msg00024.html>
-       for details.  YYERROR is fine as it does not invoke this
-       function.
      - If this state is a consistent state with a default action, then
        the only way this function was invoked is if the default action
        is an error action.  In that case, don't check for expected
@@ -4367,11 +3787,13 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
                     break;
                   }
                 yyarg[yycount++] = yytname[yyx];
-                yysize1 = yysize + yytnamerr (YY_NULL, yytname[yyx]);
-                if (! (yysize <= yysize1
-                       && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
-                  return 2;
-                yysize = yysize1;
+                {
+                  YYSIZE_T yysize1 = yysize + yytnamerr (YY_NULLPTR, yytname[yyx]);
+                  if (! (yysize <= yysize1
+                         && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
+                    return 2;
+                  yysize = yysize1;
+                }
               }
         }
     }
@@ -4382,6 +3804,7 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
       case N:                               \
         yyformat = S;                       \
       break
+    default: /* Avoid compiler warnings. */
       YYCASE_(0, YY_("syntax error"));
       YYCASE_(1, YY_("syntax error, unexpected %s"));
       YYCASE_(2, YY_("syntax error, unexpected %s, expecting %s"));
@@ -4391,10 +3814,12 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
 # undef YYCASE_
     }
 
-  yysize1 = yysize + yystrlen (yyformat);
-  if (! (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
-    return 2;
-  yysize = yysize1;
+  {
+    YYSIZE_T yysize1 = yysize + yystrlen (yyformat);
+    if (! (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
+      return 2;
+    yysize = yysize1;
+  }
 
   if (*yymsg_alloc < yysize)
     {
@@ -4431,33 +3856,18 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
 | Release the memory associated to this symbol.  |
 `-----------------------------------------------*/
 
-/*ARGSUSED*/
-#if (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
 static void
 yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep, YYLTYPE *yylocationp)
-#else
-static void
-yydestruct (yymsg, yytype, yyvaluep, yylocationp)
-    const char *yymsg;
-    int yytype;
-    YYSTYPE *yyvaluep;
-    YYLTYPE *yylocationp;
-#endif
 {
   YYUSE (yyvaluep);
   YYUSE (yylocationp);
-
   if (!yymsg)
     yymsg = "Deleting";
   YY_SYMBOL_PRINT (yymsg, yytype, yyvaluep, yylocationp);
 
-  switch (yytype)
-    {
-
-      default:
-	break;
-    }
+  YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+  YYUSE (yytype);
+  YY_IGNORE_MAYBE_UNINITIALIZED_END
 }
 
 
@@ -4466,21 +3876,14 @@ yydestruct (yymsg, yytype, yyvaluep, yylocationp)
 /* The lookahead symbol.  */
 int yychar;
 
-
-#ifndef YYLVAL_INITIALIZE
-# define YYLVAL_INITIALIZE()
-#endif
-#ifndef YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
-# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
-# define YY_IGNORE_MAYBE_UNINITIALIZED_END
-#endif
-
 /* The semantic value of the lookahead symbol.  */
 YYSTYPE yylval;
-
 /* Location data for the lookahead symbol.  */
-YYLTYPE yylloc;
-
+YYLTYPE yylloc
+# if defined YYLTYPE_IS_TRIVIAL && YYLTYPE_IS_TRIVIAL
+  = { 1, 1, 1, 1 }
+# endif
+;
 /* Number of syntax errors so far.  */
 int yynerrs;
 
@@ -4489,36 +3892,17 @@ int yynerrs;
 | yyparse.  |
 `----------*/
 
-#ifdef YYPARSE_PARAM
-#if (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
-int
-yyparse (void *YYPARSE_PARAM)
-#else
-int
-yyparse (YYPARSE_PARAM)
-    void *YYPARSE_PARAM;
-#endif
-#else /* ! YYPARSE_PARAM */
-#if (defined __STDC__ || defined __C99__FUNC__ \
-     || defined __cplusplus || defined _MSC_VER)
 int
 yyparse (void)
-#else
-int
-yyparse ()
-
-#endif
-#endif
 {
     int yystate;
     /* Number of tokens to shift before error messages enabled.  */
     int yyerrstatus;
 
     /* The stacks and their tools:
-       `yyss': related to states.
-       `yyvs': related to semantic values.
-       `yyls': related to locations.
+       'yyss': related to states.
+       'yyvs': related to semantic values.
+       'yyls': related to locations.
 
        Refer to the stacks through separate pointers, to allow yyoverflow
        to reallocate them elsewhere.  */
@@ -4565,9 +3949,9 @@ yyparse ()
      Keep to zero when no symbol should be popped.  */
   int yylen = 0;
 
-  yyss = yyssa;
-  yyvs = yyvsa;
-  yyls = yylsa;
+  yyssp = yyss = yyssa;
+  yyvsp = yyvs = yyvsa;
+  yylsp = yyls = yylsa;
   yystacksize = YYINITDEPTH;
 
   YYDPRINTF ((stderr, "Starting parse\n"));
@@ -4576,21 +3960,7 @@ yyparse ()
   yyerrstatus = 0;
   yynerrs = 0;
   yychar = YYEMPTY; /* Cause a token to be read.  */
-
-  /* Initialize stack pointers.
-     Waste one element of value and location stack
-     so that they stay on the same level as the state stack.
-     The wasted elements are never initialized.  */
-  yyssp = yyss;
-  yyvsp = yyvs;
-  yylsp = yyls;
-
-  YYLVAL_INITIALIZE ();
-#if defined YYLTYPE_IS_TRIVIAL && YYLTYPE_IS_TRIVIAL
-  /* Initialize the default location before parsing starts.  */
-  yylloc.first_line   = yylloc.last_line   = 1;
-  yylloc.first_column = yylloc.last_column = 1;
-#endif
+  yylsp[0] = yylloc;
   goto yysetstate;
 
 /*------------------------------------------------------------.
@@ -4611,26 +3981,26 @@ yyparse ()
 
 #ifdef yyoverflow
       {
-	/* Give user a chance to reallocate the stack.  Use copies of
-	   these so that the &'s don't force the real ones into
-	   memory.  */
-	YYSTYPE *yyvs1 = yyvs;
-	yytype_int16 *yyss1 = yyss;
-	YYLTYPE *yyls1 = yyls;
+        /* Give user a chance to reallocate the stack.  Use copies of
+           these so that the &'s don't force the real ones into
+           memory.  */
+        YYSTYPE *yyvs1 = yyvs;
+        yytype_int16 *yyss1 = yyss;
+        YYLTYPE *yyls1 = yyls;
 
-	/* Each stack pointer address is followed by the size of the
-	   data in use in that stack, in bytes.  This used to be a
-	   conditional around just the two extra args, but that might
-	   be undefined if yyoverflow is a macro.  */
-	yyoverflow (YY_("memory exhausted"),
-		    &yyss1, yysize * sizeof (*yyssp),
-		    &yyvs1, yysize * sizeof (*yyvsp),
-		    &yyls1, yysize * sizeof (*yylsp),
-		    &yystacksize);
+        /* Each stack pointer address is followed by the size of the
+           data in use in that stack, in bytes.  This used to be a
+           conditional around just the two extra args, but that might
+           be undefined if yyoverflow is a macro.  */
+        yyoverflow (YY_("memory exhausted"),
+                    &yyss1, yysize * sizeof (*yyssp),
+                    &yyvs1, yysize * sizeof (*yyvsp),
+                    &yyls1, yysize * sizeof (*yylsp),
+                    &yystacksize);
 
-	yyls = yyls1;
-	yyss = yyss1;
-	yyvs = yyvs1;
+        yyls = yyls1;
+        yyss = yyss1;
+        yyvs = yyvs1;
       }
 #else /* no yyoverflow */
 # ifndef YYSTACK_RELOCATE
@@ -4638,23 +4008,23 @@ yyparse ()
 # else
       /* Extend the stack our own way.  */
       if (YYMAXDEPTH <= yystacksize)
-	goto yyexhaustedlab;
+        goto yyexhaustedlab;
       yystacksize *= 2;
       if (YYMAXDEPTH < yystacksize)
-	yystacksize = YYMAXDEPTH;
+        yystacksize = YYMAXDEPTH;
 
       {
-	yytype_int16 *yyss1 = yyss;
-	union yyalloc *yyptr =
-	  (union yyalloc *) YYSTACK_ALLOC (YYSTACK_BYTES (yystacksize));
-	if (! yyptr)
-	  goto yyexhaustedlab;
-	YYSTACK_RELOCATE (yyss_alloc, yyss);
-	YYSTACK_RELOCATE (yyvs_alloc, yyvs);
-	YYSTACK_RELOCATE (yyls_alloc, yyls);
+        yytype_int16 *yyss1 = yyss;
+        union yyalloc *yyptr =
+          (union yyalloc *) YYSTACK_ALLOC (YYSTACK_BYTES (yystacksize));
+        if (! yyptr)
+          goto yyexhaustedlab;
+        YYSTACK_RELOCATE (yyss_alloc, yyss);
+        YYSTACK_RELOCATE (yyvs_alloc, yyvs);
+        YYSTACK_RELOCATE (yyls_alloc, yyls);
 #  undef YYSTACK_RELOCATE
-	if (yyss1 != yyssa)
-	  YYSTACK_FREE (yyss1);
+        if (yyss1 != yyssa)
+          YYSTACK_FREE (yyss1);
       }
 # endif
 #endif /* no yyoverflow */
@@ -4664,10 +4034,10 @@ yyparse ()
       yylsp = yyls + yysize - 1;
 
       YYDPRINTF ((stderr, "Stack size increased to %lu\n",
-		  (unsigned long int) yystacksize));
+                  (unsigned long int) yystacksize));
 
       if (yyss + yystacksize - 1 <= yyssp)
-	YYABORT;
+        YYABORT;
     }
 
   YYDPRINTF ((stderr, "Entering state %d\n", yystate));
@@ -4696,7 +4066,7 @@ yybackup:
   if (yychar == YYEMPTY)
     {
       YYDPRINTF ((stderr, "Reading a token: "));
-      yychar = YYLEX;
+      yychar = yylex ();
     }
 
   if (yychar <= YYEOF)
@@ -4765,7 +4135,7 @@ report_trace_reduce(yystate, yyn);
   yylen = yyr2[yyn];
 
   /* If YYLEN is nonzero, implement the default value of the action:
-     `$$ = $1'.
+     '$$ = $1'.
 
      Otherwise, the following line sets YYVAL to garbage.
      This behavior is undocumented and Bison
@@ -4774,5795 +4144,5795 @@ report_trace_reduce(yystate, yyn);
      GCC warning that YYVAL may be used uninitialized.  */
   yyval = yyvsp[1-yylen];
 
-  /* Default location.  */
+  /* Default location. */
   YYLLOC_DEFAULT (yyloc, (yylsp - yylen), yylen);
+  yyerror_range[1] = yyloc;
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
         case 2:
-/* Line 1813 of yacc.c  */
-#line 203 "rpc2x_full_act.y"
-    { top = (yyvsp[(1) - (1)]); }
+#line 203 "rpc2x_full_act.y" /* yacc.c:1648  */
+    { top = (yyvsp[0]); }
+#line 4148 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 3:
-/* Line 1813 of yacc.c  */
-#line 210 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(CHUNKS,(yyvsp[(1) - (2)]));}
+#line 210 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(CHUNKS,(yyvsp[-1]));}
+#line 4154 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 4:
-/* Line 1813 of yacc.c  */
-#line 212 "rpc2x_full_act.y"
-    { (yyval) = (yyvsp[(1) - (2)]); yyclearin; }
+#line 212 "rpc2x_full_act.y" /* yacc.c:1648  */
+    { (yyval) = (yyvsp[-1]); yyclearin; }
+#line 4160 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 5:
-/* Line 1813 of yacc.c  */
-#line 214 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(CHUNKS,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]));}
+#line 214 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(CHUNKS,(yyvsp[-2]),(yyvsp[-1]));}
+#line 4166 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 6:
-/* Line 1813 of yacc.c  */
-#line 216 "rpc2x_full_act.y"
+#line 216 "rpc2x_full_act.y" /* yacc.c:1648  */
     { fprintf(stderr, "Syntax error following text ending at line %d column %d\n",
-          (yylsp[(2) - (3)]).last_line, (yylsp[(2) - (3)]).last_column);
+          (yylsp[-1]).last_line, (yylsp[-1]).last_column);
   yyclearin;
-  (yyval) = new_node_2(CHUNKS, (yyvsp[(1) - (3)]), (yyvsp[(2) - (3)])); }
+  (yyval) = new_node_2(CHUNKS, (yyvsp[-2]), (yyvsp[-1])); }
+#line 4175 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 7:
-/* Line 1813 of yacc.c  */
-#line 224 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(TEXT,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 224 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(TEXT,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4181 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 8:
-/* Line 1813 of yacc.c  */
-#line 226 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(TEXT,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 226 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(TEXT,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4187 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 9:
-/* Line 1813 of yacc.c  */
-#line 228 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 228 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4193 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 10:
-/* Line 1813 of yacc.c  */
-#line 230 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 230 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4199 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 11:
-/* Line 1813 of yacc.c  */
-#line 232 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 232 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4205 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 12:
-/* Line 1813 of yacc.c  */
-#line 235 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 235 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4211 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 13:
-/* Line 1813 of yacc.c  */
-#line 237 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 237 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4217 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 14:
-/* Line 1813 of yacc.c  */
-#line 239 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 239 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4223 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 15:
-/* Line 1813 of yacc.c  */
-#line 241 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 241 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4229 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 16:
-/* Line 1813 of yacc.c  */
-#line 243 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 243 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4235 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 17:
-/* Line 1813 of yacc.c  */
-#line 246 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(TEXT,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 246 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(TEXT,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4241 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 18:
-/* Line 1813 of yacc.c  */
-#line 248 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(TEXT,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 248 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(TEXT,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4247 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 19:
-/* Line 1813 of yacc.c  */
-#line 250 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 250 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4253 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 20:
-/* Line 1813 of yacc.c  */
-#line 252 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 252 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4259 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 21:
-/* Line 1813 of yacc.c  */
-#line 254 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 254 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4265 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 22:
-/* Line 1813 of yacc.c  */
-#line 257 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 257 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4271 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 23:
-/* Line 1813 of yacc.c  */
-#line 259 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 259 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4277 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 24:
-/* Line 1813 of yacc.c  */
-#line 261 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 261 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4283 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 25:
-/* Line 1813 of yacc.c  */
-#line 263 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 263 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4289 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 26:
-/* Line 1813 of yacc.c  */
-#line 265 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 265 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4295 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 27:
-/* Line 1813 of yacc.c  */
-#line 268 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 268 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4301 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 28:
-/* Line 1813 of yacc.c  */
-#line 270 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 270 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4307 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 29:
-/* Line 1813 of yacc.c  */
-#line 272 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 272 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4313 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 30:
-/* Line 1813 of yacc.c  */
-#line 274 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 274 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4319 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 31:
-/* Line 1813 of yacc.c  */
-#line 276 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 276 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4325 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 32:
-/* Line 1813 of yacc.c  */
-#line 279 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 279 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4331 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 33:
-/* Line 1813 of yacc.c  */
-#line 281 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 281 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4337 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 34:
-/* Line 1813 of yacc.c  */
-#line 283 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 283 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4343 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 35:
-/* Line 1813 of yacc.c  */
-#line 285 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 285 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4349 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 36:
-/* Line 1813 of yacc.c  */
-#line 287 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TEXT,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 287 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TEXT,(yyvsp[-1]),(yyvsp[0]));}
+#line 4355 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 37:
-/* Line 1813 of yacc.c  */
-#line 290 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 290 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4361 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 38:
-/* Line 1813 of yacc.c  */
-#line 292 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 292 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4367 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 39:
-/* Line 1813 of yacc.c  */
-#line 294 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 294 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4373 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 40:
-/* Line 1813 of yacc.c  */
-#line 296 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 296 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4379 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 41:
-/* Line 1813 of yacc.c  */
-#line 298 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 298 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4385 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 42:
-/* Line 1813 of yacc.c  */
-#line 301 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 301 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4391 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 43:
-/* Line 1813 of yacc.c  */
-#line 303 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 303 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4397 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 44:
-/* Line 1813 of yacc.c  */
-#line 305 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 305 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4403 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 45:
-/* Line 1813 of yacc.c  */
-#line 307 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 307 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4409 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 46:
-/* Line 1813 of yacc.c  */
-#line 309 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TEXT,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 309 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TEXT,(yyvsp[-1]),(yyvsp[0]));}
+#line 4415 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 47:
-/* Line 1813 of yacc.c  */
-#line 312 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 312 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4421 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 48:
-/* Line 1813 of yacc.c  */
-#line 314 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 314 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4427 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 49:
-/* Line 1813 of yacc.c  */
-#line 316 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 316 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4433 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 50:
-/* Line 1813 of yacc.c  */
-#line 318 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 318 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4439 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 51:
-/* Line 1813 of yacc.c  */
-#line 320 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 320 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4445 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 52:
-/* Line 1813 of yacc.c  */
-#line 323 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 323 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4451 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 53:
-/* Line 1813 of yacc.c  */
-#line 325 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 325 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4457 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 54:
-/* Line 1813 of yacc.c  */
-#line 327 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 327 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4463 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 55:
-/* Line 1813 of yacc.c  */
-#line 329 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 329 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4469 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 56:
-/* Line 1813 of yacc.c  */
-#line 331 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TEXT,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 331 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TEXT,(yyvsp[-1]),(yyvsp[0]));}
+#line 4475 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 57:
-/* Line 1813 of yacc.c  */
-#line 334 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 334 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4481 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 58:
-/* Line 1813 of yacc.c  */
-#line 336 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 336 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4487 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 59:
-/* Line 1813 of yacc.c  */
-#line 338 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 338 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4493 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 60:
-/* Line 1813 of yacc.c  */
-#line 340 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 340 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4499 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 61:
-/* Line 1813 of yacc.c  */
-#line 342 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TEXT,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 342 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TEXT,(yyvsp[-1]),(yyvsp[0]));}
+#line 4505 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 62:
-/* Line 1813 of yacc.c  */
-#line 345 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 345 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4511 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 63:
-/* Line 1813 of yacc.c  */
-#line 347 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 347 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4517 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 64:
-/* Line 1813 of yacc.c  */
-#line 349 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TEXT,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 349 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TEXT,(yyvsp[-1]),(yyvsp[0]));}
+#line 4523 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 65:
-/* Line 1813 of yacc.c  */
-#line 351 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TEXT,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 351 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TEXT,(yyvsp[-1]),(yyvsp[0]));}
+#line 4529 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 66:
-/* Line 1813 of yacc.c  */
-#line 353 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TEXT,(yyvsp[(1) - (1)]));}
+#line 353 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TEXT,(yyvsp[0]));}
+#line 4535 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 67:
-/* Line 1813 of yacc.c  */
-#line 496 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TEXT_1,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 496 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TEXT_1,(yyvsp[-1]),(yyvsp[0]));}
+#line 4541 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 68:
-/* Line 1813 of yacc.c  */
-#line 498 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TEXT_1,(yyvsp[(1) - (1)]));}
+#line 498 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TEXT_1,(yyvsp[0]));}
+#line 4547 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 69:
-/* Line 1813 of yacc.c  */
-#line 500 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TEXT_1,(yyvsp[(1) - (1)]));}
+#line 500 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TEXT_1,(yyvsp[0]));}
+#line 4553 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 70:
-/* Line 1813 of yacc.c  */
-#line 502 "rpc2x_full_act.y"
+#line 502 "rpc2x_full_act.y" /* yacc.c:1648  */
     {(yyval) = new_node_0(TEXT_1);}
+#line 4559 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 71:
-/* Line 1813 of yacc.c  */
-#line 506 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TEXT_1A,(yyvsp[(1) - (1)]));}
+#line 506 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TEXT_1A,(yyvsp[0]));}
+#line 4565 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 72:
-/* Line 1813 of yacc.c  */
-#line 508 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TEXT_1A,(yyvsp[(1) - (1)]));}
+#line 508 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TEXT_1A,(yyvsp[0]));}
+#line 4571 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 73:
-/* Line 1813 of yacc.c  */
-#line 512 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TEXT_1B,(yyvsp[(1) - (1)]));}
+#line 512 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TEXT_1B,(yyvsp[0]));}
+#line 4577 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 74:
-/* Line 1813 of yacc.c  */
-#line 514 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TEXT_1B,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 514 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TEXT_1B,(yyvsp[-1]),(yyvsp[0]));}
+#line 4583 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 75:
-/* Line 1813 of yacc.c  */
-#line 520 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT_1C,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 520 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT_1C,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4589 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 76:
-/* Line 1813 of yacc.c  */
-#line 522 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TEXT_1C,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 522 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TEXT_1C,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4595 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 77:
-/* Line 1813 of yacc.c  */
-#line 524 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT_1C,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 524 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT_1C,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4601 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 78:
-/* Line 1813 of yacc.c  */
-#line 526 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT_1C,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 526 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT_1C,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4607 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 79:
-/* Line 1813 of yacc.c  */
-#line 528 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT_1C,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 528 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT_1C,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4613 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 80:
-/* Line 1813 of yacc.c  */
-#line 530 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT_1C,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 530 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT_1C,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4619 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 81:
-/* Line 1813 of yacc.c  */
-#line 532 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT_1C,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 532 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT_1C,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4625 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 82:
-/* Line 1813 of yacc.c  */
-#line 534 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TEXT_1C,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 534 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TEXT_1C,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4631 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 83:
-/* Line 1813 of yacc.c  */
-#line 536 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT_1C,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 536 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT_1C,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4637 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 84:
-/* Line 1813 of yacc.c  */
-#line 538 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT_1C,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 538 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT_1C,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4643 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 85:
-/* Line 1813 of yacc.c  */
-#line 540 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT_1C,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 540 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT_1C,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4649 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 86:
-/* Line 1813 of yacc.c  */
-#line 542 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TEXT_1C,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 542 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TEXT_1C,(yyvsp[-1]),(yyvsp[0]));}
+#line 4655 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 87:
-/* Line 1813 of yacc.c  */
-#line 544 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT_1C,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 544 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT_1C,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4661 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 88:
-/* Line 1813 of yacc.c  */
-#line 546 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TEXT_1C,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 546 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TEXT_1C,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4667 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 89:
-/* Line 1813 of yacc.c  */
-#line 548 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TEXT_1C,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 548 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TEXT_1C,(yyvsp[-1]),(yyvsp[0]));}
+#line 4673 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 90:
-/* Line 1813 of yacc.c  */
-#line 550 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TEXT_1C,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 550 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TEXT_1C,(yyvsp[-1]),(yyvsp[0]));}
+#line 4679 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 91:
-/* Line 1813 of yacc.c  */
-#line 552 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TEXT_1C,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 552 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TEXT_1C,(yyvsp[-1]),(yyvsp[0]));}
+#line 4685 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 92:
-/* Line 1813 of yacc.c  */
-#line 554 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TEXT_1C,(yyvsp[(1) - (1)]));}
+#line 554 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TEXT_1C,(yyvsp[0]));}
+#line 4691 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 93:
-/* Line 1813 of yacc.c  */
-#line 565 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(PARAGRAPHS,(yyvsp[(1) - (1)]));}
+#line 565 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(PARAGRAPHS,(yyvsp[0]));}
+#line 4697 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 94:
-/* Line 1813 of yacc.c  */
-#line 567 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(PARAGRAPHS,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 567 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(PARAGRAPHS,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4703 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 95:
-/* Line 1813 of yacc.c  */
-#line 571 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(PARAGRAPH,(yyvsp[(1) - (1)]));}
+#line 571 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(PARAGRAPH,(yyvsp[0]));}
+#line 4709 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 96:
-/* Line 1813 of yacc.c  */
-#line 573 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(PARAGRAPH,(yyvsp[(1) - (1)]));}
+#line 573 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(PARAGRAPH,(yyvsp[0]));}
+#line 4715 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 97:
-/* Line 1813 of yacc.c  */
-#line 576 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(PARAGRAPH,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 576 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(PARAGRAPH,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4721 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 98:
-/* Line 1813 of yacc.c  */
-#line 578 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(PARAGRAPH,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 578 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(PARAGRAPH,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4727 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 99:
-/* Line 1813 of yacc.c  */
-#line 581 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(PARAGRAPH,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 581 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(PARAGRAPH,(yyvsp[-1]),(yyvsp[0]));}
+#line 4733 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 100:
-/* Line 1813 of yacc.c  */
-#line 586 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(I_OPT_FREE_SEQ,(yyvsp[(1) - (1)]));}
+#line 586 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(I_OPT_FREE_SEQ,(yyvsp[0]));}
+#line 4739 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 101:
-/* Line 1813 of yacc.c  */
-#line 588 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(I_OPT_FREE_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 588 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(I_OPT_FREE_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 4745 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 102:
-/* Line 1813 of yacc.c  */
-#line 594 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(STATEMENT,(yyvsp[(1) - (1)]));}
+#line 594 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(STATEMENT,(yyvsp[0]));}
+#line 4751 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 103:
-/* Line 1813 of yacc.c  */
-#line 598 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(INNER_STATEMENT,(yyvsp[(1) - (1)]));}
+#line 598 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(INNER_STATEMENT,(yyvsp[0]));}
+#line 4757 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 104:
-/* Line 1813 of yacc.c  */
-#line 600 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(INNER_STATEMENT,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 600 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(INNER_STATEMENT,(yyvsp[-1]),(yyvsp[0]));}
+#line 4763 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 105:
-/* Line 1813 of yacc.c  */
-#line 606 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(STATEMENT_1,(yyvsp[(1) - (1)]));}
+#line 606 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(STATEMENT_1,(yyvsp[0]));}
+#line 4769 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 106:
-/* Line 1813 of yacc.c  */
-#line 608 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(STATEMENT_1,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 608 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(STATEMENT_1,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4775 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 107:
-/* Line 1813 of yacc.c  */
-#line 610 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(STATEMENT_1,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 610 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(STATEMENT_1,(yyvsp[-1]),(yyvsp[0]));}
+#line 4781 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 108:
-/* Line 1813 of yacc.c  */
-#line 614 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(I_JOIK_JEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 614 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(I_JOIK_JEK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4787 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 109:
-/* Line 1813 of yacc.c  */
-#line 616 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(I_JOIK_JEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 616 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(I_JOIK_JEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 4793 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 110:
-/* Line 1813 of yacc.c  */
-#line 618 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(I_JOIK_JEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 618 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(I_JOIK_JEK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4799 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 111:
-/* Line 1813 of yacc.c  */
-#line 620 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(I_JOIK_JEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 620 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(I_JOIK_JEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 4805 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 112:
-/* Line 1813 of yacc.c  */
-#line 627 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(STATEMENT_2,(yyvsp[(1) - (1)]));}
+#line 627 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(STATEMENT_2,(yyvsp[0]));}
+#line 4811 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 113:
-/* Line 1813 of yacc.c  */
-#line 629 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(STATEMENT_2,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 629 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(STATEMENT_2,(yyvsp[-1]),(yyvsp[0]));}
+#line 4817 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 114:
-/* Line 1813 of yacc.c  */
-#line 631 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(STATEMENT_2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 631 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(STATEMENT_2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4823 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 115:
-/* Line 1813 of yacc.c  */
-#line 636 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(I_JJ_STAG_BO,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 636 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(I_JJ_STAG_BO,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4829 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 116:
-/* Line 1813 of yacc.c  */
-#line 638 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(I_JJ_STAG_BO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 638 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(I_JJ_STAG_BO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4835 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 117:
-/* Line 1813 of yacc.c  */
-#line 640 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(I_JJ_STAG_BO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 640 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(I_JJ_STAG_BO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4841 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 118:
-/* Line 1813 of yacc.c  */
-#line 642 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(I_JJ_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 642 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(I_JJ_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4847 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 119:
-/* Line 1813 of yacc.c  */
-#line 644 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(I_JJ_STAG_BO,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 644 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(I_JJ_STAG_BO,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4853 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 120:
-/* Line 1813 of yacc.c  */
-#line 646 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(I_JJ_STAG_BO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 646 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(I_JJ_STAG_BO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4859 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 121:
-/* Line 1813 of yacc.c  */
-#line 648 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(I_JJ_STAG_BO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 648 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(I_JJ_STAG_BO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4865 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 122:
-/* Line 1813 of yacc.c  */
-#line 650 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(I_JJ_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 650 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(I_JJ_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4871 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 123:
-/* Line 1813 of yacc.c  */
-#line 652 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(I_JJ_STAG_BO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 652 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(I_JJ_STAG_BO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4877 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 124:
-/* Line 1813 of yacc.c  */
-#line 654 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(I_JJ_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 654 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(I_JJ_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4883 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 125:
-/* Line 1813 of yacc.c  */
-#line 656 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(I_JJ_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 656 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(I_JJ_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4889 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 126:
-/* Line 1813 of yacc.c  */
-#line 658 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(I_JJ_STAG_BO,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 658 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(I_JJ_STAG_BO,(yyvsp[-1]),(yyvsp[0]));}
+#line 4895 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 127:
-/* Line 1813 of yacc.c  */
-#line 664 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(STATEMENT_3,(yyvsp[(1) - (1)]));}
+#line 664 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(STATEMENT_3,(yyvsp[0]));}
+#line 4901 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 128:
-/* Line 1813 of yacc.c  */
-#line 667 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(STATEMENT_3,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 667 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(STATEMENT_3,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4907 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 129:
-/* Line 1813 of yacc.c  */
-#line 669 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(STATEMENT_3,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 669 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(STATEMENT_3,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4913 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 130:
-/* Line 1813 of yacc.c  */
-#line 672 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(STATEMENT_3,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 672 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(STATEMENT_3,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4919 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 131:
-/* Line 1813 of yacc.c  */
-#line 674 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(STATEMENT_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 674 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(STATEMENT_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4925 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 132:
-/* Line 1813 of yacc.c  */
-#line 677 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(STATEMENT_3,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 677 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(STATEMENT_3,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4931 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 133:
-/* Line 1813 of yacc.c  */
-#line 679 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(STATEMENT_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 679 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(STATEMENT_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4937 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 134:
-/* Line 1813 of yacc.c  */
-#line 682 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(STATEMENT_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 682 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(STATEMENT_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4943 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 135:
-/* Line 1813 of yacc.c  */
-#line 684 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(STATEMENT_3,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 684 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(STATEMENT_3,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4949 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 136:
-/* Line 1813 of yacc.c  */
-#line 690 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(FRAGMENT,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 690 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(FRAGMENT,(yyvsp[-1]),(yyvsp[0]));}
+#line 4955 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 137:
-/* Line 1813 of yacc.c  */
-#line 692 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FRAGMENT,(yyvsp[(1) - (1)]));}
+#line 692 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FRAGMENT,(yyvsp[0]));}
+#line 4961 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 138:
-/* Line 1813 of yacc.c  */
-#line 694 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(FRAGMENT,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 694 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(FRAGMENT,(yyvsp[-1]),(yyvsp[0]));}
+#line 4967 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 139:
-/* Line 1813 of yacc.c  */
-#line 696 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FRAGMENT,(yyvsp[(1) - (1)]));}
+#line 696 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FRAGMENT,(yyvsp[0]));}
+#line 4973 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 140:
-/* Line 1813 of yacc.c  */
-#line 698 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FRAGMENT,(yyvsp[(1) - (1)]));}
+#line 698 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FRAGMENT,(yyvsp[0]));}
+#line 4979 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 141:
-/* Line 1813 of yacc.c  */
-#line 700 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(FRAGMENT,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 700 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(FRAGMENT,(yyvsp[-1]),(yyvsp[0]));}
+#line 4985 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 142:
-/* Line 1813 of yacc.c  */
-#line 702 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FRAGMENT,(yyvsp[(1) - (1)]));}
+#line 702 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FRAGMENT,(yyvsp[0]));}
+#line 4991 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 143:
-/* Line 1813 of yacc.c  */
-#line 704 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(FRAGMENT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 704 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(FRAGMENT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 4997 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 144:
-/* Line 1813 of yacc.c  */
-#line 706 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(FRAGMENT,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 706 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(FRAGMENT,(yyvsp[-1]),(yyvsp[0]));}
+#line 5003 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 145:
-/* Line 1813 of yacc.c  */
-#line 708 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FRAGMENT,(yyvsp[(1) - (1)]));}
+#line 708 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FRAGMENT,(yyvsp[0]));}
+#line 5009 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 146:
-/* Line 1813 of yacc.c  */
-#line 710 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FRAGMENT,(yyvsp[(1) - (1)]));}
+#line 710 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FRAGMENT,(yyvsp[0]));}
+#line 5015 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 147:
-/* Line 1813 of yacc.c  */
-#line 712 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FRAGMENT,(yyvsp[(1) - (1)]));}
+#line 712 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FRAGMENT,(yyvsp[0]));}
+#line 5021 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 148:
-/* Line 1813 of yacc.c  */
-#line 714 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FRAGMENT,(yyvsp[(1) - (1)]));}
+#line 714 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FRAGMENT,(yyvsp[0]));}
+#line 5027 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 149:
-/* Line 1813 of yacc.c  */
-#line 720 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(PRENEX,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 720 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(PRENEX,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5033 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 150:
-/* Line 1813 of yacc.c  */
-#line 722 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(PRENEX,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 722 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(PRENEX,(yyvsp[-1]),(yyvsp[0]));}
+#line 5039 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 151:
-/* Line 1813 of yacc.c  */
-#line 731 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SENTENCE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 731 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SENTENCE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5045 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 152:
-/* Line 1813 of yacc.c  */
-#line 733 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SENTENCE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 733 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SENTENCE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5051 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 153:
-/* Line 1813 of yacc.c  */
-#line 735 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SENTENCE,(yyvsp[(1) - (1)]));}
+#line 735 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SENTENCE,(yyvsp[0]));}
+#line 5057 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 154:
-/* Line 1813 of yacc.c  */
-#line 737 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SENTENCE,(yyvsp[(1) - (1)]));}
+#line 737 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SENTENCE,(yyvsp[0]));}
+#line 5063 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 155:
-/* Line 1813 of yacc.c  */
-#line 743 "rpc2x_full_act.y"
+#line 743 "rpc2x_full_act.y" /* yacc.c:1648  */
     {
  fprintf(stderr, "Missing selbri before GIhA at line %d column %d\n",
-         (yylsp[(2) - (2)]).first_line, (yylsp[(2) - (2)]).first_column);
+         (yylsp[0]).first_line, (yylsp[0]).first_column);
  error_advance(0);
- (yyval) = (yyvsp[(1) - (2)]);
+ (yyval) = (yyvsp[-1]);
  YYERROR;
 }
+#line 5075 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 156:
-/* Line 1813 of yacc.c  */
-#line 752 "rpc2x_full_act.y"
+#line 752 "rpc2x_full_act.y" /* yacc.c:1648  */
     {
  fprintf(stderr, "Missing selbri before GIhA at line %d column %d\n",
-         (yylsp[(2) - (2)]).first_line, (yylsp[(2) - (2)]).first_column);
+         (yylsp[0]).first_line, (yylsp[0]).first_column);
  error_advance(0);
- (yyval) = (yyvsp[(1) - (2)]);
+ (yyval) = (yyvsp[-1]);
  YYERROR;
 }
+#line 5087 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 157:
-/* Line 1813 of yacc.c  */
-#line 761 "rpc2x_full_act.y"
+#line 761 "rpc2x_full_act.y" /* yacc.c:1648  */
     {
  fprintf(stderr, "Missing selbri before GIhA at line %d column %d\n",
-         (yylsp[(2) - (2)]).first_line, (yylsp[(2) - (2)]).first_column);
+         (yylsp[0]).first_line, (yylsp[0]).first_column);
  error_advance(0);
- (yyval) = (yyvsp[(1) - (2)]);
+ (yyval) = (yyvsp[-1]);
  YYERROR;
 }
+#line 5099 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 158:
-/* Line 1813 of yacc.c  */
-#line 774 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(NO_CU_SENTENCE,(yyvsp[(1) - (1)]));}
+#line 774 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(NO_CU_SENTENCE,(yyvsp[0]));}
+#line 5105 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 159:
-/* Line 1813 of yacc.c  */
-#line 779 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(OBSERVATIVE_SENTENCE,(yyvsp[(1) - (1)]));}
+#line 779 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(OBSERVATIVE_SENTENCE,(yyvsp[0]));}
+#line 5111 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 160:
-/* Line 1813 of yacc.c  */
-#line 786 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUBSENTENCE,(yyvsp[(1) - (1)]));}
+#line 786 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUBSENTENCE,(yyvsp[0]));}
+#line 5117 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 161:
-/* Line 1813 of yacc.c  */
-#line 788 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUBSENTENCE,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 788 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUBSENTENCE,(yyvsp[-1]),(yyvsp[0]));}
+#line 5123 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 162:
-/* Line 1813 of yacc.c  */
-#line 795 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(BRIDI_TAIL,(yyvsp[(1) - (1)]));}
+#line 795 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(BRIDI_TAIL,(yyvsp[0]));}
+#line 5129 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 163:
-/* Line 1813 of yacc.c  */
-#line 797 "rpc2x_full_act.y"
-    {(yyval) = new_node_8(BRIDI_TAIL,(yyvsp[(1) - (8)]),(yyvsp[(2) - (8)]),(yyvsp[(3) - (8)]),(yyvsp[(4) - (8)]),(yyvsp[(5) - (8)]),(yyvsp[(6) - (8)]),(yyvsp[(7) - (8)]),(yyvsp[(8) - (8)]));}
+#line 797 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_8(BRIDI_TAIL,(yyvsp[-7]),(yyvsp[-6]),(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5135 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 164:
-/* Line 1813 of yacc.c  */
-#line 799 "rpc2x_full_act.y"
-    {(yyval) = new_node_7(BRIDI_TAIL,(yyvsp[(1) - (7)]),(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]),(yyvsp[(7) - (7)]));}
+#line 799 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_7(BRIDI_TAIL,(yyvsp[-6]),(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5141 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 165:
-/* Line 1813 of yacc.c  */
-#line 802 "rpc2x_full_act.y"
-    {(yyval) = new_node_7(BRIDI_TAIL,(yyvsp[(1) - (7)]),(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]),(yyvsp[(7) - (7)]));}
+#line 802 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_7(BRIDI_TAIL,(yyvsp[-6]),(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5147 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 166:
-/* Line 1813 of yacc.c  */
-#line 804 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(BRIDI_TAIL,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 804 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(BRIDI_TAIL,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5153 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 167:
-/* Line 1813 of yacc.c  */
-#line 808 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GIHEK_STAG_KE,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 808 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GIHEK_STAG_KE,(yyvsp[-1]),(yyvsp[0]));}
+#line 5159 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 168:
-/* Line 1813 of yacc.c  */
-#line 810 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(GIHEK_STAG_KE,(yyvsp[(2) - (2)]));}
+#line 810 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(GIHEK_STAG_KE,(yyvsp[0]));}
+#line 5165 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 169:
-/* Line 1813 of yacc.c  */
-#line 816 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(BRIDI_TAIL_1,(yyvsp[(1) - (1)]));}
+#line 816 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(BRIDI_TAIL_1,(yyvsp[0]));}
+#line 5171 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 170:
-/* Line 1813 of yacc.c  */
-#line 818 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(BRIDI_TAIL_1,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 818 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(BRIDI_TAIL_1,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5177 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 171:
-/* Line 1813 of yacc.c  */
-#line 820 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(BRIDI_TAIL_1,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 820 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(BRIDI_TAIL_1,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5183 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 172:
-/* Line 1813 of yacc.c  */
-#line 826 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(BRIDI_TAIL_2,(yyvsp[(1) - (1)]));}
+#line 826 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(BRIDI_TAIL_2,(yyvsp[0]));}
+#line 5189 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 173:
-/* Line 1813 of yacc.c  */
-#line 828 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(BRIDI_TAIL_2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 828 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(BRIDI_TAIL_2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5195 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 174:
-/* Line 1813 of yacc.c  */
-#line 832 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(GIHEK_STAG_BO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 832 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(GIHEK_STAG_BO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5201 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 175:
-/* Line 1813 of yacc.c  */
-#line 834 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GIHEK_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 834 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GIHEK_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5207 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 176:
-/* Line 1813 of yacc.c  */
-#line 836 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GIHEK_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 836 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GIHEK_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5213 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 177:
-/* Line 1813 of yacc.c  */
-#line 838 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GIHEK_STAG_BO,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 838 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GIHEK_STAG_BO,(yyvsp[-1]),(yyvsp[0]));}
+#line 5219 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 178:
-/* Line 1813 of yacc.c  */
-#line 845 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(BRIDI_TAIL_3,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 845 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(BRIDI_TAIL_3,(yyvsp[-1]),(yyvsp[0]));}
+#line 5225 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 179:
-/* Line 1813 of yacc.c  */
-#line 847 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(BRIDI_TAIL_3,(yyvsp[(1) - (1)]));}
+#line 847 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(BRIDI_TAIL_3,(yyvsp[0]));}
+#line 5231 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 180:
-/* Line 1813 of yacc.c  */
-#line 851 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(MAIN_SELBRI,(yyvsp[(1) - (1)]));}
+#line 851 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(MAIN_SELBRI,(yyvsp[0]));}
+#line 5237 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 181:
-/* Line 1813 of yacc.c  */
-#line 857 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TAIL_TERMS,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 857 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TAIL_TERMS,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5243 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 182:
-/* Line 1813 of yacc.c  */
-#line 859 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TAIL_TERMS,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 859 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TAIL_TERMS,(yyvsp[-1]),(yyvsp[0]));}
+#line 5249 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 183:
-/* Line 1813 of yacc.c  */
-#line 861 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TAIL_TERMS,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 861 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TAIL_TERMS,(yyvsp[-1]),(yyvsp[0]));}
+#line 5255 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 184:
-/* Line 1813 of yacc.c  */
-#line 863 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TAIL_TERMS,(yyvsp[(1) - (1)]));}
+#line 863 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TAIL_TERMS,(yyvsp[0]));}
+#line 5261 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 185:
-/* Line 1813 of yacc.c  */
-#line 869 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(GEK_SENTENCE,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 869 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(GEK_SENTENCE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5267 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 186:
-/* Line 1813 of yacc.c  */
-#line 872 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(GEK_SENTENCE,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 872 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(GEK_SENTENCE,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5273 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 187:
-/* Line 1813 of yacc.c  */
-#line 874 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(GEK_SENTENCE,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 874 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(GEK_SENTENCE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5279 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 188:
-/* Line 1813 of yacc.c  */
-#line 877 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(GEK_SENTENCE,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 877 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(GEK_SENTENCE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5285 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 189:
-/* Line 1813 of yacc.c  */
-#line 879 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(GEK_SENTENCE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 879 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(GEK_SENTENCE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5291 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 190:
-/* Line 1813 of yacc.c  */
-#line 882 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(GEK_SENTENCE,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 882 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(GEK_SENTENCE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5297 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 191:
-/* Line 1813 of yacc.c  */
-#line 884 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(GEK_SENTENCE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 884 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(GEK_SENTENCE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5303 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 192:
-/* Line 1813 of yacc.c  */
-#line 887 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(GEK_SENTENCE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 887 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(GEK_SENTENCE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5309 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 193:
-/* Line 1813 of yacc.c  */
-#line 889 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GEK_SENTENCE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 889 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GEK_SENTENCE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5315 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 194:
-/* Line 1813 of yacc.c  */
-#line 892 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GEK_SENTENCE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 892 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GEK_SENTENCE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5321 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 195:
-/* Line 1813 of yacc.c  */
-#line 894 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GEK_SENTENCE,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 894 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GEK_SENTENCE,(yyvsp[-1]),(yyvsp[0]));}
+#line 5327 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 196:
-/* Line 1813 of yacc.c  */
-#line 903 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERMS,(yyvsp[(1) - (1)]));}
+#line 903 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERMS,(yyvsp[0]));}
+#line 5333 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 197:
-/* Line 1813 of yacc.c  */
-#line 905 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TERMS,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 905 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TERMS,(yyvsp[-1]),(yyvsp[0]));}
+#line 5339 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 198:
-/* Line 1813 of yacc.c  */
-#line 911 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERMS_1,(yyvsp[(1) - (1)]));}
+#line 911 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERMS_1,(yyvsp[0]));}
+#line 5345 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 199:
-/* Line 1813 of yacc.c  */
-#line 913 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(TERMS_1,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 913 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(TERMS_1,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5351 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 200:
-/* Line 1813 of yacc.c  */
-#line 915 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TERMS_1,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 915 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TERMS_1,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5357 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 201:
-/* Line 1813 of yacc.c  */
-#line 917 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(TERMS_1,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 917 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(TERMS_1,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5363 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 202:
-/* Line 1813 of yacc.c  */
-#line 919 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TERMS_1,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 919 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TERMS_1,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5369 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 203:
-/* Line 1813 of yacc.c  */
-#line 921 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TERMS_1,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 921 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TERMS_1,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5375 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 204:
-/* Line 1813 of yacc.c  */
-#line 923 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TERMS_1,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 923 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TERMS_1,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5381 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 205:
-/* Line 1813 of yacc.c  */
-#line 925 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TERMS_1,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 925 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TERMS_1,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5387 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 206:
-/* Line 1813 of yacc.c  */
-#line 927 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TERMS_1,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 927 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TERMS_1,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5393 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 207:
-/* Line 1813 of yacc.c  */
-#line 934 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERMS_2,(yyvsp[(1) - (1)]));}
+#line 934 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERMS_2,(yyvsp[0]));}
+#line 5399 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 208:
-/* Line 1813 of yacc.c  */
-#line 936 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TERMS_2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 936 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TERMS_2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5405 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 209:
-/* Line 1813 of yacc.c  */
-#line 938 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TERMS_2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 938 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TERMS_2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5411 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 210:
-/* Line 1813 of yacc.c  */
-#line 947 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERM,(yyvsp[(1) - (1)]));}
+#line 947 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERM,(yyvsp[0]));}
+#line 5417 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 211:
-/* Line 1813 of yacc.c  */
-#line 949 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERM,(yyvsp[(1) - (1)]));}
+#line 949 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERM,(yyvsp[0]));}
+#line 5423 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 212:
-/* Line 1813 of yacc.c  */
-#line 951 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERM,(yyvsp[(1) - (1)]));}
+#line 951 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERM,(yyvsp[0]));}
+#line 5429 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 213:
-/* Line 1813 of yacc.c  */
-#line 953 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERM,(yyvsp[(1) - (1)]));}
+#line 953 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERM,(yyvsp[0]));}
+#line 5435 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 214:
-/* Line 1813 of yacc.c  */
-#line 955 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERM,(yyvsp[(1) - (1)]));}
+#line 955 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERM,(yyvsp[0]));}
+#line 5441 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 215:
-/* Line 1813 of yacc.c  */
-#line 957 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERM,(yyvsp[(1) - (1)]));}
+#line 957 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERM,(yyvsp[0]));}
+#line 5447 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 216:
-/* Line 1813 of yacc.c  */
-#line 959 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERM,(yyvsp[(1) - (1)]));}
+#line 959 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERM,(yyvsp[0]));}
+#line 5453 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 217:
-/* Line 1813 of yacc.c  */
-#line 961 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERM,(yyvsp[(1) - (1)]));}
+#line 961 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERM,(yyvsp[0]));}
+#line 5459 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 218:
-/* Line 1813 of yacc.c  */
-#line 965 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERM_PLAIN_SUMTI,(yyvsp[(1) - (1)]));}
+#line 965 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERM_PLAIN_SUMTI,(yyvsp[0]));}
+#line 5465 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 219:
-/* Line 1813 of yacc.c  */
-#line 969 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TERM_PLACED_SUMTI,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 969 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TERM_PLACED_SUMTI,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5471 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 220:
-/* Line 1813 of yacc.c  */
-#line 971 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TERM_PLACED_SUMTI,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 971 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TERM_PLACED_SUMTI,(yyvsp[-1]),(yyvsp[0]));}
+#line 5477 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 221:
-/* Line 1813 of yacc.c  */
-#line 975 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TERM_TAGGED_SUMTI,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 975 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TERM_TAGGED_SUMTI,(yyvsp[-1]),(yyvsp[0]));}
+#line 5483 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 222:
-/* Line 1813 of yacc.c  */
-#line 981 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TAGGED_TERMSET,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 981 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TAGGED_TERMSET,(yyvsp[-1]),(yyvsp[0]));}
+#line 5489 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 223:
-/* Line 1813 of yacc.c  */
-#line 985 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TERM_FLOATING_TENSE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 985 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TERM_FLOATING_TENSE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5495 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 224:
-/* Line 1813 of yacc.c  */
-#line 987 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TERM_FLOATING_TENSE,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 987 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TERM_FLOATING_TENSE,(yyvsp[-1]),(yyvsp[0]));}
+#line 5501 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 225:
-/* Line 1813 of yacc.c  */
-#line 991 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TERM_FLOATING_NEGATE,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 991 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TERM_FLOATING_NEGATE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5507 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 226:
-/* Line 1813 of yacc.c  */
-#line 993 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TERM_FLOATING_NEGATE,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 993 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TERM_FLOATING_NEGATE,(yyvsp[-1]),(yyvsp[0]));}
+#line 5513 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 227:
-/* Line 1813 of yacc.c  */
-#line 998 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TERM_OTHER,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 998 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TERM_OTHER,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5519 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 228:
-/* Line 1813 of yacc.c  */
-#line 1000 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TERM_OTHER,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1000 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TERM_OTHER,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5525 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 229:
-/* Line 1813 of yacc.c  */
-#line 1002 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TERM_OTHER,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1002 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TERM_OTHER,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5531 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 230:
-/* Line 1813 of yacc.c  */
-#line 1004 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TERM_OTHER,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1004 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TERM_OTHER,(yyvsp[-1]),(yyvsp[0]));}
+#line 5537 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 231:
-/* Line 1813 of yacc.c  */
-#line 1012 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TERMSET,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1012 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TERMSET,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5543 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 232:
-/* Line 1813 of yacc.c  */
-#line 1014 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TERMSET,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1014 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TERMSET,(yyvsp[-1]),(yyvsp[0]));}
+#line 5549 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 233:
-/* Line 1813 of yacc.c  */
-#line 1018 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TERMSET_START,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1018 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TERMSET_START,(yyvsp[-1]),(yyvsp[0]));}
+#line 5555 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 234:
-/* Line 1813 of yacc.c  */
-#line 1020 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TERMSET_START,(yyvsp[(1) - (1)]));}
+#line 1020 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TERMSET_START,(yyvsp[0]));}
+#line 5561 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 235:
-/* Line 1813 of yacc.c  */
-#line 1024 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TERMSET_BODY,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1024 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TERMSET_BODY,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5567 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 236:
-/* Line 1813 of yacc.c  */
-#line 1026 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TERMSET_BODY,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1026 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TERMSET_BODY,(yyvsp[-1]),(yyvsp[0]));}
+#line 5573 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 237:
-/* Line 1813 of yacc.c  */
-#line 1032 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI,(yyvsp[(1) - (1)]));}
+#line 1032 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI,(yyvsp[0]));}
+#line 5579 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 238:
-/* Line 1813 of yacc.c  */
-#line 1034 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUMTI,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1034 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUMTI,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5585 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 239:
-/* Line 1813 of yacc.c  */
-#line 1036 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUMTI,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1036 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUMTI,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5591 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 240:
-/* Line 1813 of yacc.c  */
-#line 1043 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_1,(yyvsp[(1) - (1)]));}
+#line 1043 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_1,(yyvsp[0]));}
+#line 5597 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 241:
-/* Line 1813 of yacc.c  */
-#line 1045 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUMTI_1,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1045 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUMTI_1,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5603 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 242:
-/* Line 1813 of yacc.c  */
-#line 1049 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_EK_KE,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1049 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_EK_KE,(yyvsp[-1]),(yyvsp[0]));}
+#line 5609 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 243:
-/* Line 1813 of yacc.c  */
-#line 1051 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK_EK_KE,(yyvsp[(2) - (2)]));}
+#line 1051 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK_EK_KE,(yyvsp[0]));}
+#line 5615 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 244:
-/* Line 1813 of yacc.c  */
-#line 1053 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_EK_KE,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1053 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_EK_KE,(yyvsp[-1]),(yyvsp[0]));}
+#line 5621 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 245:
-/* Line 1813 of yacc.c  */
-#line 1055 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK_EK_KE,(yyvsp[(2) - (2)]));}
+#line 1055 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK_EK_KE,(yyvsp[0]));}
+#line 5627 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 246:
-/* Line 1813 of yacc.c  */
-#line 1059 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(KE_SUMTI,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1059 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(KE_SUMTI,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5633 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 247:
-/* Line 1813 of yacc.c  */
-#line 1061 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(KE_SUMTI,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1061 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(KE_SUMTI,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5639 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 248:
-/* Line 1813 of yacc.c  */
-#line 1063 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(KE_SUMTI,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1063 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(KE_SUMTI,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5645 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 249:
-/* Line 1813 of yacc.c  */
-#line 1065 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(KE_SUMTI,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1065 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(KE_SUMTI,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5651 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 250:
-/* Line 1813 of yacc.c  */
-#line 1071 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_2,(yyvsp[(1) - (1)]));}
+#line 1071 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_2,(yyvsp[0]));}
+#line 5657 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 251:
-/* Line 1813 of yacc.c  */
-#line 1073 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUMTI_2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1073 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUMTI_2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5663 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 252:
-/* Line 1813 of yacc.c  */
-#line 1075 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUMTI_2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1075 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUMTI_2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5669 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 253:
-/* Line 1813 of yacc.c  */
-#line 1077 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUMTI_2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1077 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUMTI_2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5675 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 254:
-/* Line 1813 of yacc.c  */
-#line 1079 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUMTI_2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1079 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUMTI_2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5681 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 255:
-/* Line 1813 of yacc.c  */
-#line 1087 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_3,(yyvsp[(1) - (1)]));}
+#line 1087 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_3,(yyvsp[0]));}
+#line 5687 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 256:
-/* Line 1813 of yacc.c  */
-#line 1089 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUMTI_3,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1089 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUMTI_3,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5693 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 257:
-/* Line 1813 of yacc.c  */
-#line 1093 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_EK_STAG_BO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1093 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_EK_STAG_BO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5699 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 258:
-/* Line 1813 of yacc.c  */
-#line 1095 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_EK_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1095 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_EK_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5705 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 259:
-/* Line 1813 of yacc.c  */
-#line 1097 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_EK_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1097 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_EK_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5711 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 260:
-/* Line 1813 of yacc.c  */
-#line 1099 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_EK_STAG_BO,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1099 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_EK_STAG_BO,(yyvsp[-1]),(yyvsp[0]));}
+#line 5717 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 261:
-/* Line 1813 of yacc.c  */
-#line 1101 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_EK_STAG_BO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1101 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_EK_STAG_BO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5723 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 262:
-/* Line 1813 of yacc.c  */
-#line 1103 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_EK_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1103 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_EK_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5729 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 263:
-/* Line 1813 of yacc.c  */
-#line 1105 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_EK_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1105 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_EK_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5735 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 264:
-/* Line 1813 of yacc.c  */
-#line 1107 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_EK_STAG_BO,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1107 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_EK_STAG_BO,(yyvsp[-1]),(yyvsp[0]));}
+#line 5741 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 265:
-/* Line 1813 of yacc.c  */
-#line 1113 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_4,(yyvsp[(1) - (1)]));}
+#line 1113 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_4,(yyvsp[0]));}
+#line 5747 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 266:
-/* Line 1813 of yacc.c  */
-#line 1115 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUMTI_4,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1115 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUMTI_4,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5753 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 267:
-/* Line 1813 of yacc.c  */
-#line 1121 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_5,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1121 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_5,(yyvsp[-1]),(yyvsp[0]));}
+#line 5759 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 268:
-/* Line 1813 of yacc.c  */
-#line 1123 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_5,(yyvsp[(1) - (1)]));}
+#line 1123 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_5,(yyvsp[0]));}
+#line 5765 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 269:
-/* Line 1813 of yacc.c  */
-#line 1125 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_5,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1125 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_5,(yyvsp[-1]),(yyvsp[0]));}
+#line 5771 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 270:
-/* Line 1813 of yacc.c  */
-#line 1127 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_5,(yyvsp[(1) - (1)]));}
+#line 1127 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_5,(yyvsp[0]));}
+#line 5777 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 271:
-/* Line 1813 of yacc.c  */
-#line 1131 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_5A,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1131 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_5A,(yyvsp[-1]),(yyvsp[0]));}
+#line 5783 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 272:
-/* Line 1813 of yacc.c  */
-#line 1133 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_5A,(yyvsp[(1) - (1)]));}
+#line 1133 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_5A,(yyvsp[0]));}
+#line 5789 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 273:
-/* Line 1813 of yacc.c  */
-#line 1137 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUMTI_5B,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1137 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUMTI_5B,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5795 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 274:
-/* Line 1813 of yacc.c  */
-#line 1139 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUMTI_5B,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1139 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUMTI_5B,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5801 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 275:
-/* Line 1813 of yacc.c  */
-#line 1145 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_6,(yyvsp[(1) - (1)]));}
+#line 1145 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_6,(yyvsp[0]));}
+#line 5807 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 276:
-/* Line 1813 of yacc.c  */
-#line 1147 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_6,(yyvsp[(1) - (1)]));}
+#line 1147 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_6,(yyvsp[0]));}
+#line 5813 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 277:
-/* Line 1813 of yacc.c  */
-#line 1150 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_6,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1150 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_6,(yyvsp[-1]),(yyvsp[0]));}
+#line 5819 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 278:
-/* Line 1813 of yacc.c  */
-#line 1152 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_6,(yyvsp[(1) - (1)]));}
+#line 1152 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_6,(yyvsp[0]));}
+#line 5825 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 279:
-/* Line 1813 of yacc.c  */
-#line 1155 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUMTI_6,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1155 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUMTI_6,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5831 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 280:
-/* Line 1813 of yacc.c  */
-#line 1157 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_6,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1157 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_6,(yyvsp[-1]),(yyvsp[0]));}
+#line 5837 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 281:
-/* Line 1813 of yacc.c  */
-#line 1160 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(SUMTI_6,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1160 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(SUMTI_6,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5843 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 282:
-/* Line 1813 of yacc.c  */
-#line 1162 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1162 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5849 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 283:
-/* Line 1813 of yacc.c  */
-#line 1165 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1165 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5855 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 284:
-/* Line 1813 of yacc.c  */
-#line 1167 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUMTI_6,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1167 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUMTI_6,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5861 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 285:
-/* Line 1813 of yacc.c  */
-#line 1170 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(SUMTI_6,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1170 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(SUMTI_6,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5867 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 286:
-/* Line 1813 of yacc.c  */
-#line 1172 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1172 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5873 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 287:
-/* Line 1813 of yacc.c  */
-#line 1175 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1175 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5879 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 288:
-/* Line 1813 of yacc.c  */
-#line 1177 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUMTI_6,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1177 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUMTI_6,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5885 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 289:
-/* Line 1813 of yacc.c  */
-#line 1180 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_6,(yyvsp[(1) - (1)]));}
+#line 1180 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_6,(yyvsp[0]));}
+#line 5891 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 290:
-/* Line 1813 of yacc.c  */
-#line 1183 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(SUMTI_6,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1183 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(SUMTI_6,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5897 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 291:
-/* Line 1813 of yacc.c  */
-#line 1185 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1185 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5903 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 292:
-/* Line 1813 of yacc.c  */
-#line 1188 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1188 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5909 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 293:
-/* Line 1813 of yacc.c  */
-#line 1190 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUMTI_6,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1190 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUMTI_6,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5915 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 294:
-/* Line 1813 of yacc.c  */
-#line 1193 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_6,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1193 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_6,(yyvsp[-1]),(yyvsp[0]));}
+#line 5921 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 295:
-/* Line 1813 of yacc.c  */
-#line 1195 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_6,(yyvsp[(1) - (1)]));}
+#line 1195 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_6,(yyvsp[0]));}
+#line 5927 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 296:
-/* Line 1813 of yacc.c  */
-#line 1197 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1197 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5933 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 297:
-/* Line 1813 of yacc.c  */
-#line 1199 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUMTI_6,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1199 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUMTI_6,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5939 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 298:
-/* Line 1813 of yacc.c  */
-#line 1201 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_6,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1201 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_6,(yyvsp[-1]),(yyvsp[0]));}
+#line 5945 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 299:
-/* Line 1813 of yacc.c  */
-#line 1203 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_6,(yyvsp[(1) - (1)]));}
+#line 1203 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_6,(yyvsp[0]));}
+#line 5951 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 300:
-/* Line 1813 of yacc.c  */
-#line 1205 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_6,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1205 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_6,(yyvsp[-1]),(yyvsp[0]));}
+#line 5957 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 301:
-/* Line 1813 of yacc.c  */
-#line 1207 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_6,(yyvsp[(1) - (1)]));}
+#line 1207 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_6,(yyvsp[0]));}
+#line 5963 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 302:
-/* Line 1813 of yacc.c  */
-#line 1211 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(LAHE_SUMTI_6,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1211 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(LAHE_SUMTI_6,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5969 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 303:
-/* Line 1813 of yacc.c  */
-#line 1213 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(LAHE_SUMTI_6,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1213 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(LAHE_SUMTI_6,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5975 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 304:
-/* Line 1813 of yacc.c  */
-#line 1215 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(LAHE_SUMTI_6,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1215 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(LAHE_SUMTI_6,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5981 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 305:
-/* Line 1813 of yacc.c  */
-#line 1217 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(LAHE_SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1217 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(LAHE_SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5987 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 306:
-/* Line 1813 of yacc.c  */
-#line 1220 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(LAHE_SUMTI_6,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1220 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(LAHE_SUMTI_6,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5993 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 307:
-/* Line 1813 of yacc.c  */
-#line 1222 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(LAHE_SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1222 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(LAHE_SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 5999 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 308:
-/* Line 1813 of yacc.c  */
-#line 1224 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(LAHE_SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1224 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(LAHE_SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6005 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 309:
-/* Line 1813 of yacc.c  */
-#line 1226 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(LAHE_SUMTI_6,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1226 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(LAHE_SUMTI_6,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6011 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 310:
-/* Line 1813 of yacc.c  */
-#line 1230 "rpc2x_full_act.y"
-    {(yyval) = new_node_7(NAHE_BO_SUMTI_6,(yyvsp[(2) - (8)]),(yyvsp[(3) - (8)]),(yyvsp[(4) - (8)]),(yyvsp[(5) - (8)]),(yyvsp[(6) - (8)]),(yyvsp[(7) - (8)]),(yyvsp[(8) - (8)]));}
+#line 1230 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_7(NAHE_BO_SUMTI_6,(yyvsp[-6]),(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6017 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 311:
-/* Line 1813 of yacc.c  */
-#line 1232 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(NAHE_BO_SUMTI_6,(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]),(yyvsp[(7) - (7)]));}
+#line 1232 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(NAHE_BO_SUMTI_6,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6023 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 312:
-/* Line 1813 of yacc.c  */
-#line 1234 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(NAHE_BO_SUMTI_6,(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]),(yyvsp[(7) - (7)]));}
+#line 1234 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(NAHE_BO_SUMTI_6,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6029 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 313:
-/* Line 1813 of yacc.c  */
-#line 1236 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(NAHE_BO_SUMTI_6,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1236 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(NAHE_BO_SUMTI_6,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6035 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 314:
-/* Line 1813 of yacc.c  */
-#line 1239 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(NAHE_BO_SUMTI_6,(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]),(yyvsp[(7) - (7)]));}
+#line 1239 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(NAHE_BO_SUMTI_6,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6041 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 315:
-/* Line 1813 of yacc.c  */
-#line 1241 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(NAHE_BO_SUMTI_6,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1241 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(NAHE_BO_SUMTI_6,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6047 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 316:
-/* Line 1813 of yacc.c  */
-#line 1243 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(NAHE_BO_SUMTI_6,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1243 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(NAHE_BO_SUMTI_6,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6053 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 317:
-/* Line 1813 of yacc.c  */
-#line 1245 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(NAHE_BO_SUMTI_6,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1245 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(NAHE_BO_SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6059 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 318:
-/* Line 1813 of yacc.c  */
-#line 1249 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(NAME_SUMTI_6,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1249 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(NAME_SUMTI_6,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6065 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 319:
-/* Line 1813 of yacc.c  */
-#line 1251 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(NAME_SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1251 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(NAME_SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6071 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 320:
-/* Line 1813 of yacc.c  */
-#line 1253 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(NAME_SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1253 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(NAME_SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6077 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 321:
-/* Line 1813 of yacc.c  */
-#line 1255 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(NAME_SUMTI_6,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1255 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(NAME_SUMTI_6,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6083 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 322:
-/* Line 1813 of yacc.c  */
-#line 1258 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(NAME_SUMTI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1258 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(NAME_SUMTI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6089 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 323:
-/* Line 1813 of yacc.c  */
-#line 1260 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(NAME_SUMTI_6,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1260 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(NAME_SUMTI_6,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6095 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 324:
-/* Line 1813 of yacc.c  */
-#line 1262 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(NAME_SUMTI_6,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1262 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(NAME_SUMTI_6,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6101 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 325:
-/* Line 1813 of yacc.c  */
-#line 1264 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(NAME_SUMTI_6,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1264 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(NAME_SUMTI_6,(yyvsp[-1]),(yyvsp[0]));}
+#line 6107 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 326:
-/* Line 1813 of yacc.c  */
-#line 1270 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUMTI_TAIL,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1270 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUMTI_TAIL,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6113 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 327:
-/* Line 1813 of yacc.c  */
-#line 1272 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_TAIL,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1272 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_TAIL,(yyvsp[-1]),(yyvsp[0]));}
+#line 6119 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 328:
-/* Line 1813 of yacc.c  */
-#line 1274 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_TAIL,(yyvsp[(1) - (1)]));}
+#line 1274 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_TAIL,(yyvsp[0]));}
+#line 6125 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 329:
-/* Line 1813 of yacc.c  */
-#line 1276 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_TAIL,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1276 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_TAIL,(yyvsp[-1]),(yyvsp[0]));}
+#line 6131 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 330:
-/* Line 1813 of yacc.c  */
-#line 1285 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_TAIL_1,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1285 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_TAIL_1,(yyvsp[-1]),(yyvsp[0]));}
+#line 6137 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 331:
-/* Line 1813 of yacc.c  */
-#line 1287 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_TAIL_1,(yyvsp[(1) - (1)]));}
+#line 1287 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_TAIL_1,(yyvsp[0]));}
+#line 6143 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 332:
-/* Line 1813 of yacc.c  */
-#line 1289 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_TAIL_1,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1289 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_TAIL_1,(yyvsp[-1]),(yyvsp[0]));}
+#line 6149 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 333:
-/* Line 1813 of yacc.c  */
-#line 1293 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SUMTI_TAIL_1A,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1293 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SUMTI_TAIL_1A,(yyvsp[-1]),(yyvsp[0]));}
+#line 6155 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 334:
-/* Line 1813 of yacc.c  */
-#line 1295 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SUMTI_TAIL_1A,(yyvsp[(1) - (1)]));}
+#line 1295 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SUMTI_TAIL_1A,(yyvsp[0]));}
+#line 6161 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 335:
-/* Line 1813 of yacc.c  */
-#line 1301 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(RELATIVE_CLAUSES,(yyvsp[(1) - (1)]));}
+#line 1301 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(RELATIVE_CLAUSES,(yyvsp[0]));}
+#line 6167 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 336:
-/* Line 1813 of yacc.c  */
-#line 1305 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(RELATIVE_CLAUSE_SEQ,(yyvsp[(1) - (1)]));}
+#line 1305 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(RELATIVE_CLAUSE_SEQ,(yyvsp[0]));}
+#line 6173 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 337:
-/* Line 1813 of yacc.c  */
-#line 1307 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(RELATIVE_CLAUSE_SEQ,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1307 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(RELATIVE_CLAUSE_SEQ,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6179 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 338:
-/* Line 1813 of yacc.c  */
-#line 1309 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(RELATIVE_CLAUSE_SEQ,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1309 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(RELATIVE_CLAUSE_SEQ,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6185 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 339:
-/* Line 1813 of yacc.c  */
-#line 1315 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(RELATIVE_CLAUSE,(yyvsp[(1) - (1)]));}
+#line 1315 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(RELATIVE_CLAUSE,(yyvsp[0]));}
+#line 6191 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 340:
-/* Line 1813 of yacc.c  */
-#line 1317 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(RELATIVE_CLAUSE,(yyvsp[(1) - (1)]));}
+#line 1317 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(RELATIVE_CLAUSE,(yyvsp[0]));}
+#line 6197 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 341:
-/* Line 1813 of yacc.c  */
-#line 1321 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TERM_RELATIVE_CLAUSE,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1321 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TERM_RELATIVE_CLAUSE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6203 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 342:
-/* Line 1813 of yacc.c  */
-#line 1323 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TERM_RELATIVE_CLAUSE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1323 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TERM_RELATIVE_CLAUSE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6209 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 343:
-/* Line 1813 of yacc.c  */
-#line 1325 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TERM_RELATIVE_CLAUSE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1325 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TERM_RELATIVE_CLAUSE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6215 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 344:
-/* Line 1813 of yacc.c  */
-#line 1327 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TERM_RELATIVE_CLAUSE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1327 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TERM_RELATIVE_CLAUSE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6221 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 345:
-/* Line 1813 of yacc.c  */
-#line 1331 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(FULL_RELATIVE_CLAUSE,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1331 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(FULL_RELATIVE_CLAUSE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6227 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 346:
-/* Line 1813 of yacc.c  */
-#line 1333 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(FULL_RELATIVE_CLAUSE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1333 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(FULL_RELATIVE_CLAUSE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6233 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 347:
-/* Line 1813 of yacc.c  */
-#line 1335 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(FULL_RELATIVE_CLAUSE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1335 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(FULL_RELATIVE_CLAUSE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6239 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 348:
-/* Line 1813 of yacc.c  */
-#line 1337 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(FULL_RELATIVE_CLAUSE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1337 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(FULL_RELATIVE_CLAUSE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6245 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 349:
-/* Line 1813 of yacc.c  */
-#line 1343 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SELBRI,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1343 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SELBRI,(yyvsp[-1]),(yyvsp[0]));}
+#line 6251 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 350:
-/* Line 1813 of yacc.c  */
-#line 1345 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SELBRI,(yyvsp[(1) - (1)]));}
+#line 1345 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SELBRI,(yyvsp[0]));}
+#line 6257 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 351:
-/* Line 1813 of yacc.c  */
-#line 1351 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SELBRI_1,(yyvsp[(1) - (1)]));}
+#line 1351 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SELBRI_1,(yyvsp[0]));}
+#line 6263 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 352:
-/* Line 1813 of yacc.c  */
-#line 1353 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SELBRI_1,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1353 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SELBRI_1,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6269 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 353:
-/* Line 1813 of yacc.c  */
-#line 1355 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SELBRI_1,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1355 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SELBRI_1,(yyvsp[-1]),(yyvsp[0]));}
+#line 6275 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 354:
-/* Line 1813 of yacc.c  */
-#line 1361 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SELBRI_2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1361 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SELBRI_2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6281 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 355:
-/* Line 1813 of yacc.c  */
-#line 1363 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SELBRI_2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1363 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SELBRI_2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6287 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 356:
-/* Line 1813 of yacc.c  */
-#line 1365 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SELBRI_2,(yyvsp[(1) - (1)]));}
+#line 1365 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SELBRI_2,(yyvsp[0]));}
+#line 6293 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 357:
-/* Line 1813 of yacc.c  */
-#line 1371 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SELBRI_3,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1371 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SELBRI_3,(yyvsp[-1]),(yyvsp[0]));}
+#line 6299 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 358:
-/* Line 1813 of yacc.c  */
-#line 1373 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SELBRI_3,(yyvsp[(1) - (1)]));}
+#line 1373 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SELBRI_3,(yyvsp[0]));}
+#line 6305 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 359:
-/* Line 1813 of yacc.c  */
-#line 1382 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SELBRI_4,(yyvsp[(1) - (1)]));}
+#line 1382 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SELBRI_4,(yyvsp[0]));}
+#line 6311 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 360:
-/* Line 1813 of yacc.c  */
-#line 1384 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SELBRI_4,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1384 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SELBRI_4,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6317 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 361:
-/* Line 1813 of yacc.c  */
-#line 1386 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SELBRI_4,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1386 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SELBRI_4,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6323 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 362:
-/* Line 1813 of yacc.c  */
-#line 1388 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SELBRI_4,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1388 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SELBRI_4,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6329 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 363:
-/* Line 1813 of yacc.c  */
-#line 1390 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SELBRI_4,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1390 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SELBRI_4,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6335 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 364:
-/* Line 1813 of yacc.c  */
-#line 1392 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SELBRI_4,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1392 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SELBRI_4,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6341 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 365:
-/* Line 1813 of yacc.c  */
-#line 1396 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_STAG_KE,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1396 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_STAG_KE,(yyvsp[-1]),(yyvsp[0]));}
+#line 6347 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 366:
-/* Line 1813 of yacc.c  */
-#line 1400 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(KE_SELBRI_3,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1400 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(KE_SELBRI_3,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6353 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 367:
-/* Line 1813 of yacc.c  */
-#line 1402 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(KE_SELBRI_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1402 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(KE_SELBRI_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6359 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 368:
-/* Line 1813 of yacc.c  */
-#line 1404 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(KE_SELBRI_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1404 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(KE_SELBRI_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6365 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 369:
-/* Line 1813 of yacc.c  */
-#line 1406 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(KE_SELBRI_3,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1406 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(KE_SELBRI_3,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6371 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 370:
-/* Line 1813 of yacc.c  */
-#line 1414 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SELBRI_5,(yyvsp[(1) - (1)]));}
+#line 1414 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SELBRI_5,(yyvsp[0]));}
+#line 6377 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 371:
-/* Line 1813 of yacc.c  */
-#line 1416 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SELBRI_5,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1416 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SELBRI_5,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6383 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 372:
-/* Line 1813 of yacc.c  */
-#line 1420 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_JEK_STAG_BO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1420 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_JEK_STAG_BO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6389 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 373:
-/* Line 1813 of yacc.c  */
-#line 1422 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_JEK_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1422 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_JEK_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6395 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 374:
-/* Line 1813 of yacc.c  */
-#line 1424 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_JEK_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1424 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_JEK_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6401 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 375:
-/* Line 1813 of yacc.c  */
-#line 1426 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_JEK_STAG_BO,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1426 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_JEK_STAG_BO,(yyvsp[-1]),(yyvsp[0]));}
+#line 6407 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 376:
-/* Line 1813 of yacc.c  */
-#line 1428 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_JEK_STAG_BO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1428 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_JEK_STAG_BO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6413 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 377:
-/* Line 1813 of yacc.c  */
-#line 1430 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_JEK_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1430 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_JEK_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6419 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 378:
-/* Line 1813 of yacc.c  */
-#line 1432 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_JEK_STAG_BO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1432 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_JEK_STAG_BO,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6425 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 379:
-/* Line 1813 of yacc.c  */
-#line 1434 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_JEK_STAG_BO,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1434 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_JEK_STAG_BO,(yyvsp[-1]),(yyvsp[0]));}
+#line 6431 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 380:
-/* Line 1813 of yacc.c  */
-#line 1440 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SELBRI_6,(yyvsp[(1) - (1)]));}
+#line 1440 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SELBRI_6,(yyvsp[0]));}
+#line 6437 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 381:
-/* Line 1813 of yacc.c  */
-#line 1442 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SELBRI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1442 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SELBRI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6443 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 382:
-/* Line 1813 of yacc.c  */
-#line 1444 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SELBRI_6,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1444 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SELBRI_6,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6449 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 383:
-/* Line 1813 of yacc.c  */
-#line 1447 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(SELBRI_6,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1447 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(SELBRI_6,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6455 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 384:
-/* Line 1813 of yacc.c  */
-#line 1449 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(SELBRI_6,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1449 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(SELBRI_6,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6461 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 385:
-/* Line 1813 of yacc.c  */
-#line 1451 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SELBRI_6,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1451 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SELBRI_6,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6467 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 386:
-/* Line 1813 of yacc.c  */
-#line 1458 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TANRU_UNIT,(yyvsp[(1) - (1)]));}
+#line 1458 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TANRU_UNIT,(yyvsp[0]));}
+#line 6473 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 387:
-/* Line 1813 of yacc.c  */
-#line 1460 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TANRU_UNIT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1460 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TANRU_UNIT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6479 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 388:
-/* Line 1813 of yacc.c  */
-#line 1462 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TANRU_UNIT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1462 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TANRU_UNIT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6485 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 389:
-/* Line 1813 of yacc.c  */
-#line 1469 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TANRU_UNIT_1,(yyvsp[(1) - (1)]));}
+#line 1469 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TANRU_UNIT_1,(yyvsp[0]));}
+#line 6491 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 390:
-/* Line 1813 of yacc.c  */
-#line 1471 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TANRU_UNIT_1,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1471 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TANRU_UNIT_1,(yyvsp[-1]),(yyvsp[0]));}
+#line 6497 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 391:
-/* Line 1813 of yacc.c  */
-#line 1481 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TANRU_UNIT_2,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1481 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TANRU_UNIT_2,(yyvsp[-1]),(yyvsp[0]));}
+#line 6503 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 392:
-/* Line 1813 of yacc.c  */
-#line 1483 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[(1) - (1)]));}
+#line 1483 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[0]));}
+#line 6509 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 393:
-/* Line 1813 of yacc.c  */
-#line 1486 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TANRU_UNIT_2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1486 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TANRU_UNIT_2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6515 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 394:
-/* Line 1813 of yacc.c  */
-#line 1488 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TANRU_UNIT_2,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1488 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TANRU_UNIT_2,(yyvsp[-1]),(yyvsp[0]));}
+#line 6521 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 395:
-/* Line 1813 of yacc.c  */
-#line 1490 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TANRU_UNIT_2,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1490 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TANRU_UNIT_2,(yyvsp[-1]),(yyvsp[0]));}
+#line 6527 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 396:
-/* Line 1813 of yacc.c  */
-#line 1492 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[(1) - (1)]));}
+#line 1492 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[0]));}
+#line 6533 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 397:
-/* Line 1813 of yacc.c  */
-#line 1495 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[(1) - (1)]));}
+#line 1495 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[0]));}
+#line 6539 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 398:
-/* Line 1813 of yacc.c  */
-#line 1498 "rpc2x_full_act.y"
-    {(yyval) = new_node_7(TANRU_UNIT_2,(yyvsp[(1) - (7)]),(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]),(yyvsp[(7) - (7)]));}
+#line 1498 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_7(TANRU_UNIT_2,(yyvsp[-6]),(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6545 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 399:
-/* Line 1813 of yacc.c  */
-#line 1500 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(TANRU_UNIT_2,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1500 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(TANRU_UNIT_2,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6551 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 400:
-/* Line 1813 of yacc.c  */
-#line 1502 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TANRU_UNIT_2,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1502 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TANRU_UNIT_2,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6557 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 401:
-/* Line 1813 of yacc.c  */
-#line 1504 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(TANRU_UNIT_2,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1504 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(TANRU_UNIT_2,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6563 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 402:
-/* Line 1813 of yacc.c  */
-#line 1506 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TANRU_UNIT_2,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1506 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TANRU_UNIT_2,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6569 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 403:
-/* Line 1813 of yacc.c  */
-#line 1508 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TANRU_UNIT_2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1508 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TANRU_UNIT_2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6575 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 404:
-/* Line 1813 of yacc.c  */
-#line 1511 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(TANRU_UNIT_2,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1511 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(TANRU_UNIT_2,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6581 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 405:
-/* Line 1813 of yacc.c  */
-#line 1513 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TANRU_UNIT_2,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1513 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TANRU_UNIT_2,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6587 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 406:
-/* Line 1813 of yacc.c  */
-#line 1515 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TANRU_UNIT_2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1515 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TANRU_UNIT_2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6593 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 407:
-/* Line 1813 of yacc.c  */
-#line 1517 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(TANRU_UNIT_2,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1517 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(TANRU_UNIT_2,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6599 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 408:
-/* Line 1813 of yacc.c  */
-#line 1519 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TANRU_UNIT_2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1519 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TANRU_UNIT_2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6605 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 409:
-/* Line 1813 of yacc.c  */
-#line 1521 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TANRU_UNIT_2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1521 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TANRU_UNIT_2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6611 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 410:
-/* Line 1813 of yacc.c  */
-#line 1524 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[(1) - (1)]));}
+#line 1524 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[0]));}
+#line 6617 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 411:
-/* Line 1813 of yacc.c  */
-#line 1527 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TANRU_UNIT_2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1527 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TANRU_UNIT_2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6623 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 412:
-/* Line 1813 of yacc.c  */
-#line 1529 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TANRU_UNIT_2,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1529 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TANRU_UNIT_2,(yyvsp[-1]),(yyvsp[0]));}
+#line 6629 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 413:
-/* Line 1813 of yacc.c  */
-#line 1532 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[(1) - (1)]));}
+#line 1532 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[0]));}
+#line 6635 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 414:
-/* Line 1813 of yacc.c  */
-#line 1535 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[(1) - (1)]));}
+#line 1535 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[0]));}
+#line 6641 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 415:
-/* Line 1813 of yacc.c  */
-#line 1538 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[(1) - (1)]));}
+#line 1538 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[0]));}
+#line 6647 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 416:
-/* Line 1813 of yacc.c  */
-#line 1541 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[(1) - (1)]));}
+#line 1541 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[0]));}
+#line 6653 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 417:
-/* Line 1813 of yacc.c  */
-#line 1544 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[(1) - (1)]));}
+#line 1544 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[0]));}
+#line 6659 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 418:
-/* Line 1813 of yacc.c  */
-#line 1547 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[(1) - (1)]));}
+#line 1547 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TANRU_UNIT_2,(yyvsp[0]));}
+#line 6665 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 419:
-/* Line 1813 of yacc.c  */
-#line 1552 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(KE_SELBRI3_TU2,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1552 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(KE_SELBRI3_TU2,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6671 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 420:
-/* Line 1813 of yacc.c  */
-#line 1554 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(KE_SELBRI3_TU2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1554 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(KE_SELBRI3_TU2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6677 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 421:
-/* Line 1813 of yacc.c  */
-#line 1556 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(KE_SELBRI3_TU2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1556 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(KE_SELBRI3_TU2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6683 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 422:
-/* Line 1813 of yacc.c  */
-#line 1558 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(KE_SELBRI3_TU2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1558 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(KE_SELBRI3_TU2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6689 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 423:
-/* Line 1813 of yacc.c  */
-#line 1562 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(NUMBER_MOI_TU2,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1562 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(NUMBER_MOI_TU2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6695 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 424:
-/* Line 1813 of yacc.c  */
-#line 1564 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(NUMBER_MOI_TU2,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1564 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(NUMBER_MOI_TU2,(yyvsp[-1]),(yyvsp[0]));}
+#line 6701 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 425:
-/* Line 1813 of yacc.c  */
-#line 1566 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(NUMBER_MOI_TU2,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1566 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(NUMBER_MOI_TU2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6707 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 426:
-/* Line 1813 of yacc.c  */
-#line 1568 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(NUMBER_MOI_TU2,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1568 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(NUMBER_MOI_TU2,(yyvsp[-1]),(yyvsp[0]));}
+#line 6713 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 427:
-/* Line 1813 of yacc.c  */
-#line 1572 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SE_TU2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1572 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SE_TU2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6719 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 428:
-/* Line 1813 of yacc.c  */
-#line 1574 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SE_TU2,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1574 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SE_TU2,(yyvsp[-1]),(yyvsp[0]));}
+#line 6725 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 429:
-/* Line 1813 of yacc.c  */
-#line 1578 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JAI_TAG_TU2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1578 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JAI_TAG_TU2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6731 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 430:
-/* Line 1813 of yacc.c  */
-#line 1580 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JAI_TAG_TU2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1580 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JAI_TAG_TU2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6737 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 431:
-/* Line 1813 of yacc.c  */
-#line 1584 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JAI_TU2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1584 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JAI_TU2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6743 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 432:
-/* Line 1813 of yacc.c  */
-#line 1586 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JAI_TU2,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1586 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JAI_TU2,(yyvsp[-1]),(yyvsp[0]));}
+#line 6749 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 433:
-/* Line 1813 of yacc.c  */
-#line 1590 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(NAHE_TU2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1590 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(NAHE_TU2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6755 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 434:
-/* Line 1813 of yacc.c  */
-#line 1592 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(NAHE_TU2,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1592 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(NAHE_TU2,(yyvsp[-1]),(yyvsp[0]));}
+#line 6761 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 435:
-/* Line 1813 of yacc.c  */
-#line 1598 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(ABSTRACTION,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1598 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(ABSTRACTION,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6767 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 436:
-/* Line 1813 of yacc.c  */
-#line 1600 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(ABSTRACTION,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1600 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(ABSTRACTION,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6773 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 437:
-/* Line 1813 of yacc.c  */
-#line 1604 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(NU_NAI_SEQ,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1604 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(NU_NAI_SEQ,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6779 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 438:
-/* Line 1813 of yacc.c  */
-#line 1606 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(NU_NAI_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1606 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(NU_NAI_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 6785 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 439:
-/* Line 1813 of yacc.c  */
-#line 1608 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(NU_NAI_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1608 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(NU_NAI_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 6791 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 440:
-/* Line 1813 of yacc.c  */
-#line 1610 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(NU_NAI_SEQ,(yyvsp[(1) - (1)]));}
+#line 1610 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(NU_NAI_SEQ,(yyvsp[0]));}
+#line 6797 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 441:
-/* Line 1813 of yacc.c  */
-#line 1612 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(NU_NAI_SEQ,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1612 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(NU_NAI_SEQ,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6803 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 442:
-/* Line 1813 of yacc.c  */
-#line 1614 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(NU_NAI_SEQ,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1614 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(NU_NAI_SEQ,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6809 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 443:
-/* Line 1813 of yacc.c  */
-#line 1616 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(NU_NAI_SEQ,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1616 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(NU_NAI_SEQ,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6815 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 444:
-/* Line 1813 of yacc.c  */
-#line 1618 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(NU_NAI_SEQ,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1618 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(NU_NAI_SEQ,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6821 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 445:
-/* Line 1813 of yacc.c  */
-#line 1620 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(NU_NAI_SEQ,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1620 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(NU_NAI_SEQ,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6827 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 446:
-/* Line 1813 of yacc.c  */
-#line 1622 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(NU_NAI_SEQ,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1622 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(NU_NAI_SEQ,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6833 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 447:
-/* Line 1813 of yacc.c  */
-#line 1624 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(NU_NAI_SEQ,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1624 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(NU_NAI_SEQ,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6839 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 448:
-/* Line 1813 of yacc.c  */
-#line 1626 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(NU_NAI_SEQ,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1626 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(NU_NAI_SEQ,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6845 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 449:
-/* Line 1813 of yacc.c  */
-#line 1628 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(NU_NAI_SEQ,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1628 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(NU_NAI_SEQ,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6851 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 450:
-/* Line 1813 of yacc.c  */
-#line 1630 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(NU_NAI_SEQ,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1630 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(NU_NAI_SEQ,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6857 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 451:
-/* Line 1813 of yacc.c  */
-#line 1632 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(NU_NAI_SEQ,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1632 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(NU_NAI_SEQ,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6863 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 452:
-/* Line 1813 of yacc.c  */
-#line 1634 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(NU_NAI_SEQ,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1634 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(NU_NAI_SEQ,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6869 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 453:
-/* Line 1813 of yacc.c  */
-#line 1636 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(NU_NAI_SEQ,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1636 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(NU_NAI_SEQ,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6875 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 454:
-/* Line 1813 of yacc.c  */
-#line 1638 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(NU_NAI_SEQ,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1638 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(NU_NAI_SEQ,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6881 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 455:
-/* Line 1813 of yacc.c  */
-#line 1640 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(NU_NAI_SEQ,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1640 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(NU_NAI_SEQ,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6887 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 456:
-/* Line 1813 of yacc.c  */
-#line 1642 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(NU_NAI_SEQ,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1642 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(NU_NAI_SEQ,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6893 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 457:
-/* Line 1813 of yacc.c  */
-#line 1649 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(LINKARGS,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1649 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(LINKARGS,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6899 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 458:
-/* Line 1813 of yacc.c  */
-#line 1651 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(LINKARGS,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1651 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(LINKARGS,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6905 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 459:
-/* Line 1813 of yacc.c  */
-#line 1653 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(LINKARGS,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1653 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(LINKARGS,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6911 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 460:
-/* Line 1813 of yacc.c  */
-#line 1655 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(LINKARGS,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1655 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(LINKARGS,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6917 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 461:
-/* Line 1813 of yacc.c  */
-#line 1657 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(LINKARGS,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1657 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(LINKARGS,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6923 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 462:
-/* Line 1813 of yacc.c  */
-#line 1659 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(LINKARGS,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1659 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(LINKARGS,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6929 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 463:
-/* Line 1813 of yacc.c  */
-#line 1661 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(LINKARGS,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1661 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(LINKARGS,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6935 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 464:
-/* Line 1813 of yacc.c  */
-#line 1663 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(LINKARGS,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1663 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(LINKARGS,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6941 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 465:
-/* Line 1813 of yacc.c  */
-#line 1669 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(LINKS,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1669 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(LINKS,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6947 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 466:
-/* Line 1813 of yacc.c  */
-#line 1671 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(LINKS,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1671 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(LINKS,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6953 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 467:
-/* Line 1813 of yacc.c  */
-#line 1673 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(LINKS,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1673 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(LINKS,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6959 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 468:
-/* Line 1813 of yacc.c  */
-#line 1675 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(LINKS,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1675 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(LINKS,(yyvsp[-1]),(yyvsp[0]));}
+#line 6965 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 469:
-/* Line 1813 of yacc.c  */
-#line 1681 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(QUANTIFIER,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1681 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(QUANTIFIER,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6971 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 470:
-/* Line 1813 of yacc.c  */
-#line 1683 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(QUANTIFIER,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1683 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(QUANTIFIER,(yyvsp[-1]),(yyvsp[0]));}
+#line 6977 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 471:
-/* Line 1813 of yacc.c  */
-#line 1685 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(QUANTIFIER,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1685 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(QUANTIFIER,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6983 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 472:
-/* Line 1813 of yacc.c  */
-#line 1687 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(QUANTIFIER,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1687 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(QUANTIFIER,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6989 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 473:
-/* Line 1813 of yacc.c  */
-#line 1689 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(QUANTIFIER,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1689 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(QUANTIFIER,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 6995 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 474:
-/* Line 1813 of yacc.c  */
-#line 1691 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(QUANTIFIER,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1691 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(QUANTIFIER,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7001 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 475:
-/* Line 1813 of yacc.c  */
-#line 1697 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(MEX,(yyvsp[(1) - (1)]));}
+#line 1697 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(MEX,(yyvsp[0]));}
+#line 7007 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 476:
-/* Line 1813 of yacc.c  */
-#line 1699 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(MEX,(yyvsp[(1) - (1)]));}
+#line 1699 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(MEX,(yyvsp[0]));}
+#line 7013 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 477:
-/* Line 1813 of yacc.c  */
-#line 1703 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(MEX_RP,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1703 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(MEX_RP,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7019 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 478:
-/* Line 1813 of yacc.c  */
-#line 1705 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(MEX_RP,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1705 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(MEX_RP,(yyvsp[-1]),(yyvsp[0]));}
+#line 7025 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 479:
-/* Line 1813 of yacc.c  */
-#line 1709 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(MEX_INFIX,(yyvsp[(1) - (1)]));}
+#line 1709 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(MEX_INFIX,(yyvsp[0]));}
+#line 7031 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 480:
-/* Line 1813 of yacc.c  */
-#line 1711 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(MEX_INFIX,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1711 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(MEX_INFIX,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7037 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 481:
-/* Line 1813 of yacc.c  */
-#line 1717 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(MEX_1,(yyvsp[(1) - (1)]));}
+#line 1717 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(MEX_1,(yyvsp[0]));}
+#line 7043 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 482:
-/* Line 1813 of yacc.c  */
-#line 1719 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(MEX_1,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1719 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(MEX_1,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7049 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 483:
-/* Line 1813 of yacc.c  */
-#line 1721 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(MEX_1,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1721 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(MEX_1,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7055 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 484:
-/* Line 1813 of yacc.c  */
-#line 1727 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(MEX_2,(yyvsp[(1) - (1)]));}
+#line 1727 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(MEX_2,(yyvsp[0]));}
+#line 7061 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 485:
-/* Line 1813 of yacc.c  */
-#line 1729 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(MEX_2,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1729 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(MEX_2,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7067 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 486:
-/* Line 1813 of yacc.c  */
-#line 1731 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(MEX_2,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1731 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(MEX_2,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7073 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 487:
-/* Line 1813 of yacc.c  */
-#line 1734 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(MEX_2,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1734 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(MEX_2,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7079 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 488:
-/* Line 1813 of yacc.c  */
-#line 1736 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(MEX_2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1736 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(MEX_2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7085 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 489:
-/* Line 1813 of yacc.c  */
-#line 1739 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(MEX_2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1739 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(MEX_2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7091 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 490:
-/* Line 1813 of yacc.c  */
-#line 1741 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(MEX_2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1741 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(MEX_2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7097 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 491:
-/* Line 1813 of yacc.c  */
-#line 1745 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(MEX_2_SEQ,(yyvsp[(1) - (1)]));}
+#line 1745 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(MEX_2_SEQ,(yyvsp[0]));}
+#line 7103 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 492:
-/* Line 1813 of yacc.c  */
-#line 1747 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(MEX_2_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1747 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(MEX_2_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 7109 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 493:
-/* Line 1813 of yacc.c  */
-#line 1753 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(RP_EXPRESSION,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1753 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(RP_EXPRESSION,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7115 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 494:
-/* Line 1813 of yacc.c  */
-#line 1755 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(RP_EXPRESSION,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1755 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(RP_EXPRESSION,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7121 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 495:
-/* Line 1813 of yacc.c  */
-#line 1757 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(RP_EXPRESSION,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1757 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(RP_EXPRESSION,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7127 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 496:
-/* Line 1813 of yacc.c  */
-#line 1759 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(RP_EXPRESSION,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1759 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(RP_EXPRESSION,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7133 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 497:
-/* Line 1813 of yacc.c  */
-#line 1769 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(OPERATOR,(yyvsp[(1) - (1)]));}
+#line 1769 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(OPERATOR,(yyvsp[0]));}
+#line 7139 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 498:
-/* Line 1813 of yacc.c  */
-#line 1771 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERATOR,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1771 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERATOR,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7145 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 499:
-/* Line 1813 of yacc.c  */
-#line 1773 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERATOR,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1773 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERATOR,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7151 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 500:
-/* Line 1813 of yacc.c  */
-#line 1775 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERATOR,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1775 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERATOR,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7157 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 501:
-/* Line 1813 of yacc.c  */
-#line 1777 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERATOR,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1777 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERATOR,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7163 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 502:
-/* Line 1813 of yacc.c  */
-#line 1779 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERATOR,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1779 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERATOR,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7169 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 503:
-/* Line 1813 of yacc.c  */
-#line 1783 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(KE_OPERATOR,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1783 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(KE_OPERATOR,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7175 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 504:
-/* Line 1813 of yacc.c  */
-#line 1785 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(KE_OPERATOR,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1785 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(KE_OPERATOR,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7181 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 505:
-/* Line 1813 of yacc.c  */
-#line 1787 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(KE_OPERATOR,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1787 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(KE_OPERATOR,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7187 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 506:
-/* Line 1813 of yacc.c  */
-#line 1789 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(KE_OPERATOR,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1789 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(KE_OPERATOR,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7193 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 507:
-/* Line 1813 of yacc.c  */
-#line 1796 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(OPERATOR_1,(yyvsp[(1) - (1)]));}
+#line 1796 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(OPERATOR_1,(yyvsp[0]));}
+#line 7199 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 508:
-/* Line 1813 of yacc.c  */
-#line 1798 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERATOR_1,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1798 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERATOR_1,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7205 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 509:
-/* Line 1813 of yacc.c  */
-#line 1800 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERATOR_1,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1800 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERATOR_1,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7211 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 510:
-/* Line 1813 of yacc.c  */
-#line 1807 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(OPERATOR_2,(yyvsp[(1) - (1)]));}
+#line 1807 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(OPERATOR_2,(yyvsp[0]));}
+#line 7217 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 511:
-/* Line 1813 of yacc.c  */
-#line 1809 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(OPERATOR_2,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1809 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(OPERATOR_2,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7223 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 512:
-/* Line 1813 of yacc.c  */
-#line 1811 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERATOR_2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1811 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERATOR_2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7229 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 513:
-/* Line 1813 of yacc.c  */
-#line 1813 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERATOR_2,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1813 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERATOR_2,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7235 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 514:
-/* Line 1813 of yacc.c  */
-#line 1815 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERATOR_2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1815 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERATOR_2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7241 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 515:
-/* Line 1813 of yacc.c  */
-#line 1822 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(MEX_OPERATOR,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1822 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(MEX_OPERATOR,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7247 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 516:
-/* Line 1813 of yacc.c  */
-#line 1824 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(MEX_OPERATOR,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1824 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(MEX_OPERATOR,(yyvsp[-1]),(yyvsp[0]));}
+#line 7253 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 517:
-/* Line 1813 of yacc.c  */
-#line 1826 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(MEX_OPERATOR,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1826 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(MEX_OPERATOR,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7259 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 518:
-/* Line 1813 of yacc.c  */
-#line 1828 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(MEX_OPERATOR,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1828 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(MEX_OPERATOR,(yyvsp[-1]),(yyvsp[0]));}
+#line 7265 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 519:
-/* Line 1813 of yacc.c  */
-#line 1830 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(MEX_OPERATOR,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1830 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(MEX_OPERATOR,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7271 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 520:
-/* Line 1813 of yacc.c  */
-#line 1832 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(MEX_OPERATOR,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1832 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(MEX_OPERATOR,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7277 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 521:
-/* Line 1813 of yacc.c  */
-#line 1834 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(MEX_OPERATOR,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1834 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(MEX_OPERATOR,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7283 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 522:
-/* Line 1813 of yacc.c  */
-#line 1836 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(MEX_OPERATOR,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1836 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(MEX_OPERATOR,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7289 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 523:
-/* Line 1813 of yacc.c  */
-#line 1838 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(MEX_OPERATOR,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1838 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(MEX_OPERATOR,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7295 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 524:
-/* Line 1813 of yacc.c  */
-#line 1840 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(MEX_OPERATOR,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1840 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(MEX_OPERATOR,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7301 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 525:
-/* Line 1813 of yacc.c  */
-#line 1842 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(MEX_OPERATOR,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1842 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(MEX_OPERATOR,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7307 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 526:
-/* Line 1813 of yacc.c  */
-#line 1844 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(MEX_OPERATOR,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1844 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(MEX_OPERATOR,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7313 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 527:
-/* Line 1813 of yacc.c  */
-#line 1846 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(MEX_OPERATOR,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1846 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(MEX_OPERATOR,(yyvsp[-1]),(yyvsp[0]));}
+#line 7319 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 528:
-/* Line 1813 of yacc.c  */
-#line 1848 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(MEX_OPERATOR,(yyvsp[(1) - (1)]));}
+#line 1848 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(MEX_OPERATOR,(yyvsp[0]));}
+#line 7325 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 529:
-/* Line 1813 of yacc.c  */
-#line 1854 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(OPERAND,(yyvsp[(1) - (1)]));}
+#line 1854 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(OPERAND,(yyvsp[0]));}
+#line 7331 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 530:
-/* Line 1813 of yacc.c  */
-#line 1856 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERAND,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1856 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERAND,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7337 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 531:
-/* Line 1813 of yacc.c  */
-#line 1860 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(KE_OPERAND,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1860 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(KE_OPERAND,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7343 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 532:
-/* Line 1813 of yacc.c  */
-#line 1862 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(KE_OPERAND,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1862 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(KE_OPERAND,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7349 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 533:
-/* Line 1813 of yacc.c  */
-#line 1864 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(KE_OPERAND,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1864 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(KE_OPERAND,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7355 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 534:
-/* Line 1813 of yacc.c  */
-#line 1866 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(KE_OPERAND,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1866 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(KE_OPERAND,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7361 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 535:
-/* Line 1813 of yacc.c  */
-#line 1873 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(OPERAND_1,(yyvsp[(1) - (1)]));}
+#line 1873 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(OPERAND_1,(yyvsp[0]));}
+#line 7367 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 536:
-/* Line 1813 of yacc.c  */
-#line 1875 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERAND_1,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1875 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERAND_1,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7373 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 537:
-/* Line 1813 of yacc.c  */
-#line 1877 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERAND_1,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1877 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERAND_1,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7379 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 538:
-/* Line 1813 of yacc.c  */
-#line 1879 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERAND_1,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1879 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERAND_1,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7385 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 539:
-/* Line 1813 of yacc.c  */
-#line 1881 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERAND_1,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1881 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERAND_1,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7391 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 540:
-/* Line 1813 of yacc.c  */
-#line 1888 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(OPERAND_2,(yyvsp[(1) - (1)]));}
+#line 1888 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(OPERAND_2,(yyvsp[0]));}
+#line 7397 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 541:
-/* Line 1813 of yacc.c  */
-#line 1890 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERAND_2,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1890 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERAND_2,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7403 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 542:
-/* Line 1813 of yacc.c  */
-#line 1898 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(OPERAND_3,(yyvsp[(1) - (1)]));}
+#line 1898 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(OPERAND_3,(yyvsp[0]));}
+#line 7409 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 543:
-/* Line 1813 of yacc.c  */
-#line 1901 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERAND_3,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1901 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERAND_3,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7415 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 544:
-/* Line 1813 of yacc.c  */
-#line 1903 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(OPERAND_3,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1903 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(OPERAND_3,(yyvsp[-1]),(yyvsp[0]));}
+#line 7421 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 545:
-/* Line 1813 of yacc.c  */
-#line 1906 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(OPERAND_3,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1906 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(OPERAND_3,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7427 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 546:
-/* Line 1813 of yacc.c  */
-#line 1908 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERAND_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1908 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERAND_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7433 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 547:
-/* Line 1813 of yacc.c  */
-#line 1910 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERAND_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1910 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERAND_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7439 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 548:
-/* Line 1813 of yacc.c  */
-#line 1912 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERAND_3,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1912 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERAND_3,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7445 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 549:
-/* Line 1813 of yacc.c  */
-#line 1915 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(OPERAND_3,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1915 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(OPERAND_3,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7451 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 550:
-/* Line 1813 of yacc.c  */
-#line 1917 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERAND_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1917 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERAND_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7457 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 551:
-/* Line 1813 of yacc.c  */
-#line 1919 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERAND_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1919 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERAND_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7463 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 552:
-/* Line 1813 of yacc.c  */
-#line 1921 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERAND_3,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1921 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERAND_3,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7469 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 553:
-/* Line 1813 of yacc.c  */
-#line 1924 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(OPERAND_3,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1924 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(OPERAND_3,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7475 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 554:
-/* Line 1813 of yacc.c  */
-#line 1926 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERAND_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1926 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERAND_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7481 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 555:
-/* Line 1813 of yacc.c  */
-#line 1928 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERAND_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1928 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERAND_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7487 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 556:
-/* Line 1813 of yacc.c  */
-#line 1930 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERAND_3,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1930 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERAND_3,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7493 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 557:
-/* Line 1813 of yacc.c  */
-#line 1933 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERAND_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1933 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERAND_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7499 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 558:
-/* Line 1813 of yacc.c  */
-#line 1936 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(OPERAND_3,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1936 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(OPERAND_3,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7505 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 559:
-/* Line 1813 of yacc.c  */
-#line 1938 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERAND_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1938 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERAND_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7511 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 560:
-/* Line 1813 of yacc.c  */
-#line 1940 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERAND_3,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1940 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERAND_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7517 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 561:
-/* Line 1813 of yacc.c  */
-#line 1942 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(OPERAND_3,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1942 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(OPERAND_3,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7523 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 562:
-/* Line 1813 of yacc.c  */
-#line 1945 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(OPERAND_3,(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]),(yyvsp[(7) - (7)]));}
+#line 1945 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(OPERAND_3,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7529 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 563:
-/* Line 1813 of yacc.c  */
-#line 1947 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(OPERAND_3,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1947 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(OPERAND_3,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7535 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 564:
-/* Line 1813 of yacc.c  */
-#line 1949 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(OPERAND_3,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 1949 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(OPERAND_3,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7541 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 565:
-/* Line 1813 of yacc.c  */
-#line 1951 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(OPERAND_3,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1951 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(OPERAND_3,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7547 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 566:
-/* Line 1813 of yacc.c  */
-#line 1958 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(NUMBER,(yyvsp[(1) - (1)]));}
+#line 1958 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(NUMBER,(yyvsp[0]));}
+#line 7553 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 567:
-/* Line 1813 of yacc.c  */
-#line 1962 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(INNER_NUMBER,(yyvsp[(1) - (1)]));}
+#line 1962 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(INNER_NUMBER,(yyvsp[0]));}
+#line 7559 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 568:
-/* Line 1813 of yacc.c  */
-#line 1964 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(INNER_NUMBER,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1964 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(INNER_NUMBER,(yyvsp[-1]),(yyvsp[0]));}
+#line 7565 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 569:
-/* Line 1813 of yacc.c  */
-#line 1966 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(INNER_NUMBER,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1966 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(INNER_NUMBER,(yyvsp[-1]),(yyvsp[0]));}
+#line 7571 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 570:
-/* Line 1813 of yacc.c  */
-#line 1973 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(LERFU_STRING,(yyvsp[(1) - (1)]));}
+#line 1973 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(LERFU_STRING,(yyvsp[0]));}
+#line 7577 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 571:
-/* Line 1813 of yacc.c  */
-#line 1975 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(LERFU_STRING,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1975 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(LERFU_STRING,(yyvsp[-1]),(yyvsp[0]));}
+#line 7583 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 572:
-/* Line 1813 of yacc.c  */
-#line 1977 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(LERFU_STRING,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1977 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(LERFU_STRING,(yyvsp[-1]),(yyvsp[0]));}
+#line 7589 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 573:
-/* Line 1813 of yacc.c  */
-#line 1984 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(LERFU_WORD,(yyvsp[(1) - (1)]));}
+#line 1984 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(LERFU_WORD,(yyvsp[0]));}
+#line 7595 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 574:
-/* Line 1813 of yacc.c  */
-#line 1986 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(LERFU_WORD,(yyvsp[(1) - (1)]));}
+#line 1986 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(LERFU_WORD,(yyvsp[0]));}
+#line 7601 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 575:
-/* Line 1813 of yacc.c  */
-#line 1988 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(LERFU_WORD,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 1988 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(LERFU_WORD,(yyvsp[-1]),(yyvsp[0]));}
+#line 7607 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 576:
-/* Line 1813 of yacc.c  */
-#line 1990 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(LERFU_WORD,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 1990 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(LERFU_WORD,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7613 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 577:
-/* Line 1813 of yacc.c  */
-#line 1996 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(EK,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 1996 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(EK,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7619 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 578:
-/* Line 1813 of yacc.c  */
-#line 1998 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(EK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 1998 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(EK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7625 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 579:
-/* Line 1813 of yacc.c  */
-#line 2000 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(EK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2000 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(EK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7631 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 580:
-/* Line 1813 of yacc.c  */
-#line 2002 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(EK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2002 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(EK,(yyvsp[-1]),(yyvsp[0]));}
+#line 7637 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 581:
-/* Line 1813 of yacc.c  */
-#line 2004 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(EK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2004 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(EK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7643 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 582:
-/* Line 1813 of yacc.c  */
-#line 2006 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(EK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2006 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(EK,(yyvsp[-1]),(yyvsp[0]));}
+#line 7649 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 583:
-/* Line 1813 of yacc.c  */
-#line 2008 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(EK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2008 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(EK,(yyvsp[-1]),(yyvsp[0]));}
+#line 7655 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 584:
-/* Line 1813 of yacc.c  */
-#line 2010 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(EK,(yyvsp[(2) - (2)]));}
+#line 2010 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(EK,(yyvsp[0]));}
+#line 7661 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 585:
-/* Line 1813 of yacc.c  */
-#line 2016 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(GIHEK,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2016 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(GIHEK,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7667 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 586:
-/* Line 1813 of yacc.c  */
-#line 2018 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GIHEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2018 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GIHEK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7673 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 587:
-/* Line 1813 of yacc.c  */
-#line 2020 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GIHEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2020 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GIHEK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7679 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 588:
-/* Line 1813 of yacc.c  */
-#line 2022 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GIHEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2022 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GIHEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 7685 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 589:
-/* Line 1813 of yacc.c  */
-#line 2024 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GIHEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2024 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GIHEK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 7691 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 590:
-/* Line 1813 of yacc.c  */
-#line 2026 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GIHEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2026 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GIHEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 7697 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 591:
-/* Line 1813 of yacc.c  */
-#line 2028 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GIHEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2028 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GIHEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 7703 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 592:
-/* Line 1813 of yacc.c  */
-#line 2030 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(GIHEK,(yyvsp[(2) - (2)]));}
+#line 2030 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(GIHEK,(yyvsp[0]));}
+#line 7709 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 593:
-/* Line 1813 of yacc.c  */
-#line 2036 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JEK,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2036 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JEK,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7715 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 594:
-/* Line 1813 of yacc.c  */
-#line 2038 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2038 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7721 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 595:
-/* Line 1813 of yacc.c  */
-#line 2040 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2040 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7727 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 596:
-/* Line 1813 of yacc.c  */
-#line 2042 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2042 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7733 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 597:
-/* Line 1813 of yacc.c  */
-#line 2044 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2044 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7739 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 598:
-/* Line 1813 of yacc.c  */
-#line 2046 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2046 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7745 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 599:
-/* Line 1813 of yacc.c  */
-#line 2048 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2048 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7751 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 600:
-/* Line 1813 of yacc.c  */
-#line 2050 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JEK,(yyvsp[(2) - (3)]));}
+#line 2050 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JEK,(yyvsp[-1]));}
+#line 7757 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 601:
-/* Line 1813 of yacc.c  */
-#line 2054 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JEK_OPT_KE,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2054 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JEK_OPT_KE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7763 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 602:
-/* Line 1813 of yacc.c  */
-#line 2056 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KE,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2056 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7769 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 603:
-/* Line 1813 of yacc.c  */
-#line 2058 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KE,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2058 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7775 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 604:
-/* Line 1813 of yacc.c  */
-#line 2060 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KE,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2060 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7781 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 605:
-/* Line 1813 of yacc.c  */
-#line 2062 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KE,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2062 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7787 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 606:
-/* Line 1813 of yacc.c  */
-#line 2064 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KE,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2064 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7793 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 607:
-/* Line 1813 of yacc.c  */
-#line 2066 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KE,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2066 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7799 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 608:
-/* Line 1813 of yacc.c  */
-#line 2068 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JEK_OPT_KE,(yyvsp[(2) - (3)]));}
+#line 2068 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JEK_OPT_KE,(yyvsp[-1]));}
+#line 7805 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 609:
-/* Line 1813 of yacc.c  */
-#line 2070 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JEK_OPT_KE,(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2070 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JEK_OPT_KE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7811 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 610:
-/* Line 1813 of yacc.c  */
-#line 2072 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KE,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2072 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7817 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 611:
-/* Line 1813 of yacc.c  */
-#line 2074 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KE,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2074 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7823 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 612:
-/* Line 1813 of yacc.c  */
-#line 2076 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KE,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2076 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7829 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 613:
-/* Line 1813 of yacc.c  */
-#line 2078 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KE,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2078 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7835 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 614:
-/* Line 1813 of yacc.c  */
-#line 2080 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KE,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2080 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7841 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 615:
-/* Line 1813 of yacc.c  */
-#line 2082 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KE,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2082 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7847 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 616:
-/* Line 1813 of yacc.c  */
-#line 2084 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JEK_OPT_KE,(yyvsp[(3) - (4)]));}
+#line 2084 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JEK_OPT_KE,(yyvsp[-1]));}
+#line 7853 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 617:
-/* Line 1813 of yacc.c  */
-#line 2088 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JEK_OPT_KEBO,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2088 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JEK_OPT_KEBO,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7859 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 618:
-/* Line 1813 of yacc.c  */
-#line 2090 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2090 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7865 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 619:
-/* Line 1813 of yacc.c  */
-#line 2092 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2092 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7871 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 620:
-/* Line 1813 of yacc.c  */
-#line 2094 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2094 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7877 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 621:
-/* Line 1813 of yacc.c  */
-#line 2096 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2096 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7883 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 622:
-/* Line 1813 of yacc.c  */
-#line 2098 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2098 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7889 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 623:
-/* Line 1813 of yacc.c  */
-#line 2100 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2100 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7895 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 624:
-/* Line 1813 of yacc.c  */
-#line 2102 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JEK_OPT_KEBO,(yyvsp[(2) - (3)]));}
+#line 2102 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JEK_OPT_KEBO,(yyvsp[-1]));}
+#line 7901 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 625:
-/* Line 1813 of yacc.c  */
-#line 2104 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JEK_OPT_KEBO,(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2104 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JEK_OPT_KEBO,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7907 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 626:
-/* Line 1813 of yacc.c  */
-#line 2106 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2106 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7913 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 627:
-/* Line 1813 of yacc.c  */
-#line 2108 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2108 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7919 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 628:
-/* Line 1813 of yacc.c  */
-#line 2110 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2110 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7925 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 629:
-/* Line 1813 of yacc.c  */
-#line 2112 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2112 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7931 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 630:
-/* Line 1813 of yacc.c  */
-#line 2114 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2114 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7937 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 631:
-/* Line 1813 of yacc.c  */
-#line 2116 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2116 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7943 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 632:
-/* Line 1813 of yacc.c  */
-#line 2118 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JEK_OPT_KEBO,(yyvsp[(3) - (4)]));}
+#line 2118 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JEK_OPT_KEBO,(yyvsp[-1]));}
+#line 7949 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 633:
-/* Line 1813 of yacc.c  */
-#line 2120 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JEK_OPT_KEBO,(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2120 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JEK_OPT_KEBO,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7955 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 634:
-/* Line 1813 of yacc.c  */
-#line 2122 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2122 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7961 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 635:
-/* Line 1813 of yacc.c  */
-#line 2124 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2124 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7967 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 636:
-/* Line 1813 of yacc.c  */
-#line 2126 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2126 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7973 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 637:
-/* Line 1813 of yacc.c  */
-#line 2128 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2128 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JEK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 7979 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 638:
-/* Line 1813 of yacc.c  */
-#line 2130 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2130 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7985 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 639:
-/* Line 1813 of yacc.c  */
-#line 2132 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2132 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JEK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 7991 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 640:
-/* Line 1813 of yacc.c  */
-#line 2134 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JEK_OPT_KEBO,(yyvsp[(3) - (4)]));}
+#line 2134 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JEK_OPT_KEBO,(yyvsp[-1]));}
+#line 7997 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 641:
-/* Line 1813 of yacc.c  */
-#line 2140 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2140 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8003 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 642:
-/* Line 1813 of yacc.c  */
-#line 2142 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2142 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8009 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 643:
-/* Line 1813 of yacc.c  */
-#line 2144 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2144 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8015 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 644:
-/* Line 1813 of yacc.c  */
-#line 2146 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK,(yyvsp[(2) - (3)]));}
+#line 2146 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK,(yyvsp[-1]));}
+#line 8021 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 645:
-/* Line 1813 of yacc.c  */
-#line 2148 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2148 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8027 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 646:
-/* Line 1813 of yacc.c  */
-#line 2150 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2150 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8033 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 647:
-/* Line 1813 of yacc.c  */
-#line 2152 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2152 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8039 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 648:
-/* Line 1813 of yacc.c  */
-#line 2154 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK,(yyvsp[(2) - (3)]));}
+#line 2154 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK,(yyvsp[-1]));}
+#line 8045 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 649:
-/* Line 1813 of yacc.c  */
-#line 2156 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(JOIK,(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2156 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(JOIK,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8051 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 650:
-/* Line 1813 of yacc.c  */
-#line 2158 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2158 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8057 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 651:
-/* Line 1813 of yacc.c  */
-#line 2160 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2160 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8063 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 652:
-/* Line 1813 of yacc.c  */
-#line 2162 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2162 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8069 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 653:
-/* Line 1813 of yacc.c  */
-#line 2168 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KE,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2168 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8075 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 654:
-/* Line 1813 of yacc.c  */
-#line 2170 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2170 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8081 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 655:
-/* Line 1813 of yacc.c  */
-#line 2172 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2172 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8087 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 656:
-/* Line 1813 of yacc.c  */
-#line 2174 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK_OPT_KE,(yyvsp[(2) - (3)]));}
+#line 2174 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK_OPT_KE,(yyvsp[-1]));}
+#line 8093 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 657:
-/* Line 1813 of yacc.c  */
-#line 2176 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KE,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2176 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8099 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 658:
-/* Line 1813 of yacc.c  */
-#line 2178 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2178 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8105 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 659:
-/* Line 1813 of yacc.c  */
-#line 2180 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2180 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8111 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 660:
-/* Line 1813 of yacc.c  */
-#line 2182 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK_OPT_KE,(yyvsp[(2) - (3)]));}
+#line 2182 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK_OPT_KE,(yyvsp[-1]));}
+#line 8117 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 661:
-/* Line 1813 of yacc.c  */
-#line 2184 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(JOIK_OPT_KE,(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2184 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(JOIK_OPT_KE,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8123 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 662:
-/* Line 1813 of yacc.c  */
-#line 2186 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_OPT_KE,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2186 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_OPT_KE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8129 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 663:
-/* Line 1813 of yacc.c  */
-#line 2188 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_OPT_KE,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2188 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_OPT_KE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8135 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 664:
-/* Line 1813 of yacc.c  */
-#line 2190 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KE,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2190 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8141 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 665:
-/* Line 1813 of yacc.c  */
-#line 2192 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KE,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2192 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8147 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 666:
-/* Line 1813 of yacc.c  */
-#line 2194 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2194 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8153 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 667:
-/* Line 1813 of yacc.c  */
-#line 2196 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2196 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8159 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 668:
-/* Line 1813 of yacc.c  */
-#line 2198 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK_OPT_KE,(yyvsp[(3) - (4)]));}
+#line 2198 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK_OPT_KE,(yyvsp[-1]));}
+#line 8165 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 669:
-/* Line 1813 of yacc.c  */
-#line 2200 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KE,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2200 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8171 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 670:
-/* Line 1813 of yacc.c  */
-#line 2202 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2202 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8177 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 671:
-/* Line 1813 of yacc.c  */
-#line 2204 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2204 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KE,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8183 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 672:
-/* Line 1813 of yacc.c  */
-#line 2206 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK_OPT_KE,(yyvsp[(3) - (4)]));}
+#line 2206 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK_OPT_KE,(yyvsp[-1]));}
+#line 8189 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 673:
-/* Line 1813 of yacc.c  */
-#line 2208 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(JOIK_OPT_KE,(yyvsp[(3) - (8)]),(yyvsp[(4) - (8)]),(yyvsp[(5) - (8)]),(yyvsp[(6) - (8)]),(yyvsp[(7) - (8)]));}
+#line 2208 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(JOIK_OPT_KE,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8195 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 674:
-/* Line 1813 of yacc.c  */
-#line 2210 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_OPT_KE,(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2210 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_OPT_KE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8201 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 675:
-/* Line 1813 of yacc.c  */
-#line 2212 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_OPT_KE,(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2212 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_OPT_KE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8207 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 676:
-/* Line 1813 of yacc.c  */
-#line 2214 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KE,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2214 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8213 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 677:
-/* Line 1813 of yacc.c  */
-#line 2218 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2218 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8219 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 678:
-/* Line 1813 of yacc.c  */
-#line 2220 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2220 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8225 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 679:
-/* Line 1813 of yacc.c  */
-#line 2222 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2222 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8231 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 680:
-/* Line 1813 of yacc.c  */
-#line 2224 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK_OPT_KEBO,(yyvsp[(2) - (3)]));}
+#line 2224 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK_OPT_KEBO,(yyvsp[-1]));}
+#line 8237 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 681:
-/* Line 1813 of yacc.c  */
-#line 2226 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2226 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8243 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 682:
-/* Line 1813 of yacc.c  */
-#line 2228 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2228 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8249 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 683:
-/* Line 1813 of yacc.c  */
-#line 2230 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2230 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8255 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 684:
-/* Line 1813 of yacc.c  */
-#line 2232 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK_OPT_KEBO,(yyvsp[(2) - (3)]));}
+#line 2232 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK_OPT_KEBO,(yyvsp[-1]));}
+#line 8261 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 685:
-/* Line 1813 of yacc.c  */
-#line 2234 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(JOIK_OPT_KEBO,(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2234 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(JOIK_OPT_KEBO,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8267 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 686:
-/* Line 1813 of yacc.c  */
-#line 2236 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_OPT_KEBO,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2236 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_OPT_KEBO,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8273 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 687:
-/* Line 1813 of yacc.c  */
-#line 2238 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_OPT_KEBO,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2238 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_OPT_KEBO,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8279 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 688:
-/* Line 1813 of yacc.c  */
-#line 2240 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2240 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8285 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 689:
-/* Line 1813 of yacc.c  */
-#line 2242 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2242 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8291 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 690:
-/* Line 1813 of yacc.c  */
-#line 2244 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2244 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8297 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 691:
-/* Line 1813 of yacc.c  */
-#line 2246 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2246 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8303 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 692:
-/* Line 1813 of yacc.c  */
-#line 2248 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK_OPT_KEBO,(yyvsp[(3) - (4)]));}
+#line 2248 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK_OPT_KEBO,(yyvsp[-1]));}
+#line 8309 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 693:
-/* Line 1813 of yacc.c  */
-#line 2250 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2250 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8315 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 694:
-/* Line 1813 of yacc.c  */
-#line 2252 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2252 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8321 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 695:
-/* Line 1813 of yacc.c  */
-#line 2254 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2254 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8327 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 696:
-/* Line 1813 of yacc.c  */
-#line 2256 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK_OPT_KEBO,(yyvsp[(3) - (4)]));}
+#line 2256 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK_OPT_KEBO,(yyvsp[-1]));}
+#line 8333 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 697:
-/* Line 1813 of yacc.c  */
-#line 2258 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(JOIK_OPT_KEBO,(yyvsp[(3) - (8)]),(yyvsp[(4) - (8)]),(yyvsp[(5) - (8)]),(yyvsp[(6) - (8)]),(yyvsp[(7) - (8)]));}
+#line 2258 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(JOIK_OPT_KEBO,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8339 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 698:
-/* Line 1813 of yacc.c  */
-#line 2260 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_OPT_KEBO,(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2260 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_OPT_KEBO,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8345 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 699:
-/* Line 1813 of yacc.c  */
-#line 2262 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_OPT_KEBO,(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2262 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_OPT_KEBO,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8351 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 700:
-/* Line 1813 of yacc.c  */
-#line 2264 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2264 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8357 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 701:
-/* Line 1813 of yacc.c  */
-#line 2266 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2266 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8363 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 702:
-/* Line 1813 of yacc.c  */
-#line 2268 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2268 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8369 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 703:
-/* Line 1813 of yacc.c  */
-#line 2270 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2270 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8375 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 704:
-/* Line 1813 of yacc.c  */
-#line 2272 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK_OPT_KEBO,(yyvsp[(3) - (4)]));}
+#line 2272 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK_OPT_KEBO,(yyvsp[-1]));}
+#line 8381 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 705:
-/* Line 1813 of yacc.c  */
-#line 2274 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2274 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8387 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 706:
-/* Line 1813 of yacc.c  */
-#line 2276 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2276 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8393 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 707:
-/* Line 1813 of yacc.c  */
-#line 2278 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2278 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(JOIK_OPT_KEBO,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8399 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 708:
-/* Line 1813 of yacc.c  */
-#line 2280 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(JOIK_OPT_KEBO,(yyvsp[(3) - (4)]));}
+#line 2280 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(JOIK_OPT_KEBO,(yyvsp[-1]));}
+#line 8405 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 709:
-/* Line 1813 of yacc.c  */
-#line 2282 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(JOIK_OPT_KEBO,(yyvsp[(3) - (8)]),(yyvsp[(4) - (8)]),(yyvsp[(5) - (8)]),(yyvsp[(6) - (8)]),(yyvsp[(7) - (8)]));}
+#line 2282 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(JOIK_OPT_KEBO,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8411 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 710:
-/* Line 1813 of yacc.c  */
-#line 2284 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_OPT_KEBO,(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2284 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_OPT_KEBO,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8417 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 711:
-/* Line 1813 of yacc.c  */
-#line 2286 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(JOIK_OPT_KEBO,(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2286 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(JOIK_OPT_KEBO,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8423 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 712:
-/* Line 1813 of yacc.c  */
-#line 2288 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2288 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(JOIK_OPT_KEBO,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8429 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 713:
-/* Line 1813 of yacc.c  */
-#line 2299 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(GEK,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2299 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(GEK,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8435 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 714:
-/* Line 1813 of yacc.c  */
-#line 2301 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2301 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GEK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8441 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 715:
-/* Line 1813 of yacc.c  */
-#line 2303 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2303 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GEK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8447 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 716:
-/* Line 1813 of yacc.c  */
-#line 2305 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2305 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 8453 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 717:
-/* Line 1813 of yacc.c  */
-#line 2307 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2307 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GEK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8459 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 718:
-/* Line 1813 of yacc.c  */
-#line 2309 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2309 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 8465 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 719:
-/* Line 1813 of yacc.c  */
-#line 2311 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2311 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 8471 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 720:
-/* Line 1813 of yacc.c  */
-#line 2313 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(GEK,(yyvsp[(2) - (2)]));}
+#line 2313 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(GEK,(yyvsp[0]));}
+#line 8477 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 721:
-/* Line 1813 of yacc.c  */
-#line 2315 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2315 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GEK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8483 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 722:
-/* Line 1813 of yacc.c  */
-#line 2317 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2317 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 8489 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 723:
-/* Line 1813 of yacc.c  */
-#line 2319 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2319 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 8495 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 724:
-/* Line 1813 of yacc.c  */
-#line 2325 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(GUHEK,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2325 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(GUHEK,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8501 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 725:
-/* Line 1813 of yacc.c  */
-#line 2327 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GUHEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2327 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GUHEK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8507 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 726:
-/* Line 1813 of yacc.c  */
-#line 2329 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GUHEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2329 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GUHEK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8513 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 727:
-/* Line 1813 of yacc.c  */
-#line 2331 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GUHEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2331 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GUHEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 8519 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 728:
-/* Line 1813 of yacc.c  */
-#line 2333 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GUHEK,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2333 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GUHEK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8525 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 729:
-/* Line 1813 of yacc.c  */
-#line 2335 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GUHEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2335 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GUHEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 8531 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 730:
-/* Line 1813 of yacc.c  */
-#line 2337 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GUHEK,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2337 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GUHEK,(yyvsp[-1]),(yyvsp[0]));}
+#line 8537 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 731:
-/* Line 1813 of yacc.c  */
-#line 2339 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(GUHEK,(yyvsp[(2) - (2)]));}
+#line 2339 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(GUHEK,(yyvsp[0]));}
+#line 8543 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 732:
-/* Line 1813 of yacc.c  */
-#line 2345 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(GIK,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2345 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(GIK,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8549 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 733:
-/* Line 1813 of yacc.c  */
-#line 2347 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GIK,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2347 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GIK,(yyvsp[-1]),(yyvsp[0]));}
+#line 8555 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 734:
-/* Line 1813 of yacc.c  */
-#line 2349 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(GIK,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2349 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(GIK,(yyvsp[-1]),(yyvsp[0]));}
+#line 8561 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 735:
-/* Line 1813 of yacc.c  */
-#line 2351 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(GIK,(yyvsp[(1) - (1)]));}
+#line 2351 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(GIK,(yyvsp[0]));}
+#line 8567 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 736:
-/* Line 1813 of yacc.c  */
-#line 2358 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TAG,(yyvsp[(1) - (1)]));}
+#line 2358 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TAG,(yyvsp[0]));}
+#line 8573 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 737:
-/* Line 1813 of yacc.c  */
-#line 2360 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TAG,(yyvsp[(1) - (1)]));}
+#line 2360 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TAG,(yyvsp[0]));}
+#line 8579 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 738:
-/* Line 1813 of yacc.c  */
-#line 2365 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(CTAG,(yyvsp[(1) - (1)]));}
+#line 2365 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(CTAG,(yyvsp[0]));}
+#line 8585 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 739:
-/* Line 1813 of yacc.c  */
-#line 2367 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(CTAG,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2367 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(CTAG,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8591 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 740:
-/* Line 1813 of yacc.c  */
-#line 2369 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(CTAG,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2369 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(CTAG,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8597 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 741:
-/* Line 1813 of yacc.c  */
-#line 2371 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(CTAG,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2371 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(CTAG,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8603 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 742:
-/* Line 1813 of yacc.c  */
-#line 2373 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(CTAG,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2373 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(CTAG,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8609 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 743:
-/* Line 1813 of yacc.c  */
-#line 2375 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(CTAG,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2375 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(CTAG,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8615 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 744:
-/* Line 1813 of yacc.c  */
-#line 2377 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(CTAG,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2377 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(CTAG,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8621 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 745:
-/* Line 1813 of yacc.c  */
-#line 2379 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(CTAG,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2379 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(CTAG,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8627 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 746:
-/* Line 1813 of yacc.c  */
-#line 2381 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(CTAG,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2381 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(CTAG,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8633 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 747:
-/* Line 1813 of yacc.c  */
-#line 2383 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(CTAG,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2383 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(CTAG,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8639 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 748:
-/* Line 1813 of yacc.c  */
-#line 2385 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(CTAG,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2385 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(CTAG,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8645 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 749:
-/* Line 1813 of yacc.c  */
-#line 2387 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(CTAG,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2387 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(CTAG,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8651 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 750:
-/* Line 1813 of yacc.c  */
-#line 2389 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(CTAG,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2389 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(CTAG,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8657 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 751:
-/* Line 1813 of yacc.c  */
-#line 2394 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(COMPLEX_TENSE_MODAL,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2394 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(COMPLEX_TENSE_MODAL,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8663 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 752:
-/* Line 1813 of yacc.c  */
-#line 2396 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(COMPLEX_TENSE_MODAL,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2396 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(COMPLEX_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8669 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 753:
-/* Line 1813 of yacc.c  */
-#line 2398 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(COMPLEX_TENSE_MODAL,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2398 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(COMPLEX_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8675 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 754:
-/* Line 1813 of yacc.c  */
-#line 2400 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(COMPLEX_TENSE_MODAL,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2400 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(COMPLEX_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8681 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 755:
-/* Line 1813 of yacc.c  */
-#line 2402 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(COMPLEX_TENSE_MODAL,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2402 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(COMPLEX_TENSE_MODAL,(yyvsp[-1]),(yyvsp[0]));}
+#line 8687 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 756:
-/* Line 1813 of yacc.c  */
-#line 2409 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(STAG,(yyvsp[(1) - (1)]));}
+#line 2409 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(STAG,(yyvsp[0]));}
+#line 8693 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 757:
-/* Line 1813 of yacc.c  */
-#line 2411 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(STAG,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2411 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(STAG,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8699 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 758:
-/* Line 1813 of yacc.c  */
-#line 2413 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(STAG,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2413 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(STAG,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 8705 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 759:
-/* Line 1813 of yacc.c  */
-#line 2422 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2422 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8711 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 760:
-/* Line 1813 of yacc.c  */
-#line 2424 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2424 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8717 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 761:
-/* Line 1813 of yacc.c  */
-#line 2426 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2426 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8723 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 762:
-/* Line 1813 of yacc.c  */
-#line 2428 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2428 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8729 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 763:
-/* Line 1813 of yacc.c  */
-#line 2430 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2430 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8735 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 764:
-/* Line 1813 of yacc.c  */
-#line 2432 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2432 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8741 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 765:
-/* Line 1813 of yacc.c  */
-#line 2434 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2434 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8747 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 766:
-/* Line 1813 of yacc.c  */
-#line 2436 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2436 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8753 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 767:
-/* Line 1813 of yacc.c  */
-#line 2438 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2438 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8759 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 768:
-/* Line 1813 of yacc.c  */
-#line 2440 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2440 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8765 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 769:
-/* Line 1813 of yacc.c  */
-#line 2442 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2442 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8771 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 770:
-/* Line 1813 of yacc.c  */
-#line 2444 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (3)]));}
+#line 2444 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[-1]));}
+#line 8777 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 771:
-/* Line 1813 of yacc.c  */
-#line 2446 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2446 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8783 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 772:
-/* Line 1813 of yacc.c  */
-#line 2448 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2448 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8789 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 773:
-/* Line 1813 of yacc.c  */
-#line 2450 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2450 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8795 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 774:
-/* Line 1813 of yacc.c  */
-#line 2452 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (3)]));}
+#line 2452 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[-1]));}
+#line 8801 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 775:
-/* Line 1813 of yacc.c  */
-#line 2455 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2455 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(SIMPLE_TENSE_MODAL,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8807 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 776:
-/* Line 1813 of yacc.c  */
-#line 2457 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2457 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8813 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 777:
-/* Line 1813 of yacc.c  */
-#line 2459 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2459 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8819 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 778:
-/* Line 1813 of yacc.c  */
-#line 2461 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2461 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8825 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 779:
-/* Line 1813 of yacc.c  */
-#line 2463 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2463 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8831 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 780:
-/* Line 1813 of yacc.c  */
-#line 2465 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2465 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8837 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 781:
-/* Line 1813 of yacc.c  */
-#line 2467 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2467 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8843 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 782:
-/* Line 1813 of yacc.c  */
-#line 2469 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2469 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8849 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 783:
-/* Line 1813 of yacc.c  */
-#line 2471 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2471 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8855 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 784:
-/* Line 1813 of yacc.c  */
-#line 2473 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2473 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8861 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 785:
-/* Line 1813 of yacc.c  */
-#line 2475 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2475 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8867 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 786:
-/* Line 1813 of yacc.c  */
-#line 2477 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2477 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8873 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 787:
-/* Line 1813 of yacc.c  */
-#line 2479 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2479 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8879 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 788:
-/* Line 1813 of yacc.c  */
-#line 2481 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2481 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8885 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 789:
-/* Line 1813 of yacc.c  */
-#line 2483 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2483 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8891 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 790:
-/* Line 1813 of yacc.c  */
-#line 2485 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (3)]));}
+#line 2485 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[-1]));}
+#line 8897 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 791:
-/* Line 1813 of yacc.c  */
-#line 2488 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]));}
+#line 2488 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(SIMPLE_TENSE_MODAL,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8903 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 792:
-/* Line 1813 of yacc.c  */
-#line 2490 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2490 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8909 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 793:
-/* Line 1813 of yacc.c  */
-#line 2492 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2492 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8915 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 794:
-/* Line 1813 of yacc.c  */
-#line 2494 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2494 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8921 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 795:
-/* Line 1813 of yacc.c  */
-#line 2496 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2496 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8927 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 796:
-/* Line 1813 of yacc.c  */
-#line 2498 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2498 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8933 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 797:
-/* Line 1813 of yacc.c  */
-#line 2500 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2500 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8939 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 798:
-/* Line 1813 of yacc.c  */
-#line 2502 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2502 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8945 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 799:
-/* Line 1813 of yacc.c  */
-#line 2504 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]));}
+#line 2504 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SIMPLE_TENSE_MODAL,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8951 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 800:
-/* Line 1813 of yacc.c  */
-#line 2506 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2506 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8957 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 801:
-/* Line 1813 of yacc.c  */
-#line 2508 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2508 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8963 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 802:
-/* Line 1813 of yacc.c  */
-#line 2510 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2510 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8969 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 803:
-/* Line 1813 of yacc.c  */
-#line 2512 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2512 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 8975 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 804:
-/* Line 1813 of yacc.c  */
-#line 2514 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2514 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8981 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 805:
-/* Line 1813 of yacc.c  */
-#line 2516 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2516 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8987 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 806:
-/* Line 1813 of yacc.c  */
-#line 2518 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (3)]));}
+#line 2518 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[-1]));}
+#line 8993 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 807:
-/* Line 1813 of yacc.c  */
-#line 2521 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2521 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 8999 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 808:
-/* Line 1813 of yacc.c  */
-#line 2523 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (3)]));}
+#line 2523 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[-1]));}
+#line 9005 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 809:
-/* Line 1813 of yacc.c  */
-#line 2526 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]));}
+#line 2526 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SIMPLE_TENSE_MODAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));}
+#line 9011 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 810:
-/* Line 1813 of yacc.c  */
-#line 2528 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]));}
+#line 2528 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SIMPLE_TENSE_MODAL,(yyvsp[-2]),(yyvsp[-1]));}
+#line 9017 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 811:
-/* Line 1813 of yacc.c  */
-#line 2531 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (3)]));}
+#line 2531 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[-1]));}
+#line 9023 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 812:
-/* Line 1813 of yacc.c  */
-#line 2533 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[(2) - (3)]));}
+#line 2533 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SIMPLE_TENSE_MODAL,(yyvsp[-1]));}
+#line 9029 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 813:
-/* Line 1813 of yacc.c  */
-#line 2540 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SE_BAI,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2540 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SE_BAI,(yyvsp[-1]),(yyvsp[0]));}
+#line 9035 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 814:
-/* Line 1813 of yacc.c  */
-#line 2544 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(BAI1,(yyvsp[(1) - (1)]));}
+#line 2544 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(BAI1,(yyvsp[0]));}
+#line 9041 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 815:
-/* Line 1813 of yacc.c  */
-#line 2551 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(TIME,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2551 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(TIME,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9047 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 816:
-/* Line 1813 of yacc.c  */
-#line 2553 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TIME,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2553 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TIME,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9053 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 817:
-/* Line 1813 of yacc.c  */
-#line 2556 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TIME,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2556 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TIME,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9059 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 818:
-/* Line 1813 of yacc.c  */
-#line 2558 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TIME,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2558 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TIME,(yyvsp[-1]),(yyvsp[0]));}
+#line 9065 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 819:
-/* Line 1813 of yacc.c  */
-#line 2561 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TIME,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2561 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TIME,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9071 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 820:
-/* Line 1813 of yacc.c  */
-#line 2563 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TIME,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2563 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TIME,(yyvsp[-1]),(yyvsp[0]));}
+#line 9077 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 821:
-/* Line 1813 of yacc.c  */
-#line 2566 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TIME,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2566 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TIME,(yyvsp[-1]),(yyvsp[0]));}
+#line 9083 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 822:
-/* Line 1813 of yacc.c  */
-#line 2568 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TIME,(yyvsp[(1) - (1)]));}
+#line 2568 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TIME,(yyvsp[0]));}
+#line 9089 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 823:
-/* Line 1813 of yacc.c  */
-#line 2571 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TIME,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2571 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TIME,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9095 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 824:
-/* Line 1813 of yacc.c  */
-#line 2573 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TIME,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2573 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TIME,(yyvsp[-1]),(yyvsp[0]));}
+#line 9101 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 825:
-/* Line 1813 of yacc.c  */
-#line 2576 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TIME,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2576 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TIME,(yyvsp[-1]),(yyvsp[0]));}
+#line 9107 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 826:
-/* Line 1813 of yacc.c  */
-#line 2578 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TIME,(yyvsp[(1) - (1)]));}
+#line 2578 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TIME,(yyvsp[0]));}
+#line 9113 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 827:
-/* Line 1813 of yacc.c  */
-#line 2581 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TIME,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2581 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TIME,(yyvsp[-1]),(yyvsp[0]));}
+#line 9119 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 828:
-/* Line 1813 of yacc.c  */
-#line 2583 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TIME,(yyvsp[(1) - (1)]));}
+#line 2583 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TIME,(yyvsp[0]));}
+#line 9125 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 829:
-/* Line 1813 of yacc.c  */
-#line 2586 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TIME,(yyvsp[(1) - (1)]));}
+#line 2586 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TIME,(yyvsp[0]));}
+#line 9131 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 830:
-/* Line 1813 of yacc.c  */
-#line 2591 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(ZEHA_PU_NAI,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2591 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(ZEHA_PU_NAI,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9137 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 831:
-/* Line 1813 of yacc.c  */
-#line 2593 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(ZEHA_PU_NAI,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2593 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(ZEHA_PU_NAI,(yyvsp[-1]),(yyvsp[0]));}
+#line 9143 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 832:
-/* Line 1813 of yacc.c  */
-#line 2595 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(ZEHA_PU_NAI,(yyvsp[(1) - (1)]));}
+#line 2595 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(ZEHA_PU_NAI,(yyvsp[0]));}
+#line 9149 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 833:
-/* Line 1813 of yacc.c  */
-#line 2601 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(TIME_OFFSET,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2601 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(TIME_OFFSET,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9155 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 834:
-/* Line 1813 of yacc.c  */
-#line 2603 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TIME_OFFSET,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2603 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TIME_OFFSET,(yyvsp[-1]),(yyvsp[0]));}
+#line 9161 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 835:
-/* Line 1813 of yacc.c  */
-#line 2605 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TIME_OFFSET,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2605 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TIME_OFFSET,(yyvsp[-1]),(yyvsp[0]));}
+#line 9167 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 836:
-/* Line 1813 of yacc.c  */
-#line 2607 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TIME_OFFSET,(yyvsp[(1) - (1)]));}
+#line 2607 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TIME_OFFSET,(yyvsp[0]));}
+#line 9173 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 837:
-/* Line 1813 of yacc.c  */
-#line 2611 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(TIME_OFFSET_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2611 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(TIME_OFFSET_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 9179 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 838:
-/* Line 1813 of yacc.c  */
-#line 2613 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(TIME_OFFSET_SEQ,(yyvsp[(1) - (1)]));}
+#line 2613 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(TIME_OFFSET_SEQ,(yyvsp[0]));}
+#line 9185 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 839:
-/* Line 1813 of yacc.c  */
-#line 2619 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(SPACE,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2619 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(SPACE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9191 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 840:
-/* Line 1813 of yacc.c  */
-#line 2621 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SPACE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2621 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SPACE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9197 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 841:
-/* Line 1813 of yacc.c  */
-#line 2623 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SPACE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2623 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SPACE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9203 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 842:
-/* Line 1813 of yacc.c  */
-#line 2625 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2625 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE,(yyvsp[-1]),(yyvsp[0]));}
+#line 9209 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 843:
-/* Line 1813 of yacc.c  */
-#line 2628 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SPACE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2628 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SPACE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9215 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 844:
-/* Line 1813 of yacc.c  */
-#line 2630 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2630 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE,(yyvsp[-1]),(yyvsp[0]));}
+#line 9221 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 845:
-/* Line 1813 of yacc.c  */
-#line 2632 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SPACE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2632 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SPACE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9227 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 846:
-/* Line 1813 of yacc.c  */
-#line 2634 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SPACE,(yyvsp[(1) - (1)]));}
+#line 2634 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SPACE,(yyvsp[0]));}
+#line 9233 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 847:
-/* Line 1813 of yacc.c  */
-#line 2637 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SPACE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2637 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SPACE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9239 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 848:
-/* Line 1813 of yacc.c  */
-#line 2639 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2639 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE,(yyvsp[-1]),(yyvsp[0]));}
+#line 9245 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 849:
-/* Line 1813 of yacc.c  */
-#line 2641 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SPACE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2641 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SPACE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9251 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 850:
-/* Line 1813 of yacc.c  */
-#line 2643 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SPACE,(yyvsp[(1) - (1)]));}
+#line 2643 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SPACE,(yyvsp[0]));}
+#line 9257 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 851:
-/* Line 1813 of yacc.c  */
-#line 2646 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SPACE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2646 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SPACE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9263 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 852:
-/* Line 1813 of yacc.c  */
-#line 2648 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SPACE,(yyvsp[(1) - (1)]));}
+#line 2648 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SPACE,(yyvsp[0]));}
+#line 9269 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 853:
-/* Line 1813 of yacc.c  */
-#line 2650 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2650 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE,(yyvsp[-1]),(yyvsp[0]));}
+#line 9275 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 854:
-/* Line 1813 of yacc.c  */
-#line 2656 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SPACE_OFFSET,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2656 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SPACE_OFFSET,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9281 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 855:
-/* Line 1813 of yacc.c  */
-#line 2658 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE_OFFSET,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2658 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE_OFFSET,(yyvsp[-1]),(yyvsp[0]));}
+#line 9287 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 856:
-/* Line 1813 of yacc.c  */
-#line 2660 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE_OFFSET,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2660 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE_OFFSET,(yyvsp[-1]),(yyvsp[0]));}
+#line 9293 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 857:
-/* Line 1813 of yacc.c  */
-#line 2662 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SPACE_OFFSET,(yyvsp[(1) - (1)]));}
+#line 2662 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SPACE_OFFSET,(yyvsp[0]));}
+#line 9299 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 858:
-/* Line 1813 of yacc.c  */
-#line 2666 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE_OFFSET_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2666 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE_OFFSET_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 9305 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 859:
-/* Line 1813 of yacc.c  */
-#line 2668 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SPACE_OFFSET_SEQ,(yyvsp[(1) - (1)]));}
+#line 2668 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SPACE_OFFSET_SEQ,(yyvsp[0]));}
+#line 9311 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 860:
-/* Line 1813 of yacc.c  */
-#line 2674 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(SPACE_INTERVAL,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2674 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(SPACE_INTERVAL,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9317 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 861:
-/* Line 1813 of yacc.c  */
-#line 2676 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SPACE_INTERVAL,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2676 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SPACE_INTERVAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9323 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 862:
-/* Line 1813 of yacc.c  */
-#line 2678 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SPACE_INTERVAL,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2678 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SPACE_INTERVAL,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9329 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 863:
-/* Line 1813 of yacc.c  */
-#line 2680 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SPACE_INTERVAL,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2680 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SPACE_INTERVAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9335 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 864:
-/* Line 1813 of yacc.c  */
-#line 2682 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SPACE_INTERVAL,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2682 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SPACE_INTERVAL,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9341 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 865:
-/* Line 1813 of yacc.c  */
-#line 2684 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE_INTERVAL,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2684 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE_INTERVAL,(yyvsp[-1]),(yyvsp[0]));}
+#line 9347 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 866:
-/* Line 1813 of yacc.c  */
-#line 2686 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SPACE_INTERVAL,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2686 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SPACE_INTERVAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9353 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 867:
-/* Line 1813 of yacc.c  */
-#line 2688 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SPACE_INTERVAL,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2688 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SPACE_INTERVAL,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9359 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 868:
-/* Line 1813 of yacc.c  */
-#line 2690 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE_INTERVAL,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2690 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE_INTERVAL,(yyvsp[-1]),(yyvsp[0]));}
+#line 9365 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 869:
-/* Line 1813 of yacc.c  */
-#line 2693 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SPACE_INTERVAL,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2693 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SPACE_INTERVAL,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9371 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 870:
-/* Line 1813 of yacc.c  */
-#line 2695 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SPACE_INTERVAL,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2695 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SPACE_INTERVAL,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9377 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 871:
-/* Line 1813 of yacc.c  */
-#line 2697 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE_INTERVAL,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2697 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE_INTERVAL,(yyvsp[-1]),(yyvsp[0]));}
+#line 9383 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 872:
-/* Line 1813 of yacc.c  */
-#line 2699 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SPACE_INTERVAL,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2699 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SPACE_INTERVAL,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9389 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 873:
-/* Line 1813 of yacc.c  */
-#line 2701 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE_INTERVAL,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2701 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE_INTERVAL,(yyvsp[-1]),(yyvsp[0]));}
+#line 9395 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 874:
-/* Line 1813 of yacc.c  */
-#line 2703 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SPACE_INTERVAL,(yyvsp[(1) - (1)]));}
+#line 2703 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SPACE_INTERVAL,(yyvsp[0]));}
+#line 9401 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 875:
-/* Line 1813 of yacc.c  */
-#line 2705 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SPACE_INTERVAL,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2705 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SPACE_INTERVAL,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9407 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 876:
-/* Line 1813 of yacc.c  */
-#line 2707 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE_INTERVAL,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2707 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE_INTERVAL,(yyvsp[-1]),(yyvsp[0]));}
+#line 9413 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 877:
-/* Line 1813 of yacc.c  */
-#line 2709 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SPACE_INTERVAL,(yyvsp[(1) - (1)]));}
+#line 2709 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SPACE_INTERVAL,(yyvsp[0]));}
+#line 9419 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 878:
-/* Line 1813 of yacc.c  */
-#line 2712 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SPACE_INTERVAL,(yyvsp[(1) - (1)]));}
+#line 2712 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SPACE_INTERVAL,(yyvsp[0]));}
+#line 9425 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 879:
-/* Line 1813 of yacc.c  */
-#line 2718 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE_INT_PROPS,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2718 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE_INT_PROPS,(yyvsp[-1]),(yyvsp[0]));}
+#line 9431 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 880:
-/* Line 1813 of yacc.c  */
-#line 2720 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(SPACE_INT_PROPS,(yyvsp[(1) - (1)]));}
+#line 2720 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(SPACE_INT_PROPS,(yyvsp[0]));}
+#line 9437 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 881:
-/* Line 1813 of yacc.c  */
-#line 2724 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(SPACE_INT_PROP,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2724 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(SPACE_INT_PROP,(yyvsp[-1]),(yyvsp[0]));}
+#line 9443 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 882:
-/* Line 1813 of yacc.c  */
-#line 2730 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(INTERVAL_PROPERTY,(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2730 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(INTERVAL_PROPERTY,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9449 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 883:
-/* Line 1813 of yacc.c  */
-#line 2732 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(INTERVAL_PROPERTY,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2732 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(INTERVAL_PROPERTY,(yyvsp[-1]),(yyvsp[0]));}
+#line 9455 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 884:
-/* Line 1813 of yacc.c  */
-#line 2734 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(INTERVAL_PROPERTY,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2734 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(INTERVAL_PROPERTY,(yyvsp[-1]),(yyvsp[0]));}
+#line 9461 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 885:
-/* Line 1813 of yacc.c  */
-#line 2736 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(INTERVAL_PROPERTY,(yyvsp[(1) - (1)]));}
+#line 2736 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(INTERVAL_PROPERTY,(yyvsp[0]));}
+#line 9467 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 886:
-/* Line 1813 of yacc.c  */
-#line 2738 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(INTERVAL_PROPERTY,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2738 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(INTERVAL_PROPERTY,(yyvsp[-1]),(yyvsp[0]));}
+#line 9473 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 887:
-/* Line 1813 of yacc.c  */
-#line 2740 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(INTERVAL_PROPERTY,(yyvsp[(1) - (1)]));}
+#line 2740 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(INTERVAL_PROPERTY,(yyvsp[0]));}
+#line 9479 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 888:
-/* Line 1813 of yacc.c  */
-#line 2744 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(INTERVAL_PROPERTY_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2744 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(INTERVAL_PROPERTY_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 9485 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 889:
-/* Line 1813 of yacc.c  */
-#line 2746 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(INTERVAL_PROPERTY_SEQ,(yyvsp[(1) - (1)]));}
+#line 2746 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(INTERVAL_PROPERTY_SEQ,(yyvsp[0]));}
+#line 9491 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 890:
-/* Line 1813 of yacc.c  */
-#line 2753 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(FREE_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2753 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(FREE_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 9497 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 891:
-/* Line 1813 of yacc.c  */
-#line 2755 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FREE_SEQ,(yyvsp[(1) - (1)]));}
+#line 2755 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FREE_SEQ,(yyvsp[0]));}
+#line 9503 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 892:
-/* Line 1813 of yacc.c  */
-#line 2759 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FREE,(yyvsp[(1) - (1)]));}
+#line 2759 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FREE,(yyvsp[0]));}
+#line 9509 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 893:
-/* Line 1813 of yacc.c  */
-#line 2761 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FREE,(yyvsp[(1) - (1)]));}
+#line 2761 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FREE,(yyvsp[0]));}
+#line 9515 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 894:
-/* Line 1813 of yacc.c  */
-#line 2763 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FREE,(yyvsp[(1) - (1)]));}
+#line 2763 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FREE,(yyvsp[0]));}
+#line 9521 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 895:
-/* Line 1813 of yacc.c  */
-#line 2765 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FREE,(yyvsp[(1) - (1)]));}
+#line 2765 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FREE,(yyvsp[0]));}
+#line 9527 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 896:
-/* Line 1813 of yacc.c  */
-#line 2767 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FREE,(yyvsp[(1) - (1)]));}
+#line 2767 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FREE,(yyvsp[0]));}
+#line 9533 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 897:
-/* Line 1813 of yacc.c  */
-#line 2769 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(FREE,(yyvsp[(1) - (1)]));}
+#line 2769 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(FREE,(yyvsp[0]));}
+#line 9539 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 898:
-/* Line 1813 of yacc.c  */
-#line 2774 "rpc2x_full_act.y"
-    {(yyval) = new_node_7(METALINGUISTIC,(yyvsp[(1) - (7)]),(yyvsp[(2) - (7)]),(yyvsp[(3) - (7)]),(yyvsp[(4) - (7)]),(yyvsp[(5) - (7)]),(yyvsp[(6) - (7)]),(yyvsp[(7) - (7)]));}
+#line 2774 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_7(METALINGUISTIC,(yyvsp[-6]),(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9545 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 899:
-/* Line 1813 of yacc.c  */
-#line 2776 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(METALINGUISTIC,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 2776 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(METALINGUISTIC,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9551 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 900:
-/* Line 1813 of yacc.c  */
-#line 2778 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(METALINGUISTIC,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2778 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(METALINGUISTIC,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9557 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 901:
-/* Line 1813 of yacc.c  */
-#line 2780 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(METALINGUISTIC,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2780 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(METALINGUISTIC,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9563 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 902:
-/* Line 1813 of yacc.c  */
-#line 2783 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(METALINGUISTIC,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 2783 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(METALINGUISTIC,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9569 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 903:
-/* Line 1813 of yacc.c  */
-#line 2785 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(METALINGUISTIC,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2785 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(METALINGUISTIC,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9575 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 904:
-/* Line 1813 of yacc.c  */
-#line 2787 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(METALINGUISTIC,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2787 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(METALINGUISTIC,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9581 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 905:
-/* Line 1813 of yacc.c  */
-#line 2789 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(METALINGUISTIC,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2789 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(METALINGUISTIC,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9587 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 906:
-/* Line 1813 of yacc.c  */
-#line 2793 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(METALINGUISTIC_MAIN_SELBRI,(yyvsp[(1) - (1)]));}
+#line 2793 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(METALINGUISTIC_MAIN_SELBRI,(yyvsp[0]));}
+#line 9593 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 907:
-/* Line 1813 of yacc.c  */
-#line 2797 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(RECIPROCITY,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2797 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(RECIPROCITY,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9599 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 908:
-/* Line 1813 of yacc.c  */
-#line 2799 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(RECIPROCITY,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2799 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(RECIPROCITY,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9605 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 909:
-/* Line 1813 of yacc.c  */
-#line 2801 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(RECIPROCITY,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2801 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(RECIPROCITY,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9611 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 910:
-/* Line 1813 of yacc.c  */
-#line 2803 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(RECIPROCITY,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2803 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(RECIPROCITY,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9617 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 911:
-/* Line 1813 of yacc.c  */
-#line 2808 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(FREE_VOCATIVE,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2808 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(FREE_VOCATIVE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9623 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 912:
-/* Line 1813 of yacc.c  */
-#line 2810 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(FREE_VOCATIVE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2810 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(FREE_VOCATIVE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9629 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 913:
-/* Line 1813 of yacc.c  */
-#line 2812 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(FREE_VOCATIVE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2812 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(FREE_VOCATIVE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9635 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 914:
-/* Line 1813 of yacc.c  */
-#line 2814 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(FREE_VOCATIVE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2814 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(FREE_VOCATIVE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9641 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 915:
-/* Line 1813 of yacc.c  */
-#line 2817 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(FREE_VOCATIVE,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 2817 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(FREE_VOCATIVE,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9647 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 916:
-/* Line 1813 of yacc.c  */
-#line 2819 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(FREE_VOCATIVE,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2819 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(FREE_VOCATIVE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9653 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 917:
-/* Line 1813 of yacc.c  */
-#line 2822 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(FREE_VOCATIVE,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2822 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(FREE_VOCATIVE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9659 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 918:
-/* Line 1813 of yacc.c  */
-#line 2824 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(FREE_VOCATIVE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2824 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(FREE_VOCATIVE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9665 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 919:
-/* Line 1813 of yacc.c  */
-#line 2827 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(FREE_VOCATIVE,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2827 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(FREE_VOCATIVE,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9671 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 920:
-/* Line 1813 of yacc.c  */
-#line 2829 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(FREE_VOCATIVE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2829 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(FREE_VOCATIVE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9677 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 921:
-/* Line 1813 of yacc.c  */
-#line 2832 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(FREE_VOCATIVE,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2832 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(FREE_VOCATIVE,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9683 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 922:
-/* Line 1813 of yacc.c  */
-#line 2834 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(FREE_VOCATIVE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2834 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(FREE_VOCATIVE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9689 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 923:
-/* Line 1813 of yacc.c  */
-#line 2837 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(FREE_VOCATIVE,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2837 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(FREE_VOCATIVE,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9695 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 924:
-/* Line 1813 of yacc.c  */
-#line 2839 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(FREE_VOCATIVE,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2839 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(FREE_VOCATIVE,(yyvsp[-1]),(yyvsp[0]));}
+#line 9701 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 925:
-/* Line 1813 of yacc.c  */
-#line 2843 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(UTTERANCE_ORDINAL,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2843 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(UTTERANCE_ORDINAL,(yyvsp[-1]),(yyvsp[0]));}
+#line 9707 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 926:
-/* Line 1813 of yacc.c  */
-#line 2845 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(UTTERANCE_ORDINAL,(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2845 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(UTTERANCE_ORDINAL,(yyvsp[-1]),(yyvsp[0]));}
+#line 9713 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 927:
-/* Line 1813 of yacc.c  */
-#line 2849 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(PARENTHETICAL,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2849 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(PARENTHETICAL,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9719 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 928:
-/* Line 1813 of yacc.c  */
-#line 2853 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUBSCRIPT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2853 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUBSCRIPT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9725 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 929:
-/* Line 1813 of yacc.c  */
-#line 2855 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUBSCRIPT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2855 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUBSCRIPT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9731 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 930:
-/* Line 1813 of yacc.c  */
-#line 2857 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUBSCRIPT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2857 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUBSCRIPT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9737 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 931:
-/* Line 1813 of yacc.c  */
-#line 2859 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(SUBSCRIPT,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2859 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(SUBSCRIPT,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9743 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 932:
-/* Line 1813 of yacc.c  */
-#line 2862 "rpc2x_full_act.y"
-    {(yyval) = new_node_6(SUBSCRIPT,(yyvsp[(1) - (6)]),(yyvsp[(2) - (6)]),(yyvsp[(3) - (6)]),(yyvsp[(4) - (6)]),(yyvsp[(5) - (6)]),(yyvsp[(6) - (6)]));}
+#line 2862 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_6(SUBSCRIPT,(yyvsp[-5]),(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9749 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 933:
-/* Line 1813 of yacc.c  */
-#line 2864 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(SUBSCRIPT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2864 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(SUBSCRIPT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9755 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 934:
-/* Line 1813 of yacc.c  */
-#line 2866 "rpc2x_full_act.y"
-    {(yyval) = new_node_5(SUBSCRIPT,(yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(3) - (5)]),(yyvsp[(4) - (5)]),(yyvsp[(5) - (5)]));}
+#line 2866 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_5(SUBSCRIPT,(yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9761 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 935:
-/* Line 1813 of yacc.c  */
-#line 2868 "rpc2x_full_act.y"
-    {(yyval) = new_node_4(SUBSCRIPT,(yyvsp[(1) - (4)]),(yyvsp[(2) - (4)]),(yyvsp[(3) - (4)]),(yyvsp[(4) - (4)]));}
+#line 2868 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_4(SUBSCRIPT,(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9767 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 936:
-/* Line 1813 of yacc.c  */
-#line 2877 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(VOCATIVE,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2877 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(VOCATIVE,(yyvsp[-1]),(yyvsp[0]));}
+#line 9773 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 937:
-/* Line 1813 of yacc.c  */
-#line 2879 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(VOCATIVE,(yyvsp[(1) - (1)]));}
+#line 2879 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(VOCATIVE,(yyvsp[0]));}
+#line 9779 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 938:
-/* Line 1813 of yacc.c  */
-#line 2881 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(VOCATIVE,(yyvsp[(1) - (1)]));}
+#line 2881 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(VOCATIVE,(yyvsp[0]));}
+#line 9785 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 939:
-/* Line 1813 of yacc.c  */
-#line 2885 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(COI_NAI_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2885 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(COI_NAI_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 9791 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 940:
-/* Line 1813 of yacc.c  */
-#line 2887 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(COI_NAI_SEQ,(yyvsp[(1) - (1)]));}
+#line 2887 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(COI_NAI_SEQ,(yyvsp[0]));}
+#line 9797 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 941:
-/* Line 1813 of yacc.c  */
-#line 2889 "rpc2x_full_act.y"
-    {(yyval) = new_node_3(COI_NAI_SEQ,(yyvsp[(1) - (3)]),(yyvsp[(2) - (3)]),(yyvsp[(3) - (3)]));}
+#line 2889 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_3(COI_NAI_SEQ,(yyvsp[-2]),(yyvsp[-1]),(yyvsp[0]));}
+#line 9803 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 942:
-/* Line 1813 of yacc.c  */
-#line 2891 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(COI_NAI_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2891 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(COI_NAI_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 9809 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 943:
-/* Line 1813 of yacc.c  */
-#line 2898 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(INDICATORS,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2898 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(INDICATORS,(yyvsp[-1]),(yyvsp[0]));}
+#line 9815 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 944:
-/* Line 1813 of yacc.c  */
-#line 2900 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(INDICATORS,(yyvsp[(1) - (1)]));}
+#line 2900 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(INDICATORS,(yyvsp[0]));}
+#line 9821 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 945:
-/* Line 1813 of yacc.c  */
-#line 2904 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(INDICATOR_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2904 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(INDICATOR_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 9827 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 946:
-/* Line 1813 of yacc.c  */
-#line 2906 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(INDICATOR_SEQ,(yyvsp[(1) - (1)]));}
+#line 2906 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(INDICATOR_SEQ,(yyvsp[0]));}
+#line 9833 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 947:
-/* Line 1813 of yacc.c  */
-#line 2912 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(INDICATOR,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2912 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(INDICATOR,(yyvsp[-1]),(yyvsp[0]));}
+#line 9839 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 948:
-/* Line 1813 of yacc.c  */
-#line 2914 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(INDICATOR,(yyvsp[(1) - (1)]));}
+#line 2914 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(INDICATOR,(yyvsp[0]));}
+#line 9845 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 949:
-/* Line 1813 of yacc.c  */
-#line 2916 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(INDICATOR,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2916 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(INDICATOR,(yyvsp[-1]),(yyvsp[0]));}
+#line 9851 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 950:
-/* Line 1813 of yacc.c  */
-#line 2918 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(INDICATOR,(yyvsp[(1) - (1)]));}
+#line 2918 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(INDICATOR,(yyvsp[0]));}
+#line 9857 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 951:
-/* Line 1813 of yacc.c  */
-#line 2920 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(INDICATOR,(yyvsp[(1) - (1)]));}
+#line 2920 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(INDICATOR,(yyvsp[0]));}
+#line 9863 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 952:
-/* Line 1813 of yacc.c  */
-#line 2922 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(INDICATOR,(yyvsp[(1) - (1)]));}
+#line 2922 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(INDICATOR,(yyvsp[0]));}
+#line 9869 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 953:
-/* Line 1813 of yacc.c  */
-#line 2924 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(INDICATOR,(yyvsp[(1) - (1)]));}
+#line 2924 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(INDICATOR,(yyvsp[0]));}
+#line 9875 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 954:
-/* Line 1813 of yacc.c  */
-#line 2928 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(NAI_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2928 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(NAI_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 9881 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 955:
-/* Line 1813 of yacc.c  */
-#line 2930 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(NAI_SEQ,(yyvsp[(1) - (1)]));}
+#line 2930 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(NAI_SEQ,(yyvsp[0]));}
+#line 9887 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 956:
-/* Line 1813 of yacc.c  */
-#line 2934 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(CMENE_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2934 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(CMENE_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 9893 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 957:
-/* Line 1813 of yacc.c  */
-#line 2936 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(CMENE_SEQ,(yyvsp[(1) - (1)]));}
+#line 2936 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(CMENE_SEQ,(yyvsp[0]));}
+#line 9899 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 958:
-/* Line 1813 of yacc.c  */
-#line 2940 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(NIHO_SEQ_FREE_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2940 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(NIHO_SEQ_FREE_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 9905 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 959:
-/* Line 1813 of yacc.c  */
-#line 2942 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(NIHO_SEQ_FREE_SEQ,(yyvsp[(1) - (1)]));}
+#line 2942 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(NIHO_SEQ_FREE_SEQ,(yyvsp[0]));}
+#line 9911 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 960:
-/* Line 1813 of yacc.c  */
-#line 2946 "rpc2x_full_act.y"
-    {(yyval) = new_node_2(NIHO_SEQ,(yyvsp[(1) - (2)]),(yyvsp[(2) - (2)]));}
+#line 2946 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_2(NIHO_SEQ,(yyvsp[-1]),(yyvsp[0]));}
+#line 9917 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
   case 961:
-/* Line 1813 of yacc.c  */
-#line 2948 "rpc2x_full_act.y"
-    {(yyval) = new_node_1(NIHO_SEQ,(yyvsp[(1) - (1)]));}
+#line 2948 "rpc2x_full_act.y" /* yacc.c:1648  */
+    {(yyval) = new_node_1(NIHO_SEQ,(yyvsp[0]));}
+#line 9923 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
     break;
 
 
-/* Line 1813 of yacc.c  */
-#line 10557 "rpc2x_full_act.tab.c"
+#line 9927 "rpc2x_full_act.tab.c" /* yacc.c:1648  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -10585,7 +9955,7 @@ report_trace_reduce(yystate, yyn);
   *++yyvsp = yyval;
   *++yylsp = yyloc;
 
-  /* Now `shift' the result of the reduction.  Determine what state
+  /* Now 'shift' the result of the reduction.  Determine what state
      that goes to, based on the state we popped back to and the rule
      number reduced by.  */
 
@@ -10600,9 +9970,9 @@ report_trace_reduce(yystate, yyn);
   goto yynewstate;
 
 
-/*------------------------------------.
-| yyerrlab -- here on detecting error |
-`------------------------------------*/
+/*--------------------------------------.
+| yyerrlab -- here on detecting error.  |
+`--------------------------------------*/
 yyerrlab:
 report_trace_error(yyss, yyssp);  /* Make sure we have latest lookahead translation.  See comments at
      user semantic actions for why this is necessary.  */
@@ -10653,20 +10023,20 @@ report_trace_error(yyss, yyssp);  /* Make sure we have latest lookahead translat
   if (yyerrstatus == 3)
     {
       /* If just tried and failed to reuse lookahead token after an
-	 error, discard it.  */
+         error, discard it.  */
 
       if (yychar <= YYEOF)
-	{
-	  /* Return failure if at end of input.  */
-	  if (yychar == YYEOF)
-	    YYABORT;
-	}
+        {
+          /* Return failure if at end of input.  */
+          if (yychar == YYEOF)
+            YYABORT;
+        }
       else
-	{
-	  yydestruct ("Error: discarding",
-		      yytoken, &yylval, &yylloc);
-	  yychar = YYEMPTY;
-	}
+        {
+          yydestruct ("Error: discarding",
+                      yytoken, &yylval, &yylloc);
+          yychar = YYEMPTY;
+        }
     }
 
   /* Else will try to reuse lookahead token after shifting the error
@@ -10685,8 +10055,7 @@ yyerrorlab:
   if (/*CONSTCOND*/ 0)
      goto yyerrorlab;
 
-  yyerror_range[1] = yylsp[1-yylen];
-  /* Do not reclaim the symbols of the rule which action triggered
+  /* Do not reclaim the symbols of the rule whose action triggered
      this YYERROR.  */
   YYPOPSTACK (yylen);
   yylen = 0;
@@ -10699,29 +10068,29 @@ yyerrorlab:
 | yyerrlab1 -- common code for both syntax error and YYERROR.  |
 `-------------------------------------------------------------*/
 yyerrlab1:
-  yyerrstatus = 3;	/* Each real token shifted decrements this.  */
+  yyerrstatus = 3;      /* Each real token shifted decrements this.  */
 
   for (;;)
     {
       yyn = yypact[yystate];
       if (!yypact_value_is_default (yyn))
-	{
-	  yyn += YYTERROR;
-	  if (0 <= yyn && yyn <= YYLAST && yycheck[yyn] == YYTERROR)
-	    {
-	      yyn = yytable[yyn];
-	      if (0 < yyn)
-		break;
-	    }
-	}
+        {
+          yyn += YYTERROR;
+          if (0 <= yyn && yyn <= YYLAST && yycheck[yyn] == YYTERROR)
+            {
+              yyn = yytable[yyn];
+              if (0 < yyn)
+                break;
+            }
+        }
 
       /* Pop the current state because it cannot handle the error token.  */
       if (yyssp == yyss)
-	YYABORT;
+        YYABORT;
 
       yyerror_range[1] = *yylsp;
       yydestruct ("Error: popping",
-		  yystos[yystate], yyvsp, yylsp);
+                  yystos[yystate], yyvsp, yylsp);
       YYPOPSTACK (1);
       yystate = *yyssp;
       YY_STACK_PRINT (yyss, yyssp);
@@ -10777,14 +10146,14 @@ yyreturn:
       yydestruct ("Cleanup: discarding lookahead",
                   yytoken, &yylval, &yylloc);
     }
-  /* Do not reclaim the symbols of the rule which action triggered
+  /* Do not reclaim the symbols of the rule whose action triggered
      this YYABORT or YYACCEPT.  */
   YYPOPSTACK (yylen);
   YY_STACK_PRINT (yyss, yyssp);
   while (yyssp != yyss)
     {
       yydestruct ("Cleanup: popping",
-		  yystos[*yyssp], yyvsp, yylsp);
+                  yystos[*yyssp], yyvsp, yylsp);
       YYPOPSTACK (1);
     }
 #ifndef yyoverflow
@@ -10795,8 +10164,5 @@ yyreturn:
   if (yymsg != yymsgbuf)
     YYSTACK_FREE (yymsg);
 #endif
-  /* Make sure YYID is used.  */
-  return YYID (yyresult);
+  return yyresult;
 }
-
-

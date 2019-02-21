@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2019-1-11T13:20:0
+# 2019-02-20T09:41:50
 CACHE:
 https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML
 https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/config/TeX-MML-AM_CHTML.js?V=2.7.4
@@ -13,7 +13,7 @@ https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/Mat
 
 index.html?version=32
 ../pixra/snime.svg
-../sisku.js?sisku=2018_12_26_00_29_10
+../sisku.js?sisku=2019_02_20_09_41_50
 worker.js
 bangu.js
 ../pixra/cll.png
@@ -25,7 +25,7 @@ bangu.js
 ../pixra/simplingua.svg
 ../pixra/muplis-eng-pol.png
 ../pixra/16.png
-../data/parsed-zamenhofo.js?sisku=2018_12_26_00_29_10
+../data/parsed-zamenhofo.js?sisku=2019_02_20_09_41_50
 ../pixra/x.svg
 NETWORK:
 *

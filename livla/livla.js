@@ -301,13 +301,12 @@ function CheckRecentChanges() {
 
 //IRC bot
 
-const irc = require("irc");
-//const client = new irc.Client(configlivla.server, configlivla.nick, configlivla.options);
+const Irc = require("irc-upd");
 if (localConfig.livlytcan)
   configmensi.options.channels.push(localConfig.livlytcan);
 let fff = configmensi.options.channels;
 lg('channels',fff);
-const clientmensi = new irc.Client(
+const clientmensi = new Irc.Client(
   configmensi.server,
   configmensi.nick,
   configmensi.options
@@ -1972,11 +1971,14 @@ client.addListener('message', (from, to, text, message) => {
 });
 */
 
-clientmensi.addListener("message", (from, to, text, message) => {
-  processormensi(clientmensi, from, to, text, message);
-});
+clientmensi.on(
+  "message",
+  (from, to, text) => {
+    processormensi(clientmensi, from, to, text);
+  }
+);
 
-clientmensi.addListener("error", message => {
+clientmensi.on("error", message => {
   lg('error on mensi\'s listening',JSON.stringify(message));
 });
 

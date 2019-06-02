@@ -16,6 +16,8 @@ dumps/*.tsv
 !dumps/toki.xml
 !dumps/zamenhofo.xml
 !dumps/en-pt-BR.xml
+!dumps/ina.xml
+!dumps/ktv-eng.xml
 !dumps/ldp.xml
 !dumps/ile.xml
 !dumps/ithkuil.xml

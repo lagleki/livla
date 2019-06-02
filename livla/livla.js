@@ -52,7 +52,7 @@ let arr_twitter_id;
 
 // const stodipilno=['gleki','xalbo'];
 // End default configuration
-const config = require(path.join(__dirname, "../config/config.json"));
+const config = require(path.join(require('os').homedir(), ".livla/config.json"));
 
 let userSettings = {}; // Saving user preferences
 userSettings[asker] = {
@@ -292,7 +292,7 @@ function CheckRecentChanges() {
     },
     (error, tweet, response) => {
       if (!error) {
-        lg('tweet',tweet);
+        lg('tweet', tweet);
       }
     }
   );
@@ -305,7 +305,7 @@ const Irc = require("irc-upd");
 if (localConfig.livlytcan)
   configmensi.options.channels.push(localConfig.livlytcan);
 let fff = configmensi.options.channels;
-lg('channels',fff);
+lg('channels', fff);
 const clientmensi = new Irc.Client(
   configmensi.server,
   configmensi.nick,
@@ -632,7 +632,7 @@ const selmaho = lin => {
       })
       .join(", ")
       .trim();
-  } catch (err) {}
+  } catch (err) { }
   if (ien === "" && gag !== "") return `cmavo: ${gag}`;
   if (ien !== "" && gag !== "") return ien.concat("\ncmavo: ").concat(gag);
   if (ien !== "" && gag === "") return ien;
@@ -698,7 +698,7 @@ const framemulno = lin => {
   }
   try {
     stra.splice(40);
-  } catch (err) {}
+  } catch (err) { }
   if (stra.length >= 40) {
     stra.push("...");
   }
@@ -720,7 +720,7 @@ const finti = lin => {
   const cnt = stra.length;
   try {
     stra.splice(30);
-  } catch (err) {}
+  } catch (err) { }
   if (stra.length >= 30) {
     stra.push("...");
   }
@@ -799,14 +799,14 @@ const sutysiskuningau = (lng, lojbo) => {
         .replace(/"/g, "'")
         .replace(/\\/g, "\\\\")}"`;
       wascomma = ",";
-    } catch (err) {}
+    } catch (err) { }
     try {
       pars += `${wascomma}"t":"${rev[i]
         .attr("type")
         .value()
         .replace(/\\/g, "\\\\")}"`;
       wascomma = ",";
-    } catch (err) {}
+    } catch (err) { }
     try {
       pars += `${wascomma}"s":"${rev[i]
         .find("selmaho[1]")[0]
@@ -814,7 +814,7 @@ const sutysiskuningau = (lng, lojbo) => {
         .replace(/"/g, "'")
         .replace(/\\/g, "\\\\")}"`;
       wascomma = ",";
-    } catch (err) {}
+    } catch (err) { }
     try {
       pars += `${wascomma}"n":"${rev[i]
         .find("notes[1]")[0]
@@ -822,7 +822,7 @@ const sutysiskuningau = (lng, lojbo) => {
         .replace(/"/g, "'")
         .replace(/\\/g, "\\\\")}"`;
       wascomma = ",";
-    } catch (err) {}
+    } catch (err) { }
     try {
       pars += `${wascomma}"g":"${rev[i]
         .find("glossword/@word")
@@ -831,7 +831,7 @@ const sutysiskuningau = (lng, lojbo) => {
         .replace(/"/g, "'")
         .replace("\\", "\\\\")}"`;
       wascomma = ",";
-    } catch (err) {}
+    } catch (err) { }
     try {
       pars += `${wascomma}"k":"${rev[i]
         .find("related[1]")[0]
@@ -839,7 +839,7 @@ const sutysiskuningau = (lng, lojbo) => {
         .replace(/"/g, "'")
         .replace(/\\/g, "\\\\")}"`;
       wascomma = ",";
-    } catch (err) {}
+    } catch (err) { }
     try {
       const ex = rev[i]
         .find("example")
@@ -852,7 +852,7 @@ const sutysiskuningau = (lng, lojbo) => {
         pars += `${wascomma}"e":"${ex}"`;
         wascomma = ",";
       }
-    } catch (err) {}
+    } catch (err) { }
     let ra = rev[i].find("rafsi//text()[1]");
     if (lojbo !== 0 && lojban.xugismu(hi) === true) {
       if (hi.indexOf("brod") !== 0) {
@@ -892,7 +892,7 @@ const sutysiskuningau = (lng, lojbo) => {
         .replace(/\n\.\.\/lib.fullproof.+\n/g, "\n");
       fs.writeFileSync(t, pars);
       lg(`${t} updated`);
-    } catch (err) {}
+    } catch (err) { }
   }
 };
 
@@ -1030,7 +1030,6 @@ const updatexmldumps = callback => {
     mulno: {},
     nalmulselfaho: {}
   };
-  //try{
   const request = require("request").defaults({
     jar: true,
     strictSSL: false
@@ -1044,6 +1043,9 @@ const updatexmldumps = callback => {
     const uri = `http://jbovlaste.lojban.org/export/xml-export.html?lang=${thisa}`;
     jar.setCookie(cookie, uri);
     const t = path.join(__dirname, "../dumps", `${thisa}.xml`);
+    try {
+      fs.unlinkSync(`${t}.temp`);
+    } catch (error) { }
     request({
       uri,
       method: "GET",
@@ -1059,8 +1061,6 @@ const updatexmldumps = callback => {
       .pipe(fs.createWriteStream(`${t}.temp`))
       .on("finish", () => {
         try {
-          //validate xml
-          //ij = libxmljs.parseXml(fs.readFileSync(path.join(__dirname,"../dumps",`${thisa}.xml.temp`),{encoding: 'utf8'}));
           fs.renameSync(`${t}.temp`, t);
           lg(`${thisa} updated`);
           velruhe.mulno[thisa] = true;
@@ -1073,56 +1073,24 @@ const updatexmldumps = callback => {
           }
           delete velruhe.cfari[thisa];
           sutysiskuningau(thisa);
-          //global.gc();
         } catch (err) {
           lg(thisa, err);
           velruhe.nalmulselfaho[thisa] = true;
           delete velruhe.cfari[thisa];
         }
-        //ij='';
         if (callback && Object.keys(velruhe.cfari).length === 0) {
           callback(velruhe);
         }
       });
   });
-  // const http = require('http');
-  /*
-  langs.forEach(function(thisa) {//now update pdf
-    let uri="http://jbovlaste.lojban.org/export/latex-export.html?lang="+thisa;
-    jar.setCookie(cookie, uri);
-    request({uri: uri,method: "GET",jar: jar}, function(err, response, body) {
-      if(err) {lg(err);}
-      else{
-        lg(body.substring(0,100));
-        var urli=body.replace(/\n/igm,'').match(/\"(\/jbovlaste_export\/.*?\/.*?\.pdf)\"/i)[1];
-        //lg(urli);
-        //gm,"http://jbovlaste.lojban.org$1");//now get the pdf itself
-        var content = fs.createWriteStream(path.join(__dirname,"../dumps","lojban-" + thisa + ".pdf"));
-        var request = http.get(urli, function(response) {
-          response.pipe(content);
-        }).on('error', function(err) {
-          lg("when updating " + thisa + " pdf: " + err);
-        });
-      }
-    });
-  });*/
-  //}catch(err){lg('Error when autoupdating: ' + err);}
-  //sutysiskuningau("ithkuil");
-  sutysiskuningau("2002", 0);
-  sutysiskuningau("en-pt-BR", 0);
-  sutysiskuningau("zamenhofo", 0);
-  // sutysiskuningau("laadan", 0);
-  sutysiskuningau("ile", 0);
-  sutysiskuningau("ina", 0);
-  sutysiskuningau("toki", 0);
-  sutysiskuningau("ktv-eng", 0);
-  sutysiskuningau("ldp", 0);
-  //updategloss();# not yet ready function
+  for (const dump of ["2002", "en-pt-BR", "zamenhofo", "ile", "ina", "toki", "ktv-eng", "ldp"]) {
+    sutysiskuningau(dump, 0);
+  }
 };
 
 setInterval(() => {
   updatexmldumps();
-}, 3 * 86400000); //update logs once a djedi
+}, 3 * 86400000); //update logs once 3 djedi
 
 const GimkaConflicts = valsi => {
   if (!valsi || valsi === "") return "no input";
@@ -1130,7 +1098,7 @@ const GimkaConflicts = valsi => {
   const r = gimka.WhichIsInConflictAll(valsi);
   return `[${r[0]}] - official gismu that conflict with {${valsi}}\n[${
     r[1]
-  }] - experimental gismu that conflict with {${valsi}}`;
+    }] - experimental gismu that conflict with {${valsi}}`;
 };
 const wordnet = (source, socket, clientmensi, sendTo, te_gerna) => {
   const natural = require("natural");
@@ -1149,10 +1117,10 @@ const wordnet = (source, socket, clientmensi, sendTo, te_gerna) => {
       const exp = w.exp && w.exp.length > 0 ? `..... examples: ${w.exp}\n` : "";
       const syns = w.synonyms
         ? `..... synonyms: ${w.synonyms
-            .toString()
-            .split(",")
-            .map(i => i.replace(/_/g, " "))
-            .join(", ")}\n`
+          .toString()
+          .split(",")
+          .map(i => i.replace(/_/g, " "))
+          .join(", ")}\n`
         : "";
       const whole = prettyfirstline + def + exp + syns;
       benji(source, socket, clientmensi, sendTo, whole);
@@ -1540,7 +1508,7 @@ const processormensi = (
             "https://mw.lojban.org/papri/sepulka/en"
           );
           break;
-        case (txt.trim() === "#cilre"||txt.trim() === "#ckule"||txt.trim() === "#lojban"):
+        case (txt.trim() === "#cilre" || txt.trim() === "#ckule" || txt.trim() === "#lojban"):
           benji(
             source,
             socket,
@@ -1979,7 +1947,7 @@ clientmensi.on(
 );
 
 clientmensi.on("error", message => {
-  lg('error on mensi\'s listening',JSON.stringify(message));
+  lg('error on mensi\'s listening', JSON.stringify(message));
 });
 
 //NAXLE

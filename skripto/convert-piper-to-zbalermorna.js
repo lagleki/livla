@@ -1,115 +1,139 @@
-// a script to convert the comic about la .Piper. in to la zbalermorna
-var fs = require('fs');
-var path = require('path-extra');
+// a script to convert the comic about la .Piper. into la zbalermorna
+// use the lakmir's font
+var fs = require("fs");
+var path = require("path-extra");
 
-var ncp = require('ncp').ncp;
+var ncp = require("ncp").ncp;
 
-const KEY_CODE_APOSTROPHE = 222;
-const UNICODE_RANGE_START = 0xE2300;
-const PARSE_MODE_TEXT = 0;
-const PARSE_MODE_TAG  = 1;
-const lerfu = ".'ptkflscmxbdgvrzjnqwaeiouy";
-
+const C = "ptkflscmxbdgvrzjnɩw";
+const V = "aeiouyąęǫḁ";
 ncp.limit = 16;
 
-function comp (a, b) {
-  return function (x) { return a(b(x)); };
-}
-
-function formatUnicode (point) {
+function formatUnicode(point) {
   return "&#x" + point.toString(16) + ";";
 }
 
-function toArray (list) {
-  return Array.prototype.slice.apply(list);
+const krulermorna = function(t) {
+  return t
+    .replace(/h/g, "'")
+    .toLowerCase()
+    .replace(/([aeiouy\.])u([aeiou])/g, "$1w$2")
+    .replace(/([aeiouy\.])i([aeiouy])/g, "$1ɩ$2")
+    .replace(/au/g, "ḁ")
+    .replace(/ai/g, "ą")
+    .replace(/ei/g, "ę")
+    .replace(/oi/g, "ǫ");
+};
+
+function translate(text) {
+  text = krulermorna(text.trim());
+  text = text.replace(/0/g, "no");
+  text = text.replace(/1/g, "pa");
+  text = text.replace(/2/g, "re");
+  text = text.replace(/3/g, "ci");
+  text = text.replace(/4/g, "vo");
+  text = text.replace(/5/g, "mu");
+  text = text.replace(/6/g, "xa");
+  text = text.replace(/7/g, "ze");
+  text = text.replace(/8/g, "bi");
+  text = text.replace(/9/g, "so");
+  text = text.replace(/[ \.]+/g, ".");
+  text = text.replace(/^([ḁąęǫ])/g, ".$1");
+  let out = "";
+  console.log(text);
+  while (text.length > 0) {
+    let changed = false;
+    text = text.replace(/^\.[aeiouyąęǫḁ]'[aeiouyąęǫḁ]/, function(match) {
+      const fir = match.charAt(1);
+      const sec = match.charAt(3);
+      start = 0xe2450 + V.indexOf(fir) * 16 + V.indexOf(sec) + 1;
+      out += formatUnicode(start);
+      changed = true;
+      return "";
+    });
+    if (changed) continue;
+    text = text.replace(/^'[aeiouyąęǫḁ]/, function(match) {
+      const fir = match.charAt(1);
+      start = 0xe2311 + V.indexOf(fir);
+      out += formatUnicode(start);
+      changed = true;
+      return "";
+    });
+    if (changed) continue;
+    text = text.replace(/^\.[aeiouyąęǫḁ]/, function(match) {
+      const fir = match.charAt(1);
+      start = 0xe2450 + V.indexOf(fir) * 16;
+      out += formatUnicode(start);
+      changed = true;
+      return "";
+    });
+    if (changed) continue;
+    text = text.replace(/^[ptkflscmxbdgvrzjnɩw][aeiouyąęǫḁ]/, function(match) {
+      const fir = match.charAt(0);
+      const sec = match.charAt(1);
+      start = 0xe2320 + C.indexOf(fir) * 16 + V.indexOf(sec) + 1;
+      out += formatUnicode(start);
+      changed = true;
+      return "";
+    });
+    if (changed) continue;
+    text = text.replace(/^[ptkflscmxbdgvrzjnɩw]/, function(match) {
+      const fir = match;
+      start = 0xe2320 + C.indexOf(fir) * 16;
+      out += formatUnicode(start);
+      changed = true;
+      return "";
+    });
+    if (changed) continue;
+    text = text.replace(/^[aeiouyąęǫḁ]/, function(match) {
+      const sec = match;
+      start = 0xe24f1 + V.indexOf(sec);
+      out += formatUnicode(start);
+      changed = true;
+      return "";
+    });
+    if (changed) continue;
+    text = text.replace(/^\./, function(match) {
+      const sec = match;
+      start = 0xe2300;
+      out += formatUnicode(start);
+      return "";
+    });
+  }
+  return out;
 }
 
-function translate (text) {
-	text = text.replace(/0/g,'no');
-	text = text.replace(/1/g,'pa');
-	text = text.replace(/2/g,'re');
-	text = text.replace(/3/g,'ci');
-	text = text.replace(/4/g,'vo');
-	text = text.replace(/5/g,'mu');
-	text = text.replace(/6/g,'xa');
-	text = text.replace(/7/g,'ze');
-	text = text.replace(/8/g,'bi');
-	text = text.replace(/9/g,'so');
- 	return toArray(text).map(comp(formatUnicode, latinToZLM)).join('');
-}
+//console.log(translate(".i mi noi"));
+//process.exit();
 
-function latinToZLM (chr) {
-  if (chr === "h" || chr === "'")
-    return UNICODE_RANGE_START + 16;
-  if (-1 < lerfu.indexOf(chr))
-    return UNICODE_RANGE_START + lerfu.indexOf(chr) * 16;
-  return chr.codePointAt(0);
-}
-
-fs.readdir('./', (err, files) => {//pepp
+fs.readdir("./", (err, files) => {
+  console.log(files);
   files.forEach(fl => {
-	  let source = path.join(fl,"jb");
-	  let dest = path.join(fl,"zj");
-	  ncp(source, dest, function (err) {
-	    if (err) {
-	      //return console.error(err);
-	    }
-	  });
+    let source = path.join(fl, "jb");
+    let dest = path.join(fl, "zj");
+    ncp(source, dest, function(err) {
+      fs.readdir(dest, (err, files) => {
+        (files || []).forEach(file => {
+          let tetcidu = path.join(__dirname, dest, file);
+          if (file.slice(-4) === ".svg") {
+            let data = fs.readFileSync(tetcidu, "utf8");
+            let str = data.split(">");
+            for (let i = 0; i < str.length; i++) {
+              let gun = str[i].split("<");
+              let f = gun[0];
+              if (/^[a-z \.0-9\']+$/.test(f)) {
+                gun[0] = translate(f);
+              }
+              str[i] = gun.join("<");
+            }
+            str = str.join(">");
 
-	  fs.readdir(dest, (err, files) => {//zj
-	      (files||[]).forEach(file => {
-			  let tetcidu = path.join(__dirname,dest,file);
-			  if (file.slice(-4)==='.svg'){
-	          let data = fs.readFileSync(tetcidu, 'utf8');
-	          let str = data.split(">");
-	          for (let i=0;i<str.length;i++){
-	          	  let gun = str[i].split("<");
-	          	  let f = gun[0];
-				  if (/^[a-z \.0-9\']+$/.test(f)) {gun[0]=translate(f);}
-				  // gun[0] = f;
-				  // gun = gun.join("<");
-	          	  if (file.search("Pepper-and-Carrot_by-David-Revoy_E19\.svg")>=0 && f.trim()!=='') console.log(file + "+++" +  gun[0] +"+++"+/^[a-z \.]+$/.test(f));
-				  str[i] = gun.join("<");
-	          }
-	          str = str.join(">");
-	          /*
-	          let acc = '';
-	          let str = data.split("<tspan");
-	          for (let i=1;i<str.length;i++) {
-
-	          	  let ki = str[i].indexOf('>');
-				  str[i] = [str[i].slice(0,ki), str[i].slice(ki+1)];
-	          	  let kitwo = str[i][1].indexOf('<');
-	          	  str[i][1] = [str[i][1].slice(0,kitwo), str[i][1].slice(kitwo+1)]
-	          	  str[i][1][0] = translate(str[i][1][0]);
-	          	  str[i][1] = (str[i][1]).join('<');
-	          	  str[i] = str[i].join(">");
-	          	  console.log('\n\n\n\n+++++++++++'+str[i][1][0]);
-	              acc = acc + str[i];
-	          }
-	          acc = str[0] + acc;*/
-	          /*str = data.split("<tspan");
-	          for (let i=1;i<str.length;i++) {
-	          	  let ki = str[i].indexOf('>');
-				  str[i] = [str[i].slice(0,ki), str[i].slice(ki+1)];
-	          	  let kitwo = str[i][0].indexOf('<');
-	          	  let u = [str[i][0].slice(0,kitwo), str[i][0].slice(kitwo+1)]
-	          	  str[i][0] = u;
-	          	  str[i][0][0] = translate(u);
-	          	  str[i][0] = str[i].join("<");
-	          	  str[i] = str[i].join(">");
-	              acc = acc + str[i];
-	          }
-	          acc = str[0] + acc;*/
-	          //console.log(acc);
-
-
-	  	// try{fs.unlinkSync(tetcidu+"-new");}catch(err){}
-	          fs.writeFileSync(tetcidu+"-new", str, 'utf8', function (err) {
-	             if (err) return console.log(err);
-	          });
-	    	}
-	      });
+            fs.writeFileSync(tetcidu+".svg", str, "utf8", function(err) {
+              if (err) return console.log(err);
+            });
+          }
+        });
+      });
     });
   });
 });

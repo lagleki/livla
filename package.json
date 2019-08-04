@@ -14,7 +14,7 @@
     "he": "^1.2.0",
     "irc-upd": "^0.10.0",
     "line-by-line": "^0.1.6",
-    "lojban": "^0.0.36",
+    "lojban": "^1.0.0",
     "lzwcompress": "^0.5.6",
     "mailparser": "^2.7.1",
     "natural": "^0.6.3",

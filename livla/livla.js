@@ -18,7 +18,7 @@ const interv = 300000;
 const interm = 2900;
 const nodasezvafahi = "no da se zvafa'i";
 const tersepli = " + ";
-const commandPrefix=".";
+const commandPrefix = ".";
 const langs = [
   "jbo",
   "en",
@@ -295,7 +295,7 @@ let sisku = lin => {
   return s;
 };
 
-function fastParse(file){
+function fastParse(file) {
   return require("fast-xml-parser").parse(
     fs
       .readFileSync(file, {
@@ -303,16 +303,16 @@ function fastParse(file){
       })
       .replace(/(&lt;|<)script.*?(&gt;|>).*?(&lt;|<)/g, "&lt;")
       .replace(/(&lt;|<)\/script(&gt;|>)/g, ""),
-      {
-        attributeNamePrefix: "",
-        ignoreAttributes: false,
-        allowBooleanAttributes: false,
-        parseNodeValue: false,
-        parseAttributeValue: false,
-        attrValueProcessor: a => he.decode(a, {isAttributeValue: true}),
-        tagValueProcessor: a => he.decode(a)
-      }
-  )
+    {
+      attributeNamePrefix: "",
+      ignoreAttributes: false,
+      allowBooleanAttributes: false,
+      parseNodeValue: false,
+      parseAttributeValue: false,
+      attrValueProcessor: a => he.decode(a, { isAttributeValue: true }),
+      tagValueProcessor: a => he.decode(a)
+    }
+  );
 }
 
 function benji({ socket, sendTo, what, action }) {
@@ -433,7 +433,8 @@ const MultipleDefs = ({ word, language }) => {
     .replace(/^[\(\.]/, "");
   jsonDoc = getJsonDoc(language);
   let pre = "";
-  if (lojban.xulujvo(word)) {
+  if (false) {
+    // lojban.xulujvo(word)) {
     try {
       const l = lojban.jvokaha_gui(word);
       const f = lojban
@@ -609,7 +610,9 @@ const stnlp = (socket,clientmensi,sendTo, lin) => {
 */
 
 function prepareSutysiskuJsonDump(language) {
-  const jsonDoc = fastParse(path.join(__dirname, "../dumps", `${language}.xml`));
+  const jsonDoc = fastParse(
+    path.join(__dirname, "../dumps", `${language}.xml`)
+  );
   let json = {};
   const words = jsonDoc.dictionary.direction[0].valsi.map(v => {
     json[v.word] = {
@@ -929,16 +932,16 @@ const wiktionary = (socket, sendTo, te_gerna, bangu) => {
   lojban.wiktionary(wor, bangu, a => benji({ socket, sendTo, what: a }));
 };
 
-const rafsi_giho_nai_se_rafsi_gui = te_gerna => {
-  const a = lojban.rafsi_giho_nai_se_rafsi_gui(te_gerna, jsonDocEn);
+const rafsi_giho_nai_se_rafsi = te_gerna => {
+  const a = lojban.rafsi_giho_nai_se_rafsi(te_gerna, jsonDocEn);
   if (a.rafsi.length === 0) {
-    return a.serafsi
-      ? `.i ra'oi ${te_gerna} rafsi zo ${a.serafsi}`
+    return a.selrafsi
+      ? `.i ra'oi ${te_gerna} rafsi zo ${a.selrafsi}`
       : ".i no da se zvafa'i";
   } else {
     const coun = `.i ra'oi ${a.rafsi.join(" .e ra'oi ")} rafsi zo ${te_gerna}`;
-    return a.serafsi
-      ? coun.concat(" ").concat(`.i ra'oi ${te_gerna} rafsi zo ${a.serafsi}`)
+    return a.selrafsi
+      ? coun.concat(" ").concat(`.i ra'oi ${te_gerna} rafsi zo ${a.selrafsi}`)
       : coun;
   }
 };
@@ -1277,10 +1280,12 @@ const processor = ({ from, towhom, text, socket }) => {
             what: lojban.ilmentufa_off(po, "C")["kampu"]
           });
           break;
-        case txt.indexOf(`${commandPrefix}yacc `) === 0 || txt.indexOf(`${commandPrefix}cowan `) === 0:
+        case txt.indexOf(`${commandPrefix}yacc `) === 0 ||
+          txt.indexOf(`${commandPrefix}cowan `) === 0:
           tcepru(po, sendTo, socket);
           break;
-        case txt.indexOf(`${commandPrefix}gerna `) === 0 || txt.indexOf(`${commandPrefix}jbofi'e `) === 0:
+        case txt.indexOf(`${commandPrefix}gerna `) === 0 ||
+          txt.indexOf(`${commandPrefix}jbofi'e `) === 0:
           jbofihe(po, sendTo, socket);
           break;
         case txt.indexOf(`${commandPrefix}ilm `) === 0:
@@ -1359,7 +1364,9 @@ const processor = ({ from, towhom, text, socket }) => {
         case txt.indexOf(`${commandPrefix}deo `) === 0:
           wiktionary(socket, sendTo, po, "Esperanto");
           break;
-        case txt.search(`${commandPrefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(${robangu}) `) === 0:
+        case txt.search(
+          `${commandPrefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(${robangu}) `
+        ) === 0:
           const language = txt.split(" ")[0].substr(1);
           if (sendTo === "#jbosnu" && language !== "jbo") {
             benji({ socket, sendTo, what: "ko lojbo .iu" });
@@ -1375,14 +1382,15 @@ const processor = ({ from, towhom, text, socket }) => {
           benji({ socket, sendTo, what: bangu(po, from) });
           break;
         // Give definition of valsi in specified language
-        case txt.indexOf(`${commandPrefix}selmaho `) === 0 || txt.indexOf(`${commandPrefix}selma'o `) === 0:
+        case txt.indexOf(`${commandPrefix}selmaho `) === 0 ||
+          txt.indexOf(`${commandPrefix}selma'o `) === 0:
           benji({ socket, sendTo, what: selmaho(po) });
           break;
         case txt.indexOf(`${commandPrefix}rafsi `) === 0:
           benji({
             socket,
             sendTo,
-            what: rafsi_giho_nai_se_rafsi_gui(po.replace(/[^a-z'\.]/g, ""))
+            what: rafsi_giho_nai_se_rafsi(po.replace(/[^a-z'\.]/g, ""))
           });
           break;
         case txt.indexOf(`${commandPrefix}gloss `) === 0:
@@ -1414,7 +1422,8 @@ const processor = ({ from, towhom, text, socket }) => {
         case txt.indexOf(`${commandPrefix}rot13 `) === 0:
           benji({ socket, sendTo, what: lojban.rotpaci(po) });
           break;
-        case txt.indexOf(`${commandPrefix}off `) === 0 || txt.indexOf(`${commandPrefix}exp `) === 0:
+        case txt.indexOf(`${commandPrefix}off `) === 0 ||
+          txt.indexOf(`${commandPrefix}exp `) === 0:
           benji({
             socket,
             sendTo,
@@ -1427,7 +1436,7 @@ const processor = ({ from, towhom, text, socket }) => {
           benji({
             socket,
             sendTo,
-            what: rafsi_giho_nai_se_rafsi_gui(
+            what: rafsi_giho_nai_se_rafsi(
               rg.exec(text)[1].replace(/[^a-z'\.]/g, "")
             )
           });
@@ -1502,7 +1511,7 @@ const processor = ({ from, towhom, text, socket }) => {
           benji({
             socket,
             sendTo,
-            what: rafsi_giho_nai_se_rafsi_gui(
+            what: rafsi_giho_nai_se_rafsi(
               reg.exec(text)[1].replace(/[^a-z'\.]/g, "")
             )
           });
@@ -1512,7 +1521,7 @@ const processor = ({ from, towhom, text, socket }) => {
           benji({
             socket,
             sendTo,
-            what: rafsi_giho_nai_se_rafsi_gui(
+            what: rafsi_giho_nai_se_rafsi(
               rg.exec(text)[1].replace(/[^a-z'\.]/g, "")
             )
           });
@@ -1561,7 +1570,7 @@ const processor = ({ from, towhom, text, socket }) => {
           benji({
             socket,
             sendTo,
-            what: vlaste({ word: ` ${text.trim()}`, language: inLanguage})
+            what: vlaste({ word: ` ${text.trim()}`, language: inLanguage })
           }); // Gives definition of valsi in the default language set to user
           break;
       }

@@ -1,6 +1,7 @@
 {
   "name": "la_livla",
   "version": "0.0.1",
+  "type": "module",
   "description": "A combine of Lojban tools",
   "dependencies": {
     "await-to-js": "^2.1.1",

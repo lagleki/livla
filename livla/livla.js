@@ -208,7 +208,7 @@ if (!fs.existsSync(enxml)) {
   enxml = path.join(__dirname, "../dumps", "toki" + ".xml");
 }
 
-let xmlDocEn = fastParse(enxml);
+let jsonDocEn = fastParse(enxml);
 
 const updateUserSettings = callback => {
   readConfig("user-settings.json"); // Ensure existance
@@ -387,9 +387,9 @@ const lojTemplate = s => {
   return s;
 };
 
-const GetWordDef = ({ word, language, xmlDoc }) => {
-  if (!xmlDoc) xmlDoc = GetXmldoc(language);
-  const words = xmlDoc.dictionary.direction[0].valsi
+const GetWordDef = ({ word, language, jsonDoc }) => {
+  if (!jsonDoc) jsonDoc = getJsonDoc(language);
+  const words = jsonDoc.dictionary.direction[0].valsi
     .filter(valsi => valsi.word.toLowerCase() === word)
     .map(v => {
       let arr = [];
@@ -408,8 +408,8 @@ const GetWordDef = ({ word, language, xmlDoc }) => {
   return words.length > 0 ? words : undefined;
 };
 
-const GetXmldoc = lng => {
-  if (lng !== "en" || !xmlDocEn) {
+const getJsonDoc = lng => {
+  if (lng !== "en" || !jsonDocEn) {
     const xmlPath = path.join(__dirname, "../dumps", `${lng}.xml`);
     if (!fs.existsSync(xmlPath)) {
       const errorMessage = `.i no da liste lo valsi be fi lo se sinxa be zoi zoi.${lng}.zoi`;
@@ -417,7 +417,7 @@ const GetXmldoc = lng => {
     }
     return fastParse(xmlPath);
   }
-  return xmlDocEn;
+  return jsonDocEn;
 };
 
 const PrettyLujvoScore = a =>
@@ -426,12 +426,12 @@ const PrettyLujvoScore = a =>
     .map(({ lujvo, score }) => `${lujvo}: ${score}`)
     .join(", ");
 
-const MultipleDefs = ({ word, language, tordu }) => {
+const MultipleDefs = ({ word, language }) => {
   let lin = word
     .replace(/\"/g, "")
     .replace(/\)$/, "")
     .replace(/^[\(\.]/, "");
-  xmlDoc = GetXmldoc(language);
+  jsonDoc = getJsonDoc(language);
   let pre = "";
   if (lojban.xulujvo(word)) {
     try {
@@ -442,13 +442,13 @@ const MultipleDefs = ({ word, language, tordu }) => {
       const fslice = f.slice(0, Math.min(f.length, 3));
       const arr_defs = fslice
         .map(({ lujvo }) => {
-          return GetWordDef({ word: lujvo, language, xmlDoc });
+          return GetWordDef({ word: lujvo, language, jsonDoc });
         })
         .filter(Boolean);
       const l_joined = l.join(" ");
       const glossed =
         language !== "jbo"
-          ? lojban.gloss(l_joined, language, xmlDoc, false).join(tersepli)
+          ? lojban.gloss(l_joined, language, jsonDoc, false).join(tersepli)
           : l_joined;
       pre = `${PrettyLujvoScore(fslice)}\n${l_joined} ≈ ${glossed}\n`;
       if (arr_defs.length > 0) {
@@ -460,18 +460,18 @@ const MultipleDefs = ({ word, language, tordu }) => {
     }
   }
   //otherwise just
-  const mo = GetWordDef({ word, language, xmlDoc });
+  const mo = GetWordDef({ word, language, jsonDoc });
   if (mo) return mo;
 
   //if nothing found try full-text search
-  const mulno = mulno_sisku({ word: lin, language, xmlDoc });
+  const mulno = mulno_sisku({ word: lin, language, jsonDoc });
   if (mulno) return pre + mulno;
   if (pre !== "") return pre;
   return nodasezvafahi;
 };
 
-const mulno_sisku = ({ word, language, xmlDoc }) => {
-  if (!xmlDoc) xmlDoc = GetXmldoc(lng);
+const mulno_sisku = ({ word, language, jsonDoc }) => {
+  if (!jsonDoc) jsonDoc = getJsonDoc(lng);
   let r = {
     word: [],
     gloss: [],
@@ -481,7 +481,7 @@ const mulno_sisku = ({ word, language, xmlDoc }) => {
     notes: [],
     related: []
   };
-  xmlDoc.dictionary.direction[0].valsi.filter(v => {
+  jsonDoc.dictionary.direction[0].valsi.filter(v => {
     if (v.word === word) {
       r.word.push(v.word);
     } else if (v.word.indexOf(word) === 0) r.partialWord.push(v.word);
@@ -531,24 +531,24 @@ const mulno_sisku = ({ word, language, xmlDoc }) => {
     return `${xo} da se zvafa'i: ${r.join(", ").trim()}`;
   }
   if (r.length === 1) {
-    return GetWordDef({ word: r[0], language: lng, xmlDoc });
+    return GetWordDef({ word: r[0], language: lng, jsonDoc });
   }
   return;
 };
 
-const katna = (lin, lng, xmlDoc) => {
+const katna = (lin, lng, jsonDoc) => {
   const l = lojban.jvokaha_gui(lin);
   if (!l) return "";
   const a = l.join(" ");
   const b =
-    lng !== "jbo" ? lojban.gloss(a, lng, xmlDoc, false).join(tersepli) : a;
+    lng !== "jbo" ? lojban.gloss(a, lng, jsonDoc, false).join(tersepli) : a;
   return `${lin} ≈ ${b}`;
 };
 
 const selmaho = word => {
   word = word.toLowerCase();
   const r = { full: [], partial: [] };
-  const words = xmlDoc.dictionary.direction[0].valsi.filter(v => {
+  const words = jsonDoc.dictionary.direction[0].valsi.filter(v => {
     if (v.selmaho) {
       if (v.selmaho.toLowerCase() === word) r.full.push(word);
       else if (v.selmaho.toLowerCase().indexOf(word) === 0)
@@ -578,13 +578,13 @@ const selmaho = word => {
   return res.join("\n");
 };
 
-const vlaste = ({ word, language, short }) => {
+const vlaste = ({ word, language }) => {
   word = word.toLowerCase().trim();
   let ret;
   if (word.substr(0, 5).trim() === "/full") {
     ret = mulno_sisku({ word: word.substr(6).trim(), language });
   } else {
-    ret = MultipleDefs({ word, language, tordu: short });
+    ret = MultipleDefs({ word, language });
   }
   return ret.replace(/(.{190,250})(, |[ \.\"\/])/g, "$1$2\n");
 };
@@ -609,9 +609,9 @@ const stnlp = (socket,clientmensi,sendTo, lin) => {
 */
 
 function prepareSutysiskuJsonDump(language) {
-  const xmlDoc = fastParse(path.join(__dirname, "../dumps", `${language}.xml`));
+  const jsonDoc = fastParse(path.join(__dirname, "../dumps", `${language}.xml`));
   let json = {};
-  const words = xmlDoc.dictionary.direction[0].valsi.map(v => {
+  const words = jsonDoc.dictionary.direction[0].valsi.map(v => {
     json[v.word] = {
       d: v.definition,
       n: d.notes,
@@ -815,7 +815,7 @@ async function downloadSingleDump({ language, erroredLangs }) {
       .on("finish", () => {
         fs.renameSync(`${t}.temp`, t);
         if (language === "en") {
-          xmlDocEn = fastParse(t);
+          jsonDocEn = fastParse(t);
         }
         resolve();
       })
@@ -930,7 +930,7 @@ const wiktionary = (socket, sendTo, te_gerna, bangu) => {
 };
 
 const rafsi_giho_nai_se_rafsi_gui = te_gerna => {
-  const a = lojban.rafsi_giho_nai_se_rafsi_gui(te_gerna, xmlDocEn);
+  const a = lojban.rafsi_giho_nai_se_rafsi_gui(te_gerna, jsonDocEn);
   if (a.rafsi.length === 0) {
     return a.serafsi
       ? `.i ra'oi ${te_gerna} rafsi zo ${a.serafsi}`
@@ -1367,7 +1367,7 @@ const processor = ({ from, towhom, text, socket }) => {
             benji({
               socket,
               sendTo,
-              what: vlaste({ word: po, language, short: false })
+              what: vlaste({ word: po, language })
             });
           }
           break;
@@ -1489,13 +1489,13 @@ const processor = ({ from, towhom, text, socket }) => {
           benji({
             socket,
             sendTo,
-            what: vlaste({ word: pp, language: txt.split(":")[0], short: true })
+            what: vlaste({ word: pp, language: txt.split(":")[0] })
           });
           break;
         // Change default language
         case txt.indexOf("?:") === 0:
           inLanguage = RetrieveUsersLanguage(from, inLanguage);
-          benji({ socket, sendTo, what: vlaste({ word: pp, inLanguage, short: true }) });
+          benji({ socket, sendTo, what: vlaste({ word: pp, inLanguage }) });
           break; // Gives definition of valsi in the default language set to user
         case txt.search("ra'oi [a-z']+ rafsi ma") === 0:
           const reg = /ra'oi ([a-z']+) rafsi ma/;
@@ -1561,7 +1561,7 @@ const processor = ({ from, towhom, text, socket }) => {
           benji({
             socket,
             sendTo,
-            what: vlaste({ word: ` ${text.trim()}`, language: inLanguage, short: true })
+            what: vlaste({ word: ` ${text.trim()}`, language: inLanguage})
           }); // Gives definition of valsi in the default language set to user
           break;
       }

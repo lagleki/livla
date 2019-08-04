@@ -51,7 +51,7 @@ let consumer_key, consumer_secret, access_token_key, access_token_secret;
 let arr_twitter_id;
 
 // End default configuration
-const commonConfig = require("../config/config.js");
+const commonConfig = require("./config/config.js");
 const config = require(path.join(
   require("os").homedir(),
   ".livla/config.json"

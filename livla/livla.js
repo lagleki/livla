@@ -18,7 +18,7 @@ const interv = 300000;
 const interm = 2900;
 const nodasezvafahi = "no da se zvafa'i";
 const tersepli = " + ";
-const commandPrefix=",";
+const commandPrefix=".";
 const langs = [
   "jbo",
   "en",
@@ -1359,7 +1359,7 @@ const processor = ({ from, towhom, text, socket }) => {
         case txt.indexOf(`${commandPrefix}deo `) === 0:
           wiktionary(socket, sendTo, po, "Esperanto");
           break;
-        case txt.search(`${commandPrefix}(${robangu}) `) === 0:
+        case txt.search(`${commandPrefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(${robangu}) `) === 0:
           const language = txt.split(" ")[0].substr(1);
           if (sendTo === "#jbosnu" && language !== "jbo") {
             benji({ socket, sendTo, what: "ko lojbo .iu" });

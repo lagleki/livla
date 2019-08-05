@@ -387,19 +387,17 @@ const lojTemplate = s => {
 };
 
 const GetWordDef = ({ word, language, jsonDoc }) => {
-  if (!jsonDoc) jsonDoc = getJsonDoc(language);
   const words = jsonDoc.dictionary.direction[0].valsi
     .filter(valsi => valsi.word.toLowerCase() === word)
     .map(v => {
       let arr = [];
-      if (v.type) arr.push(`(${v.type})`);
-      if (v.selmaho) arr.push(`[ ${v.selmaho} ]`);
+      if (v.type) arr.push(`(type: ${v.type})`);
+      if (v.selmaho) arr.push(`[selmaho: ${v.selmaho} ]`);
       if (v.word) arr.push(`${v.word}`);
-      if (v.gloss) arr.push(`${lojTemplate(v.gloss)}`);
       if (v.definition) arr.push(`= ${lojTemplate(v.definition)}`);
-      if (v.notes) arr.push(`${lojTemplate(v.notes)}`);
+      if (v.notes) arr.push(`| notes: ${lojTemplate(v.notes)}`);
       if (v.example) arr.push(`${v.example}`);
-      if (v.user && v.user.username) arr.push(`| ${v.user.username}`);
+      if (v.user && v.user.username) arr.push(`| author: ${v.user.username}`);
       arr = arr.join(" ").trim();
       return arr;
     })
@@ -407,11 +405,11 @@ const GetWordDef = ({ word, language, jsonDoc }) => {
   return words.length > 0 ? words : undefined;
 };
 
-const getJsonDoc = lng => {
-  if (lng !== "en" || !jsonDocEn) {
-    const xmlPath = path.join(__dirname, "../dumps", `${lng}.xml`);
+const getJsonDoc = language => {
+  if (language !== "en" || !jsonDocEn) {
+    const xmlPath = path.join(__dirname, "../dumps", `${language}.xml`);
     if (!fs.existsSync(xmlPath)) {
-      const errorMessage = `.i no da liste lo valsi be fi lo se sinxa be zoi zoi.${lng}.zoi`;
+      const errorMessage = `.i no da liste lo valsi be fi lo se sinxa be zoi zoi.${language}.zoi`;
       return errorMessage;
     }
     return fastParse(xmlPath);
@@ -470,7 +468,7 @@ const MultipleDefs = ({ word, language }) => {
 };
 
 const mulno_sisku = ({ word, language, jsonDoc }) => {
-  if (!jsonDoc) jsonDoc = getJsonDoc(lng);
+  if (!jsonDoc) jsonDoc = getJsonDoc(language);
   let r = {
     word: [],
     gloss: [],
@@ -530,17 +528,17 @@ const mulno_sisku = ({ word, language, jsonDoc }) => {
     return `${xo} da se zvafa'i: ${r.join(", ").trim()}`;
   }
   if (r.length === 1) {
-    return GetWordDef({ word: r[0], language: lng, jsonDoc });
+    return GetWordDef({ word: r[0], language, jsonDoc });
   }
   return;
 };
 
-const katna = (lin, lng, jsonDoc) => {
+const katna = (lin, language, jsonDoc) => {
   const l = lojban.jvokaha_gui(lin);
   if (!l) return "";
   const a = l.join(" ");
   const b =
-    lng !== "jbo" ? lojban.gloss(a, lng, jsonDoc, false).join(tersepli) : a;
+    language !== "jbo" ? lojban.gloss(a, language, jsonDoc, false).join(tersepli) : a;
   return `${lin} ≈ ${b}`;
 };
 
@@ -638,14 +636,14 @@ function prepareSutysiskuJsonDump(language) {
   });
   return `sorcu["${language}"] = ${JSON.stringify(json)}`;
 }
-const sutysiskuningau = (lng, lojbo) => {
+const sutysiskuningau = (language, lojbo) => {
   //write a new file parsed.js that would be used by la sutysisku
   if (!language) language = "en";
   const pars = prepareSutysiskuJsonDump(language);
   let t = path.join(__dirname, "../i/data", `parsed-${language}.js`);
   fs.writeFileSync(`${t}.temp`, pars);
   fs.renameSync(`${t}.temp`, t);
-  t = path.join(__dirname, `../i/${lng}/`, "webapp.appcache");
+  t = path.join(__dirname, `../i/${language}/`, "webapp.appcache");
   const d = new Date();
   let n = d.getDate();
   if (n === 1 || n === 11 || n === 21) {

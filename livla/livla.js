@@ -63,7 +63,6 @@ userSettings[replier] = {
 };
 
 const defaultLanguage = "en"; // Maybe someday should be replaced with "jbo" when Lojban definitions almost equal that of English
-const prereplier = `${replier}: `;
 let said;
 
 // Ensure that a path exists, and that it is a dir.
@@ -433,8 +432,7 @@ const MultipleDefs = ({ word, language }) => {
     .replace(/^[\(\.]/, "");
   jsonDoc = getJsonDoc(language);
   let pre = "";
-  if (false) {
-    // lojban.xulujvo(word)) {
+  if (lojban.xulujvo(word)) {
     try {
       const l = lojban.jvokaha_gui(word);
       const f = lojban
@@ -833,12 +831,10 @@ async function downloadSingleDump({ language, erroredLangs }) {
   });
   return erroredLangs;
 }
-async function updatexmldumps() {
+async function updateXmlDumps() {
   let erroredLangs = [];
-  for (const language of langs) {
-    lg(language, erroredLangs);
+  for (const language of langs)
     erroredLangs = await downloadSingleDump({ language, erroredLangs });
-  }
   for (const dump of [
     "2002",
     "en-pt-BR",
@@ -848,26 +844,24 @@ async function updatexmldumps() {
     "toki",
     "ktv-eng",
     "ldp"
-  ].concat(langs)) {
+  ].concat(langs))
     try {
       sutysiskuningau(dump, langs.includes(dump) ? 1 : 0);
     } catch (error) {
       erroredLangs.push(language);
     }
-  }
   return [...new Set(erroredLangs)];
 }
 
 setInterval(() => {
-  updatexmldumps();
-}, 3 * 86400000); //update logs once 3 djedi
+  updateXmlDumps();
+}, 3 * 24 * 60 * 60 * 1000); //update logs once 3 djedi
 
 const GimkaConflicts = valsi => {
-  if (!valsi || valsi === "") return "no input";
   const gimka = require("../skripto/gimka.js");
-  const r = gimka.WhichIsInConflictAll(valsi);
-  return `[${r[0]}] - official gismu that conflict with {${valsi}}\n[${
-    r[1]
+  const r = gimka.WhichIsInConflictAll(valsi, jsonDocEn);
+  return `[${r.official}] - official gismu that conflict with {${valsi}}\n[${
+    r.experimental
   }] - experimental gismu that conflict with {${valsi}}`;
 };
 const wordnet = (socket, sendTo, te_gerna) => {
@@ -971,6 +965,65 @@ function cpedu_fi_la_arxivo(str, max) {
   });
 }
 
+function replyToHashed({ text, socket, sendTo }) {
+  const hashed = require("./hashed.json");
+  if (hashed[text]) benji({ socket, sendTo, what: hashed[text] });
+}
+
+function replyToVocatives({ from, text, sendTo, socket }) {
+  const vocatives = require("./vocatives.json");
+  const format = require("string-format");
+
+  text = text.split(" ");
+  let message = text.slice(2);
+  const vocative = text[1];
+  if (vocatives[vocative]) {
+    const towhom = message[0]
+      .replace(/[0-9.,\/#!$%\^&\*;:{}=\-_`~()]$/g, "")
+      .replace(/[^a-zA-Z]/g, ".");
+    message = message
+      .slice(1)
+      .join(" ")
+      .trim()
+      .replace(/^la /, "")
+      .replace("\\t", " ");
+    if (from.search(new RegExp(towhom)) >= 0) {
+      benji({
+        socket,
+        sendTo,
+        what: format(vocatives[vocative]["cusku fi le nei"], { from })
+      });
+    } else if (replier.search(new RegExp(towhom)) >= 0)
+      benji({
+        socket,
+        sendTo,
+        what: format(vocatives[vocative]["mi na bebna"], { from })
+      });
+    else {
+      const ds = new Date();
+      notci.push(
+        `${from
+          .replace(/^\.+/, "")
+          .replace(/\.+$/, "")
+          .trim()}\t${text} | ${ds.toISOString()}`
+      );
+      benji({
+        socket,
+        sendTo,
+        what: format(vocatives[vocative]["ai ba benji"], {
+          from,
+          addressee: towhom,
+          prefix: ".gy."
+        })
+      });
+      fs.writeFileSync(notcijudri, notci.join("\n"));
+      loadNotci();
+    }
+    return true;
+  }
+  return;
+}
+
 const processor = ({ from, towhom, text, socket }) => {
   let sendTo = towhom && towhom.indexOf("#") ? from : towhom;
   if (text.match(/^<(.*?)>: /, "") !== null) {
@@ -978,99 +1031,7 @@ const processor = ({ from, towhom, text, socket }) => {
     from = text.match(/^<(.*?)>: /, "")[1];
     text = text.replace(/^<.*?>: /, "");
   }
-  //notci functions first:
-  if (text.indexOf(`${replier}: tell `) === 0) {
-    text = text
-      .substr(12)
-      .trim()
-      .replace("\\t", " ")
-      .replace(" ", "\t")
-      .split("\t");
-    if (text[0])
-      text[0] = text[0]
-        .replace(/[0-9.,\/#!$%\^&\*;:{}=\-_`~()]$/g, "")
-        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ".*")
-        .replace(/[^a-zA-Z]/g, ".");
-    text = text.join("\t");
-    switch (true) {
-      case from.match(text.substr(0, text.indexOf("\t"))) !== null:
-        benji({
-          socket,
-          sendTo,
-          what: `${from}: tell it to yourself, Komonian`
-        });
-        break;
-      case text.substr(0, text.indexOf("\t")) === replier:
-        benji({
-          socket,
-          sendTo,
-          what: `${from}: hey, Carrot, really think I'm that stupid? `
-        });
-        break;
-      default:
-        const d = new Date();
-        notci.push(
-          `${from
-            .replace(/^\.+/, "")
-            .replace(/\.+$/, "")
-            .trim()}\t${text} | ${d.toISOString()}`
-        );
-        benji({
-          socket,
-          sendTo,
-          what: `${from}: via Pepper's magic of Chaosah this will be sent to ${text.substr(
-            0,
-            text.indexOf("\t")
-          )} after they return to the chat`
-        });
-        fs.writeFileSync(notcijudri, notci.join("\n"));
-        //loadNotci();
-        break;
-    }
-  }
-  //notci functions in lojban as an alternative:
-  if (text.indexOf(`${replier}: doi `) === 0) {
-    text = text
-      .substr(11)
-      .trim()
-      .replace(/^la /, "")
-      .replace("\\t", " ")
-      .replace(" ", "\t");
-    switch (true) {
-      case from.match(text.substr(0, text.indexOf("\t"))) !== null:
-        benji({
-          socket,
-          sendTo,
-          what: `${from}: e'u do cusku di'u le nei si'unai`
-        });
-        break;
-      case text.substr(0, text.indexOf("\t")) === replier:
-        benji({
-          socket,
-          sendTo,
-          what: `${from}: xu do je'a jinvi ledu'u mi bebna i oi`
-        });
-        break;
-      default:
-        const ds = new Date();
-        notci.push(
-          `${from
-            .replace(/^\.+/, "")
-            .replace(/\.+$/, "")
-            .trim()}\t${text} | ${ds.toISOString()}`
-        );
-        benji({
-          socket,
-          sendTo,
-          what: `${from}: mi ba benji di'u ba lo nu la'o gy.${text.substr(
-            0,
-            text.indexOf("\t")
-          )}.gy. di'a cusku da`
-        });
-        fs.writeFileSync(notcijudri, notci.join("\n"));
-      //loadNotci();
-    }
-  }
+  if (replyToVocatives({ from, text, sendTo, socket })) return;
   //now send back part
   for (let l = 0; l < notci.length; l++) {
     //sendTo
@@ -1086,7 +1047,6 @@ const processor = ({ from, towhom, text, socket }) => {
       cmenepagbu = notci[l].split("\t");
       benji({
         socket,
-
         sendTo,
         what: `${from}: cu'u la'o gy.${cmenepagbu[0]}.gy.: ${
           cmenepagbu[2]
@@ -1098,168 +1058,14 @@ const processor = ({ from, towhom, text, socket }) => {
       //loadNotci();
     }
   }
-  //
+
   const txt = text.toLowerCase();
   let inLanguage = defaultLanguage;
   const pp = (/:(.+)/.exec(text) || ["", ""])[1];
   const po = (/ (.+)/.exec(text) || ["", ""])[1].trim();
   switch (txt.trim().charAt(0)) {
     case "#":
-      switch (true) {
-        case txt.trim() === "#ermenefti":
-          benji({
-            socket,
-            sendTo,
-            what: "https://mw.lojban.org/papri/Hermeneutics"
-          });
-          break;
-        case txt.trim() === "#voksa":
-          benji({
-            socket,
-            sendTo,
-            what:
-              "https://mw.lojban.org/papri/Recordings_of_live_Lojban_discussions"
-          });
-          break;
-        case txt.trim() === "#bankle":
-          benji({
-            socket,
-            sendTo,
-            what: "https://jbotcan.org/lojban/en/dialects"
-          });
-          break;
-        case txt.trim() === "#slak":
-          benji({
-            socket,
-            sendTo,
-            what: "https://slaka.herokuapp.com"
-          });
-          break;
-        case txt.trim() === "#maxefanva":
-          benji({
-            socket,
-            sendTo,
-            what: "https://www.youtube.com/watch?v=lrWvEnWnpG8"
-          });
-          break;
-        case txt.trim() === "#telegram":
-          benji(
-            socket,
-            sendTo,
-            `#lojban https://t.me/joinchat/BLVsYz3hCF8mCAb6fzW1Rw\n#ckule https://t.me/joinchat/BLVsYz4hC9ulWahupDLovA\n#jbosnu https://t.me/joinchat/BLVsYz20Boixl0xN-0TrPw\n##jboselbau https://t.me/joinchat/CJYorT2ma6UVfhb9YThEqw\nother channels: https://t.me/lojbo`
-          );
-          break;
-        case txt.trim() === "#uilkinse":
-          benji({
-            socket,
-            sendTo,
-            what:
-              "https://mw.lojban.org/papri/The_analytical_language_of_John_Wilkins"
-          });
-          break;
-        case txt.trim() === "#smuvanbi":
-          benji({
-            socket,
-            sendTo,
-            what:
-              "To answer this question it's necessary to provide a full usage example or context where you would use this word/construct."
-          });
-          break;
-        case txt.trim() === "#jufra":
-          benji({
-            socket,
-            sendTo,
-            what:
-              "Just say an English sentence and we will translate it for you."
-          });
-          break;
-        case txt.trim() === "#purdi" || txt.trim() === "#gardenpath":
-          benji({ socket, sendTo, what: ".i le nu tu purdi mi melbi" });
-          break;
-        case txt.trim() === "#gaha":
-          benji({ socket, sendTo, what: ".i .itku'ile ga'a mi" });
-          break;
-        case txt.trim() === "#mohu":
-          benji({
-            socket,
-
-            sendTo,
-            what:
-              "https://www.dropbox.com/s/r4eowtdeorjyj56/borik-reinhart.pdf?dl=0"
-          });
-          break;
-        case txt.trim() === "#erneta":
-          benji({
-            socket,
-            sendTo,
-            what: "http://jbotcan.org/lojban/en/SWH_confirmed.html"
-          });
-          break;
-        case txt.trim() === "#todo":
-          benji({
-            socket,
-            sendTo,
-            what: "https://mw.lojban.org/papri/lo_jboce%27u_selzukseltcuste"
-          });
-          break;
-        case txt.trim() === "#selkunti":
-          benji({
-            socket,
-            sendTo,
-            what:
-              'Whorf described a workplace in which full gasoline drums were stored in one room and empty ones in another; he said that because of flammable vapor the "empty" drums were more dangerous than those that were full, although workers handled them less carefully to the point that they smoked in the room with "empty" drums, but not in the room with full ones. Whorf argued that by habitually speaking of the vapor-filled drums as empty and by extension as inert, the workers were oblivious to the risk posed by smoking near the \'empty drums\'.'
-          });
-          break;
-        case txt.trim() === "#camxes":
-          benji({
-            socket,
-            sendTo,
-            what:
-              "https://lojban.github.io/ilmentufa/camxes.html\nhttps://lojban.github.io/ilmentufa/glosser/glosser.htm"
-          });
-          break;
-        case txt.trim() === "#sepulka":
-          benji({
-            socket,
-            sendTo,
-            what: "https://mw.lojban.org/papri/sepulka/en"
-          });
-          break;
-        case txt.trim() === "#cilre" ||
-          txt.trim() === "#ckule" ||
-          txt.trim() === "#lojban":
-          benji({
-            socket,
-            sendTo,
-            what:
-              "An extensive description of Lojban language: http://lojban.org/publications/cll/cll_v1.1_xhtml-section-chunks/\nSlicker methods of learning Lojban: https://mw.lojban.org/papri/Learn_Lojban:_new_methods\nYou might also want to bookmark a Lojban dictionary; the two most popular ones are http://la-lojban.github.io/sutysisku/en/ and http://vlasisku.lojban.org\nAlso use this channel to ask any questions."
-          });
-          break;
-        case txt.trim() === "#noiha":
-          benji({
-            socket,
-            sendTo,
-            what:
-              "ko'a broda poi'a brodo = lo nu ko'a broda cu fasnu gi'e brodo\nko'a broda noi'a brodo = lo nu ko'a broda cu fasnu .i lo go'i cu brodo\nko'a broda soi'a brodo = lo nu ko'a broda cu brodo\nko'a broda soi ke'a brodo = ko'a broda .i lo nu go'i cu brodo"
-          });
-          break;
-        case txt.trim() === "#n-paradigm":
-          benji({
-            socket,
-            sendTo,
-            what:
-              "beu  B  Bekti  (object)  ‘-/in’  Patients, Parts, Properties\ncau  C  Canli  (quantity)  ‘by/for’  Quantities, Amounts, Values\ndio  D  Dirco  (direction)  ‘to/for’  Recipients, Beneficiaries, Destinations\nfoa  F  Folma  (full)  ‘in/of’  Wholes, Sets, Collectivities\njui  J  Junti  (young)  ‘than’  Lessers in greater/lesser than relations\nkao  K  Kakto  (act)  ‘-/by’  Actors, Agents, Doers\nneu  N  Nerbi  (necessary)  ‘under’  Conditions, Fields, Circumstances\npou  P  Proju  (produce)  ‘-’  Products, Outputs, Purposes\ngoa  G  Groda  (big)  ‘than’  Greaters in greater/lesser than relations\nsau  S  Satci  (start)  ‘from’  Sources, Origins, Reasons, Causes\nveu  V  Vetci  (event)  ‘by/via’  Events, States, Deeds, Means, Routes, Effects"
-          });
-          break;
-        case txt.trim() === "#gadri":
-          benji({
-            socket,
-            sendTo,
-            what:
-              "lo broda = su'oi da poi ge ke'a broda gi ro'oi broda cu me ke'a\nlo [PA] broda = zo'e noi ke'a broda [gi'e zilkancu li PA lo broda]\nla [PA] broda = zo'e noi lu [PA] broda li'u cmene ke'a mi\nlo PA sumti = lo PA me sumti\nla PA sumti = zo'e noi lu PA sumti li'u cmene ke'a mi\nloi [PA] broda = lo gunma be lo [PA] broda\nlai [PA] broda = lo gunma be la [PA] broda\nloi PA sumti = lo gunma be lo PA sumti\nlai PA sumti = lo gunma be la PA sumti\nlo'i [PA] broda = lo selcmi be lo [PA] broda\nla'i [PA] broda = lo selcmi be la [PA] broda\nlo'i PA sumti = lo selcmi be lo PA sumti\nla'i PA sumti = lo selcmi be la PA sumti\nPA sumti = PA da poi ke'a me sumti\nPA broda = PA da poi broda\npiPA sumti = lo piPA si'e be pa me sumti\nle broda poi brode = le broda je ckaji lo ka ce'u brode\nle broda ku poi brode = lo me le broda ku je brode"
-          });
-          break;
-      }
+      replyToHashed({ text: txt, socket, sendTo });
       break;
     case commandPrefix:
       switch (true) {
@@ -1456,7 +1262,7 @@ const processor = ({ from, towhom, text, socket }) => {
       break;
     default:
       switch (true) {
-        case txt.indexOf(`${prereplier}gadri`) === 0:
+        case txt.indexOf(`${replier}: gadri`) === 0:
           benji({ socket, sendTo, what: "use #gadri instead" });
           break;
         // case txt.indexOf("nlp:") === 0: stnlp(socket,sendTo,text.substr(4));break;
@@ -1482,7 +1288,7 @@ const processor = ({ from, towhom, text, socket }) => {
               sendTo,
               what: "sei ca ca'o jai gau cnino be fai le pe mi sorcu"
             });
-            const [err, erroredLangs] = await to(updatexmldumps());
+            const [err, erroredLangs] = await to(updateXmlDumps());
             benji({ socket, sendTo, what: "i ba'o jai gau cnino" });
             if (erroredLangs && erroredLangs.length > 0)
               benji({
@@ -1526,10 +1332,10 @@ const processor = ({ from, towhom, text, socket }) => {
             )
           });
           break;
-        case txt.indexOf(`${prereplier}mhnt `) === 0:
+        case txt.indexOf(`${replier}: mhnt `) === 0:
           ningaumahantufa(text.substr(12), socket);
           break;
-        case txt.indexOf(`${prereplier}getgr `) === 0:
+        case txt.indexOf(`${replier}: getgr `) === 0:
           getmahantufagrammar(text.substr(13), socket);
           break;
         case txt === `${replier}: ju'i`:
@@ -1548,14 +1354,14 @@ const processor = ({ from, towhom, text, socket }) => {
         case txt === `${replier}: help`:
           benji({ socket, sendTo, what: sidju() });
           break;
-        case txt.indexOf(`${prereplier}r `) === 0:
+        case txt.indexOf(`${replier}: r `) === 0:
           benji({
             socket,
             sendTo,
             what: lojban.rukylermorna(text.substr(prereplier.length + 1).trim())
           });
           break;
-        case txt.indexOf(`${prereplier}j `) === 0:
+        case txt.indexOf(`${replier}: j `) === 0:
           benji({
             socket,
             sendTo,
@@ -1623,8 +1429,8 @@ const ua = require("universal-analytics");
 io.sockets.on("connection", socket => {
   socket.on("le_te_cusku_be_fi_la_livla", data => {
     if (
-      data.data.indexOf(`${prereplier}doi`) === -1 &&
-      data.data.indexOf(`${prereplier}tell`) === -1
+      data.data.indexOf(`${replier}: doi`) === -1 &&
+      data.data.indexOf(`${replier}: tell`) === -1
     )
       processor({ from: "mw.lojban.org", text: data.data, socket });
   });
@@ -1645,8 +1451,3 @@ io.sockets.on("connection", socket => {
 });
 
 app.listen(3020);
-
-// (async ()=>{
-//   await updatexmldumps();
-// vlaste({ word: "coi", language: "en" });
-// })();

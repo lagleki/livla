@@ -1,0 +1,12 @@
+{
+  "tell": {
+    "cusku fi le nei": "{from}: tell it to yourself, Komonian",
+    "mi na bebna": "{from}: hey, Carrot, really think I'm that stupid?",
+    "ai ba benji": "{from}: via Pepper's magic of Chaosah this will be sent to {addressee} after they return to the chat"
+  },
+  "doi": {
+    "cusku fi le nei": "{from}: e'u do cusku di'u le nei si'unai",
+    "mi na bebna": "{from}: xu do je'a jinvi ledu'u mi bebna i oi",
+    "ai ba benji": "{from}: mi ba benji di'u ba lo nu la'o {prefix}.{addressee}.{prefix}. di'a cusku da"
+  }
+}

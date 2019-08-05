@@ -391,6 +391,8 @@ const GetWordDef = ({ word, language, jsonDoc }) => {
     .filter(valsi => valsi.word.toLowerCase() === word)
     .map(v => {
       let arr = [];
+      if (v.type === "cmavo" && v.user && v.user.username !== "officialdata")
+        v.type = "experimental cmavo";
       if (v.type) arr.push(`(type: ${v.type})`);
       if (v.selmaho) arr.push(`[selmaho: ${v.selmaho} ]`);
       if (v.word) arr.push(`${v.word}`);
@@ -538,7 +540,9 @@ const katna = (lin, language, jsonDoc) => {
   if (!l) return "";
   const a = l.join(" ");
   const b =
-    language !== "jbo" ? lojban.gloss(a, language, jsonDoc, false).join(tersepli) : a;
+    language !== "jbo"
+      ? lojban.gloss(a, language, jsonDoc, false).join(tersepli)
+      : a;
   return `${lin} ≈ ${b}`;
 };
 
@@ -555,7 +559,7 @@ const selmaho = word => {
   let res = [];
   if (r.full.length > 0) {
     res.push(
-      `[${word.toUpperCase().replace(/H/g,'h')}] ${r.full
+      `[${word.toUpperCase().replace(/H/g, "h")}] ${r.full
         .map(i => `${i}`)
         .join(",")}`
     );
@@ -567,7 +571,7 @@ const selmaho = word => {
   }
   if (r.partial.length > 0) {
     res.push(
-      `[${word.toUpperCase().replace(/H/g,'h')}...] ${r.partial
+      `[${word.toUpperCase().replace(/H/g, "h")}...] ${r.partial
         .map(i => `${i}`)
         .join(",")}`
     );

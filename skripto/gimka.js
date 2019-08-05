@@ -1,6 +1,5 @@
 const fs = require("fs"),
-  path = require("path-extra"),
-  ospath = require("ospath");
+  path = require("path-extra");
 
 //regular expressions for gismu forms
 const C = "(" + "[bcdfgjklmnprstvxz]" + ")";

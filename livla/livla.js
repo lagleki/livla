@@ -930,16 +930,21 @@ const wiktionary = (socket, sendTo, te_gerna, bangu) => {
 
 const rafsi_giho_nai_se_rafsi = te_gerna => {
   const a = lojban.rafsi_giho_nai_se_rafsi(te_gerna, jsonDocEn);
-  if (a.rafsi.length === 0) {
-    return a.selrafsi
-      ? `.i ra'oi ${te_gerna} rafsi zo ${a.selrafsi}`
-      : ".i no da se zvafa'i";
-  } else {
-    const coun = `.i ra'oi ${a.rafsi.join(" .e ra'oi ")} rafsi zo ${te_gerna}`;
-    return a.selrafsi
-      ? coun.concat(" ").concat(`.i ra'oi ${te_gerna} rafsi zo ${a.selrafsi}`)
-      : coun;
+  let res = [];
+  if (a.rafsi.length > 0) {
+    res.push(
+      a.rafsi.map(i => `ra'oi ${i}`).join(" .e ") + ` rafsi zo ${te_gerna}`
+    );
   }
+  if (a.selrafsi.length > 0) {
+    res.push(
+      a.selrafsi.map(i => `zo ${i}`).join(" .e ") +
+        ` se rafsi ra'oi ${te_gerna}`
+    );
+  }
+  res = res.join("\n");
+  if (res.length === 0) return ".i no da se zvafa'i";
+  return res;
 };
 
 function cpedu_fi_la_arxivo(str, max) {
@@ -976,7 +981,8 @@ function replyToVocatives({ from, text, sendTo, socket }) {
   const vocatives = require("./vocatives.json");
   const format = require("string-format");
 
-  text = text.split(" ");
+  text = text.replace(/ {2,}/g, " ").split(" ");
+  if (text[0] !== `${replier}: `) return;
   let message = text.slice(2);
   const vocative = text[1];
   if (vocatives[vocative]) {

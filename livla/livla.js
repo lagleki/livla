@@ -544,20 +544,20 @@ const katna = (lin, language, jsonDoc) => {
 
 const selmaho = word => {
   word = word.toLowerCase();
-  const r = { full: [], partial: [] };
-  const words = jsonDoc.dictionary.direction[0].valsi.filter(v => {
+  let r = { full: [], partial: [] };
+  const words = jsonDocEn.dictionary.direction[0].valsi.filter(v => {
     if (v.selmaho) {
-      if (v.selmaho.toLowerCase() === word) r.full.push(word);
+      if (v.selmaho.toLowerCase() === word) r.full.push(v.word);
       else if (v.selmaho.toLowerCase().indexOf(word) === 0)
-        r.partial.push(word);
+        r.partial.push(v.word);
     }
   });
   let res = [];
   if (r.full.length > 0) {
     res.push(
-      `.i ${r.full
-        .map(i => `lo'u ${i} le'u`)
-        .join(" .e ")} cmavo lu ${word} li'u`
+      `[${word.toUpperCase().replace(/H/g,'h')}] ${r.full
+        .map(i => `${i}`)
+        .join(",")}`
     );
   }
   const cll = require("./cll.js");
@@ -567,9 +567,9 @@ const selmaho = word => {
   }
   if (r.partial.length > 0) {
     res.push(
-      `.i ${r.partial
-        .map(i => `lo'u ${i} le'u`)
-        .join(" .e ")} cmavo lu ${word} li'o li'u`
+      `[${word.toUpperCase().replace(/H/g,'h')}...] ${r.partial
+        .map(i => `${i}`)
+        .join(",")}`
     );
   }
   return res.join("\n");
@@ -1449,3 +1449,5 @@ io.sockets.on("connection", socket => {
 });
 
 app.listen(3020);
+
+lg(selmaho('ui'));

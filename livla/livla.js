@@ -548,7 +548,7 @@ const selmaho = word => {
   const words = jsonDocEn.dictionary.direction[0].valsi.filter(v => {
     if (v.selmaho) {
       if (v.selmaho.toLowerCase() === word) r.full.push(v.word);
-      else if (v.selmaho.toLowerCase().indexOf(word) === 0)
+      else if (v.selmaho.toLowerCase().search(new RegExp(`${word}[\d]+`)) === 0)
         r.partial.push(v.word);
     }
   });
@@ -1449,5 +1449,3 @@ io.sockets.on("connection", socket => {
 });
 
 app.listen(3020);
-
-lg(selmaho('ui'));

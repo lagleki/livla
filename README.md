@@ -6,7 +6,6 @@ Installing:
 
 ```
 npm install
-
 ```
 
 IRC Bots
@@ -46,19 +45,5 @@ Your bot will connect to “#lojban” and “#ckule” of the “irc.example.co
 instead of those of “irc.freenode.net”.
 
  - `tcan` is the list of channels to which the replier will connect.
- - `livlytcan` is a channel where the asker talks to the replier.
- - `asker` is the name of the asker
  - `replier` is the name of the replier
  - `server` is the name of the IRC network to which the bot will connect.
-
-
-Issues related to the libxmljs installation
-=========
-
-If you get an error about python 3 not being supported when trying `npm
-install`, installing python 2 and issuing a command of this style (adapt the
-path to your system) should solve the problem:
-
-```sh
- $ npm config set python /usr/bin/python2.7
-```

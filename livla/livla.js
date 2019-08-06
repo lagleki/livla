@@ -375,8 +375,8 @@ const lojTemplate = s => {
 };
 
 const GetWordDef = ({ word, language, jsonDoc }) => {
-  const words = jsonDoc.dictionary.direction[0].valsi
-    .filter(valsi => valsi.word.toLowerCase() === word)
+  const words = jsonDocDirection(jsonDoc)
+    .valsi.filter(valsi => valsi.word.toLowerCase() === word)
     .map(v => {
       let arr = [];
       if (v.type === "cmavo" && v.user && v.user.username !== "officialdata")
@@ -468,7 +468,7 @@ const mulno_sisku = ({ word, language, jsonDoc }) => {
     notes: [],
     related: []
   };
-  jsonDoc.dictionary.direction[0].valsi.filter(v => {
+  jsonDocDirection(jsonDoc).valsi.filter(v => {
     if (v.word === word) {
       r.word.push(v.word);
     } else if (v.word.indexOf(word) === 0) r.partialWord.push(v.word);
@@ -536,7 +536,7 @@ const katna = (lin, language, jsonDoc) => {
 
 const selmaho = word => {
   word = word.toLowerCase();
-  let r = lojban.selmaho({word, jsonDoc: jsonDocEn});
+  let r = lojban.selmaho({ word, jsonDoc: jsonDocEn });
   let res = [];
   if (r.full.length > 0) {
     res.push(
@@ -576,15 +576,18 @@ const sidju = () => {
   return sidj.en;
 };
 
+function jsonDocDirection(jsonDoc) {
+  return jsonDoc.dictionary.direction[0] || jsonDoc.dictionary.direction;
+}
 function prepareSutysiskuJsonDump(language) {
   const jsonDoc = fastParse(
     path.join(__dirname, "../dumps", `${language}.xml`)
   );
   let json = {};
-  const words = jsonDoc.dictionary.direction[0].valsi.map(v => {
+  const words = jsonDocDirection(jsonDoc).valsi.map(v => {
     json[v.word] = {
       d: v.definition,
-      n: d.notes,
+      n: v.notes,
       t: v.type,
       s: v.selmaho,
       g: v.glossword
@@ -592,9 +595,15 @@ function prepareSutysiskuJsonDump(language) {
           R.path(["glossword", 0, "word"], v)
         : undefined,
       e: v.example,
-      k: v.related,
-      r: v.rafsi
+      k: v.related
     };
+    if (Array.isArray(v.rafsi)) {
+      json[v.word].r = v.rafsi;
+    } else if (v.rafsi) {
+      json[v.word].r = [v.rafsi];
+    } else {
+      json[v.word].r = [];
+    }
     if (v.word.indexOf("brod") !== 0) {
       json[v.word].r.push(v.word.substr(0, 4));
     }
@@ -602,12 +611,14 @@ function prepareSutysiskuJsonDump(language) {
       json[v.word].r.push("brod");
     }
     Object.keys(json[v.word]).forEach(
-      key => json[v.word][key] === undefined && delete json[v.word][key]
+      key =>
+        (json[v.word][key] === undefined || json[v.word][key] === []) &&
+        delete json[v.word][key]
     );
   });
   return `sorcu["${language}"] = ${JSON.stringify(json)}`;
 }
-const sutysiskuningau = (language, lojbo) => {
+const ningau_palasutysisku = (language, lojbo) => {
   //write a new file parsed.js that would be used by la sutysisku
   if (!language) language = "en";
   const pars = prepareSutysiskuJsonDump(language);
@@ -804,7 +815,7 @@ async function updateXmlDumps() {
   let erroredLangs = [];
   for (const language of langs)
     erroredLangs = await downloadSingleDump({ language, erroredLangs });
-  for (const dump of [
+  for (const language of [
     "2002",
     "en-pt-BR",
     "zamenhofo",
@@ -815,8 +826,9 @@ async function updateXmlDumps() {
     "ldp"
   ].concat(langs))
     try {
-      sutysiskuningau(dump, langs.includes(dump) ? 1 : 0);
+      ningau_palasutysisku(language, langs.includes(language) ? 1 : 0);
     } catch (error) {
+      lg(error);
       erroredLangs.push(language);
     }
   return [...new Set(erroredLangs)];
@@ -1227,6 +1239,7 @@ async function processor({ from, towhom, text, socket }) {
           what: "sei ca ca'o jai gau cnino be fai le pe mi sorcu"
         });
         const [err, erroredLangs] = await to(updateXmlDumps());
+        if (err) lg(err);
         benji({ socket, sendTo, what: "i ba'o jai gau cnino" });
         if (erroredLangs && erroredLangs.length > 0)
           benji({

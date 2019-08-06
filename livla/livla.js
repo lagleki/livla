@@ -982,7 +982,7 @@ function replyToVocatives({ from, text, sendTo, socket }) {
   const format = require("string-format");
 
   text = text.replace(/ {2,}/g, " ").split(" ");
-  if (text[0] !== `${replier}: `) return;
+  if (text[0] !== `${replier}:`) return;
   let message = text.slice(2);
   const vocative = text[1];
   if (vocatives[vocative]) {

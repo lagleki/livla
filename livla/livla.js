@@ -36,7 +36,7 @@ const langs = [
   "sv"
 ];
 const robangu =
-  "fr-facile|en|ru|pl|de|ja|jbo|guaspi|loglan|eo|fr|2002|es|zh|sv|en-simple|krasi|dukti|laadan|toki";
+  ["fr-facile","en","ru","pl","de","ja","jbo","guaspi","loglan","eo","fr","2002","es","zh","sv","en-simple","krasi","dukti","laadan","toki"];
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
 let tcan =

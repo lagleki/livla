@@ -5,7 +5,7 @@
   "description": "A combine of Lojban tools",
   "dependencies": {
     "await-to-js": "^2.1.1",
-    "better-sqlite3": "^5.4.1",
+    "better-sqlite3": "^5.4.2",
     "byline": "^5.0.0",
     "cron": "^1.7.1",
     "express": "^4.17.1",
@@ -14,7 +14,7 @@
     "he": "^1.2.0",
     "irc-upd": "^0.10.0",
     "line-by-line": "^0.1.6",
-    "lojban": "^1.0.1",
+    "lojban": "^1.0.6",
     "lzwcompress": "^0.5.6",
     "mailparser": "^2.7.1",
     "natural": "^0.6.3",

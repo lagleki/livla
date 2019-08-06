@@ -35,8 +35,28 @@ const langs = [
   "hu",
   "sv"
 ];
-const robangu =
-  ["fr-facile","en","ru","pl","de","ja","jbo","guaspi","loglan","eo","fr","2002","es","zh","sv","en-simple","krasi","dukti","laadan","toki"];
+const robangu = [
+  "fr-facile",
+  "en",
+  "ru",
+  "pl",
+  "de",
+  "ja",
+  "jbo",
+  "guaspi",
+  "loglan",
+  "eo",
+  "fr",
+  "2002",
+  "es",
+  "zh",
+  "sv",
+  "en-simple",
+  "krasi",
+  "dukti",
+  "laadan",
+  "toki"
+];
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
 let tcan =
@@ -888,17 +908,22 @@ const rafsi_giho_nai_se_rafsi = te_gerna => {
   const a = lojban.rafsi_giho_nai_se_rafsi(te_gerna, jsonDocEn);
   let res = [];
   if (a.rafsi.filter(Boolean).length > 0) {
-    res.push(
-      a.rafsi.filter(Boolean).map(i => `ra'oi ${i}`).join(" .e ") + ` rafsi zo ${te_gerna}`
+    res = res.concat(
+      a.rafsi
+        .filter(Boolean)
+        .map(i => `ra'oi ${i}`)
+        .join(" .e ") + ` rafsi zo ${te_gerna}`
     );
   }
   if (a.selrafsi.filter(Boolean).length > 0) {
-    res.push(
-      a.selrafsi.filter(Boolean).map(i => `zo ${i}`).join(" .e ") +
-        ` se rafsi ra'oi ${te_gerna}`
+    res = res.concat(
+      a.selrafsi
+        .filter(Boolean)
+        .map(i => `zo ${i}`)
+        .join(" .e ") + ` se rafsi ra'oi ${te_gerna}`
     );
   }
-  res = res.join("\n");
+  res = [...new Set(res)].join("\n");
   if (res.length === 0) return ".i no da se zvafa'i";
   return res;
 };

@@ -1116,7 +1116,7 @@ async function processCommand({ socket, sendTo, text }) {
   text = text
     .split(" ")
     .slice(1)
-    .join("");
+    .join(" ");
   if (jsonCommand[cmd]) {
     const what = await jsonCommand[cmd](text);
     benji({ socket, sendTo, what });

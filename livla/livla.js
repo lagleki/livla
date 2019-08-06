@@ -536,14 +536,7 @@ const katna = (lin, language, jsonDoc) => {
 
 const selmaho = word => {
   word = word.toLowerCase();
-  let r = { full: [], partial: [] };
-  const words = jsonDocEn.dictionary.direction[0].valsi.filter(v => {
-    if (v.selmaho) {
-      if (v.selmaho.toLowerCase() === word) r.full.push(v.word);
-      else if (v.selmaho.toLowerCase().search(new RegExp(`${word}[\\d]+`)) === 0)
-        r.partial.push(v.word);
-    }
-  });
+  let r = lojban.selmaho({word, jsonDoc: jsonDocEn});
   let res = [];
   if (r.full.length > 0) {
     res.push(
@@ -552,10 +545,8 @@ const selmaho = word => {
         .join(",")}`
     );
   }
-  const cll = require("./cll.js");
-  const cllarr = cll.cllk()[word];
-  if (cllarr) {
-    res.push(`${cllarr.replace(/ /g, "\n")}`);
+  if (r.CLL) {
+    res.push(`${r.CLL.replace(/ /g, "\n")}`);
   }
   if (r.partial.length > 0) {
     res.push(

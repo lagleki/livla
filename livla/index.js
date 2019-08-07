@@ -381,7 +381,7 @@ const GetWordDef = ({ word, language, jsonDoc }) => {
       if (v.type === "cmavo" && v.user && v.user.username !== "officialdata")
         v.type = "experimental cmavo";
       if (v.type) arr.push(`(type: ${v.type})`);
-      if (v.selmaho) arr.push(`[selmaho: ${v.selmaho} ]`);
+      if (v.selmaho) arr.push(`[selmaho: ${v.selmaho}]`);
       if (v.word) arr.push(`${v.word}`);
       if (v.definition) arr.push(`= ${lojTemplate(v.definition)}`);
       if (v.notes) arr.push(`| notes: ${lojTemplate(v.notes)}`);

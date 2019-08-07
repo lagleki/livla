@@ -48,7 +48,7 @@
   },
   "main": "livla/livla.js",
   "scripts": {
-    "start": "node node_modules/.bin/supervisor -w .,./livla -i ./dumps,./i,./mahantufa -- --expose-gc livla/livla.js",
+    "start": "node node_modules/.bin/supervisor -w .,./livla -i ./dumps,./i,./mahantufa -- --expose-gc livla/index.js",
     "sutysisku": "cd i ; node .scripts/morna.js ; git add . ; git commit -m 'commit' ; git push -f; cd ..",
     "reload": "node i/.scripts/morna.js",
     "snovlaste": "cd i ; node .scripts/vlaste.js ; node .scripts/morna.js ; git checkout --orphan newBranch ; git add -A ; git commit -m 'commit' ; git branch -D master ; git branch -m master ; git push -f origin master ; git gc --aggressive --prune=all ; git push --set-upstream origin master ; cd ..",

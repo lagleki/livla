@@ -222,12 +222,11 @@ loadUserSettings();
 loadNotci();
 
 //store en dump in memory
-let enxml = path.join(__dirname, "../dumps", "en" + ".xml");
-if (!fs.existsSync(enxml)) {
-  enxml = path.join(__dirname, "../dumps", "toki" + ".xml");
+let jsonDocEn;
+jsonDocEn = getJsonDoc("en");
+if (jsonDocEn.error) {
+  jsonDocEn = getJsonDoc("toki");
 }
-
-let jsonDocEn = fastParse(enxml);
 
 const updateUserSettings = callback => {
   readConfig("user-settings.json"); // Ensure existance
@@ -395,17 +394,32 @@ const GetWordDef = ({ word, language, jsonDoc }) => {
   return words.length > 0 ? words : undefined;
 };
 
-const getJsonDoc = language => {
+function getJsonDoc(language) {
   if (language !== "en" || !jsonDocEn) {
-    const xmlPath = path.join(__dirname, "../dumps", `${language}.xml`);
-    if (!fs.existsSync(xmlPath)) {
-      const errorMessage = `.i no da liste lo valsi be fi lo se sinxa be zoi zoi.${language}.zoi`;
-      return errorMessage;
+    const jsonPath = path.join(__dirname, "../dumps", `${language}.json`);
+    if (!fs.existsSync(jsonPath)) {
+      const error = `.i no da liste lo valsi be fi lo se sinxa be zoi zoi.${language}.zoi`;
+      return { error };
     }
-    return fastParse(xmlPath);
+    return getJsonDump(jsonPath);
   }
   return jsonDocEn;
-};
+}
+
+function getJsonDump(filePath) {
+  let dump;
+  if (!fs.existsSync(filePath)) {
+    dump = fastParse(filePath.replace(/\.json$/, ".xml"));
+    fs.writeFileSync(filePath, JSON.stringify(dump));
+  } else {
+    try {
+      dump = JSON.parse(fs.readFileSync(filePath));
+    } catch (error) {
+      dump = {};
+    }
+  }
+  return dump;
+}
 
 const PrettyLujvoScore = a =>
   a
@@ -580,8 +594,8 @@ function jsonDocDirection(jsonDoc) {
   return jsonDoc.dictionary.direction[0] || jsonDoc.dictionary.direction;
 }
 function prepareSutysiskuJsonDump(language) {
-  const jsonDoc = fastParse(
-    path.join(__dirname, "../dumps", `${language}.xml`)
+  const jsonDoc = getJsonDump(
+    path.join(__dirname, "../dumps", `${language}.json`)
   );
   let json = {};
   const words = jsonDocDirection(jsonDoc).valsi.map(v => {
@@ -778,11 +792,11 @@ async function downloadSingleDump({ language, erroredLangs }) {
     "jbovlastesessionid=U2FsdGVkX1%2FpiXtl1FSyMUZvFTudUq0N59YatQesEbsfdQ6owwMDeA%3D%3D"
   );
 
-  let t = path.join(__dirname, "../dumps", `${language}.xml`);
+  let t = path.join(__dirname, "../dumps", `${language}`);
   try {
-    fs.unlinkSync(`${t}.temp`);
+    fs.unlinkSync(`${t}.xml.temp`);
   } catch (error) {}
-  let file = fs.createWriteStream(`${t}.temp`);
+  let file = fs.createWriteStream(`${t}.xml.temp`);
 
   await new Promise((resolve, reject) => {
     const uri = `http://jbovlaste.lojban.org/export/xml-export.html?lang=${language}`;
@@ -794,9 +808,16 @@ async function downloadSingleDump({ language, erroredLangs }) {
     })
       .pipe(file)
       .on("finish", () => {
-        fs.renameSync(`${t}.temp`, t);
-        if (language === "en") {
-          jsonDocEn = fastParse(t);
+        try {
+          const jsonDoc = fastParse(`${t}.xml.temp`);
+          fs.writeFileSync(`${t}.json`, JSON.stringify(jsonDoc));
+          fs.unlinkSync(`${t}.xml.temp`);
+          if (language === "en") {
+            jsonDocEn = jsonDoc;
+          }
+        } catch (error) {
+          lg(error);
+          erroredLangs.push(language);
         }
         resolve();
       })

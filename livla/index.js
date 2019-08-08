@@ -378,8 +378,19 @@ const GetWordDef = ({ word, language, jsonDoc }) => {
     .valsi.filter(valsi => valsi.word.toLowerCase() === word)
     .map(v => {
       let arr = [];
-      if (v.type === "cmavo" && v.user && v.user.username !== "officialdata")
-        v.type = "experimental cmavo";
+      if (v.type === "cmavo" && v.user && v.user.username !== "officialdata") {
+        let enword;
+        if (language === "en") {
+          enword = valsi;
+        } else {
+          enword = jsonDocDirection(jsonDocEn).valsi.filter(
+            valsi => valsi.word.toLowerCase() === word
+          )[0];
+        }
+        if (R.path(["user", "username"], enword) !== "officialdata") {
+          v.type = "experimental cmavo";
+        }
+      }
       if (v.type) arr.push(`(type: ${v.type})`);
       if (v.selmaho) arr.push(`[selmaho: ${v.selmaho}]`);
       if (v.word) arr.push(`${v.word}`);

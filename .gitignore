@@ -1,3 +1,4 @@
+*.tsv
 lojbo.arxivo/*.sql
 config/
 node_modules/
@@ -8,7 +9,6 @@ zasni/
 dumps/*.json
 dumps/*.temp
 dumps/*.csv
-dumps/*.tsv
 !dumps/dukti.json
 !dumps/loglan.json
 !dumps/laadan.json

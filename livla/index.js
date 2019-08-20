@@ -533,7 +533,7 @@ const mulno_sisku = ({ word, language, jsonDoc }) => {
       r.related
     ]
   );
-  r = [... new Set(r)];
+  r = [...new Set(r)];
 
   const xo = r.length;
   if (xo > 30) {
@@ -618,7 +618,7 @@ function prepareSutysiskuJsonDump(language) {
       s: v.selmaho,
       g: v.glossword
         ? R.path(["glossword", "word"], v) ||
-        R.path(["glossword", 0, "word"], v)
+          R.path(["glossword", 0, "word"], v)
         : undefined,
       e: v.example,
       k: v.related
@@ -666,7 +666,7 @@ const ningau_palasutysisku = (language, lojbo) => {
         .replace(/\n\.\.\/lib.fullproof.+\n/g, "\n");
       fs.writeFileSync(t, pars);
       lg(`${t} updated`);
-    } catch (err) { }
+    } catch (err) {}
   }
 };
 
@@ -807,7 +807,7 @@ async function downloadSingleDump({ language, erroredLangs }) {
   let t = path.join(__dirname, "../dumps", `${language}`);
   try {
     fs.unlinkSync(`${t}.xml.temp`);
-  } catch (error) { }
+  } catch (error) {}
   let file = fs.createWriteStream(`${t}.xml.temp`);
 
   await new Promise((resolve, reject) => {
@@ -876,7 +876,7 @@ const GimkaConflicts = valsi => {
   const r = gimka.WhichIsInConflictAll(valsi, jsonDocEn);
   return `[${r.official}] - official gismu that conflict with {${valsi}}\n[${
     r.experimental
-    }] - experimental gismu that conflict with {${valsi}}`;
+  }] - experimental gismu that conflict with {${valsi}}`;
 };
 const wordnet = (socket, sendTo, te_gerna) => {
   const natural = require("natural");
@@ -895,10 +895,10 @@ const wordnet = (socket, sendTo, te_gerna) => {
       const exp = w.exp && w.exp.length > 0 ? `..... examples: ${w.exp}\n` : "";
       const syns = w.synonyms
         ? `..... synonyms: ${w.synonyms
-          .toString()
-          .split(",")
-          .map(i => i.replace(/_/g, " "))
-          .join(", ")}\n`
+            .toString()
+            .split(",")
+            .map(i => i.replace(/_/g, " "))
+            .join(", ")}\n`
         : "";
       const whole = prettyfirstline + def + exp + syns;
       benji({ socket, sendTo, what: whole });
@@ -1070,7 +1070,7 @@ function sendDelayed({ from, sendTo, socket }) {
         sendTo,
         what: `${from}: cu'u la'o gy.${cmenepagbu[0]}.gy.: ${
           cmenepagbu[2]
-          }`.replace(/(.{190,250})(, |[ \.\"\/])/g, "$1$2\n")
+        }`.replace(/(.{190,250})(, |[ \.\"\/])/g, "$1$2\n")
       });
       notci.splice(l, 1);
       l = l - 1;
@@ -1092,18 +1092,12 @@ jsonCommand = {
   k: text => lojban.ilmentufa_off(text, "C")["kampu"],
   ilm: text => lojban.ilmentufa_off(text, "T")["kampu"],
   "ilm+": text => {
-    const params = `${text} `
-      .split(" ")[0]
-      .split("+")[1]
-      .toUpperCase();
+    const params = `${text} `.split("+")[1].toUpperCase();
     return lojban.ilmentufa_off(text, params)["kampu"];
   },
   beta: text => lojban.ilmentufa_exp(text, "T")["kampu"],
   "beta+": text => {
-    const params = `${text} `
-      .split(" ")[0]
-      .split("+")[1]
-      .toUpperCase();
+    const params = `${text} `.split("+")[1].toUpperCase();
     return lojban.ilmentufa_exp(text, params)["kampu"];
   },
   raw: text => lojban.ilmentufa_off(text, "J")["kampu"],
@@ -1155,6 +1149,14 @@ async function processCommand({ socket, sendTo, text }) {
     benji({ socket, sendTo, what });
     return true;
   }
+  const leftMatched = Object.keys(jsonCommand).filter(
+    i => cmd.indexOf(i) === 0
+  );
+  if (leftMatched[0]) {
+    const what = await jsonCommand[leftMatched[0]](text);
+    benji({ socket, sendTo, what });
+    return true;
+  }
   if (jsonWiktionary[cmd]) {
     jsonWiktionary[cmd](socket, sendTo, text);
     return true;
@@ -1201,7 +1203,9 @@ async function processor({ from, towhom, text, socket }) {
   switch (true) {
     case text.search("(.i |i |)ma rafsi zo [a-z']+") === 0:
       const rg = /.*ma rafsi zo ([a-z']+).*/;
-      what = rafsi_giho_nai_se_rafsi(text.match(rg)[1].replace(/[^a-z'\.]/g, ""));
+      what = rafsi_giho_nai_se_rafsi(
+        text.match(rg)[1].replace(/[^a-z'\.]/g, "")
+      );
       benji({
         socket,
         sendTo,

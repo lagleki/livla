@@ -1150,7 +1150,7 @@ async function processCommand({ socket, sendTo, text }) {
     return true;
   }
   const leftMatched = Object.keys(jsonCommand).filter(
-    i => cmd.indexOf(i) === 0
+    i => cmd.search(new RegExp("^"+i+"(?![a-z])","igm")) === 0
   );
   if (leftMatched[0]) {
     const what = await jsonCommand[leftMatched[0]](text);

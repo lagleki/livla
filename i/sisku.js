@@ -78,7 +78,7 @@ function sisku(data, callback) {
   if (query.length === 0)
     return;
   var secupra_vreji = [];
-  var query_apos = query.replace(/h/g, "'").toLowerCase();
+  var query_apos = query.replace(/[h‘]/g, "'").toLowerCase();
   var queryDecomposition = decompose(query_apos);
   var kij = [];
   var ki = [];

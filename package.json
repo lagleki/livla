@@ -8,6 +8,7 @@
     "await-to-js": "^2.1.1",
     "better-sqlite3": "^5.4.3",
     "byline": "^5.0.0",
+    "cheerio": "^1.0.0-rc.3",
     "cron": "^1.7.2",
     "express": "^4.17.1",
     "express-http-proxy": "^1.5.1",

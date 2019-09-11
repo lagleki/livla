@@ -874,9 +874,7 @@ setInterval(() => {
 const GimkaConflicts = valsi => {
   const gimka = require("../skripto/gimka.js");
   const r = gimka.WhichIsInConflictAll(valsi, jsonDocEn);
-  return `[${r.official}] - official gismu that conflict with {${valsi}}\n[${
-    r.experimental
-  }] - experimental gismu that conflict with {${valsi}}`;
+  return `[${r.official}] - official gismu that conflict with {${valsi}}\n[${r.experimental}] - experimental gismu that conflict with {${valsi}}`;
 };
 const wordnet = (socket, sendTo, te_gerna) => {
   const natural = require("natural");
@@ -1150,7 +1148,7 @@ async function processCommand({ socket, sendTo, text }) {
     return true;
   }
   const leftMatched = Object.keys(jsonCommand).filter(
-    i => cmd.search(new RegExp("^"+i+"(?![a-z])","igm")) === 0
+    i => cmd.search(new RegExp("^" + i + "(?![a-z])", "igm")) === 0
   );
   if (leftMatched[0]) {
     const what = await jsonCommand[leftMatched[0]](text);

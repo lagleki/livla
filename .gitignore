@@ -6,6 +6,7 @@ skripto/node_modules/
 _build/
 .idea/
 zasni/
+dumps/*.xml
 dumps/*.json
 dumps/*.temp
 dumps/*.csv

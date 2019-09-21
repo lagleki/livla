@@ -136,7 +136,7 @@ langs.forEach(lang => {
     searchurl: "/sutysisku/" + lang + "/sisku.xml",
     searchtitle: lang + "-sutysisku",
     titlelogo:
-      "<a id='title' href='#'><span id='site-title'><img src=\"../pixra/snime.svg\" height='16' width='16'><font color='#fff'>la sutysisku</font></span></a>",
+      "<a id='title' href='#'><span id='site-title'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16'><font color='#fff'>la sutysisku</font></span></a>",
     mupliskari1: "56,136,233",
     mupliskari2: "34,87,213",
     mupliskari3: "38,99,224",

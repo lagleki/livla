@@ -1198,11 +1198,16 @@
 			}
 		}
 
+		function SwitchRotation({ action }) {
+			if (action === 'start') { document.getElementById('clear').classList.add('rotate'); document.getElementById('logo').classList.add('rotate'); }
+			else { document.getElementById('clear').classList.remove('rotate'); document.getElementById('logo').classList.remove('rotate'); }
+		}
+
 		function RenderResults({
 			query,
 			seskari
 		}) {
-			document.getElementById('clear').classList.remove('rotate');
+			SwitchRotation({ action: 'stop' });
 			outp.innerHTML = '';
 			//<xuzganalojudri|lojbo>
 			CLL();
@@ -1441,7 +1446,7 @@
 			//emit search
 			ciska.value = state.searching.query;
 
-			document.getElementById('clear').classList.add('rotate');
+			SwitchRotation({ action: 'start' });
 			if (state.searching.seskari === 'arxivo') {
 				var json = JSON.parse(JSON.stringify(state.searching));
 				json.max = 100;
@@ -1456,7 +1461,7 @@
 		}
 		//rendering
 		function RenderDesktop() {
-			document.getElementById('clear').classList.remove('rotate');
+			SwitchRotation({ action: 'stop' });
 			document.getElementById('content').scrollTop = 0;
 			var lastQuery = state.displaying.query;
 			state.displaying.query = '';
@@ -1945,4 +1950,5 @@
 		}, false);
 	</script>
 </body>
+
 </html>

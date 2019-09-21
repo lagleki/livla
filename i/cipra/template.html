@@ -1940,7 +1940,7 @@
 			appCache.update();
 			if (appCache.status == window.applicationCache.UPDATEREADY) appCache.swapCache();
 		}
-		window.applicationCache.addEventListener('updateready', function (e) {
+		if (window.applicationCache) window.applicationCache.addEventListener('updateready', function (e) {
 			if (window.applicationCache.status == window.applicationCache.UPDATEREADY) einingau = true;
 		}, false);
 	</script>

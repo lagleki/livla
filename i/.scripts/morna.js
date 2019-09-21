@@ -227,15 +227,30 @@ langs.forEach(lang => {
 
   //generate worker.js
   const workerjsfile =
-    "window = this;var sorcu={};var bau = location.href.split('/').slice(-2)[0];if (bau==='cipra'){bau='en';}\npostMessage({kind: 'loading'});\nimportScripts('bangu.js','../data/parsed-" +
-    lang.replace(/^cipra$/, "en").replace(/^muplis/, "tatoeba") +
-    ".js?sisku=" +
-    n_for_url +
-    "', '" +
-    (["cipra", "cll"].includes(lang)
+    `
+    window = this;
+    var sorcu={};
+    var bau = location.href.split('/').slice(-2)[0];
+    if (bau==='cipra'){bau='ru';}
+    postMessage({kind: 'loading'});
+    importScripts('bangu.js','../data/parsed-${lang.replace(/^cipra$/, "ru").replace(/^muplis/, "tatoeba")}.js?sisku=${n_for_url}', '${(["cipra", "cll"].includes(lang)
       ? "./sisku.js?sisku=" + n_for_url
-      : "../sisku.js?sisku=" + n_for_url) +
-    "');\npostMessage({kind: 'ready'});\nthis.onmessage = function(ev) {if (ev.data.kind == 'newSearch') {sisku(ev.data, function(results) {postMessage({kind: 'searchResults', results: results,query:ev.data.query})})}}";
+      : "../sisku.js?sisku=" + n_for_url)}');
+    postMessage({kind: 'ready'});
+    this.onmessage = function(ev) {
+      if (ev.data.kind == 'newSearch') {
+        sisku(ev.data, function(results) {
+          postMessage({
+            kind: 'searchResults',
+            results: results,
+            req: {
+              seskari: ev.data.seskari,
+              query: ev.data.query
+            }
+          })
+        })
+      }
+    }`;
   fs.writeFileSync(
     path.join(__dirname, "../../i", lang, "worker.js"),
     workerjsfile

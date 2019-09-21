@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html manifest='webapp.appcache' xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<html manifest='webapp.appcache' xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#"
+	xmlns:fb="https://www.facebook.com/2008/fbml">
 
 <head>
 	<!-- Global Site Tag (gtag.js) - Google Analytics -->
 	<script>
-		(function(i, s, o, g, r, a, m) {
+		(function (i, s, o, g, r, a, m) {
 			i['GoogleAnalyticsObject'] = r;
-			i[r] = i[r] || function() {
+			i[r] = i[r] || function () {
 				(i[r].q = i[r].q || []).push(arguments)
 			}, i[r].l = 1 * new Date();
 			a = s.createElement(o),
@@ -26,12 +27,13 @@
 	<script type="text/x-mathjax-config">
 		MathJax.Hub.Config({ showMathMenu: false, extensions: ["tex2jax.js"], jax: ["input/TeX", "output/HTML-CSS"], tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} });
 	</script>
-	<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
-	</script>
+	<script type="text/javascript" async
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+		</script>
 	<script>
 		ArcBTracker = {
-			fire: function(env) {
-				if (typeof(env) == "undefined") {
+			fire: function (env) {
+				if (typeof (env) == "undefined") {
 					env = {};
 				}
 
@@ -103,6 +105,20 @@
 	<link rel="shortcut icon" href="%favicon%" />
 	<link rel="search" type="application/opensearchdescription+xml" href="%searchurl%" title="%searchtitle%">
 	<style type="text/css">
+		@keyframes rotation {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(359deg);
+			}
+		}
+
+		.rotate {
+			animation: rotation 2s infinite linear;
+		}
+
 		#arxivo {
 			display: inline-block;
 		}
@@ -497,6 +513,7 @@
 		#title {
 			cursor: default;
 		}
+
 		.pointer {
 			cursor: pointer;
 		}
@@ -511,11 +528,13 @@
 				margin-left: 10%
 			}
 		}
+
 		@media screen and (min-width: 510px) and (max-width: 710px) {
-			#galtu-dasri{
+			#galtu-dasri {
 				padding: 0 10px 0 10px
 			}
 		}
+
 		@media screen and (min-width: 510px) {
 			#clear {
 				padding: 22px 30px 10px 30px;
@@ -726,7 +745,8 @@
 			height: 21px;
 		}
 
-		.cnano-tutci:hover,.cnano-tutci-hover {
+		.cnano-tutci:hover,
+		.cnano-tutci-hover {
 			background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
 			background: -moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
 			background: -webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
@@ -751,7 +771,8 @@
 			background-color: #c229296b;
 		}
 
-		.rimni-tutci:hover,.rimni-tutci-hover {
+		.rimni-tutci:hover,
+		.rimni-tutci-hover {
 			background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #af0a0a), color-stop(1, #c229296b));
 			background: -moz-linear-gradient(top, #af0a0a 5%, #c229296b 100%);
 			background: -webkit-linear-gradient(top, #af0a0a 5%, #c229296b 100%);
@@ -772,7 +793,8 @@
 			background-color: #fce374;
 		}
 
-		.arxivo-tutci:hover,.arxivo-tutci-hover {
+		.arxivo-tutci:hover,
+		.arxivo-tutci-hover {
 			/* border:1px solid #967d09; */
 			color: #000;
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6cd5a', endColorstr='#e6cd5a', GradientType=0);
@@ -1024,7 +1046,8 @@
 		<form id='se-vasru-lo-galtu-dasri' onsubmit="return false" novalidate>
 			%titlelogo%
 			<div id="kicne1"></div>
-			<input id='ciska' class="ciska" type="text" name="focus" required placeholder="%bangusisku%" autofocus autocorrect="off" autocapitalize="off" autocomplete="false" />
+			<input id='ciska' class="ciska" type="text" name="focus" required placeholder="%bangusisku%" autofocus
+				autocorrect="off" autocapitalize="off" autocomplete="false" />
 			<div id="kicne2"></div>
 			<button id="clear" type="reset"></button>
 		</form>
@@ -1113,8 +1136,8 @@
 		//search after timeout
 		var typingTimer;
 		var IdleTypingTimer;
-		var delay = (function() {
-			return function(callback, ms) {
+		var delay = (function () {
+			return function (callback, ms) {
 				clearTimeout(IdleTypingTimer);
 				IdleTypingTimer = setTimeout(callback, ms);
 			};
@@ -1133,15 +1156,15 @@
 			citri: []
 		};
 
-		(function() {
+		(function () {
 			try {
 				var tcini = JSON.parse(localStorage.getItem('tcini'));
 				if (tcini.seskari) state.searching.seskari = tcini.seskari;
 				if (tcini.query) state.searching.query = tcini.query;
-			} catch (e) {}
+			} catch (e) { }
 			try {
 				state.citri = JSON.parse(localStorage.getItem('citri')) || [];
-			} catch (e) {}
+			} catch (e) { }
 		})();
 
 
@@ -1150,23 +1173,23 @@
 		function RenderCitri() {
 			if (state.citri.length > 0)
 				citri.innerHTML = " " + window.purc +
-				state.citri.map(
-					function(a) {
-						return '<a class="a-' + a.seskari + '" href="#seskari=' + a.seskari + '&sisku=' + encodeUrl(a.query) + '">' + escHtml(a.query) + "</a>";
-					}
-				).join(", ");
+					state.citri.map(
+						function (a) {
+							return '<a class="a-' + a.seskari + '" href="#seskari=' + a.seskari + '&sisku=' + encodeUrl(a.query) + '">' + escHtml(a.query) + "</a>";
+						}
+					).join(", ");
 		}
 
-		function RenderDasri(seskari,sepia){
-			var colors = ["arxivo","cnano","rimni"];
-			dasri.className = seskari+'-dasri noselect';
-			SiteTitleFull.classList.add(seskari+"-search-mode-title-color");
+		function RenderDasri(seskari, sepia) {
+			var colors = ["arxivo", "cnano", "rimni"];
+			dasri.className = seskari + '-dasri noselect';
+			SiteTitleFull.classList.add(seskari + "-search-mode-title-color");
 			SiteTitleFull.classList.remove("desktop-mode-title-color");
-			document.getElementById(seskari).classList.add(seskari+"-tutci-hover");
-			colors.map(function(c){
-				if (c!==seskari){
-					SiteTitleFull.classList.remove(c+"-search-mode-title-color");
-					document.getElementById(c).classList.remove(c+"-tutci-hover");
+			document.getElementById(seskari).classList.add(seskari + "-tutci-hover");
+			colors.map(function (c) {
+				if (c !== seskari) {
+					SiteTitleFull.classList.remove(c + "-search-mode-title-color");
+					document.getElementById(c).classList.remove(c + "-tutci-hover");
 				}
 			})
 			for (var i = 0; i < SiteImage.length; i++) {
@@ -1179,6 +1202,7 @@
 			query,
 			seskari
 		}) {
+			document.getElementById('clear').classList.remove('rotate');
 			outp.innerHTML = '';
 			//<xuzganalojudri|lojbo>
 			CLL();
@@ -1197,18 +1221,18 @@
 			switch (state.displaying.seskari) {
 				case 'rimni':
 					MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-					RenderDasri("rimni","sepia(1.0)");
+					RenderDasri("rimni", "sepia(1.0)");
 					break;
 				case 'arxivo':
-					RenderDasri("arxivo","none");
+					RenderDasri("arxivo", "none");
 					break;
 				case 'cnano':
 				default:
 					MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-					RenderDasri("cnano","none");
+					RenderDasri("cnano", "none");
 			}
 
-			delay(function() {
+			delay(function () {
 				//todo: arrpurc or state.history
 				DispatchCitri();
 
@@ -1226,7 +1250,7 @@
 			}, 2000);
 		}
 		//listeners
-		worker.onmessage = function(ev) {
+		worker.onmessage = function (ev) {
 			var data = ev.data;
 			if (data.kind == 'ready') {
 				document.title = "la sutysisku";
@@ -1252,7 +1276,7 @@
 				pb.style.width = (data.percent * 100) + '%';
 			}
 		}
-		socket.on('la_arxivo_cu_cusku', function(data) {
+		socket.on('la_arxivo_cu_cusku', function (data) {
 			if (state.searching.seskari === data.seskari && state.searching.query === data.query) {
 				results = data.message;
 				window.jimte = 30;
@@ -1324,10 +1348,10 @@
 		//typed, stopped typing > push
 		window.addEventListener('popstate', getStateFromUrl);
 		ciska.addEventListener("paste", typing(0));
-		ciska.addEventListener("keyup", function() {
+		ciska.addEventListener("keyup", function () {
 			typing()
 		});
-		ciska.addEventListener("keydown", function() {
+		ciska.addEventListener("keydown", function () {
 			clearTimeout(typingTimer);
 		});
 		ciska.addEventListener("input", typing());
@@ -1359,7 +1383,7 @@
 			DispatchState({});
 		}
 		//change seskari
-		document.getElementById('rimni').addEventListener("click", function() {
+		document.getElementById('rimni').addEventListener("click", function () {
 			state.searching = {
 				seskari: 'rimni',
 				query: plukaquery(ciska.value)
@@ -1369,7 +1393,7 @@
 			});
 		});
 
-		document.getElementById('cnano').addEventListener("click", function() {
+		document.getElementById('cnano').addEventListener("click", function () {
 			state.searching = {
 				seskari: 'cnano',
 				query: plukaquery(ciska.value)
@@ -1379,7 +1403,7 @@
 			});
 		});
 
-		document.getElementById('arxivo').addEventListener("click", function() {
+		document.getElementById('arxivo').addEventListener("click", function () {
 			state.searching = {
 				seskari: 'arxivo',
 				query: plukaquery(ciska.value)
@@ -1416,6 +1440,8 @@
 			if (JSON.stringify(state.searching) === JSON.stringify(state.displaying)) return;
 			//emit search
 			ciska.value = state.searching.query;
+
+			document.getElementById('clear').classList.add('rotate');
 			if (state.searching.seskari === 'arxivo') {
 				var json = JSON.parse(JSON.stringify(state.searching));
 				json.max = 100;
@@ -1430,6 +1456,7 @@
 		}
 		//rendering
 		function RenderDesktop() {
+			document.getElementById('clear').classList.remove('rotate');
 			document.getElementById('content').scrollTop = 0;
 			var lastQuery = state.displaying.query;
 			state.displaying.query = '';
@@ -1480,7 +1507,7 @@
 			for (var key in obj) {
 				if (obj[key][0] === 0 || obj[key][0] === window.bangu) {
 					acc += "<div id='DIV_1' style='height:" + (cisn) + "px;width:" + (obj[key][3] * cisn) + "px;'><div id='DIV_2' style='height:" + (cisn) + "px;width:" + (
-							obj[key][3] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][1] + "</b></span><a" + ((obj[key][4] || '').indexOf("http") === 0 ? " target='_blank'" : '') + " href=\"" + ((key.indexOf(
+						obj[key][3] * cisn) + "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" + obj[key][1] + "</b></span><a" + ((obj[key][4] || '').indexOf("http") === 0 ? " target='_blank'" : '') + " href=\"" + ((key.indexOf(
 							"@") === 0) ? obj[key][4] : ("https://la-lojban.github.io/sutysisku/" + key + "/#seskari=" + state.displaying.seskari + "&sisku=" + encodeUrl(lastQuery))) + "\" id='A_7'><div id='DIV_8' style='height:" +
 						(cisn) + "px;width:" + (obj[key][3] * cisn) + "px;background-image:url(\"" + obj[key][2] + "\")'></div></a></div></div>";
 				}
@@ -1518,12 +1545,12 @@
 
 		//<xuzganalojudri|lojbo>
 		function getCLLSections(te_gerna) {
-			return Object.keys(window.arrcll || []).reduce(function(init, i) {
+			return Object.keys(window.arrcll || []).reduce(function (init, i) {
 				if (i.indexOf(te_gerna) === 0) {
 					init = init.concat(window.arrcll[i]);
 				}
 				return init;
-			}, []).filter(function(a, b, mi) {
+			}, []).filter(function (a, b, mi) {
 				return mi.indexOf(a) === b;
 			});
 		}
@@ -1533,7 +1560,7 @@
 			var sc = getCLLSections(state.searching.query);
 			if (sc.length === 0 && results && results[0] && results[0].s) sc = getCLLSections(results[0].s);
 			if (sc.length === 0) return;
-			sc = window.cllnotci + "<ul class='liste'>" + sc.map(function(arg) {
+			sc = window.cllnotci + "<ul class='liste'>" + sc.map(function (arg) {
 				var a = window.cylylypoicnino[arg]
 				return "<li><a target='_blank' href=\"http:\/\/lojban.org\/publications/cll\/cll_v1.1_xhtml-section-chunks\/" + a.judri + "\">" + escHtml(a.cmene) + "</a></li>";
 			}).join("") + "</ul>";
@@ -1557,31 +1584,31 @@
 			seskari
 		}) {
 			return ("<span>" + def
-					.replace(/\$.*?\$/g, function(c) {
-						return c
-							.replace(/\{/g, "\\curlyleft")
-							.replace(/\}/g, "\\curlyright");
-					})
-					.replace(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g, function(c) {
-						return '</span><a href="' + c + '" target="_blank">' + hilite({
-							def: c,
-							query
-						}) + "</a><span>"
-					})
-					.replace(/\{.*?\}/g, function(c) {
-						var c = c.substring(1, c.length - 1);
-						return "</span><a href=\"#seskari=" + seskari + "&sisku=" + encodeUrl(c) + '\">' + hilite({
-							def: escHtml(c, true),
-							query
-						}) + "</a><span>"
-					})
-					.replace(/\$.*?\$/g, function(c) {
-						return c
-							.replace(/\\curlyleft/g, "{")
-							.replace(/\\curlyright/g, "}");
-					}) + "</span>")
+				.replace(/\$.*?\$/g, function (c) {
+					return c
+						.replace(/\{/g, "\\curlyleft")
+						.replace(/\}/g, "\\curlyright");
+				})
+				.replace(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g, function (c) {
+					return '</span><a href="' + c + '" target="_blank">' + hilite({
+						def: c,
+						query
+					}) + "</a><span>"
+				})
+				.replace(/\{.*?\}/g, function (c) {
+					var c = c.substring(1, c.length - 1);
+					return "</span><a href=\"#seskari=" + seskari + "&sisku=" + encodeUrl(c) + '\">' + hilite({
+						def: escHtml(c, true),
+						query
+					}) + "</a><span>"
+				})
+				.replace(/\$.*?\$/g, function (c) {
+					return c
+						.replace(/\\curlyleft/g, "{")
+						.replace(/\\curlyright/g, "}");
+				}) + "</span>")
 				.replace(/<span><\/span>/g, '')
-				.replace(/<span>.*?<\/span>/g, function(c) {
+				.replace(/<span>.*?<\/span>/g, function (c) {
 					var c = c.substring(6, c.length - 7);
 					return hilite({
 						def: c,
@@ -1600,54 +1627,54 @@
 		}
 
 		function getMatchIndices(query, d) {
-				var regex = new RegExp(query,"g");
-				var result = [];
-				var match;
-				while (match = regex.exec(d))
-				   result.push(match.index);
-				return result;
+			var regex = new RegExp(query, "g");
+			var result = [];
+			var match;
+			while (match = regex.exec(d))
+				result.push(match.index);
+			return result;
 		}
 		function onlyUnique(value, index, self) {
 			return self.indexOf(value) === index;
 		}
-		function ConstructArxivoValsiExtract(d,query,range){
-			var locs = getMatchIndices(query,d);
-			locs=locs.map(function(i){
-				i = [i-range,i+range];
-				if (i[0]<0)i[0]=0;
-				if (i[0]>=d.length)i[0]=d.length-1;
+		function ConstructArxivoValsiExtract(d, query, range) {
+			var locs = getMatchIndices(query, d);
+			locs = locs.map(function (i) {
+				i = [i - range, i + range];
+				if (i[0] < 0) i[0] = 0;
+				if (i[0] >= d.length) i[0] = d.length - 1;
 				return i;
 			})
-			for (var i=0;i<locs.length-1;i++){
-				if (locs[i][1]>locs[i+1][0]) {
-					locs[i][1] = locs[i+1][1];
-					locs[i+1][0] = locs[i][0];
+			for (var i = 0; i < locs.length - 1; i++) {
+				if (locs[i][1] > locs[i + 1][0]) {
+					locs[i][1] = locs[i + 1][1];
+					locs[i + 1][0] = locs[i][0];
 				}
 			}
-			locs = locs.map(function(i){
+			locs = locs.map(function (i) {
 				return JSON.stringify(i);
 			});
-			if (locs.length>0){
-				locs=locs.filter(onlyUnique).map(function(i){
-					i= JSON.parse(i);
-					var n = d.substr(i[0],i[1] - i[0]);
+			if (locs.length > 0) {
+				locs = locs.filter(onlyUnique).map(function (i) {
+					i = JSON.parse(i);
+					var n = d.substr(i[0], i[1] - i[0]);
 					n = hilite({
 						def: n,
 						query
 					})
-					if (i[0]>3) n = "..." + n;
-					if (i[1]<(d.length - 4)) n = n + "...";
+					if (i[0] > 3) n = "..." + n;
+					if (i[1] < (d.length - 4)) n = n + "...";
 					return n;
 				});
-				locs=locs.join("<br/>");
-			}else{
-				var n = d.substr(0, Math.min(100,d.length));
-				if (n.length<d.length) n = n + "...";
+				locs = locs.join("<br/>");
+			} else {
+				var n = d.substr(0, Math.min(100, d.length));
+				if (n.length < d.length) n = n + "...";
 				n = hilite({
 					def: n,
 					query
 				});
-				locs=n;
+				locs = n;
 			}
 			return locs;
 		}
@@ -1751,7 +1778,7 @@
 
 			if (def.d) {
 				var n = document.createElement('div');
-				n.classList.add('definition','valsi');
+				n.classList.add('definition', 'valsi');
 				if (def.d.nasezvafahi) {
 					n.classList.add('nasezvafahi', 'noselect');
 					n.innerHTML = window.nasezvafahi;
@@ -1766,17 +1793,17 @@
 			}
 			if (def.p) {
 				var k = document.createElement('div');
-				k.classList.add('definition','valsi','pointer');
-				k.innerHTML=ConstructArxivoValsiExtract(def.p,query,50);
-				k.addEventListener("click", function(){
-					k.style.display="none";
-					k.nextElementSibling.style.display="block";
+				k.classList.add('definition', 'valsi', 'pointer');
+				k.innerHTML = ConstructArxivoValsiExtract(def.p, query, 50);
+				k.addEventListener("click", function () {
+					k.style.display = "none";
+					k.nextElementSibling.style.display = "block";
 				});
 				out.appendChild(k);
 
 				var n = document.createElement('div');
-				n.classList.add('definition','valsi');
-				n.style.display="none";
+				n.classList.add('definition', 'valsi');
+				n.style.display = "none";
 				if (def.p.nasezvafahi) {
 					n.classList.add('nasezvafahi', 'noselect');
 					n.innerHTML = window.nasezvafahi;
@@ -1791,7 +1818,7 @@
 			}
 			if (def.n) {
 				var n = document.createElement('div');
-				n.classList.add('notes','valsi');
+				n.classList.add('notes', 'valsi');
 				n.innerHTML = melbi_uenzi({
 					def: def.n,
 					query,
@@ -1801,7 +1828,7 @@
 			}
 			if (def.e) {
 				var n = document.createElement('div');
-				n.classList.add('examples','valsi');
+				n.classList.add('examples', 'valsi');
 				n.innerHTML = "<table class='ciksi'>" + melbi_uenzi({
 					def: (def.e + "\n").replace(/%/g, "\n").replace(/(.*?) — (.*?)\n/g,
 						"<tr><td class='mupligreku'><b>$1<\/b><\/td><td class='mupligreku'><i>$2<\/i><\/td><\/tr>\n"),
@@ -1907,14 +1934,15 @@
 			}
 			return +new Date();
 		}
-		// jimpe le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri
+		// jimpe fi le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri
 		var appCache = window.applicationCache;
-		appCache.update();
-		if (appCache.status == window.applicationCache.UPDATEREADY) appCache.swapCache();
-		window.applicationCache.addEventListener('updateready', function(e) {
+		if (appCache) {
+			appCache.update();
+			if (appCache.status == window.applicationCache.UPDATEREADY) appCache.swapCache();
+		}
+		window.applicationCache.addEventListener('updateready', function (e) {
 			if (window.applicationCache.status == window.applicationCache.UPDATEREADY) einingau = true;
 		}, false);
 	</script>
 </body>
-
 </html>

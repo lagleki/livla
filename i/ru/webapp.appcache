@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2019-09-20T18:12:27
+# 2019-09-21T17:37:31
 CACHE:
 https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML
 https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/config/TeX-MML-AM_CHTML.js?V=2.7.4
@@ -12,8 +12,8 @@ https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/Mat
 https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff
 
 index.html
-../data/parsed-ru.js?sisku=2019_09_20_18_12_27
-../sisku.js?sisku=2019_09_20_18_12_27
+../data/parsed-ru.js?sisku=2019_09_21_17_37_31
+../sisku.js?sisku=2019_09_21_17_37_31
 worker.js
 bangu.js
 ../pixra/cll.png

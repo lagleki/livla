@@ -1372,7 +1372,7 @@
 		function updateUrlFromState({
 			replace
 		}) {
-			var url = "#seskari=" + state.searching.seskari + "&sisku=" + state.searching.query;
+			var url = "#seskari=" + state.searching.seskari + "&sisku=" + encodeUrl(state.searching.query);
 			if (state.searching.query === '') {
 				url = '';
 				document.title = "la sutysisku";
@@ -1381,7 +1381,7 @@
 			}
 			if (replace === true) {
 				window.history.replaceState({}, null, url)
-			} else if (replace === false) {
+			} else if (window.location.hash!==url) {
 				window.history.pushState({}, null, url)
 			}
 		}

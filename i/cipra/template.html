@@ -593,7 +593,7 @@
 
 			#clear {
 				padding: 22px 20px 8px 20px;
-				right: 5px;
+				right: 6px;
 				width: 23px;
 				background-size: 22px;
 			}
@@ -1333,7 +1333,7 @@
 			href,
 			replace
 		}) {
-			if (href) href = href.substring(href.indexOf('#') + 1);
+			if (href) { href = href.substring(href.indexOf('#') + 1); localStorage.setItem('url', "#" + href); }
 			var params = parseQuery(href || window.location.hash);
 			if (params["seskari"] && ["cnano", "rimni", "arxivo"].indexOf(params["seskari"]) >= 0) state.searching.seskari = params["seskari"];
 			if (params["sisku"]) {
@@ -1368,11 +1368,13 @@
 			} else {
 				document.title = state.searching.query + " - la sutysisku";
 			}
+			var lastUrl = localStorage.getItem('url') || '';
 			if (replace === true) {
 				window.history.replaceState({}, null, url)
-			} else if (window.location.hash!==url) {
+			} else if (window.location.hash !== url && lastUrl !== url) {
 				window.history.pushState({}, null, url)
 			}
+			localStorage.setItem('url', url);
 		}
 		//typed, stopped typing > push
 		window.addEventListener('popstate', getStateFromUrl);

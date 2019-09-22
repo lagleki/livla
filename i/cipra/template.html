@@ -520,6 +520,13 @@
 			cursor: pointer;
 			margin-top: 8px;
 			height: 0;
+			background-image: url(../pixra/x.svg);
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+
+		#clear:not(.rotating) {
+			background-color: rgba(255, 255, 255, 0.8);
 		}
 
 		#clear.rotating {
@@ -555,10 +562,6 @@
 			#clear {
 				padding: 22px 10px 8px 30px;
 				right: 19px;
-				background-color: rgba(255, 255, 255, 0.8);
-				background-image: url(../pixra/x.svg);
-				background-position: center;
-				background-repeat: no-repeat;
 			}
 
 			#title>#site-title>font {
@@ -599,10 +602,6 @@
 				padding: 22px 20px 8px 20px;
 				right: 5px;
 				width: 23px;
-				background-color: rgba(255, 255, 255, 0.8);
-				background-image: url(../pixra/x.svg);
-				background-position: center;
-				background-repeat: no-repeat;
 				background-size: 22px;
 			}
 
@@ -1225,7 +1224,9 @@
 			} else {
 				els.map(function (el) {
 					document.getElementById(el).classList.add('stopRotate');
-					document.getElementById(el).classList.remove('rotating');
+					setTimeout(() => {
+						document.getElementById(el).classList.remove('rotating');
+					}, 2000);
 				})
 			}
 		}
@@ -1326,8 +1327,8 @@
 			var query = {};
 			var pairs = '';
 			//legacy support:
-			if (queryString.search(/^#?sisku\//) === 0) {
-				pairs = [queryString.replace(/#sisku\/(.*)/, 'query=$1')];
+			if (queryString.search(/^#sisku\//) === 0) {
+				pairs = [queryString.replace(/#sisku\/(.*)/, 'sisku=$1')];
 			}
 			else {
 				pairs = (queryString[0] === '#' ? queryString.substr(1) : queryString).split('&');

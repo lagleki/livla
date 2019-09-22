@@ -1961,9 +1961,7 @@
 		}
 
 		function cati() {
-			if (window.performance) {
-				if (performance.now) return performance.now();
-			}
+			if (window.performance && performance.now) return performance.now();
 			return +new Date();
 		}
 		// jimpe fi le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri

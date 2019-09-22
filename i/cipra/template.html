@@ -1927,7 +1927,7 @@
 		}
 
 		function decodeUrl(urli) {
-			return decodeURIComponent(urli.replace(/&amp;/g, "&").replace(/%27/g, "'")).replace(/_/g, " ");
+			return decodeURIComponent(urli.replace(/&amp;/g, "&").replace(/%27/g, "'")).replace(/[_\+]/g, " ");
 		}
 
 		function escHtml(a, apos) {

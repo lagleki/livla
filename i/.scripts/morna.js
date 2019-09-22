@@ -203,7 +203,7 @@ langs.forEach(lang => {
     const b = sisku
       .replace(
         "%template%",
-        "https://la-lojban.github.io/sutysisku/en/index.html#seskari=cnano&sisku={searchTerms}"
+        "https://la-lojban.github.io/sutysisku/en/index.html#seskari=cnano&amp;sisku={searchTerms}"
       )
       .replace("%shortname%", lang + "-sutysisku")
       .replaceMergefield(config);

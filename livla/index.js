@@ -623,19 +623,22 @@ function prepareSutysiskuJsonDump(language) {
       e: v.example,
       k: v.related
     };
-    if (Array.isArray(v.rafsi)) {
-      json[v.word].r = v.rafsi;
-    } else if (v.rafsi) {
-      json[v.word].r = [v.rafsi];
+    if (v.rafsi) {
+      if (Array.isArray(v.rafsi)) {
+        json[v.word].r = v.rafsi
+      } else {
+        json[v.word].r = [v.rafsi]
+      }
     } else {
-      json[v.word].r = [];
+      json[v.word].r = []
     }
-    if (v.word.indexOf("brod") !== 0) {
+    if (v.type==='gismu' && v.word.indexOf("brod") !== 0) {
       json[v.word].r.push(v.word.substr(0, 4));
     }
-    if (v.word.indexOf("broda") === 0) {
+    if (v.word==="broda") {
       json[v.word].r.push("brod");
     }
+    if (json[v.word].r.length===0) delete json[v.word].r;
     Object.keys(json[v.word]).forEach(
       key =>
         (json[v.word][key] === undefined || json[v.word][key] === []) &&

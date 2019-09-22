@@ -520,17 +520,10 @@
 			cursor: pointer;
 			margin-top: 8px;
 			height: 0;
+			background-color: rgba(255, 255, 255, 0.8);
 			background-image: url(../pixra/x.svg);
 			background-position: center;
 			background-repeat: no-repeat;
-		}
-
-		#clear:not(.rotating) {
-			background-color: rgba(255, 255, 255, 0.8);
-		}
-
-		#clear.rotating {
-			background-color: transparent;
 		}
 
 		#title {
@@ -1214,19 +1207,15 @@
 		}
 
 		function SwitchRotation({ action }) {
-			var els = ['clear', 'logo'];
+			var els = ['logo'];
 			if (action === 'start') {
 				els.map(function (el) {
-					document.getElementById(el).classList.add('rotating');
 					document.getElementById(el).classList.remove('stopRotate');
 					document.getElementById(el).classList.add('rotate');
 				})
 			} else {
 				els.map(function (el) {
 					document.getElementById(el).classList.add('stopRotate');
-					setTimeout(() => {
-						document.getElementById(el).classList.remove('rotating');
-					}, 2000);
 				})
 			}
 		}

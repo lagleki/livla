@@ -117,9 +117,15 @@
 				transform: rotate(359deg);
 			}
 		}
-
 		.rotate {
-			animation: rotation 2s infinite linear;
+			animation-duration: 1.45s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-play-state: running;
+			animation-name: rotation;
+		}
+		.rotate.stopRotate {
+			animation-iteration-count: 1;
 		}
 
 		/* #arxivo {
@@ -1206,8 +1212,17 @@
 		}
 
 		function SwitchRotation({ action }) {
-			if (action === 'start') { document.getElementById('clear').classList.add('rotate'); document.getElementById('logo').classList.add('rotate'); }
-			else { document.getElementById('clear').classList.remove('rotate'); document.getElementById('logo').classList.remove('rotate'); }
+			var els = ['clear','logo'];
+			if (action === 'start') { 
+				els.map(function(el){
+					document.getElementById(el).classList.remove('stopRotate');
+					document.getElementById(el).classList.add('rotate');
+				})
+			} else {
+				els.map(function(el){
+					document.getElementById(el).classList.add('stopRotate');
+				})
+			}
 		}
 
 		function RenderResults({

@@ -518,7 +518,7 @@
 			vertical-align: middle;
 			outline: 0;
 			cursor: pointer;
-			margin-top: 7px;
+			margin-top: 8px;
 			height: 0;
 		}
 
@@ -553,7 +553,7 @@
 
 		@media screen and (min-width: 510px) {
 			#clear {
-				padding: 22px 10px 10px 30px;
+				padding: 22px 10px 8px 30px;
 				right: 19px;
 				background-color: rgba(255, 255, 255, 0.8);
 				background-image: url(../pixra/x.svg);
@@ -596,7 +596,7 @@
 			}
 
 			#clear {
-				padding: 22px 20px 10px 20px;
+				padding: 22px 20px 8px 20px;
 				right: 5px;
 				width: 23px;
 				background-color: rgba(255, 255, 255, 0.8);
@@ -1218,9 +1218,9 @@
 			var els = ['clear', 'logo'];
 			if (action === 'start') {
 				els.map(function (el) {
+					document.getElementById(el).classList.add('rotating');
 					document.getElementById(el).classList.remove('stopRotate');
 					document.getElementById(el).classList.add('rotate');
-					document.getElementById(el).classList.add('rotating');
 				})
 			} else {
 				els.map(function (el) {

@@ -73,7 +73,7 @@ for (var i in sorcu[bau]) {
 
 function sisku(data, callback) {
   var query = data.query;
-  var seskari = data.type;
+  var seskari = data.seskari;
   var decomposed = false;
   if (query.length === 0)
     return;

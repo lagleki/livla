@@ -3,6 +3,7 @@ lojbo.arxivo/*.sql
 config/
 node_modules/
 skripto/node_modules/
+build/
 _build/
 .idea/
 zasni/
@@ -29,10 +30,6 @@ dumps/tatoeba*
 dumps/*.temp
 dumps/*.bz2
 dumps/*.sql
-i/data/*.*
-i/.git
-i/.gitignore
-!i/data/parsed-tatoeba.js
 config/*.log
 config/*.crt
 config/*.pem

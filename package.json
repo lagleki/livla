@@ -52,10 +52,13 @@
   "main": "livla/livla.js",
   "scripts": {
     "start": "node node_modules/.bin/supervisor -w .,./livla -i ./dumps,./i,./mahantufa -- --expose-gc livla/index.js",
-    "sutysisku": "cd i ; node .scripts/morna.js ; git add . ; git commit -m 'commit' ; git push -f; cd ..",
-    "reload": "node i/.scripts/morna.js",
-    "snovlaste": "cd i ; node .scripts/vlaste.js ; node .scripts/morna.js ; git checkout --orphan newBranch ; git add -A ; git commit -m 'commit' ; git branch -D master ; git branch -m master ; git gc --aggressive --prune=all ; git push --set-upstream origin master -f ; cd ..",
+    "sutysisku": "cd i ; node sutysisku/morna.js ; git add . ; git commit -m 'commit' ; git push -f; cd ..",
+    "reload": "node sutysisku/morna.js",
+    "snovlaste": "cd i ; node .scripts/vlaste.js ; node sutysisku/morna.js ; git checkout --orphan newBranch ; git add -A ; git commit -m 'commit' ; git branch -D master ; git branch -m master ; git gc --aggressive --prune=all ; git push --set-upstream origin master -f ; cd ..",
     "push": "git add . ; git commit -a ;  git push",
-    "i": "node i/.scripts/morna.js ; cp -avr i ~/public_html/glekitufa/"
+    "i": "nodemon --watch sutysisku --exec \"node sutysisku\/morna.js ; cp -avr build/sutysisku/* ~\/public_html\/glekitufa\/\""
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
   }
 }

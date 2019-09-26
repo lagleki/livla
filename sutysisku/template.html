@@ -62,6 +62,11 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js'></script>
 	<script>
 		var socket = io.connect('https://jbotcan.org:3020');
+		socket.emit('pingServer', null);
+		socket.on('pongServer', function (data) {
+			if (data === 'ok')
+				document.getElementById('arxivo').style.display = 'inline-block';
+		});
 	</script>
 	<!-- Google Tag Manager -->
 	<!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -105,8 +110,18 @@
 	<link rel="shortcut icon" href="%favicon%" />
 	<link rel="search" type="application/opensearchdescription+xml" href="%searchurl%" title="%searchtitle%">
 	<style type="text/css">
-		#arxivo {
-			display: none;
+		@keyframes granim {
+			0% {
+				background-position: 10% 0%
+			}
+
+			50% {
+				background-position: 91% 100%
+			}
+
+			100% {
+				background-position: 10% 0%
+			}
 		}
 
 		@keyframes rotation {
@@ -117,6 +132,28 @@
 			to {
 				transform: rotate(359deg);
 			}
+		}
+
+		@keyframes pulsate {
+			0% {
+				transform: scale(0.1, 0.1);
+				opacity: 0.0;
+			}
+
+			50% {
+				opacity: 1.0;
+			}
+
+			100% {
+				transform: scale(1.2, 1.2);
+				opacity: 0.0;
+			}
+		}
+
+		.granim-css {
+			background: linear-gradient(90deg, #ffeb00, #ffffff, #fbff00);
+			background-size: 200% 200%;
+			animation: granim 0.725s ease infinite;
 		}
 
 		.rotate {
@@ -131,9 +168,12 @@
 			animation-iteration-count: 1;
 		}
 
-		/* #arxivo {
-			display: inline-block;
-		} */
+		.pulsate-css {
+			animation: pulsate 1s ease-out;
+			animation-iteration-count: infinite;
+			opacity: 0.0;
+			background-color: transparent;
+		}
 
 		body {
 			font-family: Tahoma, Lato, sans-serif;
@@ -220,24 +260,6 @@
 			background-color: #d1ff9e;
 		}
 
-		.type {
-			display: inline;
-			float: right;
-			font-style: italic;
-			margin: -3px 0 0 13px;
-			color: rgb(118, 118, 118);
-			font-size: 12px;
-			border: 1px solid rgb(118, 118, 118);
-			background-color: #ffffff;
-			padding: 5px 7px 5px 5px;
-			border-radius: 5px;
-			z-index: 1;
-		}
-
-		.type:hover {
-			box-shadow: 0 0 3pt 1pt #999999;
-		}
-
 		.heading {
 			align-items: flex-start;
 			flex-direction: row;
@@ -295,8 +317,21 @@
 			hyphens: auto;
 		}
 
+		.valsi pre {
+			white-space: pre-wrap;
+			/* Since CSS 2.1 */
+			white-space: -moz-pre-wrap;
+			/* Mozilla, since 1999 */
+			white-space: -pre-wrap;
+			/* Opera 4-6 */
+			white-space: -o-pre-wrap;
+			/* Opera 7 */
+			word-wrap: break-word;
+			/* Internet Explorer 5.5+ */
+		}
+
 		.definition {
-			margin-top: 10px;
+			margin-top: 5px;
 			margin-bottom: 10px;
 		}
 
@@ -477,6 +512,10 @@
 			cursor: pointer;
 		}
 
+		.rimni-search-mode-title-color #logo {
+			filter: sepia(1);
+		}
+
 		.cnano-search-mode-title-color {
 			background: linear-gradient(to top right, rgba(63, 81, 181, 1) 0%, rgba(4, 119, 218, 1) 40%);
 			box-shadow: 1px 1px 30px rgba(2, 119, 189, 1);
@@ -526,6 +565,10 @@
 			background-repeat: no-repeat;
 		}
 
+		#clear:not(.stopRotate) {
+			background-color: transparent;
+		}
+
 		#title {
 			cursor: default;
 		}
@@ -555,7 +598,7 @@
 			#clear {
 				padding: 22px 10px 8px 30px;
 				right: 9px;
-				border-radius: 50%;
+				border-radius: 0 20% 0% 0%;
 			}
 
 			#title>#site-title>font {
@@ -728,6 +771,7 @@
 		}
 
 		.tutci {
+			line-height: 150%;
 			-moz-box-shadow: inset 0px -3px 7px 0px #29bbff;
 			-webkit-box-shadow: inset 0px -3px 7px 0px #29bbff;
 			box-shadow: inset 0px -3px 7px 0px #29bbff;
@@ -749,6 +793,7 @@
 			/* font-family:Arial; */
 			/* font-size:15px; */
 			padding: 3px 10px;
+			margin: 0 0 0 5px;
 			text-decoration: none;
 			text-shadow: 0px 1px 0px #263666;
 			height: 21px;
@@ -790,6 +835,40 @@
 			background: linear-gradient(to bottom, #af0a0a 5%, #c229296b 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#af0a0a', endColorstr='#c229296b', GradientType=0);
 			background-color: #af0a0a;
+		}
+
+		.klesi-tutci {
+			display: inline;
+			float: right;
+			color: #000;
+			-moz-box-shadow: inset 0px -3px 7px 0px #eee;
+			-webkit-box-shadow: inset 0px -3px 7px 0px #eee;
+			box-shadow: inset 0px -3px 7px 0px #eee;
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffe), color-stop(1, #eee));
+			background: -moz-linear-gradient(top, #ffe 5%, #eee 100%);
+			background: -webkit-linear-gradient(top, #ffe 5%, #eee 100%);
+			background: -o-linear-gradient(top, #ffe 5%, #eee 100%);
+			background: -ms-linear-gradient(top, #ffe 5%, #eee 100%);
+			background: linear-gradient(to bottom, #ffe 5%, #eee 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe', endColorstr='#eee', GradientType=0);
+			background-color: #ffe;
+			text-shadow: 0 1px 0 #fff;
+		}
+
+		.klesi-tutci:hover,
+		.klesi-tutci-hover {
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #eee), color-stop(1, #ffe));
+			background: -moz-linear-gradient(top, #eee 5%, #ffe 100%);
+			background: -webkit-linear-gradient(top, #eee 5%, #ffe 100%);
+			background: -o-linear-gradient(top, #eee 5%, #ffe 100%);
+			background: -ms-linear-gradient(top, #eee 5%, #ffe 100%);
+			background: linear-gradient(to bottom, #eee 5%, #ffe 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eee', endColorstr='#ffe', GradientType=0);
+			background-color: #eee;
+		}
+
+		#arxivo {
+			display: none;
 		}
 
 		.arxivo-tutci {
@@ -941,7 +1020,8 @@
 			white-space: nowrap;
 			padding: 0 3px 0 3px;
 			margin-left: auto;
-			margin-right: 0
+			margin-right: 0;
+			text-align: right;
 		}
 
 		.cll {
@@ -976,7 +1056,6 @@
 				0 0 0 2px rgb(%mupliskari2%),
 				0 0 0 3px rgb(%mupliskari3%),
 				0 0 0 4px rgb(%mupliskari4%);
-			line-height: 150%;
 		}
 
 		#cpacu {
@@ -1068,7 +1147,7 @@
 				<div class="leitutci">
 					<a class='tutci' id='cnano'>%cnano%</a>
 					<a class='tutci rimni-tutci' id='rimni'>%rimni%</a>
-					<a class='tutci arxivo-tutci' id='arxivo'>.arxivo</a>
+					<a class='tutci arxivo-tutci' id='arxivo'>%arxivo%</a>
 				</div>
 			</div>
 			<div id='loading' class="term noselect">
@@ -1214,10 +1293,17 @@
 					document.getElementById(el).classList.remove('stopRotate');
 					document.getElementById(el).classList.add('rotate');
 				})
+				document.getElementById('clear').classList.add('pulsate-css');
+				setTimeout(() => {
+					if (document.getElementById('clear').classList.contains('pulsate-css'))
+						document.getElementById('ciska').classList.add('granim-css');
+				}, 500);
 			} else {
 				els.map(function (el) {
 					document.getElementById(el).classList.add('stopRotate');
 				})
+				document.getElementById('ciska').classList.remove('granim-css');
+				document.getElementById('clear').classList.remove('pulsate-css');
 			}
 		}
 
@@ -1285,7 +1371,7 @@
 			} else if (data.kind == 'searchResults') {
 				if (JSON.stringify(data.req) !== JSON.stringify(state.searching)) return;
 				if (JSON.stringify(data.req) === JSON.stringify(state.displaying)) return;
-				results = data.results;
+				results = data.results || [];
 				window.jimte = 30;
 				resultCount = 0;
 				RenderResults({
@@ -1301,7 +1387,7 @@
 		}
 		socket.on('la_arxivo_cu_cusku', function (data) {
 			if (state.searching.seskari === data.seskari && state.searching.query === data.query) {
-				results = data.message;
+				results = data.message || [];
 				window.jimte = 30;
 				resultCount = 0;
 				RenderResults({
@@ -1336,12 +1422,15 @@
 		}) {
 			if (href) { href = href.substring(href.indexOf('#') + 1); localStorage.setItem('url', "#" + href); }
 			var params = parseQuery(href || window.location.hash);
-			if (params["seskari"] && ["cnano", "rimni", "arxivo"].indexOf(params["seskari"]) >= 0) state.searching.seskari = params["seskari"];
-			if (params["sisku"]) {
-				state.searching.query = decodeUrl(params["sisku"]).trim();
-				DispatchState({
-					replace
-				});
+			var newSearch = decodeUrl(params["sisku"]).trim();
+			if (state.searching.seskari !== params["seskari"] || state.searching.query !== newSearch) {
+				if (params["seskari"] && ["cnano", "rimni", "arxivo"].indexOf(params["seskari"]) >= 0) state.searching.seskari = params["seskari"];
+				if (params["sisku"]) {
+					state.searching.query = newSearch;
+					DispatchState({
+						replace
+					});
+				}
 			}
 		}
 		//clicked link > push it
@@ -1476,7 +1565,8 @@
 			SwitchRotation({ action: 'start' });
 			if (state.searching.seskari === 'arxivo') {
 				var json = JSON.parse(JSON.stringify(state.searching));
-				json.max = 100;
+				// if (state.searching.query.charAt(0)!=='^' && state.searching.query.slice(-1)[0]!=='$') json.query = '\\b'+state.searching.query+'\\b';
+				json.max = 20;
 				socket.emit('cpedu_fi_la_arxivo', json);
 			} else {
 				worker.postMessage({
@@ -1640,7 +1730,7 @@
 						.replace(/\\curlyright/g, "}");
 				}) + "</span>")
 				.replace(/<span><\/span>/g, '')
-				.replace(/<span>.*?<\/span>/g, function (c) {
+				.replace(/<span>[\s\S]*?<\/span>/g, function (c) {
 					var c = c.substring(6, c.length - 7);
 					return hilite({
 						def: c,
@@ -1744,21 +1834,21 @@
 				tfm.innerHTML = '<i><sup>[' + sh.join(", ") + '&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;';
 			}
 			if (def.s) {
-				var ss = document.createElement('div');
-				ss.className = 'type';
-				ss.innerHTML = "<a href=\"#seskari=" + seskari + "&sisku=" + encodeUrl(def.s) + '">' + hilite({
+				var ss = document.createElement('a');
+				ss.className = 'tutci klesi-tutci';
+				var text = hilite({
 					def: escHtml(def.s),
 					query
-				}) + "</a> ";
+				});
+				ss.innerHTML = text;
+				ss.href = "#seskari=" + seskari + "&sisku=" + encodeUrl(def.s);
 			}
 			if (def.t) {
-				var jvs = document.createElement('div');
-				jvs.className = 'type';
-				jvs.innerHTML = def.t;
-				if (window.xuzganalojudri && !def.l) {
-					jvs.innerHTML = "<a style='color: #000;' target='_blank' href=\"" + window.judri +
-						encodeUrl(def.w).replace(/_/g, '%20') + "\">" + escHtml(def.t) + "<font color='#aaa'>#</font></a> ";
-				}
+				var jvs = document.createElement('a');
+				jvs.className = 'tutci klesi-tutci';
+				var text = def.t;
+				jvs.href = window.judri + encodeUrl(def.w).replace(/_/g, '%20');
+				jvs.setAttribute('target', '_blank');
 				//<muplis>
 				var deft = '';
 				if (def.t.search('sampu staile') >= 0) deft += "<img src='../pixra/plise.png' height='16' width='16' title='lo staile poi sampu'>";
@@ -1766,18 +1856,20 @@
 				if (def.t.search('plixau jufra') >= 0) deft += "<img src='../pixra/crinoplise.png' height='16' width='16' title=\"lo jufra poi ka'e xamgu lo di'i fanva\">";
 				if (def.t.search('cnano staile') >= 0) deft += "<img src='../pixra/blabiplise.png' height='16' width='16' title=\"lo staile poi ka'e pluja\">";
 				if (def.t.search('non-standard') >= 0) deft += "<img src='../pixra/cicnaplise.png' height='16' width='16' title=\"na'e catni se ciska staile\">";
-				if (deft !== '') jvs.innerHTML = deft;
+				if (deft !== '') text = deft;
 				//</muplis>
+				if (window.xuzganalojudri && !def.l) text = escHtml(def.t) + "# ";
+				jvs.innerHTML = text;
 			}
 			if (def.date) {
 				var jvs = document.createElement('div');
-				jvs.className = 'type';
+				jvs.className = 'tutci klesi-tutci';
 				jvs.style.whiteSpace = "nowrap";
 				jvs.innerHTML = def.date;
 			}
 			if (def.from) {
 				var ss = document.createElement('div');
-				ss.className = 'type';
+				ss.className = 'tutci klesi-tutci';
 				ss.innerHTML = def.from;
 			}
 			var word = document.createElement('h4');
@@ -1808,7 +1900,7 @@
 
 			out.appendChild(heading);
 
-			if (def.d) {
+			if (seskari !== 'arxivo' && def.d) {
 				var n = document.createElement('div');
 				n.classList.add('definition', 'valsi');
 				if (def.d.nasezvafahi) {
@@ -1823,10 +1915,10 @@
 				}
 				out.appendChild(n);
 			}
-			if (def.p) {
+			if (seskari === 'arxivo') {
 				var k = document.createElement('div');
 				k.classList.add('definition', 'valsi', 'pointer');
-				k.innerHTML = ConstructArxivoValsiExtract(def.p, query, 50);
+				k.innerHTML = ConstructArxivoValsiExtract(def.d, query, 50);
 				k.addEventListener("click", function () {
 					k.style.display = "none";
 					k.nextElementSibling.style.display = "block";
@@ -1836,14 +1928,19 @@
 				var n = document.createElement('div');
 				n.classList.add('definition', 'valsi');
 				n.style.display = "none";
-				if (def.p.nasezvafahi) {
+				if (def.d.nasezvafahi) {
 					n.classList.add('nasezvafahi', 'noselect');
 					n.innerHTML = window.nasezvafahi;
 				} else {
 					n.innerHTML = hilite({
-						def: def.p,
+						def: def.d,
 						query
 					}).replace(/\n/g, '<br/>') + ' ';
+					n.addEventListener("click", function () {
+						n.style.display = "none";
+						n.previousElementSibling.style.display = "block";
+						n.parentElement.scrollIntoView();
+					});
 				}
 				out.appendChild(n);
 				//add two divs. first is hidden. on click hide and display the other

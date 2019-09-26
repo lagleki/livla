@@ -1422,6 +1422,7 @@
 		}) {
 			if (href) { href = href.substring(href.indexOf('#') + 1); localStorage.setItem('url', "#" + href); }
 			var params = parseQuery(href || window.location.hash);
+			if (!params["sisku"]) return;
 			var newSearch = decodeUrl(params["sisku"]).trim();
 			if (state.searching.seskari !== params["seskari"] || state.searching.query !== newSearch) {
 				if (params["seskari"] && ["cnano", "rimni", "arxivo"].indexOf(params["seskari"]) >= 0) state.searching.seskari = params["seskari"];

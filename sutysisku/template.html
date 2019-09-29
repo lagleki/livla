@@ -62,10 +62,14 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js'></script>
 	<script>
 		var socket = io.connect('https://jbotcan.org:3020');
-		socket.emit('pingServer', null);
-		socket.on('pongServer', function (data) {
-			if (data === 'ok')
-				document.getElementById('arxivo').style.display = 'inline-block';
+		socket.on('connect', function () {
+			document.getElementById('arxivo').style.display = 'inline-block';
+		});
+		socket.on('connect_error', function () {
+			document.getElementById('arxivo').style.display = 'none';
+		});
+		socket.on('disconnect', function () {
+			document.getElementById('arxivo').style.display = 'none';
 		});
 	</script>
 	<!-- Google Tag Manager -->
@@ -75,40 +79,40 @@
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','GTM-PL4CFMX');</script>-->
 	<!-- End Google Tag Manager -->
-	<title>%title%</title>
+	<title>'%title%'</title>
 	<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=yes,viewport-fit=cover" />
-	<meta name="theme-color" content="%mupliskariralju%">
-	<meta property="og:title" content="%ogtitle%" />
+	<meta name="theme-color" content="'%mupliskariralju%'">
+	<meta property="og:title" content="'%ogtitle%'" />
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content="%ogurl%" />
+	<meta property="og:url" content="'%ogurl%'" />
 	<meta property="og:image" content="https://mw.lojban.org/images/1/11/sutysisku2015-06-22.png" />
-	<meta property="og:site_name" content="%ogtitle%" />
+	<meta property="og:site_name" content="'%ogtitle%'" />
 	<meta property="fb:app_id" content="191051864394489" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@Jbotcan" />
 	<!--<meta property="al:android:url" content="la sutysisku://" />
-	<meta property="al:android:app_name" content="%ogtitle%" />
-	<meta property="al:android:package" content="%ogtitle%" />
-	<meta property="al:windows_phone:app_name" content="%ogtitle%" />
+	<meta property="al:android:app_name" content="'%ogtitle%'" />
+	<meta property="al:android:package" content="'%ogtitle%'" />
+	<meta property="al:windows_phone:app_name" content="'%ogtitle%'" />
 	<meta property="al:windows_phone:app_id" content="" />
 	<meta name="apple-itunes-app" content="app-id=" />
 	<meta name="google-play-app" content="app-id=" />-->
-	<meta name='apple-mobile-web-app-title' content="%ogtitle%">
+	<meta name='apple-mobile-web-app-title' content="'%ogtitle%'">
 	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../pixra/57.png" />
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../pixra/114.png" />
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../pixra/72.png" />
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../pixra/144.png" />
 	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../pixra/120.png" />
 	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../pixra/152.png" />
-	<link rel="icon" type="image/png" href="%icon32%" sizes="32x32" />
-	<link rel="icon" type="image/png" href="%icon16%" sizes="16x16" />
-	<meta name="application-name" content="%ogtitle%" />
-	<meta name="msapplication-TileColor" content="%mupliskariralju%">
+	<link rel="icon" type="image/png" href="'%icon32%'" sizes="32x32" />
+	<link rel="icon" type="image/png" href="'%icon16%'" sizes="16x16" />
+	<meta name="application-name" content="'%ogtitle%'" />
+	<meta name="msapplication-TileColor" content="'%mupliskariralju%'">
 	<meta name="msapplication-TileImage" content="../pixra/144.png">
-	<meta property="og:description" content="%opdescr%" />
-	<link rel="shortcut icon" href="%favicon%" />
-	<link rel="search" type="application/opensearchdescription+xml" href="%searchurl%" title="%searchtitle%">
+	<meta property="og:description" content="'%opdescr%'" />
+	<link rel="shortcut icon" href="'%favicon%'" />
+	<link rel="search" type="application/opensearchdescription+xml" href="'%searchurl%'" title="'%searchtitle%'">
 	<style type="text/css">
 		@keyframes granim {
 			0% {
@@ -320,12 +324,6 @@
 		.valsi pre {
 			white-space: pre-wrap;
 			/* Since CSS 2.1 */
-			white-space: -moz-pre-wrap;
-			/* Mozilla, since 1999 */
-			white-space: -pre-wrap;
-			/* Opera 4-6 */
-			white-space: -o-pre-wrap;
-			/* Opera 7 */
 			word-wrap: break-word;
 			/* Internet Explorer 5.5+ */
 		}
@@ -406,19 +404,9 @@
 			width: auto;
 			font-size: 18px;
 			padding: 0;
-			background: rgb(%mupliskari1%);
-			/* Old browsers */
-			background: -moz-linear-gradient(top, rgba(%mupliskari1%, 1) %gradpos1%, rgba(%mupliskari2%, 1) %gradpos2%, rgba(%mupliskari3%, 1) %gradpos3%, rgba(%mupliskari4%, 1) %gradpos4%);
-			/* FF3.6+ */
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(%gradpos1%, rgba(%mupliskari1%, 1)), color-stop(%gradpos2%, rgba(%mupliskari2%, 1)), color-stop(%gradpos3%, rgba(%mupliskari3%, 1)), color-stop(%gradpos4%, rgba(%mupliskari4%, 1)));
-			/* Chrome,Safari4+ */
-			background: -webkit-linear-gradient(top, rgba(%mupliskari1%, 1) %gradpos1%, rgba(%mupliskari2%, 1) %gradpos2%, rgba(%mupliskari3%, 1) %gradpos3%, rgba(%mupliskari1%, 1) %gradpos4%);
-			/* Chrome10+,Safari5.1+ */
-			background: -o-linear-gradient(top, rgba(%mupliskari1%, 1) %gradpos1%, rgba(%mupliskari2%, 1) %gradpos2%, rgba(%mupliskari3%, 1) %gradpos3%, rgba(%mupliskari4%, 1) %gradpos4%);
-			/* Opera 11.10+ */
-			background: -ms-linear-gradient(top, rgba(%mupliskari1%, 1) %gradpos1%, rgba(%mupliskari2%, 1) %gradpos2%, rgba(%mupliskari3%, 1) %gradpos3%, rgba(%mupliskari4%, 1) %gradpos4%);
+			background: rgb('%mupliskari1%');
 			/* IE10+ */
-			background: linear-gradient(to bottom, rgba(%mupliskari1%, 1) %gradpos1%, rgba(%mupliskari2%, 1) %gradpos2%, rgba(%mupliskari3%, 1) %gradpos3%, rgba(%mupliskari4%, 1) %gradpos4%);
+			background: linear-gradient(to bottom, rgba('%mupliskari1%', 1) '%gradpos1%', rgba('%mupliskari2%', 1) '%gradpos2%', rgba('%mupliskari3%', 1) '%gradpos3%', rgba('%mupliskari4%', 1) '%gradpos4%');
 			/* W3C */
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6db3f2', endColorstr='#1e69de', GradientType=0);
 			/* IE6-9 */
@@ -426,19 +414,9 @@
 		}
 
 		.rimni-dasri {
-			background: rgb(%rimniskari1%);
-			/* Old browsers */
-			background: -moz-linear-gradient(top, rgba(%rimniskari1%, 1) %rimnigradpos1%, rgba(%rimniskari2%, 1) %rimnigradpos2%, rgba(%rimniskari3%, 1) %rimnigradpos3%, rgba(%rimniskari4%, 1) %rimnigradpos4%);
-			/* FF3.6+ */
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(%rimnigradpos1%, rgba(%rimniskari1%, 1)), color-stop(%rimnigradpos2%, rgba(%rimniskari2%, 1)), color-stop(%rimnigradpos3%, rgba(%rimniskari3%, 1)), color-stop(%rimnigradpos4%, rgba(%rimniskari4%, 1)));
-			/* Chrome,Safari4+ */
-			background: -webkit-linear-gradient(top, rgba(%rimniskari1%, 1) %rimnigradpos1%, rgba(%rimniskari2%, 1) %rimnigradpos2%, rgba(%rimniskari3%, 1) %rimnigradpos3%, rgba(%rimniskari1%, 1) %rimnigradpos4%);
-			/* Chrome10+,Safari5.1+ */
-			background: -o-linear-gradient(top, rgba(%rimniskari1%, 1) %rimnigradpos1%, rgba(%rimniskari2%, 1) %rimnigradpos2%, rgba(%rimniskari3%, 1) %rimnigradpos3%, rgba(%rimniskari4%, 1) %rimnigradpos4%);
-			/* Opera 11.10+ */
-			background: -ms-linear-gradient(top, rgba(%rimniskari1%, 1) %rimnigradpos1%, rgba(%rimniskari2%, 1) %rimnigradpos2%, rgba(%rimniskari3%, 1) %rimnigradpos3%, rgba(%rimniskari4%, 1) %rimnigradpos4%);
+			background: rgb('%rimniskari1%');
 			/* IE10+ */
-			background: linear-gradient(to bottom, rgba(%rimniskari1%, 1) %rimnigradpos1%, rgba(%rimniskari2%, 1) %rimnigradpos2%, rgba(%rimniskari3%, 1) %rimnigradpos3%, rgba(%rimniskari4%, 1) %rimnigradpos4%);
+			background: linear-gradient(to bottom, rgba('%rimniskari1%', 1) '%rimnigradpos1%', rgba('%rimniskari2%', 1) '%rimnigradpos2%', rgba('%rimniskari3%', 1) '%rimnigradpos3%', rgba('%rimniskari4%', 1) '%rimnigradpos4%');
 			/* W3C */
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%rimniskari1%', endColorstr='%rimniskari2%', GradientType=0);
 			position: absolute;
@@ -454,19 +432,9 @@
 		}
 
 		.arxivo-dasri {
-			background: rgb(%arxivoskari1%);
-			/* Old browsers */
-			background: -moz-linear-gradient(top, rgba(%arxivoskari1%, 1) %arxivogradpos1%, rgba(%arxivoskari2%, 1) %arxivogradpos2%, rgba(%arxivoskari3%, 1) %arxivogradpos3%, rgba(%arxivoskari4%, 1) %arxivogradpos4%);
-			/* FF3.6+ */
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(%arxivogradpos1%, rgba(%arxivoskari1%, 1)), color-stop(%arxivogradpos2%, rgba(%arxivoskari2%, 1)), color-stop(%arxivogradpos3%, rgba(%arxivoskari3%, 1)), color-stop(%arxivogradpos4%, rgba(%arxivoskari4%, 1)));
-			/* Chrome,Safari4+ */
-			background: -webkit-linear-gradient(top, rgba(%arxivoskari1%, 1) %arxivogradpos1%, rgba(%arxivoskari2%, 1) %arxivogradpos2%, rgba(%arxivoskari3%, 1) %arxivogradpos3%, rgba(%arxivoskari1%, 1) %arxivogradpos4%);
-			/* Chrome10+,Safari5.1+ */
-			background: -o-linear-gradient(top, rgba(%arxivoskari1%, 1) %arxivogradpos1%, rgba(%arxivoskari2%, 1) %arxivogradpos2%, rgba(%arxivoskari3%, 1) %arxivogradpos3%, rgba(%arxivoskari4%, 1) %arxivogradpos4%);
-			/* Opera 11.10+ */
-			background: -ms-linear-gradient(top, rgba(%arxivoskari1%, 1) %arxivogradpos1%, rgba(%arxivoskari2%, 1) %arxivogradpos2%, rgba(%arxivoskari3%, 1) %arxivogradpos3%, rgba(%arxivoskari4%, 1) %arxivogradpos4%);
+			background: rgb('%arxivoskari1%');
 			/* IE10+ */
-			background: linear-gradient(to bottom, rgba(%arxivoskari1%, 1) %arxivogradpos1%, rgba(%arxivoskari2%, 1) %arxivogradpos2%, rgba(%arxivoskari3%, 1) %arxivogradpos3%, rgba(%arxivoskari4%, 1) %arxivogradpos4%);
+			background: linear-gradient(to bottom, rgba('%arxivoskari1%', 1) '%arxivogradpos1%', rgba('%arxivoskari2%', 1) '%arxivogradpos2%', rgba('%arxivoskari3%', 1) '%arxivogradpos3%', rgba('%arxivoskari4%', 1) '%arxivogradpos4%');
 			/* W3C */
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%arxivoskari%', endColorstr='%arxivoskari2%', GradientType=0);
 			position: absolute;
@@ -502,13 +470,13 @@
 		}
 
 		.desktop-mode-title-color {
-			background: rgba(%mupliskari3%, 1);
+			background: rgba('%mupliskari3%', 1);
 			cursor: default;
 		}
 
 		.rimni-search-mode-title-color {
-			background: linear-gradient(to top right, rgba(%rimniskari2%, 1) 0%, rgba(%rimniskari3%, 1) 40%);
-			box-shadow: 1px 1px 30px rgba(%rimniskari4%, 1);
+			background: linear-gradient(to top right, rgba('%rimniskari2%', 1) 0%, rgba('%rimniskari3%', 1) 40%);
+			box-shadow: 1px 1px 30px rgba('%rimniskari4%', 1);
 			cursor: pointer;
 		}
 
@@ -524,8 +492,8 @@
 		}
 
 		.arxivo-search-mode-title-color {
-			background: linear-gradient(to top right, rgba(%arxivoskari2%, 1) 0%, rgba(%arxivoskari3%, 1) 40%);
-			box-shadow: 1px 1px 30px rgba(%arxivoskari4%, 1);
+			background: linear-gradient(to top right, rgba('%arxivoskari2%', 1) 0%, rgba('%arxivoskari3%', 1) 40%);
+			box-shadow: 1px 1px 30px rgba('%arxivoskari4%', 1);
 			cursor: pointer;
 		}
 
@@ -616,8 +584,6 @@
 
 			#ciska {
 				border-radius: .3em 1em .618em .3em;
-				-webkit-border-radius: .3em 1em .618em .3em;
-				-moz-border-radius: .3em 1em .618em .3em
 			}
 		}
 
@@ -691,7 +657,7 @@
 		}
 
 		::selection {
-			background: rgba(%mupliskari1%, 1);
+			background: rgba('%mupliskari1%', 1);
 			color: #fff;
 			text-shadow: none;
 		}
@@ -702,8 +668,6 @@
 			overflow: auto;
 			/*height:100%;*/
 			border-top: 48px solid transparent;
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
 			box-sizing: border-box; //<muplis false>
 			background: #222222 linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent) !important;
 			background-size: 40px 40px !important; //</muplis>
@@ -717,9 +681,6 @@
 			//<muplis>
 			background-color: #FDBF00;
 			background-image: url('../pixra/bifce.svg');
-			background-image: url('../pixra/bifce.svg'), -webkit-linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
-			background-image: url('../pixra/bifce.svg'), -o-linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
-			background-image: url('../pixra/bifce.svg') -moz-linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000);
 			background-image: url('../pixra/bifce.svg'), linear-gradient(to bottom right, #FDBF00, #BB7000, #BB7000); //</muplis>
 		}
 
@@ -772,26 +733,15 @@
 
 		.tutci {
 			line-height: 150%;
-			-moz-box-shadow: inset 0px -3px 7px 0px #29bbff;
-			-webkit-box-shadow: inset 0px -3px 7px 0px #29bbff;
 			box-shadow: inset 0px -3px 7px 0px #29bbff;
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
-			background: -moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
-			background: -webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
-			background: -o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
-			background: -ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
 			background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa', GradientType=0);
 			background-color: #2dabf9;
-			-moz-border-radius: 3px;
-			-webkit-border-radius: 3px;
 			border-radius: 3px;
 			border: 1px solid #000000;
 			display: inline-block;
 			cursor: pointer;
 			color: #ffffff;
-			/* font-family:Arial; */
-			/* font-size:15px; */
 			padding: 3px 10px;
 			margin: 0 0 0 5px;
 			text-decoration: none;
@@ -801,54 +751,34 @@
 
 		.cnano-tutci:hover,
 		.cnano-tutci-hover {
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
-			background: -moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
-			background: -webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
-			background: -o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
-			background: -ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
 			background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9', GradientType=0);
 			background-color: #0688fa;
 		}
 
 		.rimni-tutci {
-			-moz-box-shadow: inset 0px -3px 7px 0px #ff2929;
-			-webkit-box-shadow: inset 0px -3px 7px 0px #ff2929;
 			box-shadow: inset 0px -3px 7px 0px #ff2929;
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c229296b), color-stop(1, #af0a0a));
-			background: -moz-linear-gradient(top, #c229296b 5%, #af0a0a 100%);
-			background: -webkit-linear-gradient(top, #c229296b 5%, #af0a0a 100%);
-			background: -o-linear-gradient(top, #c229296b 5%, #af0a0a 100%);
-			background: -ms-linear-gradient(top, #c229296b 5%, #af0a0a 100%);
 			background: linear-gradient(to bottom, #c229296b 5%, #af0a0a 100%);
-			linear-gradient(to bottom, #c229296b 5%, #af0a0a 100%) filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c229296b', endColorstr='#af0a0a', GradientType=0);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c229296b', endColorstr='#af0a0a', GradientType=0);
 			background-color: #c229296b;
 		}
 
 		.rimni-tutci:hover,
 		.rimni-tutci-hover {
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #af0a0a), color-stop(1, #c229296b));
-			background: -moz-linear-gradient(top, #af0a0a 5%, #c229296b 100%);
-			background: -webkit-linear-gradient(top, #af0a0a 5%, #c229296b 100%);
-			background: -o-linear-gradient(top, #af0a0a 5%, #c229296b 100%);
-			background: -ms-linear-gradient(top, #af0a0a 5%, #c229296b 100%);
 			background: linear-gradient(to bottom, #af0a0a 5%, #c229296b 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#af0a0a', endColorstr='#c229296b', GradientType=0);
 			background-color: #af0a0a;
 		}
 
 		.klesi-tutci {
-			display: inline;
+			font-style: italic;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			/* display: inline; */
 			float: right;
 			color: #000;
-			-moz-box-shadow: inset 0px -3px 7px 0px #eee;
-			-webkit-box-shadow: inset 0px -3px 7px 0px #eee;
 			box-shadow: inset 0px -3px 7px 0px #eee;
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffe), color-stop(1, #eee));
-			background: -moz-linear-gradient(top, #ffe 5%, #eee 100%);
-			background: -webkit-linear-gradient(top, #ffe 5%, #eee 100%);
-			background: -o-linear-gradient(top, #ffe 5%, #eee 100%);
-			background: -ms-linear-gradient(top, #ffe 5%, #eee 100%);
 			background: linear-gradient(to bottom, #ffe 5%, #eee 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe', endColorstr='#eee', GradientType=0);
 			background-color: #ffe;
@@ -857,11 +787,6 @@
 
 		.klesi-tutci:hover,
 		.klesi-tutci-hover {
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #eee), color-stop(1, #ffe));
-			background: -moz-linear-gradient(top, #eee 5%, #ffe 100%);
-			background: -webkit-linear-gradient(top, #eee 5%, #ffe 100%);
-			background: -o-linear-gradient(top, #eee 5%, #ffe 100%);
-			background: -ms-linear-gradient(top, #eee 5%, #ffe 100%);
 			background: linear-gradient(to bottom, #eee 5%, #ffe 100%);
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eee', endColorstr='#ffe', GradientType=0);
 			background-color: #eee;
@@ -874,8 +799,6 @@
 		.arxivo-tutci {
 			color: #000;
 			box-shadow: inset 0 1px 0 0 #fff6ce, inset 0 -1px 0 0 #e3c852, inset 0 0 0 1px #fce88d, 0 2px 4px 0 #D4D4D4;
-			-moz-box-shadow: inset 0 1px 0 0 #fff6ce, inset 0 -1px 0 0 #e3c852, inset 0 0 0 1px #fce88d, 0 2px 4px 0 #D4D4D4;
-			-webkit-box-shadow: inset 0 1px 0 0 #fff6ce, inset 0 -1px 0 0 #e3c852, inset 0 0 0 1px #fce88d, 0 2px 4px 0 #D4D4D4;
 			text-shadow: 0 1px 0 #fff;
 			background-image: linear-gradient(to top, #fce374, #fcdf5b);
 			background-color: #fce374;
@@ -1044,18 +967,10 @@
 			border-width: 0px;
 			border-style: solid;
 			border-top: none;
-			box-shadow: 0 0 0 1px rgb(%mupliskari1%),
-				0 0 0 2px rgb(%mupliskari2%),
-				0 0 0 3px rgb(%mupliskari3%),
-				0 0 0 4px rgb(%mupliskari4%);
-			-moz-box-shadow: 0 0 0 1px rgb(%mupliskari1%),
-				0 0 0 2px rgb(%mupliskari2%),
-				0 0 0 3px rgb(%mupliskari3%),
-				0 0 0 4px rgb(%mupliskari4%);
-			-webkit-box-shadow: 0 0 0 1px rgb(%mupliskari1%),
-				0 0 0 2px rgb(%mupliskari2%),
-				0 0 0 3px rgb(%mupliskari3%),
-				0 0 0 4px rgb(%mupliskari4%);
+			box-shadow: 0 0 0 1px rgb('%mupliskari1%'),
+				0 0 0 2px rgb('%mupliskari2%'),
+				0 0 0 3px rgb('%mupliskari3%'),
+				0 0 0 4px rgb('%mupliskari4%');
 		}
 
 		#cpacu {
@@ -1065,13 +980,7 @@
 			margin: auto;
 			background-color: #eee;
 			padding: 3px;
-			-webkit-border-radius: 3px;
-			-moz-border-radius: 3px;
-			-o-border-radius: 3px;
 			border-radius: 3px;
-			-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
-			-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
-			-o-box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
 			box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2)
 		}
 
@@ -1081,9 +990,6 @@
 			background-color: cornflowerblue;
 			width: 0%;
 			border-radius: 3px;
-			-webkit-transition: width .8s ease;
-			-moz-transition: width .8s ease;
-			-o-transition: width .8s ease;
 			transition: width .8s ease
 		}
 
@@ -1132,9 +1038,9 @@
 	<!-- End Google Tag Manager (noscript) -->
 	<div id='galtu-dasri' class='cnano-dasri noselect'>
 		<form id='se-vasru-lo-galtu-dasri' onsubmit="return false" novalidate>
-			%titlelogo%
+			'%titlelogo%'
 			<div id="kicne1"></div>
-			<input id='ciska' class="ciska" type="text" name="focus" required placeholder="%bangusisku%" autofocus
+			<input id='ciska' class="ciska" type="text" name="focus" required placeholder="'%bangusisku%'" autofocus
 				autocorrect="off" autocapitalize="off" autocomplete="false" />
 			<div id="kicne2"></div>
 			<button id="clear" type="reset"></button>
@@ -1145,19 +1051,19 @@
 			<div id='sidju' class='sidju ralju noselect'>
 				<div id="citri"></div>
 				<div class="leitutci">
-					<a class='tutci' id='cnano'>%cnano%</a>
-					<a class='tutci rimni-tutci' id='rimni'>%rimni%</a>
-					<a class='tutci arxivo-tutci' id='arxivo'>%arxivo%</a>
+					<a class='tutci' id='cnano'>'%cnano%'</a>
+					<a class='tutci rimni-tutci' id='rimni'>'%rimni%'</a>
+					<a class='tutci arxivo-tutci' id='arxivo'>'%arxivo%'</a>
 				</div>
 			</div>
 			<div id='loading' class="term noselect">
-				<span id='caho_cpacu'>%bangulo%</span><br>
+				<span id='caho_cpacu'>'%bangulo%'</span><br>
 				<div id="cpacu">
 					<span id='kernelo_lo_cpacu'></span>
 				</div>
 			</div>
 			<div id='drata' style="text-align:center;"></div>
-			<div id='descr' class="term termouter">%bangudesc%</div>
+			<div id='descr' class="term termouter">'%bangudesc%'</div>
 			<div id='outp'></div>
 		</div>
 	</div>
@@ -1282,7 +1188,6 @@
 			})
 			for (var i = 0; i < SiteImage.length; i++) {
 				SiteImage[i].style.filter = sepia;
-				SiteImage[i].style.WebkitFilter = sepia;
 			}
 		}
 

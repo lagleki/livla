@@ -108,7 +108,7 @@ String.prototype.stripout = function (config, tag) {
 
 String.prototype.replaceMergefield = function (config) {
   return Object.keys(config).reduce((acc, i) => {
-    return acc.replace(new RegExp('%' + i + '%', 'g'), config[i])
+    return acc.replace(new RegExp('\'%' + i + '%\'', 'g'), config[i])
   }, this)
 }
 

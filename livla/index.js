@@ -1007,7 +1007,7 @@ function cpedu_fi_la_arxivo (pattern, max) {
 
     let date;
     try {
-      date = new Date(parseInt(i.date)).toISOString();
+      date = new Date(parseInt(i.date)).toISOString().replace(/^(.*?)T(.*):..\....Z$/,'$1 $2');
     } catch (error) {
       date = i.date;
     }

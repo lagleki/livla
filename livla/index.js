@@ -893,10 +893,10 @@ const GimkaConflicts = valsi => {
     r.experimental
   }] - experimental gismu that conflict with {${valsi}}`
 }
-const wordnet = (socket, sendTo, te_gerna) => {
+const wordnet = ({socket, sendTo, text}) => {
   const natural = require('natural')
   const wn = new natural.WordNet()
-  wn.lookup(te_gerna, defs => {
+  wn.lookup(text, defs => {
     if (!defs || defs.length === 0) {
       benji({ socket, sendTo, what: '[not found]' })
     }
@@ -921,10 +921,10 @@ const wordnet = (socket, sendTo, te_gerna) => {
     })
   })
 }
-const wiktionary = (socket, sendTo, te_gerna, bangu) => {
-  let wor = te_gerna
+const wiktionary = ({socket, sendTo, text, bangu}) => {
+  let wor = text
   if (!bangu) {
-    wor = te_gerna.split('/')
+    wor = text.split('/')
     if (wor.length > 1) {
       bangu = wor[0]
       switch (bangu) {
@@ -1188,7 +1188,7 @@ async function processCommand ({ socket, sendTo, text }) {
     return true
   }
   if (jsonWiktionary[cmd]) {
-    jsonWiktionary[cmd](socket, sendTo, text)
+    jsonWiktionary[cmd]({socket, sendTo, text})
     return true
   }
   if (robangu.includes(cmd)) {
@@ -1204,12 +1204,12 @@ async function processCommand ({ socket, sendTo, text }) {
 }
 
 const jsonWiktionary = {
-  wn: (socket, sendTo, text) => wordnet(socket, sendTo, text),
-  wikt: (socket, sendTo, text) => wiktionary(socket, sendTo, text),
-  den: (socket, sendTo, text) => wiktionary(socket, sendTo, text, 'English'),
-  dru: (socket, sendTo, text) => wiktionary(socket, sendTo, text, 'Russian'),
-  dzh: (socket, sendTo, text) => wiktionary(socket, sendTo, text, 'Chinese'),
-  deo: (socket, sendTo, text) => wiktionary(socket, sendTo, text, 'Esperanto')
+  wn: (args) => wordnet(args),
+  wikt: (args) => wiktionary(args),
+  den: (args) => wiktionary({...args, bangu: 'English'}),
+  dru: (args) => wiktionary({...args, bangu: 'Russian'}),
+  dzh: (args) => wiktionary({...args, bangu: 'Chinese'}),
+  deo: (args) => wiktionary({...args, bangu: 'Esperanto'})
 }
 
 async function processor ({ from, towhom, text, socket }) {

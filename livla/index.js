@@ -988,7 +988,10 @@ function cpedu_fi_la_arxivo (pattern, max) {
   const query = `SELECT m.subject as subject, m.text as text, m.behi as behi, m.date as date FROM messages m where (regexp(m.text,'${pattern.replace(
     /'/g,
     "''"
-  )}')=1) group by m.subject,m.text order by m.subject,m.date limit ${max}`;
+  )}')=1) or (regexp(m.subject,'${pattern.replace(
+    /'/g,
+    "''"
+  ).replace(/^Re: (\[.*?\] )*/g,'')}')=1) group by m.subject,m.text order by m.date desc,m.subject limit ${max}`;
   const rows = db
     .prepare(
       query

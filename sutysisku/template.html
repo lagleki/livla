@@ -1354,7 +1354,7 @@
 			return;
 		}
 
-		function updateUrlFromState({
+		function setUrlFromState({
 			replace
 		}) {
 			var url = "#seskari=" + state.searching.seskari + "&sisku=" + encodeUrl(state.searching.query);
@@ -1459,7 +1459,7 @@
 			replace
 		}) {
 			state.searching.query = state.searching.query.trim();
-			updateUrlFromState({
+			setUrlFromState({
 				replace
 			});
 			localStorage.setItem('tcini', JSON.stringify(state.searching));
@@ -1645,11 +1645,15 @@
 				})
 		}
 
+		function escapeRegExp(string) {
+			return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+		}
+
 		function hilite({
 			def,
 			query
 		}) {
-			var f = "(" + query.replace(/ /g, "|") + "|" + query.replace(/'/g, "h").replace(/ /g, "|") + ")";
+			var f = "(" + escapeRegExp(query).replace(/ /g, "|") + "|" + escapeRegExp(query).replace(/'/g, "h").replace(/ /g, "|") + ")";
 			var rock = new RegExp(f, "igm");
 			return def.replace(rock, "<span class='hilite'>$1</span>")
 		}

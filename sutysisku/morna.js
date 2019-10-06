@@ -79,13 +79,19 @@ String.prototype.stripout = function (config, tag) {
   const m = tags.includes(true)
   const ku = m ? '$1' : ''
   const antiku = !m ? '$1' : ''
-  // console.log(tag, m, "-" + ku + "-", antiku);
   return (
     this
       // OR operator
       .replace(
         new RegExp(
           '\\/\\/<' + tag + '>([\\s\\S]*?)\\/\\/<\\/' + tag + '>',
+          'gm'
+        ),
+        ku
+      )
+      .replace(
+        new RegExp(
+          '\\/\\* *<' + tag + '>([\\s\\S]*?)\\/\\/<\\/' + tag + '> \\*\\/',
           'gm'
         ),
         ku
@@ -100,6 +106,13 @@ String.prototype.stripout = function (config, tag) {
         antiku
       )
       .replace(
+        new RegExp(
+          '\\/\\* *<' + tag + ' false>([\\s\\S]*?)\\/\\/<\\/' + tag + '> *\\*\\/',
+          'gm'
+        ),
+        antiku
+      )
+      .replace(
         new RegExp('<' + tag + ' false>([\\s\\S]*?)</' + tag + '>', 'gm'),
         antiku
       )
@@ -108,7 +121,7 @@ String.prototype.stripout = function (config, tag) {
 
 String.prototype.replaceMergefield = function (config) {
   return Object.keys(config).reduce((acc, i) => {
-    return acc.replace(new RegExp('\'%' + i + '%\'', 'g'), config[i])
+    return acc.replace(new RegExp('[\'"]%' + i + '%[\'"]', 'g'), config[i])
   }, this)
 }
 
@@ -143,10 +156,17 @@ langs.forEach(lang => {
     mupliskari2: '34,87,213',
     mupliskari3: '38,99,224',
     mupliskari4: '25,65,165',
+
+    velcusku_skari1: '214, 58, 233',
+    velcusku_skari2: '193, 34, 211',
+    velcusku_skari3: '205, 36, 224',
+    velcusku_skari4: '150, 25, 164',
+
     rimniskari1: '230,47,0',
     rimniskari2: '119,29,29',
     rimniskari3: '220,4,4',
     rimniskari4: '95,29,0',
+
     gradpos1: '0%',
     gradpos2: '13%',
     gradpos3: '88%',
@@ -159,6 +179,7 @@ langs.forEach(lang => {
     rimni: 'rhymes',
     cnano: 'search',
     arxivo: 'archive',
+    velcusku: 'read chat',
     parse: 'parse'
   }
   const arr = (config.mupliskari4 || config_fallback.mupliskari4)

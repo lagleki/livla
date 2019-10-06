@@ -54,7 +54,7 @@
     "start": "nodemon --ignore ./ --exec \"node livla/index.js\"",
     "snovlaste": "npm run deploy ; cd build/sutysisku ; rm .git -rf ; git init ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push --set-upstream origin master -f ; cd ..",
     "push": "git add . ; git commit -a ;  git push",
-    "deploy": "cp -avr sutysisku/src/* build/sutysisku/ ; node sutysisku/morna.js ; cp -avr build/* ~/public_html/glekitufa/build/",
+    "deploy": "rsync -av --exclude=\".*\"  sutysisku/src/* build/sutysisku/ ; node sutysisku/morna.js ; rsync -av --exclude=\".*\" build/* ~/public_html/glekitufa/build/ > /dev/null",
     "i": "nodemon -e html,js,json --watch sutysisku --exec \"npm run deploy\""
   },
   "devDependencies": {

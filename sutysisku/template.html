@@ -852,6 +852,10 @@
         height: 21px;
       }
 
+      .tutci-hover {
+        border-style: dashed;
+      }
+
       .cnano-tutci:hover,
       .cnano-tutci-hover {
         background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
@@ -1140,7 +1144,7 @@
         width: 58px;
         height: 34px;
         transform: rotate(180deg);
-        opacity: 0.7;
+        opacity: 0.5;
       }
       #scrollToTop.dizlo {
         transform: none;
@@ -1148,6 +1152,12 @@
 
       #scrollToTop:hover {
         background-color: #555; /* Add a dark-grey background on hover */
+      }
+
+      .se-tcidu-pixra {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
       }
     </style>
     <link rel="manifest" href="../manifest.json" />
@@ -1350,6 +1360,9 @@
             " " +
             window.purc +
             state.citri
+              .filter(function(a) {
+                return a.seskari !== "velcusku";
+              })
               .map(function(a) {
                 return (
                   '<a class="a-' +
@@ -1374,11 +1387,13 @@
         SiteTitleFull.classList.remove("desktop-mode-title-color");
         document
           .getElementById(seskari)
-          .classList.add(seskari + "-tutci-hover");
+          .classList.add(seskari + "-tutci-hover", "tutci-hover");
         colors.map(function(c) {
           if (c !== seskari) {
             SiteTitleFull.classList.remove(c + "-search-mode-title-color");
-            document.getElementById(c).classList.remove(c + "-tutci-hover");
+            document
+              .getElementById(c)
+              .classList.remove(c + "-tutci-hover", "tutci-hover");
           }
         });
         for (var i = 0; i < SiteImage.length; i++) {
@@ -1387,6 +1402,7 @@
       }
 
       function SwitchRotation({ action }) {
+        if (document.readyState !== "complete") return;
         var els = ["logo"];
         if (action === "start") {
           els.map(function(el) {
@@ -1625,8 +1641,7 @@
       document.getElementById("title").addEventListener("click", EmptyState);
 
       function EmptyState() {
-        state.searching.query = "";
-        DispatchState({});
+        DispatchState({ empty: true });
       }
       //change seskari
       document.getElementById("rimni").addEventListener("click", function() {
@@ -1670,7 +1685,11 @@
       });
 
       function DispatchCitri() {
-        if (state.displaying.query === "") return;
+        if (
+          state.displaying.query === "" ||
+          state.displaying.seskari === "velcusku"
+        )
+          return;
         var i = 0;
         for (i = 0; i < state.citri.length; i++) {
           if (
@@ -1687,18 +1706,23 @@
         RenderCitri();
       }
       //Dispatch State
-      function DispatchState({ replace, caller }) {
+      function DispatchState({ replace, caller, empty }) {
         if (socket1Chat) socket1Chat.close();
         state.searching.query = state.searching.query.trim();
         setUrlFromState({
           replace
         });
         localStorage.setItem("tcini", JSON.stringify(state.searching));
-        if (state.searching.query === "") return RenderDesktop();
-        if (
-          JSON.stringify(state.searching) === JSON.stringify(state.displaying)
-        )
-          return;
+        if (empty == true) {
+          state.searching.query = "";
+          return RenderDesktop();
+        } else if (state.searching.seskari !== "velcusku") {
+          if (state.searching.query === "") return RenderDesktop();
+          if (
+            JSON.stringify(state.searching) === JSON.stringify(state.displaying)
+          )
+            return;
+        }
         //emit search
         ciska.value = state.searching.query;
 
@@ -1740,12 +1764,14 @@
         SiteTitleFull.classList.add("desktop-mode-title-color");
         SiteTitleFull.classList.remove(
           "cnano-search-mode-title-color",
+          "velcusku-search-mode-title-color",
           "rimni-search-mode-title-color",
           "arxivo-search-mode-title-color"
         );
-        cnano.classList.remove("cnano-tutci-hover");
-        rimni.classList.remove("rimni-tutci-hover");
-        arxivo.classList.remove("arxivo-tutci-hover");
+        cnano.classList.remove("cnano-tutci-hover", "tutci-hover");
+        velcusku.classList.remove("velcusku-tutci-hover", "tutci-hover");
+        rimni.classList.remove("rimni-tutci-hover", "tutci-hover");
+        arxivo.classList.remove("arxivo-tutci-hover", "tutci-hover");
         dasri.className = "kampu-dasri cnano-dasri";
         outp.style.display = "none";
         descr.style.display = "block";
@@ -1975,8 +2001,11 @@
                 .replace(/\{/g, "\\curlyleft")
                 .replace(/\}/g, "\\curlyright");
             })
+            .replace(/^<p>(https?:\/\/.*\.(jpg|png))<\/p>\n?$/gm, function(c,first) {
+              return c + "<img class='se-tcidu-pixra' src=\"" + first + '"/>\n';
+            })
             .replace(
-              /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
+              /(!\bsrc=\")https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
               function(c) {
                 return (
                   '</span><a href="' +
@@ -2470,6 +2499,7 @@
         // content.scrollTop = content.scrollHeight;
       });
       socket1Chat.on("history", function(data) {
+        // console.log(data);
         document.getElementById("velcusku").style.display = "inline-block";
         results = data.map(function(i) {
           return {

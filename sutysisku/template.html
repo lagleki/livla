@@ -306,7 +306,7 @@
       code {
         border: 1px solid #aaa;
         display: inline-block;
-        padding: 3px;
+        padding: 2px 5px 2px 5px;
         border-radius: 3px;
         margin-left: 1px;
         margin-right: 1px;
@@ -594,7 +594,7 @@
         font-size: 130%;
         font-family: Arial, Helvetica, sans-serif;
         border: 1px solid #777;
-        padding: 2px 42px 2px 10px;
+        padding: 2px 50px 2px 10px;
         transition: background 0.4s;
         float: right;
         margin-top: 6px;
@@ -743,7 +743,7 @@
 
         #ciska {
           width: 100%;
-          padding: 2px 30px 2px 6px;
+          padding: 2px 42px 2px 6px;
           border-radius: 2px;
         }
       }
@@ -1425,7 +1425,6 @@
         }
       }
       function EmitVelcusku() {
-        var channel = "#lojbanme";
         socket1Chat.open();
       }
 
@@ -2001,13 +2000,10 @@
                 .replace(/\{/g, "\\curlyleft")
                 .replace(/\}/g, "\\curlyright");
             })
-            .replace(/^<p>(https?:\/\/.*\.(jpg|png))<\/p>\n?$/gm, function(c,first) {
-              return c + "<img class='se-tcidu-pixra' src=\"" + first + '"/>\n';
-            })
             .replace(
-              /(!\bsrc=\")https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
+              /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
               function(c) {
-                return (
+                var res = (
                   '</span><a href="' +
                   c +
                   '" target="_blank">' +
@@ -2017,6 +2013,8 @@
                   }) +
                   "</a><span>"
                 );
+                if (c.match(/^https?:\/\/.*\.(jpg|png)$/)) res += "<img class='se-tcidu-pixra' src=\"" + c + '"/>\n'
+                return res;
               }
             )
             .replace(/\{.*?\}/g, function(c) {

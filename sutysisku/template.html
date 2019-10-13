@@ -619,14 +619,17 @@
         cursor: pointer;
         margin-top: 8px;
         height: 0;
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: transparent;
         background-image: url(../pixra/x.svg);
         background-position: center;
         background-repeat: no-repeat;
       }
 
-      #clear:not(.stopRotate) {
-        background-color: transparent;
+      #clear:not(.pulsate-css) {
+        background-color: rgba(255,255,255,0.8);
+      }
+      #ciska:not(.granim-css) {
+        padding-right: 30px;
       }
 
       #title {
@@ -746,6 +749,9 @@
           padding: 2px 42px 2px 6px;
           border-radius: 2px;
         }
+        #ciska:not(.granim-css) {
+        padding-right: 22px;
+      }
       }
 
       ::selection {

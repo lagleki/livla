@@ -11,8 +11,8 @@
     "cheerio": "^1.0.0-rc.3",
     "cron": "^1.7.2",
     "express": "^4.17.1",
-    "express-http-proxy": "^1.5.1",
-    "fast-xml-parser": "^3.12.20",
+    "express-http-proxy": "^1.6.0",
+    "fast-xml-parser": "^3.13.0",
     "google-spreadsheet": "^2.0.8",
     "he": "^1.2.0",
     "irc-upd": "^0.10.0",
@@ -25,7 +25,7 @@
     "node-xml-compare": "^0.1.0",
     "nodemw": "~0.12.2",
     "ospath": "~1.2.2",
-    "path-extra": "~4.2.1",
+    "path-extra": "~4.3.0",
     "pegjs": "^0.10.0",
     "pxeger": "0.0.1",
     "ramda": "^0.26.1",
@@ -38,8 +38,8 @@
     "simple-promise-queue": "^0.1.7",
     "socket.io": "~2.3.0",
     "string-format": "^2.0.0",
-    "tar": "4.4.11",
-    "uglify-js": "~3.6.0",
+    "tar": "5.0.5",
+    "uglify-js": "~3.6.1",
     "universal-analytics": "^0.4.20",
     "wget": "*",
     "wordnet-db": "^3.1.11",
@@ -58,6 +58,6 @@
     "i": "nodemon -e html,js,json --watch sutysisku --exec \"npm run deploy\""
   },
   "devDependencies": {
-    "nodemon": "^1.19.2"
+    "nodemon": "^1.19.3"
   }
 }

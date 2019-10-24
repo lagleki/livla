@@ -1215,6 +1215,10 @@ const jsonWiktionary = {
   deo: (args) => wiktionary({...args, bangu: 'Esperanto'})
 }
 
+function removePrefix(text){
+  return text.replace(/^\.[^ ]+ /,'');
+ }
+
 async function processor ({ from, towhom, text, socket }) {
   let sendTo = towhom && towhom.indexOf('#') ? from : towhom
   if (text.match(/^<(.*?)>: /, '') !== null) {
@@ -1289,14 +1293,11 @@ async function processor ({ from, towhom, text, socket }) {
   switch (true) {
     case text.indexOf(`${commandPrefix}yacc `) === 0 ||
       text.indexOf(`${commandPrefix}cowan `) === 0:
-      tcepru(text, sendTo, socket)
+      tcepru(removePrefix(text), sendTo, socket)
       break
     case text.indexOf(`${commandPrefix}gerna `) === 0 ||
       text.indexOf(`${commandPrefix}jbofi'e `) === 0:
-      jbofihe(text, sendTo, socket)
-      break
-    case text.indexOf('yacc:') === 0 || text.indexOf('cowan:') === 0:
-      tcepru(text, sendTo, socket)
+      jbofihe(removePrefix(text), sendTo, socket)
       break
     case text.indexOf(`${replier}: ko ningau`) === 0 ||
       text.indexOf(`${replier}: ko cnino`) === 0:

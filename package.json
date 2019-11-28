@@ -12,14 +12,14 @@
     "cron": "^1.7.2",
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.0",
-    "fast-xml-parser": "^3.13.0",
+    "fast-xml-parser": "^3.14.0",
     "google-spreadsheet": "^2.0.8",
     "he": "^1.2.0",
     "irc-upd": "^0.10.0",
     "line-by-line": "^0.1.6",
     "lojban": "^1.1.0",
-    "lzwcompress": "^0.5.7",
-    "mailparser": "^2.7.1",
+    "lzwcompress": "^0.5.8",
+    "mailparser": "^2.7.6",
     "natural": "^0.6.3",
     "node-tweet-stream": "^2.0.3",
     "node-xml-compare": "^0.1.0",
@@ -32,14 +32,14 @@
     "randexp": "^0.5.3",
     "recursive-readdir": "^2.2.2",
     "request": "^2.88.0",
-    "request-promise-native": "^1.0.7",
+    "request-promise-native": "^1.0.8",
     "sanitize-html": "^1.20.1",
     "seek-bzip": "~1.0.5",
     "simple-promise-queue": "^0.1.7",
     "socket.io": "~2.3.0",
     "string-format": "^2.0.0",
     "tar": "5.0.5",
-    "uglify-js": "~3.6.1",
+    "uglify-js": "~3.6.9",
     "universal-analytics": "^0.4.20",
     "wget": "*",
     "wordnet-db": "^3.1.11",
@@ -58,6 +58,6 @@
     "i": "nodemon -e html,js,json --watch sutysisku --exec \"npm run deploy\""
   },
   "devDependencies": {
-    "nodemon": "^1.19.3"
+    "nodemon": "^1.19.4"
   }
 }

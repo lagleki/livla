@@ -1,0 +1,32 @@
+{
+  "en": {
+    "valsi": "%s",
+    "cmavo gi'e na se zanru lo catni": "experimental cmavo",
+    "pinka": "| notes: %s",
+    "klesi": "(type: %s)",
+    "finti": "| author: %s",
+    "mupli": "| example: %s",
+    "selmaho": "[selmaho: %s]",
+    "smuvelcki": "= %s"
+},
+"ru": {
+    "valsi": "%s",
+    "cmavo gi'e na se zanru lo catni": "неофициальная частица (cmavo)",
+    "pinka": "| заметки: %s",
+    "klesi": "(тип слова: %s)",
+    "finti": "| автор определения: %s",
+    "mupli": "| пример: %s",
+    "selmaho": "[класс-selmaho: %s]",
+    "smuvelcki": "= %s"
+  },
+  "jbo": {
+    "valsi": ".i lu %s li'u valsi",
+    "cmavo gi'e na se zanru lo catni": ".i cmavo gi'e na se zanru lo catni",
+    "pinka": ".i sei pinka se'u %s",
+    "mupli": ".i sei mupli se'u %s",
+    "klesi": ".i sei vlakle se'u %s",
+    "finti": ".i finti di'u fa la'oi %s",
+    "selmaho": ".i ma'oi %s selma'o",
+    "smuvelcki": ".i sei smuvelcki se'u %s"
+  }
+}

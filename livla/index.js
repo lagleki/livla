@@ -174,7 +174,7 @@ const loadConfig = () => {
   if (!commonConfig.disableIrcBots && !commonConfig.disableTwitter) {
     const Twitter = require("twitter-lite");
 
-    const t = new Twitter({
+    const client = new Twitter({
       consumer_key,
       consumer_secret,
       access_token_key: access_token_key,
@@ -185,10 +185,10 @@ const loadConfig = () => {
       track: "#lojban,#ithkuil,#loglan"
     };
 
-    const stream = client
+    client
       .stream("statuses/filter", parameters)
-      .on("start", response => console.log("start"))
-      .on("data", { text, user, id_str } => {
+      .on("start", response => console.log("twitter monitor started"))
+      .on("data", ({ text, user, id_str }) => {
         if (text) {
           const message = `@${user.screen_name}: ${text.replace(
             /[\n\r\t]/g,

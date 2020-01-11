@@ -12,14 +12,14 @@
     "cron": "^1.7.2",
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.0",
-    "fast-xml-parser": "^3.14.0",
+    "fast-xml-parser": "^3.15.1",
     "google-spreadsheet": "^2.0.8",
     "he": "^1.2.0",
     "irc-upd": "^0.10.0",
     "line-by-line": "^0.1.6",
     "lojban": "^1.1.0",
-    "lzwcompress": "^0.5.8",
-    "mailparser": "^2.7.6",
+    "lzwcompress": "^0.5.9",
+    "mailparser": "^2.7.7",
     "natural": "^0.6.3",
     "node-xml-compare": "^0.1.0",
     "nodemw": "~0.12.2",
@@ -39,11 +39,10 @@
     "string-format": "^2.0.0",
     "tar": "5.0.5",
     "twitter-lite": "^0.9.4",
-    "uglify-js": "~3.6.9",
+    "uglify-js": "~3.7.4",
     "universal-analytics": "^0.4.20",
     "wget": "*",
-    "wordnet-db": "^3.1.11",
-    "xmldom": "^0.1.27"
+    "wordnet-db": "^3.1.14"
   },
   "repository": {
     "type": "git",
@@ -58,6 +57,6 @@
     "i": "nodemon -e html,js,json --watch sutysisku --exec \"npm run deploy\""
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "nodemon": "^2.0.2"
   }
 }

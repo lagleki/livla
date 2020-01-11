@@ -172,35 +172,37 @@ const loadConfig = () => {
   arr_twitter_id = twitter_id.split(",");
 
   if (!commonConfig.disableIrcBots && !commonConfig.disableTwitter) {
-    const Twitter = require("node-tweet-stream");
+    const Twitter = require("twitter-lite");
 
     const t = new Twitter({
       consumer_key,
       consumer_secret,
-      token: access_token_key,
-      token_secret: access_token_secret
+      access_token_key: access_token_key,
+      access_token_secret: access_token_secret
     });
 
-    t.on("tweet", ({ text, user, id_str }) => {
-      if (text) {
-        const message = `@${user.screen_name}: ${text.replace(
-          /[\n\r\t]/g,
-          " "
-        )} [https://twitter.com/${user.screen_name}/status/${id_str}]`;
-        const screen_name = user.screen_name;
-        if (!arr_twitter_id.includes(screen_name)) {
-          benji({ sendTo: nuzbytcan, what: message, action: true });
+    const parameters = {
+      track: "#lojban,#ithkuil,#loglan"
+    };
+
+    const stream = client
+      .stream("statuses/filter", parameters)
+      .on("start", response => console.log("start"))
+      .on("data", { text, user, id_str } => {
+        if (text) {
+          const message = `@${user.screen_name}: ${text.replace(
+            /[\n\r\t]/g,
+            " "
+          )} [https://twitter.com/${user.screen_name}/status/${id_str}]`;
+          const screen_name = user.screen_name;
+          if (!arr_twitter_id.includes(screen_name)) {
+            benji({ sendTo: nuzbytcan, what: message, action: true });
+          }
         }
-      }
-    });
-
-    t.on("error", err => {
-      lg(err.toString());
-    });
-
-    t.track("#lojban");
-    t.track("#ithkuil");
-    t.track("#loglan");
+      })
+      .on("ping", () => console.log("ping"))
+      .on("error", error => console.log("error", error))
+      .on("end", response => console.log("end"));
   }
 };
 
@@ -210,6 +212,9 @@ const configmensi = {
   server,
   nick: replier,
   options: {
+    autoConnect: true,
+    autoRejoin: true,
+    autoRenick: true,
     channels: [tcan],
     password,
     debug: false,
@@ -398,7 +403,6 @@ const getLocalizationString = ({
 const locals = require("./locals.json");
 
 const GetWordDef = ({ word, language, jsonDoc }) => {
-
   const words = jsonDocDirection(jsonDoc)
     .valsi.filter(valsi => valsi.word.toLowerCase() === word)
     .map(v => {
@@ -1183,9 +1187,10 @@ function sendDelayed({ from, sendTo, socket }) {
       benji({
         socket,
         sendTo,
-        what: `${from}: cu'u la'o gy.${cmenepagbu[0]}.gy.: ${
-          cmenepagbu[2]
-        }`.replace(/(.{190,250})(, |[ \.\"\/])/g, "$1$2\n")
+        what: `${from}: cu'u la'o gy.${cmenepagbu[0]}.gy.: ${cmenepagbu[2]}`.replace(
+          /(.{190,250})(, |[ \.\"\/])/g,
+          "$1$2\n"
+        )
       });
       notci.splice(l, 1);
       l = l - 1;

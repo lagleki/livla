@@ -171,40 +171,46 @@ const loadConfig = () => {
   twitter_id = either(localConfig, "twitter_id", twitter_id);
   arr_twitter_id = twitter_id.split(",");
 
-  if (!commonConfig.disableIrcBots && !commonConfig.disableTwitter) {
-    const Twitter = require("twitter-lite");
-
-    const client = new Twitter({
-      consumer_key,
-      consumer_secret,
-      access_token_key: access_token_key,
-      access_token_secret: access_token_secret
-    });
-
-    const parameters = {
-      track: "#lojban,#ithkuil,#loglan"
-    };
-
-    client
-      .stream("statuses/filter", parameters)
-      .on("start", response => console.log("twitter monitor started"))
-      .on("data", ({ text, user, id_str }) => {
-        if (text) {
-          const message = `@${user.screen_name}: ${text.replace(
-            /[\n\r\t]/g,
-            " "
-          )} [https://twitter.com/${user.screen_name}/status/${id_str}]`;
-          const screen_name = user.screen_name;
-          if (!arr_twitter_id.includes(screen_name)) {
-            benji({ sendTo: nuzbytcan, what: message, action: true });
-          }
-        }
-      })
-      .on("ping", () => console.log("ping"))
-      .on("error", error => console.log("error", error))
-      .on("end", response => console.log("end"));
-  }
+  if (!commonConfig.disableIrcBots && !commonConfig.disableTwitter)
+    startTwitterStream();
 };
+
+function startTwitterStream() {
+  const Twitter = require("twitter-lite");
+
+  const client = new Twitter({
+    consumer_key,
+    consumer_secret,
+    access_token_key: access_token_key,
+    access_token_secret: access_token_secret
+  });
+
+  const parameters = {
+    track: "#lojban,#ithkuil,#loglan"
+  };
+
+  client
+    .stream("statuses/filter", parameters)
+    .on("start", response => console.log("twitter monitor started"))
+    .on("data", ({ text, user, id_str }) => {
+      if (text) {
+        const message = `@${user.screen_name}: ${text.replace(
+          /[\n\r\t]/g,
+          " "
+        )} [https://twitter.com/${user.screen_name}/status/${id_str}]`;
+        const screen_name = user.screen_name;
+        if (!arr_twitter_id.includes(screen_name)) {
+          benji({ sendTo: nuzbytcan, what: message, action: true });
+        }
+      }
+    })
+    // .on("ping", () => console.log("ping"))
+    .on("error", error => console.log("error", error))
+    .on("end", response => {
+      console.log("end", response);
+      startTwitterStream();
+    });
+}
 
 loadConfig();
 
@@ -525,6 +531,7 @@ const PrettyLujvoScore = a =>
   a
     .filter(({ lujvo, score }) => /[aeiou]/.test(lujvo.slice(-1)[0]))
     .map(({ lujvo, score }) => `${lujvo}: ${score}`)
+    .slice(0, 4)
     .join(", ");
 
 const MultipleDefs = ({ word, language }) => {
@@ -1200,6 +1207,7 @@ function sendDelayed({ from, sendTo, socket }) {
 }
 jsonCommand = {
   lujvo: text => {
+    if (text.indexOf(" ") === -1) return { error: true };
     let ma_lujvo;
     try {
       ma_lujvo = lojban.jvozba(text.split(" "));
@@ -1266,6 +1274,12 @@ async function processCommand({ socket, sendTo, text }) {
     .join(" ");
   if (jsonCommand[cmd]) {
     const what = await jsonCommand[cmd](text);
+    if (what && what.error) {
+      let bangu = "en";
+      if (sendTo === "#jbosnu") bangu = "jbo";
+      processCommand({ socket, sendTo, text: `.${bangu} ${text}` });
+      return true;
+    }
     benji({ socket, sendTo, what });
     return true;
   }

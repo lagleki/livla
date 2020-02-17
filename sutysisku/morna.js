@@ -3,272 +3,328 @@
 // the template is taken from cipra/template.html file
 
 // import
-const fs = require('fs')
-
-const path = require('path-extra')
+const fs = require("fs");
+const path = require("path-extra");
+const rp = require("request-promise-native");
 
 // config
-const args = process.argv.slice(2)
+const args = process.argv.slice(2);
 const langs =
   args.length > 0
     ? args
     : [
-      'en',
-      'ru',
-      'eo',
-      'es',
-      'fr-facile',
-      'ile',
-      'ina',
-      'ithkuil',
-      'ja',
-      'jbo',
-      'laadan',
-      'ldp',
-      'ru',
-      'zh',
-      'zamenhofo',
-      'epo-tha',
-      'simplingua-zho',
-      'toki',
-      'ktv-eng',
-      'jb',
-      'en-pt-BR',
-      'muplis',
-      'muplis-eng-pol',
-      'cipra'
-    ]
+        "en",
+        "ru",
+        "eo",
+        "es",
+        "fr-facile",
+        "ile",
+        "ina",
+        "ithkuil",
+        "ja",
+        "jbo",
+        "laadan",
+        "ldp",
+        "ru",
+        "zh",
+        "zamenhofo",
+        "epo-tha",
+        "simplingua-zho",
+        "toki",
+        "ktv-eng",
+        "jb",
+        "en-pt-BR",
+        "muplis",
+        "muplis-eng-pol",
+        "cipra"
+      ];
 // read template.html into var
-const template = fs.readFileSync(path.join(__dirname, './', 'template.html'), {
-  encoding: 'utf8'
-})
+const template = fs.readFileSync(path.join(__dirname, "./", "template.html"), {
+  encoding: "utf8"
+});
 // read sisku.xml template into var
-const sisku = fs.readFileSync(path.join(__dirname, './', 'sisku.xml'), {
-  encoding: 'utf8'
-})
+const sisku = fs.readFileSync(path.join(__dirname, "./", "sisku.xml"), {
+  encoding: "utf8"
+});
+
+CLLAppendix2Json();
 
 // functions
 // generic
-function addZero (i) {
+function addZero(i) {
   if (i < 10) {
-    i = '0' + i
+    i = "0" + i;
   }
-  return i
+  return i;
 }
 
-function rgbToHex (rgb) {
-  let hex = Number(rgb).toString(16)
+function rgbToHex(rgb) {
+  let hex = Number(rgb).toString(16);
   if (hex.length < 2) {
-    hex = '0' + hex
+    hex = "0" + hex;
   }
-  return hex
+  return hex;
 }
 
-function fullColorHex (r, g, b) {
-  const red = rgbToHex(r)
-  const green = rgbToHex(g)
-  const blue = rgbToHex(b)
-  return '#' + red + green + blue
+async function CLLAppendix2Json(source) {
+  source = source || "https://lojban.pw/cll/uncll-1.2.4/xhtml_section_chunks/";
+  const appendix = source + "ix02.html";
+
+  const htmlString = await rp(appendix);
+  const arr = htmlString.match(/<dt>(.*?)<\/dt>/g);
+  const json = {};
+  arr.forEach(el => {
+    el = el.replace(/^<dt>(.*?): (.*?)<\/dt>$/, "$1\t$2").split(/\t/);
+    let selmaho = el[0]
+      .replace(/ selma'o/, "")
+      .replace(/^\./, "")
+      .replace(/\.$/, "");
+    const jsonLinks = {};
+    el[1].match(/<a (.*?)<\/a>/g).forEach(i => {
+      i = i
+        .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/, "$1\t$2")
+        .split(/\t/);
+      jsonLinks[i[0]] = i[1];
+    });
+
+    json[selmaho] = jsonLinks;
+  });
+  let text = "window.arrcll=" + JSON.stringify(json);
+  fs.writeFileSync(path.join(__dirname, "src/en/cll.js"), text);
+  fs.writeFileSync(path.join(__dirname, "src/jb/cll.js"), text);
+}
+
+function fullColorHex(r, g, b) {
+  const red = rgbToHex(r);
+  const green = rgbToHex(g);
+  const blue = rgbToHex(b);
+  return "#" + red + green + blue;
 }
 
 // tempalting - remove parts not relevant to the current sutysisku
-String.prototype.stripout = function (config, tag) {
+String.prototype.stripout = function(config, tag) {
   const tags = tag
-    .split('\\|')
-    .map(j => (!!(config[j] && config[j] !== 'false')))
-  const m = tags.includes(true)
-  const ku = m ? '$1' : ''
-  const antiku = !m ? '$1' : ''
+    .split("\\|")
+    .map(j => !!(config[j] && config[j] !== "false"));
+  const m = tags.includes(true);
+  const ku = m ? "$1" : "";
+  const antiku = !m ? "$1" : "";
   return (
     this
       // OR operator
       .replace(
         new RegExp(
-          '\\/\\/<' + tag + '>([\\s\\S]*?)\\/\\/<\\/' + tag + '>',
-          'gm'
+          "\\/\\/<" + tag + ">([\\s\\S]*?)\\/\\/<\\/" + tag + ">",
+          "gm"
         ),
         ku
       )
       .replace(
         new RegExp(
-          '\\/\\* *<' + tag + '>([\\s\\S]*?)\\/\\/<\\/' + tag + '> \\*\\/',
-          'gm'
+          "\\/\\* *<" + tag + ">([\\s\\S]*?)\\/\\/<\\/" + tag + "> \\*\\/",
+          "gm"
         ),
         ku
       )
-      .replace(new RegExp('<' + tag + '>([\\s\\S]*?)</' + tag + '>', 'gm'), ku)
+      .replace(new RegExp("<" + tag + ">([\\s\\S]*?)</" + tag + ">", "gm"), ku)
       // NOT operator
       .replace(
         new RegExp(
-          '\\/\\/<' + tag + ' false>([\\s\\S]*?)\\/\\/<\\/' + tag + '>',
-          'gm'
+          "\\/\\/<" + tag + " false>([\\s\\S]*?)\\/\\/<\\/" + tag + ">",
+          "gm"
         ),
         antiku
       )
       .replace(
         new RegExp(
-          '\\/\\* *<' + tag + ' false>([\\s\\S]*?)\\/\\/<\\/' + tag + '> *\\*\\/',
-          'gm'
+          "\\/\\* *<" +
+            tag +
+            " false>([\\s\\S]*?)\\/\\/<\\/" +
+            tag +
+            "> *\\*\\/",
+          "gm"
         ),
         antiku
       )
       .replace(
-        new RegExp('<' + tag + ' false>([\\s\\S]*?)</' + tag + '>', 'gm'),
+        new RegExp("<" + tag + " false>([\\s\\S]*?)</" + tag + ">", "gm"),
         antiku
       )
-  )
-}
+  );
+};
 
-String.prototype.replaceMergefield = function (config) {
+String.prototype.replaceMergefield = function(config) {
   return Object.keys(config).reduce((acc, i) => {
-    return acc.replace(new RegExp('[\'"]%' + i + '%[\'"]', 'g'), config[i])
-  }, this)
-}
+    return acc.replace(new RegExp("['\"]%" + i + "%['\"]", "g"), config[i]);
+  }, this);
+};
 
 // generate files
 langs.forEach(lang => {
   // generate index.html
   const config = JSON.parse(
     fs.readFileSync(
-      path.join(__dirname, '../build/sutysisku/', lang, 'config.json'),
+      path.join(__dirname, "../build/sutysisku/", lang, "config.json"),
       {
-        encoding: 'utf8'
+        encoding: "utf8"
       }
     )
-  )
+  );
   const config_fallback = {
     title: "la sutysisku zo'u: ze'i mitysisku lo valsi",
-    favicon: '../pixra/snime.svg',
-    icon16: '../pixra/16.png',
-    icon32: '../pixra/32.png',
-    ogurl: 'https://la-lojban.github.io/sutysisku/' + lang + '/index.html',
-    ogtitle: 'Sutysisku',
-    searchurl: '/sutysisku/' + lang + '/sisku.xml',
-    searchtitle: lang + '-sutysisku',
+    favicon: "../pixra/snime.svg",
+    icon16: "../pixra/16.png",
+    icon32: "../pixra/32.png",
+    ogurl: "https://la-lojban.github.io/sutysisku/" + lang + "/index.html",
+    ogtitle: "Sutysisku",
+    searchurl: "/sutysisku/" + lang + "/sisku.xml",
+    searchtitle: lang + "-sutysisku",
     titlelogo:
       "<a id='title' href='#'><span id='site-title'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16'><font color='#fff'>la sutysisku</font></span></a>",
-    arxivoskari1: '233, 195, 58',
-    arxivoskari2: '211, 172, 34',
-    arxivoskari3: '224, 183, 36',
-    arxivoskari4: '164, 134, 25',
+    arxivoskari1: "233, 195, 58",
+    arxivoskari2: "211, 172, 34",
+    arxivoskari3: "224, 183, 36",
+    arxivoskari4: "164, 134, 25",
 
-    mupliskari1: '56,136,233',
-    mupliskari2: '34,87,213',
-    mupliskari3: '38,99,224',
-    mupliskari4: '25,65,165',
+    mupliskari1: "56,136,233",
+    mupliskari2: "34,87,213",
+    mupliskari3: "38,99,224",
+    mupliskari4: "25,65,165",
 
-    velcusku_skari1: '214, 58, 233',
-    velcusku_skari2: '193, 34, 211',
-    velcusku_skari3: '205, 36, 224',
-    velcusku_skari4: '150, 25, 164',
+    velcusku_skari1: "214, 58, 233",
+    velcusku_skari2: "193, 34, 211",
+    velcusku_skari3: "205, 36, 224",
+    velcusku_skari4: "150, 25, 164",
 
-    rimniskari1: '230,47,0',
-    rimniskari2: '119,29,29',
-    rimniskari3: '220,4,4',
-    rimniskari4: '95,29,0',
+    rimniskari1: "230,47,0",
+    rimniskari2: "119,29,29",
+    rimniskari3: "220,4,4",
+    rimniskari4: "95,29,0",
 
-    gradpos1: '0%',
-    gradpos2: '13%',
-    gradpos3: '88%',
-    gradpos4: '100%',
-    rimnigradpos1: '0%',
-    rimnigradpos2: '10%',
-    rimnigradpos3: '91%',
-    rimnigradpos4: '100%',
-    kunti: 'clear',
-    rimni: 'rhymes',
-    cnano: 'search',
-    arxivo: 'archive',
-    velcusku: 'read chat',
-    parse: 'parse'
-  }
+    gradpos1: "0%",
+    gradpos2: "13%",
+    gradpos3: "88%",
+    gradpos4: "100%",
+    rimnigradpos1: "0%",
+    rimnigradpos2: "10%",
+    rimnigradpos3: "91%",
+    rimnigradpos4: "100%",
+    kunti: "clear",
+    rimni: "rhymes",
+    cnano: "search",
+    arxivo: "archive",
+    velcusku: "read chat",
+    parse: "parse"
+  };
   const arr = (config.mupliskari4 || config_fallback.mupliskari4)
-    .split(',')
-    .map(i => i.trim())
-  config.mupliskariralju = fullColorHex(arr[0], arr[1], arr[2])
+    .split(",")
+    .map(i => i.trim());
+  config.mupliskariralju = fullColorHex(arr[0], arr[1], arr[2]);
   const output = template
     .replaceMergefield(config)
     .replaceMergefield(config_fallback)
     /// /strip out according to Lojbanicity of the sutysisku
-    .stripout(config, 'xuzganalojudri\\|lojbo')
-    .stripout(config, 'xuzganalojudri')
-    .stripout(config, 'lojbo')
-    .stripout(config, 'muplis')
+    .stripout(config, "xuzganalojudri\\|lojbo")
+    .stripout(config, "xuzganalojudri")
+    .stripout(config, "lojbo")
+    .stripout(config, "muplis")
     // delete comments, compress code
-    .replace(/^[ \t]+/gm, '')
-    .replace(/^\/\/.*$/gm, '')
-    .replace(/\/\*((?!\/\*)[\s\S]*?)\*\//gm, '')
-    .replace(/<!--[\s\S]*?-->/gm, '')
-    .replace(/\n\s*\n/g, '\n')
+    .replace(/^[ \t]+/gm, "")
+    .replace(/^\/\/.*$/gm, "")
+    .replace(/\/\*((?!\/\*)[\s\S]*?)\*\//gm, "")
+    .replace(/<!--[\s\S]*?-->/gm, "")
+    .replace(/\n\s*\n/g, "\n");
   fs.writeFileSync(
-    path.join(__dirname, '../build/sutysisku/', lang, 'index.html'),
+    path.join(__dirname, "../build/sutysisku/", lang, "index.html"),
     output
-  )
+  );
 
   // current datetime
-  const d = new Date()
+  const d = new Date();
   const n =
     d.getFullYear() +
-    '-' +
+    "-" +
     addZero(d.getMonth() + 1) +
-    '-' +
+    "-" +
     addZero(d.getDate()) +
-    'T' +
+    "T" +
     addZero(d.getHours()) +
-    ':' +
+    ":" +
     addZero(d.getMinutes()) +
-    ':' +
-    addZero(d.getSeconds())
-  const n_for_url = n.replace(/[^0-9]/g, '_')
+    ":" +
+    addZero(d.getSeconds());
+  const n_for_url = n.replace(/[^0-9]/g, "_");
   // generate sisku.xml and update webapp.cache
-  if (lang !== 'cipra') {
+  if (lang !== "cipra") {
     const file = fs.readFileSync(
-      path.join(__dirname, '../build/sutysisku/', lang, 'bangu.js'),
+      path.join(__dirname, "src", lang, "bangu.js"),
       {
-        encoding: 'utf8'
+        encoding: "utf8"
       }
-    )
+    );
+    const cll_exists = fs.existsSync(
+      path.join(__dirname, "src", lang, "cll.js")
+    );
+    let addition = "";
+    if (cll_exists) {
+      addition =
+        "\n" +
+        fs.readFileSync(path.join(__dirname, "src", lang, "cll.js"), {
+          encoding: "utf8"
+        });
+    }
+    fs.writeFileSync(
+      path.join(__dirname, "../build/sutysisku/", lang, "bangu.js"),
+      file + addition
+    );
     const b = sisku
       .replace(
-        '%template%',
-        'https://la-lojban.github.io/sutysisku/en/index.html#seskari=cnano&amp;sisku={searchTerms}'
+        "%template%",
+        "https://la-lojban.github.io/sutysisku/en/index.html#seskari=cnano&amp;sisku={searchTerms}"
       )
-      .replace('%shortname%', lang + '-sutysisku')
-      .replaceMergefield(config)
+      .replace("%shortname%", lang + "-sutysisku")
+      .replaceMergefield(config);
     fs.writeFileSync(
-      path.join(__dirname, '../build/sutysisku/', lang, 'sisku.xml'),
+      path.join(__dirname, "../build/sutysisku/", lang, "sisku.xml"),
       b
-    )
+    );
     // now update manifest
-    const webappcachefile = path.join(
+    const webappcachefile_src = path.join(
       __dirname,
-      '../build/sutysisku/' + lang + '/',
-      'webapp.appcache'
-    )
+      "src/" + lang + "/",
+      "webapp.appcache"
+    );
+    const webappcachefile_target = path.join(
+      __dirname,
+      "../build/sutysisku/" + lang + "/",
+      "webapp.appcache"
+    );
     // change date in manifest
     const pars = fs
-      .readFileSync(webappcachefile, {
-        encoding: 'utf8'
+      .readFileSync(webappcachefile_src, {
+        encoding: "utf8"
       })
-      .replace(/\n# .+\n/, '\n# ' + n + '\n')
-      .replace(/\?sisku=([0-9_\?]|sisku=)+/g, '?sisku=' + n_for_url)
-    fs.writeFileSync(webappcachefile, pars)
-    console.log(webappcachefile + ' updated')
+      .replace(/\n# .+\n/, "\n# " + n + "\n")
+      .replace(/\?sisku=([0-9_\?]|sisku=)+/g, "?sisku=" + n_for_url);
+    fs.writeFileSync(webappcachefile_target, pars);
+    console.log(webappcachefile_target + " updated");
   }
 
   // generate worker.js
+
   const workerjsfile = `
     window = this;
     var sorcu={};
     var bau = location.href.split('/').slice(-2)[0];
     if (bau==='cipra'){bau='ru';}
+    var cll;
     postMessage({kind: 'loading'});
     importScripts('bangu.js','../data/parsed-${lang
-    .replace(/^cipra$/, 'ru')
-    .replace(
-      /^muplis/,
-      'tatoeba'
-    )}.js?sisku=${n_for_url}', '../sisku.js?sisku=${n_for_url}');
+      .replace(/^cipra$/, "ru")
+      .replace(
+        /^muplis/,
+        "tatoeba"
+      )}.js?sisku=${n_for_url}', '../sisku.js?sisku=${n_for_url}');
     postMessage({kind: 'ready'});
     this.onmessage = function(ev) {
       if (ev.data.kind == 'newSearch') {
@@ -283,9 +339,9 @@ langs.forEach(lang => {
           })
         })
       }
-    }`
+    }`;
   fs.writeFileSync(
-    path.join(__dirname, '../build/sutysisku', lang, 'worker.js'),
+    path.join(__dirname, "../build/sutysisku", lang, "worker.js"),
     workerjsfile
-  )
-})
+  );
+});

@@ -78,7 +78,7 @@
     <script>
       var socket = io.connect("https://jbotcan.org:3020");
       var socket1Chat;
-      socket1Chat = io.connect("https://image.jbotcan.org");
+      socket1Chat = io.connect("https://1chat-bridge.lojban.pw");
     </script>
     <!-- Google Tag Manager -->
     <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -630,7 +630,7 @@
       }
 
       #clear:not(.pulsate-css) {
-        background-color: rgba(255,255,255,0.8);
+        background-color: rgba(255, 255, 255, 0.8);
       }
       #ciska:not(.granim-css) {
         padding-right: 30px;
@@ -754,8 +754,8 @@
           border-radius: 2px;
         }
         #ciska:not(.granim-css) {
-        padding-right: 22px;
-      }
+          padding-right: 22px;
+        }
       }
 
       ::selection {
@@ -1798,14 +1798,14 @@
             "Reference Grammar",
             "../pixra/cll.png",
             1,
-            "http://lojban.org/publications/cll/cll_v1.1_xhtml-no-chunks/"
+            "https://lojban.pw/cll/uncll-1.2.4/xhtml_section_chunks/"
           ],
-          "@Jbotcan": [
+          "@lojban.pw": [
             ".inglic.",
             "Lojban-Chan",
             "../pixra/jbotcan.svg",
             1,
-            "https://jbotcan.org"
+            "https://lojban.pw"
           ],
           muplis: [0, "la muplis", "../pixra/taplamuplis.svg", 2.1],
           jb: [0, "English - Lojban examples", "../pixra/snime-1.svg", 1],
@@ -1949,35 +1949,34 @@
 
       //<xuzganalojudri|lojbo>
       function getCLLSections(te_gerna) {
-        return Object.keys(window.arrcll || [])
-          .reduce(function(init, i) {
-            if (i.indexOf(te_gerna) === 0) {
-              init = init.concat(window.arrcll[i]);
-            }
-            return init;
-          }, [])
-          .filter(function(a, b, mi) {
-            return mi.indexOf(a) === b;
-          });
+        return window.arrcll[te_gerna];
       }
 
       function CLL() {
-        if (state.searching.seskari === "rimni") return;
-        var sc = getCLLSections(state.searching.query);
-        if (sc.length === 0 && results && results[0] && results[0].s)
-          sc = getCLLSections(results[0].s);
-        if (sc.length === 0) return;
-        sc =
+        if (
+          state.searching.seskari === "rimni" ||
+          !window.cll_url | ((window.arrcll || []).length === 0)
+        )
+          return;
+        var secs = getCLLSections(state.searching.query);
+        if (!secs && results && results[0] && results[0].s)
+          secs = getCLLSections(results[0].s);
+        if (!secs && results && results[0] && results[0].s)
+          secs = getCLLSections(
+            state.searching.query.toLowerCase().replace(/h/g, "'")
+          );
+        if (!secs) return;
+        var cllHtmlLinksString =
           window.cllnotci +
           "<ul class='liste'>" +
-          sc
-            .map(function(arg) {
-              var a = window.cylylypoicnino[arg];
+          Object.keys(secs)
+            .map(function(sec) {
               return (
-                "<li><a target='_blank' href=\"http:\/\/lojban.org\/publications/cll\/cll_v1.1_xhtml-section-chunks\/" +
-                a.judri +
+                "<li><a target='_blank' href=\"" +
+                window.cll_url +
+                sec +
                 '">' +
-                escHtml(a.cmene) +
+                escHtml(secs[sec]) +
                 "</a></li>"
               );
             })
@@ -1985,7 +1984,7 @@
           "</ul>";
         var div = document.createElement("div");
         div.className = "sidju cll noselect";
-        div.innerHTML = sc;
+        div.innerHTML = cllHtmlLinksString;
         outp.appendChild(div);
       }
       //</xuzganalojudri|lojbo>
@@ -2013,7 +2012,7 @@
             .replace(
               /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
               function(c) {
-                var res = (
+                var res =
                   '</span><a href="' +
                   c +
                   '" target="_blank">' +
@@ -2021,9 +2020,9 @@
                     def: c,
                     query
                   }) +
-                  "</a><span>"
-                );
-                if (c.match(/^https?:\/\/.*\.(jpg|png)$/)) res += "<img class='se-tcidu-pixra' src=\"" + c + '"/>\n'
+                  "</a><span>";
+                if (c.match(/^https?:\/\/.*\.(jpg|png)$/))
+                  res += "<img class='se-tcidu-pixra' src=\"" + c + '"/>\n';
                 return res;
               }
             )
@@ -2478,7 +2477,7 @@
         document.getElementById("arxivo").style.display = "none";
       });
       var socket1Chat;
-      socket1Chat = io.connect("https://image.jbotcan.org");
+      socket1Chat = io.connect("https://1chat-bridge.lojban.pw");
       socket1Chat.on("connect", function() {
         document.getElementById("velcusku").style.display = "inline-block";
       });

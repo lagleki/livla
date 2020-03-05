@@ -70,7 +70,7 @@ const robangu = [
 // Default configuration, may be modified by “loadConfig”, with the content of
 // “~/.livla/config.json.
 let tcan =
-  "#lojban,#ckule,#tokipona,#jbosnu,#jboguhe,#spero,#pepper&carrot,##jboselbau,##esperanto,#polsk,#tokpona,#ponjbo,#rusko";
+  "#lojban,#ckule,#tokipona,#jbosnu,#fraso,#spero,#pepper&carrot,##jboselbau,##esperanto,#polsk,#tokpona,#ponjbo,#rusko";
 let localConfig;
 let nuzbytcan = "#lojban";
 let replier = "mensi";
@@ -549,9 +549,7 @@ const MultipleDefs = ({ word, language }) => {
         .filter(({ lujvo }) => /[aeiou]/.test(lujvo.slice(-1)));
       const fslice = f.slice(0, Math.min(f.length, 3));
       const arr_defs = fslice
-        .map(({ lujvo }) => {
-          return GetWordDef({ word: lujvo, language, jsonDoc });
-        })
+        .map(({ lujvo }) => GetWordDef({ word: lujvo, language, jsonDoc }))
         .filter(Boolean);
       const l_joined = l.join(" ");
       const glossed =
@@ -560,22 +558,25 @@ const MultipleDefs = ({ word, language }) => {
           : l_joined;
       pre = `${PrettyLujvoScore(fslice)}\n${l_joined} ≈ ${glossed}\n`;
       if (arr_defs.length > 0) {
-        return pre + `${arr_defs.join("\n")}`;
+        return {
+          count: arr_defs.length,
+          reply: pre + `${arr_defs.join("\n")}`
+        };
       }
     } catch (e) {
       lg(e.toString());
-      return e.toString();
+      return { count: 0, reply: e.toString() };
     }
   }
   // otherwise just
   const mo = GetWordDef({ word, language, jsonDoc });
-  if (mo) return mo;
+  if (mo) return { count: 1, reply: mo };
 
   // if nothing found try full-text search
   const mulno = mulno_sisku({ word: lin, language, jsonDoc });
-  if (mulno) return pre + mulno;
-  if (pre !== "") return pre;
-  return nodasezvafahi;
+  if (mulno.count > 0) return { count: mulno.count, reply: pre + mulno.reply };
+  if (pre !== "") return { count: 1, reply: pre };
+  return { count: 0, reply: nodasezvafahi };
 };
 
 const mulno_sisku = ({ word, language, jsonDoc }) => {
@@ -640,11 +641,12 @@ const mulno_sisku = ({ word, language, jsonDoc }) => {
     r.push("...");
   }
   if (xo > 1) {
-    return `${xo} da se zvafa'i: ${r.join(", ").trim()}`;
+    return { count: xo, reply: `${xo} da se zvafa'i: ${r.join(", ").trim()}` };
   }
   if (r.length === 1) {
-    return GetWordDef({ word: r[0], language, jsonDoc });
+    return { count: 1, reply: GetWordDef({ word: r[0], language, jsonDoc }) };
   }
+  return { count: 0 };
 };
 
 const katna = (lin, language, jsonDoc) => {
@@ -690,7 +692,9 @@ const vlaste = ({ word, language }) => {
   } else {
     ret = MultipleDefs({ word, language });
   }
-  return ret.replace(/(.{190,250})(, |[ \.\"\/])/g, "$1$2\n");
+  if (ret.count === 1)
+    ret.reply = ret.reply.replace(/(.{190,250})(, |[ \.\"\/])/g, "$1$2\n");
+  return ret;
 };
 
 const sidju = () => {
@@ -1299,10 +1303,19 @@ async function processCommand({ socket, sendTo, text }) {
     let what;
     if (sendTo === "#jbosnu" && cmd !== "jbo") {
       what = "ko lojbo .iu";
+      benji({ socket, sendTo, what });
     } else {
       what = vlaste({ word: text, language: cmd });
+      if (cmd === "fr") {
+        const what_alt = vlaste({ word: text, language: "fr-facile" });
+        if (what_alt.count + what.count === 0)
+          benji({ socket, sendTo, what: what.reply });
+        if (what.count > 0) benji({ socket, sendTo, what: what.reply });
+        if (what_alt.count > 0) benji({ socket, sendTo, what: what_alt.reply });
+      } else {
+        benji({ socket, sendTo, what: what.reply });
+      }
     }
-    benji({ socket, sendTo, what });
     return true;
   }
 }

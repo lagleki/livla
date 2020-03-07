@@ -1221,18 +1221,18 @@ jsonCommand = {
     }
     return ma_lujvo;
   },
-  k: text => lojban.ilmentufa_off(text, "C")["kampu"],
-  ilm: text => lojban.ilmentufa_off(text, "T")["kampu"],
+  k: text => lojban.ilmentufa_off(text, "C", true)["kampu"],
+  ilm: text => lojban.ilmentufa_off(text, "T", true)["kampu"],
   "ilm+": text => {
     const params = `${text} `.split("+")[1].toUpperCase();
-    return lojban.ilmentufa_off(text, params)["kampu"];
+    return lojban.ilmentufa_off(text, params, true)["kampu"];
   },
-  beta: text => lojban.ilmentufa_exp(text, "T")["kampu"],
+  beta: text => lojban.ilmentufa_exp(text, "T", true)["kampu"],
   "beta+": text => {
     const params = `${text} `.split("+")[1].toUpperCase();
-    return lojban.ilmentufa_exp(text, params)["kampu"];
+    return lojban.ilmentufa_exp(text, params, true)["kampu"];
   },
-  raw: text => lojban.ilmentufa_off(text, "J")["kampu"],
+  raw: text => lojban.ilmentufa_off(text, "J", true)["kampu"],
   zei: text => lojban.zeizei(text),
   anji: text => lojban.anji(text),
   ruk: text => lojban.rukylermorna(text),

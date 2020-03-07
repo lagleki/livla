@@ -67,7 +67,7 @@ function rgbToHex(rgb) {
 }
 
 async function CLLAppendix2Json(source) {
-  source = source || "https://lojban.pw/cll/uncll-1.2.4/xhtml_section_chunks/";
+  source = source || "https://lojban.pw/cll/uncll-1.2.5/xhtml_section_chunks/";
   const appendix = source + "ix02.html";
 
   const htmlString = await rp(appendix);

@@ -259,6 +259,10 @@
       }
 
       .liste {
+        list-style-image: url(../pixra/cmalu_snime.svg);
+      }
+
+      .uoldeliste {
         list-style-image: url(../pixra/cukta.svg);
       }
 
@@ -1976,7 +1980,7 @@
         if (!secs) return;
         var cllHtmlLinksString =
           window.cllnotci +
-          "<ul class='definition liste'>" +
+          "<ul class='definition uoldeliste'>" +
           Object.keys(secs)
             .map(function(sec) {
               return (

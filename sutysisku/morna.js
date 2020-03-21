@@ -6,7 +6,7 @@
 const fs = require("fs");
 const path = require("path-extra");
 const rp = require("request-promise-native");
-
+const now = new Date().getTime();
 // config
 const args = process.argv.slice(2);
 const langs =
@@ -221,6 +221,7 @@ langs.forEach(lang => {
     .map(i => i.trim());
   config.mupliskariralju = fullColorHex(arr[0], arr[1], arr[2]);
   const output = template
+    .replace(/{now}/g, now)
     .replaceMergefield(config)
     .replaceMergefield(config_fallback)
     /// /strip out according to Lojbanicity of the sutysisku
@@ -253,63 +254,59 @@ langs.forEach(lang => {
     addZero(d.getMinutes()) +
     ":" +
     addZero(d.getSeconds());
-  const n_for_url = n.replace(/[^0-9]/g, "_");
-  // generate sisku.xml and update webapp.cache
-  if (lang !== "cipra") {
-    const file = fs.readFileSync(
-      path.join(__dirname, "src", lang, "bangu.js"),
-      {
+  //copy cll.js and bangu.js
+  const file = fs.readFileSync(path.join(__dirname, "src", lang, "bangu.js"), {
+    encoding: "utf8"
+  });
+  const cll_exists = fs.existsSync(path.join(__dirname, "src", lang, "cll.js"));
+  let addition = "";
+  if (cll_exists) {
+    addition =
+      "\n" +
+      fs.readFileSync(path.join(__dirname, "src", lang, "cll.js"), {
         encoding: "utf8"
-      }
-    );
-    const cll_exists = fs.existsSync(
-      path.join(__dirname, "src", lang, "cll.js")
-    );
-    let addition = "";
-    if (cll_exists) {
-      addition =
-        "\n" +
-        fs.readFileSync(path.join(__dirname, "src", lang, "cll.js"), {
-          encoding: "utf8"
-        });
-    }
-    fs.writeFileSync(
-      path.join(__dirname, "../build/sutysisku/", lang, "bangu.js"),
-      file + addition
-    );
-    const b = sisku
-      .replace(
-        "%template%",
-        "https://la-lojban.github.io/sutysisku/en/index.html#seskari=cnano&amp;sisku={searchTerms}"
-      )
-      .replace("%shortname%", lang + "-sutysisku")
-      .replaceMergefield(config);
-    fs.writeFileSync(
-      path.join(__dirname, "../build/sutysisku/", lang, "sisku.xml"),
-      b
-    );
-    // now update manifest
-    const webappcachefile_src = path.join(
-      __dirname,
-      "src/" + lang + "/",
-      "webapp.appcache"
-    );
-    const webappcachefile_target = path.join(
-      __dirname,
-      "../build/sutysisku/" + lang + "/",
-      "webapp.appcache"
-    );
-    // change date in manifest
-    const pars = fs
-      .readFileSync(webappcachefile_src, {
-        encoding: "utf8"
-      })
-      .replace(/\n# .+\n/, "\n# " + n + "\n")
-      .replace(/\?sisku=([0-9_\?]|sisku=)+/g, "?sisku=" + n_for_url);
-    fs.writeFileSync(webappcachefile_target, pars);
-    console.log(webappcachefile_target + " updated");
+      });
   }
-
+  fs.writeFileSync(
+    path.join(__dirname, "../build/sutysisku/", lang, "bangu.js"),
+    file + addition
+  );
+  //copy sisku.xml
+  const b = sisku
+    .replace(
+      "%template%",
+      `https://la-lojban.github.io/sutysisku/${lang}/index.html#seskari=cnano&amp;sisku={searchTerms}`
+    )
+    .replace("%shortname%", lang + "-sutysisku")
+    .replaceMergefield(config);
+  fs.writeFileSync(
+    path.join(__dirname, "../build/sutysisku/", lang, "sisku.xml"),
+    b
+  );
+  //copy sw.js
+  try {
+    fs.writeFileSync(
+      path.join(__dirname, "../build/sutysisku/", lang, "sw.js"),
+      fs
+        .readFileSync(path.join(__dirname, "src", "sw.js"), {
+          encoding: "utf8"
+        })
+        .replace(/{now}/g, now)
+        .replace(/{lang}/g, lang)
+    );
+  } catch (error) {}
+  //generate appcache
+  const dummyAppcache = `CACHE MANIFEST
+# 2020-03-21T23:40:38
+NETWORK:
+*
+`;
+  try {
+    fs.writeFileSync(
+      path.join(__dirname, "../build/sutysisku/", lang, "webapp.appcache"),
+      dummyAppcache
+    );
+  } catch (error) {}
   // generate worker.js
 
   const workerjsfile = `
@@ -319,12 +316,12 @@ langs.forEach(lang => {
     if (bau==='cipra'){bau='ru';}
     var cll;
     postMessage({kind: 'loading'});
-    importScripts('bangu.js','../data/parsed-${lang
-      .replace(/^cipra$/, "ru")
-      .replace(
-        /^muplis/,
-        "tatoeba"
-      )}.js?sisku=${n_for_url}', '../sisku.js?sisku=${n_for_url}');
+    importScripts('bangu.js?sisku=${now}','../data/parsed-${lang
+    .replace(/^cipra$/, "ru")
+    .replace(
+      /^muplis/,
+      "tatoeba"
+    )}.js?sisku=${now}', '../sisku.js?sisku=${now}');
     postMessage({kind: 'ready'});
     this.onmessage = function(ev) {
       if (ev.data.kind == 'newSearch') {

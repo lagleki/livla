@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html
-  manifest="webapp.appcache"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:og="http://ogp.me/ns#"
   xmlns:fb="https://www.facebook.com/2008/fbml"
@@ -35,13 +34,22 @@
       ga("set", "forceSSL", true);
       ga("send", "pageview");
     </script>
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({ showMathMenu: false, extensions: ["tex2jax.js"], jax: ["input/TeX", "output/HTML-CSS"], tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} });
+    <script>
+      window.MathJax = {
+        options: {
+          renderActions: {
+            addMenu: [],
+            checkLoading: []
+          }
+        },
+        tex: {
+          inlineMath: [["$", "$"]]
+        }
+      };
     </script>
     <script
-      type="text/javascript"
-      async
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+      id="MathJax-script"
     ></script>
     <script>
       ArcBTracker = {
@@ -251,7 +259,7 @@
       }
 
       .liste {
-        list-style-image: url(../pixra/cmalu_snime.svg);
+        list-style-image: url(../pixra/cukta.svg);
       }
 
       .judri {
@@ -1107,6 +1115,9 @@
           0 0 0 2px rgb("%mupliskari2%"), 0 0 0 3px rgb("%mupliskari3%"),
           0 0 0 4px rgb("%mupliskari4%");
       }
+      .sidju.cll {
+        margin-top: 9px;
+      }
 
       #cpacu {
         position: relative;
@@ -1171,7 +1182,7 @@
       }
     </style>
     <link rel="manifest" href="../manifest.json" />
-    <script src="bangu.js"></script>
+    <script src="bangu.js?sisku={now}"></script>
   </head>
 
   <body>
@@ -1258,7 +1269,7 @@
       var citri = document.getElementById("citri");
       var sidju = document.getElementById("sidju");
       var pb = document.getElementById("kernelo_lo_cpacu");
-      var worker = new Worker("worker.js");
+      var worker = new Worker("worker.js?sisku={now}");
       var SiteTitle = document.querySelector("#title > font");
       var SiteTitleFull = document.querySelector("#site-title");
       SiteTitleFull.classList.add("desktop-mode-title-color");
@@ -1443,9 +1454,6 @@
         resultCount = 0;
         SwitchRotation({ action: "stop" });
         outp.innerHTML = "";
-        //<xuzganalojudri|lojbo>
-        if (seskari !== "velcusku") CLL();
-        //</xuzganalojudri|lojbo>
         skicu_rolodovalsi({
           query,
           seskari
@@ -1459,7 +1467,7 @@
         content.scrollTop = 0;
         switch (state.displaying.seskari) {
           case "rimni":
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            MathJax.typeset();
             RenderDasri("rimni", "sepia(1.0)");
             break;
           case "arxivo":
@@ -1470,7 +1478,7 @@
             break;
           case "cnano":
           default:
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            MathJax.typeset();
             RenderDasri("cnano", "none");
         }
 
@@ -1968,7 +1976,7 @@
         if (!secs) return;
         var cllHtmlLinksString =
           window.cllnotci +
-          "<ul class='liste'>" +
+          "<ul class='definition liste'>" +
           Object.keys(secs)
             .map(function(sec) {
               return (
@@ -1983,9 +1991,9 @@
             .join("") +
           "</ul>";
         var div = document.createElement("div");
-        div.className = "sidju cll noselect";
+        div.className = "definition cll noselect";
         div.innerHTML = cllHtmlLinksString;
-        outp.appendChild(div);
+        return div;
       }
       //</xuzganalojudri|lojbo>
       function checkScrolledNearBottom(ev) {
@@ -1995,7 +2003,7 @@
         ) {
           window.jimte += 10;
           skicu_rolodovalsi(state.displaying);
-          MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+          MathJax.typeset();
         }
       }
 
@@ -2128,13 +2136,28 @@
         return locs;
       }
 
-      function skicu_palodovalsi({ def, inner, query, seskari }) {
+      function skicu_palodovalsi({
+        def,
+        inner,
+        query,
+        seskari,
+        length,
+        index
+      }) {
         if (!query) query = state.displaying.query;
         if (!seskari) seskari = state.displaying.seskari;
         if (!def) def = [];
         var out = document.createElement("div");
         out.className = inner ? "terminner" : "termouter";
         out.classList.add("term");
+        if (
+          !inner &&
+          def.d &&
+          def.d.nasezvafahi &&
+          (def.rafsiDocuments || []).length === 0
+        ) {
+          out.className = "sidju cll noselect";
+        }
         if (typeof fm[def.s] !== "undefined") {
           var fmm = document.createElement("h4");
           fmm.className = "tfm";
@@ -2184,8 +2207,11 @@
           var jvs = document.createElement("a");
           jvs.className = "tutci klesi-tutci";
           var text = def.t;
-          jvs.href = window.judri + encodeUrl(def.w).replace(/_/g, "%20");
-          jvs.setAttribute("target", "_blank");
+          var txt = encodeUrl(def.w).replace(/_/g, "%20");
+          jvs.href = window.judri
+            ? window.judri + txt
+            : "#seskari=cnano&sisku=" + txt;
+          if (window.judri) jvs.setAttribute("target", "_blank");
           /*<muplis>*/
           var deft = "";
           if (def.t.search("sampu staile") >= 0)
@@ -2205,7 +2231,10 @@
               "<img src='../pixra/cicnaplise.png' height='16' width='16' title=\"na'e catni se ciska staile\">";
           if (deft !== "") text = deft;
           /*</muplis>*/
-          if (window.xuzganalojudri && !def.l) text = escHtml(def.t) + "# ";
+          if (window.xuzganalojudri && !def.l) {
+            text = escHtml(def.t) + "# ";
+            if (def.d && def.d.nasezvafahi) text = "➕ " + text;
+          }
           jvs.innerHTML = text;
         }
         if (def.date) {
@@ -2261,7 +2290,7 @@
         if (seskari !== "arxivo" && def.d) {
           var n = document.createElement("div");
           n.classList.add("definition", "valsi");
-          if (def.d.nasezvafahi) {
+          if (def.d && def.d.nasezvafahi) {
             n.classList.add("nasezvafahi", "noselect");
             n.innerHTML = window.nasezvafahi;
           } else {
@@ -2289,7 +2318,7 @@
           var n = document.createElement("div");
           n.classList.add("definition", "valsi");
           n.style.display = "none";
-          if (def.d.nasezvafahi) {
+          if (def.d && def.d.nasezvafahi) {
             n.classList.add("nasezvafahi", "noselect");
             n.innerHTML = window.nasezvafahi;
           } else {
@@ -2318,6 +2347,12 @@
             }) + " ";
           out.appendChild(n);
         }
+        //<xuzganalojudri|lojbo>
+        if (index == 0 && seskari !== "velcusku") {
+          var cll = CLL();
+          if (cll) out.appendChild(cll);
+        }
+        //</xuzganalojudri|lojbo>
         if (def.e) {
           var n = document.createElement("div");
           n.classList.add("examples", "valsi");
@@ -2437,7 +2472,9 @@
             skicu_palodovalsi({
               def: results[resultCount],
               query,
-              seskari
+              seskari,
+              length: results.length,
+              index: resultCount
             })
           );
         }
@@ -2448,24 +2485,22 @@
         return +new Date();
       }
       // jimpe fi le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri
-      var appCache = window.applicationCache;
-      if (appCache) {
-        appCache.update();
-        if (appCache.status == window.applicationCache.UPDATEREADY)
-          appCache.swapCache();
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function() {
+          navigator.serviceWorker.register("./sw.js").then(
+            function(reg) {
+              console.log(
+                "ServiceWorker registration successful with scope: ",
+                reg.scope
+              );
+            },
+            function(err) {
+              console.log("ServiceWorker registration failed: ", err);
+            }
+          );
+        });
       }
-      if (window.applicationCache)
-        window.applicationCache.addEventListener(
-          "updateready",
-          function(e) {
-            if (
-              window.applicationCache.status ==
-              window.applicationCache.UPDATEREADY
-            )
-              einingau = true;
-          },
-          false
-        );
       var socket = io.connect("https://jbotcan.org:3020");
       socket.on("connect", function() {
         document.getElementById("arxivo").style.display = "inline-block";
@@ -2524,6 +2559,7 @@
         });
         content.scrollTop = content.scrollHeight;
       });
+      ciska.focus();
     </script>
   </body>
 </html>

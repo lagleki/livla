@@ -7,6 +7,8 @@ var urlsToCache = [
   "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js",
   "./",
   "./index.html",
+  "./index.js?detri={now}",
+  "./index.css?detri={now}",
   "./bangu.js?sisku={now}",
   "../data/parsed-{lang}.js?sisku={now}",
   "../sisku.js?sisku={now}",

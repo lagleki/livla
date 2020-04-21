@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<head>
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i["GoogleAnalyticsObject"] = r;
+      (i[r] =
+        i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        }),
+        (i[r].l = 1 * new Date());
+      (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m);
+    })(
+      window,
+      document,
+      "script",
+      "//www.google-analytics.com/analytics.js",
+      "ga"
+    );
+    ga("create", "UA-45171210-6", "auto", {
+      allowLinker: true
+    });
+    ga("require", "linker");
+    ga("linker:autoLink", ["la-lojban.github.io/sutysisku"]);
+    ga("set", "forceSSL", true);
+    ga("send", "pageview");
+  </script>
+  <script>
+    window.MathJax = {
+      options: {
+        renderActions: {
+          addMenu: [],
+          checkLoading: []
+        }
+      },
+      tex: {
+        inlineMath: [["$", "$"]]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
+  <script>
+    ArcBTracker = {
+      fire: function (env) {
+        if (typeof env == "undefined") {
+          env = {};
+        }
+
+        env.u = document.location.href;
+        env.bw = window.innerWidth;
+        env.bh = window.innerHeight;
+
+        if (document.referrer && document.referrer != "") {
+          env.ref = document.referrer;
+        }
+
+        env.rnd = Math.floor(Math.random() * 10e12);
+
+        var params = [];
+        for (var key in env) {
+          if (env.hasOwnProperty(key)) {
+            params.push(
+              encodeURIComponent(key) + "=" + encodeURIComponent(env[key])
+            );
+          }
+        }
+
+        var img = new Image();
+        img.src = "https://jbotcan.org:3021/acceptor.gif?" + params.join("&");
+      }
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+  <!-- Google Tag Manager -->
+  <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-PL4CFMX');</script>-->
+  <!-- End Google Tag Manager -->
+  <title>'%title%'</title>
+  <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=yes,viewport-fit=cover" />
+  <meta name="theme-color" content="'%mupliskariralju%'" />
+  <meta property="og:title" content="'%ogtitle%'" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="'%ogurl%'" />
+  <meta property="og:image" content="../pixra/sutysisku2015-06-22.png" />
+  <meta property="og:site_name" content="'%ogtitle%'" />
+  <meta property="fb:app_id" content="191051864394489" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@Jbotcan" />
+  <!--<meta property="al:android:url" content="la sutysisku://" />
+	<meta property="al:android:app_name" content="'%ogtitle%'" />
+	<meta property="al:android:package" content="'%ogtitle%'" />
+	<meta property="al:windows_phone:app_name" content="'%ogtitle%'" />
+	<meta property="al:windows_phone:app_id" content="" />
+	<meta name="apple-itunes-app" content="app-id=" />
+	<meta name="google-play-app" content="app-id=" />-->
+  <meta name="apple-mobile-web-app-title" content="'%ogtitle%'" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../pixra/57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../pixra/114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../pixra/72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../pixra/144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../pixra/120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../pixra/152.png" />
+  <link rel="icon" type="image/png" href="'%icon32%'" sizes="32x32" />
+  <link rel="icon" type="image/png" href="'%icon16%'" sizes="16x16" />
+  <meta name="application-name" content="'%ogtitle%'" />
+  <meta name="msapplication-TileColor" content="'%mupliskariralju%'" />
+  <meta name="msapplication-TileImage" content="../pixra/144.png" />
+  <meta property="og:description" content="'%opdescr%'" />
+  <link rel="shortcut icon" href="'%favicon%'" />
+  <link rel="search" type="application/opensearchdescription+xml" href="'%searchurl%'" title="'%searchtitle%'" />
+  <link rel="stylesheet" href="./index.css?detri={now}" />
+  <link rel="manifest" href="../manifest.json" />
+  <script src="bangu.js?sisku={now}"></script>
+</head>
+
+<body>
+  <!-- Yandex.Metrika counter -->
+  <!--<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter45446487 = new Ya.Metrika({
+                    id:45446487,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/45446487" style="position:absolute; left:-9999px;" alt="" /></div></noscript>-->
+  <!-- /Yandex.Metrika counter -->
+  <!-- Google Tag Manager (noscript) -->
+  <!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PL4CFMX"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="galtu-dasri" class="kampu-dasri cnano-dasri noselect">
+    <form id="se-vasru-lo-galtu-dasri" onsubmit="return false" novalidate>
+      '%titlelogo%'
+      <div id="kicne1"></div>
+      <input id="ciska" class="ciska" type="text" name="focus" required placeholder="'%bangusisku%'" autocorrect="off" autocapitalize="off" autocomplete="false" />
+      <div id="kicne2"></div>
+      <button id="clear" type="reset"></button>
+    </form>
+  </div>
+  <div id="content" class="content">
+    <button onclick="switchBorderScroll();" id="scrollToTop"></button>
+    <div class="content-panel">
+      <div id="sidju" class="sidju ralju noselect">
+        <div id="citri"></div>
+        <div class="leitutci">
+          <a class="tutci velcusku-tutci" id="velcusku">'%velcusku%'</a>
+          <a class="tutci" id="cnano">'%cnano%'</a>
+          <a class="tutci rimni-tutci" id="rimni">'%rimni%'</a>
+          <a class="tutci arxivo-tutci" id="arxivo">'%arxivo%'</a>
+        </div>
+      </div>
+      <div id="loading" class="term noselect">
+        <span id="caho_cpacu">'%bangulo%'</span><br />
+        <div id="cpacu">
+          <span id="kernelo_lo_cpacu"></span>
+        </div>
+      </div>
+      <div id="drata" style="text-align:center;"></div>
+      <div id="descr" class="term termouter">'%bangudesc%'</div>
+      <div id="outp"></div>
+    </div>
+  </div>
+  <script src="index.js?detri={now}"></script>
+</body>
+
+</html>

@@ -12,11 +12,18 @@ const he = require("he");
 const { to } = require("await-to-js");
 const rp = require("request-promise-native");
 
+const escapeRegExp = string => string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 const db = require("better-sqlite3")(
   path.join(__dirname, "../lojbo.arxivo", "messages.sql")
 );
 db.function("regexp", (text, pattern) => {
-  const p = new RegExp(pattern, "i");
+  let p;
+  try {
+    p = new RegExp(pattern, "i");
+  } catch (err) {
+    p = new RegExp(escapeRegExp(pattern), "i");
+  }
   return p.test(text) ? 1 : 0;
 });
 db.pragma("journal_mode = WAL");

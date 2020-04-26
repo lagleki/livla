@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<html lang="'%lang%'" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
 
 <head>
   <!-- Global Site Tag (gtag.js) - Google Analytics -->
@@ -31,21 +31,7 @@
     ga("set", "forceSSL", true);
     ga("send", "pageview");
   </script>
-  <script>
-    window.MathJax = {
-      options: {
-        renderActions: {
-          addMenu: [],
-          checkLoading: []
-        }
-      },
-      tex: {
-        inlineMath: [["$", "$"]]
-      }
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
-  <script>
+  <script defer>
     ArcBTracker = {
       fire: function (env) {
         if (typeof env == "undefined") {
@@ -87,6 +73,7 @@
   <title>'%title%'</title>
   <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=yes,viewport-fit=cover" />
   <meta name="theme-color" content="'%mupliskariralju%'" />
+  <meta name="Description" content="'%ogtitle%'" />
   <meta property="og:title" content="'%ogtitle%'" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="'%ogurl%'" />
@@ -104,12 +91,14 @@
 	<meta name="apple-itunes-app" content="app-id=" />
 	<meta name="google-play-app" content="app-id=" />-->
   <meta name="apple-mobile-web-app-title" content="'%ogtitle%'" />
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../pixra/57.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../pixra/114.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../pixra/72.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../pixra/144.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../pixra/120.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../pixra/152.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="../pixra/192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="../pixra/512.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="../pixra/57.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="../pixra/114.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="../pixra/72.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="../pixra/144.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="../pixra/120.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="../pixra/152.png" />
   <link rel="icon" type="image/png" href="'%icon32%'" sizes="32x32" />
   <link rel="icon" type="image/png" href="'%icon16%'" sizes="16x16" />
   <meta name="application-name" content="'%ogtitle%'" />
@@ -159,9 +148,9 @@
     <form id="se-vasru-lo-galtu-dasri" onsubmit="return false" novalidate>
       '%titlelogo%'
       <div id="kicne1"></div>
-      <input id="ciska" class="ciska" type="text" name="focus" required placeholder="'%bangusisku%'" autocorrect="off" autocapitalize="off" autocomplete="false" />
+        <input aria-label="'%cnano%'" id="ciska" class="ciska" type="text" name="focus" required placeholder="'%bangusisku%'" autocorrect="off" autocapitalize="off" autocomplete="false" />
       <div id="kicne2"></div>
-      <button id="clear" type="reset"></button>
+      <button aria-label="clear" id="clear" type="reset"></button>
     </form>
   </div>
   <div id="content" class="content">
@@ -170,10 +159,10 @@
       <div id="sidju" class="sidju ralju noselect">
         <div id="citri"></div>
         <div class="leitutci">
-          <a class="tutci velcusku-tutci" id="velcusku">'%velcusku%'</a>
+          <!-- <a class="tutci velcusku-tutci" id="velcusku">'%velcusku%'</a> -->
           <a class="tutci" id="cnano">'%cnano%'</a>
           <a class="tutci rimni-tutci" id="rimni">'%rimni%'</a>
-          <a class="tutci arxivo-tutci" id="arxivo">'%arxivo%'</a>
+          <!-- <a class="tutci arxivo-tutci" id="arxivo">'%arxivo%'</a> -->
         </div>
       </div>
       <div id="loading" class="term noselect">
@@ -188,6 +177,20 @@
     </div>
   </div>
   <script src="index.js?detri={now}"></script>
+  <script defer>
+    window.MathJax = {
+      options: {
+        renderActions: {
+          addMenu: [],
+          checkLoading: []
+        }
+      },
+      tex: {
+        inlineMath: [["$", "$"]]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 ## A dictionary for Lojban, English and other languages
 
+https://la-lojban.github.io/sutysisku/en/
+
 ### Features
 * Fast
 * Full text search
@@ -19,4 +21,4 @@ la sutysisku is released under the MIT license.
 
 from the root of lagleki/livla directory run
 
-```npm run i```
+```npm run deploy```

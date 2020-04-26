@@ -14,7 +14,7 @@
       var dasri = document.getElementById("galtu-dasri");
       var cnano = document.getElementById("cnano");
       var rimni = document.getElementById("rimni");
-      var arxivo = document.getElementById("arxivo");
+      // var arxivo = document.getElementById("arxivo");
       var SiteImage = document.querySelectorAll("#title > img");
 
       var btnScrollToTop = document.getElementById("scrollToTop");
@@ -143,13 +143,15 @@
         dasri.className = "kampu-dasri " + seskari + "-dasri noselect";
         SiteTitleFull.classList.add(seskari + "-search-mode-title-color");
         SiteTitleFull.classList.remove("desktop-mode-title-color");
-        document
+        if (document
+          .getElementById(seskari)) document
           .getElementById(seskari)
           .classList.add(seskari + "-tutci-hover", "tutci-hover");
         colors.map(function (c) {
           if (c !== seskari) {
             SiteTitleFull.classList.remove(c + "-search-mode-title-color");
-            document
+            if (document
+              .getElementById(c)) document
               .getElementById(c)
               .classList.remove(c + "-tutci-hover", "tutci-hover");
           }
@@ -433,25 +435,25 @@
         });
       });
 
-      document.getElementById("arxivo").addEventListener("click", function () {
-        state.searching = {
-          seskari: "arxivo",
-          query: plukaquery(ciska.value)
-        };
-        DispatchState({
-          replace: false
-        });
-      });
+      // document.getElementById("arxivo").addEventListener("click", function () {
+      //   state.searching = {
+      //     seskari: "arxivo",
+      //     query: plukaquery(ciska.value)
+      //   };
+      //   DispatchState({
+      //     replace: false
+      //   });
+      // });
 
-      document.getElementById("velcusku").addEventListener("click", function () {
-        state.searching = {
-          seskari: "velcusku",
-          query: plukaquery(ciska.value)
-        };
-        DispatchState({
-          replace: false
-        });
-      });
+      // document.getElementById("velcusku").addEventListener("click", function () {
+      //   state.searching = {
+      //     seskari: "velcusku",
+      //     query: plukaquery(ciska.value)
+      //   };
+      //   DispatchState({
+      //     replace: false
+      //   });
+      // });
 
       function DispatchCitri() {
         if (
@@ -546,9 +548,9 @@
           "arxivo-search-mode-title-color"
         );
         cnano.classList.remove("cnano-tutci-hover", "tutci-hover");
-        velcusku.classList.remove("velcusku-tutci-hover", "tutci-hover");
+        // velcusku.classList.remove("velcusku-tutci-hover", "tutci-hover");
         rimni.classList.remove("rimni-tutci-hover", "tutci-hover");
-        arxivo.classList.remove("arxivo-tutci-hover", "tutci-hover");
+        // arxivo.classList.remove("arxivo-tutci-hover", "tutci-hover");
         dasri.className = "kampu-dasri cnano-dasri";
         outp.style.display = "none";
         descr.style.display = "block";
@@ -566,7 +568,7 @@
             "Reference Grammar",
             "../pixra/cll.png",
             1,
-            "https://lojban.pw/cll/uncll-1.2.5/xhtml_section_chunks/"
+            "https://lojban.pw/cll/uncll-1.2.6/xhtml_section_chunks/"
           ],
           "@lojban.pw": [
             ".inglic.",
@@ -644,21 +646,21 @@
         for (var key in obj) {
           if (obj[key][0] === 0 || obj[key][0] === window.bangu) {
             acc +=
-              "<div id='DIV_1' style='height:" +
+              "<div class='DIV_1' style='height:" +
               cisn +
               "px;width:" +
               obj[key][3] * cisn +
-              "px;'><div id='DIV_2' style='height:" +
+              "px;'><div class='DIV_2' style='height:" +
               cisn +
               "px;width:" +
               obj[key][3] * cisn +
-              "px;'><span id='SPAN_3' style='width:auto;'><b id='B_4'>" +
+              "px;'><span class='SPAN_3' style='width:auto;'><b class='B_4'>" +
               obj[key][1] +
               "</b></span><a" +
               ((obj[key][4] || "").indexOf("http") === 0 ?
-                " target='_blank'" :
+                " rel='noreferrer' target='_blank'" :
                 "") +
-              ' href="' +
+              ' aria-label="' + obj[key][1].replace(/<[^>]+?>/g,'') + '" href="' +
               (key.indexOf("@") === 0 ?
                 obj[key][4] :
                 "https://la-lojban.github.io/sutysisku/" +
@@ -667,7 +669,7 @@
                 state.displaying.seskari +
                 "&sisku=" +
                 encodeUrl(lastQuery)) +
-              "\" id='A_7'><div id='DIV_8' style='height:" +
+              "\" class='A_7'><div class='DIV_8' style='height:" +
               cisn +
               "px;width:" +
               obj[key][3] * cisn +
@@ -749,7 +751,7 @@
           Object.keys(secs)
           .map(function (sec) {
             return (
-              "<li><a target='_blank' href=\"" +
+              "<li><a rel='noreferrer' target='_blank' href=\"" +
               window.cll_url +
               sec +
               '">' +
@@ -765,6 +767,7 @@
         return div;
       }
       //</xuzganalojudri|lojbo>
+
       function checkScrolledNearBottom(ev) {
         if (
           state.displaying.seskari !== "velcusku" &&
@@ -796,14 +799,14 @@
                 var res =
                   '</span><a href="' +
                   c +
-                  '" target="_blank">' +
-                  hilite({
+                  '" rel="noreferrer" target="_blank">' +
+                  basna({
                     def: c,
                     query
                   }) +
                   "</a><span>";
                 if (c.match(/^https?:\/\/.*\.(jpg|png)$/))
-                  res += "<img class='se-tcidu-pixra' src=\"" + c + '"/>\n';
+                  res += "<img class='se-tcidu-pixra' alt='secusku' src=\"" + c + '"/>\n';
                 return res;
               }
             )
@@ -815,7 +818,7 @@
                 "&sisku=" +
                 encodeUrl(c) +
                 '">' +
-                hilite({
+                basna({
                   def: escHtml(c, true),
                   query
                 }) +
@@ -832,7 +835,7 @@
           .replace(/<span><\/span>/g, "")
           .replace(/<span>[\s\S]*?<\/span>/g, function (c) {
             var c = c.substring(6, c.length - 7);
-            return hilite({
+            return basna({
               def: c,
               query
             });
@@ -843,7 +846,7 @@
         return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
       }
 
-      function hilite({
+      function basna({
         def,
         query
       }) {
@@ -857,7 +860,7 @@
           .replace(/ /g, "|") +
           ")";
         var rock = new RegExp(f, "igm");
-        return def.replace(rock, "<span class='hilite'>$1</span>");
+        return def.replace(rock, "<span class='basna'>$1</span>");
       }
 
       function getMatchIndices(query, d) {
@@ -893,7 +896,7 @@
           locs = locs.filter(onlyUnique).map(function (i) {
             i = JSON.parse(i);
             var n = d.substr(i[0], i[1] - i[0]);
-            n = hilite({
+            n = basna({
               def: n,
               query
             });
@@ -905,7 +908,7 @@
         } else {
           var n = d.substr(0, Math.min(100, d.length));
           if (n.length < d.length) n = n + "...";
-          n = hilite({
+          n = basna({
             def: n,
             query
           });
@@ -973,7 +976,7 @@
         if (def.s) {
           var ss = document.createElement("a");
           ss.className = "tutci klesi klesi-tutci";
-          var text = hilite({
+          var text = basna({
             def: escHtml(def.s),
             query
           });
@@ -983,30 +986,33 @@
         }
         if (def.t) {
           var jvs = document.createElement("a");
-          jvs.className = "tutci klesi klesi-tutci";
+          jvs.className = "klesi link";
           var text = def.t;
           var txt = encodeUrl(def.w).replace(/_/g, "%20");
           jvs.href = window.judri ?
             window.judri + txt :
             "#seskari=cnano&sisku=" + txt;
-          if (window.judri) jvs.setAttribute("target", "_blank");
+          if (window.judri) {
+            jvs.setAttribute("target", "_blank");
+            jvs.setAttribute("rel", "noreferrer");
+          }
           /*<muplis>*/
           var deft = "";
           if (def.t.search("sampu staile") >= 0)
             deft +=
-            "<img src='../pixra/plise.png' height='16' width='16' title='lo staile poi sampu'>";
+            "<img src='../pixra/plise.png' height='16' width='16' alt='lo staile poi sampu'>";
           if (def.t.search("mansa staile") >= 0)
             deft +=
-            "<img src='../pixra/pelxuplise.png' height='16' width='16' title=\"lo staile poi na mutce cinri\">";
+            "<img src='../pixra/pelxuplise.png' height='16' width='16' alt=\"lo staile poi na mutce cinri\">";
           if (def.t.search("plixau jufra") >= 0)
             deft +=
-            "<img src='../pixra/crinoplise.png' height='16' width='16' title=\"lo jufra poi ka'e xamgu lo di'i fanva\">";
+            "<img src='../pixra/crinoplise.png' height='16' width='16' alt=\"lo jufra poi ka'e xamgu lo di'i fanva\">";
           if (def.t.search("cnano staile") >= 0)
             deft +=
-            "<img src='../pixra/blabiplise.png' height='16' width='16' title=\"lo staile poi ka'e pluja\">";
+            "<img src='../pixra/blabiplise.png' height='16' width='16' alt=\"lo staile poi ka'e pluja\">";
           if (def.t.search("non-standard") >= 0)
             deft +=
-            "<img src='../pixra/cicnaplise.png' height='16' width='16' title=\"na'e catni se ciska staile\">";
+            "<img src='../pixra/cicnaplise.png' height='16' width='16' alt=\"na'e catni se ciska staile\">";
           if (deft !== "") text = deft;
           /*</muplis>*/
           if (window.xuzganalojudri && !def.l) {
@@ -1031,7 +1037,7 @@
         if (def.l) word.classList.add("nalojbo");
         if (plukaquery(def.w) == query || seskari == "velcusku") {
           word.innerHTML =
-            hilite({
+            basna({
               def: def.w,
               query
             }) + " ";
@@ -1044,7 +1050,7 @@
             "&sisku=" +
             encodeUrl(def.w) +
             '">' +
-            hilite({
+            basna({
               def: escHtml(def.w, true),
               query
             }) +
@@ -1101,7 +1107,7 @@
             n.innerHTML = window.nasezvafahi;
           } else {
             n.innerHTML =
-              hilite({
+              basna({
                 def: def.d,
                 query
               }).replace(/\n/g, "<br/>") + " ";
@@ -1179,7 +1185,7 @@
               a.text = raf;
               rafElem.appendChild(a);
             } else {
-              rafElem.innerHTML = hilite({
+              rafElem.innerHTML = basna({
                 def: raf,
                 query
               });
@@ -1263,10 +1269,6 @@
         }
       }
 
-      function cati() {
-        if (window.performance && performance.now) return performance.now();
-        return +new Date();
-      }
       // jimpe fi le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri
 
       if ("serviceWorker" in navigator) {
@@ -1284,64 +1286,65 @@
           );
         });
       }
-      var socket = io.connect("https://jbotcan.org:3020");
-      if (socket) socket.on("connect", function () {
-        document.getElementById("arxivo").style.display = "inline-block";
-      });
-      if (socket) socket.on("connect_error", function () {
-        document.getElementById("arxivo").style.display = "none";
-      });
-      if (socket) socket.on("disconnect", function () {
-        document.getElementById("arxivo").style.display = "none";
-      });
+      var socket;
+      // socket = io ? io.connect("https://jbotcan.org:3020"):undefined;
+      // if (socket) socket.on("connect", function () {
+      //   document.getElementById("arxivo").style.display = "inline-block";
+      // });
+      // if (socket) socket.on("connect_error", function () {
+      //   document.getElementById("arxivo").style.display = "none";
+      // });
+      // if (socket) socket.on("disconnect", function () {
+      //   document.getElementById("arxivo").style.display = "none";
+      // });
       var socket1Chat;
-      if (socket1Chat) {
-        socket1Chat = io.connect("https://1chat-bridge.lojban.pw");
-        socket1Chat.on("connect", function () {
-          document.getElementById("velcusku").style.display = "inline-block";
-        });
-        socket1Chat.on("connect_error", function () {
-          document.getElementById("velcusku").style.display = "none";
-        });
-        // socket1Chat.on("disconnect", function() {
-        //   document.getElementById("velcusku").style.display = "none";
-        // });
-        socket1Chat.on("sentFrom", function (data) {
-          var i = data.data;
-          var msg = {
-            d: i.chunk.replace(/[\n\r]+$/g, ""),
-            s: i.channelId,
-            w: i.author
-          };
-          // if (msg.s === channel)
-          outp.appendChild(
-            skicu_palodovalsi({
-              def: msg,
-              query: state.searching.query,
-              seskari: "velcusku"
-            })
-          );
-          outp.childNodes.length = Math.min(outp.childNodes.length, 201);
-          // content.scrollTop = content.scrollHeight;
-        });
-        socket1Chat.on("history", function (data) {
-          // console.log(data);
-          document.getElementById("velcusku").style.display = "inline-block";
-          results = data.map(function (i) {
-            return {
-              d: i.chunk.replace(/[\n\r]+$/g, ""),
-              s: i.channelId,
-              w: i.author
-            };
-          });
-          // .filter(function(i) {
-          //   return i.s === channel;
-          // });
-          RenderResults({
-            query: state.searching.query,
-            seskari: "velcusku"
-          });
-          content.scrollTop = content.scrollHeight;
-        });
-      }
+      // socket1Chat = if (io) io.connect("https://1chat-bridge.lojban.pw");
+      // if (socket1Chat) {
+      //   socket1Chat.on("connect", function () {
+      //     document.getElementById("velcusku").style.display = "inline-block";
+      //   });
+      //   socket1Chat.on("connect_error", function () {
+      //     document.getElementById("velcusku").style.display = "none";
+      //   });
+      //   // socket1Chat.on("disconnect", function() {
+      //   //   document.getElementById("velcusku").style.display = "none";
+      //   // });
+      //   socket1Chat.on("sentFrom", function (data) {
+      //     var i = data.data;
+      //     var msg = {
+      //       d: i.chunk.replace(/[\n\r]+$/g, ""),
+      //       s: i.channelId,
+      //       w: i.author
+      //     };
+      //     // if (msg.s === channel)
+      //     outp.appendChild(
+      //       skicu_palodovalsi({
+      //         def: msg,
+      //         query: state.searching.query,
+      //         seskari: "velcusku"
+      //       })
+      //     );
+      //     outp.childNodes.length = Math.min(outp.childNodes.length, 201);
+      //     // content.scrollTop = content.scrollHeight;
+      //   });
+      //   socket1Chat.on("history", function (data) {
+      //     // console.log(data);
+      //     document.getElementById("velcusku").style.display = "inline-block";
+      //     results = data.map(function (i) {
+      //       return {
+      //         d: i.chunk.replace(/[\n\r]+$/g, ""),
+      //         s: i.channelId,
+      //         w: i.author
+      //       };
+      //     });
+      //     // .filter(function(i) {
+      //     //   return i.s === channel;
+      //     // });
+      //     RenderResults({
+      //       query: state.searching.query,
+      //       seskari: "velcusku"
+      //     });
+      //     content.scrollTop = content.scrollHeight;
+      //   });
+      // }
       ciska.focus();

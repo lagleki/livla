@@ -58,7 +58,7 @@ function rgbToHex(rgb) {
 }
 
 async function CLLAppendix2Json(source) {
-  source = source || 'https://lojban.pw/cll/uncll-1.2.5/xhtml_section_chunks/'
+  source = source || 'https://lojban.pw/cll/uncll-1.2.6/xhtml_section_chunks/'
   const appendix = source + 'ix02.html'
 
   const htmlString = await rp(appendix)
@@ -183,6 +183,7 @@ langs.forEach(lang => {
     )
   )
   const config_fallback = {
+    lang: lang,
     title: "la sutysisku zo'u: ze'i mitysisku lo valsi",
     favicon: '../pixra/snime.svg',
     icon16: '../pixra/16.png',
@@ -191,7 +192,7 @@ langs.forEach(lang => {
     ogtitle: 'Sutysisku',
     searchurl: '/sutysisku/' + lang + '/sisku.xml',
     searchtitle: lang + '-sutysisku',
-    titlelogo: "<a id='title' href='#'><span id='site-title'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16'><font color='#fff'>la sutysisku</font></span></a>",
+    titlelogo: "<a id='title' href='#' aria-label='la sutysisku'><span id='site-title'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16' alt='logo'><font color='#fff'>la sutysisku</font></span></a>",
     arxivoskari1: '233, 195, 58',
     arxivoskari2: '211, 172, 34',
     arxivoskari3: '224, 183, 36',
@@ -309,7 +310,7 @@ langs.forEach(lang => {
     fs.writeFileSync(
       path.join(__dirname, '../build/sutysisku/', lang, 'sw.js'),
       fs
-      .readFileSync(path.join(__dirname, 'src', 'sw.js'), {
+      .readFileSync(path.join(__dirname, 'template', 'sw.js'), {
         encoding: 'utf8'
       })
       .replace(/{now}/g, now)

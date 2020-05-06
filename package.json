@@ -6,7 +6,7 @@
   "dependencies": {
     "async": "^3.1.0",
     "await-to-js": "^2.1.1",
-    "better-sqlite3": "^5.4.3",
+    "better-sqlite3": "^7.0.1",
     "byline": "^5.0.0",
     "cheerio": "^1.0.0-rc.3",
     "cron": "^1.7.2",
@@ -50,6 +50,7 @@
   },
   "main": "livla/livla.js",
   "scripts": {
+    "ncu": "ncu",
     "start": "nodemon --ignore ./ --exec \"node livla/index.js\"",
     "snovlaste": "npm run build ; cd build/sutysisku ; rm .git -rf ; git init ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push --set-upstream origin master -f ; cd ..",
     "push": "git add . ; git commit -a ;  git push",
@@ -58,6 +59,7 @@
     "i": "nodemon -e html,js,json --watch sutysisku --exec \"npm run build\""
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "npm-check-updates": "^4.1.2"
   }
 }

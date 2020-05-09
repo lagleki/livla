@@ -11,6 +11,7 @@ const lojban = require("lojban");
 const he = require("he");
 const { to } = require("await-to-js");
 const rp = require("request-promise-native");
+const mkdirp = require("mkdirp");
 
 const escapeRegExp = string => string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
@@ -964,6 +965,7 @@ async function downloadSingleDump({ language, erroredLangs }) {
   return erroredLangs;
 }
 async function updateXmlDumps() {
+  await mkdirp(path.join(__dirname, '../build/sutysisku/data'));
   let erroredLangs = [];
   for (const language of langs) {
     erroredLangs = await downloadSingleDump({ language, erroredLangs });

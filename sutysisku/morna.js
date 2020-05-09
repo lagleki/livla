@@ -58,28 +58,49 @@ function rgbToHex(rgb) {
 }
 
 async function CLLAppendix2Json(source) {
-  source = source || 'https://lojban.pw/cll/uncll-1.2.6/xhtml_section_chunks/'
-  const appendix = source + 'ix02.html'
-
-  const htmlString = await rp(appendix)
-  const arr = htmlString.match(/<dt>(.*?)<\/dt>/g)
+  source = source || 'https://lojban.pw/cll/uncll-1.2.7/xhtml_section_chunks/'
   const json = {}
+  //ix02
+  let appendix = source + 'ix02.html';
+  let htmlString = await rp(appendix)
+  let arr = htmlString.match(/<dt>(.*?)<\/dt>/gs)
   arr.forEach(el => {
-    el = el.replace(/^<dt>(.*?): (.*?)<\/dt>$/, '$1\t$2').split(/\t/)
+    el = el.replace(/^<dt>(.*?): (.*?)<\/dt>$/s, '$1\t$2').split(/\t/)
     let selmaho = el[0]
       .replace(/ selma'o/, '')
       .replace(/^\./, '')
       .replace(/\.$/, '')
     const jsonLinks = {}
-    el[1].match(/<a (.*?)<\/a>/g).forEach(i => {
+    el[1].match(/<a (.*?)<\/a>/gs).forEach(i => {
       i = i
-        .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/, '$1\t$2')
+        .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
         .split(/\t/)
       jsonLinks[i[0]] = i[1]
     })
 
     json[selmaho] = jsonLinks
   })
+  //ix01
+  appendix = source + 'ix01.html';
+  htmlString = await rp(appendix)
+  arr = htmlString.match(/<dt>(.*?)<\/dt>[ \t\n\r]*<dd>(.*?)<\/dd>/gs);
+  arr.forEach(el => {
+    el = el.replace(/^<dt>(.*?)<\/dt>[ \t\n\r]*<dd>(.*?)<\/dd>$/s, '$1\t$2').split(/\t/)
+    let selmaho = el[0]
+    .replace(/ selma'o/, '')
+    .replace(/^\./, '')
+    .replace(/\.$/, '')
+    const jsonLinks = {}
+    el[1].match(/<a (.*?)<\/a>/gs).forEach(i => {
+      i = i
+        .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
+        .split(/\t/)
+      jsonLinks[i[0]] = i[1]
+    })
+
+    json[selmaho] = jsonLinks
+  })
+  //save
   let text = 'window.arrcll=' + JSON.stringify(json)
   fs.writeFileSync(path.join(__dirname, 'src/en/cll.js'), text)
   fs.writeFileSync(path.join(__dirname, 'src/jb/cll.js'), text)

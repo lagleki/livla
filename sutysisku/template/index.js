@@ -568,7 +568,7 @@
             "Reference Grammar",
             "../pixra/cll.png",
             1,
-            "https://lojban.pw/cll/uncll-1.2.6/xhtml_section_chunks/"
+            "https://lojban.pw/cll/uncll-1.2.7/xhtml_section_chunks/"
           ],
           "@lojban.pw": [
             ".inglic.",

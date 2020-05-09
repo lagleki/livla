@@ -53,11 +53,10 @@
   "scripts": {
     "ncu": "ncu -u",
     "start": "nodemon --ignore ./ --exec \"node livla/index.js\"",
-    "snovlaste": "npm run build ; cd build/sutysisku ; rm .git -rf ; git init ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push --set-upstream origin master -f ; cd ..",
+    "snovlaste": "npm run sutysisku ; cd build/sutysisku ; rm .git -rf ; git init ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push --set-upstream origin master -f ; cd ..",
     "push": "git add . ; git commit -a ;  git push",
-    "build": "rsync -av --exclude=\".*\"  sutysisku/src/* build/sutysisku/ ; node sutysisku/morna.js",
-    "deploy": "npm run build ; cd build/sutysisku ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push ; cd ..",
-    "i": "nodemon -e html,js,json --watch sutysisku --exec \"npm run build\""
+    "sutysisku": "rsync -av --exclude=\".*\"  sutysisku/src/* build/sutysisku/ ; node sutysisku/morna.js",
+    "deploy": "npm run sutysisku ; cd build/sutysisku ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push ; cd .."
   },
   "devDependencies": {
     "nodemon": "^2.0.3",

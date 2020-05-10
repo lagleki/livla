@@ -83,9 +83,10 @@ async function CLLAppendix2Json(source) {
   //ix01
   appendix = source + 'ix01.html';
   htmlString = await rp(appendix)
-  arr = htmlString.match(/<dt>(.*?)<\/dt>[ \t\n\r]*<dd>(.*?)<\/dd>/gs);
+  arr = htmlString.match(/<dt>([^<]*?)<\/dt>[ \t\n\r]*((?=<dt>)|<dd>(.*?)<\/dd>)/gs);
   arr.forEach(el => {
-    el = el.replace(/^<dt>(.*?)<\/dt>[ \t\n\r]*<dd>(.*?)<\/dd>$/s, '$1\t$2').split(/\t/)
+    el = el.replace(/^<dt>([^<]*?)<\/dt>[ \t\n\r]*((?=<dt>)|<dd>(.*?)<\/dd>)$/s, '$1\t$2').split(/\t/);
+    if (el.length===2){
     let selmaho = el[0]
     .replace(/ selma'o/, '')
     .replace(/^\./, '')
@@ -99,6 +100,22 @@ async function CLLAppendix2Json(source) {
     })
 
     json[selmaho] = jsonLinks
+  }else{
+    el = el.replace(/^<dt>(.*?): (.*?)<\/dt>$/s, '$1\t$2').split(/\t/);
+    let selmaho = el[0]
+    .replace(/ selma'o/, '')
+    .replace(/^\./, '')
+    .replace(/\.$/, '')
+    const jsonLinks = {}
+    el[1].match(/<a (.*?)<\/a>/gs).forEach(i => {
+      i = i
+        .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
+        .split(/\t/)
+      jsonLinks[i[0]] = i[1]
+    })
+
+    json[selmaho] = jsonLinks
+  }
   })
   //save
   let text = 'window.arrcll=' + JSON.stringify(json)
@@ -356,11 +373,11 @@ NETWORK:
     window = this;
     var sorcu={};
     var bau = location.href.split('/').slice(-2)[0];
-    if (bau==='cipra'){bau='ru';}
+    if (bau==='cipra'){bau='en';}
     var cll;
     postMessage({kind: 'loading'});
     importScripts('bangu.js?sisku=${now}','../data/parsed-${lang
-  .replace(/^cipra$/, 'ru')
+  .replace(/^cipra$/, 'en')
   .replace(
     /^muplis/,
     'tatoeba'

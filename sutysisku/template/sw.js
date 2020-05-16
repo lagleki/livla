@@ -13,7 +13,7 @@ var urlsToCache = [
   "../data/parsed-{lang}.js?sisku={now}",
   "../sisku.js?sisku={now}",
   "./worker.js?sisku={now}",
-  "../assets/fonts/unicode-drakono.otf?sisku={now}",
+  "../assets/fonts/crisa-regular.otf?sisku={now}",
   "../pixra/cll.png",
   "../pixra/cmalu_snime.svg",
   "../pixra/snime.svg",

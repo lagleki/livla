@@ -835,7 +835,6 @@ function cohukrulermorna(t) {
 }
 
 function zlmize(def) {
-  console.log(def)
   var word = krulermorna(def.w)
   if (def.ot && def.ot === "vlaza'umei") {
     return def.rafsiDocuments

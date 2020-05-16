@@ -684,7 +684,9 @@ function CLL(selmaho) {
   if (
     state.searching.seskari === 'rimni' ||
     !window.cll_url | ((window.arrcll || []).length === 0) ||
-    (!selmaho && results[0].s && results[0].s.replace(/[0-9]+[a-z]*\*?$/,'') === state.searching.query) ||
+    (!selmaho &&
+      results[0].s &&
+      results[0].s.replace(/[0-9]+[a-z]*\*?$/, '') === state.searching.query) ||
     (selmaho && !/^[A-Zh]+/.test(state.searching.query))
   )
     return
@@ -809,6 +811,96 @@ var UNICODE_START = 0xed80
 var lerfu_index = "ptkflscmx.' 1234bdgvrzjn`-,~    aeiouy    qw    AEIOUY"
 
 //<xuzganalojudri|lojbo>
+function krulermorna(t) {
+  return t
+    .replace(/\./g, '')
+    .replace(/^/, '.')
+    .toLowerCase()
+    .replace(/([aeiou\.])u([aeiou])/g, '$1w$2')
+    .replace(/([aeiou\.])i([aeiou])/g, '$1ɩ$2')
+    .replace(/au/g, 'ḁ')
+    .replace(/ai/g, 'ą')
+    .replace(/ei/g, 'ę')
+    .replace(/oi/g, 'ǫ')
+    .replace(/\./g, '')
+}
+function cohukrulermorna(t) {
+  return t
+    .replace(/w/g, 'u')
+    .replace(/ɩ/g, 'i')
+    .replace(/ḁ/g, 'au')
+    .replace(/ą/g, 'ai')
+    .replace(/ę/g, 'ei')
+    .replace(/ǫ/g, 'oi')
+}
+
+function zlmize(def) {
+  console.log(def)
+  var word = krulermorna(def.w)
+  if (def.ot && def.ot === "vlaza'umei") {
+    return def.rafsiDocuments
+      .map(function (def) {
+        return zlmize(def)
+      })
+      .join(' ')
+  }
+  if ((def.t || '').search(/cmevla|cmene|fu['h]ivla|zi['h]evla/) >= 0) {
+    return krulermornaToForeignZlm(word)
+  }
+  word = word
+    .split(/(?=[ɩw])/)
+    .map(function (spisa) {
+      return cohukrulermorna(spisa)
+        .split('')
+        .map(function (lerfu) {
+          return latinToZbalermorna(lerfu)
+        })
+        .join('')
+    })
+    .join('')
+  return word
+}
+
+var mapKru2Zlm = {
+  a: '',
+  e: '',
+  i: '',
+  o: '',
+  u: '',
+  y: '',
+  ḁ: '',
+  ą: '',
+  ę: '',
+  ǫ: '',
+  ɩ: '',
+  w: '',
+  p: '',
+  t: '',
+  k: '',
+  f: '',
+  b: '',
+  d: '',
+  g: '',
+  v: '',
+  l: '',
+  s: '',
+  c: '',
+  m: '',
+  r: '',
+  z: '',
+  j: '',
+  n: '',
+  x: '',
+  '.': '',
+  "'": '',
+}
+
+function krulermornaToForeignZlm(c) {
+  return c.split('').map(function (lerfu) {
+    return mapKru2Zlm[lerfu] || lerfu
+  }).join("");
+}
+
 function latinToZbalermorna(c) {
   if (c.codePointAt(0) >= 0xed80) {
     return c
@@ -1015,12 +1107,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, length, index }) {
   //<xuzganalojudri|lojbo>
   var zlm = document.createElement('h4')
   zlm.classList.add('valsi', 'zlm')
-  zlm.textContent = def.w
-    .split('')
-    .map(function (lerfu) {
-      return latinToZbalermorna(lerfu)
-    })
-    .join('')
+  zlm.textContent = zlmize(def)
   //</xuzganalojudri|lojbo>
 
   var heading = document.createElement('heading')

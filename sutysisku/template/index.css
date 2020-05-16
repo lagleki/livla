@@ -1013,13 +1013,13 @@ user-select: none; */
 }
 /*<xuzganalojudri|lojbo>*/
 @font-face { 
-	font-family: "drako-regular";
-	src: url('../assets/fonts/unicode-drakono.otf?sisku={now}');
+	font-family: "crisa-regular";
+	src: url('../assets/fonts/crisa-regular.otf?sisku={now}');
 }
 .zlm {
-  font-family: "drako-regular";
+  font-family: "crisa-regular";
   margin-left: 7px;
-  font-size: 130%;
+  font-size: 140%;
   color: #888;
   font-weight: 100;
 }

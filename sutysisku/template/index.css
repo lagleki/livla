@@ -751,6 +751,7 @@ sub {
   text-decoration: underline;
   padding: 3px 0 3px 10px;
   margin: 0 0 0 5px;
+  padding-right: 2px;
 }
 
 .klesi-tutci {
@@ -1013,11 +1014,11 @@ user-select: none; */
 }
 /*<xuzganalojudri|lojbo>*/
 @font-face { 
-	font-family: "crisa-regular";
-	src: url('../assets/fonts/crisa-regular.otf?sisku={now}');
+	font-family: "tanbo-regular";
+	src: url('../assets/fonts/tanbo-regular.otf?sisku={now}');
 }
-.zlm {
-  font-family: "crisa-regular";
+.zbalermorna {
+  font-family: "tanbo-regular";
   margin-left: 7px;
   font-size: 140%;
   color: #888;

@@ -834,33 +834,34 @@ function cohukrulermorna(t) {
     .replace(/ǫ/g, 'oi')
 }
 
-function zlmize(def) {
+function zbalermornaize(def) {
   var word = krulermorna(def.w)
   if (def.ot && def.ot === "vlaza'umei") {
     return def.rafsiDocuments
       .map(function (def) {
-        return zlmize(def)
+        return zbalermornaize(def)
       })
       .join(' ')
   }
   if ((def.t || '').search(/cmevla|cmene|fu['h]ivla|zi['h]evla/) >= 0) {
-    return krulermornaToForeignZlm(word)
+    word = krulermornaToForeignZbalermorna(word)
+  } else {
+    word = word
+      .split(/(?=[ɩw])/)
+      .map(function (spisa) {
+        return cohukrulermorna(spisa)
+          .split('')
+          .map(function (lerfu) {
+            return latinToZbalermorna(lerfu)
+          })
+          .join('')
+      })
+      .join('')
   }
-  word = word
-    .split(/(?=[ɩw])/)
-    .map(function (spisa) {
-      return cohukrulermorna(spisa)
-        .split('')
-        .map(function (lerfu) {
-          return latinToZbalermorna(lerfu)
-        })
-        .join('')
-    })
-    .join('')
-  return word
+  return word.replace(/,/g,'');
 }
 
-var mapKru2Zlm = {
+var mapKru2Zbalermorna = {
   a: '',
   e: '',
   i: '',
@@ -894,9 +895,9 @@ var mapKru2Zlm = {
   "'": '',
 }
 
-function krulermornaToForeignZlm(c) {
+function krulermornaToForeignZbalermorna(c) {
   return c.split('').map(function (lerfu) {
-    return mapKru2Zlm[lerfu] || lerfu
+    return mapKru2Zbalermorna[lerfu] || lerfu
   }).join("");
 }
 
@@ -1104,9 +1105,9 @@ function skicu_palodovalsi({ def, inner, query, seskari, length, index }) {
       ' '
   }
   //<xuzganalojudri|lojbo>
-  var zlm = document.createElement('h4')
-  zlm.classList.add('valsi', 'zlm')
-  zlm.textContent = zlmize(def)
+  var zbalermorna = document.createElement('h4')
+  zbalermorna.classList.add('valsi', 'zbalermorna')
+  zbalermorna.textContent = zbalermornaize(def)
   //</xuzganalojudri|lojbo>
 
   var heading = document.createElement('heading')
@@ -1116,14 +1117,14 @@ function skicu_palodovalsi({ def, inner, query, seskari, length, index }) {
 
   if (tfm) heading.appendChild(tfm)
   heading.appendChild(word)
-  if (zlm && def.w.length <= 20 && !window.muplis) heading.appendChild(zlm)
+  if (zbalermorna && def.w.length <= 20 && !window.muplis) heading.appendChild(zbalermorna)
   if (fmm) heading.appendChild(fmm)
   heading.appendChild(flex)
   if (jvs) heading.appendChild(jvs)
   if (ss) heading.appendChild(ss)
 
   out.appendChild(heading)
-  if (zlm && (window.muplis || def.w.length > 20)) out.appendChild(zlm)
+  if (zbalermorna && (window.muplis || def.w.length > 20)) out.appendChild(zbalermorna)
 
   if (seskari !== 'arxivo' && def.d) {
     var n = document.createElement('div')
@@ -1269,7 +1270,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, length, index }) {
 function plukaquery(a) {
   if (a.charAt(0) !== '^' && a.slice(-1) !== '$')
     return a
-      .replace(/[,\.]/g, ' ')
+      .replace(/\./g, ' ')
       .replace(/ {2,}/g, ' ')
       .replace(/’/g, "'")
       .trim()

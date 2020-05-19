@@ -4,12 +4,13 @@ var ma_klesi_lo_valsi = function (str) {
   var j = ['', '']
   if (!window.xuzganalojudri || str.search(/[^aeiouyAEIOY]'/) > -1) return j
   try {
-    j = cmaxes
-      .parse(str.toLowerCase().replace(/,/g, ''))
-      .toString()
-      .split(',')
+    j = (cmaxes.parse(str.toLowerCase()));
+    j=JSON.stringify(j)
+      j=j
+      .split(/","|\],\[/).map(function(i){return i.replace(/[^,a-zA-Z']/g, '')});
     if (str.indexOf(' zei ') > -1) return ['zei-lujvo', str]
-  } catch (e) {}
+  } catch (e) {
+  }
   if (
     j.length > 2 &&
     j
@@ -25,21 +26,18 @@ var ma_klesi_lo_valsi = function (str) {
         .filter(function (el, index) {
           return index % 2 === 1
         })
-        .join(' ')
+        .join(' '),
     ]
   }
   return j
 }
 
-function ma_ve_lujvo (a) {
+function ma_ve_lujvo(a) {
   if (!window.xuzganalojudri) return
   if (a.indexOf(' zei ') > -1) return ['@'].concat(a.split(' '))
   var t
   try {
-    t = cmaxes
-      .parse(a)
-      .toString()
-      .split(',')
+    t = cmaxes.parse(a).toString().split(',')
   } catch (err) {
     return
   }
@@ -61,7 +59,7 @@ for (var cmima in sorcu[bau]) {
   }
 }
 
-function setca_lotcila (doc) {
+function setca_lotcila(doc) {
   if (!doc.t || doc.t === '') {
     if (!window.muplis && window.xuzganalojudri) {
       doc.t = ma_klesi_lo_valsi(doc.w)[0]
@@ -86,7 +84,7 @@ for (var i in sorcu[bau]) {
   window.storecache[i] += ';' + window.storecache[i].replace(/h/g, "'")
 }
 
-function sisku (data, callback) {
+function sisku(data, callback) {
   var query = data.query
   var seskari = data.seskari
   var decomposed = false
@@ -98,25 +96,25 @@ function sisku (data, callback) {
   var ki = []
   var mapti_vreji = []
 
-  function decompose (a) {
+  function decompose(a) {
     return window.xuzganalojudri
       ? a
-        .replace(/ zei /g, '_zei_')
-        .split(' ')
-        .map(function (b) {
-          return b.replace(/_zei_/g, ' zei ')
-        })
+          .replace(/ zei /g, '_zei_')
+          .split(' ')
+          .map(function (b) {
+            return b.replace(/_zei_/g, ' zei ')
+          })
       : a.split(' ')
   }
 
-  function julne_setca_lotcila (a) {
+  function julne_setca_lotcila(a) {
     return a.reduce(function (b, n) {
       if (n) b.push(setca_lotcila(n))
       return b
     }, [])
   }
 
-  function sohivalsi (queryDecomposition, e, lu) {
+  function sohivalsi(queryDecomposition, e, lu) {
     var kd = []
     var o
     for (var s = 0; s < queryDecomposition.length; s++) {
@@ -130,13 +128,13 @@ function sisku (data, callback) {
     return kd
   }
 
-  function jmina_ro_cmima_be_lehivalsi (query_string, doc) {
+  function jmina_ro_cmima_be_lehivalsi(query_string, doc) {
     var luj = ma_ve_lujvo(query_string)
     if (!luj) return doc ? [doc] : []
     var kim = []
     if (luj[0] === '@') {
       luj.shift()
-      kim = luj.slice().map(i => {
+      kim = luj.slice().map((i) => {
         return { w: i, d: { nasezvafahi: true } }
       })
       for (var def in sorcu[bau]) {
@@ -158,8 +156,8 @@ function sisku (data, callback) {
               t: '',
               d: { nasezvafahi: true },
               w: luj[ji],
-              r: [luj[ji]]
-            }
+              r: [luj[ji]],
+            },
           ])
         }
       }
@@ -170,12 +168,12 @@ function sisku (data, callback) {
         t: aw.length > 0 ? 'lujvo' : ma_klesi_lo_valsi(query)[0],
         w: query,
         d: { nasezvafahi: true },
-        rafsiDocuments: aw
-      }
+        rafsiDocuments: aw,
+      },
     ]
   }
 
-  function sortthem (mapti_vreji, multi) {
+  function sortthem(mapti_vreji, multi) {
     var ui = [[], [], [], [], [], [], [], [], [], []]
     for (var i = 0; i < mapti_vreji.length; i++) {
       start = new Date()
@@ -282,7 +280,7 @@ function sisku (data, callback) {
     return [firstMatches.concat(secondMatches), firstMatches, secondMatches]
   }
 
-  function shortget (a, ki, shi) {
+  function shortget(a, ki, shi) {
     var isdef = Object.keys(sorcu[bau]).reduce(function (b, n) {
       if (
         n.toLowerCase() === a.toLowerCase() ||
@@ -340,14 +338,14 @@ function sisku (data, callback) {
         var ff = jmina_ro_cmima_be_lehivalsi(a)
         ff = ff[0] && ff[0].rafsiDocuments ? ff[0].rafsiDocuments : undefined
         ki = ki.concat([
-          { t: '', d: { nasezvafahi: true }, w: a, rafsiDocuments: ff }
+          { t: '', d: { nasezvafahi: true }, w: a, rafsiDocuments: ff },
         ])
       }
     }
     return ki
   }
 
-  function cnanosisku (mapti_vreji, multi) {
+  function cnanosisku(mapti_vreji, multi) {
     for (var n in sorcu[bau]) {
       if (window.storecache[n].indexOf(query.toLowerCase()) >= 0) {
         var c = sorcu[bau][n]
@@ -357,7 +355,9 @@ function sisku (data, callback) {
     }
     var allMatches = sortthem(mapti_vreji, multi)
     if (multi) return allMatches[0]
-    if (allMatches[0].length === 0) { allMatches[0] = jmina_ro_cmima_be_lehivalsi(query) || [] }
+    if (allMatches[0].length === 0) {
+      allMatches[0] = jmina_ro_cmima_be_lehivalsi(query) || []
+    }
     if (allMatches[0].length === 0 || allMatches[0][0].w !== query_apos) {
       var ty = /^[A-Zh]+[0-9\*]+$/.test(query)
         ? []
@@ -374,8 +374,8 @@ function sisku (data, callback) {
             t: window.bangudecomp,
             ot: "vlaza'umei",
             w: query,
-            rafsiDocuments: ty
-          }
+            rafsiDocuments: ty,
+          },
         ],
         allMatches[2]
       )
@@ -407,7 +407,7 @@ function sisku (data, callback) {
         t: window.bangudecomp,
         ot: "vlaza'umei",
         w: query,
-        rafsiDocuments: julne_setca_lotcila(sohivalsi(queryDecomposition))
+        rafsiDocuments: julne_setca_lotcila(sohivalsi(queryDecomposition)),
       })
     }
     decomposed = false
@@ -435,11 +435,11 @@ function krulermorna(t) {
   )
 }
 
-function siskurimni (query) {
+function siskurimni(query) {
   if (query.length === 0) return
   var rimni = [[], [], [], [], [], [], [], [], []]
   var query_apos, queryF, queryR
-  function cupra_lo_porsi (a) {
+  function cupra_lo_porsi(a) {
     for (var i = 0; i < a.length; i++) {
       var doc = setca_lotcila(a[i]) // todo: optimize for phrases
       if (!doc) continue
@@ -451,11 +451,7 @@ function siskurimni (query) {
       var right = docw[1].slice(-1)
       var reversal =
         docw[1].slice(-3, -1) ===
-        queryF[1]
-          .slice(-3, -1)
-          .split('')
-          .reverse()
-          .join('')
+        queryF[1].slice(-3, -1).split('').reverse().join('')
       var left = queryF[1].slice(-1)
       var sli = false
       if (
@@ -464,7 +460,9 @@ function siskurimni (query) {
         (left === 'i' && right.search('[ie]') >= 0) ||
         (left === 'o' && right.search('[aou]') >= 0) ||
         (left === 'u' && right.search('[aou]') >= 0)
-      ) { sli = true }
+      ) {
+        sli = true
+      }
       if (krulermorna(doc.w) === query) {
         rimni[0].push(doc)
         continue
@@ -523,8 +521,8 @@ function siskurimni (query) {
       return (a.d || '').length < (b.d || '').length
         ? -1
         : (a.d || '').length > (b.d || '').length
-          ? 1
-          : 0
+        ? 1
+        : 0
     }
     var sortArray = function (ar) {
       if (ar.length === 0) return []
@@ -579,7 +577,9 @@ function siskurimni (query) {
     .split('-')
     .slice(-3)
   queryF = queryR.slice()
-  if (queryR.length >= 2) { queryR[1] = queryR[1].replace(/[aeiouḁąęǫ]/, '[aeiouḁąęǫ]') }
+  if (queryR.length >= 2) {
+    queryR[1] = queryR[1].replace(/[aeiouḁąęǫ]/, '[aeiouḁąęǫ]')
+  }
   var r = /.*([aeiouḁąęǫ])/.exec(queryR[0])
   if (r === null) return []
   queryR[0] = r[1]

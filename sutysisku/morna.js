@@ -6,37 +6,39 @@
 const fs = require('fs')
 const path = require('path-extra')
 const rp = require('request-promise-native')
+const minify = require('babel-minify')
 const now = new Date().getTime()
 // config
 const args = process.argv.slice(2)
 const langs =
-  args.length > 0 ?
-  args : [
-    'en',
-    'ru',
-    'eo',
-    'es',
-    'fr-facile',
-    'ile',
-    'ina',
-    'ithkuil',
-    'ja',
-    'jbo',
-    'laadan',
-    'ldp',
-    'ru',
-    'zh',
-    'zamenhofo',
-    'epo-tha',
-    'simplingua-zho',
-    'toki',
-    'ktv-eng',
-    'jb',
-    'en-pt-BR',
-    'muplis',
-    'muplis-eng-pol',
-    'cipra'
-  ]
+  args.length > 0
+    ? args
+    : [
+        'en',
+        'ru',
+        'eo',
+        'es',
+        'fr-facile',
+        'ile',
+        'ina',
+        'ithkuil',
+        'ja',
+        'jbo',
+        'laadan',
+        'ldp',
+        'ru',
+        'zh',
+        'zamenhofo',
+        'epo-tha',
+        'simplingua-zho',
+        'toki',
+        'ktv-eng',
+        'jb',
+        'en-pt-BR',
+        'muplis',
+        'muplis-eng-pol',
+        'cipra',
+      ]
 
 CLLAppendix2Json()
 
@@ -61,17 +63,17 @@ async function CLLAppendix2Json(source) {
   source = source || 'https://lojban.pw/cll/uncll-1.2.7/xhtml_section_chunks/'
   const json = {}
   //ix02
-  let appendix = source + 'ix02.html';
+  let appendix = source + 'ix02.html'
   let htmlString = await rp(appendix)
   let arr = htmlString.match(/<dt>(.*?)<\/dt>/gs)
-  arr.forEach(el => {
+  arr.forEach((el) => {
     el = el.replace(/^<dt>(.*?): (.*?)<\/dt>$/s, '$1\t$2').split(/\t/)
     let selmaho = el[0]
       .replace(/ selma'o/, '')
       .replace(/^\./, '')
       .replace(/\.$/, '')
     const jsonLinks = {}
-    el[1].match(/<a (.*?)<\/a>/gs).forEach(i => {
+    el[1].match(/<a (.*?)<\/a>/gs).forEach((i) => {
       i = i
         .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
         .split(/\t/)
@@ -81,41 +83,48 @@ async function CLLAppendix2Json(source) {
     json[selmaho] = jsonLinks
   })
   //ix01
-  appendix = source + 'ix01.html';
+  appendix = source + 'ix01.html'
   htmlString = await rp(appendix)
-  arr = htmlString.match(/<dt>([^<]*?)<\/dt>[ \t\n\r]*((?=<dt>)|<dd>(.*?)<\/dd>)/gs);
-  arr.forEach(el => {
-    el = el.replace(/^<dt>([^<]*?)<\/dt>[ \t\n\r]*((?=<dt>)|<dd>(.*?)<\/dd>)$/s, '$1\t$2').split(/\t/);
-    if (el.length===2){
-    let selmaho = el[0]
-    .replace(/ selma'o/, '')
-    .replace(/^\./, '')
-    .replace(/\.$/, '')
-    const jsonLinks = {}
-    el[1].match(/<a (.*?)<\/a>/gs).forEach(i => {
-      i = i
-        .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
-        .split(/\t/)
-      jsonLinks[i[0]] = i[1]
-    })
+  arr = htmlString.match(
+    /<dt>([^<]*?)<\/dt>[ \t\n\r]*((?=<dt>)|<dd>(.*?)<\/dd>)/gs
+  )
+  arr.forEach((el) => {
+    el = el
+      .replace(
+        /^<dt>([^<]*?)<\/dt>[ \t\n\r]*((?=<dt>)|<dd>(.*?)<\/dd>)$/s,
+        '$1\t$2'
+      )
+      .split(/\t/)
+    if (el.length === 2) {
+      let selmaho = el[0]
+        .replace(/ selma'o/, '')
+        .replace(/^\./, '')
+        .replace(/\.$/, '')
+      const jsonLinks = {}
+      el[1].match(/<a (.*?)<\/a>/gs).forEach((i) => {
+        i = i
+          .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
+          .split(/\t/)
+        jsonLinks[i[0]] = i[1]
+      })
 
-    json[selmaho] = jsonLinks
-  }else{
-    el = el.replace(/^<dt>(.*?): (.*?)<\/dt>$/s, '$1\t$2').split(/\t/);
-    let selmaho = el[0]
-    .replace(/ selma'o/, '')
-    .replace(/^\./, '')
-    .replace(/\.$/, '')
-    const jsonLinks = {}
-    el[1].match(/<a (.*?)<\/a>/gs).forEach(i => {
-      i = i
-        .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
-        .split(/\t/)
-      jsonLinks[i[0]] = i[1]
-    })
+      json[selmaho] = jsonLinks
+    } else {
+      el = el.replace(/^<dt>(.*?): (.*?)<\/dt>$/s, '$1\t$2').split(/\t/)
+      let selmaho = el[0]
+        .replace(/ selma'o/, '')
+        .replace(/^\./, '')
+        .replace(/\.$/, '')
+      const jsonLinks = {}
+      el[1].match(/<a (.*?)<\/a>/gs).forEach((i) => {
+        i = i
+          .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
+          .split(/\t/)
+        jsonLinks[i[0]] = i[1]
+      })
 
-    json[selmaho] = jsonLinks
-  }
+      json[selmaho] = jsonLinks
+    }
   })
   //save
   let text = 'window.arrcll=' + JSON.stringify(json)
@@ -132,51 +141,53 @@ function fullColorHex(r, g, b) {
 
 // tempalting - remove parts not relevant to the current sutysisku
 String.prototype.stripout = function (config, tag) {
-  const tags = tag.split('\\|').map(j => !!(config[j] && config[j] !== 'false'))
+  const tags = tag
+    .split('\\|')
+    .map((j) => !!(config[j] && config[j] !== 'false'))
   const m = tags.includes(true)
   const ku = m ? '$1' : ''
   const antiku = !m ? '$1' : ''
   return (
     this
-    // OR operator
-    .replace(
-      new RegExp(
-        '\\/\\/<' + tag + '>([\\s\\S]*?)\\/\\/<\\/' + tag + '>',
-        'gm'
-      ),
-      ku
-    )
-    .replace(
-      new RegExp(
-        '\\/\\* *<' + tag + '>([\\s\\S]*?)\\/\\/<\\/' + tag + '> \\*\\/',
-        'gm'
-      ),
-      ku
-    )
-    .replace(new RegExp('<' + tag + '>([\\s\\S]*?)</' + tag + '>', 'gm'), ku)
-    // NOT operator
-    .replace(
-      new RegExp(
-        '\\/\\/<' + tag + ' false>([\\s\\S]*?)\\/\\/<\\/' + tag + '>',
-        'gm'
-      ),
-      antiku
-    )
-    .replace(
-      new RegExp(
-        '\\/\\* *<' +
-        tag +
-        ' false>([\\s\\S]*?)\\/\\/<\\/' +
-        tag +
-        '> *\\*\\/',
-        'gm'
-      ),
-      antiku
-    )
-    .replace(
-      new RegExp('<' + tag + ' false>([\\s\\S]*?)</' + tag + '>', 'gm'),
-      antiku
-    )
+      // OR operator
+      .replace(
+        new RegExp(
+          '\\/\\/<' + tag + '>([\\s\\S]*?)\\/\\/<\\/' + tag + '>',
+          'gm'
+        ),
+        ku
+      )
+      .replace(
+        new RegExp(
+          '\\/\\* *<' + tag + '>([\\s\\S]*?)\\/\\/<\\/' + tag + '> \\*\\/',
+          'gm'
+        ),
+        ku
+      )
+      .replace(new RegExp('<' + tag + '>([\\s\\S]*?)</' + tag + '>', 'gm'), ku)
+      // NOT operator
+      .replace(
+        new RegExp(
+          '\\/\\/<' + tag + ' false>([\\s\\S]*?)\\/\\/<\\/' + tag + '>',
+          'gm'
+        ),
+        antiku
+      )
+      .replace(
+        new RegExp(
+          '\\/\\* *<' +
+            tag +
+            ' false>([\\s\\S]*?)\\/\\/<\\/' +
+            tag +
+            '> *\\*\\/',
+          'gm'
+        ),
+        antiku
+      )
+      .replace(
+        new RegExp('<' + tag + ' false>([\\s\\S]*?)</' + tag + '>', 'gm'),
+        antiku
+      )
   )
 }
 
@@ -186,12 +197,7 @@ String.prototype.replaceMergefield = function (config) {
   }, this)
 }
 
-function processTemplate({
-  config,
-  fallback,
-  now,
-  file
-}) {
+function processTemplate({ config, fallback, now, file }) {
   const output = file
     .replace(/{now}/g, now)
     .replaceMergefield(config)
@@ -211,12 +217,13 @@ function processTemplate({
 }
 
 // generate files
-langs.forEach(lang => {
+langs.forEach((lang) => {
   // generate index.html
   const config = JSON.parse(
     fs.readFileSync(
-      path.join(__dirname, '../build/sutysisku/', lang, 'config.json'), {
-        encoding: 'utf8'
+      path.join(__dirname, '../build/sutysisku/', lang, 'config.json'),
+      {
+        encoding: 'utf8',
       }
     )
   )
@@ -230,7 +237,8 @@ langs.forEach(lang => {
     ogtitle: 'Sutysisku',
     searchurl: '/sutysisku/' + lang + '/sisku.xml',
     searchtitle: lang + '-sutysisku',
-    titlelogo: "<a id='title' href='#' aria-label='la sutysisku'><span id='site-title'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16' alt='logo'><font color='#fff'>la sutysisku</font></span></a>",
+    titlelogo:
+      "<a id='title' href='#' aria-label='la sutysisku'><span id='site-title'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16' alt='logo'><font color='#fff'>la sutysisku</font></span></a>",
     arxivoskari1: '233, 195, 58',
     arxivoskari2: '211, 172, 34',
     arxivoskari3: '224, 183, 36',
@@ -264,39 +272,63 @@ langs.forEach(lang => {
     cnano: 'search',
     arxivo: 'archive',
     velcusku: 'read chat',
-    parse: 'parse'
+    parse: 'parse',
   }
   const arr = (config.mupliskari4 || config_fallback.mupliskari4)
     .split(',')
-    .map(i => i.trim())
+    .map((i) => i.trim())
   config.mupliskariralju = fullColorHex(arr[0], arr[1], arr[2])
   // read template.html into var
-  for (const el of [{
-        file: 'index.html',
-        out: 'index.html'
-      },
-      {
-        file: 'index.css',
-        out: 'index.css'
-      },
-      {
-        file: 'index.js',
-        out: 'index.js'
-      }
-    ]) {
-    const output = processTemplate({
+  for (const el of [
+    {
+      file: 'index.html',
+      out: 'index.html',
+    },
+    {
+      file: 'index.css',
+      out: 'index.css',
+    },
+    {
+      file: 'index.js',
+      out: 'index.js',
+      uglify: true,
+    },
+  ]) {
+    let output = processTemplate({
       config,
       fallback: config_fallback,
       now,
       file: fs.readFileSync(path.join(__dirname, './template', el.file), {
-        encoding: 'utf8'
-      })
+        encoding: 'utf8',
+      }),
     })
+    if (el.uglify) {
+      output = minify(output, {
+        mangle: {
+          keepClassName: true,
+          exclude: ['sisku'],
+        },
+      }).code
+      console.log(`minified ${lang}/${el.out}`);
+    }
     fs.writeFileSync(
       path.join(__dirname, '../build/sutysisku/', lang, el.out),
       output
     )
   }
+
+  let siskujs = fs.readFileSync(path.join(__dirname, './template/sisku.js'), {
+    encoding: 'utf8',
+  })
+
+  siskujs = minify(siskujs, {
+    mangle: {
+      keepClassName: true,
+      exclude: ['sisku'],
+    },
+  }).code
+
+  fs.writeFileSync(path.join(__dirname, '../build/sutysisku/sisku.js'), siskujs)
 
   // current datetime
   const d = new Date()
@@ -314,7 +346,7 @@ langs.forEach(lang => {
     addZero(d.getSeconds())
   // copy cll.js and bangu.js
   const file = fs.readFileSync(path.join(__dirname, 'src', lang, 'bangu.js'), {
-    encoding: 'utf8'
+    encoding: 'utf8',
   })
   const cll_exists = fs.existsSync(path.join(__dirname, 'src', lang, 'cll.js'))
   let addition = ''
@@ -322,7 +354,7 @@ langs.forEach(lang => {
     addition =
       '\n' +
       fs.readFileSync(path.join(__dirname, 'src', lang, 'cll.js'), {
-        encoding: 'utf8'
+        encoding: 'utf8',
       })
   }
   fs.writeFileSync(
@@ -330,8 +362,9 @@ langs.forEach(lang => {
     file + addition
   )
   // read sisku.xml template into var
-  const b = fs.readFileSync(path.join(__dirname, './template', 'sisku.xml'), {
-      encoding: 'utf8'
+  const b = fs
+    .readFileSync(path.join(__dirname, './template', 'sisku.xml'), {
+      encoding: 'utf8',
     })
     .replace(
       '%template%',
@@ -348,11 +381,11 @@ langs.forEach(lang => {
     fs.writeFileSync(
       path.join(__dirname, '../build/sutysisku/', lang, 'sw.js'),
       fs
-      .readFileSync(path.join(__dirname, 'template', 'sw.js'), {
-        encoding: 'utf8'
-      })
-      .replace(/{now}/g, now)
-      .replace(/{lang}/g, lang)
+        .readFileSync(path.join(__dirname, 'template', 'sw.js'), {
+          encoding: 'utf8',
+        })
+        .replace(/{now}/g, now)
+        .replace(/{lang}/g, lang)
     )
   } catch (error) {}
   // generate appcache
@@ -377,11 +410,11 @@ NETWORK:
     var cll;
     postMessage({kind: 'loading'});
     importScripts('bangu.js?sisku=${now}','../data/parsed-${lang
-  .replace(/^cipra$/, 'en')
-  .replace(
-    /^muplis/,
-    'tatoeba'
-  )}.js?sisku=${now}', '../sisku.js?sisku=${now}');
+    .replace(/^cipra$/, 'en')
+    .replace(
+      /^muplis/,
+      'tatoeba'
+    )}.js?sisku=${now}', '../sisku.js?sisku=${now}');
     postMessage({kind: 'ready'});
     this.onmessage = function(ev) {
       if (ev.data.kind == 'newSearch') {

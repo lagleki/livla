@@ -843,9 +843,9 @@ function zbalermornaize(def) {
       })
       .join(' ')
   }
-  if ((def.t || '').search(/cmevla|cmene|fu['h]ivla|zi['h]evla/) >= 0) {
-    word = krulermornaToForeignZbalermorna(word)
-  } else {
+  // if ((def.t || '').search(/cmevla|cmene|fu['h]ivla|zi['h]evla/) >= 0) {
+  //   word = krulermornaToForeignZbalermorna(word)
+  // } else {
     word = word
       .split(/(?=[ɩw])/)
       .map(function (spisa) {
@@ -857,49 +857,49 @@ function zbalermornaize(def) {
           .join('')
       })
       .join('')
-  }
+  // }
   return word.replace(/,/g,'');
 }
 
-var mapKru2Zbalermorna = {
-  a: '',
-  e: '',
-  i: '',
-  o: '',
-  u: '',
-  y: '',
-  ḁ: '',
-  ą: '',
-  ę: '',
-  ǫ: '',
-  ɩ: '',
-  w: '',
-  p: '',
-  t: '',
-  k: '',
-  f: '',
-  b: '',
-  d: '',
-  g: '',
-  v: '',
-  l: '',
-  s: '',
-  c: '',
-  m: '',
-  r: '',
-  z: '',
-  j: '',
-  n: '',
-  x: '',
-  '.': '',
-  "'": '',
-}
+// var mapKru2Zbalermorna = {
+//   a: '',
+//   e: '',
+//   i: '',
+//   o: '',
+//   u: '',
+//   y: '',
+//   ḁ: '',
+//   ą: '',
+//   ę: '',
+//   ǫ: '',
+//   ɩ: '',
+//   w: '',
+//   p: '',
+//   t: '',
+//   k: '',
+//   f: '',
+//   b: '',
+//   d: '',
+//   g: '',
+//   v: '',
+//   l: '',
+//   s: '',
+//   c: '',
+//   m: '',
+//   r: '',
+//   z: '',
+//   j: '',
+//   n: '',
+//   x: '',
+//   '.': '',
+//   "'": '',
+// }
 
-function krulermornaToForeignZbalermorna(c) {
-  return c.split('').map(function (lerfu) {
-    return mapKru2Zbalermorna[lerfu] || lerfu
-  }).join("");
-}
+// function krulermornaToForeignZbalermorna(c) {
+//   return c.split('').map(function (lerfu) {
+//     return mapKru2Zbalermorna[lerfu] || lerfu
+//   }).join("");
+// }
 
 function latinToZbalermorna(c) {
   if (c.codePointAt(0) >= 0xed80) {

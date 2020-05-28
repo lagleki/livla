@@ -1219,18 +1219,19 @@ jsonCommand = {
     }
     return ma_lujvo
   },
-  k: (text) => lojban.ilmentufa_off(text, 'C', true)['kampu'],
-  ilm: (text) => lojban.ilmentufa_off(text, 'T', true)['kampu'],
+  cma: (text) => lojban.romoi_lahi_cmaxes(text).kampu,
+  k: (text) => lojban.ilmentufa_off(text, 'C', true).kampu,
+  ilm: (text) => lojban.ilmentufa_off(text, 'T', true).kampu,
   'ilm+': (text) => {
     const params = `${text} `.split('+')[1].toUpperCase()
-    return lojban.ilmentufa_off(text, params, true)['kampu']
+    return lojban.ilmentufa_off(text, params, true).kampu
   },
-  beta: (text) => lojban.ilmentufa_exp(text, 'T', true)['kampu'],
+  beta: (text) => lojban.ilmentufa_exp(text, 'T', true).kampu,
   'beta+': (text) => {
     const params = `${text} `.split('+')[1].toUpperCase()
-    return lojban.ilmentufa_exp(text, params, true)['kampu']
+    return lojban.ilmentufa_exp(text, params, true).kampu
   },
-  raw: (text) => lojban.ilmentufa_off(text, 'J', true)['kampu'],
+  raw: (text) => lojban.ilmentufa_off(text, 'J', true).kampu,
   zei: (text) => lojban.zeizei(text),
   anji: (text) => lojban.anji(text),
   ruk: (text) => lojban.rukylermorna(text),
@@ -1334,7 +1335,7 @@ async function processor({ from, towhom, text, socket }) {
   if (replyToVocatives({ from, text, sendTo, socket })) return
   sendDelayed({ from, sendTo, socket })
 
-  text = text.toLowerCase().trim()
+  text = text.toLowerCase().trim().replace(/’/g,"'")
   let inLanguage = defaultLanguage
   if (text.charAt(0) === '#' && replyToHashed({ text, socket, sendTo })) return
   if (text.indexOf(commandPrefix) === 0) {

@@ -70,7 +70,6 @@ blockquote {
 
 body {
   font-family: Tahoma, Lato, sans-serif;
-  font-size: 90%;
   overflow: hidden;
   margin: 0;
   height: 100vh;
@@ -195,7 +194,8 @@ code {
   color: #6a5acd;
 }
 
-.valsi {
+.valsi,
+.citri {
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -303,68 +303,53 @@ code {
 }
 
 .cnano-dasri {
-  /*
-background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 1%, #245edb 8%, #245edb 92%, #333 100%) center/cover no-repeat;
-box-shadow: 3px 3px 15px #000;
-*/
-  background: rgb("%mupliskari1%");
-  /* IE10+ */
   background: linear-gradient(
     to bottom,
-    rgba("%mupliskari1%", 1) "%gradpos1%",
-    rgba("%mupliskari2%", 1) "%gradpos2%",
-    rgba("%mupliskari3%", 1) "%gradpos3%",
-    rgba("%mupliskari4%", 1) "%gradpos4%"
+    rgba('%mupliskari1%', 1) '%gradpos1%',
+    rgba('%mupliskari2%', 1) '%gradpos2%',
+    rgba('%mupliskari3%', 1) '%gradpos3%',
+    rgba('%mupliskari4%', 1) '%gradpos4%'
   );
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6db3f2', endColorstr='#1e69de', GradientType=0);
-  /* IE6-9 */
+}
+
+.catni-dasri {
+  background: linear-gradient(
+    to bottom,
+    rgba('%catniskari1%', 1) '%gradpos1%',
+    rgba('%catniskari2%', 1) '%gradpos2%',
+    rgba('%catniskari3%', 1) '%gradpos3%',
+    rgba('%catniskari4%', 1) '%gradpos4%'
+  );
 }
 
 .velcusku-dasri {
-  background: rgb("%velcusku_skari1%");
-  /* IE10+ */
   background: linear-gradient(
     to bottom,
-    rgba("%velcusku_skari1%", 1) "%gradpos1%",
-    rgba("%velcusku_skari2%", 1) "%gradpos2%",
-    rgba("%velcusku_skari3%", 1) "%gradpos3%",
-    rgba("%velcusku_skari4%", 1) "%gradpos4%"
+    rgba('%velcusku_skari1%', 1) '%gradpos1%',
+    rgba('%velcusku_skari2%', 1) '%gradpos2%',
+    rgba('%velcusku_skari3%', 1) '%gradpos3%',
+    rgba('%velcusku_skari4%', 1) '%gradpos4%'
   );
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6db3f2', endColorstr='#1e69de', GradientType=0);
-  /* IE6-9 */
 }
 
 .rimni-dasri {
-  background: rgb("%rimniskari1%");
-  /* IE10+ */
   background: linear-gradient(
     to bottom,
-    rgba("%rimniskari1%", 1) "%rimnigradpos1%",
-    rgba("%rimniskari2%", 1) "%rimnigradpos2%",
-    rgba("%rimniskari3%", 1) "%rimnigradpos3%",
-    rgba("%rimniskari4%", 1) "%rimnigradpos4%"
+    rgba('%rimniskari1%', 1) '%rimnigradpos1%',
+    rgba('%rimniskari2%', 1) '%rimnigradpos2%',
+    rgba('%rimniskari3%', 1) '%rimnigradpos3%',
+    rgba('%rimniskari4%', 1) '%rimnigradpos4%'
   );
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%rimniskari1%', endColorstr='%rimniskari2%', GradientType=0);
-  /* IE6-9 */
 }
 
 .arxivo-dasri {
-  background: rgb("%arxivoskari1%");
-  /* IE10+ */
   background: linear-gradient(
     to bottom,
-    rgba("%arxivoskari1%", 1) "%arxivogradpos1%",
-    rgba("%arxivoskari2%", 1) "%arxivogradpos2%",
-    rgba("%arxivoskari3%", 1) "%arxivogradpos3%",
-    rgba("%arxivoskari4%", 1) "%arxivogradpos4%"
+    rgba('%arxivoskari1%', 1) '%arxivogradpos1%',
+    rgba('%arxivoskari2%', 1) '%arxivogradpos2%',
+    rgba('%arxivoskari3%', 1) '%arxivogradpos3%',
+    rgba('%arxivoskari4%', 1) '%arxivogradpos4%'
   );
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%arxivoskari%', endColorstr='%arxivoskari2%', GradientType=0);
-  position: absolute;
-  /* IE6-9 */
 }
 
 #se-vasru-lo-galtu-dasri {
@@ -398,36 +383,45 @@ box-shadow: 3px 3px 15px #000;
   box-shadow: 1px 1px 30px rgba(2, 119, 189, 1);
 }
 
-.arxivo-search-mode-title-color {
+.catni-search-mode-title-color {
   background: linear-gradient(
     to top right,
-    rgba("%arxivoskari2%", 1) 0%,
-    rgba("%arxivoskari3%", 1) 40%
+    rgba(63, 81, 181, 1) 0%,
+    rgba(4, 119, 218, 1) 40%
   );
-  box-shadow: 1px 1px 30px rgba("%arxivoskari4%", 1);
+  box-shadow: 1px 1px 30px rgba(2, 119, 189, 1);
 }
 
 .arxivo-search-mode-title-color {
   background: linear-gradient(
     to top right,
-    rgba("%velcusku_skari2%", 1) 0%,
-    rgba("%velcusku_skari3%", 1) 40%
+    rgba('%arxivoskari2%', 1) 0%,
+    rgba('%arxivoskari3%', 1) 40%
   );
-  box-shadow: 1px 1px 30px rgba("%velcusku_skari4%", 1);
+  box-shadow: 1px 1px 30px rgba('%arxivoskari4%', 1);
+}
+
+.arxivo-search-mode-title-color {
+  background: linear-gradient(
+    to top right,
+    rgba('%velcusku_skari2%', 1) 0%,
+    rgba('%velcusku_skari3%', 1) 40%
+  );
+  box-shadow: 1px 1px 30px rgba('%velcusku_skari4%', 1);
 }
 
 .desktop-mode-title-color {
-  background: rgba("%mupliskari3%", 1);
+  background: rgba('%mupliskari3%', 1);
   cursor: default;
 }
 
 .rimni-search-mode-title-color {
   background: linear-gradient(
     to top right,
-    rgba("%rimniskari2%", 1) 0%,
-    rgba("%rimniskari3%", 1) 40%
+    rgba('%rimniskari2%', 1) 0%,
+    rgba('%rimniskari3%', 1) 40%
   );
-  box-shadow: 1px 1px 30px rgba("%rimniskari4%", 1);
+  box-shadow: 1px 1px 30px rgba('%rimniskari4%', 1);
 }
 
 .rimni-search-mode-title-color #logo {
@@ -491,8 +485,9 @@ box-shadow: 3px 3px 15px #000;
 }
 
 #citri {
-  display: inline;
+  /* display: inline; */
   padding: 0 3px 0 3px;
+  /* margin-bottom: 0; */
 }
 
 @media screen and (min-width: 700px) {
@@ -529,12 +524,17 @@ box-shadow: 3px 3px 15px #000;
 }
 
 @media screen and (max-width: 509px) {
+  body {
+    font-size: 90%;
+  }
+
   #sidju {
     flex-direction: column;
   }
   #citri {
-    line-height: 250%;
+    line-height: 150%;
     order: 2;
+    margin-top: 10px;
   }
   .leitutci {
     order: 1;
@@ -588,7 +588,7 @@ box-shadow: 3px 3px 15px #000;
 }
 
 ::selection {
-  background: rgba("%mupliskari1%", 1);
+  background: rgba('%mupliskari1%', 1);
   color: #fff;
   text-shadow: none;
 }
@@ -623,8 +623,8 @@ linear-gradient(90deg, #BB7000 2%, #FDBF00 0, #FDBF00 98%, #BB7000 0%)0 0 #FDBF0
 background-size: 40px 60px;*/
   /*<muplis>*/
   background-color: #fdbf00;
-  background-image: url("../pixra/bifce.svg");
-  background-image: url("../pixra/bifce.svg"),
+  background-image: url('../pixra/bifce.svg');
+  background-image: url('../pixra/bifce.svg'),
     linear-gradient(to bottom right, #fdbf00, #bb7000, #bb7000);
   /*</muplis>*/
 }
@@ -636,15 +636,25 @@ background-size: 40px 60px;*/
   margin-right: auto;
 }
 
-#outp {
-  margin-bottom: 15px;
+.valsi,
+.definition,
+.rafsi {
+  /* margin-bottom: 15px; */
   font-family: Libertine, Tahoma, Lato, sans-serif;
-  font-size: 110%;
+  /* font-size: 110%; */
+}
+
+.citri {
+  font-size: 90%;
 }
 
 a {
   color: #2b79e0;
   text-decoration: none;
+}
+
+ul {
+  margin-top: 0;
 }
 
 ul > li > a {
@@ -664,6 +674,7 @@ ul > li > a {
   text-align: center;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
   color: #333;
+  font-size: 90%;
 }
 
 #loading {
@@ -682,6 +693,17 @@ sub {
   top: 0.4em;
 }
 
+#catni {
+  border-radius: 3px 0 0 3px;
+  border-right: 0;
+}
+
+#cnano {
+  border-radius: 0 3px 3px 0;
+  border-left: 1px #111 dashed;
+  margin-left: 0;
+}
+
 .tutci {
   line-height: 150%;
   box-shadow: inset 0px -3px 7px 0px #29bbff;
@@ -690,7 +712,7 @@ sub {
   background-color: #2dabf9;
   border-radius: 3px;
   border: 1px solid #000000;
-  display: inline-block;
+  /* display: inline; */
   cursor: pointer;
   color: #ffffff;
   padding: 3px 10px;
@@ -707,8 +729,11 @@ sub {
 .cnano-tutci:hover,
 .cnano-tutci-hover {
   background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9', GradientType=0);
-  background-color: #0688fa;
+}
+
+.catni-tutci:hover,
+.catni-tutci-hover {
+  background: linear-gradient(to bottom, #056bfa 5%, #2f83f9 100%);
 }
 
 .rimni-tutci {
@@ -740,6 +765,7 @@ sub {
 }
 
 .klesi {
+  font-size: 90%;
   font-style: italic;
   white-space: nowrap;
   overflow: hidden;
@@ -862,7 +888,7 @@ transform-origin: 70px 26.5px;
 user-select: none; */
   background: rgba(255, 255, 255, 0.6) none repeat scroll 0% 0% / auto
     padding-box border-box;
-  font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans",
+  font: normal normal normal normal 14px / 15.4px 'Segoe UI', 'Open Sans',
     sans-serif, serif;
   padding: 4px 4px;
   pointer-events: none;
@@ -874,7 +900,7 @@ user-select: none; */
 box-sizing: border-box; */
   text-shadow: rgba(0, 0, 0, 0.4) 2px 2px 4px;
   /* user-select: none; */
-  font: normal normal bold normal 14px / 15.4px "Segoe UI", "Open Sans",
+  font: normal normal bold normal 14px / 15.4px 'Segoe UI', 'Open Sans',
     sans-serif, serif;
 }
 
@@ -888,7 +914,7 @@ box-sizing: border-box; */
   /*column-rule-color: rgb(32, 134, 191);*/
   user-select: none;
   border: 0;
-  font: normal normal normal normal 14px / 15.4px "Segoe UI", "Open Sans",
+  font: normal normal normal normal 14px / 15.4px 'Segoe UI', 'Open Sans',
     sans-serif, serif;
   /*outline: rgb(32, 134, 191) none 0px;*/
 }
@@ -915,6 +941,7 @@ user-select: none; */
 }
 
 .leitutci {
+  display: flex;
   white-space: nowrap;
   padding: 0 3px 0 3px;
   margin-left: auto;
@@ -942,8 +969,8 @@ user-select: none; */
   border-width: 0px;
   border-style: solid;
   border-top: none;
-  box-shadow: 0 0 0 1px rgb("%mupliskari1%"), 0 0 0 2px rgb("%mupliskari2%"),
-    0 0 0 3px rgb("%mupliskari3%"), 0 0 0 4px rgb("%mupliskari4%");
+  box-shadow: 0 0 0 1px rgb('%mupliskari1%'), 0 0 0 2px rgb('%mupliskari2%'),
+    0 0 0 3px rgb('%mupliskari3%'), 0 0 0 4px rgb('%mupliskari4%');
 }
 
 .sidju.cll {
@@ -954,7 +981,7 @@ user-select: none; */
   position: relative;
   display: block;
   width: 30%;
-  margin: auto;
+  margin: 5px auto auto auto;
   background-color: #eee;
   padding: 3px;
   border-radius: 3px;
@@ -1014,23 +1041,83 @@ user-select: none; */
   max-height: 100%;
   height: auto;
 }
-@font-face { 
-	font-family: "Libertine";
-	src: url('../assets/fonts/LinLibertine_R.otf?sisku={now}');
+
+.bangu {
+  font-size: 1em;
+  min-width: 3em;
+  min-height: 2em;
+  -moz-box-shadow: inset 0px 1px 0px 0px #85cc98;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #85cc98;
+  box-shadow: inset 0px 1px 0px 0px #85cc98;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #5aad70),
+    color-stop(1, #4ba563)
+  );
+  background: -moz-linear-gradient(top, #5aad70 5%, #4ba563 100%);
+  background: -webkit-linear-gradient(top, #5aad70 5%, #4ba563 100%);
+  background: -o-linear-gradient(top, #5aad70 5%, #4ba563 100%);
+  background: -ms-linear-gradient(top, #5aad70 5%, #4ba563 100%);
+  background: linear-gradient(to bottom, #5aad70 5%, #4ba563 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5AAD70', endColorstr='#4BA563', GradientType=0);
+  background-color: #5aad70;
+  border: 1px solid #3b6e22;
+  border-top: 0px;
+  border-left: 0px;
+  display: inline-block;
+  color: #ffffff;
+  padding: 3px;
+  margin: auto;
+  text-decoration: none;
+  outline: 0;
+}
+
+.bangu:hover {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #4ba563),
+    color-stop(1, #5aad70)
+  );
+  background: -moz-linear-gradient(top, #4ba563 5%, #5aad70 100%);
+  background: -webkit-linear-gradient(top, #4ba563 5%, #5aad70 100%);
+  background: -o-linear-gradient(top, #4ba563 5%, #5aad70 100%);
+  background: -ms-linear-gradient(top, #4ba563 5%, #5aad70 100%);
+  background: linear-gradient(to bottom, #4ba563 5%, #5aad70 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4BA563', endColorstr='#5AAD70', GradientType=0);
+  background-color: #4ba563;
+}
+
+.bangu:active {
+  position: relative;
+  top: 1px;
+}
+
+.centero {
+  margin: auto;
+  text-align: center;
+}
+
+@font-face {
+  font-family: 'Libertine';
+  src: url('../assets/fonts/LinLibertine_R.otf?sisku={now}');
 }
 /*<xuzganalojudri|lojbo>*/
-@font-face { 
-	font-family: "crisa-regular";
-	src: url('../assets/fonts/crisa-regular.otf?sisku={now}');
+@font-face {
+  font-family: 'crisa-regular';
+  src: url('../assets/fonts/crisa-regular.otf?sisku={now}');
 }
-.zbalermorna {
-  font-family: "crisa-regular";
+.valsi.zbalermorna {
+  font-family: 'crisa-regular';
   margin-left: 7px;
   font-size: 130%;
   color: #888;
   font-weight: 100;
 }
 /*</xuzganalojudri|lojbo>*/
-.display-block{
-  display:block;
+.display-block {
+  display: block;
 }

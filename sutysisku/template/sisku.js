@@ -783,24 +783,24 @@ function sisku(data, callback) {
     // }
     var sortArray = function (ar) {
       if (ar.length === 0) return ar
-      var gism = []
-      var cmav = []
+      var gismu = []
+      var cmavo = []
+      var drata = []
       for (c = 0; c < ar.length; c++) {
         if (ar[c].t === 'gismu') {
-          gism.push(ar.splice(c, 1)[0])
+          gismu.push(ar[c])
+        } else if (ar[c].t === 'cmavo') {
+          cmavo.push(ar[c])
+        } else {
+          drata.push(ar[c])
         }
       }
-      for (c = 0; c < ar.length; c++) {
-        if (ar[c].t === 'cmavo') {
-          cmav.push(ar.splice(c, 1)[0])
-        }
-      }
-      var g = gism.sort(sortMultiDimensional)
-      var c = cmav.sort(sortMultiDimensional)
-      var drata = ar.sort(sortMultiDimensional)
+      gismu = gismu.sort(sortMultiDimensional)
+      cmavo = cmavo.sort(sortMultiDimensional)
+      drata = drata.sort(sortMultiDimensional)
       return seskari === 'catni'
-        ? [g.concat(c), drata]
-        : g.concat(c).concat(drata)
+        ? [gismu.concat(cmavo), drata]
+        : gismu.concat(cmavo).concat(drata)
     }
     var sortMultiDimensional = function (a, b) {
       if (!a.d) a.d = ''
@@ -813,6 +813,10 @@ function sisku(data, callback) {
     var firstMatches
     var secondMatches
     if (seskari === 'catni') {
+      ui = ui.map(function (i) {
+        if (i.length !== 2) i = [[], []]
+        return i
+      })
       firstMatches = secupra_vreji.concat(ui[0][0], ui[1][0])
       secondMatches = ui[3][0].concat(
         ui[9][0],
@@ -1001,8 +1005,8 @@ function krulermorna(t) {
       .replace(/^/, '.')
       .replace(/h/g, "'")
       .toLowerCase()
-      .replace(/([aeiou\.])u([aeiou])/g, '$1w$2')
-      .replace(/([aeiou\.])i([aeiou])/g, '$1ɩ$2')
+      .replace(/([aeiouy\.])u([aeiouy])/g, '$1w$2')
+      .replace(/([aeiouy\.])i([aeiouy])/g, '$1ɩ$2')
       .replace(/au/g, 'ḁ')
       .replace(/ai/g, 'ą')
       .replace(/ei/g, 'ę')
@@ -1020,7 +1024,7 @@ function siskurimni(query) {
       var doc = setca_lotcila(a[i]) // todo: optimize for phrases
       if (!doc) continue
       var docw = krulermorna(doc.w)
-        .replace(/([aeiouḁąęǫ])/g, '$1-')
+        .replace(/([aeiouḁąęǫy])/g, '$1-')
         .split('-')
         .slice(-3)
       if (queryR && docw[0].slice(-1) !== queryR[0].slice(-1)) continue
@@ -1042,44 +1046,39 @@ function siskurimni(query) {
       if (krulermorna(doc.w) === query) {
         rimni[0].push(doc)
         continue
-      } else if (queryR[2]) {
+      } else if (docw[2] || '' === queryR[2] || '') {
+        // if (queryR[2])
         if (
           (docw[0].match(queryR[0]) || []).length > 0 &&
           (docw[1].match(queryR[1]) || []).length > 0 &&
-          left === right &&
-          docw[2] === queryR[2]
+          left === right
         ) {
           rimni[1].push(doc)
         } else if (
           (docw[0].match(queryR[0]) || []).length > 0 &&
           (docw[1].match(queryR[1]) || []).length > 0 &&
-          sli &&
-          docw[2] === queryR[2]
+          sli
         ) {
           rimni[2].push(doc)
         } else if (
-          (docw[1].match(regexify(queryR[2])) || []).length > 0 &&
-          left === right &&
-          docw[2] === queryR[2]
+          (docw[1].match(regexify(queryR[2] || '')) || []).length > 0 &&
+          left === right
         ) {
           rimni[3].push(doc)
         } else if (
-          (docw[1].match(regexify(queryR[2])) || []).length > 0 &&
-          sli &&
-          docw[2] === queryR[2]
+          (docw[1].match(regexify(queryR[2] || '')) || []).length > 0 &&
+          sli
         ) {
           rimni[4].push(doc)
         } else if (
           (docw[0].match(queryR[0]) || []).length > 0 &&
           sli &&
-          reversal &&
-          docw[2] === queryR[2]
+          reversal
         ) {
           rimni[5].push(doc)
         } else if (
           (docw[0].match(queryR[0]) || []).length > 0 &&
-          (docw[1].match(queryR[1]) || []).length > 0 &&
-          docw[2] === queryR[2]
+          (docw[1].match(queryR[1]) || []).length > 0
         ) {
           rimni[6].push(doc)
         }
@@ -1149,20 +1148,20 @@ function siskurimni(query) {
   }
 
   queryR = krulermorna(query)
-    .replace(/([aeiouḁąęǫ])/g, '$1-')
+    .replace(/([aeiouḁąęǫy])/g, '$1-')
     .split('-')
     .slice(-3)
   queryF = queryR.slice()
   if (queryR.length >= 2) {
-    queryR[1] = queryR[1].replace(/[aeiouḁąęǫ]/, '[aeiouḁąęǫ]')
+    queryR[1] = queryR[1].replace(/[aeiouḁąęǫy]/, '[aeiouḁąęǫy]')
   }
-  var r = /.*([aeiouḁąęǫ])/.exec(queryR[0])
+  var r = /.*([aeiouḁąęǫy])/.exec(queryR[0])
   if (r === null) return []
   queryR[0] = r[1]
   if (queryR.length === 2) {
     r = Object.keys(sorcu[bau]).reduce(function (b, n) {
       var queryRn = krulermorna(n)
-        .replace(/([aeiouḁąęǫ])/g, '$1-')
+        .replace(/([aeiouḁąęǫy])/g, '$1-')
         .split('-')
         .slice(-3)
       if (
@@ -1177,7 +1176,7 @@ function siskurimni(query) {
       return b
     }, [])
   } else {
-    query_apos = regexify(queryR.join(''))
+    query_apos = regexify((queryR || []).join(''))
     r = Object.keys(sorcu[bau]).reduce(function (b, n) {
       if (
         (krulermorna(n).match(query_apos.toLowerCase() + '$') || []).length > 0

@@ -139,7 +139,7 @@ function fullColorHex(r, g, b) {
   return '#' + red + green + blue
 }
 
-// tempalting - remove parts not relevant to the current sutysisku
+// templating - remove parts not relevant to the current sutysisku
 String.prototype.stripout = function (config, tag) {
   const tags = tag
     .split('\\|')
@@ -249,6 +249,11 @@ langs.forEach((lang) => {
     mupliskari3: '38,99,224',
     mupliskari4: '25,65,165',
 
+    catniskari1: '58,116,233',
+    catniskari2: '34,87,210',
+    catniskari3: '36,68,224',
+    catniskari4: '25,48,164',
+
     velcusku_skari1: '214, 58, 233',
     velcusku_skari2: '193, 34, 211',
     velcusku_skari3: '205, 36, 224',
@@ -269,7 +274,8 @@ langs.forEach((lang) => {
     rimnigradpos4: '100%',
     kunti: 'clear',
     rimni: 'rhymes',
-    cnano: 'search',
+    cnano: 'search+',
+    catni: 'search',
     arxivo: 'archive',
     velcusku: 'read chat',
     parse: 'parse',
@@ -302,14 +308,14 @@ langs.forEach((lang) => {
         encoding: 'utf8',
       }),
     })
-    if (el.uglify) {
+    if (el.uglify && process.env.COMPRESS !== 'false') {
       output = minify(output, {
         mangle: {
           keepClassName: true,
           exclude: ['sisku'],
         },
       }).code
-      console.log(`minified ${lang}/${el.out}`);
+      console.log(`minified ${lang}/${el.out}`)
     }
     fs.writeFileSync(
       path.join(__dirname, '../build/sutysisku/', lang, el.out),
@@ -320,13 +326,15 @@ langs.forEach((lang) => {
   let siskujs = fs.readFileSync(path.join(__dirname, './template/sisku.js'), {
     encoding: 'utf8',
   })
-
-  siskujs = minify(siskujs, {
-    mangle: {
-      keepClassName: true,
-      exclude: ['sisku'],
-    },
-  }).code
+  if (process.env.COMPRESS !== 'false'){
+    siskujs = minify(siskujs, {
+      mangle: {
+        keepClassName: true,
+        exclude: ['sisku'],
+      },
+    }).code
+    console.log(`minified sisku.js`)
+  }
 
   fs.writeFileSync(path.join(__dirname, '../build/sutysisku/sisku.js'), siskujs)
 

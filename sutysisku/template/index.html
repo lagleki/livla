@@ -121,12 +121,6 @@
     />
     <link rel="stylesheet" href="./index.css?detri={now}" />
     <link rel="manifest" href="../manifest.json" />
-    <!--<xuzganalojudri|lojbo>-->
-    <link
-      rel="stylesheet"
-      href="https://jackhumbert.github.io/zbalermorna/assets/css/fonts.css"
-    />
-    <!--</xuzganalojudri|lojbo>-->
     <script src="bangu.js?sisku={now}"></script>
   </head>
 
@@ -186,9 +180,10 @@
       <button onclick="switchBorderScroll();" id="scrollToTop"></button>
       <div class="content-panel">
         <div id="sidju" class="sidju ralju noselect">
-          <div id="citri" class="valsi"></div>
+          <div id="citri" class="citri"></div>
           <div class="leitutci">
             <!-- <a class="tutci velcusku-tutci" id="velcusku">'%velcusku%'</a> -->
+            <a class="tutci" id="catni">'%catni%'</a>
             <a class="tutci" id="cnano">'%cnano%'</a>
             <a class="tutci rimni-tutci" id="rimni">'%rimni%'</a>
             <!-- <a class="tutci arxivo-tutci" id="arxivo">'%arxivo%'</a> -->
@@ -201,7 +196,17 @@
           </div>
         </div>
         <div id="drata" style="text-align: center;"></div>
-        <div id="descr" class="term termouter">'%bangudesc%'</div>
+        <div id="descr">
+          <div class="term termouter">'%bangudesc%'</div>
+          <div class="term termouter">
+            <h1 id="pronunciation" style="font-weight: bold;">
+              '%pron_guide%'
+            </h1>
+            <div>. , a b c d e f g ' i j k l m n o p r s t u v x y z</div>
+            <div id="table"></div>
+            <audio id="audio"></audio>
+          </div>
+        </div>
         <div id="outp"></div>
       </div>
     </div>
@@ -227,6 +232,5 @@
     <!-- The most recent minified version  -->
     <!-- <script src="https://unpkg.com/3box/dist/3box.min.js"></script> -->
     <!-- <script src="https://www.unpkg.com/identity-wallet@1.2.0/dist/identity-wallet.js"></script> -->
-
   </body>
 </html>

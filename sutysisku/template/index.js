@@ -9,6 +9,7 @@ var pb = document.getElementById('kernelo_lo_cpacu')
 var worker = new Worker('worker.js?sisku={now}')
 var SiteTitle = document.querySelector('#title > font')
 var SiteTitleFull = document.querySelector('#site-title')
+var plumbs=[]
 SiteTitleFull.classList.add('desktop-mode-title-color')
 // var firstSiteTitleValue = SiteTitle.firstChild.nodeValue;
 var dasri = document.getElementById('galtu-dasri')
@@ -189,6 +190,8 @@ function EmitVelcusku() {
 }
 
 function RenderResults({ query, seskari }) {
+  plumbs.map(function(p){p.remove()})
+  plumbs=[]
   window.jimte = seskari === 'velcusku' ? 201 : 30
   resultCount = 0
   SwitchRotation({
@@ -225,6 +228,7 @@ function RenderResults({ query, seskari }) {
     default:
       MathJax.typeset()
       RenderDasri('cnano', 'none')
+      RenderPlumbing()
   }
 
   delay(function () {
@@ -243,6 +247,22 @@ function RenderResults({ query, seskari }) {
     if (socket) socket.emit('sisku', pageViewData)
   }, 2000)
 }
+
+function RenderPlumbing() {
+  targetedEls = document.querySelectorAll('[data-target]')
+  for (var i = 0; i < targetedEls.length; i++) {
+    el = targetedEls[i]
+    var id = el.id
+    var target = el.attributes["data-target"].nodeValue
+    t=new LeaderLine(
+      document.getElementById(id),
+      document.getElementById(target), {color: 'rgba(255, 120, 0, 0.5)', dash: {animation: true},startSocket: 'top', endSocket: 'bottom', size: 2}
+    )
+    plumbs.push(t)
+    // el.removeAttribute('data-target')
+  }
+}
+
 //listeners
 worker.onmessage = function (ev) {
   var data = ev.data
@@ -542,10 +562,7 @@ function RenderDesktop() {
   catni.classList.remove('catni-tutci-hover', 'tutci-hover')
   try {
     cnano.classList.remove('cnano-tutci-hover', 'tutci-hover')
-    
-  } catch (error) {
-    
-  }
+  } catch (error) {}
   // velcusku.classList.remove("velcusku-tutci-hover", "tutci-hover");
   rimni.classList.remove('rimni-tutci-hover', 'tutci-hover')
   // arxivo.classList.remove("arxivo-tutci-hover", "tutci-hover");
@@ -747,6 +764,9 @@ function CLL(selmaho) {
 //</xuzganalojudri|lojbo>
 
 function checkScrolledNearBottom(ev) {
+  plumbs.map(function(p){
+    p.position()
+  })
   if (
     state.displaying.seskari !== 'velcusku' &&
     ev.target.scrollTop + window.innerHeight >= outp.clientHeight - 700
@@ -754,14 +774,42 @@ function checkScrolledNearBottom(ev) {
     window.jimte += 10
     skicu_rolodovalsi(state.displaying)
     MathJax.typeset()
+    if (state.displaying.seskari==='cnano') RenderPlumbing()
   }
 }
 
-function melbi_uenzi({ def, query, seskari }) {
+function melbi_uenzi({ def, query, seskari, type, index }) {
+  var iterTercricmiId = 0
+  var jsonIds = []
   if (!['cnano', 'catni', 'rimni'].includes(seskari)) seskari = 'cnano'
   return (
     '<span>' +
     def
+      .replace(/\$.*?\$/g, function (c) {
+        if (type === 'd') {
+          iterTercricmiId++
+          var combInd = index + '_' + iterTercricmiId
+          var a = {}
+          a[c]=combInd
+          jsonIds.push(a)
+          c = '<span id="' + combInd + '">' + c + '</span>'
+        }
+        return c
+      })
+      .replace(
+        /(<span [^\(\)<>]+?>[^\(\)<>]+?<\/span>) \(property of <span id="([^\(\)<>]+?)">([^\(\)<>]+?)<\/span>\)/g,
+        function (c, _, id, t) {
+          if (type === 'd') {
+            var a = jsonIds.filter(function(e){return e[t]!==id && e[t]})
+            if (a[0] && a[0][t])
+              c = c.replace(
+                /^<span /,
+                '<span data-target="' + a[0][t] + '" '
+              )
+          }
+          return c
+        }
+      )
       .replace(/\$.*?\$/g, function (c) {
         return c.replace(/\{/g, '\\curlyleft').replace(/\}/g, '\\curlyright')
       })
@@ -786,7 +834,9 @@ function melbi_uenzi({ def, query, seskari }) {
       .replace(/\{.*?\}/g, function (c) {
         var c = c.substring(1, c.length - 1)
         return (
-          '</span><a href="#seskari=' +
+          '</span><a class="a-' +
+          seskari +
+          '" href="#seskari=' +
           seskari +
           '&sisku=' +
           encodeUrl(c) +
@@ -995,7 +1045,7 @@ function ConstructArxivoValsiExtract(d, query, range) {
   return locs
 }
 
-function skicu_palodovalsi({ def, inner, query, seskari, length, index }) {
+function skicu_palodovalsi({ def, inner, query, seskari, index }) {
   if (!query) query = state.searching.query
   if (!seskari) seskari = state.searching.seskari
   if (!def) def = []
@@ -1166,6 +1216,8 @@ function skicu_palodovalsi({ def, inner, query, seskari, length, index }) {
         def: def.d,
         query,
         seskari,
+        type: 'd',
+        index,
       })
       if (seskari !== 'velcusku') melbi = melbi.replace(/\n/g, '<br/>') + ' '
       n.innerHTML = melbi
@@ -1286,6 +1338,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, length, index }) {
         skicu_palodovalsi({
           def: def.rafsiDocuments[i],
           inner: true,
+          index: index + "_" + i
         })
       )
     }

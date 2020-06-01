@@ -15,6 +15,7 @@ var urlsToCache = [
   "./worker.js?sisku={now}",
   "../assets/fonts/LinLibertine_R.otf?sisku={now}",
   "../assets/fonts/crisa-regular.otf?sisku={now}",
+  "../assets/scripts/leader-line.min.js",
   "../pixra/cll.png",
   "../pixra/cmalu_snime.svg",
   "../pixra/snime.svg",

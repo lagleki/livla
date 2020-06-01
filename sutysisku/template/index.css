@@ -100,10 +100,6 @@ h4 {
 /*
 .border_gradient {
 border: 8px solid #000;
--moz-border-bottom-colors:#897048 #917953 #a18a66 #b6a488 #c5b59b #d4c5ae #e2d6c4 #eae1d2;
--moz-border-top-colors:  #897048 #917953 #a18a66 #b6a488 #c5b59b #d4c5ae #e2d6c4 #eae1d2;
--moz-border-left-colors: #897048 #917953 #a18a66 #b6a488 #c5b59b #d4c5ae #e2d6c4 #eae1d2;
--moz-border-right-colors:#897048 #917953 #a18a66 #b6a488 #c5b59b #d4c5ae #e2d6c4 #eae1d2;
 padding: 5px 5px 5px 15px;
 width: 300px;
 }
@@ -661,6 +657,10 @@ ul > li > a {
   color: #7d0505;
 }
 
+.a-catni {
+  color: #2b4ae0;
+}
+
 .a-rimni {
   color: #af0a0a;
 }
@@ -695,21 +695,19 @@ sub {
 
 #catni {
   border-radius: 3px 0 0 3px;
-  border-right: 0;
+  border-right: 1px #111 dashed;
 }
 
 #cnano {
   border-radius: 0 3px 3px 0;
   border-left: 1px #111 dashed;
-  margin-left: 0;
+  margin-left: -1px;
 }
 
 .tutci {
   line-height: 150%;
   box-shadow: inset 0px -3px 7px 0px #29bbff;
   background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa', GradientType=0);
-  background-color: #2dabf9;
   border-radius: 3px;
   border: 1px solid #000000;
   /* display: inline; */
@@ -739,29 +737,22 @@ sub {
 .rimni-tutci {
   box-shadow: inset 0px -3px 7px 0px #ff2929;
   background: linear-gradient(to bottom, #c229296b 5%, #af0a0a 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c229296b', endColorstr='#af0a0a', GradientType=0);
-  background-color: #c229296b;
 }
 
 .rimni-tutci:hover,
 .rimni-tutci-hover {
   background: linear-gradient(to bottom, #af0a0a 5%, #c229296b 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#af0a0a', endColorstr='#c229296b', GradientType=0);
-  background-color: #af0a0a;
 }
 
 .velcusku-tutci {
   box-shadow: inset 0px -3px 7px 0px #e629ff;
-  background: linear-gradient(to bottom, #e12ff9 5%, #dd05fa 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e12ff9', endColorstr='#dd05fa', GradientType=0);
-  background-color: #e12ff9;
+
 }
 
 .velcusku-tutci:hover,
 .velcusku-tutci-hover {
   background: linear-gradient(to bottom, #dd05fa 5%, #e12ff9 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dd05fa', endColorstr='#e12ff9', GradientType=0);
-  background-color: #dd05fa;
+
 }
 
 .klesi {
@@ -785,15 +776,13 @@ sub {
 .klesi-tutci {
   box-shadow: inset 0px -3px 7px 0px #eee;
   background: linear-gradient(to bottom, #ffe 5%, #eee 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe', endColorstr='#eee', GradientType=0);
-  background-color: #ffe;
+
 }
 
 .klesi-tutci:hover,
 .klesi-tutci-hover {
   background: linear-gradient(to bottom, #eee 5%, #ffe 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eee', endColorstr='#ffe', GradientType=0);
-  background-color: #eee;
+
 }
 
 #arxivo {
@@ -813,8 +802,7 @@ sub {
 .arxivo-tutci-hover {
   /* border:1px solid #967d09; */
   color: #000;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6cd5a', endColorstr='#e6cd5a', GradientType=0);
-  background: #e6cd5a;
+
 }
 
 .tutci:active {
@@ -1046,23 +1034,8 @@ user-select: none; */
   font-size: 1em;
   min-width: 3em;
   min-height: 2em;
-  -moz-box-shadow: inset 0px 1px 0px 0px #85cc98;
-  -webkit-box-shadow: inset 0px 1px 0px 0px #85cc98;
   box-shadow: inset 0px 1px 0px 0px #85cc98;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0.05, #5aad70),
-    color-stop(1, #4ba563)
-  );
-  background: -moz-linear-gradient(top, #5aad70 5%, #4ba563 100%);
-  background: -webkit-linear-gradient(top, #5aad70 5%, #4ba563 100%);
-  background: -o-linear-gradient(top, #5aad70 5%, #4ba563 100%);
-  background: -ms-linear-gradient(top, #5aad70 5%, #4ba563 100%);
   background: linear-gradient(to bottom, #5aad70 5%, #4ba563 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5AAD70', endColorstr='#4BA563', GradientType=0);
-  background-color: #5aad70;
   border: 1px solid #3b6e22;
   border-top: 0px;
   border-left: 0px;
@@ -1075,20 +1048,7 @@ user-select: none; */
 }
 
 .bangu:hover {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0.05, #4ba563),
-    color-stop(1, #5aad70)
-  );
-  background: -moz-linear-gradient(top, #4ba563 5%, #5aad70 100%);
-  background: -webkit-linear-gradient(top, #4ba563 5%, #5aad70 100%);
-  background: -o-linear-gradient(top, #4ba563 5%, #5aad70 100%);
-  background: -ms-linear-gradient(top, #4ba563 5%, #5aad70 100%);
   background: linear-gradient(to bottom, #4ba563 5%, #5aad70 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4BA563', endColorstr='#5AAD70', GradientType=0);
-  background-color: #4ba563;
 }
 
 .bangu:active {

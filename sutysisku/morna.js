@@ -274,7 +274,7 @@ langs.forEach((lang) => {
     rimnigradpos4: '100%',
     kunti: 'clear',
     rimni: 'rhymes',
-    cnano: 'search+',
+    cnano: '+',
     catni: 'search',
     arxivo: 'archive',
     velcusku: 'read chat',

@@ -1,5 +1,6 @@
 var content = document.getElementById('content')
 var ciska = document.getElementById('ciska')
+var clear = document.getElementById('clear')
 var outp = document.getElementById('outp')
 var descr = document.getElementById('descr')
 var drata = document.getElementById('drata')
@@ -9,7 +10,7 @@ var pb = document.getElementById('kernelo_lo_cpacu')
 var worker = new Worker('worker.js?sisku={now}')
 var SiteTitle = document.querySelector('#title > font')
 var SiteTitleFull = document.querySelector('#site-title')
-var plumbs=[]
+var plumbs = []
 SiteTitleFull.classList.add('desktop-mode-title-color')
 // var firstSiteTitleValue = SiteTitle.firstChild.nodeValue;
 var dasri = document.getElementById('galtu-dasri')
@@ -171,17 +172,17 @@ function SwitchRotation({ action }) {
       document.getElementById(el).classList.remove('stopRotate')
       document.getElementById(el).classList.add('rotate')
     })
-    document.getElementById('clear').classList.add('pulsate-css')
+    clear.classList.add('pulsate-css')
     setTimeout(() => {
-      if (document.getElementById('clear').classList.contains('pulsate-css'))
-        document.getElementById('ciska').classList.add('granim-css')
+      if (clear.classList.contains('pulsate-css'))
+        ciska.classList.add('granim-css')
     }, 500)
   } else {
     els.map(function (el) {
       document.getElementById(el).classList.add('stopRotate')
     })
-    document.getElementById('ciska').classList.remove('granim-css')
-    document.getElementById('clear').classList.remove('pulsate-css')
+    ciska.classList.remove('granim-css')
+    clear.classList.remove('pulsate-css')
   }
 }
 
@@ -190,8 +191,6 @@ function EmitVelcusku() {
 }
 
 function RenderResults({ query, seskari }) {
-  plumbs.map(function(p){p.remove()})
-  plumbs=[]
   window.jimte = seskari === 'velcusku' ? 201 : 30
   resultCount = 0
   SwitchRotation({
@@ -227,8 +226,8 @@ function RenderResults({ query, seskari }) {
     case 'cnano':
     default:
       MathJax.typeset()
+      addPlumbs()
       RenderDasri('cnano', 'none')
-      RenderPlumbing()
   }
 
   delay(function () {
@@ -248,19 +247,48 @@ function RenderResults({ query, seskari }) {
   }, 2000)
 }
 
-function RenderPlumbing() {
+function removePlumbs() {
+  plumbs.map(function (p) {
+    p.remove()
+  })
+  plumbs = []
+}
+function addPlumbs() {
+  removePlumbs()
   targetedEls = document.querySelectorAll('[data-target]')
   for (var i = 0; i < targetedEls.length; i++) {
     el = targetedEls[i]
-    var id = el.id
-    var target = el.attributes["data-target"].nodeValue
-    t=new LeaderLine(
-      document.getElementById(id),
-      document.getElementById(target), {color: 'rgba(255, 120, 0, 0.5)', dash: {animation: true},startSocket: 'top', endSocket: 'bottom', size: 2}
-    )
-    plumbs.push(t)
-    // el.removeAttribute('data-target')
+    if (kahe_sezgana(el)) {
+      var id = el.id
+      var target = el.attributes['data-target'].nodeValue
+      t = new LeaderLine(
+        document.getElementById(target),
+        document.getElementById(id),
+        {
+          color: 'rgba(255, 120, 0, 0.5)',
+          dash: { animation: true },
+          startSocketGravity: [50, -67],
+          endSocketGravity: [0, 67],
+          endPlug: 'arrow2',
+          // startSocket: 'top',
+          endSocket: 'bottom',
+          size: 3,
+        }
+      )
+      plumbs.push(t)
+    }
   }
+}
+
+function kahe_sezgana(el) {
+  var rect = el.getBoundingClientRect()
+  rect =
+    rect.top >= 48 &&
+    rect.left >= 0 &&
+    rect.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  return rect
 }
 
 //listeners
@@ -417,7 +445,7 @@ function focusSearch() {
   DispatchState({})
 }
 //mainbutton > showDesc, state.searching ={}
-document.getElementById('clear').addEventListener('click', EmptyState)
+clear.addEventListener('click', EmptyState)
 document.getElementById('title').addEventListener('click', EmptyState)
 
 function EmptyState() {
@@ -544,6 +572,7 @@ function DispatchState({ replace, caller, empty }) {
 }
 //rendering
 function RenderDesktop() {
+  removePlumbs()
   SwitchRotation({
     action: 'stop',
   })
@@ -763,10 +792,16 @@ function CLL(selmaho) {
 }
 //</xuzganalojudri|lojbo>
 
+var scrollTimer = null
+
 function checkScrolledNearBottom(ev) {
-  plumbs.map(function(p){
-    p.position()
-  })
+  removePlumbs()
+  if (scrollTimer !== null) {
+    clearTimeout(scrollTimer)
+  }
+  scrollTimer = setTimeout(function () {
+    addPlumbs()
+  }, 450)
   if (
     state.displaying.seskari !== 'velcusku' &&
     ev.target.scrollTop + window.innerHeight >= outp.clientHeight - 700
@@ -774,8 +809,20 @@ function checkScrolledNearBottom(ev) {
     window.jimte += 10
     skicu_rolodovalsi(state.displaying)
     MathJax.typeset()
-    if (state.displaying.seskari==='cnano') RenderPlumbing()
   }
+}
+
+function string2Int(s, base, q) {
+  return (
+    Math.round(
+      (s.split('').reduce(function (a, b) {
+        a = (a << 5) - a + b.charCodeAt(0)
+        return a & a
+      }, 0) %
+        base) /
+        q
+    ) * q
+  )
 }
 
 function melbi_uenzi({ def, query, seskari, type, index }) {
@@ -785,27 +832,43 @@ function melbi_uenzi({ def, query, seskari, type, index }) {
   return (
     '<span>' +
     def
-      .replace(/\$.*?\$/g, function (c) {
+      .replace(/\$.*?\$/g, function (c, offset, string) {
         if (type === 'd') {
+          var q = string.substr(offset)
+          var r = new RegExp(
+            '^(' + c.replace(/\$/g, '\\$') + ' \\([^()<>]+?\\)).*'
+          )
+          var hc = c
+          if (q.search(r) === 0) {
+            hc = q.replace(r, '$1')
+          }
           iterTercricmiId++
           var combInd = index + '_' + iterTercricmiId
           var a = {}
-          a[c]=combInd
+          a[c] = combInd
           jsonIds.push(a)
-          c = '<span id="' + combInd + '">' + c + '</span>'
+          c =
+            '<span id="' +
+            combInd +
+            '" class="terbricmi" style="background-color: hsl(' +
+            string2Int(hc, 256, 16) +
+            ', 100%, 90%);border-radius:' +
+            (string2Int(hc, 9, 1) + 3) +
+            'px">' +
+            c +
+            '</span>'
         }
         return c
       })
       .replace(
-        /(<span [^\(\)<>]+?>[^\(\)<>]+?<\/span>) \(property of <span id="([^\(\)<>]+?)">([^\(\)<>]+?)<\/span>\)/g,
+        /(<span [^<>]+?>[^\(\)<>]+?<\/span>) \([^\(\)<>]*?\bproperty of <span id="([^\(\)<>]+?)"[^<>]+?>([^\(\)<>]+?)<\/span>\)/g,
         function (c, _, id, t) {
           if (type === 'd') {
-            var a = jsonIds.filter(function(e){return e[t]!==id && e[t]})
+            var a = jsonIds.filter(function (e) {
+              return e[t] !== id && e[t]
+            })
             if (a[0] && a[0][t])
-              c = c.replace(
-                /^<span /,
-                '<span data-target="' + a[0][t] + '" '
-              )
+              c = c.replace(/^<span /, '<span data-target="' + a[0][t] + '" ')
           }
           return c
         }
@@ -1338,7 +1401,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
         skicu_palodovalsi({
           def: def.rafsiDocuments[i],
           inner: true,
-          index: index + "_" + i
+          index: index + '_' + i,
         })
       )
     }

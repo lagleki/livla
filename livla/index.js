@@ -981,7 +981,7 @@ async function updateXmlDumps() {
 
 setInterval(() => {
   updateXmlDumps()
-}, 3 * 24 * 60 * 60 * 1000) // update logs once 3 djedi
+}, 1 * 1 * 60 * 60 * 1000) // update logs once an hour
 
 const GimkaConflicts = (valsi) => {
   const gimka = require('../skripto/gimka.js')

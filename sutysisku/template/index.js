@@ -267,11 +267,11 @@ function addPlumbs() {
         document.getElementById(id),
         {
           // gradient: {
-          //   startColor: 'rgba(135, 0, 0, 0.5)',
-          //   endColor: 'rgba(255, 120, 0, 0.5)',
+          //   startColor: 'rgba(135, 0, 0, 0.4)',
+          //   endColor: 'rgba(255, 120, 0, 0.4)',
           // },
-          // endPlugColor: 'rgba(255, 120, 0, 0.5)',
-          color: 'rgba(255, 120, 0, 0.5)',
+          endPlugColor: 'rgba(255, 120, 0, 0.4)',
+          color: 'rgba(255, 120, 0, 0.4)',
           dash: { animation: true },
           startSocketGravity: [50, -67],
           endSocketGravity: [0, 67],

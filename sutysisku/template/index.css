@@ -746,13 +746,11 @@ sub {
 
 .velcusku-tutci {
   box-shadow: inset 0px -3px 7px 0px #e629ff;
-
 }
 
 .velcusku-tutci:hover,
 .velcusku-tutci-hover {
   background: linear-gradient(to bottom, #dd05fa 5%, #e12ff9 100%);
-
 }
 
 .klesi {
@@ -776,13 +774,11 @@ sub {
 .klesi-tutci {
   box-shadow: inset 0px -3px 7px 0px #eee;
   background: linear-gradient(to bottom, #ffe 5%, #eee 100%);
-
 }
 
 .klesi-tutci:hover,
 .klesi-tutci-hover {
   background: linear-gradient(to bottom, #eee 5%, #ffe 100%);
-
 }
 
 #arxivo {
@@ -802,7 +798,6 @@ sub {
 .arxivo-tutci-hover {
   /* border:1px solid #967d09; */
   color: #000;
-
 }
 
 .tutci:active {
@@ -1080,4 +1075,14 @@ user-select: none; */
 /*</xuzganalojudri|lojbo>*/
 .display-block {
   display: block;
+}
+
+.terbricmi {
+  border-style: dashed;
+  border-width: 1px;
+  padding: 0 7px 0 6px;
+  margin: 0 2px 0 2px;
+  border-color: #aaa;
+  border-radius: 3px;
+  white-space:nowrap;
 }

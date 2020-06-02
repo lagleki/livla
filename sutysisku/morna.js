@@ -323,21 +323,6 @@ langs.forEach((lang) => {
     )
   }
 
-  let siskujs = fs.readFileSync(path.join(__dirname, './template/sisku.js'), {
-    encoding: 'utf8',
-  })
-  if (process.env.COMPRESS !== 'false'){
-    siskujs = minify(siskujs, {
-      mangle: {
-        keepClassName: true,
-        exclude: ['sisku'],
-      },
-    }).code
-    console.log(`minified sisku.js`)
-  }
-
-  fs.writeFileSync(path.join(__dirname, '../build/sutysisku/sisku.js'), siskujs)
-
   // current datetime
   const d = new Date()
   const n =
@@ -443,3 +428,18 @@ NETWORK:
     workerjsfile
   )
 })
+
+let siskujs = fs.readFileSync(path.join(__dirname, './template/sisku.js'), {
+  encoding: 'utf8',
+})
+if (process.env.COMPRESS !== 'false'){
+  siskujs = minify(siskujs, {
+    mangle: {
+      keepClassName: true,
+      exclude: ['sisku'],
+    },
+  }).code
+  console.log(`minified sisku.js`)
+}
+
+fs.writeFileSync(path.join(__dirname, '../build/sutysisku/sisku.js'), siskujs)

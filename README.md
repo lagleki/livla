@@ -47,3 +47,14 @@ instead of those of “irc.freenode.net”.
  - `tcan` is the list of channels to which the replier will connect.
  - `replier` is the name of the replier
  - `server` is the name of the IRC network to which the bot will connect.
+
+# Development
+
+## la sutysisku
+
+In order to test la sutysisku 
+* clone this repo
+* `npm run start`
+* livla/index.js is started, it should download XML dumps from jbovlaste.lojban.org
+* `COMPRESS=false npm run sutysisku ; cp -avr build/sutysisku/* ~/your-public-folder/`
+** la sutysisku gets compiled. You can test it either locally from `~/your-public-folder/` folder (which you may wish to be made accessible from a https address as well for a full staging env) 

@@ -256,34 +256,38 @@ function removePlumbs() {
 
 function addPlumbs() {
   removePlumbs()
-  targetedEls = document.querySelectorAll('[data-target]')
-  for (var i = 0; i < targetedEls.length; i++) {
-    el = targetedEls[i]
-    if (kahe_sezgana(el)) {
-      var id = el.id
-      var target = el.attributes['data-target'].nodeValue
-      t = new LeaderLine(
-        document.getElementById(target),
-        document.getElementById(id),
-        {
-          // gradient: {
-          //   startColor: 'rgba(135, 0, 0, 0.4)',
-          //   endColor: 'rgba(255, 120, 0, 0.4)',
-          // },
-          endPlugColor: 'rgba(255, 120, 0, 0.4)',
-          color: 'rgba(255, 120, 0, 0.4)',
-          dash: { animation: true },
-          startSocketGravity: [50, -67],
-          endSocketGravity: [0, 67],
-          endPlug: 'arrow2',
-          // startSocket: 'top',
-          endSocket: 'bottom',
-          size: 3,
-        }
-      )
-      plumbs.push(t)
+  scrollTimer = setTimeout(function () {
+    targetedEls = document.querySelectorAll('[data-target]')
+    for (var i = 0; i < targetedEls.length; i++) {
+      el = targetedEls[i]
+      if (kahe_sezgana(el)) {
+        var id = el.id
+        var target = el.attributes['data-target'].nodeValue
+        t = new LeaderLine(
+          document.getElementById(target),
+          document.getElementById(id),
+          {
+            // gradient: {
+            //   startColor: 'rgba(135, 0, 0, 0.4)',
+            //   endColor: 'rgba(255, 120, 0, 0.4)',
+            // },
+            endPlugColor: 'rgba(255, 120, 0, 0.33)',
+            color: 'rgba(255, 120, 0, 0.33)',
+            dash: { animation: true },
+            // outlineColor: '#111',
+            // outline: true,
+            startSocketGravity: [50, -67],
+            endSocketGravity: [0, 67],
+            endPlug: 'arrow2',
+            // startSocket: 'top',
+            endSocket: 'bottom',
+            size: 3,
+          }
+        )
+        plumbs.push(t)
+      }
     }
-  }
+  }, 450)
 }
 
 function kahe_sezgana(el) {
@@ -805,9 +809,7 @@ function checkScrolledNearBottom(ev) {
   if (scrollTimer !== null) {
     clearTimeout(scrollTimer)
   }
-  scrollTimer = setTimeout(function () {
-    addPlumbs()
-  }, 450)
+  addPlumbs()
   if (
     state.displaying.seskari !== 'velcusku' &&
     ev.target.scrollTop + window.innerHeight >= outp.clientHeight - 700

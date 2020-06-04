@@ -11,6 +11,9 @@ var worker = new Worker('worker.js?sisku={now}')
 var SiteTitle = document.querySelector('#title > font')
 var SiteTitleFull = document.querySelector('#site-title')
 var plumbs = []
+var jvoPlumbs = []
+var jvoPlumbsOn = false
+var plumbsTimeout = 3500
 SiteTitleFull.classList.add('desktop-mode-title-color')
 // var firstSiteTitleValue = SiteTitle.firstChild.nodeValue;
 var dasri = document.getElementById('galtu-dasri')
@@ -191,6 +194,8 @@ function EmitVelcusku() {
 }
 
 function RenderResults({ query, seskari }) {
+  removePlumbs()
+  removeJvoPlumbs()
   window.jimte = seskari === 'velcusku' ? 201 : 30
   resultCount = 0
   SwitchRotation({
@@ -225,8 +230,10 @@ function RenderResults({ query, seskari }) {
       break
     case 'cnano':
     default:
-      MathJax.typeset()
-      addPlumbs()
+      MathJax.typesetPromise().then(function () {
+        addPlumbs()
+        addJvoPlumbs(true)
+      })
       RenderDasri('cnano', 'none')
   }
 
@@ -252,6 +259,66 @@ function removePlumbs() {
     p.remove()
   })
   plumbs = []
+}
+function removeJvoPlumbs() {
+  jvoPlumbs.map(function (p) {
+    p.remove()
+  })
+  jvoPlumbs = []
+}
+
+function addJvoPlumbs(force) {
+  removeJvoPlumbs()
+
+  if (force !== true) {
+    jvoPlumbsOn = !jvoPlumbsOn
+  }
+  if (!jvoPlumbsOn) return
+
+  targetedEls = Array.from(document.querySelectorAll('[data-arr]'))
+  for (var i = 0; i < targetedEls.length; i++) {
+    el = targetedEls[i]
+    var id = el.id
+    var arr = el.attributes['data-arr'].nodeValue.split(',')
+    var tld = el.id.split('_')
+    if (tld.length === 3) continue
+    var tld0 = tld[0]
+    var kahe_zgana_el = kahe_sezgana(el)
+    targetedEls.filter(function (e) {
+      var tld_ = e.id.split('_')
+      var tld0_ = tld_[0]
+      var arr_ = e.attributes['data-arr'].nodeValue.split(',')
+      var t_ = arr_[0].split(/(?=[0-9]+)/)
+      if (
+        arr_.length === 1 &&
+        tld_.length === 3 &&
+        tld0_ === tld0 &&
+        arr.filter(function (ei) {
+          var t = ei.split(/(?=[0-9])/)
+          return t_[0].indexOf(t[0]) === 0 && t_[1] === t[1]
+        }).length > 0 &&
+        (kahe_zgana_el || kahe_sezgana(e))
+      ) {
+        var clr = e.attributes['data-color'].nodeValue
+        clr = 'hsla(' + clr + ',100%,70%,0.62)'
+        t = new LeaderLine(
+          document.getElementById(e.id),
+          document.getElementById(id),
+          {
+            endPlugColor: clr,
+            color: clr,
+            dash: { animation: true },
+            startSocketGravity: [50, -67],
+            endSocketGravity: [0, 67],
+            endPlug: 'arrow2',
+            endSocket: 'bottom',
+            size: 3,
+          }
+        )
+        jvoPlumbs.push(t)
+      }
+    })
+  }
 }
 
 function addPlumbs() {
@@ -287,7 +354,8 @@ function addPlumbs() {
         plumbs.push(t)
       }
     }
-  }, 450)
+    plumbsTimeout = 450
+  }, plumbsTimeout)
 }
 
 function kahe_sezgana(el) {
@@ -583,6 +651,7 @@ function DispatchState({ replace, caller, empty }) {
 //rendering
 function RenderDesktop() {
   removePlumbs()
+  removeJvoPlumbs()
   SwitchRotation({
     action: 'stop',
   })
@@ -806,22 +875,29 @@ var scrollTimer = null
 
 function checkScrolledNearBottom(ev) {
   removePlumbs()
+  removeJvoPlumbs()
   if (scrollTimer !== null) {
     clearTimeout(scrollTimer)
   }
-  addPlumbs()
   if (
     state.displaying.seskari !== 'velcusku' &&
     ev.target.scrollTop + window.innerHeight >= outp.clientHeight - 700
   ) {
     window.jimte += 10
     skicu_rolodovalsi(state.displaying)
-    MathJax.typeset()
+    MathJax.typesetPromise().then(function () {
+      addPlumbs()
+      addJvoPlumbs(true)
+    })
+  } else {
+    addPlumbs()
+    addJvoPlumbs(true)
   }
 }
 
 function string2Int(s, base, q) {
-  return (
+  s = s.replace(/[\{\}_]/g, '')
+  return Math.abs(
     Math.round(
       (s.split('').reduce(function (a, b) {
         a = (a << 5) - a + b.charCodeAt(0)
@@ -832,29 +908,106 @@ function string2Int(s, base, q) {
     ) * q
   )
 }
+function veljvoLetters(v) {
+  v = v.substr(1, v.length - 2).split('=')
 
-function melbi_uenzi({ def, query, seskari, type, index }) {
+  var jalge = v.map(function (i) {
+    return i.replace(/[^A-Za-z']/g, '')
+  })
+  return {
+    jalge,
+    hasExpansion: v.length > 1 || (jalge[0] && jalge[0] !== 'x'),
+  }
+}
+
+function veljvoString({ v, fullDef, subtype, dataArrAdded, b, veljvoLs }) {
+  if (dataArrAdded.indexOf(b) >= 0) return ''
+  if (subtype !== 'r' && fullDef.t !== 'lujvo') return ''
+  v = v
+    .substr(1, v.length - 2)
+    .split('=')
+    .map(function (i) {
+      return subtype === 'r'
+        ? fullDef.w + i.replace(/[^0-9]/g, '')
+        : i.replace(/[^0-9A-Za-z']/g, '')
+    })
+  v = v.filter(function (i) {
+    var sI = i.replace(/[0-9]/g, '')
+    if (
+      veljvoLs.filter(function (j) {
+        return j.indexOf(sI) === 0 && j !== sI
+      }).length > 0
+    )
+      return
+    return true
+  })
+  v = v.join(',')
+  return ' data-arr="' + v + '"'
+}
+
+function melbi_uenzi({ def, fullDef, query, seskari, type, subtype, index }) {
   var iterTercricmiId = 0
   var jsonIds = []
+  var types = []
+  var dataArrAdded = []
+  var veljvoLs = []
+  var hasExpansion = false
   if (!['cnano', 'catni', 'rimni'].includes(seskari)) seskari = 'cnano'
-  return (
+  var res = def.replace(/\$.*?\$/g, function (c, offset, string) {
+    if (type === 'd' && typeof index !== 'undefined') {
+      var rt = veljvoLetters(c)
+      if (rt.hasExpansion) hasExpansion = true
+      veljvoLs = veljvoLs.concat(rt.jalge)
+      var q = string.substr(offset)
+      var r = new RegExp(
+        '^(' + c.replace(/[^a-zA-Z0-9\{\}_]/g, '') + ' \\([^\\(\\)<>]+?\\)).*'
+      )
+      var hc = c
+      if (q.search(r) === 0) {
+        hc = q.replace(r, '$1')
+      }
+      var k = {}
+      k[c] = hc
+      types.push(k)
+    }
+    return c
+  })
+
+  var jalge = (
     '<span>' +
-    def
+    res
       .replace(/\$.*?\$/g, function (c, offset, string) {
-        if (type === 'd') {
+        if (type === 'd' && typeof index !== 'undefined') {
           var q = string.substr(offset)
           var r = new RegExp(
-            '^(' + c.replace(/\$/g, '\\$') + ' \\([^()<>]+?\\)).*'
+            '^(' + c.replace(/[^a-zA-Z0-9\{\}_]/g, '') + ' \\([^()<>]+?\\)).*'
           )
           var hc = c
           if (q.search(r) === 0) {
             hc = q.replace(r, '$1')
+          } else {
+            var seklesi = types.filter(function (i) {
+              return i[c] && i[c] !== hc
+            })[0]
+            if (seklesi) {
+              hc = seklesi[c]
+            }
           }
           iterTercricmiId++
           var combInd = index + '_' + iterTercricmiId
           var a = {}
           a[c] = combInd
           jsonIds.push(a)
+          var b = c.replace(/[^a-zA-Z0-9]/g, '')
+          var vel = veljvoString({
+            subtype,
+            v: c,
+            fullDef,
+            dataArrAdded,
+            b,
+            veljvoLs,
+          })
+
           c =
             '<span id="' +
             combInd +
@@ -862,9 +1015,14 @@ function melbi_uenzi({ def, query, seskari, type, index }) {
             string2Int(hc, 256, 16) +
             ', 100%, 90%);border-radius:' +
             (string2Int(hc, 9, 1) + 3) +
-            'px">' +
+            'px"' +
+            vel +
+            ' data-color="' +
+            string2Int(hc, 256, 16) +
+            '">' +
             c +
             '</span>'
+          dataArrAdded.push(b)
         }
         return c
       })
@@ -932,6 +1090,7 @@ function melbi_uenzi({ def, query, seskari, type, index }) {
         query,
       })
     })
+  return { tergeha: jalge, hasExpansion }
 }
 
 function escapeRegExp(string) {
@@ -1116,7 +1275,7 @@ function ConstructArxivoValsiExtract(d, query, range) {
   return locs
 }
 
-function skicu_palodovalsi({ def, inner, query, seskari, index }) {
+function skicu_palodovalsi({ def, inner, query, seskari, index, subtype }) {
   if (!query) query = state.searching.query
   if (!seskari) seskari = state.searching.seskari
   if (!def) def = []
@@ -1229,6 +1388,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
   }
   var word = document.createElement('h4')
   word.classList.add('valsi')
+  word.setAttribute('data-valsi', encodeURIComponent(def.w))
   if (def.l) word.classList.add('nalojbo')
   if (plukaquery(def.w) == query || seskari == 'velcusku') {
     word.innerHTML =
@@ -1252,6 +1412,18 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
       '</a>' +
       ' '
   }
+  var mu = {}
+  if (def.d && !def.d.nasezvafahi)
+    mu = melbi_uenzi({
+      def: def.d,
+      fullDef: def,
+      query,
+      seskari,
+      type: 'd',
+      index,
+      subtype,
+    })
+
   //<xuzganalojudri|lojbo>
   var zbalermorna = document.createElement('h4')
   zbalermorna.classList.add('valsi', 'zbalermorna')
@@ -1260,17 +1432,64 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
 
   var heading = document.createElement('heading')
   heading.classList.add('heading')
-  var flex = document.createElement('heading')
-  flex.style.flex = 1
 
   if (tfm) heading.appendChild(tfm)
+
   heading.appendChild(word)
+
   if (zbalermorna && def.w.length <= 20 && !window.muplis)
     heading.appendChild(zbalermorna)
+
   if (fmm) heading.appendChild(fmm)
+
+  var flex = document.createElement('heading')
+  flex.style.flex = 1
   heading.appendChild(flex)
+
+  //<xuzganalojudri|lojbo>
+  if (
+    def.t === 'lujvo' &&
+    (def.rafsiDocuments || []).length > 0 &&
+    mu.hasExpansion
+  ) {
+    var jvo = document.createElement('input')
+    jvo.type = 'button'
+    jvo.classList.add('tutci', 'sance')
+    jvo.value = '↔'
+    jvo.onclick = addJvoPlumbs
+
+    heading.appendChild(jvo)
+  }
+  //</xuzganalojudri|lojbo>
   if (jvs) heading.appendChild(jvs)
   if (ss) heading.appendChild(ss)
+
+  //<xuzganalojudri|lojbo>
+  //audio
+  try {
+    var sance = new Audio(
+      '/sutysisku/sance/vreji/' + encodeURIComponent(def.w) + '.mp3'
+    )
+    sance.id = 'sance_' + encodeURIComponent(def.w)
+    sance.addEventListener('canplaythrough', (event) => {
+      var hd = Array.from(
+        document.querySelectorAll(
+          '[data-valsi="' + encodeURIComponent(def.w) + '"]'
+        )
+      )[0]
+      if (
+        hd &&
+        !document.getElementById('sance_' + encodeURIComponent(def.w))
+      ) {
+        hd.innerHTML +=
+          '<button class="tutci sance" onclick="document.getElementById(\'sance_' +
+          encodeURIComponent(def.w) +
+          '\').play()">▶</button>'
+        hd.appendChild(sance)
+      }
+    })
+  } catch (error) {}
+  //</xuzganalojudri|lojbo>
 
   out.appendChild(heading)
   if (zbalermorna && (window.muplis || def.w.length > 20))
@@ -1283,13 +1502,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
       n.classList.add('nasezvafahi', 'noselect')
       n.innerHTML = window.nasezvafahi
     } else {
-      var melbi = melbi_uenzi({
-        def: def.d,
-        query,
-        seskari,
-        type: 'd',
-        index,
-      })
+      var melbi = mu.tergeha
       if (seskari !== 'velcusku') melbi = melbi.replace(/\n/g, '<br/>') + ' '
       n.innerHTML = melbi
     }
@@ -1334,7 +1547,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
         def: def.n,
         query,
         seskari,
-      }) + ' '
+      }).tergeha + ' '
     out.appendChild(n)
   }
   //<xuzganalojudri|lojbo>
@@ -1357,7 +1570,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
           ),
         query,
         seskari,
-      }) +
+      }).tergeha +
       '</table> '
     out.appendChild(n)
   }
@@ -1370,7 +1583,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
         def: def.k,
         query,
         seskari,
-      }) +
+      }).tergeha +
       ' '
     out.appendChild(n)
   }
@@ -1410,6 +1623,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
           def: def.rafsiDocuments[i],
           inner: true,
           index: index + '_' + i,
+          subtype: 'r',
         })
       )
     }

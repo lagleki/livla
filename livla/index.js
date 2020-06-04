@@ -1231,7 +1231,7 @@ jsonCommand = {
     const params = `${text} `.split('+')[1].toUpperCase()
     return lojban.ilmentufa_exp(text, params, true).kampu
   },
-  raw: (text) => lojban.ilmentufa_off(text, 'J', true).kampu,
+  raw: (text) => lojban.ilmentufa_off(text, 'NJ', true).kampu,
   zei: (text) => lojban.zeizei(text),
   anji: (text) => lojban.anji(text),
   ruk: (text) => lojban.rukylermorna(text),

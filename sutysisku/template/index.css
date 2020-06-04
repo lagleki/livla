@@ -720,6 +720,12 @@ sub {
   height: 21px;
 }
 
+.sance {
+  padding: 1px 6px;
+  height: auto;
+}
+.tutci:focus {outline:0;}
+
 .tutci-hover {
   border-style: dashed;
 }

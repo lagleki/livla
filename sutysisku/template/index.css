@@ -720,7 +720,7 @@ sub {
   margin: 0 0 0 8px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #263666;
-  /* height: 21px; */
+  max-height: 24px;
 }
 
 .sance {

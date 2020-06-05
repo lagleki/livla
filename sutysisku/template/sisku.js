@@ -602,7 +602,7 @@ for (var cmima in sorcu[bau]) {
     rafsi[c['r'][i]] = c
     rafsi[c['r'][i]]['w'] = cmima
   }
-  if (c['t'] === 'gismu' || c['t'] === "fu'ivla") {
+  if (c['t'] === 'gismu' || c['t'] === 'experimental gismu' || c['t'] === "fu'ivla") {
     rafsi[cmima] = c
     rafsi[cmima]['w'] = cmima
   }

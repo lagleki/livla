@@ -74,6 +74,9 @@ body {
   margin: 0;
   height: 100vh;
 }
+#outp {
+  padding-bottom:10px
+}
 
 h1 {
   font-size: 1em;
@@ -717,12 +720,11 @@ sub {
   margin: 0 0 0 8px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #263666;
-  height: 21px;
+  /* height: 21px; */
 }
 
 .sance {
   padding: 1px 6px;
-  height: auto;
 }
 .tutci:focus {outline:0;}
 

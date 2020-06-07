@@ -15,10 +15,10 @@
 
 text = expr:(any_word*) {return _node_int(expr);}
 any_word = expr:(jbovla) {return expr;}
-jbovla = pause_0 / cmevla / expr:(cmavo) {return ["cmavo", _join(expr)];} / expr:(gismu) {return ["gismu", _join(expr)];} / expr:(!gismu !fuhivla !cmavo !(ini_vwl h y onset) lujvo_core) {return ["lujvo", _join(expr)];} / expr:(fuhivla) {return ["fu'ivla", _join(expr)];}
+jbovla = _:(pause_0)  {return ["drata", _join(_)];} / _:(cmevla)  {return ["cmevla", _join(_)];} / _:(cmavo) {return ["cmavo", _join(_)];} / _:(gismu) {return ["gismu", _join(_)];} / _:(!gismu !fuhivla !cmavo !(ini_vwl h y onset) lujvo_core) {return ["lujvo", _join(_)];} / expr:(fuhivla) {return ["fu'ivla", _join(expr)];}
 
-cmevla = expr:((&zifcme any_syllable+ &pause) / zifcme) {return ["cmevla", _join(expr)];}
-gismu = e:(long_rafsi &stress &final_syllable pa_zei_karsna &post_word) {return ["!!",_join(e)]}
+cmevla = (&zifcme any_syllable+ &pause) / zifcme
+gismu = (initial_pair stressed_vowel / zunsna stressed_vowel zunsna) &final_syllable zunsna pa_zei_karsna &post_word
 fuhivla_trim = e:(fuhivla_head) f:(slaka &stress consonantal_syllable*) {return [_join(e),"!!",_join(f)]}
 fuhivla = fuhivla_trim final_syllable
 cmavo = !cmevla !(cvc !stress y h? lujvo_core / cvc &stress y short_final_rafsi) (!h !(zunsna zunsna+) onset (nucleus h)* nucleus / y+) &post_word
@@ -61,10 +61,11 @@ final_syllable = onset !y nucleus !cmevla &post_word
 stress = (zunsna / glaide)* h? y? slaka pause
 any_syllable = onset nucleus coda? / consonantal_syllable
 slaka = onset !y nucleus coda?
+
 consonantal_syllable = zunsna &syllabic coda
 
 coda = !any_syllable zunsna &any_syllable / syllabic? zunsna? &pause
-onset = h / zunsna? glaide / (affricate / (cs !x / jz !(n / l / r))? (pfbgvkx / (t / d / n !r) !l / m)? (l / r)?) !zunsna !glaide
+onset = h / zunsna? glaide / initial
 nucleus = pa_zei_karsna / re_zei_karsna / y !nucleus
 glaide = (ɩ / w) &nucleus
 re_zei_karsna = ([a] w !u / [aeo] ɩ !i) !nucleus
@@ -77,7 +78,13 @@ y = [y] !(!y nucleus)
 ɩ = [iɩ]
 w = [uw] {return ["u",""]}
 
-initial_pair = &onset zunsna zunsna !zunsna
+initial = (affricate / (cs !x / jz !(n / l / r))? (pfbgvkx / (t / d / n !r) !l / m)? (l / r)?) !zunsna !glaide
+
+initial_pair = &initial zunsna zunsna !zunsna
+
+stressed_vowel = _:(&stressed pa_zei_karsna / pa_zei_karsna &stress) {return ["@",_join(_)]}
+
+stressed = onset comma* [aeiou]
 
 affricate = t cs / d jz
 
@@ -95,12 +102,11 @@ jz = [jz]
 cs = [cs]
 x = [x]
 t = [t]
-h = [,'] &nucleus
+h = ['] &nucleus
+comma = [,]
 
 post_word = pause / !nucleus jbovla / [\}]
 
 pause = pause_0 / !.
 
-pause_0 = expr:([^a-za-z,']+) {return ["drata", _join(expr)];}
-
-nul = [^ ]+
+pause_0 = [^a-za-z,']+

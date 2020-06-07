@@ -25,25 +25,25 @@ const ph_lu = {
   '.': 'ʔ',
   ' ': ' ',
   ˈ: 'ˈ',
-  a: 'a',
+  a: 'ʌ',
   e: 'ɛ',
   i: 'i',
-  o: 'o',
+  o: 'ɔ',
   u: 'u',
   y: 'ə',
-  ai: 'aj',
+  ai: 'ʌj',
   ei: 'ɛj',
-  oi: 'oj',
-  au: 'aw',
-  ia: 'ja',
+  oi: 'ɔj',
+  au: 'ʌw',
+  ia: 'jʌ',
   ie: 'jɛ',
   ii: 'ji',
-  io: 'jo',
+  io: 'jɔ',
   iu: 'ju',
-  ua: 'wa',
+  ua: 'wʌ',
   ue: 'wɛ',
   ui: 'wi',
-  uo: 'wo',
+  uo: 'wɔ',
   uu: 'wu',
   iy: 'jə',
   uy: 'wə',
@@ -82,9 +82,18 @@ async function speak(t) {
     .map((i) => i[1])
   let output = '<s>\n'
   for (let w = 0; w < words.length; w++) {
+    words[w] = words[w].replace(
+      /([bcdfgjklmnprstvxz])([bcdfgjklmnprstvxz])/g,
+      '$1.$2'
+    )
+    words[w] = words[w].replace(/d.j/g, 'dj')
+    words[w] = words[w].replace(/d.z/g, 'dz')
+    words[w] = words[w].replace(/t.c/g, 'tc')
+    words[w] = words[w].replace(/t.s/g, 'ts')
+
     if (words[w] == 'i' || words[w] == "ni'o") {
       output += '</s>\n<s>\n'
-    } else if (words[w][0] == '.') {
+    } else if (w > 0 && words[w][0].search(/[\.aeiouy]/) == 0) {
       output += '<break time="20ms" strength="x-weak" />\n'
     }
 
@@ -99,7 +108,7 @@ async function speak(t) {
     phs += ' '
     output +=
       '<phoneme alphabet="ipa" ph="' + ph + '">' + words[w] + '</phoneme>\n'
-    if (words[w][words[w].length - 1] == '.') {
+    if (['.', 'y'].includes(words[w][words[w].length - 1])) {
       output += '<break time="20ms" strength="x-weak" />'
     }
   }

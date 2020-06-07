@@ -6,7 +6,10 @@
 const fs = require('fs')
 const path = require('path-extra')
 const rp = require('request-promise-native')
-const minify = require('babel-minify')
+const Terser = require('terser')
+const babel = require("@babel/core");
+const env = require("@babel/preset-env");
+
 const now = new Date().getTime()
 // config
 const args = process.argv.slice(2)
@@ -215,6 +218,7 @@ function processTemplate({ config, fallback, now, file }) {
     .replace(/\n\s*\n/g, '\n')
   return output
 }
+let nameCache = {}
 
 // generate files
 langs.forEach((lang) => {
@@ -309,12 +313,29 @@ langs.forEach((lang) => {
       }),
     })
     if (el.uglify && process.env.COMPRESS !== 'false') {
-      output = minify(output, {
-        mangle: {
-          keepClassName: true,
-          exclude: ['sisku'],
-        },
+      output = babel.transformSync(output, {
+        "presets": [
+          [
+            env,
+            {
+              "targets": "> 0.25%, not dead"
+            }
+          ]
+        ]
       }).code
+      const { code, error } = Terser.minify(output, {
+        nameCache,
+        compress: {
+          ecma: 5,
+        },
+        mangle: {
+          toplevel: true,
+          keep_classnames: true,
+          reserved: ['sisku', 'switchBorderScroll'],
+        },
+      })
+      error && console.log(error)
+      output = code
       console.log(`minified ${lang}/${el.out}`)
     }
     fs.writeFileSync(
@@ -432,14 +453,26 @@ NETWORK:
 let siskujs = fs.readFileSync(path.join(__dirname, './template/sisku.js'), {
   encoding: 'utf8',
 })
-if (process.env.COMPRESS !== 'false'){
-  siskujs = minify(siskujs, {
+if (process.env.COMPRESS !== 'false') {
+  siskujs = babel.transformSync(siskujs, {
+    "presets": [
+      [
+        env,
+        {
+          "targets": "> 0.25%, not dead"
+        }
+      ]
+    ]
+  }).code
+  siskujs = Terser.minify(siskujs, {
+    ecma: 5,
+    nameCache,
     mangle: {
-      keepClassName: true,
-      exclude: ['sisku'],
+      toplevel: true,
+      keep_classnames: true,
+      reserved: ['sisku'],
     },
   }).code
   console.log(`minified sisku.js`)
 }
-
 fs.writeFileSync(path.join(__dirname, '../build/sutysisku/sisku.js'), siskujs)

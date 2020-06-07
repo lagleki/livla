@@ -1,1 +1,735 @@
-var camxes=function(){"use strict";function a(b,c,d,e){this.message=b,this.expected=c,this.found=d,this.location=e,this.name="SyntaxError","function"==typeof Error.captureStackTrace&&Error.captureStackTrace(this,a)}function b(b,c){function d(a,b,c){return{type:"class",parts:a,inverted:b,ignoreCase:c}}function e(a){var c,d=u[a];if(d)return d;for(c=a-1;!u[c];)c--;for(d=u[c],d={line:d.line,column:d.column};c<a;)10===b.charCodeAt(c)?(d.line++,d.column=1):d.column++,c++;return u[a]=d,d}function f(a,b){var c=e(a),d=e(b);return{start:{offset:a,line:c.line,column:c.column},end:{offset:b,line:d.line,column:d.column}}}function g(a){s<v||(s>v&&(v=s,w=[]),w.push(a))}function h(a){var b,c=Array(a.length);for(b=0;b<a.length;b++)c[b]=a.charCodeAt(b)-32;return c}function j(a){var c,d,e=r[a],f=0,h=[],k=e.length,l=[],m=[],o=65*s+a,p=y[o];if(p)return s=p.nextPos,p.result;for(;;){for(;f<k;)switch(e[f]){case 0:m.push(q[e[f+1]]),f+=2;break;case 1:m.push(void 0),f++;break;case 2:m.push(null),f++;break;case 3:m.push(n),f++;break;case 4:m.push([]),f++;break;case 5:m.push(s),f++;break;case 6:m.pop(),f++;break;case 7:s=m.pop(),f++;break;case 8:m.length-=e[f+1],f+=2;break;case 9:m.splice(-2,1),f++;break;case 10:m[m.length-2].push(m.pop()),f++;break;case 11:m.push(m.splice(m.length-e[f+1],e[f+1])),f+=2;break;case 12:m.push(b.substring(m.pop(),s)),f++;break;case 13:l.push(k),h.push(f+3+e[f+1]+e[f+2]),m[m.length-1]?(k=f+3+e[f+1],f+=3):(k=f+3+e[f+1]+e[f+2],f+=3+e[f+1]);break;case 14:l.push(k),h.push(f+3+e[f+1]+e[f+2]),m[m.length-1]===n?(k=f+3+e[f+1],f+=3):(k=f+3+e[f+1]+e[f+2],f+=3+e[f+1]);break;case 15:l.push(k),h.push(f+3+e[f+1]+e[f+2]),m[m.length-1]===n?(k=f+3+e[f+1]+e[f+2],f+=3+e[f+1]):(k=f+3+e[f+1],f+=3);break;case 16:m[m.length-1]===n?f+=2+e[f+1]:(l.push(k),h.push(f),k=f+2+e[f+1],f+=2);break;case 17:l.push(k),h.push(f+3+e[f+1]+e[f+2]),b.length>s?(k=f+3+e[f+1],f+=3):(k=f+3+e[f+1]+e[f+2],f+=3+e[f+1]);break;case 18:l.push(k),h.push(f+4+e[f+2]+e[f+3]),b.substr(s,q[e[f+1]].length)===q[e[f+1]]?(k=f+4+e[f+2],f+=4):(k=f+4+e[f+2]+e[f+3],f+=4+e[f+2]);break;case 19:l.push(k),h.push(f+4+e[f+2]+e[f+3]),b.substr(s,q[e[f+1]].length).toLowerCase()===q[e[f+1]]?(k=f+4+e[f+2],f+=4):(k=f+4+e[f+2]+e[f+3],f+=4+e[f+2]);break;case 20:l.push(k),h.push(f+4+e[f+2]+e[f+3]),q[e[f+1]].test(b.charAt(s))?(k=f+4+e[f+2],f+=4):(k=f+4+e[f+2]+e[f+3],f+=4+e[f+2]);break;case 21:m.push(b.substr(s,e[f+1])),s+=e[f+1],f+=2;break;case 22:m.push(q[e[f+1]]),s+=q[e[f+1]].length,f+=2;break;case 23:m.push(n),0===x&&g(q[e[f+1]]),f+=2;break;case 24:t=m[m.length-1-e[f+1]],f+=2;break;case 25:t=s,f++;break;case 26:for(c=e.slice(f+4,f+4+e[f+3]),d=0;d<e[f+3];d++)c[d]=m[m.length-1-c[d]];m.splice(m.length-e[f+2],e[f+2],q[e[f+1]].apply(null,c)),f+=4+e[f+3];break;case 27:m.push(j(e[f+1])),f+=2;break;case 28:x++,f++;break;case 29:x--,f++;break;default:throw new Error("Invalid opcode: "+e[f]+".");}if(0<l.length)k=l.pop(),f=h.pop();else break}return y[o]={nextPos:s,result:m[0]},m[0]}function k(b){if("string"==typeof b)return b;var a="";for(var c in b)a+=k(b[c]);return a}function l(b){if("string"==typeof b)return b;var a=[];for(var c in b)a.push(l(b[c]));return a}c=void 0===c?{}:c;var m,n={},o={text:0},p=0,q=[function(a){return l(a)},function(a){return a},function(a){return["cmavo",k(a)]},function(a){return["gismu",k(a)]},function(a){return["lujvo",k(a)]},function(a){return["fu'ivla",k(a)]},function(a){return["cmevla",k(a)]},function(a){return[k(a),"-"]},function(a){return[k(a)]},function(a,b){return[k(a),"-",k(b)]},function(a,b){return[k(a),"-",k(b)]},function(a,b){return[k(a),"-",k(b)]},function(a,b){return[k(a),"-",k(b)]},/^[a]/,d(["a"],!1,!1),/^[aeo]/,d(["a","e","o"],!1,!1),/^[aeiou]/,d(["a","e","i","o","u"],!1,!1),/^[i]/,d(["i"],!1,!1),/^[u]/,d(["u"],!1,!1),/^[y]/,d(["y"],!1,!1),/^[i\u0269]/,d(["i","\u0269"],!1,!1),/^[uw]/,d(["u","w"],!1,!1),function(){return["u",""]},/^[l]/,d(["l"],!1,!1),/^[m]/,d(["m"],!1,!1),/^[n]/,d(["n"],!1,!1),/^[r]/,d(["r"],!1,!1),/^[pfbgvkx]/,d(["p","f","b","g","v","k","x"],!1,!1),/^[d]/,d(["d"],!1,!1),/^[jz]/,d(["j","z"],!1,!1),/^[cs]/,d(["c","s"],!1,!1),/^[x]/,d(["x"],!1,!1),/^[t]/,d(["t"],!1,!1),/^[,']/,d([",","'"],!1,!1),/^[}]/,d(["}"],!1,!1),function(){return{type:"any"}}(),/^[^a-za-z,']/,d([["a","z"],["a","z"],",","'"],!0,!1),function(a){return["drata",k(a)]},/^[^ ]/,d([" "],!0,!1)],r=[h("%$;!0#*;!&/' 8!: !! )"),h("%;\"/' 8!:!!! )"),h(";_.\xEE &;#.\xE8 &%;'/' 8!:\"!! ).\xD6 &%;$/' 8!:#!! ).\xC4 &%%%<;$=.##&&!&'#/\x90#%<;&=.##&&!&'#/{$%<;'=.##&&!&'#/f$%<%;6/>#;\\/5$;K/,$;D/#$+$)($'#(#'#(\"'#&'#=.##&&!&'#/,$;(/#$+%)(%'#($'#(#'#(\"'#&'#/' 8!:$!! )./ &%;&/' 8!:%!! )"),h("%%%<;,=/##&'!&&#/N#$;@/&#0#*;@&&&#/8$%<;^=/##&'!&&#/#$+#)(#'#(\"'#&'#.# &;,/' 8!:&!! )"),h("%;</k#%<;?=/##&'!&&#/V$%<;>=/##&'!&&#/A$;H/8$%<;]=/##&'!&&#/#$+%)(%'#($'#(#'#(\"'#&'#"),h("%;+/Q#;A/H$%<;?=/##&'!&&#/3$$;B0#*;B&/#$+$)($'#(#'#(\"'#&'#"),h("%;%/,#;>/#$+\")(\"'#&'#"),h("%%<;#=.##&&!&'#/\u0172#%<%;4/X#%<;?=.##&&!&'#/C$;K/:$;\\.\" &\"/,$;(/#$+%)(%'#($'#(#'#(\"'#&'#.T &%;4/J#%<;?=/##&'!&&#/5$;K/,$;:/#$+$)($'#(#'#(\"'#&'#=.##&&!&'#/\xE7$%%<;\\=.##&&!&'#/\xA0#%<%;P/9#$;P/&#0#*;P&&&#/#$+\")(\"'#&'#=.##&&!&'#/k$;D/b$$%;E/,#;\\/#$+\")(\"'#&'#06*%;E/,#;\\/#$+\")(\"'#&'#&/,$;E/#$+%)(%'#($'#(#'#(\"'#&'#.0 &$;K/&#0#*;K&&&#/8$%<;]=/##&'!&&#/#$+$)($'#(#'#(\"'#&'#"),h("%$%;3.c &;..] &;0.W &%%<;)=.##&&!&'#/A#;1/8$%<;)=.##&&!&'#/#$+#)(#'#(\"'#&'#/' 8!:'!! )0u*%;3.c &;..] &;0.W &%%<;)=.##&&!&'#/A#;1/8$%<;)=.##&&!&'#/#$+#)(#'#(\"'#&'#/' 8!:'!! )&/\x8E#%;&.# &;9/' 8!:(!! ).m &%;2.N &;-.H &;/.B &%;7/8#%<;?=/##&'!&&#/#$+\")(\"'#&'#/2#;:/)$8\":)\"\"! )(\"'#&'#/#$+\")(\"'#&'#"),h(";&.) &;..# &;-"),h("%$;10#*;1&/\xE2#;9.\xD3 &%;7/V#%<;?=/##&'!&&#/A$%<;K=.##&&!&'#/,$;:/#$+$)($'#(#'#(\"'#&'#.\x90 &;0.\x8A &;/.\x84 &%%;7/M#%<;?=/##&'!&&#/8$%<;K=.##&&!&'#/#$+#)(#'#(\"'#&'#.\" &\"/5#;N/,$;K/#$+#)(#'#(\"'#&'#.) &;3.# &;2/#$+\")(\"'#&'#"),h("%%<;*=.##&&!&'#/\xAF#%<;'=.##&&!&'#/\x9A$%<%%<;*=.##&&!&'#/5#;P/,$;*/#$+#)(#'#(\"'#&'#=.##&&!&'#/]$%<;\\=.##&&!&'#/H$%<;D=/##&'!&&#/3$$;;0#*;;&/#$+&)(&'#(%'#($'#(#'#(\"'#&'#"),h("%%<;\\=.##&&!&'#/\xB3#$;E.N &;F.H &;\\.B &%;P/8#%<;^=.##&&!&'#/#$+\")(\"'#&'#0T*;E.N &;F.H &;\\.B &%;P/8#%<;^=.##&&!&'#/#$+\")(\"'#&'#&/A$;P/8$%<;^=/##&'!&&#/#$+$)($'#(#'#(\"'#&'#"),h("%;%/E#%;\\/,#;K/#$+\")(\"'#&'#/)$8\":*\"\"! )(\"'#&'#.O &%%;%/,#;D/#$+\")(\"'#&'#/2#;K/)$8\":+\"\"! )(\"'#&'#"),h("%%<;;=/##&'!&&#/N#;+/E$%;\\/,#;K/#$+\")(\"'#&'#/)$8#:*#\"! )(#'#(\"'#&'#.g &%%;+/,#;D/#$+\")(\"'#&'#/J#%;K/1#;\\.\" &\"/#$+\")(\"'#&'#/)$8\":*\"\"! )(\"'#&'#"),h("%;<.# &;4/G#%<;?=/##&'!&&#/2$;K/)$8#:*#\"\" )(#'#(\"'#&'#"),h("%%;<.# &;4/8#%<;?=.##&&!&'#/#$+\")(\"'#&'#/J#%;K/1#;\\.\" &\"/#$+\")(\"'#&'#/)$8\":*\"\"! )(\"'#&'#"),h("%%<;0=.##&&!&'#/\xAA#%<;/=.##&&!&'#/\x95$%<;3=.##&&!&'#/\x80$%<;2=.##&&!&'#/k$;7/b$%<;?=.##&&!&'#/M$%<;K=.##&&!&'#/8$%<;\\=.##&&!&'#/#$+()(('#(''#(&'#(%'#($'#(#'#(\"'#&'#"),h("%%;</,#;H/#$+\")(\"'#&'#.# &;7/Z#%<;?=/##&'!&&#/E$%;\\/,#;K/#$+\")(\"'#&'#/)$8#:*#\"\" )(#'#(\"'#&'#"),h("%%;</,#;H/#$+\")(\"'#&'#.# &;7/h#%%<;?=.##&&!&'#/C#;\\/:$;K/1$;\\.\" &\"/#$+$)($'#(#'#(\"'#&'#/)$8\":,\"\"! )(\"'#&'#"),h("%;=/,#;P/#$+\")(\"'#&'#"),h(";4.# &;6"),h("%;N/,#;H/#$+\")(\"'#&'#"),h(";5.# &;8"),h("%%;P/c#%;H/J#%<;?=.##&&!&'#/5$;\\/,$;H/#$+$)($'#(#'#(\"'#&'#.# &;G/#$+\")(\"'#&'#/{#%;U/8#%<;P=/##&'!&&#/#$+\")(\"'#&'#.B &%;T/8#%<;U=/##&'!&&#/#$+\")(\"'#&'#.\" &\"/)$8\":*\"\"! )(\"'#&'#"),h(";$.~ &%;=/t#%<;?=/##&'!&&#/_$;\\/V$%<;>=/##&'!&&#/A$;H/8$%<;]=/##&'!&&#/#$+&)(&'#(%'#($'#(#'#(\"'#&'#"),h("%%<;>=/##&'!&&#/Z#%;P/,#;G/#$+\")(\"'#&'#.# &;6/8$%<;]=/##&'!&&#/#$+#)(#'#(\"'#&'#"),h("%;A/8#%<;?=.##&&!&'#/#$+\")(\"'#&'#.# &;B"),h("%;5/,#;P/#$+\")(\"'#&'#"),h("%;P/,#;H/#$+\")(\"'#&'#"),h("%;D/k#%<;K=.##&&!&'#/V$;E/M$%<;#=.##&&!&'#/8$%<;]=/##&'!&&#/#$+%)(%'#($'#(#'#(\"'#&'#"),h("%$;P.# &;F0)*;P.# &;F&/Q#;\\.\" &\"/C$;K.\" &\"/5$;A/,$;^/#$+%)(%'#($'#(#'#(\"'#&'#"),h("%;D/:#;E/1$;C.\" &\"/#$+#)(#'#(\"'#&'#.# &;B"),h("%;D/O#%<;K=.##&&!&'#/:$;E/1$;C.\" &\"/#$+$)($'#(#'#(\"'#&'#"),h("%;P/A#%<;Q=/##&'!&&#/,$;C/#$+#)(#'#(\"'#&'#"),h("%%<;@=.##&&!&'#/A#;P/8$%<;@=/##&'!&&#/#$+#)(#'#(\"'#&'#.U &%;Q.\" &\"/F#;P.\" &\"/8$%<;^=/##&'!&&#/#$+#)(#'#(\"'#&'#"),h(";\\.\u0152 &%;P.\" &\"/,#;F/#$+\")(\"'#&'#.\u0134 &%;O.\xFA &%%;Y/8#%<;Z=.##&&!&'#/#$+\")(\"'#&'#.N &%;X/D#%<;T.) &;R.# &;U=.##&&!&'#/#$+\")(\"'#&'#.\" &\"/\x9B#;V.s &%;[.H &;W.B &%;T/8#%<;U=.##&&!&'#/#$+\")(\"'#&'#/8#%<;R=.##&&!&'#/#$+\")(\"'#&'#.# &;S.\" &\"/7$;R.# &;U.\" &\"/#$+#)(#'#(\"'#&'#/M#%<;P=.##&&!&'#/8$%<;F=.##&&!&'#/#$+#)(#'#(\"'#&'#"),h(";H.H &;G.B &%;K/8#%<;E=.##&&!&'#/#$+\")(\"'#&'#"),h("%;L.# &;M/8#%<;E=/##&'!&&#/#$+\")(\"'#&'#"),h("%%4-\"\"5!7./A#;M/8$%<;J=.##&&!&'#/#$+#)(#'#(\"'#&'#.Q &%4/\"\"5!70/A#;L/8$%<;I=.##&&!&'#/#$+#)(#'#(\"'#&'#/8#%<;E=.##&&!&'#/#$+\")(\"'#&'#"),h("%41\"\"5!72/8#%<;E=.##&&!&'#/#$+\")(\"'#&'#"),h("43\"\"5!74"),h("45\"\"5!76"),h("%47\"\"5!78/W#%<%%<;K=.##&&!&'#/,#;E/#$+\")(\"'#&'#=.##&&!&'#/#$+\")(\"'#&'#"),h("49\"\"5!7:"),h("%4;\"\"5!7</& 8!:=! )"),h("%%<;D=/##&'!&&#/J#;P/A$;P/8$%<;P=.##&&!&'#/#$+$)($'#(#'#(\"'#&'#"),h("%;[/,#;Y/#$+\")(\"'#&'#.6 &%;W/,#;X/#$+\")(\"'#&'#"),h(";V.; &;W.5 &;X./ &;Y.) &;[.# &;Q"),h(";R./ &;S.) &;T.# &;U"),h("4>\"\"5!7?"),h("4@\"\"5!7A"),h("%4B\"\"5!7C/8#%<;O=.##&&!&'#/#$+\")(\"'#&'#"),h("4D\"\"5!7E"),h("4F\"\"5!7G"),h("4H\"\"5!7I"),h("4J\"\"5!7K"),h("4L\"\"5!7M"),h("4N\"\"5!7O"),h("4P\"\"5!7Q"),h("%4R\"\"5!7S/8#%<;E=/##&'!&&#/#$+\")(\"'#&'#"),h(";^.N &%%<;E=.##&&!&'#/,#;\"/#$+\")(\"'#&'#.) &4T\"\"5!7U"),h(";_.4 &%<1\"\"5!7V=.##&&!&'#"),h("%$4W\"\"5!7X/,#0)*4W\"\"5!7X&&&#/' 8!:Y!! )"),h("$4Z\"\"5!7[/,#0)*4Z\"\"5!7[&&&#")],s=0,t=0,u=[{line:1,column:1}],v=0,w=[],x=0,y={};if("startRule"in c){if(!(c.startRule in o))throw new Error("Can't start parsing from rule \""+c.startRule+"\".");p=o[c.startRule]}if(m=j(p),m!==n&&s===b.length)return m;throw m!==n&&s<b.length&&g(function(){return{type:"end"}}()),function(b,c,d){return new a(a.buildMessage(b,c),b,c,d)}(w,v<b.length?b.charAt(v):null,v<b.length?f(v,v+1):f(v,v))}return function(a,b){function c(){this.constructor=a}c.prototype=b.prototype,a.prototype=new c}(a,Error),a.buildMessage=function(a,b){function c(a){return a.charCodeAt(0).toString(16).toUpperCase()}function d(a){return a.replace(/\\/g,"\\\\").replace(/"/g,"\\\"").replace(/\0/g,"\\0").replace(/\t/g,"\\t").replace(/\n/g,"\\n").replace(/\r/g,"\\r").replace(/[\x00-\x0F]/g,function(a){return"\\x0"+c(a)}).replace(/[\x10-\x1F\x7F-\x9F]/g,function(a){return"\\x"+c(a)})}function e(a){return a.replace(/\\/g,"\\\\").replace(/\]/g,"\\]").replace(/\^/g,"\\^").replace(/-/g,"\\-").replace(/\0/g,"\\0").replace(/\t/g,"\\t").replace(/\n/g,"\\n").replace(/\r/g,"\\r").replace(/[\x00-\x0F]/g,function(a){return"\\x0"+c(a)}).replace(/[\x10-\x1F\x7F-\x9F]/g,function(a){return"\\x"+c(a)})}function f(a){return g[a.type](a)}var g={literal:function(a){return"\""+d(a.text)+"\""},class:function(a){var b,c="";for(b=0;b<a.parts.length;b++)c+=a.parts[b]instanceof Array?e(a.parts[b][0])+"-"+e(a.parts[b][1]):e(a.parts[b]);return"["+(a.inverted?"^":"")+c+"]"},any:function(){return"any character"},end:function(){return"end of input"},other:function(a){return a.description}};return"Expected "+function(a){var b,c,d=Array(a.length);for(b=0;b<a.length;b++)d[b]=f(a[b]);if(d.sort(),0<d.length){for(b=1,c=1;b<d.length;b++)d[b-1]!==d[b]&&(d[c]=d[b],c++);d.length=c}switch(d.length){case 1:return d[0];case 2:return d[0]+" or "+d[1];default:return d.slice(0,-1).join(", ")+", or "+d[d.length-1];}}(a)+" but "+function(a){return a?"\""+d(a)+"\"":"end of input"}(b)+" found."},{SyntaxError:a,parse:b}}();
+var camxes=/*
+ * Generated by PEG.js 0.10.0.
+ *
+ * http://pegjs.org/
+ */
+(function() {
+  "use strict";
+
+  function peg$subclass(child, parent) {
+    function ctor() { this.constructor = child; }
+    ctor.prototype = parent.prototype;
+    child.prototype = new ctor();
+  }
+
+  function peg$SyntaxError(message, expected, found, location) {
+    this.message  = message;
+    this.expected = expected;
+    this.found    = found;
+    this.location = location;
+    this.name     = "SyntaxError";
+
+    if (typeof Error.captureStackTrace === "function") {
+      Error.captureStackTrace(this, peg$SyntaxError);
+    }
+  }
+
+  peg$subclass(peg$SyntaxError, Error);
+
+  peg$SyntaxError.buildMessage = function(expected, found) {
+    var DESCRIBE_EXPECTATION_FNS = {
+          literal: function(expectation) {
+            return "\"" + literalEscape(expectation.text) + "\"";
+          },
+
+          "class": function(expectation) {
+            var escapedParts = "",
+                i;
+
+            for (i = 0; i < expectation.parts.length; i++) {
+              escapedParts += expectation.parts[i] instanceof Array
+                ? classEscape(expectation.parts[i][0]) + "-" + classEscape(expectation.parts[i][1])
+                : classEscape(expectation.parts[i]);
+            }
+
+            return "[" + (expectation.inverted ? "^" : "") + escapedParts + "]";
+          },
+
+          any: function(expectation) {
+            return "any character";
+          },
+
+          end: function(expectation) {
+            return "end of input";
+          },
+
+          other: function(expectation) {
+            return expectation.description;
+          }
+        };
+
+    function hex(ch) {
+      return ch.charCodeAt(0).toString(16).toUpperCase();
+    }
+
+    function literalEscape(s) {
+      return s
+        .replace(/\\/g, '\\\\')
+        .replace(/"/g,  '\\"')
+        .replace(/\0/g, '\\0')
+        .replace(/\t/g, '\\t')
+        .replace(/\n/g, '\\n')
+        .replace(/\r/g, '\\r')
+        .replace(/[\x00-\x0F]/g,          function(ch) { return '\\x0' + hex(ch); })
+        .replace(/[\x10-\x1F\x7F-\x9F]/g, function(ch) { return '\\x'  + hex(ch); });
+    }
+
+    function classEscape(s) {
+      return s
+        .replace(/\\/g, '\\\\')
+        .replace(/\]/g, '\\]')
+        .replace(/\^/g, '\\^')
+        .replace(/-/g,  '\\-')
+        .replace(/\0/g, '\\0')
+        .replace(/\t/g, '\\t')
+        .replace(/\n/g, '\\n')
+        .replace(/\r/g, '\\r')
+        .replace(/[\x00-\x0F]/g,          function(ch) { return '\\x0' + hex(ch); })
+        .replace(/[\x10-\x1F\x7F-\x9F]/g, function(ch) { return '\\x'  + hex(ch); });
+    }
+
+    function describeExpectation(expectation) {
+      return DESCRIBE_EXPECTATION_FNS[expectation.type](expectation);
+    }
+
+    function describeExpected(expected) {
+      var descriptions = new Array(expected.length),
+          i, j;
+
+      for (i = 0; i < expected.length; i++) {
+        descriptions[i] = describeExpectation(expected[i]);
+      }
+
+      descriptions.sort();
+
+      if (descriptions.length > 0) {
+        for (i = 1, j = 1; i < descriptions.length; i++) {
+          if (descriptions[i - 1] !== descriptions[i]) {
+            descriptions[j] = descriptions[i];
+            j++;
+          }
+        }
+        descriptions.length = j;
+      }
+
+      switch (descriptions.length) {
+        case 1:
+          return descriptions[0];
+
+        case 2:
+          return descriptions[0] + " or " + descriptions[1];
+
+        default:
+          return descriptions.slice(0, -1).join(", ")
+            + ", or "
+            + descriptions[descriptions.length - 1];
+      }
+    }
+
+    function describeFound(found) {
+      return found ? "\"" + literalEscape(found) + "\"" : "end of input";
+    }
+
+    return "Expected " + describeExpected(expected) + " but " + describeFound(found) + " found.";
+  };
+
+  function peg$parse(input, options) {
+    options = options !== void 0 ? options : {};
+
+    var peg$FAILED = {},
+
+        peg$startRuleIndices = { text: 0 },
+        peg$startRuleIndex   = 0,
+
+        peg$consts = [
+          function(expr) {return _node_int(expr);},
+          function(expr) {return expr;},
+          function(expr) {return ["cmavo", _join(expr)];},
+          function(expr) {return ["gismu", _join(expr)];},
+          function(expr) {return ["lujvo", _join(expr)];},
+          function(expr) {return ["fu'ivla", _join(expr)];},
+          function(expr) {return ["cmevla", _join(expr)];},
+          function(expr) {return [_join(expr),"-"];},
+          function(expr) {return [_join(expr)];},
+          function(expi, exp) {return [_join(expi),"-",_join(exp)];},
+          function(exp, expr) {return [_join(exp),"-",_join(expr)]},
+          function(exp, expr) {return [_join(exp),"-",_join(expr)];},
+          function(exp, expr) {return [_join(exp),"-", _join(expr)]},
+          /^[a]/,
+          peg$classExpectation(["a"], false, false),
+          /^[aeo]/,
+          peg$classExpectation(["a", "e", "o"], false, false),
+          /^[aeiou]/,
+          peg$classExpectation(["a", "e", "i", "o", "u"], false, false),
+          /^[i]/,
+          peg$classExpectation(["i"], false, false),
+          /^[u]/,
+          peg$classExpectation(["u"], false, false),
+          /^[y]/,
+          peg$classExpectation(["y"], false, false),
+          /^[i\u0269]/,
+          peg$classExpectation(["i", "\u0269"], false, false),
+          /^[uw]/,
+          peg$classExpectation(["u", "w"], false, false),
+          function() {return ["u",""]},
+          /^[l]/,
+          peg$classExpectation(["l"], false, false),
+          /^[m]/,
+          peg$classExpectation(["m"], false, false),
+          /^[n]/,
+          peg$classExpectation(["n"], false, false),
+          /^[r]/,
+          peg$classExpectation(["r"], false, false),
+          /^[pfbgvkx]/,
+          peg$classExpectation(["p", "f", "b", "g", "v", "k", "x"], false, false),
+          /^[d]/,
+          peg$classExpectation(["d"], false, false),
+          /^[jz]/,
+          peg$classExpectation(["j", "z"], false, false),
+          /^[cs]/,
+          peg$classExpectation(["c", "s"], false, false),
+          /^[x]/,
+          peg$classExpectation(["x"], false, false),
+          /^[t]/,
+          peg$classExpectation(["t"], false, false),
+          /^[,']/,
+          peg$classExpectation([",", "'"], false, false),
+          /^[}]/,
+          peg$classExpectation(["}"], false, false),
+          peg$anyExpectation(),
+          /^[^a-za-z,']/,
+          peg$classExpectation([["a", "z"], ["a", "z"], ",", "'"], true, false),
+          function(expr) {return ["drata", _join(expr)];},
+          /^[^ ]/,
+          peg$classExpectation([" "], true, false)
+        ],
+
+        peg$bytecode = [
+          peg$decode("%$;!0#*;!&/' 8!: !! )"),
+          peg$decode("%;\"/' 8!:!!! )"),
+          peg$decode(";_.\xEE &;#.\xE8 &%;'/' 8!:\"!! ).\xD6 &%;$/' 8!:#!! ).\xC4 &%%%<;$=.##&&!&'#/\x90#%<;&=.##&&!&'#/{$%<;'=.##&&!&'#/f$%<%;6/>#;\\/5$;K/,$;D/#$+$)($'#(#'#(\"'#&'#=.##&&!&'#/,$;(/#$+%)(%'#($'#(#'#(\"'#&'#/' 8!:$!! )./ &%;&/' 8!:%!! )"),
+          peg$decode("%%%<;,=/##&'!&&#/N#$;@/&#0#*;@&&&#/8$%<;^=/##&'!&&#/#$+#)(#'#(\"'#&'#.# &;,/' 8!:&!! )"),
+          peg$decode("%;</k#%<;?=/##&'!&&#/V$%<;>=/##&'!&&#/A$;H/8$%<;]=/##&'!&&#/#$+%)(%'#($'#(#'#(\"'#&'#"),
+          peg$decode("%;+/Q#;A/H$%<;?=/##&'!&&#/3$$;B0#*;B&/#$+$)($'#(#'#(\"'#&'#"),
+          peg$decode("%;%/,#;>/#$+\")(\"'#&'#"),
+          peg$decode("%%<;#=.##&&!&'#/\u0172#%<%;4/X#%<;?=.##&&!&'#/C$;K/:$;\\.\" &\"/,$;(/#$+%)(%'#($'#(#'#(\"'#&'#.T &%;4/J#%<;?=/##&'!&&#/5$;K/,$;:/#$+$)($'#(#'#(\"'#&'#=.##&&!&'#/\xE7$%%<;\\=.##&&!&'#/\xA0#%<%;P/9#$;P/&#0#*;P&&&#/#$+\")(\"'#&'#=.##&&!&'#/k$;D/b$$%;E/,#;\\/#$+\")(\"'#&'#06*%;E/,#;\\/#$+\")(\"'#&'#&/,$;E/#$+%)(%'#($'#(#'#(\"'#&'#.0 &$;K/&#0#*;K&&&#/8$%<;]=/##&'!&&#/#$+$)($'#(#'#(\"'#&'#"),
+          peg$decode("%$%;3.c &;..] &;0.W &%%<;)=.##&&!&'#/A#;1/8$%<;)=.##&&!&'#/#$+#)(#'#(\"'#&'#/' 8!:'!! )0u*%;3.c &;..] &;0.W &%%<;)=.##&&!&'#/A#;1/8$%<;)=.##&&!&'#/#$+#)(#'#(\"'#&'#/' 8!:'!! )&/\x8E#%;&.# &;9/' 8!:(!! ).m &%;2.N &;-.H &;/.B &%;7/8#%<;?=/##&'!&&#/#$+\")(\"'#&'#/2#;:/)$8\":)\"\"! )(\"'#&'#/#$+\")(\"'#&'#"),
+          peg$decode(";&.) &;..# &;-"),
+          peg$decode("%$;10#*;1&/\xE2#;9.\xD3 &%;7/V#%<;?=/##&'!&&#/A$%<;K=.##&&!&'#/,$;:/#$+$)($'#(#'#(\"'#&'#.\x90 &;0.\x8A &;/.\x84 &%%;7/M#%<;?=/##&'!&&#/8$%<;K=.##&&!&'#/#$+#)(#'#(\"'#&'#.\" &\"/5#;N/,$;K/#$+#)(#'#(\"'#&'#.) &;3.# &;2/#$+\")(\"'#&'#"),
+          peg$decode("%%<;*=.##&&!&'#/\xAF#%<;'=.##&&!&'#/\x9A$%<%%<;*=.##&&!&'#/5#;P/,$;*/#$+#)(#'#(\"'#&'#=.##&&!&'#/]$%<;\\=.##&&!&'#/H$%<;D=/##&'!&&#/3$$;;0#*;;&/#$+&)(&'#(%'#($'#(#'#(\"'#&'#"),
+          peg$decode("%%<;\\=.##&&!&'#/\xB3#$;E.N &;F.H &;\\.B &%;P/8#%<;^=.##&&!&'#/#$+\")(\"'#&'#0T*;E.N &;F.H &;\\.B &%;P/8#%<;^=.##&&!&'#/#$+\")(\"'#&'#&/A$;P/8$%<;^=/##&'!&&#/#$+$)($'#(#'#(\"'#&'#"),
+          peg$decode("%;%/E#%;\\/,#;K/#$+\")(\"'#&'#/)$8\":*\"\"! )(\"'#&'#.O &%%;%/,#;D/#$+\")(\"'#&'#/2#;K/)$8\":+\"\"! )(\"'#&'#"),
+          peg$decode("%%<;;=/##&'!&&#/N#;+/E$%;\\/,#;K/#$+\")(\"'#&'#/)$8#:*#\"! )(#'#(\"'#&'#.g &%%;+/,#;D/#$+\")(\"'#&'#/J#%;K/1#;\\.\" &\"/#$+\")(\"'#&'#/)$8\":*\"\"! )(\"'#&'#"),
+          peg$decode("%;<.# &;4/G#%<;?=/##&'!&&#/2$;K/)$8#:*#\"\" )(#'#(\"'#&'#"),
+          peg$decode("%%;<.# &;4/8#%<;?=.##&&!&'#/#$+\")(\"'#&'#/J#%;K/1#;\\.\" &\"/#$+\")(\"'#&'#/)$8\":*\"\"! )(\"'#&'#"),
+          peg$decode("%%<;0=.##&&!&'#/\xAA#%<;/=.##&&!&'#/\x95$%<;3=.##&&!&'#/\x80$%<;2=.##&&!&'#/k$;7/b$%<;?=.##&&!&'#/M$%<;K=.##&&!&'#/8$%<;\\=.##&&!&'#/#$+()(('#(''#(&'#(%'#($'#(#'#(\"'#&'#"),
+          peg$decode("%%;</,#;H/#$+\")(\"'#&'#.# &;7/Z#%<;?=/##&'!&&#/E$%;\\/,#;K/#$+\")(\"'#&'#/)$8#:*#\"\" )(#'#(\"'#&'#"),
+          peg$decode("%%;</,#;H/#$+\")(\"'#&'#.# &;7/h#%%<;?=.##&&!&'#/C#;\\/:$;K/1$;\\.\" &\"/#$+$)($'#(#'#(\"'#&'#/)$8\":,\"\"! )(\"'#&'#"),
+          peg$decode("%;=/,#;P/#$+\")(\"'#&'#"),
+          peg$decode(";4.# &;6"),
+          peg$decode("%;N/,#;H/#$+\")(\"'#&'#"),
+          peg$decode(";5.# &;8"),
+          peg$decode("%%;P/c#%;H/J#%<;?=.##&&!&'#/5$;\\/,$;H/#$+$)($'#(#'#(\"'#&'#.# &;G/#$+\")(\"'#&'#/{#%;U/8#%<;P=/##&'!&&#/#$+\")(\"'#&'#.B &%;T/8#%<;U=/##&'!&&#/#$+\")(\"'#&'#.\" &\"/)$8\":*\"\"! )(\"'#&'#"),
+          peg$decode(";$.~ &%;=/t#%<;?=/##&'!&&#/_$;\\/V$%<;>=/##&'!&&#/A$;H/8$%<;]=/##&'!&&#/#$+&)(&'#(%'#($'#(#'#(\"'#&'#"),
+          peg$decode("%%<;>=/##&'!&&#/Z#%;P/,#;G/#$+\")(\"'#&'#.# &;6/8$%<;]=/##&'!&&#/#$+#)(#'#(\"'#&'#"),
+          peg$decode("%;A/8#%<;?=.##&&!&'#/#$+\")(\"'#&'#.# &;B"),
+          peg$decode("%;5/,#;P/#$+\")(\"'#&'#"),
+          peg$decode("%;P/,#;H/#$+\")(\"'#&'#"),
+          peg$decode("%;D/k#%<;K=.##&&!&'#/V$;E/M$%<;#=.##&&!&'#/8$%<;]=/##&'!&&#/#$+%)(%'#($'#(#'#(\"'#&'#"),
+          peg$decode("%$;P.# &;F0)*;P.# &;F&/Q#;\\.\" &\"/C$;K.\" &\"/5$;A/,$;^/#$+%)(%'#($'#(#'#(\"'#&'#"),
+          peg$decode("%;D/:#;E/1$;C.\" &\"/#$+#)(#'#(\"'#&'#.# &;B"),
+          peg$decode("%;D/O#%<;K=.##&&!&'#/:$;E/1$;C.\" &\"/#$+$)($'#(#'#(\"'#&'#"),
+          peg$decode("%;P/A#%<;Q=/##&'!&&#/,$;C/#$+#)(#'#(\"'#&'#"),
+          peg$decode("%%<;@=.##&&!&'#/A#;P/8$%<;@=/##&'!&&#/#$+#)(#'#(\"'#&'#.U &%;Q.\" &\"/F#;P.\" &\"/8$%<;^=/##&'!&&#/#$+#)(#'#(\"'#&'#"),
+          peg$decode(";\\.\u0152 &%;P.\" &\"/,#;F/#$+\")(\"'#&'#.\u0134 &%;O.\xFA &%%;Y/8#%<;Z=.##&&!&'#/#$+\")(\"'#&'#.N &%;X/D#%<;T.) &;R.# &;U=.##&&!&'#/#$+\")(\"'#&'#.\" &\"/\x9B#;V.s &%;[.H &;W.B &%;T/8#%<;U=.##&&!&'#/#$+\")(\"'#&'#/8#%<;R=.##&&!&'#/#$+\")(\"'#&'#.# &;S.\" &\"/7$;R.# &;U.\" &\"/#$+#)(#'#(\"'#&'#/M#%<;P=.##&&!&'#/8$%<;F=.##&&!&'#/#$+#)(#'#(\"'#&'#"),
+          peg$decode(";H.H &;G.B &%;K/8#%<;E=.##&&!&'#/#$+\")(\"'#&'#"),
+          peg$decode("%;L.# &;M/8#%<;E=/##&'!&&#/#$+\")(\"'#&'#"),
+          peg$decode("%%4-\"\"5!7./A#;M/8$%<;J=.##&&!&'#/#$+#)(#'#(\"'#&'#.Q &%4/\"\"5!70/A#;L/8$%<;I=.##&&!&'#/#$+#)(#'#(\"'#&'#/8#%<;E=.##&&!&'#/#$+\")(\"'#&'#"),
+          peg$decode("%41\"\"5!72/8#%<;E=.##&&!&'#/#$+\")(\"'#&'#"),
+          peg$decode("43\"\"5!74"),
+          peg$decode("45\"\"5!76"),
+          peg$decode("%47\"\"5!78/W#%<%%<;K=.##&&!&'#/,#;E/#$+\")(\"'#&'#=.##&&!&'#/#$+\")(\"'#&'#"),
+          peg$decode("49\"\"5!7:"),
+          peg$decode("%4;\"\"5!7</& 8!:=! )"),
+          peg$decode("%%<;D=/##&'!&&#/J#;P/A$;P/8$%<;P=.##&&!&'#/#$+$)($'#(#'#(\"'#&'#"),
+          peg$decode("%;[/,#;Y/#$+\")(\"'#&'#.6 &%;W/,#;X/#$+\")(\"'#&'#"),
+          peg$decode(";V.; &;W.5 &;X./ &;Y.) &;[.# &;Q"),
+          peg$decode(";R./ &;S.) &;T.# &;U"),
+          peg$decode("4>\"\"5!7?"),
+          peg$decode("4@\"\"5!7A"),
+          peg$decode("%4B\"\"5!7C/8#%<;O=.##&&!&'#/#$+\")(\"'#&'#"),
+          peg$decode("4D\"\"5!7E"),
+          peg$decode("4F\"\"5!7G"),
+          peg$decode("4H\"\"5!7I"),
+          peg$decode("4J\"\"5!7K"),
+          peg$decode("4L\"\"5!7M"),
+          peg$decode("4N\"\"5!7O"),
+          peg$decode("4P\"\"5!7Q"),
+          peg$decode("%4R\"\"5!7S/8#%<;E=/##&'!&&#/#$+\")(\"'#&'#"),
+          peg$decode(";^.N &%%<;E=.##&&!&'#/,#;\"/#$+\")(\"'#&'#.) &4T\"\"5!7U"),
+          peg$decode(";_.4 &%<1\"\"5!7V=.##&&!&'#"),
+          peg$decode("%$4W\"\"5!7X/,#0)*4W\"\"5!7X&&&#/' 8!:Y!! )"),
+          peg$decode("$4Z\"\"5!7[/,#0)*4Z\"\"5!7[&&&#")
+        ],
+
+        peg$currPos          = 0,
+        peg$savedPos         = 0,
+        peg$posDetailsCache  = [{ line: 1, column: 1 }],
+        peg$maxFailPos       = 0,
+        peg$maxFailExpected  = [],
+        peg$silentFails      = 0,
+
+        peg$resultsCache = {},
+
+        peg$result;
+
+    if ("startRule" in options) {
+      if (!(options.startRule in peg$startRuleIndices)) {
+        throw new Error("Can't start parsing from rule \"" + options.startRule + "\".");
+      }
+
+      peg$startRuleIndex = peg$startRuleIndices[options.startRule];
+    }
+
+    function text() {
+      return input.substring(peg$savedPos, peg$currPos);
+    }
+
+    function location() {
+      return peg$computeLocation(peg$savedPos, peg$currPos);
+    }
+
+    function expected(description, location) {
+      location = location !== void 0 ? location : peg$computeLocation(peg$savedPos, peg$currPos)
+
+      throw peg$buildStructuredError(
+        [peg$otherExpectation(description)],
+        input.substring(peg$savedPos, peg$currPos),
+        location
+      );
+    }
+
+    function error(message, location) {
+      location = location !== void 0 ? location : peg$computeLocation(peg$savedPos, peg$currPos)
+
+      throw peg$buildSimpleError(message, location);
+    }
+
+    function peg$literalExpectation(text, ignoreCase) {
+      return { type: "literal", text: text, ignoreCase: ignoreCase };
+    }
+
+    function peg$classExpectation(parts, inverted, ignoreCase) {
+      return { type: "class", parts: parts, inverted: inverted, ignoreCase: ignoreCase };
+    }
+
+    function peg$anyExpectation() {
+      return { type: "any" };
+    }
+
+    function peg$endExpectation() {
+      return { type: "end" };
+    }
+
+    function peg$otherExpectation(description) {
+      return { type: "other", description: description };
+    }
+
+    function peg$computePosDetails(pos) {
+      var details = peg$posDetailsCache[pos], p;
+
+      if (details) {
+        return details;
+      } else {
+        p = pos - 1;
+        while (!peg$posDetailsCache[p]) {
+          p--;
+        }
+
+        details = peg$posDetailsCache[p];
+        details = {
+          line:   details.line,
+          column: details.column
+        };
+
+        while (p < pos) {
+          if (input.charCodeAt(p) === 10) {
+            details.line++;
+            details.column = 1;
+          } else {
+            details.column++;
+          }
+
+          p++;
+        }
+
+        peg$posDetailsCache[pos] = details;
+        return details;
+      }
+    }
+
+    function peg$computeLocation(startPos, endPos) {
+      var startPosDetails = peg$computePosDetails(startPos),
+          endPosDetails   = peg$computePosDetails(endPos);
+
+      return {
+        start: {
+          offset: startPos,
+          line:   startPosDetails.line,
+          column: startPosDetails.column
+        },
+        end: {
+          offset: endPos,
+          line:   endPosDetails.line,
+          column: endPosDetails.column
+        }
+      };
+    }
+
+    function peg$fail(expected) {
+      if (peg$currPos < peg$maxFailPos) { return; }
+
+      if (peg$currPos > peg$maxFailPos) {
+        peg$maxFailPos = peg$currPos;
+        peg$maxFailExpected = [];
+      }
+
+      peg$maxFailExpected.push(expected);
+    }
+
+    function peg$buildSimpleError(message, location) {
+      return new peg$SyntaxError(message, null, null, location);
+    }
+
+    function peg$buildStructuredError(expected, found, location) {
+      return new peg$SyntaxError(
+        peg$SyntaxError.buildMessage(expected, found),
+        expected,
+        found,
+        location
+      );
+    }
+
+    function peg$decode(s) {
+      var bc = new Array(s.length), i;
+
+      for (i = 0; i < s.length; i++) {
+        bc[i] = s.charCodeAt(i) - 32;
+      }
+
+      return bc;
+    }
+
+    function peg$parseRule(index) {
+      var bc    = peg$bytecode[index],
+          ip    = 0,
+          ips   = [],
+          end   = bc.length,
+          ends  = [],
+          stack = [],
+          params, i;
+
+      var key    = peg$currPos * 65 + index,
+          cached = peg$resultsCache[key];
+
+      if (cached) {
+        peg$currPos = cached.nextPos;
+
+        return cached.result;
+      }
+
+      while (true) {
+        while (ip < end) {
+          switch (bc[ip]) {
+            case 0:
+              stack.push(peg$consts[bc[ip + 1]]);
+              ip += 2;
+              break;
+
+            case 1:
+              stack.push(void 0);
+              ip++;
+              break;
+
+            case 2:
+              stack.push(null);
+              ip++;
+              break;
+
+            case 3:
+              stack.push(peg$FAILED);
+              ip++;
+              break;
+
+            case 4:
+              stack.push([]);
+              ip++;
+              break;
+
+            case 5:
+              stack.push(peg$currPos);
+              ip++;
+              break;
+
+            case 6:
+              stack.pop();
+              ip++;
+              break;
+
+            case 7:
+              peg$currPos = stack.pop();
+              ip++;
+              break;
+
+            case 8:
+              stack.length -= bc[ip + 1];
+              ip += 2;
+              break;
+
+            case 9:
+              stack.splice(-2, 1);
+              ip++;
+              break;
+
+            case 10:
+              stack[stack.length - 2].push(stack.pop());
+              ip++;
+              break;
+
+            case 11:
+              stack.push(stack.splice(stack.length - bc[ip + 1], bc[ip + 1]));
+              ip += 2;
+              break;
+
+            case 12:
+              stack.push(input.substring(stack.pop(), peg$currPos));
+              ip++;
+              break;
+
+            case 13:
+              ends.push(end);
+              ips.push(ip + 3 + bc[ip + 1] + bc[ip + 2]);
+
+              if (stack[stack.length - 1]) {
+                end = ip + 3 + bc[ip + 1];
+                ip += 3;
+              } else {
+                end = ip + 3 + bc[ip + 1] + bc[ip + 2];
+                ip += 3 + bc[ip + 1];
+              }
+
+              break;
+
+            case 14:
+              ends.push(end);
+              ips.push(ip + 3 + bc[ip + 1] + bc[ip + 2]);
+
+              if (stack[stack.length - 1] === peg$FAILED) {
+                end = ip + 3 + bc[ip + 1];
+                ip += 3;
+              } else {
+                end = ip + 3 + bc[ip + 1] + bc[ip + 2];
+                ip += 3 + bc[ip + 1];
+              }
+
+              break;
+
+            case 15:
+              ends.push(end);
+              ips.push(ip + 3 + bc[ip + 1] + bc[ip + 2]);
+
+              if (stack[stack.length - 1] !== peg$FAILED) {
+                end = ip + 3 + bc[ip + 1];
+                ip += 3;
+              } else {
+                end = ip + 3 + bc[ip + 1] + bc[ip + 2];
+                ip += 3 + bc[ip + 1];
+              }
+
+              break;
+
+            case 16:
+              if (stack[stack.length - 1] !== peg$FAILED) {
+                ends.push(end);
+                ips.push(ip);
+
+                end = ip + 2 + bc[ip + 1];
+                ip += 2;
+              } else {
+                ip += 2 + bc[ip + 1];
+              }
+
+              break;
+
+            case 17:
+              ends.push(end);
+              ips.push(ip + 3 + bc[ip + 1] + bc[ip + 2]);
+
+              if (input.length > peg$currPos) {
+                end = ip + 3 + bc[ip + 1];
+                ip += 3;
+              } else {
+                end = ip + 3 + bc[ip + 1] + bc[ip + 2];
+                ip += 3 + bc[ip + 1];
+              }
+
+              break;
+
+            case 18:
+              ends.push(end);
+              ips.push(ip + 4 + bc[ip + 2] + bc[ip + 3]);
+
+              if (input.substr(peg$currPos, peg$consts[bc[ip + 1]].length) === peg$consts[bc[ip + 1]]) {
+                end = ip + 4 + bc[ip + 2];
+                ip += 4;
+              } else {
+                end = ip + 4 + bc[ip + 2] + bc[ip + 3];
+                ip += 4 + bc[ip + 2];
+              }
+
+              break;
+
+            case 19:
+              ends.push(end);
+              ips.push(ip + 4 + bc[ip + 2] + bc[ip + 3]);
+
+              if (input.substr(peg$currPos, peg$consts[bc[ip + 1]].length).toLowerCase() === peg$consts[bc[ip + 1]]) {
+                end = ip + 4 + bc[ip + 2];
+                ip += 4;
+              } else {
+                end = ip + 4 + bc[ip + 2] + bc[ip + 3];
+                ip += 4 + bc[ip + 2];
+              }
+
+              break;
+
+            case 20:
+              ends.push(end);
+              ips.push(ip + 4 + bc[ip + 2] + bc[ip + 3]);
+
+              if (peg$consts[bc[ip + 1]].test(input.charAt(peg$currPos))) {
+                end = ip + 4 + bc[ip + 2];
+                ip += 4;
+              } else {
+                end = ip + 4 + bc[ip + 2] + bc[ip + 3];
+                ip += 4 + bc[ip + 2];
+              }
+
+              break;
+
+            case 21:
+              stack.push(input.substr(peg$currPos, bc[ip + 1]));
+              peg$currPos += bc[ip + 1];
+              ip += 2;
+              break;
+
+            case 22:
+              stack.push(peg$consts[bc[ip + 1]]);
+              peg$currPos += peg$consts[bc[ip + 1]].length;
+              ip += 2;
+              break;
+
+            case 23:
+              stack.push(peg$FAILED);
+              if (peg$silentFails === 0) {
+                peg$fail(peg$consts[bc[ip + 1]]);
+              }
+              ip += 2;
+              break;
+
+            case 24:
+              peg$savedPos = stack[stack.length - 1 - bc[ip + 1]];
+              ip += 2;
+              break;
+
+            case 25:
+              peg$savedPos = peg$currPos;
+              ip++;
+              break;
+
+            case 26:
+              params = bc.slice(ip + 4, ip + 4 + bc[ip + 3]);
+              for (i = 0; i < bc[ip + 3]; i++) {
+                params[i] = stack[stack.length - 1 - params[i]];
+              }
+
+              stack.splice(
+                stack.length - bc[ip + 2],
+                bc[ip + 2],
+                peg$consts[bc[ip + 1]].apply(null, params)
+              );
+
+              ip += 4 + bc[ip + 3];
+              break;
+
+            case 27:
+              stack.push(peg$parseRule(bc[ip + 1]));
+              ip += 2;
+              break;
+
+            case 28:
+              peg$silentFails++;
+              ip++;
+              break;
+
+            case 29:
+              peg$silentFails--;
+              ip++;
+              break;
+
+            default:
+              throw new Error("Invalid opcode: " + bc[ip] + ".");
+          }
+        }
+
+        if (ends.length > 0) {
+          end = ends.pop();
+          ip = ips.pop();
+        } else {
+          break;
+        }
+      }
+
+      peg$resultsCache[key] = { nextPos: peg$currPos, result: stack[0] };
+
+      return stack[0];
+    }
+
+
+      function _join(a)
+      {
+        if (typeof(a) == "string") return a; else {var r = ""; for (var v in a) { r += _join(a[v]); } return r;}
+      }
+
+      function _node_int(a)
+      {
+        if (typeof(a) == "string") return a;
+        var r = [];
+        for (var v in a)  {r.push( _node_int( a[v] ) );}return r;
+      }
+
+
+    peg$result = peg$parseRule(peg$startRuleIndex);
+
+    if (peg$result !== peg$FAILED && peg$currPos === input.length) {
+      return peg$result;
+    } else {
+      if (peg$result !== peg$FAILED && peg$currPos < input.length) {
+        peg$fail(peg$endExpectation());
+      }
+
+      throw peg$buildStructuredError(
+        peg$maxFailExpected,
+        peg$maxFailPos < input.length ? input.charAt(peg$maxFailPos) : null,
+        peg$maxFailPos < input.length
+          ? peg$computeLocation(peg$maxFailPos, peg$maxFailPos + 1)
+          : peg$computeLocation(peg$maxFailPos, peg$maxFailPos)
+      );
+    }
+  }
+
+  return {
+    SyntaxError: peg$SyntaxError,
+    parse:       peg$parse
+  };
+})()

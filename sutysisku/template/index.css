@@ -496,10 +496,10 @@ code {
 }
 
 #galtu-dasri {
-  z-index: 200
+  z-index: 200;
 }
 #content {
-  z-index: 199
+  z-index: 199;
 }
 
 @media screen and (min-width: 510px) and (max-width: 710px) {
@@ -509,6 +509,10 @@ code {
 }
 
 @media screen and (min-width: 510px) {
+  #loading {
+    width: 30%;
+  }
+  
   #clear {
     padding: 22px 10px 8px 30px;
     right: 9px;
@@ -530,6 +534,10 @@ code {
 }
 
 @media screen and (max-width: 509px) {
+  #loading {
+    width: 90%;
+  }
+
   body {
     font-size: 90%;
   }
@@ -689,6 +697,8 @@ ul > li > a {
 
 #loading {
   text-align: center;
+  margin: 5px auto 5px auto;
+  display: block;
 }
 
 sup,
@@ -988,7 +998,6 @@ user-select: none; */
 #cpacu {
   position: relative;
   display: block;
-  width: 30%;
   margin: 5px auto auto auto;
   background-color: #eee;
   padding: 3px;

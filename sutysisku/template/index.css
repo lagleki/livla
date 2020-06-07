@@ -69,13 +69,13 @@ blockquote {
 }
 
 body {
-  font-family: Tahoma, Lato, sans-serif;
+  font-family: Tahoma, Roboto, Helvetica, sans-serif;
   overflow: hidden;
   margin: 0;
   height: 100vh;
 }
 #outp {
-  padding-bottom:10px
+  padding-bottom: 10px;
 }
 
 h1 {
@@ -495,6 +495,13 @@ code {
   }
 }
 
+#galtu-dasri {
+  z-index: 200
+}
+#content {
+  z-index: 199
+}
+
 @media screen and (min-width: 510px) and (max-width: 710px) {
   #galtu-dasri {
     padding: 0 10px 0 10px;
@@ -722,11 +729,21 @@ sub {
   text-shadow: 0px 1px 0px #263666;
   max-height: 24px;
 }
+.jvo_plumber {
+  box-shadow: inset 0px -3px 7px 0px hsla(39, 100%, 58%, 1);
+  background: linear-gradient(
+    to bottom,
+    hsla(43, 94%, 58%, 1) 5%,
+    hsla(48, 96%, 50%, 1) 100%
+  );
+}
 
 .sance {
   padding: 1px 6px;
 }
-.tutci:focus {outline:0;}
+.tutci:focus {
+  outline: 0;
+}
 
 .tutci-hover {
   border-style: dashed;
@@ -1092,5 +1109,5 @@ user-select: none; */
   margin: 0 2px 0 2px;
   border-color: #aaa;
   border-radius: 3px;
-  white-space:nowrap;
+  white-space: nowrap;
 }

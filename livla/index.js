@@ -874,8 +874,15 @@ const ningaumahantufa = (text, socket) => {
       })
     // // write to a file
     fs.writeFileSync(whichfile, camxes, { encoding: 'utf8' })
-    const UglifyJS = require('uglify-js')
-    const result = UglifyJS.minify(camxes, { mangle: { reserved: ['parse'] } }).code
+    const Terser = require('terser')
+    const result = camxes;
+    // Terser.minify(camxes, {
+    //   ecma: 5,
+    //   mangle: {
+    //     toplevel: true,
+    //     reserved: ['parse'],
+    //   },
+    // }).code
     fs.writeFileSync(whichfile, result, { encoding: 'utf8' })
     socket.emit('la_livla_cu_cusku', {
       message: 'snada',

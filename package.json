@@ -6,7 +6,7 @@
   "dependencies": {
     "async": "^3.2.0",
     "await-to-js": "^2.1.1",
-    "aws-sdk": "^2.690.0",
+    "aws-sdk": "^2.691.0",
     "better-sqlite3": "^7.0.1",
     "byline": "^5.0.0",
     "cheerio": "^1.0.0-rc.3",
@@ -19,7 +19,7 @@
     "he": "^1.2.0",
     "irc-upd": "^0.10.0",
     "line-by-line": "^0.1.6",
-    "lojban": "^1.1.4",
+    "lojban": "^1.1.6",
     "lzwcompress": "^0.5.18",
     "mailparser": "^2.7.7",
     "mkdirp": "^1.0.4",
@@ -41,8 +41,7 @@
     "socket.io": "~2.3.0",
     "string-format": "^2.0.0",
     "tar": "6.0.2",
-    "twitter-lite": "^0.11.0",
-    "uglify-js": "^3.9.4",
+    "twitter-lite": "^0.13.0",
     "universal-analytics": "^0.4.20",
     "wget": "*",
     "wordnet-db": "^3.1.14"
@@ -61,8 +60,10 @@
     "deploy": "npm run sutysisku ; cd build/sutysisku ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push ; cd .."
   },
   "devDependencies": {
-    "babel-minify": "^0.5.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
     "nodemon": "^2.0.4",
-    "npm-check-updates": "^5.0.0"
+    "npm-check-updates": "^6.0.1",
+    "terser": "^4.7.0"
   }
 }

@@ -374,8 +374,8 @@ worker.onmessage = (ev) => {
   const data = ev.data
   if (data.kind == 'ready') {
     document.title = 'la sutysisku'
-    const l = document.getElementById('loading')
-    l.parentNode.removeChild(l)
+    const loading = document.getElementById('loading')
+    loading.parentNode.removeChild(loading)
     setStateFromUrl({
       replace: true,
     })

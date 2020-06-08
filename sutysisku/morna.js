@@ -7,8 +7,8 @@ const fs = require('fs')
 const path = require('path-extra')
 const rp = require('request-promise-native')
 const Terser = require('terser')
-const babel = require("@babel/core");
-const env = require("@babel/preset-env");
+const babel = require('@babel/core')
+const env = require('@babel/preset-env')
 
 const now = new Date().getTime()
 // config
@@ -72,7 +72,7 @@ async function CLLAppendix2Json(source) {
   arr.forEach((el) => {
     el = el.replace(/^<dt>(.*?): (.*?)<\/dt>$/s, '$1\t$2').split(/\t/)
     let selmaho = el[0]
-      .replace(/ selma'o/, '')
+      .replace(/ (selma'o|construct)/, '')
       .replace(/^\./, '')
       .replace(/\.$/, '')
     const jsonLinks = {}
@@ -100,7 +100,7 @@ async function CLLAppendix2Json(source) {
       .split(/\t/)
     if (el.length === 2) {
       let selmaho = el[0]
-        .replace(/ selma'o/, '')
+        .replace(/ (selma'o|construct)/, '')
         .replace(/^\./, '')
         .replace(/\.$/, '')
       const jsonLinks = {}
@@ -115,7 +115,7 @@ async function CLLAppendix2Json(source) {
     } else {
       el = el.replace(/^<dt>(.*?): (.*?)<\/dt>$/s, '$1\t$2').split(/\t/)
       let selmaho = el[0]
-        .replace(/ selma'o/, '')
+        .replace(/ (selma'o|construct)/, '')
         .replace(/^\./, '')
         .replace(/\.$/, '')
       const jsonLinks = {}
@@ -314,14 +314,15 @@ langs.forEach((lang) => {
     })
     if (el.uglify && process.env.COMPRESS !== 'false') {
       output = babel.transformSync(output, {
-        "presets": [
+        plugins: ['minify-dead-code-elimination'],
+        presets: [
           [
             env,
             {
-              "targets": "> 0.25%, not dead"
-            }
-          ]
-        ]
+              targets: '> 0.25%, not dead',
+            },
+          ],
+        ],
       }).code
       const { code, error } = Terser.minify(output, {
         nameCache,
@@ -455,14 +456,15 @@ let siskujs = fs.readFileSync(path.join(__dirname, './template/sisku.js'), {
 })
 if (process.env.COMPRESS !== 'false') {
   siskujs = babel.transformSync(siskujs, {
-    "presets": [
+    plugins: ['minify-dead-code-elimination'],
+    presets: [
       [
         env,
         {
-          "targets": "> 0.25%, not dead"
-        }
-      ]
-    ]
+          targets: '> 0.25%, not dead',
+        },
+      ],
+    ],
   }).code
   siskujs = Terser.minify(siskujs, {
     ecma: 5,

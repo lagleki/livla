@@ -176,9 +176,8 @@ function EmitVelcusku() {
   if (socket1Chat) socket1Chat.open()
 }
 
-function renderMathAndPlumbs(){
+function renderMathAndPlumbs() {
   MathJax.typesetPromise().then(() => {
-    addPlumbs()
     addJvoPlumbs(true)
   })
 }
@@ -248,15 +247,13 @@ function removePlumbs() {
 
 function appendPlumbs() {
   ;[].forEach.call(document.querySelectorAll('.leader-line'), function (e) {
-    document
-    .querySelector('#content')
-    .appendChild(e)
+    document.querySelector('#content').appendChild(e)
   })
 }
 
 function addJvoPlumbs(force) {
   removePlumbs()
-
+  addPlumbs(!force)
   scrollJvoTimer = setTimeout(
     () => {
       if (force !== true) {
@@ -274,21 +271,25 @@ function addJvoPlumbs(force) {
       const targetedEls = Array.from(document.querySelectorAll('[data-arr]'))
       for (var i = 0; i < targetedEls.length; i++) {
         const el = targetedEls[i]
+        if (
+          el.attributes['data-head'] &&
+          el.attributes['data-head'].nodeValue !== '1'
+        )
+          continue
         const id = el.id
         const arr = el.attributes['data-arr'].nodeValue.split(',')
         const tld = el.id.split('_')
-        if (tld.length === 3) continue
-        const tld0 = tld[0]
+        const tld_0 = tld.slice(0, -1)
         const kahe_zgana_el = kahe_sezgana(el)
         targetedEls.filter((e) => {
-          const tld_ = e.id.split('_')
-          const tld0_ = tld_[0]
+          const tld_inner = e.id.split('_')
+          const tld_inner_0 = tld_inner.slice(0, -2)
           const arr_ = e.attributes['data-arr'].nodeValue.split(',')
           const t_ = arr_[0].split(/(?=[0-9]+)/)
           if (
             arr_.length === 1 &&
-            tld_.length === 3 &&
-            tld0_ === tld0 &&
+            tld_inner_0.length === tld_0.length &&
+            tld_inner_0.join('_') === tld_0.join('_') &&
             arr.filter((ei) => {
               const t = ei.split(/(?=[0-9])/)
               return t_[0].indexOf(t[0]) === 0 && t_[1] === t[1]
@@ -321,41 +322,44 @@ function addJvoPlumbs(force) {
   )
 }
 
-function addPlumbs() {
+function addPlumbs(force) {
   removePlumbs()
-  scrollTimer = setTimeout(() => {
-    const targetedEls = document.querySelectorAll('[data-target]')
-    for (let i = 0; i < targetedEls.length; i++) {
-      const el = targetedEls[i]
-      if (kahe_sezgana(el)) {
-        const id = el.id
-        const target = el.attributes['data-target'].nodeValue
-        const t = new LeaderLine(
-          document.getElementById(target),
-          document.getElementById(id),
-          {
-            // gradient: {
-            //   startColor: 'rgba(135, 0, 0, 0.4)',
-            //   endColor: 'rgba(255, 120, 0, 0.4)',
-            // },
-            endPlugColor: 'rgba(255, 120, 0, 0.33)',
-            color: 'rgba(255, 120, 0, 0.33)',
-            dash: { animation: true },
-            // outlineColor: '#111',
-            // outline: true,
-            startSocketGravity: [50, -67],
-            endSocketGravity: [0, 67],
-            endPlug: 'arrow2',
-            // startSocket: 'top',
-            endSocket: 'bottom',
-            size: 3,
-          }
-        )
+  scrollTimer = setTimeout(
+    () => {
+      const targetedEls = document.querySelectorAll('[data-target]')
+      for (let i = 0; i < targetedEls.length; i++) {
+        const el = targetedEls[i]
+        if (kahe_sezgana(el)) {
+          const id = el.id
+          const target = el.attributes['data-target'].nodeValue
+          const t = new LeaderLine(
+            document.getElementById(target),
+            document.getElementById(id),
+            {
+              // gradient: {
+              //   startColor: 'rgba(135, 0, 0, 0.4)',
+              //   endColor: 'rgba(255, 120, 0, 0.4)',
+              // },
+              endPlugColor: 'rgba(255, 120, 0, 0.33)',
+              color: 'rgba(255, 120, 0, 0.33)',
+              dash: { animation: true },
+              // outlineColor: '#111',
+              // outline: true,
+              startSocketGravity: [50, -67],
+              endSocketGravity: [0, 67],
+              endPlug: 'arrow2',
+              // startSocket: 'top',
+              endSocket: 'bottom',
+              size: 3,
+            }
+          )
+        }
       }
-    }
-    appendPlumbs()
-    plumbsTimeout = 450
-  }, plumbsTimeout)
+      appendPlumbs()
+      plumbsTimeout = 450
+    },
+    force ? 0 : plumbsTimeout
+  )
 }
 
 function kahe_sezgana(el) {
@@ -867,11 +871,9 @@ function checkScrolledNearBottom({ target }) {
     window.jimte += 10
     skicu_rolodovalsi(state.displaying)
     MathJax.typesetPromise().then(() => {
-      addPlumbs()
       addJvoPlumbs(true)
     })
   } else {
-    addPlumbs()
     addJvoPlumbs(true)
   }
 }
@@ -920,7 +922,7 @@ function veljvoString({ v, fullDef, subtype, dataArrAdded, b, veljvoLs }) {
   return ` data-arr="${v}"`
 }
 
-function melbi_uenzi({ def, fullDef, query, seskari, type, subtype, index }) {
+function melbi_uenzi({ def, fullDef, query, seskari, type, index }) {
   let iterTercricmiId = 0
   const jsonIds = []
   const types = []
@@ -970,22 +972,24 @@ function melbi_uenzi({ def, fullDef, query, seskari, type, subtype, index }) {
         a[c] = combInd
         jsonIds.push(a)
         const b = c.replace(/[^a-zA-Z0-9]/g, '')
+        let head = ''
+        if (!!((fullDef && fullDef.rfs) || []).length) head = ` data-head="1"`
+
         const vel = veljvoString({
-          subtype,
+          subtype: head !== '' ? 'd' : 'r',
           v: c,
           fullDef,
           dataArrAdded,
           b,
           veljvoLs,
         })
-
         c = `<span id="${combInd}" class="terbricmi" style="background-color: hsl(${string2Int(
           hc,
           256,
           16
         )}, 100%, 90%);border-radius:${
           string2Int(hc, 9, 1) + 3
-        }px"${vel} data-color="${string2Int(hc, 256, 16)}">${c}</span>`
+        }px"${vel}${head} data-color="${string2Int(hc, 256, 16)}">${c}</span>`
         dataArrAdded.push(b)
       }
       return c
@@ -1217,19 +1221,14 @@ function jvoValue() {
   return jvoPlumbsOn ? '⇔' : '↔'
 }
 
-function skicu_palodovalsi({ def, inner, query, seskari, index, subtype }) {
+function skicu_palodovalsi({ def, inner, query, seskari, index }) {
   if (!query) query = state.searching.query
   if (!seskari) seskari = state.searching.seskari
   if (!def) def = []
   const out = document.createElement('div')
   out.className = inner ? 'terminner' : 'termouter'
   out.classList.add('term')
-  if (
-    !inner &&
-    def.d &&
-    def.d.nasezvafahi &&
-    (def.rfs || []).length === 0
-  ) {
+  if (!inner && def.d && def.d.nasezvafahi && (def.rfs || []).length === 0) {
     out.className = 'sidju cll noselect'
   }
   if (typeof fm[def.s] !== 'undefined') {
@@ -1341,7 +1340,6 @@ function skicu_palodovalsi({ def, inner, query, seskari, index, subtype }) {
       seskari,
       type: 'd',
       index,
-      subtype,
     })
 
   //<xuzganalojudri|lojbo>
@@ -1363,15 +1361,14 @@ function skicu_palodovalsi({ def, inner, query, seskari, index, subtype }) {
   if (fmm) heading.appendChild(fmm)
 
   //<xuzganalojudri|lojbo>
-  if (
-    def.t === 'lujvo' &&
-    (def.rfs || []).length > 0 &&
-    mu.hasExpansion
-  ) {
+  if (def.t === 'lujvo' && (def.rfs || []).length > 0 && mu.hasExpansion) {
     const jvo = document.createElement('input')
     jvo.type = 'button'
     jvo.classList.add('tutci', 'sance', 'jvo_plumber')
     jvo.value = jvoValue()
+    jvoPlumbsOn
+      ? jvo.classList.add('tutci-hover')
+      : jvo.classList.remove('tutci-hover')
     jvo.onclick = addJvoPlumbs
 
     heading.appendChild(jvo)
@@ -1533,7 +1530,6 @@ function skicu_palodovalsi({ def, inner, query, seskari, index, subtype }) {
           def: def.rfs[i],
           inner: true,
           index: `${index}_${i}`,
-          subtype: 'r',
         })
       )
     }

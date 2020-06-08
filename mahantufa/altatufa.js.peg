@@ -1,112 +1,223 @@
-//simplified morphology parser: zoi and non lojban text not supported. capital letters, illegal zunsna pairs are preprocessed
-{
-  function _join(a)
-  {
-    if (typeof(a) == "string") return a; else {var r = ""; for (var v in a) { r += _join(a[v]); } return r;}
-  }
+text = valsi *
 
-  function _node_int(a)
-  {
-    if (typeof(a) == "string") return a;
-    var r = [];
-    for (var v in a)  {r.push( _node_int( a[v] ) );}return r;
-  }
-}
+valsi = drata / lojban_word
 
-text = expr:(any_word*) {return _node_int(expr);}
-any_word = expr:(jbovla) {return expr;}
-jbovla = _:(pause_0)  {return ["drata", _join(_)];} / _:(cmevla)  {return ["cmevla", _join(_)];} / _:(cmavo) {return ["cmavo", _join(_)];} / _:(gismu) {return ["gismu", _join(_)];} / _:(!gismu !fuhivla !cmavo !(ini_vwl h y onset) lujvo_core) {return ["lujvo", _join(_)];} / expr:(fuhivla) {return ["fu'ivla", _join(expr)];}
+lojban_word = cmevla / cmavo / brivla
 
-cmevla = (&zifcme any_syllable+ &pause) / zifcme
-gismu = (initial_pair stressed_vowel / zunsna stressed_vowel zunsna) &final_syllable zunsna pa_zei_karsna &post_word
-fuhivla_trim = e:(fuhivla_head) f:(slaka &stress consonantal_syllable*) {return [_join(e),"!!",_join(f)]}
-fuhivla = fuhivla_trim final_syllable
-cmavo = !cmevla !(cvc !stress y h? lujvo_core / cvc &stress y short_final_rafsi) (!h !(zunsna zunsna+) onset (nucleus h)* nucleus / y+) &post_word
+cmevla = jbocme / zifcme
 
-lujvo_core = (expr:(hy_rafsi / fuhivla_rafsi / y_rafsi / !any_fuhivla_rafsi y_less_rafsi !any_fuhivla_rafsi) {return [_join(expr),"-"];} )* (expr:(fuhivla / gismu_cvv_final_rafsi) {return [_join(expr)];} / (expi:((stressed_hy_rafsi / stressed_fuhivla_rafsi / stressed_y_rafsi / e:(cvc_ccv_cvv &stress) {return ["!!",_join(e)]})) exp:(short_final_rafsi) {return [_join(expi),"-",_join(exp)];}) )
+zifcme = !h (nucleus / glide / h / consonant !pause / digit)* consonant &pause
 
-any_fuhivla_rafsi = fuhivla / fuhivla_rafsi / stressed_fuhivla_rafsi
-rafsi_string = y_less_rafsi* (gismu_cvv_final_rafsi / cvc_ccv_cvv &stress !y short_final_rafsi / y_rafsi / stressed_y_rafsi / (cvc_ccv_cvv &stress !y)? initial_pair y / hy_rafsi / stressed_hy_rafsi)
+jbocme = &zifcme (any_syllable / digit)+ &pause
 
-fuhivla_head = !rafsi_string !cmavo !(!rafsi_string zunsna rafsi_string) !h &onset unstressed_syllable*
-zifcme = !h (nucleus / glaide / h / zunsna !pause)* zunsna &pause
+cmavo = !cmevla !cvcy_lujvo cmavo_form &post_word
 
-stressed_fuhivla_rafsi = exp:(fuhivla_trim) expr:(h y) {return [_join(exp),"-",_join(expr)]} / exp:(fuhivla_trim onset) expr:(y) {return [_join(exp),"-",_join(expr)];}
-fuhivla_rafsi = &unstressed_syllable exp:(fuhivla_head) expr:(h y) {return [_join(exp),"-",_join(expr)]} / exp:(fuhivla_head onset) expr:(y h?) {return [_join(exp),"-",_join(expr)]}
+cvcy_lujvo = cvc_rafsi y h? initial_rafsi* brivla_core / stressed_cvc_rafsi y short_final_rafsi
 
-stressed_y_rafsi = exp:(long_rafsi / cvc) &stress expr:(y) {return ["!!",_join(exp),"-",_join(expr)]}
-y_rafsi = exp:((long_rafsi / cvc ) !stress) expr:(y h?) {return [_join(exp),"-",_join(expr)]}
+cmavo_form = !h !cluster onset (nucleus h)* (!stressed nucleus / nucleus !cluster) / y+ / digit
 
-y_less_rafsi = !y_rafsi !stressed_y_rafsi !hy_rafsi !stressed_hy_rafsi cvc_ccv_cvv !stress !y !h
+brivla = !cmavo initial_rafsi* brivla_core
 
-stressed_hy_rafsi = exp:((long_rafsi pa_zei_karsna / cvc_ccv_cvv )) &stress expr:(h y) {return ["!!",_join(exp),"-",_join(expr)]}
-hy_rafsi = exp:((long_rafsi pa_zei_karsna / cvc_ccv_cvv )) expr:(!stress h y h?) {return [_join(exp),"-", _join(expr)]}
+brivla_core = fuhivla / gismu / cvv_final_rafsi / stressed_initial_rafsi short_final_rafsi
 
-cvc = cv zunsna
-cvc_ccv = cvc / ini_vwl
-ini_vwl = initial_pair pa_zei_karsna
+stressed_initial_rafsi = stressed_extended_rafsi / stressed_y_rafsi / stressed_y_less_rafsi
 
-cvc_ccv_cvv = cvc_ccv / cvvr
-cvvr = exp:(zunsna (pa_zei_karsna !stress h pa_zei_karsna / re_zei_karsna)) expr:((r &zunsna / n &r)?) {return [_join(exp),"-",_join(expr)]}
-gismu_cvv_final_rafsi = gismu / cv &stress h &final_syllable pa_zei_karsna &post_word
-short_final_rafsi = &final_syllable (zunsna re_zei_karsna / ini_vwl) &post_word
+initial_rafsi = extended_rafsi / y_rafsi / !any_extended_rafsi y_less_rafsi !any_extended_rafsi
 
-unstressed_syllable = slaka !stress / consonantal_syllable
+any_extended_rafsi = fuhivla / extended_rafsi / stressed_extended_rafsi
 
-long_rafsi = exp:(cvc_ccv zunsna
-)
-cv = zunsna pa_zei_karsna
+fuhivla = fuhivla_head stressed_syllable consonantal_syllable* final_syllable
 
-final_syllable = onset !y nucleus !cmevla &post_word
-stress = (zunsna / glaide)* h? y? slaka pause
-any_syllable = onset nucleus coda? / consonantal_syllable
-slaka = onset !y nucleus coda?
+stressed_extended_rafsi = stressed_brivla_rafsi / stressed_fuhivla_rafsi
 
-consonantal_syllable = zunsna &syllabic coda
+extended_rafsi = brivla_rafsi / fuhivla_rafsi
 
-coda = !any_syllable zunsna &any_syllable / syllabic? zunsna? &pause
-onset = h / zunsna? glaide / initial
-nucleus = pa_zei_karsna / re_zei_karsna / y !nucleus
-glaide = (ɩ / w) &nucleus
-re_zei_karsna = ([a] w !u / [aeo] ɩ !i) !nucleus
-pa_zei_karsna = [aeiou] !nucleus
+stressed_brivla_rafsi = &unstressed_syllable brivla_head stressed_syllable h y
 
-i = [i]
-u = [u]
-y = [y] !(!y nucleus)
+brivla_rafsi = &(syllable consonantal_syllable* syllable) brivla_head h y h?
 
-ɩ = [iɩ]
-w = [uw] {return ["u",""]}
+stressed_fuhivla_rafsi = fuhivla_head stressed_syllable consonantal_syllable* !h onset y
 
-initial = (affricate / (cs !x / jz !(n / l / r))? (pfbgvkx / (t / d / n !r) !l / m)? (l / r)?) !zunsna !glaide
+fuhivla_rafsi = &unstressed_syllable fuhivla_head !h onset y h?
 
-initial_pair = &initial zunsna zunsna !zunsna
+fuhivla_head = !rafsi_string brivla_head
 
-stressed_vowel = _:(&stressed pa_zei_karsna / pa_zei_karsna &stress) {return ["@",_join(_)]}
+brivla_head = !cmavo !slinkuhi !h &onset unstressed_syllable*
+
+slinkuhi = !rafsi_string consonant rafsi_string
+
+rafsi_string = y_less_rafsi* (gismu / cvv_final_rafsi / stressed_y_less_rafsi short_final_rafsi / y_rafsi / stressed_y_rafsi / stressed_y_less_rafsi? initial_pair y / hy_rafsi / stressed_hy_rafsi)
+
+gismu = (initial_pair stressed_vowel / consonant stressed_vowel consonant) &final_syllable consonant vowel &post_word
+
+cvv_final_rafsi = consonant stressed_vowel h &final_syllable vowel &post_word
+
+short_final_rafsi = &final_syllable (consonant diphthong / initial_pair vowel) &post_word
+
+stressed_y_rafsi = (stressed_long_rafsi / stressed_cvc_rafsi) y
+
+stressed_y_less_rafsi = stressed_cvc_rafsi !y / stressed_ccv_rafsi / stressed_cvv_rafsi
+
+stressed_long_rafsi = initial_pair stressed_vowel consonant / consonant stressed_vowel consonant consonant
+
+stressed_cvc_rafsi = consonant stressed_vowel consonant
+
+stressed_ccv_rafsi = initial_pair stressed_vowel
+
+stressed_cvv_rafsi = consonant (unstressed_vowel h stressed_vowel / stressed_diphthong) r_hyphen?
+
+y_rafsi = (long_rafsi / cvc_rafsi) y h?
+
+y_less_rafsi = !y_rafsi !stressed_y_rafsi !hy_rafsi !stressed_hy_rafsi (cvc_rafsi / ccv_rafsi / cvv_rafsi) !h
+
+hy_rafsi = (long_rafsi vowel / ccv_rafsi / cvv_rafsi) h y h?
+
+stressed_hy_rafsi = (long_rafsi stressed_vowel / stressed_ccv_rafsi / stressed_cvv_rafsi) h y
+
+long_rafsi = initial_pair unstressed_vowel consonant / consonant unstressed_vowel consonant consonant
+
+cvc_rafsi = consonant unstressed_vowel consonant
+
+ccv_rafsi = initial_pair unstressed_vowel
+
+cvv_rafsi = consonant (unstressed_vowel h unstressed_vowel / unstressed_diphthong) r_hyphen?
+
+r_hyphen = r &consonant / n &r
+
+final_syllable = onset !y !stressed nucleus !cmevla &post_word
+
+stressed_syllable = &stressed syllable / syllable &stress
+
+stressed_diphthong = &stressed diphthong / diphthong &stress
+
+stressed_vowel = &stressed vowel / vowel &stress
+
+unstressed_syllable = !stressed syllable !stress / consonantal_syllable
+
+unstressed_diphthong = !stressed diphthong !stress
+
+unstressed_vowel = !stressed vowel !stress
+
+stress = (consonant / glide)* h? y? syllable pause
 
 stressed = onset comma* [aeiou]
 
-affricate = t cs / d jz
+any_syllable = onset nucleus coda? / consonantal_syllable
 
-zunsna = pfbgvkx / d / jz / cs / t / syllabic
+syllable = onset !y nucleus coda?
+
+consonantal_syllable = consonant &syllabic coda
+
+coda = !any_syllable consonant &any_syllable / syllabic? consonant? &pause
+
+onset = h / glide / initial
+
+nucleus = vowel / diphthong / y !nucleus
+
+glide = (i / u) &nucleus
+
+diphthong = (a i !i / a u !u / e i !i / o i !i) !nucleus
+
+vowel = (a / e / i / o / u) !nucleus
+
+a = comma* [aa]
+
+e = comma* [ee]
+
+i = comma* [ii]
+
+o = comma* [oo]
+
+u = comma* [uu]
+
+y = comma* [yy] !(!y nucleus)
+
+cluster = consonant consonant+
+
+initial_pair = &initial consonant consonant !consonant
+
+initial = (affricate / sibilant? other? liquid?) !consonant !glide
+
+affricate = t c / t s / d j / d z
+
+liquid = l / r
+
+other = p / t !l / k / f / x / b / d !l / g / v / m / n !liquid
+
+sibilant = c / s !x / (j / z) !n !liquid
+
+consonant = voiced / unvoiced / syllabic
 
 syllabic = l / m / n / r
 
-l = [l]
-m = [m]
-n = [n] !affricate
-r = [r]
-pfbgvkx = [pfbgvkx]
-d = [d]
-jz = [jz]
-cs = [cs]
-x = [x]
-t = [t]
-h = ['] &nucleus
+voiced = b / d / g / j / v / z
+
+unvoiced = c / f / k / p / s / t / x
+
+l = comma* [ll] !h !glide !l
+
+m = comma* [mm] !h !glide !m !z
+
+n = comma* [nn] !h !glide !n !affricate
+
+r = comma* [rr] !h !glide !r
+
+b = comma* [bb] !h !glide !b !unvoiced
+
+d = comma* [dd] !h !glide !d !unvoiced
+
+g = comma* [gg] !h !glide !g !unvoiced
+
+v = comma* [vv] !h !glide !v !unvoiced
+
+j = comma* [jj] !h !glide !j !z !unvoiced
+
+z = comma* [zz] !h !glide !z !j !unvoiced
+
+s = comma* [ss] !h !glide !s !c !voiced
+
+c = comma* [cc] !h !glide !c !s !x !voiced
+
+x = comma* [xx] !h !glide !x !c !k !voiced
+
+k = comma* [kk] !h !glide !k !x !voiced
+
+f = comma* [ff] !h !glide !f !voiced
+
+p = comma* [pp] !h !glide !p !voiced
+
+t = comma* [tt] !h !glide !t !voiced
+
+h = comma* ['h] &nucleus
+
+digit = comma* [0123456789] !h !nucleus
+
+post_word = pause / !nucleus lojban_word
+
+pause = comma* space_char+ / eof
+
+eof = comma* !.
+
 comma = [,]
 
-post_word = pause / !nucleus jbovla / [\}]
+non_lojban_word = !lojban_word non_space+
 
-pause = pause_0 / !.
+non_space = !space_char .
 
-pause_0 = [^a-za-z,']+
+space_char = [.\t\n\r?!\u0020]
+
+spaces = !y initial_spaces
+
+initial_spaces = (comma* space_char / !ybu y)+ eof? / eof
+
+ybu = y_ space_char* bu
+
+lujvo = !gismu !fuhivla brivla
+
+drata = pause_0 / !.
+
+pause_0 = expr:([^a-za-z,']+) {return ["drata", _join(expr)];}
+
+bu = &cmavo ( b u ) &post_word
+
+y_ = &cmavo ( y+ ) &post_word

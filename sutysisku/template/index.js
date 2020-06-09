@@ -1463,7 +1463,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
     out.appendChild(n)
   }
   //<xuzganalojudri|lojbo>
-  if (index == 0 && seskari !== 'velcusku') {
+  if (index == 0 && seskari !== 'velcusku' && !state.cll) {
     const cll = CLL()
     if (cll) out.appendChild(cll)
   }
@@ -1564,7 +1564,7 @@ function encodeUrl(uenzi) {
 function decodeUrl(urli) {
   return decodeURIComponent(
     urli.replace(/&amp;/g, '&').replace(/%27/g, "'")
-  ).replace(/[_\+]/g, ' ')
+  ).replace(/[_]/g, ' ')
 }
 
 function escHtml(a, apos) {
@@ -1581,8 +1581,10 @@ function escHtml(a, apos) {
 
 function skicu_rolodovalsi({ query, seskari }) {
   const displayUpTo = Math.min(window.jimte, results.length)
+  state.cll = undefined;
   if (resultCount === 0) {
     const cll = CLL(true)
+    state.cll = cll
     if (cll) outp.appendChild(cll)
   }
   for (; resultCount < displayUpTo; resultCount++) {

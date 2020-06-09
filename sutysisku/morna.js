@@ -69,9 +69,8 @@ async function CLLAppendix2Json(source) {
   for (let file of ['ix01.html', 'ix02.html']) {
     const appendix = source + file
     ;(await rp(appendix))
-      .match(/<dt>(.*?)<\/dt>[ \t\n\r]*((?=<dt>)|<dd>(.*?)<\/dd>)/gs)
+      .match(/<dt>(.*?)<\/dt>[ \t\n\r]*((?=<dt>)|(?=<\/)|<dd>(.*?)<\/dd>)/gs)
       .forEach((el) => {
-        const r = el
         el = el.replace(/^<dt>(.*?)(?=<a )(.*)$/s, '$1\t$2').split(/\t/)
         if (el.length === 2) {
           let selmaho = el[0]

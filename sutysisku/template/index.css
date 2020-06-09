@@ -94,6 +94,7 @@ h4 {
 
 .uoldeliste {
   list-style-image: url(../pixra/cukta.svg);
+  margin: 5px 0 5px 0;
 }
 
 .judri {
@@ -512,7 +513,7 @@ code {
   #loading {
     width: 30%;
   }
-  
+
   #clear {
     padding: 22px 10px 8px 30px;
     right: 9px;
@@ -652,7 +653,8 @@ background-size: 40px 60px;*/
 
 .valsi,
 .definition,
-.rafsi {
+.rafsi,
+.sidju.cll {
   /* margin-bottom: 15px; */
   font-family: Libertine, Tahoma, Lato, sans-serif;
   /* font-size: 110%; */

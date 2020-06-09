@@ -63,76 +63,52 @@ function rgbToHex(rgb) {
 }
 
 async function CLLAppendix2Json(source) {
-  source = source || 'https://lojban.pw/cll/uncll-1.2.7/xhtml_section_chunks/'
+  source = source || 'https://lojban.pw/cll/uncll-1.2.8.1/xhtml_section_chunks/'
   const json = {}
-  //ix02
-  let appendix = source + 'ix02.html'
-  let htmlString = await rp(appendix)
-  let arr = htmlString.match(/<dt>(.*?)<\/dt>/gs)
-  arr.forEach((el) => {
-    el = el.replace(/^<dt>(.*?): (.*?)<\/dt>$/s, '$1\t$2').split(/\t/)
-    let selmaho = el[0]
-      .replace(/ (selma'o|construct)/, '')
-      .replace(/^\./, '')
-      .replace(/\.$/, '')
-    const jsonLinks = {}
-    el[1].match(/<a (.*?)<\/a>/gs).forEach((i) => {
-      i = i
-        .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
-        .split(/\t/)
-      jsonLinks[i[0]] = i[1]
-    })
 
-    json[selmaho] = jsonLinks
-  })
-  //ix01
-  appendix = source + 'ix01.html'
-  htmlString = await rp(appendix)
-  arr = htmlString.match(
-    /<dt>([^<]*?)<\/dt>[ \t\n\r]*((?=<dt>)|<dd>(.*?)<\/dd>)/gs
-  )
-  arr.forEach((el) => {
-    el = el
-      .replace(
-        /^<dt>([^<]*?)<\/dt>[ \t\n\r]*((?=<dt>)|<dd>(.*?)<\/dd>)$/s,
-        '$1\t$2'
-      )
-      .split(/\t/)
-    if (el.length === 2) {
-      let selmaho = el[0]
-        .replace(/ (selma'o|construct)/, '')
-        .replace(/^\./, '')
-        .replace(/\.$/, '')
-      const jsonLinks = {}
-      el[1].match(/<a (.*?)<\/a>/gs).forEach((i) => {
-        i = i
-          .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
-          .split(/\t/)
-        jsonLinks[i[0]] = i[1]
+  for (let file of ['ix01.html', 'ix02.html']) {
+    const appendix = source + file
+    ;(await rp(appendix))
+      .match(/<dt>(.*?)<\/dt>[ \t\n\r]*((?=<dt>)|<dd>(.*?)<\/dd>)/gs)
+      .forEach((el) => {
+        const r = el
+        el = el.replace(/^<dt>(.*?)(?=<a )(.*)$/s, '$1\t$2').split(/\t/)
+        if (el.length === 2) {
+          let selmaho = el[0]
+            .replace(/ *<.*?>.*/g, '')
+            .trim()
+            .replace(/ (selma'o|construct)/g, '')
+            .replace(/ *:/g, '')
+            .replace(/^\./, '')
+            .replace(/\.$/, '')
+          const jsonLinks = {}
+          el[1].match(/<a (.*?)<\/a>/gs).forEach((i) => {
+            i = i
+              .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
+              .split(/\t/)
+            jsonLinks[i[0]] = i[1]
+              .replace(/[\n\r]/g, ' ')
+              .replace(/ {2,}/g, ' ')
+              .trim()
+          })
+
+          json[selmaho] = jsonLinks
+        } else {
+          console.log(el)
+        }
       })
+  }
 
-      json[selmaho] = jsonLinks
-    } else {
-      el = el.replace(/^<dt>(.*?): (.*?)<\/dt>$/s, '$1\t$2').split(/\t/)
-      let selmaho = el[0]
-        .replace(/ (selma'o|construct)/, '')
-        .replace(/^\./, '')
-        .replace(/\.$/, '')
-      const jsonLinks = {}
-      el[1].match(/<a (.*?)<\/a>/gs).forEach((i) => {
-        i = i
-          .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
-          .split(/\t/)
-        jsonLinks[i[0]] = i[1]
-      })
-
-      json[selmaho] = jsonLinks
-    }
-  })
   //save
   let text = 'window.arrcll=' + JSON.stringify(json)
-  fs.writeFileSync(path.join(__dirname, 'src/en/cll.js'), text)
-  fs.writeFileSync(path.join(__dirname, 'src/jb/cll.js'), text)
+  fs.writeFileSync(
+    path.join(__dirname, '../build/sutysisku/', 'en/cll.js'),
+    text
+  )
+  fs.writeFileSync(
+    path.join(__dirname, '../build/sutysisku/', 'jb/cll.js'),
+    text
+  )
 }
 
 function fullColorHex(r, g, b) {
@@ -363,14 +339,19 @@ langs.forEach((lang) => {
   const file = fs.readFileSync(path.join(__dirname, 'src', lang, 'bangu.js'), {
     encoding: 'utf8',
   })
-  const cll_exists = fs.existsSync(path.join(__dirname, 'src', lang, 'cll.js'))
+  const cll_exists = fs.existsSync(
+    path.join(__dirname, '../build/sutysisku/', lang, 'cll.js')
+  )
   let addition = ''
   if (cll_exists) {
     addition =
       '\n' +
-      fs.readFileSync(path.join(__dirname, 'src', lang, 'cll.js'), {
-        encoding: 'utf8',
-      })
+      fs.readFileSync(
+        path.join(__dirname, '../build/sutysisku/', lang, 'cll.js'),
+        {
+          encoding: 'utf8',
+        }
+      )
   }
   fs.writeFileSync(
     path.join(__dirname, '../build/sutysisku/', lang, 'bangu.js'),

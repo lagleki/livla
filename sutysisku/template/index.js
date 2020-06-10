@@ -428,7 +428,9 @@ function parseQuery(queryString) {
   }
   for (let i = 0; i < pairs.length; i++) {
     const pair = pairs[i].split('=')
-    query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '')
+    query[decodeURIComponent(pair[0])] = decodeURIComponent(
+      pair[1].replace(/[\+]/g, ' ') || ''
+    )
   }
   return query
 }
@@ -438,9 +440,19 @@ function setStateFromUrl({ href, replace }) {
     href = href.substring(href.indexOf('#') + 1)
     localStorage.setItem('url', `#${href}`)
   }
-  const params = parseQuery(href || window.location.hash)
-  if (!params['sisku']) return
-  const newSearch = decodeUrl(params['sisku']).trim()
+  let params = parseQuery(href || window.location.hash)
+  let newSearch
+  if (params['sisku']) {
+    newSearch = decodeUrl(params['sisku']).trim()
+  } else {
+    href = href || window.location.search
+    href = href.substring(href.indexOf('?') + 1)
+    const search = new URLSearchParams(href)
+    newSearch = decodeUrl(search.get('focus')).trim()
+    if (newSearch) {
+      params = { sisku: newSearch, seskari: 'cnano' }
+    } else return
+  }
   if (
     state.searching.seskari !== params['seskari'] ||
     state.searching.query !== newSearch
@@ -476,9 +488,9 @@ function clicked({ target }) {
 }
 
 function setUrlFromState({ replace }) {
-  let url = `#seskari=${state.searching.seskari}&sisku=${encodeUrl(
-    state.searching.query
-  )}`
+  let url = `${window.location.href.split('?')[0].split('#')[0]}#seskari=${
+    state.searching.seskari
+  }&sisku=${encodeUrl(state.searching.query)}`
   if (state.searching.query === '') {
     url = ''
     document.title = 'la sutysisku'
@@ -815,27 +827,10 @@ function getCLLSections(te_gerna) {
   return window.arrcll[te_gerna]
 }
 
-function CLL(selmaho) {
-  if (
-    state.searching.seskari === 'rimni' ||
-    !window.cll_url | ((window.arrcll || []).length === 0) ||
-    (!selmaho &&
-      results[0].s &&
-      results[0].s.replace(/[0-9]+[a-z]*\*?$/, '') === state.searching.query) ||
-    (selmaho && !/^[A-Zh]+/.test(state.searching.query))
-  )
-    return
-  let secs
-  if (selmaho) {
-    secs = getCLLSections(state.searching.query)
-  } else {
-    secs = getCLLSections(state.searching.query)
-    if (!secs && results && results[0] && results[0].s)
-      secs =
-        getCLLSections(results[0].s) ||
-        getCLLSections(state.searching.query.toLowerCase().replace(/h/g, "'"))
-  }
-  if (!secs) return
+function CLL({ pre, valsi }) {
+  if (!window.cll_url | ((window.arrcll || []).length === 0)) return
+  const secs = getCLLSections(valsi)
+  if (!secs) return {}
   const cllHtmlLinksString = `${
     window.cllnotci
   }<ul class='uoldeliste'>${Object.keys(secs)
@@ -847,9 +842,9 @@ function CLL(selmaho) {
     )
     .join('')}</ul>`
   const div = document.createElement('div')
-  div.className = `${selmaho ? 'sidju' : 'definition'} cll noselect`
+  div.className = `${pre ? 'sidju' : 'definition'} cll noselect`
   div.innerHTML = cllHtmlLinksString
-  return div
+  return { secs, div }
 }
 //</xuzganalojudri|lojbo>
 
@@ -1411,6 +1406,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
     var n = document.createElement('div')
     n.classList.add('definition', 'valsi')
     if (def.d && def.d.nasezvafahi) {
+      if (!def.t && (def.rfs || []).length === 0) return
       n.classList.add('nasezvafahi', 'noselect')
       n.innerHTML = window.nasezvafahi
     } else {
@@ -1463,9 +1459,9 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
     out.appendChild(n)
   }
   //<xuzganalojudri|lojbo>
-  if (index == 0 && seskari !== 'velcusku' && !state.cll) {
-    const cll = CLL()
-    if (cll) out.appendChild(cll)
+  if (index == 0 && seskari !== 'velcusku') {
+    const { secs, div } = CLL({ valsi: def.w })
+    if (secs && secs !== state.cll) out.appendChild(div)
   }
   //</xuzganalojudri|lojbo>
   if (def.e) {
@@ -1525,13 +1521,12 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
     const subDefs = document.createElement('div')
     subDefs.classList.add('definition', 'subdefinitions')
     for (var i = 0; i < def.rfs.length; i++) {
-      subDefs.appendChild(
-        skicu_palodovalsi({
-          def: def.rfs[i],
-          inner: true,
-          index: `${index}_${i}`,
-        })
-      )
+      const o = skicu_palodovalsi({
+        def: def.rfs[i],
+        inner: true,
+        index: `${index}_${i}`,
+      })
+      if (o) subDefs.appendChild(o)
     }
     out.appendChild(subDefs)
   }
@@ -1581,11 +1576,11 @@ function escHtml(a, apos) {
 
 function skicu_rolodovalsi({ query, seskari }) {
   const displayUpTo = Math.min(window.jimte, results.length)
-  state.cll = undefined;
+  state.cll = undefined
   if (resultCount === 0) {
-    const cll = CLL(true)
-    state.cll = cll
-    if (cll) outp.appendChild(cll)
+    const { secs, div } = CLL({ pre: true, valsi: state.searching.query })
+    state.cll = secs
+    if (div) outp.appendChild(div)
   }
   for (; resultCount < displayUpTo; resultCount++) {
     outp.appendChild(

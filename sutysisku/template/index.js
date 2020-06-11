@@ -824,11 +824,16 @@ function calcVH() {
 
 //<xuzganalojudri|lojbo>
 function getCLLSections(te_gerna) {
-  return window.arrcll[te_gerna]
+  let a = window.arrcll[te_gerna]
+  if (!a) {
+    a = window.arrcll[te_gerna.replace(/[^A-Z]+$/, '')]
+  }
+  return a
 }
 
 function CLL({ pre, valsi }) {
   if (!window.cll_url | ((window.arrcll || []).length === 0)) return
+  if (pre && !valsi.match(/^[A-Zh]+[\+A-Zh0-9]*$/)) return {}
   const secs = getCLLSections(valsi)
   if (!secs) return {}
   const cllHtmlLinksString = `${

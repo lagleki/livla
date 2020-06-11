@@ -652,7 +652,7 @@ background-size: 40px 60px;*/
 }
 
 .valsi,
-.definition,
+.definition:not(.subdefinitions),
 .rafsi,
 .sidju.cll {
   /* margin-bottom: 15px; */
@@ -1093,9 +1093,26 @@ user-select: none; */
 }
 
 @font-face {
-  font-family: 'Libertine';
-  src: url('../assets/fonts/LinLibertine_R.otf?sisku={now}');
+  font-family: "Libertine";
+  src: url("../assets/fonts/linux-libertine/LinLibertine_R.otf");
 }
+@font-face {
+  font-family: "Libertine";
+  src: url("../assets/fonts/linux-libertine/LinLibertine_RI.otf");
+  font-style: italic;
+}
+@font-face {
+  font-family: "Libertine";
+  src: url("../assets/fonts/linux-libertine/LinLibertine_RB.otf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Libertine";
+  src: url("../assets/fonts/linux-libertine/LinLibertine_RBI.otf");
+  font-style: italic;
+  font-weight: bold;
+}
+
 /*<xuzganalojudri|lojbo>*/
 @font-face {
   font-family: 'crisa-regular';

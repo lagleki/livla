@@ -15,7 +15,7 @@ index.html?version=32
 ../pixra/snime.svg
 ../pixra/menu.svg
 ../pixra/arrow-left.png
-../sisku.js?sisku=2019_09_24_06_27_52
+../sisku.js?sisku={now}
 worker.js
 bangu.js
 ../pixra/cll.png
@@ -27,7 +27,7 @@ bangu.js
 ../pixra/simplingua.svg
 ../pixra/muplis-eng-pol.png
 ../pixra/16.png
-../data/parsed-ina.js?sisku=2019_09_24_06_27_52
+../data/parsed-ina.js?sisku={now}
 ../pixra/x.svg
 NETWORK:
 *

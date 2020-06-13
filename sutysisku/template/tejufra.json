@@ -1,0 +1,81 @@
+{
+  "en": {
+    "bangudesc": "<h1><b>la sutysisku</b> is a fast dictionary for the Lojban language.</h1><div style=\"text-align:justify;\">- Can I use it if I lose internet access?<br/>- Yes, if this happens try opening this very address from this browser.<br/>It should still open. A latest version of Chrome, Safari or Firefox is required.<ul class='liste'><li>'search' prefers official words and shows them first, 'search+' sets equal priority to both official and experimental words.</li><li>Press <code>/</code> to focus the search field.</li><li>For advanced users: to enable regular expressions search in titles either start the string with <code>^</code> or end with <code>$</code>: <a href='#seskari=cnano&amp;sisku=%5Eui' class='judri'><code>^ui</code></a>, <a href='#seskari=cnano&amp;sisku=sku%24' class='judri'><code>sku$</code></a> are examples.</li></ul>Transliterations to <a href='#seskari=cnano&amp;sisku=zbalermorna'>zbalermorna</a> orthography are provided for your searches.</div>",
+    "bangusisku": "English-Lojban",
+    "bangulo": "Loading dictionary ...",
+    "title": "Lojban dictionary la sutysisku",
+    "siskudescr": "Search the Lojban dictionary la jbovlaste.",
+    "opdescr": "Lojban dictionary: works offline (+ English and other languages)",
+    "bangu": "english",
+    "lojbo": "true",
+    "muplis": "false",
+    "catni": "search",
+    "cnano": "+",
+    "sisku": "search",
+    "xuzganalojudri": "true",
+    "ogtitle": "Sutysisku",
+    "pron_guide": "Pronunciation guide",
+    "window": {
+      "window.cmene": "English",
+      "window.nasezvafahi": "No definition has been found",
+      "window.rimni": "la rimni sutysisku",
+      "window.bangudecomp": "decomposing ...",
+      "window.bangubuild": "Building index...",
+      "window.xuzganalojudri": "true",
+      "window.judri": "http://jbovlaste.lojban.org/dict/",
+      "window.purc": "Last searched",
+      "window.bangu": ".inglic."
+    }
+  },
+  "ru": {
+    "bangudesc": "<h1><b>la sutysisku</b> - быстрый словарь языка 'ложбан'.</h1><div style=\"text-align:justify;\">- Будет ли эта страничка открываться, если у меня будет недоступен интернет?<br>- Да, если это случится, всё равно откройте этот же адрес с этого же самого браузера. Страничка всё равно должна открыться. Требуется последняя версия браузера Chrome, Яндекс Браузера, Safari или Firefox. Работает на устройствах Android и Apple.<ul class='liste'><li>'поиск' вначал показывает официальные слова, 'поиск+' выдает равный проритет и официальным, и экспериментальным словам.</li><li>Нажмите <code>/</code>, чтобы перейти в поле поиска.</li><li>Для гиков: поиск слов ложбана регулярными выражениями доступен добавлением перед словом символа <code>^</code> или позади слова символа <code>$</code>. Примеры: <code>^mi</code>, <code>gau$</code>.</li></ul>Больше ресурсов на русском на сайте <a href='http://mw.lojban.org/index.php?title=Lojban&setlang=ru' target='_blank'>lojban.org</a>.</br/>В результатах поиска также представлена орфография zbalermorna.</div>",
+    "bangusisku": "русский - lojban",
+    "bangulo": "Загружаем словарь ...",
+    "bangu": "русский",
+    "title": "la sutysisku - словарь языка ложбан",
+    "siskudescr": "Поиск в словаре языка ложбан la jbovlaste.",
+    "opdescr": "Словарь ложбана (Lojban), английского и других языков, может работать без подключения к интернету.",
+    "xuzganalojudri": "true",
+    "lojbo": "true",
+    "kunti": "Очистить",
+    "cnano": "+",
+    "catni": "поиск",
+    "velcusku": "чат",
+    "arxivo": "архив",
+    "rimni": "рифмы",
+    "pron_guide": "Руководство по произношению",
+    "window": {
+      "window.cmene": "русский",
+      "window.nasezvafahi": "не найдено",
+      "window.rimni": "la rimni sutysisku",
+      "window.bangubuild": "Создаём индексы ...",
+      "window.bangudecomp": "разбиваем слова ...",
+      "window.purc": "Ранее искали",
+      "window.xuzganalojudri": true,
+      "window.judri": "http://jbovlaste.lojban.org/dict/"
+    }
+  },
+  "fr-facile": {
+    "bangudesc": "<h1><b>la sutysisku</b> est un dictionnaire rapide pour le lojban.</h1><div style=\"text-align:justify;\">- Puis-je l'utilise si je perd l'accès à Internet ?<br/>- Oui, si cela arrive, essayer d'ouvrir cette même adresse depuis le même navigateur. Elle devrait encore s'ouvrir. Un version récente de Chrome, Safari ou Firefox est requise.<ul class='liste'><li>Presser <code>/</code> pour se focaliser sur le champ de recherche.</li><li>Pour des utilisateurs avancés: pour activer la recherche par expression régulière, commencez la recherhce avec <code>^</code> ou finissez la avec <code>$</code>. Par exemple: <code>^mi</code>, <code>gau$</code>.</li></ul>Pour plus d'informations, visitez <a href='http://mw.lojban.org/index.php?title=Lojban&setlang=fr' target='_blank'>le Wiki du Lojban</a>.</div>",
+    "bangusisku": "français - lojban",
+    "bangulo": "Nous chargeons le dictionnaire ...",
+    "bangu": "français",
+    "siskudescr": "Search the Lojban dictionary la jbovlaste.",
+    "opdescr": "Un dictionnaire pour le lojban, l'anglais et d'autres langues. Fonctionne aussi hors-ligne.",
+    "xuzganalojudri": "true",
+    "lojbo": "true",
+    "rimni": "rimes",
+    "catni": "chercher",
+    "kunti": "Effacer",
+    "pron_guide": "Guide de prononciation",
+    "window": {
+      "window.nasezvafahi": "Aucune définition n'a été trouvée.",
+      "window.bangubuild": "Nous construisons l'indice...",
+      "window.rimni": "la rimni sutysisku",
+      "window.bangudecomp": "décomposer...",
+      "window.purc": "Vu la dernière fois",
+      "window.xuzganalojudri": true,
+      "window.judri": "http://jbovlaste.lojban.org/dict/"
+    }
+  }
+}

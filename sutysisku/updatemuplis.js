@@ -18,7 +18,7 @@ jboenglish_dict();
 
 function ningau_la_muplis() {
   const db = new sqlite3.Database(path.join(__dirname, "../../dumps", "1.sql"));
-  const wstream = fs.createWriteStream(path.join(__dirname, "../data", "parsed-tatoeba.js.temp"));
+  const wstream = fs.createWriteStream(path.join(__dirname, "../data", "parsed-muplis.js.temp"));
   wstream.write('sorcu["muplis"] = {\n');
   db.serialize(() => {
     db.run("BEGIN TRANSACTION");
@@ -35,13 +35,13 @@ function ningau_la_muplis() {
   db.close(() => {
     wstream.write('};\n');
     wstream.end();
-    fs.renameSync(path.join(__dirname, "../data", "parsed-tatoeba.js.temp"), path.join(__dirname, "../data", "parsed-tatoeba.js"));
+    fs.renameSync(path.join(__dirname, "../data", "parsed-muplis.js.temp"), path.join(__dirname, "../data", "parsed-muplis.js"));
   });
 }
 
 function ningau_la_muplis_poholska() {
   const db = new sqlite3.Database(path.join(__dirname, "../../dumps", "1.sql"));
-  const wstream = fs.createWriteStream(path.join(__dirname, "../data", "parsed-tatoeba.js.temp"));
+  const wstream = fs.createWriteStream(path.join(__dirname, "../data", "parsed-muplis.js.temp"));
   wstream.write('sorcu["muplis-eng-pol"] = {\n');
   db.serialize(() => {
     db.run("BEGIN TRANSACTION");
@@ -57,7 +57,7 @@ function ningau_la_muplis_poholska() {
   db.close(() => {
     wstream.write('};\n');
     wstream.end();
-    fs.renameSync(path.join(__dirname, "../data", "parsed-tatoeba.js.temp"), path.join(__dirname, "../data", "parsed-tatoeba-eng-pol.js"));
+    fs.renameSync(path.join(__dirname, "../data", "parsed-muplis.js.temp"), path.join(__dirname, "../data", "parsed-tatoeba-eng-pol.js"));
   });
 }
 

@@ -1,6 +1,5 @@
 /* jshint bitwise: false */
 const lg = console.log.bind(console)
-const p = (object) => JSON.stringify(object)
 
 // livla bot
 const fs = require('fs')
@@ -10,7 +9,6 @@ const R = require('ramda')
 const lojban = require('lojban')
 const he = require('he')
 const { to } = require('await-to-js')
-const rp = require('request-promise-native')
 const mkdirp = require('mkdirp')
 
 const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -32,8 +30,6 @@ db.pragma('journal_mode = WAL')
 const sanitizeHtml = require('sanitize-html')
 
 const tato = require('./tatoeba.js')
-const interv = 300000
-const interm = 2900
 const nodasezvafahi = "no da se zvafa'i"
 const tersepli = ' + '
 const commandPrefix = '.'
@@ -87,10 +83,9 @@ let server = 'irc.freenode.net'
 let twitter_id = 'good_opinions,opinions_good,cunsku'
 let consumer_key, consumer_secret, access_token_key, access_token_secret
 let arr_twitter_id
+let config = {}
 
 // End default configuration
-const commonConfig = require('../config/config.js')
-const config = require(path.join(require('os').homedir(), '.livla/config.json'))
 
 let userSettings = {} // Saving user preferences
 userSettings[replier] = {
@@ -176,8 +171,8 @@ const loadConfig = () => {
   twitter_id = either(localConfig, 'twitter_id', twitter_id)
   arr_twitter_id = twitter_id.split(',')
 
-  if (!commonConfig.disableIrcBots && !commonConfig.disableTwitter)
-    startTwitterStream()
+  config = { ...localConfig }
+  if (!config.disableIrcBots && !config.disableTwitter) startTwitterStream()
 }
 
 function startTwitterStream() {
@@ -276,7 +271,7 @@ const updateUserSettings = (callback) => {
 
 // IRC bot
 let clientmensi
-if (!commonConfig.disableIrcBots) {
+if (!config.disableIrcBots) {
   const Irc = require('irc-upd')
   lg('channels', configmensi.options.channels)
   clientmensi = new Irc.Client(
@@ -752,35 +747,44 @@ function prepareSutysiskuJsonDump(language) {
         delete json[v.word][key]
     )
   })
-  return `sorcu["${language}"] = ${JSON.stringify(json)}`
+  return {
+    js: `sorcu["${language}"] = ${JSON.stringify(json)}`,
+    json: JSON.stringify(json),
+  }
 }
 const ningau_palasutysisku = (language, lojbo) => {
   // write a new file parsed.js that would be used by la sutysisku
   if (!language) language = 'en'
-  const pars = prepareSutysiskuJsonDump(language)
-  let t = path.join(
-    __dirname,
-    '../build/sutysisku/data',
-    `parsed-${language}.js`
-  )
-  fs.writeFileSync(`${t}.temp`, pars)
-  fs.renameSync(`${t}.temp`, t)
-  t = path.join(__dirname, `../build/sutysisku/${language}/`, 'webapp.appcache')
-  const d = new Date()
-  let n = d.getDate()
-  if (n === 1 || n === 11 || n === 21) {
-    try {
-      n = `${d.getFullYear()}-${
-        d.getMonth() + 1
-      }-${d.getDate()}T${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
-      pars = fs
-        .readFileSync(t, {
-          encoding: 'utf8',
-        })
-        .replace(/\n# .+\n/, `\n# ${n}\n`)
-      fs.writeFileSync(t, pars)
-      lg(`${t} updated`)
-    } catch (err) {}
+  for (const format of ['js', 'json']) {
+    const pars = prepareSutysiskuJsonDump(language)[format]
+    let t = path.join(
+      __dirname,
+      '../build/sutysisku/data',
+      `parsed-${language}.${format}`
+    )
+    fs.writeFileSync(`${t}.temp`, pars)
+    fs.renameSync(`${t}.temp`, t)
+    t = path.join(
+      __dirname,
+      `../build/sutysisku/${language}/`,
+      'webapp.appcache'
+    )
+    const d = new Date()
+    let n = d.getDate()
+    if (n === 1 || n === 11 || n === 21) {
+      try {
+        n = `${d.getFullYear()}-${
+          d.getMonth() + 1
+        }-${d.getDate()}T${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+        pars = fs
+          .readFileSync(t, {
+            encoding: 'utf8',
+          })
+          .replace(/\n# .+\n/, `\n# ${n}\n`)
+        fs.writeFileSync(t, pars)
+        lg(`${t} updated`)
+      } catch (err) {}
+    }
   }
 }
 
@@ -875,7 +879,7 @@ const ningaumahantufa = (text, socket) => {
     // // write to a file
     fs.writeFileSync(whichfile, camxes, { encoding: 'utf8' })
     const Terser = require('terser')
-    const result = camxes;
+    const result = camxes
     // Terser.minify(camxes, {
     //   ecma: 5,
     //   mangle: {
@@ -986,6 +990,7 @@ async function updateXmlDumps() {
   return uniques(erroredLangs)
 }
 
+updateXmlDumps()
 setInterval(() => {
   updateXmlDumps()
 }, 1 * 1 * 60 * 60 * 1000) // update logs once an hour
@@ -1342,7 +1347,7 @@ async function processor({ from, towhom, text, socket }) {
   if (replyToVocatives({ from, text, sendTo, socket })) return
   sendDelayed({ from, sendTo, socket })
 
-  text = text.toLowerCase().trim().replace(/’/g,"'")
+  text = text.toLowerCase().trim().replace(/’/g, "'")
   let inLanguage = defaultLanguage
   if (text.charAt(0) === '#' && replyToHashed({ text, socket, sendTo })) return
   if (text.indexOf(commandPrefix) === 0) {
@@ -1444,7 +1449,7 @@ async function processor({ from, towhom, text, socket }) {
   }
 }
 
-if (!commonConfig.disableIrcBots) {
+if (!config.disableIrcBots) {
   clientmensi.on('message', (from, towhom, text) => {
     processor({ from, towhom, text })
   })

@@ -1,7 +1,6 @@
 {
   "name": "la_livla",
   "version": "0.0.1",
-  "type": "module",
   "description": "A combine of Lojban tools",
   "dependencies": {
     "async": "^3.2.0",
@@ -33,6 +32,7 @@
     "ramda": "^0.27.0",
     "randexp": "^0.5.3",
     "recursive-readdir": "^2.2.2",
+    "regenerator-runtime": "^0.13.5",
     "request": "^2.88.2",
     "request-promise-native": "^1.0.8",
     "sanitize-html": "^1.26.0",
@@ -50,7 +50,7 @@
     "type": "git",
     "url": "https://github.com/lagleki/livla"
   },
-  "main": "livla/livla.js",
+  "main": "livla/index.js",
   "scripts": {
     "ncu": "ncu -u",
     "start": "nodemon --ignore ./ --exec \"node livla/index.js\"",
@@ -61,8 +61,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
+    "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
+    "@babel/runtime": "^7.10.2",
     "babel-plugin-minify-dead-code-elimination": "^0.5.1",
+    "core-js": "^3.6.5",
     "nodemon": "^2.0.4",
     "npm-check-updates": "^6.0.1",
     "terser": "^4.7.0"

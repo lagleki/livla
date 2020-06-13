@@ -1,22 +1,22 @@
 var CACHE_NAME = 'sutysisku'
 var urlsToCache = [
   'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
-  'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.otf',
-  'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.otf',
-  'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.otf',
+  'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff',
+  'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff',
+  'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff',
   'https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js',
   './',
   './index.html',
   './index.js?detri={now}',
   './index.css?detri={now}',
   './bangu.js?sisku={now}',
-  '../data/parsed-{lang}.js?sisku={now}',
+  // '../data/parsed-en.js?sisku={now}',
   '../sisku.js?sisku={now}',
   './worker.js?sisku={now}',
-  '../assets/fonts/linux-libertine/LinLibertine_R.otf',
-  '../assets/fonts/linux-libertine/LinLibertine_RI.otf',
-  '../assets/fonts/linux-libertine/LinLibertine_RB.otf',
-  '../assets/fonts/linux-libertine/LinLibertine_RBI.otf',
+  '../assets/fonts/linux-libertine/LinLibertine_R.otf?sisku={now}',
+  '../assets/fonts/linux-libertine/LinLibertine_RI.otf?sisku={now}',
+  '../assets/fonts/linux-libertine/LinLibertine_RB.otf?sisku={now}',
+  '../assets/fonts/linux-libertine/LinLibertine_RBI.otf?sisku={now}',
   '../assets/fonts/crisa-regular.otf?sisku={now}',
   '../assets/scripts/leader-line.min.js',
   '../pixra/cll.png',
@@ -108,7 +108,14 @@ self.addEventListener('activate', function (event) {
         )
       )
       .then(() => {
-        console.log('V2 now ready to handle fetches!')
+        self.clients.matchAll().then(function (clients) {
+          console.log(clients)
+          if (clients && clients.length) {
+            clients.map(function (client) {
+              client.postMessage({ teminde: 'ei ningau le sorcu' })
+            })
+          }
+        })
       })
   )
 })

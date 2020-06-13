@@ -8,6 +8,10 @@ const citri = document.getElementById('citri')
 const sidju = document.getElementById('sidju')
 const pb = document.getElementById('kernelo_lo_cpacu')
 const worker = new Worker('worker.js?sisku={now}')
+// const gunka = new Worker('worker.js?sisku={now}')
+// gunka.onmessage = (ev) => {
+//   console.log(ev.data)
+// }
 const SiteTitle = document.querySelector('#title > font')
 const SiteTitleFull = document.querySelector('#site-title')
 let jvoPlumbsOn = false
@@ -93,10 +97,12 @@ const state = {
   searching: {
     seskari: 'cnano',
     query: '',
+    bangu: 'en',
   },
   displaying: {
     seskari: 'cnano',
     query: '',
+    bangu: 'en',
   },
   citri: [],
 }
@@ -105,6 +111,15 @@ const state = {
     const tcini = JSON.parse(localStorage.getItem('tcini'))
     if (tcini.seskari) state.searching.seskari = tcini.seskari
     if (tcini.query) state.searching.query = tcini.query
+    if (tcini.bangu) state.searching.bangu = tcini.bangu
+    //check if our db is filled
+    worker.postMessage({
+      kind: 'fancu',
+      cmene: 'ningau_lesorcu',
+      ...state.searching,
+    })
+
+    updateLocales()
   } catch (e) {}
   try {
     state.citri = JSON.parse(localStorage.getItem('citri')) || []
@@ -115,13 +130,15 @@ RenderCitri()
 
 function RenderCitri() {
   if (state.citri.length > 0)
-    citri.innerHTML = ` ${window.purc}${state.citri
+    citri.innerHTML = ` <span class="tanxe" data-jufra="window.purc">${
+      window.purc
+    }</span>${state.citri
       .filter(({ seskari }) => seskari !== 'velcusku')
       .map(
-        ({ seskari, query }) =>
+        ({ seskari, query, bangu }) =>
           `<a class="a-${seskari}" href="#seskari=${seskari}&sisku=${encodeUrl(
             query
-          )}">${escHtml(query)}</a>`
+          )}&bangu=${bangu}">${escHtml(query)}</a>`
       )
       .join(', ')}`
 }
@@ -182,7 +199,7 @@ function renderMathAndPlumbs() {
   })
 }
 
-function RenderResults({ query, seskari }) {
+function RenderResults({ query, seskari, bangu }) {
   removePlumbs()
   window.jimte = seskari === 'velcusku' ? 201 : 30
   resultCount = 0
@@ -193,9 +210,11 @@ function RenderResults({ query, seskari }) {
   skicu_rolodovalsi({
     query,
     seskari,
+    bangu,
   })
   state.displaying.query = query
   state.displaying.seskari = seskari
+  state.displaying.bangu = bangu
   outp.style.display = 'block'
   descr.style.display = 'none'
   drata.style.display = 'none'
@@ -373,6 +392,23 @@ function kahe_sezgana(el) {
   return rect
 }
 
+function twoJsonsAreEqual(obj1, obj2) {
+  let flag = true
+
+  if (Object.keys(obj1).length == Object.keys(obj2).length) {
+    for (key in obj1) {
+      if (obj1[key] == obj2[key]) {
+        continue
+      } else {
+        flag = false
+        break
+      }
+    }
+  } else {
+    flag = false
+  }
+  return flag
+}
 //listeners
 worker.onmessage = (ev) => {
   const data = ev.data
@@ -384,18 +420,27 @@ worker.onmessage = (ev) => {
       replace: true,
     })
   } else if (data.kind == 'searchResults') {
-    if (JSON.stringify(data.req) !== JSON.stringify(state.searching)) return
-    if (JSON.stringify(data.req) === JSON.stringify(state.displaying)) return
+    if (!data.force && !twoJsonsAreEqual(data.req, state.searching)) return
     results = data.results || []
     RenderResults({
-      query: data.req.query,
-      seskari: data.req.seskari,
+      ...data.req,
     })
   } else if (data.kind == 'loading') {
     document.getElementById('caho_cpacu').textContent = window.bangubuild
     pb.style.width = '51%'
   } else if (data.kind == 'progress') {
     pb.style.width = `${data.percent * 100}%`
+  } else if (data.kind == 'caho_sorcu') {
+    console.log(data.results)
+  } else if (data.kind == 'fancu') {
+    const { cmene, results } = data
+    switch (cmene) {
+      case 'tejufra':
+        updateDOMWithLocales(results)
+        break
+      case 'ningau_lesorcu':
+        console.log(results)
+    }
   }
 }
 if (socket)
@@ -415,6 +460,7 @@ if (socket)
 //loaded doc > from url > push new seskari/query, update url
 //get events:
 function parseQuery(queryString) {
+  if (queryString === '') return
   const query = {}
   let pairs = ''
   //legacy support:
@@ -440,36 +486,58 @@ function setStateFromUrl({ href, replace }) {
     href = href.substring(href.indexOf('#') + 1)
     localStorage.setItem('url', `#${href}`)
   }
-  let params = parseQuery(href || window.location.hash)
+  let params = parseQuery(href || window.location.hash) || {}
   let newSearch
-  if (params['sisku']) {
+  if (params && params['sisku']) {
     newSearch = decodeUrl(params['sisku']).trim()
   } else {
     href = href || window.location.search
     href = href.substring(href.indexOf('?') + 1)
     const search = new URLSearchParams(href)
-    newSearch = decodeUrl(search.get('focus')).trim()
+    newSearch = decodeUrl(search.get('focus') || '').trim()
     if (newSearch) {
       params = { sisku: newSearch, seskari: 'cnano' }
-    } else return
+    }
+  }
+  const stateToUpdate = JSON.parse(JSON.stringify(state.searching))
+  if (
+    params['seskari'] &&
+    ['velcusku', 'cnano', 'catni', 'rimni', 'arxivo'].includes(
+      params['seskari']
+    )
+  ) {
+    stateToUpdate.seskari = params['seskari']
   }
   if (
-    state.searching.seskari !== params['seskari'] ||
-    state.searching.query !== newSearch
+    params['bangu'] &&
+    [
+      'jbo',
+      'en',
+      'en-cll',
+      'ru',
+      'es',
+      'fr',
+      'pl',
+      'ja',
+      'de',
+      'eo',
+      'zh',
+      'en-simple',
+      'fr-facile',
+      'hu',
+      'sv',
+    ].includes(params['bangu'])
   ) {
-    if (
-      params['seskari'] &&
-      ['velcusku', 'cnano', 'catni', 'rimni', 'arxivo'].includes(
-        params['seskari']
-      )
-    )
-      state.searching.seskari = params['seskari']
-    if (params['sisku']) {
-      state.searching.query = newSearch
-      DispatchState({
-        replace,
-      })
-    }
+    stateToUpdate.bangu = params['bangu']
+  }
+  if (params['sisku']) {
+    stateToUpdate.query = newSearch
+  }
+  if (!twoJsonsAreEqual(stateToUpdate, state.searching)) {
+    state.searching = { ...state.searching, ...stateToUpdate }
+    DispatchState({
+      replace,
+    })
   }
 }
 //clicked link > push it
@@ -490,7 +558,7 @@ function clicked({ target }) {
 function setUrlFromState({ replace }) {
   let url = `${window.location.href.split('?')[0].split('#')[0]}#seskari=${
     state.searching.seskari
-  }&sisku=${encodeUrl(state.searching.query)}`
+  }&sisku=${encodeUrl(state.searching.query)}&bangu=${state.searching.bangu}`
   if (state.searching.query === '') {
     url = ''
     document.title = 'la sutysisku'
@@ -615,6 +683,7 @@ function DispatchCitri() {
 }
 //Dispatch State
 function DispatchState({ replace, caller, empty }) {
+  updateLocales()
   if (socket1Chat) socket1Chat.close()
   state.searching.query = state.searching.query.trim()
   setUrlFromState({
@@ -657,11 +726,46 @@ function DispatchState({ replace, caller, empty }) {
     default:
       worker.postMessage({
         kind: 'newSearch',
-        query: state.searching.query,
-        seskari: state.searching.seskari,
+        versio: 'sutra',
+        ...state.searching,
       })
+      worker.postMessage({
+        kind: 'newSearch',
+        versio: 'masno',
+        ...state.searching,
+      })
+      updateLocales()
   }
 }
+
+function updateDOMWithLocales({ jufra = { window: {} } }) {
+  if (!jufra.window) return
+  Object.keys(jufra.window).forEach((key) => {
+    const subKey = key.replace('window.', '')
+    window[subKey] = jufra.window[key]
+  })
+  Array.from(document.querySelectorAll('[data-jufra]')).forEach((node) => {
+    const key = node.attributes['data-jufra'].nodeValue
+    let val = jufra[key]
+    if (key.indexOf('window.') === 0) {
+      val = jufra.window[key]
+      const subKey = key.replace('window.', '')
+      window[subKey] = jufra.window[key]
+    }
+    switch (node.nodeName) {
+      case 'INPUT':
+        node.placeholder = val || node.placeholder
+        break
+      default:
+        node.innerHTML = val || node.innerHTML
+    }
+  })
+}
+
+function updateLocales() {
+  worker.postMessage({ kind: 'fancu', cmene: 'tejufra', ...state.searching })
+}
+
 //rendering
 function RenderDesktop() {
   removePlumbs()
@@ -777,9 +881,9 @@ function RenderDesktop() {
       } aria-label="${obj[key][1].replace(/<[^>]+?>/g, '')}" href="${
         key.indexOf('@') === 0
           ? obj[key][4]
-          : `https://la-lojban.github.io/sutysisku/${key}/#seskari=${
-              state.displaying.seskari
-            }&sisku=${encodeUrl(lastQuery)}`
+          : `/lojban/#seskari=${state.displaying.seskari}&sisku=${encodeUrl(
+              lastQuery
+            )}&bangu=${key}`
       }" class='A_7'><div class='DIV_8' style='height:${cisn}px;width:${
         obj[key][3] * cisn
       }px;background-image:url("${obj[key][2]}")'></div></a></div></div>`
@@ -823,34 +927,36 @@ function calcVH() {
 }
 
 //<xuzganalojudri|lojbo>
-function getCLLSections(te_gerna) {
-  let a = window.arrcll[te_gerna]
-  if (!a) {
-    a = window.arrcll[te_gerna.replace(/[^A-Z]+$/, '')]
-  }
-  return a
-}
+// function getCLLSections(te_gerna) {
+//   let a = window.arrcll[te_gerna]
+//   if (!a) {
+//     te_gerna = te_gerna.replace(/[^A-Z]+$/, '')
+//     if (te_gerna === '') return
+//     a = window.arrcll[te_gerna]
+//   }
+//   return a
+// }
 
-function CLL({ pre, valsi }) {
-  if (!window.cll_url | ((window.arrcll || []).length === 0)) return
-  if (pre && !valsi.match(/^[A-Zh]+[\+A-Zh0-9]*$/)) return {}
-  const secs = getCLLSections(valsi)
-  if (!secs) return {}
-  const cllHtmlLinksString = `${
-    window.cllnotci
-  }<ul class='uoldeliste'>${Object.keys(secs)
-    .map(
-      (sec) =>
-        `<li><a rel='noreferrer' target='_blank' href="${
-          window.cll_url
-        }${sec}">${escHtml(secs[sec])}</a></li>`
-    )
-    .join('')}</ul>`
-  const div = document.createElement('div')
-  div.className = `${pre ? 'sidju' : 'definition'} cll noselect`
-  div.innerHTML = cllHtmlLinksString
-  return { secs, div }
-}
+// function CLL({ pre, valsi }) {
+//   if (!window.cll_url | ((window.arrcll || []).length === 0)) return {}
+//   if (pre && !valsi.match(/^[A-Zh]+[\+A-Zh0-9]*$/)) return {}
+//   const secs = getCLLSections(valsi)
+//   if (!secs) return {}
+//   const cllHtmlLinksString = `${
+//     window.cllnotci
+//   }<ul class='uoldeliste'>${Object.keys(secs)
+//     .map(
+//       (sec) =>
+//         `<li><a rel='noreferrer' target='_blank' href="${
+//           window.cll_url
+//         }${sec}">${escHtml(secs[sec])}</a></li>`
+//     )
+//     .join('')}</ul>`
+//   const div = document.createElement('div')
+//   div.className = `${pre ? 'sidju' : 'definition'} cll noselect`
+//   div.innerHTML = cllHtmlLinksString
+//   return { secs, div }
+// }
 //</xuzganalojudri|lojbo>
 
 var scrollTimer = null
@@ -922,7 +1028,18 @@ function veljvoString({ v, fullDef, subtype, dataArrAdded, b, veljvoLs }) {
   return ` data-arr="${v}"`
 }
 
-function melbi_uenzi({ def, fullDef, query, seskari, type, index }) {
+function melbi_uenzi({ def, fullDef, query, seskari, bangu, type, index }) {
+  if (fullDef && fullDef.bangu.indexOf('-cll') >= 0) {
+    const d = Object.keys(def)
+      .map((address) => {
+        const velcki = def[address]
+        return `<li><a rel='noreferrer' target='_blank' href="${address}">${velcki}</a></li>`
+      })
+      .join('')
+    return { tergeha: `<ul class='uoldeliste'>${d}</ul>`, hasExpansion: false }
+  }
+
+  const hasHtml = /<\/?a [\s\S]*>/i.test(def)
   let iterTercricmiId = 0
   const jsonIds = []
   const types = []
@@ -950,7 +1067,7 @@ function melbi_uenzi({ def, fullDef, query, seskari, type, index }) {
     return c
   })
 
-  const jalge = `<span>${res
+  let jalge = res
     .replace(/\$.*?\$/g, (c, offset, string) => {
       if (type === 'd' && typeof index !== 'undefined') {
         const q = string.substr(offset)
@@ -1008,7 +1125,8 @@ function melbi_uenzi({ def, fullDef, query, seskari, type, index }) {
     .replace(/\$.*?\$/g, (c) =>
       c.replace(/\{/g, '\\curlyleft').replace(/\}/g, '\\curlyright')
     )
-    .replace(
+  if (!hasHtml)
+    jalge = jalge.replace(
       /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
       (c) => {
         let res = `</span><a href="${c}" rel="noreferrer" target="_blank">${basna(
@@ -1022,18 +1140,21 @@ function melbi_uenzi({ def, fullDef, query, seskari, type, index }) {
         return res
       }
     )
+  jalge = jalge
     .replace(/\{.*?\}/g, (c) => {
       var c = c.substring(1, c.length - 1)
       return `</span><a class="a-${seskari}" href="#seskari=${seskari}&sisku=${encodeUrl(
         c
-      )}">${basna({
+      )}&bangu=${bangu}">${basna({
         def: escHtml(c, true),
         query,
       })}</a><span>`
     })
     .replace(/\$.*?\$/g, (c) =>
       c.replace(/\\curlyleft/g, '{').replace(/\\curlyright/g, '}')
-    )}</span>`
+    )
+  jalge = `<span>${jalge}</span>`
+  jalge = jalge
     .replace(/<span><\/span>/g, '')
     .replace(/(>[^<>$]+<|>[^<>$]+\$|\$[^<>$]+<)/g, (
       c // var c = c.substring(1, c.length - 1)
@@ -1221,9 +1342,10 @@ function jvoValue() {
   return jvoPlumbsOn ? '⇔' : '↔'
 }
 
-function skicu_palodovalsi({ def, inner, query, seskari, index }) {
+function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
   if (!query) query = state.searching.query
   if (!seskari) seskari = state.searching.seskari
+  if (!bangu) bangu = state.searching.bangu
   if (!def) def = []
   const out = document.createElement('div')
   out.className = inner ? 'terminner' : 'termouter'
@@ -1236,15 +1358,15 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
     fmm.className = 'tfm'
     fmm.innerHTML = `&nbsp;&nbsp;<i><sup>[&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#seskari=${seskari}&sisku=${encodeUrl(
       fm[def.s]
-    )}">${escHtml(fm[def.s])}</a>]</sup></i>`
+    )}&bangu=${bangu}">${escHtml(fm[def.s])}</a>]</sup></i>`
   }
   const sh = []
   for (const key in fm) {
     if (fm[key] === def.w)
       sh.push(
-        `<a href="#seskari=${seskari}&sisku=${encodeUrl(key)}">${escHtml(
+        `<a href="#seskari=${seskari}&sisku=${encodeUrl(
           key
-        )}</a>`
+        )}&bangu=${bangu}">${escHtml(key)}</a>`
       )
   }
   if (sh.length !== 0) {
@@ -1264,16 +1386,18 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
     })
     ss.innerHTML = text
     if (seskari !== 'velcusku')
-      ss.href = `#seskari=${seskari}&sisku=${encodeUrl(def.s)}`
+      ss.href = `#seskari=${seskari}&sisku=${encodeUrl(def.s)}&bangu=${bangu}`
   }
   if (def.t) {
     var jvs = document.createElement('a')
-    jvs.className = 'klesi link noselect'
+    jvs.className = 'klesi sampu link noselect'
     var text = def.t
     const txt = encodeUrl(def.w).replace(/_/g, '%20')
     jvs.href = window.judri
       ? window.judri + txt
-      : `#seskari=${seskari === 'catni' ? 'catni' : 'cnano'}&sisku=${txt}`
+      : `#seskari=${
+          seskari === 'catni' ? 'catni' : 'cnano'
+        }&sisku=${txt}&bangu=${bangu}`
     if (window.judri) {
       jvs.setAttribute('target', '_blank')
       jvs.setAttribute('rel', 'noreferrer')
@@ -1326,7 +1450,9 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
   } else {
     word.innerHTML = `<a class="valsi${
       def.l ? '' : ' nalojbo'
-    }" href="#seskari=${seskari}&sisku=${encodeUrl(def.w)}">${basna({
+    }" href="#seskari=${seskari}&sisku=${encodeUrl(
+      def.w
+    )}&bangu=${bangu}">${basna({
       def: escHtml(def.w, true),
       query,
     })}</a> `
@@ -1338,6 +1464,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
       fullDef: def,
       query,
       seskari,
+      bangu,
       type: 'd',
       index,
     })
@@ -1379,27 +1506,40 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
   flex.style.flex = 1
   heading.appendChild(flex)
 
+  const banguEl = document.createElement('span')
+  banguEl.classList.add('sampu', 'noselect')
+  banguEl.innerHTML = def.bangu || ''
+  heading.appendChild(banguEl)
   if (jvs) heading.appendChild(jvs)
   if (ss) heading.appendChild(ss)
 
   //<xuzganalojudri|lojbo>
   //audio
   try {
-    const sance = new Audio(
-      `/sutysisku/sance/vreji/${encodeValsiForWeb(def.w)}.mp3`
-    )
-    sance.id = `sance_${encodeValsiForWeb(def.w)}`
-    sance.addEventListener('canplaythrough', (event) => {
-      const hd = Array.from(
-        document.querySelectorAll(`[data-valsi="${encodeValsiForWeb(def.w)}"]`)
-      )[0]
-      if (hd && !document.getElementById(`sance_${encodeValsiForWeb(def.w)}`)) {
-        hd.innerHTML += `<button class="tutci sance" onclick="document.getElementById('sance_${encodeValsiForWeb(
-          def.w
-        )}').play()">▶</button>`
-        hd.appendChild(sance)
-      }
-    })
+    const urli = `/sutysisku/sance/vreji/${encodeValsiForWeb(def.w)}.mp3`
+    var http = new XMLHttpRequest()
+    http.open('HEAD', url, false)
+    http.send()
+    if (http.status == 200) {
+      const sance = new Audio(urli)
+      sance.id = `sance_${encodeValsiForWeb(def.w)}`
+      sance.addEventListener('canplaythrough', (event) => {
+        const hd = Array.from(
+          document.querySelectorAll(
+            `[data-valsi="${encodeValsiForWeb(def.w)}"]`
+          )
+        )[0]
+        if (
+          hd &&
+          !document.getElementById(`sance_${encodeValsiForWeb(def.w)}`)
+        ) {
+          hd.innerHTML += `<button class="tutci sance" onclick="document.getElementById('sance_${encodeValsiForWeb(
+            def.w
+          )}').play()">▶</button>`
+          hd.appendChild(sance)
+        }
+      })
+    }
   } catch (error) {}
   //</xuzganalojudri|lojbo>
 
@@ -1459,15 +1599,16 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
         def: def.n,
         query,
         seskari,
+        bangu,
       }).tergeha
     } `
     out.appendChild(n)
   }
   //<xuzganalojudri|lojbo>
-  if (index == 0 && seskari !== 'velcusku') {
-    const { secs, div } = CLL({ valsi: def.w })
-    if (secs && secs !== state.cll) out.appendChild(div)
-  }
+  // if (index == 0 && seskari !== 'velcusku') {
+  //   const { secs, div } = CLL({ valsi: def.w })
+  //   if (secs && secs !== state.cll) out.appendChild(div)
+  // }
   //</xuzganalojudri|lojbo>
   if (def.e) {
     var n = document.createElement('div')
@@ -1482,6 +1623,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
           ),
         query,
         seskari,
+        bangu,
       }).tergeha
     }</table> `
     out.appendChild(n)
@@ -1494,33 +1636,44 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
         def: def.k,
         query,
         seskari,
+        bangu,
       }).tergeha
     } `
     out.appendChild(n)
   }
   if ((def.r || []).length > 0 && !def.l && window.xuzganalojudri) {
+    const tanxe_leirafsi = document.createElement('div')
+    tanxe_leirafsi.className = 'rafsi noselect'
+
+    const rafcme = document.createElement('div')
+    rafcme.className = 'tanxe zunle_tanxe'
+    rafcme.innerHTML = 'rafsi'
+    tanxe_leirafsi.appendChild(rafcme)
+
     const rafsi = document.createElement('div')
-    rafsi.className = 'rafsi noselect'
-    rafsi.innerHTML = 'rafsi: '
+    rafsi.className = 'tanxe pritu_tanxe'
     for (i = 0; i < def.r.length; i++) {
       const rafElem = document.createElement('span')
       rafElem.className = 'pamei'
       const raf = def.r[i]
-      if ((def.t || '').match(/lujvo/)) {
-        const a = document.createElement('a')
-        a.setAttribute('href', `#seskari=${seskari}&sisku=${encodeUrl(raf)}`)
-        a.text = raf
-        rafElem.appendChild(a)
-      } else {
-        rafElem.innerHTML = basna({
-          def: raf,
-          query,
-        })
-      }
-      rafElem.innerHTML = `${rafElem.innerHTML} `
+      // if ((def.t || '').match(/lujvo/)) {
+      //   const a = document.createElement('a')
+      //   a.setAttribute(
+      //     'href',
+      //     `#seskari=${seskari}&sisku=${encodeUrl(raf)}&bangu=${bangu}`
+      //   )
+      //   a.text = raf
+      //   rafElem.appendChild(a)
+      // } else {
+      rafElem.innerHTML = basna({
+        def: raf,
+        query,
+      })
+      // }
       rafsi.appendChild(rafElem)
     }
-    out.appendChild(rafsi)
+    tanxe_leirafsi.appendChild(rafsi)
+    out.appendChild(tanxe_leirafsi)
   }
   if ((def.rfs || []).length > 0) {
     const subDefs = document.createElement('div')
@@ -1530,6 +1683,9 @@ function skicu_palodovalsi({ def, inner, query, seskari, index }) {
         def: def.rfs[i],
         inner: true,
         index: `${index}_${i}`,
+        query,
+        seskari,
+        bangu,
       })
       if (o) subDefs.appendChild(o)
     }
@@ -1579,30 +1735,36 @@ function escHtml(a, apos) {
   return a
 }
 
-function skicu_rolodovalsi({ query, seskari }) {
+function skicu_rolodovalsi({ query, seskari, bangu }) {
   const displayUpTo = Math.min(window.jimte, results.length)
   state.cll = undefined
-  if (resultCount === 0) {
-    const { secs, div } = CLL({ pre: true, valsi: state.searching.query })
-    state.cll = secs
-    if (div) outp.appendChild(div)
-  }
+  // if (resultCount === 0) {
+  //   const { secs, div } = CLL({ pre: true, valsi: state.searching.query })
+  //   state.cll = secs
+  //   if (div) outp.appendChild(div)
+  // }
   for (; resultCount < displayUpTo; resultCount++) {
-    outp.appendChild(
-      skicu_palodovalsi({
-        def: results[resultCount],
-        query,
-        seskari,
-        length: results.length,
-        index: resultCount,
-      })
-    )
+    const a = skicu_palodovalsi({
+      def: results[resultCount],
+      query,
+      seskari,
+      bangu,
+      length: results.length,
+      index: resultCount,
+    })
+    if (a) outp.appendChild(a)
   }
 }
 
 // jimpe fi le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri
-
 if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.onmessage = function ({ data }) {
+    console.log('teminde', data)
+    if (data && data.teminde && data.teminde === 'ei ningau le sorcu') {
+      //save to dexie all dumps
+      worker.postMessage({ kind: 'cnino_sorcu', searching: state.searching })
+    }
+  }
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js').then(
       ({ scope }) => {
@@ -1613,6 +1775,12 @@ if ('serviceWorker' in navigator) {
       }
     )
   })
+} else if (location.protocol === 'https:') {
+  alert(
+    'Your browser is not supported. Please, upgrade to the latest Chrome / Firefox / Safari.'
+  )
+} else {
+  console.log("http protocol, service worker won't work")
 }
 //<xuzganalojudri|lojbo>
 //pronunciation guide

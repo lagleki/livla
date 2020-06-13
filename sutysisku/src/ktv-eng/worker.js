@@ -4,7 +4,7 @@
     var bau = location.href.split('/').slice(-2)[0];
     if (bau==='cipra'){bau='ru';}
     postMessage({kind: 'loading'});
-    importScripts('bangu.js','../data/parsed-ktv-eng.js?sisku=2019_09_24_06_27_52', '../sisku.js?sisku=2019_09_24_06_27_52');
+    importScripts('bangu.js','../data/parsed-ktv-eng.js?sisku={now}', '../sisku.js?sisku={now}');
     postMessage({kind: 'ready'});
     this.onmessage = function(ev) {
       if (ev.data.kind == 'newSearch') {

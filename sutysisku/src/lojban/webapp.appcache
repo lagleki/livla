@@ -11,8 +11,8 @@ https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/jax/output/CommonHTML/fonts
 https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff
 https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff
 index.html
-../data/parsed-en.js?sisku=2019_09_24_06_27_52
-../sisku.js?sisku=2019_09_24_06_27_52
+../data/parsed-en.js?sisku={now}
+../sisku.js?sisku={now}
 worker.js
 cll.js
 bangu.js

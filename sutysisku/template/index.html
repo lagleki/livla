@@ -6,6 +6,7 @@
   xmlns:fb="https://www.facebook.com/2008/fbml"
 >
   <head>
+    <meta charset="UTF-8">
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script>
       ;(function (i, s, o, g, r, a, m) {
@@ -67,6 +68,7 @@
       }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <!-- <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script> -->
     <!-- Google Tag Manager -->
     <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -168,6 +170,7 @@
           type="text"
           name="focus"
           required
+          data-jufra='bangusisku'
           placeholder="'%bangusisku%'"
           autocorrect="off"
           autocapitalize="off"
@@ -184,27 +187,27 @@
           <div id="citri" class="citri"></div>
           <div class="leitutci">
             <!-- <a class="tutci velcusku-tutci" id="velcusku">'%velcusku%'</a> -->
-            <a class="tutci" id="catni">'%catni%'</a>
+            <a class="tutci" data-jufra='catni' id="catni">'%catni%'</a>
             <xuzganalojudri|lojbo>
-              <a class="tutci" id="cnano">'%cnano%'</a>
+              <a class="tutci" data-jufra='cnano' id="cnano">'%cnano%'</a>
             </xuzganalojudri|lojbo>
-            <a class="tutci rimni-tutci" id="rimni">'%rimni%'</a>
+            <a class="tutci rimni-tutci" data-jufra='rimni' id="rimni">'%rimni%'</a>
             <!-- <a class="tutci arxivo-tutci" id="arxivo">'%arxivo%'</a> -->
           </div>
         </div>
         <div id="loading" class="term noselect DIV_1">
-          <span id="caho_cpacu">'%bangulo%'</span><br />
+          <span id="caho_cpacu" data-jufra='bangulo'>'%bangulo%'</span><br />
           <div id="cpacu">
             <span id="kernelo_lo_cpacu"></span>
           </div>
         </div>
         <div id="drata" style="text-align: center;"></div>
         <div id="descr">
-          <div class="term termouter">'%bangudesc%'</div>
+          <div class="term termouter" data-jufra='bangudesc'>'%bangudesc%'</div>
           <xuzganalojudri|lojbo>
             <div class="term termouter">
               <h1 id="pronunciation" style="font-weight: bold;">
-                '%pron_guide%'
+                <span data-jufra='pron_guide'>'%pron_guide%'</span>
               </h1>
               <div>. , a b c d e f g ' i j k l m n o p r s t u v x y z</div>
               <div id="table"></div>

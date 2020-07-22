@@ -53,7 +53,7 @@
   "main": "livla/index.js",
   "scripts": {
     "ncu": "ncu -u",
-    "start": "nodemon --ignore ./ --exec \"node livla/index.js\"",
+    "start": "nodemon --ignore ./ livla/index.js",
     "snovlaste": "npm run sutysisku ; cd build/sutysisku ; rm .git -rf ; git init ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push --set-upstream origin master -f ; cd ..",
     "push": "git add . ; git commit -a ;  git push",
     "sutysisku": "rsync -av --exclude=\".*\"  sutysisku/src/* build/sutysisku/ ; node sutysisku/morna.js",

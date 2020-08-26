@@ -1,20 +1,21 @@
 const db = new Dexie('sorcu1')
 
 const supportedLangs = {
-  // 'en',
-  'en-cll': { disableCache: true },
-  jbo: {},
-  ru: {},
-  eo: {},
-  es: {},
-  'fr-facile': {},
-  ja: {},
-  zh: {},
+  // 'en': { n: 'English', "p": "selsku_lanci_eng" },
+  'muplis': { n: 'la muplis' },
+  'en-cll': { n: 'The CLL', "p": "cukta" },
+  jbo: { n: 'lojbo', "p": "lanci_jbo" },
+  ru: { n: 'русский', "p": "selsku_lanci_rus" },
+  eo: { n: 'esperanto', "p": "lanci_epo" },
+  es: { n: 'español', "p": "selsku_lanci_spa" },
+  'fr-facile': { n: 'français', "p": "selsku_lanci_fra" },
+  ja: { n: '日本語', "p": "selsku_lanci_jpn" },
+  zh: { n: '中文', "p": "selsku_lanci_zho" },
 }
 
 function initDb() {
   try {
-    db.version(5).stores({
+    db.version(1).stores({
       valsi: '++id, bangu, w, d, n, t, g, *r, *cache',
       langs_ready: '++id, bangu',
       tejufra: '++id, &bangu, jufra',
@@ -26,7 +27,9 @@ initDb()
 
 const fancu = {
   tejufra: async ({ bangu }, cb) => {
-    cb((await db.tejufra.where({ bangu }).toArray())[0] || {})
+    const tef1 = (await db.tejufra.where({ bangu: bangu.toString() }).toArray())[0] || {}
+    const tef2 = (await db.tejufra.where({ bangu: 'en' }).toArray())[0] || {}
+    cb({ ...tef1, jufra: { ...tef2.jufra, ...tef1.jufra } })
   },
   ningau_lesorcu: async (searching, cb) => {
     initDb()
@@ -35,21 +38,32 @@ const fancu = {
       const count = await db.langs_ready.where('bangu').equals(lang).count()
       if (count === 0) langsToUpdate.push(lang)
     }
-    if (langsToUpdate.length > 0) await cnino_sorcu(cb, langsToUpdate, searching)
-    console.log(
-      `Database checked. ${langsToUpdate.length} languages have been updated`
-    )
+    if (langsToUpdate.length > 0) {
+      await cnino_sorcu(cb, langsToUpdate, searching)
+      console.log(
+        `Database checked. ${langsToUpdate.length} languages have been updated`
+      )
+    }
+    postMessage({
+      kind: 'loader',
+      cmene: 'loaded'
+    })
     jufra({})
   },
 }
 
 async function jufra({ bapli }) {
+  if (bapli)
+    try {
+      await db.tejufra.clear()
+    } catch (error) {
+    }
   //tejufra
   const nitejufra = await db.tejufra.count()
   if (nitejufra === 0 || bapli) {
     let json = {}
     const response = await fetch(
-      `/lojban/tejufra.json?sisku=${new Date().getTime()}`
+      `/sutysisku/lojban/tejufra.json?sisku=${new Date().getTime()}`
     )
     if (response.ok) json = await response.json()
     else console.log('HTTP-Error: ' + response.status)
@@ -60,11 +74,11 @@ async function jufra({ bapli }) {
     })
     try {
       await db.tejufra.bulkPut(vuhilejufra)
-    } catch (error) {}
+    } catch (error) { }
     console.log('locales updated')
   }
 }
-async function cnino_sorcu(cb, langsToUpdate, searching) {
+async function cnino_sorcu(cb, langsToUpdate, searching, erase) {
   initDb()
   await jufra({ bapli: true })
   fancu.tejufra(searching, (results) => {
@@ -81,98 +95,92 @@ async function cnino_sorcu(cb, langsToUpdate, searching) {
   langs = langs
     .filter((lang) => lang == searching.bangu)
     .concat(langs.filter((lang) => lang != searching.bangu))
-  for (let i = 0; i < langs.length - 1; i++) {
+  for (let i = 0; i < langs.length; i++) {
     const lang = langs[i]
     const savedLang = (
       await db.langs_ready.where('bangu').equals(lang).toArray()
     )[0]
-    cb(`downloading ${lang}.json dump`)
-    const response = await fetch(
-      `/data/parsed-${lang}.json?sisku=${new Date().getTime()}`
-    )
-    // `/sutysisku/data/parsed-${lang}.json?sisku=${new Date().getTime()}`
-    let json = {}
-    if (response.ok) json = await response.json()
-    else console.log('HTTP-Error: ' + response.status)
-
-    const keys = Object.keys(json)
-
-    const arr = keys.map((key) => {
-      let cache
-      if (supportedLangs[lang].disableCache) {
-        cache = key
-      } else {
-        cache = `${key};${Object.keys(json[key])
-          .map((tcila) => json[key][tcila])
-          .join(';')}`
-        cache += `;${cache.replace(/h/g, "'")}`
-        const cache1 = cache
-          .toLowerCase()
-          .replace(/ /g, ';')
-          .split(';')
-          .map((i) => i.trim())
-          .filter((i) => i !== '')
-        let cache2 = cache
-          .toLowerCase()
-          .replace(
-            /[ \u2000-\u206F\u2E00-\u2E7F\\!"#$%&()*+,\-.\/:<=>?@\[\]^`{|}~：？。，《》「」『』－（）]/g,
-            ';'
-          )
-          .split(';')
-          .map((i) => i.trim())
-          .filter((i) => i !== '')
-        cache = cache1.concat(cache2)
-        cache = [...new Set(cache)]
-      }
-      //complement r field of valsi table by full rafsi
-      json[key].r = json[key].r || []
-      if (
-        json[key].t === 'gismu' ||
-        json[key].t === 'experimental gismu' ||
-        (json[key].t || '').indexOf("fu'ivla") >= 0
-      )
-        json[key].r.push(key)
-
-      if (json[key].r && json[key].r.length === 0) delete json[key].r
-      return { w: key, bangu: lang, ...json[key], cache }
+    cb(`downloading ${lang}.blob.json dump`)
+    postMessage({
+      kind: 'loader',
+      cmene: 'loading',
+      completedRows: 10,
+      totalRows: 100,
+      bangu: supportedLangs[lang].n
     })
-
-    if (!savedLang && lang == searching.bangu) {
-      cb(
-        `starting aggressive inserting/updating ${
-          keys.length
-        } keys all from ${lang}.json at ${new Date().toISOString()}`
-      )
+    const response = await fetch(
+      `/sutysisku/data/parsed-${lang}.blob.json?sisku=${new Date().getTime()}`
+    )
+    let blob
+    if (response.ok) {
+      blob = await response.blob()
       await db.valsi.where({ bangu: lang }).delete()
-      await db.valsi.bulkPut(arr)
-      sisku(searching, (results) => {
-        postMessage({
-          kind: 'searchResults',
-          results,
-          force: true,
-          req: searching,
-        })
-      })
-    } else {
-      cb(
-        `starting slow background inserting/updating ${
-          keys.length
-        } keys all from ${lang}.json at ${new Date().toISOString()}`
-      )
-      for (const i in keys) {
-        const key = keys[i]
-        const core = { w: key, bangu: lang }
-        const no = await db.valsi.where(core).modify({ ...core, ...json[key] })
-        if (no === 0) await db.valsi.put({ core, ...json[key] })
-        if (i > 0 && i % 1000 === 0)
-          cb(
-            `imported ${i} keys out of ${keys.length} from ${lang}.json`,
-            new Date().toISOString()
-          )
-      }
+      await db.langs_ready.where({ bangu: lang }).delete()
+      await db.import(blob, {
+        acceptMissingTables: true,
+        acceptVersionDiff: true,
+        acceptNameDiff: true,
+        acceptChangedPrimaryKey: true,
+        overwriteValues: true,
+        // clearTablesBeforeImport: true,
+        noTransaction: true,
+        progressCallback: ({ totalRows, completedRows, done }) => {
+          if (searching.bangu === lang)
+            sisku(searching, (results) => {
+              postMessage({
+                kind: 'searchResults',
+                results,
+                force: true,
+                req: searching,
+              })
+            })
+          if (!done) {
+            cb(
+              `imported ${completedRows} keys out of ${totalRows} from ${lang}.blob.json`,
+              new Date().toISOString()
+            )
+            postMessage({
+              kind: 'loader',
+              cmene: 'loading',
+              completedRows,
+              totalRows,
+              bangu: supportedLangs[lang].n
+            })
+          } else {
+            if (!savedLang) db.langs_ready.put({ bangu: lang })
+            cb(`imported ${lang}.blob.json at ${new Date().toISOString()}`)
+          }
+        }
+      });
     }
-    cb(`imported ${lang}.json at ${new Date().toISOString()}`)
-    if (!savedLang) db.langs_ready.put({ bangu: lang })
+    else console.log('HTTP-Error: ' + response.status)
+    // if (!savedLang && lang == searching.bangu) {
+    //   cb(
+    //     `starting aggressive inserting/updating keys from ${lang}.blob at ${new Date().toISOString()}`
+    //   )
+    //   sisku(searching, (results) => {
+    //     postMessage({
+    //       kind: 'searchResults',
+    //       results,
+    //       force: true,
+    //       req: searching,
+    //     })
+    //   })
+    // } else {
+    //   cb(
+    //     `starting slow background inserting/updating ${
+    //     keys.length
+    //     } keys all from ${lang}.json at ${new Date().toISOString()}`
+    //   )
+    //   for (const i in keys) {
+    //     const key = keys[i]
+    //     const core = { w: key, bangu: lang }
+    //     const no = await db.valsi.where(core).modify({ ...core, ...json[key] })
+    //     if (no === 0) await db.valsi.put({ core, ...json[key] })
+    //     if (i > 0 && i % 1000 === 0)
+
+    //   }
+    // }
   }
 }
 
@@ -185,31 +193,54 @@ async function cnanosisku({
   multi,
   seskari,
   secupra_vreji,
+  queryDecomposition
 }) {
-  console.log(new Date().toISOString(), 'started query', query, bangu)
+  console.log(new Date().toISOString(), 'started query', query, bangu, versio)
   let rows
-  if (versio === 'sutra') {
-    rows = await db.valsi
+  if (seskari === 'fanva') {
+    rows = (await db.valsi
       .where('w')
       .equals(query_apos)
-      .and((valsi) => valsi.bangu.indexOf(bangu) === 0)
+      // .and((valsi) => valsi.bangu.indexOf(bangu) === 0)
       .distinct()
-      .toArray()
+      .toArray()).sort((a, b) => {
+        if (a.bangu === bangu) { return -1 }
+        if (a.bangu === 'jbo' || b.bangu.indexOf("-cll") >= 0) { return 0 }
+        return 1
+      });
+  } else if (bangu === 'muplis' && queryDecomposition.length > 1) {
+    rows = (await db.valsi
+      .where('cache')
+      .equals(queryDecomposition[0])
+      .and(jufra => {
+        if (jufra.bangu === bangu && queryDecomposition.every(v => jufra.cache.includes(v))) return true;
+        return false
+      })
+      .distinct()
+      .toArray())
   } else {
-    rows = await db.valsi
+    rows = (await db.valsi
       .where('cache')
       .startsWith(query_apos)
       .and((valsi) => valsi.bangu.indexOf(bangu) === 0)
       .distinct()
-      .toArray()
+      .toArray())
   }
+  rows = rows.sort((a, b) => {
+    if (a.bangu.indexOf("-cll") >= 0) { return -1 }
+    if (b.bangu.indexOf("-cll") >= 0) { return 1 }
+    return 0
+  });
   mapti_vreji = mapti_vreji.slice().concat(
     rows.map((valsi) => {
       delete valsi.cache
       return valsi
     })
   )
-  console.log(new Date().toISOString(), 'end of query', query, bangu)
+  console.log(new Date().toISOString(), 'end of query', query, bangu, versio)
+  if (seskari === 'fanva' || bangu === 'muplis') {
+    return { result: mapti_vreji, decomposed: false }
+  }
   const { result, decomposed } = await sortthem({
     query_apos,
     query,
@@ -228,9 +259,9 @@ async function cnanosisku({
     let ty = /^[A-Zh]+[0-9\*]+$/.test(query)
       ? []
       : julne_setca_lotcila(
-          await shortget({ valsi: query_apos, secupra: [], bangu })
-        )
-    if (window.muplis || !window.xuzganalojudri) {
+        await shortget({ valsi: query_apos, secupra: [], bangu })
+      )
+    if (bangu === 'muplis' || !window.xuzganalojudri) {
       ty = ty.filter(({ d }) => !d || !d.nasezvafahi)
     }
     if (ty.length <= 1) return { result: ty.concat(allMatches[0]), decomposed }
@@ -267,7 +298,7 @@ const ma_klesi_lo_valsi = (str) => {
     j = JSON.stringify(j)
     j = j.split(/","|\],\[/).map((i) => i.replace(/[^,a-zA-Z']/g, ''))
     if (str.includes(' zei ')) return ['zei-lujvo', str]
-  } catch (e) {}
+  } catch (e) { }
   if (
     j.length > 2 &&
     j
@@ -298,7 +329,7 @@ function me_vuhi_le_ve_lujvo(tegerna) {
 
 function setca_lotcila(doc) {
   if (!doc.t || doc.t === '') {
-    if (!window.muplis && window.xuzganalojudri) {
+    if (doc.bangu !== 'muplis' && window.xuzganalojudri) {
       doc.t = ma_klesi_lo_valsi(doc.w)[0]
     } else {
       doc.t = ''
@@ -310,9 +341,9 @@ function setca_lotcila(doc) {
 function decompose(a) {
   return window.xuzganalojudri
     ? a
-        .replace(/ zei /g, '_zei_')
-        .split(' ')
-        .map((b) => b.replace(/_zei_/g, ' zei '))
+      .replace(/ zei /g, '_zei_')
+      .split(' ')
+      .map((b) => b.replace(/_zei_/g, ' zei '))
     : a.split(' ')
 }
 
@@ -613,7 +644,7 @@ async function sisku(searching, callback) {
     )
   } else if (seskari === 'rimni') {
     secupra_vreji = await siskurimni(query)
-  } else if (!window.muplis && queryDecomposition.length > 1) {
+  } else if (bangu !== 'muplis' && queryDecomposition.length > 1) {
     const { result, decomposed } = await cnanosisku({
       mapti_vreji: [],
       multi: true,
@@ -642,10 +673,11 @@ async function sisku(searching, callback) {
       query_apos,
       seskari,
       secupra_vreji,
+      queryDecomposition
     })
     secupra_vreji = result
   }
-  callback(secupra_vreji)
+  callback({ results: secupra_vreji, supportedLangs })
 }
 
 function krulermorna(t) {
@@ -810,7 +842,7 @@ async function siskurimni(query) {
           if (
             queryRn.length === 2 &&
             queryRn[0].split('').slice(-1)[0] ===
-              queryR[0].split('').slice(-1)[0] &&
+            queryR[0].split('').slice(-1)[0] &&
             setca_lotcila(valsi)
           )
             return true

@@ -12,18 +12,17 @@ const worker = new Worker('worker.js?sisku={now}')
 // gunka.onmessage = (ev) => {
 //   console.log(ev.data)
 // }
-const SiteTitle = document.querySelector('#title > font')
-const SiteTitleFull = document.querySelector('#site-title')
-let jvoPlumbsOn = false
+let SiteTitleFull = document.querySelector('#site-title')
+let jvoPlumbsOn = true
 let plumbsTimeout = 3500
-SiteTitleFull.classList.add('desktop-mode-title-color')
-// var firstSiteTitleValue = SiteTitle.firstChild.nodeValue;
 const dasri = document.getElementById('galtu-dasri')
 const catni = document.getElementById('catni')
 const cnano = document.getElementById('cnano')
 const rimni = document.getElementById('rimni')
 // var arxivo = document.getElementById("arxivo");
 const SiteImage = document.querySelectorAll('#title > img')
+
+let localizedBangu = {}
 
 const btnScrollToTop = document.getElementById('scrollToTop')
 content.onscroll = () => {
@@ -45,7 +44,7 @@ function switchBorderScroll() {
 }
 
 const fm = {
-  BE: 'bei',
+  BE: "bei be'o",
   BEI: "be'o",
   BY: 'boi',
   COI: "do'u",
@@ -106,25 +105,25 @@ const state = {
   },
   citri: [],
 }
-;(() => {
-  try {
-    const tcini = JSON.parse(localStorage.getItem('tcini'))
-    if (tcini.seskari) state.searching.seskari = tcini.seskari
-    if (tcini.query) state.searching.query = tcini.query
-    if (tcini.bangu) state.searching.bangu = tcini.bangu
-    //check if our db is filled
-    worker.postMessage({
-      kind: 'fancu',
-      cmene: 'ningau_lesorcu',
-      ...state.searching,
-    })
+  ; (() => {
+    try {
+      const tcini = JSON.parse(localStorage.getItem('tcini'))
+      if (tcini.seskari) state.searching.seskari = tcini.seskari
+      if (tcini.query) state.searching.query = tcini.query
+      if (tcini.bangu) state.searching.bangu = tcini.bangu
+      //check if our db is filled
+      worker.postMessage({
+        kind: 'fancu',
+        cmene: 'ningau_lesorcu',
+        ...state.searching,
+      })
 
-    updateLocales()
-  } catch (e) {}
-  try {
-    state.citri = JSON.parse(localStorage.getItem('citri')) || []
-  } catch (e) {}
-})()
+      updateLocales()
+    } catch (e) { }
+    try {
+      state.citri = JSON.parse(localStorage.getItem('citri')) || []
+    } catch (e) { }
+  })()
 
 RenderCitri()
 
@@ -132,19 +131,19 @@ function RenderCitri() {
   if (state.citri.length > 0)
     citri.innerHTML = ` <span class="tanxe" data-jufra="window.purc">${
       window.purc
-    }</span>${state.citri
-      .filter(({ seskari }) => seskari !== 'velcusku')
-      .map(
-        ({ seskari, query, bangu }) =>
-          `<a class="a-${seskari}" href="#seskari=${seskari}&sisku=${encodeUrl(
-            query
-          )}&bangu=${bangu}">${escHtml(query)}</a>`
-      )
-      .join(', ')}`
+      }</span>${state.citri
+        .filter(({ seskari }) => seskari !== 'velcusku')
+        .map(
+          ({ seskari, query, bangu }) =>
+            `<a class="a-${seskari}" href="#seskari=${seskari}&sisku=${encodeUrl(
+              query
+            )}&bangu=${bangu}">${escHtml(query)}</a>`
+        )
+        .join(', ')}`
 }
 
 function RenderDasri(seskari, sepia) {
-  const colors = ['velcusku', 'arxivo', 'cnano', 'rimni', 'catni']
+  const colors = ['velcusku', 'arxivo', 'cnano', 'rimni', 'catni', 'fanva']
   if (!colors.includes(seskari)) seskari = 'cnano'
   dasri.className = `kampu-dasri ${seskari}-dasri noselect`
   SiteTitleFull.classList.add(`${seskari}-search-mode-title-color`)
@@ -167,7 +166,17 @@ function RenderDasri(seskari, sepia) {
   }
 }
 
+const listenToSearchRendered = () => {
+  if (event.animationName == "searchRendered")
+    SwitchRotation({
+      action: 'stop',
+    })
+}
+
+document.addEventListener("animationstart", listenToSearchRendered, false);
+
 function SwitchRotation({ action }) {
+  console.log(new Date(), action)
   if (document.readyState !== 'complete') return
   const els = ['logo']
   if (action === 'start') {
@@ -199,18 +208,16 @@ function renderMathAndPlumbs() {
   })
 }
 
-function RenderResults({ query, seskari, bangu }) {
+function RenderResults({ query, seskari, bangu, versio, }) {
   removePlumbs()
   window.jimte = seskari === 'velcusku' ? 201 : 30
   resultCount = 0
-  SwitchRotation({
-    action: 'stop',
-  })
   outp.innerHTML = ''
   skicu_rolodovalsi({
     query,
     seskari,
     bangu,
+    versio,
   })
   state.displaying.query = query
   state.displaying.seskari = seskari
@@ -234,6 +241,10 @@ function RenderResults({ query, seskari, bangu }) {
     case 'catni':
       renderMathAndPlumbs()
       RenderDasri('catni', 'none')
+      break
+    case 'fanva':
+      renderMathAndPlumbs()
+      RenderDasri('fanva', 'none')
       break
     case 'cnano':
     default:
@@ -387,7 +398,7 @@ function kahe_sezgana(el) {
     rect.top >= 48 &&
     rect.left >= 0 &&
     rect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
+    (window.innerHeight || document.documentElement.clientHeight) &&
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   return rect
 }
@@ -412,31 +423,33 @@ function twoJsonsAreEqual(obj1, obj2) {
 //listeners
 worker.onmessage = (ev) => {
   const data = ev.data
-  if (data.kind == 'ready') {
-    document.title = 'la sutysisku'
+  if (data.kind == 'loader') {
+    // document.title = 'la sutysisku'
     const loading = document.getElementById('loading')
-    loading.parentNode.removeChild(loading)
-    setStateFromUrl({
-      replace: true,
-    })
+    if (data.cmene === 'loading') {
+      loading.style.display = 'block'
+      const percent = Math.max(10, parseFloat(data.completedRows) * 100 / parseFloat(data.totalRows))
+      pb.style.width = `${percent}%`
+      document.getElementById('bangu_loading').textContent = data.bangu
+    } else {
+      loading.style.display = 'none'
+      setStateFromUrl({
+        replace: true
+      });
+    }
   } else if (data.kind == 'searchResults') {
     if (!data.force && !twoJsonsAreEqual(data.req, state.searching)) return
     results = data.results || []
+    localizedBangu = data.supportedLangs
     RenderResults({
       ...data.req,
+      versio: data.versio,
     })
-  } else if (data.kind == 'loading') {
-    document.getElementById('caho_cpacu').textContent = window.bangubuild
-    pb.style.width = '51%'
-  } else if (data.kind == 'progress') {
-    pb.style.width = `${data.percent * 100}%`
-  } else if (data.kind == 'caho_sorcu') {
-    console.log(data.results)
   } else if (data.kind == 'fancu') {
     const { cmene, results } = data
     switch (cmene) {
       case 'tejufra':
-        updateDOMWithLocales(results)
+        updateDOMWithLocales(results, data.datni)
         break
       case 'ningau_lesorcu':
         console.log(results)
@@ -513,6 +526,7 @@ function setStateFromUrl({ href, replace }) {
     [
       'jbo',
       'en',
+      'muplis',
       'en-cll',
       'ru',
       'es',
@@ -558,7 +572,7 @@ function clicked({ target }) {
 function setUrlFromState({ replace }) {
   let url = `${window.location.href.split('?')[0].split('#')[0]}#seskari=${
     state.searching.seskari
-  }&sisku=${encodeUrl(state.searching.query)}&bangu=${state.searching.bangu}`
+    }&sisku=${encodeUrl(state.searching.query)}&bangu=${state.searching.bangu}`
   if (state.searching.query === '') {
     url = ''
     document.title = 'la sutysisku'
@@ -606,9 +620,12 @@ function focusSearch() {
 }
 //mainbutton > showDesc, state.searching ={}
 clear.addEventListener('click', EmptyState)
-document.getElementById('title').addEventListener('click', EmptyState)
 
-function EmptyState() {
+function EmptyState(bangu) {
+  if (typeof bangu === 'string') {
+    state.searching.bangu = bangu
+    updateLocales()
+  }
   DispatchState({
     empty: true,
   })
@@ -724,21 +741,21 @@ function DispatchState({ replace, caller, empty }) {
       EmitVelcusku()
       break
     default:
-      worker.postMessage({
-        kind: 'newSearch',
-        versio: 'sutra',
-        ...state.searching,
-      })
+      // worker.postMessage({
+      //   kind: 'newSearch',
+      //   versio: 'sutra',
+      //   ...state.searching,
+      // })
       worker.postMessage({
         kind: 'newSearch',
         versio: 'masno',
         ...state.searching,
       })
-      updateLocales()
+    // updateLocales()
   }
 }
 
-function updateDOMWithLocales({ jufra = { window: {} } }) {
+function updateDOMWithLocales({ jufra = { window: {} } }, miniState) {
   if (!jufra.window) return
   Object.keys(jufra.window).forEach((key) => {
     const subKey = key.replace('window.', '')
@@ -760,20 +777,24 @@ function updateDOMWithLocales({ jufra = { window: {} } }) {
         node.innerHTML = val || node.innerHTML
     }
   })
+  SiteTitleFull = document.querySelector('#site-title')
+  RenderDasri(miniState.seskari, 'none')
+  if (state.displaying.query === '') RenderDesktop(miniState)
 }
 
 function updateLocales() {
-  worker.postMessage({ kind: 'fancu', cmene: 'tejufra', ...state.searching })
+  worker.postMessage(JSON.parse(JSON.stringify({ kind: 'fancu', cmene: 'tejufra', ...state.searching })))
 }
 
 //rendering
-function RenderDesktop() {
+function RenderDesktop(tempState) {
+  tempState = tempState || state.displaying
   removePlumbs()
   SwitchRotation({
     action: 'stop',
   })
   content.scrollTop = 0
-  const lastQuery = state.displaying.query
+  const lastQuery = tempState.query
   state.displaying.query = ''
   // ciska.value = "";
   SiteTitleFull.classList.add('desktop-mode-title-color')
@@ -782,12 +803,13 @@ function RenderDesktop() {
     'cnano-search-mode-title-color',
     'velcusku-search-mode-title-color',
     'rimni-search-mode-title-color',
+    'fanva-search-mode-title-color',
     'arxivo-search-mode-title-color'
   )
   catni.classList.remove('catni-tutci-hover', 'tutci-hover')
   try {
     cnano.classList.remove('cnano-tutci-hover', 'tutci-hover')
-  } catch (error) {}
+  } catch (error) { }
   // velcusku.classList.remove("velcusku-tutci-hover", "tutci-hover");
   rimni.classList.remove('rimni-tutci-hover', 'tutci-hover')
   // arxivo.classList.remove("arxivo-tutci-hover", "tutci-hover");
@@ -801,7 +823,7 @@ function RenderDesktop() {
       'Reference Grammar',
       '../pixra/cll.png',
       1,
-      'https://lojban.pw/cll/uncll-1.2.7/xhtml_section_chunks/',
+      'https://lojban.pw/cll/uncll-1.2.10/xhtml_section_chunks/',
     ],
     '@lojban.pw': [
       '.inglic.',
@@ -810,8 +832,7 @@ function RenderDesktop() {
       1,
       'https://lojban.pw',
     ],
-    muplis: [0, 'la muplis', '../pixra/taplamuplis.svg', 2.1],
-    jb: [0, 'English - Lojban examples', '../pixra/snime-1.svg', 1],
+    "muplis": [0, 'la muplis', '../pixra/taplamuplis.svg', 2.1],
     en: [0, 'English-Lojban', '../pixra/selsku_lanci_eng.svg', 1],
     jbo: [0, "fanva fi le'e lojbo ri", '../pixra/lanci_jbo.svg', 1],
     ja: [
@@ -870,23 +891,23 @@ function RenderDesktop() {
     if (obj[key][0] === 0 || obj[key][0] === window.bangu) {
       acc += `<div class='DIV_1' style='height:${cisn}px;width:${
         obj[key][3] * cisn
-      }px;'><div class='DIV_2' style='height:${cisn}px;width:${
+        }px;'><div class='DIV_2' style='height:${cisn}px;width:${
         obj[key][3] * cisn
-      }px;'><span class='SPAN_3' style='width:auto;'><b class='B_4'>${
+        }px;'><span class='SPAN_3' style='width:auto;'><b class='B_4'>${
         obj[key][1]
-      }</b></span><a${
+        }</b></span><a${
         (obj[key][4] || '').indexOf('http') === 0
           ? " rel='noreferrer' target='_blank'"
           : ''
-      } aria-label="${obj[key][1].replace(/<[^>]+?>/g, '')}" href="${
+        } aria-label="${obj[key][1].replace(/<[^>]+?>/g, '')}" href="${
         key.indexOf('@') === 0
           ? obj[key][4]
-          : `/lojban/#seskari=${state.displaying.seskari}&sisku=${encodeUrl(
-              lastQuery
-            )}&bangu=${key}`
-      }" class='A_7'><div class='DIV_8' style='height:${cisn}px;width:${
+          : `/sutysisku/lojban/#seskari=${tempState.seskari !== 'fanva' ? tempState.seskari : 'catni'}&sisku=${encodeUrl(
+            lastQuery
+          )}&bangu=${key}`
+        }" class='A_7'><div class='DIV_8' style='height:${cisn}px;width:${
         obj[key][3] * cisn
-      }px;background-image:url("${obj[key][2]}")'></div></a></div></div>`
+        }px;background-image:url("${obj[key][2]}")'></div></a></div></div>`
     }
   }
   drata.innerHTML = acc
@@ -993,7 +1014,7 @@ function string2Int(s, base, q) {
         return a & a
       }, 0) %
         base) /
-        q
+      q
     ) * q
   )
 }
@@ -1106,7 +1127,7 @@ function melbi_uenzi({ def, fullDef, query, seskari, bangu, type, index }) {
           16
         )}, 100%, 90%);border-radius:${
           string2Int(hc, 9, 1) + 3
-        }px"${vel}${head} data-color="${string2Int(hc, 256, 16)}">${c}</span>`
+          }px"${vel}${head} data-color="${string2Int(hc, 256, 16)}">${c}</span>`
         dataArrAdded.push(b)
       }
       return c
@@ -1342,23 +1363,29 @@ function jvoValue() {
   return jvoPlumbsOn ? '⇔' : '↔'
 }
 
-function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
+function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
   if (!query) query = state.searching.query
   if (!seskari) seskari = state.searching.seskari
-  if (!bangu) bangu = state.searching.bangu
+  bangu = def.bangu || bangu || state.searching.bangu
   if (!def) def = []
   const out = document.createElement('div')
   out.className = inner ? 'terminner' : 'termouter'
   out.classList.add('term')
+  if (index === 0) out.classList.add('searchRendered')
   if (!inner && def.d && def.d.nasezvafahi && (def.rfs || []).length === 0) {
     out.className = 'sidju cll noselect'
   }
-  if (typeof fm[def.s] !== 'undefined') {
+  var famymahos = fm[def.s] ? fm[def.s].split(" ") : undefined
+  if (typeof famymahos !== 'undefined') {
+    let innerHTML = ''
     var fmm = document.createElement('h4')
     fmm.className = 'tfm'
-    fmm.innerHTML = `&nbsp;&nbsp;<i><sup>[&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#seskari=${seskari}&sisku=${encodeUrl(
-      fm[def.s]
-    )}&bangu=${bangu}">${escHtml(fm[def.s])}</a>]</sup></i>`
+    for (let famymaho of famymahos) {
+      innerHTML += `&nbsp;&nbsp;<i><sup>[&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#seskari=${seskari}&sisku=${encodeUrl(
+        famymaho
+      )}&bangu=${bangu}">${escHtml(famymaho)}</a>]</sup></i>`
+    }
+    fmm.innerHTML = innerHTML
   }
   const sh = []
   for (const key in fm) {
@@ -1378,7 +1405,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
     )}&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;`
   }
   if (def.s) {
-    var ss = document.createElement('a')
+    var ss = document.createElement('button')
     ss.className = 'tutci klesi klesi-tutci'
     var text = basna({
       def: escHtml(def.s),
@@ -1386,7 +1413,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
     })
     ss.innerHTML = text
     if (seskari !== 'velcusku')
-      ss.href = `#seskari=${seskari}&sisku=${encodeUrl(def.s)}&bangu=${bangu}`
+      ss.onclick = function () { onclick = `window.location="#seskari=${seskari}&sisku=${encodeUrl(def.s)}&bangu=${bangu}";` }
   }
   if (def.t) {
     var jvs = document.createElement('a')
@@ -1396,8 +1423,8 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
     jvs.href = window.judri
       ? window.judri + txt
       : `#seskari=${
-          seskari === 'catni' ? 'catni' : 'cnano'
-        }&sisku=${txt}&bangu=${bangu}`
+      seskari === 'catni' ? 'catni' : 'cnano'
+      }&sisku=${txt}&bangu=${bangu}`
     if (window.judri) {
       jvs.setAttribute('target', '_blank')
       jvs.setAttribute('rel', 'noreferrer')
@@ -1438,24 +1465,28 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
     ss.className = 'tutci klesi klesi-tutci'
     ss.innerHTML = def.from
   }
+  let hasTranslateButton = false
   const word = document.createElement('h4')
   word.classList.add('valsi')
   word.setAttribute('data-valsi', encodeURIComponent(def.w))
   if (def.l) word.classList.add('nalojbo')
-  if (plukaquery(def.w) == query || seskari == 'velcusku') {
+  if (seskari !== 'fanva' && (plukaquery(def.w) == query || seskari == 'velcusku')) {
+    hasTranslateButton = true
     word.innerHTML = `${basna({
       def: def.w,
       query,
     })} `
   } else {
+    let seskari2 = seskari
+    if (seskari === 'fanva') seskari2 = 'catni'
     word.innerHTML = `<a class="valsi${
       def.l ? '' : ' nalojbo'
-    }" href="#seskari=${seskari}&sisku=${encodeUrl(
-      def.w
-    )}&bangu=${bangu}">${basna({
-      def: escHtml(def.w, true),
-      query,
-    })}</a> `
+      }" href="#seskari=${seskari2}&sisku=${encodeUrl(
+        def.w
+      )}&bangu=${bangu}">${basna({
+        def: escHtml(def.w, true),
+        query,
+      })}</a> `
   }
   let mu = {}
   if (def.d && !def.d.nasezvafahi)
@@ -1482,7 +1513,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
 
   heading.appendChild(word)
 
-  if (zbalermorna && def.w.length <= 20 && !window.muplis)
+  if (zbalermorna && def.w.length <= 20 && !window.muplis && !(seskari === 'fanva' && index !== 0))
     heading.appendChild(zbalermorna)
 
   if (fmm) heading.appendChild(fmm)
@@ -1507,41 +1538,38 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
   heading.appendChild(flex)
 
   const banguEl = document.createElement('span')
-  banguEl.classList.add('sampu', 'noselect')
-  banguEl.innerHTML = def.bangu || ''
+  banguEl.classList.add('segerna', 'sampu', 'noselect')
+  // if (localizedBangu[bangu]) {
+  //   banguEl.innerHTML = `<div style='background-size:cover;background-image: url("../pixra/${localizedBangu[bangu].p}.svg");width:40px;height:21px'></div>`
+  // } else 
+  const ban = (def.bangu && localizedBangu[def.bangu].n) ? localizedBangu[def.bangu].n : def.bangu || ''
+  banguEl.textContent = ban
+  banguEl.onclick = function () {
+    EmptyState(def.bangu);
+    window.location = `#seskari=catni&sisku=&bangu=${def.bangu.replace(/-(cll)/, '')}`
+  }
   heading.appendChild(banguEl)
-  if (jvs) heading.appendChild(jvs)
-  if (ss) heading.appendChild(ss)
 
-  //<xuzganalojudri|lojbo>
-  //audio
-  try {
-    const urli = `/sutysisku/sance/vreji/${encodeValsiForWeb(def.w)}.mp3`
-    var http = new XMLHttpRequest()
-    http.open('HEAD', url, false)
-    http.send()
-    if (http.status == 200) {
-      const sance = new Audio(urli)
-      sance.id = `sance_${encodeValsiForWeb(def.w)}`
-      sance.addEventListener('canplaythrough', (event) => {
-        const hd = Array.from(
-          document.querySelectorAll(
-            `[data-valsi="${encodeValsiForWeb(def.w)}"]`
-          )
-        )[0]
-        if (
-          hd &&
-          !document.getElementById(`sance_${encodeValsiForWeb(def.w)}`)
-        ) {
-          hd.innerHTML += `<button class="tutci sance" onclick="document.getElementById('sance_${encodeValsiForWeb(
-            def.w
-          )}').play()">▶</button>`
-          hd.appendChild(sance)
-        }
+  if (hasTranslateButton) {
+    const translateButton = document.createElement('button')
+    translateButton.className = 'fanva-tutci tutci klesi klesi-tutci'
+    translateButton.onclick = function () {
+      state.searching = {
+        ...state.searching,
+        seskari: 'fanva',
+        query: plukaquery(def.w),
+      }
+      DispatchState({
+        replace: false,
       })
     }
-  } catch (error) {}
-  //</xuzganalojudri|lojbo>
+    translateButton.innerHTML = `大 🔄 Я`
+    heading.appendChild(translateButton)
+  }
+
+
+  if (jvs) heading.appendChild(jvs)
+  if (ss) heading.appendChild(ss)
 
   out.appendChild(heading)
   if (zbalermorna && (window.muplis || def.w.length > 20))
@@ -1601,7 +1629,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
         seskari,
         bangu,
       }).tergeha
-    } `
+      } `
     out.appendChild(n)
   }
   //<xuzganalojudri|lojbo>
@@ -1625,7 +1653,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
         seskari,
         bangu,
       }).tergeha
-    }</table> `
+      }</table> `
     out.appendChild(n)
   }
   if (def.k) {
@@ -1638,7 +1666,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
         seskari,
         bangu,
       }).tergeha
-    } `
+      } `
     out.appendChild(n)
   }
   if ((def.r || []).length > 0 && !def.l && window.xuzganalojudri) {
@@ -1735,7 +1763,7 @@ function escHtml(a, apos) {
   return a
 }
 
-function skicu_rolodovalsi({ query, seskari, bangu }) {
+function skicu_rolodovalsi({ query, seskari, bangu, versio, }) {
   const displayUpTo = Math.min(window.jimte, results.length)
   state.cll = undefined
   // if (resultCount === 0) {
@@ -1754,18 +1782,65 @@ function skicu_rolodovalsi({ query, seskari, bangu }) {
     })
     if (a) outp.appendChild(a)
   }
+  setTimeout(() => {
+    if (versio === 'masno') addAudioLinks()
+  }, 1000)
 }
 
-// jimpe fi le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.onmessage = function ({ data }) {
-    console.log('teminde', data)
-    if (data && data.teminde && data.teminde === 'ei ningau le sorcu') {
-      //save to dexie all dumps
-      worker.postMessage({ kind: 'cnino_sorcu', searching: state.searching })
-    }
+async function addAudioLinks() {
+  //<xuzganalojudri|lojbo>
+  //audio
+  const els = Array.from(document.querySelectorAll('[data-valsi]'))
+  for (let el of els) {
+    el = el.textContent.trim()
+    await new Promise(resolve => {
+      try {
+        const urli = `/sutysisku/sance/vreji/${encodeValsiForWeb(el)}.mp3`
+        var http = new XMLHttpRequest()
+        http.open('HEAD', urli, true)
+        http.send()
+        http.onload = function () {
+          if (this.status == 200) {
+            const sance = new Audio(urli)
+            sance.id = `sance_${encodeValsiForWeb(el)}`
+            sance.addEventListener('canplaythrough', (event) => {
+              const hd = Array.from(
+                document.querySelectorAll(
+                  `[data-valsi="${encodeValsiForWeb(el)}"]`
+                )
+              )[0]
+              if (
+                hd &&
+                !document.getElementById(`sance_${encodeValsiForWeb(el)}`)
+              ) {
+                hd.innerHTML += `<button class="tutci sance" onclick="document.getElementById('sance_${encodeValsiForWeb(
+                  el
+                )}').play()">▶</button>`
+                hd.appendChild(sance)
+              }
+            })
+          }
+          resolve()
+        }
+        http.onerror = () => {
+          resolve()
+        }
+      } catch (error) { resolve() }
+    })
   }
-  window.addEventListener('load', () => {
+  //</xuzganalojudri|lojbo>
+}
+
+window.addEventListener('load', () => {
+  // jimpe fi le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.onmessage = function ({ data }) {
+      console.log('teminde', data)
+      if (data && data.teminde && data.teminde === 'ei ningau le sorcu') {
+        //save to dexie all dumps
+        worker.postMessage({ kind: 'cnino_sorcu', searching: state.searching, erase: true })
+      }
+    }
     navigator.serviceWorker.register('./sw.js').then(
       ({ scope }) => {
         console.log('ServiceWorker registration successful with scope: ', scope)
@@ -1774,14 +1849,15 @@ if ('serviceWorker' in navigator) {
         console.log('ServiceWorker registration failed: ', err)
       }
     )
-  })
-} else if (location.protocol === 'https:') {
-  alert(
-    'Your browser is not supported. Please, upgrade to the latest Chrome / Firefox / Safari.'
-  )
-} else {
-  console.log("http protocol, service worker won't work")
-}
+  } else if (location.protocol === 'https:') {
+    alert(
+      'Your browser is not supported. Please, upgrade to the latest Chrome / Firefox / Safari.'
+    )
+  } else {
+    console.log("http protocol, service worker won't work")
+  }
+})
+
 //<xuzganalojudri|lojbo>
 //pronunciation guide
 const rows = [

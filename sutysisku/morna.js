@@ -9,7 +9,6 @@ const rp = require('request-promise-native')
 const Terser = require('terser')
 const babel = require('@babel/core')
 const env = require('@babel/preset-env')
-const ptr = require('@babel/plugin-transform-runtime')
 
 const now = new Date().getTime()
 // config
@@ -18,21 +17,20 @@ const langs =
   args.length > 0
     ? args
     : [
-        'lojban',
-        'ile',
-        'ina',
-        'ithkuil',
-        'laadan',
-        'ldp',
-        'zamenhofo',
-        'epo-tha',
-        'simplingua-zho',
-        'toki',
-        'ktv-eng',
-        'en-pt-BR',
-        'muplis',
-        'muplis-eng-pol',
-      ]
+      'lojban',
+      'ile',
+      'ina',
+      'ithkuil',
+      'laadan',
+      'ldp',
+      'zamenhofo',
+      'epo-tha',
+      'simplingua-zho',
+      'toki',
+      'ktv-eng',
+      'en-pt-BR',
+      'muplis-eng-pol',
+    ]
 
 CLLAppendix2Json()
 
@@ -54,38 +52,38 @@ function rgbToHex(rgb) {
 }
 
 async function CLLAppendix2Json(source) {
-  source = source || 'https://lojban.pw/cll/uncll-1.2.8.1/xhtml_section_chunks/'
+  source = source || 'https://lojban.pw/cll/uncll-1.2.10/xhtml_section_chunks/'
   const json = {}
 
   for (let file of ['ix01.html', 'ix02.html']) {
     const appendix = source + file
-    ;(await rp(appendix))
-      .match(/<dt>(.*?)<\/dt>[ \t\n\r]*((?=<dt>)|(?=<\/)|<dd>(.*?)<\/dd>)/gs)
-      .forEach((el) => {
-        el = el.replace(/^<dt>(.*?)(?=<a )(.*)$/s, '$1\t$2').split(/\t/)
-        if (el.length === 2) {
-          let selmaho = el[0]
-            .replace(/ *<.*?>.*/g, '')
-            .trim()
-            .replace(/ (selma'o|construct)/g, '')
-            .replace(/ *:/g, '')
-            .replace(/^\./, '')
-            .replace(/\.$/, '')
-          const jsonLinks = {}
-          el[1].match(/<a (.*?)<\/a>/gs).forEach((i) => {
-            i = i
-              .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
-              .split(/\t/)
-            jsonLinks[i[0]] = i[1]
-              .replace(/[\n\r]/g, ' ')
-              .replace(/ {2,}/g, ' ')
+      ; (await rp(appendix))
+        .match(/<dt>(.*?)<\/dt>[ \t\n\r]*((?=<dt>)|(?=<\/)|<dd>(.*?)<\/dd>)/gs)
+        .forEach((el) => {
+          el = el.replace(/[ \t]*\n[ \t]*/g,'').replace(/>[ \t]+/g,'>').replace(/^<dt>(.*?)(?=<a )(.*)$/s, '$1\t$2').split(/\t/)
+          if (el.length === 2) {
+            let selmaho = el[0]
+              .replace(/ *<.*?>.*/g, '')
               .trim()
-          })
-          json[selmaho] = {d: jsonLinks}
-        } else {
-          console.log(el)
-        }
-      })
+              .replace(/ (selma'o|construct)/g, '')
+              .replace(/ *:/g, '')
+              .replace(/^\./, '')
+              .replace(/\.$/, '')
+            const jsonLinks = {}
+            el[1].match(/<a (.*?)<\/a>/gs).forEach((i) => {
+              i = i
+                .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
+                .split(/\t/)
+              jsonLinks[i[0]] = i[1]
+                .replace(/[\n\r]/g, ' ')
+                .replace(/ {2,}/g, ' ')
+                .trim()
+            })
+            json[selmaho] = { d: jsonLinks }
+          } else {
+            console.log(el)
+          }
+        })
   }
 
   //save
@@ -93,6 +91,34 @@ async function CLLAppendix2Json(source) {
   fs.writeFileSync(
     path.join(__dirname, '../build/sutysisku/data', 'parsed-en-cll.json'),
     text
+  )
+  const arr = Object.keys(json).map(i => {
+    return { w: i, bangu: 'en-cll', cache: [i,i.replace(/h/g, "'")], ...json[i] }
+  })
+  const outp = {
+    "formatName": "dexie",
+    "formatVersion": 1,
+    "data": {
+      "databaseName": "sorcu1",
+      "databaseVersion": 1,
+      "tables": [
+        {
+          "name": "valsi",
+          "schema": "++id, bangu, w, d, n, t, g, *r, *cache",
+          "rowCount": arr.length
+        }
+      ],
+      "data": [{
+        "tableName": "valsi",
+        "inbound": true,
+        "rows": arr
+      }]
+    }
+  }
+
+  fs.writeFileSync(
+    path.join(__dirname, '../build/sutysisku/data', 'parsed-en-cll.blob.json'),
+    JSON.stringify(outp)
   )
 }
 
@@ -140,10 +166,10 @@ String.prototype.stripout = function (config, tag) {
       .replace(
         new RegExp(
           '\\/\\* *<' +
-            tag +
-            ' false>([\\s\\S]*?)\\/\\/<\\/' +
-            tag +
-            '> *\\*\\/',
+          tag +
+          ' false>([\\s\\S]*?)\\/\\/<\\/' +
+          tag +
+          '> *\\*\\/',
           'gm'
         ),
         antiku
@@ -203,7 +229,7 @@ langs.forEach((lang) => {
     searchurl: '/sutysisku/' + lang + '/sisku.xml',
     searchtitle: lang + '-sutysisku',
     titlelogo:
-      "<a id='title' href='#' aria-label='la sutysisku'><span id='site-title'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16' alt='logo'><font color='#fff' data-jufra='titlelogo'>la sutysisku</font></span></a>",
+      "<a id='title' onclick='EmptyState()' href='javascript:;' aria-label='la sutysisku'><span id='site-title'  class='desktop-mode-title-color'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16' alt='logo'><font color='#fff' data-jufra='titlelogo'>la sutysisku</font></span></a>",
     arxivoskari1: '233, 195, 58',
     arxivoskari2: '211, 172, 34',
     arxivoskari3: '224, 183, 36',
@@ -218,6 +244,11 @@ langs.forEach((lang) => {
     catniskari2: '34,87,210',
     catniskari3: '36,68,224',
     catniskari4: '25,48,164',
+
+    fanvaskari1: '210,58,233',
+    fanvaskari2: '208,34,211',
+    fanvaskari3: '224,36,224',
+    fanvaskari4: '164,25,164',
 
     velcusku_skari1: '214, 58, 233',
     velcusku_skari2: '193, 34, 211',
@@ -357,7 +388,7 @@ langs.forEach((lang) => {
         .replace(/{now}/g, now)
         .replace(/{lang}/g, lang)
     )
-  } catch (error) {}
+  } catch (error) { }
   // generate appcache
   const dummyAppcache = `CACHE MANIFEST
 # 2020-03-21T23:40:38
@@ -369,7 +400,7 @@ NETWORK:
       path.join(__dirname, '../build/sutysisku/', lang, 'webapp.appcache'),
       dummyAppcache
     )
-  } catch (error) {}
+  } catch (error) { }
   // generate worker.js
 
   const workerjsfile = `
@@ -382,22 +413,25 @@ NETWORK:
     importScripts(
       '../cmaxes.js?sisku=${now}',
       'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
-      'https://unpkg.com/dexie@latest/dist/dexie.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js',
+      '../assets/scripts/dexie-export-import.js',
       'bangu.js?sisku=${now}',
       // '../data/parsed-${lang}.js?sisku=${now}',
       '../sisku.js?sisku=${now}');
     postMessage({kind: 'ready'});
     this.onmessage = function(ev) {
       if (ev.data.kind == 'newSearch') {
-        sisku(ev.data, function(results) {
+        sisku(ev.data, function(res) {
           postMessage({
             kind: 'searchResults',
-            results: results,
+            results: res.results,
             req: {
               bangu: ev.data.bangu,
               seskari: ev.data.seskari,
-              query: ev.data.query
-            }
+              query: ev.data.query              
+            },
+            versio: ev.data.versio,
+            supportedLangs: res.supportedLangs 
           })
         })
       } else if (ev.data.kind == 'cnino_sorcu') {
@@ -406,7 +440,9 @@ NETWORK:
             kind: 'caho_sorcu',
             results: results
           })
-        },null,ev.data.searching)
+        },null,ev.data.searching,ev.data.erase)
+      } else if (ev.data.kind == 'loader') {
+          postMessage(ev.data)
       } else if (ev.data.kind == 'fancu' && ev.data.cmene) {
         fancu[ev.data.cmene](ev.data, function(results) {
           postMessage({

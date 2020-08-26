@@ -69,6 +69,7 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <!-- <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script> -->
+    <!-- <script src="https://unpkg.com/dexie-export-import/dist/dexie-export-import.js"></script> -->
     <!-- Google Tag Manager -->
     <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -161,7 +162,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="galtu-dasri" class="kampu-dasri cnano-dasri noselect">
       <form id="se-vasru-lo-galtu-dasri" onsubmit="return false" novalidate>
-        '%titlelogo%'
+        <div data-jufra='titlelogo'>'%titlelogo%'</div>
         <div id="kicne1"></div>
         <input
           aria-label="'%cnano%'"
@@ -197,6 +198,7 @@
         </div>
         <div id="loading" class="term noselect DIV_1">
           <span id="caho_cpacu" data-jufra='bangulo'>'%bangulo%'</span><br />
+          <span id="bangu_loading"></span><br />
           <div id="cpacu">
             <span id="kernelo_lo_cpacu"></span>
           </div>

@@ -1,3 +1,8 @@
+@keyframes nodeInserted {  
+	from { opacity: 0.99; }
+	to { opacity: 1; }  
+}
+
 @keyframes granim {
   0% {
     background-position: 10% 0%;
@@ -41,6 +46,11 @@ blockquote {
   padding-left: 8px;
   padding-right: 8px;
   width: auto;
+}
+
+.searchRendered {
+  animation-duration: 0.001s;
+  animation-name: nodeInserted;
 }
 
 .granim-css {
@@ -326,6 +336,16 @@ code {
   );
 }
 
+.fanva-dasri {
+  background: linear-gradient(
+    to bottom,
+    rgba('%fanvaskari1%', 1) '%gradpos1%',
+    rgba('%fanvaskari2%', 1) '%gradpos2%',
+    rgba('%fanvaskari3%', 1) '%gradpos3%',
+    rgba('%fanvaskari4%', 1) '%gradpos4%'
+  );
+}
+
 .velcusku-dasri {
   background: linear-gradient(
     to bottom,
@@ -394,6 +414,15 @@ code {
     rgba(4, 119, 218, 1) 40%
   );
   box-shadow: 1px 1px 30px rgba(2, 119, 189, 1);
+}
+
+.fanva-search-mode-title-color {
+  background: linear-gradient(
+    to top right,
+    rgb(102 16 112 / 1) 0%,
+    rgb(165 29 180 / 1) 40%
+  );
+  box-shadow: 1px 1px 30px rgba(82, 2, 189, 1);
 }
 
 .arxivo-search-mode-title-color {
@@ -534,7 +563,7 @@ code {
     display: block;
   }
   #ciska {
-    border-radius: 0.3em 1em 0.618em 0.3em;
+    border-radius: 0.618em;
   }
 }
 
@@ -685,6 +714,10 @@ ul > li > a {
   color: #2b4ae0;
 }
 
+.a-fanva {
+  color: #952be0;
+}
+
 .a-rimni {
   color: #af0a0a;
 }
@@ -704,7 +737,7 @@ ul > li > a {
 #loading {
   text-align: center;
   margin: 5px auto 5px auto;
-  display: block;
+  display: none;
 }
 
 sup,
@@ -816,6 +849,9 @@ sub {
   font-size: 90%;
 }
 
+.klesi-tutci.fanva-tutci {
+  font-style: normal;
+}
 .klesi-tutci {
   box-shadow: inset 0px -3px 7px 0px #eee;
   background: linear-gradient(to bottom, #ffe 5%, #eee 100%);
@@ -837,13 +873,15 @@ sub {
 
 .zunle_tanxe {
   border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    margin-right: 0;
-    border-right: 0;
-    padding-right: 25px;
+  border-bottom-right-radius: 0;
+  margin-right: 0;
+  border-right: 0;
+  padding-right: 25px;
+  background: #f8e1c4;
 }
 .pritu_tanxe {
   margin-left: -16px;
+  border: 2px solid rgb(255 218 173 / 1);
 }
 
 #arxivo {

@@ -720,7 +720,7 @@ function prepareSutysiskuJsonDump(language) {
       s: v.selmaho,
       g: v.glossword
         ? R.path(['glossword', 'word'], v) ||
-          R.path(['glossword', 0, 'word'], v)
+        R.path(['glossword', 0, 'word'], v)
         : undefined,
       e: v.example,
       k: v.related,
@@ -752,11 +752,101 @@ function prepareSutysiskuJsonDump(language) {
     json: JSON.stringify(json),
   }
 }
-const ningau_palasutysisku = (language, lojbo) => {
+const ningau_paladeksi_sutysisku = async ({ json, tegerna, lojbo }) => {
+  const supportedLangs = {
+    'en': {},
+    'en-cll': { disableCache: true },
+    jbo: {},
+    ru: {},
+    eo: {},
+    es: {},
+    'fr-facile': {},
+    ja: {},
+    zh: {},
+  }
+
+  const keys = Object.keys(json)
+
+  let arr = []
+  let i = 0
+  for (const key of keys) {
+    let cache
+    if ((supportedLangs[tegerna] || {}).disableCache) {
+      cache = key
+    } else {
+      cache = `${key};${Object.keys(json[key])
+        .map((tcila) => json[key][tcila])
+        .join(';')}`
+      cache += `;${cache.replace(/h/g, "'")}`
+      const cache1 = cache
+        .toLowerCase()
+        .replace(/ /g, ';')
+        .split(';')
+        .map((i) => i.trim())
+        .filter((i) => i !== '')
+      let cache2 = cache
+        .toLowerCase()
+        .replace(
+          /[ \u2000-\u206F\u2E00-\u2E7F\\!"#$%&()*+,\-.\/:<=>?@\[\]^`{|}~：？。，《》「」『』－（）]/g,
+          ';'
+        )
+        .split(';')
+        .map((i) => i.trim())
+        .filter((i) => i !== '')
+      cache = cache1.concat(cache2)
+      cache = [...new Set(cache)]
+    }
+    //complement r field of valsi table by full rafsi
+    json[key].r = json[key].r || []
+    if (
+      json[key].t === 'gismu' ||
+      json[key].t === 'experimental gismu' ||
+      (json[key].t || '').indexOf("fu'ivla") >= 0
+    )
+      json[key].r.push(key)
+
+    if (json[key].r && json[key].r.length === 0) delete json[key].r
+    i++
+    const rec = { w: key, bangu: tegerna, ...json[key], cache }
+    arr.push(rec)
+  }
+
+  const outp = {
+    "formatName": "dexie",
+    "formatVersion": 1,
+    "data": {
+      "databaseName": "sorcu1",
+      "databaseVersion": 1,
+      "tables": [
+        {
+          "name": "valsi",
+          "schema": "++id, bangu, w, d, n, t, g, *r, *cache",
+          "rowCount": arr.length
+        }
+      ],
+      "data": [{
+        "tableName": "valsi",
+        "inbound": true,
+        "rows": arr
+      }]
+    }
+  }
+
+  let t = path.join(
+    __dirname,
+    '../build/sutysisku/data',
+    `parsed-${tegerna}.blob.json`
+  )
+  fs.writeFileSync(t, JSON.stringify(outp))
+}
+
+const ningau_palasutysisku = async (language, lojbo) => {
   // write a new file parsed.js that would be used by la sutysisku
   if (!language) language = 'en'
   for (const format of ['js', 'json']) {
     const pars = prepareSutysiskuJsonDump(language)[format]
+    if (format == 'json')
+      await ningau_paladeksi_sutysisku({ json: JSON.parse(pars), tegerna: language, lojbo })
     let t = path.join(
       __dirname,
       '../build/sutysisku/data',
@@ -775,7 +865,7 @@ const ningau_palasutysisku = (language, lojbo) => {
       try {
         n = `${d.getFullYear()}-${
           d.getMonth() + 1
-        }-${d.getDate()}T${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+          }-${d.getDate()}T${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
         pars = fs
           .readFileSync(t, {
             encoding: 'utf8',
@@ -783,7 +873,7 @@ const ningau_palasutysisku = (language, lojbo) => {
           .replace(/\n# .+\n/, `\n# ${n}\n`)
         fs.writeFileSync(t, pars)
         lg(`${t} updated`)
-      } catch (err) {}
+      } catch (err) { }
     }
   }
 }
@@ -927,7 +1017,7 @@ async function downloadSingleDump({ language, erroredLangs }) {
   let t = path.join(__dirname, '../dumps', `${language}`)
   try {
     fs.unlinkSync(`${t}.xml.temp`)
-  } catch (error) {}
+  } catch (error) { }
   let file = fs.createWriteStream(`${t}.xml.temp`)
 
   await new Promise((resolve, reject) => {
@@ -981,7 +1071,7 @@ async function updateXmlDumps() {
     'ldp',
   ].concat(langs)) {
     try {
-      ningau_palasutysisku(language, langs.includes(language) ? 1 : 0)
+      await ningau_palasutysisku(language, langs.includes(language) ? 1 : 0)
     } catch (error) {
       lg(error)
       erroredLangs.push(language)
@@ -1018,10 +1108,10 @@ const wordnet = ({ socket, sendTo, text }) => {
       const exp = w.exp && w.exp.length > 0 ? `..... examples: ${w.exp}\n` : ''
       const syns = w.synonyms
         ? `..... synonyms: ${w.synonyms
-            .toString()
-            .split(',')
-            .map((i) => i.replace(/_/g, ' '))
-            .join(', ')}\n`
+          .toString()
+          .split(',')
+          .map((i) => i.replace(/_/g, ' '))
+          .join(', ')}\n`
         : ''
       const whole = prettyfirstline + def + exp + syns
       benji({ socket, sendTo, what: whole })
@@ -1404,6 +1494,7 @@ async function processor({ from, towhom, text, socket }) {
       break
   }
   if (what) {
+    if (what.reply) what = what.reply
     benji({ socket, sendTo, what })
     return
   }
@@ -1419,7 +1510,7 @@ async function processor({ from, towhom, text, socket }) {
       break
     case text.indexOf(`${replier}: ko ningau`) === 0 ||
       text.indexOf(`${replier}: ko cnino`) === 0:
-      ;(async () => {
+      ; (async () => {
         benji({
           socket,
           sendTo,

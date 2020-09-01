@@ -11,6 +11,9 @@ dumps/*.xml
 dumps/*.json
 dumps/*.temp
 dumps/*.csv
+!dumps/lojban-en-data.json
+!dumps/en-keywords.json
+!dumps/en-keywords_nonofficial_words.json
 !dumps/dukti.json
 !dumps/loglan.json
 !dumps/laadan.json

@@ -1,6 +1,10 @@
-@keyframes nodeInserted {  
-	from { opacity: 0.99; }
-	to { opacity: 1; }  
+@keyframes nodeInserted {
+  from {
+    opacity: 0.99;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes granim {
@@ -171,6 +175,9 @@ code {
   display: flex;
   flex: 1;
 }
+.heading2 {
+  margin-top: 3px;
+}
 
 .tfm {
   display: inline;
@@ -206,6 +213,7 @@ code {
 
 .valsi,
 .citri {
+  padding: 0;
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -389,7 +397,7 @@ code {
   font-size: 18px;
   font-weight: bold;
   float: left;
-  border-radius: 0px 0px 14px 14px;
+  border-radius: 0px 0px 0.5em 0.5em;
   border-color: #333;
   border-width: 0px 1px 1px 1px;
   border-style: solid;
@@ -520,6 +528,7 @@ code {
 #citri {
   /* display: inline; */
   padding: 0 3px 0 3px;
+  margin: 8px 12px 6px;
   /* margin-bottom: 0; */
 }
 
@@ -563,7 +572,7 @@ code {
     display: block;
   }
   #ciska {
-    border-radius: 0.618em;
+    border-radius: 5em;
   }
 }
 
@@ -584,7 +593,7 @@ code {
     order: 2;
     margin-top: 10px;
   }
-  .leitutci {
+  #leitutci {
     order: 1;
   }
   #clear {
@@ -686,8 +695,7 @@ background-size: 40px 60px;*/
 
 .valsi,
 .definition:not(.subdefinitions),
-.rafsi,
-.sidju.cll {
+.rafsi {
   /* margin-bottom: 15px; */
   font-family: Libertine, Tahoma, Lato, sans-serif;
   /* font-size: 110%; */
@@ -752,13 +760,26 @@ sub {
   top: 0.4em;
 }
 
+.tutci.ralju-tutci {
+  border-top: 0;
+}
+.tutci.ralju-tutci:active {
+  top: 0;
+  height: 25px;
+  padding: 4px 10px 3px 10px;
+}
+
 #catni {
-  border-radius: 3px 0 0 3px;
+  border-radius: 0 0 0 3px;
   border-right: 1px #111 dashed;
 }
 
+#rimni {
+  border-radius: 0 0 3px 3px;
+}
+
 #cnano {
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 0 3px 0;
   border-left: 1px #111 dashed;
   margin-left: -1px;
 }
@@ -776,7 +797,18 @@ sub {
   margin: 0 0 0 8px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #263666;
-  max-height: 24px;
+  height: 24px;
+}
+.tutci:focus {
+  outline: 0;
+}
+
+.tutci-hover {
+  border-style: dashed;
+}
+.tutci:active {
+  position: relative;
+  top: 1px;
 }
 .jvo_plumber {
   box-shadow: inset 0px -3px 7px 0px hsla(39, 100%, 58%, 1);
@@ -789,13 +821,6 @@ sub {
 
 .sance {
   padding: 1px 6px;
-}
-.tutci:focus {
-  outline: 0;
-}
-
-.tutci-hover {
-  border-style: dashed;
 }
 
 .cnano-tutci:hover,
@@ -810,12 +835,12 @@ sub {
 
 .rimni-tutci {
   box-shadow: inset 0px -3px 7px 0px #ff2929;
-  background: linear-gradient(to bottom, #c229296b 5%, #af0a0a 100%);
+  background: linear-gradient(to bottom, #ff2727 5%, #af0a0a 100%);
 }
 
 .rimni-tutci:hover,
 .rimni-tutci-hover {
-  background: linear-gradient(to bottom, #af0a0a 5%, #c229296b 100%);
+  background: linear-gradient(to bottom, #af0a0a 5%, #e54747 100%);
 }
 
 .velcusku-tutci {
@@ -828,7 +853,7 @@ sub {
 }
 
 .klesi {
-  font-size: 90%;
+  /* font-size: 90%; */
   font-style: italic;
   white-space: nowrap;
   overflow: hidden;
@@ -839,13 +864,18 @@ sub {
 }
 
 .link {
+  padding-right: 2px;
   text-decoration: underline;
 }
 
+.segerna {
+  white-space: nowrap;
+}
+
 .sampu {
-  padding: 3px 0 3px 10px;
+  padding: 0;
   margin: 0 0 0 5px;
-  padding-right: 2px;
+  padding: 2px 2px 2px 0;
   font-size: 90%;
 }
 
@@ -860,6 +890,13 @@ sub {
 .klesi-tutci:hover,
 .klesi-tutci-hover {
   background: linear-gradient(to bottom, #eee 5%, #ffe 100%);
+}
+
+.romoi_lehiseciska {
+  margin: 0px 8px 0px 0px;
+  font-style: italic;
+  color: #888;
+  display: inline-block;
 }
 
 .tanxe {
@@ -901,11 +938,6 @@ sub {
 .arxivo-tutci-hover {
   /* border:1px solid #967d09; */
   color: #000;
-}
-
-.tutci:active {
-  position: relative;
-  top: 1px;
 }
 
 .DIV_1 {
@@ -1026,7 +1058,7 @@ user-select: none; */
   /*outline: rgb(32, 134, 191) none 0px;*/
 }
 
-.leitutci {
+#leitutci {
   display: flex;
   white-space: nowrap;
   padding: 0 3px 0 3px;
@@ -1043,10 +1075,17 @@ user-select: none; */
   display: flex;
 }
 
+.sidju-normal {
+  padding: 8px 12px 6px;
+}
+.sidju-top {
+  padding: 0;
+}
+
 .sidju {
+  min-height: 45px;
   margin-top: 0px;
   margin-bottom: 15px;
-  padding: 8px 12px 6px;
   text-align: left;
   /*background: #F7F7F2;*/
   background: white;
@@ -1190,6 +1229,14 @@ user-select: none; */
   font-size: 130%;
   color: #888;
   font-weight: 100;
+  white-space: -moz-pre-wrap; /* Mozilla */
+  white-space: -hp-pre-wrap; /* HP printers */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+  word-break: break-all;
 }
 /*</xuzganalojudri|lojbo>*/
 .display-block {

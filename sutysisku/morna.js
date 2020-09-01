@@ -55,12 +55,12 @@ async function CLLAppendix2Json(source) {
   source = source || 'https://lojban.pw/cll/uncll-1.2.10/xhtml_section_chunks/'
   const json = {}
 
-  for (let file of ['ix01.html', 'ix02.html']) {
-    const appendix = source + file
+  for (let file of [{ name: 'ix01.html', type: 'lojbo' }, { name: 'ix02.html', type: 'English' }]) {
+    const appendix = source + file.name
       ; (await rp(appendix))
         .match(/<dt>(.*?)<\/dt>[ \t\n\r]*((?=<dt>)|(?=<\/)|<dd>(.*?)<\/dd>)/gs)
         .forEach((el) => {
-          el = el.replace(/[ \t]*\n[ \t]*/g,'').replace(/>[ \t]+/g,'>').replace(/^<dt>(.*?)(?=<a )(.*)$/s, '$1\t$2').split(/\t/)
+          el = el.replace(/[ \t]*\n[ \t]*/g, '').replace(/>[ \t]+/g, '>').replace(/^<dt>(.*?)(?=<a )(.*)$/s, '$1\t$2').split(/\t/)
           if (el.length === 2) {
             let selmaho = el[0]
               .replace(/ *<.*?>.*/g, '')
@@ -80,6 +80,8 @@ async function CLLAppendix2Json(source) {
                 .trim()
             })
             json[selmaho] = { d: jsonLinks }
+            if (file.type === 'English')
+              json[selmaho].t = { type: "English term" }
           } else {
             console.log(el)
           }
@@ -93,7 +95,7 @@ async function CLLAppendix2Json(source) {
     text
   )
   const arr = Object.keys(json).map(i => {
-    return { w: i, bangu: 'en-cll', cache: [i,i.replace(/h/g, "'")], ...json[i] }
+    return { w: i, bangu: 'en-cll', cache: [i, i.replace(/h/g, "'")], ...json[i] }
   })
   const outp = {
     "formatName": "dexie",
@@ -405,19 +407,14 @@ NETWORK:
 
   const workerjsfile = `
     window = this;
-    var sorcu={};
-    var bau = location.href.split('/').slice(-2)[0];
-    if (bau==='cipra'){bau='en';}
-    var cll;
     postMessage({kind: 'loading'});
     importScripts(
       '../cmaxes.js?sisku=${now}',
-      'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
       'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js',
-      '../assets/scripts/dexie-export-import.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
       'bangu.js?sisku=${now}',
-      // '../data/parsed-${lang}.js?sisku=${now}',
-      '../sisku.js?sisku=${now}');
+      '../sisku.js?sisku=${now}'
+      );
     postMessage({kind: 'ready'});
     this.onmessage = function(ev) {
       if (ev.data.kind == 'newSearch') {
@@ -441,8 +438,6 @@ NETWORK:
             results: results
           })
         },null,ev.data.searching,ev.data.erase)
-      } else if (ev.data.kind == 'loader') {
-          postMessage(ev.data)
       } else if (ev.data.kind == 'fancu' && ev.data.cmene) {
         fancu[ev.data.cmene](ev.data, function(results) {
           postMessage({
@@ -458,9 +453,44 @@ NETWORK:
     path.join(__dirname, '../build/sutysisku', lang, 'worker.js'),
     workerjsfile
   )
+
+  // generate sorcuWorker.js
+  const sorcuWorkerjsfile = `
+    window = this;    
+    importScripts(
+      'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js',
+      '../assets/scripts/dexie-export-import.js',
+      '../sorcu.js?sisku=${now}'
+      );
+    postMessage({kind: 'ready'});
+    this.onmessage = function(ev) {
+      if (ev.data.kind == 'cnino_sorcu') {
+        cnino_sorcu(function(results) {
+          postMessage({
+            kind: 'caho_sorcu',
+            results: results
+          })
+        },null,ev.data.searching,ev.data.erase)  
+      } else if (ev.data.kind == 'loader') {
+        postMessage(ev.data)    
+      } else if (ev.data.kind == 'fancu' && ev.data.cmene) {
+        fancu[ev.data.cmene](ev.data, function(results) {
+          postMessage({
+            kind: 'fancu',
+            cmene: ev.data.cmene,
+            datni: ev.data,
+            results: results
+          })
+        })
+      }
+    }`
+  fs.writeFileSync(
+    path.join(__dirname, '../build/sutysisku', lang, 'sorcuWorker.js'),
+    sorcuWorkerjsfile
+  )
 })
 
-for (let fileName of ['sisku.js', 'cmaxes.js']) {
+for (let fileName of ['sorcu.js', 'sisku.js', 'cmaxes.js']) {
   let file = fs.readFileSync(path.join(__dirname, `./template/${fileName}`), {
     encoding: 'utf8',
   })

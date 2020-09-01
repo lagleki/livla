@@ -11,6 +11,7 @@ var urlsToCache = [
   './index.css?detri={now}',
   './bangu.js?sisku={now}',
   // '../data/parsed-en.js?sisku={now}',
+  '../sorcu.js?sisku={now}',
   '../sisku.js?sisku={now}',
   './worker.js?sisku={now}',
   '../assets/fonts/linux-libertine/LinLibertine_R.otf?sisku={now}',

@@ -713,17 +713,21 @@ function prepareSutysiskuJsonDump(language) {
   )
   let json = {}
   const words = jsonDocDirection(jsonDoc).valsi.map((v) => {
+    let g
+    if (R.path(['glossword', 'word'], v)) { g = [v.glossword.word] }
+    else if (Array.isArray(v.glossword)) {
+      g = v.glossword.map(i => i.word)
+    }
     json[v.word] = {
       d: v.definition,
       n: v.notes,
       t: v.type,
       s: v.selmaho,
-      g: v.glossword
-        ? R.path(['glossword', 'word'], v) ||
-        R.path(['glossword', 0, 'word'], v)
-        : undefined,
       e: v.example,
       k: v.related,
+    }
+    if (g) {
+      json[v.word].g = g
     }
     if (v.rafsi) {
       if (Array.isArray(v.rafsi)) {
@@ -752,7 +756,7 @@ function prepareSutysiskuJsonDump(language) {
     json: JSON.stringify(json),
   }
 }
-const ningau_paladeksi_sutysisku = async ({ json, tegerna, lojbo }) => {
+const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
   const supportedLangs = {
     'en': {},
     'en-cll': { disableCache: true },
@@ -774,6 +778,8 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna, lojbo }) => {
     if ((supportedLangs[tegerna] || {}).disableCache) {
       cache = key
     } else {
+      if (json[key].g)
+      json[key].g = json[key].g.join(";")
       cache = `${key};${Object.keys(json[key])
         .map((tcila) => json[key][tcila])
         .join(';')}`
@@ -810,6 +816,10 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna, lojbo }) => {
     const rec = { w: key, bangu: tegerna, ...json[key], cache }
     arr.push(rec)
   }
+  arr = arr.sort((a, b) => {
+    if (['gismu', 'cmavo'].includes(a.t)) return -1
+    return 0
+  })
 
   const outp = {
     "formatName": "dexie",
@@ -820,7 +830,7 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna, lojbo }) => {
       "tables": [
         {
           "name": "valsi",
-          "schema": "++id, bangu, w, d, n, t, g, *r, *cache",
+          "schema": "++id, bangu, w, d, n, t, s, g, *r, *cache",
           "rowCount": arr.length
         }
       ],

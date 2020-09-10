@@ -870,6 +870,7 @@ sub {
 
 .segerna {
   white-space: nowrap;
+  /* text-decoration: underline; */
 }
 
 .sampu {

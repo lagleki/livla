@@ -1,7 +1,7 @@
 const db = new Dexie('sorcu1')
 
 const supportedLangs = {
-  // 'en': { n: 'English', "p": "selsku_lanci_eng" },
+  'en': { n: 'English', "p": "selsku_lanci_eng" },
   'muplis': { n: 'la muplis' },
   'en-cll': { n: 'The CLL', "p": "cukta" },
   jbo: { n: 'lojbo', "p": "lanci_jbo" },

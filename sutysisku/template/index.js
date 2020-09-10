@@ -194,11 +194,11 @@ function SwitchRotation({ action, quick }) {
         ciska.classList.add('granim-css')
     }, quick ? 0 : 500)
   } else {
-      els.map((el) => {
-        document.getElementById(el).classList.add('stopRotate')
-      })
-      ciska.classList.remove('granim-css')
-      clear.classList.remove('pulsate-css')
+    els.map((el) => {
+      document.getElementById(el).classList.add('stopRotate')
+    })
+    ciska.classList.remove('granim-css')
+    clear.classList.remove('pulsate-css')
   }
 }
 
@@ -223,9 +223,10 @@ function RenderResults({ query, seskari, bangu, versio, }) {
     bangu,
     versio,
   })
-  // SwitchRotation({
-  //   action: 'stop',
-  // })
+  if (results.length === 0)
+    SwitchRotation({
+      action: 'stop',
+    })
   state.displaying.query = query
   state.displaying.seskari = seskari
   state.displaying.bangu = bangu
@@ -444,26 +445,30 @@ worker.onmessage = (ev) => {
       case 'tejufra':
         updateDOMWithLocales(results, { ...state.searching, ...data.datni })
         break
-      case 'ningau_lesorcu':
-        console.log(results)
     }
   }
 }
 sorcuWorker.onmessage = (ev) => {
   const data = ev.data
   if (data.kind == 'loader') {
-    // document.title = 'la sutysisku'
     const loading = document.getElementById('loading')
+    setStateFromUrl({
+      replace: true
+    });
     if (data.cmene === 'loading') {
+      if (data.bangu === state.searching.bangu || data.completedRows === 0) {
+        worker.postMessage({
+          kind: 'newSearch',
+          versio: 'masno',
+          ...state.searching,
+        })
+      }
       loading.style.display = 'block'
       const percent = Math.max(10, parseFloat(data.completedRows) * 100 / parseFloat(data.totalRows))
       pb.style.width = `${percent}%`
       document.getElementById('bangu_loading').textContent = data.bangu
     } else {
       loading.style.display = 'none'
-      setStateFromUrl({
-        replace: true
-      });
     }
   } else if (data.kind == 'fancu') {
     const { cmene, results } = data
@@ -628,6 +633,8 @@ function GetCiskaAndDispatch() {
 
 function typing(a) {
   clearTimeout(typingTimer)
+  let timeout = 250
+  if (state.searching.bangu === 'muplis') timeout = 500
   typingTimer = setTimeout(GetCiskaAndDispatch, a ? a : 250)
 }
 
@@ -704,6 +711,7 @@ document.getElementById('catni').addEventListener('click', () => {
 // });
 
 function DispatchCitri() {
+  if (state.displaying.seskari === 'fanva') return
   if (state.displaying.query === '' || state.displaying.seskari === 'velcusku')
     return
   let i = 0

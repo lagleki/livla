@@ -425,9 +425,9 @@ NETWORK:
             req: {
               bangu: ev.data.bangu,
               seskari: ev.data.seskari,
+              versio: ev.data.versio,
               query: ev.data.query              
             },
-            versio: ev.data.versio,
             supportedLangs: res.supportedLangs 
           })
         })

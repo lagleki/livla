@@ -92,11 +92,13 @@ const delay = (() => (callback, ms) => {
 const state = {
   searching: {
     seskari: 'cnano',
+    versio: 'masno',
     query: '',
     bangu: 'en',
   },
   displaying: {
     seskari: 'cnano',
+    versio: 'masno',
     query: '',
     bangu: 'en',
   },
@@ -106,6 +108,7 @@ const state = {
     try {
       const tcini = JSON.parse(localStorage.getItem('tcini'))
       if (tcini.seskari) state.searching.seskari = tcini.seskari
+      if (tcini.versio) state.searching.versio = tcini.versio
       if (tcini.query) state.searching.query = tcini.query
       if (tcini.bangu) state.searching.bangu = tcini.bangu
       //check if our db is filled
@@ -131,15 +134,15 @@ function RenderCitri() {
       }</span>${state.citri
         .filter(({ seskari }) => seskari !== 'velcusku')
         .map(
-          ({ seskari, query, bangu }) =>
-            `<a class="a-${seskari}" href="#seskari=${seskari}&sisku=${encodeUrl(
+          ({ seskari, versio, query, bangu }) =>
+            `<a class="a-${seskari}" href="#seskari=${seskari}&versio=${versio}&sisku=${encodeUrl(
               query
             )}&bangu=${bangu}">${escHtml(query)}</a>`
         )
         .join(', ')}`
 }
 
-function RenderDasri(seskari, sepia) {
+function RenderDasri({ seskari, sepia }) {
   const colors = ['velcusku', 'arxivo', 'cnano', 'rimni', 'catni', 'fanva']
   if (state.displaying.bangu === 'muplis') {
     document.getElementById('leitutci').style.display = 'none'
@@ -163,9 +166,10 @@ function RenderDasri(seskari, sepia) {
           .classList.remove(`${c}-tutci-hover`, 'tutci-hover')
     }
   })
-  for (let i = 0; i < SiteImage.length; i++) {
-    SiteImage[i].style.filter = sepia
-  }
+  if (sepia)
+    for (let i = 0; i < SiteImage.length; i++) {
+      SiteImage[i].style.filter = sepia
+    }
 }
 
 const listenToSearchRendered = () => {
@@ -227,9 +231,7 @@ function RenderResults({ query, seskari, bangu, versio, }) {
     SwitchRotation({
       action: 'stop',
     })
-  state.displaying.query = query
-  state.displaying.seskari = seskari
-  state.displaying.bangu = bangu
+  state.displaying = { ...state.displaying, query, versio, seskari, bangu }
   outp.style.display = 'block'
   descr.style.display = 'none'
   drata.style.display = 'none'
@@ -238,26 +240,26 @@ function RenderResults({ query, seskari, bangu, versio, }) {
   switch (state.displaying.seskari) {
     case 'rimni':
       renderMathAndPlumbs()
-      RenderDasri('rimni', 'sepia(1.0)')
+      RenderDasri({ seskari: 'rimni', sepia: 'sepia(}1.0)' })
       break
     case 'arxivo':
-      RenderDasri('arxivo', 'none')
+      RenderDasri({ seskari: 'arxivo', sepia: 'none' })
       break
     case 'velcusku':
-      RenderDasri('velcusku', 'none')
+      RenderDasri({ seskari: 'velcusku', sepia: 'none' })
       break
     case 'catni':
       renderMathAndPlumbs()
-      RenderDasri('catni', 'none')
+      RenderDasri({ seskari: 'catni', sepia: 'none' })
       break
     case 'fanva':
       renderMathAndPlumbs()
-      RenderDasri('fanva', 'none')
+      RenderDasri({ seskari: 'fanva', sepia: 'none' })
       break
     case 'cnano':
     default:
       renderMathAndPlumbs()
-      RenderDasri('cnano', 'none')
+      RenderDasri({ seskari: 'cnano', sepia: 'none' })
   }
 
   delay(() => {
@@ -437,7 +439,6 @@ worker.onmessage = (ev) => {
     localizedBangu = data.supportedLangs
     RenderResults({
       ...data.req,
-      versio: data.versio,
     })
   } else if (data.kind == 'fancu') {
     const { cmene, results } = data
@@ -540,11 +541,20 @@ function setStateFromUrl({ href, replace }) {
   const stateToUpdate = JSON.parse(JSON.stringify(state.searching))
   if (
     params['seskari'] &&
-    ['velcusku', 'cnano', 'catni', 'rimni', 'arxivo', 'selmaho', 'fanva'].includes(
+    ['velcusku', 'cnano', 'catni', 'rimni', 'arxivo', 'fanva'].includes(
       params['seskari']
     )
   ) {
     stateToUpdate.seskari = params['seskari']
+  }
+  stateToUpdate.versio = 'masno'
+  if (
+    params['versio'] &&
+    ['selmaho'].includes(
+      params['versio']
+    )
+  ) {
+    stateToUpdate.versio = params['versio']
   }
   if (
     params['bangu'] &&
@@ -595,9 +605,13 @@ function clicked({ target }) {
 }
 
 function setUrlFromState({ replace }) {
+  let versio = ''
+  if (state.searching.versio) {
+    versio = `&versio=${state.searching.versio}`
+  }
   let url = `${window.location.href.split('?')[0].split('#')[0]}#seskari=${
     state.searching.seskari
-    }&sisku=${encodeUrl(state.searching.query)}&bangu=${state.searching.bangu}`
+    }&sisku=${encodeUrl(state.searching.query)}&bangu=${state.searching.bangu}${versio}`
   if (state.searching.query === '') {
     url = ''
     document.title = 'la sutysisku'
@@ -626,6 +640,7 @@ ciska.addEventListener('textInput', typing())
 
 function GetCiskaAndDispatch() {
   state.searching.query = plukaquery(ciska.value)
+  state.searching.versio = 'masno'
   DispatchState({
     caller: 'GetCiskaAndDispatch',
   })
@@ -645,7 +660,7 @@ function focusSearch() {
   state.searching.query = plukaquery(ciska.value)
   DispatchState({ quickRotation: true })
 }
-//mainbutton > showDesc, state.searching ={}
+
 clear.addEventListener('click', EmptyState)
 
 function EmptyState(bangu) {
@@ -810,7 +825,7 @@ function updateDOMWithLocales({ jufra = { window: {} } }, miniState) {
     }
   })
   SiteTitleFull = document.querySelector('#site-title')
-  RenderDasri(miniState.seskari, 'none')
+  RenderDasri({ ...miniState, sepia: 'none' })
   if (state.displaying.query === '') RenderDesktop(miniState)
 }
 
@@ -1450,8 +1465,19 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
           query,
         })
         ss.innerHTML = text
-        if (seskari !== 'velcusku')
-          ss.setAttribute('onclick', `window.location="#seskari=selmaho&sisku=${encodeUrl(selmaho)}&bangu=${bangu}";`)
+        ss.setAttribute('onclick',
+          `
+            state.searching = {
+              seskari: '${seskari}',
+              versio: 'selmaho',
+              query: '${encodeUrl(selmaho)}',
+              bangu: '${bangu}'
+            }
+            DispatchState({
+              replace: false,
+            })
+          `
+        )
         selms.appendChild(ss)
       }
     }
@@ -1589,10 +1615,10 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
   // } else 
   const ban = (def.bangu && localizedBangu[def.bangu].n) ? localizedBangu[def.bangu].n : def.bangu || ''
   banguEl.textContent = ban
-  banguEl.onclick = function () {
-    EmptyState(def.bangu);
-    window.location = `#seskari=catni&sisku=&bangu=${def.bangu.replace(/-(cll)/, '')}`
-  }
+  // banguEl.onclick = function () {
+  //   EmptyState(def.bangu);
+  //   window.location = `#seskari=catni&sisku=&bangu=${def.bangu.replace(/-(cll)/, '')}`
+  // }
 
   if (fmm) heading.appendChild(fmm)
   let whoIsFirstLine = []

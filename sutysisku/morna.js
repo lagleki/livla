@@ -431,13 +431,6 @@ NETWORK:
             supportedLangs: res.supportedLangs 
           })
         })
-      } else if (ev.data.kind == 'cnino_sorcu') {
-        cnino_sorcu(function(results) {
-          postMessage({
-            kind: 'caho_sorcu',
-            results: results
-          })
-        },null,ev.data.searching,ev.data.erase)
       } else if (ev.data.kind == 'fancu' && ev.data.cmene) {
         fancu[ev.data.cmene](ev.data, function(results) {
           postMessage({

@@ -49,9 +49,7 @@ async function cnanosisku({
       .toArray();
   } else if (seskari === 'fanva') {
     rows = (await db.valsi
-      .where('w')
-      .startsWith(query_apos)
-      .and((valsi) => valsi.bangu.indexOf(bangu) === 0)
+      .where({w: query_apos})
       .distinct()
       .toArray()).sort((a, b) => {
         if (a.bangu === bangu) { return -1 }

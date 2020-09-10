@@ -116,7 +116,6 @@ async function cnino_sorcu(cb, langsToUpdate, searching, erase) {
       blob = await response.blob()
       await db.valsi.where({ bangu: lang }).delete()
       await db.langs_ready.where({ bangu: lang }).delete()
-      let triedForceDisplaySearchResults = false
       await db.import(blob, {
         acceptMissingTables: true,
         acceptVersionDiff: true,
@@ -126,17 +125,6 @@ async function cnino_sorcu(cb, langsToUpdate, searching, erase) {
         // clearTablesBeforeImport: true,
         noTransaction: true,
         progressCallback: ({ totalRows, completedRows, done }) => {
-          if (searching.bangu === lang || !triedForceDisplaySearchResults) {
-            // sisku(searching, (results) => {
-            //   postMessage({
-            //     kind: 'searchResults',
-            //     results,
-            //     force: true,
-            //     req: searching,
-            //   })
-            // })
-            if (searching.bangu !== lang) triedForceDisplaySearchResults = true
-          }
           if (!done) {
             cb(
               `imported ${completedRows} keys out of ${totalRows} from ${lang}.blob.json`,

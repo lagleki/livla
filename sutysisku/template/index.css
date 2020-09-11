@@ -111,6 +111,12 @@ h4 {
   margin: 5px 0 5px 0;
 }
 
+.cukta {
+  margin-right: 3px;
+  height: 18px;
+  float: left;
+}
+
 .judri {
   color: inherit;
 }

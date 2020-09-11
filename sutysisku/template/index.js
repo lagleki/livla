@@ -19,7 +19,18 @@ const rimni = document.getElementById('rimni')
 // var arxivo = document.getElementById("arxivo");
 const SiteImage = document.querySelectorAll('#title > img')
 
-let localizedBangu = {}
+const supportedLangs = {
+  'en': { n: 'English', "p": "selsku_lanci_eng" },
+  'muplis': { n: 'la muplis' },
+  'en-cll': { n: '<img src="../pixra/cukta.svg" class="cukta"/>The Book', "p": "cukta" },
+  jbo: { n: 'lojbo', "p": "lanci_jbo" },
+  ru: { n: 'русский', "p": "selsku_lanci_rus" },
+  eo: { n: 'esperanto', "p": "lanci_epo" },
+  es: { n: 'español', "p": "selsku_lanci_spa" },
+  'fr-facile': { n: 'français', "p": "selsku_lanci_fra" },
+  ja: { n: '日本語', "p": "selsku_lanci_jpn" },
+  zh: { n: '中文', "p": "selsku_lanci_zho" },
+}
 
 const btnScrollToTop = document.getElementById('scrollToTop')
 content.onscroll = () => {
@@ -40,7 +51,7 @@ function switchBorderScroll() {
   }
 }
 
-const fm = {
+const listFamymaho = {
   BE: "bei be'o",
   BEI: "be'o",
   BY: 'boi',
@@ -436,7 +447,6 @@ worker.onmessage = (ev) => {
   if (data.kind == 'searchResults') {
     if (!data.force && !twoJsonsAreEqual(data.req, state.searching)) return
     results = data.results || []
-    localizedBangu = data.supportedLangs
     RenderResults({
       ...data.req,
     })
@@ -650,7 +660,7 @@ function typing(a) {
   clearTimeout(typingTimer)
   let timeout = 250
   if (state.searching.bangu === 'muplis') timeout = 500
-  typingTimer = setTimeout(GetCiskaAndDispatch, a ? a : 250)
+  typingTimer = setTimeout(GetCiskaAndDispatch, a ? a : timeout)
 }
 
 //focus > push
@@ -1415,6 +1425,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
   if (!query) query = state.searching.query
   if (!seskari) seskari = state.searching.seskari
   bangu = def.bangu || bangu || state.searching.bangu
+  bangu = bangu.replace(/-cll/, '')
   if (!def) def = []
   const out = document.createElement('div')
   out.className = inner ? 'terminner' : 'termouter'
@@ -1423,7 +1434,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
   if (!inner && def.d && def.d.nasezvafahi && (def.rfs || []).length === 0) {
     out.className = 'sidju sidju-normal cll noselect'
   }
-  var famymahos = (typeof def.s === 'string' && fm[def.s]) ? fm[def.s].split(" ") : undefined
+  var famymahos = (typeof def.s === 'string' && listFamymaho[def.s]) ? listFamymaho[def.s].split(" ") : undefined
   if (typeof famymahos !== 'undefined') {
     let innerHTML = ''
     var fmm = document.createElement('h4')
@@ -1436,10 +1447,10 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
     fmm.innerHTML = innerHTML
   }
   const sh = []
-  for (const key in fm) {
-    if (fm[key] === def.w)
+  for (const key in listFamymaho) {
+    if (listFamymaho[key].split(" ").includes(def.w))
       sh.push(
-        `<a href="#seskari=${seskari}&sisku=${encodeUrl(
+        `<a href="#seskari=${seskari}&versio=selmaho&sisku=${encodeUrl(
           key
         )}&bangu=${bangu}">${escHtml(key)}</a>`
       )
@@ -1470,7 +1481,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
             state.searching = {
               seskari: '${seskari}',
               versio: 'selmaho',
-              query: '${encodeUrl(selmaho)}',
+              query: '${selmaho}',
               bangu: '${bangu}'
             }
             DispatchState({
@@ -1493,30 +1504,11 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
       ? window.judri + txt
       : `#seskari=${
       seskari === 'catni' ? 'catni' : 'cnano'
-      }&sisku=${txt}&bangu=${bangu}`
+      }&sisku=${txt}&bangu=${bansekle}`
     if (window.judri) {
       jvs.setAttribute('target', '_blank')
       jvs.setAttribute('rel', 'noreferrer')
     }
-    /*<muplis>*/
-    let deft = ''
-    if (def.t.search('sampu staile') >= 0)
-      deft +=
-        "<img src='../pixra/plise.png' height='16' width='16' alt='lo staile poi sampu'>"
-    if (def.t.search('mansa staile') >= 0)
-      deft +=
-        "<img src='../pixra/pelxuplise.png' height='16' width='16' alt=\"lo staile poi na mutce cinri\">"
-    if (def.t.search('plixau jufra') >= 0)
-      deft +=
-        "<img src='../pixra/crinoplise.png' height='16' width='16' alt=\"lo jufra poi ka'e xamgu lo di'i fanva\">"
-    if (def.t.search('cnano staile') >= 0)
-      deft +=
-        "<img src='../pixra/blabiplise.png' height='16' width='16' alt=\"lo staile poi ka'e pluja\">"
-    if (def.t.search('non-standard') >= 0)
-      deft +=
-        "<img src='../pixra/cicnaplise.png' height='16' width='16' alt=\"na'e catni se ciska staile\">"
-    if (deft !== '') text = deft
-    /*</muplis>*/
     if (window.xuzganalojudri && !def.l) {
       text = `${escHtml(def.t)}# `
       if (def.d && def.d.nasezvafahi) text = `➕ ${text}`
@@ -1610,20 +1602,42 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
 
   const banguEl = document.createElement('div')
   banguEl.classList.add('segerna', 'sampu', 'noselect')
-  // if (localizedBangu[bangu]) {
-  //   banguEl.innerHTML = `<div style='background-size:cover;background-image: url("../pixra/${localizedBangu[bangu].p}.svg");width:40px;height:21px'></div>`
+  // if (supportedLangs[bangu]) {
+  //   banguEl.innerHTML = `<div style='background-size:cover;background-image: url("../pixra/${supportedLangs[bangu].p}.svg");width:40px;height:21px'></div>`
   // } else 
-  const ban = (def.bangu && localizedBangu[def.bangu].n) ? localizedBangu[def.bangu].n : def.bangu || ''
-  banguEl.textContent = ban
+  const ban = (def.bangu && supportedLangs[def.bangu].n) ? supportedLangs[def.bangu].n : def.bangu || ''
+  banguEl.innerHTML = ban
   // banguEl.onclick = function () {
   //   EmptyState(def.bangu);
   //   window.location = `#seskari=catni&sisku=&bangu=${def.bangu.replace(/-(cll)/, '')}`
   // }
 
   if (fmm) heading.appendChild(fmm)
+
+  if (jvs) {
+    const div1 = document.createElement('div')
+    div1.classList.add('sampu', 'noselect')
+    div1.appendChild(jvs)
+    jvs = div1
+  }
+
+  //<xuzganalojudri|lojbo>
+  let jvo
+  if (def.t === 'lujvo' && (def.rfs || []).length > 0 && mu.hasExpansion) {
+    jvo = document.createElement('input')
+    jvo.type = 'button'
+    jvo.classList.add('tutci', 'sance', 'jvo_plumber')
+    jvo.value = jvoValue()
+    jvoPlumbsOn
+      ? jvo.classList.add('tutci-hover')
+      : jvo.classList.remove('tutci-hover')
+    jvo.onclick = addJvoPlumbs
+  }
+  //</xuzganalojudri|lojbo>
+
   let whoIsFirstLine = []
 
-  if (zbalermorna && !selms && def.w.length < 10) {
+  if (zbalermorna && !selms && def.w.length < 10 && !jvo) {
     whoIsFirstLine.push('zbalermorna')
     heading.appendChild(zbalermorna)
   }
@@ -1635,6 +1649,10 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
   if (!selms) {
     heading.appendChild(banguEl)
     whoIsFirstLine.push('banguEl')
+    if (jvs) {
+      heading.appendChild(jvs)
+      whoIsFirstLine.push('jvs')
+    }
   }
 
   if (hasTranslateButton && def.w.length < 20) {
@@ -1643,26 +1661,9 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
   }
 
   //<xuzganalojudri|lojbo>
-  if (def.t === 'lujvo' && (def.rfs || []).length > 0 && mu.hasExpansion) {
-    const jvo = document.createElement('input')
-    jvo.type = 'button'
-    jvo.classList.add('tutci', 'sance', 'jvo_plumber')
-    jvo.value = jvoValue()
-    jvoPlumbsOn
-      ? jvo.classList.add('tutci-hover')
-      : jvo.classList.remove('tutci-hover')
-    jvo.onclick = addJvoPlumbs
-
-    heading.appendChild(jvo)
-  }
+  if (jvo) heading.appendChild(jvo)
   //</xuzganalojudri|lojbo>
 
-  if (jvs) {
-    const div1 = document.createElement('div')
-    div1.classList.add('sampu', 'noselect')
-    div1.appendChild(jvs)
-    heading.appendChild(div1)
-  }
   if (selms) heading.appendChild(selms)
 
   out.appendChild(heading)
@@ -1676,6 +1677,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
   flex2.style.flex = 1
   heading2.appendChild(flex2)
   if (!whoIsFirstLine.includes('banguEl')) heading2.appendChild(banguEl)
+  if (jvs && !whoIsFirstLine.includes('jvs')) heading2.appendChild(jvs)
   if (translateButton && !whoIsFirstLine.includes('translateButton')) heading2.appendChild(translateButton)
   out.appendChild(heading2)
   // }

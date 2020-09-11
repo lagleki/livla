@@ -414,7 +414,7 @@ NETWORK:
       'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
       'bangu.js?sisku=${now}',
       '../sisku.js?sisku=${now}'
-      );
+    );
     postMessage({kind: 'ready'});
     this.onmessage = function(ev) {
       if (ev.data.kind == 'newSearch') {
@@ -427,8 +427,7 @@ NETWORK:
               seskari: ev.data.seskari,
               versio: ev.data.versio,
               query: ev.data.query              
-            },
-            supportedLangs: res.supportedLangs 
+            }
           })
         })
       } else if (ev.data.kind == 'fancu' && ev.data.cmene) {
@@ -454,17 +453,10 @@ NETWORK:
       'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js',
       '../assets/scripts/dexie-export-import.js',
       '../sorcu.js?sisku=${now}'
-      );
+    );
     postMessage({kind: 'ready'});
     this.onmessage = function(ev) {
-      if (ev.data.kind == 'cnino_sorcu') {
-        cnino_sorcu(function(results) {
-          postMessage({
-            kind: 'caho_sorcu',
-            results: results
-          })
-        },null,ev.data.searching,ev.data.erase)  
-      } else if (ev.data.kind == 'loader') {
+      if (ev.data.kind == 'loader') {
         postMessage(ev.data)    
       } else if (ev.data.kind == 'fancu' && ev.data.cmene) {
         fancu[ev.data.cmene](ev.data, function(results) {

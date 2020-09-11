@@ -1,18 +1,5 @@
 const db = new Dexie('sorcu1')
 
-const supportedLangs = {
-  'en': { n: 'English', "p": "selsku_lanci_eng" },
-  'muplis': { n: 'la muplis' },
-  'en-cll': { n: 'The CLL', "p": "cukta" },
-  jbo: { n: 'lojbo', "p": "lanci_jbo" },
-  ru: { n: 'русский', "p": "selsku_lanci_rus" },
-  eo: { n: 'esperanto', "p": "lanci_epo" },
-  es: { n: 'español', "p": "selsku_lanci_spa" },
-  'fr-facile': { n: 'français', "p": "selsku_lanci_fra" },
-  ja: { n: '日本語', "p": "selsku_lanci_jpn" },
-  zh: { n: '中文', "p": "selsku_lanci_zho" },
-}
-
 function initDb() {
   try {
     db.version(1).stores({
@@ -533,7 +520,7 @@ async function sisku(searching, callback) {
     })
     secupra_vreji = result
   }
-  callback({ results: secupra_vreji, supportedLangs })
+  callback({ results: secupra_vreji })
 }
 
 function krulermorna(t) {

@@ -3,7 +3,7 @@ const db = new Dexie('sorcu1')
 const supportedLangs = {
   'en': { n: 'English', "p": "selsku_lanci_eng" },
   'muplis': { n: 'la muplis' },
-  'en-cll': { n: 'The CLL', "p": "cukta" },
+  'en-cll': { n: '<img src="../pixra/cukta.svg" class="cukta"/>The Book', "p": "cukta" },
   jbo: { n: 'lojbo', "p": "lanci_jbo" },
   ru: { n: 'русский', "p": "selsku_lanci_rus" },
   eo: { n: 'esperanto', "p": "lanci_epo" },

@@ -7,7 +7,6 @@ var urlsToCache = [
   'https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js',
   'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
-  '../assets/scripts/dexie-export-import.js',
   './',
   './index.html',
   './index.js?detri={now}',
@@ -114,11 +113,11 @@ self.addEventListener('activate', function (event) {
       .then(() => {
         self.clients.matchAll().then(function (clients) {
           console.log(clients)
-          if (clients && clients.length) {
-            clients.map(function (client) {
-              client.postMessage({ teminde: 'ei ningau le sorcu' })
-            })
-          }
+          // if (clients && clients.length) {
+          //   clients.map(function (client) {
+          //     client.postMessage({ teminde: 'ei ningau le sorcu' })
+          //   })
+          // }
         })
       })
   )

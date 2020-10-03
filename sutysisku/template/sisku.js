@@ -3,7 +3,7 @@ const db = new Dexie('sorcu1')
 function initDb() {
   try {
     db.version(1).stores({
-      valsi: '++id, bangu, w, d, n, t, s, g, *r, *cache',
+      valsi: '++id, bangu, w, d, n, t, *s, g, *r, *cache',
       langs_ready: '++id, bangu',
       tejufra: '++id, &bangu, jufra',
     })
@@ -26,17 +26,29 @@ async function cnanosisku({
   console.log(new Date().toISOString(), 'started query', query, bangu, versio)
   let rows
   if (versio === 'selmaho') {
-    rows = await db.valsi
-      .where({ bangu })
-      .and((valsi) =>
-        (Array.isArray(valsi.s) && valsi.s.includes(query)) ||
-        (typeof valsi.s === 'string' && new RegExp(`^${query}[0-9]*[a-z]*$`).test(valsi.s))
-      )
-      .distinct()
-      .toArray();
+    if (bangu === 'muplis') {
+      rows = await db.valsi
+        .where('s')
+        .equals(query)
+        .and((valsi) =>
+          valsi.bangu === bangu
+        )
+        .distinct()
+        .toArray();
+    } else {
+      rows = await db.valsi
+        .where('s')
+        .startsWith(query)
+        .and((valsi) =>
+          valsi.bangu === bangu &&
+          typeof valsi.s === 'string' && new RegExp(`^${query}[0-9]*[a-z]*$`).test(valsi.s)
+        )
+        .distinct()
+        .toArray();
+    }
   } else if (seskari === 'fanva') {
     rows = (await db.valsi
-      .where({w: query_apos})
+      .where({ w: query_apos })
       .distinct()
       .toArray()).sort((a, b) => {
         if (a.bangu === bangu) { return -1 }
@@ -46,11 +58,11 @@ async function cnanosisku({
   } else if (bangu === 'muplis' && queryDecomposition.length > 1) {
     const words = queryDecomposition.sort((a, b) => {
       if (a.lenth > b.length) return -1
-      return -1
+      return 0
     })
     rows = (await db.valsi
       .where('cache')
-      .equals(queryDecomposition[0])
+      .equals(words[0])
       .and(jufra => {
         if (jufra.bangu === bangu && queryDecomposition.every(v => jufra.cache.includes(v))) return true;
         return false
@@ -58,12 +70,14 @@ async function cnanosisku({
       .distinct()
       .toArray())
   } else {
+    console.log('querying', query_apos)
     rows = (await db.valsi
       .where('cache')
       .startsWith(query_apos)
       .and((valsi) => valsi.bangu.indexOf(bangu) === 0)
       .distinct()
       .toArray())
+    console.log(rows[0], rows.length)
   }
   rows = rows.sort((a, b) => {
     if (a.bangu.indexOf("-cll") >= 0) { return -1 }

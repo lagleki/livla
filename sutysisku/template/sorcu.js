@@ -1,5 +1,10 @@
 const db = new Dexie('sorcu1')
 
+// const indexedDB = require('fake-indexeddb');
+// const IDBKeyRange = require('fake-indexeddb/lib/FDBKeyRange');
+
+// const db1 = new Dexie("MyDatabase", { indexedDB: indexedDB, IDBKeyRange: IDBKeyRange });
+
 const supportedLangs = {
   'en': { n: 'English', "p": "selsku_lanci_eng" },
   'muplis': { n: 'la muplis' },
@@ -16,7 +21,7 @@ const supportedLangs = {
 function initDb() {
   try {
     db.version(1).stores({
-      valsi: '++id, bangu, w, d, n, t, s, g, *r, *cache',
+      valsi: '++id, bangu, w, d, n, t, *s, g, *r, *cache',
       langs_ready: '++id, bangu',
       tejufra: '++id, &bangu, jufra',
     })
@@ -111,38 +116,74 @@ async function cnino_sorcu(cb, langsToUpdate, searching, erase) {
     const response = await fetch(
       `/sutysisku/data/parsed-${lang}.blob.json?sisku=${new Date().getTime()}`
     )
-    let blob
+    let json
     if (response.ok) {
-      blob = await response.blob()
+      json = await response.json()
       await db.valsi.where({ bangu: lang }).delete()
       await db.langs_ready.where({ bangu: lang }).delete()
-      await db.import(blob, {
-        acceptMissingTables: true,
-        acceptVersionDiff: true,
-        acceptNameDiff: true,
-        acceptChangedPrimaryKey: true,
-        overwriteValues: true,
-        // clearTablesBeforeImport: true,
-        noTransaction: true,
-        progressCallback: ({ totalRows, completedRows, done }) => {
-          if (!done) {
-            cb(
-              `imported ${completedRows} keys out of ${totalRows} from ${lang}.blob.json`,
-              new Date().toISOString()
-            )
+      const idbDatabase = db.backendDB();
+      const rows = json.data.data[0].rows
+      const totalRows = json.data.tables[0].rowCount
+
+      let completedRows = 0;
+      console.log(lang, 'got json')
+      await new Promise(resolve => {
+        rows.forEach((toAdd) => {
+          idbDatabase.transaction(
+            'valsi',
+            'readwrite'
+          ).objectStore('valsi').add(toAdd);
+          completedRows++;
+          if (completedRows % 1000 === 0 || completedRows === totalRows) {
             postMessage({
               kind: 'loader',
               cmene: 'loading',
               completedRows,
               totalRows,
-              bangu: supportedLangs[lang].n
+              bangu: supportedLangs[lang].n,
+              banguRaw: lang
             })
-          } else {
+          }
+          if (completedRows === totalRows) {
             if (!savedLang) db.langs_ready.put({ bangu: lang })
             cb(`imported ${lang}.blob.json at ${new Date().toISOString()}`)
+            resolve();
+          } else if (completedRows % 1000 === 0) {
+            console.log(
+              `imported ${completedRows} keys out of ${totalRows} from ${lang}.blob.json`,
+              new Date().toISOString()
+            )
           }
-        }
-      });
+        })
+      })
+      // await db.import(blob, {
+      //   acceptMissingTables: true,
+      //   acceptVersionDiff: true,
+      //   acceptNameDiff: true,
+      //   acceptChangedPrimaryKey: true,
+      //   overwriteValues: true,
+      //   // clearTablesBeforeImport: true,
+      //   noTransaction: true,
+      //   progressCallback: ({ totalRows, completedRows, done }) => {
+      //     if (!done) {
+      //       cb(
+      //         `imported ${completedRows} keys out of ${totalRows} from ${lang}.blob.json`,
+      //         new Date().toISOString()
+      //       )
+      //       postMessage({
+      //         kind: 'loader',
+      //         cmene: 'loading',
+      //         completedRows,
+      //         totalRows,
+      //         bangu: supportedLangs[lang].n,
+      //         banguRaw: bangu
+      //       })
+      //     } else {
+      //       if (!savedLang) db.langs_ready.put({ bangu: lang })
+      //       cb(`imported ${lang}.blob.json at ${new Date().toISOString()}`)
+      //     }
+      //   }
+      // });
     }
     else console.log('HTTP-Error: ' + response.status)
   }

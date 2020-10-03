@@ -450,8 +450,9 @@ NETWORK:
   const sorcuWorkerjsfile = `
     window = this;    
     importScripts(
+      'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
       'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js',
-      '../assets/scripts/dexie-export-import.js',
+      // '../assets/scripts/build/index.js',
       '../sorcu.js?sisku=${now}'
     );
     postMessage({kind: 'ready'});

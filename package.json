@@ -70,6 +70,7 @@
     "@babel/runtime": "^7.11.2",
     "babel-plugin-minify-dead-code-elimination": "^0.5.1",
     "core-js": "^3.6.5",
+    "fake-indexeddb": "^3.1.2",
     "forever": "^3.0.2",
     "npm-check-updates": "^7.1.1",
     "terser": "^5.2.1"

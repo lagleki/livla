@@ -830,7 +830,7 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
       "tables": [
         {
           "name": "valsi",
-          "schema": "++id, bangu, w, d, n, t, s, g, *r, *cache",
+          "schema": "++id, bangu, w, d, n, t, *s, g, *r, *cache",
           "rowCount": arr.length
         }
       ],
@@ -1346,6 +1346,7 @@ jsonCommand = {
   raw: (text) => lojban.ilmentufa_off(text, 'NJ', true).kampu,
   zei: (text) => lojban.zeizei(text),
   anji: (text) => lojban.anji(text),
+  modzi: (text) => lojban.modzi(text),
   ruk: (text) => lojban.rukylermorna(text),
   kru: (text) => lojban.krulermorna(text),
   bangu: (text) => bangu(text, from),

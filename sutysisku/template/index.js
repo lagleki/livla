@@ -19,6 +19,7 @@ const rimni = document.getElementById('rimni')
 // var arxivo = document.getElementById("arxivo");
 const SiteImage = document.querySelectorAll('#title > img')
 
+const uncll_url = `https://lojban.pw/cll/uncll-1.2.10/xhtml_section_chunks/`
 const supportedLangs = {
   'en': { n: 'English', "p": "selsku_lanci_eng" },
   'muplis': { n: 'la muplis' },
@@ -195,7 +196,6 @@ const listenToSearchRendered = () => {
 document.addEventListener("animationstart", listenToSearchRendered, false);
 
 function SwitchRotation({ action, quick }) {
-  console.log(new Date(), action)
   if (document.readyState !== 'complete') return
   const els = ['logo']
   if (action === 'start') {
@@ -424,7 +424,7 @@ function kahe_sezgana(el) {
   return rect
 }
 
-function twoJsonsAreEqual(obj1, obj2) {
+function twoJsonsAreEqual(obj1 = {}, obj2 = {}) {
   let flag = true
 
   if (Object.keys(obj1).length == Object.keys(obj2).length) {
@@ -445,6 +445,7 @@ function twoJsonsAreEqual(obj1, obj2) {
 worker.onmessage = (ev) => {
   const data = ev.data
   if (data.kind == 'searchResults') {
+    delete loadingState.searching
     if (!data.force && !twoJsonsAreEqual(data.req, state.searching)) return
     results = data.results || []
     RenderResults({
@@ -459,6 +460,10 @@ worker.onmessage = (ev) => {
     }
   }
 }
+
+const loadingState = {
+  loading: true
+}
 sorcuWorker.onmessage = (ev) => {
   const data = ev.data
   if (data.kind == 'loader') {
@@ -467,18 +472,22 @@ sorcuWorker.onmessage = (ev) => {
       replace: true
     });
     if (data.cmene === 'loading') {
-      if (data.bangu === state.searching.bangu || data.completedRows === 0) {
-        worker.postMessage({
-          kind: 'newSearch',
-          versio: 'masno',
-          ...state.searching,
-        })
+      if (data.banguRaw === state.searching.bangu || data.completedRows === 0 || data.completedRows === data.totalRows) {
+        if (data.completedRows === data.totalRows || !twoJsonsAreEqual(loadingState.searching, state.searching)) {
+          loadingState.searching = state.searching
+          worker.postMessage({
+            kind: 'newSearch',
+            versio: 'masno',
+            ...state.searching,
+          })
+        }
       }
       loading.style.display = 'block'
       const percent = Math.max(10, parseFloat(data.completedRows) * 100 / parseFloat(data.totalRows))
       pb.style.width = `${percent}%`
-      document.getElementById('bangu_loading').textContent = data.bangu
+      document.getElementById('bangu_loading').innerHTML = data.bangu
     } else {
+      loadingState.loading = false
       loading.style.display = 'none'
     }
   } else if (data.kind == 'fancu') {
@@ -548,7 +557,7 @@ function setStateFromUrl({ href, replace }) {
       params = { sisku: newSearch, seskari: 'cnano' }
     }
   }
-  const stateToUpdate = JSON.parse(JSON.stringify(state.searching))
+  const stateToUpdate = { ...state.searching }
   if (
     params['seskari'] &&
     ['velcusku', 'cnano', 'catni', 'rimni', 'arxivo', 'fanva'].includes(
@@ -749,7 +758,7 @@ function DispatchCitri() {
       break
     }
   }
-  state.citri.unshift(JSON.parse(JSON.stringify(state.displaying)))
+  state.citri.unshift({ ...state.displaying })
   if (state.citri.length > 10) state.citri.length = 10
   localStorage.setItem('citri', JSON.stringify(state.citri))
   RenderCitri()
@@ -768,7 +777,7 @@ function DispatchState({ replace, caller, empty, quickRotation }) {
     return RenderDesktop()
   } else if (state.searching.seskari !== 'velcusku') {
     if (state.searching.query === '') return RenderDesktop()
-    if (JSON.stringify(state.searching) === JSON.stringify(state.displaying))
+    if (twoJsonsAreEqual(state.searching, state.displaying))
       return
   }
   //emit search
@@ -785,7 +794,7 @@ function DispatchState({ replace, caller, empty, quickRotation }) {
     state.searching.seskari = 'cnano'
   switch (state.searching.seskari) {
     case 'arxivo':
-      const json = JSON.parse(JSON.stringify(state.searching))
+      const json = { ...state.searching }
       if (
         state.searching.query.charAt(0) !== '^' &&
         state.searching.query.slice(-1)[0] !== '$'
@@ -840,7 +849,7 @@ function updateDOMWithLocales({ jufra = { window: {} } }, miniState) {
 }
 
 function updateLocales() {
-  sorcuWorker.postMessage(JSON.parse(JSON.stringify({ kind: 'fancu', cmene: 'tejufra', ...state.searching })))
+  sorcuWorker.postMessage({ kind: 'fancu', cmene: 'tejufra', ...state.searching })
 }
 
 //rendering
@@ -881,7 +890,7 @@ function RenderDesktop(tempState) {
       'Reference Grammar',
       '../pixra/cll.png',
       1,
-      'https://lojban.pw/cll/uncll-1.2.10/xhtml_section_chunks/',
+      uncll_url,
     ],
     '@lojban.pw': [
       '.inglic.',
@@ -1112,7 +1121,7 @@ function melbi_uenzi({ def, fullDef, query, seskari, bangu, type, index }) {
     const d = Object.keys(def)
       .map((address) => {
         const velcki = def[address]
-        return `<li><a rel='noreferrer' target='_blank' href="${address}">${velcki}</a></li>`
+        return `<li><a rel='noreferrer' target='_blank' href="${uncll_url}${address}">${velcki}</a></li>`
       })
       .join('')
     return { tergeha: `<ul class='uoldeliste'>${d}</ul>`, hasExpansion: false }
@@ -1421,6 +1430,18 @@ function jvoValue() {
   return jvoPlumbsOn ? '⇔' : '↔'
 }
 
+function runSearch(seskari, selmaho, bangu) {
+  state.searching = {
+    seskari,
+    versio: 'selmaho',
+    query: selmaho,
+    bangu
+  }
+  DispatchState({
+    replace: false,
+  })
+}
+
 function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
   if (!query) query = state.searching.query
   if (!seskari) seskari = state.searching.seskari
@@ -1476,19 +1497,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
           query,
         })
         ss.innerHTML = text
-        ss.setAttribute('onclick',
-          `
-            state.searching = {
-              seskari: '${seskari}',
-              versio: 'selmaho',
-              query: '${selmaho}',
-              bangu: '${bangu}'
-            }
-            DispatchState({
-              replace: false,
-            })
-          `
-        )
+        ss.setAttribute('onclick', `runSearch("${seskari}","${selmaho}","${bangu}")`)
         selms.appendChild(ss)
       }
     }
@@ -1871,6 +1880,10 @@ function escHtml(a, apos) {
 }
 
 function skicu_rolodovalsi({ query, seskari, bangu, versio, }) {
+  if (loadingState.loading) {
+    if (results.length <= loadingState.resultsLength) return
+    loadingState.resultsLength = results.length
+  }
   const displayUpTo = Math.min(window.jimte, results.length)
   state.cll = undefined
   // if (resultCount === 0) {
@@ -1938,16 +1951,16 @@ async function addAudioLinks() {
 window.addEventListener('load', () => {
   // jimpe fi le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.onmessage = function ({ data }) {
-      console.log('teminde', data)
-      if (data && data.teminde && data.teminde === 'ei ningau le sorcu') {
-        //save to dexie all dumps
-        sorcuWorker.postMessage({ kind: 'cnino_sorcu', searching: state.searching, erase: true })
-      }
-    }
+    // navigator.serviceWorker.onmessage = function ({ data }) {
+    //   console.log('teminde', data)
+    //   if (data && data.teminde && data.teminde === 'ei ningau le sorcu') {
+    //   }
+    // }
     navigator.serviceWorker.register('./sw.js').then(
       ({ scope }) => {
         console.log('ServiceWorker registration successful with scope: ', scope)
+        //save to dexie all dumps
+        sorcuWorker.postMessage({ kind: 'cnino_sorcu', searching: state.searching, erase: true })
       },
       (err) => {
         console.log('ServiceWorker registration failed: ', err)

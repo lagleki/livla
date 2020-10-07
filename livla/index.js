@@ -142,11 +142,11 @@ const readConfig = (filename) => {
 // Load every line of “~/.livla/notci.txt” into “notci”, as an array.
 // Define “notcijudri” as the file path that will be used later when we want to
 // save the content of “notci”.
-let notci, notcijudri
-const loadNotci = () => {
-  notci = readConfig('notci.txt').split('\n')
-  notcijudri = path.join(ospath.home(), '.livla', 'notci.txt')
-}
+// let notci, notcijudri
+// const loadNotci = () => {
+//   notci = readConfig('notci.txt').split('\n')
+//   notcijudri = path.join(ospath.home(), '.livla', 'notci.txt')
+// }
 
 // Load the configuration from “~/.livla/config.json”, and modify the default
 // config accordingly.
@@ -241,7 +241,7 @@ const loadUserSettings = () => {
 }
 
 loadUserSettings()
-loadNotci()
+// loadNotci()
 
 // store en dump in memory
 let jsonDocEn
@@ -279,11 +279,6 @@ if (!config.disableIrcBots) {
     configmensi.nick,
     configmensi.options
   )
-}
-
-const vric = () => {
-  const vricar = [tato.tatoebaprocessing(replier)]
-  return vricar[Math.floor(vricar.length * Math.random())]
 }
 
 let sisku = (lin) => {
@@ -699,7 +694,7 @@ const vlaste = ({ word, language }) => {
 
 const sidju = () => {
   const sidj = {
-    en: `Parsers: type ".ilm " (stable BPFK grammar), ".beta " (experimental), ".jbofihe " (jbofi'e), or ".yacc " (official yacc) followed by the text to show the structure of sentences.\nLojban dictionary: type ".language-code word", where language code is one of jbo,en,ru,es,fr,fr-facile,ja,de,eo,zh,hu,sv. This searches in both directions.\n    ".selmaho ca'a" gives "CAhA", ".selmaho CAhA" gives "bi'ai, ca'a, ..."\n    ".rafsi kulnu" gives "klu", ".rafsi klu" gives "kulnu"\nOther conlang dictionaries: ".toki ", ".laadan ", ".loglan "\nLojban <-> Loglan conversion (incomplete): ".coi ", ".loi "\n"Tatoeba: klama" gets a random example sentence using "klama"\nDelayed messaging: type "${replier}: doi user message" to send "message" to "user" when they return`,
+    en: `Parsers: type ".ilm " (stable BPFK grammar), ".beta " (experimental), ".jbofihe " (jbofi'e), or ".yacc " (official yacc) followed by the text to show the structure of sentences.\nLojban dictionary: type ".language-code word", where language code is one of jbo,en,ru,es,fr,fr-facile,ja,de,eo,zh,hu,sv. This searches in both directions.\n    ".selmaho ca'a" gives "CAhA", ".selmaho CAhA" gives "bi'ai, ca'a, ..."\n    ".rafsi kulnu" gives "klu", ".rafsi klu" gives "kulnu"\nOther conlang dictionaries: ".toki ", ".laadan ", ".loglan "\nLojban <-> Loglan conversion (incomplete): ".coi ", ".loi "\n"Tatoeba: klama" gets a random example sentence using "klama"`,
   }
   return sidj.en
 }
@@ -1445,8 +1440,8 @@ async function processor({ from, towhom, text, socket }) {
     from = text.match(/^<(.*?)>: /, '')[1]
     text = text.replace(/^<.*?>: /, '')
   }
-  if (replyToVocatives({ from, text, sendTo, socket })) return
-  sendDelayed({ from, sendTo, socket })
+  // if (replyToVocatives({ from, text, sendTo, socket })) return
+  // sendDelayed({ from, sendTo, socket })
 
   text = text.toLowerCase().trim().replace(/’/g, "'")
   let inLanguage = defaultLanguage

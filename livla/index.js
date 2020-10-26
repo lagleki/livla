@@ -909,6 +909,7 @@ const jbofihe = (lin, sendTo, socket) => {
       '../jbofihe/./jbofihe'
     )} -ie -cr <<<"${lin}" 2>/dev/null`,
     (error, stdout, stderr) => {
+      console.log(error,stdout)
       lin = stdout
       if (error !== null) {
         lin = `O_0${stderr.toString()}`
@@ -1511,7 +1512,7 @@ async function processor({ from, towhom, text, socket }) {
       tcepru(removePrefix(text), sendTo, socket)
       break
     case text.indexOf(`${commandPrefix}gerna `) === 0 ||
-      text.indexOf(`${commandPrefix}jbofi'e `) === 0:
+      text.search(new RegExp(`${commandPrefix}jbofi['h]e `)) === 0:
       jbofihe(removePrefix(text), sendTo, socket)
       break
     case text.indexOf(`${replier}: ko ningau`) === 0 ||

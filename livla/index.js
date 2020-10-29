@@ -1316,7 +1316,7 @@ function sendDelayed({ from, sendTo, socket }) {
   }
 }
 jsonCommand = {
-  lujvo: (text) => {
+  lujvo: ({text}) => {
     if (text.indexOf(' ') === -1) return { error: true }
     let ma_lujvo
     try {
@@ -1327,49 +1327,49 @@ jsonCommand = {
     }
     return ma_lujvo
   },
-  cma: (text) => lojban.romoi_lahi_cmaxes(text).kampu,
-  k: (text) => lojban.ilmentufa_off(text, 'C', true).kampu,
-  ilm: (text) => lojban.ilmentufa_off(text, 'T', true).kampu,
-  'ilm+': (text) => {
+  cma: ({origText}) => lojban.romoi_lahi_cmaxes(origText).kampu,
+  k: ({origText}) => lojban.ilmentufa_off(origText, 'C', true).kampu,
+  ilm: ({origText}) => lojban.ilmentufa_off(origText, 'T', true).kampu,
+  'ilm+': ({text, origText}) => {
     const params = `${text} `.split('+')[1].toUpperCase()
-    return lojban.ilmentufa_off(text, params, true).kampu
+    return lojban.ilmentufa_off(origText, params, true).kampu
   },
-  beta: (text) => lojban.ilmentufa_exp(text, 'T', true).kampu,
-  'beta+': (text) => {
+  beta: ({origText}) => lojban.ilmentufa_exp(origText, 'T', true).kampu,
+  'beta+': ({text, origText}) => {
     const params = `${text} `.split('+')[1].toUpperCase()
-    return lojban.ilmentufa_exp(text, params, true).kampu
+    return lojban.ilmentufa_exp(origText, params, true).kampu
   },
-  raw: (text) => lojban.ilmentufa_off(text, 'NJ', true).kampu,
-  zei: (text) => lojban.zeizei(text),
-  anji: (text) => lojban.anji(text),
-  modzi: (text) => lojban.modzi(text),
-  ruk: (text) => lojban.rukylermorna(text),
-  kru: (text) => lojban.krulermorna(text),
-  bangu: (text) => bangu(text, from),
-  selmaho: (text) => selmaho(text),
-  "selma'o": (text) => selmaho(text),
-  rafsi: (text) => rafsi_giho_nai_se_rafsi(text.replace(/[^a-z'\.]/g, '')),
-  gloss: (text) => lojban.gloss(text, 'en', false, true).join(' '),
-  gimka: (text) => GimkaConflicts(text.replace(/[^a-z'\.\*0-9]/g, '')),
-  loi: (text) => lojban.lojban2loglan(text),
-  coi: (text) => lojban.loglan2lojban(text),
-  ze: async (text) => {
+  raw: ({origText}) => lojban.ilmentufa_off(origText, 'NJ', true).kampu,
+  zei: ({origText}) => lojban.zeizei(origText),
+  anji: ({text}) => lojban.anji(text),
+  modzi: ({text}) => lojban.modzi({text}),
+  ruk: ({text}) => lojban.rukylermorna({text}),
+  kru: ({text}) => lojban.krulermorna({text}),
+  bangu: ({text}) => bangu(text, from),
+  selmaho: ({text}) => selmaho({text}),
+  "selma'o": ({text}) => selmaho({text}),
+  rafsi: ({text}) => rafsi_giho_nai_se_rafsi(text.replace(/[^a-z'\.]/g, '')),
+  gloss: ({text}) => lojban.gloss(text, 'en', false, true).join(' '),
+  gimka: ({text}) => GimkaConflicts(text.replace(/[^a-z'\.\*0-9]/g, '')),
+  loi: ({text}) => lojban.lojban2loglan({text}),
+  coi: ({text}) => lojban.loglan2lojban({text}),
+  ze: async ({text}) => {
     await new Promise((resolve) => {
       lojban.zmifanva(text, 'en2jb', (a) => resolve(a))
     })
   },
-  zj: async (text) => {
+  zj: async ({text}) => {
     await new Promise((resolve) => {
       lojban.zmifanva(text, 'jb2en', (a) => resolve(a))
     })
   },
-  rot13: (text) => lojban.rotpaci(text),
-  tatoeba: (text) => sisku(text),
-  jb: (text) =>
+  rot13: ({text}) => lojban.rotpaci({text}),
+  tatoeba: ({text}) => sisku({text}),
+  jb: ({text}) =>
     'Dictionary with Examples can be temporaily accessed via\n1. https://la-lojban.github.io/sutysisku/jb/\n2. https://mw.lojban.org/papri/L17-B',
 }
 
-async function processCommand({ socket, sendTo, text }) {
+async function processCommand({ socket, sendTo, text, origText }) {
   let cmd
   try {
     cmd = text.split(' ')[0].split('').slice(1).join('')
@@ -1377,8 +1377,9 @@ async function processCommand({ socket, sendTo, text }) {
     return
   }
   text = text.split(' ').slice(1).join(' ')
+  origText = origText.split(' ').slice(1).join(' ')
   if (jsonCommand[cmd]) {
-    const what = await jsonCommand[cmd](text)
+    const what = await jsonCommand[cmd]({text, origText})
     if (what && what.error) {
       let bangu = 'en'
       if (sendTo === '#jbosnu') bangu = 'jbo'
@@ -1392,7 +1393,7 @@ async function processCommand({ socket, sendTo, text }) {
     (i) => cmd.search(new RegExp('^' + i + '(?![a-z])', 'igm')) === 0
   )
   if (leftMatched[0]) {
-    const what = await jsonCommand[leftMatched[0]](text)
+    const what = await jsonCommand[leftMatched[0]]({text, origText})
     benji({ socket, sendTo, what })
     return true
   }
@@ -1443,12 +1444,12 @@ async function processor({ from, towhom, text, socket }) {
   }
   // if (replyToVocatives({ from, text, sendTo, socket })) return
   // sendDelayed({ from, sendTo, socket })
-
+  const origText = text
   text = text.toLowerCase().trim().replace(/’/g, "'")
   let inLanguage = defaultLanguage
   if (text.charAt(0) === '#' && replyToHashed({ text, socket, sendTo })) return
   if (text.indexOf(commandPrefix) === 0) {
-    const r = await processCommand({ text, socket, sendTo })
+    const r = await processCommand({ text, origText, socket, sendTo })
     if (r) return
   }
   let what

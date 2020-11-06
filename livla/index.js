@@ -1330,29 +1330,30 @@ jsonCommand = {
   cma: ({origText}) => lojban.romoi_lahi_cmaxes(origText).kampu,
   k: ({origText}) => lojban.ilmentufa_off(origText, 'C', true).kampu,
   ilm: ({origText}) => lojban.ilmentufa_off(origText, 'T', true).kampu,
-  'ilm+': ({text, origText}) => {
-    const params = `${text} `.split('+')[1].toUpperCase()
+  'ilm+': ({origText}) => {
+    const params = `${origText} `.split('+')[1].toUpperCase()
     return lojban.ilmentufa_off(origText, params, true).kampu
   },
   beta: ({origText}) => lojban.ilmentufa_exp(origText, 'T', true).kampu,
-  'beta+': ({text, origText}) => {
-    const params = `${text} `.split('+')[1].toUpperCase()
+  'beta+': ({origText}) => {
+    const params = `${origText} `.split('+')[1].toUpperCase()
     return lojban.ilmentufa_exp(origText, params, true).kampu
   },
   raw: ({origText}) => lojban.ilmentufa_off(origText, 'NJ', true).kampu,
   zei: ({origText}) => lojban.zeizei(origText),
+  help: ({text}) => sidju(),
   anji: ({text}) => lojban.anji(text),
-  modzi: ({text}) => lojban.modzi({text}),
-  ruk: ({text}) => lojban.rukylermorna({text}),
-  kru: ({text}) => lojban.krulermorna({text}),
+  modzi: ({text}) => lojban.modzi(text),
+  ruk: ({text}) => lojban.rukylermorna(text),
+  kru: ({text}) => lojban.krulermorna(text),
   bangu: ({text}) => bangu(text, from),
-  selmaho: ({text}) => selmaho({text}),
-  "selma'o": ({text}) => selmaho({text}),
+  selmaho: ({text}) => selmaho(text),
+  "selma'o": ({text}) => selmaho(text),
   rafsi: ({text}) => rafsi_giho_nai_se_rafsi(text.replace(/[^a-z'\.]/g, '')),
   gloss: ({text}) => lojban.gloss(text, 'en', false, true).join(' '),
   gimka: ({text}) => GimkaConflicts(text.replace(/[^a-z'\.\*0-9]/g, '')),
-  loi: ({text}) => lojban.lojban2loglan({text}),
-  coi: ({text}) => lojban.loglan2lojban({text}),
+  loi: ({text}) => lojban.lojban2loglan(text),
+  coi: ({text}) => lojban.loglan2lojban(text),
   ze: async ({text}) => {
     await new Promise((resolve) => {
       lojban.zmifanva(text, 'en2jb', (a) => resolve(a))
@@ -1363,9 +1364,9 @@ jsonCommand = {
       lojban.zmifanva(text, 'jb2en', (a) => resolve(a))
     })
   },
-  rot13: ({text}) => lojban.rotpaci({text}),
-  tatoeba: ({text}) => sisku({text}),
-  jb: ({text}) =>
+  rot13: ({text}) => lojban.rotpaci(text),
+  tatoeba: ({text}) => sisku(text),
+  jb: ({}) =>
     'Dictionary with Examples can be temporaily accessed via\n1. https://la-lojban.github.io/sutysisku/jb/\n2. https://mw.lojban.org/papri/L17-B',
 }
 

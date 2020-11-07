@@ -37,8 +37,6 @@
     "randexp": "^0.5.3",
     "recursive-readdir": "^2.2.2",
     "regenerator-runtime": "^0.13.7",
-    "request": "^2.88.2",
-    "request-promise-native": "^1.0.9",
     "sanitize-html": "^1.27.4",
     "seek-bzip": "~2.0.0",
     "simple-promise-queue": "^0.1.7",

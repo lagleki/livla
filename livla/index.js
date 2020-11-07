@@ -10,6 +10,7 @@ const lojban = require('lojban')
 const he = require('he')
 const { to } = require('await-to-js')
 const mkdirp = require('mkdirp')
+const axios = require('axios');
 
 const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
@@ -774,7 +775,7 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
       cache = key
     } else {
       if (json[key].g)
-      json[key].g = json[key].g.join(";")
+        json[key].g = json[key].g.join(";")
       cache = `${key};${Object.keys(json[key])
         .map((tcila) => json[key][tcila])
         .join(';')}`
@@ -868,8 +869,7 @@ const ningau_palasutysisku = async (language, lojbo) => {
     let n = d.getDate()
     if (n === 1 || n === 11 || n === 21) {
       try {
-        n = `${d.getFullYear()}-${
-          d.getMonth() + 1
+        n = `${d.getFullYear()}-${d.getMonth() + 1
           }-${d.getDate()}T${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
         pars = fs
           .readFileSync(t, {
@@ -909,7 +909,7 @@ const jbofihe = (lin, sendTo, socket) => {
       '../jbofihe/./jbofihe'
     )} -ie -cr <<<"${lin}" 2>/dev/null`,
     (error, stdout, stderr) => {
-      console.log(error,stdout)
+      console.log(error, stdout)
       lin = stdout
       if (error !== null) {
         lin = `O_0${stderr.toString()}`
@@ -1011,55 +1011,27 @@ const getmahantufagrammar = (name, socket) => {
 }
 
 async function downloadSingleDump({ language, erroredLangs }) {
-  const request = require('request').defaults({
-    jar: true,
-    strictSSL: false,
-  })
-  const jar = request.jar()
-  const cookie = request.cookie(
-    'jbovlastesessionid=U2FsdGVkX1%2FpiXtl1FSyMUZvFTudUq0N59YatQesEbsfdQ6owwMDeA%3D%3D'
-  )
-
+  const Cookie = 'jbovlastesessionid=U2FsdGVkX1%2FpiXtl1FSyMUZvFTudUq0N59YatQesEbsfdQ6owwMDeA%3D%3D'
+  const url = `https://jbovlaste.lojban.org/export/xml-export.html?lang=${language}`
+  const [err, response] = await to(axios.get(url, {
+    headers: {
+      Cookie
+    }
+  }))
+  if (err) { erroredLangs.push(language); return erroredLangs }
   let t = path.join(__dirname, '../dumps', `${language}`)
   try {
     fs.unlinkSync(`${t}.xml.temp`)
   } catch (error) { }
-  let file = fs.createWriteStream(`${t}.xml.temp`)
-
-  await new Promise((resolve, reject) => {
-    const uri = `http://jbovlaste.lojban.org/export/xml-export.html?lang=${language}`
-    jar.setCookie(cookie, uri)
-    request({
-      uri,
-      method: 'GET',
-      jar,
-    })
-      .pipe(file)
-      .on('finish', () => {
-        try {
-          const jsonDoc = fastParse(`${t}.xml.temp`)
-          fs.writeFileSync(`${t}.json`, JSON.stringify(jsonDoc))
-          fs.unlinkSync(`${t}.xml.temp`)
-          if (language === 'en') {
-            jsonDocEn = jsonDoc
-          }
-        } catch (error) {
-          lg(error)
-          erroredLangs.push(language)
-        }
-        resolve()
-      })
-      .on('error', (error) => {
-        lg(error)
-        erroredLangs.push(language)
-        resolve()
-      })
-  }).catch((error) => {
-    console.log(`Something happened: ${error}`)
-    erroredLangs.push(language)
-  })
-  return erroredLangs
+  fs.writeFileSync(`${t}.xml.temp`, response.data)
+  const jsonDoc = fastParse(`${t}.xml.temp`)
+  fs.writeFileSync(`${t}.json`, JSON.stringify(jsonDoc))
+  fs.unlinkSync(`${t}.xml.temp`)
+  if (language === 'en') {
+    jsonDocEn = jsonDoc
+  }
 }
+
 async function updateXmlDumps() {
   await mkdirp(path.join(__dirname, '../build/sutysisku/data'))
   let erroredLangs = []
@@ -1316,7 +1288,7 @@ function sendDelayed({ from, sendTo, socket }) {
   }
 }
 jsonCommand = {
-  lujvo: ({text}) => {
+  lujvo: ({ text }) => {
     if (text.indexOf(' ') === -1) return { error: true }
     let ma_lujvo
     try {
@@ -1327,46 +1299,46 @@ jsonCommand = {
     }
     return ma_lujvo
   },
-  cma: ({origText}) => lojban.romoi_lahi_cmaxes(origText).kampu,
-  k: ({origText}) => lojban.ilmentufa_off(origText, 'C', true).kampu,
-  ilm: ({origText}) => lojban.ilmentufa_off(origText, 'T', true).kampu,
-  'ilm+': ({origText}) => {
+  cma: ({ origText }) => lojban.romoi_lahi_cmaxes(origText).kampu,
+  k: ({ origText }) => lojban.ilmentufa_off(origText, 'C', true).kampu,
+  ilm: ({ origText }) => lojban.ilmentufa_off(origText, 'T', true).kampu,
+  'ilm+': ({ origText }) => {
     const params = `${origText} `.split('+')[1].toUpperCase()
     return lojban.ilmentufa_off(origText, params, true).kampu
   },
-  beta: ({origText}) => lojban.ilmentufa_exp(origText, 'T', true).kampu,
-  'beta+': ({origText}) => {
+  beta: ({ origText }) => lojban.ilmentufa_exp(origText, 'T', true).kampu,
+  'beta+': ({ origText }) => {
     const params = `${origText} `.split('+')[1].toUpperCase()
     return lojban.ilmentufa_exp(origText, params, true).kampu
   },
-  raw: ({origText}) => lojban.ilmentufa_off(origText, 'NJ', true).kampu,
-  zei: ({origText}) => lojban.zeizei(origText),
-  help: ({text}) => sidju(),
-  anji: ({text}) => lojban.anji(text),
-  modzi: ({text}) => lojban.modzi(text),
-  ruk: ({text}) => lojban.rukylermorna(text),
-  kru: ({text}) => lojban.krulermorna(text),
-  bangu: ({text}) => bangu(text, from),
-  selmaho: ({text}) => selmaho(text),
-  "selma'o": ({text}) => selmaho(text),
-  rafsi: ({text}) => rafsi_giho_nai_se_rafsi(text.replace(/[^a-z'\.]/g, '')),
-  gloss: ({text}) => lojban.gloss(text, 'en', false, true).join(' '),
-  gimka: ({text}) => GimkaConflicts(text.replace(/[^a-z'\.\*0-9]/g, '')),
-  loi: ({text}) => lojban.lojban2loglan(text),
-  coi: ({text}) => lojban.loglan2lojban(text),
-  ze: async ({text}) => {
+  raw: ({ origText }) => lojban.ilmentufa_off(origText, 'NJ', true).kampu,
+  zei: ({ origText }) => lojban.zeizei(origText),
+  help: ({ }) => sidju(),
+  anji: ({ text }) => lojban.anji(text),
+  modzi: ({ text }) => lojban.modzi(text),
+  ruk: ({ text }) => lojban.rukylermorna(text),
+  kru: ({ text }) => lojban.krulermorna(text),
+  bangu: ({ text }) => bangu(text, from),
+  selmaho: ({ text }) => selmaho(text),
+  "selma'o": ({ text }) => selmaho(text),
+  rafsi: ({ text }) => rafsi_giho_nai_se_rafsi(text.replace(/[^a-z'\.]/g, '')),
+  gloss: ({ text }) => lojban.gloss(text, 'en', false, true).join(' '),
+  gimka: ({ text }) => GimkaConflicts(text.replace(/[^a-z'\.\*0-9]/g, '')),
+  loi: ({ text }) => lojban.lojban2loglan(text),
+  coi: ({ text }) => lojban.loglan2lojban(text),
+  ze: async ({ text }) => {
     await new Promise((resolve) => {
       lojban.zmifanva(text, 'en2jb', (a) => resolve(a))
     })
   },
-  zj: async ({text}) => {
+  zj: async ({ text }) => {
     await new Promise((resolve) => {
       lojban.zmifanva(text, 'jb2en', (a) => resolve(a))
     })
   },
-  rot13: ({text}) => lojban.rotpaci(text),
-  tatoeba: ({text}) => sisku(text),
-  jb: ({}) =>
+  rot13: ({ text }) => lojban.rotpaci(text),
+  tatoeba: ({ text }) => sisku(text),
+  jb: ({ }) =>
     'Dictionary with Examples can be temporaily accessed via\n1. https://la-lojban.github.io/sutysisku/jb/\n2. https://mw.lojban.org/papri/L17-B',
 }
 
@@ -1380,7 +1352,7 @@ async function processCommand({ socket, sendTo, text, origText }) {
   text = text.split(' ').slice(1).join(' ')
   origText = origText.split(' ').slice(1).join(' ')
   if (jsonCommand[cmd]) {
-    const what = await jsonCommand[cmd]({text, origText})
+    const what = await jsonCommand[cmd]({ text, origText })
     if (what && what.error) {
       let bangu = 'en'
       if (sendTo === '#jbosnu') bangu = 'jbo'
@@ -1394,7 +1366,7 @@ async function processCommand({ socket, sendTo, text, origText }) {
     (i) => cmd.search(new RegExp('^' + i + '(?![a-z])', 'igm')) === 0
   )
   if (leftMatched[0]) {
-    const what = await jsonCommand[leftMatched[0]]({text, origText})
+    const what = await jsonCommand[leftMatched[0]]({ text, origText })
     benji({ socket, sendTo, what })
     return true
   }

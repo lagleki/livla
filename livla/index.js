@@ -12,6 +12,9 @@ const { to } = require('await-to-js')
 const mkdirp = require('mkdirp')
 const axios = require('axios');
 
+let home_path = ospath.home()
+
+if (fs.existsSync(path.join(__dirname, '../data/config.json'))) home_path = path.join(__dirname, '../data')
 const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
 const db = require('better-sqlite3')(
@@ -79,6 +82,7 @@ let tcan =
 let localConfig
 let nuzbytcan = '#lojban'
 let replier = 'mensi'
+let httpPort = 3020
 let password = ''
 let server = 'irc.freenode.net'
 let twitter_id = 'good_opinions,opinions_good,cunsku'
@@ -123,7 +127,7 @@ const ensureDirExistence = (path) => {
 // Used to read the content of any file that is located in “~/.livla/”.
 // Return an empty string if the file does not exist.
 const readConfig = (filename) => {
-  const configDirectory = path.join(ospath.home(), '.livla')
+  const configDirectory = home_path
   ensureDirExistence(configDirectory)
   const file = path.join(configDirectory, filename)
   try {
@@ -146,7 +150,7 @@ const readConfig = (filename) => {
 // let notci, notcijudri
 // const loadNotci = () => {
 //   notci = readConfig('notci.txt').split('\n')
-//   notcijudri = path.join(ospath.home(), '.livla', 'notci.txt')
+//   notcijudri = path.join(home_path, '.livla', 'notci.txt')
 // }
 
 // Load the configuration from “~/.livla/config.json”, and modify the default
@@ -169,6 +173,7 @@ const loadConfig = () => {
   consumer_secret = either(localConfig, 'consumer_secret', '')
   access_token_key = either(localConfig, 'access_token_key', '')
   access_token_secret = either(localConfig, 'access_token_secret', '')
+  httpPort = either(localConfig, 'httpPort', httpPort)
   twitter_id = either(localConfig, 'twitter_id', twitter_id)
   arr_twitter_id = twitter_id.split(',')
 
@@ -226,7 +231,7 @@ const configmensi = {
     password,
     debug: false,
     messageSplit: 1900,
-    realName: 'http://lojban.org/papri/IRC_Bots',
+    realName: 'https://mw.lojban.org/papri/IRC_Bots',
     userName: replier,
     floodProtection: true,
     floodProtectionDelay: 400,
@@ -255,7 +260,7 @@ const updateUserSettings = (callback) => {
   readConfig('user-settings.json') // Ensure existance
 
   const body = JSON.stringify(userSettings)
-  const configDirectory = path.join(ospath.home(), '.livla')
+  const configDirectory = path.join(home_path, '.livla')
   const filename = 'user-settings.json'
   const file = path.join(configDirectory, filename)
   try {
@@ -1030,6 +1035,7 @@ async function downloadSingleDump({ language, erroredLangs }) {
   if (language === 'en') {
     jsonDocEn = jsonDoc
   }
+  return erroredLangs
 }
 
 async function updateXmlDumps() {
@@ -1342,7 +1348,7 @@ jsonCommand = {
     'Dictionary with Examples can be temporaily accessed via\n1. https://la-lojban.github.io/sutysisku/jb/\n2. https://mw.lojban.org/papri/L17-B',
 }
 
-async function processCommand({ socket, sendTo, text, origText }) {
+async function processCommand({ socket, sendTo, text = '', origText = '' }) {
   let cmd
   try {
     cmd = text.split(' ')[0].split('').slice(1).join('')
@@ -1450,7 +1456,7 @@ async function processor({ from, towhom, text, socket }) {
       break
     case text.indexOf(`${replier}: loadconfig`) === 0:
       loadConfig()
-      what = 'config reloaded from ~/.livla/config.json'
+      what = 'config reloaded from config.json'
       break
     case text.indexOf('?:') === 0:
       inLanguage = RetrieveUsersLanguage(from, inLanguage)
@@ -1593,4 +1599,4 @@ io.sockets.on('connection', (socket) => {
   })
 })
 
-app.listen(3020)
+app.listen(httpPort)

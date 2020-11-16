@@ -7,6 +7,7 @@ build/
 _build/
 .idea/
 zasni/
+data/
 dumps/*.xml
 dumps/*.json
 dumps/*.temp

@@ -2,23 +2,22 @@ la livla
 =========
 la livla is a combine providing different options in learning and developing Lojban language.
 
-Installing:
+# Installation
 
-```
-npm install
-```
+* install Docker or podman
+* copy `default-config/config.json` to `data/config.json`
+        - edit appropriately, you will need a password for your IRC bot  
+* `./docker_build.sh`
+* edit `./docker_start.sh` and replace 3020:3020 with YOU_FREE_PORT:3020 where instead of `YOU_FREE_PORT` write the free port that will start the websocket service. 
+* `./docker_start.sh`
 
-IRC Bots
-=========
+## IRC Bots
 
-In order to update dumps type "mensi: ko cnino"
+In order to update dumps type "mensi: ko cnino" in any IRC chat mensi bot is connected
 
 More information can be found [here](http://mw.lojban.org/index.php?title=IRC_Bots#mensi.2C_livla).
 
-Configuration
-=========
-
-Configuration is done in “~/.livla/config.json”.
+## Configuration
 
 Here is the default configuration:
 
@@ -37,11 +36,11 @@ So, if your configuration file looks like that:
 
 ```json
 {
-	"server": "irc.example.com"
+	"server": "irc.freenode.org"
 }
 ```
 
-Your bot will connect to “#lojban” and “#ckule” of the “irc.example.com”
+Your bot will connect to “#lojban” and “#ckule” of the “irc.freenode.org”
 instead of those of “irc.freenode.net”.
 
  - `tcan` is the list of channels to which the replier will connect.
@@ -53,8 +52,6 @@ instead of those of “irc.freenode.net”.
 ## la sutysisku
 
 In order to test la sutysisku 
-* clone this repo
-* `npm run start`
-* livla/index.js is started, it should download XML dumps from jbovlaste.lojban.org
-* `COMPRESS=false npm run sutysisku ; cp -avr build/sutysisku/* ~/your-public-folder/`
-** la sutysisku gets compiled. You can test it either locally from `~/your-public-folder/` folder (which you may wish to be made accessible from a https address as well for a full staging env) 
+* enter your docker environment via `podman run -it livla /bin/bash`
+* `COMPRESS=false npm run sutysisku`
+** la sutysisku gets compiled. You can test it either locally fromthe outside of your docker environment from `build/sytysisku` folder (which you may wish to be made accessible from a https address as well for a full staging env) 

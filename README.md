@@ -8,7 +8,7 @@ la livla is a combine providing different options in learning and developing Loj
 * copy `default-config/config.json` to `data/config.json`
         - edit appropriately, you will need a password for your IRC bot  
 * `./docker_build.sh`
-* edit `./docker_start.sh` and replace 3020:3020 with YOU_FREE_PORT:3020 where instead of `YOU_FREE_PORT` write the free port that will start the websocket service. 
+* edit `./docker_start.sh` and replace 3020:3000 with YOU_FREE_PORT:3000 where instead of `YOU_FREE_PORT` write the free port that will start the websocket service. 
 * `./docker_start.sh`
 
 ## IRC Bots
@@ -52,6 +52,6 @@ instead of those of “irc.freenode.net”.
 ## la sutysisku
 
 In order to test la sutysisku 
-* enter your docker environment via `podman run -it livla /bin/bash`
+* enter your docker environment via `podman run -it --mount type=bind,source="$(pwd)"/build,target=/livla/build livla /bin/bash`
 * `COMPRESS=false npm run sutysisku`
 ** la sutysisku gets compiled. You can test it either locally fromthe outside of your docker environment from `build/sytysisku` folder (which you may wish to be made accessible from a https address as well for a full staging env) 

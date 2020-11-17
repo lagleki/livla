@@ -3,5 +3,5 @@ podman run -d \
   -it \
   --name livla \
   --mount type=bind,source="$(pwd)"/build,target=/livla/build \
-  -p 3020:3020 \
+  -p 3020:3000 \
   livla

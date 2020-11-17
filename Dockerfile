@@ -11,5 +11,4 @@ COPY --chown=app:app . /livla
 WORKDIR /livla
 USER app
 RUN npm i
-EXPOSE 3020
 CMD npm start

@@ -1,5 +1,9 @@
-podman run -d \
-  --restart unless-stopped \
+#!/bin/bash
+
+podman kill livla
+podman rm livla
+
+podman run \
   -it \
   --name livla \
   --mount type=bind,source="$(pwd)"/build,target=/livla/build \

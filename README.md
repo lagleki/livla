@@ -4,11 +4,11 @@ la livla is a combine providing different options in learning and developing Loj
 
 # Installation
 
-* install Docker or podman
+* install Docker or podman. Works only under Docker/podman.
 * copy `default-config/config.json` to `data/config.json`
         - edit appropriately, you will need a password for your IRC bot  
 * `./docker_build.sh`
-* edit `./docker_start.sh` and replace 3020:3000 with YOU_FREE_PORT:3000 where instead of `YOU_FREE_PORT` write the free port that will start the websocket service. 
+* edit `./docker_start.sh` and replace 3020 with <YOU_FREE_PORT> where instead of `<YOU_FREE_PORT>` write the free port that will start the websocket service. 
 * `./docker_start.sh`
 
 ## IRC Bots

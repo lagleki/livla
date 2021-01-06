@@ -1,3 +1,3 @@
 #!/bin/bash
 
-podman build -t livla .
+docker build -t livla .

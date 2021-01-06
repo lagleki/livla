@@ -1,0 +1,14 @@
+{
+    "tcan": "#lojban,#ckule,#lojbanme,#jbosnu,#spero,#tokipona,#polsk,#tokpona,#ponjbo,#rusko,#esperanto,#pepper&carrot,##jboselbau,##ithkuil,#fraso",
+    "livlytcan": "##jboselbau",
+    "server": "irc.freenode.net",
+    "asker": "livla",
+    "replier": {
+        "name": "mensi",
+        "password": "MY_ASSWORD"
+    },
+    "consumer_key": "",
+    "consumer_secret": "",
+    "access_token_key": "",
+    "access_token_secret": ""
+}

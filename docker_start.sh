@@ -1,11 +1,13 @@
 #!/bin/bash
 
-podman kill livla
-podman rm livla
+docker kill livla ; docker rm livla
 
-podman run \
+docker run \
   -it \
   --name livla \
-  --mount type=bind,source="$(pwd)"/build,target=/livla/build \
+  --memory 1g \
+  -v $(pwd)/src:/livla/src/:Z \
+  -v $(pwd)/config:/livla/config/:Z \
+  -v $(pwd)/build:/livla/build/:Z \
   -p 3020:3000 \
   livla

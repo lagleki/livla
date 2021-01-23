@@ -5,8 +5,8 @@
 // import
 const fs = require('fs')
 const path = require('path-extra')
-const rp = require('request-promise-native')
-const Terser = require('terser')
+const axios = require('axios')
+const { minify } = require('terser')
 const babel = require('@babel/core')
 const env = require('@babel/preset-env')
 
@@ -52,12 +52,12 @@ function rgbToHex(rgb) {
 }
 
 async function CLLAppendix2Json(source) {
-  source = source || 'https://lojban.pw/cll/uncll-1.2.10/xhtml_section_chunks/'
+  source = source || 'https://lojban.pw/cll/uncll-1.2.12/xhtml_section_chunks/'
   const json = {}
 
   for (let file of [{ name: 'ix01.html', type: 'lojbo' }, { name: 'ix02.html', type: 'English' }]) {
     const appendix = source + file.name
-      ; (await rp(appendix))
+      ; (await axios(appendix)).data
         .match(/<dt>(.*?)<\/dt>[ \t\n\r]*((?=<dt>)|(?=<\/)|<dd>(.*?)<\/dd>)/gs)
         .forEach((el) => {
           el = el.replace(/[ \t]*\n[ \t]*/g, '').replace(/>[ \t]+/g, '>').replace(/^<dt>(.*?)(?=<a )(.*)$/s, '$1\t$2').split(/\t/)
@@ -91,7 +91,7 @@ async function CLLAppendix2Json(source) {
   //save
   let text = JSON.stringify(json)
   fs.writeFileSync(
-    path.join(__dirname, '../build/sutysisku/data', 'parsed-en-cll.json'),
+    path.join('/livla/build/sutysisku/data', 'parsed-en-cll.json'),
     text
   )
   const arr = Object.keys(json).map(i => {
@@ -119,7 +119,7 @@ async function CLLAppendix2Json(source) {
   }
 
   fs.writeFileSync(
-    path.join(__dirname, '../build/sutysisku/data', 'parsed-en-cll.blob.json'),
+    path.join('/livla/build/sutysisku/data', 'parsed-en-cll.blob.json'),
     JSON.stringify(outp)
   )
 }
@@ -214,7 +214,7 @@ langs.forEach((lang) => {
   // generate index.html
   const config = JSON.parse(
     fs.readFileSync(
-      path.join(__dirname, '../build/sutysisku/', lang, 'config.json'),
+      path.join('/livla/build/sutysisku/', lang, 'config.json'),
       {
         encoding: 'utf8',
       }
@@ -339,7 +339,7 @@ langs.forEach((lang) => {
       console.log(`minified ${lang}/${el.out}`)
     }
     fs.writeFileSync(
-      path.join(__dirname, '../build/sutysisku/', lang, el.out),
+      path.join('/livla/build/sutysisku/', lang, el.out),
       output
     )
   }
@@ -361,7 +361,7 @@ langs.forEach((lang) => {
 
   fs.copyFileSync(
     path.join(__dirname, `./src/${lang}/bangu.js`),
-    path.join(__dirname, '../build/sutysisku/', lang, 'bangu.js')
+    path.join('/livla/build/sutysisku/', lang, 'bangu.js')
   )
 
   // read sisku.xml template into var
@@ -376,13 +376,13 @@ langs.forEach((lang) => {
     .replace('%shortname%', lang + '-sutysisku')
     .replaceMergefield(config)
   fs.writeFileSync(
-    path.join(__dirname, '../build/sutysisku/', lang, 'sisku.xml'),
+    path.join('/livla/build/sutysisku/', lang, 'sisku.xml'),
     b
   )
   // copy sw.js
   try {
     fs.writeFileSync(
-      path.join(__dirname, '../build/sutysisku/', lang, 'sw.js'),
+      path.join('/livla/build/sutysisku/', lang, 'sw.js'),
       fs
         .readFileSync(path.join(__dirname, 'template', 'sw.js'), {
           encoding: 'utf8',
@@ -399,7 +399,7 @@ NETWORK:
 `
   try {
     fs.writeFileSync(
-      path.join(__dirname, '../build/sutysisku/', lang, 'webapp.appcache'),
+      path.join('/livla/build/sutysisku/', lang, 'webapp.appcache'),
       dummyAppcache
     )
   } catch (error) { }
@@ -442,7 +442,7 @@ NETWORK:
       }
     }`
   fs.writeFileSync(
-    path.join(__dirname, '../build/sutysisku', lang, 'worker.js'),
+    path.join('/livla/build/sutysisku', lang, 'worker.js'),
     workerjsfile
   )
 
@@ -471,42 +471,44 @@ NETWORK:
       }
     }`
   fs.writeFileSync(
-    path.join(__dirname, '../build/sutysisku', lang, 'sorcuWorker.js'),
+    path.join('/livla/build/sutysisku', lang, 'sorcuWorker.js'),
     sorcuWorkerjsfile
   )
-})
+});
 
-for (let fileName of ['sorcu.js', 'sisku.js', 'cmaxes.js']) {
-  let file = fs.readFileSync(path.join(__dirname, `./template/${fileName}`), {
-    encoding: 'utf8',
-  })
-  if (process.env.COMPRESS !== 'false') {
-    file = babel.transformSync(file, {
-      plugins: ['minify-dead-code-elimination'],
-      presets: [
-        [
-          env,
-          {
-            targets: '> 0.25%, not dead',
-          },
+(async () => {
+  for (let fileName of ['sorcu.js', 'sisku.js', 'cmaxes.js']) {
+    let file = fs.readFileSync(path.join(__dirname, `./template/${fileName}`), {
+      encoding: 'utf8',
+    })
+    if (process.env.COMPRESS !== 'false') {
+      file = babel.transformSync(file, {
+        plugins: ['minify-dead-code-elimination'],
+        presets: [
+          [
+            env,
+            {
+              targets: '> 0.25%, not dead',
+            },
+          ],
         ],
-      ],
-    }).code
-    file = Terser.minify(file, {
-      ecma: 5,
-      nameCache,
-      mangle: {
-        toplevel: true,
-        keep_classnames: true,
-        reserved: ['sisku', 'parse', 'cmaxes', 'cnino_sorcu'],
-      },
-    }).code
-    console.log(`minified ${fileName}`)
+      }).code
+      file = (await minify(file, {
+        ecma: 5,
+        nameCache,
+        mangle: {
+          toplevel: true,
+          keep_classnames: true,
+          reserved: ['sisku', 'parse', 'cmaxes', 'cnino_sorcu'],
+        },
+      })).code
+      console.log(`minified ${fileName}`)
+    }
+    fs.writeFileSync(path.join(`/livla/build/sutysisku/${fileName}`), file)
   }
-  fs.writeFileSync(path.join(__dirname, `../build/sutysisku/${fileName}`), file)
-}
+})()
 
 fs.copyFileSync(
   path.join(__dirname, `./template/tejufra.json`),
-  path.join(__dirname, `../build/sutysisku/lojban/tejufra.json`)
+  path.join(`/livla/build/sutysisku/lojban/tejufra.json`)
 )

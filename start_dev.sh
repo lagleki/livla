@@ -3,7 +3,7 @@
 docker kill livla ; docker rm livla
 
 docker run \
-  -it \
+  -d -it \
   --name livla \
   --memory 2g \
   -v $(pwd)/src:/livla/src/:Z \
@@ -13,3 +13,4 @@ docker run \
   -p 3020:3000 \
   -p 3021:3001 \
   livla
+docker exec -it livla bash

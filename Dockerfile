@@ -1,4 +1,7 @@
-FROM ubuntu:rolling
+FROM ubuntu:latest
+
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC
 
 RUN apt-get update
 

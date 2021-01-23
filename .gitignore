@@ -37,6 +37,6 @@ config/*.log
 config/*.crt
 config/*.pem
 config/*.key
-config.json
-config.js
+config/config.json
+config/config.js
 .env

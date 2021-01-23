@@ -1,13 +1,17 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
-RUN apk add --no-cache bash
-RUN apk add --update nodejs npm
-ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC
 
-RUN mkdir /livla ; mkdir /livla/build ; mkdir /livla/build/dumps
+RUN apt-get update
+
+RUN apt-get install -y build-essential software-properties-common curl
+
+RUN apt-get install -y python3 python3-dev python3-pip nodejs npm
+
+RUN apt-get install -y rsync
+
+RUN mkdir -p /livla/build/dumps
 COPY src/package*.json /livla/
 WORKDIR /livla
 RUN npm i ; npm i -g npm-check-updates

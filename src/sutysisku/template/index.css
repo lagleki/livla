@@ -117,6 +117,10 @@ h4 {
   float: left;
 }
 
+.loading_elems {
+  width: 33%;
+  margin: 5px;
+}
 #bangu_loading .cukta {
   float: none;
 }
@@ -307,7 +311,13 @@ code {
   border-top: solid 1px #ccc;
   border-right: solid 1px #ccc;
   border-bottom: solid 1px #ccc;
-  box-shadow: 3px 3px 1px #ccc;
+  /* box-shadow: 3px 3px 1px #ccc; */
+  --tw-ring-offset-shadow: 0 0 transparent;
+  --tw-ring-shadow: 0 0 transparent;
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 transparent),
+    var(--tw-ring-shadow, 0 0 transparent), var(--tw-shadow);
 }
 
 .rafsi {
@@ -329,19 +339,32 @@ code {
   top: 0;
   left: 0;
   right: 0;
-  height: 48px;
+  height: 42px;
   width: auto;
   padding: 0;
 }
 
 .cnano-dasri {
-  background: linear-gradient(
+  /* background: linear-gradient(
     to bottom,
     rgba('%mupliskari1%', 1) '%gradpos1%',
     rgba('%mupliskari2%', 1) '%gradpos2%',
     rgba('%mupliskari3%', 1) '%gradpos3%',
     rgba('%mupliskari4%', 1) '%gradpos4%'
+  ); */
+  background: linear-gradient(
+    180deg,
+    #0997ff,
+    #0053ee 8%,
+    #0050ee 40%,
+    #06f 88%,
+    #06f 93%,
+    #005bff 95%,
+    #003dd7 96%,
+    #003dd7
   );
+  border-top: 1px solid #0831d9;
+  text-shadow: 1px 1px #0f1089;
 }
 
 .catni-dasri {
@@ -411,7 +434,7 @@ code {
   border-color: #333;
   border-width: 0px 1px 1px 1px;
   border-style: solid;
-  height: 22px;
+  height: 18px;
   padding: 12px 10px 14px 10px;
   cursor: pointer;
 }
@@ -484,14 +507,14 @@ code {
 }
 
 #ciska {
-  height: 30px;
-  font-size: 130%;
+  height: 27px;
+  font-size: 120%;
   font-family: Arial, Helvetica, sans-serif;
   border: 1px solid #777;
   padding: 2px 50px 2px 10px;
   transition: background 0.4s;
   float: right;
-  margin-top: 6px;
+  margin-top: 4px;
   outline: 0;
   min-width: 0;
 }
@@ -511,7 +534,7 @@ code {
   vertical-align: middle;
   outline: 0;
   cursor: pointer;
-  margin-top: 8px;
+  margin-top: 6px;
   height: 0;
   background-color: transparent;
   background-image: url(../pixra/x.svg);
@@ -523,9 +546,9 @@ code {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-#ciska:not(.granim-css) {
+/* #ciska:not(.granim-css) {
   padding-right: 30px;
-}
+} */
 
 #title {
   cursor: default;
@@ -554,6 +577,20 @@ code {
 #content {
   z-index: 199;
 }
+#contentWrapper {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 42px 0 0 0;
+  overflow: hidden;
+}
+
+/* #scrollableContent {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+} */
 
 @media screen and (min-width: 510px) and (max-width: 710px) {
   #galtu-dasri {
@@ -563,12 +600,12 @@ code {
 
 @media screen and (min-width: 510px) {
   #loading {
-    width: 30%;
+    width: 61.8%;
   }
 
   #clear {
-    padding: 22px 10px 8px 30px;
-    right: 9px;
+    padding: 19px 10px 9px 36px;
+    right: 4px;
     border-radius: 0 20% 0% 0%;
   }
   #title > #site-title > font {
@@ -588,7 +625,7 @@ code {
 
 @media screen and (max-width: 509px) {
   #loading {
-    width: 90%;
+    width: 95%;
   }
 
   body {
@@ -607,7 +644,7 @@ code {
     order: 1;
   }
   #clear {
-    padding: 22px 20px 8px 20px;
+    padding: 19px 20px 9px 20px;
     right: 6px;
     width: 23px;
     background-size: 22px;
@@ -665,7 +702,6 @@ code {
   padding-right: 5px;
   overflow: auto;
   /*height:100%;*/
-  border-top: 48px solid transparent;
   box-sizing: border-box;
   /*<muplis false>*/
   background: #222222
@@ -754,8 +790,17 @@ ul > li > a {
 
 #loading {
   text-align: center;
-  margin: 5px auto 5px auto;
+  margin: 0;
   display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 28px;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  background: white;
 }
 
 sup,
@@ -1114,9 +1159,9 @@ user-select: none; */
 }
 
 #cpacu {
+  width: 100%;
   position: relative;
   display: block;
-  margin: 5px auto auto auto;
   background-color: #eee;
   padding: 3px;
   border-radius: 3px;

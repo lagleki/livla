@@ -2,9 +2,8 @@
 const lg = console.log.bind(console)
 
 // livla bot
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path-extra')
-const ospath = require('ospath')
 const R = require('ramda')
 const lojban = require('lojban')
 const he = require('he')
@@ -81,7 +80,8 @@ let tcan =
 let localConfig
 let nuzbytcan = '#lojban'
 let replier = 'mensi'
-let httpPort = 3020
+let httpPort = 3000
+let http_sutysisku_port = 3001
 let password = ''
 let server = 'irc.freenode.net'
 let twitter_id = 'good_opinions,opinions_good,cunsku'
@@ -172,12 +172,11 @@ const loadConfig = () => {
   consumer_secret = either(localConfig, 'consumer_secret', '')
   access_token_key = either(localConfig, 'access_token_key', '')
   access_token_secret = either(localConfig, 'access_token_secret', '')
-  httpPort = either(localConfig, 'httpPort', httpPort)
   twitter_id = either(localConfig, 'twitter_id', twitter_id)
   arr_twitter_id = twitter_id.split(',')
 
   config = { ...localConfig }
-  if (!config.disableIrcBots && !config.disableTwitter) startTwitterStream()
+  if (!config.disableIrcBots && !config.disableTwitter && password) startTwitterStream()
 }
 
 function startTwitterStream() {
@@ -276,7 +275,7 @@ const updateUserSettings = (callback) => {
 
 // IRC bot
 let clientmensi
-if (!config.disableIrcBots) {
+if (!config.disableIrcBots && password) {
   const Irc = require('irc-upd')
   lg('channels', configmensi.options.channels)
   clientmensi = new Irc.Client(
@@ -843,8 +842,7 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
   }
 
   let t = path.join(
-    __dirname,
-    '../build/sutysisku/data',
+    '/livla/build/sutysisku/data',
     `parsed-${tegerna}.blob.json`
   )
   fs.writeFileSync(t, JSON.stringify(outp))
@@ -862,15 +860,13 @@ const ningau_palasutysisku = async (language, lojbo) => {
         lojbo,
       })
     let t = path.join(
-      __dirname,
-      '../build/sutysisku/data',
+      '/livla/build/sutysisku/data',
       `parsed-${language}.${format}`
     )
     fs.writeFileSync(`${t}.temp`, pars)
     fs.renameSync(`${t}.temp`, t)
     t = path.join(
-      __dirname,
-      `../build/sutysisku/${language}/`,
+      `/livla/build/sutysisku/${language}/`,
       'webapp.appcache'
     )
     const d = new Date()
@@ -895,7 +891,8 @@ const ningau_palasutysisku = async (language, lojbo) => {
 const tcepru = (lin, sendTo, socket) => {
   const exec = require('child_process').exec
   exec(
-    `${path.join(__dirname, '../tcepru/./parser')} <<<"${lin}" 2>/dev/null`,
+    `${home_path}/src/tcepru/parser <<<"${lin}" 2>/dev/null`,
+    {shell: '/bin/bash'},
     (error, stdout, stderr) => {
       lin = stdout
       if (error !== null) {
@@ -913,10 +910,8 @@ const tcepru = (lin, sendTo, socket) => {
 const jbofihe = (lin, sendTo, socket) => {
   const exec = require('child_process').exec
   exec(
-    `${path.join(
-      __dirname,
-      '../jbofihe/./jbofihe'
-    )} -ie -cr <<<"${lin}" 2>/dev/null`,
+    `${home_path}/src/jbofihe/jbofihe -ie -cr <<<"${lin}" 2>/dev/null`,
+    {shell: '/bin/bash'},
     (error, stdout, stderr) => {
       console.log(error, stdout)
       lin = stdout
@@ -1049,7 +1044,9 @@ async function downloadSingleDump({ language, erroredLangs }) {
 }
 
 async function updateXmlDumps() {
-  await mkdirp(path.join(__dirname, '../build/sutysisku/data'))
+  await mkdirp(path.join('/livla/build/sutysisku/data'))
+  await mkdirp(path.join('/livla/build/dumps'))
+  fs.copySync('/livla/src/prebuilt_dumps', '/livla/build/dumps')
   let erroredLangs = []
   for (const language of langs) {
     erroredLangs = await downloadSingleDump({ language, erroredLangs })
@@ -1537,7 +1534,7 @@ async function processor({ from, towhom, text, socket }) {
   }
 }
 
-if (!config.disableIrcBots) {
+if (!config.disableIrcBots && password) {
   clientmensi.on('message', (from, towhom, text) => {
     processor({ from, towhom, text })
   })
@@ -1545,23 +1542,12 @@ if (!config.disableIrcBots) {
   clientmensi.on('error', (message) => {
     lg(`error on ${replier}'s listening`, JSON.stringify(message))
   })
+}else{
+  console.log('IRC bots not started. Either password not specified or disableIrcBots enabled')
 }
 
-// NAXLE
-
-// NEVER use a Sync function except at start-up!
-const index = fs.readFileSync(`${__dirname}/naxle.html`)
-
-// Send index.html to all requests
-const app = require('http').createServer((req, res) => {
-  res.writeHead(200, {
-    'Content-Type': 'text/html',
-  })
-  res.end(index)
-})
-
 // Socket.io server listens to our app
-const io = require('socket.io').listen(app)
+const io = require('socket.io')(httpPort)
 
 const IPFromRequest = ({ headers, connection, params }) => {
   let ip
@@ -1609,4 +1595,10 @@ io.sockets.on('connection', (socket) => {
   })
 })
 
-app.listen(httpPort)
+const express = require('express');
+const app = express();
+const public = '/livla/build'
+
+app.use('/', express.static(public));
+
+app.listen(http_sutysisku_port);

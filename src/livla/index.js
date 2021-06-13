@@ -2,7 +2,7 @@
 const lg = console.log.bind(console)
 
 // livla bot
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path-extra')
 const R = require('ramda')
 const lojban = require('lojban')
@@ -176,7 +176,7 @@ const loadConfig = () => {
   arr_twitter_id = twitter_id.split(',')
 
   config = { ...localConfig }
-  if (!config.disableIrcBots && !config.disableTwitter) startTwitterStream()
+  if (!config.disableIrcBots && !config.disableTwitter && password) startTwitterStream()
 }
 
 function startTwitterStream() {
@@ -275,7 +275,7 @@ const updateUserSettings = (callback) => {
 
 // IRC bot
 let clientmensi
-if (!config.disableIrcBots) {
+if (!config.disableIrcBots && password) {
   const Irc = require('irc-upd')
   lg('channels', configmensi.options.channels)
   clientmensi = new Irc.Client(
@@ -1045,6 +1045,8 @@ async function downloadSingleDump({ language, erroredLangs }) {
 
 async function updateXmlDumps() {
   await mkdirp(path.join('/livla/build/sutysisku/data'))
+  await mkdirp(path.join('/livla/build/dumps'))
+  fs.copySync('/livla/src/prebuilt_dumps', '/livla/build/dumps')
   let erroredLangs = []
   for (const language of langs) {
     erroredLangs = await downloadSingleDump({ language, erroredLangs })
@@ -1532,7 +1534,7 @@ async function processor({ from, towhom, text, socket }) {
   }
 }
 
-if (!config.disableIrcBots) {
+if (!config.disableIrcBots && password) {
   clientmensi.on('message', (from, towhom, text) => {
     processor({ from, towhom, text })
   })
@@ -1540,6 +1542,8 @@ if (!config.disableIrcBots) {
   clientmensi.on('error', (message) => {
     lg(`error on ${replier}'s listening`, JSON.stringify(message))
   })
+}else{
+  console.log('IRC bots not started. Either password not specified or disableIrcBots enabled')
 }
 
 // Socket.io server listens to our app

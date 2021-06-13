@@ -7,6 +7,8 @@ const fs = require('fs')
 const path = require('path-extra')
 const axios = require('axios')
 const { minify } = require('terser')
+const browserify = require("browserify");
+
 const babel = require('@babel/core')
 const env = require('@babel/preset-env')
 
@@ -52,7 +54,7 @@ function rgbToHex(rgb) {
 }
 
 async function CLLAppendix2Json(source) {
-  source = source || 'https://lojban.pw/cll/uncll-1.2.12/xhtml_section_chunks/'
+  source = source || 'https://la-lojban.github.io/uncll/uncll-1.2.13/xhtml_section_chunks/'
   const json = {}
 
   for (let file of [{ name: 'ix01.html', type: 'lojbo' }, { name: 'ix02.html', type: 'English' }]) {
@@ -200,223 +202,218 @@ function processTemplate({ config, fallback, now, file }) {
     .stripout(config, 'lojbo')
     .stripout(config, 'muplis')
     // delete comments, compress code
-    .replace(/^[ \t]+/gm, '')
+    // .replace(/^[ \t]+/gm, '')
     .replace(/^\/\/.*$/gm, '')
     .replace(/\/\*((?!\/\*)[\s\S]*?)\*\//gm, '')
     .replace(/<!--[\s\S]*?-->/gm, '')
-    .replace(/\n\s*\n/g, '\n')
+  // .replace(/\n\s*\n/g, '\n')
   return output
 }
-let nameCache = {}
+let nameCache = {};
 
-// generate files
-langs.forEach((lang) => {
-  // generate index.html
-  const config = JSON.parse(
-    fs.readFileSync(
-      path.join('/livla/build/sutysisku/', lang, 'config.json'),
-      {
-        encoding: 'utf8',
-      }
+const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyState', 'runSearch'];
+
+(async () => {
+  // generate files
+  for (let lang of langs) {
+    // generate index.html
+    const config = JSON.parse(
+      fs.readFileSync(
+        path.join('/livla/build/sutysisku/', lang, 'config.json'),
+        {
+          encoding: 'utf8',
+        }
+      )
     )
-  )
-  const config_fallback = {
-    lang: lang,
-    title: "la sutysisku zo'u: ze'i mitysisku lo valsi",
-    favicon: '../pixra/snime.svg',
-    icon16: '../pixra/16.png',
-    icon32: '../pixra/32.png',
-    ogurl: 'https://la-lojban.github.io/sutysisku/' + lang + '/index.html',
-    ogtitle: 'Sutysisku',
-    searchurl: '/sutysisku/' + lang + '/sisku.xml',
-    searchtitle: lang + '-sutysisku',
-    titlelogo:
-      "<a id='title' onclick='EmptyState()' href='javascript:;' aria-label='la sutysisku'><span id='site-title'  class='desktop-mode-title-color'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16' alt='logo'><font color='#fff' data-jufra='titlelogo'>la sutysisku</font></span></a>",
-    arxivoskari1: '233, 195, 58',
-    arxivoskari2: '211, 172, 34',
-    arxivoskari3: '224, 183, 36',
-    arxivoskari4: '164, 134, 25',
+    const config_fallback = {
+      lang: lang,
+      title: "la sutysisku zo'u: ze'i mitysisku lo valsi",
+      favicon: '../pixra/snime.svg',
+      icon16: '../pixra/16.png',
+      icon32: '../pixra/32.png',
+      ogurl: 'https://la-lojban.github.io/sutysisku/' + lang + '/index.html',
+      ogtitle: 'Sutysisku',
+      searchurl: '/sutysisku/' + lang + '/sisku.xml',
+      searchtitle: lang + '-sutysisku',
+      titlelogo:
+        "<a id='title' onclick='EmptyState()' href='javascript:;' aria-label='la sutysisku'><span id='site-title'  class='desktop-mode-title-color'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16' alt='logo'><font color='#fff' data-jufra='titlelogo'>la sutysisku</font></span></a>",
+      arxivoskari1: '233, 195, 58',
+      arxivoskari2: '211, 172, 34',
+      arxivoskari3: '224, 183, 36',
+      arxivoskari4: '164, 134, 25',
 
-    mupliskari1: '56,136,233',
-    mupliskari2: '34,87,213',
-    mupliskari3: '38,99,224',
-    mupliskari4: '25,65,165',
+      mupliskari1: '56,136,233',
+      mupliskari2: '34,87,213',
+      mupliskari3: '38,99,224',
+      mupliskari4: '25,65,165',
 
-    catniskari1: '58,116,233',
-    catniskari2: '34,87,210',
-    catniskari3: '36,68,224',
-    catniskari4: '25,48,164',
+      catniskari1: '58,116,233',
+      catniskari2: '34,87,210',
+      catniskari3: '36,68,224',
+      catniskari4: '25,48,164',
 
-    fanvaskari1: '210,58,233',
-    fanvaskari2: '208,34,211',
-    fanvaskari3: '224,36,224',
-    fanvaskari4: '164,25,164',
+      fanvaskari1: '210,58,233',
+      fanvaskari2: '208,34,211',
+      fanvaskari3: '224,36,224',
+      fanvaskari4: '164,25,164',
 
-    velcusku_skari1: '214, 58, 233',
-    velcusku_skari2: '193, 34, 211',
-    velcusku_skari3: '205, 36, 224',
-    velcusku_skari4: '150, 25, 164',
+      velcusku_skari1: '214, 58, 233',
+      velcusku_skari2: '193, 34, 211',
+      velcusku_skari3: '205, 36, 224',
+      velcusku_skari4: '150, 25, 164',
 
-    rimniskari1: '230,47,0',
-    rimniskari2: '119,29,29',
-    rimniskari3: '220,4,4',
-    rimniskari4: '95,29,0',
+      rimniskari1: '230,47,0',
+      rimniskari2: '119,29,29',
+      rimniskari3: '220,4,4',
+      rimniskari4: '95,29,0',
 
-    gradpos1: '0%',
-    gradpos2: '13%',
-    gradpos3: '88%',
-    gradpos4: '100%',
-    rimnigradpos1: '0%',
-    rimnigradpos2: '10%',
-    rimnigradpos3: '91%',
-    rimnigradpos4: '100%',
-    kunti: 'clear',
-    rimni: 'rhymes',
-    cnano: '+',
-    catni: 'search',
-    arxivo: 'archive',
-    velcusku: 'read chat',
-    parse: 'parse',
-  }
-  const arr = (config.mupliskari4 || config_fallback.mupliskari4)
-    .split(',')
-    .map((i) => i.trim())
-  config.mupliskariralju = fullColorHex(arr[0], arr[1], arr[2])
-  // read template.html into var
-  for (const el of [
-    {
-      file: 'index.html',
-      out: 'index.html',
-    },
-    {
-      file: 'index.css',
-      out: 'index.css',
-    },
-    {
-      file: 'index.js',
-      out: 'index.js',
-      uglify: true,
-    },
-  ]) {
-    let output = processTemplate({
-      config,
-      fallback: config_fallback,
-      now,
-      file: fs.readFileSync(path.join(__dirname, './template', el.file), {
-        encoding: 'utf8',
-      }),
-    })
-    if (el.uglify && process.env.COMPRESS !== 'false') {
-      output = babel.transformSync(output, {
-        plugins: [
-          // 'minify-dead-code-elimination',
-          // ["@babel/transform-runtime"]
-        ],
-        presets: [
-          [
-            env,
-            {
-              // corejs: '3.6.5',
-              // "useBuiltIns": "entry",
-              targets: '> 0.25%, not dead',
-            },
-          ],
-        ],
-      }).code
-      // const { code, error } = Terser.minify(output, {
-      //   nameCache,
-      //   compress: {
-      //     ecma: 5,
-      //   },
-      //   mangle: {
-      //     toplevel: true,
-      //     keep_classnames: true,
-      //     reserved: ['sisku', 'switchBorderScroll'],
-      //   },
-      // })
-      // error && console.log(error)
-      // output = code
-      console.log(`minified ${lang}/${el.out}`)
+      gradpos1: '0%',
+      gradpos2: '13%',
+      gradpos3: '88%',
+      gradpos4: '100%',
+      rimnigradpos1: '0%',
+      rimnigradpos2: '10%',
+      rimnigradpos3: '91%',
+      rimnigradpos4: '100%',
+      kunti: 'clear',
+      rimni: 'rhymes',
+      cnano: '+',
+      catni: 'search',
+      arxivo: 'archive',
+      velcusku: 'read chat',
+      parse: 'parse',
     }
-    fs.writeFileSync(
-      path.join('/livla/build/sutysisku/', lang, el.out),
-      output
-    )
-  }
+    const arr = (config.mupliskari4 || config_fallback.mupliskari4)
+      .split(',')
+      .map((i) => i.trim())
+    config.mupliskariralju = fullColorHex(arr[0], arr[1], arr[2])
+    // read template.html into var
+    for (const el of [
+      {
+        file: 'index.html',
+        out: 'index.html',
+      },
+      {
+        file: 'index.css',
+        out: 'index.css',
+      },
+      {
+        file: 'index.js',
+        out: 'index.js',
+        uglify: true,
+      },
+    ]) {
+      let output = processTemplate({
+        config,
+        fallback: config_fallback,
+        now,
+        file: fs.readFileSync(path.join(__dirname, './template', el.file), {
+          encoding: 'utf8',
+        }),
+      })
+      if (el.uglify && process.env.COMPRESS !== 'false') {
+        const store_file = path.join(`/livla/build/sutysisku/${lang}/${el.file}`)
+        const store_file_tmp = path.join(`/livla/build/sutysisku/${lang}/${el.file}.tmp`)
+        fs.writeFileSync(store_file, output)
+        const w = fs.createWriteStream(store_file_tmp)
+        await new Promise(resolve => {
+          browserify(store_file)
+            .transform("babelify", { presets: ["@babel/preset-env"], plugins: ['@babel/plugin-transform-runtime'] })
+            .bundle()
+            .pipe(w);
+          w.on('finish', function () {
+            resolve()
+          });
+        })
 
-  // current datetime
-  const d = new Date()
-  const n =
-    d.getFullYear() +
-    '-' +
-    addZero(d.getMonth() + 1) +
-    '-' +
-    addZero(d.getDate()) +
-    'T' +
-    addZero(d.getHours()) +
-    ':' +
-    addZero(d.getMinutes()) +
-    ':' +
-    addZero(d.getSeconds())
-
-  fs.copyFileSync(
-    path.join(__dirname, `./src/${lang}/bangu.js`),
-    path.join('/livla/build/sutysisku/', lang, 'bangu.js')
-  )
-
-  // read sisku.xml template into var
-  const b = fs
-    .readFileSync(path.join(__dirname, './template', 'sisku.xml'), {
-      encoding: 'utf8',
-    })
-    .replace(
-      '%template%',
-      `https://la-lojban.github.io/sutysisku/${lang}/index.html#seskari=cnano&amp;sisku={searchTerms}`
-    )
-    .replace('%shortname%', lang + '-sutysisku')
-    .replaceMergefield(config)
-  fs.writeFileSync(
-    path.join('/livla/build/sutysisku/', lang, 'sisku.xml'),
-    b
-  )
-  // copy sw.js
-  try {
-    fs.writeFileSync(
-      path.join('/livla/build/sutysisku/', lang, 'sw.js'),
-      fs
-        .readFileSync(path.join(__dirname, 'template', 'sw.js'), {
+        output = fs.readFileSync(store_file_tmp, {
           encoding: 'utf8',
         })
-        .replace(/{now}/g, now)
-        .replace(/{lang}/g, lang)
+        output = (await minify(output, {
+          ecma: 5,
+          nameCache,
+          compress: {
+            keep_fnames: true,
+            unused: false
+          },
+          mangle: {
+            keep_classnames: true,
+            keep_fnames: true,
+            reserved,
+          },
+        })).code
+        fs.unlinkSync(store_file_tmp)
+        console.log(`minified ${store_file}`)
+      }
+      fs.writeFileSync(
+        path.join('/livla/build/sutysisku/', lang, el.out),
+        output
+      )
+    }
+
+    // current datetime
+    const d = new Date()
+
+    fs.copyFileSync(
+      path.join(__dirname, `./src/${lang}/bangu.js`),
+      path.join('/livla/build/sutysisku/', lang, 'bangu.js')
     )
-  } catch (error) { }
-  // generate appcache
-  const dummyAppcache = `CACHE MANIFEST
+
+    // read sisku.xml template into var
+    const b = fs
+      .readFileSync(path.join(__dirname, './template', 'sisku.xml'), {
+        encoding: 'utf8',
+      })
+      .replace(
+        '%template%',
+        `https://la-lojban.github.io/sutysisku/${lang}/index.html#seskari=cnano&amp;sisku={searchTerms}`
+      )
+      .replace('%shortname%', lang + '-sutysisku')
+      .replaceMergefield(config)
+    fs.writeFileSync(
+      path.join('/livla/build/sutysisku/', lang, 'sisku.xml'),
+      b
+    )
+    // copy sw.js
+    try {
+      fs.writeFileSync(
+        path.join('/livla/build/sutysisku/', lang, 'sw.js'),
+        fs
+          .readFileSync(path.join(__dirname, 'template', 'sw.js'), {
+            encoding: 'utf8',
+          })
+          .replace(/{now}/g, now)
+          .replace(/{lang}/g, lang)
+      )
+    } catch (error) { }
+    // generate appcache
+    const dummyAppcache = `CACHE MANIFEST
 # 2020-03-21T23:40:38
 NETWORK:
 *
 `
-  try {
-    fs.writeFileSync(
-      path.join('/livla/build/sutysisku/', lang, 'webapp.appcache'),
-      dummyAppcache
-    )
-  } catch (error) { }
-  // generate worker.js
+    try {
+      fs.writeFileSync(
+        path.join('/livla/build/sutysisku/', lang, 'webapp.appcache'),
+        dummyAppcache
+      )
+    } catch (error) { }
+    // generate worker.js
 
-  const workerjsfile = `
-    window = this;
+    const workerjsfile = `
     postMessage({kind: 'loading'});
+    ${fs.readFileSync(path.join(__dirname, `./template/cmaxes.js`), {
+      encoding: 'utf8',
+    })}
     importScripts(
-      '../cmaxes.js?sisku=${now}',
       'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js',
-      'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
-      'bangu.js?sisku=${now}',
-      '../sisku.js?sisku=${now}'
+      'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js'
     );
+    ${fs.readFileSync(path.join(__dirname, `./template/sisku.js`), {
+      encoding: 'utf8',
+    })}
     postMessage({kind: 'ready'});
-    this.onmessage = function(ev) {
+    self.onmessage = function(ev) {
       if (ev.data.kind == 'newSearch') {
         sisku(ev.data, function(res) {
           postMessage({
@@ -430,33 +427,24 @@ NETWORK:
             }
           })
         })
-      } else if (ev.data.kind == 'fancu' && ev.data.cmene) {
-        fancu[ev.data.cmene](ev.data, function(results) {
-          postMessage({
-            kind: 'fancu',
-            cmene: ev.data.cmene,
-            datni: ev.data,
-            results: results
-          })
-        })
       }
     }`
-  fs.writeFileSync(
-    path.join('/livla/build/sutysisku', lang, 'worker.js'),
-    workerjsfile
-  )
+    fs.writeFileSync(
+      path.join('/livla/build/sutysisku', lang, 'worker.js'),
+      workerjsfile
+    )
 
-  // generate sorcuWorker.js
-  const sorcuWorkerjsfile = `
-    window = this;    
+    // generate sorcuWorker.js
+    const sorcuWorkerjsfile = `
     importScripts(
       'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
-      'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js',
-      // '../assets/scripts/build/index.js',
-      '../sorcu.js?sisku=${now}'
+      'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js'
     );
+    ${fs.readFileSync(path.join(__dirname, `./template/sorcu.js`), {
+      encoding: 'utf8',
+    })}
     postMessage({kind: 'ready'});
-    this.onmessage = function(ev) {
+    self.onmessage = function(ev) {
       if (ev.data.kind == 'loader') {
         postMessage(ev.data)    
       } else if (ev.data.kind == 'fancu' && ev.data.cmene) {
@@ -470,45 +458,53 @@ NETWORK:
         })
       }
     }`
-  fs.writeFileSync(
-    path.join('/livla/build/sutysisku', lang, 'sorcuWorker.js'),
-    sorcuWorkerjsfile
-  )
-});
+    fs.writeFileSync(
+      path.join('/livla/build/sutysisku', lang, 'sorcuWorker.js'),
+      sorcuWorkerjsfile
+    )
+    for (let fileName of ['sorcuWorker.js', 'worker.js']) {
+      const filename = path.join('/livla/build/sutysisku', lang, fileName)
+      const filename_tmp = path.join(`/livla/build/sutysisku/${fileName}`) + ".tmp"
+      let content = fs.readFileSync(filename, {
+        encoding: 'utf8',
+      })
+      if (process.env.COMPRESS !== 'false') {
+        const w = fs.createWriteStream(filename_tmp)
+        await new Promise(resolve => {
+          browserify(filename)
+            .transform("babelify", { presets: ["@babel/preset-env"], plugins: [['@babel/plugin-transform-runtime']] })
+            .bundle()
+            .pipe(w);
+          w.on('finish', function () {
+            resolve()
+          });
+        })
 
-(async () => {
-  for (let fileName of ['sorcu.js', 'sisku.js', 'cmaxes.js']) {
-    let file = fs.readFileSync(path.join(__dirname, `./template/${fileName}`), {
-      encoding: 'utf8',
-    })
-    if (process.env.COMPRESS !== 'false') {
-      file = babel.transformSync(file, {
-        plugins: ['minify-dead-code-elimination'],
-        presets: [
-          [
-            env,
-            {
-              targets: '> 0.25%, not dead',
-            },
-          ],
-        ],
-      }).code
-      file = (await minify(file, {
-        ecma: 5,
-        nameCache,
-        mangle: {
-          toplevel: true,
-          keep_classnames: true,
-          reserved: ['sisku', 'parse', 'cmaxes', 'cnino_sorcu'],
-        },
-      })).code
-      console.log(`minified ${fileName}`)
+        content = fs.readFileSync(filename_tmp, {
+          encoding: 'utf8',
+        })
+        content = (await minify(content, {
+          ecma: 5,
+          nameCache,
+          compress: {
+            keep_fnames: true,
+          },
+          mangle: {
+            toplevel: false,
+            keep_classnames: true,
+            keep_fnames: true,
+            reserved,
+          },
+        })).code
+        fs.unlinkSync(filename_tmp)
+        console.log(`minified ${path.join(`/livla/build/sutysisku/${lang}/${fileName}`)}`)
+      }
+      fs.writeFileSync(path.join(`/livla/build/sutysisku/${lang}/${fileName}`), content)
     }
-    fs.writeFileSync(path.join(`/livla/build/sutysisku/${fileName}`), file)
   }
-})()
 
-fs.copyFileSync(
-  path.join(__dirname, `./template/tejufra.json`),
-  path.join(`/livla/build/sutysisku/lojban/tejufra.json`)
-)
+  fs.copyFileSync(
+    path.join(__dirname, `./template/tejufra.json`),
+    path.join(`/livla/build/sutysisku/lojban/tejufra.json`)
+  )
+})()

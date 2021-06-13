@@ -7,7 +7,8 @@
     "start": "forever src/livla/index.js",
     "snovlaste": "npm run sutysisku ; cd build/sutysisku ; rm .git -rf ; git init ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push --set-upstream origin master -f ; cd ..",
     "push": "git add . ; git commit -a ;  git push",
-    "sutysisku": "rsync -av --exclude=\".*\"  src/sutysisku/src/* build/sutysisku/ ; node src/sutysisku/morna.js",
+    "sisku": "npx browserslist@latest --update-db && rsync -av --exclude=\".*\"  src/sutysisku/src/* build/sutysisku/ ; node src/sutysisku/morna.js",
+    "sutysisku": "rsync -av --exclude=\".*\"  src/sutysisku/src/* build/sutysisku/ ; COMPRESS=false node src/sutysisku/morna.js",
     "deploy": "npm run sutysisku ; cd build/sutysisku ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push ; cd .."
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "dexie-export-import": "^1.0.0",
     "express": "^4.17.1",
     "fast-xml-parser": "^3.17.6",
+    "fs-extra": "^9.1.0",
     "google-spreadsheet": "^3.1.15",
     "he": "^1.2.0",
     "irc-upd": "^0.11.0",

@@ -1,4 +1,7 @@
 const db = new Dexie('sorcu1')
+let leijufra = {
+  xuzganalojudri: '', bangudecomp: ''
+}
 
 function initDb() {
   try {
@@ -23,7 +26,6 @@ async function cnanosisku({
   secupra_vreji,
   queryDecomposition
 }) {
-  console.log(new Date().toISOString(), 'started query', query, bangu, versio)
   let rows
   if (versio === 'selmaho') {
     if (bangu === 'muplis') {
@@ -70,14 +72,12 @@ async function cnanosisku({
       .distinct()
       .toArray())
   } else {
-    console.log('querying', query_apos)
     rows = (await db.valsi
       .where('cache')
       .startsWith(query_apos)
       .and((valsi) => valsi.bangu.indexOf(bangu) === 0)
       .distinct()
       .toArray())
-    console.log(rows[0], rows.length)
   }
   rows = rows.sort((a, b) => {
     if (a.bangu.indexOf("-cll") >= 0) { return -1 }
@@ -90,7 +90,6 @@ async function cnanosisku({
       return valsi
     })
   )
-  console.log(new Date().toISOString(), 'end of query', query, bangu, versio)
   if (seskari === 'fanva' || bangu === 'muplis') {
     return { result: mapti_vreji, decomposed: false }
   }
@@ -103,6 +102,7 @@ async function cnanosisku({
     seskari,
     secupra_vreji,
   })
+
   const allMatches = result
   if (multi) return { result: allMatches[0], decomposed }
   if (allMatches[0].length === 0) {
@@ -114,7 +114,7 @@ async function cnanosisku({
       : julne_setca_lotcila(
         await shortget({ valsi: query_apos, secupra: [], bangu })
       )
-    if (bangu === 'muplis' || !window.xuzganalojudri) {
+    if (bangu === 'muplis' || !leijufra.xuzganalojudri) {
       ty = ty.filter(({ d }) => !d || !d.nasezvafahi)
     }
     if (ty.length <= 1) return { result: ty.concat(allMatches[0]), decomposed }
@@ -122,7 +122,7 @@ async function cnanosisku({
       result: allMatches[1].concat(
         [
           {
-            t: window.bangudecomp,
+            t: leijufra.bangudecomp,
             ot: "vlaza'umei",
             w: query,
             rfs: ty,
@@ -134,6 +134,7 @@ async function cnanosisku({
     }
     return e
   }
+
   return { result: allMatches[0], decomposed }
 }
 
@@ -145,7 +146,7 @@ const sortMultiDimensional = (a, b) => {
 
 const ma_klesi_lo_valsi = (str) => {
   let j = ['', '']
-  if (!window.xuzganalojudri || str.search(/[^aeiouyAEIOY]'/) > -1) return j
+  if (!leijufra.xuzganalojudri || str.search(/[^aeiouyAEIOY]'/) > -1) return j
   try {
     j = cmaxes.parse(str.toLowerCase())
     j = JSON.stringify(j)
@@ -168,7 +169,7 @@ const ma_klesi_lo_valsi = (str) => {
 }
 
 function me_vuhi_le_ve_lujvo(tegerna) {
-  if (!window.xuzganalojudri) return
+  if (!leijufra.xuzganalojudri) return
   if (tegerna.includes(' zei ')) return ['@'].concat(tegerna.split(' '))
   let t
   try {
@@ -182,7 +183,7 @@ function me_vuhi_le_ve_lujvo(tegerna) {
 
 function setca_lotcila(doc) {
   if (!doc.t || doc.t === '') {
-    if (doc.bangu !== 'muplis' && window.xuzganalojudri) {
+    if (doc.bangu !== 'muplis' && leijufra.xuzganalojudri) {
       doc.t = ma_klesi_lo_valsi(doc.w)[0]
     } else {
       doc.t = ''
@@ -192,7 +193,7 @@ function setca_lotcila(doc) {
 }
 
 function decompose(a) {
-  return window.xuzganalojudri
+  return leijufra.xuzganalojudri
     ? a
       .replace(/ zei /g, '_zei_')
       .split(' ')
@@ -297,7 +298,6 @@ async function shortget({ valsi, secupra, nasisku_filohipagbu, bangu }) {
     .equalsIgnoreCase(valsi.toLowerCase())
     .and((valsi) => valsi.bangu === bangu)
     .toArray()
-
   if (hasDefinitions && hasDefinitions.length > 0)
     return secupra.concat(hasDefinitions)
   if (!nasisku_filohipagbu) {
@@ -474,7 +474,8 @@ async function sortthem({
 }
 
 async function sisku(searching, callback) {
-  const { query, seskari, bangu, versio } = searching
+  const { query, seskari, bangu, versio, leijufra: leijufra_incoming } = searching
+  leijufra = { ...leijufra_incoming, ...leijufra_incoming }
   if (query.length === 0) return
   let secupra_vreji = []
   const query_apos = query.replace(/[h‘]/g, "'").toLowerCase()

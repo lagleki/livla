@@ -30,6 +30,7 @@ const catni = document.getElementById('catni')
 const cnano = document.getElementById('cnano')
 const rimni = document.getElementById('rimni')
 // var arxivo = document.getElementById("arxivo");
+const title = document.getElementById('title')
 const SiteImage = document.querySelectorAll('#title > img')
 const btnScrollToTop = document.getElementById('scrollToTop')
 
@@ -46,7 +47,7 @@ content.onscroll = () => {
   }
 }
 
-function switchBorderScroll() {
+window.switchBorderScroll = () => {
   if (content.scrollTop > 200) {
     content.scrollTop = 0
   } else {
@@ -112,24 +113,38 @@ const state = {
   },
   citri: [],
 }
+const loadingState = {
+  loading: true,
+  firstRun: true
+}
+
 try {
   const tcini = JSON.parse(localStorage.getItem('tcini'))
-  if (tcini.seskari) state.searching.seskari = tcini.seskari
-  if (tcini.versio) state.searching.versio = tcini.versio
+  if (tcini && tcini.seskari) state.searching.seskari = tcini.seskari
+  if (tcini && tcini.versio) state.searching.versio = tcini.versio
   // if (tcini.query) state.searching.query = tcini.query
-  if (tcini.bangu) state.searching.bangu = tcini.bangu
+  if (tcini && tcini.bangu) state.searching.bangu = tcini.bangu
+} catch (error) { }
+
+try {
   setStateFromUrl({
     replace: true
   });
-  //check if our db is filled
-  sorcuWorker.postMessage({
-    kind: 'fancu',
-    cmene: 'ningau_lesorcu',
-    ...state.searching,
-  })
+} catch (error) {
 
+}
+//check if our db is filled
+sorcuWorker.postMessage({
+  kind: 'fancu',
+  cmene: 'ningau_lesorcu',
+  ...state.searching,
+})
+try {
   updateLocales()
-} catch (e) { }
+
+} catch (error) {
+
+}
 
 try {
   state.citri = JSON.parse(localStorage.getItem('citri')) || []
@@ -183,7 +198,7 @@ function RenderDasri({ seskari, sepia }) {
 
 const listenToSearchRendered = () => {
   if (event.animationName == "nodeInserted") {
-    addAudioLinks()
+    if (loadingState.loading !== true) addAudioLinks()
     SwitchRotation({
       action: 'stop',
     })
@@ -204,7 +219,7 @@ function SwitchRotation({ action, quick }) {
     setTimeout(() => {
       if (clear.classList.contains('pulsate-css'))
         ciska.classList.add('granim-css')
-    }, quick ? 0 : 500)
+    }, quick ? 100 : 500)
   } else {
     els.map((el) => {
       document.getElementById(el).classList.add('stopRotate')
@@ -215,7 +230,7 @@ function SwitchRotation({ action, quick }) {
 }
 
 function EmitVelcusku() {
-  if (socket1Chat) socket1Chat.open()
+  // if (socket1Chat) socket1Chat.open()
 }
 
 function renderMathAndPlumbs() {
@@ -226,10 +241,10 @@ function renderMathAndPlumbs() {
 
 const hashResults = ({ query, seskari, bangu, len }) => `${query}${seskari}${bangu}${len}`
 
-function RenderResults({ query, seskari, bangu, versio, }) {
+function RenderResults({ query, seskari, bangu, versio }) {
   if (loadingState.loading) {
     const currentHash = hashResults({ query, seskari, bangu, len: results.length })
-    if (loadingState.resultsHash === currentHash) return
+    if (state.displaying.query !== '' && loadingState.resultsHash === currentHash) return
     loadingState.resultsHash = currentHash
   }
   removePlumbs()
@@ -465,9 +480,6 @@ worker.onmessage = (ev) => {
   }
 }
 
-const loadingState = {
-  loading: true
-}
 sorcuWorker.onmessage = (ev) => {
   const data = ev.data
   if (data.kind == 'loader') {
@@ -476,11 +488,12 @@ sorcuWorker.onmessage = (ev) => {
       if (data.banguRaw === state.searching.bangu || data.completedRows === 0 || data.completedRows === data.totalRows) {
         if (data.completedRows === data.totalRows || !twoJsonsAreEqual(loadingState.searching, state.searching)) {
           loadingState.searching = state.searching
+          loadingState.loading = true
           worker.postMessage({
             kind: 'newSearch',
             versio: 'masno',
             ...state.searching,
-            leijufra
+            leijufra,
           })
         }
       }
@@ -491,10 +504,12 @@ sorcuWorker.onmessage = (ev) => {
       document.getElementById('bangu_loading').innerHTML = data.bangu
     } else if (data.cmene === 'loaded') {
       loadingState.loading = false
+      addAudioLinks()
       delete loadingState.resultsHash
       loading.style.display = 'none'
       document.getElementById('contentWrapper').style.paddingBottom = '0'
     }
+    calcVH()
   } else if (data.kind == 'fancu') {
     const { cmene, results } = data
     switch (cmene) {
@@ -537,7 +552,7 @@ function parseQuery(queryString) {
   }
   for (let i = 0; i < pairs.length; i++) {
     const pair = pairs[i].split('=')
-    query[decodeURIComponent(pair[0])] = decodeURIComponent(
+    if (pair[1]) query[decodeURIComponent(pair[0])] = decodeURIComponent(
       pair[1].replace(/[\+]/g, ' ') || ''
     )
   }
@@ -680,11 +695,15 @@ function typing(a) {
 ciska.addEventListener('focus', focusSearch)
 
 function focusSearch() {
+  if (loadingState.firstRun) {
+    loadingState.firstRun = false
+    return
+  }
   state.searching.query = plukaquery(ciska.value)
   DispatchState({ quickRotation: true })
 }
 
-const EmptyState = (bangu) => {
+window.EmptyState = (bangu) => {
   if (typeof bangu === 'string') {
     state.searching.bangu = bangu
     updateLocales()
@@ -694,10 +713,10 @@ const EmptyState = (bangu) => {
   })
 }
 
-clear.addEventListener('click', EmptyState)
+clear.addEventListener('click', window.EmptyState)
 
 //change seskari
-document.getElementById('rimni').addEventListener('click', () => {
+rimni.addEventListener('click', () => {
   state.searching = {
     ...state.displaying,
     seskari: 'rimni',
@@ -771,7 +790,7 @@ function DispatchCitri() {
 //Dispatch State
 function DispatchState({ replace, caller, empty, quickRotation }) {
   updateLocales()
-  if (socket1Chat) socket1Chat.close()
+  // if (socket1Chat) socket1Chat.close()
   state.searching.query = state.searching.query.trim()
   setUrlFromState({
     replace,
@@ -834,10 +853,10 @@ function DispatchState({ replace, caller, empty, quickRotation }) {
 
 function updateDOMWithLocales({ jufra = { window: {} } }, miniState) {
   if (!jufra.window) return
-  Object.keys(jufra.window).forEach((key) => {
+  for (const key in jufra.window) {
     const subKey = key.replace('window.', '')
     leijufra[subKey] = window[subKey] = jufra.window[key]
-  })
+  }
 
   Array.from(document.querySelectorAll('[data-jufra]')).forEach((node) => {
     const key = node.attributes['data-jufra'].nodeValue
@@ -901,47 +920,43 @@ function RenderDesktop(tempState) {
   descr.style.display = 'block'
   //<xuzganalojudri|lojbo>
   var obj = {
-    '@CLL': [
-      '.inglic.',
-      'Reference Grammar',
-      '../pixra/cll.png',
-      1,
-      uncll_url,
-    ],
-    '@lojban.pw': [
-      '.inglic.',
-      'Lojban-Chan',
-      '../pixra/jbotcan.svg',
-      1,
-      'https://lojban.pw',
-    ],
-    "muplis": [0, 'la muplis', '../pixra/taplamuplis.svg', 2.1],
-    en: [0, 'English-Lojban', '../pixra/selsku_lanci_eng.svg', 1],
-    jbo: [0, "fanva fi le'e lojbo ri", '../pixra/lanci_jbo.svg', 1],
-    ja: [
-      0,
-      '日本 - <span style="white-space:pre;">ロジバン</span>',
-      '../pixra/selsku_lanci_jpn.svg',
-      1,
-    ],
-    'fr-facile': [
-      0,
-      'français facile - lojban',
-      '../pixra/selsku_lanci_fra.svg',
-      1,
-    ],
-    ru: [0, 'русский - ложбан', '../pixra/selsku_lanci_rus.svg', 1],
-    eo: [0, 'Esperanto - Loĵbano', '../pixra/lanci_epo.svg', 1],
-    es: [0, 'español - lojban', '../pixra/selsku_lanci_spa.svg', 1],
-    zh: [0, '中文 - 逻辑语', '../pixra/selsku_lanci_zho.svg', 1],
-    '@CC': [
-      '.inglic.',
-      'Learn Lojban',
-      '../pixra/cogwheel-5.svg',
-      1,
-      'https://lojban.pw/books/learn-lojban/',
-    ],
+    '@CLL': {
+      bangu: 'english',
+      cmene: 'Reference Grammar',
+      pixra: '../pixra/cll.png',
+      url: uncll_url
+    },
+    '@lojban.pw': {
+      cmene: 'Live chat for your questions',
+      pixra: '../pixra/nunsku.svg',
+      url: 'https://lojban.pw/articles/live_chat/'
+    },
+    '@LL': {
+      bangu: 'english',
+      cmene: 'Learn Lojban',
+      pixra: '../pixra/cogwheel-5.svg',
+      url: 'https://lojban.pw/books/learn-lojban/'
+    },
+    "muplis": { cmene: 'la muplis', pixra: '../pixra/taplamuplis.svg', width: 2.1 },
+    en: { cmene: 'English-Lojban', pixra: '../pixra/selsku_lanci_eng.svg' },
+    jbo: { cmene: "fanva fi le'e lojbo ri", pixra: '../pixra/lanci_jbo.svg' },
+    ja: {
+
+      cmene: '日本 - <span style="white-space:pre;">ロジバン</span>',
+      pixra: '../pixra/selsku_lanci_jpn.svg',
+    }
+    ,
+    'fr-facile': {
+      cmene: 'français facile - lojban',
+      pixra: '../pixra/selsku_lanci_fra.svg',
+    }
+    ,
+    ru: { cmene: 'русский - ложбан', pixra: '../pixra/selsku_lanci_rus.svg' },
+    eo: { cmene: 'Esperanto - Loĵbano', pixra: '../pixra/lanci_epo.svg' },
+    es: { cmene: 'español - lojban', pixra: '../pixra/selsku_lanci_spa.svg' },
+    zh: { cmene: '中文 - 逻辑语', pixra: '../pixra/selsku_lanci_zho.svg' }
   }
+
   //</xuzganalojudri|lojbo>
   //<lojbo false>
   var obj = {
@@ -971,20 +986,22 @@ function RenderDesktop(tempState) {
   let acc = ''
   const cisn = 100
   for (const key in obj) {
-    if (obj[key][0] === 0 || obj[key][0] === window.bangu) {
-      acc += `<div class='DIV_1' style='height:${cisn}px;width:${obj[key][3] * cisn
-        }px;'><div class='DIV_2' style='height:${cisn}px;width:${obj[key][3] * cisn
-        }px;'><span class='SPAN_3' style='width:auto;'><b class='B_4'>${obj[key][1]
-        }</b></span><a${(obj[key][4] || '').indexOf('http') === 0
+    let { bangu, width, pixra, url, cmene } = obj[key]
+    if (!width) width = 1
+    if (!bangu || bangu === window.bangu) {
+      acc += `<div class='DIV_1' style='height:${cisn}px;width:${width * cisn
+        }px;'><div class='DIV_2' style='height:${cisn}px;width:${width * cisn
+        }px;'><span class='SPAN_3' style='width:auto;'><b class='B_4'>${leijufra[cmene] || cmene
+        }</b></span><a${(url || '').indexOf('http') === 0
           ? " rel='noreferrer' target='_blank'"
           : ''
-        } aria-label="${obj[key][1].replace(/<[^>]+?>/g, '')}" href="${key.indexOf('@') === 0
-          ? obj[key][4]
+        } aria-label="${cmene.replace(/<[^>]+?>/g, '')}" href="${key.indexOf('@') === 0
+          ? url
           : `#seskari=${tempState.seskari !== 'fanva' ? tempState.seskari : 'catni'}&sisku=${encodeUrl(
             lastQuery
           )}&bangu=${key}`
-        }" class='A_7'><div class='DIV_8' style='height:${cisn}px;width:${obj[key][3] * cisn
-        }px;background-image:url("${obj[key][2]}")'></div></a></div></div>`
+        }" class='A_7'><div class='DIV_8' style='height:${cisn}px;width:${width * cisn
+        }px;background-image:url("${pixra}")'></div></a></div></div>`
     }
   }
   drata.innerHTML = acc
@@ -1021,12 +1038,14 @@ if (document.readyState === 'loading') {
 
 function calcVH() {
   delay(() => {
+    const { clientHeight: dasriHeight } = document.getElementById('galtu-dasri')
     const { clientHeight: loadingHeight } = document.getElementById('loading')
+    const { clientHeight: velskuHeight } = document.getElementById('velsku')
     content.setAttribute(
       'style',
       `height:${Math.max(
-        document.documentElement.clientHeight - loadingHeight,
-        window.innerHeight - loadingHeight, 50
+        document.documentElement.clientHeight - dasriHeight - loadingHeight - velskuHeight,
+        window.innerHeight - dasriHeight - loadingHeight - velskuHeight, 50
       )}px;`
     )
   }, 500, 'vh')
@@ -1447,7 +1466,7 @@ function jvoValue() {
   return jvoPlumbsOn ? '⇔' : '↔'
 }
 
-function runSearch(seskari, selmaho, bangu) {
+window.runSearch = (seskari, selmaho, bangu) => {
   state.searching = {
     seskari,
     versio: 'selmaho',
@@ -1468,10 +1487,10 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
   const out = document.createElement('div')
   out.className = inner ? 'terminner' : 'termouter'
   out.classList.add('term')
-  if (index === 0) out.classList.add('searchRendered')
   if (!inner && def.d && def.d.nasezvafahi && (def.rfs || []).length === 0) {
     out.className = 'sidju sidju-normal cll noselect'
   }
+  if (index === 0) out.classList.add('searchRendered')
   var famymahos = (typeof def.s === 'string' && listFamymaho[def.s]) ? listFamymaho[def.s].split(" ") : undefined
   if (typeof famymahos !== 'undefined') {
     let innerHTML = ''
@@ -1514,8 +1533,8 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
           query,
         })
         ss.innerHTML = text
-        // ss.onclick = runSearch(seskari,selmaho,bangu)
-        ss.setAttribute('onclick', `runSearch("${seskari}","${selmaho}","${bangu}")`)
+        // ss.onclick = window.runSearch(seskari,selmaho,bangu)
+        ss.setAttribute('onclick', `window.runSearch("${seskari}","${selmaho}","${bangu}")`)
         selms.appendChild(ss)
       }
     }
@@ -1622,6 +1641,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
         replace: false,
       })
     }
+    // translateButton.innerHTML = `<img src="../pixra/fanva.svg" class="cukta"/>`
     translateButton.innerHTML = `🌍`
   }
 
@@ -1960,16 +1980,21 @@ async function addAudioLinks() {
 window.addEventListener('load', () => {
   // jimpe fi le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri
   if ('serviceWorker' in navigator) {
-    // navigator.serviceWorker.onmessage = function ({ data }) {
-    //   console.log('teminde', data)
-    //   if (data && data.teminde && data.teminde === 'ei ningau le sorcu') {
-    //   }
-    // }
+    navigator.serviceWorker.onmessage = function ({ data }) {
+      // if (data && data.teminde && data.teminde === 'ei ningau le sorcu') {
+      //   console.log('updating triggered')
+      //   sorcuWorker.postMessage({
+      //     kind: 'fancu',
+      //     cmene: 'ningau_lerosorcu',
+      //     ...state.searching,
+      //   })
+      // }
+    }
     navigator.serviceWorker.register('./sw.js').then(
       ({ scope }) => {
         console.log('ServiceWorker registration successful with scope: ', scope)
         //save to dexie all dumps
-        sorcuWorker.postMessage({ kind: 'cnino_sorcu', searching: state.searching, erase: true })
+        // sorcuWorker.postMessage({ kind: 'cnino_sorcu', searching: state.searching, erase: true })
       },
       (err) => {
         console.log('ServiceWorker registration failed: ', err)
@@ -2053,54 +2078,58 @@ var socket
 // if (socket) socket.on("disconnect", function () {
 //   document.getElementById("arxivo").style.display = "none";
 // });
-var socket1Chat
-// socket1Chat = if (io) io.connect("https://1chat-bridge.lojban.pw");
-// if (socket1Chat) {
-//   socket1Chat.on("connect", function () {
-//     document.getElementById("velcusku").style.display = "inline-block";
-//   });
-//   socket1Chat.on("connect_error", function () {
-//     document.getElementById("velcusku").style.display = "none";
-//   });
-//   // socket1Chat.on("disconnect", function() {
-//   //   document.getElementById("velcusku").style.display = "none";
-//   // });
-//   socket1Chat.on("sentFrom", function (data) {
-//     var i = data.data;
-//     var msg = {
-//       d: i.chunk.replace(/[\n\r]+$/g, ""),
-//       s: i.channelId,
-//       w: i.author
-//     };
-//     // if (msg.s === channel)
-//     outp.appendChild(
-//       skicu_palodovalsi({
-//         def: msg,
-//         query: state.searching.query,
-//         seskari: "velcusku"
-//       })
-//     );
-//     outp.childNodes.length = Math.min(outp.childNodes.length, 201);
-//     // content.scrollTop = content.scrollHeight;
-//   });
-//   socket1Chat.on("history", function (data) {
-//     // console.log(data);
-//     document.getElementById("velcusku").style.display = "inline-block";
-//     results = data.map(function (i) {
-//       return {
-//         d: i.chunk.replace(/[\n\r]+$/g, ""),
-//         s: i.channelId,
-//         w: i.author
-//       };
-//     });
-//     // .filter(function(i) {
-//     //   return i.s === channel;
-//     // });
-//     RenderResults({
-//       query: state.searching.query,
-//       seskari: "velcusku"
-//     });
-//     content.scrollTop = content.scrollHeight;
-//   });
-// }
+var socket1Chat, socket1Chat_connected
+socket1Chat = io.connect("wss://jbotcan.org:9091", { transports: ['polling', 'websocket'] });
+if (socket1Chat) {
+  socket1Chat.on("connect", function () {
+    socket1Chat_connected = true
+  });
+  socket1Chat.on("connect_error", function () {
+    console.log('1chat connection error')
+    // document.getElementById("velcusku").style.display = "none";
+  });
+  // socket1Chat.on("disconnect", function() {
+  //   document.getElementById("velcusku").style.display = "none";
+  // });
+  function trimSocketChunk(text){
+    return text.replace(/[\n\r]+$/gims, " ").split('<')[0]
+  }
+  socket1Chat.on("sentFrom", function (data) {
+    if (loadingState.loading || !socket1Chat_connected) return
+    var i = data.data;
+    var msg = {
+      d: trimSocketChunk(i.chunk),
+      s: i.channelId,
+      w: i.author
+    };
+
+    const velsku = document.getElementById('velsku_sebenji')
+    velsku.innerHTML = `<img src='../pixra/nunsku.svg' class="velsku_pixra"/> <span class="velsku_pamei">[${msg.s}] ${msg.w}: ${msg.d}</span>`
+    velsku.style.display = 'flex';
+
+    // if (msg.s === channel)
+    // outp.appendChild(
+    //   skicu_palodovalsi({
+    //     def: msg,
+    //     query: state.searching.query,
+    //     seskari: "velcusku"
+    //   })
+    // );
+    // outp.childNodes.length = Math.min(outp.childNodes.length, 201);
+    // content.scrollTop = content.scrollHeight;
+  });
+  socket1Chat.on("history", function (data) {
+    if (loadingState.loading || !socket1Chat_connected) return
+    const velsku = document.getElementById('velsku_sebenji')
+    const i = data.slice(-1)[0]
+    if (!i) return
+    const msg = {
+      d: trimSocketChunk(i.chunk),
+      s: i.channelId,
+      w: i.author
+    }
+    velsku.innerHTML = `<img src='../pixra/nunsku.svg' class="velsku_pixra"/> <span class="velsku_pamei">[${msg.s}] ${msg.w}: ${msg.d}</span>`
+    velsku.style.display = 'flex';
+  });
+}
 ciska.focus()

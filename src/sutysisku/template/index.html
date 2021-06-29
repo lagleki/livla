@@ -67,7 +67,7 @@
         },
       }
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.min.js"></script>
     <!-- Google Tag Manager -->
     <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -180,60 +180,67 @@
       </form>
     </div>
     <div id="contentWrapper">
-      <div id="scrollableContent">
-        <div id="content" class="content">
-          <button onclick="switchBorderScroll();" id="scrollToTop"></button>
-          <div class="content-panel">
-            <div id="sidju" class="sidju sidju-top ralju noselect">
-              <div id="citri" class="citri"></div>
-              <div id="leitutci">
-                <!-- <a class="tutci velcusku-tutci" id="velcusku">'%velcusku%'</a> -->
-                <a class="tutci ralju-tutci" data-jufra="catni" id="catni"
-                  >'%catni%'</a
-                >
-                <xuzganalojudri|lojbo>
-                  <a class="tutci ralju-tutci" data-jufra="cnano" id="cnano"
-                    >'%cnano%'</a
-                  >
-                </xuzganalojudri|lojbo>
-                <a
-                  class="tutci ralju-tutci rimni-tutci"
-                  data-jufra="rimni"
-                  id="rimni"
-                  >'%rimni%'</a
-                >
-                <!-- <a class="tutci arxivo-tutci" id="arxivo">'%arxivo%'</a> -->
-              </div>
-            </div>
-            <div id="drata" style="text-align: center"></div>
-            <div id="descr">
-              <div class="term termouter" data-jufra="bangudesc">
-                '%bangudesc%'
-              </div>
+      <!-- <div id="scrollableContent"> -->
+      <div id="content" class="content">
+        <button
+          onclick="window.switchBorderScroll();"
+          id="scrollToTop"
+        ></button>
+        <div class="content-panel">
+          <div id="sidju" class="sidju sidju-top ralju noselect">
+            <div id="citri" class="citri"></div>
+            <div id="leitutci">
+              <!-- <a class="tutci velcusku-tutci" id="velcusku">'%velcusku%'</a> -->
+              <a class="tutci ralju-tutci" data-jufra="catni" id="catni"
+                >'%catni%'</a
+              >
               <xuzganalojudri|lojbo>
-                <div class="term termouter">
-                  <h1 id="pronunciation" style="font-weight: bold">
-                    <span data-jufra="pron_guide">'%pron_guide%'</span>
-                  </h1>
-                  <div>. , a b c d e f g ' i j k l m n o p r s t u v x y z</div>
-                  <div id="table"></div>
-                  <audio id="audio"></audio>
-                </div>
+                <a class="tutci ralju-tutci" data-jufra="cnano" id="cnano"
+                  >'%cnano%'</a
+                >
               </xuzganalojudri|lojbo>
+              <a
+                class="tutci ralju-tutci rimni-tutci"
+                data-jufra="rimni"
+                id="rimni"
+                >'%rimni%'</a
+              >
+              <!-- <a class="tutci arxivo-tutci" id="arxivo">'%arxivo%'</a> -->
             </div>
-            <div id="outp"></div>
           </div>
+          <div id="drata" style="text-align: center"></div>
+          <div id="descr">
+            <div class="term termouter" data-jufra="bangudesc">
+              '%bangudesc%'
+            </div>
+            <xuzganalojudri|lojbo>
+              <div class="term termouter">
+                <h1 id="pronunciation" style="font-weight: bold">
+                  <span data-jufra="pron_guide">'%pron_guide%'</span>
+                </h1>
+                <div>. , a b c d e f g ' i j k l m n o p r s t u v x y z</div>
+                <div id="table"></div>
+                <audio id="audio"></audio>
+              </div>
+            </xuzganalojudri|lojbo>
+          </div>
+          <div id="outp"></div>
         </div>
       </div>
+      <!-- </div> -->
     </div>
+    <div id="velsku" class="noselect"><a target="_blank" id="velsku_sebenji" href="https://lojban.pw/articles/live_chat/"></a></div>
     <div id="loading" class="noselect">
-      <!-- <div id="caho_cpacu" data-jufra="bangulo" class="loading_elems">'%bangulo%'</div> -->
       <div id="bangu_loading" class="loading_elems"></div>
       <div id="cpacu" class="loading_elems">
         <span id="kernelo_lo_cpacu"></span>
       </div>
     </div>
-    <script src="index.js?detri={now}"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+      id="MathJax-script"
+    ></script>
     <script defer>
       window.MathJax = {
         options: {
@@ -247,11 +254,8 @@
         },
       }
     </script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
-      id="MathJax-script"
-    ></script>
+    <script defer src="index.js?detri={now}"></script>
+
     <!-- The most recent minified version  -->
     <!-- <script src="https://unpkg.com/3box/dist/3box.min.js"></script> -->
     <!-- <script src="https://www.unpkg.com/identity-wallet@1.2.0/dist/identity-wallet.js"></script> -->

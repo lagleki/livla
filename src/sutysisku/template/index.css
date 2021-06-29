@@ -103,7 +103,13 @@ h4 {
 }
 
 .liste {
-  list-style-image: url(../pixra/cmalu_snime.svg);
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.liste li {
+  background: url(../pixra/cmalu_snime.svg) no-repeat 0px 1px transparent;
+  padding-left: 20px;
 }
 
 .uoldeliste {
@@ -311,12 +317,20 @@ code {
   border-top: solid 1px #ccc;
   border-right: solid 1px #ccc;
   border-bottom: solid 1px #ccc;
-  box-shadow: 3px 3px 1px #ccc;
+  /* box-shadow: 3px 3px 1px #ccc; */
+  --tw-ring-offset-shadow: 0 0 transparent;
+  --tw-ring-shadow: 0 0 transparent;
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 transparent),
+    var(--tw-ring-shadow, 0 0 transparent), var(--tw-shadow);
 }
 
 .rafsi {
   margin-top: 8px;
   font-size: 90%;
+  display: flex;
+  overflow: auto;
 }
 
 .rafsi .pamei {
@@ -336,6 +350,8 @@ code {
   height: 42px;
   width: auto;
   padding: 0;
+  border-top: 1px solid #707070;
+  text-shadow: 1px 1px #4d4d4d;
 }
 
 .cnano-dasri {
@@ -369,6 +385,7 @@ code {
     rgba('%catniskari3%', 1) '%gradpos3%',
     rgba('%catniskari4%', 1) '%gradpos4%'
   );
+  border-top: 1px solid #0831d9;
 }
 
 .fanva-dasri {
@@ -379,6 +396,7 @@ code {
     rgba('%fanvaskari3%', 1) '%gradpos3%',
     rgba('%fanvaskari4%', 1) '%gradpos4%'
   );
+  border-top: 1px solid #c808d9;
 }
 
 .velcusku-dasri {
@@ -421,6 +439,7 @@ code {
 }
 
 #site-title {
+  margin-top: -1px;
   font-size: 18px;
   font-weight: bold;
   float: left;
@@ -428,7 +447,7 @@ code {
   border-color: #333;
   border-width: 0px 1px 1px 1px;
   border-style: solid;
-  height: 18px;
+  height: 19px;
   padding: 12px 10px 14px 10px;
   cursor: pointer;
 }
@@ -528,7 +547,7 @@ code {
   vertical-align: middle;
   outline: 0;
   cursor: pointer;
-  margin-top: 8px;
+  margin-top: 6px;
   height: 0;
   background-color: transparent;
   background-image: url(../pixra/x.svg);
@@ -540,9 +559,9 @@ code {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-#ciska:not(.granim-css) {
+/* #ciska:not(.granim-css) {
   padding-right: 30px;
-}
+} */
 
 #title {
   cursor: default;
@@ -570,7 +589,9 @@ code {
 }
 #content {
   z-index: 199;
+  padding-bottom: 100px;
 }
+
 #contentWrapper {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -580,11 +601,11 @@ code {
   overflow: hidden;
 }
 
-#scrollableContent {
+/* #scrollableContent {
   height: 100%;
   width: 100%;
   overflow: auto;
-}
+} */
 
 @media screen and (min-width: 510px) and (max-width: 710px) {
   #galtu-dasri {
@@ -598,8 +619,8 @@ code {
   }
 
   #clear {
-    padding: 18px 10px 8px 26px;
-    right: 9px;
+    padding: 19px 10px 9px 36px;
+    right: 4px;
     border-radius: 0 20% 0% 0%;
   }
   #title > #site-title > font {
@@ -638,7 +659,7 @@ code {
     order: 1;
   }
   #clear {
-    padding: 18px 20px 8px 20px;
+    padding: 19px 20px 9px 20px;
     right: 6px;
     width: 23px;
     background-size: 22px;
@@ -797,6 +818,39 @@ ul > li > a {
   background: white;
 }
 
+#velsku {
+  text-align: left;
+  margin: 0;
+  /* display: none; */
+  /* justify-content: baseline; */
+  /* align-items: flex-start; */
+  padding: 0;
+  /* height: 28px; */
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  background: white;
+}
+
+#velsku_sebenji {
+  padding: 0.1rem;
+  display: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  box-shadow: #aaa 0 -0.1rem 0.5rem;
+}
+
+.velsku_pamei {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.velsku_pixra {
+  max-height: 20px;
+  margin-right: .2rem;
+}
+
 sup,
 sub {
   vertical-align: baseline;
@@ -834,6 +888,7 @@ sub {
 }
 
 .tutci {
+  max-width: 40vw;
   line-height: 150%;
   box-shadow: inset 0px -3px 7px 0px #29bbff;
   background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
@@ -1181,7 +1236,7 @@ user-select: none; */
 #scrollToTop {
   display: none;
   position: fixed;
-  bottom: 20px;
+  bottom: 26px;
   right: 30px;
   z-index: 99;
   border: none;
@@ -1274,6 +1329,7 @@ user-select: none; */
   src: url('../assets/fonts/crisa-regular.otf?sisku={now}');
 }
 .valsi.zbalermorna {
+  max-width: 50%;
   font-family: 'crisa-regular';
   margin-left: 7px;
   font-size: 130%;
@@ -1286,7 +1342,7 @@ user-select: none; */
   white-space: pre-wrap; /* CSS 2.1 */
   white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
   word-wrap: break-word; /* IE */
-  word-break: break-all;
+  /* word-break: break-all; */
 }
 /*</xuzganalojudri|lojbo>*/
 .display-block {

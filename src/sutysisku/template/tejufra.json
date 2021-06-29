@@ -1,7 +1,7 @@
 {
   "en": {
-    "bangudesc": "<h1><b>la sutysisku</b> is a fast dictionary for the Lojban language.</h1><div style=\"text-align:justify,\">- Can I use it if I lose internet access?<br/>- Yes, if this happens try opening this very address from this browser.<br/>It should still open. A latest version of Chrome, Safari or Firefox is required.<ul class='liste'><li>'search' prefers official words and shows them first, 'search+' sets equal priority to both official and experimental words.</li><li>Press <code>/</code> to focus the search field.</li><li>For advanced users: to enable regular expressions search in titles either start the string with <code>^</code> or end with <code>$</code>: <a href='#seskari=cnano&amp,sisku=%5Eui' class='judri'><code>^ui</code></a>, <a href='#seskari=cnano&amp,sisku=sku%24' class='judri'><code>sku$</code></a> are examples.</li></ul>Transliterations to <a href='#seskari=cnano&amp,sisku=zbalermorna'>zbalermorna</a> orthography are provided for your searches.</div>",
-    "titlelogo": "<a id='title' onclick='EmptyState()' href='javascript:;' aria-label='la sutysisku'><span id='site-title' class='desktop-mode-title-color'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16' alt='logo'><font color='#fff' data-jufra='titlelogo'>la sutysisku</font></span></a>",
+    "bangudesc": "<h1><b>la sutysisku</b> is a fast dictionary for the Lojban language.</h1><div style=\"text-align:justify,\">- Can I use it if I lose internet access?<br/>- Yes, if this happens try opening this very address from this browser.<br/>It should still open. A latest version of Chrome, Safari or Firefox is required.<ul class='liste'><li>'search' prefers official words and shows them first, 'search+' sets equal priority to both official and experimental words.</li><li>Press <code>/</code> to focus the search field.</li><li>For advanced users: to enable regular expressions search in titles either start the string with <code>^</code> or end with <code>$</code>: <a href='#seskari=cnano&amp,sisku=%5Eui' class='judri'><code>^ui</code></a>, <a href='#seskari=cnano&amp,sisku=sku%24' class='judri'><code>sku$</code></a> are examples.</li></ul>Transliterations to <a href='#seskari=cnano&amp,sisku=zbalermorna'>zbalermorna</a> orthography are provided for your searches.</div><h1>Got feedback on la sutysisku? Please, report to the live chat via any of the following channels:</h1><ul><li><a target='_blank' href='https://discord.gg/BVm4EYR'>Discord messenger chat</a></li><li><a target='_blank' href='https://t.me/joinchat/BLVsYz3hCF8mCAb6fzW1Rw'>Telegram messenger chat</a></li><li><a target='_blank' href='https://join.slack.com/t/lojban/shared_invite/zt-k3s96tvq-4mtkvG0ZlW2rFIwTPb4rIg'>Slack messenger chat</a></li><li>IRC chat: #lojban at irc.libera.chat</a></li></ul>",
+    "titlelogo": "<a id='title' onclick='window.EmptyState()' href='javascript:;' aria-label='la sutysisku'><span id='site-title' class='desktop-mode-title-color'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16' alt='logo'><font color='#fff' data-jufra='titlelogo'>la sutysisku</font></span></a>",
     "bangusisku": "English-Lojban",
     "bangulo": "Loading dictionary ...",
     "title": "Lojban dictionary la sutysisku",
@@ -19,6 +19,7 @@
     "ogtitle": "Sutysisku",
     "pron_guide": "Pronunciation guide",
     "window": {
+      "Live chat for your questions": "Live chat for your questions",
       "window.cmene": "English",
       "window.nasezvafahi": "No definition has been found",
       "window.rimni": "mitysisku lo'e rimni",
@@ -27,7 +28,7 @@
       "window.xuzganalojudri": "true",
       "window.judri": "http://jbovlaste.lojban.org/dict/",
       "window.purc": "Last searched",
-      "window.bangu": ".inglic.",
+      "window.bangu": "english",
       "window.muplis": true
     }
   },
@@ -49,6 +50,7 @@
     "rimni": "рифмы",
     "pron_guide": "Руководство по произношению",
     "window": {
+      "Live chat for your questions": "Чат для Ваших вопросов",
       "window.cmene": "русский",
       "window.nasezvafahi": "не найдено",
       "window.rimni": "mitysisku lo'e rimni",
@@ -56,7 +58,8 @@
       "window.bangudecomp": "разбиваем слова ...",
       "window.purc": "Ранее искали",
       "window.xuzganalojudri": true,
-      "window.judri": "http://jbovlaste.lojban.org/dict/"
+      "window.judri": "http://jbovlaste.lojban.org/dict/",
+      "window.bangu": "русский"
     }
   },
   "fr-facile": {
@@ -79,7 +82,8 @@
       "window.bangudecomp": "décomposer...",
       "window.purc": "Vu la dernière fois",
       "window.xuzganalojudri": true,
-      "window.judri": "http://jbovlaste.lojban.org/dict/"
+      "window.judri": "http://jbovlaste.lojban.org/dict/",
+      "window.bangu": "français"
     }
   },
   "eo": {
@@ -100,7 +104,8 @@
       "window.bangudecomp": "fendando ...",
       "window.purc": "Lastaj serĉoj:",
       "window.xuzganalojudri": true,
-      "window.judri": "http://jbovlaste.lojban.org/dict/"
+      "window.judri": "http://jbovlaste.lojban.org/dict/",
+      "window.bangu": "esperanto"
     }
   },
   "es": {
@@ -123,7 +128,8 @@
       "window.bangudecomp": "descomponiendo ...",
       "window.xuzganalojudri": true,
       "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.purc": "Visto por última vez:"
+      "window.purc": "Visto por última vez:",
+      "window.bangu": "español"
     }
   },
   "ja": {
@@ -145,7 +151,8 @@
       "window.bangudecomp": "以下に分けます ...",
       "window.xuzganalojudri": true,
       "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.purc": "最新検索履歴"
+      "window.purc": "最新検索履歴",
+      "window.bangu": "日本"
     }
   },
   "jb": {
@@ -170,7 +177,7 @@
       "window.judri": "http://jbovlaste.lojban.org/dict/",
       "window.cllnotci": "The Reference Grammar on this topic:",
       "window.purc": "Last searched:",
-      "window.bangu": ".inglic."
+      "window.bangu": "english"
     }
   },
   "jbo": {
@@ -193,7 +200,8 @@
       "window.bangudecomp": "te katna",
       "window.xuzganalojudri": true,
       "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.purc": "to ro moi le ka se mitysisku toi"
+      "window.purc": "to ro moi le ka se mitysisku toi",
+      "window.bangu": "lojban"
     }
   },
   "muplis": {
@@ -205,7 +213,7 @@
     "title": "Search for Lojban phrases - la muplis",
     "siskudescr": "Search the dictionary of Lojban sentences la muplis.",
     "opdescr": "A dictionary of sentences for Lojban, English and other languages that can work offline.",
-    "titlelogo": "<a id='title'  onclick='EmptyState()' href='javascript:;' aria-label='la muplis'><span id='site-title' class='desktop-mode-title-color'><img id='logo' src='../pixra/plise.svg' class='plise' alt='lo staile poi sampu'><img src='../pixra/pelxuplise.svg' class='plise' alt='lo staile poi na mutce cinri'><img src='../pixra/crinoplise.svg' class='plise' alt='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='../pixra/blabiplise.svg' class='plise' alt='lo staile poi ka&#39;e pluja'><img src='../pixra/cicnaplise.svg' class='plise' alt='na&#39;e catni se ciska staile'></span></a>",
+    "titlelogo": "<a id='title'  onclick='window.EmptyState()' href='javascript:;' aria-label='la muplis'><span id='site-title' class='desktop-mode-title-color'><img id='logo' src='../pixra/plise.svg' class='plise' alt='lo staile poi sampu'><img src='../pixra/pelxuplise.svg' class='plise' alt='lo staile poi na mutce cinri'><img src='../pixra/crinoplise.svg' class='plise' alt='lo jufra poi ka&#39;e xamgu lo di&#39;i fanva'><img src='../pixra/blabiplise.svg' class='plise' alt='lo staile poi ka&#39;e pluja'><img src='../pixra/cicnaplise.svg' class='plise' alt='na&#39;e catni se ciska staile'></span></a>",
     "mupliskari1": "109,179,242",
     "mupliskari2": "84,163,238",
     "mupliskari3": "54,144,240",
@@ -228,7 +236,8 @@
       "window.arrcll": {},
       "window.purc": "to ro moi le ka se mitysisku toi",
       "window.muplis": true,
-      "window.rimni": "rimni lo'e pa jufra"
+      "window.rimni": "rimni lo'e pa jufra",
+      "window.bangu": "english"
     }
   },
   "zh": {
@@ -238,7 +247,7 @@
     "title": "逻辑语词典 la sutysisku",
     "siskudescr": "搜索逻辑语词典 la jbovlaste.",
     "opdescr": "逻辑语词典：离线工作（+汉语和其他语言）",
-    "bangu": "chinese",
+    "bangu": "中文",
     "lojbo": "true",
     "muplis": "false",
     "xuzganalojudri": "true",
@@ -250,7 +259,8 @@
       "window.bangubuild": "正在构建索引 ...",
       "window.xuzganalojudri": true,
       "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.purc": "最后搜索:"
+      "window.purc": "最后搜索:",
+      "window.bangu": "中文"
     }
   }
 }

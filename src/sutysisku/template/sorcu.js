@@ -1,3 +1,6 @@
+// import "dexie-export-import";
+const { decompress } = require('compress-json')
+
 const db = new Dexie('sorcu1')
 
 const supportedLangs = {
@@ -19,7 +22,7 @@ function initDb() {
   try {
     db.version(1).stores({
       valsi: '++id, bangu, w, d, n, t, *s, g, *r, *cache',
-      langs_ready: '++id, bangu',
+      langs_ready: '++id, bangu, timestamp',
       tejufra: '++id, &bangu, jufra',
     })
   } catch (error) {
@@ -29,22 +32,34 @@ initDb()
 
 const fancu = {
   tejufra: async ({ bangu }, cb) => {
-    const tef1 = (await db.tejufra.where({ bangu: bangu.toString() }).toArray())[0] || {}
+    const tef1 = !bangu ? {} : (await db.tejufra.where({ bangu }).toArray())[0] || {}
     const tef2 = (await db.tejufra.where({ bangu: 'en' }).toArray())[0] || {}
     cb({ ...tef1, jufra: { ...tef2.jufra, ...tef1.jufra } })
   },
   cnino_bangu: ({ bangu }) => {
     sesisku_bangu = bangu
   },
-  ningau_lesorcu: async (searching, cb) => {
+  ningau_lerosorcu: async (searching, cb) => {
+    fancu.ningau_lesorcu(searching, cb, true)
+  },
+  ningau_lesorcu: async (searching, cb, forceAll) => {
     initDb()
     let langsToUpdate = []
+    //добавляес versio.json читание
+    const response = await fetch(
+      `/sutysisku/data/versio.json?sisku=${new Date().getTime()}`
+    )
+    let json = {}
+    if (response.ok) {
+      json = await response.json()
+    }
     for (let lang of Object.keys(supportedLangs)) {
-      const count = await db.langs_ready.where('bangu').equals(lang).count()
+      const count = forceAll ? 0 :
+        await db.langs_ready.where('bangu').equals(lang).filter((rec) => rec.timestamp === json[lang]).count()
       if (count === 0) langsToUpdate.push(lang)
     }
     if (langsToUpdate.length > 0) {
-      await cnino_sorcu(cb, langsToUpdate, searching)
+      await cnino_sorcu(cb, langsToUpdate, searching, json)
       console.log(
         `Database checked. ${langsToUpdate.length} languages have been updated`
       )
@@ -96,7 +111,8 @@ function chunkArray(myArray, chunk_size) {
   return tempArray;
 }
 
-async function cnino_sorcu(cb, langsToUpdate, searching, erase) {
+const blobChunkLength = 10
+async function cnino_sorcu(cb, langsToUpdate, searching, json) {
   initDb()
   await jufra({ bapli: true })
   fancu.tejufra(searching, (results) => {
@@ -124,9 +140,9 @@ async function cnino_sorcu(cb, langsToUpdate, searching, erase) {
     const lang = langs[0]
     langs = langs.slice(1)
     const savedLang = (
-      await db.langs_ready.where('bangu').equals(lang).toArray()
+      await db.langs_ready.where('bangu').equals(lang).filter((rec) => rec.timestamp === json[lang]).toArray()
     )[0]
-    cb(`downloading ${lang}.blob.json dump`)
+    let completedRows = 0;
     postMessage({
       kind: 'loader',
       cmene: 'loading',
@@ -134,66 +150,60 @@ async function cnino_sorcu(cb, langsToUpdate, searching, erase) {
       totalRows: 100,
       bangu: supportedLangs[lang].n
     })
-    const response = await fetch(
-      `/sutysisku/data/parsed-${lang}.blob.json?sisku=${new Date().getTime()}`
-    )
-    let json
-    if (response.ok) {
-      json = await response.json()
-      await db.valsi.where({ bangu: lang }).delete()
-      await db.langs_ready.where({ bangu: lang }).delete()
-      // const idbDatabase = db.backendDB();
-      let rows = json.data.data[0].rows
-      const totalRows = json.data.tables[0].rowCount
+    for (let i = 0; i < blobChunkLength; i++) {
+      cb(`downloading ${lang}-${i}.blob.json.z dump`)
+      const response = await fetch(
+        `/sutysisku/data/parsed-${lang}-${i}.blob.json.z?sisku=${new Date().getTime()}`
+      )
+      let json
+      if (response.ok) {
+        json = decompress(await response.json())
+        if (i === 0) {
+          await db.valsi.where({ bangu: lang }).delete()
+          await db.langs_ready.where({ bangu: lang }).delete()
+        }
+        // const idbDatabase = db.backendDB();
+        let rows = json.data.data[0].rows
+        const totalRows = json.data.tables[0].rowCount * blobChunkLength
 
-      let completedRows = 0;
-      const chunkSize = 250
-      rows = chunkArray(rows, chunkSize)
-      for (const toAdd of rows) {
-        await db.valsi.bulkAdd(toAdd)
-        completedRows += chunkSize
-        postMessage({
-          kind: 'loader',
-          cmene: 'loading',
-          completedRows,
-          totalRows,
-          bangu: supportedLangs[lang].n,
-          banguRaw: lang
-        })
+        const chunkSize = 150
+        rows = chunkArray(rows, chunkSize)
+        for (const toAdd of rows) {
+          await db.valsi.bulkAdd(toAdd)
+          completedRows += chunkSize
+          postMessage({
+            kind: 'loader',
+            cmene: 'loading',
+            completedRows,
+            totalRows,
+            bangu: supportedLangs[lang].n,
+            banguRaw: lang
+          })
+        }
+
+        // for (toAdd of rows) {
+        //   // this method is fast but database gets ready for too long
+        //   // const transaction =
+        //   //   idbDatabase.transaction(
+        //   //   'valsi',
+        //   //   'readwrite'
+        //   // )
+        //   // transaction.objectStore('valsi').add(toAdd);
+        //   // transaction.commit()
+        //   await db.valsi.add(toAdd)
+        //   completedRows++;
+        //   if (completedRows % 1000 === 0 || completedRows === totalRows) {
+        //     postMessage({
+        //       kind: 'loader',
+        //       cmene: 'loading',
+        //       completedRows,
+        //       totalRows,
+        //       bangu: supportedLangs[lang].n,
+        //       banguRaw: lang
+        //     })
+        //   }
+        // if (completedRows === totalRows) {
       }
-
-      // for (toAdd of rows) {
-      //   // this method is fast but database gets ready for too long
-      //   // const transaction =
-      //   //   idbDatabase.transaction(
-      //   //   'valsi',
-      //   //   'readwrite'
-      //   // )
-      //   // transaction.objectStore('valsi').add(toAdd);
-      //   // transaction.commit()
-      //   await db.valsi.add(toAdd)
-      //   completedRows++;
-      //   if (completedRows % 1000 === 0 || completedRows === totalRows) {
-      //     postMessage({
-      //       kind: 'loader',
-      //       cmene: 'loading',
-      //       completedRows,
-      //       totalRows,
-      //       bangu: supportedLangs[lang].n,
-      //       banguRaw: lang
-      //     })
-      //   }
-      // if (completedRows === totalRows) {
-      if (!savedLang) db.langs_ready.put({ bangu: lang })
-      cb(`imported ${lang}.blob.json at ${new Date().toISOString()}`)
-      postMessage({
-        kind: 'loader',
-        cmene: 'loading',
-        completedRows,
-        totalRows,
-        bangu: supportedLangs[lang].n,
-        banguRaw: lang
-      })
       // postMessage({
       //   kind: 'loader',
       //   cmene: 'loadedLang',
@@ -237,7 +247,17 @@ async function cnino_sorcu(cb, langsToUpdate, searching, erase) {
       //     }
       //   }
       // });
+      else console.log('HTTP-Error: ' + response.status)
     }
-    else console.log('HTTP-Error: ' + response.status)
+    if (!savedLang) db.langs_ready.put({ bangu: lang, timestamp: json[lang]||'' })
+    cb(`imported ${lang}-*.blob.json.z files at ${new Date().toISOString()}`)
+    postMessage({
+      kind: 'loader',
+      cmene: 'loading',
+      completedRows,
+      totalRows: completedRows,
+      bangu: supportedLangs[lang].n,
+      banguRaw: lang
+    })
   }
 }

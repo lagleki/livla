@@ -112,24 +112,37 @@ const state = {
   },
   citri: [],
 }
+const loadingState = {
+  loading: true
+}
+
 try {
   const tcini = JSON.parse(localStorage.getItem('tcini'))
-  if (tcini.seskari) state.searching.seskari = tcini.seskari
-  if (tcini.versio) state.searching.versio = tcini.versio
+  if (tcini && tcini.seskari) state.searching.seskari = tcini.seskari
+  if (tcini && tcini.versio) state.searching.versio = tcini.versio
   // if (tcini.query) state.searching.query = tcini.query
-  if (tcini.bangu) state.searching.bangu = tcini.bangu
+  if (tcini && tcini.bangu) state.searching.bangu = tcini.bangu
+} catch (error) { }
+
+try {
   setStateFromUrl({
     replace: true
   });
-  //check if our db is filled
-  sorcuWorker.postMessage({
-    kind: 'fancu',
-    cmene: 'ningau_lesorcu',
-    ...state.searching,
-  })
+} catch (error) {
 
+}
+//check if our db is filled
+sorcuWorker.postMessage({
+  kind: 'fancu',
+  cmene: 'ningau_lesorcu',
+  ...state.searching,
+})
+try {
   updateLocales()
-} catch (e) { }
+
+} catch (error) {
+
+}
 
 try {
   state.citri = JSON.parse(localStorage.getItem('citri')) || []
@@ -183,7 +196,7 @@ function RenderDasri({ seskari, sepia }) {
 
 const listenToSearchRendered = () => {
   if (event.animationName == "nodeInserted") {
-    addAudioLinks()
+    if (loadingState.loading !== true) addAudioLinks()
     SwitchRotation({
       action: 'stop',
     })
@@ -204,7 +217,7 @@ function SwitchRotation({ action, quick }) {
     setTimeout(() => {
       if (clear.classList.contains('pulsate-css'))
         ciska.classList.add('granim-css')
-    }, quick ? 0 : 500)
+    }, quick ? 100 : 500)
   } else {
     els.map((el) => {
       document.getElementById(el).classList.add('stopRotate')
@@ -229,7 +242,7 @@ const hashResults = ({ query, seskari, bangu, len }) => `${query}${seskari}${ban
 function RenderResults({ query, seskari, bangu, versio, }) {
   if (loadingState.loading) {
     const currentHash = hashResults({ query, seskari, bangu, len: results.length })
-    if (loadingState.resultsHash === currentHash) return
+    if (state.displaying.query !== '' && loadingState.resultsHash === currentHash) return
     loadingState.resultsHash = currentHash
   }
   removePlumbs()
@@ -465,9 +478,6 @@ worker.onmessage = (ev) => {
   }
 }
 
-const loadingState = {
-  loading: true
-}
 sorcuWorker.onmessage = (ev) => {
   const data = ev.data
   if (data.kind == 'loader') {
@@ -476,6 +486,14 @@ sorcuWorker.onmessage = (ev) => {
       if (data.banguRaw === state.searching.bangu || data.completedRows === 0 || data.completedRows === data.totalRows) {
         if (data.completedRows === data.totalRows || !twoJsonsAreEqual(loadingState.searching, state.searching)) {
           loadingState.searching = state.searching
+          console.log({
+            event: 'on load dispatch', ...{
+              kind: 'newSearch',
+              versio: 'masno',
+              ...state.searching,
+              leijufra
+            }
+          })
           worker.postMessage({
             kind: 'newSearch',
             versio: 'masno',
@@ -491,6 +509,7 @@ sorcuWorker.onmessage = (ev) => {
       document.getElementById('bangu_loading').innerHTML = data.bangu
     } else if (data.cmene === 'loaded') {
       loadingState.loading = false
+      addAudioLinks()
       delete loadingState.resultsHash
       loading.style.display = 'none'
       document.getElementById('contentWrapper').style.paddingBottom = '0'
@@ -821,6 +840,14 @@ function DispatchState({ replace, caller, empty, quickRotation }) {
         kind: 'fancu',
         cmene: 'cnino_bangu',
         ...state.searching,
+      })
+      console.log({
+        event: 'dispatch', ...{
+          kind: 'newSearch',
+          versio: 'masno',
+          ...state.searching,
+          leijufra
+        }
       })
       worker.postMessage({
         kind: 'newSearch',
@@ -1468,10 +1495,10 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
   const out = document.createElement('div')
   out.className = inner ? 'terminner' : 'termouter'
   out.classList.add('term')
-  if (index === 0) out.classList.add('searchRendered')
   if (!inner && def.d && def.d.nasezvafahi && (def.rfs || []).length === 0) {
     out.className = 'sidju sidju-normal cll noselect'
   }
+  if (index === 0) out.classList.add('searchRendered')
   var famymahos = (typeof def.s === 'string' && listFamymaho[def.s]) ? listFamymaho[def.s].split(" ") : undefined
   if (typeof famymahos !== 'undefined') {
     let innerHTML = ''

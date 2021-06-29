@@ -311,7 +311,13 @@ code {
   border-top: solid 1px #ccc;
   border-right: solid 1px #ccc;
   border-bottom: solid 1px #ccc;
-  box-shadow: 3px 3px 1px #ccc;
+  /* box-shadow: 3px 3px 1px #ccc; */
+  --tw-ring-offset-shadow: 0 0 transparent;
+  --tw-ring-shadow: 0 0 transparent;
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 transparent),
+    var(--tw-ring-shadow, 0 0 transparent), var(--tw-shadow);
 }
 
 .rafsi {
@@ -528,7 +534,7 @@ code {
   vertical-align: middle;
   outline: 0;
   cursor: pointer;
-  margin-top: 8px;
+  margin-top: 6px;
   height: 0;
   background-color: transparent;
   background-image: url(../pixra/x.svg);
@@ -540,9 +546,9 @@ code {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-#ciska:not(.granim-css) {
+/* #ciska:not(.granim-css) {
   padding-right: 30px;
-}
+} */
 
 #title {
   cursor: default;
@@ -580,11 +586,11 @@ code {
   overflow: hidden;
 }
 
-#scrollableContent {
+/* #scrollableContent {
   height: 100%;
   width: 100%;
   overflow: auto;
-}
+} */
 
 @media screen and (min-width: 510px) and (max-width: 710px) {
   #galtu-dasri {
@@ -598,8 +604,8 @@ code {
   }
 
   #clear {
-    padding: 18px 10px 8px 26px;
-    right: 9px;
+    padding: 19px 10px 9px 36px;
+    right: 4px;
     border-radius: 0 20% 0% 0%;
   }
   #title > #site-title > font {
@@ -638,7 +644,7 @@ code {
     order: 1;
   }
   #clear {
-    padding: 18px 20px 8px 20px;
+    padding: 19px 20px 9px 20px;
     right: 6px;
     width: 23px;
     background-size: 22px;

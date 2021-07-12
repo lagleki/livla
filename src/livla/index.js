@@ -709,7 +709,7 @@ function jsonDocDirection(jsonDoc) {
 function prepareSutysiskuJsonDump(language) {
   const jsonDoc = getJsonDump(`/livla/build/dumps/${language}.json`)
   let json = {}
-  const words = jsonDocDirection(jsonDoc).valsi.map((v) => {
+  jsonDocDirection(jsonDoc).valsi.forEach((v) => {
     let g
     if (R.path(['glossword', 'word'], v)) {
       g = [v.glossword.word]
@@ -754,7 +754,17 @@ function prepareSutysiskuJsonDump(language) {
     json: JSON.stringify(json),
   }
 }
+function splitToChunks(array, parts) {
+  let result = [];
+  for (let i = parts; i > 0; i--) {
+    result.push(array.splice(0, Math.ceil(array.length / i)));
+  }
+  return result;
+}
+
 const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
+  const { compress } = require('compress-json')
+
   const supportedLangs = {
     en: {},
     'en-cll': { disableCache: true },
@@ -813,46 +823,58 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
     const rec = { w: key, bangu: tegerna, ...json[key], cache }
     arr.push(rec)
   }
-  arr = arr.sort((a, b) => {
-    if (['gismu', 'cmavo'].includes(a.t)) return -1
-    return 0
+  const order = ['gismu', 'cmavo', 'experimental gismu', 'lujvo', 'zei-lujvo', "fu'ivla", "cmevla", "experimental cmavo", "obsolete fu'ivla"];
+  arr.sort((x, y) => (order.indexOf(x.t) === -1) ? 1 : order.indexOf(x.t) - order.indexOf(y.t));
+  const hash = require('object-hash')(arr)
+
+  splitToChunks(arr, 10).forEach((chunk, index) => {
+    const outp = {
+      formatName: 'dexie',
+      formatVersion: 1,
+      data: {
+        databaseName: 'sorcu1',
+        databaseVersion: 1,
+        tables: [
+          {
+            name: 'valsi',
+            schema: '++id, bangu, w, d, n, t, *s, g, *r, *cache',
+            rowCount: chunk.length,
+          },
+        ],
+        data: [
+          {
+            tableName: 'valsi',
+            inbound: true,
+            rows: chunk,
+          },
+        ],
+      },
+    }
+
+    let t = path.join(
+      '/livla/build/sutysisku/data',
+      `parsed-${tegerna}-${index}.blob.json`
+    )
+    fs.writeFileSync(t, JSON.stringify(outp))
+    fs.writeFileSync(t + ".z", JSON.stringify(compress(outp)))
   })
-
-  const outp = {
-    formatName: 'dexie',
-    formatVersion: 1,
-    data: {
-      databaseName: 'sorcu1',
-      databaseVersion: 1,
-      tables: [
-        {
-          name: 'valsi',
-          schema: '++id, bangu, w, d, n, t, *s, g, *r, *cache',
-          rowCount: arr.length,
-        },
-      ],
-      data: [
-        {
-          tableName: 'valsi',
-          inbound: true,
-          rows: arr,
-        },
-      ],
-    },
-  }
-
-  let t = path.join(
-    '/livla/build/sutysisku/data',
-    `parsed-${tegerna}.blob.json`
-  )
-  fs.writeFileSync(t, JSON.stringify(outp))
+  const versio = '/livla/build/sutysisku/data/versio.json'
+  let jsonTimes = {}
+  try {
+    jsonTimes = JSON.parse(fs.readFileSync(versio, { encoding: 'utf8' }))
+  } catch (error) { }
+  jsonTimes[tegerna] = hash
+  fs.writeFileSync(versio, JSON.stringify(jsonTimes))
+  console.log(`updated ${tegerna} dexie.js sutysisku`);
+  
 }
 
 const ningau_palasutysisku = async (language, lojbo) => {
   // write a new file parsed.js that would be used by la sutysisku
   if (!language) language = 'en'
-  for (const format of ['js', 'json']) {
-    const pars = prepareSutysiskuJsonDump(language)[format]
+  const pars_ = prepareSutysiskuJsonDump(language)
+  for (const format of ['json']) {
+    const pars = pars_[format]
     if (format == 'json')
       await ningau_paladeksi_sutysisku({
         json: JSON.parse(pars),
@@ -873,9 +895,8 @@ const ningau_palasutysisku = async (language, lojbo) => {
     let n = d.getDate()
     if (n === 1 || n === 11 || n === 21) {
       try {
-        n = `${d.getFullYear()}-${
-          d.getMonth() + 1
-        }-${d.getDate()}T${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+        n = `${d.getFullYear()}-${d.getMonth() + 1
+          }-${d.getDate()}T${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
         pars = fs
           .readFileSync(t, {
             encoding: 'utf8',
@@ -883,7 +904,7 @@ const ningau_palasutysisku = async (language, lojbo) => {
           .replace(/\n# .+\n/, `\n# ${n}\n`)
         fs.writeFileSync(t, pars)
         lg(`${t} updated`)
-      } catch (err) {}
+      } catch (err) { }
     }
   }
 }
@@ -892,7 +913,7 @@ const tcepru = (lin, sendTo, socket) => {
   const exec = require('child_process').exec
   exec(
     `${home_path}/src/tcepru/parser <<<"${lin}" 2>/dev/null`,
-    {shell: '/bin/bash'},
+    { shell: '/bin/bash' },
     (error, stdout, stderr) => {
       lin = stdout
       if (error !== null) {
@@ -911,7 +932,7 @@ const jbofihe = (lin, sendTo, socket) => {
   const exec = require('child_process').exec
   exec(
     `${home_path}/src/jbofihe/jbofihe -ie -cr <<<"${lin}" 2>/dev/null`,
-    {shell: '/bin/bash'},
+    { shell: '/bin/bash' },
     (error, stdout, stderr) => {
       console.log(error, stdout)
       lin = stdout
@@ -1032,7 +1053,7 @@ async function downloadSingleDump({ language, erroredLangs }) {
   let t = `/livla/build/dumps/${language}`
   try {
     fs.unlinkSync(`${t}.xml.temp`)
-  } catch (error) {}
+  } catch (error) { }
   fs.writeFileSync(`${t}.xml.temp`, response.data)
   const jsonDoc = fastParse(`${t}.xml.temp`)
   fs.writeFileSync(`${t}.json`, JSON.stringify(jsonDoc))
@@ -1068,6 +1089,7 @@ async function updateXmlDumps() {
       erroredLangs.push(language)
     }
   }
+
   return uniques(erroredLangs)
 }
 
@@ -1099,10 +1121,10 @@ const wordnet = ({ socket, sendTo, text }) => {
       const exp = w.exp && w.exp.length > 0 ? `..... examples: ${w.exp}\n` : ''
       const syns = w.synonyms
         ? `..... synonyms: ${w.synonyms
-            .toString()
-            .split(',')
-            .map((i) => i.replace(/_/g, ' '))
-            .join(', ')}\n`
+          .toString()
+          .split(',')
+          .map((i) => i.replace(/_/g, ' '))
+          .join(', ')}\n`
         : ''
       const whole = prettyfirstline + def + exp + syns
       benji({ socket, sendTo, what: whole })
@@ -1326,7 +1348,7 @@ jsonCommand = {
   },
   raw: ({ origText }) => lojban.ilmentufa_off(origText, 'NJ', true).kampu,
   zei: ({ origText }) => lojban.zeizei(origText),
-  help: ({}) => sidju(),
+  help: ({ }) => sidju(),
   anji: ({ text }) => lojban.anji(text),
   modzi: ({ text }) => lojban.modzi(text),
   ruk: ({ text }) => lojban.rukylermorna(text),
@@ -1351,7 +1373,7 @@ jsonCommand = {
   },
   rot13: ({ text }) => lojban.rotpaci(text),
   tatoeba: ({ text }) => sisku(text),
-  jb: ({}) =>
+  jb: ({ }) =>
     'Dictionary with Examples can be temporaily accessed via\n1. https://la-lojban.github.io/sutysisku/jb/\n2. https://mw.lojban.org/papri/L17-B',
 }
 
@@ -1504,7 +1526,7 @@ async function processor({ from, towhom, text, socket }) {
       break
     case text.indexOf(`${replier}: ko ningau`) === 0 ||
       text.indexOf(`${replier}: ko cnino`) === 0:
-      ;(async () => {
+      ; (async () => {
         benji({
           socket,
           sendTo,
@@ -1542,7 +1564,7 @@ if (!config.disableIrcBots && password) {
   clientmensi.on('error', (message) => {
     lg(`error on ${replier}'s listening`, JSON.stringify(message))
   })
-}else{
+} else {
   console.log('IRC bots not started. Either password not specified or disableIrcBots enabled')
 }
 

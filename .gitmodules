@@ -1,0 +1,3 @@
+[submodule "src/skripto/phrases"]
+	path = src/skripto/phrases
+	url = https://github.com/La-Lojban/phrases.git

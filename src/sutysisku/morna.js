@@ -6,6 +6,7 @@
 const fs = require('fs')
 const path = require('path-extra')
 const axios = require('axios')
+const { compress } =require('compress-json')
 const { minify } = require('terser')
 const browserify = require("browserify");
 
@@ -20,18 +21,18 @@ const langs =
     ? args
     : [
       'lojban',
-      'ile',
-      'ina',
-      'ithkuil',
-      'laadan',
-      'ldp',
-      'zamenhofo',
-      'epo-tha',
-      'simplingua-zho',
-      'toki',
-      'ktv-eng',
-      'en-pt-BR',
-      'muplis-eng-pol',
+      // 'ile',
+      // 'ina',
+      // 'ithkuil',
+      // 'laadan',
+      // 'ldp',
+      // 'zamenhofo',
+      // 'epo-tha',
+      // 'simplingua-zho',
+      // 'toki',
+      // 'ktv-eng',
+      // 'en-pt-BR',
+      // 'muplis-eng-pol',
     ]
 
 CLLAppendix2Json()
@@ -121,9 +122,17 @@ async function CLLAppendix2Json(source) {
   }
 
   fs.writeFileSync(
-    path.join('/livla/build/sutysisku/data', 'parsed-en-cll.blob.json'),
-    JSON.stringify(outp)
+    path.join('/livla/build/sutysisku/data', 'parsed-en-cll-0.blob.json.z'),
+    JSON.stringify(compress(outp))
   )
+  const hash = require('object-hash')(outp)
+  const versio = '/livla/build/sutysisku/data/versio.json'
+  let jsonTimes = {}
+  try {
+    jsonTimes = JSON.parse(fs.readFileSync(versio, { encoding: 'utf8' }))
+  } catch (error) { }
+  jsonTimes['en-cll'] = hash
+  fs.writeFileSync(versio, JSON.stringify(jsonTimes))
 }
 
 function fullColorHex(r, g, b) {
@@ -216,6 +225,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
 (async () => {
   // generate files
   for (let lang of langs) {
+   
     // generate index.html
     const config = JSON.parse(
       fs.readFileSync(
@@ -268,12 +278,12 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
       rimniskari4: '95,29,0',
 
       gradpos1: '0%',
-      gradpos2: '13%',
-      gradpos3: '88%',
+      gradpos2: '8%',
+      gradpos3: '92%',
       gradpos4: '100%',
       rimnigradpos1: '0%',
-      rimnigradpos2: '10%',
-      rimnigradpos3: '91%',
+      rimnigradpos2: '8%',
+      rimnigradpos3: '92%',
       rimnigradpos4: '100%',
       kunti: 'clear',
       rimni: 'rhymes',
@@ -287,6 +297,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
       .split(',')
       .map((i) => i.trim())
     config.mupliskariralju = fullColorHex(arr[0], arr[1], arr[2])
+    
     // read template.html into var
     for (const el of [
       {
@@ -311,7 +322,8 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
           encoding: 'utf8',
         }),
       })
-      if (el.uglify && process.env.COMPRESS !== 'false') {
+      
+      if (el.uglify && process.env.COMPRESS !== 'false') {        
         const store_file = path.join(`/livla/build/sutysisku/${lang}/${el.file}`)
         const store_file_tmp = path.join(`/livla/build/sutysisku/${lang}/${el.file}.tmp`)
         fs.writeFileSync(store_file, output)
@@ -423,7 +435,7 @@ NETWORK:
               bangu: ev.data.bangu,
               seskari: ev.data.seskari,
               versio: ev.data.versio,
-              query: ev.data.query              
+              query: ev.data.query         
             }
           })
         })
@@ -469,6 +481,7 @@ NETWORK:
         encoding: 'utf8',
       })
       if (process.env.COMPRESS !== 'false') {
+        
         const w = fs.createWriteStream(filename_tmp)
         await new Promise(resolve => {
           browserify(filename)

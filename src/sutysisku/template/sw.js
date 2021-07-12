@@ -4,7 +4,7 @@ var urlsToCache = [
   'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff',
   'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff',
   'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff',
-  'https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js',
+  'https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
   './',
@@ -22,6 +22,7 @@ var urlsToCache = [
   '../assets/fonts/linux-libertine/LinLibertine_RBI.otf?sisku={now}',
   '../assets/fonts/crisa-regular.otf?sisku={now}',
   '../assets/scripts/leader-line.min.js',
+  '../pixra/fanva.svg',
   '../pixra/cll.png',
   '../pixra/cmalu_snime.svg',
   '../pixra/snime.svg',
@@ -112,7 +113,6 @@ self.addEventListener('activate', function (event) {
       )
       .then(() => {
         self.clients.matchAll().then(function (clients) {
-          console.log(clients)
           // if (clients && clients.length) {
           //   clients.map(function (client) {
           //     client.postMessage({ teminde: 'ei ningau le sorcu' })

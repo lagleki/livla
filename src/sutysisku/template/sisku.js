@@ -3,11 +3,12 @@ let leijufra = {
   xuzganalojudri: '', bangudecomp: ''
 }
 
+
 function initDb() {
   try {
     db.version(1).stores({
       valsi: '++id, bangu, w, d, n, t, *s, g, *r, *cache',
-      langs_ready: '++id, bangu',
+      langs_ready: '++id, bangu, timestamp',
       tejufra: '++id, &bangu, jufra',
     })
   } catch (error) {
@@ -285,9 +286,9 @@ const sortArray = ({ ar, seskari }) => {
   gismu = gismu.sort(sortMultiDimensional)
   cmavo = cmavo.sort(sortMultiDimensional)
   drata = drata.sort(sortMultiDimensional)
-  return seskari === 'catni'
+  return (['catni', 'cnano'].includes(seskari)
     ? [gismu.concat(cmavo), drata]
-    : gismu.concat(cmavo).concat(drata)
+    : gismu.concat(cmavo).concat(drata)).filter(el => el.length > 0)
 }
 
 async function shortget({ valsi, secupra, nasisku_filohipagbu, bangu }) {
@@ -374,16 +375,18 @@ async function sortthem({
     const doc = setca_lotcila(mapti_vreji[i]) // todo: optimize for phrases
     if (doc) {
       if (doc.w === query || doc.w === query_apos) {
-        doc.rfs = JSON.parse(
-          JSON.stringify(
-            julne_setca_lotcila(await sohivalsi(decompose(doc.w), bangu))
-          )
-        ).filter(({ w }) => w !== doc.w)
-        decomposed = true
-        if (doc.rfs.length === 0) {
-          doc.rfs = (
-            await jmina_ro_cmima_be_lehivalsi({ query: doc.w, def: doc, bangu })
-          )[0].rfs
+        if (doc.bangu.indexOf("-cll") === -1) {
+          doc.rfs = JSON.parse(
+            JSON.stringify(
+              julne_setca_lotcila(await sohivalsi(decompose(doc.w), bangu))
+            )
+          ).filter(({ w }) => w !== doc.w)
+          decomposed = true
+          if (doc.rfs.length === 0) {
+            doc.rfs = (
+              await jmina_ro_cmima_be_lehivalsi({ query: doc.w, def: doc, bangu })
+            )[0].rfs
+          }
         }
         ui[0].push(doc)
       } else if (doc.g && doc.g.search(`^${query}(;|$)`) === 0) {
@@ -424,41 +427,69 @@ async function sortthem({
   let secondMatches
   if (seskari === 'catni') {
     ui = ui.map((i) => {
+      if (i.length === 1) i.push([])
       if (i.length !== 2) i = [[], []]
       return i
     })
-    firstMatches = secupra_vreji.concat(ui[0][0], ui[1][0])
+    firstMatches = secupra_vreji.concat(ui[0][0], ui[0][1], ui[1][0], ui[1][1])
     secondMatches = ui[3][0].concat(
-      ui[9][0],
-      ui[5][0],
-      ui[2][0],
-      ui[4][0],
-      ui[8][0],
-      ui[6][0],
-      ui[7][0],
-      ui[0][1],
-      ui[1][1],
       ui[3][1],
+      ui[9][0],
       ui[9][1],
+      ui[5][0],
       ui[5][1],
+      ui[2][0],
       ui[2][1],
+      ui[4][0],
       ui[4][1],
+      ui[8][0],
       ui[8][1],
+      ui[6][0],
       ui[6][1],
+      ui[7][0],
       ui[7][1]
     )
-  } else {
-    firstMatches = secupra_vreji.concat(ui[0], ui[1])
-    secondMatches = ui[3].concat(
-      ui[9],
-      ui[5],
-      ui[2],
-      ui[4],
-      ui[8],
-      ui[6],
-      ui[7]
-    )
-  }
+  } else
+    if (seskari === 'cnano') {
+      ui = ui.map((i) => {
+        if (i.length === 1) i.push([])
+        if (i.length !== 2) i = [[], []]
+        return i
+      })
+      firstMatches = secupra_vreji.concat(ui[0][0], ui[1][0])
+      secondMatches = ui[3][0].concat(
+        ui[9][0],
+        ui[5][0],
+        ui[2][0],
+        ui[4][0],
+        ui[8][0],
+        ui[6][0],
+        ui[7][0],
+        ui[0][1],
+        ui[1][1],
+        ui[3][1],
+        ui[9][1],
+        ui[5][1],
+        ui[2][1],
+        ui[4][1],
+        ui[8][1],
+        ui[6][1],
+        ui[7][1]
+      )
+    }
+
+    else {
+      firstMatches = secupra_vreji.concat(ui[0], ui[1])
+      secondMatches = ui[3].concat(
+        ui[9],
+        ui[5],
+        ui[2],
+        ui[4],
+        ui[8],
+        ui[6],
+        ui[7]
+      )
+    }
   if (firstMatches && firstMatches.w === query_apos) {
     for (let a = 1; a < firstMatches.length; a++) {
       if (firstMatches[a].l && firstMatches[a].d === `{${query_apos}}`) {
@@ -475,7 +506,14 @@ async function sortthem({
 
 async function sisku(searching, callback) {
   const { query, seskari, bangu, versio, leijufra: leijufra_incoming } = searching
-  leijufra = { ...leijufra_incoming, ...leijufra_incoming }
+  if (!leijufra.bangu) {
+    const tef1 = (await db.tejufra.where({ bangu: bangu.toString() }).toArray())[0] || {}
+    if (tef1 && tef1.jufra) Object.keys(tef1.jufra.window || {}).forEach((key) => {
+      const subKey = key.replace('window.', '')
+      leijufra[subKey] = tef1.jufra.window[key]
+    })
+  }
+  leijufra = { ...leijufra, ...leijufra_incoming }
   if (query.length === 0) return
   let secupra_vreji = []
   const query_apos = query.replace(/[h‘]/g, "'").toLowerCase()
@@ -484,7 +522,10 @@ async function sisku(searching, callback) {
   if (query.indexOf('^') === 0 || query.slice(-1) === '$') {
     const first200 = (
       await db.valsi
+        .where('bangu')
+        .equals(bangu)
         .filter((valsi) => valsi.w.match(query.toLowerCase()))
+        .distinct()
         .toArray()
     ).slice(0, 200)
     secupra_vreji = julne_setca_lotcila(

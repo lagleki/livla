@@ -1,6 +1,7 @@
 *.tsv
 build/lojbo.arxivo/*.sql
 config/
+src/node_modules/*
 node_modules/*
 src/skripto/node_modules/
 build/

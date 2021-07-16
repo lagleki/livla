@@ -4,6 +4,7 @@ const { decompress } = require('compress-json')
 const db = new Dexie('sorcu1')
 
 const supportedLangs = {
+  sutysisku: {n: "la sutysisku"},
   'en': { n: 'English', "p": "selsku_lanci_eng" },
   'muplis': { n: 'la muplis' },
   'en-cll': { n: '<img src="../pixra/cukta.svg" class="cukta"/>The Book', "p": "cukta" },
@@ -21,7 +22,7 @@ let sesisku_bangu = null
 function initDb() {
   try {
     db.version(1).stores({
-      valsi: '++id, bangu, w, d, n, t, *s, g, *r, *cache',
+      valsi: '++id, bangu, w, y, d, n, t, *s, g, *r, *cache',
       langs_ready: '++id, bangu, timestamp',
       tejufra: '++id, &bangu, jufra',
     })
@@ -98,20 +99,36 @@ async function jufra({ bapli }) {
     console.log('locales updated')
   }
 }
-function chunkArray(myArray, chunk_size) {
+function chunkArray(myArray, chunk_size, lang) {
   let index = 0;
   const arrayLength = myArray.length;
   let tempArray = [];
 
   for (index = 0; index < arrayLength; index += chunk_size) {
     const myChunk = myArray.slice(index, index + chunk_size);
-    tempArray.push(myChunk);
+    tempArray.push(myChunk.map(def => addCache(def, lang)));
   }
 
   return tempArray;
 }
 
-const blobChunkLength = 10
+let time = 0
+
+function addCache(def, tegerna) {
+  if (def.cache) return { bangu: tegerna, ...def }
+  let cache
+  if (Array.isArray(def.g)) def.g = def.g.join(";")
+  cache = [def.w, def.s, def.g, def.d, def.n].concat(def.r || []).filter(Boolean).join(";").toLowerCase().replace(
+    /[ \u2000-\u206F\u2E00-\u2E7F\\!"#$%&()*+,\-.\/:<=>?@\[\]^`{|}~：？。，《》「」『』－（）]/g,
+    ';'
+  )
+  cache = `${cache};${cache.replace(/h/g, "'")}`.split(";")
+  cache = [...new Set(cache)].filter((i) => i !== '')
+
+  return { bangu: tegerna, ...def, cache }
+}
+
+const blobChunkLength = 5
 async function cnino_sorcu(cb, langsToUpdate, searching, json) {
   initDb()
   await jufra({ bapli: true })
@@ -151,15 +168,16 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
       bangu: supportedLangs[lang].n
     })
     for (let i = 0; i < blobChunkLength; i++) {
-      cb(`downloading ${lang}-${i}.blob.json.z dump`)
+      cb(`downloading ${lang}-${i}.blobz.json dump`)
       const response = await fetch(
-        `/sutysisku/data/parsed-${lang}-${i}.blob.json.z?sisku=${new Date().getTime()}`
+        `/sutysisku/data/parsed-${lang}-${i}.blobz.json?sisku=${new Date().getTime()}`
       )
       let json
       if (response.ok) {
         json = decompress(await response.json())
         if (i === 0) {
-          await db.valsi.where({ bangu: lang }).delete()
+          await db.valsi.where({ bangu: lang, y: undefined }).delete()
+          await db.valsi.where({ y: lang }).delete()
           await db.langs_ready.where({ bangu: lang }).delete()
         }
         // const idbDatabase = db.backendDB();
@@ -167,7 +185,8 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
         const totalRows = json.data.tables[0].rowCount * blobChunkLength
 
         const chunkSize = 150
-        rows = chunkArray(rows, chunkSize)
+        rows = chunkArray(rows, chunkSize, lang)
+
         for (const toAdd of rows) {
           await db.valsi.bulkAdd(toAdd)
           completedRows += chunkSize
@@ -249,8 +268,8 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
       // });
       else console.log('HTTP-Error: ' + response.status)
     }
-    if (!savedLang) db.langs_ready.put({ bangu: lang, timestamp: json[lang]||'' })
-    cb(`imported ${lang}-*.blob.json.z files at ${new Date().toISOString()}`)
+    if (!savedLang) db.langs_ready.put({ bangu: lang, timestamp: json[lang] || '' })
+    cb(`imported ${lang}-*.blobz.json files at ${new Date().toISOString()}`)
     postMessage({
       kind: 'loader',
       cmene: 'loading',

@@ -1,3 +1,17 @@
+const supportedLangs = {
+  'en': { n: 'English', "p": "selsku_lanci_eng" },
+  'muplis': { n: 'la muplis' },
+  'en-cll': { n: '<img src="../pixra/cukta.svg" class="cukta"/>The Book', "p": "cukta", noRafsi: true, searchPriority: true },
+  jbo: { n: 'lojbo', "p": "lanci_jbo", searchPriority: true },
+  ru: { n: 'русский', "p": "selsku_lanci_rus" },
+  eo: { n: 'esperanto', "p": "lanci_epo" },
+  es: { n: 'español', "p": "selsku_lanci_spa" },
+  'fr-facile': { n: 'français', "p": "selsku_lanci_fra" },
+  ja: { n: '日本語', "p": "selsku_lanci_jpn" },
+  zh: { n: '中文', "p": "selsku_lanci_zho" },
+}
+
+
 const db = new Dexie('sorcu1')
 let leijufra = {
   xuzganalojudri: '', bangudecomp: ''
@@ -7,7 +21,7 @@ let leijufra = {
 function initDb() {
   try {
     db.version(1).stores({
-      valsi: '++id, bangu, w, d, n, t, *s, g, *r, *cache',
+      valsi: '++id, bangu, w, y, d, n, t, *s, g, *r, *cache',
       langs_ready: '++id, bangu, timestamp',
       tejufra: '++id, &bangu, jufra',
     })
@@ -55,7 +69,7 @@ async function cnanosisku({
       .distinct()
       .toArray()).sort((a, b) => {
         if (a.bangu === bangu) { return -1 }
-        if (a.bangu === 'jbo' || b.bangu.indexOf("-cll") >= 0) { return 0 }
+        if (supportedLangs[a.bangu].searchPriority) { return 0 }
         return 1
       });
   } else if (bangu === 'muplis' && queryDecomposition.length > 1) {
@@ -81,8 +95,8 @@ async function cnanosisku({
       .toArray())
   }
   rows = rows.sort((a, b) => {
-    if (a.bangu.indexOf("-cll") >= 0) { return -1 }
-    if (b.bangu.indexOf("-cll") >= 0) { return 1 }
+    if (supportedLangs[a.bangu].searchPriority) { return -1 }
+    if (supportedLangs[b.bangu].searchPriority) { return 1 }
     return 0
   });
   mapti_vreji = mapti_vreji.slice().concat(
@@ -375,7 +389,7 @@ async function sortthem({
     const doc = setca_lotcila(mapti_vreji[i]) // todo: optimize for phrases
     if (doc) {
       if (doc.w === query || doc.w === query_apos) {
-        if (doc.bangu.indexOf("-cll") === -1) {
+        if (!supportedLangs[doc.bangu].noRafsi) {
           doc.rfs = JSON.parse(
             JSON.stringify(
               julne_setca_lotcila(await sohivalsi(decompose(doc.w), bangu))

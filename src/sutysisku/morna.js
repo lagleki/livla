@@ -3,15 +3,15 @@
 // the template is taken from cipra/template.html file
 
 // import
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path-extra')
 const axios = require('axios')
 const { compress } =require('compress-json')
 const { minify } = require('terser')
 const browserify = require("browserify");
 
-const babel = require('@babel/core')
-const env = require('@babel/preset-env')
+// const babel = require('@babel/core')
+// const env = require('@babel/preset-env')
 
 const now = new Date().getTime()
 // config
@@ -35,17 +35,11 @@ const langs =
       // 'muplis-eng-pol',
     ]
 
-CLLAppendix2Json()
+generateCLLDictionary()
+generatePremadeDicts()
 
 // functions
 // generic
-function addZero(i) {
-  if (i < 10) {
-    i = '0' + i
-  }
-  return i
-}
-
 function rgbToHex(rgb) {
   let hex = Number(rgb).toString(16)
   if (hex.length < 2) {
@@ -54,7 +48,24 @@ function rgbToHex(rgb) {
   return hex
 }
 
-async function CLLAppendix2Json(source) {
+async function generatePremadeDicts(){
+  const content = JSON.parse(fs.readFileSync('/livla/src/sutysisku/src/data/parsed-sutysisku-0.blob.json', { encoding: 'utf8' }))
+
+  fs.writeFileSync(
+    path.join('/livla/build/sutysisku/data', 'parsed-sutysisku-0.blobz.json'),
+    JSON.stringify(compress(content))
+  )
+  const hash = require('object-hash')(content)
+  const versio = '/livla/build/sutysisku/data/versio.json'
+  let jsonTimes = {}
+  try {
+    jsonTimes = JSON.parse(fs.readFileSync(versio, { encoding: 'utf8' }))
+  } catch (error) { }
+  jsonTimes['sutysisku'] = hash
+  fs.writeFileSync(versio, JSON.stringify(jsonTimes))
+}
+
+async function generateCLLDictionary(source) {
   source = source || 'https://la-lojban.github.io/uncll/uncll-1.2.13/xhtml_section_chunks/'
   const json = {}
 
@@ -84,21 +95,15 @@ async function CLLAppendix2Json(source) {
             })
             json[selmaho] = { d: jsonLinks }
             if (file.type === 'English')
-              json[selmaho].t = { type: "English term" }
+              json[selmaho].t = { type: "English term", k: 0 }
           } else {
             console.log(el)
           }
         })
   }
 
-  //save
-  let text = JSON.stringify(json)
-  fs.writeFileSync(
-    path.join('/livla/build/sutysisku/data', 'parsed-en-cll.json'),
-    text
-  )
   const arr = Object.keys(json).map(i => {
-    return { w: i, bangu: 'en-cll', cache: [i, i.replace(/h/g, "'")], ...json[i] }
+    return { w: i, cache: [i, i.replace(/h/g, "'")], ...json[i] }
   })
   const outp = {
     "formatName": "dexie",
@@ -109,7 +114,7 @@ async function CLLAppendix2Json(source) {
       "tables": [
         {
           "name": "valsi",
-          "schema": "++id, bangu, w, d, n, t, g, *r, *cache",
+          "schema": "++id, bangu, w, y, d, n, t, g, *r, *cache",
           "rowCount": arr.length
         }
       ],
@@ -122,7 +127,7 @@ async function CLLAppendix2Json(source) {
   }
 
   fs.writeFileSync(
-    path.join('/livla/build/sutysisku/data', 'parsed-en-cll-0.blob.json.z'),
+    path.join('/livla/build/sutysisku/data', 'parsed-en-cll-0.blobz.json'),
     JSON.stringify(compress(outp))
   )
   const hash = require('object-hash')(outp)
@@ -366,11 +371,6 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
     // current datetime
     const d = new Date()
 
-    fs.copyFileSync(
-      path.join(__dirname, `./src/${lang}/bangu.js`),
-      path.join('/livla/build/sutysisku/', lang, 'bangu.js')
-    )
-
     // read sisku.xml template into var
     const b = fs
       .readFileSync(path.join(__dirname, './template', 'sisku.xml'), {
@@ -398,18 +398,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
           .replace(/{lang}/g, lang)
       )
     } catch (error) { }
-    // generate appcache
-    const dummyAppcache = `CACHE MANIFEST
-# 2020-03-21T23:40:38
-NETWORK:
-*
-`
-    try {
-      fs.writeFileSync(
-        path.join('/livla/build/sutysisku/', lang, 'webapp.appcache'),
-        dummyAppcache
-      )
-    } catch (error) { }
+
     // generate worker.js
 
     const workerjsfile = `
@@ -520,4 +509,55 @@ NETWORK:
     path.join(__dirname, `./template/tejufra.json`),
     path.join(`/livla/build/sutysisku/lojban/tejufra.json`)
   )
+
+  const langs_jbo = [
+    'jbo',
+    'en',
+    'ru',
+    'es',
+    'fr',
+    'pl',
+    'ja',
+    'de',
+    'eo',
+    'zh',
+    'en-simple',
+    'fr-facile',
+    'hu',
+    'sv',
+  ]
+  //create redirects
+  for (const lang of langs_jbo){
+    const content = `<!DOCTYPE HTML>
+    <html lang="en-US">
+        <head>
+            <meta charset="UTF-8">
+            <script type="text/javascript">
+                var hash = window.location.hash.replace(/#sisku\\//,'#seskari=cnano&sisku=') || '#'
+                window.location.href = "/sutysisku/lojban/index.html"+hash+"&bangu=${lang}";
+            </script>
+            <title>Page Redirection</title>
+        </head>
+        <body>
+            If you are not redirected automatically, follow the <a href='/sutysisku/lojban/index.html#'>La Sutysisku</a>
+        </body>
+    </html>`
+    await fs.outputFile(`/livla/build/sutysisku/${lang}/index.html`,content)
+    // generate appcache
+    const dummyAppcache = `CACHE MANIFEST
+# ${new Date().toISOString()}
+NETWORK:
+*
+
+CACHE:
+index.html
+`
+    try {
+      fs.writeFileSync(
+        path.join('/livla/build/sutysisku/', lang, 'webapp.appcache'),
+        dummyAppcache
+      )
+    } catch (error) { }
+    
+  }
 })()

@@ -765,50 +765,11 @@ function splitToChunks(array, parts) {
 const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
   const { compress } = require('compress-json')
 
-  const supportedLangs = {
-    en: {},
-    'en-cll': { disableCache: true },
-    jbo: {},
-    ru: {},
-    eo: {},
-    es: {},
-    'fr-facile': {},
-    ja: {},
-    zh: {},
-  }
-
   const keys = Object.keys(json)
 
   let arr = []
   let i = 0
   for (const key of keys) {
-    let cache
-    if ((supportedLangs[tegerna] || {}).disableCache) {
-      cache = key
-    } else {
-      if (json[key].g) json[key].g = json[key].g.join(';')
-      cache = `${key};${Object.keys(json[key])
-        .map((tcila) => json[key][tcila])
-        .join(';')}`
-      cache += `;${cache.replace(/h/g, "'")}`
-      const cache1 = cache
-        .toLowerCase()
-        .replace(/ /g, ';')
-        .split(';')
-        .map((i) => i.trim())
-        .filter((i) => i !== '')
-      let cache2 = cache
-        .toLowerCase()
-        .replace(
-          /[ \u2000-\u206F\u2E00-\u2E7F\\!"#$%&()*+,\-.\/:<=>?@\[\]^`{|}~：？。，《》「」『』－（）]/g,
-          ';'
-        )
-        .split(';')
-        .map((i) => i.trim())
-        .filter((i) => i !== '')
-      cache = cache1.concat(cache2)
-      cache = [...new Set(cache)]
-    }
     //complement r field of valsi table by full rafsi
     json[key].r = json[key].r || []
     if (
@@ -820,14 +781,14 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
 
     if (json[key].r && json[key].r.length === 0) delete json[key].r
     i++
-    const rec = { w: key, bangu: tegerna, ...json[key], cache }
+    const rec = { w: key, ...json[key] }
     arr.push(rec)
   }
   const order = ['gismu', 'cmavo', 'experimental gismu', 'lujvo', 'zei-lujvo', "fu'ivla", "cmevla", "experimental cmavo", "obsolete fu'ivla"];
   arr.sort((x, y) => (order.indexOf(x.t) === -1) ? 1 : order.indexOf(x.t) - order.indexOf(y.t));
   const hash = require('object-hash')(arr)
 
-  splitToChunks(arr, 10).forEach((chunk, index) => {
+  splitToChunks(arr, 5).forEach((chunk, index) => {
     const outp = {
       formatName: 'dexie',
       formatVersion: 1,
@@ -837,7 +798,7 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
         tables: [
           {
             name: 'valsi',
-            schema: '++id, bangu, w, d, n, t, *s, g, *r, *cache',
+            schema: '++id, bangu, w, y, d, n, t, *s, g, *r, *cache',
             rowCount: chunk.length,
           },
         ],
@@ -853,10 +814,9 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
 
     let t = path.join(
       '/livla/build/sutysisku/data',
-      `parsed-${tegerna}-${index}.blob.json`
+      `parsed-${tegerna}-${index}.blobz.json`
     )
-    fs.writeFileSync(t, JSON.stringify(outp))
-    fs.writeFileSync(t + ".z", JSON.stringify(compress(outp)))
+    fs.writeFileSync(t, JSON.stringify(compress(outp)))
   })
   const versio = '/livla/build/sutysisku/data/versio.json'
   let jsonTimes = {}

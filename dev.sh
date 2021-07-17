@@ -1,7 +1,7 @@
 #!/bin/bash
 
 docker kill livla ; docker rm livla
-docker build -f ./dev/Dockerfile-dev -t livla .
+docker build --no-cache -f ./dev/Dockerfile-dev -t livla .
 
 docker run \
   -d -it \

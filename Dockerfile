@@ -7,7 +7,12 @@ RUN apt-get update
 
 RUN apt-get install -y build-essential software-properties-common curl
 
-RUN apt-get install -y python3 python3-dev python3-pip nodejs npm
+RUN apt-get install -y python3 python3-dev
+
+# get install script and pass it to execute: 
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
+# and install node 
+RUN apt-get install nodejs
 
 RUN apt-get install -y rsync
 

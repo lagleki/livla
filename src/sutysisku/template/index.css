@@ -87,6 +87,7 @@ body {
   overflow: hidden;
   margin: 0;
   height: 100vh;
+  /* height: calc(var(--vh, 1vh) * 100); */
 }
 #outp {
   padding-bottom: 10px;
@@ -113,7 +114,6 @@ h4 {
 }
 
 .uoldeliste {
-  list-style-image: url(../pixra/cukta.svg);
   margin: 5px 0 5px 0;
 }
 
@@ -814,7 +814,7 @@ ul > li > a {
   width: 100%;
   bottom: 0px;
   left: 0px;
-  position: absolute;
+  position: fixed;
   background: white;
 }
 
@@ -829,7 +829,7 @@ ul > li > a {
   width: 100%;
   bottom: 0px;
   left: 0px;
-  position: absolute;
+  position: fixed;
   background: white;
 }
 
@@ -1068,6 +1068,7 @@ sub {
 
 .DIV_1:hover {
   outline: rgb(153, 153, 153) solid 3px;
+  /* transform: rotate3d(0,1,0,35deg); */
 }
 
 .DIV_1:active {

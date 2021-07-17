@@ -2,10 +2,12 @@ const leijufra = {}
 let jvoPlumbsOn = true
 let plumbsTimeout = 3500
 const uncll_url = `https://la-lojban.github.io/uncll/uncll-1.2.13/xhtml_section_chunks/`
+const learnlojban_url = 'https://lojban.pw/books/learn-lojban/#'
 const supportedLangs = {
   'en': { n: 'English', "p": "selsku_lanci_eng" },
   'muplis': { n: 'la muplis' },
-  'en-cll': { n: '<img src="../pixra/cukta.svg" class="cukta"/>The Book', "p": "cukta" },
+  'en-cll': { n: 'The Book', "p": "cukta" },
+  'en-ll': { n: 'Learn Lojban', "p": "cukta" },
   jbo: { n: 'lojbo', "p": "lanci_jbo" },
   ru: { n: 'русский', "p": "selsku_lanci_rus" },
   eo: { n: 'esperanto', "p": "lanci_epo" },
@@ -924,7 +926,7 @@ function RenderDesktop(tempState) {
       bangu: 'english',
       cmene: 'Learn Lojban',
       pixra: '../pixra/cogwheel-5.svg',
-      url: 'https://lojban.pw/books/learn-lojban/'
+      url: learnlojban_url
     },
     "muplis": { cmene: 'la muplis', pixra: '../pixra/taplamuplis.svg', width: 2.1 },
     en: { cmene: 'English-Lojban', pixra: '../pixra/selsku_lanci_eng.svg' },
@@ -1143,14 +1145,25 @@ function veljvoString({ v, fullDef, subtype, dataArrAdded, b, veljvoLs }) {
 }
 
 function melbi_uenzi({ def, fullDef, query, seskari, bangu, type, index }) {
-  if (fullDef && fullDef.bangu.indexOf('-cll') >= 0) {
-    const d = Object.keys(def)
-      .map((address) => {
-        const velcki = def[address]
-        return `<li><a rel='noreferrer' target='_blank' href="${uncll_url}${address}">${velcki}</a></li>`
-      })
-      .join('')
-    return { tergeha: `<ul class='uoldeliste'>${d}</ul>`, hasExpansion: false }
+  if (fullDef) {
+    if (fullDef.bangu.indexOf('-cll') >= 0) {
+      const d = Object.keys(def)
+        .map((address) => {
+          const velcki = def[address]
+          return `<li><a rel='noreferrer' target='_blank' href="${uncll_url}${address}">${velcki}</a></li>`
+        })
+        .join('')
+      return { tergeha: `<ul class='uoldeliste' style="list-style-image: url(../pixra/cukta.svg);">${d}</ul>`, hasExpansion: false }
+    }
+    else if (fullDef.bangu.indexOf('-ll') >= 0) {
+      const d = Object.keys(def)
+        .map((address) => {
+          const velcki = def[address]
+          return `<li><a rel='noreferrer' target='_blank' href="${learnlojban_url}${address}">${velcki}</a></li>`
+        })
+        .join('')
+      return { tergeha: `<ul class='uoldeliste' style="list-style-image: url(../pixra/certu.svg);">${d}</ul>`, hasExpansion: false }
+    }
   }
 
   const hasHtml = /<\/?a [\s\S]*>/i.test(def)
@@ -1322,9 +1335,7 @@ function cohukrulermorna(t) {
 
 function zbalermornaize({ w, ot, rfs }) {
   let word = krulermorna(w)
-  if (ot && ot === "vlaza'umei") {
-    return rfs.map((def) => zbalermornaize(def)).join(' ')
-  }
+
   // if ((def.t || '').search(/cmevla|cmene|fu['h]ivla|zi['h]evla/) >= 0) {
   //   word = krulermornaToForeignZbalermorna(word)
   // } else {

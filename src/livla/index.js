@@ -762,9 +762,48 @@ function splitToChunks(array, parts) {
   return result;
 }
 
-const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
-  const { compress } = require('compress-json')
+function workerGenerateChunk({ tegerna, chunk, index }) {
+  const fs = require('fs-extra')
+  const path = require('path-extra')
+  const brotli = require('brotli-wasm');
+  let result = []
+  const outp = {
+    formatName: 'dexie',
+    formatVersion: 1,
+    data: {
+      databaseName: 'sorcu1',
+      databaseVersion: 1,
+      tables: [
+        {
+          name: 'valsi',
+          schema: '++id, bangu, w, y, d, n, t, *s, g, *r, *cache',
+          rowCount: chunk.length,
+        },
+      ],
+      data: [
+        {
+          tableName: 'valsi',
+          inbound: true,
+          rows: chunk,
+        },
+      ],
+    },
+  }
 
+  let t = path.join(
+    '/livla/build/sutysisku/data',
+    `parsed-${tegerna}-${index}.bin`
+  )
+  try {
+    fs.writeFileSync(t, brotli.compress(Buffer.from(JSON.stringify(outp))))
+    result.push(`saving ${tegerna}-${index}`);
+  } catch (error) {
+    result.push(`coudlnt save ${tegerna}-${index}`);
+  }
+  return result
+}
+
+const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
   const keys = Object.keys(json)
 
   let arr = []
@@ -788,36 +827,14 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
   arr.sort((x, y) => (order.indexOf(x.t) === -1) ? 1 : order.indexOf(x.t) - order.indexOf(y.t));
   const hash = require('object-hash')(arr)
 
-  splitToChunks(arr, 5).forEach((chunk, index) => {
-    const outp = {
-      formatName: 'dexie',
-      formatVersion: 1,
-      data: {
-        databaseName: 'sorcu1',
-        databaseVersion: 1,
-        tables: [
-          {
-            name: 'valsi',
-            schema: '++id, bangu, w, y, d, n, t, *s, g, *r, *cache',
-            rowCount: chunk.length,
-          },
-        ],
-        data: [
-          {
-            tableName: 'valsi',
-            inbound: true,
-            rows: chunk,
-          },
-        ],
-      },
-    }
-
-    let t = path.join(
-      '/livla/build/sutysisku/data',
-      `parsed-${tegerna}-${index}.blobz.json`
-    )
-    fs.writeFileSync(t, JSON.stringify(compress(outp)))
-  })
+  let index = 0
+  for (const chunk of splitToChunks(arr, 5)) {
+    const { makeSimpleWorker } = require("inline-webworker-functional/node")
+    const generateChunk = makeSimpleWorker(workerGenerateChunk)
+    const result = await generateChunk({ tegerna, chunk, index })
+    for (const el of result) console.log(el);
+    index++
+  }
   const versio = '/livla/build/sutysisku/data/versio.json'
   let jsonTimes = {}
   try {
@@ -826,7 +843,6 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
   jsonTimes[tegerna] = hash
   fs.writeFileSync(versio, JSON.stringify(jsonTimes))
   console.log(`updated ${tegerna} dexie.js sutysisku`);
-  
 }
 
 const ningau_palasutysisku = async (language, lojbo) => {

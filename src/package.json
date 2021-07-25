@@ -26,7 +26,7 @@
     "inline-webworker-functional": "^2.0.0",
     "irc-upd": "^0.11.0",
     "line-by-line": "^0.1.6",
-    "lojban": "^2.0.8",
+    "lojban": "^2.0.10",
     "mkdirp": "^1.0.4",
     "natural": "^5.0.3",
     "nodemw": "~0.14.0",
@@ -35,12 +35,12 @@
     "path-extra": "~4.3.0",
     "pegjs": "^0.10.0",
     "ramda": "^0.27.1",
-    "regenerator-runtime": "^0.13.7",
+    "regenerator-runtime": "^0.13.9",
     "sanitize-html": "^2.4.0",
     "seek-bzip": "~2.0.0",
     "socket.io": "~4.1.3",
     "string-format": "^2.0.0",
-    "tar": "6.1.0",
+    "tar": "6.1.1",
     "twitter-lite": "^1.1.0",
     "universal-analytics": "^0.4.23"
   },
@@ -49,10 +49,10 @@
     "url": "https://github.com/lagleki/livla"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
+    "@babel/core": "^7.14.8",
     "@babel/plugin-transform-runtime": "^7.14.5",
-    "@babel/preset-env": "^7.14.7",
-    "@babel/runtime": "^7.14.6",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/runtime": "^7.14.8",
     "@types/browserify": "^12.0.37",
     "@types/fs-extra": "^9.0.12",
     "babel-plugin-minify-dead-code-elimination": "^0.5.1",
@@ -60,7 +60,7 @@
     "brotli-wasm": "^1.1.0",
     "browserify": "^17.0.0",
     "core-js": "^3.15.2",
-    "forever": "^0.14.2",
+    "forever": "^4.0.1",
     "terser": "^5.7.1",
     "ts-node": "^10.1.0"
   }

@@ -121,7 +121,6 @@
     />
     <link rel="stylesheet" href="./index.css?detri={now}" />
     <link rel="manifest" href="../manifest.json" />
-    <script src="bangu.js?sisku={now}"></script>
     <script src="../assets/scripts/leader-line.min.js"></script>
   </head>
 
@@ -178,6 +177,12 @@
         <button aria-label="clear" id="clear" type="reset"></button>
       </form>
     </div>
+    <div id="loading" class="noselect">
+      <div id="bangu_loading" class="loading_elems"></div>
+      <div id="cpacu" class="loading_elems">
+        <span id="kernelo_lo_cpacu"></span>
+      </div>
+    </div>
     <div id="contentWrapper">
       <!-- <div id="scrollableContent"> -->
       <div id="content" class="content">
@@ -229,12 +234,6 @@
       <!-- </div> -->
     </div>
     <div id="velsku" class="noselect"><a id="velsku_sebenji" href="https://lojban.pw/articles/live_chat/"></a></div>
-    <div id="loading" class="noselect">
-      <div id="bangu_loading" class="loading_elems"></div>
-      <div id="cpacu" class="loading_elems">
-        <span id="kernelo_lo_cpacu"></span>
-      </div>
-    </div>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"

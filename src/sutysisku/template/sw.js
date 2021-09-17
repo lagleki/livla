@@ -11,7 +11,7 @@ var urlsToCache = [
   './index.html',
   './index.js?detri={now}',
   './index.css?detri={now}',
-  '../sorcuWorker.js?sisku={now}',
+  './sorcuWorker.js?sisku={now}',
   './worker.js?sisku={now}',
   '../assets/fonts/linux-libertine/LinLibertine_R.otf?sisku={now}',
   '../assets/fonts/linux-libertine/LinLibertine_RI.otf?sisku={now}',
@@ -19,6 +19,8 @@ var urlsToCache = [
   '../assets/fonts/linux-libertine/LinLibertine_RBI.otf?sisku={now}',
   '../assets/fonts/crisa-regular.otf?sisku={now}',
   '../assets/scripts/leader-line.min.js',
+  '../pixra/144.png',
+  '../pixra/32.png',
   '../pixra/cukta.svg',
   '../pixra/certu.svg',
   '../pixra/fanva.svg',
@@ -71,7 +73,7 @@ var urlsToCache = [
 ]
 
 self.addEventListener('install', function (event) {
-  self.skipWaiting()
+  // event.waitUntil(self.skipWaiting());
   event.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
       console.log('Opened cache')
@@ -80,18 +82,34 @@ self.addEventListener('install', function (event) {
   )
 })
 self.addEventListener('fetch', function (event) {
+  if (event.request.cache === "only-if-cached" && event.request.mode !== "same-origin") {
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then(function (response) {
       // Cache hit - return response
       if (response) {
-        return response
+        return response;
+        // if (response.status === 0) {
+        // }
+        // const newHeaders = new Headers(response.headers);
+        // newHeaders.set("Cross-Origin-Embedder-Policy", "require-corp");
+        // newHeaders.set("Cross-Origin-Opener-Policy", "same-origin");
+
+        // return new Response(response.body, {
+        //   status: response.status,
+        //   statusText: response.statusText,
+        //   headers: newHeaders,
+        // });
       }
+
       return fetch(event.request)
     })
   )
 })
 
 self.addEventListener('activate', function (event) {
+  // event.waitUntil(self.clients.claim());
   // delete any caches that aren't in expectedCaches
   // which will get rid of static-v1
   event.waitUntil(

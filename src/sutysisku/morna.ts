@@ -1,3 +1,4 @@
+
 const cll_source = 'https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/'
 
 declare global {
@@ -7,6 +8,7 @@ declare global {
   }
 }
 
+import webpack from 'webpack';
 import fs from 'fs-extra';
 
 const path = require('path-extra');
@@ -124,7 +126,7 @@ async function generateCLLDictionary(
       "tables": [
         {
           "name": "valsi",
-          "schema": "++id, bangu, w, y, d, n, t, g, *r, *cache",
+          "schema": "++id, bangu, w, d, n, t, g, *r, *cache",
           "rowCount": arr.length
         }
       ],
@@ -136,10 +138,6 @@ async function generateCLLDictionary(
     }
   }
 
-  // fs.writeFileSync(
-  //   path.join('/livla/build/sutysisku/data', 'parsed-en-cll-0.json'),
-  //   JSON.stringify(outp)
-  // )
   fs.writeFileSync(
     path.join('/livla/build/sutysisku/data', 'parsed-en-cll-0.bin'),
     brotli.compress(Buffer.from(JSON.stringify(outp)))
@@ -183,7 +181,7 @@ async function generateLLDictionary() {
       "tables": [
         {
           "name": "valsi",
-          "schema": "++id, bangu, w, y, d, n, t, g, *r, *cache",
+          "schema": "++id, bangu, w, d, n, t, g, *r, *cache",
           "rowCount": arr.length
         }
       ],
@@ -307,6 +305,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
     )
     const config_fallback = {
       lang,
+      cll_source,
       title: "la sutysisku zo'u: ze'i mitysisku lo valsi",
       favicon: '../pixra/snime.svg',
       icon16: '../pixra/16.png',
@@ -622,4 +621,23 @@ NETWORK:
     } catch (error) { }
 
   }
+  // await new Promise(resolve => {
+  //   webpack({
+  //     entry: {
+  //       index: '/livla/build/sutysisku/lojban/index.js',
+  //       sw: '/livla/build/sutysisku/lojban/sw.js',
+  //       worker: '/livla/build/sutysisku/lojban/worker.js',
+  //       sorcuWorker: '/livla/build/sutysisku/lojban/sorcuWorker.js'
+  //     },
+  //     output: {
+  //       filename: '[name].bundle.js',
+  //       path: '/livla/build/sutysisku/lojban',
+  //     },
+  //   }, (error, stats: any) => {
+  //     if (error || stats?.hasErrors()) {
+  //       fs.writeFileSync('./log.txt', (error||'').toString() + " " + stats.toString());
+  //     }
+  //     resolve(null)
+  //   })
+  // })
 })()

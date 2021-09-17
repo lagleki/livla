@@ -1,7 +1,9 @@
+// import { initBackend } from '/livla/src/node_modules/absurd-sql.js-backend/dist/indexeddb-main-thread.js';
+
 const leijufra = {}
 let jvoPlumbsOn = true
 let plumbsTimeout = 3500
-const uncll_url = `https://la-lojban.github.io/uncll/uncll-1.2.13/xhtml_section_chunks/`
+const uncll_url = `'%cll_source%'`
 const learnlojban_url = 'https://lojban.pw/books/learn-lojban/#'
 const supportedLangs = {
   'en': { n: 'English', "p": "selsku_lanci_eng" },
@@ -502,6 +504,7 @@ sorcuWorker.onmessage = (ev) => {
             versio: 'masno',
             ...state.searching,
             leijufra,
+            loadingState
           })
         }
       }
@@ -820,11 +823,6 @@ function DispatchState({ replace, caller, empty, quickRotation }) {
       EmitVelcusku()
       break
     default:
-      // worker.postMessage({
-      //   kind: 'newSearch',
-      //   versio: 'sutra',
-      //   ...state.searching,
-      // })
       if (loadingState.loading) sorcuWorker.postMessage({
         kind: 'fancu',
         cmene: 'cnino_bangu',
@@ -834,7 +832,8 @@ function DispatchState({ replace, caller, empty, quickRotation }) {
         kind: 'newSearch',
         versio: 'masno',
         ...state.searching,
-        leijufra
+        leijufra,
+        loadingState
       })
     // updateLocales()
   }
@@ -1180,9 +1179,16 @@ function melbi_uenzi({ def, fullDef, query, seskari, bangu, type, index }) {
       if (rt.hasExpansion) hasExpansion = true
       veljvoLs = veljvoLs.concat(rt.jalge)
       const q = string.substr(offset)
-      const r = new RegExp(
-        `^(${c.replace(/[^a-zA-Z0-9\{\}_]/g, '')} \\([^\\(\\)<>]+?\\)).*`
-      )
+      let r;
+      try {
+        r = new RegExp(
+          `^(${c.replace(/[^a-zA-Z0-9\{\}_]/g, '').replace(/([\{\}])/g, '\\$1')} \\([^\\(\\)<>]+?\\)).*`
+        )
+
+      } catch (error) {
+        console.log(c, fullDef, error);
+
+      }
       let hc = c
       if (q.search(r) === 0) {
         hc = q.replace(r, '$1')
@@ -1199,7 +1205,7 @@ function melbi_uenzi({ def, fullDef, query, seskari, bangu, type, index }) {
       if (type === 'd' && typeof index !== 'undefined') {
         const q = string.substr(offset)
         const r = new RegExp(
-          `^(${c.replace(/[^a-zA-Z0-9\{\}_]/g, '')} \\([^()<>]+?\\)).*`
+          `^(${c.replace(/[^a-zA-Z0-9\{\}_]/g, '').replace(/([\{\}])/g, '\\$1')} \\([^()<>]+?\\)).*`
         )
         let hc = c
         if (q.search(r) === 0) {
@@ -1549,7 +1555,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
     jvs.href = window.judri
       ? window.judri + txt
       : `#seskari=${seskari === 'catni' ? 'catni' : 'cnano'
-      }&sisku=${txt}&bangu=${bansekle}&versio=masno`
+      }&sisku=${txt}&bangu=${bangu}&versio=masno`
     if (window.judri) {
       jvs.setAttribute('target', '_blank')
       jvs.setAttribute('rel', 'noreferrer')
@@ -1990,11 +1996,15 @@ window.addEventListener('load', () => {
       //   })
       // }
     }
-    navigator.serviceWorker.register('./sw.js').then(
-      ({ scope }) => {
-        console.log('ServiceWorker registration successful with scope: ', scope)
-        //save to dexie all dumps
-        // sorcuWorker.postMessage({ kind: 'cnino_sorcu', searching: state.searching, erase: true })
+    navigator.serviceWorker.register('./sw.js', {
+      scope: './'
+    }).then(
+      function (registration) {
+        // console.log("COOP/COEP Service Worker registered", registration.scope);
+        // // If the registration is active, but it's not controlling the page
+        // if (registration.active && !navigator.serviceWorker.controller) {
+        //   window.location.reload();
+        // }
       },
       (err) => {
         console.log('ServiceWorker registration failed: ', err)
@@ -2002,7 +2012,7 @@ window.addEventListener('load', () => {
     )
   } else if (location.protocol === 'https:') {
     alert(
-      'Your browser is not supported. Please, upgrade to the latest Chrome / Firefox / Safari.'
+      'Your browser is not supported. Please, upgrade to the latest Chrome / Firefox / Safari and don\'t use the app in incognito / private browsing mode (it needs to save dictionary data to disk to work successfully).'
     )
   } else {
     console.log("http protocol, service worker won't work")

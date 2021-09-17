@@ -22,7 +22,7 @@ let leijufra = {
 function initDb() {
   try {
     db.version(1).stores({
-      valsi: '++id, bangu, w, y, d, n, t, *s, g, *r, *cache',
+      valsi: '++id, bangu, w, d, n, t, *s, g, *r, *cache',
       langs_ready: '++id, bangu, timestamp',
       tejufra: '++id, &bangu, jufra',
     })
@@ -88,9 +88,9 @@ async function cnanosisku({
       .distinct()
       .toArray())
   } else {
-    if (query_apos.length >= 3) {
+    if (query_apos.length >= 2) {
       const reversed_query_apos = [...query_apos].reverse().join("")
-      const query_apos_length = query_apos.length
+      // const query_apos_length = query_apos.length
       await db.transaction('rw', db.valsi, async () => {
         const bothRows = await Promise.all([
           db.valsi
@@ -102,7 +102,7 @@ async function cnanosisku({
           db.valsi
             .where('cache')
             .startsWith(reversed_query_apos)
-            .and((valsi) => valsi.bangu.indexOf(bangu) === 0 && valsi.w.length > query_apos_length && valsi.w.endsWith(query_apos) && !valsi.w.startsWith(query_apos))
+            .and((valsi) => valsi.bangu.indexOf(bangu) === 0 && valsi.cache.filter(i => i.indexOf(query_apos) === 0).length === 0)
             .distinct()
             .toArray()
         ])
@@ -110,14 +110,17 @@ async function cnanosisku({
       })
     } else {
       rows = (await db.valsi
-        .where('w')
+        .where('cache')
         .startsWith(query_apos)
         .and((valsi) => valsi.bangu.indexOf(bangu) === 0)
         .distinct()
         .toArray())
     }
   }
-  rows = rows.sort((a, b) => {
+  rows = rows.map(el => {
+    const { cache, ...rest } = el
+    return rest;
+  }).sort((a, b) => {
     if (supportedLangs[a.bangu].searchPriority) { return -1 }
     if (supportedLangs[b.bangu].searchPriority) { return 1 }
     return 0
@@ -528,7 +531,9 @@ async function sortthem({
 }
 
 async function sisku(searching, callback) {
-  const { query, seskari, bangu, versio, leijufra: leijufra_incoming } = searching
+  const { query, seskari, bangu, versio, leijufra: leijufra_incoming, loadingState } = searching
+  if (loadingState.loading) await db.open()
+
   if (!leijufra.bangu) {
     const tef1 = (await db.tejufra.where({ bangu: bangu.toString() }).toArray())[0] || {}
     if (tef1 && tef1.jufra) Object.keys(tef1.jufra.window || {}).forEach((key) => {

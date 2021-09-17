@@ -124,9 +124,14 @@ h4 {
 }
 
 .loading_elems {
-  width: 33%;
-  margin: 5px;
+  width: 38.2%;
+  margin: 0 5px;
 }
+
+#bangu_loading {
+  font-style: italic;
+}
+
 #bangu_loading .cukta {
   float: none;
 }
@@ -804,18 +809,23 @@ ul > li > a {
 }
 
 #loading {
+  font-size: 90%;
   text-align: center;
   margin: 0;
   display: none;
   justify-content: center;
   align-items: center;
   padding: 0;
-  height: 28px;
+  height: 24px;
   width: 100%;
-  bottom: 0px;
+  top: 42px;
+  /* bottom: 0px; */
   left: 0px;
-  position: fixed;
+  position: relative;
   background: white;
+  z-index: 199;
+  box-shadow: 0 0 0 1px rgb('%mupliskari1%'), 0 0 0 2px rgb('%mupliskari2%'),
+    0 0 0 3px rgb('%mupliskari3%'), 0 0 0 4px rgb('%mupliskari4%');
 }
 
 #velsku {
@@ -838,7 +848,9 @@ ul > li > a {
   display: none;
   white-space: nowrap;
   text-overflow: ellipsis;
-  box-shadow: #aaa 0 -0.1rem 0.5rem;
+  box-shadow: 0 0 0 1px rgb(56 136 233), 0 0 0 2px rgb(34 87 213),
+    0 0 0 3px rgb(38 99 224), 0 0 0 4px rgb(25 65 165);
+  margin-top: 3px;
 }
 
 .velsku_pamei {
@@ -848,7 +860,7 @@ ul > li > a {
 }
 .velsku_pixra {
   max-height: 20px;
-  margin-right: .2rem;
+  margin-right: 0.2rem;
 }
 
 sup,

@@ -35,7 +35,7 @@ const tato = require('./tatoeba.js')
 const nodasezvafahi = "no da se zvafa'i"
 const tersepli = ' + '
 const commandPrefix = '.'
-const langs = [
+let langs = [
   'jbo',
   'en',
   'ru',
@@ -51,6 +51,12 @@ const langs = [
   'hu',
   'sv',
 ]
+if (process.argv && process.argv[2]) {
+  langs = (process.argv[2]).split(",").map(i => i.trim())
+}
+
+console.log(langs, 'languages loaded');
+
 const robangu = [
   'fr-facile',
   'en',
@@ -754,11 +760,15 @@ function prepareSutysiskuJsonDump(language) {
     json: JSON.stringify(json),
   }
 }
-function splitToChunks(array, parts) {
+function splitToChunks(array, parts, tegerna) {
   let result = [];
+  const arr_length = array.length
   for (let i = parts; i > 0; i--) {
-    result.push(array.splice(0, Math.ceil(array.length / i)));
+    const newChunk = array.splice(0, Math.max(2000, Math.ceil(array.length / i)))
+    if (newChunk.length > 0) result.push(newChunk);
   }
+  console.log(`${tegerna} dexie dump, ${result.length} parts, ${arr_length} entries`);
+
   return result;
 }
 
@@ -796,14 +806,49 @@ function workerGenerateChunk({ tegerna, chunk, index }) {
   )
   try {
     fs.writeFileSync(t, brotli.compress(Buffer.from(JSON.stringify(outp))))
-    result.push(`saving ${tegerna}-${index}`);
+    // result.push(`saving ${tegerna}-${index}`);
   } catch (error) {
-    result.push(`coudlnt save ${tegerna}-${index}`);
+    result.push(`couldn't save ${tegerna}-${index}`);
   }
   return result
 }
 
+function addCache(def, tegerna) {
+  let cache
+  if (Array.isArray(def.g)) def.g = def.g.join(";")
+  cache = [def.w, def.s, def.g, def.d, def.n, (def.w || '').split("").reverse().join("")].concat(def.r || []).filter(Boolean).join(";").toLowerCase()
+  const cache2 = cache.replace(
+    /[ \u2000-\u206F\u2E00-\u2E7F\\!"#$%&()*+,.\/:<=>?@\[\]^`{|}~：？。，《》「」『』－（）]/g,
+    ';'
+  ).split(";")
+  cache = cache.replace(
+    /[ \u2000-\u206F\u2E00-\u2E7F\\!"#$%&()*+,\-.\/:<=>?@\[\]^`{|}~：？。，《》「」『』－（）]/g,
+    ';'
+  )
+  cache = `${cache};${cache.replace(/h/g, "'")}`.split(";")
+  cache = [...new Set(cache.concat(cache2))].filter(Boolean)
+
+  return { g: def.g, cache }
+}
+
+function cleanCJKText(text) {
+  return {
+    cjk: text.replace(/[a-zA-Zа-яА-ЯЁё0-9']/g, ' ').replace(
+      /[ \u2000-\u206F\u2E00-\u2E7F\\!"#$%&()*+,\-.\/:<=>?@\[\]^`{|}~：？。，《》「」『』；_－／（）々仝ヽヾゝゞ〃〱〲〳〵〴〵「」『』（）〔〕［］｛｝｟｠〈〉《》【】〖〗〘〙〚〛。、・゠＝〜…‥•◦﹅﹆※＊〽〓♪♫♬♩〇〒〶〠〄再⃝ⓍⓁⓎ]/g,
+      ' '
+    ), nonCjk: text.replace(/[^a-zA-Zа-яА-ЯЁё0-9']/g, ' ')
+  }
+}
 const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
+  let rma
+  if (["ja", "zh"].includes(tegerna)) {
+    const RakutenMA = require('rakutenma')
+    const model = JSON.parse(fs.readFileSync(`/livla/node_modules/rakutenma/model_${tegerna}.json`, { encoding: 'utf8' }));
+    rma = new RakutenMA(model, 1024, 0.007812);  // Specify hyperparameter for SCW (for demonstration purpose)
+    rma.featset = RakutenMA[`default_featset_${tegerna}`];
+    // Set the feature hash function (15bit)
+    rma.hash_func = RakutenMA.create_hash_func(15);
+  }
   const keys = Object.keys(json)
 
   let arr = []
@@ -820,7 +865,16 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
 
     if (json[key].r && json[key].r.length === 0) delete json[key].r
     i++
-    const rec = { w: key, ...json[key] }
+    let rec = { w: key, ...json[key] }
+    if (["ja", "zh"].includes(tegerna)) {
+      // Tokenize one sample sentence
+      const cached_def = { ...rec }
+      if (rec.d) {
+        const { cjk, nonCjk } = cleanCJKText(rec.d + " " + rec.n)
+        cached_def.d = rma.tokenize(cjk).map((i) => i[0]).join(" ") + " " + nonCjk
+      }
+      rec = { ...rec, ...addCache(cached_def) }
+    }
     arr.push(rec)
   }
   const order = ['gismu', 'cmavo', 'experimental gismu', 'lujvo', 'zei-lujvo', "fu'ivla", "cmevla", "experimental cmavo", "obsolete fu'ivla"];
@@ -828,7 +882,7 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
   const hash = require('object-hash')(arr)
 
   let index = 0
-  for (const chunk of splitToChunks(arr, 5)) {
+  for (const chunk of splitToChunks(arr, 5, tegerna)) {
     const { makeSimpleWorker } = require("inline-webworker-functional/node")
     const generateChunk = makeSimpleWorker(workerGenerateChunk)
     const result = await generateChunk({ tegerna, chunk, index })

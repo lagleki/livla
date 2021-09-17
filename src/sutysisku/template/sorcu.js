@@ -1,10 +1,9 @@
-// import "dexie-export-import";
 const decompress = require('brotli/decompress');
 
 const db = new Dexie('sorcu1')
 
 const supportedLangs = {
-  sutysisku: { n: "la sutysisku" },
+  sutysisku: { n: "la sutysisku", bangu: 'en' },
   'en-cll': { n: 'The Book', "p": "cukta" },
   'en-ll': { n: 'Learn Lojban', "p": "cukta" },
   'en': { n: 'English', "p": "selsku_lanci_eng" },
@@ -23,7 +22,7 @@ let sesisku_bangu = null
 function initDb() {
   try {
     db.version(1).stores({
-      valsi: '++id, bangu, w, y, d, n, t, *s, g, *r, *cache',
+      valsi: '++id, bangu, w, d, n, t, *s, g, *r, *cache',
       langs_ready: '++id, bangu, timestamp',
       tejufra: '++id, &bangu, jufra',
     })
@@ -47,7 +46,6 @@ const fancu = {
   ningau_lesorcu: async (searching, cb, forceAll) => {
     initDb()
     let langsToUpdate = []
-    //добавляес versio.json читание
     const response = await fetch(
       `/sutysisku/data/versio.json?sisku=${new Date().getTime()}`
     )
@@ -55,16 +53,19 @@ const fancu = {
     if (response.ok) {
       json = await response.json()
     }
-    for (let lang of Object.keys(supportedLangs)) {
+    for (const lang of Object.keys(supportedLangs)) {
       const count = forceAll ? 0 :
         await db.langs_ready.where('bangu').equals(lang).filter((rec) => rec.timestamp === json[lang]).count()
       if (count === 0) langsToUpdate.push(lang)
     }
+    if (langsToUpdate.includes("en")) langsToUpdate = Object.keys(supportedLangs)
+
     if (langsToUpdate.length > 0) {
+      for (const lang of Object.keys(supportedLangs))
+        if (langsToUpdate.includes(lang.bangu)) langsToUpdate.push(lang)
+
       await cnino_sorcu(cb, langsToUpdate, searching, json)
-      console.log(
-        `Database checked. ${langsToUpdate.length} languages have been updated`
-      )
+      console.log(`Database checked. ${langsToUpdate.length} languages have been updated`)
     }
     postMessage({
       kind: 'loader',
@@ -120,12 +121,17 @@ function addCache(def, tegerna) {
   }
   let cache
   if (Array.isArray(def.g)) def.g = def.g.join(";")
-  cache = [def.w, def.s, def.g, def.d, def.n, [...def.w].reverse().join("")].concat(def.r || []).filter(Boolean).join(";").toLowerCase().replace(
-    /[ \u2000-\u206F\u2E00-\u2E7F\\!"#$%&()*+,\-.\/:<=>?@\[\]^`{|}~：？。，《》「」『』－（）]/g,
+  cache = [def.w, def.s, def.g, def.d, def.n, def.w.split("").reverse().join("")].concat(def.r || []).filter(Boolean).join(";").toLowerCase()
+  const cache2 = cache.replace(
+    /[ \u2000-\u206F\u2E00-\u2E7F\\!"#$%&()*+,\-.\/:<=>?@\[\]^`{|}~：？。，《》「」『』；_－／（）々仝ヽヾゝゞ〃〱〲〳〵〴〵「」『』（）〔〕［］｛｝｟｠〈〉《》【】〖〗〘〙〚〛ッー゛゜。、・゠＝〆〜…‥ヶ•◦﹅﹆※＊〽〓♪♫♬♩〇〒〶〠〄再⃝ⓍⓁⓎ]/g,
+    ';'
+  ).split(";")
+  cache = cache.replace(
+    /[ \u2000-\u206F\u2E00-\u2E7F\\!"#$%&()*+,\-.\/:<=>?@\[\]^`{|}~：？。，《》「」『』；_－（）]/g,
     ';'
   )
   cache = `${cache};${cache.replace(/h/g, "'")}`.split(";")
-  cache = [...new Set(cache)].filter((i) => i !== '')
+  cache = [...new Set(cache.concat(cache2))].filter(Boolean)
 
   return { bangu: tegerna, ...def, cache }
 }
@@ -148,6 +154,15 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
   langs = langs
     .filter((lang) => lang == searching.bangu)
     .concat(langs.filter((lang) => lang != searching.bangu))
+  console.log({ langsToUpdate });
+  const fullResetUpgradeInstance = langs.includes("en")
+  if (fullResetUpgradeInstance) {
+    console.log('clearing', new Date());
+    await db.delete()
+    await db.open()
+    console.log('clearing', new Date());
+  }
+
   while (langs.length > 0) {
     if (sesisku_bangu) {
       const savedLang_next = (
@@ -180,21 +195,19 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
 
         const decompressedData = Buffer.from(decompress(Buffer.from(blob)));
         json = JSON.parse(decompressedData);
-        // const idbDatabase = db.backendDB();
         let rows = json.data.data[0].rows
         const totalRows = json.data.tables[0].rowCount * blobChunkLength
 
-        const chunkSize = 150
-        const allrows = rows.length
+        const chunkSize = 250
+        const all_rows = rows.length
         rows = chunkArray(rows, chunkSize, lang)
         const time = new Date()
 
         await db.transaction('rw', [db.valsi, db.langs_ready], async () => {
-          if (i === 0)
-            await Promise.all([
-              db.valsi.where({ bangu: lang, y: undefined }).or("y").equals(lang).delete(),
-              db.langs_ready.where({ bangu: lang }).delete()
-            ])
+          if (!fullResetUpgradeInstance && i === 0) {
+            await db.valsi.where({ bangu: lang }).delete()
+            await db.langs_ready.where({ bangu: lang }).delete()
+          }
 
           for (const toAdd of rows) {
             await db.valsi.bulkAdd(toAdd)
@@ -209,7 +222,7 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
             })
           }
         })
-        console.log(lang, allrows * 1000 / (new Date() - time), 'rows/sec');
+        console.log(lang, all_rows * 1000 / (new Date() - time), 'rows/sec');
 
         // const idb = db.backendDB();
         // for (const toAdd of rows) {
@@ -223,35 +236,10 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
         //   transaction.commit()
         // }
       }
-      // await db.import(blob, {
-      //   acceptMissingTables: true,
-      //   acceptVersionDiff: true,
-      //   acceptNameDiff: true,
-      //   acceptChangedPrimaryKey: true,
-      //   overwriteValues: true,
-      //   // clearTablesBeforeImport: true,
-      //   noTransaction: true,
-      //   progressCallback: ({ totalRows, completedRows, done }) => {
-      //     if (!done) {
-      //       cb(
-      //         `imported ${completedRows} keys out of ${totalRows} from ${lang}.blob.json`,
-      //         new Date().toISOString()
-      //       )
-      //       postMessage({
-      //         kind: 'loader',
-      //         cmene: 'loading',
-      //         completedRows,
-      //         totalRows,
-      //         bangu: supportedLangs[lang].n,
-      //         banguRaw: bangu
-      //       })
-      //     } else {
-      //       if (!savedLang) db.langs_ready.put({ bangu: lang })
-      //       cb(`imported ${lang}.blob.json at ${new Date().toISOString()}`)
-      //     }
-      //   }
-      // });
-      else console.log('HTTP-Error: ' + response.status)
+      else {
+        console.log('HTTP-Error: ' + response.status)
+        break;
+      }
     }
     if (!savedLang) db.langs_ready.put({ bangu: lang, timestamp: json[lang] || '' })
     cb(`imported ${lang}-*.bin files at ${new Date().toISOString()}`)

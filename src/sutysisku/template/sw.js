@@ -8,6 +8,7 @@ var urlsToCache = [
   'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
   './',
+  './bangu.js',
   './index.html',
   './index.js?detri={now}',
   './index.css?detri={now}',

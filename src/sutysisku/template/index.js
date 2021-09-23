@@ -1304,7 +1304,7 @@ function escapeRegExp(string) {
 }
 
 function basna({ def, query }) {
-  if (!query || query === '') return def
+  if (!query || query === '' || query.length <= 2) return def
   const f = `(${escapeRegExp(query).replace(/ /g, '|')}|${escapeRegExp(query)
     .replace(/'/g, 'h')
     .replace(/ /g, '|')})`

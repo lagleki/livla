@@ -185,6 +185,15 @@ function sortMultiDimensional(a, b) {
   return a.d.length < b.d.length ? -1 : a.d.length > b.d.length ? 1 : 0
 }
 
+function cmaxesParse({tegerna},callback) {
+  try {
+    let parsed = cmaxes.parse(tegerna.toLowerCase())
+    parsed = parsed.filter(el => el[0] !== 'drata')
+    return callback(parsed)
+  } catch (error) { }
+  return callback([])
+}
+
 function reconcatenate(selsku) {
   try {
     let parsed = cmaxes.parse(selsku.toLowerCase())

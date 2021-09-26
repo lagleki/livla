@@ -492,6 +492,14 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
             }
           })
         })
+      } else if (ev.data.kind == 'parse') {
+        cmaxesParse({tegerna: ev.data.tegerna}, function(res){
+          postMessage({
+            kind: 'parse',
+            results: res,
+            req: ev.data,
+          })
+        })
       }
     }`
     fs.writeFileSync(

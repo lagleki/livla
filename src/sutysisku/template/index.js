@@ -1612,7 +1612,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
   let hasTranslateButton = false
   const word = document.createElement('h4')
   word.classList.add('valsi')
-  word.setAttribute('data-valsi', encodeValsiForWeb(def.w))
+  if (def.d && !def.d.nasezvafahi) word.setAttribute('data-valsi', encodeValsiForWeb(def.w))
   if (def.l) word.classList.add('nalojbo')
   if (def.t !== window.bangudecomp && seskari !== 'fanva' && (plukaquery(def.w) == query || seskari == 'velcusku')) {
     hasTranslateButton = true
@@ -1879,6 +1879,32 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
         query,
       })
       // }
+      rafsi.appendChild(rafElem)
+    }
+    tanxe_leirafsi.appendChild(rafsi)
+    out.appendChild(tanxe_leirafsi)
+  }
+  if ((def.b || []).length > 0 && !def.l && window.xuzganalojudri) {
+    const tanxe_leirafsi = document.createElement('div')
+    tanxe_leirafsi.className = 'rafsi noselect hue_rotate'
+
+    const rafcme = document.createElement('div')
+    rafcme.className = 'tanxe zunle_tanxe kurfa_tanxe'
+    rafcme.innerHTML = 'BAI'
+    tanxe_leirafsi.appendChild(rafcme)
+
+    const rafsi = document.createElement('div')
+    rafsi.className = 'tanxe pritu_tanxe kurfa_tanxe'
+    for (i = 0; i < def.b.length; i++) {
+      const rafElem = document.createElement('span')
+      rafElem.className = 'pamei'
+      const raf = def.b[i]
+      rafElem.innerHTML = `</span><a class="hue_rotate_back a-${seskari}" href="#seskari=${seskari}&sisku=${encodeUrl(
+        raf
+      )}&bangu=${bangu}&versio=masno">${basna({
+        def: escHtml(raf, true),
+        query,
+      })}</a><span>`
       rafsi.appendChild(rafElem)
     }
     tanxe_leirafsi.appendChild(rafsi)
@@ -2204,33 +2230,33 @@ const pollyParams = {
     "«": "",
     "-": ".",
     "»": "",
-    "?": "",
+    "\\?": "",
     ",": "",
-    ".": "ʔ",
+    "\\.": "ʔ",
     " ": " ",
     "ˈ": "ˈ",
-    a: "a",
+    a: "ɑː",
     e: "ɛ:",
     i: "i:",
     o: "ɔ:",
-    u: "u",
+    u: "u:",
     y: "ə",
-    ai: "aj",
-    ei: "ɛj",
-    oi: "ɔj",
-    au: "aʊ",
-    ia: "ja",
-    ie: "jɛ:",
-    ii: "ji",
-    io: "jɔ",
-    iu: "ju",
-    ua: "wa",
-    ue: "wɛ:",
-    ui: "wi:",
-    uo: "wɔ",
-    uu: "wu",
-    iy: "jə",
-    uy: "wə",
+    ą: "ɑːj",
+    ę: "ɛ:j",
+    ǫ: "ɔ:j",
+    ḁ: "aʊ",
+    ɩa: "jɑː",
+    ɩe: "jɛ:",
+    ɩi: "ji:",
+    ɩo: "jɔ:",
+    ɩu: "ju:",
+    wa: "wɑː",
+    we: "wɛ:",
+    wi: "wi:",
+    wo: "wɔ:",
+    wu: "wu:",
+    ɩy: "jə",
+    wy: "wə",
     c: "ʃ",
     j: "ʒ",
     s: "s",
@@ -2243,7 +2269,8 @@ const pollyParams = {
     tc: "tʃ",
     dz: "ʣ",
     ts: "ʦ",
-    r: "ɹɹ",
+    "r(?=[^aeiouyḁąęǫ])": "rr.",
+    "r(?=[aeiouyḁąęǫ])": "ɹ",
     n: "n",
     m: "m",
     l: "l",
@@ -2256,12 +2283,12 @@ const pollyParams = {
   }
 }
 
+window.pollyParams = pollyParams
 function PollyPlayer(params) {
   AWS.config.credentials = new AWS.CognitoIdentityCredentials({
     IdentityPoolId: params.IdentityPoolId,
   });
   AWS.config.region = params.region;
-
 
   function matchForm(word, form) {
     let regex = "^";
@@ -2272,9 +2299,9 @@ function PollyPlayer(params) {
       if (form[f] == "*")
         regex += ".*";
       if (form[f] == "C")
-        regex += "[^aeiouy]";
+        regex += "[^aeiouyḁąęǫ]";
       if (form[f] == "V")
-        regex += "[aeiouy]";
+        regex += "[aeiouyḁąęǫ]";
     }
     regex += "$";
     const re = new RegExp(regex);
@@ -2286,39 +2313,46 @@ function PollyPlayer(params) {
       matchForm(word, "CVCCV");
   }
 
+  function getValByKeyRegex(json, testedString) {
+    const match = Object.keys(json).filter(key => RegExp(`^${key}`).test(testedString))[0]
+    return json[match]
+  }
+
   function text2SSML(textToSpeak) {
     const famymaho = ["kei", "vau", "ku'o", "li'u", "le'u", "ge'u"]
     const words = textToSpeak.replace(/(?:\r\n|\r|\n)/g, ' ').split(' ');
     let output = [`<speak><prosody rate="slow">`, "<s>"];
     for (let w = 0; w < words.length; w++) {
-      if (words[w] == ".i" || words[w] == "ni'o") {
+      const currentWord = krulermorna(words[w])
+      const nextWord = words[w + 1]
+      if (["i", ".i", "ni'o"].includes(currentWord)) {
         output.push("</s>\n<s>");
-      } else if (words[w][0] == ".") {
+      } else if (currentWord[0] == ".") {
         output.push('<break time="20ms" strength="x-weak" />');
       }
 
       let ph = [];
-      for (let i = 0; i < [...words[w]].length; i++) {
-        const c = [...words[w]][i];
-        if ((matchForm(words[w], "CV") || matchForm(words[w], "CVV")) && (i == 0) && words[w + 1] && !isBrivla(words[w + 1]))
+      for (let i = 0; i < [...currentWord].length; i++) {
+        if (matchForm(currentWord, "CV") && (i == 0) && nextWord && !isBrivla(nextWord))
           ph.push('ˈ');
-        if ((matchForm(words[w], "CVCV") || matchForm(words[w], "CVCVV")) && (i == 0))
+        if (matchForm(currentWord, "CVCV") && (i == 0))
           ph.push('ˈ');
-        if (matchForm(words[w], "CVCCV") || matchForm(words[w], "CCVCV") || matchForm(words[w], "CCVCVV") || matchForm(words[w], "CVCCVV")) {
+        if (matchForm(currentWord, "CVCCV") || matchForm(currentWord, "CCVCV")) {
           if (i == 0)
             ph.push('ˈ');
           if (i == 3)
             ph.push('.');
         }
-        if (params.lojban2IPAMapping[[...words[w]][i - 1] + c])
-          ph.push(params.lojban2IPAMapping[[...words[w]][i - 1] + c]);
-        else if (params.lojban2IPAMapping[c + [...words[w]][i + 1]])
-          continue;
-        else
-          ph.push(params.lojban2IPAMapping[c]);
+        ph.push(getValByKeyRegex(params.lojban2IPAMapping, currentWord.slice(i)));
       }
-      output.push(`<phoneme alphabet="ipa" ph="${ph.join("")}">${words[w]}</phoneme>`);
-      if (words[w][words[w].length - 1] == "." || famymaho.includes(words[w])) {
+      // if (["mo", "ma", "xu", "xo"].includes(currentWord)) {
+      //   output.push(`<prosody volume="loud">`);
+      //   output.push(`<phoneme alphabet="ipa" ph="${ph.join("")}">${currentWord}</phoneme>`);
+      //   output.push(`</prosody>`);
+      // }else{
+      output.push(`<phoneme alphabet="ipa" ph="${ph.join("")}">${currentWord}</phoneme>`);
+      // }
+      if (currentWord[currentWord.length - 1] == "." || famymaho.includes(currentWord)) {
         output.push(`<break time="20ms" strength="x-weak" />`);
       }
     }
@@ -2385,8 +2419,91 @@ function PollyPlayer(params) {
   }
 }
 
-const polly = PollyPlayer(pollyParams);
+let polly = PollyPlayer(window.pollyParams);
 
 window.runSpeakableAudio = function (textToSpeak, dontSpeak = false) {
   polly(textToSpeak, dontSpeak);
 }
+
+let audioParams
+try {
+  audioParams = JSON.parse(localStorage.getItem(`audioParams`))
+} catch (error) { }
+
+if (audioParams && audioParams.IdentityPoolId) {
+  window.pollyParams = audioParams
+} else {
+  localStorage.setItem(`audioParams`, JSON.stringify(window.pollyParams))
+}
+document.getElementById('audioParamsTextarea').value = JSON.stringify(window.pollyParams, null, 2)
+
+  /* This script supports IE9+ */
+  ; (function () {
+    function closeModal() {
+      /* Get close button */
+      var closeButton = document.getElementsByClassName('jsModalClose');
+      var closeOverlay = document.getElementsByClassName('jsOverlay');
+
+      /* Set onclick event handler for close buttons */
+      for (var i = 0; i < closeButton.length; i++) {
+        closeButton[i].onclick = function () {
+          var modalWindow = this.parentNode.parentNode;
+
+          modalWindow.classList ? modalWindow.classList.remove('open') : modalWindow.className = modalWindow.className.replace(new RegExp('(^|\\b)' + 'open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        }
+      }
+
+      /* Set onclick event handler for modal overlay */
+      for (var i = 0; i < closeOverlay.length; i++) {
+        closeOverlay[i].onclick = function () {
+          var modalWindow = this.parentNode;
+
+          modalWindow.classList ? modalWindow.classList.remove('open') : modalWindow.className = modalWindow.className.replace(new RegExp('(^|\\b)' + 'open'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        }
+      }
+
+    }
+
+    /* Handling domready event IE9+ */
+    function ready(fn) {
+      if (document.readyState != 'loading') {
+        fn();
+      } else {
+        document.addEventListener('DOMContentLoaded', fn);
+      }
+    }
+
+    /* Triggering modal window function after dom ready */
+    ready(closeModal);
+  }());
+
+const textArea = document.getElementById('audioParamsTextarea');
+textArea.addEventListener('input', () => {
+  try {
+    const json = { ...pollyParams, ...window.pollyParams, ...JSON.parse(textArea.value) }
+    localStorage.setItem('audioParams', JSON.stringify(json))
+    polly = PollyPlayer(json);
+    localStorage.setItem('cachedAudio', null)
+  } catch (error) { }
+})
+
+function resetAudioParams() {
+  const json = pollyParams
+  localStorage.setItem('audioParams', JSON.stringify(json))
+  textArea.value = JSON.stringify(json, null, 2)
+  polly = PollyPlayer(json);
+  localStorage.setItem('cachedAudio', null)
+}
+
+// define a handler
+function doc_keyUp(e) {
+
+  // this would test for whichever key is 40 (down arrow) and the ctrl key at the same time
+  if (e.ctrlKey && e.key === 'ArrowDown') {
+    // call your function to do the thing
+    var modalWindow = document.getElementById('jsModal');
+    modalWindow.classList ? modalWindow.classList.add('open') : modalWindow.className += ' ' + 'open';
+  }
+}
+// register the handler 
+document.addEventListener('keyup', doc_keyUp, false);

@@ -1,0 +1,22 @@
+{
+	"en": {
+		"initial": "^(|na'e |je'a |to'e )([a-z']+) modal,",
+		"replacement": "$1{$2} modal,",
+		"processed": "^(|na'e |je'a |to'e )\\{([a-z']+)\\} modal,"
+	},
+	"es": {
+		"initial": "^(|na'e |je'a |to'e )([a-z']+) modal,",
+		"replacement": "$1{$2} modal,",
+		"processed": "^(|na'e |je'a |to'e )\\{([a-z']+)\\} modal,"
+	},
+	"jbo": {
+		"initial": "^fi'o (|na'e |je'a |to'e )([a-z']+)$",
+		"replacement": "fi'o $1{$2}",
+		"processed": "^fi'o (|na'e |je'a |to'e )\\{([a-z']+)\\}"
+	},
+	"ru": {
+		"initial": "^модальный предлог от (|na'e |je'a |to'e )([a-z']+),",
+		"replacement": "модальный предлог от $1{$2},",
+		"processed": "^модальный предлог от (|na'e |je'a |to'e )\\{([a-z']+)\\},"
+	}
+}

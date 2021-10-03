@@ -712,7 +712,49 @@ const sidju = () => {
 function jsonDocDirection(jsonDoc) {
   return jsonDoc.dictionary.direction[0] || jsonDoc.dictionary.direction
 }
+function preprocessDefinitionFromDump(bais, definition, lang) {
+  if (!definition)
+    return definition
+  try {
+    const bai = bais[lang] || bais['en']
+    return definition
+      .replace(RegExp(bai.initial), bai.replacement)
+
+  } catch (error) {
+    return definition
+  }
+}
+
+function addBAIReferences(json, lang) {
+  const bais = require('./bai.json');
+  const bai = bais[lang] || bais['en']
+
+  Object.keys(json).forEach(word => {
+    let match
+    try {
+      match = json[word].d.match(RegExp(bai.processed))
+    } catch (error) {
+      return
+    }
+    if (!match) return
+    match = match[2]
+    if (!match) return
+    //it's a BAI modal. add it now
+    if (!json[match]) return
+    if (!json[match].b) json[match].b = []
+    json[match].b.push(word)
+  })
+  Object.keys(json).forEach(word => {
+    const match = json[word].b
+    if (match) {
+      json[word].b = match.sort((a, b) => a.length - b.length)
+    }
+  })
+  return json
+}
+
 function prepareSutysiskuJsonDump(language) {
+  const bais = require('./bai.json');
   const jsonDoc = getJsonDump(`/livla/build/dumps/${language}.json`)
   let json = {}
   jsonDocDirection(jsonDoc).valsi.forEach((v) => {
@@ -723,7 +765,7 @@ function prepareSutysiskuJsonDump(language) {
       g = v.glossword.map((i) => i.word)
     }
     json[v.word] = {
-      d: v.definition,
+      d: preprocessDefinitionFromDump(bais, v.definition, language),
       n: v.notes,
       t: v.type,
       s: v.selmaho,
@@ -755,11 +797,13 @@ function prepareSutysiskuJsonDump(language) {
         delete json[v.word][key]
     )
   })
+  json = addBAIReferences(json, language)
   return {
     js: `sorcu["${language}"] = ${JSON.stringify(json)}`,
     json: JSON.stringify(json),
   }
 }
+
 function splitToChunks(array, parts, tegerna) {
   let result = [];
   const arr_length = array.length

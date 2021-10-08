@@ -17,6 +17,16 @@ const supportedLangs = {
   zh: { n: '中文', "p": "selsku_lanci_zho" },
 }
 
+const sufficientLangs = (searching) => [
+  searching ? searching.bangu : null,
+  "sutysisku",
+  "en-cll",
+  "en-ll",
+  "en",
+  "muplis",
+  "jbo"
+].filter(Boolean)
+
 let sesisku_bangu = null
 
 function initDb() {
@@ -52,26 +62,46 @@ const fancu = {
     let json = {}
     if (response.ok) {
       json = await response.json()
-    }
-    for (const lang of Object.keys(supportedLangs)) {
-      const count = forceAll ? 0 :
-        await db.langs_ready.where('bangu').equals(lang).filter((rec) => rec.timestamp === json[lang]).count()
-      if (count === 0) langsToUpdate.push(lang)
-    }
-    if (langsToUpdate.includes("en")) langsToUpdate = Object.keys(supportedLangs)
 
-    if (langsToUpdate.length > 0) {
-      for (const lang of Object.keys(supportedLangs))
-        if (langsToUpdate.includes(lang.bangu)) langsToUpdate.push(lang)
+      for (const lang of sufficientLangs(searching)) {
+        const count = forceAll ? 0 :
+          await db.langs_ready.where('bangu').equals(lang).filter((rec) => rec.timestamp === json[lang]).count()
+        if (count === 0) langsToUpdate.push(lang)
+      }
 
-      await cnino_sorcu(cb, langsToUpdate, searching, json)
-      console.log(`Database checked. ${langsToUpdate.length} languages have been updated`)
+      if (langsToUpdate.includes("en")) langsToUpdate = langsToUpdate.concat(sufficientLangs(searching))
+
+      if (langsToUpdate.length > 0) {
+        for (const lang of Object.keys(supportedLangs))
+          if (langsToUpdate.includes(supportedLangs[lang].bangu)) langsToUpdate.push(lang)
+
+        const langsUpdated = await cnino_sorcu(cb, langsToUpdate, searching, json)
+        console.log(`Database checked. ${langsUpdated.length} languages have been updated`)
+      }
     }
+
     postMessage({
       kind: 'loader',
       cmene: 'loaded'
     })
     jufra({})
+  },
+  ningau_lepasorcu: async (searching, cb) => {
+    const lang = searching.bangu || 'en'
+    let json = {}
+    const response = await fetch(
+      `/sutysisku/data/versio.json?sisku=${new Date().getTime()}`
+    )
+    if (response.ok) {
+      json = await response.json()
+    }
+    const count = await db.langs_ready.where('bangu').equals(lang).filter((rec) => rec.timestamp === json[lang]).count()
+    if (count > 0) return
+    await cnino_sorcu(cb, [lang], searching, json)
+    postMessage({
+      kind: 'loader',
+      cmene: 'loaded'
+    })
   },
 }
 
@@ -138,6 +168,7 @@ function addCache(def, tegerna) {
 
 const blobChunkLength = 5
 async function cnino_sorcu(cb, langsToUpdate, searching, json) {
+  langsToUpdate = [...new Set(langsToUpdate)]
   initDb()
   await jufra({ bapli: true })
   fancu.tejufra(searching, (results) => {
@@ -150,7 +181,7 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
   })
 
   //for each lang download dump
-  let langs = langsToUpdate || Object.keys(supportedLangs)
+  let langs = langsToUpdate || sufficientLangs(searching)
   langs = langs
     .filter((lang) => lang == searching.bangu)
     .concat(langs.filter((lang) => lang != searching.bangu))
@@ -177,6 +208,8 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
       await db.langs_ready.where('bangu').equals(lang).filter((rec) => rec.timestamp === json[lang]).toArray()
     )[0]
     let completedRows = 0;
+    console.log(lang);
+    
     postMessage({
       kind: 'loader',
       cmene: 'loading',
@@ -252,4 +285,5 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
       banguRaw: lang
     })
   }
+  return langsToUpdate
 }

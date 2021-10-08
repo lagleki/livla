@@ -378,6 +378,10 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
         out: 'index.css',
       },
       {
+        file: 'coi.js',
+        out: 'coi.js',
+      },
+      {
         file: 'index.js',
         out: 'index.js',
         uglify: true,
@@ -629,23 +633,24 @@ NETWORK:
     } catch (error) { }
 
   }
-  // await new Promise(resolve => {
-  //   webpack({
-  //     entry: {
-  //       index: '/livla/build/sutysisku/lojban/index.js',
-  //       sw: '/livla/build/sutysisku/lojban/sw.js',
-  //       worker: '/livla/build/sutysisku/lojban/worker.js',
-  //       sorcuWorker: '/livla/build/sutysisku/lojban/sorcuWorker.js'
-  //     },
-  //     output: {
-  //       filename: '[name].bundle.js',
-  //       path: '/livla/build/sutysisku/lojban',
-  //     },
-  //   }, (error, stats: any) => {
-  //     if (error || stats?.hasErrors()) {
-  //       fs.writeFileSync('./log.txt', (error||'').toString() + " " + stats.toString());
-  //     }
-  //     resolve(null)
-  //   })
-  // })
+  if (!process.env.DEBUG)
+    await new Promise(resolve => {
+      webpack({
+        entry: {
+          index: '/livla/build/sutysisku/lojban/index.js',
+          sw: '/livla/build/sutysisku/lojban/sw.js',
+          worker: '/livla/build/sutysisku/lojban/worker.js',
+          sorcuWorker: '/livla/build/sutysisku/lojban/sorcuWorker.js'
+        },
+        output: {
+          filename: '[name].js',
+          path: '/livla/build/sutysisku/lojban',
+        },
+      }, (error, stats: any) => {
+        if (error || stats?.hasErrors()) {
+          fs.writeFileSync('./log.txt', (error || '').toString() + " " + stats.toString());
+        }
+        resolve(null)
+      })
+    })
 })()

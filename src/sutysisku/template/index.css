@@ -917,7 +917,7 @@ sub {
   /* display: inline; */
   cursor: pointer;
   color: #ffffff;
-  padding: 3px 10px;
+  padding: 4px 10px 3px 10px;
   margin: 0 0 0 8px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #263666;
@@ -1451,4 +1451,10 @@ user-select: none; */
 
 .modal button, button.simple {
   margin: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+.content{
+  background: #000000;
+}
 }

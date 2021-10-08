@@ -484,7 +484,7 @@ worker.onmessage = (ev) => {
     let word = (data.req.tegerna || '').replace(/"/g, "")
     if (!word) return
     const encodedWord = encodeValsiForWeb(word);
-    const isReliableText = data.results.every(i => ["gismu"].includes(i[0]) || (["cmavo"].includes(i[0])))
+    const isReliableText = allAreSafeWords(data.results, { allowCmavo: true })
     if (!isReliableText) return
     word = data.results.map(i => i[1]).join(" ")
 
@@ -739,6 +739,7 @@ rimni.addEventListener('click', () => {
   state.searching = {
     ...state.displaying,
     seskari: 'rimni',
+    versio: 'masno',
     query: plukaquery(ciska.value),
   }
   DispatchState({
@@ -750,6 +751,7 @@ document.getElementById('cnano').addEventListener('click', () => {
   state.searching = {
     ...state.displaying,
     seskari: 'cnano',
+    versio: 'masno',
     query: plukaquery(ciska.value),
   }
   DispatchState({
@@ -760,6 +762,7 @@ document.getElementById('catni').addEventListener('click', () => {
   state.searching = {
     ...state.displaying,
     seskari: 'catni',
+    versio: 'masno',
     query: plukaquery(ciska.value),
   }
   DispatchState({
@@ -1011,7 +1014,7 @@ function RenderDesktop(tempState) {
         }</b></span><a${(url || '').indexOf('http') === 0
           ? " rel='noreferrer' target='_blank'"
           : ''
-        } aria-label="${cmene.replace(/<[^>]+?>/g, '')}" href="${key.indexOf('@') === 0
+        } aria-label="${cmene.replace(/<[^>]+?>/g, '')}" onclick="window.ningau_lepasorcu('${key}')" href="${key.indexOf('@') === 0
           ? url
           : `#seskari=${tempState.seskari !== 'fanva' ? tempState.seskari : 'catni'}&sisku=${encodeUrl(
             lastQuery
@@ -1199,6 +1202,7 @@ function melbi_uenzi({ def, fullDef, query, seskari, bangu, type, index }) {
   let veljvoLs = []
   let hasExpansion = false
   if (!['cnano', 'catni', 'rimni'].includes(seskari)) seskari = 'cnano'
+
   const res = def.replace(/\$.*?\$/g, (c, offset, string) => {
     if (type === 'd' && typeof index !== 'undefined') {
       const rt = veljvoLetters(c)
@@ -1322,6 +1326,7 @@ function melbi_uenzi({ def, fullDef, query, seskari, bangu, type, index }) {
         query,
       })
     )
+    .replace(/\n/g, '<br/>')
   return { tergeha: jalge, hasExpansion }
 }
 
@@ -1496,6 +1501,16 @@ function ConstructArxivoValsiExtract(d, query, range) {
 
 function jvoValue() {
   return jvoPlumbsOn ? '⇔' : '↔'
+}
+
+window.ningau_lepasorcu = (bangu) => {
+  if (bangu.indexOf("@") === 0) return
+  sorcuWorker.postMessage({
+    kind: 'fancu',
+    cmene: 'ningau_lepasorcu',
+    ...state.searching,
+    bangu
+  })
 }
 
 window.runSearch = (seskari, selmaho, bangu) => {
@@ -1768,7 +1783,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
       n.innerHTML = window.nasezvafahi
     } else {
       let melbi = mu.tergeha
-      if (seskari !== 'velcusku') melbi = `${melbi.replace(/\n/g, '<br/>')} `
+      // if (seskari !== 'velcusku') melbi = `${melbi.replace(/\n/g, '<br/>')} `
       n.innerHTML = melbi
     }
     out.appendChild(n)
@@ -1793,7 +1808,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index, }) {
       n.innerHTML = `${basna({
         def: def.d,
         query,
-      }).replace(/\n/g, '<br/>')} `
+      })} `
       n.addEventListener('click', () => {
         n.style.display = 'none'
         n.previousElementSibling.style.display = 'block'
@@ -2235,33 +2250,38 @@ const pollyParams = {
     "\\.": "ʔ",
     " ": " ",
     "ˈ": "ˈ",
-    a: "ɑː",
+    a: "aː",
     e: "ɛ:",
+    "e\\b(?!')": "ɛ:ʔ",
     i: "i:",
     o: "ɔ:",
     u: "u:",
     y: "ə",
-    ą: "ɑːj",
-    ę: "ɛ:j",
-    ǫ: "ɔ:j",
+    ą: "aj",
+    ę: "ɛj",
+    "ę\\b(?!')": "ɛjʔ",
+    ǫ: "ɔj",
     ḁ: "aʊ",
-    ɩa: "jɑː",
+    ɩa: "jaː",
     ɩe: "jɛ:",
     ɩi: "ji:",
     ɩo: "jɔ:",
     ɩu: "ju:",
-    wa: "wɑː",
+    ɩy: "jə",
+    ɩ: "j",
+    wa: "waː",
     we: "wɛ:",
     wi: "wi:",
     wo: "wɔ:",
     wu: "wu:",
-    ɩy: "jə",
     wy: "wə",
+    w: "w",
     c: "ʃ",
     j: "ʒ",
     s: "s",
     z: "z",
     f: "f",
+    ev: "ɛ:ʔv",
     v: "v",
     x: "x",
     "'": "h",
@@ -2283,6 +2303,32 @@ const pollyParams = {
   }
 }
 
+function allAreSafeWords(array, { allowCmavo = false }) {
+  const C = ("[bdgjvzcfkpstxlmnr]");
+  const V = ("(a|e|i|o|u)");
+  const I = ("(ai|ei|oi|au)");
+  const D = ("(pl|pr|fl|fr|bl|br|vl|vr|cp|cf|ct|ck|cm|cn|cl|cr|jb|jv|jd|jg|jm|sp|sf|st|sk|sm|sn|sl|sr|zb|zv|zd|zg|zm|tc|tr|ts|kl|kr|dj|dr|dz|gl|gr|ml|mr|xl|xr)");
+  const T = ("(cfr|cfl|sfr|sfl|jvr|jvl|zvr|zvl|cpr|cpl|spr|spl|jbr|jbl|zbr|zbl|ckr|ckl|skr|skl|jgr|jgl|zgr|zgl|ctr|str|jdr|zdr|cmr|cml|smr|sml|jmr|jml|zmr|zml)");
+  const R = (`((?!${D})${C}${C})`);
+  const J = ("(i|u)(?=[aeiouy])");
+  //this is the complete regular expression matching any possible gismu and only them
+  const gismu = RegExp(`^(${D}${V}${C}${V}|${C}${V}${C}${C}${V})$`)
+  const ismu = RegExp(`^${V}${C}${C}${V}$`)
+  const iismu = RegExp(`^${J}${V}${C}${C}${V}$`)
+  const strelka = RegExp(`^${T}${V}${R}${V}$`)
+  const flokati = RegExp(`^${D}${V}${C}${V}${C}${V}$`)
+  const sorpeka = RegExp(`^${C}${V}${R}${V}${C}${V}$`)
+  return array.every(el => el[0] === 'gismu'
+    || gismu.test(el[1])
+    || ismu.test(el[1])
+    || iismu.test(el[1])
+    || strelka.test(el[1])
+    || flokati.test(el[1])
+    || sorpeka.test(el[1])
+    || (allowCmavo && (el[0] === 'cmavo'))
+  )
+}
+
 window.pollyParams = pollyParams
 function PollyPlayer(params) {
   AWS.config.credentials = new AWS.CognitoIdentityCredentials({
@@ -2292,7 +2338,7 @@ function PollyPlayer(params) {
 
   function matchForm(word, form) {
     let regex = "^";
-    const working = word.replace(/[\.\?»«]/, '');
+    const working = word.replace(/[\.\?»«]/g, '');
     for (let f = 0; f < form.length; f++) {
       if (form[f] == "?")
         regex += ".";
@@ -2302,29 +2348,31 @@ function PollyPlayer(params) {
         regex += "[^aeiouyḁąęǫ]";
       if (form[f] == "V")
         regex += "[aeiouyḁąęǫ]";
+      if (form[f] == "I")
+        regex += "[iu]";
     }
     regex += "$";
     const re = new RegExp(regex);
     return re.test(working);
   }
 
-  function isBrivla(word) {
-    return matchForm(word, "CCVCV") ||
-      matchForm(word, "CVCCV");
-  }
+  // function isBrivla(word) {
+  //   return allAreSafeWords([["", word]], { allowCmavo: false })
+  // }
 
   function getValByKeyRegex(json, testedString) {
-    const match = Object.keys(json).filter(key => RegExp(`^${key}`).test(testedString))[0]
-    return json[match]
+    const match = Object.keys(json).filter(key => RegExp(`^${key}`).test(testedString)).sort((a, b) => b.length - a.length)[0] ?? '-'
+    return { match, value: json[match] }
   }
 
   function text2SSML(textToSpeak) {
-    const famymaho = ["kei", "vau", "ku'o", "li'u", "le'u", "ge'u"]
+    const famymaho = ["kei", "vau", "ku'o", "li'u", "le'u", "ge'u", "zo'u"]
+    // const stresslessWords = ["lo","le","lei","loi","ku"]
     const words = textToSpeak.replace(/(?:\r\n|\r|\n)/g, ' ').split(' ');
     let output = [`<speak><prosody rate="slow">`, "<s>"];
     for (let w = 0; w < words.length; w++) {
       const currentWord = krulermorna(words[w])
-      const nextWord = words[w + 1]
+      // const nextWord = words[w + 1]
       if (["i", ".i", "ni'o"].includes(currentWord)) {
         output.push("</s>\n<s>");
       } else if (currentWord[0] == ".") {
@@ -2333,24 +2381,42 @@ function PollyPlayer(params) {
 
       let ph = [];
       for (let i = 0; i < [...currentWord].length; i++) {
-        if (matchForm(currentWord, "CV") && (i == 0) && nextWord && !isBrivla(nextWord))
+        // if (matchForm(currentWord, "CV") && (i == 0) && nextWord && !isBrivla(nextWord) && !stresslessWords.includes(currentWord))
+        //   ph.push('ˈ');
+        if (matchForm(currentWord, "VCV") && (i == 0))
           ph.push('ˈ');
         if (matchForm(currentWord, "CVCV") && (i == 0))
           ph.push('ˈ');
-        if (matchForm(currentWord, "CVCCV") || matchForm(currentWord, "CCVCV")) {
+        if (matchForm(currentWord, "CVCCV") || matchForm(currentWord, "IVCCV") || matchForm(currentWord, "CCVCV")) {
           if (i == 0)
             ph.push('ˈ');
           if (i == 3)
             ph.push('.');
         }
-        ph.push(getValByKeyRegex(params.lojban2IPAMapping, currentWord.slice(i)));
+        if (matchForm(currentWord, "CCCVCCV")) {
+          if (i == 0)
+            ph.push('ˈ');
+          if (i == 5)
+            ph.push('.');
+        }
+        if (matchForm(currentWord, "CCVCVCV")) {
+          if (i == 3)
+            ph.push('ˈ');
+        }
+        if (matchForm(currentWord, "CVCCVCV")) {
+          if (i == 3)
+            ph.push('.ˈ');
+        }
+        const { match, value } = getValByKeyRegex(params.lojban2IPAMapping, currentWord.slice(i) + " " + (words.concat("")).slice(w + 1).join(" "))
+        ph.push(value);
+        i = i - 1 + match.replace(/\\/g, '').replace(/\(\?.*\)/g, '').length
       }
       // if (["mo", "ma", "xu", "xo"].includes(currentWord)) {
       //   output.push(`<prosody volume="loud">`);
       //   output.push(`<phoneme alphabet="ipa" ph="${ph.join("")}">${currentWord}</phoneme>`);
       //   output.push(`</prosody>`);
       // }else{
-      output.push(`<phoneme alphabet="ipa" ph="${ph.join("")}">${currentWord}</phoneme>`);
+      output.push(`<phoneme alphabet="ipa" ph="${ph.join("").replace(/\.+/g, '.')}">${currentWord}</phoneme>`);
       // }
       if (currentWord[currentWord.length - 1] == "." || famymaho.includes(currentWord)) {
         output.push(`<break time="20ms" strength="x-weak" />`);
@@ -2487,7 +2553,7 @@ textArea.addEventListener('input', () => {
   } catch (error) { }
 })
 
-function resetAudioParams() {
+window.resetAudioParams = () => {
   const json = pollyParams
   localStorage.setItem('audioParams', JSON.stringify(json))
   textArea.value = JSON.stringify(json, null, 2)

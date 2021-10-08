@@ -112,6 +112,7 @@
   <link rel="stylesheet" href="./index.css?detri={now}" />
   <link rel="manifest" href="../manifest.json" />
   <script src="../assets/scripts/leader-line.min.js"></script>
+  <script src="./coi.js"></script>
   <script src="./bangu.js?sisku={now}"></script>
 </head>
 
@@ -226,10 +227,12 @@
     <div class="modal__overlay jsOverlay"></div>
     <div class="modal__container">
       <button onclick="resetAudioParams()">Reset</button>
-      <textarea name="textarea" id="audioParamsTextarea"
-   rows="10"></textarea>
+      <textarea name="textarea" id="audioParamsTextarea" rows="10"></textarea>
     </div>
   </div>
+  <script>
+    console.log(window.crossOriginIsolated)
+  </script>
 </body>
 
 </html>

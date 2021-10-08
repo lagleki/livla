@@ -712,9 +712,67 @@ const sidju = () => {
 function jsonDocDirection(jsonDoc) {
   return jsonDoc.dictionary.direction[0] || jsonDoc.dictionary.direction
 }
-function preprocessDefinitionFromDump(bais, definition, lang) {
+
+function preprocesWordWithScale(v, scale, lang) {
+  let prefix = '', oldPrefix = ''
+  const root = v.word.replace(/(nai|cu'i|ja'ai)+$/, '')
+  if (RegExp(scale.COI.selmaho).test(v.selmaho)) {
+    if (RegExp(scale.COI.match).test(v.definition)) {
+      prefix = `${v.definition.split(":")[0]}: \n`
+      oldPrefix = `${v.definition.split(":")[0]}: `
+      v.definition = v.definition.replace(RegExp(`${v.definition.split(":")[0]}: `), '')
+    }
+    v.definition = v.definition.split(";")
+    let core = v.definition[0].split(" - ")
+    if (core.length === 3) {
+      const postfix = v.definition.slice(1).join(";")
+      core[0] = `{${root}} - ${core[0] + (postfix ? "; " + postfix : '')}`
+      core[1] = `{${root}cu'i} - ${core[1]}`
+      core[2] = `{${root}nai} - ${core[2]}`
+      v.definition[0] = core.join("\n")
+      v.definition = prefix + v.definition[0]
+    } else if (core.length === 2) {
+      const postfix = v.definition.slice(1).join(";")
+      core[0] = `{${root}} - ${core[0] + (postfix ? "; " + postfix : '')}`
+      core[1] = `{${root}nai} - ${core[1]}`
+      v.definition[0] = core.join("\n")
+      v.definition = prefix + v.definition[0]
+    } else {
+      v.definition = oldPrefix + v.definition.join(";")
+    }
+  } else if (RegExp(scale.UI.selmaho).test(v.selmaho)) {
+    if (RegExp(scale.UI.match).test(v.definition)) {
+      prefix = `${v.definition.split(":")[0]}: \n`
+      oldPrefix = `${v.definition.split(":")[0]}: `
+      v.definition = v.definition.replace(RegExp(`${v.definition.split(":")[0]}: `), '')
+    }
+    v.definition = v.definition.split(";")
+    let core = v.definition[0].split(" - ")
+    if (core.length === 3) {
+      const postfix = v.definition.slice(1).join(";")
+      core[0] = `{${root}} - ${core[0] + (postfix ? "; " + postfix : '')}`
+      core[1] = `{${root}cu'i} - ${core[1]}`
+      core[2] = `{${root}nai} - ${core[2]}`
+      v.definition[0] = core.join("\n")
+      v.definition = prefix + v.definition[0]
+    } else if (core.length === 2) {
+      const postfix = v.definition.slice(1).join(";")
+      core[0] = `{${root}} - ${core[0] + (postfix ? "; " + postfix : '')}`
+      core[1] = `{${root}nai} - ${core[1]}`
+      v.definition[0] = core.join("\n")
+      v.definition = prefix + v.definition[0]
+    } else {
+      v.definition = oldPrefix + v.definition.join(";")
+    }
+  }
+  return v.definition
+}
+
+function preprocessDefinitionFromDump({ bais, scales }, lang, v) {
+  let definition = v.definition
   if (!definition)
     return definition
+  definition = preprocesWordWithScale(v, scales[lang] || scales['en'], lang)
   try {
     const bai = bais[lang] || bais['en']
     return definition
@@ -755,6 +813,7 @@ function addBAIReferences(json, lang) {
 
 function prepareSutysiskuJsonDump(language) {
   const bais = require('./bai.json');
+  const scales = require('./scales.json');
   const jsonDoc = getJsonDump(`/livla/build/dumps/${language}.json`)
   let json = {}
   jsonDocDirection(jsonDoc).valsi.forEach((v) => {
@@ -765,7 +824,7 @@ function prepareSutysiskuJsonDump(language) {
       g = v.glossword.map((i) => i.word)
     }
     json[v.word] = {
-      d: preprocessDefinitionFromDump(bais, v.definition, language),
+      d: preprocessDefinitionFromDump({ bais, scales }, language, v),
       n: v.notes,
       t: v.type,
       s: v.selmaho,

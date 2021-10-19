@@ -14,8 +14,6 @@ import fs from 'fs-extra';
 const path = require('path-extra');
 import axios from 'axios';
 import * as brotli from 'brotli-wasm';
-import { minify } from 'terser';
-import browserify from "browserify";
 import * as cheerio from 'cheerio';
 
 // const babel = require('@babel/core')
@@ -104,7 +102,7 @@ async function generateCLLDictionary(
             })
             json[selmaho] = { d: jsonLinks }
             if (file.type === 'English')
-              json[selmaho].t = { type: "English term", k: 0 }
+              json[selmaho].t = { bangu: "glico", type: "English term", k: 0 }
           } else {
             console.log(el)
           }
@@ -151,6 +149,91 @@ async function generateCLLDictionary(
   jsonTimes['en-cll'] = hash
   fs.writeFileSync(versio, JSON.stringify(jsonTimes))
 }
+
+const settings_path = '/livla/build/sutysisku/data/tcini.json'
+const settings = {
+  vreji: [
+    './',
+    './index.html',
+    'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+    'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff',
+    'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff',
+    'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff',
+    'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
+    './sql-wasm.wasm',
+    '../assets/fonts/linux-libertine/LinLibertine_R.otf',
+    '../assets/fonts/linux-libertine/LinLibertine_RI.otf',
+    '../assets/fonts/linux-libertine/LinLibertine_RB.otf',
+    '../assets/fonts/linux-libertine/LinLibertine_RBI.otf',
+    '../assets/fonts/crisa-regular.otf',
+    './bangu.js?sisku={now}',
+    '../assets/scripts/aws-sdk.min.js',
+    './index.js?detri={now}',
+    './index.css?detri={now}',
+    './worker.js?sisku={now}',
+    '../assets/scripts/leader-line.min.js',
+    '../pixra/144.png',
+    '../pixra/32.png',
+    '../pixra/cukta.svg',
+    '../pixra/certu.svg',
+    '../pixra/fanva.svg',
+    '../pixra/cll.png',
+    '../pixra/cmalu_snime.svg',
+    '../pixra/snime.svg',
+    '../pixra/menu.svg',
+    '../pixra/x.svg',
+    '../pixra/jbotcan.svg',
+    '../pixra/taplamuplis.svg',
+    '../pixra/nunsku.svg',
+    '../pixra/plise.svg',
+    '../pixra/pelxuplise.svg',
+    '../pixra/crinoplise.svg',
+    '../pixra/blabiplise.svg',
+    '../pixra/cicnaplise.svg',
+    '../pixra/selsku_lanci_eng.svg',
+    '../pixra/selsku_lanci_zho.svg',
+    '../pixra/lanci_jbo.svg',
+    '../pixra/selsku_lanci_jpn.svg',
+    '../pixra/selsku_lanci_fra.svg',
+    '../pixra/selsku_lanci_rus.svg',
+    '../pixra/lanci_epo.svg',
+    '../pixra/selsku_lanci_spa.svg',
+    '../pixra/cogwheel-5.svg',
+    '../sance/lerfu/a.ogg',
+    '../sance/lerfu/ai.ogg',
+    '../sance/lerfu/aia.ogg',
+    '../sance/lerfu/au.ogg',
+    '../sance/lerfu/aua.ogg',
+    '../sance/lerfu/b.ogg',
+    '../sance/lerfu/c.ogg',
+    '../sance/lerfu/d.ogg',
+    '../sance/lerfu/e.ogg',
+    '../sance/lerfu/ei.ogg',
+    '../sance/lerfu/f.ogg',
+    '../sance/lerfu/g.ogg',
+    "../sance/lerfu/'.ogg",
+    '../sance/lerfu/i.ogg',
+    '../sance/lerfu/j.ogg',
+    '../sance/lerfu/k.ogg',
+    '../sance/lerfu/l.ogg',
+    '../sance/lerfu/m.ogg',
+    '../sance/lerfu/n.ogg',
+    '../sance/lerfu/o.ogg',
+    '../sance/lerfu/oi.ogg',
+    '../sance/lerfu/p.ogg',
+    '../sance/lerfu/r.ogg',
+    '../sance/lerfu/s.ogg',
+    '../sance/lerfu/t.ogg',
+    '../sance/lerfu/u.ogg',
+    '../sance/lerfu/v.ogg',
+    '../sance/lerfu/x.ogg',
+    '../sance/lerfu/y.ogg',
+    '../sance/lerfu/z.ogg',
+  ]
+}
+settings.vreji = settings.vreji.map(i => i.replace(/{now}/g, now.toString()))
+
+fs.writeFileSync(settings_path, JSON.stringify(settings))
 
 async function generateLLDictionary() {
   const html = (await axios('https://lojban.pw/books/learn-lojban/')).data
@@ -315,7 +398,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
       searchurl: `/sutysisku/${lang}/sisku.xml`,
       searchtitle: `${lang}-sutysisku`,
       titlelogo:
-        "<a id='title' onclick='EmptyState()' href='javascript:;' aria-label='la sutysisku'><span id='site-title'  class='desktop-mode-title-color'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16' alt='logo'><font color='#fff' data-jufra='titlelogo'>la sutysisku</font></span></a>",
+        "<a id='title' onclick='EmptyState()' href='javascript:;' aria-label='la sutysisku'><span id='site-title'  class='desktop-mode-title-color'><img id=\"logo\" src=\"../pixra/snime.svg\" height='16' width='16' alt='logo'><font color='#fff' data-jufra='titlelogo-inner'>la sutysisku</font></span></a>",
       arxivoskari1: '233, 195, 58',
       arxivoskari2: '211, 172, 34',
       arxivoskari3: '224, 183, 36',
@@ -378,8 +461,24 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
         out: 'index.css',
       },
       {
-        file: 'coi.js',
-        out: 'coi.js',
+        file: 'sqljs/sql-wasm.wasm',
+        out: 'sql-wasm.wasm',
+        simpleCopy: true,
+      },
+      {
+        file: 'socket.io.js',
+        out: 'socket.io.js',
+        simpleCopy: true,
+      },
+      {
+        file: 'cmaxes.js',
+        out: 'cmaxes.js',
+        simpleCopy: true,
+      },
+      {
+        file: 'worker.js',
+        out: 'worker.js',
+        simpleCopy: true,
       },
       {
         file: 'index.js',
@@ -387,6 +486,10 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
         uglify: true,
       },
     ]) {
+      if (el.simpleCopy) {
+        fs.copyFileSync(path.join(__dirname, './template', el.file), path.join('/livla/build/sutysisku/', lang, el.out));
+        continue
+      }
       let output = processTemplate({
         config,
         fallback: config_fallback,
@@ -395,41 +498,6 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
           encoding: 'utf8',
         }),
       })
-
-      if (el.uglify && process.env.COMPRESS !== 'false' && !process.env.DEBUG) {
-        const store_file = path.join(`/livla/build/sutysisku/${lang}/${el.file}`)
-        const store_file_tmp = path.join(`/livla/build/sutysisku/${lang}/${el.file}.tmp`)
-        fs.writeFileSync(store_file, output)
-        const w = fs.createWriteStream(store_file_tmp)
-        await new Promise(resolve => {
-          browserify(store_file)
-            .transform("babelify", { presets: ["@babel/preset-env"], plugins: ['@babel/plugin-transform-runtime'] })
-            .bundle()
-            .pipe(w);
-          w.on('finish', () => {
-            resolve(null)
-          });
-        })
-
-        output = fs.readFileSync(store_file_tmp, {
-          encoding: 'utf8',
-        })
-        output = (await minify(output, {
-          ecma: 5,
-          nameCache,
-          compress: {
-            keep_fnames: true,
-            unused: false
-          },
-          mangle: {
-            keep_classnames: true,
-            keep_fnames: true,
-            reserved,
-          },
-        })).code || ''
-        fs.unlinkSync(store_file_tmp)
-        console.log(`minified ${store_file}`)
-      }
       fs.writeFileSync(
         path.join('/livla/build/sutysisku/', lang, el.out),
         output
@@ -454,131 +522,18 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
       path.join('/livla/build/sutysisku/', lang, 'sisku.xml'),
       b
     )
-    // copy sw.js
+    // copy coi.js
     try {
       fs.writeFileSync(
-        path.join('/livla/build/sutysisku/', lang, 'sw.js'),
+        path.join('/livla/build/sutysisku/', lang, 'coi.js'),
         fs
-          .readFileSync(path.join(__dirname, 'template', 'sw.js'), {
+          .readFileSync(path.join(__dirname, 'template', 'coi.js'), {
             encoding: 'utf8',
           })
           .replace(/{now}/g, now.toString())
           .replace(/{lang}/g, lang)
       )
     } catch (error) { }
-
-    // generate worker.js
-
-    const workerjsfile = `
-    postMessage({kind: 'loading'});
-    ${fs.readFileSync(path.join(__dirname, `./template/cmaxes.js`), {
-      encoding: 'utf8',
-    })}
-    importScripts(
-      'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js',
-      'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js'
-    );
-    ${fs.readFileSync(path.join(__dirname, `./template/sisku.js`), {
-      encoding: 'utf8',
-    })}
-    postMessage({kind: 'ready'});
-    self.onmessage = function(ev) {
-      if (ev.data.kind == 'newSearch') {
-        sisku(ev.data, function(res) {
-          postMessage({
-            kind: 'searchResults',
-            results: res.results,
-            req: {
-              bangu: ev.data.bangu,
-              seskari: ev.data.seskari,
-              versio: ev.data.versio,
-              query: ev.data.query         
-            }
-          })
-        })
-      } else if (ev.data.kind == 'parse') {
-        cmaxesParse({tegerna: ev.data.tegerna}, function(res){
-          postMessage({
-            kind: 'parse',
-            results: res,
-            req: ev.data,
-          })
-        })
-      }
-    }`
-    fs.writeFileSync(
-      path.join('/livla/build/sutysisku', lang, 'worker.js'),
-      workerjsfile
-    )
-
-    // generate sorcuWorker.js
-    const sorcuWorkerjsfile = `
-    importScripts(
-      'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
-      'https://cdnjs.cloudflare.com/ajax/libs/dexie/2.0.4/dexie.min.js'
-    );
-    ${fs.readFileSync(path.join(__dirname, `./template/sorcu.js`), {
-      encoding: 'utf8',
-    })}
-    postMessage({kind: 'ready'});
-    self.onmessage = function(ev) {
-      if (ev.data.kind == 'loader') {
-        postMessage(ev.data)    
-      } else if (ev.data.kind == 'fancu' && ev.data.cmene) {
-        fancu[ev.data.cmene](ev.data, function(results) {
-          postMessage({
-            kind: 'fancu',
-            cmene: ev.data.cmene,
-            datni: ev.data,
-            results: results
-          })
-        })
-      }
-    }`
-    fs.writeFileSync(
-      path.join('/livla/build/sutysisku', lang, 'sorcuWorker.js'),
-      sorcuWorkerjsfile
-    )
-    for (let fileName of ['sorcuWorker.js', 'worker.js']) {
-      const filename = path.join('/livla/build/sutysisku', lang, fileName)
-      const filename_tmp = `${path.join(`/livla/build/sutysisku/${fileName}`)}.tmp`
-      let content = fs.readFileSync(filename, {
-        encoding: 'utf8',
-      })
-      if (process.env.COMPRESS !== 'false' && !(process.env.DEBUG && fileName == 'worker.js')) {
-
-        const w = fs.createWriteStream(filename_tmp)
-        await new Promise(resolve => {
-          browserify(filename)
-            .transform("babelify", { presets: ["@babel/preset-env"], plugins: [['@babel/plugin-transform-runtime']] })
-            .bundle()
-            .pipe(w);
-          w.on('finish', () => {
-            resolve(null)
-          });
-        })
-
-        content = fs.readFileSync(filename_tmp, {
-          encoding: 'utf8',
-        })
-        content = (await minify(content, {
-          ecma: 5,
-          nameCache,
-          compress: {
-            keep_fnames: true,
-          },
-          mangle: {
-            toplevel: false,
-            keep_classnames: true,
-            keep_fnames: true,
-            reserved,
-          },
-        })).code || ''
-        fs.unlinkSync(filename_tmp)
-        console.log(`minified ${path.join(`/livla/build/sutysisku/${lang}/${fileName}`)}`)
-      }
-      fs.writeFileSync(path.join(`/livla/build/sutysisku/${lang}/${fileName}`), content)
-    }
   }
 
   fs.copyFileSync(
@@ -633,24 +588,75 @@ NETWORK:
     } catch (error) { }
 
   }
-  if (!process.env.DEBUG)
+  if (!process.env.DEBUG) {
+    const TerserPlugin = require("terser-webpack-plugin");
+
     await new Promise(resolve => {
       webpack({
         entry: {
+          cmaxes: '/livla/build/sutysisku/lojban/cmaxes.js',
           index: '/livla/build/sutysisku/lojban/index.js',
-          sw: '/livla/build/sutysisku/lojban/sw.js',
+          coi: '/livla/build/sutysisku/lojban/coi.js',
           worker: '/livla/build/sutysisku/lojban/worker.js',
-          sorcuWorker: '/livla/build/sutysisku/lojban/sorcuWorker.js'
         },
         output: {
           filename: '[name].js',
           path: '/livla/build/sutysisku/lojban',
         },
+        resolve: {
+          // extensions: ['.dev.js', '.js', '.json', '.wasm'],
+          fallback: {
+            "stream": require.resolve("stream-browserify"),
+            "buffer": require.resolve("buffer"),
+            crypto: false,
+            path: false,
+            fs: false
+          }
+        },
+        mode: 'production',
+        node: false,
+        // module: {
+        //   rules: [
+        //     {
+        //       test: /\.m?js$/,
+        //       use: {
+        //         loader: "babel-loader",
+        //         options: {
+        //           presets: ["@babel/preset-env"], // ensure compatibility with older browsers
+        //           plugins: ["@babel/plugin-transform-object-assign"], // ensure compatibility with IE 11
+        //         },
+        //       },
+        //     },
+        //     {
+        //       test: /\.js$/,
+        //       loader: "webpack-remove-debug", // remove "debug" package
+        //     },
+        //   ],
+        // },
+        optimization: {
+          minimize: true,
+          minimizer: !process.env.COMPRESS ? [new TerserPlugin()] : [],
+        },
+        plugins: [
+          // new webpack.DefinePlugin({
+          //   'process.env.PERF_BUILD': false
+          // }),
+          new webpack.ProvidePlugin({
+            Buffer: ['buffer', 'Buffer'],
+          }),
+          new webpack.ProvidePlugin({
+            process: 'process/browser',
+          }),
+        ]
       }, (error, stats: any) => {
         if (error || stats?.hasErrors()) {
-          fs.writeFileSync('./log.txt', (error || '').toString() + " " + stats.toString());
-        }
+          console.log('webpack has errors');
+          fs.writeFileSync('/livla/build/sutysisku/lojban/log.txt', (error || '').toString() + "\n" + stats.toString());
+        } else
+          console.log('webpacked');
+
         resolve(null)
       })
     })
+  }
 })()

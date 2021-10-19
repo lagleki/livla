@@ -1112,46 +1112,57 @@ const mensimikce = (text) => {
 }
 
 // mahantufa
-const ningaumahantufa = (text, socket) => {
+const ningaumahantufa = async (text, socket, file) => {
+  if (!text) text = ''
   // write file
-  const whichfile = text.substr(0, text.indexOf(' '))
+  const whichfile = file || text.substr(0, text.indexOf(' '))
   text = text.substr(text.indexOf(' ') + 1)
-  const t = path.join(__dirname, `.${whichfile}.peg`)
-  fs.writeFileSync(t, text)
+  const t = path.join(__dirname, `../mahantufa/${whichfile}.js.peg`)
+  const compiled_js_file = path.join(__dirname, `../mahantufa/${whichfile}.js`)
+  if (text) {
+    fs.writeFileSync(t, text)
+  } else {
+    text = fs.readFileSync(t).toString()
+  }
   // // read peg and build a parser
-  const camxes_peg = fs.readFileSync(`${whichfile}.peg`).toString()
   try {
     const camxes =
       'var camxes=' +
-      require('pegjs').generate(camxes_peg, {
+      require('peggy').generate(text, {
         cache: true,
         trace: false,
         output: 'source',
         allowedStartRules: ['text'],
-        optimize: 'size',
+        format: 'commonjs'
       })
     // // write to a file
-    fs.writeFileSync(whichfile, camxes, { encoding: 'utf8' })
-    const Terser = require('terser')
-    const result = camxes
-    // Terser.minify(camxes, {
-    //   ecma: 5,
-    //   mangle: {
-    //     toplevel: true,
-    //     reserved: ['parse'],
-    //   },
-    // }).code
-    fs.writeFileSync(whichfile, result, { encoding: 'utf8' })
-    socket.emit('la_livla_cu_cusku', {
+    fs.writeFileSync(compiled_js_file, camxes, { encoding: 'utf8' })
+    const { minify } = require("terser");
+
+    const result = await minify(camxes, {
+      ecma: 5,
+      // mangle: {
+      //   toplevel: true,
+      //   reserved: ['parse', 'camxes'],
+      // },
+    })
+    
+    fs.writeFileSync(compiled_js_file, result.code, { encoding: 'utf8' })
+    if (socket) socket.emit('la_livla_cu_cusku', {
       message: 'snada',
       data_js: camxes,
     })
+    else console.log('compiled ' + (file || text))
   } catch (e) {
-    socket.emit('la_livla_cu_cusku', {
+    console.log(e);
+    
+    if (socket) socket.emit('la_livla_cu_cusku', {
       message: e.message,
     })
   }
 }
+
+ningaumahantufa(null, null, 'cmaxes')
 
 const getmahantufagrammar = (name, socket) => {
   try {

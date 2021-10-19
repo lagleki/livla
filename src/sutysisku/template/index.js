@@ -1,4 +1,4 @@
-// import { initBackend } from '/livla/src/node_modules/absurd-sql.js-backend/dist/indexeddb-main-thread.js';
+import { initBackend } from './asql/indexeddb-main-thread.js';
 
 const leijufra = {}
 let jvoPlumbsOn = true
@@ -34,12 +34,11 @@ const catni = document.getElementById('catni')
 const cnano = document.getElementById('cnano')
 const rimni = document.getElementById('rimni')
 // var arxivo = document.getElementById("arxivo");
-const title = document.getElementById('title')
 const SiteImage = document.querySelectorAll('#title > img')
 const btnScrollToTop = document.getElementById('scrollToTop')
 
 const worker = new Worker('worker.js?sisku={now}')
-const sorcuWorker = new Worker('sorcuWorker.js?sisku={now}')
+initBackend(worker);
 
 content.onscroll = () => {
   if (content.scrollTop > 200) {
@@ -138,7 +137,7 @@ try {
 
 }
 //check if our db is filled
-sorcuWorker.postMessage({
+worker.postMessage({
   kind: 'fancu',
   cmene: 'ningau_lesorcu',
   ...state.searching,
@@ -472,15 +471,16 @@ function twoJsonsAreEqual(obj1 = {}, obj2 = {}) {
 }
 //listeners
 worker.onmessage = (ev) => {
-  const data = ev.data
-  if (data.kind == 'searchResults') {
+  const { data } = ev
+  const { kind, cmene } = data
+  if (kind == 'searchResults') {
     delete loadingState.searching
     if (!data.force && !twoJsonsAreEqual(data.req, state.searching)) return
     results = data.results || []
     RenderResults({
       ...data.req,
     })
-  } else if (data.kind == 'parse' && data.req && data.req.operation == 'audioLink') {
+  } else if (kind == 'parse' && data.req && data.req.operation == 'audioLink') {
     let word = (data.req.tegerna || '').replace(/"/g, "")
     if (!word) return
     const encodedWord = encodeValsiForWeb(word);
@@ -513,14 +513,9 @@ worker.onmessage = (ev) => {
     //       updateDOMWithLocales(results, { ...state.searching, ...data.datni })
     //       break
     //   }
-  }
-}
-
-sorcuWorker.onmessage = (ev) => {
-  const data = ev.data
-  if (data.kind == 'loader') {
+  } else if (kind == 'loader') {
     const loading = document.getElementById('loading')
-    if (data.cmene === 'loading') {
+    if (cmene === 'loading') {
       if (data.banguRaw === state.searching.bangu || data.completedRows === 0 || data.completedRows === data.totalRows) {
         if (data.completedRows === data.totalRows || !twoJsonsAreEqual(loadingState.searching, state.searching)) {
           loadingState.searching = state.searching
@@ -539,7 +534,7 @@ sorcuWorker.onmessage = (ev) => {
       const percent = Math.min(100, Math.max(10, parseFloat(data.completedRows) * 100 / parseFloat(data.totalRows)))
       pb.style.width = `${percent}%`
       document.getElementById('bangu_loading').innerHTML = data.bangu
-    } else if (data.cmene === 'loaded') {
+    } else if (cmene === 'loaded') {
       loadingState.loading = false
       addAudioLinks()
       delete loadingState.resultsHash
@@ -547,14 +542,13 @@ sorcuWorker.onmessage = (ev) => {
       document.getElementById('contentWrapper').style.paddingBottom = '0'
     }
     calcVH()
-  } else if (data.kind == 'fancu') {
-    const { cmene, results } = data
+  } else if (kind == 'fancu') {
     switch (cmene) {
       case 'tejufra':
-        updateDOMWithLocales(results, { ...state.searching, ...data.datni })
+        updateDOMWithLocales(data.results, { ...state.searching, ...data.datni })
         break
-      case 'ningau_lesorcu':
-        console.log(results)
+      // case 'ningau_lesorcu':
+      //   console.log(results)
     }
   }
 }
@@ -852,7 +846,7 @@ function DispatchState({ replace, caller, empty, quickRotation }) {
       EmitVelcusku()
       break
     default:
-      if (loadingState.loading) sorcuWorker.postMessage({
+      if (loadingState.loading) worker.postMessage({
         kind: 'fancu',
         cmene: 'cnino_bangu',
         ...state.searching,
@@ -899,7 +893,7 @@ function updateDOMWithLocales({ jufra = { window: {} } }, miniState) {
 }
 
 function updateLocales() {
-  sorcuWorker.postMessage({ kind: 'fancu', cmene: 'tejufra', ...state.searching })
+  worker.postMessage({ kind: 'fancu', cmene: 'tejufra', ...state.searching })
 }
 
 //rendering
@@ -1505,7 +1499,7 @@ function jvoValue() {
 
 window.ningau_lepasorcu = (bangu) => {
   if (bangu.indexOf("@") === 0) return
-  sorcuWorker.postMessage({
+  worker.postMessage({
     kind: 'fancu',
     cmene: 'ningau_lepasorcu',
     ...state.searching,
@@ -2066,41 +2060,41 @@ async function addAudioLinks() {
   //</xuzganalojudri|lojbo>
 }
 
-window.addEventListener('load', () => {
-  // jimpe fi le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.onmessage = function ({ data }) {
-      // if (data && data.teminde && data.teminde === 'ei ningau le sorcu') {
-      //   console.log('updating triggered')
-      //   sorcuWorker.postMessage({
-      //     kind: 'fancu',
-      //     cmene: 'ningau_lerosorcu',
-      //     ...state.searching,
-      //   })
-      // }
-    }
-    navigator.serviceWorker.register('./sw.js', {
-      scope: './'
-    }).then(
-      function (registration) {
-        // console.log("COOP/COEP Service Worker registered", registration.scope);
-        // // If the registration is active, but it's not controlling the page
-        // if (registration.active && !navigator.serviceWorker.controller) {
-        //   window.location.reload();
-        // }
-      },
-      (err) => {
-        console.log('ServiceWorker registration failed: ', err)
-      }
-    )
-  } else if (location.protocol === 'https:') {
-    alert(
-      'Your browser is not supported. Please, upgrade to the latest Chrome / Firefox / Safari and don\'t use the app in incognito / private browsing mode (it needs to save dictionary data to disk to work successfully).'
-    )
-  } else {
-    console.log("http protocol, service worker won't work")
-  }
-})
+// window.addEventListener('load', () => {
+//   // jimpe fi le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri
+//   if ('serviceWorker' in navigator) {
+//     navigator.serviceWorker.onmessage = function ({ data }) {
+//       // if (data && data.teminde && data.teminde === 'ei ningau le sorcu') {
+//       //   console.log('updating triggered')
+//       //   worker.postMessage({
+//       //     kind: 'fancu',
+//       //     cmene: 'ningau_lerosorcu',
+//       //     ...state.searching,
+//       //   })
+//       // }
+//     }
+//     navigator.serviceWorker.register('./sw.js', {
+//       scope: './'
+//     }).then(
+//       function (registration) {
+//         // console.log("COOP/COEP Service Worker registered", registration.scope);
+//         // // If the registration is active, but it's not controlling the page
+//         // if (registration.active && !navigator.serviceWorker.controller) {
+//         //   window.location.reload();
+//         // }
+//       },
+//       (err) => {
+//         console.log('ServiceWorker registration failed: ', err)
+//       }
+//     )
+//   } else if (location.protocol === 'https:') {
+//     alert(
+//       'Your browser is not supported. Please, upgrade to the latest Chrome / Firefox / Safari and don\'t use the app in incognito / private browsing mode (it needs to save dictionary data to disk to work successfully).'
+//     )
+//   } else {
+//     console.log("http protocol, service worker won't work")
+//   }
+// })
 
 //<xuzganalojudri|lojbo>
 //pronunciation guide

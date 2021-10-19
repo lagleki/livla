@@ -636,9 +636,11 @@ code {
     right: 4px;
     border-radius: 0 20% 0% 0%;
   }
-  #title > #site-title > font {
+
+  [data-jufra="titlelogo-inner"] {
     width: auto;
   }
+
   #kicne1,
   #kicne2 {
     display: none;
@@ -688,7 +690,7 @@ code {
   #title > #site-title > img:nth-child(1) ~ img {
     display: none;
   }
-  #title > #site-title > font {
+  [data-jufra="titlelogo-inner"] {
     display: none;
   }
   #kicne1 {

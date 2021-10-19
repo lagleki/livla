@@ -1,15 +1,26 @@
-back button doesnt work
-each language should have a native name in tejufra
-CLL,2002 is a new language
-en-cll
-en-jvs
-each word sh have a button: all langs mode - if true then bangu: undefined, shortget
+# Checks
 
-on empty db => start downloading, show message of downloading with lang
-first download locales
-then jvs
-then cll
+firefox working?
+firefox working offline?
+firefox: what happens when you open the app in incognito?
+chrome working?
+chrome working offline?
+chrome: what happens when you open the app in incognito?
 
-db.cll
-db.tejufra
+# Issues
 
+* save arrows settings in cookies
+* if no caches show error
+* muplis must show G-tagged sentences first
+* dont show audio icons when offline and failed to download
+* GA working?
+* "opened!" sev time when {se}
+* forward button doesnt work
+* CLL,2002 is a new language
+* en-cll
+* en-jvs
+
+## minor issues
+
+* show error when coop is false?
+* show error when no navigator?

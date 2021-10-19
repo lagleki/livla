@@ -716,6 +716,7 @@ function jsonDocDirection(jsonDoc) {
 function preprocesWordWithScale(v, scale, lang) {
   let prefix = '', oldPrefix = ''
   const root = v.word.replace(/(nai|cu'i|ja'ai)+$/, '')
+  const type = /nai$/.test(v.word) ? 2 : /cu[h']i$/.test(v.word) ? 1 : 0
   if (RegExp(scale.COI.selmaho).test(v.selmaho)) {
     if (RegExp(scale.COI.match).test(v.definition)) {
       prefix = `${v.definition.split(":")[0]}: \n`
@@ -726,15 +727,15 @@ function preprocesWordWithScale(v, scale, lang) {
     let core = v.definition[0].split(" - ")
     if (core.length === 3) {
       const postfix = v.definition.slice(1).join(";")
-      core[0] = `{${root}} - ${core[0] + (postfix ? "; " + postfix : '')}`
-      core[1] = `{${root}cu'i} - ${core[1]}`
-      core[2] = `{${root}nai} - ${core[2]}`
+      core[0] = `{${root}} - ${core[0] + (postfix && type === 0 ? "; " + postfix : '')}`
+      core[1] = `{${root}cu'i} - ${core[1] + (postfix && type === 1 ? "; " + postfix : '')}`
+      core[2] = `{${root}nai} - ${core[2] + (postfix && type === 2 ? "; " + postfix : '')}`
       v.definition[0] = core.join("\n")
       v.definition = prefix + v.definition[0]
     } else if (core.length === 2) {
       const postfix = v.definition.slice(1).join(";")
-      core[0] = `{${root}} - ${core[0] + (postfix ? "; " + postfix : '')}`
-      core[1] = `{${root}nai} - ${core[1]}`
+      core[0] = `{${root}} - ${core[0] + (postfix && type === 0 ? "; " + postfix : '')}`
+      core[1] = `{${root}nai} - ${core[1] + (postfix && type === 2 ? "; " + postfix : '')}`
       v.definition[0] = core.join("\n")
       v.definition = prefix + v.definition[0]
     } else {
@@ -750,15 +751,15 @@ function preprocesWordWithScale(v, scale, lang) {
     let core = v.definition[0].split(" - ")
     if (core.length === 3) {
       const postfix = v.definition.slice(1).join(";")
-      core[0] = `{${root}} - ${core[0] + (postfix ? "; " + postfix : '')}`
-      core[1] = `{${root}cu'i} - ${core[1]}`
-      core[2] = `{${root}nai} - ${core[2]}`
+      core[0] = `{${root}} - ${core[0] + (postfix && type === 0 ? "; " + postfix : '')}`
+      core[1] = `{${root}cu'i} - ${core[1] + (postfix && type === 1 ? "; " + postfix : '')}`
+      core[2] = `{${root}nai} - ${core[2] + (postfix && type === 2 ? "; " + postfix : '')}`
       v.definition[0] = core.join("\n")
       v.definition = prefix + v.definition[0]
     } else if (core.length === 2) {
       const postfix = v.definition.slice(1).join(";")
-      core[0] = `{${root}} - ${core[0] + (postfix ? "; " + postfix : '')}`
-      core[1] = `{${root}nai} - ${core[1]}`
+      core[0] = `{${root}} - ${core[0] + (postfix && type === 0 ? "; " + postfix : '')}`
+      core[1] = `{${root}nai} - ${core[1] + (postfix && type === 2 ? "; " + postfix : '')}`
       v.definition[0] = core.join("\n")
       v.definition = prefix + v.definition[0]
     } else {
@@ -1112,46 +1113,57 @@ const mensimikce = (text) => {
 }
 
 // mahantufa
-const ningaumahantufa = (text, socket) => {
+const ningaumahantufa = async (text, socket, file) => {
+  if (!text) text = ''
   // write file
-  const whichfile = text.substr(0, text.indexOf(' '))
+  const whichfile = file || text.substr(0, text.indexOf(' '))
   text = text.substr(text.indexOf(' ') + 1)
-  const t = path.join(__dirname, `.${whichfile}.peg`)
-  fs.writeFileSync(t, text)
+  const t = path.join(__dirname, `../mahantufa/${whichfile}.js.peg`)
+  const compiled_js_file = path.join(__dirname, `../mahantufa/${whichfile}.js`)
+  if (text) {
+    fs.writeFileSync(t, text)
+  } else {
+    text = fs.readFileSync(t).toString()
+  }
   // // read peg and build a parser
-  const camxes_peg = fs.readFileSync(`${whichfile}.peg`).toString()
   try {
     const camxes =
       'var camxes=' +
-      require('pegjs').generate(camxes_peg, {
+      require('peggy').generate(text, {
         cache: true,
         trace: false,
         output: 'source',
         allowedStartRules: ['text'],
-        optimize: 'size',
+        format: 'commonjs'
       })
     // // write to a file
-    fs.writeFileSync(whichfile, camxes, { encoding: 'utf8' })
-    const Terser = require('terser')
-    const result = camxes
-    // Terser.minify(camxes, {
-    //   ecma: 5,
-    //   mangle: {
-    //     toplevel: true,
-    //     reserved: ['parse'],
-    //   },
-    // }).code
-    fs.writeFileSync(whichfile, result, { encoding: 'utf8' })
-    socket.emit('la_livla_cu_cusku', {
+    fs.writeFileSync(compiled_js_file, camxes, { encoding: 'utf8' })
+    const { minify } = require("terser");
+
+    const result = await minify(camxes, {
+      ecma: 5,
+      // mangle: {
+      //   toplevel: true,
+      //   reserved: ['parse', 'camxes'],
+      // },
+    })
+
+    fs.writeFileSync(compiled_js_file, result.code, { encoding: 'utf8' })
+    if (socket) socket.emit('la_livla_cu_cusku', {
       message: 'snada',
       data_js: camxes,
     })
+    else console.log('compiled ' + (file || text))
   } catch (e) {
-    socket.emit('la_livla_cu_cusku', {
+    console.log(e);
+
+    if (socket) socket.emit('la_livla_cu_cusku', {
       message: e.message,
     })
   }
 }
+
+ningaumahantufa(null, null, 'cmaxes')
 
 const getmahantufagrammar = (name, socket) => {
   try {

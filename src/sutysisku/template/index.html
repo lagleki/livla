@@ -64,7 +64,6 @@
       },
     }
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.min.js"></script>
   <!-- Google Tag Manager -->
   <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -111,9 +110,25 @@
   <link rel="search" type="application/opensearchdescription+xml" href="'%searchurl%'" title="'%searchtitle%'" />
   <link rel="stylesheet" href="./index.css?detri={now}" />
   <link rel="manifest" href="../manifest.json" />
-  <script src="../assets/scripts/leader-line.min.js"></script>
-  <script src="./coi.js"></script>
-  <script src="./bangu.js?sisku={now}"></script>
+  <script defer src="../assets/scripts/leader-line.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
+  <script defer>
+    window.MathJax = {
+      options: {
+        renderActions: {
+          addMenu: [],
+          checkLoading: [],
+        },
+      },
+      tex: {
+        inlineMath: [['$', '$']],
+      },
+    }
+  </script>
+  <script defer src="../assets/scripts/aws-sdk.min.js"></script>
+  <script defer src="./index.js?detri={now}"></script>
+  <script defer src="./coi.js"></script>
+  <script defer src="./bangu.js?sisku={now}"></script>
 </head>
 
 <body>
@@ -203,22 +218,6 @@
     <!-- </div> -->
   </div>
   <div id="velsku" class="noselect"><a id="velsku_sebenji" href="https://lojban.pw/articles/live_chat/"></a></div>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
-  <script defer>
-    window.MathJax = {
-      options: {
-        renderActions: {
-          addMenu: [],
-          checkLoading: [],
-        },
-      },
-      tex: {
-        inlineMath: [['$', '$']],
-      },
-    }
-  </script>
-  <script defer src="../assets/scripts/aws-sdk.min.js"></script>
-  <script defer src="index.js?detri={now}"></script>
 
   <!-- The most recent minified version  -->
   <!-- <script src="https://unpkg.com/3box/dist/3box.min.js"></script> -->
@@ -230,9 +229,6 @@
       <textarea name="textarea" id="audioParamsTextarea" rows="10"></textarea>
     </div>
   </div>
-  <script>
-    console.log(window.crossOriginIsolated)
-  </script>
 </body>
 
 </html>

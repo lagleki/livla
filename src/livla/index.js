@@ -841,6 +841,8 @@ function prepareSutysiskuJsonDump(language) {
       } else {
         json[v.word].r = [v.rafsi]
       }
+    } else if (RegExp(`rafsi.*-[a-z']{3,4}-`).test(v.notes)) {
+      json[v.word].r = [v.notes.match(/.*-([a-z']{3,4})-/)[1]]
     } else {
       json[v.word].r = []
     }
@@ -1119,7 +1121,7 @@ const ningaumahantufa = async (text, socket, file) => {
   const whichfile = file || text.substr(0, text.indexOf(' '))
   text = text.substr(text.indexOf(' ') + 1)
   const t = path.join(__dirname, `../mahantufa/${whichfile}.js.peg`)
-  const compiled_js_file = path.join(__dirname, `../mahantufa/${whichfile}.js`)
+  const compiled_js_file = path.join(__dirname, `../mahantufa/${whichfile}`)
   if (text) {
     fs.writeFileSync(t, text)
   } else {
@@ -1137,7 +1139,7 @@ const ningaumahantufa = async (text, socket, file) => {
         format: 'commonjs'
       })
     // // write to a file
-    fs.writeFileSync(compiled_js_file, camxes, { encoding: 'utf8' })
+    fs.writeFileSync(compiled_js_file+".unwrapped.js", camxes, { encoding: 'utf8' })
     const { minify } = require("terser");
 
     const result = await minify(camxes, {
@@ -1148,7 +1150,7 @@ const ningaumahantufa = async (text, socket, file) => {
       // },
     })
 
-    fs.writeFileSync(compiled_js_file, result.code, { encoding: 'utf8' })
+    fs.writeFileSync(compiled_js_file+".js", result.code, { encoding: 'utf8' })
     if (socket) socket.emit('la_livla_cu_cusku', {
       message: 'snada',
       data_js: camxes,

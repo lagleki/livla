@@ -568,6 +568,15 @@ async function cnanosisku({
 		}
 		return e
 	}
+	if (allMatches[0][0].w === query_apos) {
+		//full match
+		const [type, parsedWord] = maklesi_levalsi(allMatches[0][0].w)
+		if (type.indexOf("fu'ivla") >= 0 && parsedWord.indexOf("-") >= 0) {
+			const pseudoRafsi = parsedWord.split("-")[0]
+			const selrafsi = runQuery(`SELECT * FROM valsi, json_each(valsi.r) where json_valid(valsi.r) and json_each.value=? and valsi.bangu=? limit 1`, [pseudoRafsi, bangu])
+			allMatches[0][0].rfs = selrafsi
+		}
+	}
 
 	return { result: allMatches[0], decomposed }
 }
@@ -711,23 +720,22 @@ async function shortget({ valsi, secupra, nasisku_filohipagbu, bangu, cachedDefi
 		return secupra.concat(definitions)
 	if (!nasisku_filohipagbu) {
 		if (valsi.replace(/ zei /g, '-zei-').split(' ').length === 1) {
-			let ye = maklesi_levalsi(valsi)
-			if (ye[0] === 'cmavo-compound' || ye[0] === 'zei-lujvo') {
-				ye = ye[1].split(' ')
-				for (const jj in ye) {
+			const valsi_giheklesi = maklesi_levalsi(valsi)
+			if (valsi_giheklesi[0] === 'cmavo-compound' || valsi_giheklesi[0] === 'zei-lujvo') {
+				const words = valsi_giheklesi[1].split(' ')
+				for (const word of words) {
 					secupra = await shortget({
-						valsi: ye[jj],
+						valsi: word,
 						secupra,
 						nasisku_filohipagbu: true,
 						bangu,
 						cachedDefinitions
 					})
 				}
-			} else if (ye[0] !== '') {
-				ye = ye.filter((_, index, __) => index % 2 !== 0)
-				for (const _ in ye) {
+			} else if (valsi_giheklesi[0] !== '') {
+				for (const word of valsi_giheklesi.filter((_, index) => index % 2 !== 0)) {
 					secupra = await shortget({
-						valsi: ye[_].replace(/-/g, ''),
+						valsi: word.replace(/-/g, ''),
 						secupra,
 						nasisku_filohipagbu: true,
 						bangu,
@@ -736,6 +744,7 @@ async function shortget({ valsi, secupra, nasisku_filohipagbu, bangu, cachedDefi
 				}
 			}
 		} else {
+			//several words
 			let vuhilevelujvo = mevuhilevelujvo(valsi)
 			if ((vuhilevelujvo || [])[0] === '@') {
 				vuhilevelujvo = vuhilevelujvo.slice(1)

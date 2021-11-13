@@ -1466,6 +1466,7 @@ button.simple {
 
 @media (prefers-color-scheme: dark) {
   .content {
-    background: #000000;
+    background-image: initial;
+    background-color: rgb(40, 40, 40) !important;
   }
 }

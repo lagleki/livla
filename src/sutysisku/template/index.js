@@ -334,18 +334,18 @@ document.getElementById('audioParamsTextarea').value = JSON.stringify(
 )
 
 window.addEventListener('load', async () => {
-  await getCache()
+  await getCache({ mode: "co'a" })
   // if (!cacheIsFine) return
 
   // if (window.crossOriginIsolated) {
-    console.log({ crossOriginIsolated: window.crossOriginIsolated })
-    //check if our db is filled
-    worker.postMessage({
-      kind: 'fancu',
-      cmene: 'ningau_lesorcu',
-      ...state.searching,
-    })
-    updateLocales()
+  console.log({ crossOriginIsolated: window.crossOriginIsolated })
+  //check if our db is filled
+  worker.postMessage({
+    kind: 'fancu',
+    cmene: 'ningau_lesorcu',
+    ...state.searching,
+  })
+  updateLocales()
   // }
 
   // jimpe fi le jei su'o cnino sorcu ka'e se pilno ca lo nu jai gau akti fai le cnino papri
@@ -435,7 +435,7 @@ function showLoading({ completedRows, totalRows, bangu, hideProgress }) {
   document.getElementById('bangu_loading').innerHTML = bangu
 }
 
-async function getCache() {
+async function getCache({ mode }) {
   const cacheStorage = await caches.open(CACHE_NAME);
   const cachedList = await getCachedList();
   const initialCacheListLength = cachedList.length
@@ -449,11 +449,12 @@ async function getCache() {
   let cacheUpdated = false
   for (let i = 0; i < vreji.length; i++) {
     const url = vreji[i]
+    if (mode === "co'a" && !/(\.(js|wasm|html|css)|\/$)/.test(url)) continue
     const cachedResponse = await cacheStorage.match(url);
     if (!cachedResponse) {
       await cacheStorage.add(url);
       cacheUpdated = true
-      showLoading({ completedRows: i, totalRows: vreji.length, bangu: '📦 💾 📁 🛠️' })
+      if (mode === "co'a") showLoading({ completedRows: i, totalRows: vreji.length, bangu: `📦 💾 📁 🛠️` })
     }
   }
 
@@ -899,6 +900,7 @@ worker.onmessage = (ev) => {
       showLoading({ completedRows: data.completedRows, totalRows: data.totalRows, bangu: "🗃️ " + data.bangu })
     } else if (cmene === 'loaded') {
       showLoaded()
+      getCache({ mode: "ca'o" })
     } else if (cmene === 'booting') {
       showLoading({ completedRows: 1, totalRows: 3, bangu: "🗃️ " + (window.booting || '') })
     }
@@ -1633,13 +1635,11 @@ function escapeRegExp(string) {
 }
 
 function basna({ def, query }) {
-  if (!query || query === '' || query.length <= 2) return def
+  if (!query || query.length <= 2) return def
   query = query.trim()
-  const f = `(${escapeRegExp(query).replace(/ /g, '|')}|${escapeRegExp(query)
-    .replace(/'/g, 'h')
-    .replace(/ /g, '|')})`
-  const rock = new RegExp(f, 'igm')
-  return def.replace(rock, "<span class='basna'>$1</span>")
+  const regexpToHilite = `(${escapeRegExp(query).split(" ").filter(i => i.length > 2).join("|")}|${escapeRegExp(query).split(" ").filter(i => i.length > 2).join("|")
+    .replace(/'/g, 'h')})`
+  return def.replace(new RegExp(regexpToHilite, 'igm'), "<span class='basna'>$1</span>")
 }
 
 //<xuzganalojudri|lojbo>
@@ -2030,7 +2030,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
 
   const copy = document.createElement('input')
   copy.type = 'button'
-  copy.classList.add('tutci','sance','klesi-tutci')
+  copy.classList.add('tutci', 'sance', 'klesi-tutci')
   copy.value = "📋"
   copy.addEventListener('click', function () {
     copyToClipboard([def.w, def.d, def.n].filter(Boolean).join("\r\n"))
@@ -2492,6 +2492,8 @@ function allAreSafeWords(array, { allowCmevla = false, allowCmavo = false }) {
   const iismu = RegExp(`^${J}${V}${C}${C}${V}$`)
   const strelka = RegExp(`^${T}${V}${R}${V}$`)
   const flokati = RegExp(`^${D}${V}${C}${V}${C}${V}$`)
+  const prulamdei = RegExp(`^${D}${V}${C}${V}${C}${C}${V}$`)
+  const cinjikca = RegExp(`^${C}${V}${R}${V}${C}${C}${V}$`)
   const sorpeka = RegExp(`^${C}${V}${R}${V}${C}${V}$`)
   const snazga = RegExp(`^${D}${V}${C}${C}${V}$`)
   const kaltahu = RegExp(`^${C}${V}${C}${C}${V}${h}${V}$`)
@@ -2509,6 +2511,8 @@ function allAreSafeWords(array, { allowCmevla = false, allowCmavo = false }) {
       kaltahu.test(el[1]) ||
       cmalahu.test(el[1]) ||
       snazga.test(el[1]) ||
+      prulamdei.test(el[1]) ||
+      cinjikca.test(el[1]) ||
       (allowCmevla && el[0] === 'cmevla') ||
       (allowCmavo && el[0] === 'cmavo')
   )
@@ -2588,6 +2592,12 @@ function PollyPlayer(params) {
         } else if (matchForm(currentWord, 'CVCCVCV')) {
           if (i == 3) ph.push('.ˈ')
           if (i == 5) ph.push('.')
+        } else if (matchForm(currentWord, 'CCVCVCCV')) {
+          if (i == 3) ph.push('.ˈ')
+          if (i == 6) ph.push('.')
+        } else if (matchForm(currentWord, 'CVCCVCCV')) {
+          if (i == 3) ph.push('.ˈ')
+          if (i == 6) ph.push('.')
         }
         const { match, value } = getValByKeyRegex(
           params.lojban2IPAMapping,

@@ -472,7 +472,7 @@ let leijufra = {
 function getCachedDefinitions({ query, bangu, mapti_vreji }) {
 	let result = []
 	if (mapti_vreji) result = mapti_vreji.filter(i => i.bangu === bangu && [i.w, i.d].map(_ => _.toLowerCase()).includes(query.toLowerCase()))
-	if (result.length === 0) result = runQuery(`SELECT * FROM valsi where bangu=? and (w=? COLLATE NOCASE or d=? COLLATE NOCASE)`, [bangu, query.toLowerCase(), query.toLowerCase()])
+	if (result.length === 0) result = runQuery(`SELECT * FROM valsi where bangu=$bangu and (w=$query COLLATE NOCASE or d=$query COLLATE NOCASE)`, {$bangu: bangu, $query: query.toLowerCase()})
 	return result
 }
 
@@ -501,7 +501,7 @@ async function cnanosisku({
 				if (supportedLangs[a.bangu].searchPriority) { return 0 }
 				return 1
 			});
-	} else if (bangu === 'muplis' && queryDecomposition.length > 1) {
+	} else if (queryDecomposition.length > 1) {
 		const array = queryDecomposition.map(i => `'${i.replace(/'/g, "''")}'`).join(",")
 		const arrayLength = [...new Set(queryDecomposition)].length
 		const query = `select d,n,w,r,bangu,s,t,g,count(ex) as no from (select distinct valsi.d as d,valsi.n as n,valsi.w as w,valsi.r as r,valsi.bangu as bangu,valsi.s as s,valsi.t as t,valsi.g as g,json_each.value as ex from valsi,json_each(valsi.cache) where json_each.value in (${array}) and bangu='${bangu}') as k
@@ -513,7 +513,7 @@ async function cnanosisku({
 		rows = runQuery(query, [])
 	} else {
 		//normal search
-		rows = runQuery(`select distinct d,n,w,r,bangu,s,t,g from valsi,json_each(valsi.cache) where (w like ? or json_each.value like ?) and (bangu = ? or bangu like ?)`, ["%" + query_apos + "%", "%" + query_apos + "%", bangu, bangu + "-%"])
+		rows = runQuery(`select distinct d,n,w,r,bangu,s,t,g from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query or d like $query or n like $query) and (bangu = $bangu or bangu like $bangu)`, { $query: "%" + query_apos + "%", $bangu: bangu })
 	}
 	rows = rows.map(el => {
 		const { cache, ...rest } = el
@@ -532,7 +532,6 @@ async function cnanosisku({
 		query,
 		bangu,
 		mapti_vreji,
-		multi,
 		seskari,
 		secupra_vreji,
 	})
@@ -614,7 +613,7 @@ function maklesi_levalsi(selsku) {
 		const oddEls = parsedString.filter((_, index) => index % 2 == 1)
 		if (oddEls.length > 0 && oddEls.every(el => el[0] == 'zei')) return ['zei-lujvo', reconcatenated]
 		if (parsedString.length == 1) return parsedString[0]
-		if (parsedString.every(el => el[0] === 'cmavo')) return ['cmavo-compound', reconcatenated]
+		if (parsedString.length > 0 && parsedString.every(el => el[0] === 'cmavo')) return ['cmavo-compound', reconcatenated]
 		if (parsedString.length > 1) return ['phrase', reconcatenated]
 	} catch (e) { }
 	return ['', reconcatenated]
@@ -633,10 +632,10 @@ function mevuhilevelujvo(tegerna) {
 	return text[1].split('-')
 }
 
-function setca_lotcila(doc) {
-	if ([undefined, ''].includes(doc.t))
-		doc.t = (doc.bangu !== 'muplis' && leijufra.xuzganalojudri) ? maklesi_levalsi(doc.w)[0] : ''
-	return doc
+function setca_lotcila(def) {
+	if ([undefined, ''].includes(def.t))
+		def.t = (def.bangu !== 'muplis' && leijufra.xuzganalojudri) ? maklesi_levalsi(def.w)[0] : ''
+	return def
 }
 
 function decompose(selsku) {
@@ -800,7 +799,6 @@ function defaultPriorityGroups() {
 
 async function sortthem({
 	mapti_vreji,
-	multi,
 	query,
 	bangu,
 	query_apos,
@@ -975,7 +973,6 @@ async function sisku(searching, callback) {
 					query,
 					bangu,
 					mapti_vreji: first1000,
-					multi: false,
 					seskari,
 					secupra_vreji: [],
 				})
@@ -992,6 +989,7 @@ async function sisku(searching, callback) {
 			query_apos,
 			seskari,
 			secupra_vreji,
+			queryDecomposition
 		})
 		secupra_vreji = result
 		if (!decomposed) {
@@ -1042,9 +1040,9 @@ async function siskurimni({ query, bangu }) {
 	let queryR
 	function cupra_lo_porsi(a) {
 		for (let i = 0; i < a.length; i++) {
-			const doc = setca_lotcila(a[i]) // todo: optimize for phrases
-			if (!doc) continue
-			const docw = krulermorna(doc.w)
+			const def = setca_lotcila(a[i]) // todo: optimize for phrases
+			if (!def) continue
+			const docw = krulermorna(def.w)
 				.replace(/([aeiouḁąęǫy])/g, '$1-')
 				.split('-')
 				.slice(-3)
@@ -1064,8 +1062,8 @@ async function siskurimni({ query, bangu }) {
 			) {
 				sli = true
 			}
-			if (krulermorna(doc.w) === query) {
-				rimni[0].push(doc)
+			if (krulermorna(def.w) === query) {
+				rimni[0].push(def)
 				continue
 			} else if (docw[2] || '' === queryR[2] || '') {
 				// if (queryR[2])
@@ -1074,43 +1072,43 @@ async function siskurimni({ query, bangu }) {
 					(docw[1].match(queryR[1]) || []).length > 0 &&
 					left === right
 				) {
-					rimni[1].push(doc)
+					rimni[1].push(def)
 				} else if (
 					(docw[0].match(queryR[0]) || []).length > 0 &&
 					(docw[1].match(queryR[1]) || []).length > 0 &&
 					sli
 				) {
-					rimni[2].push(doc)
+					rimni[2].push(def)
 				} else if (
 					(docw[1].match(regexify(queryR[2] || '')) || []).length > 0 &&
 					left === right
 				) {
-					rimni[3].push(doc)
+					rimni[3].push(def)
 				} else if (
 					(docw[1].match(regexify(queryR[2] || '')) || []).length > 0 &&
 					sli
 				) {
-					rimni[4].push(doc)
+					rimni[4].push(def)
 				} else if (
 					(docw[0].match(queryR[0]) || []).length > 0 &&
 					sli &&
 					reversal
 				) {
-					rimni[5].push(doc)
+					rimni[5].push(def)
 				} else if (
 					(docw[0].match(queryR[0]) || []).length > 0 &&
 					(docw[1].match(queryR[1]) || []).length > 0
 				) {
-					rimni[6].push(doc)
+					rimni[6].push(def)
 				}
 			} else if (
 				queryR[1] &&
 				(docw[0].match(queryR[0]) || []).length > 0 &&
 				(docw[1].match(queryR[1]) || []).length > 0
 			) {
-				rimni[7].push(doc)
+				rimni[7].push(def)
 			} else {
-				rimni[8].push(doc)
+				rimni[8].push(def)
 			}
 		}
 		const sortArray = ({ ar }) => {

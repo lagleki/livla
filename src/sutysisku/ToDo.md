@@ -9,6 +9,8 @@ chrome: what happens when you open the app in incognito?
 
 # Issues
 
+* ipfs
+* on start load only necessary cache elements - load the rest in background. js,woff,wasm,html,/,css
 * save arrows settings in cookies
 * if no caches show error
 * muplis must show G-tagged sentences first
@@ -16,9 +18,8 @@ chrome: what happens when you open the app in incognito?
 * GA working?
 * "opened!" sev time when {se}
 * forward button doesnt work
-* CLL,2002 is a new language
-* en-cll
-* en-jvs
+* CLL content as a new language
+* 2002 as a new language
 
 ## minor issues
 

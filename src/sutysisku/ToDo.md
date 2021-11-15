@@ -9,8 +9,8 @@ chrome: what happens when you open the app in incognito?
 
 # Issues
 
+* prioritization when regexp search too
 * ipfs
-* on start load only necessary cache elements - load the rest in background. js,woff,wasm,html,/,css
 * save arrows settings in cookies
 * if no caches show error
 * muplis must show G-tagged sentences first

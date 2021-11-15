@@ -466,7 +466,7 @@ async function getCache({ mode }) {
   }
   if (cacheUpdated) await cacheStorage.add(new URL('index.html', window.location.origin + window.location.pathname).href);
   showLoaded()
-  if (cacheUpdated) {
+  if (mode === "co'a" && cacheUpdated) {
     window.location.reload()
   }
   //  else if (!window.crossOriginIsolated) {

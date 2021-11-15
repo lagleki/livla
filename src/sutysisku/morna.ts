@@ -376,16 +376,16 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
 (async () => {
   // generate files
   for (let lang of langs) {
-
+    fs.copySync(`/livla/src/sutysisku/template/sqljs`, `/livla/build/sutysisku/${lang}/sqljs`)
+    fs.copySync(`/livla/src/sutysisku/template/asql`, `/livla/build/sutysisku/${lang}/asql`)
+    fs.copyFileSync(`/livla/src/sutysisku/src/${lang}/bangu.js`, `/livla/build/sutysisku/${lang}/bangu.js`);
+    fs.copyFileSync(`/livla/src/sutysisku/src/${lang}/config.json`, `/livla/build/sutysisku/${lang}/config.json`);
     // generate index.html
-    const config = JSON.parse(
-      fs.readFileSync(
-        path.join('/livla/build/sutysisku/', lang, 'config.json'),
-        {
-          encoding: 'utf8',
-        }
-      )
-    )
+    const config = JSON.parse(fs.readFileSync(path.join('/livla/build/sutysisku/', lang, 'config.json'), { encoding: 'utf8', }))
+    if (process.env.COMPRESS)
+      config.production = false
+    else
+      config.production = true
     const config_fallback = {
       lang,
       cll_source,

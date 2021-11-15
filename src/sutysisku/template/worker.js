@@ -143,6 +143,8 @@ async function initSQLDB() {
 	console.log('booted');
 }
 
+// const production = '%production%'
+
 function runQuery(sql_query, params) {
 	const start = new Date()
 	let stmt = db.prepare(sql_query);
@@ -502,7 +504,7 @@ async function cnanosisku({
 				return 1
 			});
 	} else if (queryDecomposition.length > 1) {
-		const array = queryDecomposition.map(i => `'${i.replace(/'/g, "''")}'`).join(",")
+		const array = [...queryDecomposition, query_apos].map(i => `'${i.replace(/'/g, "''")}'`).join(",")
 		const arrayLength = [...new Set(queryDecomposition)].length
 		const query = `select d,n,w,r,bangu,s,t,g,count(ex) as no from (select distinct valsi.d as d,valsi.n as n,valsi.w as w,valsi.r as r,valsi.bangu as bangu,valsi.s as s,valsi.t as t,valsi.g as g,json_each.value as ex from valsi,json_each(valsi.cache) where json_each.value in (${array}) and bangu='${bangu}') as k
 			group by d,n,w,r,bangu,s,t,g
@@ -511,9 +513,11 @@ async function cnanosisku({
 			;`
 
 		rows = runQuery(query, [])
+		const rows2 = runQuery(`select distinct d,n,w,r,bangu,s,t,g from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $bangu)`, { $query: "%" + query_apos + "%", $bangu: bangu })
+		rows = rows.concat(rows2)
 	} else {
 		//normal search
-		rows = runQuery(`select distinct d,n,w,r,bangu,s,t,g from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query or d like $query or n like $query) and (bangu = $bangu or bangu like $bangu)`, { $query: "%" + query_apos + "%", $bangu: bangu })
+		rows = runQuery(`select distinct d,n,w,r,bangu,s,t,g from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $bangu)`, { $query: "%" + query_apos + "%", $bangu: bangu })
 	}
 	rows = rows.map(el => {
 		const { cache, ...rest } = el
@@ -963,8 +967,8 @@ async function sisku(searching, callback) {
 
 	if (query.indexOf("^") === 0 || query.slice(-1) === "$") {
 		const regexpedQuery = query.toLowerCase().replace(/'/g, "''")
-		const regexpedQueryPrecise = regexpedQuery.replace(/\^/g, '').replace(/\$/g, '').replace(/^(.*)$/g, '\\b$1\\b')
-		let first1000 = runQuery(`SELECT * FROM valsi where bangu = ? and (regexp('${regexpedQuery}',w) or regexp('${regexpedQueryPrecise}',d) or regexp('${regexpedQueryPrecise}',n)) limit 1000`, [bangu])
+		// const regexpedQueryPrecise = regexpedQuery.replace(/\^/g, '').replace(/\$/g, '').replace(/^(.*)$/g, '\\b$1\\b')
+		let first1000 = runQuery(`SELECT * FROM valsi where bangu = ? and regexp('${regexpedQuery}',w) limit 1000`, [bangu])
 
 		secupra_vreji = julne_setca_lotcila(
 			(
@@ -993,7 +997,7 @@ async function sisku(searching, callback) {
 		})
 		secupra_vreji = result
 		if (!decomposed) {
-			secupra_vreji.push({
+			secupra_vreji.unshift({
 				t: 'bangudecomp',
 				ot: "vlaza'umei",
 				w: query,

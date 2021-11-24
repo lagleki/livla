@@ -9,7 +9,11 @@ chrome: what happens when you open the app in incognito?
 
 # Issues
 
-* prioritization when regexp search too
+* extract template.js configs to separate json files
+* add lojban todo list
+* add the text of LearnLojban, CLL
+* lujvo with xN only mustnt have voynich pipes
+* prioritization when regexp search too.
 * ipfs
 * save arrows settings in cookies
 * if no caches show error
@@ -18,7 +22,6 @@ chrome: what happens when you open the app in incognito?
 * GA working?
 * "opened!" sev time when {se}
 * forward button doesnt work
-* CLL content as a new language
 * 2002 as a new language
 
 ## minor issues

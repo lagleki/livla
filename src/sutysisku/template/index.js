@@ -48,6 +48,8 @@ const supportedLangs = {
 }
 
 const listFamymaho = {
+  GA: "gi",
+  GUhA: "gi",
   BE: "bei be'o",
   BEI: "be'o",
   BY: 'boi',
@@ -1636,9 +1638,11 @@ function escapeRegExp(string) {
 
 function basna({ def, query }) {
   if (!query || query.length <= 2) return def
-  query = query.trim()
-  const regexpToHilite = `(${escapeRegExp(query).split(" ").filter(i => i.length > 2).join("|")}|${escapeRegExp(query).split(" ").filter(i => i.length > 2).join("|")
-    .replace(/'/g, 'h')})`
+  query = query.trim().replace(/[\|\(\)\{\}<>]/g, '.')
+  let wordsToHilite = escapeRegExp(query).split(" ").filter(i => i.length > 2).concat(escapeRegExp(query.replace(/'/g, 'h')).split(" ").filter(i => i.length > 2))
+  if (wordsToHilite.length === 0) return def;
+
+  const regexpToHilite = `(${wordsToHilite.join("|")})`
   return def.replace(new RegExp(regexpToHilite, 'igm'), "<span class='basna'>$1</span>")
 }
 

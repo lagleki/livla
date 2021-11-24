@@ -347,7 +347,7 @@ String.prototype.stripout = function (config: { [x: string]: string; }, tag: str
     );
 }
 
-String.prototype.replaceMergefield = function (config: { [x: string]: any; }): string {
+String.prototype.replaceMergefield = function (config: { [x: string]: any; }): string {  
   return Object.keys(config).reduce((acc, i) => acc.replace(new RegExp(`['"]%${i}%['"]`, 'g'), config[i]), this) as string;
 }
 
@@ -361,15 +361,8 @@ function processTemplate({ config, fallback, now, file }: { config: { [x: string
     .stripout(config, 'xuzganalojudri')
     .stripout(config, 'lojbo')
     .stripout(config, 'muplis')
-    // delete comments, compress code
-    // .replace(/^[ \t]+/gm, '')
-    .replace(/^\/\/.*$/gm, '')
-    .replace(/\/\*((?!\/\*)[\s\S]*?)\*\//gm, '')
-    .replace(/<!--[\s\S]*?-->/gm, '')
-  // .replace(/\n\s*\n/g, '\n')
   return output
 }
-let nameCache = {};
 
 const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyState', 'runSearch'];
 
@@ -383,9 +376,9 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
     // generate index.html
     const config = JSON.parse(fs.readFileSync(path.join('/livla/build/sutysisku/', lang, 'config.json'), { encoding: 'utf8', }))
     if (process.env.COMPRESS)
-      config.production = false
+      config.production = false;
     else
-      config.production = true
+      config.production = "production";
     const config_fallback = {
       lang,
       cll_source,
@@ -478,7 +471,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
       {
         file: 'worker.js',
         out: 'worker.js',
-        simpleCopy: true,
+        // simpleCopy: true,
       },
       {
         file: 'index.js',
@@ -489,7 +482,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
       if (el.simpleCopy) {
         fs.copyFileSync(path.join(__dirname, './template', el.file), path.join('/livla/build/sutysisku/', lang, el.out));
         continue
-      }
+      }      
       let output = processTemplate({
         config,
         fallback: config_fallback,

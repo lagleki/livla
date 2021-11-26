@@ -586,10 +586,19 @@ NETWORK:
 
     await new Promise(resolve => {
       webpack({
+        module: {
+          rules: [
+            {
+              test: /\.html$/i,
+              loader: "html-loader",
+            },
+          ],
+        },
         entry: {
           cmaxes: '/livla/build/sutysisku/lojban/cmaxes.js',
           index: '/livla/build/sutysisku/lojban/index.js',
           coi: '/livla/build/sutysisku/lojban/coi.js',
+          // "index.html": '/livla/build/sutysisku/lojban/index.html',
           worker: '/livla/build/sutysisku/lojban/worker.js',
         },
         output: {

@@ -14,6 +14,8 @@
     "deploy": "npm run sutysisku ; cd build/sutysisku ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push ; cd .."
   },
   "dependencies": {
+    "@jlongster/sql.js": "^1.6.7",
+    "absurd-sql": "^0.0.46",
     "await-to-js": "^3.0.0",
     "axios": "^0.21.1",
     "brotli": "^1.3.2",
@@ -66,6 +68,7 @@
     "brotli-wasm": "^1.1.0",
     "browserify": "^17.0.0",
     "core-js": "^3.15.2",
+    "css-loader": "^6.5.1",
     "forever": "^4.0.1",
     "socket.io-client": "^4.3.2",
     "terser": "^5.7.1",

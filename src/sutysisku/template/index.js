@@ -30,7 +30,6 @@ const CACHE_NAME = 'sutysisku'
 
 window.leijufra = {}
 let jvoPlumbsOn = true
-let plumbsTimeout = 3500
 const uncll_url = `'%cll_source%'`
 const learnlojban_url = 'https://lojban.pw/books/learn-lojban/#'
 const supportedLangs = {
@@ -110,6 +109,7 @@ const state = {
 const loadingState = {
   loading: true,
   firstRun: true,
+  mathRendered: false
 }
 
 try {
@@ -692,10 +692,10 @@ function appendPlumbs() {
 }
 
 function addJvoPlumbs(force) {
-  removePlumbs()
-  addPlumbs(!force)
   scrollJvoTimer = setTimeout(
     () => {
+      removePlumbs()
+      addPlumbs()
       if (force !== true) {
         const plumbers = document.getElementsByClassName('jvo_plumber')
         jvoPlumbsOn = !jvoPlumbsOn
@@ -709,49 +709,44 @@ function addJvoPlumbs(force) {
       }
       if (!jvoPlumbsOn) return
       const targetedEls = Array.from(document.querySelectorAll('[data-arr]'))
-      for (var i = 0; i < targetedEls.length; i++) {
-        const el = targetedEls[i]
-        if (
-          el.attributes['data-head'] &&
-          el.attributes['data-head'].nodeValue !== '1'
-        )
-          continue
-        const id = el.id
-        const arr = el.attributes['data-arr'].nodeValue.split(',')
-        const tld = el.id.split('_')
-        const tld_0 = tld.slice(0, -1)
-        const kahe_zgana_el = kahe_sezgana(el)
-        targetedEls.filter((e) => {
-          const tld_inner = e.id.split('_')
-          const tld_inner_0 = tld_inner.slice(0, -2)
-          const arr_ = e.attributes['data-arr'].nodeValue.split(',')
-          const t_ = arr_[0].split(/(?=[0-9]+)/)
+      for (let targetedElIndex = 0; targetedElIndex < targetedEls.length; targetedElIndex++) {
+        const target = targetedEls[targetedElIndex]
+        const target_id = target.id
+        const targetVeljvoElements = target.attributes['data-arr'].nodeValue.split(',')
+        const targetIdComponents = target.id.split('_')
+        const targetFinalIndex = targetIdComponents.slice(0, -1)
+        const WeCanSeeThisElement = kahe_sezgana(target)
+        targetedEls.filter((startElement) => {
+          const startElIdComponents = startElement.id.split('_')
+          const startElFinalIndexes = startElIdComponents.slice(0, -2)
+          const startElVeljvoElements = startElement.attributes['data-arr'].nodeValue.split(',')
+          const startVeljvoElementComponents = startElVeljvoElements[0].split(/(?=[0-9]+)/)
           if (
-            arr_.length === 1 &&
-            tld_inner_0.length === tld_0.length &&
-            tld_inner_0.join('_') === tld_0.join('_') &&
-            arr.filter((ei) => {
-              const t = ei.split(/(?=[0-9])/)
-              return t_[0].indexOf(t[0]) === 0 && t_[1] === t[1]
+            startElVeljvoElements.length === 1 &&
+            startElFinalIndexes.length === targetFinalIndex.length &&
+            startElFinalIndexes.join('_') === targetFinalIndex.join('_') &&
+            targetVeljvoElements.filter((targetVeljvoElement) => {
+              const targetVeljvoElementComponents = targetVeljvoElement.split(/(?=[0-9])/)
+              return startVeljvoElementComponents[0].indexOf(targetVeljvoElementComponents[0]) === 0 && startVeljvoElementComponents[1] === targetVeljvoElementComponents[1]
             }).length > 0 &&
-            (kahe_zgana_el || kahe_sezgana(e))
+            (WeCanSeeThisElement || kahe_sezgana(startElement))
           ) {
-            let clr = e.attributes['data-color'].nodeValue
-            clr = `hsla(${clr},100%,70%,0.62)`
-            const t = new LeaderLine(
-              document.getElementById(e.id),
-              document.getElementById(id),
-              {
-                endPlugColor: clr,
-                color: clr,
-                dash: { animation: true },
-                startSocketGravity: [50, -67],
-                endSocketGravity: [0, 67],
-                endPlug: 'arrow2',
-                endSocket: 'bottom',
-                size: 3,
-              }
-            )
+            let color = startElement.attributes['data-color'].nodeValue
+            color = `hsla(${color},100%,70%,0.62)`
+              ; new LeaderLine(
+                document.getElementById(startElement.id),
+                document.getElementById(target_id),
+                {
+                  endPlugColor: color,
+                  color: color,
+                  dash: { animation: true },
+                  startSocketGravity: [50, -67],
+                  endSocketGravity: [0, 67],
+                  endPlug: 'arrow2',
+                  endSocket: 'bottom',
+                  size: 3,
+                }
+              )
           }
         })
 
@@ -762,44 +757,40 @@ function addJvoPlumbs(force) {
   )
 }
 
-function addPlumbs(force) {
-  removePlumbs()
-  scrollTimer = setTimeout(
-    () => {
-      const targetedEls = document.querySelectorAll('[data-target]')
-      for (let i = 0; i < targetedEls.length; i++) {
-        const el = targetedEls[i]
-        if (kahe_sezgana(el)) {
-          const id = el.id
-          const target = el.attributes['data-target'].nodeValue
-          const t = new LeaderLine(
-            document.getElementById(target),
-            document.getElementById(id),
-            {
-              // gradient: {
-              //   startColor: 'rgba(135, 0, 0, 0.4)',
-              //   endColor: 'rgba(255, 120, 0, 0.4)',
-              // },
-              endPlugColor: 'rgba(255, 120, 0, 0.33)',
-              color: 'rgba(255, 120, 0, 0.33)',
-              dash: { animation: true },
-              // outlineColor: '#111',
-              // outline: true,
-              startSocketGravity: [50, -67],
-              endSocketGravity: [0, 67],
-              endPlug: 'arrow2',
-              // startSocket: 'top',
-              endSocket: 'bottom',
-              size: 3,
-            }
-          )
-        }
-      }
-      appendPlumbs()
-      plumbsTimeout = 450
-    },
-    force ? 0 : plumbsTimeout
-  )
+function addPlumbs() {
+  //plumbs for in-terbri interactions
+  const targetedEls = document.querySelectorAll('[data-target]')
+  for (let i = 0; i < targetedEls.length; i++) {
+    const target = targetedEls[i]
+    if (kahe_sezgana(target)) {
+      const target_id = target.id
+      const start = target.attributes['data-target'].nodeValue
+      let color = document.getElementById(start).attributes['data-color'].nodeValue
+      color = `hsla(${color},100%,70%,0.62)`
+        ; new LeaderLine(
+          document.getElementById(start),
+          document.getElementById(target_id),
+          {
+            // gradient: {
+            //   startColor: 'rgba(135, 0, 0, 0.4)',
+            //   endColor: 'rgba(255, 120, 0, 0.4)',
+            // },
+            endPlugColor: color,
+            color: color,
+            dash: { animation: true },
+            // outlineColor: '#111',
+            // outline: true,
+            startSocketGravity: [50, -67],
+            endSocketGravity: [0, 67],
+            endPlug: 'arrow2',
+            // startSocket: 'top',
+            endSocket: 'bottom',
+            size: 3,
+          }
+        )
+    }
+  }
+  appendPlumbs()
 }
 
 function kahe_sezgana(el) {
@@ -1421,20 +1412,45 @@ function checkScrolledNearBottom({ target }) {
   addAudioLinks()
 }
 
-function string2Int(s, base, q) {
-  s = s.replace(/[\{\}_]/g, '')
+function bgString2Int(string, { s, l }) {
+  const sl = `,${s || '90%'},${l || '80%'}`
+  const array = string.split(",");
+  let acc = []
+  for (let i = 0; i < array.length; i++) {
+    const color = string2Int(array[i], 256, 32)
+    if (i === 0) {
+      acc.push(`hsl(${color}${sl}),hsl(${color}${sl}) ${100 * (i + 1) / array.length}%`)
+    } else if (i === array.length - 1) {
+      acc.push(`hsl(${color}${sl}) ${100 * i / array.length}%,hsl(${color}${sl})`)
+    } else {
+      acc.push(`hsl(${color}${sl}) ${100 * i / array.length}%,hsl(${color}${sl}) ${100 * (i + 1) / array.length}%`)
+    }
+  }
+  return acc.join(",")
+}
+const cyrb53 = function (str, seed = 0) {
+  let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+  for (let i = 0, ch; i < str.length; i++) {
+    ch = str.charCodeAt(i);
+    h1 = Math.imul(h1 ^ ch, 2654435761);
+    h2 = Math.imul(h2 ^ ch, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return 4294967296 * (2097151 & h2) + (h1 >>> 0);
+};
+
+function string2Int(stringToHash, maxNumber, quantifier) {
+  stringToHash = stringToHash.replace(/[\{\}_]/g, '')
   return Math.abs(
     Math.round(
-      (s.split('').reduce((a, b) => {
-        a = (a << 5) - a + b.charCodeAt(0)
-        return a & a
-      }, 0) %
-        base) /
-      q
-    ) * q
+      (cyrb53(stringToHash) %
+        maxNumber) /
+      quantifier
+    ) * quantifier
   )
 }
-function veljvoLetters(v) {
+function getVeljvoLetters(v) {
   v = v.substr(1, v.length - 2).split('=')
 
   const jalge = v.map((i) => i.replace(/[^A-Za-z']/g, ''))
@@ -1444,25 +1460,25 @@ function veljvoLetters(v) {
   }
 }
 
-function veljvoString({ v, fullDef, subtype, dataArrAdded, b, veljvoLs }) {
-  if (dataArrAdded.includes(b)) return ''
-  if (subtype !== 'r' && fullDef.t !== 'lujvo') return ''
-  v = v
-    .substr(1, v.length - 2)
+function getVeljvoString({ placeTag, fullDef, isHead, dataArrAdded, clearedPlaceTag }) {
+  if (isHead && fullDef.t !== 'lujvo') return { dataArr: false, replacement: placeTag, stringifiedPlaceTag: placeTag }
+  const rfsWords = (fullDef.rfs || []).map(i => i.w)
+  const arrayPlaceTags = placeTag
+    .substr(1, placeTag.length - 2)
     .split('=')
-    .map((i) =>
-      subtype === 'r'
-        ? fullDef.w + i.replace(/[^0-9]/g, '')
-        : i.replace(/[^0-9A-Za-z']/g, '')
-    )
-  v = v.filter((i) => {
-    const sI = i.replace(/[0-9]/g, '')
-    if (veljvoLs.filter((j) => j.indexOf(sI) === 0 && j !== sI).length > 0)
-      return
-    return true
-  })
-  v = v.join(',')
-  return ` data-arr="${v}"`
+    .map((i) => {
+      const arrayTag = i.split(/(?=[_0-9].*)/)
+      const candidateWord = rfsWords.filter(word => word.indexOf(arrayTag[0]) === 0)[0]
+      return {
+        full: isHead ? candidateWord || arrayTag[0] : fullDef.w,
+        number: arrayTag.slice(1).join(""),
+        short: isHead ? arrayTag[0] : fullDef.w,
+        hasMatchInRFS: !!candidateWord
+      }
+    })
+  const stringifiedPlaceTag = arrayPlaceTags.filter(i => i.hasMatchInRFS || !isHead).map(i => i.full + i.number.replace(/[_\{\}]/g, '')).join(',') || clearedPlaceTag
+  const replacingPlaceTag = arrayPlaceTags.map(i => i.full + i.number).join("=")
+  return { stringifiedPlaceTag, dataArr: !dataArrAdded.includes(clearedPlaceTag), replacement: `$${replacingPlaceTag}$` }
 }
 
 function melbi_uenzi({ def, fullDef, query, seskari, bangu, type, index }) {
@@ -1497,81 +1513,59 @@ function melbi_uenzi({ def, fullDef, query, seskari, bangu, type, index }) {
   const jsonIds = []
   const types = []
   const dataArrAdded = []
-  let veljvoLs = []
   let hasExpansion = false
   if (!['cnano', 'catni', 'rimni'].includes(seskari)) seskari = 'cnano'
 
-  const res = def.replace(/\$.*?\$/g, (c, offset, string) => {
+  const placeTags = def.match(/\$.*?\$/g) || []
+  for (const placeTag of placeTags) {
     if (type === 'd' && typeof index !== 'undefined') {
-      const rt = veljvoLetters(c)
+      const rt = getVeljvoLetters(placeTag)
       if (rt.hasExpansion) hasExpansion = true
-      veljvoLs = veljvoLs.concat(rt.jalge)
-      const q = string.substr(offset)
-      let r
+      let regexpForPrettifiedPlaceTag
       try {
-        r = new RegExp(
-          `^(${c
+        regexpForPrettifiedPlaceTag = new RegExp(
+          `^(${placeTag
             .replace(/[^a-zA-Z0-9\{\}_]/g, '')
             .replace(/([\{\}])/g, '\\$1')} \\([^\\(\\)<>]+?\\)).*`
         )
       } catch (error) {
-        console.log(c, fullDef, error)
+        console.log(placeTag, fullDef, error)
       }
-      let hc = c
-      if (q.search(r) === 0) {
-        hc = q.replace(r, '$1')
-      }
-      const k = {}
-      k[c] = hc
-      types.push(k)
+      types.push({ [placeTag]: placeTag.search(regexpForPrettifiedPlaceTag) !== 0 ? placeTag : q.replace(regexpForPrettifiedPlaceTag, '$1') })
     }
-    return c
-  })
+  }
 
-  let jalge = res
-    .replace(/\$.*?\$/g, (c, offset, string) => {
-      if (type === 'd' && typeof index !== 'undefined') {
-        const q = string.substr(offset)
-        const r = new RegExp(
-          `^(${c
-            .replace(/[^a-zA-Z0-9\{\}_]/g, '')
-            .replace(/([\{\}])/g, '\\$1')} \\([^()<>]+?\\)).*`
-        )
-        let hc = c
-        if (q.search(r) === 0) {
-          hc = q.replace(r, '$1')
-        } else {
-          const seklesi = types.filter((i) => i[c] && i[c] !== hc)[0]
-          if (seklesi) {
-            hc = seklesi[c]
-          }
-        }
-        iterTercricmiId++
-        const combInd = `${index}_${iterTercricmiId}`
-        const a = {}
-        a[c] = combInd
-        jsonIds.push(a)
-        const b = c.replace(/[^a-zA-Z0-9]/g, '')
-        let head = ''
-        if (!!((fullDef && fullDef.rfs) || []).length) head = ` data-head="1"`
+  let jalge = def
+    .replace(/\$=\$/g, (placeTag) => {
+      return `$<span class="veljvocmiterjonmaho">=</span>$`
+    })
+    .replace(/\$.*?\$/g, (placeTag, offset) => {
+      iterTercricmiId++
+      const combInd = `${index}_${iterTercricmiId}`
 
-        const vel = veljvoString({
-          subtype: head !== '' ? 'd' : 'r',
-          v: c,
-          fullDef,
-          dataArrAdded,
-          b,
-          veljvoLs,
-        })
-        c = `<span id="${combInd}" class="terbricmi" style="background-color: hsl(${string2Int(
-          hc,
-          256,
-          16
-        )}, 100%, 90%);border-radius:${string2Int(hc, 9, 1) + 3
-          }px"${vel}${head} data-color="${string2Int(hc, 256, 16)}">${c}</span>`
-        dataArrAdded.push(b)
-      }
-      return c
+      if (type === 'd') jsonIds.push({ [placeTag]: combInd })
+      const clearedPlaceTag = placeTag.replace(/[^a-zA-Z0-9]/g, '')
+      const isHead = fullDef && (fullDef.rfs || []).length > 0 ? true : false
+
+      const objectVeljvoReplacement = getVeljvoString({
+        isHead,
+        placeTag,
+        fullDef,
+        dataArrAdded,
+        clearedPlaceTag,
+      })
+      const replacementTag = isHead ? objectVeljvoReplacement.replacement : placeTag;
+      const gradient = bgString2Int(objectVeljvoReplacement.stringifiedPlaceTag, {});
+      const gradientBorder = bgString2Int(objectVeljvoReplacement.stringifiedPlaceTag, { l: '60%' });
+      // dataArrAdded.push(clearedPlaceTag)
+      const span = document.createElement('span')
+      if (type === 'd') span.id = combInd
+      span.classList.add("terbricmi")
+      span.style = `background: repeating-linear-gradient(to right,${gradient}), linear-gradient(90deg, ${gradientBorder});background-origin: content-box, padding-box;background-clip: content-box, padding-box;padding: 1px;border-radius:10px;`
+      if (objectVeljvoReplacement.dataArr && (type === 'd')) span.setAttribute("data-arr", objectVeljvoReplacement.stringifiedPlaceTag)
+      if (!isHead) span.setAttribute("data-color", string2Int(objectVeljvoReplacement.stringifiedPlaceTag, 256, 32))
+      span.innerHTML = replacementTag
+      return span.outerHTML
     })
     .replace(
       /(<span [^<>]+?>[^\(\)<>]+?<\/span>) \([^\(\)<>]*?\bproperty of <span id="([^\(\)<>]+?)"[^<>]+?>([^\(\)<>]+?)<\/span>\)/g,
@@ -2108,8 +2102,11 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
     n.classList.add('notes', 'valsi')
     n.innerHTML = `${melbi_uenzi({
       def: def.n,
+      fullDef: def,
       query,
       seskari,
+      type: 'n',
+      index,
       bangu,
     }).tergeha
       } `

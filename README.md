@@ -4,6 +4,8 @@ la livla is a combine providing different options in learning and developing Loj
 
 # Installation
 
+* clone the repository via git
+* `cd` into the repo folder and `git submodule update --init --recursive`
 * install Docker or podman. Works only under Docker/podman.
 * copy `default-config/config.json` to `data/config.json`
         - edit appropriately, you will need a password for your IRC bot  

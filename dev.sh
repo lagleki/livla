@@ -4,7 +4,7 @@ docker kill livla ; docker rm livla
 docker build --no-cache -f ./dev/Dockerfile-dev -t livla .
 
 docker run \
-  -d -it \
+  -it \
   --name livla \
   --memory 3g \
   -v $(pwd)/src:/livla/src/:Z \
@@ -13,5 +13,4 @@ docker run \
   -v $(pwd)/build:/livla/build/:Z \
   -p 3020:3000 \
   -p 3021:3001 \
-  livla
-docker exec -it livla bash
+  livla /bin/bash

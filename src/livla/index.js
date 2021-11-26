@@ -769,6 +769,16 @@ function preprocesWordWithScale(v, scale, lang) {
   return v.definition
 }
 
+function preprocessRecordFromDump({ text }) {
+  if (!text || typeof text !== 'string') return text
+  // console.log(text);
+
+  //prettify latex
+  text = text
+    .replace(/(?<=\$[a-z_'0-9A-Z]+?)\$=\$(?=[a-z_'0-9A-Z]+?\$)/g, '=')
+    .replace(/(?<=\$[a-z_'0-9A-Z=]+?)=(?=[a-z_'0-9A-Z=]+?\$)/g, '$=$')
+  return text
+}
 function preprocessDefinitionFromDump({ bais, scales }, lang, v) {
   let definition = v.definition
   if (!definition)
@@ -825,8 +835,8 @@ function prepareSutysiskuJsonDump(language) {
       g = v.glossword.map((i) => i.word)
     }
     json[v.word] = {
-      d: preprocessDefinitionFromDump({ bais, scales }, language, v),
-      n: v.notes,
+      d: preprocessRecordFromDump({ text: preprocessDefinitionFromDump({ bais, scales }, language, v) }),
+      n: preprocessRecordFromDump({ text: v.notes }),
       t: v.type,
       s: v.selmaho,
       e: v.example,
@@ -1139,7 +1149,7 @@ const ningaumahantufa = async (text, socket, file) => {
         format: 'commonjs'
       })
     // // write to a file
-    fs.writeFileSync(compiled_js_file+".unwrapped.js", camxes, { encoding: 'utf8' })
+    fs.writeFileSync(compiled_js_file + ".unwrapped.js", camxes, { encoding: 'utf8' })
     const { minify } = require("terser");
 
     const result = await minify(camxes, {
@@ -1150,7 +1160,7 @@ const ningaumahantufa = async (text, socket, file) => {
       // },
     })
 
-    fs.writeFileSync(compiled_js_file+".js", result.code, { encoding: 'utf8' })
+    fs.writeFileSync(compiled_js_file + ".js", result.code, { encoding: 'utf8' })
     if (socket) socket.emit('la_livla_cu_cusku', {
       message: 'snada',
       data_js: camxes,
@@ -1216,8 +1226,12 @@ async function updateXmlDumps() {
   await mkdirp(path.join('/livla/build/dumps'))
   fs.copySync('/livla/src/prebuilt_dumps', '/livla/build/dumps')
   let erroredLangs = []
-  for (const language of langs) {
-    erroredLangs = await downloadSingleDump({ language, erroredLangs })
+  if (process.argv[3] !== 'fast') {
+    console.log('〉 downloading dumps')
+    for (const language of langs) {
+      erroredLangs = await downloadSingleDump({ language, erroredLangs })
+    }
+    console.log('〉 downloaded dumps')
   }
   for (const language of [
     '2002',
@@ -1236,6 +1250,7 @@ async function updateXmlDumps() {
       erroredLangs.push(language)
     }
   }
+  console.log('〉 sutysisku dumps prepared');
 
   return uniques(erroredLangs)
 }

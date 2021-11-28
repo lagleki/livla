@@ -518,7 +518,7 @@ function RenderCitri() {
         .filter(({ seskari }) => seskari !== 'velcusku')
         .map(
           ({ seskari, versio, query, bangu }) =>
-            `<a class="a-${seskari}" href="#seskari=${seskari}&versio=${versio}&sisku=${encodeUrl(
+            `<a class="a-${seskari}${versio!=='masno'? ` a-${versio}`:''}" href="#seskari=${seskari}&versio=${versio}&sisku=${encodeUrl(
               query
             )}&bangu=${bangu}">${escHtml(query)}</a>`
         )
@@ -1482,7 +1482,7 @@ function getVeljvoString({ placeTag, fullDef, isHead, dataArrAdded, clearedPlace
   return { stringifiedPlaceTag, dataArr: !dataArrAdded.includes(clearedPlaceTag), replacement: `$${replacingPlaceTag}$` }
 }
 
-function melbi_uenzi({ def, fullDef, query, seskari, bangu, type, index }) {
+function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index }) {
   if (fullDef) {
     if (fullDef.bangu.indexOf('-cll') >= 0) {
       const d = Object.keys(def)
@@ -1775,7 +1775,7 @@ window.runSearch = (seskari, selmaho, bangu) => {
   })
 }
 
-function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
+function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index }) {
   if (!query) query = state.searching.query
   if (!seskari) seskari = state.searching.seskari
   bangu = def.bangu || bangu || state.searching.bangu
@@ -1918,6 +1918,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
       fullDef: def,
       query,
       seskari,
+      versio,
       bangu,
       type: 'd',
       index,
@@ -2106,6 +2107,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
       fullDef: def,
       query,
       seskari,
+      versio,
       type: 'n',
       index,
       bangu,
@@ -2131,6 +2133,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
         ),
       query,
       seskari,
+      versio,
       bangu,
     }).tergeha
       }</table> `
@@ -2143,6 +2146,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
       def: def.k,
       query,
       seskari,
+      versio,
       bangu,
     }).tergeha
       } `
@@ -2159,7 +2163,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
 
     const rafsi = document.createElement('div')
     rafsi.className = 'tanxe pritu_tanxe'
-    for (i = 0; i < def.r.length; i++) {
+    for (let i = 0; i < def.r.length; i++) {
       const rafElem = document.createElement('span')
       rafElem.className = 'pamei'
       const raf = def.r[i]
@@ -2211,13 +2215,14 @@ function skicu_palodovalsi({ def, inner, query, seskari, bangu, index }) {
   if ((def.rfs || []).length > 0) {
     const subDefs = document.createElement('div')
     subDefs.classList.add('definition', 'subdefinitions')
-    for (var i = 0; i < def.rfs.length; i++) {
+    for (let i = 0; i < def.rfs.length; i++) {
       const o = skicu_palodovalsi({
         def: def.rfs[i],
         inner: true,
         index: `${index}_${i}`,
         query,
         seskari,
+        versio,
         bangu,
       })
       if (o) subDefs.appendChild(o)
@@ -2277,6 +2282,7 @@ function skicu_rolodovalsi({ query, seskari, bangu, versio }) {
       def: results[resultCount],
       query,
       seskari,
+      versio,
       bangu,
       length: results.length,
       index: resultCount,

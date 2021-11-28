@@ -1038,11 +1038,12 @@ function GetCiskaAndDispatch() {
   })
 }
 
-function typing(a) {
+function typing(timeout) {
   clearTimeout(typingTimer)
-  let timeout = 250
+  const defaultTimeout = 250
   if (state.searching.bangu === 'muplis') timeout = 500
-  typingTimer = setTimeout(GetCiskaAndDispatch, a ? a : timeout)
+  if (state.searching.versio === 'selmaho') state.searching = { ...state.searching, seskari: 'catni', versio: 'masno' }
+  typingTimer = setTimeout(GetCiskaAndDispatch, timeout ? timeout : defaultTimeout)
 }
 
 

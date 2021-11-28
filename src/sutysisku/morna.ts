@@ -160,6 +160,7 @@ const settings = {
     'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff',
     'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff',
     'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.10.1/polyfill.min.js',
+    'https://unpkg.com/microfeedback-button/dist/microfeedback-button.min.js',
     './sql-wasm.wasm',
     '../assets/fonts/linux-libertine/LinLibertine_R.otf',
     '../assets/fonts/linux-libertine/LinLibertine_RI.otf',

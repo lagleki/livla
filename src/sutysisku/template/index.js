@@ -20,9 +20,9 @@ const rimni = document.getElementById('rimni')
 // var arxivo = document.getElementById("arxivo");
 const SiteImage = document.querySelectorAll('#title > img')
 const btnScrollToTop = document.getElementById('scrollToTop')
-const textArea = document.getElementById('audioParamsTextarea')
 const audio = document.querySelector('#audio')
 const loading = document.getElementById('loading')
+const modalWindow = document.getElementById('jsModal')
 
 // generic vars:
 
@@ -235,12 +235,24 @@ window.delay = (() => (callback, ms, timer) => {
   timers[timer] = setTimeout(callback, ms)
 })()
 
+//commands:
+
+const worker = new Worker('worker.js?sisku={now}')
+initBackend(worker)
+
+try {
+  setStateFromUrl({
+    replace: true,
+  })
+} catch (error) { }
+
+RenderCitri()
+calcVH()
+let polly = PollyPlayer(window.pollyParams)
 //listeners:
 document.addEventListener('animationstart', listenToSearchRendered, false)
-//clicked link > push it
-citri.addEventListener('click', clicked)
-//typed, stopped typing > push
-window.addEventListener('popstate', setStateFromUrl)
+citri.addEventListener('click', clicked)//clicked link > push it
+window.addEventListener('popstate', setStateFromUrl)//typed, stopped typing > push
 ciska.addEventListener('paste', typing(0))
 ciska.addEventListener('keyup', () => {
   typing()
@@ -250,12 +262,10 @@ ciska.addEventListener('keydown', () => {
 })
 ciska.addEventListener('input', typing())
 ciska.addEventListener('textInput', typing())
-//focus > push
-ciska.addEventListener('focus', focusSearch)
+ciska.addEventListener('focus', focusSearch)//focus > push
 clear.addEventListener('click', window.EmptyState)
 
-//change seskari
-rimni.addEventListener('click', () => {
+rimni.addEventListener('click', () => {//change seskari
   state.searching = {
     ...state.displaying,
     seskari: 'rimni',
@@ -278,6 +288,7 @@ document.getElementById('cnano').addEventListener('click', () => {
     replace: false,
   })
 })
+
 document.getElementById('catni').addEventListener('click', () => {
   state.searching = {
     ...state.displaying,
@@ -299,41 +310,33 @@ if (document.attachEvent) {
   document.addEventListener('keyup', handler)
 }
 
-textArea.addEventListener('input', () => {
+window.applyNewPollyParams = function (input) {
   try {
     const json = {
       ...pollyParams,
       ...window.pollyParams,
-      ...JSON.parse(textArea.value),
+      ...JSON.parse(input.value),
     }
     localStorage.setItem('audioParams', JSON.stringify(json))
     polly = PollyPlayer(json)
     localStorage.setItem('cachedAudio', null)
   } catch (error) { }
-})
+}
 
-document.addEventListener('keyup', openSettingsModal, false)
-
-
-//commands:
-
-const worker = new Worker('worker.js?sisku={now}')
-initBackend(worker)
-
-try {
-  setStateFromUrl({
-    replace: true,
-  })
-} catch (error) { }
-
-RenderCitri()
-calcVH()
-let polly = PollyPlayer(window.pollyParams)
-document.getElementById('audioParamsTextarea').value = JSON.stringify(
-  window.pollyParams,
-  null,
-  2
-)
+document.addEventListener('keyup', function (e) {
+  if (e.ctrlKey && e.key === 'ArrowDown') {
+    openModal({
+      innerHTML: `
+    <textarea id="modal_textArea" name="textarea" rows="10" onkeyup = "window.applyNewPollyParams(this)">${JSON.stringify(
+        window.pollyParams,
+        null,
+        2
+      )
+        }</textarea>
+    <button onclick="resetAudioParams(document.getElementById('modal_textArea'))">${window.modal_reset}</button>
+  `})
+  }
+}, false)
 
 window.addEventListener('load', async () => {
   await getCache({ mode: "co'a" })
@@ -518,7 +521,7 @@ function RenderCitri() {
         .filter(({ seskari }) => seskari !== 'velcusku')
         .map(
           ({ seskari, versio, query, bangu }) =>
-            `<a class="a-${seskari}${versio!=='masno'? ` a-${versio}`:''}" href="#seskari=${seskari}&versio=${versio}&sisku=${encodeUrl(
+            `<a class="a-${seskari}${versio !== 'masno' ? ` a-${versio}` : ''}" href="#seskari=${seskari}&versio=${versio}&sisku=${encodeUrl(
               query
             )}&bangu=${bangu}">${escHtml(query)}</a>`
         )
@@ -1066,6 +1069,17 @@ window.EmptyState = (bangu) => {
   })
 }
 
+document.getElementById("report_feedback_main").addEventListener("click", function () {
+  window.tmp_value = state.displaying;
+  openModal({
+    innerHTML: `
+        <h2>${window.report_feedback}</h2>
+        <h3 class="valsi">${state.displaying.query}</h3>
+        <h4 class="valsi">${supportedLangs[state.displaying.bangu].n}</h4>
+        <textarea id="modal__textarea" class="modal__textarea" row="10" placeholder="${window.report_feedback_description}"></textarea>
+        <button class="tutci feedback" onclick="this.firstElementChild.classList.remove('d-none');window.send_feedback({state: window.tmp_value, comment: document.getElementById('modal__textarea').value})"><div class="spinner d-none"></div>${window.report_feedback}</button>
+  `})
+})
 // document.getElementById("arxivo").addEventListener("click", function () {
 //   state.searching = {
 //     seskari: "arxivo",
@@ -1556,16 +1570,16 @@ function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index 
         clearedPlaceTag,
       })
       const replacementTag = isHead ? objectVeljvoReplacement.replacement : placeTag;
-      const gradient = bgString2Int(objectVeljvoReplacement.stringifiedPlaceTag, {});
-      const gradientBorder = bgString2Int(objectVeljvoReplacement.stringifiedPlaceTag, { l: '60%' });
+      const gradient = bgString2Int(objectVeljvoReplacement.stringifiedPlaceTag, { s: '90%', l: '100%' });
+      const gradientBorder = bgString2Int(objectVeljvoReplacement.stringifiedPlaceTag, { s: '100%', l: '40%' });
       // dataArrAdded.push(clearedPlaceTag)
       const span = document.createElement('span')
       if (type === 'd') span.id = combInd
       span.classList.add("terbricmi")
-      span.style = `background: repeating-linear-gradient(to right,${gradient}), linear-gradient(90deg, ${gradientBorder});background-origin: content-box, padding-box;background-clip: content-box, padding-box;padding: 1px;border-radius:10px;`
+      span.style = `background: repeating-linear-gradient(to right,${gradient}), linear-gradient(90deg, ${gradientBorder});background-origin: content-box, padding-box;background-clip: content-box, padding-box;padding: 1px;border-radius:999px;`
       if (objectVeljvoReplacement.dataArr && (type === 'd')) span.setAttribute("data-arr", objectVeljvoReplacement.stringifiedPlaceTag)
       if (!isHead) span.setAttribute("data-color", string2Int(objectVeljvoReplacement.stringifiedPlaceTag, 256, 32))
-      span.innerHTML = replacementTag
+      span.innerHTML = replacementTag.replace(/\{/g, '\\curlyleft').replace(/\}/g, '\\curlyright')
       return span.outerHTML
     })
     .replace(
@@ -1578,9 +1592,6 @@ function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index 
         }
         return c
       }
-    )
-    .replace(/\$.*?\$/g, (c) =>
-      c.replace(/\{/g, '\\curlyleft').replace(/\}/g, '\\curlyright')
     )
   if (!hasHtml)
     jalge = jalge.replace(
@@ -2054,6 +2065,16 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index })
     heading2.appendChild(translateButton)
   out.appendChild(heading2)
   // }
+
+  if (bangu.indexOf("muplis") === 0) {
+    //add feedback button
+    const row = document.createElement('button')
+    row.className = 'tutci klesi klesi-tutci align-right'
+    row.onclick = () => window.send_muplis_feedback(def);
+    row.setAttribute("data-jufra", `window.report_feedback`)
+    row.innerText = window.report_feedback
+    out.appendChild(row)
+  }
 
   if (seskari !== 'arxivo' && def.d) {
     var n = document.createElement('div')
@@ -2621,9 +2642,11 @@ function PollyPlayer(params) {
       }
 
       const { C, V, I } = getPhonemeClasses()
-      if (RegExp(`(${C})$`).test(currentWord) || RegExp(`^(${V}|${I})`).test(currentWord)) {
-        // ph.push(".ʔ")
-        ph.unshift("?")
+      if (RegExp(`(${C})$`).test(currentWord)) {
+        ph.unshift("ʔ")
+      }
+      if (RegExp(`^(${V}|${I})`).test(currentWord)) {
+        ph.unshift("ʔ")
       }
       // if (["mo", "ma", "xu", "xo"].includes(currentWord)) {
       //   output.push(`<prosody volume="loud">`);
@@ -2635,9 +2658,10 @@ function PollyPlayer(params) {
       // }
       if (
         currentWord[currentWord.length - 1] == '.' ||
-        famymaho.includes(currentWord)
+        famymaho.includes(currentWord) ||
+        RegExp(`(${C})$`).test(currentWord)
       ) {
-        output.push(`<break time="20ms" strength="x-weak" />`)
+        output.push(`<break time="1ms" strength="x-weak" />`)
       }
     }
 
@@ -2714,17 +2738,16 @@ window.runSpeakableAudio = function (textToSpeak, dontSpeak = false) {
 
 
 
-  /* This script supports IE9+ */
   ; (function () {
     function closeModal() {
       /* Get close button */
-      var closeButton = document.getElementsByClassName('jsModalClose')
-      var closeOverlay = document.getElementsByClassName('jsOverlay')
+      const closeButton = document.getElementsByClassName('jsModalClose')
+      const closeOverlay = document.getElementsByClassName('jsOverlay')
 
       /* Set onclick event handler for close buttons */
-      for (var i = 0; i < closeButton.length; i++) {
+      for (let i = 0; i < closeButton.length; i++) {
         closeButton[i].onclick = function () {
-          var modalWindow = this.parentNode.parentNode
+          const modalWindow = this.parentNode.parentNode
 
           modalWindow.classList
             ? modalWindow.classList.remove('open')
@@ -2739,9 +2762,9 @@ window.runSpeakableAudio = function (textToSpeak, dontSpeak = false) {
       }
 
       /* Set onclick event handler for modal overlay */
-      for (var i = 0; i < closeOverlay.length; i++) {
+      for (let i = 0; i < closeOverlay.length; i++) {
         closeOverlay[i].onclick = function () {
-          var modalWindow = this.parentNode
+          const modalWindow = this.parentNode
 
           modalWindow.classList
             ? modalWindow.classList.remove('open')
@@ -2769,22 +2792,77 @@ window.runSpeakableAudio = function (textToSpeak, dontSpeak = false) {
     ready(closeModal)
   })()
 
-window.resetAudioParams = () => {
+window.resetAudioParams = (input) => {
   const json = pollyParams
   localStorage.setItem('audioParams', JSON.stringify(json))
-  textArea.value = JSON.stringify(json, null, 2)
+  input.value = JSON.stringify(json, null, 2)
   polly = PollyPlayer(json)
   localStorage.setItem('cachedAudio', null)
 }
 
-// define a handler
-function openSettingsModal(e) {
-  if (e.ctrlKey && e.key === 'ArrowDown') {
-    const modalWindow = document.getElementById('jsModal')
-    modalWindow.classList
-      ? modalWindow.classList.add('open')
-      : (modalWindow.className += ' ' + 'open')
+window.send_feedback = async function ({ def = {}, state = {}, comment }) {
+  let defCompiled = '', queryCompiled = ''
+  if (def.w) {
+    defCompiled = `**${def.w}**\n*${def.d}*`
   }
+  if (state.query) {
+    queryCompiled = `**${state.query}**\n*${supportedLangs[state.bangu].n}*`
+  }
+  const url = "'%feedback_backend_url%'";
+  const response = await fetch(url, {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify({ body: `${[defCompiled, queryCompiled].join("\n\n")}\n\n----\n\n${comment}`, title: def.w || state.query }) // body data type must match "Content-Type" header
+  });
+
+  if (response.status < 400) {
+    modalWindow.classList.remove('open')
+    openModal({
+      innerHTML: `
+          <h2>${window.report_feedback_thankyou}</h2>
+          <button class="tutci feedback" onclick="document.getElementById('jsModal').classList.remove('open')">${window.report_feedback_has_been_submitted}</button>
+          <a href="'%issues_repo%'" target="_blank">${window.report_feedback_issues_repo}</a>
+    `}
+    )
+  } else {
+    modalWindow.classList.remove('open')
+    openModal({
+      innerHTML: `
+          <div>${window.report_feedback_problem}</div>
+          <button class="tutci feedback" onclick="document.getElementById('jsModal').classList.remove('open')">✔️</button>
+          <a href="'%issues_repo%'" target="_blank">${window.report_feedback_issues_repo}</a>
+    `}
+    )
+
+  }
+}
+
+window.send_muplis_feedback = function (def) {
+  window.tmp_value = def;
+  openModal({
+    innerHTML: `
+        <h2>${window.report_feedback}</h2>
+        <h3 class="valsi">${def.w}</h3>
+        <div class="definition valsi">${def.d}</div>
+        <textarea id="modal__textarea" class="modal__textarea" row="10" placeholder="${window.report_feedback_description}"></textarea>
+        <button class="tutci feedback" onclick="this.firstElementChild.classList.remove('d-none');window.send_feedback({def: window.tmp_value, comment: document.getElementById('modal__textarea').value})"><div class="spinner d-none"></div>${window.report_feedback}</button>
+  `})
+}
+
+function openModal({ innerHTML }) {
+  const modal__container = document.getElementById('modal__container')
+  modal__container.innerHTML = innerHTML
+  modalWindow.classList
+    ? modalWindow.classList.add('open')
+    : (modalWindow.className += ' ' + 'open')
 }
 
 function copyToClipboard(text) {

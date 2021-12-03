@@ -1,5 +1,9 @@
 
-const cll_source = 'https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/'
+const externalConfig = {
+  cll_source: 'https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/',
+  feedback_backend_url: 'https://sutysisku-report.herokuapp.com/',
+  issues_repo: "https://github.com/La-Lojban/pinka/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc"
+}
 
 declare global {
   interface String {
@@ -77,7 +81,7 @@ async function generateCLLDictionary(
   const json: any = {}
 
   for (let file of [{ name: 'ix01.html', type: 'lojbo' }, { name: 'ix02.html', type: 'English' }]) {
-    const appendix = cll_source + file.name
+    const appendix =externalConfig.cll_source + file.name
       ; (await axios(appendix)).data
         .match(/<dt>(.*?)<\/dt>[ \t\n\r]*((?=<dt>)|(?=<\/)|<dd>(.*?)<\/dd>)/gs)
         .forEach((el: string) => {
@@ -348,7 +352,7 @@ String.prototype.stripout = function (config: { [x: string]: string; }, tag: str
     );
 }
 
-String.prototype.replaceMergefield = function (config: { [x: string]: any; }): string {  
+String.prototype.replaceMergefield = function (config: { [x: string]: any; }): string {
   return Object.keys(config).reduce((acc, i) => acc.replace(new RegExp(`['"]%${i}%['"]`, 'g'), config[i]), this) as string;
 }
 
@@ -382,7 +386,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
       config.production = "production";
     const config_fallback = {
       lang,
-      cll_source,
+      ...externalConfig,
       title: "la sutysisku zo'u: ze'i mitysisku lo valsi",
       favicon: '../pixra/snime.svg',
       icon16: '../pixra/16.png',
@@ -483,7 +487,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
       if (el.simpleCopy) {
         fs.copyFileSync(path.join(__dirname, './template', el.file), path.join('/livla/build/sutysisku/', lang, el.out));
         continue
-      }      
+      }
       let output = processTemplate({
         config,
         fallback: config_fallback,

@@ -214,26 +214,24 @@ let sesisku_bangu = null
 
 const fancu = {
 	tejufra: async ({ bangu }, cb) => {
-		let stmt = db.prepare(`SELECT jufra FROM tejufra where bangu=?`)
-		let tef1 = {},
-			tef2 = {}
-		if (bangu) {
-			stmt.bind([bangu])
-			stmt.step()
+		aQueue.enqueue(() => {
+			let tef1 = {},
+				tef2 = {}
+			if (bangu) {
+				const result = runQuery(`SELECT jufra FROM tejufra where bangu=?`, [bangu])
+				try {
+					tef1 = JSON.parse(result[0].jufra)
+				} catch (error) {
+					console.log(error)
+				}
+			}
+			const result = runQuery(`SELECT jufra FROM tejufra where bangu=?`, ['en'])
 			try {
-				tef1 = JSON.parse(stmt.getAsObject().jufra)
+				tef2 = JSON.parse(result[0].jufra)
 			} catch (error) { }
-		}
-		stmt.free()
-		stmt = db.prepare(`SELECT jufra FROM tejufra where bangu=?`)
-		stmt.bind(['en'])
-		stmt.step()
-		try {
-			tef2 = JSON.parse(stmt.getAsObject().jufra)
-		} catch (error) { }
-		stmt.free()
 
-		cb({ ...tef2, ...tef1 })
+			cb({ ...tef2, ...tef1 })
+		})
 	},
 	cnino_bangu: ({ bangu }) => {
 		sesisku_bangu = bangu
@@ -242,6 +240,7 @@ const fancu = {
 		fancu.ningau_lesorcu(searching, cb, true)
 	},
 	ningau_lesorcu: async (searching, cb, forceAll) => {
+		await jufra({ bapli: true })
 		let langsToUpdate = []
 		let response
 		try {
@@ -295,7 +294,6 @@ const fancu = {
 			kind: 'loader',
 			cmene: 'loaded',
 		})
-		jufra({})
 	},
 	ningau_lepasorcu: async (searching, cb) => {
 		const lang = searching.bangu || 'en'
@@ -324,25 +322,27 @@ const fancu = {
 }
 
 async function jufra({ bapli }) {
-	if (bapli) db.run(`delete from tejufra`)
-	//tejufra
-	const stmt = db.prepare(`SELECT count(jufra) as klani FROM tejufra`)
-	stmt.step()
-	const nitejufra = stmt.getAsObject().klani
-	stmt.free()
-	if (nitejufra === 0 || bapli) {
-		let json = {}
-		const url = `/sutysisku/lojban/tejufra.json?sisku=${new Date().getTime()}`
-		const response = await fetch(url)
-		if (response.ok) json = await response.json()
-		else console.log({ event: 'HTTP error', status: response.status, url })
+	aQueue.enqueue(async() => {
+		if (bapli) db.run(`delete from tejufra`)
+		//tejufra
+		const stmt = db.prepare(`SELECT count(jufra) as klani FROM tejufra`)
+		stmt.step()
+		const nitejufra = stmt.getAsObject().klani
+		stmt.free()
+		if (nitejufra === 0 || bapli) {
+			let json = {}
+			const url = `/sutysisku/lojban/tejufra.json?sisku=${new Date().getTime()}`
+			const response = await fetch(url)
+			if (response.ok) json = await response.json()
+			else console.log({ event: 'HTTP error', status: response.status, url })
 
-		const stmt = db.prepare(`insert into tejufra (bangu, jufra) values(?,?)`)
-		Object.keys(json).forEach((key) => {
-			stmt.run([key, JSON.stringify(json[key])])
-		})
-		console.log({ event: 'Locales fully updated' })
-	}
+			const stmt = db.prepare(`insert into tejufra (bangu, jufra) values(?,?)`)
+			Object.keys(json).forEach((key) => {
+				stmt.run([key, JSON.stringify(json[key])])
+			})
+			console.log({ event: 'Locales fully updated' })
+		}
+	})
 }
 function chunkArray(myArray, chunk_size, lang) {
 	let index = 0

@@ -264,18 +264,8 @@
     <!-- <script src="https://www.unpkg.com/identity-wallet@1.2.0/dist/identity-wallet.js"></script> -->
     <div id="jsModal" class="modal">
       <div class="modal__overlay jsOverlay"></div>
-      <div class="modal__container">
-        <button onclick="resetAudioParams()">Reset</button>
-        <textarea name="textarea" id="audioParamsTextarea" rows="10"></textarea>
-      </div>
+      <div id="modal__container" class="modal__container"></div>
     </div>
-    <script src="https://unpkg.com/microfeedback-button/dist/microfeedback-button.min.js"></script>
-
-    <script>
-      microfeedback({
-        url: 'https://sutysisku-report.herokuapp.com/',
-        html: window.feedback_html || '',
-      })
-    </script>
+    <div id="report_feedback_main" data-jufra="window.report_feedback_main" class="tutci dizlo">'%feedback%'</div>
   </body>
 </html>

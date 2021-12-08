@@ -179,6 +179,7 @@ const settings = {
     '../assets/scripts/leader-line.min.js',
     '../pixra/144.png',
     '../pixra/32.png',
+    '../pixra/shuffle.svg',
     '../pixra/cukta.svg',
     '../pixra/certu.svg',
     '../pixra/fanva.svg',
@@ -380,7 +381,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
     fs.copyFileSync(`/livla/src/sutysisku/src/${lang}/config.json`, `/livla/build/sutysisku/${lang}/config.json`);
     // generate index.html
     const config = JSON.parse(fs.readFileSync(path.join('/livla/build/sutysisku/', lang, 'config.json'), { encoding: 'utf8', }))
-    if (process.env.COMPRESS)
+    if (process.env.COMPRESS==='false')
       config.production = false;
     else
       config.production = "production";

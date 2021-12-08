@@ -164,8 +164,10 @@ function runQuery(sql_query, params) {
 		console.log({ duration: new Date() - start, sql_query, params, rows })
 
 	return rows.map((row) => {
-		delete row.cache
-		delete row.no
+		if (self.production === 'production') {
+			delete row.cache
+			delete row.no
+		}
 		if (row.r) row.r = JSON.parse(row.r)
 		if ((row.t || '').indexOf('{') === 0) row.t = JSON.parse(row.t)
 		if ((row.s || '').indexOf('[') === 0) row.s = JSON.parse(row.s)
@@ -213,17 +215,15 @@ const sufficientLangs = (searching) =>
 let sesisku_bangu = null
 
 const fancu = {
-	tejufra: async ({ bangu }, cb) => {
+	sanji_letejufra: async ({ bangu }, cb) => {
 		aQueue.enqueue(() => {
 			let tef1 = {},
 				tef2 = {}
-			if (bangu) {
+			if (bangu && bangu !== 'en') {
 				const result = runQuery(`SELECT jufra FROM tejufra where bangu=?`, [bangu])
 				try {
 					tef1 = JSON.parse(result[0].jufra)
-				} catch (error) {
-					console.log(error)
-				}
+				} catch (error) { }
 			}
 			const result = runQuery(`SELECT jufra FROM tejufra where bangu=?`, ['en'])
 			try {
@@ -322,7 +322,7 @@ const fancu = {
 }
 
 async function jufra({ bapli }) {
-	aQueue.enqueue(async() => {
+	aQueue.enqueue(async () => {
 		if (bapli) db.run(`delete from tejufra`)
 		//tejufra
 		const stmt = db.prepare(`SELECT count(jufra) as klani FROM tejufra`)
@@ -390,10 +390,10 @@ const blobChunkLength = 5
 async function cnino_sorcu(cb, langsToUpdate, searching, json) {
 	langsToUpdate = [...new Set(langsToUpdate)]
 	await jufra({ bapli: true })
-	fancu.tejufra(searching, (results) => {
+	fancu.sanji_letejufra(searching, (results) => {
 		self.postMessage({
 			kind: 'fancu',
-			cmene: 'tejufra',
+			cmene: 'sanji_letejufra',
 			bangu: searching.bangu,
 			results,
 		})
@@ -605,10 +605,17 @@ async function cnanosisku({
 		rows = rows.concat(rows2)
 	} else {
 		//normal search
-		rows = runQuery(
-			`select distinct d,n,w,r,bangu,s,t,g from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $bangu)`,
-			{ $query: '%' + query_apos + '%', $bangu: bangu }
-		)
+		if (self.production!=='production') {
+			rows = runQuery(
+				`select distinct d,n,w,r,bangu,s,t,g,cache from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $bangu)`,
+				{ $query: '%' + query_apos + '%', $bangu: bangu }
+			)
+		} else {
+			rows = runQuery(
+				`select distinct d,n,w,r,bangu,s,t,g from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $bangu)`,
+				{ $query: '%' + query_apos + '%', $bangu: bangu }
+			)
+		}
 	}
 	rows = rows
 		.map((el) => {
@@ -1083,10 +1090,10 @@ async function sortthem({
 			searchPriorityGroups.selmahoFullMatch,
 			searchPriorityGroups.oneOfSelmahosFullMatch,
 			searchPriorityGroups.rafsiMatch,
-			searchPriorityGroups.wordSemiMatch,
-			searchPriorityGroups.querySemiMatch,
 			searchPriorityGroups.defGoodMatch,
 			searchPriorityGroups.defInsideMatch,
+			searchPriorityGroups.wordSemiMatch,
+			searchPriorityGroups.querySemiMatch,
 			searchPriorityGroups.otherMatch
 		)
 	} else {
@@ -1099,10 +1106,10 @@ async function sortthem({
 			searchPriorityGroups.selmahoFullMatch,
 			searchPriorityGroups.oneOfSelmahosFullMatch,
 			searchPriorityGroups.rafsiMatch,
-			searchPriorityGroups.wordSemiMatch,
-			searchPriorityGroups.querySemiMatch,
 			searchPriorityGroups.defGoodMatch,
 			searchPriorityGroups.defInsideMatch,
+			searchPriorityGroups.wordSemiMatch,
+			searchPriorityGroups.querySemiMatch,
 			searchPriorityGroups.otherMatch
 		)
 	}

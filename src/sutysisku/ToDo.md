@@ -9,6 +9,7 @@ chrome: what happens when you open the app in incognito?
 
 # Issues
 
+- force update index.html from network, not from browser cache
 - Feedback
   - disable in offline mode
   - tags?

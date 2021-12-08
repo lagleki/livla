@@ -29,7 +29,6 @@ const modalWindow = document.getElementById('jsModal')
 const CACHE_NAME = 'sutysisku'
 
 window.leijufra = {}
-let jvoPlumbsOn = true
 const uncll_url = `'%cll_source%'`
 const learnlojban_url = 'https://lojban.pw/books/learn-lojban/#'
 const supportedLangs = {
@@ -105,12 +104,20 @@ const state = {
     bangu: 'en',
   },
   citri: [],
+  jvoPlumbsOn: true
 }
 const loadingState = {
   loading: true,
   firstRun: true,
-  mathRendered: false
+  mathRendered: false,
+  localesLoaded: false,
 }
+
+try {
+  const jvoPlumbsOn = localStorage.getItem('jvoPlumbsOn')
+  if (jvoPlumbsOn === 'false') state.jvoPlumbsOn = false
+
+} catch (error) { }
 
 try {
   const tcini = JSON.parse(localStorage.getItem('tcini'))
@@ -323,17 +330,17 @@ window.applyNewPollyParams = function (input) {
   } catch (error) { }
 }
 
-document.addEventListener('keyup', function (e) {
-  if (e.ctrlKey && e.key === 'ArrowDown') {
+document.addEventListener('keyup', function (event) {
+  if (event.ctrlKey && event.key === 'ArrowDown') {
     openModal({
       innerHTML: `
-    <textarea id="modal_textArea" name="textarea" rows="10" onkeyup = "window.applyNewPollyParams(this)">${JSON.stringify(
+    <textarea id="modal__textarea" class="modal__textarea" name="textarea" rows="10" onkeyup = "window.applyNewPollyParams(this)">${JSON.stringify(
         window.pollyParams,
         null,
         2
       )
         }</textarea>
-    <button onclick="resetAudioParams(document.getElementById('modal_textArea'))">${window.modal_reset}</button>
+    <button onclick="resetAudioParams(document.getElementById('modal__textarea'))">Reset</button>
   `})
   }
 }, false)
@@ -454,7 +461,7 @@ async function getCache({ mode }) {
   let cacheUpdated = false
   for (let i = 0; i < vreji.length; i++) {
     const url = vreji[i]
-    if (mode === "co'a" && !/(\.(js|wasm|html|css)|\/$)/.test(url)) continue
+    if (mode === "co'a" && !/((\.(js|wasm|html|css))|\/)$/.test(url)) continue
     const cachedResponse = await cacheStorage.match(url);
     if (!cachedResponse) {
       await cacheStorage.add(url);
@@ -469,7 +476,12 @@ async function getCache({ mode }) {
       console.log({ event: 'removing cache', url: key.url });
     }
   }
-  if (cacheUpdated) await cacheStorage.add(new URL('index.html', window.location.origin + window.location.pathname).href);
+  if (cacheUpdated) {
+    for (const url of [new URL('', window.location.origin + window.location.pathname).href, new URL('index.html', window.location.origin + window.location.pathname).href]) {
+      await cacheStorage.delete(url, { ignoreMethod: true, ignoreVary: true });
+      await cacheStorage.add(url);
+    }
+  }
   showLoaded()
   if (mode === "co'a" && cacheUpdated) {
     window.location.reload()
@@ -510,7 +522,7 @@ function macitri() {
   let citri = []
   try {
     return JSON.parse(localStorage.getItem('citri')) || citri
-  } catch (e) { }
+  } catch (error) { }
   return citri
 }
 
@@ -683,15 +695,20 @@ function RenderResults({ query, seskari, bangu, versio }) {
 }
 
 function removePlumbs() {
-  ;[].forEach.call(document.querySelectorAll('.leader-line'), function (e) {
-    e.parentNode.removeChild(e)
+  ;[].forEach.call(document.querySelectorAll('.leader-line'), function (element) {
+    element.parentNode.removeChild(element)
   })
 }
 
 function appendPlumbs() {
-  ;[].forEach.call(document.querySelectorAll('.leader-line'), function (e) {
-    document.querySelector('#content').appendChild(e)
+  ;[].forEach.call(document.querySelectorAll('.leader-line'), function (element) {
+    document.querySelector('#content').appendChild(element)
   })
+}
+
+function setNewState(key, value) {
+  state[key] = value
+  localStorage.setItem(key, value)
 }
 
 function addJvoPlumbs(force) {
@@ -700,17 +717,15 @@ function addJvoPlumbs(force) {
       removePlumbs()
       addPlumbs()
       if (force !== true) {
+        setNewState("jvoPlumbsOn", !state.jvoPlumbsOn)
         const plumbers = document.getElementsByClassName('jvo_plumber')
-        jvoPlumbsOn = !jvoPlumbsOn
-        for (var i = 0; i < plumbers.length; i++) {
-          const plumber = plumbers[i]
-          plumber.value = jvoValue()
-          jvoPlumbsOn
+        for (const plumber of plumbers) {
+          state.jvoPlumbsOn
             ? plumber.classList.add('tutci-hover')
             : plumber.classList.remove('tutci-hover')
         }
       }
-      if (!jvoPlumbsOn) return
+      if (!state.jvoPlumbsOn) return
       const targetedEls = Array.from(document.querySelectorAll('[data-arr]'))
       for (let targetedElIndex = 0; targetedElIndex < targetedEls.length; targetedElIndex++) {
         const target = targetedEls[targetedElIndex]
@@ -863,14 +878,6 @@ worker.onmessage = (ev) => {
 
       }
     }
-
-    // } else if (data.kind == 'fancu') {
-    //   const { cmene, results } = data
-    //   switch (cmene) {
-    //     case 'tejufra':
-    //       updateDOMWithLocales(results, { ...state.searching, ...data.datni })
-    //       break
-    //   }
   } else if (kind == 'loader') {
     if (cmene === 'loading') {
       if (
@@ -903,7 +910,7 @@ worker.onmessage = (ev) => {
     calcVH()
   } else if (kind == 'fancu') {
     switch (cmene) {
-      case 'tejufra':
+      case 'sanji_letejufra':
         updateDOMWithLocales(data.results, {
           ...state.searching,
           ...data.datni,
@@ -1182,6 +1189,7 @@ function DispatchState({ replace, caller, empty, quickRotation }) {
 
 function updateDOMWithLocales(jufra, miniState) {
   if (!jufra.window) return
+  loadingState.localesLoaded = true
   for (const key in jufra.window) {
     const subKey = key.replace('window.', '')
     window.leijufra[subKey] = window[subKey] = jufra.window[key]
@@ -1212,7 +1220,8 @@ function updateDOMWithLocales(jufra, miniState) {
 }
 
 function updateLocales() {
-  worker.postMessage({ kind: 'fancu', cmene: 'tejufra', ...state.searching })
+  if ((state.searching.bangu && state.searching.bangu !== state.displaying.bangu) || !loadingState.localesLoaded)
+    worker.postMessage({ kind: 'fancu', cmene: 'sanji_letejufra', ...state.searching })
 }
 
 //rendering
@@ -1333,7 +1342,7 @@ function RenderDesktop(tempState) {
           ''
         )}" onclick="window.ningau_lepasorcu('${key}')" href="${key.indexOf('@') === 0
           ? url
-          : `#seskari=${tempState.seskari !== 'fanva' ? tempState.seskari : 'catni'
+          : `#seskari=${(tempState.seskari !== 'fanva' && key.indexOf("muplis") !== 0) ? tempState.seskari : 'catni'
           }&sisku=${encodeUrl(lastQuery)}&bangu=${key}&versio=masno`
         }" class='A_7'><div class='DIV_8' style='height:${cisn}px;width:${width * cisn
         }px;background-image:url("${pixra}")'></div></a></div></div>`
@@ -1427,52 +1436,14 @@ function checkScrolledNearBottom({ target }) {
   addAudioLinks()
 }
 
-function bgString2Int(string, { s, l }) {
-  const sl = `,${s || '90%'},${l || '80%'}`
-  const array = string.split(",");
-  let acc = []
-  for (let i = 0; i < array.length; i++) {
-    const color = string2Int(array[i], 256, 32)
-    if (i === 0) {
-      acc.push(`hsl(${color}${sl}),hsl(${color}${sl}) ${100 * (i + 1) / array.length}%`)
-    } else if (i === array.length - 1) {
-      acc.push(`hsl(${color}${sl}) ${100 * i / array.length}%,hsl(${color}${sl})`)
-    } else {
-      acc.push(`hsl(${color}${sl}) ${100 * i / array.length}%,hsl(${color}${sl}) ${100 * (i + 1) / array.length}%`)
-    }
-  }
-  return acc.join(",")
-}
-const cyrb53 = function (str, seed = 0) {
-  let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
-  for (let i = 0, ch; i < str.length; i++) {
-    ch = str.charCodeAt(i);
-    h1 = Math.imul(h1 ^ ch, 2654435761);
-    h2 = Math.imul(h2 ^ ch, 1597334677);
-  }
-  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
-  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
-  return 4294967296 * (2097151 & h2) + (h1 >>> 0);
-};
+const number2ColorHue = (number) => Math.floor((number * 360 / (1.618 * 7)) % 360);
 
-function string2Int(stringToHash, maxNumber, quantifier) {
-  stringToHash = stringToHash.replace(/[\{\}_]/g, '')
-  return Math.abs(
-    Math.round(
-      (cyrb53(stringToHash) %
-        maxNumber) /
-      quantifier
-    ) * quantifier
-  )
-}
-function getVeljvoLetters(v) {
+const bgString2Int = (number, { s = '90%', l = '80%' }) => `hsl(${number2ColorHue(number)},${s},${l})`
+
+function placeTagHasExpansion(v) {
   v = v.substr(1, v.length - 2).split('=')
-
   const jalge = v.map((i) => i.replace(/[^A-Za-z']/g, ''))
-  return {
-    jalge,
-    hasExpansion: v.length > 1 || (jalge[0] && jalge[0] !== 'x'),
-  }
+  return v.length > 1 || (jalge[0] && jalge[0] !== 'x')
 }
 
 function getVeljvoString({ placeTag, fullDef, isHead, dataArrAdded, clearedPlaceTag }) {
@@ -1496,7 +1467,7 @@ function getVeljvoString({ placeTag, fullDef, isHead, dataArrAdded, clearedPlace
   return { stringifiedPlaceTag, dataArr: !dataArrAdded.includes(clearedPlaceTag), replacement: `$${replacingPlaceTag}$` }
 }
 
-function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index }) {
+function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index, stringifiedPlaceTags }) {
   if (fullDef) {
     if (fullDef.bangu.indexOf('-cll') >= 0) {
       const d = Object.keys(def)
@@ -1524,39 +1495,21 @@ function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index 
   }
 
   const hasHtml = /<\/?a [\s\S]*>/i.test(def)
-  let iterTercricmiId = 0
+  let iterTerbricmiId = 0
   const jsonIds = []
-  const types = []
   const dataArrAdded = []
   let hasExpansion = false
   if (!['cnano', 'catni', 'rimni'].includes(seskari)) seskari = 'cnano'
 
   const placeTags = def.match(/\$.*?\$/g) || []
-  for (const placeTag of placeTags) {
-    if (type === 'd' && typeof index !== 'undefined') {
-      const rt = getVeljvoLetters(placeTag)
-      if (rt.hasExpansion) hasExpansion = true
-      let regexpForPrettifiedPlaceTag
-      try {
-        regexpForPrettifiedPlaceTag = new RegExp(
-          `^(${placeTag
-            .replace(/[^a-zA-Z0-9\{\}_]/g, '')
-            .replace(/([\{\}])/g, '\\$1')} \\([^\\(\\)<>]+?\\)).*`
-        )
-      } catch (error) {
-        console.log(placeTag, fullDef, error)
-      }
-      types.push({ [placeTag]: placeTag.search(regexpForPrettifiedPlaceTag) !== 0 ? placeTag : q.replace(regexpForPrettifiedPlaceTag, '$1') })
-    }
-  }
+  for (const placeTag of placeTags)
+    if (type === 'd' && typeof index !== 'undefined' && placeTagHasExpansion(placeTag)) hasExpansion = true
 
   let jalge = def
-    .replace(/\$=\$/g, (placeTag) => {
-      return `$<span class="veljvocmiterjonmaho">=</span>$`
-    })
-    .replace(/\$.*?\$/g, (placeTag, offset) => {
-      iterTercricmiId++
-      const combInd = `${index}_${iterTercricmiId}`
+    .replace(/\$=\$/g, `$<span class="veljvocmiterjonmaho">=</span>$`)
+    .replace(/\$.*?\$/g, (placeTag) => {
+      iterTerbricmiId++
+      const combInd = `${index}_${iterTerbricmiId}`
 
       if (type === 'd') jsonIds.push({ [placeTag]: combInd })
       const clearedPlaceTag = placeTag.replace(/[^a-zA-Z0-9]/g, '')
@@ -1569,17 +1522,21 @@ function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index 
         dataArrAdded,
         clearedPlaceTag,
       })
+      const stringifiedPlaceTag = objectVeljvoReplacement.stringifiedPlaceTag
+      if (!stringifiedPlaceTags.includes(stringifiedPlaceTag)) stringifiedPlaceTags.push(stringifiedPlaceTag)
+      const number = stringifiedPlaceTags.indexOf(stringifiedPlaceTag)
       const replacementTag = isHead ? objectVeljvoReplacement.replacement : placeTag;
-      const gradient = bgString2Int(objectVeljvoReplacement.stringifiedPlaceTag, { s: '90%', l: '100%' });
-      const gradientBorder = bgString2Int(objectVeljvoReplacement.stringifiedPlaceTag, { s: '100%', l: '40%' });
+      const gradient = bgString2Int(number, { s: '90%', l: '100%' });
+      const gradientBorder = bgString2Int(number, { s: '100%', l: '40%' });
       // dataArrAdded.push(clearedPlaceTag)
       const span = document.createElement('span')
       if (type === 'd') span.id = combInd
       span.classList.add("terbricmi")
-      span.style = `background: repeating-linear-gradient(to right,${gradient}), linear-gradient(90deg, ${gradientBorder});background-origin: content-box, padding-box;background-clip: content-box, padding-box;padding: 1px;border-radius:999px;`
-      if (objectVeljvoReplacement.dataArr && (type === 'd')) span.setAttribute("data-arr", objectVeljvoReplacement.stringifiedPlaceTag)
-      if (!isHead) span.setAttribute("data-color", string2Int(objectVeljvoReplacement.stringifiedPlaceTag, 256, 32))
-      span.innerHTML = replacementTag.replace(/\{/g, '\\curlyleft').replace(/\}/g, '\\curlyright')
+      const background = `repeating-linear-gradient(to right,${gradient},${gradient} 100%) content-box content-box, linear-gradient(90deg, ${gradientBorder},${gradientBorder} 100%) padding-box padding-box`
+      span.setAttribute("style", `background: white; border: 1px dashed ${gradientBorder}`)
+      if (objectVeljvoReplacement.dataArr && (type === 'd')) span.setAttribute("data-arr", stringifiedPlaceTag)
+      if (!isHead) span.setAttribute("data-color", number2ColorHue(number, 256, 32))
+      span.innerHTML = replacementTag.replace(/\{/g, '\\curlyleft').replace(/\}/g, '\\curlyright').replace(/^<span /, `<span `)
       return span.outerHTML
     })
     .replace(
@@ -1610,7 +1567,7 @@ function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index 
     )
   jalge = jalge
     .replace(/\{.*?\}/g, (c) => {
-      var c = c.substring(1, c.length - 1)
+      c = c.substring(1, c.length - 1)
       return `</span><a class="a-${seskari}" href="#seskari=${seskari}&sisku=${encodeUrl(
         c
       )}&bangu=${bangu}&versio=masno">${basna({
@@ -1624,18 +1581,15 @@ function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index 
   jalge = `<span>${jalge}</span>`
   jalge = jalge
     .replace(/<span><\/span>/g, '')
-    .replace(
-      /(>[^<>$]+<|>[^<>$]+\$|\$[^<>$]+<)/g,
-      (
-        c // var c = c.substring(1, c.length - 1)
-      ) =>
-        basna({
-          def: c,
-          query,
-        })
+    .replace(/(>[^<>$]+<|>[^<>$]+\$|\$[^<>$]+<)/g, (c) =>
+      basna({
+        def: c,
+        query,
+      })
     )
     .replace(/\n/g, '<br/>')
-  return { tergeha: jalge, hasExpansion }
+  //todo: list of placetags
+  return { tergeha: jalge, hasExpansion, stringifiedPlaceTags }
 }
 
 function escapeRegExp(string) {
@@ -1760,10 +1714,6 @@ function ConstructArxivoValsiExtract(d, query, range) {
   return locs
 }
 
-function jvoValue() {
-  return jvoPlumbsOn ? '⇔' : '↔'
-}
-
 window.ningau_lepasorcu = (bangu) => {
   if (bangu.indexOf('@') === 0) return
   worker.postMessage({
@@ -1786,7 +1736,7 @@ window.runSearch = (seskari, selmaho, bangu) => {
   })
 }
 
-function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index }) {
+function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, stringifiedPlaceTags = [] }) {
   if (!query) query = state.searching.query
   if (!seskari) seskari = state.searching.seskari
   bangu = def.bangu || bangu || state.searching.bangu
@@ -1799,64 +1749,31 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index })
     out.className = 'sidju sidju-normal cll noselect'
   }
   if (index === 0) out.classList.add('searchRendered')
-  var famymahos =
-    typeof def.s === 'string' && listFamymaho[def.s]
-      ? listFamymaho[def.s].split(' ')
-      : undefined
-  if (typeof famymahos !== 'undefined') {
-    let innerHTML = ''
-    var fmm = document.createElement('h4')
-    fmm.className = 'tfm'
-    for (let famymaho of famymahos) {
-      innerHTML += `&nbsp;&nbsp;<i><sup>[&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#seskari=${seskari}&sisku=${encodeUrl(
-        famymaho
-      )}&bangu=${bangu}&versio=masno">${escHtml(famymaho)}</a>]</sup></i>`
-    }
-    fmm.innerHTML = innerHTML
-  }
-  const sh = []
-  for (const key in listFamymaho) {
-    if (listFamymaho[key].split(' ').includes(def.w))
-      sh.push(
-        `<a href="#seskari=${seskari}&versio=selmaho&sisku=${encodeUrl(
-          key
-        )}&bangu=${bangu}">${escHtml(key)}</a>`
-      )
-  }
-  if (sh.length !== 0) {
-    var tfm = document.createElement('div')
-    tfm.classList.add('valsi')
-    if (def.l) tfm.classList.add('nalojbo')
-    tfm.innerHTML = `<i><sup>[${sh.join(
-      ', '
-    )}&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;`
-  }
+
   let selms
   if (def.s) {
     const selmahos = typeof def.s === 'string' ? def.s.split(' ') : def.s
     if (selmahos.length > 0) {
       selms = document.createElement('div')
       for (const selmaho of selmahos) {
-        var ss = document.createElement('button')
-        ss.className = 'tutci klesi klesi-tutci'
-        var text = basna({
+        const inDefSelmahoElement = document.createElement('button')
+        inDefSelmahoElement.className = 'tutci klesi klesi-tutci'
+        inDefSelmahoElement.innerHTML = basna({
           def: escHtml(selmaho),
           query,
         })
-        ss.innerHTML = text
-        // ss.onclick = window.runSearch(seskari,selmaho,bangu)
-        ss.setAttribute(
+        inDefSelmahoElement.setAttribute(
           'onclick',
           `window.runSearch("${seskari}","${selmaho}","${bangu}")`
         )
-        selms.appendChild(ss)
+        selms.appendChild(inDefSelmahoElement)
       }
     }
   }
   if (def.from) {
-    var ss = document.createElement('div')
-    ss.className = 'tutci klesi klesi-tutci'
-    ss.innerHTML = def.from
+    const inDefElement = document.createElement('div')
+    inDefElement.className = 'tutci klesi klesi-tutci'
+    inDefElement.innerHTML = def.from
   }
   let hasTranslateButton = false
   const word = document.createElement('h4')
@@ -1922,9 +1839,9 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index })
     jvs.innerHTML = def.date
   }
 
-  let mu = {}
+  let prettifiedDefinition = {}
   if (def.d && !def.d.nasezvafahi)
-    mu = melbi_uenzi({
+    prettifiedDefinition = melbi_uenzi({
       def: def.d,
       fullDef: def,
       query,
@@ -1933,7 +1850,9 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index })
       bangu,
       type: 'd',
       index,
+      stringifiedPlaceTags
     })
+  stringifiedPlaceTags = prettifiedDefinition.stringifiedPlaceTags
 
   //<xuzganalojudri|lojbo>
   let zbalermorna
@@ -1947,7 +1866,24 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index })
   const heading = document.createElement('heading')
   heading.classList.add('heading')
 
-  if (tfm) heading.appendChild(tfm)
+  let arrRenderedFamymaho = []
+  for (const key in listFamymaho) {
+    if (listFamymaho[key].split(' ').includes(def.w))
+      arrRenderedFamymaho.push(
+        `<a href="#seskari=${seskari}&versio=selmaho&sisku=${encodeUrl(
+          key
+        )}&bangu=${bangu}">${escHtml(key)}</a>`
+      )
+  }
+  if (arrRenderedFamymaho.length !== 0) {
+    const inDefElement = document.createElement('div')
+    inDefElement.classList.add('valsi')
+    if (def.l) inDefElement.classList.add('nalojbo')
+    inDefElement.innerHTML = `<i><sup>[${arrRenderedFamymaho.join(
+      ', '
+    )}&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;`
+    if (inDefElement) heading.appendChild(inDefElement)
+  }
 
   heading.appendChild(word)
 
@@ -1984,23 +1920,38 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index })
   //   window.location = `#seskari=catni&sisku=&bangu=${def.bangu.replace(/-(cll)/, '')}`
   // }
 
-  if (fmm) heading.appendChild(fmm)
+  const famymahos =
+    typeof def.s === 'string' && listFamymaho[def.s]
+      ? listFamymaho[def.s].split(' ')
+      : undefined
+  if (typeof famymahos !== 'undefined') {
+    let innerHTML = ''
+    const inDefElement = document.createElement('h4')
+    inDefElement.className = 'tfm'
+    for (const famymaho of famymahos) {
+      innerHTML += `&nbsp;&nbsp;<i><sup>[&nbsp;...&nbsp;&nbsp;&nbsp;<a href="#seskari=${seskari}&sisku=${encodeUrl(
+        famymaho
+      )}&bangu=${bangu}&versio=masno">${escHtml(famymaho)}</a>]</sup></i>`
+    }
+    inDefElement.innerHTML = innerHTML
+    heading.appendChild(inDefElement)
+  }
+
 
   if (jvs) {
-    const div1 = document.createElement('div')
-    div1.classList.add('sampu', 'noselect')
-    div1.appendChild(jvs)
-    jvs = div1
+    const inDefElement = document.createElement('div')
+    inDefElement.classList.add('sampu', 'noselect')
+    inDefElement.appendChild(jvs)
+    jvs = inDefElement
   }
 
   //<xuzganalojudri|lojbo>
   let jvo
-  if (def.t === 'lujvo' && (def.rfs || []).length > 0 && mu.hasExpansion) {
-    jvo = document.createElement('input')
-    jvo.type = 'button'
+  if (def.t === 'lujvo' && (def.rfs || []).length > 0 && prettifiedDefinition.hasExpansion) {
+    jvo = document.createElement('button')
+    jvo.style = "background-image: url(../pixra/shuffle.svg); background-size:100% 100%;width:25px;"
     jvo.classList.add('tutci', 'sance', 'jvo_plumber')
-    jvo.value = jvoValue()
-    jvoPlumbsOn
+    state.jvoPlumbsOn
       ? jvo.classList.add('tutci-hover')
       : jvo.classList.remove('tutci-hover')
     jvo.onclick = addJvoPlumbs
@@ -2077,53 +2028,52 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index })
   }
 
   if (seskari !== 'arxivo' && def.d) {
-    var n = document.createElement('div')
-    n.classList.add('definition', 'valsi')
+    const inDefElement = document.createElement('div')
+    inDefElement.classList.add('definition', 'valsi')
     if (def.d && def.d.nasezvafahi) {
       if (!def.t && (def.rfs || []).length === 0) return
-      n.classList.add('nasezvafahi', 'noselect')
-      n.innerHTML = window.nasezvafahi
+      inDefElement.classList.add('nasezvafahi', 'noselect')
+      inDefElement.innerHTML = window.nasezvafahi
     } else {
-      let melbi = mu.tergeha
-      // if (seskari !== 'velcusku') melbi = `${melbi.replace(/\n/g, '<br/>')} `
-      n.innerHTML = melbi
+      // if (seskari !== 'velcusku') prettifiedDefinition.tergeha = `${prettifiedDefinition.tergeha.replace(/\n/g, '<br/>')} `
+      inDefElement.innerHTML = prettifiedDefinition.tergeha
     }
-    out.appendChild(n)
+    out.appendChild(inDefElement)
   }
   if (seskari === 'arxivo') {
-    const k = document.createElement('div')
-    k.classList.add('definition', 'valsi', 'pointer')
-    k.innerHTML = ConstructArxivoValsiExtract(def.d, query, 50)
-    k.addEventListener('click', () => {
-      k.style.display = 'none'
-      k.nextElementSibling.style.display = 'block'
+    let inDefElement = document.createElement('div')
+    inDefElement.classList.add('definition', 'valsi', 'pointer')
+    inDefElement.innerHTML = ConstructArxivoValsiExtract(def.d, query, 50)
+    inDefElement.addEventListener('click', () => {
+      inDefElement.style.display = 'none'
+      inDefElement.nextElementSibling.style.display = 'block'
     })
-    out.appendChild(k)
+    out.appendChild(inDefElement)
 
-    var n = document.createElement('div')
-    n.classList.add('definition', 'valsi')
-    n.style.display = 'none'
+    inDefElement = document.createElement('div')
+    inDefElement.classList.add('definition', 'valsi')
+    inDefElement.style.display = 'none'
     if (def.d && def.d.nasezvafahi) {
-      n.classList.add('nasezvafahi', 'noselect')
-      n.innerHTML = window.nasezvafahi
+      inDefElement.classList.add('nasezvafahi', 'noselect')
+      inDefElement.innerHTML = window.nasezvafahi
     } else {
-      n.innerHTML = `${basna({
+      inDefElement.innerHTML = `${basna({
         def: def.d,
         query,
       })} `
-      n.addEventListener('click', () => {
-        n.style.display = 'none'
-        n.previousElementSibling.style.display = 'block'
-        n.parentElement.scrollIntoView()
+      inDefElement.addEventListener('click', () => {
+        inDefElement.style.display = 'none'
+        inDefElement.previousElementSibling.style.display = 'block'
+        inDefElement.parentElement.scrollIntoView()
       })
     }
-    out.appendChild(n)
+    out.appendChild(inDefElement)
     //add two divs. first is hidden. on click hide and display the other
   }
   if (def.n) {
-    var n = document.createElement('div')
-    n.classList.add('notes', 'valsi')
-    n.innerHTML = `${melbi_uenzi({
+    const inDefElement = document.createElement('div')
+    inDefElement.classList.add('notes', 'valsi')
+    inDefElement.innerHTML = `${melbi_uenzi({
       def: def.n,
       fullDef: def,
       query,
@@ -2132,9 +2082,10 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index })
       type: 'n',
       index,
       bangu,
+      stringifiedPlaceTags
     }).tergeha
       } `
-    out.appendChild(n)
+    out.appendChild(inDefElement)
   }
   //<xuzganalojudri|lojbo>
   // if (index == 0 && seskari !== 'velcusku') {
@@ -2142,37 +2093,6 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index })
   //   if (secs && secs !== state.cll) out.appendChild(div)
   // }
   //</xuzganalojudri|lojbo>
-  if (def.e) {
-    var n = document.createElement('div')
-    n.classList.add('examples', 'valsi')
-    n.innerHTML = `<table class='ciksi'>${melbi_uenzi({
-      def: `${def.e}\n`
-        .replace(/%/g, '\n')
-        .replace(
-          /(.*?) — (.*?)\n/g,
-          "<tr><td class='mupligreku'><b>$1</b></td><td class='mupligreku'><i>$2</i></td></tr>\n"
-        ),
-      query,
-      seskari,
-      versio,
-      bangu,
-    }).tergeha
-      }</table> `
-    out.appendChild(n)
-  }
-  if (def.k) {
-    var n = document.createElement('div')
-    n.className = 'related'
-    n.innerHTML = `See also: ${melbi_uenzi({
-      def: def.k,
-      query,
-      seskari,
-      versio,
-      bangu,
-    }).tergeha
-      } `
-    out.appendChild(n)
-  }
   if ((def.r || []).length > 0 && !def.l && window.xuzganalojudri) {
     const tanxe_leirafsi = document.createElement('div')
     tanxe_leirafsi.className = 'rafsi noselect'
@@ -2237,7 +2157,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index })
     const subDefs = document.createElement('div')
     subDefs.classList.add('definition', 'subdefinitions')
     for (let i = 0; i < def.rfs.length; i++) {
-      const o = skicu_palodovalsi({
+      const html = skicu_palodovalsi({
         def: def.rfs[i],
         inner: true,
         index: `${index}_${i}`,
@@ -2245,8 +2165,9 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index })
         seskari,
         versio,
         bangu,
+        stringifiedPlaceTags
       })
-      if (o) subDefs.appendChild(o)
+      if (html) subDefs.appendChild(html)
     }
     out.appendChild(subDefs)
   }

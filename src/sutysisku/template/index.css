@@ -908,7 +908,7 @@ sub {
 
 #cnano {
   border-radius: 0 0 3px 0;
-  border-left: 1px #333 dotted;
+  border-left: 1px #ccc solid;
   margin-left: -1px;
 }
 

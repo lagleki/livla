@@ -480,6 +480,7 @@ async function getCache({ mode }) {
     for (const url of [new URL('', window.location.origin + window.location.pathname).href, new URL('index.html', window.location.origin + window.location.pathname).href]) {
       await cacheStorage.delete(url, { ignoreMethod: true, ignoreVary: true });
       await cacheStorage.add(url);
+      console.log({ event: 'adding cache', url });
     }
   }
   showLoaded()
@@ -533,7 +534,7 @@ function RenderCitri() {
         .filter(({ seskari }) => seskari !== 'velcusku')
         .map(
           ({ seskari, versio, query, bangu }) =>
-            `<a class="a-${seskari}${versio !== 'masno' ? ` a-${versio}` : ''}" href="#seskari=${seskari}&versio=${versio}&sisku=${encodeUrl(
+            `<a class="a-${versio !== 'masno' ? versio : seskari}" href="#seskari=${seskari}&versio=${versio}&sisku=${encodeUrl(
               query
             )}&bangu=${bangu}">${escHtml(query)}</a>`
         )

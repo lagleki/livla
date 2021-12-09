@@ -1,3 +1,4 @@
+.env
 *.tsv
 build/lojbo.arxivo/*.sql
 config/

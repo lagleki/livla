@@ -18,6 +18,7 @@ RUN apt-get install -y rsync
 
 RUN mkdir -p /livla/build/dumps
 COPY src/package*.json /livla/
+COPY .env /livla/
 WORKDIR /livla
 RUN npm i ; npm i -g npm-check-updates
 

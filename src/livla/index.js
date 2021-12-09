@@ -723,17 +723,17 @@ function preprocesWordWithScale(v, scale, lang) {
       oldPrefix = `${v.definition.split(":")[0]}: `
       v.definition = v.definition.replace(RegExp(`${v.definition.split(":")[0]}: `), '')
     }
-    v.definition = v.definition.split(";")
+    v.definition = [v.definition]
     let core = v.definition[0].split(" - ")
     if (core.length === 3) {
-      const postfix = v.definition.slice(1).join(";")
+      const postfix = null
       core[0] = `{${root}} - ${core[0] + (postfix && type === 0 ? "; " + postfix : '')}`
       core[1] = `{${root}cu'i} - ${core[1] + (postfix && type === 1 ? "; " + postfix : '')}`
       core[2] = `{${root}nai} - ${core[2] + (postfix && type === 2 ? "; " + postfix : '')}`
       v.definition[0] = core.join("\n")
-      v.definition = prefix + v.definition[0]
+      v.definition = v.definition[0]
     } else if (core.length === 2) {
-      const postfix = v.definition.slice(1).join(";")
+      const postfix = null
       core[0] = `{${root}} - ${core[0] + (postfix && type === 0 ? "; " + postfix : '')}`
       core[1] = `{${root}nai} - ${core[1] + (postfix && type === 2 ? "; " + postfix : '')}`
       v.definition[0] = core.join("\n")
@@ -851,7 +851,7 @@ function prepareSutysiskuJsonDump(language) {
       } else {
         json[v.word].r = [v.rafsi]
       }
-    } else if (RegExp(`rafsi.*-[a-z']{3,4}-`).test(v.notes)) {
+    } else if (RegExp(`rafsi.{0,3}-[a-z']{3,4}-`).test(v.notes)) {
       json[v.word].r = [v.notes.match(/.*-([a-z']{3,4})-/)[1]]
     } else {
       json[v.word].r = []

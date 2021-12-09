@@ -81,7 +81,7 @@ async function generateCLLDictionary(
   const json: any = {}
 
   for (let file of [{ name: 'ix01.html', type: 'lojbo' }, { name: 'ix02.html', type: 'English' }]) {
-    const appendix =externalConfig.cll_source + file.name
+    const appendix = externalConfig.cll_source + file.name
       ; (await axios(appendix)).data
         .match(/<dt>(.*?)<\/dt>[ \t\n\r]*((?=<dt>)|(?=<\/)|<dd>(.*?)<\/dd>)/gs)
         .forEach((el: string) => {
@@ -381,7 +381,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
     fs.copyFileSync(`/livla/src/sutysisku/src/${lang}/config.json`, `/livla/build/sutysisku/${lang}/config.json`);
     // generate index.html
     const config = JSON.parse(fs.readFileSync(path.join('/livla/build/sutysisku/', lang, 'config.json'), { encoding: 'utf8', }))
-    if (process.env.COMPRESS==='false')
+    if (process.env.COMPRESS === 'false')
       config.production = false;
     else
       config.production = "production";
@@ -587,6 +587,14 @@ NETWORK:
     } catch (error) { }
 
   }
+  if (process.env.MUPLIS == 'true') {
+    const childProcess = require('child_process');
+    childProcess.execFileSync('/livla/src/skripto/phrases/skripto.js')
+    console.log('muplis task finished')
+  }else{
+    console.log('muplis task skipped')
+  }
+
   if (!process.env.DEBUG) {
     const TerserPlugin = require("terser-webpack-plugin");
 

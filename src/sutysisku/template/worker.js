@@ -3,6 +3,9 @@ import { SQLiteFS } from './asql/index.js'
 import IndexedDBBackend from './asql/indexeddb-backend.js'
 import { parse } from './cmaxes.js'
 const decompress = require('brotli/decompress')
+self.production = `'%production%'`
+self.sql_mode = `'%sql_mode%'`
+
 
 self.postMessage({ kind: 'loading' })
 
@@ -119,7 +122,7 @@ async function initSQLDB() {
 	SQL.FS.mount(sqlFS, {}, '/sql')
 
 	const path = '/sql/db.sqlite'
-	if (typeof SharedArrayBuffer === 'undefined') {
+	if (typeof SharedArrayBuffer === 'undefined' || (self.sql_mode === 'readall')) {
 		let stream = SQL.FS.open(path, 'a+')
 		await stream.node.contents.readIfFallback()
 		SQL.FS.close(stream)
@@ -128,7 +131,7 @@ async function initSQLDB() {
 	db = new SQL.Database('/sql/db.sqlite', { filename: true })
 	db.run(`
 	pragma page_size = 8192;
-	pragma cache_size = 3000;
+	${(self.sql_mode !== 'readall') ? 'pragma cache_size = 3000;' : ''}
     PRAGMA journal_mode=MEMORY;
 	`)
 	db.run(
@@ -137,21 +140,21 @@ async function initSQLDB() {
 	db.create_function('regexp', (regex, str) => RegExp(regex).test(str))
 	db.run('CREATE TABLE IF NOT EXISTS langs_ready (bangu TEXT, timestamp TEXT)')
 	db.run('CREATE TABLE IF NOT EXISTS tejufra (bangu TEXT, jufra TEXT)')
-	self.postMessage({
-		kind: 'loader',
-		cmene: 'booting',
-	})
-	console.log('booting')
-
-	db.run(`SELECT * FROM valsi`)
-	self.postMessage({
-		kind: 'loader',
-		cmene: 'loaded',
-	})
-	console.log('booted')
+	if (self.sql_mode !== 'readall'){
+		self.postMessage({
+			kind: 'loader',
+			cmene: 'booting',
+		})
+		console.log('booting')
+	
+		db.run(`SELECT * FROM valsi`)
+		self.postMessage({
+			kind: 'loader',
+			cmene: 'loaded',
+		})
+		console.log('booted')
+	}
 }
-
-self.production = `'%production%'`
 
 function runQuery(sql_query, params) {
 	const start = new Date()
@@ -605,7 +608,7 @@ async function cnanosisku({
 		rows = rows.concat(rows2)
 	} else {
 		//normal search
-		if (self.production!=='production') {
+		if (self.production !== 'production') {
 			rows = runQuery(
 				`select distinct d,n,w,r,bangu,s,t,g,cache from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $bangu)`,
 				{ $query: '%' + query_apos + '%', $bangu: bangu }

@@ -999,7 +999,6 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
   } catch (error) { }
   jsonTimes[tegerna] = hash
   fs.writeFileSync(versio, JSON.stringify(jsonTimes))
-  console.log(`updated ${tegerna} dexie.js sutysisku`);
 }
 
 const ningau_palasutysisku = async (language, lojbo) => {
@@ -1233,6 +1232,9 @@ async function updateXmlDumps() {
       erroredLangs.push(language)
     }
   }
+
+  console.log(`XML dumpds updated`);
+
 
   return uniques(erroredLangs)
 }

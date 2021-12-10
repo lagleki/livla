@@ -8,7 +8,6 @@ docker run \
   --memory 3g \
   -v $(pwd)/src:/livla/src/:Z \
   -v $(pwd)/config:/livla/config/:Z \
-  -v $(pwd)/node_modules:/livla/node_modules/:Z \
   -v $(pwd)/build:/livla/build/:Z \
   -p 3020:3000 \
   -p 3021:3001 \

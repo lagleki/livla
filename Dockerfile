@@ -18,8 +18,6 @@ RUN apt-get install -y rsync
 
 RUN mkdir -p /livla/build/dumps
 COPY src/package*.json /livla/
-COPY .env /livla/
 WORKDIR /livla
-RUN npm i ; npm i -g npm-check-updates
-
-CMD npm start
+RUN npm i ; npm i -g npm-check-updates pm2@latest
+CMD ["pm2-runtime", "/livla/src/livla/index.js"]

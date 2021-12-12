@@ -3,7 +3,7 @@ const externalConfig = {
   cll_source: 'https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/',
   feedback_backend_url: 'https://sutysisku-report.herokuapp.com/',
   issues_repo: "https://github.com/La-Lojban/pinka/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc",
-  sql_mode: 'readall'
+  sql_mode: 'readall-false'
 }
 
 declare global {

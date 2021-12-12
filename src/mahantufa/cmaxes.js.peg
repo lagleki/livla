@@ -22,7 +22,7 @@ gismu = long_rafsi &stress &final_syllable pa_zei_karsna &post_word
 fuhivla_head = !rafsi_string !cmavo !(!rafsi_string zunsna rafsi_string) !h &onset unstressed_syllable*
 fuhivla_trim = fuhivla_head slaka &stress consonantal_syllable*
 generic_fuhivla = fuhivla_trim final_syllable
-fuhivla = &generic_fuhivla prefix:(ccv / cvv / cvc) inter:(r / n / l) end:(unstressed_syllable* slaka &stress consonantal_syllable* final_syllable) {return [_join(prefix),"-",_join(inter),_join(end)]} / &generic_fuhivla prefix:(long_rafsi) inter:(r / n / l) end:(unstressed_syllable* slaka &stress consonantal_syllable* final_syllable) {return [_join(prefix),"-",_join(inter),_join(end)]} / generic_fuhivla
+fuhivla = &generic_fuhivla prefix:(ccv / cvv / cvc) inter:(r / n / l) end:(unstressed_syllable* slaka &stress consonantal_syllable* final_syllable) {return [_join(prefix),"-",_join(inter),_join(end)]} / &generic_fuhivla prefix:(long_rafsi) inter:(r / n / l) end:(unstressed_syllable* slaka &stress consonantal_syllable* final_syllable / final_syllable) {return [_join(prefix),"-",_join(inter),_join(end)]} / generic_fuhivla
 cmavo = !cmevla !(cvc !stress y h? lujvo_core / cvc &stress y short_final_rafsi) (!h !(zunsna zunsna+) onset (nucleus h)* nucleus / y+) &post_word
 
 lujvo_core = (expr:(hy_rafsi / fuhivla_rafsi / y_rafsi / !any_fuhivla_rafsi y_less_rafsi !any_fuhivla_rafsi) {return [_join(expr),"-"];} )* (expr:(fuhivla / gismu_cvv_final_rafsi) {return [_join(expr)];} / (expi:((stressed_hy_rafsi / stressed_fuhivla_rafsi / stressed_y_rafsi / cvc_ccv_cvv &stress)) exp:(short_final_rafsi) {return [_join(expi),"-",_join(exp)];}) )

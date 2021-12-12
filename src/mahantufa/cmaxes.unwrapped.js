@@ -1135,6 +1135,9 @@ function peg$parse(input, options) {
               peg$currPos = s4;
               s4 = peg$FAILED;
             }
+            if (s4 === peg$FAILED) {
+              s4 = peg$parsefinal_syllable();
+            }
             if (s4 !== peg$FAILED) {
               peg$savedPos = s0;
               s0 = peg$f7(s2, s3, s4);

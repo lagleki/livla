@@ -771,7 +771,6 @@ function preprocesWordWithScale(v, scale, lang) {
 
 function preprocessRecordFromDump({ text }) {
   if (!text || typeof text !== 'string') return text
-  // console.log(text);
 
   //prettify latex
   text = text
@@ -955,13 +954,13 @@ function cleanCJKText(text) {
     ), nonCjk: text.replace(/[^a-zA-Zа-яА-ЯЁё0-9']/g, ' ')
   }
 }
-const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
+const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
   let rma
-  if (["ja", "zh"].includes(tegerna)) {
+  if (["ja", "zh"].includes(segerna)) {
     const RakutenMA = require('rakutenma')
-    const model = JSON.parse(fs.readFileSync(`/livla/node_modules/rakutenma/model_${tegerna}.json`, { encoding: 'utf8' }));
+    const model = JSON.parse(fs.readFileSync(`/livla/node_modules/rakutenma/model_${segerna}.json`, { encoding: 'utf8' }));
     rma = new RakutenMA(model, 1024, 0.007812);  // Specify hyperparameter for SCW (for demonstration purpose)
-    rma.featset = RakutenMA[`default_featset_${tegerna}`];
+    rma.featset = RakutenMA[`default_featset_${segerna}`];
     // Set the feature hash function (15bit)
     rma.hash_func = RakutenMA.create_hash_func(15);
   }
@@ -982,7 +981,7 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
     if (json[key].r && json[key].r.length === 0) delete json[key].r
     i++
     let rec = { w: key, ...json[key] }
-    if (["ja", "zh"].includes(tegerna)) {
+    if (["ja", "zh"].includes(segerna)) {
       // Tokenize one sample sentence
       const cached_def = { ...rec }
       if (rec.d) {
@@ -998,10 +997,10 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
   const hash = require('object-hash')(arr)
 
   let index = 0
-  for (const chunk of splitToChunks(arr, 5, tegerna)) {
+  for (const chunk of splitToChunks(arr, 5, segerna)) {
     const { makeSimpleWorker } = require("inline-webworker-functional/node")
     const generateChunk = makeSimpleWorker(workerGenerateChunk)
-    const result = await generateChunk({ tegerna, chunk, index })
+    const result = await generateChunk({ tegerna: segerna, chunk, index })
     for (const el of result) console.log(el);
     index++
   }
@@ -1010,30 +1009,30 @@ const ningau_paladeksi_sutysisku = async ({ json, tegerna }) => {
   try {
     jsonTimes = JSON.parse(fs.readFileSync(versio, { encoding: 'utf8' }))
   } catch (error) { }
-  jsonTimes[tegerna] = hash
+  jsonTimes[segerna] = hash
   fs.writeFileSync(versio, JSON.stringify(jsonTimes))
 }
 
-const ningau_palasutysisku = async (language, lojbo) => {
+const ningau_palasutysisku = async (segerna, lojbo) => {
   // write a new file parsed.js that would be used by la sutysisku
-  if (!language) language = 'en'
-  const pars_ = prepareSutysiskuJsonDump(language)
+  if (!segerna) segerna = 'en'
+  const pars_ = prepareSutysiskuJsonDump(segerna)
   for (const format of ['json']) {
     const pars = pars_[format]
     if (format == 'json')
       await ningau_paladeksi_sutysisku({
         json: JSON.parse(pars),
-        tegerna: language,
+        segerna: segerna,
         lojbo,
       })
     let t = path.join(
       '/livla/build/sutysisku/data',
-      `parsed-${language}.${format}`
+      `parsed-${segerna}.${format}`
     )
     fs.writeFileSync(`${t}.temp`, pars)
     fs.renameSync(`${t}.temp`, t)
     t = path.join(
-      `/livla/build/sutysisku/${language}/`,
+      `/livla/build/sutysisku/${segerna}/`,
       'webapp.appcache'
     )
     const d = new Date()

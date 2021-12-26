@@ -682,7 +682,14 @@ function RenderResults({ query, seskari, bangu, versio }) {
   //todo: arrpurc or state.history
   DispatchCitri()
 
-  ga('send', 'pageview', `#sisku/${state.displaying.query}`)
+  gtag('event', 'page_view'
+    , {
+      page_title: state.displaying.query,
+      page_location: `#sisku/${state.displaying.query}`,
+      page_path: `#sisku/${state.displaying.query}`,
+      send_to: `'%GA_MEASUREMENT_ID%'`
+    }
+  )
   const pageViewData = {
     dl: window.location.href,
     dt: document.title,
@@ -1437,7 +1444,7 @@ function checkScrolledNearBottom({ target }) {
   addAudioLinks()
 }
 
-const number2ColorHue = (number) => Math.floor((number * 360 / (1.618 * 7)) % 360);
+const number2ColorHue = (number) => Math.floor((number * 360 / 7.618) % 360);
 
 const bgString2Int = (number, { s = '90%', l = '80%' }) => `hsl(${number2ColorHue(number)},${s},${l})`
 
@@ -1534,7 +1541,7 @@ function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index,
       if (type === 'd') span.id = combInd
       span.classList.add("terbricmi")
       const background = `repeating-linear-gradient(to right,${gradient},${gradient} 100%) content-box content-box, linear-gradient(90deg, ${gradientBorder},${gradientBorder} 100%) padding-box padding-box`
-      span.setAttribute("style", `background: white; border: 1px dashed ${gradientBorder}`)
+      span.setAttribute("style", `background: ${background};`)
       if (objectVeljvoReplacement.dataArr && (type === 'd')) span.setAttribute("data-arr", stringifiedPlaceTag)
       if (!isHead) span.setAttribute("data-color", number2ColorHue(number, 256, 32))
       span.innerHTML = replacementTag.replace(/\{/g, '\\curlyleft').replace(/\}/g, '\\curlyright').replace(/^<span /, `<span `)
@@ -2139,7 +2146,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
 
     const rafsi = document.createElement('div')
     rafsi.className = 'tanxe pritu_tanxe kurfa_tanxe'
-    for (i = 0; i < def.b.length; i++) {
+    for (let i = 0; i < def.b.length; i++) {
       const rafElem = document.createElement('span')
       rafElem.className = 'pamei'
       const raf = def.b[i]
@@ -2382,8 +2389,8 @@ if (socket1Chat) {
   }
   socket1Chat.on('sentFrom', function (data) {
     if (loadingState.loading || !socket1Chat_connected) return
-    var i = data.data
-    var msg = {
+    const i = data.data
+    const msg = {
       d: trimSocketChunk(i.chunk),
       s: i.channelId,
       w: i.author,

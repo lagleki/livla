@@ -66,7 +66,7 @@ slaka = onset !y nucleus coda?
 consonantal_syllable = zunsna &syllabic coda
 
 coda = !any_syllable zunsna &any_syllable / syllabic? zunsna? &pause
-onset = h / zunsna? glaide / (affricate / (cs !x / jz !(n / l / r))? (pfbgvkx / (t / d / n !r) !l / m)? (l / r)?) !zunsna !glaide
+onset = (h / glaide / affricate / (cs !x / jz !(n / l / r))? (pfbgvkx / (t / d / n !r) !l / m)? (l / r)?) !zunsna !glaide
 nucleus = pa_zei_karsna / re_zei_karsna / y !nucleus
 glaide = (ɩ / w) &nucleus
 re_zei_karsna = ([a] w !u / [aeo] ɩ !i) !nucleus

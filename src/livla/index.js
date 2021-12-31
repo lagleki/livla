@@ -52,7 +52,8 @@ let langs = [
   'sv',
 ]
 if (process.argv && process.argv[2]) {
-  langs = (process.argv[2]).split(",").map(i => i.trim())
+  const langs_ = (process.argv[2]).split(",").map(i => i.trim())
+  if (langs_.length>1) langs = langs_
 }
 
 console.log(langs, 'languages loaded');
@@ -771,7 +772,6 @@ function preprocesWordWithScale(v, scale, lang) {
 
 function preprocessRecordFromDump({ text }) {
   if (!text || typeof text !== 'string') return text
-  // console.log(text);
 
   //prettify latex
   text = text
@@ -957,7 +957,7 @@ function cleanCJKText(text) {
 }
 const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
   let rma
-  if (["ja", "zh"].includes(segerna)) {
+  if (["ja", "zh"].includes(segerna) && process.argv[2]!=='skipCJK') {
     const RakutenMA = require('rakutenma')
     const model = JSON.parse(fs.readFileSync(`/livla/node_modules/rakutenma/model_${segerna}.json`, { encoding: 'utf8' }));
     rma = new RakutenMA(model, 1024, 0.007812);  // Specify hyperparameter for SCW (for demonstration purpose)
@@ -982,7 +982,7 @@ const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
     if (json[key].r && json[key].r.length === 0) delete json[key].r
     i++
     let rec = { w: key, ...json[key] }
-    if (["ja", "zh"].includes(segerna)) {
+    if (["ja", "zh"].includes(segerna) && process.argv[2]!=='skipCJK') {
       // Tokenize one sample sentence
       const cached_def = { ...rec }
       if (rec.d) {
@@ -1015,26 +1015,26 @@ const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
   fs.writeFileSync(versio, JSON.stringify(jsonTimes))
 }
 
-const ningau_palasutysisku = async (language, lojbo) => {
+const ningau_palasutysisku = async (segerna, lojbo) => {
   // write a new file parsed.js that would be used by la sutysisku
-  if (!language) language = 'en'
-  const pars_ = prepareSutysiskuJsonDump(language)
+  if (!segerna) segerna = 'en'
+  const pars_ = prepareSutysiskuJsonDump(segerna)
   for (const format of ['json']) {
     const pars = pars_[format]
     if (format == 'json')
       await ningau_paladeksi_sutysisku({
         json: JSON.parse(pars),
-        segerna: language,
+        segerna,
         lojbo,
       })
     let t = path.join(
       '/livla/build/sutysisku/data',
-      `parsed-${language}.${format}`
+      `parsed-${segerna}.${format}`
     )
     fs.writeFileSync(`${t}.temp`, pars)
     fs.renameSync(`${t}.temp`, t)
     t = path.join(
-      `/livla/build/sutysisku/${language}/`,
+      `/livla/build/sutysisku/${segerna}/`,
       'webapp.appcache'
     )
     const d = new Date()

@@ -9,6 +9,14 @@ chrome: what happens when you open the app in incognito?
 
 # Issues
 
+- first entry should have https://chinese.yabla.com/ example usage
+- integrate uncll:
+  - each section is dict_entry
+  - refs to words as refs to en-cll entries
+  - refs to sections as refs to en-cll_text entries
+  - en-cll is index, links go to sutysisku, en-cll_text language
+  - en-cll_text is sections content
+  - dumping: switch saying the content is raw html but preprocessing might be necessary
 - force update index.html from network, not from browser cache
 - Feedback
   - disable in offline mode
@@ -17,7 +25,7 @@ chrome: what happens when you open the app in incognito?
 - compress index.css
 - extract template.js configs to separate json files
 - add lojban todo list
-- add the text of LearnLojban, CLL
+- add the text of LearnLojban
 - lujvo with xN only mustnt have voynich pipes
 - prioritization when regexp search too.
 - ipfs

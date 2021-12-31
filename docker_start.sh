@@ -5,7 +5,7 @@ docker kill livla ; docker rm livla
 docker run \
   -it \
   --name livla \
-  --memory 3g \
+  --memory 5g \
   -v $(pwd)/src:/livla/src/:Z \
   -v $(pwd)/config:/livla/config/:Z \
   -v $(pwd)/node_modules:/livla/node_modules/:Z \

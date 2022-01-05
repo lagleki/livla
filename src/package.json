@@ -5,7 +5,7 @@
   "main": "livla/index.js",
   "private": true,
   "scripts": {
-    "start": "forever src/livla/index.js",
+    "start": "forever src/livla/index.js skipCJK",
     "snovlaste": "npm run sutysisku ; cd build/sutysisku ; rm .git -rf ; git init ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push --set-upstream origin master -f ; cd ..",
     "push": "git add . ; git commit -a ;  git push",
     "sisku": "npx browserslist@latest --update-db && rsync -av --exclude=\".*\"  src/sutysisku/src/* build/sutysisku/ ; ts-node src/sutysisku/morna.ts",

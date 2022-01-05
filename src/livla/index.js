@@ -34,7 +34,7 @@ const sanitizeHtml = require('sanitize-html')
 const tato = require('./tatoeba.js')
 const nodasezvafahi = "no da se zvafa'i"
 const tersepli = ' + '
-const commandPrefix = '.'
+const commandPrefix = '^ *(\.|!)'
 let langs = [
   'jbo',
   'en',
@@ -52,7 +52,8 @@ let langs = [
   'sv',
 ]
 if (process.argv && process.argv[2]) {
-  langs = (process.argv[2]).split(",").map(i => i.trim())
+  const langs_ = (process.argv[2]).split(",").map(i => i.trim())
+  if (langs_.length>1) langs = langs_
 }
 
 console.log(langs, 'languages loaded');
@@ -887,7 +888,7 @@ function splitToChunks(array, parts, tegerna) {
   return result;
 }
 
-function workerGenerateChunk({ tegerna, chunk, index }) {
+function workerGenerateChunk({ segerna, chunk, index }) {
   const fs = require('fs-extra')
   const path = require('path-extra')
   const brotli = require('brotli-wasm');
@@ -917,13 +918,13 @@ function workerGenerateChunk({ tegerna, chunk, index }) {
 
   let t = path.join(
     '/livla/build/sutysisku/data',
-    `parsed-${tegerna}-${index}.bin`
+    `parsed-${segerna}-${index}.bin`
   )
   try {
     fs.writeFileSync(t, brotli.compress(Buffer.from(JSON.stringify(outp))))
     // result.push(`saving ${tegerna}-${index}`);
   } catch (error) {
-    result.push(`couldn't save ${tegerna}-${index}`);
+    result.push(`couldn't save ${segerna}-${index}`);
   }
   return result
 }
@@ -956,7 +957,7 @@ function cleanCJKText(text) {
 }
 const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
   let rma
-  if (["ja", "zh"].includes(segerna)) {
+  if (["ja", "zh"].includes(segerna) && process.argv[2]!=='skipCJK') {
     const RakutenMA = require('rakutenma')
     const model = JSON.parse(fs.readFileSync(`/livla/node_modules/rakutenma/model_${segerna}.json`, { encoding: 'utf8' }));
     rma = new RakutenMA(model, 1024, 0.007812);  // Specify hyperparameter for SCW (for demonstration purpose)
@@ -981,7 +982,7 @@ const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
     if (json[key].r && json[key].r.length === 0) delete json[key].r
     i++
     let rec = { w: key, ...json[key] }
-    if (["ja", "zh"].includes(segerna)) {
+    if (["ja", "zh"].includes(segerna) && process.argv[2]!=='skipCJK') {
       // Tokenize one sample sentence
       const cached_def = { ...rec }
       if (rec.d) {
@@ -992,6 +993,7 @@ const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
     }
     arr.push(rec)
   }
+  console.log(segerna,'dexie dump processed')
   const order = ['gismu', 'cmavo', 'experimental gismu', 'lujvo', 'zei-lujvo', "fu'ivla", "cmevla", "experimental cmavo", "obsolete fu'ivla"];
   arr.sort((x, y) => (order.indexOf(x.t) === -1) ? 1 : order.indexOf(x.t) - order.indexOf(y.t));
   const hash = require('object-hash')(arr)
@@ -1000,7 +1002,7 @@ const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
   for (const chunk of splitToChunks(arr, 5, segerna)) {
     const { makeSimpleWorker } = require("inline-webworker-functional/node")
     const generateChunk = makeSimpleWorker(workerGenerateChunk)
-    const result = await generateChunk({ tegerna: segerna, chunk, index })
+    const result = await generateChunk({ segerna, chunk, index })
     for (const el of result) console.log(el);
     index++
   }
@@ -1022,7 +1024,7 @@ const ningau_palasutysisku = async (segerna, lojbo) => {
     if (format == 'json')
       await ningau_paladeksi_sutysisku({
         json: JSON.parse(pars),
-        segerna: segerna,
+        segerna,
         lojbo,
       })
     let t = path.join(
@@ -1256,7 +1258,7 @@ async function updateXmlDumps() {
 updateXmlDumps()
 setInterval(() => {
   updateXmlDumps()
-}, 1 * 1 * 60 * 60 * 1000) // update logs once an hour
+}, 1 * 24 * 60 * 60 * 1000) // update logs once an hour
 
 const GimkaConflicts = (valsi) => {
   const gimka = require('../skripto/gimka.js')
@@ -1616,7 +1618,7 @@ async function processor({ from, towhom, text, socket }) {
   text = text.toLowerCase().trim().replace(/’/g, "'")
   let inLanguage = defaultLanguage
   if (text.charAt(0) === '#' && replyToHashed({ text, socket, sendTo })) return
-  if (text.indexOf(commandPrefix) === 0) {
+  if (text.search(RegExp(commandPrefix)) === 0) {
     const r = await processCommand({ text, origText, socket, sendTo })
     if (r) return
   }
@@ -1676,12 +1678,12 @@ async function processor({ from, towhom, text, socket }) {
   }
 
   switch (true) {
-    case text.indexOf(`${commandPrefix}yacc `) === 0 ||
-      text.indexOf(`${commandPrefix}cowan `) === 0:
+    case text.search(RegExp`${commandPrefix}yacc `) === 0 ||
+      text.search(RegExp`${commandPrefix}cowan `) === 0:
       tcepru(removePrefix(text), sendTo, socket)
       break
-    case text.indexOf(`${commandPrefix}gerna `) === 0 ||
-      text.search(new RegExp(`${commandPrefix}jbofi['h]e `)) === 0:
+    case text.search(RegExp`${commandPrefix}gerna `) === 0 ||
+      text.search(RegExp`${commandPrefix}jbofi['h]e `) === 0:
       jbofihe(removePrefix(text), sendTo, socket)
       break
     case text.indexOf(`${replier}: ko ningau`) === 0 ||

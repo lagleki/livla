@@ -604,7 +604,7 @@ async function cnanosisku({
 		const array = [...new Set([...queryDecomposition, query_apos, ...splitQuery_apos])]
 		const mergedArray = array.map((i) => `'${i.replace(/'/g, "''")}'`)
 			.join(',')
-		const sqlQuery = `select d,n,w,r,bangu,s,t,g,count(ex),b as no from (select distinct valsi.d as d,valsi.n as n,valsi.w as w,valsi.r as r,valsi.bangu as bangu,valsi.s as s,valsi.t as t,valsi.g as g,json_each.value as ex,valsi.b as b from valsi,json_each(valsi.cache) where 
+		const sqlQuery = `select d,n,w,r,bangu,s,t,g,count(ex) as no,b from (select distinct valsi.d as d,valsi.n as n,valsi.w as w,valsi.r as r,valsi.bangu as bangu,valsi.s as s,valsi.t as t,valsi.g as g,json_each.value as ex,valsi.b as b from valsi,json_each(valsi.cache) where 
 		(json_each.value in (${mergedArray}) and bangu='${bangu}')
 		or
 		((w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu))

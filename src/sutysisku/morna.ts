@@ -192,6 +192,7 @@ const settings = {
     '../pixra/menu.svg',
     '../pixra/x.svg',
     '../pixra/jbotcan.svg',
+    '../pixra/murse.jpg',
     '../pixra/taplamuplis.svg',
     '../pixra/nunsku.svg',
     '../pixra/plise.svg',

@@ -545,8 +545,10 @@ function RenderDasri({ seskari, sepia }) {
   const colors = ['velcusku', 'arxivo', 'cnano', 'rimni', 'catni', 'fanva']
   if (state.displaying.bangu === 'muplis') {
     document.getElementById('leitutci').style.display = 'none'
+    document.body.className = "body-muplis"
   } else {
     document.getElementById('leitutci').style.display = 'flex'
+    document.body.className = "body-sutysisku"
   }
   if (!colors.includes(seskari)) seskari = 'cnano'
   dasri.className = `kampu-dasri ${seskari}-dasri noselect`
@@ -710,7 +712,7 @@ function removePlumbs() {
 
 function appendPlumbs() {
   ;[].forEach.call(document.querySelectorAll('.leader-line'), function (element) {
-    document.querySelector('#content').appendChild(element)
+    content.appendChild(element)
   })
 }
 
@@ -1082,6 +1084,15 @@ window.EmptyState = (bangu) => {
   DispatchState({
     empty: true,
   })
+  if (state.ninynaha) {
+    try { document.getElementById("pyro").remove(); } catch (error) { }
+    if (Math.random() > 0.618) {
+      SiteTitleFull.insertAdjacentHTML('afterend', '<div id="pyro" class="pyro"></div>');
+      setTimeout(() => {
+        try { document.getElementById("pyro").remove(); } catch (error) { }
+      }, 3000)
+    }
+  }
 }
 
 document.getElementById("report_feedback_main").addEventListener("click", function () {
@@ -2665,61 +2676,84 @@ window.runSpeakableAudio = function (textToSpeak, dontSpeak = false) {
   return polly(textToSpeak, dontSpeak)
 }
 
+function zgana_sihesle() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  const diff = now - start;
+  const oneDay = 1000 * 60 * 60 * 24;
+  const day = Math.floor(diff / oneDay);
+  if (day >= 340 || day < 10) {
+    state.ninynaha = true
+    const elemDiv = document.createElement('div');
+    const rnd = (max, min = 1) => (Math.random() * max / min).toFixed(2)
+    elemDiv.innerHTML = `<div class="leisihesle" aria-hidden="true">${Array(3).fill(["❅", "❆"]).flat()
+      .map(_ => {
+        const rnd40 = rnd(30)
+        const rnd3 = rnd(3)
+        return `<div class="sihesle" style="left: ${rnd(100)}%;-webkit-animation-delay: ${rnd40}s, ${rnd3}s;animation-delay: ${rnd40}s, ${rnd3}s;">${_}</div>`
+      })
+      .join("")
+      }</div>`
+    //<div class="sihesle"><img src="../pixra/snime.svg" height='13' width='13' alt='sihesle'/></div>
+    document.body.appendChild(elemDiv);
+  }
+}
 
 
-  ; (function () {
-    function closeModal() {
-      /* Get close button */
-      const closeButton = document.getElementsByClassName('jsModalClose')
-      const closeOverlay = document.getElementsByClassName('jsOverlay')
+; (function () {
+  function closeModal() {
+    zgana_sihesle();
+    /* Get close button */
+    const closeButton = document.getElementsByClassName('jsModalClose')
+    const closeOverlay = document.getElementsByClassName('jsOverlay')
 
-      /* Set onclick event handler for close buttons */
-      for (let i = 0; i < closeButton.length; i++) {
-        closeButton[i].onclick = function () {
-          const modalWindow = this.parentNode.parentNode
+    /* Set onclick event handler for close buttons */
+    for (let i = 0; i < closeButton.length; i++) {
+      closeButton[i].onclick = function () {
+        const modalWindow = this.parentNode.parentNode
 
-          modalWindow.classList
-            ? modalWindow.classList.remove('open')
-            : (modalWindow.className = modalWindow.className.replace(
-              new RegExp(
-                '(^|\\b)' + 'open'.split(' ').join('|') + '(\\b|$)',
-                'gi'
-              ),
-              ' '
-            ))
-        }
-      }
-
-      /* Set onclick event handler for modal overlay */
-      for (let i = 0; i < closeOverlay.length; i++) {
-        closeOverlay[i].onclick = function () {
-          const modalWindow = this.parentNode
-
-          modalWindow.classList
-            ? modalWindow.classList.remove('open')
-            : (modalWindow.className = modalWindow.className.replace(
-              new RegExp(
-                '(^|\\b)' + 'open'.split(' ').join('|') + '(\\b|$)',
-                'gi'
-              ),
-              ' '
-            ))
-        }
-      }
-    }
-
-    /* Handling domready event IE9+ */
-    function ready(fn) {
-      if (document.readyState != 'loading') {
-        fn()
-      } else {
-        document.addEventListener('DOMContentLoaded', fn)
+        modalWindow.classList
+          ? modalWindow.classList.remove('open')
+          : (modalWindow.className = modalWindow.className.replace(
+            new RegExp(
+              '(^|\\b)' + 'open'.split(' ').join('|') + '(\\b|$)',
+              'gi'
+            ),
+            ' '
+          ))
       }
     }
 
-    /* Triggering modal window function after dom ready */
-    ready(closeModal)
-  })()
+    /* Set onclick event handler for modal overlay */
+    for (let i = 0; i < closeOverlay.length; i++) {
+      closeOverlay[i].onclick = function () {
+        const modalWindow = this.parentNode
+
+        modalWindow.classList
+          ? modalWindow.classList.remove('open')
+          : (modalWindow.className = modalWindow.className.replace(
+            new RegExp(
+              '(^|\\b)' + 'open'.split(' ').join('|') + '(\\b|$)',
+              'gi'
+            ),
+            ' '
+          ))
+      }
+    }
+  }
+
+  /* Handling domready event IE9+ */
+  function ready(fn) {
+    if (document.readyState != 'loading') {
+      fn()
+    } else {
+      document.addEventListener('DOMContentLoaded', fn)
+    }
+  }
+
+  /* Triggering modal window function after dom ready */
+  ready(closeModal)
+})()
 
 window.resetAudioParams = (input) => {
   const json = pollyParams

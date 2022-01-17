@@ -557,6 +557,7 @@ function processTemplate({ config, fallback, now, file }: { config: { [x: string
     'fr-facile',
     'hu',
     'sv',
+    'loglan'
   ]
   //create redirects
   for (const lang of langs_jbo) {

@@ -43,6 +43,7 @@ const supportedLangs = {
   'fr-facile': { n: 'français', p: 'selsku_lanci_fra' },
   ja: { n: '日本語', p: 'selsku_lanci_jpn' },
   zh: { n: '中文', p: 'selsku_lanci_zho' },
+  loglan: { n: '中文', p: 'loglan' },
 }
 
 const listFamymaho = {
@@ -1316,6 +1317,7 @@ function RenderDesktop(tempState) {
     eo: { cmene: 'Esperanto - Loĵbano', pixra: '../pixra/lanci_epo.svg' },
     es: { cmene: 'español - lojban', pixra: '../pixra/selsku_lanci_spa.svg' },
     zh: { cmene: '中文 - 逻辑语', pixra: '../pixra/selsku_lanci_zho.svg' },
+    loglan: { cmene: 'Loglan', pixra: '../pixra/loglan.png' },
   }
 
   //</xuzganalojudri|lojbo>

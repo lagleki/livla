@@ -1,16 +1,43 @@
 /* jshint bitwise: false */
 const lg = console.log.bind(console)
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
 // livla bot
-const fs = require('fs-extra')
-const path = require('path-extra')
-const R = require('ramda')
-const lojban = require('lojban')
-const he = require('he')
-const { to } = require('await-to-js')
-const mkdirp = require('mkdirp')
-const axios = require('axios')
+import fs from "fs-extra";
+import path from "path-extra";
+import R from "ramda";
+import lojban from "lojban";
+import he from "he";
+import { to } from "await-to-js";
+import mkdirp from "mkdirp";
+import axios from "axios";
+import MDBReader from "mdb-reader";
+import fastXMLParser from 'fast-xml-parser';
+import objectHash from 'object-hash'
+import peggy from 'peggy'
+import Twitter from "twitter-lite";
+import Irc from "irc-upd";
+const bais = require("./bai.json");
+const scales = require("./scales.json");
+const { makeSimpleWorker } = require("inline-webworker-functional/node")
+import { exec } from "child_process";
+// import anj from "../tersmu/all.js";
+import { minify } from "terser";
+import { WhichIsInConflictAll } from "../skripto/gimka.js";
+import natural from "natural";
+const hashed = require("./hashed.json");
+const vocatives = require("./vocatives.json");
+const locals = require("./locals.json");
 
+import format from "string-format";
+
+import ua from "universal-analytics";
+import express from "express";
+
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 let home_path = '/livla'
 
 const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -29,9 +56,9 @@ const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 // })
 // db.pragma('journal_mode = WAL')
 
-const sanitizeHtml = require('sanitize-html')
+import sanitizeHtml from "sanitize-html";
 
-const tato = require('./tatoeba.js')
+import tato from "./tatoeba.js";
 const nodasezvafahi = "no da se zvafa'i"
 const tersepli = ' + '
 const commandPrefix = '^ *(\.|!)'
@@ -53,7 +80,7 @@ let langs = [
 ]
 if (process.argv && process.argv[2]) {
   const langs_ = (process.argv[2]).split(",").map(i => i.trim())
-  if (langs_.length>1) langs = langs_
+  if (langs_.length > 1) langs = langs_
 }
 
 console.log(langs, 'languages loaded');
@@ -187,8 +214,6 @@ const loadConfig = () => {
 }
 
 function startTwitterStream() {
-  const Twitter = require('twitter-lite')
-
   const client = new Twitter({
     consumer_key,
     consumer_secret,
@@ -283,7 +308,6 @@ const updateUserSettings = (callback) => {
 // IRC bot
 let clientmensi
 if (!config.disableIrcBots && password) {
-  const Irc = require('irc-upd')
   lg('channels', configmensi.options.channels)
   clientmensi = new Irc.Client(
     configmensi.server,
@@ -296,7 +320,7 @@ let sisku = (lin) => {
   let s = ''
   let i = 0
   while (s.indexOf(lin) < 0 && i < 20000) {
-    s = tato.tatoebaprocessing()
+    s = tato()
     i++ // in case we found nothing exit
   }
   if (s === '' && i < 20000) {
@@ -309,7 +333,7 @@ let sisku = (lin) => {
 }
 
 function fastParse(file) {
-  return require('fast-xml-parser').parse(
+  return fastXMLParser.parse(
     fs
       .readFileSync(file, {
         encoding: 'utf8',
@@ -411,9 +435,6 @@ const getLocalizationString = ({
     language = defaultLanguage
   return (json[language][string] || '').replace(/%s/g, param || '')
 }
-
-const locals = require('./locals.json')
-
 const GetWordDef = ({ word, language, jsonDoc }) => {
   const words = jsonDocDirection(jsonDoc)
     .valsi.filter((valsi) => valsi.word.toLowerCase() === word)
@@ -795,7 +816,6 @@ function preprocessDefinitionFromDump({ bais, scales }, lang, v) {
 }
 
 function addBAIReferences(json, lang) {
-  const bais = require('./bai.json');
   const bai = bais[lang] || bais['en']
 
   Object.keys(json).forEach(word => {
@@ -823,8 +843,6 @@ function addBAIReferences(json, lang) {
 }
 
 function prepareSutysiskuJsonDump(language) {
-  const bais = require('./bai.json');
-  const scales = require('./scales.json');
   const jsonDoc = getJsonDump(`/livla/build/dumps/${language}.json`)
   let json = {}
   jsonDocDirection(jsonDoc).valsi.forEach((v) => {
@@ -924,8 +942,14 @@ function workerGenerateChunk({ segerna, chunk, index }) {
     fs.writeFileSync(t, brotli.compress(Buffer.from(JSON.stringify(outp))))
     // result.push(`saving ${tegerna}-${index}`);
   } catch (error) {
-    result.push(`couldn't save ${segerna}-${index}`);
+    result.push(`couldn't save ${segerna}-${index} ${error.toString()}`);
   }
+  // try {
+  //   fs.writeFileSync(t+".json", JSON.stringify(outp))
+  //   // result.push(`saving ${tegerna}-${index}`);
+  // } catch (error) {
+  //   result.push(`couldn't save ${segerna}-${index} ${error.toString()}`);
+  // }
   return result
 }
 
@@ -955,52 +979,93 @@ function cleanCJKText(text) {
     ), nonCjk: text.replace(/[^a-zA-Zа-яА-ЯЁё0-9']/g, ' ')
   }
 }
-const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
-  let rma
-  if (["ja", "zh"].includes(segerna) && process.argv[2]!=='skipCJK') {
-    const RakutenMA = require('rakutenma')
-    const model = JSON.parse(fs.readFileSync(`/livla/node_modules/rakutenma/model_${segerna}.json`, { encoding: 'utf8' }));
-    rma = new RakutenMA(model, 1024, 0.007812);  // Specify hyperparameter for SCW (for demonstration purpose)
-    rma.featset = RakutenMA[`default_featset_${segerna}`];
-    // Set the feature hash function (15bit)
-    rma.hash_func = RakutenMA.create_hash_func(15);
-  }
-  const keys = Object.keys(json)
 
-  let arr = []
-  let i = 0
-  for (const key of keys) {
-    //complement r field of valsi table by full rafsi
-    json[key].r = json[key].r || []
-    if (
-      json[key].t === 'gismu' ||
-      json[key].t === 'experimental gismu' ||
-      (json[key].t || '').indexOf("fu'ivla") >= 0
-    )
-      json[key].r.push(key)
-
-    if (json[key].r && json[key].r.length === 0) delete json[key].r
-    i++
-    let rec = { w: key, ...json[key] }
-    if (["ja", "zh"].includes(segerna) && process.argv[2]!=='skipCJK') {
-      // Tokenize one sample sentence
-      const cached_def = { ...rec }
-      if (rec.d) {
-        const { cjk, nonCjk } = cleanCJKText(rec.d + " " + rec.n)
-        cached_def.d = rma.tokenize(cjk).map((i) => i[0]).join(" ") + " " + nonCjk
+async function generateLoglanDexieDictionary() {
+  const buffer = (await axios.get('https://github.com/torrua/LOD/blob/master/source/LoglanDictionary.mdb?raw=true', {
+    responseType: 'arraybuffer'
+  })).data
+  // const buffer = readFileSync("LoglanDictionary.mdb");
+  const reader = new MDBReader(buffer);
+  let tableSpells = reader.getTable("WordSpell").getData();
+  const tableDefs = reader.getTable("WordDefinition").getData();
+  const tableWords = reader.getTable("Words").getData();
+  tableSpells = tableDefs
+    .map(i => {
+      const tmp = ({ ...tableSpells.filter(j => j.WID == i.WID)[0], definition: i, source: tableWords.filter(j => j.WID == i.WID) })
+      if (tmp.definition.Usage !== null) {
+        tmp.Word = tmp.definition.Usage.replace(/%/g, tmp.Word)
+        delete tmp.source;
       }
-      rec = { ...rec, ...addCache(cached_def) }
+      return tmp;
+    })
+    .map(i => {
+      let notes = []
+      if (i.source) {
+        i.source = i.source[0]
+        if (i.source.UsedIn) notes.push((i.source.UsedIn || '').split(/ *\| */).filter(Boolean).map(i => `{${i}}`).join(", "))
+        if (i.source.Origin) notes.push('⬅ ' + i.source.Origin)
+      }
+      notes = notes.join("\n")
+      const obj = ({
+        bangu: 'loglan', w: i.Word, n: notes, d: i.definition.Definition, t: i.source?.Type, s: i.definition.Grammar || i.source?.XType
+      })
+      if (i.source?.Affixes) obj.r = i.source?.Affixes.split(/ +/)
+      Object.keys(obj).forEach(key => [undefined, '', null].includes(obj[key]) && delete obj[key])
+      // obj.raw = i
+      return obj;
+    })
+  return tableSpells
+}
+
+const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
+  let arr = []
+  if (["loglan"].includes(segerna)) {
+    arr = await generateLoglanDexieDictionary()
+  } else {
+    let rma
+    if (["ja", "zh"].includes(segerna) && process.argv[2] !== 'skipCJK') {
+      const RakutenMA = require('rakutenma')
+      const model = JSON.parse(fs.readFileSync(`/livla/node_modules/rakutenma/model_${segerna}.json`, { encoding: 'utf8' }));
+      rma = new RakutenMA(model, 1024, 0.007812);  // Specify hyperparameter for SCW (for demonstration purpose)
+      rma.featset = RakutenMA[`default_featset_${segerna}`];
+      // Set the feature hash function (15bit)
+      rma.hash_func = RakutenMA.create_hash_func(15);
     }
-    arr.push(rec)
+    const keys = Object.keys(json)
+
+    let i = 0
+    for (const key of keys) {
+      //complement r field of valsi table by full rafsi
+      json[key].r = json[key].r || []
+      if (
+        json[key].t === 'gismu' ||
+        json[key].t === 'experimental gismu' ||
+        (json[key].t || '').indexOf("fu'ivla") >= 0
+      )
+        json[key].r.push(key)
+
+      if (json[key].r && json[key].r.length === 0) delete json[key].r
+      i++
+      let rec = { w: key, ...json[key] }
+      if (["ja", "zh"].includes(segerna) && process.argv[2] !== 'skipCJK') {
+        // Tokenize one sample sentence
+        const cached_def = { ...rec }
+        if (rec.d) {
+          const { cjk, nonCjk } = cleanCJKText(rec.d + " " + rec.n)
+          cached_def.d = rma.tokenize(cjk).map((i) => i[0]).join(" ") + " " + nonCjk
+        }
+        rec = { ...rec, ...addCache(cached_def) }
+      }
+      arr.push(rec)
+    }
+    console.log(segerna, 'dexie dump processed')
+    const order = ['gismu', 'cmavo', 'experimental gismu', 'lujvo', 'zei-lujvo', "fu'ivla", "cmevla", "experimental cmavo", "obsolete fu'ivla"];
+    arr.sort((x, y) => (order.indexOf(x.t) === -1) ? 1 : order.indexOf(x.t) - order.indexOf(y.t));
   }
-  console.log(segerna,'dexie dump processed')
-  const order = ['gismu', 'cmavo', 'experimental gismu', 'lujvo', 'zei-lujvo', "fu'ivla", "cmevla", "experimental cmavo", "obsolete fu'ivla"];
-  arr.sort((x, y) => (order.indexOf(x.t) === -1) ? 1 : order.indexOf(x.t) - order.indexOf(y.t));
-  const hash = require('object-hash')(arr)
+  const hash = objectHash(arr)
 
   let index = 0
   for (const chunk of splitToChunks(arr, 5, segerna)) {
-    const { makeSimpleWorker } = require("inline-webworker-functional/node")
     const generateChunk = makeSimpleWorker(workerGenerateChunk)
     const result = await generateChunk({ segerna, chunk, index })
     for (const el of result) console.log(el);
@@ -1056,7 +1121,6 @@ const ningau_palasutysisku = async (segerna, lojbo) => {
 }
 
 const tcepru = (lin, sendTo, socket) => {
-  const exec = require('child_process').exec
   exec(
     `${home_path}/src/tcepru/parser <<<"${lin}" 2>/dev/null`,
     { shell: '/bin/bash' },
@@ -1075,7 +1139,6 @@ const tcepru = (lin, sendTo, socket) => {
 }
 
 const jbofihe = (lin, sendTo, socket) => {
-  const exec = require('child_process').exec
   exec(
     `${home_path}/src/jbofihe/jbofihe -ie -cr <<<"${lin}" 2>/dev/null`,
     { shell: '/bin/bash' },
@@ -1110,19 +1173,9 @@ function fmap(callback) {
   }, [])
 }
 
-const tersmu = (lin, sendTo, socket) => {
-  const anj = require('../tersmu/all.js')
-  benji({ socket, sendTo, what: anj.h$main(lin) })
-}
-
-const mensimikce = (text) => {
-  // eliza bot analog
-  let Mensibot = require('../mikce/mensimikce.js')
-  // Mensibot.start(); // initializes Mensi and returns a greeting message
-  const r = Mensibot.reply(text).toString()
-  Mensibot = null
-  return r
-}
+// const tersmu = (lin, sendTo, socket) => {
+//   benji({ socket, sendTo, what: anj.h$main(lin) })
+// }
 
 // mahantufa
 const ningaumahantufa = async (text, socket, file) => {
@@ -1141,7 +1194,7 @@ const ningaumahantufa = async (text, socket, file) => {
   try {
     const camxes =
       'var camxes=' +
-      require('peggy').generate(text, {
+      peggy.generate(text, {
         cache: true,
         trace: false,
         output: 'source',
@@ -1150,7 +1203,6 @@ const ningaumahantufa = async (text, socket, file) => {
       })
     // // write to a file
     fs.writeFileSync(compiled_js_file + ".unwrapped.js", camxes, { encoding: 'utf8' })
-    const { minify } = require("terser");
 
     const result = await minify(camxes, {
       ecma: 5,
@@ -1242,6 +1294,7 @@ async function updateXmlDumps() {
     'toki',
     'ktv-eng',
     'ldp',
+    "loglan"
   ].concat(langs)) {
     try {
       await ningau_palasutysisku(language, langs.includes(language) ? 1 : 0)
@@ -1261,12 +1314,10 @@ setInterval(() => {
 }, 1 * 24 * 60 * 60 * 1000) // update logs once an hour
 
 const GimkaConflicts = (valsi) => {
-  const gimka = require('../skripto/gimka.js')
-  const r = gimka.WhichIsInConflictAll(valsi, jsonDocEn)
+  const r = WhichIsInConflictAll(valsi, jsonDocEn)
   return `[${r.official}] - official gismu that conflict with {${valsi}}\n[${r.experimental}] - experimental gismu that conflict with {${valsi}}`
 }
 const wordnet = ({ socket, sendTo, text }) => {
-  const natural = require('natural')
   const wn = new natural.WordNet()
   wn.lookup(text, (defs) => {
     if (!defs || defs.length === 0) {
@@ -1396,7 +1447,6 @@ function cpedu_fi_la_arxivo(pattern, max) {
 }
 
 function replyToHashed({ text, socket, sendTo }) {
-  const hashed = require('./hashed.json')
   if (hashed[text]) {
     benji({ socket, sendTo, what: hashed[text] })
     return true
@@ -1404,9 +1454,6 @@ function replyToHashed({ text, socket, sendTo }) {
 }
 
 function replyToVocatives({ from, text, sendTo, socket }) {
-  const vocatives = require('./vocatives.json')
-  const format = require('string-format')
-
   text = text.replace(/ {2,}/g, ' ').split(' ')
   if (text[0] !== `${replier}:`) return
   let message = text.slice(2)
@@ -1484,7 +1531,8 @@ function sendDelayed({ from, sendTo, socket }) {
     }
   }
 }
-jsonCommand = {
+
+const jsonCommand = {
   lujvo: ({ text }) => {
     if (text.indexOf(' ') === -1) return { error: true }
     let ma_lujvo
@@ -1731,7 +1779,7 @@ if (!config.disableIrcBots && password) {
 }
 
 // Socket.io server listens to our app
-const io = require('socket.io')(httpPort)
+const io = require("socket.io")(httpPort)
 
 const IPFromRequest = ({ headers, connection, params }) => {
   let ip
@@ -1746,8 +1794,6 @@ const IPFromRequest = ({ headers, connection, params }) => {
   }
   return ip
 }
-
-const ua = require('universal-analytics')
 
 io.sockets.on('connection', (socket) => {
   socket.on('le_te_cusku_be_fi_la_livla', (data) => {
@@ -1779,10 +1825,9 @@ io.sockets.on('connection', (socket) => {
   })
 })
 
-const express = require('express');
 const app = express();
-const public = '/livla/build'
+const buildFolder = '/livla/build'
 
-app.use('/', express.static(public));
+app.use('/', express.static(buildFolder));
 
 app.listen(http_sutysisku_port);

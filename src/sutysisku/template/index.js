@@ -43,7 +43,7 @@ const supportedLangs = {
   'fr-facile': { n: 'français', p: 'selsku_lanci_fra' },
   ja: { n: '日本語', p: 'selsku_lanci_jpn' },
   zh: { n: '中文', p: 'selsku_lanci_zho' },
-  loglan: { n: '中文', p: 'loglan' },
+  loglan: { n: 'Loglan', p: 'loglan' },
 }
 
 const listFamymaho = {
@@ -1803,6 +1803,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
     word.setAttribute('data-valsi', encodeValsiForWeb(def.w))
   if (def.l) word.classList.add('nalojbo')
   if (
+    window.lojbo &&
     def.t !== window.bangudecomp &&
     seskari !== 'fanva' &&
     (plukaquery(def.w) == query || seskari == 'velcusku')
@@ -2120,7 +2121,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
 
     const rafcme = document.createElement('div')
     rafcme.className = 'tanxe zunle_tanxe'
-    rafcme.innerHTML = 'rafsi'
+    rafcme.innerHTML = window.rafsi || 'rafsi'
     tanxe_leirafsi.appendChild(rafcme)
 
     const rafsi = document.createElement('div')

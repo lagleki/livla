@@ -212,6 +212,7 @@ const supportedLangs = {
 	'fr-facile': { n: 'français', p: 'selsku_lanci_fra' },
 	ja: { n: '日本語', p: 'selsku_lanci_jpn' },
 	zh: { n: '中文', p: 'selsku_lanci_zho' },
+	loglan: { n: 'Loglan', p: 'loglan' },
 }
 
 const sufficientLangs = (searching) =>

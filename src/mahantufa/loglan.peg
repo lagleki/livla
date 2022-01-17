@@ -194,7 +194,11 @@ UY = [Uu] [Yy] !badstress juncture? !V1
 PAUSE = [,] [ ]+ !(V1/connective) &caprule
 comma = [,] [ ]+ &caprule
 comma2 = [,]? [ ]+ &caprule
+<<<<<<< HEAD
 end = (([ ]* '#' [ ]+ text)/([ ]+ !.)/!.)
+=======
+end = (([ ]* '#' [ ]+ utterance)/([ ]+ !.)/!.)
+>>>>>>> 0de2c2b64e3268e3116a08d8d6afd307fe6dae34
 period = (([!.:;?] (&end/([ ]+ &caprule))) (invvoc period?)?)
 TAI0 = (V1 juncture? M a/V1 juncture? F i/V1 juncture? Z i/!predstart C1 AI/!predstart C1 EI/!predstart C1 AIb u/!predstart C1 EIb (u)/!predstart C1 EO/ Z [Ii] V1 !badstress juncture? !V1 (M a)?)
 NOI = (N OI)
@@ -457,4 +461,4 @@ uttD = ((sentence period? !ICI !ICA)/(uttC (ICI freemod? uttD)*))
 uttE = (uttD (ICA freemod? uttD)*)
 uttF = (uttE (I freemod? uttE)*)
 utterance0 = (!GE ((!PAUSE freemod period? utterance0)/(!PAUSE freemod period?)/(uttF IGE utterance0)/uttF/(I freemod? uttF?)/(I freemod? period?)/(ICA freemod? uttF)) (&I utterance0)?)
-text = &(phoneticutterance !.) (!GE ((!PAUSE freemod period? text)/(!PAUSE freemod period? (&I text)? end)/(uttF IGE text)/(I freemod? period? (&I text)? end)/(uttF (&I text)? end)/(I freemod? uttF (&I text)? end)/(ICA freemod? uttF (&I text)? end)))
+utterance = &(phoneticutterance !.) (!GE ((!PAUSE freemod period? utterance)/(!PAUSE freemod period? (&I utterance)? end)/(uttF IGE utterance)/(I freemod? period? (&I utterance)? end)/(uttF (&I utterance)? end)/(I freemod? uttF (&I utterance)? end)/(ICA freemod? uttF (&I utterance)? end)))

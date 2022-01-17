@@ -1,0 +1,313 @@
+{
+  "rule": "utterance",
+  "text": "kamla mi",
+  "start": 0,
+  "end": 8,
+  "children": [
+    {
+      "rule": "uttF",
+      "text": "kamla mi",
+      "start": 0,
+      "end": 8,
+      "children": [
+        {
+          "rule": "uttE",
+          "text": "kamla mi",
+          "start": 0,
+          "end": 8,
+          "children": [
+            {
+              "rule": "uttD",
+              "text": "kamla mi",
+              "start": 0,
+              "end": 8,
+              "children": [
+                {
+                  "rule": "sentence",
+                  "text": "kamla mi",
+                  "start": 0,
+                  "end": 8,
+                  "children": [
+                    {
+                      "rule": "sen1",
+                      "text": "kamla mi",
+                      "start": 0,
+                      "end": 8,
+                      "children": [
+                        {
+                          "rule": "imperative",
+                          "text": "kamla mi",
+                          "start": 0,
+                          "end": 8,
+                          "children": [
+                            {
+                              "rule": "predicate",
+                              "text": "kamla mi",
+                              "start": 0,
+                              "end": 8,
+                              "children": [
+                                {
+                                  "rule": "predicate1",
+                                  "text": "kamla mi",
+                                  "start": 0,
+                                  "end": 8,
+                                  "children": [
+                                    {
+                                      "rule": "predicate2",
+                                      "text": "kamla mi",
+                                      "start": 0,
+                                      "end": 8,
+                                      "children": [
+                                        {
+                                          "rule": "backpred",
+                                          "text": "kamla mi",
+                                          "start": 0,
+                                          "end": 8,
+                                          "children": [
+                                            {
+                                              "rule": "backpred1",
+                                              "text": "kamla mi",
+                                              "start": 0,
+                                              "end": 8,
+                                              "children": [
+                                                {
+                                                  "rule": "barepred",
+                                                  "text": "kamla mi",
+                                                  "start": 0,
+                                                  "end": 8,
+                                                  "children": [
+                                                    {
+                                                      "rule": "sentpred",
+                                                      "text": "kamla",
+                                                      "start": 0,
+                                                      "end": 5,
+                                                      "children": [
+                                                        {
+                                                          "rule": "despredE",
+                                                          "text": "kamla",
+                                                          "start": 0,
+                                                          "end": 5,
+                                                          "children": [
+                                                            {
+                                                              "rule": "despredD",
+                                                              "text": "kamla",
+                                                              "start": 0,
+                                                              "end": 5,
+                                                              "children": [
+                                                                {
+                                                                  "rule": "despredB",
+                                                                  "text": "kamla",
+                                                                  "start": 0,
+                                                                  "end": 5,
+                                                                  "children": [
+                                                                    {
+                                                                      "rule": "despredA",
+                                                                      "text": "kamla",
+                                                                      "start": 0,
+                                                                      "end": 5,
+                                                                      "children": [
+                                                                        {
+                                                                          "rule": "predunit",
+                                                                          "text": "kamla",
+                                                                          "start": 0,
+                                                                          "end": 5,
+                                                                          "children": [
+                                                                            {
+                                                                              "rule": "predunit3",
+                                                                              "text": "kamla",
+                                                                              "start": 0,
+                                                                              "end": 5,
+                                                                              "children": [
+                                                                                {
+                                                                                  "rule": "predunit2",
+                                                                                  "text": "kamla",
+                                                                                  "start": 0,
+                                                                                  "end": 5,
+                                                                                  "children": [
+                                                                                    {
+                                                                                      "rule": "predunit1",
+                                                                                      "text": "kamla",
+                                                                                      "start": 0,
+                                                                                      "end": 5,
+                                                                                      "children": [
+                                                                                        {
+                                                                                          "rule": "PREDA",
+                                                                                          "text": "kamla",
+                                                                                          "start": 0,
+                                                                                          "end": 5,
+                                                                                          "children": []
+                                                                                        }
+                                                                                      ]
+                                                                                    }
+                                                                                  ]
+                                                                                }
+                                                                              ]
+                                                                            }
+                                                                          ]
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    },
+                                                    [
+                                                      {
+                                                        "rule": "termset",
+                                                        "text": " mi",
+                                                        "start": 5,
+                                                        "end": 8,
+                                                        "children": [
+                                                          {
+                                                            "rule": "termset2",
+                                                            "text": " mi",
+                                                            "start": 5,
+                                                            "end": 8,
+                                                            "children": [
+                                                              {
+                                                                "rule": "termset1",
+                                                                "text": " mi",
+                                                                "start": 5,
+                                                                "end": 8,
+                                                                "children": [
+                                                                  {
+                                                                    "rule": "terms",
+                                                                    "text": " mi",
+                                                                    "start": 5,
+                                                                    "end": 8,
+                                                                    "children": [
+                                                                      {
+                                                                        "rule": "argumentA",
+                                                                        "text": " mi",
+                                                                        "start": 5,
+                                                                        "end": 8,
+                                                                        "children": [
+                                                                          {
+                                                                            "rule": "argument",
+                                                                            "text": " mi",
+                                                                            "start": 5,
+                                                                            "end": 8,
+                                                                            "children": [
+                                                                              {
+                                                                                "rule": "argument1",
+                                                                                "text": " mi",
+                                                                                "start": 5,
+                                                                                "end": 8,
+                                                                                "children": [
+                                                                                  {
+                                                                                    "rule": "arg8",
+                                                                                    "text": " mi",
+                                                                                    "start": 5,
+                                                                                    "end": 8,
+                                                                                    "children": [
+                                                                                      {
+                                                                                        "rule": "arg7",
+                                                                                        "text": " mi",
+                                                                                        "start": 5,
+                                                                                        "end": 8,
+                                                                                        "children": [
+                                                                                          {
+                                                                                            "rule": "argx",
+                                                                                            "text": " mi",
+                                                                                            "start": 5,
+                                                                                            "end": 8,
+                                                                                            "children": [
+                                                                                              {
+                                                                                                "rule": "arg5",
+                                                                                                "text": " mi",
+                                                                                                "start": 5,
+                                                                                                "end": 8,
+                                                                                                "children": [
+                                                                                                  {
+                                                                                                    "rule": "arg4",
+                                                                                                    "text": " mi",
+                                                                                                    "start": 5,
+                                                                                                    "end": 8,
+                                                                                                    "children": [
+                                                                                                      {
+                                                                                                        "rule": "arg3",
+                                                                                                        "text": " mi",
+                                                                                                        "start": 5,
+                                                                                                        "end": 8,
+                                                                                                        "children": [
+                                                                                                          {
+                                                                                                            "rule": "arg2",
+                                                                                                            "text": " mi",
+                                                                                                            "start": 5,
+                                                                                                            "end": 8,
+                                                                                                            "children": [
+                                                                                                              {
+                                                                                                                "rule": "arg1a",
+                                                                                                                "text": " mi",
+                                                                                                                "start": 5,
+                                                                                                                "end": 8,
+                                                                                                                "children": [
+                                                                                                                  {
+                                                                                                                    "rule": "DA",
+                                                                                                                    "text": " mi",
+                                                                                                                    "start": 5,
+                                                                                                                    "end": 8,
+                                                                                                                    "children": []
+                                                                                                                  }
+                                                                                                                ]
+                                                                                                              }
+                                                                                                            ]
+                                                                                                          }
+                                                                                                        ]
+                                                                                                      }
+                                                                                                    ]
+                                                                                                  }
+                                                                                                ]
+                                                                                              }
+                                                                                            ]
+                                                                                          }
+                                                                                        ]
+                                                                                      }
+                                                                                    ]
+                                                                                  }
+                                                                                ]
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        ]
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    { "rule": "end", "start": 8, "end": 8 }
+  ]
+}

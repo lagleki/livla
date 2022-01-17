@@ -545,8 +545,10 @@ function RenderDasri({ seskari, sepia }) {
   const colors = ['velcusku', 'arxivo', 'cnano', 'rimni', 'catni', 'fanva']
   if (state.displaying.bangu === 'muplis') {
     document.getElementById('leitutci').style.display = 'none'
+    document.body.className = "body-muplis"
   } else {
     document.getElementById('leitutci').style.display = 'flex'
+    document.body.className = "body-sutysisku"
   }
   if (!colors.includes(seskari)) seskari = 'cnano'
   dasri.className = `kampu-dasri ${seskari}-dasri noselect`
@@ -682,7 +684,14 @@ function RenderResults({ query, seskari, bangu, versio }) {
   //todo: arrpurc or state.history
   DispatchCitri()
 
-  ga('send', 'pageview', `#sisku/${state.displaying.query}`)
+  gtag('event', 'page_view'
+    , {
+      page_title: state.displaying.query,
+      page_location: `#sisku/${state.displaying.query}`,
+      page_path: `#sisku/${state.displaying.query}`,
+      send_to: `'%GA_MEASUREMENT_ID%'`
+    }
+  )
   const pageViewData = {
     dl: window.location.href,
     dt: document.title,
@@ -703,7 +712,7 @@ function removePlumbs() {
 
 function appendPlumbs() {
   ;[].forEach.call(document.querySelectorAll('.leader-line'), function (element) {
-    document.querySelector('#content').appendChild(element)
+    content.appendChild(element)
   })
 }
 
@@ -1075,6 +1084,15 @@ window.EmptyState = (bangu) => {
   DispatchState({
     empty: true,
   })
+  if (state.ninynaha) {
+    try { document.getElementById("pyro").remove(); } catch (error) { }
+    if (Math.random() > 0.618) {
+      SiteTitleFull.insertAdjacentHTML('afterend', '<div id="pyro" class="pyro"></div>');
+      setTimeout(() => {
+        try { document.getElementById("pyro").remove(); } catch (error) { }
+      }, 3000)
+    }
+  }
 }
 
 document.getElementById("report_feedback_main").addEventListener("click", function () {
@@ -1437,7 +1455,7 @@ function checkScrolledNearBottom({ target }) {
   addAudioLinks()
 }
 
-const number2ColorHue = (number) => Math.floor((number * 360 / (1.618 * 7)) % 360);
+const number2ColorHue = (number) => Math.floor((number * 360 / 7.618) % 360);
 
 const bgString2Int = (number, { s = '90%', l = '80%' }) => `hsl(${number2ColorHue(number)},${s},${l})`
 
@@ -1534,7 +1552,7 @@ function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index,
       if (type === 'd') span.id = combInd
       span.classList.add("terbricmi")
       const background = `repeating-linear-gradient(to right,${gradient},${gradient} 100%) content-box content-box, linear-gradient(90deg, ${gradientBorder},${gradientBorder} 100%) padding-box padding-box`
-      span.setAttribute("style", `background: white; border: 1px dashed ${gradientBorder}`)
+      span.setAttribute("style", `background: ${background};`)
       if (objectVeljvoReplacement.dataArr && (type === 'd')) span.setAttribute("data-arr", stringifiedPlaceTag)
       if (!isHead) span.setAttribute("data-color", number2ColorHue(number, 256, 32))
       span.innerHTML = replacementTag.replace(/\{/g, '\\curlyleft').replace(/\}/g, '\\curlyright').replace(/^<span /, `<span `)
@@ -2139,7 +2157,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
 
     const rafsi = document.createElement('div')
     rafsi.className = 'tanxe pritu_tanxe kurfa_tanxe'
-    for (i = 0; i < def.b.length; i++) {
+    for (let i = 0; i < def.b.length; i++) {
       const rafElem = document.createElement('span')
       rafElem.className = 'pamei'
       const raf = def.b[i]
@@ -2382,8 +2400,8 @@ if (socket1Chat) {
   }
   socket1Chat.on('sentFrom', function (data) {
     if (loadingState.loading || !socket1Chat_connected) return
-    var i = data.data
-    var msg = {
+    const i = data.data
+    const msg = {
       d: trimSocketChunk(i.chunk),
       s: i.channelId,
       w: i.author,
@@ -2658,61 +2676,84 @@ window.runSpeakableAudio = function (textToSpeak, dontSpeak = false) {
   return polly(textToSpeak, dontSpeak)
 }
 
+function zgana_sihesle() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  const diff = now - start;
+  const oneDay = 1000 * 60 * 60 * 24;
+  const day = Math.floor(diff / oneDay);
+  if (day >= 340 || day < 10) {
+    state.ninynaha = true
+    const elemDiv = document.createElement('div');
+    const rnd = (max, min = 1) => (Math.random() * max / min).toFixed(2)
+    elemDiv.innerHTML = `<div class="leisihesle" aria-hidden="true">${Array(3).fill(["❅", "❆"]).flat()
+      .map(_ => {
+        const rnd40 = rnd(30)
+        const rnd3 = rnd(3)
+        return `<div class="sihesle" style="left: ${rnd(100)}%;-webkit-animation-delay: ${rnd40}s, ${rnd3}s;animation-delay: ${rnd40}s, ${rnd3}s;">${_}</div>`
+      })
+      .join("")
+      }</div>`
+    //<div class="sihesle"><img src="../pixra/snime.svg" height='13' width='13' alt='sihesle'/></div>
+    document.body.appendChild(elemDiv);
+  }
+}
 
 
-  ; (function () {
-    function closeModal() {
-      /* Get close button */
-      const closeButton = document.getElementsByClassName('jsModalClose')
-      const closeOverlay = document.getElementsByClassName('jsOverlay')
+; (function () {
+  function closeModal() {
+    zgana_sihesle();
+    /* Get close button */
+    const closeButton = document.getElementsByClassName('jsModalClose')
+    const closeOverlay = document.getElementsByClassName('jsOverlay')
 
-      /* Set onclick event handler for close buttons */
-      for (let i = 0; i < closeButton.length; i++) {
-        closeButton[i].onclick = function () {
-          const modalWindow = this.parentNode.parentNode
+    /* Set onclick event handler for close buttons */
+    for (let i = 0; i < closeButton.length; i++) {
+      closeButton[i].onclick = function () {
+        const modalWindow = this.parentNode.parentNode
 
-          modalWindow.classList
-            ? modalWindow.classList.remove('open')
-            : (modalWindow.className = modalWindow.className.replace(
-              new RegExp(
-                '(^|\\b)' + 'open'.split(' ').join('|') + '(\\b|$)',
-                'gi'
-              ),
-              ' '
-            ))
-        }
-      }
-
-      /* Set onclick event handler for modal overlay */
-      for (let i = 0; i < closeOverlay.length; i++) {
-        closeOverlay[i].onclick = function () {
-          const modalWindow = this.parentNode
-
-          modalWindow.classList
-            ? modalWindow.classList.remove('open')
-            : (modalWindow.className = modalWindow.className.replace(
-              new RegExp(
-                '(^|\\b)' + 'open'.split(' ').join('|') + '(\\b|$)',
-                'gi'
-              ),
-              ' '
-            ))
-        }
-      }
-    }
-
-    /* Handling domready event IE9+ */
-    function ready(fn) {
-      if (document.readyState != 'loading') {
-        fn()
-      } else {
-        document.addEventListener('DOMContentLoaded', fn)
+        modalWindow.classList
+          ? modalWindow.classList.remove('open')
+          : (modalWindow.className = modalWindow.className.replace(
+            new RegExp(
+              '(^|\\b)' + 'open'.split(' ').join('|') + '(\\b|$)',
+              'gi'
+            ),
+            ' '
+          ))
       }
     }
 
-    /* Triggering modal window function after dom ready */
-    ready(closeModal)
-  })()
+    /* Set onclick event handler for modal overlay */
+    for (let i = 0; i < closeOverlay.length; i++) {
+      closeOverlay[i].onclick = function () {
+        const modalWindow = this.parentNode
+
+        modalWindow.classList
+          ? modalWindow.classList.remove('open')
+          : (modalWindow.className = modalWindow.className.replace(
+            new RegExp(
+              '(^|\\b)' + 'open'.split(' ').join('|') + '(\\b|$)',
+              'gi'
+            ),
+            ' '
+          ))
+      }
+    }
+  }
+
+  /* Handling domready event IE9+ */
+  function ready(fn) {
+    if (document.readyState != 'loading') {
+      fn()
+    } else {
+      document.addEventListener('DOMContentLoaded', fn)
+    }
+  }
+
+  /* Triggering modal window function after dom ready */
+  ready(closeModal)
+})()
 
 window.resetAudioParams = (input) => {
   const json = pollyParams

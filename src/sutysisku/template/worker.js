@@ -3,6 +3,9 @@ import { SQLiteFS } from './asql/index.js'
 import IndexedDBBackend from './asql/indexeddb-backend.js'
 import { parse } from './cmaxes.js'
 const decompress = require('brotli/decompress')
+self.production = `'%production%'`
+self.sql_mode = `'%sql_mode%'`
+
 
 self.postMessage({ kind: 'loading' })
 
@@ -119,7 +122,7 @@ async function initSQLDB() {
 	SQL.FS.mount(sqlFS, {}, '/sql')
 
 	const path = '/sql/db.sqlite'
-	if (typeof SharedArrayBuffer === 'undefined') {
+	if (typeof SharedArrayBuffer === 'undefined' || (self.sql_mode === 'readall')) {
 		let stream = SQL.FS.open(path, 'a+')
 		await stream.node.contents.readIfFallback()
 		SQL.FS.close(stream)
@@ -128,30 +131,39 @@ async function initSQLDB() {
 	db = new SQL.Database('/sql/db.sqlite', { filename: true })
 	db.run(`
 	pragma page_size = 8192;
-	pragma cache_size = 3000;
+	${(self.sql_mode !== 'readall') ? 'pragma cache_size = 3000;' : ''}
     PRAGMA journal_mode=MEMORY;
 	`)
 	db.run(
-		'CREATE TABLE IF NOT EXISTS valsi (d text,n text,w text,r text,bangu text,s text,t text,g text,cache text )'
+		'CREATE TABLE IF NOT EXISTS valsi (d text,n text,w text,r text,bangu text,s text,t text,g text,cache text,b text)'
 	)
+	runMigrations();
 	db.create_function('regexp', (regex, str) => RegExp(regex).test(str))
 	db.run('CREATE TABLE IF NOT EXISTS langs_ready (bangu TEXT, timestamp TEXT)')
 	db.run('CREATE TABLE IF NOT EXISTS tejufra (bangu TEXT, jufra TEXT)')
-	self.postMessage({
-		kind: 'loader',
-		cmene: 'booting',
-	})
-	console.log('booting')
+	if (self.sql_mode !== 'readall') {
+		self.postMessage({
+			kind: 'loader',
+			cmene: 'booting',
+		})
+		console.log('booting')
 
-	db.run(`SELECT * FROM valsi`)
-	self.postMessage({
-		kind: 'loader',
-		cmene: 'loaded',
-	})
-	console.log('booted')
+		db.run(`SELECT * FROM valsi`)
+		self.postMessage({
+			kind: 'loader',
+			cmene: 'loaded',
+		})
+		console.log('booted')
+	}
 }
 
-self.production = `'%production%'`
+function runMigrations(){
+	try {
+		db.run(`alter table valsi add column b text`)
+	} catch (error) {
+		
+	}
+}
 
 function runQuery(sql_query, params) {
 	const start = new Date()
@@ -171,6 +183,7 @@ function runQuery(sql_query, params) {
 		if (row.r) row.r = JSON.parse(row.r)
 		if ((row.t || '').indexOf('{') === 0) row.t = JSON.parse(row.t)
 		if ((row.s || '').indexOf('[') === 0) row.s = JSON.parse(row.s)
+		if ((row.b || '').indexOf('[') === 0) row.b = JSON.parse(row.b)
 		if (row.d) {
 			try {
 				const json = JSON.parse(row.d)
@@ -458,12 +471,12 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
 				for (const toAdd of rows) {
 					db.exec('BEGIN TRANSACTION')
 					let stmt = db.prepare(
-						'INSERT INTO valsi (d,n,w,r,bangu,s,t,g,cache) VALUES (?,?,?,?,?,?,?,?,?)'
+						'INSERT INTO valsi (d,n,w,r,bangu,s,t,g,cache,b) VALUES (?,?,?,?,?,?,?,?,?,?)'
 					)
 					for (let rec of toAdd) {
-						const { d, n, w, r, bangu, s, t, g, cache } = rec
+						const { d, n, w, r, bangu, s, t, g, cache, b } = rec
 						stmt.run(
-							[d, n, w, r, bangu, s, t, g, cache].map((i) =>
+							[d, n, w, r, bangu, s, t, g, cache, b].map((i) =>
 								typeof i == 'object' ? JSON.stringify(i || '') : i || ''
 							)
 						)
@@ -587,33 +600,32 @@ async function cnanosisku({
 			}
 		)
 	} else if (queryDecomposition.length > 1) {
-		const array = [...queryDecomposition, query_apos]
-			.map((i) => `'${i.replace(/'/g, "''")}'`)
+		const splitQuery_apos = query_apos.split(" ").filter(_ => _ !== '')
+		const array = [...new Set([...queryDecomposition, query_apos, ...splitQuery_apos])]
+		const mergedArray = array.map((i) => `'${i.replace(/'/g, "''")}'`)
 			.join(',')
-		const arrayLength = [...new Set(queryDecomposition)].length
-		const query = `select d,n,w,r,bangu,s,t,g,count(ex) as no from (select distinct valsi.d as d,valsi.n as n,valsi.w as w,valsi.r as r,valsi.bangu as bangu,valsi.s as s,valsi.t as t,valsi.g as g,json_each.value as ex from valsi,json_each(valsi.cache) where json_each.value in (${array}) and bangu='${bangu}') as k
-			group by d,n,w,r,bangu,s,t,g
-			having no/${arrayLength}>=0.5
-			order by no desc
-			;`
+		const sqlQuery = `select d,n,w,r,bangu,s,t,g,count(ex) as no,b from (select distinct valsi.d as d,valsi.n as n,valsi.w as w,valsi.r as r,valsi.bangu as bangu,valsi.s as s,valsi.t as t,valsi.g as g,json_each.value as ex,valsi.b as b from valsi,json_each(valsi.cache) where 
+		(json_each.value in (${mergedArray}) and bangu='${bangu}')
+		or
+		((w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu))
+		) as k
+		group by d,n,w,r,bangu,s,t,g,b
+		${bangu === 'muplis' ? `having no/${array.length}>=0.5` : `having no>=${splitQuery_apos.length}`}
+		order by no desc
+		;`
 
-		rows = runQuery(query, [])
-		const rows2 = runQuery(
-			`select distinct d,n,w,r,bangu,s,t,g from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $bangu)`,
-			{ $query: '%' + query_apos + '%', $bangu: bangu }
-		)
-		rows = rows.concat(rows2)
+		rows = runQuery(sqlQuery, { $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` })
 	} else {
 		//normal search
-		if (self.production!=='production') {
+		if (self.production !== 'production') {
 			rows = runQuery(
-				`select distinct d,n,w,r,bangu,s,t,g,cache from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $bangu)`,
-				{ $query: '%' + query_apos + '%', $bangu: bangu }
+				`select distinct d,n,w,r,bangu,s,t,g,cache,b from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu)`,
+				{ $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` }
 			)
 		} else {
 			rows = runQuery(
-				`select distinct d,n,w,r,bangu,s,t,g from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $bangu)`,
-				{ $query: '%' + query_apos + '%', $bangu: bangu }
+				`select distinct d,n,w,r,bangu,s,t,g,b from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu)`,
+				{ $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` }
 			)
 		}
 	}

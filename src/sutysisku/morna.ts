@@ -2,7 +2,10 @@
 const externalConfig = {
   cll_source: 'https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/',
   feedback_backend_url: 'https://sutysisku-report.herokuapp.com/',
-  issues_repo: "https://github.com/La-Lojban/pinka/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc"
+  issues_repo: "https://github.com/La-Lojban/pinka/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc",
+  sql_mode: 'readall-false',
+  GA_MEASUREMENT_ID: 'UA-45171210-6',
+  SUTYSISKU_URL: 'la-lojban.github.io/sutysisku'
 }
 
 declare global {
@@ -189,6 +192,7 @@ const settings = {
     '../pixra/menu.svg',
     '../pixra/x.svg',
     '../pixra/jbotcan.svg',
+    '../pixra/murse.jpg',
     '../pixra/taplamuplis.svg',
     '../pixra/nunsku.svg',
     '../pixra/plise.svg',
@@ -370,8 +374,6 @@ function processTemplate({ config, fallback, now, file }: { config: { [x: string
   return output
 }
 
-const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyState', 'runSearch'];
-
 (async () => {
   // generate files
   for (let lang of langs) {
@@ -392,7 +394,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
       favicon: '../pixra/snime.svg',
       icon16: '../pixra/16.png',
       icon32: '../pixra/32.png',
-      ogurl: `https://la-lojban.github.io/sutysisku/${lang}/index.html`,
+      ogurl: `https://${externalConfig.SUTYSISKU_URL}/${lang}/index.html`,
       ogtitle: 'Sutysisku',
       searchurl: `/sutysisku/${lang}/sisku.xml`,
       searchtitle: `${lang}-sutysisku`,
@@ -513,7 +515,7 @@ const reserved = ['fancu', 'sisku', 'parse', 'cmaxes', 'cnino_sorcu', 'EmptyStat
       })
       .replace(
         '%template%',
-        `https://la-lojban.github.io/sutysisku/${lang}/index.html#seskari=cnano&amp;sisku={searchTerms}`
+        `https://${externalConfig.SUTYSISKU_URL}/${lang}/index.html#seskari=cnano&amp;sisku={searchTerms}`
       )
       .replace('%shortname%', `${lang}-sutysisku`)
       .replaceMergefield(config)
@@ -589,9 +591,9 @@ NETWORK:
   }
   if (process.env.MUPLIS == 'true') {
     const childProcess = require('child_process');
-    childProcess.execFileSync('/livla/src/skripto/phrases/skripto.js')
+    childProcess.execFileSync('node', ['/livla/src/skripto/phrases/skripto.js'], { cwd: __dirname })
     console.log('muplis task finished')
-  }else{
+  } else {
     console.log('muplis task skipped')
   }
 

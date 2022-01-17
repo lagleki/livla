@@ -1,5 +1,5 @@
-const fs = require("fs"),
-  path = require("path-extra");
+import fs from "fs-extra";
+import path from "path-extra";
 
 //regular expressions for gismu forms
 const C = "(" + "[bcdfgjklmnprstvxz]" + ")";
@@ -112,7 +112,7 @@ function WhichIsInConflict(candidate, arr_existing) {
   return acc.join(", ");
 }
 
-function WhichIsInConflictAll(word, jsonDocEn) {
+export function WhichIsInConflictAll(word, jsonDocEn) {
   let all_jvs_off_gismu = [];
   let all_jvs_exp_gismu = [];
   const valsi = jsonDocEn.dictionary.direction[0].valsi;
@@ -124,6 +124,3 @@ function WhichIsInConflictAll(word, jsonDocEn) {
   const experimental = WhichIsInConflict(word, all_jvs_exp_gismu);
   return { official, experimental };
 }
-
-// console.log(WhichIsInConflictAll('klama'));
-module.exports.WhichIsInConflictAll = WhichIsInConflictAll;

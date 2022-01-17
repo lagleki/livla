@@ -1,4 +1,3 @@
-
 const externalConfig = {
   cll_source: 'https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/',
   feedback_backend_url: 'https://sutysisku-report.herokuapp.com/',
@@ -15,8 +14,8 @@ declare global {
   }
 }
 
-import webpack from 'webpack';
-import fs from 'fs-extra';
+import * as webpack from 'webpack';
+import * as fs from 'fs-extra';
 
 const path = require('path-extra');
 import axios from 'axios';
@@ -119,7 +118,7 @@ async function generateCLLDictionary(
 
   const arr = Object.keys(json).map(i => ({
     w: i,
-    cache: [...new Set([i, i.replace(/h/g, "'")])],
+    cache: [...Array.from(new Set([i, i.replace(/h/g, "'")]))],
     ...json[i]
   }))
   const outp = {
@@ -208,6 +207,7 @@ const settings = {
     '../pixra/selsku_lanci_rus.svg',
     '../pixra/lanci_epo.svg',
     '../pixra/selsku_lanci_spa.svg',
+    '../pixra/loglan.png',
     '../pixra/cogwheel-5.svg',
     '../sance/lerfu/a.ogg',
     '../sance/lerfu/ai.ogg',

@@ -5,14 +5,19 @@ const SyntacticActionsPlugin = require("pegjs-syntactic-actions");
 const fileName = process.argv[2]
 
 const filePathCore = path.join(__dirname, `../mahantufa/${fileName}`)
-const text = fs.readFileSync(`${filePathCore}.peg`).toString()
+const grammarSrc = fs.readFileSync(`${filePathCore}.peg`).toString().split("\n")
+    .map(line => line.trim().replace(/^#.*?$/, '').trim().replace(/^([a-z0-9]+) *<- */i, '$1 = ')).filter(Boolean).join("\n")
+    
+const ruleNames = (grammarSrc) => {
+    return grammarSrc.split("\n").map(_ => _.split("=")[0].trim()).filter(Boolean)
+};
 
 // read peg and build a parser
-const generated_parser = require('peggy').generate(text, {
+const generated_parser = require('peggy').generate(grammarSrc, {
     cache: true,
     trace: false,
     output: 'source',
-    allowedStartRules: ['utterance'],
+    allowedStartRules: ruleNames(grammarSrc),
     format: 'commonjs',
     plugins: [new SyntacticActionsPlugin()]
 })

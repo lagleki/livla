@@ -1006,9 +1006,14 @@ async function generateLoglanDexieDictionary() {
         if (i.source.Origin) notes.push('⬅ ' + i.source.Origin)
       }
       notes = notes.join("\n")
-      const obj = ({
+      let obj = ({
         bangu: 'loglan', w: i.Word, n: notes, d: i.definition.Definition, t: i.source?.Type, s: i.definition.Grammar || i.source?.XType
       })
+
+      const cached_def = { ...obj }
+      obj = { ...obj, ...addCache(cached_def) }
+      obj.g = ((obj.d || '').match(/(«.*?»)/g) || []).map(i => i.substring(1, i.length - 1))
+      if (obj.g.length === 0) delete obj.g;
       if (i.source?.Affixes) obj.r = i.source?.Affixes.split(/ +/)
       Object.keys(obj).forEach(key => [undefined, '', null].includes(obj[key]) && delete obj[key])
       // obj.raw = i

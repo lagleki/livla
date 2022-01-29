@@ -8,7 +8,6 @@
     "siskudescr": "Search the Loglan dictionary la kukduvri.",
     "opdescr": "Loglan dictionary: works offline (+ English and other languages)",
     "bangu": "english",
-    "lojbo": false,
     "muplis": "false",
     "catni": "search",
     "cnano": "+",
@@ -19,8 +18,33 @@
     "ogtitle": "Kukduvri",
     "pron_guide": "Pronunciation guide",
     "window": {
+      "window.queryLanguage": "loglan",
+      "window.custom_links": [
+        {
+          "uncll": {
+            "title": "Reference Grammar",
+            "url": "http://www.loglan.org/Loglan1/",
+            "picture": "../pixra/loglan-refgram.png"
+          }
+        },
+        {
+          "introbook": {
+            "url": "http://www.loglan.org/Articles/easy-loglan-introduction.html",
+            "title": "Easy Loglan",
+            "picture": "../pixra/murse.jpg"
+          }
+        },
+        {
+          "parser": {
+            "url": "https://tli-loglan.github.io/loglan-parser/parse.html",
+            "title": "Grammar checker",
+            "picture": "../pixra/shuffle.svg"
+          }
+        }
+      ],
       "Live chat for your questions": "Live chat for your questions",
       "la muplis": "la muplis - useful phrases",
+      "window.lojbo": false,
       "window.cmene": "English",
       "window.nasezvafahi": "No definition has been found",
       "window.rimni": "mitysisku lo'e rimni",
@@ -56,7 +80,6 @@
     "siskudescr": "Search the Lojban dictionary la jbovlaste.",
     "opdescr": "Lojban dictionary: works offline (+ English and other languages)",
     "bangu": "english",
-    "lojbo": true,
     "muplis": "false",
     "catni": "search",
     "cnano": "+",
@@ -67,8 +90,47 @@
     "ogtitle": "Sutysisku",
     "pron_guide": "Pronunciation guide",
     "window": {
+      "window.custom_links": [
+        {
+          "uncll": {
+            "title": "Reference Grammar",
+            "url": "https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/",
+            "picture": "../pixra/cll.png"
+          }
+        },
+        {
+          "introbook": {
+            "url": "https://lojban.pw/books/learn-lojban/#",
+            "title": "Learn Lojban",
+            "picture": "../pixra/cogwheel-5.svg"
+          }
+        },
+        {
+          "chat": {
+            "url": "#seskari=cnano&sisku=lai jbosnu&bangu=en&versio=masno",
+            "title": "Live chat for your questions",
+            "picture": "../pixra/nunsku.svg"
+          }
+        },
+        {
+          "chat": {
+            "url": "https://la-lojban.github.io/valsr/",
+            "title": "'Guess the word' game",
+            "picture": "../pixra/valsr.png"
+          }
+        },
+        {
+          "muplis": {
+            "url": "#seskari=cnano&sisku={lastQuery}&bangu=muplis",
+            "title": "Phrases",
+            "picture": "../pixra/taplamuplis.svg",
+            "width": 2.1
+          }
+        }
+      ],
       "Live chat for your questions": "Live chat for your questions",
       "la muplis": "la muplis - useful phrases",
+      "window.lojbo": true,
       "window.cmene": "English",
       "window.nasezvafahi": "No definition has been found",
       "window.rimni": "mitysisku lo'e rimni",
@@ -295,6 +357,7 @@
     "icon32": "../pixra/plise.svg",
     "ogtitle": "Muplis",
     "window": {
+      "window.uncll_url": "https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/",
       "window.nasezvafahi": "na se zvafa'i",
       "window.bangubuild": "ca'o zbasu lo indice",
       "window.xuzganalojudri": false,

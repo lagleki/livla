@@ -2,6 +2,66 @@
 import io from './socket.io.js'
 import { initBackend } from './asql/indexeddb-main-thread.js'
 
+//queue
+
+class Queue {
+  constructor() {
+    this._items = []
+  }
+  enqueue(item) {
+    this._items.push(item)
+  }
+  dequeue() {
+    const withVlaste = this._items.filter((i) => i.name === 'vlaste').slice(-1)
+    const notWithVlaste = this._items.filter((i) => i.name !== 'vlaste')
+    this._items = withVlaste.concat(notWithVlaste)
+    return this._items.shift()
+  }
+  get size() {
+    return this._items.length
+  }
+}
+
+class AutoQueue extends Queue {
+  constructor() {
+    super()
+    this._pendingPromise = false
+  }
+
+  enqueue(action, name) {
+    return new Promise((resolve, reject) => {
+      super.enqueue({ name, action, resolve, reject })
+      this.dequeue()
+    })
+  }
+
+  async dequeue() {
+    if (this._pendingPromise) return false
+
+    const item = super.dequeue()
+
+    if (!item) return false
+
+    try {
+      this._pendingPromise = true
+
+      const payload = await item.action(this)
+
+      this._pendingPromise = false
+      item.resolve(payload)
+    } catch (e) {
+      this._pendingPromise = false
+      item.reject(e)
+    } finally {
+      this.dequeue()
+    }
+
+    return true
+  }
+}
+
+const aQueue = new AutoQueue()
+
 //DOM element vars:
 const content = document.getElementById('content')
 const ciska = document.getElementById('ciska')
@@ -28,9 +88,7 @@ const modalWindow = document.getElementById('jsModal')
 
 const CACHE_NAME = 'sutysisku'
 
-window.leijufra = {}
-const uncll_url = `'%cll_source%'`
-const learnlojban_url = 'https://lojban.pw/books/learn-lojban/#'
+window.leijufra = { custom_links: [] }
 const supportedLangs = {
   en: { n: 'English', p: 'selsku_lanci_eng' },
   muplis: { n: 'la muplis' },
@@ -222,6 +280,7 @@ const pollyParams = {
     k: 'k',
     p: 'p',
     t: 't',
+    h: 'h'
   },
 }
 window.pollyParams = pollyParams
@@ -856,6 +915,12 @@ worker.onmessage = (ev) => {
     delete loadingState.searching
     if (!data.force && !twoJsonsAreEqual(data.req, state.searching)) return
     results = data.results || []
+    if (data.lei_jufra_absent) {
+      updateDOMWithLocales({ window: data.leijufra }, {
+        ...state.searching,
+        ...data.datni,
+      })
+    }
     RenderResults({
       ...data.req,
     })
@@ -865,6 +930,7 @@ worker.onmessage = (ev) => {
     const encodedWord = encodeValsiForWeb(word)
     data.results = data.results.map((i) => [i[0], i[1].replace(/-/g, '')])
     const isReliableText = allAreSafeWords(data.results, {
+      queryLanguage: data.req.queryLanguage,
       allowCmavo: true,
       allowCmevla: true,
     })
@@ -880,7 +946,7 @@ worker.onmessage = (ev) => {
     )[0]
     if (hd && !hd2) {
       try {
-        const gotAudio = window.runSpeakableAudio(word, true)
+        const gotAudio = window.runSpeakableAudio(word, true, data.req.queryLanguage)
         if (gotAudio) hd.insertAdjacentHTML(
           'afterend',
           `<button class="tutci sance" data-valsi-play="${encodedWord}" onclick="window.runSpeakableAudio(&quot;${word}&quot;)">▶</button>`
@@ -1069,15 +1135,16 @@ function typing(timeout) {
 
 
 function focusSearch() {
-  if (loadingState.firstRun) {
-    loadingState.firstRun = false
-    return
-  }
+  // if (loadingState.firstRun) {
+  //   loadingState.firstRun = false
+  //   return
+  // }
   state.searching.query = plukaquery(ciska.value)
   DispatchState({ quickRotation: true })
 }
 
 window.EmptyState = (bangu) => {
+  ciska.blur();
   if (typeof bangu === 'string') {
     state.searching.bangu = bangu
     updateLocales()
@@ -1232,7 +1299,7 @@ function updateDOMWithLocales(jufra, miniState) {
     }
   })
   SiteTitleFull = document.querySelector('#site-title')
-  RenderDasri({ ...miniState, sepia: 'none' })
+  // RenderDasri({ ...miniState, sepia: 'none' })
   if (state.displaying.query === '') RenderDesktop(miniState)
   const velsku = document.getElementById('velsku_sebenji')
   if (velsku)
@@ -1279,97 +1346,64 @@ function RenderDesktop(tempState) {
   dasri.className = 'kampu-dasri cnano-dasri'
   outp.style.display = 'none'
   descr.style.display = 'block'
-  //<xuzganalojudri|lojbo>
-  const obj = {
-    '@CLL': {
-      bangu: 'english',
-      cmene: 'Reference Grammar',
-      pixra: '../pixra/cll.png',
-      url: uncll_url,
+  const cisn_default = 100
+  const links = window.leijufra.custom_links.concat([
+    'hr',
+    { en: { title: 'English-Lojban', picture: '../pixra/selsku_lanci_eng.svg' } },
+    { jbo: { title: "fanva fi le'e lojbo ri", picture: '../pixra/lanci_jbo.svg' } },
+    {
+      ja: {
+        title: '日本 - <span style="white-space:pre;">ロジバン</span>',
+        picture: '../pixra/selsku_lanci_jpn.svg',
+      }
     },
-    '@lojban.pw': {
-      cmene: 'Live chat for your questions',
-      pixra: '../pixra/nunsku.svg',
-      url: `#seskari=cnano&sisku=lai jbosnu&bangu=${getStateBangu()}&versio=masno`,
+    {
+      'fr-facile': {
+        title: 'français facile - lojban',
+        picture: '../pixra/selsku_lanci_fra.svg',
+      }
     },
-    '@LL': {
-      bangu: 'english',
-      cmene: 'Learn Lojban',
-      pixra: '../pixra/cogwheel-5.svg',
-      url: learnlojban_url,
-    },
-    muplis: {
-      cmene: 'la muplis',
-      pixra: '../pixra/taplamuplis.svg',
-      width: 2.1,
-    },
-    en: { cmene: 'English-Lojban', pixra: '../pixra/selsku_lanci_eng.svg' },
-    jbo: { cmene: "fanva fi le'e lojbo ri", pixra: '../pixra/lanci_jbo.svg' },
-    ja: {
-      cmene: '日本 - <span style="white-space:pre;">ロジバン</span>',
-      pixra: '../pixra/selsku_lanci_jpn.svg',
-    },
-    'fr-facile': {
-      cmene: 'français facile - lojban',
-      pixra: '../pixra/selsku_lanci_fra.svg',
-    },
-    ru: { cmene: 'русский - ложбан', pixra: '../pixra/selsku_lanci_rus.svg' },
-    eo: { cmene: 'Esperanto - Loĵbano', pixra: '../pixra/lanci_epo.svg' },
-    es: { cmene: 'español - lojban', pixra: '../pixra/selsku_lanci_spa.svg' },
-    zh: { cmene: '中文 - 逻辑语', pixra: '../pixra/selsku_lanci_zho.svg' },
-    loglan: { cmene: 'Loglan', pixra: '../pixra/loglan.png' },
-  }
-
-  //</xuzganalojudri|lojbo>
-  //<lojbo false>
-  let obj = {
-    'muplis-eng-pol': [
-      0,
-      'English - polski',
-      '../pixra/muplis-eng-pol.png',
-      2.1,
-    ],
-    'en-pt-BR': [0, 'English - Portugueze', '../pixra/152.png', 1],
-    zamenhofo: [0, 'Esperanto - English', '../pixra/lanci_epo.svg', 1],
-    toki: [0, 'toki pona - English', '../pixra/Toki_pona.svg', 1],
-    laadan: [0, 'English - Láadan', '../pixra/Double_girl_sign.svg', 1],
-    'simplingua-zho': [0, 'Simplingua - 中文', '../pixra/simplingua.svg', 1],
-    'ktv-eng': [0, 'Kotava - English', '../pixra/ktv-eng.svg', 1],
-    ina: [0, 'English - Interlingua', '../pixra/Flag_of_Interlingua.svg', 1],
-    ldp: [0, 'English - Lingwa de Planeta', '../pixra/ldp.svg', 1],
-    ile: [
-      0,
-      'English - Occidental / Interlingue',
-      '../pixra/Flag_of_Interlingue.svg',
-      1,
-    ],
-    'epo-thai': [0, 'Esperanto - Thai', '../pixra/lanci_epo.svg', 1],
-  }
-  //</lojbo>
-  let acc = ''
-  const cisn = 100
-  for (const key in obj) {
-    let { bangu, width, pixra, url, cmene } = obj[key]
-    if (!width) width = 1
-    if (!bangu || bangu === window.bangu) {
-      acc += `<div class='DIV_1' style='height:${cisn}px;width:${width * cisn
-        }px;'><div class='DIV_2' style='height:${cisn}px;width:${width * cisn
-        }px;'><span class='SPAN_3' style='width:auto;'><b class='B_4'>${window.leijufra[cmene] || cmene
-        }</b></span><a${(url || '').indexOf('http') === 0
+    { ru: { title: 'русский - ложбан', picture: '../pixra/selsku_lanci_rus.svg' } },
+    { eo: { title: 'Esperanto - Loĵbano', picture: '../pixra/lanci_epo.svg' } },
+    { es: { title: 'español - lojban', picture: '../pixra/selsku_lanci_spa.svg' } },
+    { zh: { title: '中文 - 逻辑语', picture: '../pixra/selsku_lanci_zho.svg' } },
+    { loglan: { title: 'Loglan', picture: '../pixra/loglan.png' } }
+  ])
+    .map(elem => {
+      if (typeof elem === 'string') return '<div></div>'
+      const name = Object.keys(elem)[0]
+      if (!elem[name].url) {
+        elem[name].url = `#seskari=${(tempState.seskari !== 'fanva' && name.indexOf("muplis") !== 0) ? tempState.seskari : 'catni'
+          }&sisku=${encodeUrl(lastQuery)}&bangu=${name}&versio=masno`
+      }
+      else {
+        elem[name].url = elem[name].url.replace(/{lastQuery}/g, encodeUrl(lastQuery));
+      }
+      elem.name = name
+      elem = elem[name]
+      //
+      let { title, picture, url, width, height } = elem
+      if (!width) width = 1
+      height = (height || 1) * cisn_default
+      return `
+      <div class='DIV_1' style='height:${height}px;width:${width * cisn_default
+        }px;'>
+        <div class='DIV_2' style='height:${height}px;width:${width * cisn_default
+        }px;'>
+          <span class='SPAN_3' style='width:auto;'>
+            <b class='B_4'>${title}</b>
+          </span>
+          <a${(url || '').indexOf('http') === 0
           ? " rel='noreferrer' target='_blank'"
           : ''
-        } aria-label="${cmene.replace(
-          /<[^>]+?>/g,
-          ''
-        )}" onclick="window.ningau_lepasorcu('${key}')" href="${key.indexOf('@') === 0
-          ? url
-          : `#seskari=${(tempState.seskari !== 'fanva' && key.indexOf("muplis") !== 0) ? tempState.seskari : 'catni'
-          }&sisku=${encodeUrl(lastQuery)}&bangu=${key}&versio=masno`
-        }" class='A_7'><div class='DIV_8' style='height:${cisn}px;width:${width * cisn
-        }px;background-image:url("${pixra}")'></div></a></div></div>`
-    }
-  }
-  drata.innerHTML = acc
+        } aria-label="${title.replace(/<[^>]+?>/g, '')}" onclick="window.ningau_lepasorcu('${url}','${name}')" href="${url}" class='A_7'>
+          <div class='DIV_8' style='background-image:url(${picture})'>
+          </div>
+          </a>
+        </div>
+      </div>`
+    });
+  drata.innerHTML = links.filter(Boolean).join("")
   drata.style.display = 'block'
 }
 
@@ -1491,10 +1525,11 @@ function getVeljvoString({ placeTag, fullDef, isHead, dataArrAdded, clearedPlace
 function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index, stringifiedPlaceTags }) {
   if (fullDef) {
     if (fullDef.bangu.indexOf('-cll') >= 0) {
+      const url = window?.leijufra?.custom_links?.filter(i => !!i.uncll)?.[0]?.uncll?.url || '/';
       const d = Object.keys(def)
         .map((address) => {
           const velcki = def[address]
-          return `<li><a rel='noreferrer' target='_blank' href="${uncll_url}${address}">${velcki}</a></li>`
+          return `<li><a rel='noreferrer' target='_blank' href="${url}${address}">${velcki}</a></li>`
         })
         .join('')
       return {
@@ -1502,10 +1537,11 @@ function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index,
         hasExpansion: false,
       }
     } else if (fullDef.bangu.indexOf('-ll') >= 0) {
+      const url = window?.leijufra?.custom_links?.filter(i => !!i.introbook)?.[0]?.introbook?.url || '/';
       const d = Object.keys(def)
         .map((address) => {
           const velcki = def[address]
-          return `<li><a rel='noreferrer' target='_blank' href="${learnlojban_url}${address}">${velcki}</a></li>`
+          return `<li><a rel='noreferrer' target='_blank' href="${url}${address}">${velcki}</a></li>`
         })
         .join('')
       return {
@@ -1735,8 +1771,8 @@ function ConstructArxivoValsiExtract(d, query, range) {
   return locs
 }
 
-window.ningau_lepasorcu = (bangu) => {
-  if (bangu.indexOf('@') === 0) return
+window.ningau_lepasorcu = (url, bangu) => {
+  if (url.indexOf('http') === 0) return
   worker.postMessage({
     kind: 'fancu',
     cmene: 'ningau_lepasorcu',
@@ -1878,7 +1914,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
 
   //<xuzganalojudri|lojbo>
   let zbalermorna
-  if (!(def.t && def.t.k === 0) && (seskari !== 'fanva' || index === 0)) {
+  if (window.lojbo && !(def.t && def.t.k === 0) && (seskari !== 'fanva' || index === 0)) {
     zbalermorna = document.createElement('h4')
     zbalermorna.classList.add('valsi', 'zbalermorna', 'segerna', 'sampu')
     zbalermorna.textContent = zbalermornaize(def)
@@ -2260,6 +2296,7 @@ async function addAudioLinkForExternalSpeaker(word) {
     kind: 'parse',
     operation: 'audioLink',
     tegerna: word.replace(/"/g, ''),
+    queryLanguage: window.leijufra.queryLanguage
   })
 }
 
@@ -2455,7 +2492,8 @@ function getPhonemeClasses() {
   const h = "[h']"
   return { C, V, I, D, T, R, J, h }
 }
-function allAreSafeWords(array, { allowCmevla = false, allowCmavo = false }) {
+function allAreSafeWords(array, { allowCmevla = false, allowCmavo = false, queryLanguage = 'lojban' }) {
+  if (queryLanguage === 'loglan') return true;
   const { C, V, I, D, T, R, J, h } = getPhonemeClasses()
   //this is the complete regular expression matching any possible gismu and only them
   const gismu = RegExp(`^(${D}${V}${C}${V}|${C}${V}${C}${C}${V})$`)
@@ -2612,10 +2650,10 @@ function PollyPlayer(params) {
     return output.join('\n')
   }
 
-  async function getAndPlayAudio(textToSpeak, dontSpeak) {
+  async function getAndPlayAudio(textToSpeak, dontSpeak, queryLanguage) {
     const text = text2SSML(textToSpeak)
     const sance_datni =
-      getLocalAudio(text) || (await downloadAudio(text, dontSpeak))
+      getLocalAudio(text, queryLanguage) || (await downloadAudio(text, dontSpeak, queryLanguage))
     if (dontSpeak) return true
     return new Promise((resolve) => {
       audio.src = URL.createObjectURL(new Blob([new Uint8Array(sance_datni).buffer]))
@@ -2670,13 +2708,13 @@ function PollyPlayer(params) {
     return JSON.parse(sance_datni.audio).data
   }
 
-  return function (text, dontSpeak) {
+  return function (text, dontSpeak, queryLanguage) {
     return getAndPlayAudio(text, dontSpeak)
   }
 }
 
-window.runSpeakableAudio = function (textToSpeak, dontSpeak = false) {
-  return polly(textToSpeak, dontSpeak)
+window.runSpeakableAudio = function (textToSpeak, dontSpeak = false, queryLanguage) {
+  return polly(textToSpeak, dontSpeak, queryLanguage)
 }
 
 function zgana_sihesle() {

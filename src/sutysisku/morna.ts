@@ -2,7 +2,7 @@ const externalConfig = {
   cll_source: 'https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/',
   feedback_backend_url: 'https://sutysisku-report.herokuapp.com/',
   issues_repo: "https://github.com/La-Lojban/pinka/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc",
-  sql_mode: 'readall-false',
+  sql_mode: 'readall',
   GA_MEASUREMENT_ID: 'UA-45171210-6',
   SUTYSISKU_URL: 'la-lojban.github.io/sutysisku'
 }
@@ -182,10 +182,12 @@ const settings = {
     '../pixra/144.png',
     '../pixra/32.png',
     '../pixra/shuffle.svg',
+    // '../pixra/valsr.png',
     '../pixra/cukta.svg',
     '../pixra/certu.svg',
     '../pixra/fanva.svg',
     '../pixra/cll.png',
+    "../pixra/loglan-refgram.png",
     '../pixra/cmalu_snime.svg',
     '../pixra/snime.svg',
     '../pixra/menu.svg',

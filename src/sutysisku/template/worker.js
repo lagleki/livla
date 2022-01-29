@@ -78,7 +78,7 @@ self.onmessage = function (ev) {
 			sisku(ev.data, function (res) {
 				self.postMessage({
 					kind: 'searchResults',
-					results: res.results,
+					...res,
 					req: {
 						bangu: ev.data.bangu,
 						seskari: ev.data.seskari,
@@ -90,7 +90,7 @@ self.onmessage = function (ev) {
 		}, 'vlaste')
 	} else if (ev.data.kind == 'parse') {
 		aQueue.enqueue(() => {
-			cmaxesParse({ tegerna: ev.data.tegerna }, function (res) {
+			cmaxesParse({ ...ev.data }, function (res) {
 				self.postMessage({
 					kind: 'parse',
 					results: res,
@@ -131,7 +131,7 @@ async function initSQLDB() {
 	db = new SQL.Database('/sql/db.sqlite', { filename: true })
 	db.run(`
 	pragma page_size = 8192;
-	${(self.sql_mode !== 'readall') ? 'pragma cache_size = 3000;' : ''}
+	${(self.sql_mode !== 'readallk') ? 'pragma cache_size = 3000;' : ''}
     PRAGMA journal_mode=MEMORY;
 	`)
 	db.run(
@@ -141,27 +141,27 @@ async function initSQLDB() {
 	db.create_function('regexp', (regex, str) => RegExp(regex).test(str))
 	db.run('CREATE TABLE IF NOT EXISTS langs_ready (bangu TEXT, timestamp TEXT)')
 	db.run('CREATE TABLE IF NOT EXISTS tejufra (bangu TEXT, jufra TEXT)')
-	if (self.sql_mode !== 'readall') {
-		self.postMessage({
-			kind: 'loader',
-			cmene: 'booting',
-		})
-		console.log('booting')
+	if (self.sql_mode !== 'readallk') {
+		// self.postMessage({
+		// 	kind: 'loader',
+		// 	cmene: 'booting',
+		// })
+		// console.log('booting')
 
-		db.run(`SELECT * FROM valsi`)
-		self.postMessage({
-			kind: 'loader',
-			cmene: 'loaded',
-		})
-		console.log('booted')
+		runQuery(`SELECT w FROM valsi where bangu=?`, ['en'])
+		// self.postMessage({
+		// 	kind: 'loader',
+		// 	cmene: 'loaded',
+		// })
+		// console.log('booted')
 	}
 }
 
-function runMigrations(){
+function runMigrations() {
 	try {
 		db.run(`alter table valsi add column b text`)
 	} catch (error) {
-		
+
 	}
 }
 
@@ -720,7 +720,8 @@ function sortMultiDimensional(a, b) {
 	return a.d.length < b.d.length ? -1 : a.d.length > b.d.length ? 1 : 0
 }
 
-function cmaxesParse({ tegerna }, callback) {
+function cmaxesParse({ tegerna, queryLanguage }, callback) {
+	if (queryLanguage === 'loglan') return callback(tegerna.split(" ").map(i => ["", i]))
 	try {
 		let parsed = parse(tegerna.toLowerCase())
 		parsed = parsed.filter((el) => el[0] !== 'drata')
@@ -1151,8 +1152,9 @@ async function sisku(searching, callback) {
 	} = searching
 	query = query.trim()
 	//connect and do selects
-
-	if (!leijufra.bangu) {
+	let lei_jufra_absent = false
+	if (!leijufra_incoming.bangu) {
+		lei_jufra_absent = true
 		const stmt = db.prepare(`SELECT jufra FROM tejufra where bangu=?`)
 		let tef1 = {}
 		if (bangu) {
@@ -1173,10 +1175,9 @@ async function sisku(searching, callback) {
 			})
 	}
 
-	leijufra = { ...leijufra, ...leijufra_incoming }
 	if (query.length === 0) return
 	let secupra_vreji = []
-	const query_apos = query.replace(/[h‘]/g, "'").toLowerCase()
+	const query_apos = bangu === 'loglan' ? query.replace(/[‘]/g, "'").toLowerCase() : query.replace(/[h‘]/g, "'").toLowerCase()
 	const queryDecomposition = decompose(query_apos)
 
 	if (query.indexOf('^') === 0 || query.slice(-1) === '$') {
@@ -1237,7 +1238,7 @@ async function sisku(searching, callback) {
 		})
 		secupra_vreji = result
 	}
-	callback({ results: secupra_vreji })
+	callback({ results: secupra_vreji, lei_jufra_absent, leijufra })
 }
 
 function krulermorna(t) {

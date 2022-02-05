@@ -1,0 +1,7 @@
+{
+  "name": "la_livla",
+  "version": "0.0.1",
+  "description": "A combine of Lojban tools",
+  "main": "livla/index.js",
+  "private": true
+}

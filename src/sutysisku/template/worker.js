@@ -70,11 +70,6 @@ const aQueue = new AutoQueue()
 self.onmessage = function (ev) {
 	if (ev.data.kind == 'newSearch') {
 		aQueue.enqueue(() => {
-			// let q = `SELECT 'ok' from valsi where regexp('ok','oka')`
-			// let bangu='muplis', query_apos='nilce'
-			// const rows = runQuery(`select distinct d,n,w,r,bangu,s,t,cache from valsi where cache like ? and (bangu = ? or bangu like ?)`, ["%" + query_apos + "%", bangu, bangu + "-%"])
-			// console.log(rows);
-
 			sisku(ev.data, function (res) {
 				self.postMessage({
 					kind: 'searchResults',
@@ -122,7 +117,7 @@ async function initSQLDB() {
 	SQL.FS.mount(sqlFS, {}, '/sql')
 
 	const path = '/sql/db.sqlite'
-	if (typeof SharedArrayBuffer === 'undefined' || (self.sql_mode === 'readall')) {
+	if (typeof SharedArrayBuffer === 'undefined' || (self.sql_mode === 'memoryk')) {
 		let stream = SQL.FS.open(path, 'a+')
 		await stream.node.contents.readIfFallback()
 		SQL.FS.close(stream)
@@ -131,7 +126,7 @@ async function initSQLDB() {
 	db = new SQL.Database('/sql/db.sqlite', { filename: true })
 	db.run(`
 	pragma page_size = 8192;
-	${(self.sql_mode !== 'readallk') ? 'pragma cache_size = 3000;' : ''}
+	${(self.sql_mode === 'memory') ? 'pragma cache_size = 6000;' : ''}
     PRAGMA journal_mode=MEMORY;
 	`)
 	db.run(
@@ -141,19 +136,20 @@ async function initSQLDB() {
 	db.create_function('regexp', (regex, str) => RegExp(regex).test(str))
 	db.run('CREATE TABLE IF NOT EXISTS langs_ready (bangu TEXT, timestamp TEXT)')
 	db.run('CREATE TABLE IF NOT EXISTS tejufra (bangu TEXT, jufra TEXT)')
-	if (self.sql_mode !== 'readallk') {
-		// self.postMessage({
-		// 	kind: 'loader',
-		// 	cmene: 'booting',
-		// })
-		// console.log('booting')
+	if (self.sql_mode === 'memory') {
+		self.postMessage({
+			kind: 'loader',
+			cmene: 'booting',
+		})
+		console.log('booting')
 
-		runQuery(`SELECT w FROM valsi where bangu=?`, ['en'])
-		// self.postMessage({
-		// 	kind: 'loader',
-		// 	cmene: 'loaded',
-		// })
-		// console.log('booted')
+		runQuery(`select w from valsi where bangu='en'`, {})
+
+		self.postMessage({
+			kind: 'loader',
+			cmene: 'loaded',
+		})
+		console.log('booted')
 	}
 }
 

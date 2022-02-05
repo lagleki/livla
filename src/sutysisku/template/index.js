@@ -2,66 +2,6 @@
 import io from './socket.io.js'
 import { initBackend } from './asql/indexeddb-main-thread.js'
 
-//queue
-
-class Queue {
-  constructor() {
-    this._items = []
-  }
-  enqueue(item) {
-    this._items.push(item)
-  }
-  dequeue() {
-    const withVlaste = this._items.filter((i) => i.name === 'vlaste').slice(-1)
-    const notWithVlaste = this._items.filter((i) => i.name !== 'vlaste')
-    this._items = withVlaste.concat(notWithVlaste)
-    return this._items.shift()
-  }
-  get size() {
-    return this._items.length
-  }
-}
-
-class AutoQueue extends Queue {
-  constructor() {
-    super()
-    this._pendingPromise = false
-  }
-
-  enqueue(action, name) {
-    return new Promise((resolve, reject) => {
-      super.enqueue({ name, action, resolve, reject })
-      this.dequeue()
-    })
-  }
-
-  async dequeue() {
-    if (this._pendingPromise) return false
-
-    const item = super.dequeue()
-
-    if (!item) return false
-
-    try {
-      this._pendingPromise = true
-
-      const payload = await item.action(this)
-
-      this._pendingPromise = false
-      item.resolve(payload)
-    } catch (e) {
-      this._pendingPromise = false
-      item.reject(e)
-    } finally {
-      this.dequeue()
-    }
-
-    return true
-  }
-}
-
-const aQueue = new AutoQueue()
-
 //DOM element vars:
 const content = document.getElementById('content')
 const ciska = document.getElementById('ciska')
@@ -149,7 +89,7 @@ let results = []
 //search after timeout
 let typingTimer
 //prepare:
-const state = {
+let state = {
   searching: {
     seskari: 'cnano',
     versio: 'masno',
@@ -333,36 +273,45 @@ ciska.addEventListener('focus', focusSearch)//focus > push
 clear.addEventListener('click', window.EmptyState)
 
 rimni.addEventListener('click', () => {//change seskari
-  state.searching = {
-    ...state.displaying,
-    seskari: 'rimni',
-    versio: 'masno',
-    query: plukaquery(ciska.value),
-  }
+  setState({
+    searching: {
+      ...state.displaying,
+      seskari: 'rimni',
+      versio: 'masno',
+      query: plukaquery(ciska.value),
+    }
+  });
+
   DispatchState({
     replace: false,
   })
 })
 
 document.getElementById('cnano').addEventListener('click', () => {
-  state.searching = {
-    ...state.displaying,
-    seskari: 'cnano',
-    versio: 'masno',
-    query: plukaquery(ciska.value),
-  }
+  setState({
+    searching: {
+      ...state.displaying,
+      seskari: 'cnano',
+      versio: 'masno',
+      query: plukaquery(ciska.value),
+    }
+  });
+
   DispatchState({
     replace: false,
   })
 })
 
 document.getElementById('catni').addEventListener('click', () => {
-  state.searching = {
-    ...state.displaying,
-    seskari: 'catni',
-    versio: 'masno',
-    query: plukaquery(ciska.value),
-  }
+  setState({
+    searching: {
+      ...state.displaying,
+      seskari: 'catni',
+      versio: 'masno',
+      query: plukaquery(ciska.value),
+    }
+  });
+
   DispatchState({
     replace: false,
   })
@@ -709,7 +658,12 @@ function RenderResults({ query, seskari, bangu, versio }) {
     SwitchRotation({
       action: 'stop',
     })
-  state.displaying = { ...state.displaying, query, versio, seskari, bangu }
+  setState({
+    displaying: {
+      ...state.displaying,
+      query, versio, seskari, bangu
+    }
+  })
   outp.style.display = 'block'
   descr.style.display = 'none'
   drata.style.display = 'none'
@@ -1216,6 +1170,19 @@ function DispatchCitri() {
   RenderCitri()
 }
 //Dispatch State
+function mergeJSONs(a, b) {
+  return Object.entries(b).reduce((o, [k, v]) => {
+    o[k] = v && typeof v === 'object'
+      ? mergeJSONs(o[k] = o[k] || (Array.isArray(v) ? [] : {}), v)
+      : v;
+    return o;
+  }, a);
+}
+
+function setState(newState) {
+  state = mergeJSONs(state, newState)
+}
+
 function DispatchState({ replace, caller, empty, quickRotation }) {
   updateLocales()
   // if (socket1Chat) socket1Chat.close()
@@ -1306,8 +1273,8 @@ function updateDOMWithLocales(jufra, miniState) {
     velsku.href = `#seskari=cnano&sisku=lai jbosnu&bangu=${getStateBangu()}&versio=masno`
 }
 
-function updateLocales() {
-  if ((state.searching.bangu && state.searching.bangu !== state.displaying.bangu) || !loadingState.localesLoaded)
+function updateLocales(force) {
+  if ((state.searching.bangu && state.searching.bangu !== state.displaying.bangu) || !loadingState.localesLoaded || force)
     worker.postMessage({ kind: 'fancu', cmene: 'sanji_letejufra', ...state.searching })
 }
 
@@ -1321,7 +1288,7 @@ function RenderDesktop(tempState) {
   removePlumbs()
   content.scrollTop = 0
   const lastQuery = tempState.query
-  state.displaying.query = ''
+  setState({ displaying: { query: '' } })
   // ciska.value = "";
   SiteTitleFull.classList.add('desktop-mode-title-color')
   SiteTitleFull.classList.remove(
@@ -1773,6 +1740,16 @@ function ConstructArxivoValsiExtract(d, query, range) {
 
 window.ningau_lepasorcu = (url, bangu) => {
   if (url.indexOf('http') === 0) return
+  setState({
+    searching: {
+      bangu
+    },
+    displaying: {
+      bangu
+    }
+  });
+  updateLocales(true)
+
   worker.postMessage({
     kind: 'fancu',
     cmene: 'ningau_lepasorcu',

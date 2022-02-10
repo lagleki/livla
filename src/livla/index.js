@@ -62,6 +62,18 @@ import tato from "./tatoeba.js";
 const nodasezvafahi = "no da se zvafa'i"
 const tersepli = ' + '
 const commandPrefix = '^ *(\.|!)'
+const predefined_langs = [
+  '2002',
+  'en-pt-BR',
+  'zamenhofo',
+  'ile',
+  'ina',
+  'toki',
+  'ktv-eng',
+  'ldp',
+  "loglan"
+];
+
 let langs = [
   'jbo',
   'en',
@@ -936,27 +948,28 @@ function workerGenerateChunk({ segerna, chunk, index }) {
 
   let t = path.join(
     '/livla/build/sutysisku/data',
-    `parsed-${segerna}-${index}.bin`
+    `parsed-${segerna}-${index}`
   )
   try {
-    fs.writeFileSync(t, brotli.compress(Buffer.from(JSON.stringify(outp))))
+    fs.writeFileSync(t + ".bin", brotli.compress(Buffer.from(JSON.stringify(outp))))
     // result.push(`saving ${tegerna}-${index}`);
   } catch (error) {
     result.push(`couldn't save ${segerna}-${index} ${error.toString()}`);
   }
-  // try {
-  //   fs.writeFileSync(t+".json", JSON.stringify(outp))
-  //   // result.push(`saving ${tegerna}-${index}`);
-  // } catch (error) {
-  //   result.push(`couldn't save ${segerna}-${index} ${error.toString()}`);
-  // }
+  try {
+    fs.writeFileSync(t + ".json", JSON.stringify(outp))
+    // result.push(`saving ${tegerna}-${index}`);
+  } catch (error) {
+    result.push(`couldn't save ${segerna}-${index} ${error.toString()}`);
+  }
   return result
 }
 
-function addCache(def, tegerna) {
+function addCache({cachedDefinition, excludeKeys = []}) {
+  excludeKeys.forEach(key => delete cachedDefinition[key])
   let cache
-  if (Array.isArray(def.g)) def.g = def.g.join(";")
-  cache = [def.w, def.s, def.g, def.d, def.n, (def.w || '').split("").reverse().join("")].concat(def.r || []).filter(Boolean).join(";").toLowerCase()
+  if (Array.isArray(cachedDefinition.g)) cachedDefinition.g = cachedDefinition.g.join(";")
+  cache = [cachedDefinition.w, cachedDefinition.s, cachedDefinition.g, cachedDefinition.d, cachedDefinition.n].concat(cachedDefinition.r || []).filter(Boolean).join(";").toLowerCase()
   const cache2 = cache.replace(
     /[ \u2000-\u206F\u2E00-\u2E7F\\!"#$%&()*+,.\/:<=>?@\[\]^`{|}~：？。，《》「」『』－（）]/g,
     ';'
@@ -968,7 +981,7 @@ function addCache(def, tegerna) {
   cache = `${cache};${cache.replace(/h/g, "'")}`.split(";")
   cache = [...new Set(cache.concat(cache2))].filter(Boolean)
 
-  return { g: def.g, cache }
+  return { g: cachedDefinition.g, cache }
 }
 
 function cleanCJKText(text) {
@@ -1000,9 +1013,14 @@ async function generateLoglanDexieDictionary() {
     })
     .map(i => {
       let notes = []
+      let usedIn
       if (i.source) {
         i.source = i.source[0]
-        if (i.source.UsedIn) notes.push((i.source.UsedIn || '').split(/ *\| */).filter(Boolean).map(i => `{${i}}`).join(", "))
+        if (i.source.UsedIn) {
+          usedIn = (i.source.UsedIn || '').split(/ *\| */).filter(Boolean).map(i => `{${i}}`).join(", ")
+          notes.push( usedIn
+            )
+        }
         if (i.source.Origin) notes.push('⬅ ' + i.source.Origin)
       }
       notes = notes.join("\n")
@@ -1010,10 +1028,11 @@ async function generateLoglanDexieDictionary() {
         bangu: 'loglan', w: i.Word, n: notes, d: i.definition.Definition, t: i.source?.Type, s: i.definition.Grammar || i.source?.XType
       })
 
-      const cached_def = { ...obj }
-      obj = { ...obj, ...addCache(cached_def) }
       obj.g = ((obj.d || '').match(/(«.*?»)/g) || []).map(i => i.substring(1, i.length - 1))
-      if (obj.g.length === 0) delete obj.g;
+      const cached_def = { ...obj }
+      cached_def.n = usedIn || undefined;
+      obj = { ...obj, ...addCache({cachedDefinition: cached_def, excludeKeys: ["s", "t"]}) }
+      if (obj.g && obj.g.length === 0) delete obj.g;
       if (i.source?.Affixes) obj.r = i.source?.Affixes.split(/ +/)
       Object.keys(obj).forEach(key => [undefined, '', null].includes(obj[key]) && delete obj[key])
       // obj.raw = i
@@ -1059,7 +1078,7 @@ const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
           const { cjk, nonCjk } = cleanCJKText(rec.d + " " + rec.n)
           cached_def.d = rma.tokenize(cjk).map((i) => i[0]).join(" ") + " " + nonCjk
         }
-        rec = { ...rec, ...addCache(cached_def) }
+        rec = { ...rec, ...addCache({cachedDefinition: cached_def}) }
       }
       arr.push(rec)
     }
@@ -1232,7 +1251,7 @@ const ningaumahantufa = async (text, socket, file) => {
   }
 }
 
-ningaumahantufa(null, null, 'cmaxes')
+// ningaumahantufa(null, null, 'cmaxes')
 
 const getmahantufagrammar = (name, socket) => {
   try {
@@ -1286,21 +1305,11 @@ async function updateXmlDumps() {
   if (process.argv[3] !== 'fast') {
     console.log('〉 downloading dumps')
     for (const language of langs) {
-      erroredLangs = await downloadSingleDump({ language, erroredLangs })
+      if (!predefined_langs.includes(language)) erroredLangs = await downloadSingleDump({ language, erroredLangs })
     }
     console.log('〉 downloaded dumps')
   }
-  for (const language of [
-    '2002',
-    'en-pt-BR',
-    'zamenhofo',
-    'ile',
-    'ina',
-    'toki',
-    'ktv-eng',
-    'ldp',
-    "loglan"
-  ].concat(langs)) {
+  for (const language of predefined_langs.concat(langs)) {
     try {
       await ningau_palasutysisku(language, langs.includes(language) ? 1 : 0)
     } catch (error) {

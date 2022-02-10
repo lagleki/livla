@@ -191,15 +191,15 @@ function runQuery(sql_query, params) {
 }
 
 const supportedLangs = {
-	sutysisku: { n: 'la sutysisku', bangu: 'en' },
 	en: { n: 'English', p: 'selsku_lanci_eng' },
 	muplis: { n: 'la muplis' },
-	'en-cll': { n: 'The Book', p: 'cukta', noRafsi: true, searchPriority: true },
+	'en-cll': { n: 'The Book', p: 'cukta', noRafsi: true, searchPriority: true, priority: -998 },
 	'en-ll': {
 		n: 'Learn Lojban',
 		p: 'cukta',
 		noRafsi: true,
 		searchPriority: true,
+		priority: -999
 	},
 	jbo: { n: 'lojbo', p: 'lanci_jbo', searchPriority: true },
 	ru: { n: 'русский', p: 'selsku_lanci_rus' },
@@ -209,17 +209,22 @@ const supportedLangs = {
 	ja: { n: '日本語', p: 'selsku_lanci_jpn' },
 	zh: { n: '中文', p: 'selsku_lanci_zho' },
 	loglan: { n: 'Loglan', p: 'loglan' },
+	sutysisku: { n: 'la sutysisku', bangu: 'en', priority: -1000 },
+}
+
+function arrSupportedLangs() {
+	return Object.keys(supportedLangs).sort((a, b) => supportedLangs[a].priority > supportedLangs[b].priority)
 }
 
 const sufficientLangs = (searching) =>
 	[
 		searching ? searching.bangu : null,
-		'sutysisku',
+		'en',
 		'en-cll',
 		'en-ll',
-		'en',
 		'muplis',
 		'jbo',
+		'sutysisku',
 	].filter(Boolean)
 
 let sesisku_bangu = null
@@ -283,7 +288,7 @@ const fancu = {
 			stmt.free()
 
 			if (langsToUpdate.length > 0) {
-				for (const lang of Object.keys(supportedLangs))
+				for (const lang of arrSupportedLangs())
 					if (langsToUpdate.includes(supportedLangs[lang].bangu))
 						langsToUpdate.push(lang)
 
@@ -924,7 +929,7 @@ async function shortget({
 						vuhilevelujvo[j]['w'] = le_valsi
 					}
 				}
-				secupra.concat(vuhi_le_valsi)
+				secupra.concat(vuhilevelujvo)
 			} else if (vuhilevelujvo) {
 				for (const r of vuhilevelujvo) {
 					const foundRafsi = runQuery(

@@ -1006,7 +1006,7 @@ async function generateLoglanDexieDictionary() {
     .map(i => {
       const tmp = ({ ...tableSpells.filter(j => j.WID == i.WID)[0], definition: i, source: tableWords.filter(j => j.WID == i.WID) })
       if (tmp.definition.Usage !== null) {
-        tmp.Word = tmp.definition.Usage.replace(/%/g, tmp.Word)
+        tmp.Word = tmp.definition.Usage.replace(/(?<=[a-z])%/g,'').replace(/%/g, tmp.Word)
         delete tmp.source;
       }
       return tmp;

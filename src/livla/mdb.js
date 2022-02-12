@@ -12,11 +12,13 @@ import MDBReader from "mdb-reader";
     let tableSpells = reader.getTable("WordSpell").getData();
     const tableDefs = reader.getTable("WordDefinition").getData();
     const tableWords = reader.getTable("Words").getData();
+    console.log([...new Set(tableDefs.filter(i => i.Usage).map(i=>i.Usage))]);
+
     tableSpells = tableDefs
         .map(i => {
-            const tmp = ({ ...tableSpells.filter(j => j.WID == i.WID)[0], definition: i, source: tableWords.filter(j => j.WID == i.WID) })
+            const tmp = ({ ...tableSpells.filter(j => j.WID == i.WID)[0], definition: i, source: tableWords.filter(j => j.WID == i.WID)[0] })
             if (tmp.definition.Usage !== null) {
-                tmp.Word = tmp.definition.Usage.replace(/%/g, tmp.Word)
+                tmp.Word = tmp.definition.Usage.replace(/(?<=[a-z])%/g,'').replace(/(?<![a-z])%/g, tmp.Word)
                 delete tmp.source;
             }
             return tmp;
@@ -24,13 +26,12 @@ import MDBReader from "mdb-reader";
         .map(i => {
             let notes = []
             if (i.source) {
-                i.source = i.source[0]
                 if (i.source.UsedIn) notes.push((i.source.UsedIn || '').split(/ *\| */).filter(Boolean).map(i => `{${i}}`).join(", "))
                 if (i.source.Origin) notes.push('⬅ ' + i.source.Origin)
             }
             notes = notes.join("\n")
             const obj = ({
-                bangu: 'loglan', w: i.Word, n: notes, d: i.definition.Definition, t: i.source?.Type, s: i.definition.Grammar || i.source?.XType
+                i, WID: i.WID, bangu: 'loglan', w: i.Word, n: notes, d: i.definition.Definition, t: i.source?.Type, s: i.definition.Grammar || i.source?.XType
             })
             if (i.source?.Affixes) obj.r = i.source?.Affixes.split(/ +/)
             Object.keys(obj).forEach(key => [undefined, '', null].includes(obj[key]) && delete obj[key])
@@ -40,8 +41,5 @@ import MDBReader from "mdb-reader";
 
     // table.getColumnNames(), // ['id', 'name', 'color']
     // reader.getTableNames(), // ['Cats', 'Dogs', 'Cars']
-    console.log(JSON.stringify(tableSpells.filter(i => i.w === 'kamla'), null, 2));
-    // console.log(JSON.stringify(tableDefs.filter(i => i.Usage !== null), null, 2));
-    // console.log(tableWords);
-
+    console.log(JSON.stringify(tableSpells.filter(i => /[a-z]%/.test(i?.i?.definition?.Usage)).map(i=>({w:i.w,d:i?.i?.definition?.Definition, u: i?.i?.definition?.Usage})), null, 2));
 })()

@@ -985,9 +985,6 @@ async function sortthem({
 	for (let i = 0; i < mapti_vreji.length; i++) {
 		const def = setca_lotcila(mapti_vreji[i]) // todo: optimize for phrases
 		if (def) {
-			if (def.w === 'prenu') {
-				console.log(def)
-			}
 			if (def.w === query || def.w === query_apos) {
 				if (!supportedLangs[def.bangu].noRafsi) {
 					def.rfs = JSON.parse(
@@ -1154,7 +1151,7 @@ async function sisku(searching, callback) {
 	query = query.trim()
 	//connect and do selects
 	let lei_jufra_absent = false
-	if (!leijufra_incoming.bangu) {
+	if (!leijufra_incoming.bangu || !leijufra.bangu) {
 		lei_jufra_absent = true
 		const stmt = db.prepare(`SELECT jufra FROM tejufra where bangu=?`)
 		let tef1 = {}

@@ -1925,7 +1925,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
   let translateButton
   if (hasTranslateButton) {
     translateButton = document.createElement('button')
-    translateButton.className = 'fanva-tutci tutci klesi klesi-tutci'
+    translateButton.className = 'fanva-tutci tutci klesi klesi-tutci pixra'
     translateButton.onclick = function () {
       state.searching = {
         ...state.searching,
@@ -1937,7 +1937,8 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
       })
     }
     // translateButton.innerHTML = `<img src="../pixra/fanva.svg" class="cukta"/>`
-    translateButton.innerHTML = `🌍`
+    translateButton.style = "background-image: url(../pixra/terdi.svg);"
+    // translateButton.innerHTML = `🌍`
   }
 
   const banguEl = document.createElement('div')
@@ -1984,8 +1985,8 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
   let jvo
   if (def.t === 'lujvo' && (def.rfs || []).length > 0 && prettifiedDefinition.hasExpansion) {
     jvo = document.createElement('button')
-    jvo.style = "background-image: url(../pixra/shuffle.svg); background-size:100% 100%;width:25px;"
-    jvo.classList.add('tutci', 'sance', 'jvo_plumber')
+    jvo.style = "background-image: url(../pixra/shuffle.svg);"
+    jvo.classList.add('tutci', 'sance', 'jvo_plumber', 'pixra', 'klesi', 'klesi-tutci')
     state.jvoPlumbsOn
       ? jvo.classList.add('tutci-hover')
       : jvo.classList.remove('tutci-hover')
@@ -2027,8 +2028,9 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
 
   const copy = document.createElement('input')
   copy.type = 'button'
-  copy.classList.add('tutci', 'sance', 'klesi-tutci')
-  copy.value = "📋"
+  copy.classList.add('tutci', 'sance', 'klesi-tutci', 'pixra')
+  copy.style = "background-image: url(../pixra/fukpi.svg);"
+  // copy.value = "📋"
   copy.addEventListener('click', function () {
     copyToClipboard([def.w, def.d, def.n].filter(Boolean).join("\r\n"))
   });
@@ -2128,7 +2130,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
   //   if (secs && secs !== state.cll) out.appendChild(div)
   // }
   //</xuzganalojudri|lojbo>
-  if ((def.r || []).length > 0 && !def.l && window.xuzganalojudri) {
+  if ((def.r || []).length > 0 && !def.l) {
     const tanxe_leirafsi = document.createElement('div')
     tanxe_leirafsi.className = 'rafsi noselect'
 

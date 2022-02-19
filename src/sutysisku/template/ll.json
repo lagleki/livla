@@ -46,5 +46,17 @@
 	},
 	"pe": {
 		"d": "be-and-pe"
+	},
+	"na": {
+		"d": "yesno-questions"
+	},
+	"naku": {
+		"d": "yesno-questions"
+	},
+	"je": {
+		"d": "and-and-or"
+	},
+	"e": {
+		"d": "and-and-or"
 	}
 }

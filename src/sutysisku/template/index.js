@@ -1901,23 +1901,25 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
   const heading = document.createElement('heading')
   heading.classList.add('heading')
 
-  let arrRenderedFamymaho = []
-  for (const key in listFamymaho) {
-    if (listFamymaho[key].split(' ').includes(def.w))
-      arrRenderedFamymaho.push(
-        `<a href="#seskari=${seskari}&versio=selmaho&sisku=${encodeUrl(
-          key
-        )}&bangu=${bangu}">${escHtml(key)}</a>`
-      )
-  }
-  if (arrRenderedFamymaho.length !== 0) {
-    const inDefElement = document.createElement('div')
-    inDefElement.classList.add('valsi')
-    if (def.l) inDefElement.classList.add('nalojbo')
-    inDefElement.innerHTML = `<i><sup>[${arrRenderedFamymaho.join(
-      ', '
-    )}&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;`
-    if (inDefElement) heading.appendChild(inDefElement)
+  if (window.lojbo) {
+    let arrRenderedFamymaho = []
+    for (const key in listFamymaho) {
+      if (listFamymaho[key].split(' ').includes(def.w))
+        arrRenderedFamymaho.push(
+          `<a href="#seskari=${seskari}&versio=selmaho&sisku=${encodeUrl(
+            key
+          )}&bangu=${bangu}">${escHtml(key)}</a>`
+        )
+    }
+    if (arrRenderedFamymaho.length !== 0) {
+      const inDefElement = document.createElement('div')
+      inDefElement.classList.add('valsi')
+      if (def.l) inDefElement.classList.add('nalojbo')
+      inDefElement.innerHTML = `<i><sup>[${arrRenderedFamymaho.join(
+        ', '
+      )}&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;`
+      if (inDefElement) heading.appendChild(inDefElement)
+    }
   }
 
   heading.appendChild(word)
@@ -2540,8 +2542,12 @@ function PollyPlayer(params) {
     return { match, value: json[match] }
   }
 
-  function text2SSML(textToSpeak) {
-    const famymaho = ['kei', 'vau', "ku'o", "li'u", "le'u", "ge'u", "zo'u"]
+  function text2SSML(textToSpeak, queryLanguage) {
+    let famymaho = []
+    switch (queryLanguage) {
+      case 'loglan': famymaho = ["gu", "guu", "guo"]; break;
+      default: famymaho = ['kei', 'vau', "ku'o", "li'u", "le'u", "ge'u", "zo'u"]
+    }
     // const stresslessWords = ["lo","le","lei","loi","ku"]
     const words = textToSpeak.replace(/(?:\r\n|\r|\n)/g, ' ').split(' ')
     let output = [`<speak><prosody rate="slow">`, '<s>']
@@ -2630,7 +2636,7 @@ function PollyPlayer(params) {
   }
 
   async function getAndPlayAudio(textToSpeak, dontSpeak, queryLanguage) {
-    const text = text2SSML(textToSpeak)
+    const text = text2SSML(textToSpeak, queryLanguage)
     const sance_datni =
       getLocalAudio(text, queryLanguage) || (await downloadAudio(text, dontSpeak, queryLanguage))
     if (dontSpeak) return true
@@ -2642,7 +2648,7 @@ function PollyPlayer(params) {
     })
   }
 
-  function downloadAudio(Text, dontSpeak) {
+  function downloadAudio(Text, dontSpeak, queryLanguage) {
     return new Promise(function (resolve, reject) {
       const polly = new AWS.Polly()
       polly.synthesizeSpeech(
@@ -2677,7 +2683,7 @@ function PollyPlayer(params) {
     localStorage.setItem('cachedAudio', JSON.stringify(cache))
   }
 
-  function getLocalAudio(text) {
+  function getLocalAudio(text, queryLanguage) {
     const audioStreamArray =
       JSON.parse(localStorage.getItem('cachedAudio')) || []
     const sance_datni = audioStreamArray.filter(
@@ -2688,7 +2694,7 @@ function PollyPlayer(params) {
   }
 
   return function (text, dontSpeak, queryLanguage) {
-    return getAndPlayAudio(text, dontSpeak)
+    return getAndPlayAudio(text, dontSpeak, queryLanguage)
   }
 }
 

@@ -1061,22 +1061,26 @@ const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
       // Set the feature hash function (15bit)
       rma.hash_func = RakutenMA.create_hash_func(15);
     }
+    let en_embeddings
+    if (["en"].includes(segerna)) {
+      en_embeddings = JSON.parse(fs.readFileSync(`/livla/src/sutysisku/src/data/parsed-en-embeddings.json`, { encoding: 'utf8' }));
+    }
     const keys = Object.keys(json)
 
     let i = 0
-    for (const key of keys) {
+    for (const word of keys) {
       //complement r field of valsi table by full rafsi
-      json[key].r = json[key].r || []
+      json[word].r = json[word].r || []
       if (
-        json[key].t === 'gismu' ||
-        json[key].t === 'experimental gismu' ||
-        (json[key].t || '').indexOf("fu'ivla") >= 0
+        json[word].t === 'gismu' ||
+        json[word].t === 'experimental gismu' ||
+        (json[word].t || '').indexOf("fu'ivla") >= 0
       )
-        json[key].r.push(key)
+        json[word].r.push(word)
 
-      if (json[key].r && json[key].r.length === 0) delete json[key].r
+      if (json[word].r && json[word].r.length === 0) delete json[word].r
       i++
-      let rec = { w: key, ...json[key] }
+      let rec = { w: word, ...json[word] }
       if (["ja", "zh"].includes(segerna) && process.argv[2] !== 'skipCJK') {
         // Tokenize one sample sentence
         const cached_def = { ...rec }
@@ -1085,6 +1089,10 @@ const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
           cached_def.d = rma.tokenize(cjk).map((i) => i[0]).join(" ") + " " + nonCjk
         }
         rec = { ...rec, ...addCache({ cachedDefinition: cached_def }) }
+      }
+      if (["en"].includes(segerna) && en_embeddings[word]) {
+        //todo: download .z props, add .z props
+        rec.z = en_embeddings[word].split(" ")
       }
       arr.push(rec)
     }

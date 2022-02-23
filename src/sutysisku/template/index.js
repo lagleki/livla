@@ -142,9 +142,9 @@ const lerfu_index = "ptkflscmx.' 1234bdgvrzjn`-,~    aeiouy    qw    AEIOUY"
 //<xuzganalojudri|lojbo>
 //pronunciation guide
 const rows = [
-  ['p', 't', 'k', 'f', 's', 'c'],
-  ['b', 'd', 'g', 'v', 'z', 'j'],
-  ['m', 'l', 'n', 'r', , 'x', "'"],
+  ['a<b>p</b>a', 'a<b>t</b>a', 'a<b>k</b>a', 'a<b>f</b>a', 'a<b>s</b>a', 'a<b>c</b>a'],
+  ['a<b>b</b>a', 'a<b>d</b>a', 'a<b>g</b>a', 'a<b>v</b>a', 'a<b>z</b>a', 'a<b>j</b>a'],
+  ['a<b>m</b>a', 'a<b>l</b>a', 'a<b>n</b>a', 'a<b>r</b>a', , 'a<b>x</b>a', "a<b>'</b>a"],
   ['a', 'e', 'i', 'o', 'u', 'y'],
   [],
   ['aia', 'aua'],
@@ -2342,12 +2342,6 @@ async function addAudioLinks() {
 
 //<xuzganalojudri|lojbo>
 //pronunciation guide
-function text(name, text, style) {
-  const el = document.createElement(name)
-  el.textContent = text
-  if (style) el.className = style
-  return el
-}
 
 function elem(name, contents, style) {
   const el = document.createElement(name)
@@ -2371,11 +2365,13 @@ document.querySelector('#table').appendChild(
       elem(
         'tr',
         row.map((col) => {
-          const button = text('button', col, 'bangu')
-          button.onclick = () => {
-            play(`/sutysisku/sance/lerfu/${encodeURIComponent(col)}.ogg`)
+          const el = document.createElement('button')
+          el.innerHTML = col
+          el.className = 'bangu'
+          el.onclick = () => {
+            play(`/sutysisku/sance/lerfu/${encodeURIComponent(col.replace(/.*<b>(.*?)<\/b>.*/g, '$1'))}.ogg`)
           }
-          return elem('td', button)
+          return elem('td', el)
         })
       )
     ),

@@ -2,6 +2,8 @@ import initSqlJs from './sqljs/sql-wasm.js'
 import { SQLiteFS } from './asql/index.js'
 import IndexedDBBackend from './asql/indexeddb-backend.js'
 import { parse } from './cmaxes.js'
+import { loadModel } from './w2v/embeddings'
+
 const decompress = require('brotli/decompress')
 self.production = `'%production%'`
 self.sql_mode = `'%sql_mode%'`
@@ -107,7 +109,7 @@ self.onmessage = function (ev) {
 	}
 }
 
-let db
+let db, wordEmbeddings
 async function initSQLDB() {
 	let SQL = await initSqlJs({ locateFile: (file) => file })
 	let sqlFS = new SQLiteFS(SQL.FS, new IndexedDBBackend())
@@ -117,7 +119,7 @@ async function initSQLDB() {
 	SQL.FS.mount(sqlFS, {}, '/sql')
 
 	const path = '/sql/db.sqlite'
-	if (typeof SharedArrayBuffer === 'undefined' || (self.sql_mode === 'memoryk')) {
+	if (typeof SharedArrayBuffer === 'undefined' || (self.sql_mode === 'memory')) {
 		let stream = SQL.FS.open(path, 'a+')
 		await stream.node.contents.readIfFallback()
 		SQL.FS.close(stream)
@@ -130,7 +132,7 @@ async function initSQLDB() {
     PRAGMA journal_mode=MEMORY;
 	`)
 	db.run(
-		'CREATE TABLE IF NOT EXISTS valsi (d text,n text,w text,r text,bangu text,s text,t text,g text,cache text,b text)'
+		'CREATE TABLE IF NOT EXISTS valsi (d text,n text,w text,r text,bangu text,s text,t text,g text,cache text,b text,z text)'
 	)
 	runMigrations();
 	db.create_function('regexp', (regex, str) => RegExp(regex).test(str))
@@ -151,17 +153,17 @@ async function initSQLDB() {
 		})
 		console.log('booted')
 	}
+
+	//embeddings
+	wordEmbeddings = await loadModel("/sutysisku/lojban/w2v/word-embeddings.json");
 }
 
 function runMigrations() {
-	try {
-		db.run(`alter table valsi add column b text`)
-	} catch (error) {
-
-	}
+	try { db.run(`alter table valsi add column b text`) } catch (error) { }
+	try { db.run(`alter table valsi add column z text`) } catch (error) { }
 }
 
-function runQuery(sql_query, params) {
+function runQuery(sql_query, params = {}) {
 	const start = new Date()
 	let stmt = db.prepare(sql_query)
 	stmt.bind(params)
@@ -178,8 +180,9 @@ function runQuery(sql_query, params) {
 		}
 		if (row.r) row.r = JSON.parse(row.r)
 		if ((row.t || '').indexOf('{') === 0) row.t = JSON.parse(row.t)
-		if ((row.s || '').indexOf('[') === 0) row.s = JSON.parse(row.s)
-		if ((row.b || '').indexOf('[') === 0) row.b = JSON.parse(row.b)
+		for (let i of ['s', 'b', 'z', 'cache']) {
+			if ((row[i] || '').indexOf('[') === 0) row[i] = JSON.parse(row[i])
+		}
 		if (row.d) {
 			try {
 				const json = JSON.parse(row.d)
@@ -248,8 +251,15 @@ const fancu = {
 			cb({ ...tef2, ...tef1 })
 		})
 	},
-	cnino_bangu: ({ bangu }) => {
+	cnino_bangu: ({ bangu }, cb) => {
 		sesisku_bangu = bangu
+	},
+	runQuery: ({ query, params = {} }, cb) => {
+		const rows = runQuery(query, params);
+		cb(rows);
+	},
+	getNeighbors: ({ query }, cb) => {
+		getNeighbors(query).then(rows => cb(rows));
 	},
 	ningau_lerosorcu: async (searching, cb) => {
 		fancu.ningau_lesorcu(searching, cb, true)
@@ -473,12 +483,12 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
 				for (const toAdd of rows) {
 					db.exec('BEGIN TRANSACTION')
 					let stmt = db.prepare(
-						'INSERT INTO valsi (d,n,w,r,bangu,s,t,g,cache,b) VALUES (?,?,?,?,?,?,?,?,?,?)'
+						'INSERT INTO valsi (d,n,w,r,bangu,s,t,g,cache,b,z) VALUES (?,?,?,?,?,?,?,?,?,?,?)'
 					)
 					for (let rec of toAdd) {
-						const { d, n, w, r, bangu, s, t, g, cache, b } = rec
+						const { d, n, w, r, bangu, s, t, g, cache, b, z } = rec
 						stmt.run(
-							[d, n, w, r, bangu, s, t, g, cache, b].map((i) =>
+							[d, n, w, r, bangu, s, t, g, cache, b, z].map((i) =>
 								typeof i == 'object' ? JSON.stringify(i || '') : i || ''
 							)
 						)
@@ -561,6 +571,17 @@ function getCachedDefinitions({ query, bangu, mapti_vreji }) {
 	return result
 }
 
+const getMergedArray = (array) => `(${array.map((i) => `'${i.replace(/'/g, "''")}'`).join(',')})`
+
+async function getNeighbors(query) {
+	return new Promise(resolve => {
+		wordEmbeddings.getNearestNeighbors(query, 100).then(results => {
+			results = [...new Set(results.filter(i => RegExp(/^[a-z- ]+$/).test(i.word) && i.distance !== 1).concat([{ distance: 1, word: query }]))];
+			resolve({ words: results.map(i => i.word), results })
+		});
+	})
+}
+
 async function cnanosisku({
 	query_apos,
 	query,
@@ -572,8 +593,44 @@ async function cnanosisku({
 	secupra_vreji,
 	queryDecomposition,
 }) {
+	let embeddings = {}
+	const embeddingsMode = bangu === 'en' && seskari === 'cnano' // semantic search
+	if (embeddingsMode) {
+		embeddings = await getNeighbors(query)
+	}
+
 	let rows
-	if (versio === 'selmaho') {
+	if (embeddingsMode) {
+		const merged = getMergedArray(embeddings.words)
+		rows = runQuery(
+			`
+		select distinct
+			d,n,w,r,bangu,s,t,g,b,z 
+		from valsi,json_each(valsi.z)
+		where
+				(json_each.value in ${merged})
+			and (bangu = $bangu)
+			and json_valid(valsi.z)=1
+		union
+		select distinct
+			d,n,w,r,bangu,s,t,g,b,z 
+		from valsi,json_each('["' || replace(valsi.g, ';', '","') || '"]')
+		where
+				(json_each.value in ${merged})
+			and (bangu = $bangu)
+			and valsi.g<>''
+			and json_valid('["' || replace(valsi.g, ';', '","') || '"]')=1
+		union
+		select distinct
+			d,n,w,r,bangu,s,t,g,b,z
+		from valsi,json_each(valsi.cache)
+		where 
+				(w like $query or json_each.value like $query)
+			and (bangu = $bangu or bangu like $likebangu)
+		`,
+			{ $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` }
+		)
+	} else if (versio === 'selmaho') {
 		if (bangu === 'muplis') {
 			rows = runQuery(`SELECT * FROM valsi where s = ? and bangu=?`, [
 				query,
@@ -604,33 +661,32 @@ async function cnanosisku({
 	} else if (queryDecomposition.length > 1) {
 		const splitQuery_apos = query_apos.split(" ").filter(_ => _ !== '')
 		const array = [...new Set([...queryDecomposition, query_apos, ...splitQuery_apos])]
-		const mergedArray = array.map((i) => `'${i.replace(/'/g, "''")}'`)
-			.join(',')
+
 		const sqlQuery = `select d,n,w,r,bangu,s,t,g,count(ex) as no,b from (select distinct valsi.d as d,valsi.n as n,valsi.w as w,valsi.r as r,valsi.bangu as bangu,valsi.s as s,valsi.t as t,valsi.g as g,json_each.value as ex,valsi.b as b from valsi,json_each(valsi.cache) where 
-		(json_each.value in (${mergedArray}) and bangu='${bangu}')
+		(json_each.value in ${getMergedArray(array)} and bangu='${bangu}')
 		or
 		((w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu))
 		) as k
 		group by d,n,w,r,bangu,s,t,g,b
-		${bangu === 'muplis' ? `having no/${array.length}>=0.5` : `having no>=${splitQuery_apos.length}`}
+		${bangu === 'muplis' ? `having 2 * no >= ${array.length}` : `having no>=${splitQuery_apos.length}`}
 		order by no desc
 		;`
 
 		rows = runQuery(sqlQuery, { $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` })
+	} else if (self.production !== 'production') {
+		//normal search:debug
+		rows = runQuery(
+			`select distinct d,n,w,r,bangu,s,t,g,cache,b from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu)`,
+			{ $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` }
+		)
 	} else {
-		//normal search
-		if (self.production !== 'production') {
-			rows = runQuery(
-				`select distinct d,n,w,r,bangu,s,t,g,cache,b from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu)`,
-				{ $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` }
-			)
-		} else {
-			rows = runQuery(
-				`select distinct d,n,w,r,bangu,s,t,g,b from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu)`,
-				{ $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` }
-			)
-		}
+		//normal search:prod
+		rows = runQuery(
+			`select distinct d,n,w,r,bangu,s,t,g,b from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu)`,
+			{ $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` }
+		)
 	}
+
 	rows = rows
 		.map((el) => {
 			const { cache, ...rest } = el
@@ -656,6 +712,7 @@ async function cnanosisku({
 		mapti_vreji,
 		seskari,
 		secupra_vreji,
+		embeddings: embeddings.results
 	})
 
 	const allMatches = result
@@ -958,7 +1015,10 @@ function defaultPriorityGroups() {
 	return {
 		wordFullMatch: [],
 		wordFullMatchAdditional: [],
+		zMatch: [],
+		zSemMatch: [],
 		glossMatch: [],
+		glossSemMatch: [],
 		rafsiMatch: [],
 		wordSemiMatch: [],
 		selmahoFullMatch: [],
@@ -972,6 +1032,17 @@ function defaultPriorityGroups() {
 	}
 }
 
+function includes(arrOuter, inner, fn) {
+	arrOuter = [arrOuter].flat()
+	if (fn) return arrOuter.some(elemOuter => fn(elemOuter, inner))
+	inner = [inner].flat()
+	return arrOuter.some(i => inner.includes(i))
+}
+
+function semFilter(arrEmbeddingsObject, arrGloss) {
+	return arrEmbeddingsObject.filter((i) => arrGloss.includes(i.word))
+}
+
 async function sortthem({
 	mapti_vreji,
 	query,
@@ -979,84 +1050,90 @@ async function sortthem({
 	query_apos,
 	seskari,
 	secupra_vreji,
+	embeddings
 }) {
 	let decomposed = false
 	let searchPriorityGroups = defaultPriorityGroups()
-	for (let i = 0; i < mapti_vreji.length; i++) {
-		const def = setca_lotcila(mapti_vreji[i]) // todo: optimize for phrases
-		if (def) {
-			if (def.w === query || def.w === query_apos) {
-				if (!supportedLangs[def.bangu].noRafsi) {
-					def.rfs = JSON.parse(
-						JSON.stringify(
-							julne_setca_lotcila(
-								await sohivalsi({
-									decomposed: decompose(def.w),
-									bangu,
-									mapti_vreji,
-								})
-							)
-						)
-					).filter(({ w }) => w !== def.w)
-					decomposed = true
-					if (def.rfs.length === 0) {
-						def.rfs = (
-							await jmina_ro_cmima_be_lehivalsi({
-								query: def.w,
-								def: def,
+	const arrCombinedQuery = [query, query_apos]
+	for (let el of mapti_vreji) {
+		const def = setca_lotcila(el) // todo: optimize for phrases
+		if (!def) continue;
+		const semMatch = !def.z || !embeddings ? [] : semFilter(embeddings, def.z)
+		const semMatchGlosses = !def.g || !embeddings ? [] : semFilter(embeddings, def.g.split(";"))
+		if (arrCombinedQuery.flat().includes(def.w)) {
+			if (!supportedLangs[def.bangu].noRafsi) {
+				def.rfs = JSON.parse(
+					JSON.stringify(
+						julne_setca_lotcila(
+							await sohivalsi({
+								decomposed: decompose(def.w),
 								bangu,
+								mapti_vreji,
 							})
-						)[0].rfs
-					}
+						)
+					)
+				).filter(({ w }) => w !== def.w)
+				decomposed = true
+				if (def.rfs.length === 0) {
+					def.rfs = (
+						await jmina_ro_cmima_be_lehivalsi({
+							query: def.w,
+							def: def,
+							bangu,
+						})
+					)[0].rfs
 				}
-				if (def.bangu == bangu) searchPriorityGroups.wordFullMatch.push(def)
-				else searchPriorityGroups.wordFullMatchAdditional.push(def)
-			} else if (def.g && def.g.split(';').includes(query)) {
-				searchPriorityGroups.glossMatch.push(def)
-			} else if (def.r && def.r.join(' ').search(`\\b${query}\\b`) >= 0) {
-				searchPriorityGroups.rafsiMatch.push(def)
-			} else if (def.w.search(`(^| )(${query_apos}|${query})( |$)`) >= 0) {
-				searchPriorityGroups.wordSemiMatch.push(def)
-			} else if (def.s && typeof def.s === 'string' && def.s === query) {
-				searchPriorityGroups.selmahoFullMatch.push(def)
-			} else if (
-				def.s &&
-				typeof def.s === 'string' &&
-				def.s.indexOf(query) === 0
-			) {
-				searchPriorityGroups.selmahoSemiMatch.push(def)
-			} else if (def.s && Array.isArray(def.s) && def.s.includes(query)) {
-				searchPriorityGroups.oneOfSelmahosFullMatch.push(def)
-			} else if (
-				def.s &&
-				Array.isArray(def.s) &&
-				def.s.filter((i) => i.indexOf(query) === 0).length > 0
-			) {
-				searchPriorityGroups.oneOfSelmahosSemiMatch.push(def)
-			} else if (
-				(def.g &&
-					def.g.search(
-						`(\\b(${query_apos}|${query}))|((${query_apos}|${query})\\b)`
-					) >= 0) ||
-				(def.w &&
-					def.w.search(
-						`(\\b(${query_apos}|${query}))|((${query_apos}|${query})\\b)`
-					) >= 0)
-			) {
-				searchPriorityGroups.querySemiMatch.push(def)
-			} else if (def.d && typeof def.d === 'string') {
-				if (def.d.toLowerCase().search(`^${query}\\b`) >= 0) {
-					searchPriorityGroups.defGoodMatch.push(def)
-				} else if (def.d.toLowerCase().search(`\\b${query}\\b`) >= 0) {
-					searchPriorityGroups.defInsideMatch.push(def)
-				} else {
-					searchPriorityGroups.otherMatch.push(def)
-				}
+			}
+			if (def.bangu == bangu) searchPriorityGroups.wordFullMatch.push(def)
+			else searchPriorityGroups.wordFullMatchAdditional.push(def)
+		} else if (semMatch.length > 0) {
+			const match = { ...def, sem: semMatch.map(i => i.word), semMaxDistance: semMatch.sort((left, right) => right.distance - left.distance)[0].distance }
+			searchPriorityGroups[match.semMaxDistance === 1 ? "zMatch" : "zSemMatch"].push(match)
+		} else if (semMatchGlosses.length > 0) {
+			const match = { ...def, sem: semMatchGlosses.map(i => i.word), semMaxDistance: semMatchGlosses.sort((left, right) => right.distance - left.distance)[0].distance }
+			searchPriorityGroups[match.semMaxDistance === 1 ? "glossMatch" : "glossSemMatch"].push(match)
+		} else if (def.g && includes(def.g.split(';'), query)) {
+			searchPriorityGroups.glossMatch.push(def)
+		} else if (def.r && includes(def.r, query)) {
+			searchPriorityGroups.rafsiMatch.push(def)
+		} else if (includes(arrCombinedQuery, def.w, (q_word, def_w) => def_w.search(`(^| )(${q_word})( |$)`) >= 0)) {
+			searchPriorityGroups.wordSemiMatch.push(def)
+		} else if (typeof def.s === 'string' && includes(def.s, query)) {
+			searchPriorityGroups.selmahoFullMatch.push(def)
+		} else if (
+			typeof def.s === 'string' &&
+			includes(query, def.s, (q_el, def_s) => def_s.indexOf(q_el) === 0)
+		) {
+			searchPriorityGroups.selmahoSemiMatch.push(def)
+		} else if (Array.isArray(def.s) && includes(def.s, query)) {
+			searchPriorityGroups.oneOfSelmahosFullMatch.push(def)
+		} else if (
+			Array.isArray(def.s) &&
+			includes(query, def.s, (q_el, defs_s) => defs_s.some(i => i.indexOf(q_el) === 0))
+		) {
+			searchPriorityGroups.oneOfSelmahosSemiMatch.push(def)
+		} else if (
+			includes(arrCombinedQuery, [def.g, def.w].flat(), (q_el, defs) => defs.some(i => i.search(`(\\b(${q_el})\\b)`) >= 0))
+		) {
+			searchPriorityGroups.querySemiMatch.push(def)
+		} else if (typeof def.d === 'string') {
+			//todo: add semantic search glosses
+			if (includes(query, def.d, (q_el, def_d) => def_d.toLowerCase().search(`^${q_el}\\b`) >= 0)) {
+				searchPriorityGroups.defGoodMatch.push(def)
+			} else if (includes(query, def.d, (q_el, def_d) => def_d.toLowerCase().search(`\\b${q_el}\\b`) >= 0)) {
+				searchPriorityGroups.defInsideMatch.push(def)
 			} else {
 				searchPriorityGroups.otherMatch.push(def)
 			}
+		} else {
+			searchPriorityGroups.otherMatch.push(def)
 		}
 	}
+	/*
+	now sort by semantic props distance
+	*/
+	searchPriorityGroups.zSemMatch.sort((left, right) => right.semMaxDistance - left.semMaxDistance);
+	searchPriorityGroups.glossSemMatch.sort((left, right) => right.semMaxDistance - left.semMaxDistance);
 
 	let firstMatches
 	let secondMatches
@@ -1075,18 +1152,24 @@ async function sortthem({
 			searchPriorityGroups.wordFullMatchAdditional
 		)
 		secondMatches = [].concat(
+			searchPriorityGroups_official_words.zMatch,
 			searchPriorityGroups_official_words.glossMatch,
 			searchPriorityGroups_official_words.selmahoFullMatch,
 			searchPriorityGroups.oneOfSelmahosFullMatch,
 			searchPriorityGroups.rafsiMatch,
+			searchPriorityGroups_official_words.querySemiMatch,
+			searchPriorityGroups_official_words.wordSemiMatch,
+			searchPriorityGroups_official_words.zSemMatch,
+			searchPriorityGroups_official_words.glossSemMatch,
 			searchPriorityGroups_official_words.defGoodMatch,
 			searchPriorityGroups_official_words.defInsideMatch,
-			searchPriorityGroups_official_words.wordSemiMatch,
-			searchPriorityGroups_official_words.querySemiMatch,
+			searchPriorityGroups_unofficial_words.zMatch,
 			searchPriorityGroups_unofficial_words.glossMatch,
 			searchPriorityGroups_unofficial_words.selmahoFullMatch,
-			searchPriorityGroups_unofficial_words.wordSemiMatch,
 			searchPriorityGroups_unofficial_words.querySemiMatch,
+			searchPriorityGroups_unofficial_words.wordSemiMatch,
+			searchPriorityGroups_unofficial_words.zSemMatch,
+			searchPriorityGroups_unofficial_words.glossSemMatch,
 			searchPriorityGroups_unofficial_words.defGoodMatch,
 			searchPriorityGroups_unofficial_words.defInsideMatch,
 			searchPriorityGroups_official_words.otherMatch,
@@ -1095,6 +1178,7 @@ async function sortthem({
 	} else if (seskari === 'cnano') {
 		firstMatches = secupra_vreji.concat(
 			searchPriorityGroups.wordFullMatch,
+			searchPriorityGroups.zMatch,
 			searchPriorityGroups.glossMatch,
 			searchPriorityGroups.wordFullMatchAdditional
 		)
@@ -1102,15 +1186,18 @@ async function sortthem({
 			searchPriorityGroups.selmahoFullMatch,
 			searchPriorityGroups.oneOfSelmahosFullMatch,
 			searchPriorityGroups.rafsiMatch,
+			searchPriorityGroups.querySemiMatch,
+			searchPriorityGroups.wordSemiMatch,
+			searchPriorityGroups.zSemMatch,
+			searchPriorityGroups.glossSemMatch,
 			searchPriorityGroups.defGoodMatch,
 			searchPriorityGroups.defInsideMatch,
-			searchPriorityGroups.wordSemiMatch,
-			searchPriorityGroups.querySemiMatch,
 			searchPriorityGroups.otherMatch
 		)
 	} else {
 		firstMatches = secupra_vreji.concat(
 			searchPriorityGroups.wordFullMatch,
+			searchPriorityGroups.zMatch,
 			searchPriorityGroups.glossMatch,
 			searchPriorityGroups.wordFullMatchAdditional
 		)
@@ -1130,7 +1217,7 @@ async function sortthem({
 	//     if (firstMatches[a].l && firstMatches[a].d === `{${query_apos}}`) {
 	//       firstMatches.splice(a, 1)
 	//       --a
-	//     }
+	//     }gloss
 	//   }
 	// }
 	return {

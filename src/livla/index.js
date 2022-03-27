@@ -61,7 +61,7 @@ import sanitizeHtml from "sanitize-html";
 import tato from "./tatoeba.js";
 const nodasezvafahi = "no da se zvafa'i"
 const tersepli = ' + '
-const commandPrefix = '^ *(\.|!)'
+const commandPrefix = '^ *(\\.|\\!)'
 const predefined_langs = [
   '2002',
   'en-pt-BR',
@@ -578,7 +578,7 @@ const MultipleDefs = ({ word, language }) => {
     .replace(/\"/g, '')
     .replace(/\)$/, '')
     .replace(/^[\(\.]/, '')
-  jsonDoc = getJsonDoc(language)
+  const jsonDoc = getJsonDoc(language)
   let pre = ''
   if (lojban.xulujvo(word)) {
     try {
@@ -738,7 +738,7 @@ const vlaste = ({ word, language }) => {
 
 const sidju = () => {
   const sidj = {
-    en: `Parsers: type ".ilm " (stable BPFK grammar), ".beta " (experimental), ".jbofihe " (jbofi'e), or ".yacc " (official yacc) followed by the text to show the structure of sentences.\nLojban dictionary: type ".language-code word", where language code is one of jbo,en,ru,es,fr,fr-facile,ja,de,eo,zh,hu,sv. This searches in both directions.\n    ".selmaho ca'a" gives "CAhA", ".selmaho CAhA" gives "bi'ai, ca'a, ..."\n    ".rafsi kulnu" gives "klu", ".rafsi klu" gives "kulnu"\nOther conlang dictionaries: ".toki ", ".laadan ", ".loglan "\nLojban <-> Loglan conversion (incomplete): ".coi ", ".loi "`,
+    en: `Parsers: type ".ilm " (stable BPFK grammar), ".beta " (experimental), ".jbofihe " (jbofi'e), or ".yacc " (official yacc) followed by the text to show the structure of sentences.\nLojban dictionary: type ".language-code word", where "language-code" is one of jbo,en,ru,es,fr,fr-facile,ja,de,eo,zh,hu,sv. This searches in both directions.\n".selmaho CAhA" gives "bi'ai, ca'a, ..."\n".rafsi kulnu" gives "klu", ".rafsi klu" gives "kulnu"\n".lujvo klama gasnu" build the lujvo "klagau" plus other lengtheir versions with their lujvo scores.\nOther dictionaries: ".toki ", ".laadan ", ".loglan "\nLojban <-> Loglan conversion (incomplete): ".coi ", ".loi "`,
   }
   return sidj.en
 }
@@ -965,7 +965,7 @@ function workerGenerateChunk({ segerna, chunk, index }) {
   return result
 }
 
-function addCache({cachedDefinition, excludeKeys = []}) {
+function addCache({ cachedDefinition, excludeKeys = [] }) {
   excludeKeys.forEach(key => delete cachedDefinition[key])
   let cache
   if (Array.isArray(cachedDefinition.g)) cachedDefinition.g = cachedDefinition.g.join(";")
@@ -1006,7 +1006,7 @@ async function generateLoglanDexieDictionary() {
     .map(i => {
       const tmp = ({ ...tableSpells.filter(j => j.WID == i.WID)[0], definition: i, source: tableWords.filter(j => j.WID == i.WID) })
       if (tmp.definition.Usage !== null) {
-        tmp.Word = tmp.definition.Usage.replace(/(?<=[a-z])%/g,'').replace(/%/g, tmp.Word)
+        tmp.Word = tmp.definition.Usage.replace(/(?<=[a-z])%/g, '').replace(/%/g, tmp.Word)
         delete tmp.source;
       }
       return tmp;
@@ -1018,8 +1018,8 @@ async function generateLoglanDexieDictionary() {
         i.source = i.source[0]
         if (i.source.UsedIn) {
           usedIn = (i.source.UsedIn || '').split(/ *\| */).filter(Boolean).map(i => `{${i}}`).join(", ")
-          notes.push( usedIn
-            )
+          notes.push(usedIn
+          )
         }
         if (i.source.Origin) notes.push('⬅ ' + i.source.Origin)
       }
@@ -1031,7 +1031,7 @@ async function generateLoglanDexieDictionary() {
       obj.g = ((obj.d || '').match(/(«.*?»)/g) || []).map(i => i.substring(1, i.length - 1))
       const cached_def = { ...obj }
       cached_def.n = usedIn || undefined;
-      obj = { ...obj, ...addCache({cachedDefinition: cached_def, excludeKeys: ["s", "t"]}) }
+      obj = { ...obj, ...addCache({ cachedDefinition: cached_def, excludeKeys: ["s", "t"] }) }
       if (obj.g && obj.g.length === 0) delete obj.g;
       if (i.source?.Affixes) obj.r = i.source?.Affixes.split(/ +/)
       Object.keys(obj).forEach(key => [undefined, '', null].includes(obj[key]) && delete obj[key])
@@ -1078,7 +1078,7 @@ const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
           const { cjk, nonCjk } = cleanCJKText(rec.d + " " + rec.n)
           cached_def.d = rma.tokenize(cjk).map((i) => i[0]).join(" ") + " " + nonCjk
         }
-        rec = { ...rec, ...addCache({cachedDefinition: cached_def}) }
+        rec = { ...rec, ...addCache({ cachedDefinition: cached_def }) }
       }
       arr.push(rec)
     }
@@ -1322,10 +1322,61 @@ async function updateXmlDumps() {
   return uniques(erroredLangs)
 }
 
+async function updateParser(lang) {
+  console.log('updating parser', lang);
+
+  //for now only loglan
+  const fs = require('fs-extra')
+  const path = require('path-extra')
+  const SyntacticActionsPlugin = require("pegjs-syntactic-actions");
+
+  const fileName = lang
+
+  const filePathCore = path.join(__dirname, `../mahantufa/${fileName}`)
+  const grammarSrc = fs.readFileSync(`${filePathCore}.peg`).toString().split("\n")
+    .map(line => line.trim().replace(/^[^_a-zA-Z0-9].*?$/, '').trim().replace(/^([a-zA-Z0-9]+)[\t ]*<-[\t ]*/, '$1 = ')).filter(Boolean).join("\n")
+
+  const ruleNames = (grammarSrc) => {
+    return grammarSrc.split("\n").map(_ => _.split("=")[0].trim()).filter(Boolean)
+  };
+
+  const generated_parser = require('peggy').generate(grammarSrc, {
+    cache: true,
+    trace: false,
+    output: 'source',
+    allowedStartRules: ruleNames(grammarSrc),
+    format: 'commonjs',
+    plugins: [new SyntacticActionsPlugin()]
+  })
+
+  fs.writeFileSync(filePathCore + ".unwrapped.js", generated_parser, { encoding: 'utf8' })
+
+  const { minify } = require("terser");
+
+  const camxes = fs.readFileSync(`${filePathCore}.unwrapped.js`).toString()
+
+  const result = await minify(camxes, {
+    ecma: 5,
+    // mangle: {
+    //   toplevel: true,
+    //   reserved: ['parse', 'camxes'],
+    // },
+  })
+
+  fs.writeFileSync(filePathCore + ".js", result.code, { encoding: 'utf8' })
+  console.log('updated parser', lang);
+
+}
+
+// updateParser('loglan');
 updateXmlDumps()
 setInterval(() => {
-  updateXmlDumps()
-}, 1 * 24 * 60 * 60 * 1000) // update logs once an hour
+  (async () => {
+    await updateXmlDumps()
+
+  })()
+
+}, 1 * 24 * 60 * 60 * 1000) // update logs once a day
 
 const GimkaConflicts = (valsi) => {
   const r = WhichIsInConflictAll(valsi, jsonDocEn)
@@ -1686,7 +1737,7 @@ async function processor({ from, towhom, text, socket }) {
   }
   let what
   switch (true) {
-    case text.search("(.i |i |)ma rafsi zo [a-z']+") === 0:
+    case text.search("(\\.i |i |)ma rafsi zo [a-z']+") === 0:
       const rg = /.*ma rafsi zo ([a-z']+).*/
       what = rafsi_giho_nai_se_rafsi(
         text.match(rg)[1].replace(/[^a-z'\.]/g, '')
@@ -1740,12 +1791,12 @@ async function processor({ from, towhom, text, socket }) {
   }
 
   switch (true) {
-    case text.search(RegExp`${commandPrefix}yacc `) === 0 ||
-      text.search(RegExp`${commandPrefix}cowan `) === 0:
+    case text.search(RegExp(`${commandPrefix}yacc `)) === 0 ||
+      text.search(RegExp(`${commandPrefix}cowan `)) === 0:
       tcepru(removePrefix(text), sendTo, socket)
       break
-    case text.search(RegExp`${commandPrefix}gerna `) === 0 ||
-      text.search(RegExp`${commandPrefix}jbofi['h]e `) === 0:
+    case text.search(RegExp(`${commandPrefix}gerna `)) === 0 ||
+      text.search(RegExp(`${commandPrefix}jbofi['h]e `)) === 0:
       jbofihe(removePrefix(text), sendTo, socket)
       break
     case text.indexOf(`${replier}: ko ningau`) === 0 ||

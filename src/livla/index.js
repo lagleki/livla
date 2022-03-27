@@ -1002,6 +1002,8 @@ async function generateLoglanDexieDictionary() {
   let tableSpells = reader.getTable("WordSpell").getData();
   const tableDefs = reader.getTable("WordDefinition").getData();
   const tableWords = reader.getTable("Words").getData();
+  const djifoa = tableWords.filter(i => i.Type === 'Afx' && i.Origin).map(i => ({ ...i, Word: i.Origin.replace(/[\(\)]/g, '') }))
+
   tableSpells = tableDefs
     .map(i => {
       const tmp = ({ ...tableSpells.filter(j => j.WID == i.WID)[0], definition: i, source: tableWords.filter(j => j.WID == i.WID) })
@@ -1009,8 +1011,12 @@ async function generateLoglanDexieDictionary() {
         tmp.Word = tmp.definition.Usage.replace(/(?<=[a-z])%/g, '').replace(/%/g, tmp.Word)
         delete tmp.source;
       }
+      // search for djifoa
+      const foundDjifoa = djifoa.filter(k => k.Word === tmp.Word).map(k => tableSpells.filter(j => j.WID === k.WID)[0].Word);
+      if (foundDjifoa.length > 0) { tmp.r = foundDjifoa; }
       return tmp;
     })
+    .filter(i => !(i.source?.[0]?.Type === 'Afx' && i.source?.[0]?.Origin))
     .map(i => {
       let notes = []
       let usedIn
@@ -1024,16 +1030,16 @@ async function generateLoglanDexieDictionary() {
         if (i.source.Origin) notes.push('⬅ ' + i.source.Origin)
       }
       notes = notes.join("\n")
-      let obj = ({
-        bangu: 'loglan', w: i.Word, n: notes, d: i.definition.Definition, t: i.source?.Type, s: i.definition.Grammar || i.source?.XType
-      })
+      let obj = {
+        bangu: 'loglan', w: i.Word, n: notes, d: i.definition.Definition, t: i.source?.Type, s: i.definition.Grammar || i.source?.XType, r: i.r
+      }
 
       obj.g = ((obj.d || '').match(/(«.*?»)/g) || []).map(i => i.substring(1, i.length - 1))
       const cached_def = { ...obj }
       cached_def.n = usedIn || undefined;
       obj = { ...obj, ...addCache({ cachedDefinition: cached_def, excludeKeys: ["s", "t"] }) }
       if (obj.g && obj.g.length === 0) delete obj.g;
-      if (i.source?.Affixes) obj.r = i.source?.Affixes.split(/ +/)
+      if (!obj.r && i.source?.[0]?.Affixes) obj.r = i.source?.[0]?.Affixes.split(/ +/)
       Object.keys(obj).forEach(key => [undefined, '', null].includes(obj[key]) && delete obj[key])
       // obj.raw = i
       return obj;
@@ -1309,7 +1315,7 @@ async function updateXmlDumps() {
     }
     console.log('〉 downloaded dumps')
   }
-  for (const language of predefined_langs.concat(langs)) {
+  for (const language of process.argv[3] !== 'fast' ? predefined_langs.concat(langs) : langs) {
     try {
       await ningau_palasutysisku(language, langs.includes(language) ? 1 : 0)
     } catch (error) {

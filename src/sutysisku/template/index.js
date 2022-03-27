@@ -142,9 +142,9 @@ const lerfu_index = "ptkflscmx.' 1234bdgvrzjn`-,~    aeiouy    qw    AEIOUY"
 //<xuzganalojudri|lojbo>
 //pronunciation guide
 const rows = [
-  ['p', 't', 'k', 'f', 's', 'c'],
-  ['b', 'd', 'g', 'v', 'z', 'j'],
-  ['m', 'l', 'n', 'r', , 'x', "'"],
+  ['a<b>p</b>a', 'a<b>t</b>a', 'a<b>k</b>a', 'a<b>f</b>a', 'a<b>s</b>a', 'a<b>c</b>a'],
+  ['a<b>b</b>a', 'a<b>d</b>a', 'a<b>g</b>a', 'a<b>v</b>a', 'a<b>z</b>a', 'a<b>j</b>a'],
+  ['a<b>m</b>a', 'a<b>l</b>a', 'a<b>n</b>a', 'a<b>r</b>a', , 'a<b>x</b>a', "a<b>'</b>a"],
   ['a', 'e', 'i', 'o', 'u', 'y'],
   [],
   ['aia', 'aua'],
@@ -1901,23 +1901,25 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
   const heading = document.createElement('heading')
   heading.classList.add('heading')
 
-  let arrRenderedFamymaho = []
-  for (const key in listFamymaho) {
-    if (listFamymaho[key].split(' ').includes(def.w))
-      arrRenderedFamymaho.push(
-        `<a href="#seskari=${seskari}&versio=selmaho&sisku=${encodeUrl(
-          key
-        )}&bangu=${bangu}">${escHtml(key)}</a>`
-      )
-  }
-  if (arrRenderedFamymaho.length !== 0) {
-    const inDefElement = document.createElement('div')
-    inDefElement.classList.add('valsi')
-    if (def.l) inDefElement.classList.add('nalojbo')
-    inDefElement.innerHTML = `<i><sup>[${arrRenderedFamymaho.join(
-      ', '
-    )}&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;`
-    if (inDefElement) heading.appendChild(inDefElement)
+  if (window.lojbo) {
+    let arrRenderedFamymaho = []
+    for (const key in listFamymaho) {
+      if (listFamymaho[key].split(' ').includes(def.w))
+        arrRenderedFamymaho.push(
+          `<a href="#seskari=${seskari}&versio=selmaho&sisku=${encodeUrl(
+            key
+          )}&bangu=${bangu}">${escHtml(key)}</a>`
+        )
+    }
+    if (arrRenderedFamymaho.length !== 0) {
+      const inDefElement = document.createElement('div')
+      inDefElement.classList.add('valsi')
+      if (def.l) inDefElement.classList.add('nalojbo')
+      inDefElement.innerHTML = `<i><sup>[${arrRenderedFamymaho.join(
+        ', '
+      )}&nbsp;&nbsp;&nbsp;...&nbsp;]</sup></i>&nbsp;&nbsp;`
+      if (inDefElement) heading.appendChild(inDefElement)
+    }
   }
 
   heading.appendChild(word)
@@ -1925,7 +1927,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
   let translateButton
   if (hasTranslateButton) {
     translateButton = document.createElement('button')
-    translateButton.className = 'fanva-tutci tutci klesi klesi-tutci'
+    translateButton.className = 'fanva-tutci tutci klesi klesi-tutci pixra'
     translateButton.onclick = function () {
       state.searching = {
         ...state.searching,
@@ -1937,7 +1939,8 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
       })
     }
     // translateButton.innerHTML = `<img src="../pixra/fanva.svg" class="cukta"/>`
-    translateButton.innerHTML = `🌍`
+    translateButton.style = "background-image: url(../pixra/terdi.svg);"
+    // translateButton.innerHTML = `🌍`
   }
 
   const banguEl = document.createElement('div')
@@ -1984,8 +1987,8 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
   let jvo
   if (def.t === 'lujvo' && (def.rfs || []).length > 0 && prettifiedDefinition.hasExpansion) {
     jvo = document.createElement('button')
-    jvo.style = "background-image: url(../pixra/shuffle.svg); background-size:100% 100%;width:25px;"
-    jvo.classList.add('tutci', 'sance', 'jvo_plumber')
+    jvo.style = "background-image: url(../pixra/shuffle.svg);"
+    jvo.classList.add('tutci', 'sance', 'jvo_plumber', 'pixra', 'klesi', 'klesi-tutci')
     state.jvoPlumbsOn
       ? jvo.classList.add('tutci-hover')
       : jvo.classList.remove('tutci-hover')
@@ -2027,8 +2030,9 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
 
   const copy = document.createElement('input')
   copy.type = 'button'
-  copy.classList.add('tutci', 'sance', 'klesi-tutci')
-  copy.value = "📋"
+  copy.classList.add('tutci', 'sance', 'klesi-tutci', 'pixra')
+  copy.style = "background-image: url(../pixra/fukpi.svg);"
+  // copy.value = "📋"
   copy.addEventListener('click', function () {
     copyToClipboard([def.w, def.d, def.n].filter(Boolean).join("\r\n"))
   });
@@ -2128,7 +2132,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
   //   if (secs && secs !== state.cll) out.appendChild(div)
   // }
   //</xuzganalojudri|lojbo>
-  if ((def.r || []).length > 0 && !def.l && window.xuzganalojudri) {
+  if ((def.r || []).length > 0 && !def.l) {
     const tanxe_leirafsi = document.createElement('div')
     tanxe_leirafsi.className = 'rafsi noselect'
 
@@ -2338,12 +2342,6 @@ async function addAudioLinks() {
 
 //<xuzganalojudri|lojbo>
 //pronunciation guide
-function text(name, text, style) {
-  const el = document.createElement(name)
-  el.textContent = text
-  if (style) el.className = style
-  return el
-}
 
 function elem(name, contents, style) {
   const el = document.createElement(name)
@@ -2367,11 +2365,13 @@ document.querySelector('#table').appendChild(
       elem(
         'tr',
         row.map((col) => {
-          const button = text('button', col, 'bangu')
-          button.onclick = () => {
-            play(`/sutysisku/sance/lerfu/${encodeURIComponent(col)}.ogg`)
+          const el = document.createElement('button')
+          el.innerHTML = col
+          el.className = 'bangu'
+          el.onclick = () => {
+            play(`/sutysisku/sance/lerfu/${encodeURIComponent(col.replace(/.*<b>(.*?)<\/b>.*/g, '$1'))}.ogg`)
           }
-          return elem('td', button)
+          return elem('td', el)
         })
       )
     ),
@@ -2538,8 +2538,12 @@ function PollyPlayer(params) {
     return { match, value: json[match] }
   }
 
-  function text2SSML(textToSpeak) {
-    const famymaho = ['kei', 'vau', "ku'o", "li'u", "le'u", "ge'u", "zo'u"]
+  function text2SSML(textToSpeak, queryLanguage) {
+    let famymaho = []
+    switch (queryLanguage) {
+      case 'loglan': famymaho = ["gu", "guu", "guo"]; break;
+      default: famymaho = ['kei', 'vau', "ku'o", "li'u", "le'u", "ge'u", "zo'u"]
+    }
     // const stresslessWords = ["lo","le","lei","loi","ku"]
     const words = textToSpeak.replace(/(?:\r\n|\r|\n)/g, ' ').split(' ')
     let output = [`<speak><prosody rate="slow">`, '<s>']
@@ -2628,7 +2632,7 @@ function PollyPlayer(params) {
   }
 
   async function getAndPlayAudio(textToSpeak, dontSpeak, queryLanguage) {
-    const text = text2SSML(textToSpeak)
+    const text = text2SSML(textToSpeak, queryLanguage)
     const sance_datni =
       getLocalAudio(text, queryLanguage) || (await downloadAudio(text, dontSpeak, queryLanguage))
     if (dontSpeak) return true
@@ -2640,7 +2644,7 @@ function PollyPlayer(params) {
     })
   }
 
-  function downloadAudio(Text, dontSpeak) {
+  function downloadAudio(Text, dontSpeak, queryLanguage) {
     return new Promise(function (resolve, reject) {
       const polly = new AWS.Polly()
       polly.synthesizeSpeech(
@@ -2675,7 +2679,7 @@ function PollyPlayer(params) {
     localStorage.setItem('cachedAudio', JSON.stringify(cache))
   }
 
-  function getLocalAudio(text) {
+  function getLocalAudio(text, queryLanguage) {
     const audioStreamArray =
       JSON.parse(localStorage.getItem('cachedAudio')) || []
     const sance_datni = audioStreamArray.filter(
@@ -2686,7 +2690,7 @@ function PollyPlayer(params) {
   }
 
   return function (text, dontSpeak, queryLanguage) {
-    return getAndPlayAudio(text, dontSpeak)
+    return getAndPlayAudio(text, dontSpeak, queryLanguage)
   }
 }
 

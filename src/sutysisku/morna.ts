@@ -146,6 +146,10 @@ async function generateCLLDictionary(
     path.join('/livla/build/sutysisku/data', 'parsed-en-cll-0.bin'),
     brotli.compress(Buffer.from(JSON.stringify(outp)))
   )
+  fs.writeFileSync(
+    path.join('/livla/build/sutysisku/data', 'parsed-en-cll-0.json'),
+    JSON.stringify(outp)
+  )
   const hash = require('object-hash')(outp)
   const versio = '/livla/build/sutysisku/data/versio.json'
   let jsonTimes: { [x: string]: string; } = {}
@@ -182,7 +186,9 @@ const settings = {
     '../pixra/144.png',
     '../pixra/32.png',
     '../pixra/shuffle.svg',
-    // '../pixra/valsr.png',
+    '../pixra/terdi.svg',
+    '../pixra/fukpi.svg',
+    '../pixra/valsr.png',
     '../pixra/cukta.svg',
     '../pixra/certu.svg',
     '../pixra/fanva.svg',

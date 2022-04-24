@@ -12,7 +12,6 @@ function getOrFetch(response) {
 
 	if (extension === 'wasm') newHeaders.set('content-type', 'application/wasm');
 
-
 	return new Response(response.body, {
 		status: response.status,
 		statusText: response.statusText,

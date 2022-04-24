@@ -5,7 +5,7 @@ ENV TZ=Etc/UTC
 
 RUN apt-get update
 
-RUN apt-get install -y build-essential software-properties-common curl
+RUN apt-get install -y build-essential software-properties-common curl vim
 
 RUN apt-get install -y python3 python3-dev
 

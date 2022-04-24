@@ -30,7 +30,7 @@ const CACHE_NAME = 'sutysisku'
 
 window.leijufra = { custom_links: [] }
 const supportedLangs = {
-  en: { n: 'English', p: 'selsku_lanci_eng' },
+  en: { n: 'English', p: 'selsku_lanci_eng', zbalermorna_defined: true, semanticSearchPossible: true },
   muplis: { n: 'la muplis' },
   'en-cll': { n: 'The Book', p: 'cukta' },
   'en-ll': { n: 'Learn Lojban', p: 'cukta' },
@@ -436,7 +436,7 @@ function showLoaded() {
   document.getElementById('contentWrapper').style.paddingBottom = '0'
 }
 
-function showLoading({ completedRows, totalRows, bangu, hideProgress }) {
+function showLoading({ completedRows, totalRows, innerText, hideProgress }) {
   loading.style.display = 'inline-flex'
   document.getElementById('contentWrapper').style.paddingBottom = '28px'
   const cpacu = document.getElementById('cpacu')
@@ -453,7 +453,9 @@ function showLoading({ completedRows, totalRows, bangu, hideProgress }) {
     cpacu.style.display = 'block'
     pb.style.width = `${percent}%`
   }
-  document.getElementById('bangu_loading').innerHTML = bangu
+  const bangu_loading = document.getElementById('bangu_loading')
+  bangu_loading.classList[hideProgress ? 'add' : 'remove']('simple')
+  bangu_loading.innerHTML = innerText
 }
 
 async function getCache({ mode }) {
@@ -475,7 +477,7 @@ async function getCache({ mode }) {
     if (!cachedResponse) {
       await cacheStorage.add(url);
       cacheUpdated = true
-      if (mode === "co'a") showLoading({ completedRows: i, totalRows: vreji.length, bangu: `📦 💾 📁 🛠️` })
+      if (mode === "co'a") showLoading({ completedRows: i, totalRows: vreji.length, innerText: `📦 💾 📁 🛠️` })
     }
   }
 
@@ -648,6 +650,12 @@ function RenderResults({ query, seskari, bangu, versio }) {
   window.jimte = seskari === 'velcusku' ? 201 : 30
   resultCount = 0
   outp.innerHTML = ''
+  if (seskari === 'cnano' && supportedLangs[bangu].semanticSearchPossible) {
+    const out = document.createElement('div')
+    out.className = 'term noselect nasezvafahi'
+    out.innerText = window.leijufra.semanticSearchAlert
+    outp.appendChild(out)
+  }
   skicu_rolodovalsi({
     query,
     seskari,
@@ -931,12 +939,12 @@ worker.onmessage = (ev) => {
           })
         }
       }
-      showLoading({ completedRows: data.completedRows, totalRows: data.totalRows, bangu: "🗃️ " + data.bangu })
+      showLoading({ completedRows: data.completedRows, totalRows: data.totalRows, innerText: "🗃️ " + data.bangu })
     } else if (cmene === 'loaded') {
       showLoaded()
       getCache({ mode: "ca'o" })
     } else if (cmene === 'booting') {
-      showLoading({ completedRows: 1, totalRows: 3, bangu: "🗃️ " + (window.booting || '') })
+      showLoading({ completedRows: 1, totalRows: 3, innerText: "🗃️ " + (window.booting || '') })
     }
     calcVH()
   } else if (kind == 'fancu') {
@@ -947,6 +955,8 @@ worker.onmessage = (ev) => {
           ...data.datni,
         })
         break
+      default:
+        console.log(data.results);
     }
   }
 }
@@ -1270,7 +1280,12 @@ function updateDOMWithLocales(jufra, miniState) {
   if (state.displaying.query === '') RenderDesktop(miniState)
   const velsku = document.getElementById('velsku_sebenji')
   if (velsku)
-    velsku.href = `#seskari=cnano&sisku=lai jbosnu&bangu=${getStateBangu()}&versio=masno`
+    velsku.href = buildURLParams({
+      seskari: 'cnano',
+      sisku: 'lai jbosnu',
+      bangu: getStateBangu(),
+      versio: 'masno'
+    })
 }
 
 function updateLocales(force) {
@@ -1738,6 +1753,23 @@ function ConstructArxivoValsiExtract(d, query, range) {
   return locs
 }
 
+window.runQuery = (query, params) => {
+  worker.postMessage({
+    kind: 'fancu',
+    cmene: 'runQuery',
+    query,
+    params
+  })
+}
+
+window.getNeighbors = (query) => {
+  worker.postMessage({
+    kind: 'fancu',
+    cmene: 'getNeighbors',
+    query,
+  })
+}
+
 window.ningau_lepasorcu = (url, bangu) => {
   if (url.indexOf('http') === 0) return
   setState({
@@ -1768,6 +1800,10 @@ window.runSearch = (seskari, selmaho, bangu) => {
   DispatchState({
     replace: false,
   })
+}
+
+function buildURLParams(params = {}) {
+  return "#" + new URLSearchParams(params).toString()
 }
 
 function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, stringifiedPlaceTags = [] }) {
@@ -1827,15 +1863,22 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
       query,
     })} `
   } else {
-    let seskari2 = seskari
-    if (seskari === 'fanva') seskari2 = 'catni'
-    word.innerHTML = `<a class="valsi${def.l ? '' : ' nalojbo'
-      }" href="#seskari=${seskari2}&sisku=${encodeUrl(
+    const aTag = document.createElement('a');
+    aTag.innerHTML = basna({
+      def: escHtml(def.w, true),
+      query,
+    })
+    aTag.classList.add('valsi')
+    if (def.l) aTag.classList.add('nalojbo')
+    aTag.setAttribute('href', buildURLParams({
+      seskari: seskari === 'fanva' ? 'catni' : seskari,
+      sisku: encodeUrl(
         def.w
-      )}&bangu=${bangu}&versio=masno">${basna({
-        def: escHtml(def.w, true),
-        query,
-      })}</a> `
+      ),
+      bangu,
+      versio: 'masno'
+    }));
+    word.appendChild(aTag);
   }
 
   let jvs
@@ -1847,8 +1890,12 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
     const txt = encodeUrl(def.w).replace(/_/g, '%20')
     jvs.href = window.judri
       ? window.judri + txt
-      : `#seskari=${seskari === 'catni' ? 'catni' : 'cnano'
-      }&sisku=${txt}&bangu=${bangu}&versio=masno`
+      : buildURLParams({
+        seskari: seskari === 'catni' ? 'catni' : 'cnano',
+        sisku: txt,
+        bangu,
+        versio: 'masno'
+      })
     if (window.judri) {
       jvs.setAttribute('target', '_blank')
       jvs.setAttribute('rel', 'noreferrer')
@@ -1879,7 +1926,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
     prettifiedDefinition = melbi_uenzi({
       def: def.d,
       fullDef: def,
-      query,
+      query: def.sem?.length > 0 ? def.sem.join(" ") : query,
       seskari,
       versio,
       bangu,
@@ -1893,8 +1940,22 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
   let zbalermorna
   if (window.lojbo && !(def.t && def.t.k === 0) && (seskari !== 'fanva' || index === 0)) {
     zbalermorna = document.createElement('h4')
-    zbalermorna.classList.add('valsi', 'zbalermorna', 'segerna', 'sampu')
-    zbalermorna.textContent = zbalermornaize(def)
+    const textContent = zbalermornaize(def)
+    if (supportedLangs[bangu].zbalermorna_defined) {
+      const aTag = document.createElement('a');
+      aTag.setAttribute('href', buildURLParams({
+        seskari,
+        sisku: 'zbalermorna',
+        bangu,
+        versio
+      }));
+      aTag.innerText = textContent;
+      aTag.classList.add('valsi', 'zbalermorna', 'segerna', 'sampu')
+      zbalermorna.appendChild(aTag);
+    } else {
+      zbalermorna.classList.add('valsi', 'zbalermorna', 'segerna', 'sampu')
+      zbalermorna.textContent = textContent
+    }
   }
   //</xuzganalojudri|lojbo>
 
@@ -2038,6 +2099,19 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
   });
   heading.appendChild(copy)
 
+  if (def.semMaxDistance <= 1) {
+    const distance = document.createElement('div');
+    distance.innerText = `${Math.round(def.semMaxDistance.toPrecision(2) * 100)}%`;
+    distance.classList.add('tutci', 'klesi', 'klesi-tutci', 'noselect')
+    distance.addEventListener('click', function () {
+      showLoading({ innerText: `${distance.innerText}: ${window.leijufra.distance || ''}`, hideProgress: true })
+      setTimeout(() => {
+        showLoaded()
+      }, 4000)
+    });
+    heading.appendChild(distance)
+  }
+
   out.appendChild(heading)
   //new line buttons
   const heading2 = document.createElement('heading')
@@ -2097,7 +2171,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
       inDefElement.innerHTML = window.nasezvafahi
     } else {
       inDefElement.innerHTML = `${basna({
-        def: def.d,
+        def: def.d.replace(/([a-z0-9])\/([a-z0-9])/gi, '$1 / $2'),
         query,
       })} `
       inDefElement.addEventListener('click', () => {
@@ -2259,7 +2333,7 @@ function skicu_rolodovalsi({ query, seskari, bangu, versio }) {
   //   if (div) outp.appendChild(div)
   // }
   for (; resultCount < displayUpTo; resultCount++) {
-    const a = skicu_palodovalsi({
+    const htmlTermBlock = skicu_palodovalsi({
       def: results[resultCount],
       query,
       seskari,
@@ -2268,7 +2342,7 @@ function skicu_rolodovalsi({ query, seskari, bangu, versio }) {
       length: results.length,
       index: resultCount,
     })
-    if (a) outp.appendChild(a)
+    if (htmlTermBlock) outp.appendChild(htmlTermBlock)
   }
 }
 
@@ -2413,7 +2487,7 @@ if (socket1Chat) {
   //   document.getElementById("velcusku").style.display = "none";
   // });
   function trimSocketChunk(text) {
-    return text.replace(/[\n\r]+$/gims, ' ').split('<')[0]
+    return text.replace(/[\n\r]+$/gims, ' ').replace(/<br *\/?>/gims, ' ').split('<')[0]
   }
   socket1Chat.on('sentFrom', function (data) {
     if (loadingState.loading || !socket1Chat_connected) return
@@ -2427,7 +2501,12 @@ if (socket1Chat) {
     const velsku = document.getElementById('velsku_sebenji')
     velsku.innerHTML = `<img src='../pixra/nunsku.svg' class="velsku_pixra"/> <span class="velsku_pamei">[${msg.s}] ${msg.w}: ${msg.d}</span>`
     velsku.style.display = 'flex'
-    velsku.href = `#seskari=cnano&sisku=lai jbosnu&bangu=${getStateBangu()}&versio=masno`
+    velsku.href = buildURLParams({
+      seskari: 'cnano',
+      sisku: 'lai jbosnu',
+      bangu: getStateBangu(),
+      versio: 'masno'
+    })
 
     // if (msg.s === channel)
     // outp.appendChild(
@@ -2452,7 +2531,12 @@ if (socket1Chat) {
     }
     velsku.innerHTML = `<img src='../pixra/nunsku.svg' class="velsku_pixra"/> <span class="velsku_pamei">[${msg.s}] ${msg.w}: ${msg.d}</span>`
     velsku.style.display = 'flex'
-    velsku.href = `#seskari=cnano&sisku=lai jbosnu&bangu=${getStateBangu()}&versio=masno`
+    velsku.href = buildURLParams({
+      seskari: 'cnano',
+      sisku: 'lai jbosnu',
+      bangu: getStateBangu(),
+      versio: 'masno'
+    })
   })
 }
 
@@ -2485,6 +2569,7 @@ function allAreSafeWords(array, { allowCmevla = false, allowCmavo = false, query
   const snazga = RegExp(`^${D}${V}${C}${C}${V}$`)
   const kaltahu = RegExp(`^${C}${V}${C}${C}${V}${h}${V}$`)
   const cmalahu = RegExp(`^${C}${C}${V}${C}${V}${h}${V}$`)
+  const posyduha = RegExp(`^${C}${V}${C}y${C}${V}${h}${V}$`)
   return array.every(
     (el) =>
       el[0] === 'gismu' ||
@@ -2500,6 +2585,7 @@ function allAreSafeWords(array, { allowCmevla = false, allowCmavo = false, query
       snazga.test(el[1]) ||
       prulamdei.test(el[1]) ||
       cinjikca.test(el[1]) ||
+      posyduha.test(el[1]) ||
       (allowCmevla && el[0] === 'cmevla') ||
       (allowCmavo && el[0] === 'cmavo')
   )
@@ -2517,9 +2603,11 @@ function PollyPlayer(params) {
     for (let f = 0; f < form.length; f++) {
       if (form[f] == '?') regex += '.'
       else if (form[f] == '*') regex += '.*'
+      else if (form[f] == 'y') regex += 'y'
+      else if (form[f] == 'h') regex += 'h'
+      else if (form[f] == 'I') regex += '[iu]'
       else if (form[f] == 'C') regex += '[^aeiouyḁąęǫ]'
       else if (form[f] == 'V') regex += '[aeiouyḁąęǫ]'
-      else if (form[f] == 'I') regex += '[iu]'
     }
     regex += '$'
     const re = new RegExp(regex)
@@ -2583,6 +2671,9 @@ function PollyPlayer(params) {
         } else if (matchForm(currentWord, 'CVCCVCV')) {
           if (i == 3) ph.push('.ˈ')
           if (i == 5) ph.push('.')
+        } else if (matchForm(currentWord, 'CVCyCVhV')) {
+          if (i == 4) ph.push('.ˈ')
+          if (i == 6) ph.push('.')
         } else if (matchForm(currentWord, 'CCVCVCCV')) {
           if (i == 3) ph.push('.ˈ')
           if (i == 6) ph.push('.')
@@ -2860,7 +2951,7 @@ function copyToClipboard(text) {
   document.execCommand("Copy");
 
   document.body.removeChild(myTemporaryInputElement);
-  showLoading({ bangu: window.copied || '📋', hideProgress: true })
+  showLoading({ innerText: window.copied || '📋', hideProgress: true })
   setTimeout(() => {
     showLoaded()
   }, 2000)

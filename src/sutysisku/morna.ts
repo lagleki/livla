@@ -14,13 +14,13 @@ declare global {
   }
 }
 
-import * as webpack from 'webpack';
-import * as fs from 'fs-extra';
-
-const path = require('path-extra');
 import axios from 'axios';
 import * as brotli from 'brotli-wasm';
 import * as cheerio from 'cheerio';
+import * as fs from 'fs-extra';
+import * as webpack from 'webpack';
+
+const path = require('path-extra');
 
 // const babel = require('@babel/core')
 // const env = require('@babel/preset-env')
@@ -179,6 +179,11 @@ const settings = {
     '../assets/fonts/crisa-regular.otf',
     './bangu.js?sisku={now}',
     '../assets/scripts/aws-sdk.min.js',
+    './w2v/embeddings.js',
+    // './w2v/tfjs-backend-wasm.wasm',
+    // './w2v/tfjs-backend-wasm-simd.wasm',
+    // './w2v/tfjs-backend-wasm-threaded-simd.wasm',
+    './w2v/word-embeddings.json',
     './index.js?detri={now}',
     './index.css?detri={now}',
     './worker.js?sisku={now}',
@@ -387,6 +392,7 @@ function processTemplate({ config, fallback, now, file }: { config: { [x: string
   for (let lang of langs) {
     fs.copySync(`/livla/src/sutysisku/template/sqljs`, `/livla/build/sutysisku/${lang}/sqljs`)
     fs.copySync(`/livla/src/sutysisku/template/asql`, `/livla/build/sutysisku/${lang}/asql`)
+    fs.copySync(`/livla/src/sutysisku/template/w2v`, `/livla/build/sutysisku/${lang}/w2v`)
     fs.copyFileSync(`/livla/src/sutysisku/src/${lang}/bangu.js`, `/livla/build/sutysisku/${lang}/bangu.js`);
     fs.copyFileSync(`/livla/src/sutysisku/src/${lang}/config.json`, `/livla/build/sutysisku/${lang}/config.json`);
     // generate index.html
@@ -625,6 +631,7 @@ NETWORK:
           coi: '/livla/build/sutysisku/lojban/coi.js',
           // "index.html": '/livla/build/sutysisku/lojban/index.html',
           worker: '/livla/build/sutysisku/lojban/worker.js',
+          './w2v/embeddings': '/livla/build/sutysisku/lojban/w2v/embeddings.js'
         },
         output: {
           filename: '[name].js',
@@ -682,6 +689,7 @@ NETWORK:
         } else
           console.log('webpacked');
 
+        fs
         resolve(null)
       })
     })

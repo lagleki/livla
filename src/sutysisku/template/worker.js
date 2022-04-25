@@ -576,7 +576,7 @@ const getMergedArray = (array) => `(${array.map((i) => `'${i.replace(/'/g, "''")
 async function getNeighbors(query) {
 	return new Promise(resolve => {
 		wordEmbeddings.getNearestNeighbors(query, 100).then(results => {
-			results = [...new Set(results.filter(i => RegExp(/^[a-z- ]+$/).test(i.word) && i.distance !== 1).concat([{ distance: 1, word: query }]))];
+			results = [...new Set(results.filter(i => RegExp(/^[a-z- ]+$/).test(i.word) && i.distance !== 1 && i.distance >= 0.4).concat([{ distance: 1, word: query }]))];
 			resolve({ words: results.map(i => i.word), results })
 		});
 	})

@@ -138,7 +138,7 @@
       "Live chat for your questions": "Live chat for your questions",
       "la muplis": "la muplis - useful phrases",
       "window.semanticSearchAlert": "Similar meanings search via word embeddings",
-      "window.distance": "word embedding affinity of the query with the glossword",
+      "window.distance": "${distance}: word embedding affinity of the query with the glossword",
       "window.lojbo": true,
       "window.cmene": "English",
       "window.nasezvafahi": "No definition has been found",

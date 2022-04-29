@@ -956,7 +956,7 @@ worker.onmessage = (ev) => {
         })
         break
       default:
-        console.log(data.results);
+        console.log({ event: 'from the worker', message: data.results });
     }
   }
 }
@@ -1635,6 +1635,12 @@ function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }
 
+String.prototype.interpolate = function (params) {
+  const names = Object.keys(params);
+  const vals = Object.values(params);
+  return new Function(...names, `return \`${this}\`;`)(...vals);
+}
+
 function basna({ def, query }) {
   if (!query || query.length <= 2) return def
   query = query.trim().replace(/[\|\(\)\{\}<>]/g, '.')
@@ -2104,7 +2110,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
     distance.innerText = `${Math.round(def.semMaxDistance.toPrecision(2) * 100)}%`;
     distance.classList.add('tutci', 'klesi', 'klesi-tutci', 'noselect')
     distance.addEventListener('click', function () {
-      showLoading({ innerText: `${distance.innerText}: ${window.leijufra.distance || ''}`, hideProgress: true })
+      showLoading({ innerText: (window.leijufra.distance || '').interpolate({ distance: distance.innerText }), hideProgress: true })
       setTimeout(() => {
         showLoaded()
       }, 4000)

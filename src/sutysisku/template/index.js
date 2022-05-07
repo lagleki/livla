@@ -1,7 +1,7 @@
 //imports:
 import io from './socket.io.js'
 import { initBackend } from './asql/indexeddb-main-thread.js'
-let cacheObj;
+let cacheObj
 
 //DOM element vars:
 const content = document.getElementById('content')
@@ -45,8 +45,8 @@ const supportedLangs = {
 }
 
 const listFamymaho = {
-  GA: "gi",
-  GUhA: "gi",
+  GA: 'gi',
+  GUhA: 'gi',
   BE: "bei be'o",
   BEI: "be'o",
   BY: 'boi',
@@ -103,7 +103,7 @@ let state = {
     bangu: 'en',
   },
   citri: [],
-  jvoPlumbsOn: true
+  jvoPlumbsOn: true,
 }
 const loadingState = {
   loading: true,
@@ -115,7 +115,6 @@ const loadingState = {
 try {
   const jvoPlumbsOn = localStorage.getItem('jvoPlumbsOn')
   if (jvoPlumbsOn === 'false') state.jvoPlumbsOn = false
-
 } catch (error) { }
 
 try {
@@ -142,9 +141,31 @@ const lerfu_index = "ptkflscmx.' 1234bdgvrzjn`-,~    aeiouy    qw    AEIOUY"
 //<xuzganalojudri|lojbo>
 //pronunciation guide
 const rows = [
-  ['a<b>p</b>a', 'a<b>t</b>a', 'a<b>k</b>a', 'a<b>f</b>a', 'a<b>s</b>a', 'a<b>c</b>a'],
-  ['a<b>b</b>a', 'a<b>d</b>a', 'a<b>g</b>a', 'a<b>v</b>a', 'a<b>z</b>a', 'a<b>j</b>a'],
-  ['a<b>m</b>a', 'a<b>l</b>a', 'a<b>n</b>a', 'a<b>r</b>a', , 'a<b>x</b>a', "a<b>'</b>a"],
+  [
+    'a<b>p</b>a',
+    'a<b>t</b>a',
+    'a<b>k</b>a',
+    'a<b>f</b>a',
+    'a<b>s</b>a',
+    'a<b>c</b>a',
+  ],
+  [
+    'a<b>b</b>a',
+    'a<b>d</b>a',
+    'a<b>g</b>a',
+    'a<b>v</b>a',
+    'a<b>z</b>a',
+    'a<b>j</b>a',
+  ],
+  [
+    'a<b>m</b>a',
+    'a<b>l</b>a',
+    'a<b>n</b>a',
+    'a<b>r</b>a',
+    ,
+    'a<b>x</b>a',
+    "a<b>'</b>a",
+  ],
   ['a', 'e', 'i', 'o', 'u', 'y'],
   [],
   ['aia', 'aua'],
@@ -220,7 +241,7 @@ const pollyParams = {
     k: 'k',
     p: 'p',
     t: 't',
-    h: 'h'
+    h: 'h',
   },
 }
 window.pollyParams = pollyParams
@@ -229,7 +250,6 @@ let audioParams
 try {
   audioParams = JSON.parse(localStorage.getItem(`audioParams`))
 } catch (error) { }
-
 
 if (audioParams && audioParams.IdentityPoolId) {
   window.pollyParams = audioParams
@@ -243,7 +263,7 @@ window.delay = (() => (callback, ms, timer) => {
 })()
 
 async function getCacheObject() {
-  if (!cacheObj) cacheObj = await caches.open('sutysisku');
+  if (!cacheObj) cacheObj = await caches.open('sutysisku')
   return cacheObj
 }
 
@@ -263,8 +283,8 @@ calcVH()
 let polly = PollyPlayer(window.pollyParams)
 //listeners:
 document.addEventListener('animationstart', listenToSearchRendered, false)
-citri.addEventListener('click', clicked)//clicked link > push it
-window.addEventListener('popstate', setStateFromUrl)//typed, stopped typing > push
+citri.addEventListener('click', clicked) //clicked link > push it
+window.addEventListener('popstate', setStateFromUrl) //typed, stopped typing > push
 ciska.addEventListener('paste', typing(0))
 ciska.addEventListener('keyup', () => {
   typing()
@@ -274,18 +294,19 @@ ciska.addEventListener('keydown', () => {
 })
 ciska.addEventListener('input', typing())
 ciska.addEventListener('textInput', typing())
-ciska.addEventListener('focus', focusSearch)//focus > push
+ciska.addEventListener('focus', focusSearch) //focus > push
 clear.addEventListener('click', window.EmptyState)
 
-rimni.addEventListener('click', () => {//change seskari
+rimni.addEventListener('click', () => {
+  //change seskari
   setState({
     searching: {
       ...state.displaying,
       seskari: 'rimni',
       versio: 'masno',
       query: plukaquery(ciska.value),
-    }
-  });
+    },
+  })
 
   DispatchState({
     replace: false,
@@ -299,8 +320,8 @@ document.getElementById('cnano').addEventListener('click', () => {
       seskari: 'cnano',
       versio: 'masno',
       query: plukaquery(ciska.value),
-    }
-  });
+    },
+  })
 
   DispatchState({
     replace: false,
@@ -314,8 +335,8 @@ document.getElementById('catni').addEventListener('click', () => {
       seskari: 'catni',
       versio: 'masno',
       query: plukaquery(ciska.value),
-    }
-  });
+    },
+  })
 
   DispatchState({
     replace: false,
@@ -344,20 +365,24 @@ window.applyNewPollyParams = function (input) {
   } catch (error) { }
 }
 
-document.addEventListener('keyup', function (event) {
-  if (event.ctrlKey && event.key === 'ArrowDown') {
-    openModal({
-      innerHTML: `
+document.addEventListener(
+  'keyup',
+  function (event) {
+    if (event.ctrlKey && event.key === 'ArrowDown') {
+      openModal({
+        innerHTML: `
     <textarea id="modal__textarea" class="modal__textarea" name="textarea" rows="10" onkeyup = "window.applyNewPollyParams(this)">${JSON.stringify(
-        window.pollyParams,
-        null,
-        2
-      )
-        }</textarea>
+          window.pollyParams,
+          null,
+          2
+        )}</textarea>
     <button onclick="resetAudioParams(document.getElementById('modal__textarea'))">Reset</button>
-  `})
-  }
-}, false)
+  `,
+      })
+    }
+  },
+  false
+)
 
 window.addEventListener('load', async () => {
   await fetchAndSaveCachedListValues({ mode: "co'a" })
@@ -388,14 +413,10 @@ window.addEventListener('load', async () => {
     // navigator.serviceWorker.addEventListener('message', event => {
     //   if (event.data.event === 'loading cache') {
     //     console.log(event.data);
-
     //   }
-
     // });
-
     // navigator.serviceWorker.onmessage = function ({ data }) {
     //   console.log(data);
-
     // if (data && data.teminde && data.teminde === "co'a jmina le vreji") {
     //   console.log('updating cache started')
     // } else if (data && data.teminde && data.teminde === "mo'u jmina le vreji") {
@@ -424,7 +445,7 @@ window.addEventListener('load', async () => {
     //   )
   } else if (location.protocol === 'https:') {
     alert(
-      'Your browser is not supported. Please, upgrade to the latest Chrome / Firefox / Safari and don\'t use the app in incognito / private browsing mode (it needs to save dictionary data to disk to work successfully).'
+      "Your browser is not supported. Please, upgrade to the latest Chrome / Firefox / Safari and don't use the app in incognito / private browsing mode (it needs to save dictionary data to disk to work successfully)."
     )
   } else {
     alert("HTTP protocol, la sutysisku won't work.")
@@ -450,10 +471,7 @@ function showLoading({ completedRows, totalRows, innerText, hideProgress }) {
   } else {
     const percent = Math.min(
       100,
-      Math.max(
-        10,
-        (parseFloat(completedRows) * 100) / parseFloat(totalRows)
-      )
+      Math.max(10, (parseFloat(completedRows) * 100) / parseFloat(totalRows))
     )
     cpacu.style.display = 'block'
     pb.style.width = `${percent}%`
@@ -465,47 +483,61 @@ function showLoading({ completedRows, totalRows, innerText, hideProgress }) {
 
 async function getOrFetchResource({ url }) {
   const match = await (await getCacheObject()).match(url)
-  if (match) return true;
-  const response = await fetch(url);
-  if (!response.ok) return false;
-  cacheObj.put(url, response);
-  return true;
+  if (match) return true
+  const response = await fetch(url)
+  if (!response.ok) return false
+  cacheObj.put(url, response)
+  return true
 }
 
 async function fetchAndSaveCachedListValues({ mode }) {
-  const cachedList = await getCachedListKeys();
+  const cachedList = await getCachedListKeys()
   const initialCacheListLength = cachedList.length
 
-  const response = await fetch(`/sutysisku/data/tcini.json?sisku=${new Date().getTime()}`)
+  const response = await fetch(
+    `/sutysisku/data/tcini.json?sisku=${new Date().getTime()}`
+  )
   if (!response.ok) {
-    if (initialCacheListLength === 0) alert("Are you offline? We can't fetch the source.")
+    if (initialCacheListLength === 0)
+      alert("Are you offline? We can't fetch the source.")
     return false
   }
-  const vreji = (await response.json()).vreji.map(v => new URL(v, window.location.origin + window.location.pathname).href)
+  const vreji = (await response.json()).vreji.map(
+    (v) => new URL(v, window.location.origin + window.location.pathname).href
+  )
   let cacheUpdated = false
-  const cacheObj = await getCacheObject();
+  const cacheObj = await getCacheObject()
   for (let i = 0; i < vreji.length; i++) {
     const url = vreji[i]
     if (mode === "co'a" && !/((\.(js|wasm|html|css))|\/)$/.test(url)) continue
-    const isInCache = await cacheObj.match(url);
+    const isInCache = await cacheObj.match(url)
     if (!isInCache) {
-      await cacheObj.add(url);
+      await cacheObj.add(url)
       cacheUpdated = true
-      if (mode === "co'a") showLoading({ completedRows: i, totalRows: vreji.length, innerText: `📦 💾 📁 🛠️` })
+      if (mode === "co'a")
+        showLoading({
+          completedRows: i,
+          totalRows: vreji.length,
+          innerText: `📦 💾 📁 🛠️`,
+        })
     }
   }
 
   for (const key of cachedList) {
     if (!vreji.includes(key.url)) {
-      await cacheObj.delete(key.url, { ignoreMethod: true, ignoreVary: true });
-      console.log({ event: 'removing cache', url: key.url });
+      await cacheObj.delete(key.url, { ignoreMethod: true, ignoreVary: true })
+      console.log({ event: 'removing cache', url: key.url })
     }
   }
   if (cacheUpdated) {
-    for (const url of [new URL('', window.location.origin + window.location.pathname).href, new URL('index.html', window.location.origin + window.location.pathname).href]) {
-      await cacheObj.delete(url, { ignoreMethod: true, ignoreVary: true });
-      await cacheObj.add(url);
-      console.log({ event: 'adding cache', url });
+    for (const url of [
+      new URL('', window.location.origin + window.location.pathname).href,
+      new URL('index.html', window.location.origin + window.location.pathname)
+        .href,
+    ]) {
+      await cacheObj.delete(url, { ignoreMethod: true, ignoreVary: true })
+      await cacheObj.add(url)
+      console.log({ event: 'adding cache', url })
     }
   }
   showLoaded()
@@ -541,7 +573,6 @@ window.switchBorderScroll = () => {
   }
 }
 
-
 function macitri() {
   let citri = []
   try {
@@ -557,7 +588,8 @@ function RenderCitri() {
         .filter(({ seskari }) => seskari !== 'velcusku')
         .map(
           ({ seskari, versio, query, bangu }) =>
-            `<a class="a-${versio !== 'masno' ? versio : seskari}" href="#seskari=${seskari}&versio=${versio}&sisku=${encodeUrl(
+            `<a class="a-${versio !== 'masno' ? versio : seskari
+            }" href="#seskari=${seskari}&versio=${versio}&sisku=${encodeUrl(
               query
             )}&bangu=${bangu}">${escHtml(query)}</a>`
         )
@@ -568,10 +600,10 @@ function RenderDasri({ seskari, sepia }) {
   const colors = ['velcusku', 'arxivo', 'cnano', 'rimni', 'catni', 'fanva']
   if (state.displaying.bangu === 'muplis') {
     document.getElementById('leitutci').style.display = 'none'
-    document.body.className = "body-muplis"
+    document.body.className = 'body-muplis'
   } else {
     document.getElementById('leitutci').style.display = 'flex'
-    document.body.className = "body-sutysisku"
+    document.body.className = 'body-sutysisku'
   }
   if (!colors.includes(seskari)) seskari = 'cnano'
   dasri.className = `kampu-dasri ${seskari}-dasri noselect`
@@ -681,8 +713,11 @@ async function RenderResults({ query, seskari, bangu, versio }) {
   setState({
     displaying: {
       ...state.displaying,
-      query, versio, seskari, bangu
-    }
+      query,
+      versio,
+      seskari,
+      bangu,
+    },
   })
   outp.style.display = 'block'
   descr.style.display = 'none'
@@ -714,18 +749,15 @@ async function RenderResults({ query, seskari, bangu, versio }) {
       RenderDasri({ seskari: 'cnano', sepia: 'none' })
   }
 
-
   //todo: arrpurc or state.history
   DispatchCitri()
 
-  gtag('event', 'page_view'
-    , {
-      page_title: state.displaying.query,
-      page_location: `#sisku/${state.displaying.query}`,
-      page_path: `#sisku/${state.displaying.query}`,
-      send_to: `'%GA_MEASUREMENT_ID%'`
-    }
-  )
+  gtag('event', 'page_view', {
+    page_title: state.displaying.query,
+    page_location: `#sisku/${state.displaying.query}`,
+    page_path: `#sisku/${state.displaying.query}`,
+    send_to: `'%GA_MEASUREMENT_ID%'`,
+  })
   const pageViewData = {
     dl: window.location.href,
     dt: document.title,
@@ -735,19 +767,24 @@ async function RenderResults({ query, seskari, bangu, versio }) {
     z: Math.round(Math.random() * 1e12),
   }
   if (socket) socket.emit('sisku', pageViewData)
-
 }
 
 function removePlumbs() {
-  ;[].forEach.call(document.querySelectorAll('.leader-line'), function (element) {
-    element.parentNode.removeChild(element)
-  })
+  ;[].forEach.call(
+    document.querySelectorAll('.leader-line'),
+    function (element) {
+      element.parentNode.removeChild(element)
+    }
+  )
 }
 
 function appendPlumbs() {
-  ;[].forEach.call(document.querySelectorAll('.leader-line'), function (element) {
-    content.appendChild(element)
-  })
+  ;[].forEach.call(
+    document.querySelectorAll('.leader-line'),
+    function (element) {
+      content.appendChild(element)
+    }
+  )
 }
 
 function setNewState(key, value) {
@@ -761,7 +798,7 @@ function addJvoPlumbs(force) {
       removePlumbs()
       addPlumbs()
       if (force !== true) {
-        setNewState("jvoPlumbsOn", !state.jvoPlumbsOn)
+        setNewState('jvoPlumbsOn', !state.jvoPlumbsOn)
         const plumbers = document.getElementsByClassName('jvo_plumber')
         for (const plumber of plumbers) {
           state.jvoPlumbsOn
@@ -771,44 +808,58 @@ function addJvoPlumbs(force) {
       }
       if (!state.jvoPlumbsOn) return
       const targetedEls = Array.from(document.querySelectorAll('[data-arr]'))
-      for (let targetedElIndex = 0; targetedElIndex < targetedEls.length; targetedElIndex++) {
+      for (
+        let targetedElIndex = 0;
+        targetedElIndex < targetedEls.length;
+        targetedElIndex++
+      ) {
         const target = targetedEls[targetedElIndex]
         const target_id = target.id
-        const targetVeljvoElements = target.attributes['data-arr'].nodeValue.split(',')
+        const targetVeljvoElements =
+          target.attributes['data-arr'].nodeValue.split(',')
         const targetIdComponents = target.id.split('_')
         const targetFinalIndex = targetIdComponents.slice(0, -1)
         const WeCanSeeThisElement = kahe_sezgana(target)
         targetedEls.filter((startElement) => {
           const startElIdComponents = startElement.id.split('_')
           const startElFinalIndexes = startElIdComponents.slice(0, -2)
-          const startElVeljvoElements = startElement.attributes['data-arr'].nodeValue.split(',')
-          const startVeljvoElementComponents = startElVeljvoElements[0].split(/(?=[0-9]+)/)
+          const startElVeljvoElements =
+            startElement.attributes['data-arr'].nodeValue.split(',')
+          const startVeljvoElementComponents =
+            startElVeljvoElements[0].split(/(?=[0-9]+)/)
           if (
             startElVeljvoElements.length === 1 &&
             startElFinalIndexes.length === targetFinalIndex.length &&
             startElFinalIndexes.join('_') === targetFinalIndex.join('_') &&
             targetVeljvoElements.filter((targetVeljvoElement) => {
-              const targetVeljvoElementComponents = targetVeljvoElement.split(/(?=[0-9])/)
-              return startVeljvoElementComponents[0].indexOf(targetVeljvoElementComponents[0]) === 0 && startVeljvoElementComponents[1] === targetVeljvoElementComponents[1]
+              const targetVeljvoElementComponents =
+                targetVeljvoElement.split(/(?=[0-9])/)
+              return (
+                startVeljvoElementComponents[0].indexOf(
+                  targetVeljvoElementComponents[0]
+                ) === 0 &&
+                startVeljvoElementComponents[1] ===
+                targetVeljvoElementComponents[1]
+              )
             }).length > 0 &&
             (WeCanSeeThisElement || kahe_sezgana(startElement))
           ) {
             let color = startElement.attributes['data-color'].nodeValue
             color = `hsla(${color},100%,70%,0.62)`
-              ; new LeaderLine(
-                document.getElementById(startElement.id),
-                document.getElementById(target_id),
-                {
-                  endPlugColor: color,
-                  color: color,
-                  dash: { animation: true },
-                  startSocketGravity: [50, -67],
-                  endSocketGravity: [0, 67],
-                  endPlug: 'arrow2',
-                  endSocket: 'bottom',
-                  size: 3,
-                }
-              )
+            new LeaderLine(
+              document.getElementById(startElement.id),
+              document.getElementById(target_id),
+              {
+                endPlugColor: color,
+                color: color,
+                dash: { animation: true },
+                startSocketGravity: [50, -67],
+                endSocketGravity: [0, 67],
+                endPlug: 'arrow2',
+                endSocket: 'bottom',
+                size: 3,
+              }
+            )
           }
         })
 
@@ -827,29 +878,30 @@ function addPlumbs() {
     if (kahe_sezgana(target)) {
       const target_id = target.id
       const start = target.attributes['data-target'].nodeValue
-      let color = document.getElementById(start).attributes['data-color'].nodeValue
+      let color =
+        document.getElementById(start).attributes['data-color'].nodeValue
       color = `hsla(${color},100%,70%,0.62)`
-        ; new LeaderLine(
-          document.getElementById(start),
-          document.getElementById(target_id),
-          {
-            // gradient: {
-            //   startColor: 'rgba(135, 0, 0, 0.4)',
-            //   endColor: 'rgba(255, 120, 0, 0.4)',
-            // },
-            endPlugColor: color,
-            color: color,
-            dash: { animation: true },
-            // outlineColor: '#111',
-            // outline: true,
-            startSocketGravity: [50, -67],
-            endSocketGravity: [0, 67],
-            endPlug: 'arrow2',
-            // startSocket: 'top',
-            endSocket: 'bottom',
-            size: 3,
-          }
-        )
+      new LeaderLine(
+        document.getElementById(start),
+        document.getElementById(target_id),
+        {
+          // gradient: {
+          //   startColor: 'rgba(135, 0, 0, 0.4)',
+          //   endColor: 'rgba(255, 120, 0, 0.4)',
+          // },
+          endPlugColor: color,
+          color: color,
+          dash: { animation: true },
+          // outlineColor: '#111',
+          // outline: true,
+          startSocketGravity: [50, -67],
+          endSocketGravity: [0, 67],
+          endPlug: 'arrow2',
+          // startSocket: 'top',
+          endSocket: 'bottom',
+          size: 3,
+        }
+      )
     }
   }
   appendPlumbs()
@@ -857,11 +909,13 @@ function addPlumbs() {
 
 function kahe_sezgana(el) {
   const rect = el.getBoundingClientRect()
-  return rect.top >= 42 &&
+  return (
+    rect.top >= 42 &&
     rect.left >= 0 &&
     rect.bottom <=
     (window.innerHeight || document.documentElement.clientHeight) &&
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  )
 }
 
 function twoJsonsAreEqual(obj1 = {}, obj2 = {}) {
@@ -890,10 +944,13 @@ worker.onmessage = (ev) => {
     if (!data.force && !twoJsonsAreEqual(data.req, state.searching)) return
     results = data.results || []
     if (data.lei_jufra_absent) {
-      updateDOMWithLocales({ window: data.leijufra }, {
-        ...state.searching,
-        ...data.datni,
-      })
+      updateDOMWithLocales(
+        { window: data.leijufra },
+        {
+          ...state.searching,
+          ...data.datni,
+        }
+      )
     }
     RenderResults({
       ...data.req,
@@ -920,14 +977,17 @@ worker.onmessage = (ev) => {
     )[0]
     if (hd && !hd2) {
       try {
-        const gotAudio = window.runSpeakableAudio(word, true, data.req.queryLanguage)
-        if (gotAudio) hd.insertAdjacentHTML(
-          'afterend',
-          `<button class="tutci sance" data-valsi-play="${encodedWord}" onclick="window.runSpeakableAudio(&quot;${word}&quot;)">▶</button>`
+        const gotAudio = window.runSpeakableAudio(
+          word,
+          true,
+          data.req.queryLanguage
         )
-      } catch (error) {
-
-      }
+        if (gotAudio)
+          hd.insertAdjacentHTML(
+            'afterend',
+            `<button class="tutci sance" data-valsi-play="${encodedWord}" onclick="window.runSpeakableAudio(&quot;${word}&quot;)">▶</button>`
+          )
+      } catch (error) { }
     }
   } else if (kind == 'loader') {
     if (cmene === 'loading') {
@@ -951,12 +1011,20 @@ worker.onmessage = (ev) => {
           })
         }
       }
-      showLoading({ completedRows: data.completedRows, totalRows: data.totalRows, innerText: "🗃️ " + data.bangu })
+      showLoading({
+        completedRows: data.completedRows,
+        totalRows: data.totalRows,
+        innerText: '🗃️ ' + data.bangu,
+      })
     } else if (cmene === 'loaded') {
       showLoaded()
       fetchAndSaveCachedListValues({ mode: "ca'o" })
     } else if (cmene === 'booting') {
-      showLoading({ completedRows: 1, totalRows: 3, innerText: "🗃️ " + (window.booting || '') })
+      showLoading({
+        completedRows: 1,
+        totalRows: 3,
+        innerText: '🗃️ ' + (window.booting || ''),
+      })
     }
     calcVH()
   } else if (kind == 'fancu') {
@@ -968,7 +1036,7 @@ worker.onmessage = (ev) => {
         })
         break
       default:
-        console.log({ event: 'from the worker', message: data.results });
+        console.log({ event: 'from the worker', message: data.results })
     }
   }
 }
@@ -1106,10 +1174,13 @@ function typing(timeout) {
   clearTimeout(typingTimer)
   const defaultTimeout = 250
   if (state.searching.bangu === 'muplis') timeout = 500
-  if (state.searching.versio === 'selmaho') state.searching = { ...state.searching, seskari: 'catni', versio: 'masno' }
-  typingTimer = setTimeout(GetCiskaAndDispatch, timeout ? timeout : defaultTimeout)
+  if (state.searching.versio === 'selmaho')
+    state.searching = { ...state.searching, seskari: 'catni', versio: 'masno' }
+  typingTimer = setTimeout(
+    GetCiskaAndDispatch,
+    timeout ? timeout : defaultTimeout
+  )
 }
-
 
 function focusSearch() {
   // if (loadingState.firstRun) {
@@ -1121,7 +1192,7 @@ function focusSearch() {
 }
 
 window.EmptyState = (bangu) => {
-  ciska.blur();
+  ciska.blur()
   if (typeof bangu === 'string') {
     state.searching.bangu = bangu
     updateLocales()
@@ -1130,27 +1201,39 @@ window.EmptyState = (bangu) => {
     empty: true,
   })
   if (state.ninynaha) {
-    try { document.getElementById("pyro").remove(); } catch (error) { }
+    try {
+      document.getElementById('pyro').remove()
+    } catch (error) { }
     if (Math.random() > 0.618) {
-      SiteTitleFull.insertAdjacentHTML('afterend', '<div id="pyro" class="pyro"></div>');
+      SiteTitleFull.insertAdjacentHTML(
+        'afterend',
+        '<div id="pyro" class="pyro"></div>'
+      )
       setTimeout(() => {
-        try { document.getElementById("pyro").remove(); } catch (error) { }
+        try {
+          document.getElementById('pyro').remove()
+        } catch (error) { }
       }, 3000)
     }
   }
 }
 
-document.getElementById("report_feedback_main").addEventListener("click", function () {
-  window.tmp_value = state.displaying;
-  openModal({
-    innerHTML: `
+document
+  .getElementById('report_feedback_main')
+  .addEventListener('click', function () {
+    window.tmp_value = state.displaying
+    openModal({
+      innerHTML: `
         <h2>${window.report_feedback}</h2>
         <h3 class="valsi">${state.displaying.query}</h3>
         <h4 class="valsi">${supportedLangs[state.displaying.bangu].n}</h4>
-        <textarea id="modal__textarea" class="modal__textarea" row="10" placeholder="${window.report_feedback_description}"></textarea>
-        <button class="tutci feedback" onclick="this.firstElementChild.classList.remove('d-none');window.send_feedback({state: window.tmp_value, comment: document.getElementById('modal__textarea').value})"><div class="spinner d-none"></div>${window.report_feedback}</button>
-  `})
-})
+        <textarea id="modal__textarea" class="modal__textarea" row="10" placeholder="${window.report_feedback_description
+        }"></textarea>
+        <button class="tutci feedback" onclick="this.firstElementChild.classList.remove('d-none');window.send_feedback({state: window.tmp_value, comment: document.getElementById('modal__textarea').value})"><div class="spinner d-none"></div>${window.report_feedback
+        }</button>
+  `,
+    })
+  })
 // document.getElementById("arxivo").addEventListener("click", function () {
 //   state.searching = {
 //     seskari: "arxivo",
@@ -1195,11 +1278,12 @@ function DispatchCitri() {
 //Dispatch State
 function mergeJSONs(a, b) {
   return Object.entries(b).reduce((o, [k, v]) => {
-    o[k] = v && typeof v === 'object'
-      ? mergeJSONs(o[k] = o[k] || (Array.isArray(v) ? [] : {}), v)
-      : v;
-    return o;
-  }, a);
+    o[k] =
+      v && typeof v === 'object'
+        ? mergeJSONs((o[k] = o[k] || (Array.isArray(v) ? [] : {})), v)
+        : v
+    return o
+  }, a)
 }
 
 function setState(newState) {
@@ -1297,13 +1381,22 @@ function updateDOMWithLocales(jufra, miniState) {
       seskari: 'cnano',
       sisku: 'lai jbosnu',
       bangu: getStateBangu(),
-      versio: 'masno'
+      versio: 'masno',
     })
 }
 
 function updateLocales(force) {
-  if ((state.searching.bangu && state.searching.bangu !== state.displaying.bangu) || !loadingState.localesLoaded || force)
-    worker.postMessage({ kind: 'fancu', cmene: 'sanji_letejufra', ...state.searching })
+  if (
+    (state.searching.bangu &&
+      state.searching.bangu !== state.displaying.bangu) ||
+    !loadingState.localesLoaded ||
+    force
+  )
+    worker.postMessage({
+      kind: 'fancu',
+      cmene: 'sanji_letejufra',
+      ...state.searching,
+    })
 }
 
 //rendering
@@ -1342,41 +1435,77 @@ function RenderDesktop(tempState) {
   outp.style.display = 'none'
   descr.style.display = 'block'
   const cisn_default = 100
-  const links = window.leijufra.custom_links.concat([
-    'hr',
-    { en: { title: 'English-Lojban', picture: '../pixra/selsku_lanci_eng.svg' } },
-    { jbo: { title: "fanva fi le'e lojbo ri", picture: '../pixra/lanci_jbo.svg' } },
-    {
-      ja: {
-        title: '日本 - <span style="white-space:pre;">ロジバン</span>',
-        picture: '../pixra/selsku_lanci_jpn.svg',
-      }
-    },
-    {
-      'fr-facile': {
-        title: 'français facile - lojban',
-        picture: '../pixra/selsku_lanci_fra.svg',
-      }
-    },
-    { ru: { title: 'русский - ложбан', picture: '../pixra/selsku_lanci_rus.svg' } },
-    { eo: { title: 'Esperanto - Loĵbano', picture: '../pixra/lanci_epo.svg' } },
-    { es: { title: 'español - lojban', picture: '../pixra/selsku_lanci_spa.svg' } },
-    { zh: { title: '中文 - 逻辑语', picture: '../pixra/selsku_lanci_zho.svg' } },
-    { loglan: { title: 'Loglan', picture: '../pixra/loglan.png' } }
-  ])
-    .map(elem => {
+  const links = JSON.parse(JSON.stringify(window.leijufra.custom_links))
+    .concat([
+      'hr',
+      {
+        en: {
+          title: 'English-Lojban',
+          picture: '../pixra/selsku_lanci_eng.svg',
+        },
+      },
+      {
+        jbo: {
+          title: "fanva fi le'e lojbo ri",
+          picture: '../pixra/lanci_jbo.svg',
+        },
+      },
+      {
+        ja: {
+          title: '日本 - <span style="white-space:pre;">ロジバン</span>',
+          picture: '../pixra/selsku_lanci_jpn.svg',
+        },
+      },
+      {
+        'fr-facile': {
+          title: 'français facile - lojban',
+          picture: '../pixra/selsku_lanci_fra.svg',
+        },
+      },
+      {
+        ru: {
+          title: 'русский - ложбан',
+          picture: '../pixra/selsku_lanci_rus.svg',
+        },
+      },
+      {
+        eo: { title: 'Esperanto - Loĵbano', picture: '../pixra/lanci_epo.svg' },
+      },
+      {
+        es: {
+          title: 'español - lojban',
+          picture: '../pixra/selsku_lanci_spa.svg',
+        },
+      },
+      {
+        zh: {
+          title: '中文 - 逻辑语',
+          picture: '../pixra/selsku_lanci_zho.svg',
+        },
+      },
+      { loglan: { title: 'Loglan', picture: '../pixra/loglan.png' } },
+    ])
+    .map((elem) => {
       if (typeof elem === 'string') return '<div></div>'
       const name = Object.keys(elem)[0]
       if (!elem[name].url) {
-        elem[name].url = `#seskari=${(tempState.seskari !== 'fanva' && name.indexOf("muplis") !== 0) ? tempState.seskari : 'catni'
-          }&sisku=${encodeUrl(lastQuery)}&bangu=${name}&versio=masno`
-      }
-      else {
-        elem[name].url = elem[name].url.replace(/{lastQuery}/g, encodeUrl(lastQuery));
+        elem[name].url = buildURLParams({
+          seskari: tempState.seskari !== 'fanva' && name.indexOf('muplis') !== 0
+            ? tempState.seskari
+            : 'catni',
+          sisku: encodeUrl(lastQuery),
+          bangu: name,
+          versio: 'masno'
+        });
+      } else {
+        elem[name].url = elem[name].url.replace(
+          /{lastQuery}/g,
+          encodeUrl(lastQuery)
+        )
       }
       elem.name = name
       elem = elem[name]
-      //
+
       let { title, picture, url, width, height } = elem
       if (!width) width = 1
       height = (height || 1) * cisn_default
@@ -1391,14 +1520,17 @@ function RenderDesktop(tempState) {
           <a${(url || '').indexOf('http') === 0
           ? " rel='noreferrer' target='_blank'"
           : ''
-        } aria-label="${title.replace(/<[^>]+?>/g, '')}" onclick="window.ningau_lepasorcu('${url}','${name}')" href="${url}" class='A_7'>
+        } aria-label="${title.replace(
+          /<[^>]+?>/g,
+          ''
+        )}" onclick="window.ningau_lepasorcu('${url}','${name}')" href="${url}" class='A_7'>
           <div class='DIV_8' style='background-image:url(${picture})'>
           </div>
           </a>
         </div>
       </div>`
-    });
-  drata.innerHTML = links.filter(Boolean).join("")
+    })
+  drata.innerHTML = links.filter(Boolean).join('')
   drata.style.display = 'block'
 }
 
@@ -1411,8 +1543,7 @@ if (document.readyState === 'loading') {
 }
 
 function calcVH() {
-  const { clientHeight: dasriHeight } =
-    document.getElementById('galtu-dasri')
+  const { clientHeight: dasriHeight } = document.getElementById('galtu-dasri')
   const { clientHeight: loadingHeight } = document.getElementById('loading')
   const { clientHeight: velskuHeight } = document.getElementById('velsku')
   content.setAttribute(
@@ -1426,7 +1557,6 @@ function calcVH() {
       50
     )}px;`
   )
-
 }
 
 //<xuzganalojudri|lojbo>
@@ -1462,7 +1592,6 @@ function calcVH() {
 // }
 //</xuzganalojudri|lojbo>
 
-
 async function checkScrolledNearBottom({ target }) {
   removePlumbs()
   if (scrollTimer !== null) {
@@ -1486,9 +1615,10 @@ async function checkScrolledNearBottom({ target }) {
   addAudioLinks()
 }
 
-const number2ColorHue = (number) => Math.floor((number * 360 / 7.618) % 360);
+const number2ColorHue = (number) => Math.floor(((number * 360) / 7.618) % 360)
 
-const bgString2Int = (number, { s = '90%', l = '80%' }) => `hsl(${number2ColorHue(number)},${s},${l})`
+const bgString2Int = (number, { s = '90%', l = '80%' }) =>
+  `hsl(${number2ColorHue(number)},${s},${l})`
 
 function placeTagHasExpansion(v) {
   v = v.substr(1, v.length - 2).split('=')
@@ -1496,31 +1626,66 @@ function placeTagHasExpansion(v) {
   return v.length > 1 || (jalge[0] && jalge[0] !== 'x')
 }
 
-function getVeljvoString({ placeTag, fullDef, isHead, dataArrAdded, clearedPlaceTag }) {
-  if (isHead && fullDef.t !== 'lujvo') return { dataArr: false, replacement: placeTag, stringifiedPlaceTag: placeTag }
-  const rfsWords = (fullDef.rfs || []).map(i => i.w)
+function getVeljvoString({
+  placeTag,
+  fullDef,
+  isHead,
+  dataArrAdded,
+  clearedPlaceTag,
+}) {
+  if (isHead && fullDef.t !== 'lujvo')
+    return {
+      dataArr: false,
+      replacement: placeTag,
+      stringifiedPlaceTag: placeTag,
+    }
+  const rfsWords = (fullDef.rfs || []).map((i) => i.w)
   const arrayPlaceTags = placeTag
     .substr(1, placeTag.length - 2)
     .split('=')
     .map((i) => {
       const arrayTag = i.split(/(?=[_0-9].*)/)
-      const candidateWord = rfsWords.filter(word => word.indexOf(arrayTag[0]) === 0)[0]
+      const candidateWord = rfsWords.filter(
+        (word) => word.indexOf(arrayTag[0]) === 0
+      )[0]
       return {
         full: isHead ? candidateWord || arrayTag[0] : fullDef.w,
-        number: arrayTag.slice(1).join(""),
+        number: arrayTag.slice(1).join(''),
         short: isHead ? arrayTag[0] : fullDef.w,
-        hasMatchInRFS: !!candidateWord
+        hasMatchInRFS: !!candidateWord,
       }
     })
-  const stringifiedPlaceTag = arrayPlaceTags.filter(i => i.hasMatchInRFS || !isHead).map(i => i.full + i.number.replace(/[_\{\}]/g, '')).join(',') || clearedPlaceTag
-  const replacingPlaceTag = arrayPlaceTags.map(i => i.full + i.number).join("=")
-  return { stringifiedPlaceTag, dataArr: !dataArrAdded.includes(clearedPlaceTag), replacement: `$${replacingPlaceTag}$` }
+  const stringifiedPlaceTag =
+    arrayPlaceTags
+      .filter((i) => i.hasMatchInRFS || !isHead)
+      .map((i) => i.full + i.number.replace(/[_\{\}]/g, ''))
+      .join(',') || clearedPlaceTag
+  const replacingPlaceTag = arrayPlaceTags
+    .map((i) => i.full + i.number)
+    .join('=')
+  return {
+    stringifiedPlaceTag,
+    dataArr: !dataArrAdded.includes(clearedPlaceTag),
+    replacement: `$${replacingPlaceTag}$`,
+  }
 }
 
-function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index, stringifiedPlaceTags }) {
+function melbi_uenzi({
+  def,
+  fullDef,
+  query,
+  seskari,
+  versio,
+  bangu,
+  type,
+  index,
+  stringifiedPlaceTags,
+}) {
   if (fullDef) {
     if (fullDef.bangu.indexOf('-cll') >= 0) {
-      const url = window?.leijufra?.custom_links?.filter(i => !!i.uncll)?.[0]?.uncll?.url || '/';
+      const url =
+        window?.leijufra?.custom_links?.filter((i) => !!i.uncll)?.[0]?.uncll
+          ?.url || '/'
       const d = Object.keys(def)
         .map((address) => {
           const velcki = def[address]
@@ -1532,7 +1697,9 @@ function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index,
         hasExpansion: false,
       }
     } else if (fullDef.bangu.indexOf('-ll') >= 0) {
-      const url = window?.leijufra?.custom_links?.filter(i => !!i.introbook)?.[0]?.introbook?.url || '/';
+      const url =
+        window?.leijufra?.custom_links?.filter((i) => !!i.introbook)?.[0]
+          ?.introbook?.url || '/'
       const d = Object.keys(def)
         .map((address) => {
           const velcki = def[address]
@@ -1555,7 +1722,12 @@ function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index,
 
   const placeTags = def.match(/\$.*?\$/g) || []
   for (const placeTag of placeTags)
-    if (type === 'd' && typeof index !== 'undefined' && placeTagHasExpansion(placeTag)) hasExpansion = true
+    if (
+      type === 'd' &&
+      typeof index !== 'undefined' &&
+      placeTagHasExpansion(placeTag)
+    )
+      hasExpansion = true
 
   let jalge = def
     .replace(/\$=\$/g, `$<span class="veljvocmiterjonmaho">=</span>$`)
@@ -1575,20 +1747,28 @@ function melbi_uenzi({ def, fullDef, query, seskari, versio, bangu, type, index,
         clearedPlaceTag,
       })
       const stringifiedPlaceTag = objectVeljvoReplacement.stringifiedPlaceTag
-      if (!stringifiedPlaceTags.includes(stringifiedPlaceTag)) stringifiedPlaceTags.push(stringifiedPlaceTag)
+      if (!stringifiedPlaceTags.includes(stringifiedPlaceTag))
+        stringifiedPlaceTags.push(stringifiedPlaceTag)
       const number = stringifiedPlaceTags.indexOf(stringifiedPlaceTag)
-      const replacementTag = isHead ? objectVeljvoReplacement.replacement : placeTag;
-      const gradient = bgString2Int(number, { s: '90%', l: '100%' });
-      const gradientBorder = bgString2Int(number, { s: '100%', l: '40%' });
+      const replacementTag = isHead
+        ? objectVeljvoReplacement.replacement
+        : placeTag
+      const gradient = bgString2Int(number, { s: '90%', l: '100%' })
+      const gradientBorder = bgString2Int(number, { s: '100%', l: '40%' })
       // dataArrAdded.push(clearedPlaceTag)
       const span = document.createElement('span')
       if (type === 'd') span.id = combInd
-      span.classList.add("terbricmi")
+      span.classList.add('terbricmi')
       const background = `repeating-linear-gradient(to right,${gradient},${gradient} 100%) content-box content-box, linear-gradient(90deg, ${gradientBorder},${gradientBorder} 100%) padding-box padding-box`
-      span.setAttribute("style", `background: ${background};`)
-      if (objectVeljvoReplacement.dataArr && (type === 'd')) span.setAttribute("data-arr", stringifiedPlaceTag)
-      if (!isHead) span.setAttribute("data-color", number2ColorHue(number, 256, 32))
-      span.innerHTML = replacementTag.replace(/\{/g, '\\curlyleft').replace(/\}/g, '\\curlyright').replace(/^<span /, `<span `)
+      span.setAttribute('style', `background: ${background};`)
+      if (objectVeljvoReplacement.dataArr && type === 'd')
+        span.setAttribute('data-arr', stringifiedPlaceTag)
+      if (!isHead)
+        span.setAttribute('data-color', number2ColorHue(number, 256, 32))
+      span.innerHTML = replacementTag
+        .replace(/\{/g, '\\curlyleft')
+        .replace(/\}/g, '\\curlyright')
+        .replace(/^<span /, `<span `)
       return span.outerHTML
     })
     .replace(
@@ -1649,19 +1829,29 @@ function escapeRegExp(string) {
 }
 
 String.prototype.interpolate = function (params) {
-  const names = Object.keys(params);
-  const vals = Object.values(params);
-  return new Function(...names, `return \`${this}\`;`)(...vals);
+  const names = Object.keys(params)
+  const vals = Object.values(params)
+  return new Function(...names, `return \`${this}\`;`)(...vals)
 }
 
 function basna({ def, query }) {
   if (!query || query.length <= 2) return def
   query = query.trim().replace(/[\|\(\)\{\}<>]/g, '.')
-  let wordsToHilite = escapeRegExp(query).split(" ").filter(i => i.length > 2).concat(escapeRegExp(query.replace(/'/g, 'h')).split(" ").filter(i => i.length > 2))
-  if (wordsToHilite.length === 0) return def;
+  let wordsToHilite = escapeRegExp(query)
+    .split(' ')
+    .filter((i) => i.length > 2)
+    .concat(
+      escapeRegExp(query.replace(/'/g, 'h'))
+        .split(' ')
+        .filter((i) => i.length > 2)
+    )
+  if (wordsToHilite.length === 0) return def
 
-  const regexpToHilite = `(${wordsToHilite.join("|")})`
-  return def.replace(new RegExp(regexpToHilite, 'igm'), "<span class='basna'>$1</span>")
+  const regexpToHilite = `(${wordsToHilite.join('|')})`
+  return def.replace(
+    new RegExp(regexpToHilite, 'igm'),
+    "<span class='basna'>$1</span>"
+  )
 }
 
 //<xuzganalojudri|lojbo>
@@ -1777,7 +1967,7 @@ window.runQuery = (query, params) => {
     kind: 'fancu',
     cmene: 'runQuery',
     query,
-    params
+    params,
   })
 }
 
@@ -1793,12 +1983,12 @@ window.ningau_lepasorcu = (url, bangu) => {
   if (url.indexOf('http') === 0) return
   setState({
     searching: {
-      bangu
+      bangu,
     },
     displaying: {
-      bangu
-    }
-  });
+      bangu,
+    },
+  })
   updateLocales(true)
 
   worker.postMessage({
@@ -1822,11 +2012,26 @@ window.runSearch = (seskari, selmaho, bangu) => {
 }
 
 function buildURLParams(params = {}) {
-  return "#" + new URLSearchParams(params).toString()
+  return '#' + new URLSearchParams(params).toString()
 }
 
-async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, stringifiedPlaceTags = [] }) {
-  if (def.bangu === 'en-pixra' && !(await getOrFetchResource({ url: `../pixra/xraste/${encodeURIComponent(def.d)}` }))) return;
+async function skicu_palodovalsi({
+  def,
+  inner,
+  query,
+  seskari,
+  versio,
+  bangu,
+  index,
+  stringifiedPlaceTags = [],
+}) {
+  if (
+    def.bangu === 'en-pixra' &&
+    !(await getOrFetchResource({
+      url: `../pixra/xraste/${encodeURIComponent(def.d)}`,
+    }))
+  )
+    return
   if (!query) query = state.searching.query
   if (!seskari) seskari = state.searching.seskari
   bangu = def.bangu || bangu || state.searching.bangu
@@ -1883,22 +2088,23 @@ async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, in
       query,
     })} `
   } else {
-    const aTag = document.createElement('a');
+    const aTag = document.createElement('a')
     aTag.innerHTML = basna({
       def: escHtml(def.w, true),
       query,
     })
     aTag.classList.add('valsi')
     if (def.l) aTag.classList.add('nalojbo')
-    aTag.setAttribute('href', buildURLParams({
-      seskari: seskari === 'fanva' ? 'catni' : seskari,
-      sisku: encodeUrl(
-        def.w
-      ),
-      bangu,
-      versio: 'masno'
-    }));
-    word.appendChild(aTag);
+    aTag.setAttribute(
+      'href',
+      buildURLParams({
+        seskari: seskari === 'fanva' ? 'catni' : seskari,
+        sisku: encodeUrl(def.w),
+        bangu,
+        versio: 'masno',
+      })
+    )
+    word.appendChild(aTag)
   }
 
   let jvs
@@ -1914,7 +2120,7 @@ async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, in
         seskari: seskari === 'catni' ? 'catni' : 'cnano',
         sisku: txt,
         bangu,
-        versio: 'masno'
+        versio: 'masno',
       })
     if (window.judri) {
       jvs.setAttribute('target', '_blank')
@@ -1932,7 +2138,8 @@ async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, in
     jvs.className = 'klesi'
     jvs.innerHTML = def.t.type
 
-    if (def.t.bangu && def.t.bangu !== "lojbo") word.classList.add('na_eisesance')
+    if (def.t.bangu && def.t.bangu !== 'lojbo')
+      word.classList.add('na_eisesance')
   }
   if (def.date) {
     jvs = document.createElement('div')
@@ -1943,36 +2150,49 @@ async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, in
 
   let prettifiedDefinition = {}
   if (def.d && !def.d.nasezvafahi)
-    if (!supportedLangs[def.bangu].pictureDictionary) prettifiedDefinition = melbi_uenzi({
-      def: def.d,
-      fullDef: def,
-      query: def.sem?.length > 0 ? def.sem.join(" ") : query,
-      seskari,
-      versio,
-      bangu,
-      type: 'd',
-      index,
-      stringifiedPlaceTags
-    })
-    else prettifiedDefinition = { tergeha: `<img src="../pixra/xraste/${encodeURIComponent(def.d)}"/>`, hasExpansion: false, stringifiedPlaceTags };
+    if (!supportedLangs[def.bangu].pictureDictionary)
+      prettifiedDefinition = melbi_uenzi({
+        def: def.d,
+        fullDef: def,
+        query: def.sem?.length > 0 ? def.sem.join(' ') : query,
+        seskari,
+        versio,
+        bangu,
+        type: 'd',
+        index,
+        stringifiedPlaceTags,
+      })
+    else
+      prettifiedDefinition = {
+        tergeha: `<img src="../pixra/xraste/${encodeURIComponent(def.d)}"/>`,
+        hasExpansion: false,
+        stringifiedPlaceTags,
+      }
   stringifiedPlaceTags = prettifiedDefinition.stringifiedPlaceTags
 
   //<xuzganalojudri|lojbo>
   let zbalermorna
-  if (window.lojbo && !(def.t && def.t.k === 0) && (seskari !== 'fanva' || index === 0)) {
+  if (
+    window.lojbo &&
+    !(def.t && def.t.k === 0) &&
+    (seskari !== 'fanva' || index === 0)
+  ) {
     zbalermorna = document.createElement('h4')
     const textContent = zbalermornaize(def)
     if (supportedLangs[bangu].zbalermorna_defined) {
-      const aTag = document.createElement('a');
-      aTag.setAttribute('href', buildURLParams({
-        seskari,
-        sisku: 'zbalermorna',
-        bangu,
-        versio
-      }));
-      aTag.innerText = textContent;
+      const aTag = document.createElement('a')
+      aTag.setAttribute(
+        'href',
+        buildURLParams({
+          seskari,
+          sisku: 'zbalermorna',
+          bangu,
+          versio,
+        })
+      )
+      aTag.innerText = textContent
       aTag.classList.add('valsi', 'zbalermorna', 'segerna', 'sampu')
-      zbalermorna.appendChild(aTag);
+      zbalermorna.appendChild(aTag)
     } else {
       zbalermorna.classList.add('valsi', 'zbalermorna', 'segerna', 'sampu')
       zbalermorna.textContent = textContent
@@ -2021,7 +2241,7 @@ async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, in
       })
     }
     // translateButton.innerHTML = `<img src="../pixra/fanva.svg" class="cukta"/>`
-    translateButton.style = "background-image: url(../pixra/terdi.svg);"
+    translateButton.style = 'background-image: url(../pixra/terdi.svg);'
     // translateButton.innerHTML = `🌍`
   }
 
@@ -2057,7 +2277,6 @@ async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, in
     heading.appendChild(inDefElement)
   }
 
-
   if (jvs) {
     const inDefElement = document.createElement('div')
     inDefElement.classList.add('sampu', 'noselect')
@@ -2067,10 +2286,21 @@ async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, in
 
   //<xuzganalojudri|lojbo>
   let jvo
-  if (def.t === 'lujvo' && (def.rfs || []).length > 0 && prettifiedDefinition.hasExpansion) {
+  if (
+    def.t === 'lujvo' &&
+    (def.rfs || []).length > 0 &&
+    prettifiedDefinition.hasExpansion
+  ) {
     jvo = document.createElement('button')
-    jvo.style = "background-image: url(../pixra/shuffle.svg);"
-    jvo.classList.add('tutci', 'sance', 'jvo_plumber', 'pixra', 'klesi', 'klesi-tutci')
+    jvo.style = 'background-image: url(../pixra/shuffle.svg);'
+    jvo.classList.add(
+      'tutci',
+      'sance',
+      'jvo_plumber',
+      'pixra',
+      'klesi',
+      'klesi-tutci'
+    )
     state.jvoPlumbsOn
       ? jvo.classList.add('tutci-hover')
       : jvo.classList.remove('tutci-hover')
@@ -2113,23 +2343,30 @@ async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, in
   const copy = document.createElement('input')
   copy.type = 'button'
   copy.classList.add('tutci', 'sance', 'klesi-tutci', 'pixra')
-  copy.style = "background-image: url(../pixra/fukpi.svg);"
+  copy.style = 'background-image: url(../pixra/fukpi.svg);'
   // copy.value = "📋"
   copy.addEventListener('click', function () {
-    copyToClipboard([def.w, def.d, def.n].filter(Boolean).join("\r\n"))
-  });
+    copyToClipboard([def.w, def.d, def.n].filter(Boolean).join('\r\n'))
+  })
   heading.appendChild(copy)
 
   if (def.semMaxDistance <= 1) {
-    const distance = document.createElement('div');
-    distance.innerText = `${Math.round(def.semMaxDistance.toPrecision(2) * 100)}%`;
+    const distance = document.createElement('div')
+    distance.innerText = `${Math.round(
+      def.semMaxDistance.toPrecision(2) * 100
+    )}%`
     distance.classList.add('tutci', 'klesi', 'klesi-tutci', 'noselect')
     distance.addEventListener('click', function () {
-      showLoading({ innerText: (window.leijufra.distance || '').interpolate({ distance: distance.innerText }), hideProgress: true })
+      showLoading({
+        innerText: (window.leijufra.distance || '').interpolate({
+          distance: distance.innerText,
+        }),
+        hideProgress: true,
+      })
       setTimeout(() => {
         showLoaded()
       }, 4000)
-    });
+    })
     heading.appendChild(distance)
   }
 
@@ -2151,12 +2388,12 @@ async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, in
   out.appendChild(heading2)
   // }
 
-  if (bangu.indexOf("muplis") === 0) {
+  if (bangu.indexOf('muplis') === 0) {
     //add feedback button
     const row = document.createElement('button')
     row.className = 'tutci klesi klesi-tutci align-right'
-    row.onclick = () => window.send_muplis_feedback(def);
-    row.setAttribute("data-jufra", `window.report_feedback`)
+    row.onclick = () => window.send_muplis_feedback(def)
+    row.setAttribute('data-jufra', `window.report_feedback`)
     row.innerText = window.report_feedback
     out.appendChild(row)
   }
@@ -2216,7 +2453,7 @@ async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, in
       type: 'n',
       index,
       bangu,
-      stringifiedPlaceTags
+      stringifiedPlaceTags,
     }).tergeha
       } `
     out.appendChild(inDefElement)
@@ -2299,7 +2536,7 @@ async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, in
         seskari,
         versio,
         bangu,
-        stringifiedPlaceTags
+        stringifiedPlaceTags,
       })
       if (html) subDefs.appendChild(html)
     }
@@ -2372,7 +2609,7 @@ async function addAudioLinkForExternalSpeaker(word) {
     kind: 'parse',
     operation: 'audioLink',
     tegerna: word.replace(/"/g, ''),
-    queryLanguage: window.leijufra.queryLanguage
+    queryLanguage: window.leijufra.queryLanguage,
   })
 }
 
@@ -2383,7 +2620,9 @@ function sleep(ms) {
 async function addAudioLinks() {
   //<xuzganalojudri|lojbo>
   //audio
-  const els = Array.from(document.querySelectorAll(':not(.na_eisesance)[data-valsi]'))
+  const els = Array.from(
+    document.querySelectorAll(':not(.na_eisesance)[data-valsi]')
+  )
   for (let el of els) {
     if (!kahe_sezgana(el)) continue
     el = el.textContent.trim()
@@ -2434,7 +2673,6 @@ async function addAudioLinks() {
   //</xuzganalojudri|lojbo>
 }
 
-
 //<xuzganalojudri|lojbo>
 //pronunciation guide
 
@@ -2464,7 +2702,11 @@ document.querySelector('#table').appendChild(
           el.innerHTML = col
           el.className = 'bangu'
           el.onclick = () => {
-            play(`/sutysisku/sance/lerfu/${encodeURIComponent(col.replace(/.*<b>(.*?)<\/b>.*/g, '$1'))}.ogg`)
+            play(
+              `/sutysisku/sance/lerfu/${encodeURIComponent(
+                col.replace(/.*<b>(.*?)<\/b>.*/g, '$1')
+              )}.ogg`
+            )
           }
           return elem('td', el)
         })
@@ -2508,7 +2750,10 @@ if (socket1Chat) {
   //   document.getElementById("velcusku").style.display = "none";
   // });
   function trimSocketChunk(text) {
-    return text.replace(/[\n\r]+$/gims, ' ').replace(/<br *\/?>/gims, ' ').split('<')[0]
+    return text
+      .replace(/[\n\r]+$/gims, ' ')
+      .replace(/<br *\/?>/gims, ' ')
+      .split('<')[0]
   }
   socket1Chat.on('sentFrom', function (data) {
     if (loadingState.loading || !socket1Chat_connected) return
@@ -2526,7 +2771,7 @@ if (socket1Chat) {
       seskari: 'cnano',
       sisku: 'lai jbosnu',
       bangu: getStateBangu(),
-      versio: 'masno'
+      versio: 'masno',
     })
 
     // if (msg.s === channel)
@@ -2556,7 +2801,7 @@ if (socket1Chat) {
       seskari: 'cnano',
       sisku: 'lai jbosnu',
       bangu: getStateBangu(),
-      versio: 'masno'
+      versio: 'masno',
     })
   })
 }
@@ -2574,8 +2819,11 @@ function getPhonemeClasses() {
   const h = "[h']"
   return { C, V, I, D, T, R, J, h }
 }
-function allAreSafeWords(array, { allowCmevla = false, allowCmavo = false, queryLanguage = 'lojban' }) {
-  if (queryLanguage === 'loglan') return true;
+function allAreSafeWords(
+  array,
+  { allowCmevla = false, allowCmavo = false, queryLanguage = 'lojban' }
+) {
+  if (queryLanguage === 'loglan') return true
   const { C, V, I, D, T, R, J, h } = getPhonemeClasses()
   //this is the complete regular expression matching any possible gismu and only them
   const gismu = RegExp(`^(${D}${V}${C}${V}|${C}${V}${C}${C}${V})$`)
@@ -2650,8 +2898,11 @@ function PollyPlayer(params) {
   function text2SSML(textToSpeak, queryLanguage) {
     let famymaho = []
     switch (queryLanguage) {
-      case 'loglan': famymaho = ["gu", "guu", "guo"]; break;
-      default: famymaho = ['kei', 'vau', "ku'o", "li'u", "le'u", "ge'u", "zo'u"]
+      case 'loglan':
+        famymaho = ['gu', 'guu', 'guo']
+        break
+      default:
+        famymaho = ['kei', 'vau', "ku'o", "li'u", "le'u", "ge'u", "zo'u"]
     }
     // const stresslessWords = ["lo","le","lei","loi","ku"]
     const words = textToSpeak.replace(/(?:\r\n|\r|\n)/g, ' ').split(' ')
@@ -2717,18 +2968,20 @@ function PollyPlayer(params) {
 
       const { C, V, I } = getPhonemeClasses()
       if (RegExp(`(${C})$`).test(currentWord)) {
-        ph.unshift("ʔ")
+        ph.unshift('ʔ')
       }
       if (RegExp(`^(${V}|${I})`).test(currentWord)) {
-        ph.unshift("ʔ")
+        ph.unshift('ʔ')
       }
       // if (["mo", "ma", "xu", "xo"].includes(currentWord)) {
       //   output.push(`<prosody volume="loud">`);
       //   output.push(`<phoneme alphabet="ipa" ph="${ph.join("")}">${currentWord}</phoneme>`);
       //   output.push(`</prosody>`);
       // }else{
-      const compiledWord = ph.join("").replace(/ʔ+/g, 'ʔ').replace(/\.+/g, '.')
-      output.push(`<phoneme alphabet="ipa" ph="${compiledWord}">${currentWord}</phoneme>`)
+      const compiledWord = ph.join('').replace(/ʔ+/g, 'ʔ').replace(/\.+/g, '.')
+      output.push(
+        `<phoneme alphabet="ipa" ph="${compiledWord}">${currentWord}</phoneme>`
+      )
       // }
       if (
         currentWord[currentWord.length - 1] == '.' ||
@@ -2746,10 +2999,13 @@ function PollyPlayer(params) {
   async function getAndPlayAudio(textToSpeak, dontSpeak, queryLanguage) {
     const text = text2SSML(textToSpeak, queryLanguage)
     const sance_datni =
-      getLocalAudio(text, queryLanguage) || (await downloadAudio(text, dontSpeak, queryLanguage))
+      getLocalAudio(text, queryLanguage) ||
+      (await downloadAudio(text, dontSpeak, queryLanguage))
     if (dontSpeak) return true
     return new Promise((resolve) => {
-      audio.src = URL.createObjectURL(new Blob([new Uint8Array(sance_datni).buffer]))
+      audio.src = URL.createObjectURL(
+        new Blob([new Uint8Array(sance_datni).buffer])
+      )
       audio.addEventListener('ended', () => resolve(true))
       audio.pause()
       audio.play()
@@ -2806,37 +3062,43 @@ function PollyPlayer(params) {
   }
 }
 
-window.runSpeakableAudio = function (textToSpeak, dontSpeak = false, queryLanguage) {
+window.runSpeakableAudio = function (
+  textToSpeak,
+  dontSpeak = false,
+  queryLanguage
+) {
   return polly(textToSpeak, dontSpeak, queryLanguage)
 }
 
 function zgana_sihesle() {
-  const now = new Date();
-  const start = new Date(now.getFullYear(), 0, 0);
-  const diff = now - start;
-  const oneDay = 1000 * 60 * 60 * 24;
-  const day = Math.floor(diff / oneDay);
+  const now = new Date()
+  const start = new Date(now.getFullYear(), 0, 0)
+  const diff = now - start
+  const oneDay = 1000 * 60 * 60 * 24
+  const day = Math.floor(diff / oneDay)
   if (day >= 340 || day < 10) {
     state.ninynaha = true
-    const elemDiv = document.createElement('div');
-    const rnd = (max, min = 1) => (Math.random() * max / min).toFixed(2)
-    elemDiv.innerHTML = `<div class="leisihesle" aria-hidden="true">${Array(3).fill(["❅", "❆"]).flat()
-      .map(_ => {
+    const elemDiv = document.createElement('div')
+    const rnd = (max, min = 1) => ((Math.random() * max) / min).toFixed(2)
+    elemDiv.innerHTML = `<div class="leisihesle" aria-hidden="true">${Array(3)
+      .fill(['❅', '❆'])
+      .flat()
+      .map((_) => {
         const rnd40 = rnd(30)
         const rnd3 = rnd(3)
-        return `<div class="sihesle" style="left: ${rnd(100)}%;-webkit-animation-delay: ${rnd40}s, ${rnd3}s;animation-delay: ${rnd40}s, ${rnd3}s;">${_}</div>`
+        return `<div class="sihesle" style="left: ${rnd(
+          100
+        )}%;-webkit-animation-delay: ${rnd40}s, ${rnd3}s;animation-delay: ${rnd40}s, ${rnd3}s;">${_}</div>`
       })
-      .join("")
-      }</div>`
+      .join('')}</div>`
     //<div class="sihesle"><img src="../pixra/snime.svg" height='13' width='13' alt='sihesle'/></div>
-    document.body.appendChild(elemDiv);
+    document.body.appendChild(elemDiv)
   }
 }
 
-
 ; (function () {
   function closeModal() {
-    zgana_sihesle();
+    zgana_sihesle()
     /* Get close button */
     const closeButton = document.getElementsByClassName('jsModalClose')
     const closeOverlay = document.getElementsByClassName('jsOverlay')
@@ -2898,27 +3160,33 @@ window.resetAudioParams = (input) => {
 }
 
 window.send_feedback = async function ({ def = {}, state = {}, comment }) {
-  let defCompiled = '', queryCompiled = ''
+  let defCompiled = '',
+    queryCompiled = ''
   if (def.w) {
     defCompiled = `**${def.w}**\n*${def.d}*`
   }
   if (state.query) {
     queryCompiled = `**${state.query}**\n*${supportedLangs[state.bangu].n}*`
   }
-  const url = "'%feedback_backend_url%'";
+  const url = "'%feedback_backend_url%'"
   const response = await fetch(url, {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
     credentials: 'same-origin',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
     redirect: 'follow', // manual, *follow, error
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify({ body: `${[defCompiled, queryCompiled].join("\n\n")}\n\n----\n\n${comment}`, title: def.w || state.query }) // body data type must match "Content-Type" header
-  });
+    body: JSON.stringify({
+      body: `${[defCompiled, queryCompiled].join(
+        '\n\n'
+      )}\n\n----\n\n${comment}`,
+      title: def.w || state.query,
+    }), // body data type must match "Content-Type" header
+  })
 
   if (response.status < 400) {
     modalWindow.classList.remove('open')
@@ -2927,8 +3195,8 @@ window.send_feedback = async function ({ def = {}, state = {}, comment }) {
           <h2>${window.report_feedback_thankyou}</h2>
           <button class="tutci feedback" onclick="document.getElementById('jsModal').classList.remove('open')">${window.report_feedback_has_been_submitted}</button>
           <a href="'%issues_repo%'" target="_blank">${window.report_feedback_issues_repo}</a>
-    `}
-    )
+    `,
+    })
   } else {
     modalWindow.classList.remove('open')
     openModal({
@@ -2936,14 +3204,13 @@ window.send_feedback = async function ({ def = {}, state = {}, comment }) {
           <div>${window.report_feedback_problem}</div>
           <button class="tutci feedback" onclick="document.getElementById('jsModal').classList.remove('open')">✔️</button>
           <a href="'%issues_repo%'" target="_blank">${window.report_feedback_issues_repo}</a>
-    `}
-    )
-
+    `,
+    })
   }
 }
 
 window.send_muplis_feedback = function (def) {
-  window.tmp_value = def;
+  window.tmp_value = def
   openModal({
     innerHTML: `
         <h2>${window.report_feedback}</h2>
@@ -2951,7 +3218,8 @@ window.send_muplis_feedback = function (def) {
         <div class="definition valsi">${def.d}</div>
         <textarea id="modal__textarea" class="modal__textarea" row="10" placeholder="${window.report_feedback_description}"></textarea>
         <button class="tutci feedback" onclick="this.firstElementChild.classList.remove('d-none');window.send_feedback({def: window.tmp_value, comment: document.getElementById('modal__textarea').value})"><div class="spinner d-none"></div>${window.report_feedback}</button>
-  `})
+  `,
+  })
 }
 
 function openModal({ innerHTML }) {
@@ -2963,15 +3231,15 @@ function openModal({ innerHTML }) {
 }
 
 function copyToClipboard(text) {
-  const myTemporaryInputElement = document.createElement("textarea");
-  myTemporaryInputElement.value = text;
+  const myTemporaryInputElement = document.createElement('textarea')
+  myTemporaryInputElement.value = text
 
-  document.body.appendChild(myTemporaryInputElement);
+  document.body.appendChild(myTemporaryInputElement)
 
-  myTemporaryInputElement.select();
-  document.execCommand("Copy");
+  myTemporaryInputElement.select()
+  document.execCommand('Copy')
 
-  document.body.removeChild(myTemporaryInputElement);
+  document.body.removeChild(myTemporaryInputElement)
   showLoading({ innerText: window.copied || '📋', hideProgress: true })
   setTimeout(() => {
     showLoaded()

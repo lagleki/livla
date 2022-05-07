@@ -1,6 +1,7 @@
 //imports:
 import io from './socket.io.js'
 import { initBackend } from './asql/indexeddb-main-thread.js'
+let cacheObj;
 
 //DOM element vars:
 const content = document.getElementById('content')
@@ -26,22 +27,21 @@ const modalWindow = document.getElementById('jsModal')
 
 // generic vars:
 
-const CACHE_NAME = 'sutysisku'
-
 window.leijufra = { custom_links: [] }
 const supportedLangs = {
-  en: { n: 'English', p: 'selsku_lanci_eng', zbalermorna_defined: true, semanticSearchPossible: true },
+  en: { n: 'English', zbalermorna_defined: true, semanticSearchPossible: true },
   muplis: { n: 'la muplis' },
-  'en-cll': { n: 'The Book', p: 'cukta' },
-  'en-ll': { n: 'Learn Lojban', p: 'cukta' },
-  jbo: { n: 'lojbo', p: 'lanci_jbo' },
-  ru: { n: 'русский', p: 'selsku_lanci_rus' },
-  eo: { n: 'esperanto', p: 'lanci_epo' },
-  es: { n: 'español', p: 'selsku_lanci_spa' },
-  'fr-facile': { n: 'français', p: 'selsku_lanci_fra' },
-  ja: { n: '日本語', p: 'selsku_lanci_jpn' },
-  zh: { n: '中文', p: 'selsku_lanci_zho' },
-  loglan: { n: 'Loglan', p: 'loglan' },
+  'en-cll': { n: 'The Book' },
+  'en-pixra': { n: '🎨🖼️📸', pictureDictionary: true },
+  'en-ll': { n: 'Learn Lojban' },
+  jbo: { n: 'lojbo' },
+  ru: { n: 'русский' },
+  eo: { n: 'esperanto' },
+  es: { n: 'español' },
+  'fr-facile': { n: 'français' },
+  ja: { n: '日本語' },
+  zh: { n: '中文' },
+  loglan: { n: 'Loglan' },
 }
 
 const listFamymaho = {
@@ -242,6 +242,11 @@ window.delay = (() => (callback, ms, timer) => {
   timers[timer] = setTimeout(callback, ms)
 })()
 
+async function getCacheObject() {
+  if (!cacheObj) cacheObj = await caches.open('sutysisku');
+  return cacheObj
+}
+
 //commands:
 
 const worker = new Worker('worker.js?sisku={now}')
@@ -355,7 +360,7 @@ document.addEventListener('keyup', function (event) {
 }, false)
 
 window.addEventListener('load', async () => {
-  await getCache({ mode: "co'a" })
+  await fetchAndSaveCachedListValues({ mode: "co'a" })
   // if (!cacheIsFine) return
 
   // if (window.crossOriginIsolated) {
@@ -458,9 +463,17 @@ function showLoading({ completedRows, totalRows, innerText, hideProgress }) {
   bangu_loading.innerHTML = innerText
 }
 
-async function getCache({ mode }) {
-  const cacheStorage = await caches.open(CACHE_NAME);
-  const cachedList = await getCachedList();
+async function getOrFetchResource({ url }) {
+  const match = await (await getCacheObject()).match(url)
+  if (match) return true;
+  const response = await fetch(url);
+  if (!response.ok) return false;
+  cacheObj.put(url, response);
+  return true;
+}
+
+async function fetchAndSaveCachedListValues({ mode }) {
+  const cachedList = await getCachedListKeys();
   const initialCacheListLength = cachedList.length
 
   const response = await fetch(`/sutysisku/data/tcini.json?sisku=${new Date().getTime()}`)
@@ -470,12 +483,13 @@ async function getCache({ mode }) {
   }
   const vreji = (await response.json()).vreji.map(v => new URL(v, window.location.origin + window.location.pathname).href)
   let cacheUpdated = false
+  const cacheObj = await getCacheObject();
   for (let i = 0; i < vreji.length; i++) {
     const url = vreji[i]
     if (mode === "co'a" && !/((\.(js|wasm|html|css))|\/)$/.test(url)) continue
-    const cachedResponse = await cacheStorage.match(url);
-    if (!cachedResponse) {
-      await cacheStorage.add(url);
+    const isInCache = await cacheObj.match(url);
+    if (!isInCache) {
+      await cacheObj.add(url);
       cacheUpdated = true
       if (mode === "co'a") showLoading({ completedRows: i, totalRows: vreji.length, innerText: `📦 💾 📁 🛠️` })
     }
@@ -483,14 +497,14 @@ async function getCache({ mode }) {
 
   for (const key of cachedList) {
     if (!vreji.includes(key.url)) {
-      await cacheStorage.delete(key.url, { ignoreMethod: true, ignoreVary: true });
+      await cacheObj.delete(key.url, { ignoreMethod: true, ignoreVary: true });
       console.log({ event: 'removing cache', url: key.url });
     }
   }
   if (cacheUpdated) {
     for (const url of [new URL('', window.location.origin + window.location.pathname).href, new URL('index.html', window.location.origin + window.location.pathname).href]) {
-      await cacheStorage.delete(url, { ignoreMethod: true, ignoreVary: true });
-      await cacheStorage.add(url);
+      await cacheObj.delete(url, { ignoreMethod: true, ignoreVary: true });
+      await cacheObj.add(url);
       console.log({ event: 'adding cache', url });
     }
   }
@@ -505,11 +519,9 @@ async function getCache({ mode }) {
   return true
 }
 
-async function getCachedList() {
-  const cacheStorage = await caches.open(CACHE_NAME);
-  return await cacheStorage.keys()
+async function getCachedListKeys() {
+  return await (await getCacheObject()).keys()
 }
-
 
 content.onscroll = () => {
   if (content.scrollTop > 200) {
@@ -631,7 +643,7 @@ function renderMathAndPlumbs() {
 const hashResults = ({ query, seskari, bangu, len }) =>
   `${query}${seskari}${bangu}${len}`
 
-function RenderResults({ query, seskari, bangu, versio }) {
+async function RenderResults({ query, seskari, bangu, versio }) {
   if (loadingState.loading) {
     const currentHash = hashResults({
       query,
@@ -656,7 +668,7 @@ function RenderResults({ query, seskari, bangu, versio }) {
     out.innerText = window.leijufra.semanticSearchAlert
     outp.appendChild(out)
   }
-  skicu_rolodovalsi({
+  await skicu_rolodovalsi({
     query,
     seskari,
     bangu,
@@ -942,7 +954,7 @@ worker.onmessage = (ev) => {
       showLoading({ completedRows: data.completedRows, totalRows: data.totalRows, innerText: "🗃️ " + data.bangu })
     } else if (cmene === 'loaded') {
       showLoaded()
-      getCache({ mode: "ca'o" })
+      fetchAndSaveCachedListValues({ mode: "ca'o" })
     } else if (cmene === 'booting') {
       showLoading({ completedRows: 1, totalRows: 3, innerText: "🗃️ " + (window.booting || '') })
     }
@@ -960,6 +972,7 @@ worker.onmessage = (ev) => {
     }
   }
 }
+
 if (socket)
   socket.on('la_arxivo_cu_cusku', ({ seskari, query, message }) => {
     if (
@@ -1450,7 +1463,7 @@ function calcVH() {
 //</xuzganalojudri|lojbo>
 
 
-function checkScrolledNearBottom({ target }) {
+async function checkScrolledNearBottom({ target }) {
   removePlumbs()
   if (scrollTimer !== null) {
     clearTimeout(scrollTimer)
@@ -1463,7 +1476,7 @@ function checkScrolledNearBottom({ target }) {
     target.scrollTop + window.innerHeight >= outp.clientHeight - 700
   ) {
     window.jimte += 10
-    skicu_rolodovalsi(state.displaying)
+    await skicu_rolodovalsi(state.displaying)
     MathJax.typesetPromise().then(() => {
       addJvoPlumbs(true)
     })
@@ -1812,7 +1825,8 @@ function buildURLParams(params = {}) {
   return "#" + new URLSearchParams(params).toString()
 }
 
-function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, stringifiedPlaceTags = [] }) {
+async function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, stringifiedPlaceTags = [] }) {
+  if (def.bangu === 'en-pixra' && !(await getOrFetchResource({ url: `../pixra/xraste/${encodeURIComponent(def.d)}` }))) return;
   if (!query) query = state.searching.query
   if (!seskari) seskari = state.searching.seskari
   bangu = def.bangu || bangu || state.searching.bangu
@@ -1929,7 +1943,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
 
   let prettifiedDefinition = {}
   if (def.d && !def.d.nasezvafahi)
-    prettifiedDefinition = melbi_uenzi({
+    if (!supportedLangs[def.bangu].pictureDictionary) prettifiedDefinition = melbi_uenzi({
       def: def.d,
       fullDef: def,
       query: def.sem?.length > 0 ? def.sem.join(" ") : query,
@@ -1940,6 +1954,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
       index,
       stringifiedPlaceTags
     })
+    else prettifiedDefinition = { tergeha: `<img src="../pixra/xraste/${encodeURIComponent(def.d)}"/>`, hasExpansion: false, stringifiedPlaceTags };
   stringifiedPlaceTags = prettifiedDefinition.stringifiedPlaceTags
 
   //<xuzganalojudri|lojbo>
@@ -2276,7 +2291,7 @@ function skicu_palodovalsi({ def, inner, query, seskari, versio, bangu, index, s
     const subDefs = document.createElement('div')
     subDefs.classList.add('definition', 'subdefinitions')
     for (let i = 0; i < def.rfs.length; i++) {
-      const html = skicu_palodovalsi({
+      const html = await skicu_palodovalsi({
         def: def.rfs[i],
         inner: true,
         index: `${index}_${i}`,
@@ -2330,7 +2345,7 @@ function escHtml(a, apos) {
   return a
 }
 
-function skicu_rolodovalsi({ query, seskari, bangu, versio }) {
+async function skicu_rolodovalsi({ query, seskari, bangu, versio }) {
   const displayUpTo = Math.min(window.jimte, results.length)
   state.cll = undefined
   // if (resultCount === 0) {
@@ -2339,7 +2354,7 @@ function skicu_rolodovalsi({ query, seskari, bangu, versio }) {
   //   if (div) outp.appendChild(div)
   // }
   for (; resultCount < displayUpTo; resultCount++) {
-    const htmlTermBlock = skicu_palodovalsi({
+    const htmlTermBlock = await skicu_palodovalsi({
       def: results[resultCount],
       query,
       seskari,

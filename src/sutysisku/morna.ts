@@ -49,7 +49,7 @@ const langs =
 
 generateCLLDictionary()
 generateLLDictionary()
-generatePremadeDicts()
+  ;[{ name: 'sutysisku' }, { name: 'en-pixra', url: "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/%d&width=200&height=200" }].forEach(i => generatePremadeDicts(i))
 
 // functions
 // generic
@@ -61,11 +61,37 @@ function rgbToHex(rgb: string) {
   return hex
 }
 
-async function generatePremadeDicts() {
-  const content = JSON.parse(fs.readFileSync('/livla/src/sutysisku/src/data/parsed-sutysisku-0.blob.json', { encoding: 'utf8' }))
+async function generatePremadeDicts({ name, url }: { name: string, url?: string }) {
+  const content = JSON.parse(fs.readFileSync(`/livla/src/sutysisku/src/data/parsed-${name}-0.blob.json`, { encoding: 'utf8' }))
+
+  if (url) {
+    const responseObjs: any = await Promise.all(content.data.data[0].rows
+      .map(def => axios.get(url.replace(/%d/g, encodeURIComponent(def.d)), {
+        responseType: 'arraybuffer'
+      })
+        .catch(_ => undefined)
+      )
+    )
+    let arr = []
+    let i = 0;
+    const xrastePath = `/livla/build/sutysisku/pixra/xraste/`
+    if (!fs.existsSync(xrastePath)) {
+      fs.mkdirSync(xrastePath)
+    }
+    for (let def of content.data.data[0].rows) {
+      if (responseObjs[i]) {
+        // console.log(responseObjs[i].data);
+        fs.writeFileSync(`/livla/build/sutysisku/pixra/xraste/${def.d}`, responseObjs[i].data, { encoding: 'binary' })
+        // def = { ...def, d: responseObjs[i].request.res.responseUrl }
+        arr.push(def)
+      }
+      i++
+    }
+    content.data.data[0].rows = arr
+  }
 
   fs.writeFileSync(
-    path.join('/livla/build/sutysisku/data', 'parsed-sutysisku-0.bin'),
+    path.join(`/livla/build/sutysisku/data`, `parsed-${name}-0.bin`),
     brotli.compress(Buffer.from(JSON.stringify(content)))
   )
   const hash = require('object-hash')(content)
@@ -74,7 +100,7 @@ async function generatePremadeDicts() {
   try {
     jsonTimes = JSON.parse(fs.readFileSync(versio, { encoding: 'utf8' }))
   } catch (error) { }
-  jsonTimes['sutysisku'] = hash
+  jsonTimes[name] = hash
   fs.writeFileSync(versio, JSON.stringify(jsonTimes))
 }
 

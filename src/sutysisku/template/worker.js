@@ -8,7 +8,6 @@ const decompress = require('brotli/decompress')
 self.production = `'%production%'`
 self.sql_mode = `'%sql_mode%'`
 
-
 self.postMessage({ kind: 'loading' })
 
 class Queue {
@@ -119,7 +118,7 @@ async function initSQLDB() {
 	SQL.FS.mount(sqlFS, {}, '/sql')
 
 	const path = '/sql/db.sqlite'
-	if (typeof SharedArrayBuffer === 'undefined' || (self.sql_mode === 'memoryk')) {
+	if (typeof SharedArrayBuffer === 'undefined' || self.sql_mode === 'memoryk') {
 		let stream = SQL.FS.open(path, 'a+')
 		await stream.node.contents.readIfFallback()
 		SQL.FS.close(stream)
@@ -128,13 +127,13 @@ async function initSQLDB() {
 	db = new SQL.Database('/sql/db.sqlite', { filename: true })
 	db.run(`
 	pragma page_size = 8192;
-	${(self.sql_mode === 'memory') ? 'pragma cache_size = 6000;' : ''}
+	${self.sql_mode === 'memory' ? 'pragma cache_size = 6000;' : ''}
     PRAGMA journal_mode=MEMORY;
 	`)
 	db.run(
 		'CREATE TABLE IF NOT EXISTS valsi (d text,n text,w text,r text,bangu text,s text,t text,g text,cache text,b text,z text)'
 	)
-	runMigrations();
+	runMigrations()
 	db.create_function('regexp', (regex, str) => RegExp(regex).test(str))
 	db.run('CREATE TABLE IF NOT EXISTS langs_ready (bangu TEXT, timestamp TEXT)')
 	db.run('CREATE TABLE IF NOT EXISTS tejufra (bangu TEXT, jufra TEXT)')
@@ -153,12 +152,16 @@ async function initSQLDB() {
 	}
 
 	//embeddings
-	wordEmbeddings = await loadModel("/sutysisku/lojban/w2v/word-embeddings.json");
+	wordEmbeddings = await loadModel('/sutysisku/lojban/w2v/word-embeddings.json')
 }
 
 function runMigrations() {
-	try { db.run(`alter table valsi add column b text`) } catch (error) { }
-	try { db.run(`alter table valsi add column z text`) } catch (error) { }
+	try {
+		db.run(`alter table valsi add column b text`)
+	} catch (error) { }
+	try {
+		db.run(`alter table valsi add column z text`)
+	} catch (error) { }
 }
 
 function runQuery(sql_query, params = {}) {
@@ -192,29 +195,37 @@ function runQuery(sql_query, params = {}) {
 }
 
 const supportedLangs = {
-	en: { n: 'English', p: 'selsku_lanci_eng' },
-	muplis: { n: 'la muplis' },
-	'en-cll': { n: 'The Book', p: 'cukta', noRafsi: true, searchPriority: true, priority: -998 },
-	'en-ll': {
-		n: 'Learn Lojban',
+	en: { p: 'selsku_lanci_eng' },
+	muplis: {},
+	'en-pixra': {
 		p: 'cukta',
 		noRafsi: true,
 		searchPriority: true,
-		priority: -999
+		priority: -997,
+		simpleCache: true,
 	},
-	jbo: { n: 'lojbo', p: 'lanci_jbo', searchPriority: true },
-	ru: { n: 'русский', p: 'selsku_lanci_rus' },
-	eo: { n: 'esperanto', p: 'lanci_epo' },
-	es: { n: 'español', p: 'selsku_lanci_spa' },
-	'fr-facile': { n: 'français', p: 'selsku_lanci_fra' },
-	ja: { n: '日本語', p: 'selsku_lanci_jpn' },
-	zh: { n: '中文', p: 'selsku_lanci_zho' },
-	loglan: { n: 'Loglan', p: 'loglan' },
-	sutysisku: { n: 'la sutysisku', bangu: 'en', priority: -1000 },
+	'en-ll': {
+		p: 'cukta',
+		noRafsi: true,
+		searchPriority: true,
+		priority: -998,
+	},
+	'en-cll': { p: 'cukta', noRafsi: true, searchPriority: true, priority: -999 },
+	jbo: { p: 'lanci_jbo', searchPriority: true },
+	ru: { p: 'selsku_lanci_rus' },
+	eo: { p: 'lanci_epo' },
+	es: { p: 'selsku_lanci_spa' },
+	'fr-facile': { p: 'selsku_lanci_fra' },
+	ja: { p: 'selsku_lanci_jpn' },
+	zh: { p: 'selsku_lanci_zho' },
+	loglan: { p: 'loglan' },
+	sutysisku: { bangu: 'en', priority: -1000 },
 }
 
 function arrSupportedLangs() {
-	return Object.keys(supportedLangs).sort((a, b) => supportedLangs[a].priority > supportedLangs[b].priority)
+	return Object.keys(supportedLangs).sort(
+		(a, b) => supportedLangs[a].priority > supportedLangs[b].priority
+	)
 }
 
 const sufficientLangs = (searching) =>
@@ -223,6 +234,7 @@ const sufficientLangs = (searching) =>
 		'en',
 		'en-cll',
 		'en-ll',
+		'en-pixra',
 		'muplis',
 		'jbo',
 		'sutysisku',
@@ -236,7 +248,9 @@ const fancu = {
 			let tef1 = {},
 				tef2 = {}
 			if (bangu && bangu !== 'en') {
-				const result = runQuery(`SELECT jufra FROM tejufra where bangu=?`, [bangu])
+				const result = runQuery(`SELECT jufra FROM tejufra where bangu=?`, [
+					bangu,
+				])
 				try {
 					tef1 = JSON.parse(result[0].jufra)
 				} catch (error) { }
@@ -253,11 +267,11 @@ const fancu = {
 		sesisku_bangu = bangu
 	},
 	runQuery: ({ query, params = {} }, cb) => {
-		const rows = runQuery(query, params);
-		cb(rows);
+		const rows = runQuery(query, params)
+		cb(rows)
 	},
 	getNeighbors: ({ query }, cb) => {
-		getNeighbors(query).then(rows => cb(rows));
+		getNeighbors(query).then((rows) => cb(rows))
 	},
 	ningau_lerosorcu: async (searching, cb) => {
 		fancu.ningau_lesorcu(searching, cb, true)
@@ -381,6 +395,8 @@ function chunkArray(myArray, chunk_size, lang) {
 }
 
 function addCache(def, tegerna) {
+	if (supportedLangs[tegerna].simpleCache)
+		return { bangu: tegerna, ...def, cache: [def.w] }
 	if (def.cache) {
 		if (def.w) def.cache = [...new Set(def.cache)]
 		return { bangu: tegerna, ...def }
@@ -455,7 +471,7 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
 			cmene: 'loading',
 			completedRows: 12 + (Math.random() - 0.5) * 3,
 			totalRows: 100,
-			bangu: supportedLangs[lang].n,
+			bangu: lang,
 		})
 		for (let i = 0; i < blobChunkLength; i++) {
 			cb(`downloading ${lang}-${i}.bin dump`)
@@ -467,11 +483,13 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
 
 				const decompressedData = Buffer.from(decompress(Buffer.from(blob)))
 				json = JSON.parse(decompressedData)
+
 				let rows = json.data.data[0].rows
 				const totalRows = json.data.tables[0].rowCount * blobChunkLength
 
 				const chunkSize = 1000
 				const all_rows = rows.length
+				console.log(all_rows)
 				rows = chunkArray(rows, chunkSize, lang)
 				const time = new Date()
 				if (i === 0) {
@@ -499,7 +517,7 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
 						cmene: 'loading',
 						completedRows,
 						totalRows,
-						bangu: supportedLangs[lang].n,
+						bangu: lang,
 						banguRaw: lang,
 					})
 				}
@@ -538,7 +556,7 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
 			cmene: 'loading',
 			completedRows,
 			totalRows: completedRows,
-			bangu: supportedLangs[lang].n,
+			bangu: lang,
 			banguRaw: lang,
 		})
 	}
@@ -569,14 +587,26 @@ function getCachedDefinitions({ query, bangu, mapti_vreji }) {
 	return result
 }
 
-const getMergedArray = (array) => `(${array.map((i) => `'${i.replace(/'/g, "''")}'`).join(',')})`
+const getMergedArray = (array) =>
+	`(${array.map((i) => `'${i.replace(/'/g, "''")}'`).join(',')})`
 
 async function getNeighbors(query) {
-	return new Promise(resolve => {
-		wordEmbeddings.getNearestNeighbors(query, 100).then(results => {
-			results = [...new Set(results.filter(i => RegExp(/^[a-z- ]+$/).test(i.word) && i.distance !== 1 && i.distance >= 0.4).concat([{ distance: 1, word: query }]))];
-			resolve({ words: results.map(i => i.word), results })
-		});
+	return new Promise((resolve) => {
+		wordEmbeddings.getNearestNeighbors(query, 100).then((results) => {
+			results = [
+				...new Set(
+					results
+						.filter(
+							(i) =>
+								RegExp(/^[a-z- ]+$/).test(i.word) &&
+								i.distance !== 1 &&
+								i.distance >= 0.4
+						)
+						.concat([{ distance: 1, word: query }])
+				),
+			]
+			resolve({ words: results.map((i) => i.word), results })
+		})
 	})
 }
 
@@ -591,8 +621,10 @@ async function cnanosisku({
 	secupra_vreji,
 	queryDecomposition,
 }) {
-	const splitQuery_apos = query_apos.split(" ").filter(_ => _ !== '')
-	const arrayQuery = [...new Set([...queryDecomposition, query_apos, ...splitQuery_apos])]
+	const splitQuery_apos = query_apos.split(' ').filter((_) => _ !== '')
+	const arrayQuery = [
+		...new Set([...queryDecomposition, query_apos, ...splitQuery_apos]),
+	]
 
 	let embeddings = {}
 	const embeddingsMode = bangu === 'en' && seskari === 'cnano' // semantic search
@@ -626,12 +658,19 @@ async function cnanosisku({
 			d,n,w,r,bangu,s,t,g,b,z
 		from valsi,json_each(valsi.cache)
 		where 
-		${queryDecomposition.length > 1 ? `(json_each.value in ${getMergedArray(arrayQuery)} and bangu=$bangu)
-		or ` : ``}
+		${queryDecomposition.length > 1
+				? `(json_each.value in ${getMergedArray(arrayQuery)} and bangu=$bangu)
+		or `
+				: ``
+			}
 				((w like $query or json_each.value like $query)
-			and (bangu = $bangu or bangu like $likebangu))
+			and (bangu = $bangu or bangu like $likebangu or bangu='en-pixra'))
 		`,
-			{ $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` }
+			{
+				$query: '%' + query_apos + '%',
+				$bangu: bangu,
+				$likebangu: `${bangu}-%`,
+			}
 		)
 	} else if (versio === 'selmaho') {
 		if (bangu === 'muplis') {
@@ -665,25 +704,40 @@ async function cnanosisku({
 		const sqlQuery = `select d,n,w,r,bangu,s,t,g,count(ex) as no,b from (select distinct valsi.d as d,valsi.n as n,valsi.w as w,valsi.r as r,valsi.bangu as bangu,valsi.s as s,valsi.t as t,valsi.g as g,json_each.value as ex,valsi.b as b from valsi,json_each(valsi.cache) where 
 		(json_each.value in ${getMergedArray(arrayQuery)} and bangu=$bangu)
 		or
-		((w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu))
+		((w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu or bangu='en-pixra'))
 		) as k
 		group by d,n,w,r,bangu,s,t,g,b
-		${bangu === 'muplis' ? `having 2 * no >= ${arrayQuery.length}` : `having no>=${splitQuery_apos.length}`}
+		${bangu === 'muplis'
+				? `having 2 * no >= ${arrayQuery.length}`
+				: `having no>=${splitQuery_apos.length}`
+			}
 		order by no desc
 		;`
 
-		rows = runQuery(sqlQuery, { $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` })
+		rows = runQuery(sqlQuery, {
+			$query: '%' + query_apos + '%',
+			$bangu: bangu,
+			$likebangu: `${bangu}-%`,
+		})
 	} else if (self.production !== 'production') {
 		//normal search:debug
 		rows = runQuery(
-			`select distinct d,n,w,r,bangu,s,t,g,cache,b from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu)`,
-			{ $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` }
+			`select distinct d,n,w,r,bangu,s,t,g,cache,b from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu or bangu='en-pixra')`,
+			{
+				$query: '%' + query_apos + '%',
+				$bangu: bangu,
+				$likebangu: `${bangu}-%`,
+			}
 		)
 	} else {
 		//normal search:prod
 		rows = runQuery(
-			`select distinct d,n,w,r,bangu,s,t,g,b from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu)`,
-			{ $query: '%' + query_apos + '%', $bangu: bangu, $likebangu: `${bangu}-%` }
+			`select distinct d,n,w,r,bangu,s,t,g,b from valsi,json_each(valsi.cache) where (w like $query or json_each.value like $query) and (bangu = $bangu or bangu like $likebangu or bangu='en-pixra')`,
+			{
+				$query: '%' + query_apos + '%',
+				$bangu: bangu,
+				$likebangu: `${bangu}-%`,
+			}
 		)
 	}
 
@@ -712,7 +766,7 @@ async function cnanosisku({
 		mapti_vreji,
 		seskari,
 		secupra_vreji,
-		embeddings: embeddings.results
+		embeddings: embeddings.results,
 	})
 
 	const allMatches = result
@@ -779,7 +833,8 @@ function sortMultiDimensional(a, b) {
 }
 
 function cmaxesParse({ tegerna, queryLanguage }, callback) {
-	if (queryLanguage === 'loglan') return callback(tegerna.split(" ").map(i => ["", i]))
+	if (queryLanguage === 'loglan')
+		return callback(tegerna.split(' ').map((i) => ['', i]))
 	try {
 		let parsed = parse(tegerna.toLowerCase())
 		parsed = parsed.filter((el) => el[0] !== 'drata')
@@ -1035,15 +1090,19 @@ function defaultPriorityGroups() {
 
 function includes(arrOuter, inner, fn) {
 	arrOuter = [arrOuter].flat()
-	if (fn) return arrOuter.some(elemOuter => fn(elemOuter, inner))
+	if (fn) return arrOuter.some((elemOuter) => fn(elemOuter, inner))
 	inner = [inner].flat()
-	return arrOuter.some(i => inner.includes(i))
+	return arrOuter.some((i) => inner.includes(i))
 }
 
 function semFilter(arrEmbeddingsObject, arrGloss) {
 	return arrEmbeddingsObject.filter((i) => arrGloss.includes(i.word))
 }
 
+const nonLetter =
+	'[ \u2000-\u206F\u2E00-\u2E7F\\!"#$%&()*+,\\-.\\/:<=>?@\\[\\]^`{|}~：？。，《》「」『』；_－／（）々仝ヽヾゝゞ〃〱〲〳〵〴〵「」『』（）〔〕［］｛｝｟｠〈〉《》【】〖〗〘〙〚〛。、・゠＝〜…‥•◦﹅﹆※＊〽〓♪♫♬♩〇〒〶〠〄再⃝ⓍⓁⓎ]'
+
+// const nonLetter = "\\b"
 async function sortthem({
 	mapti_vreji,
 	query,
@@ -1051,16 +1110,17 @@ async function sortthem({
 	query_apos,
 	seskari,
 	secupra_vreji,
-	embeddings
+	embeddings,
 }) {
 	let decomposed = false
 	let searchPriorityGroups = defaultPriorityGroups()
 	const arrCombinedQuery = [query, query_apos]
 	for (let el of mapti_vreji) {
 		const def = setca_lotcila(el) // todo: optimize for phrases
-		if (!def) continue;
+		if (!def) continue
 		const semMatch = !def.z || !embeddings ? [] : semFilter(embeddings, def.z)
-		const semMatchGlosses = !def.g || !embeddings ? [] : semFilter(embeddings, def.g.split(";"))
+		const semMatchGlosses =
+			!def.g || !embeddings ? [] : semFilter(embeddings, def.g.split(';'))
 		if (arrCombinedQuery.flat().includes(def.w)) {
 			if (!supportedLangs[def.bangu].noRafsi) {
 				def.rfs = JSON.parse(
@@ -1088,16 +1148,38 @@ async function sortthem({
 			if (def.bangu == bangu) searchPriorityGroups.wordFullMatch.push(def)
 			else searchPriorityGroups.wordFullMatchAdditional.push(def)
 		} else if (semMatch.length > 0) {
-			const match = { ...def, sem: semMatch.map(i => i.word), semMaxDistance: semMatch.sort((left, right) => right.distance - left.distance)[0].distance }
-			searchPriorityGroups[match.semMaxDistance === 1 ? "zMatch" : "zSemMatch"].push(match)
+			const match = {
+				...def,
+				sem: semMatch.map((i) => i.word),
+				semMaxDistance: semMatch.sort(
+					(left, right) => right.distance - left.distance
+				)[0].distance,
+			}
+			searchPriorityGroups[
+				match.semMaxDistance === 1 ? 'zMatch' : 'zSemMatch'
+			].push(match)
 		} else if (semMatchGlosses.length > 0) {
-			const match = { ...def, sem: semMatchGlosses.map(i => i.word), semMaxDistance: semMatchGlosses.sort((left, right) => right.distance - left.distance)[0].distance }
-			searchPriorityGroups[match.semMaxDistance === 1 ? "glossMatch" : "glossSemMatch"].push(match)
+			const match = {
+				...def,
+				sem: semMatchGlosses.map((i) => i.word),
+				semMaxDistance: semMatchGlosses.sort(
+					(left, right) => right.distance - left.distance
+				)[0].distance,
+			}
+			searchPriorityGroups[
+				match.semMaxDistance === 1 ? 'glossMatch' : 'glossSemMatch'
+			].push(match)
 		} else if (def.g && includes(def.g.split(';'), query)) {
 			searchPriorityGroups.glossMatch.push(def)
 		} else if (def.r && includes(def.r, query)) {
 			searchPriorityGroups.rafsiMatch.push(def)
-		} else if (includes(arrCombinedQuery, def.w, (q_word, def_w) => def_w.search(`(^| )(${q_word})( |$)`) >= 0)) {
+		} else if (
+			includes(
+				arrCombinedQuery,
+				def.w,
+				(q_word, def_w) => def_w.search(`(^| )(${q_word})( |$)`) >= 0
+			)
+		) {
 			searchPriorityGroups.wordSemiMatch.push(def)
 		} else if (typeof def.s === 'string' && includes(def.s, query)) {
 			searchPriorityGroups.selmahoFullMatch.push(def)
@@ -1110,29 +1192,67 @@ async function sortthem({
 			searchPriorityGroups.oneOfSelmahosFullMatch.push(def)
 		} else if (
 			Array.isArray(def.s) &&
-			includes(query, def.s, (q_el, defs_s) => defs_s.some(i => i.indexOf(q_el) === 0))
+			includes(query, def.s, (q_el, defs_s) =>
+				defs_s.some((i) => i.indexOf(q_el) === 0)
+			)
 		) {
 			searchPriorityGroups.oneOfSelmahosSemiMatch.push(def)
 		} else if (
-			includes(arrCombinedQuery, [def.g, def.w].flat(), (q_el, defs) => defs.some(i => i.search(`(\\b(${q_el})\\b)`) >= 0))
+			includes(arrCombinedQuery, [def.g, def.w].flat(), (q_el, defs) =>
+				defs.some(
+					(i) => i.search(RegExp(`(${nonLetter}(${q_el})${nonLetter})`)) >= 0
+				)
+			)
 		) {
 			searchPriorityGroups.querySemiMatch.push(def)
 			//todo: add semantic search glosses
-		} else if (typeof def.d === 'string' && includes(query, def.d, (q_el, def_d) => def_d.toLowerCase().search(`^${q_el}\\b`) >= 0)) {
+		} else if (
+			typeof def.d === 'string' &&
+			includes(
+				query,
+				def.d,
+				(q_el, def_d) =>
+					def_d.toLowerCase().search(RegExp(`^${q_el}${nonLetter}`)) >= 0
+			)
+		) {
 			searchPriorityGroups.defGoodMatch.push(def)
-		} else if (typeof def.d === 'string' && includes(query, def.d, (q_el, def_d) => def_d.toLowerCase().search(`\\b${q_el}\\b`) >= 0)) {
+		} else if (
+			typeof def.d === 'string' &&
+			includes(
+				query,
+				def.d,
+				(q_el, def_d) =>
+					def_d
+						.toLowerCase()
+						.search(RegExp(`${nonLetter}${q_el}${nonLetter}`)) >= 0
+			)
+		) {
 			searchPriorityGroups.defInsideMatch.push(def)
-		} else if (typeof def.d !== 'undefined' && includes(query, def.n, (q_el, def_n) => def_n.toLowerCase().search(`\\b${q_el}\\b`) >= 0)) {
+		} else if (
+			typeof def.n !== 'undefined' &&
+			includes(
+				query,
+				def.n,
+				(q_el, def_n) =>
+					def_n
+						.toLowerCase()
+						.search(RegExp(`${nonLetter}${q_el}${nonLetter}`)) >= 0
+			)
+		) {
 			searchPriorityGroups.notesInsideMatch.push(def)
 		} else {
 			searchPriorityGroups.otherMatch.push(def)
 		}
 	}
 	/*
-	now sort by semantic props distance
-	*/
-	searchPriorityGroups.zSemMatch.sort((left, right) => right.semMaxDistance - left.semMaxDistance);
-	searchPriorityGroups.glossSemMatch.sort((left, right) => right.semMaxDistance - left.semMaxDistance);
+	  now sort by semantic props distance
+	  */
+	searchPriorityGroups.zSemMatch.sort(
+		(left, right) => right.semMaxDistance - left.semMaxDistance
+	)
+	searchPriorityGroups.glossSemMatch.sort(
+		(left, right) => right.semMaxDistance - left.semMaxDistance
+	)
 
 	let firstMatches
 	let secondMatches
@@ -1257,7 +1377,10 @@ async function sisku(searching, callback) {
 
 	if (query.length === 0) return
 	let secupra_vreji = []
-	const query_apos = bangu === 'loglan' ? query.replace(/[‘]/g, "'").toLowerCase() : query.replace(/[h‘]/g, "'").toLowerCase()
+	const query_apos =
+		bangu === 'loglan'
+			? query.replace(/[‘]/g, "'").toLowerCase()
+			: query.replace(/[h‘]/g, "'").toLowerCase()
 	const queryDecomposition = decompose(query_apos)
 
 	if (query.indexOf('^') === 0 || query.slice(-1) === '$') {

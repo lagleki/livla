@@ -118,7 +118,7 @@ async function initSQLDB() {
 	SQL.FS.mount(sqlFS, {}, '/sql')
 
 	const path = '/sql/db.sqlite'
-	if (typeof SharedArrayBuffer === 'undefined' || self.sql_mode === 'memoryk') {
+	if (typeof SharedArrayBuffer === 'undefined' || self.sql_mode === 'memory') {
 		let stream = SQL.FS.open(path, 'a+')
 		await stream.node.contents.readIfFallback()
 		SQL.FS.close(stream)
@@ -143,7 +143,7 @@ async function initSQLDB() {
 			cmene: 'booting',
 		})
 
-		runQuery(`select w from valsi where bangu='en'`, {})
+		runQuery(`select w from valsi where bangu='en'`)
 
 		self.postMessage({
 			kind: 'loader',
@@ -152,7 +152,11 @@ async function initSQLDB() {
 	}
 
 	//embeddings
-	wordEmbeddings = await loadModel('/sutysisku/lojban/w2v/word-embeddings.json')
+	const response = await fetch('/sutysisku/data/embeddings-en.json.bin');
+	const blob = await response.arrayBuffer()
+
+	const decompressedData = Buffer.from(decompress(Buffer.from(blob)))
+	wordEmbeddings = await loadModel(JSON.parse(decompressedData))
 }
 
 function runMigrations() {
@@ -197,21 +201,22 @@ function runQuery(sql_query, params = {}) {
 const supportedLangs = {
 	en: { p: 'selsku_lanci_eng' },
 	muplis: {},
+	sutysisku: { bangu: 'en', priority: 11 },
 	'en-pixra': {
 		p: 'cukta',
 		noRafsi: true,
-		searchPriority: true,
-		priority: -997,
+		searchPriority: 10,
+		priority: 10,
 		simpleCache: true,
 	},
 	'en-ll': {
 		p: 'cukta',
 		noRafsi: true,
-		searchPriority: true,
-		priority: -998,
+		searchPriority: 9,
+		priority: 9,
 	},
-	'en-cll': { p: 'cukta', noRafsi: true, searchPriority: true, priority: -999 },
-	jbo: { p: 'lanci_jbo', searchPriority: true },
+	'en-cll': { p: 'cukta', noRafsi: true, searchPriority: 8, priority: 8 },
+	jbo: { p: 'lanci_jbo', searchPriority: 7 },
 	ru: { p: 'selsku_lanci_rus' },
 	eo: { p: 'lanci_epo' },
 	es: { p: 'selsku_lanci_spa' },
@@ -219,12 +224,11 @@ const supportedLangs = {
 	ja: { p: 'selsku_lanci_jpn' },
 	zh: { p: 'selsku_lanci_zho' },
 	loglan: { p: 'loglan' },
-	sutysisku: { bangu: 'en', priority: -1000 },
 }
 
 function arrSupportedLangs() {
 	return Object.keys(supportedLangs).sort(
-		(a, b) => supportedLangs[a].priority > supportedLangs[b].priority
+		(a, b) => supportedLangs[b].priority - supportedLangs[a].priority
 	)
 }
 
@@ -248,14 +252,15 @@ const fancu = {
 			let tef1 = {},
 				tef2 = {}
 			if (bangu && bangu !== 'en') {
-				const result = runQuery(`SELECT jufra FROM tejufra where bangu=?`, [
-					bangu,
-				])
+				const result = runQuery(`SELECT jufra FROM tejufra where bangu=$bangu`, {
+					$bangu: bangu
+				}
+				)
 				try {
 					tef1 = JSON.parse(result[0].jufra)
 				} catch (error) { }
 			}
-			const result = runQuery(`SELECT jufra FROM tejufra where bangu=?`, ['en'])
+			const result = runQuery(`SELECT jufra FROM tejufra where bangu='en'`)
 			try {
 				tef2 = JSON.parse(result[0].jufra)
 			} catch (error) { }
@@ -489,12 +494,12 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
 
 				const chunkSize = 1000
 				const all_rows = rows.length
-				console.log(all_rows)
+
 				rows = chunkArray(rows, chunkSize, lang)
 				const time = new Date()
 				if (i === 0) {
-					db.run(`delete from valsi where bangu=?`, [lang])
-					db.run(`delete from langs_ready where bangu=?`, [lang])
+					db.run(`delete from valsi where bangu=$bangu`, { $bangu: lang })
+					db.run(`delete from langs_ready where bangu=$bangu`, { $bangu: lang })
 				}
 				for (const toAdd of rows) {
 					db.exec('BEGIN TRANSACTION')
@@ -638,6 +643,18 @@ async function cnanosisku({
 		rows = runQuery(
 			`
 		select distinct
+			d,n,w,r,bangu,s,t,g,b,z
+		from valsi,json_each(valsi.cache)
+		where 
+		${queryDecomposition.length > 1
+				? `(json_each.value in ${getMergedArray(arrayQuery)} and bangu=$bangu)
+		or `
+				: ``
+			}
+				((w like $query or json_each.value like $query)
+			and (bangu = $bangu or bangu like $likebangu or bangu='en-pixra'))
+		union
+		select distinct
 			d,n,w,r,bangu,s,t,g,b,z 
 		from valsi,json_each(valsi.z)
 		where
@@ -653,18 +670,6 @@ async function cnanosisku({
 			and (bangu = $bangu)
 			and valsi.g<>''
 			and json_valid('["' || replace(valsi.g, ';', '","') || '"]')=1
-		union
-		select distinct
-			d,n,w,r,bangu,s,t,g,b,z
-		from valsi,json_each(valsi.cache)
-		where 
-		${queryDecomposition.length > 1
-				? `(json_each.value in ${getMergedArray(arrayQuery)} and bangu=$bangu)
-		or `
-				: ``
-			}
-				((w like $query or json_each.value like $query)
-			and (bangu = $bangu or bangu like $likebangu or bangu='en-pixra'))
 		`,
 			{
 				$query: '%' + query_apos + '%',
@@ -674,30 +679,27 @@ async function cnanosisku({
 		)
 	} else if (versio === 'selmaho') {
 		if (bangu === 'muplis') {
-			rows = runQuery(`SELECT * FROM valsi where s = ? and bangu=?`, [
-				query,
-				bangu,
-			])
+			rows = runQuery(`SELECT * FROM valsi where s = $query and bangu=$bangu`, {
+				$query: query,
+				$bangu: bangu,
+			})
 		} else {
-			rows = runQuery(`SELECT * FROM valsi where s like ? and bangu=?`, [
-				query + '%',
-				bangu,
-			]).filter(
+			rows = runQuery(`SELECT * FROM valsi where s like $query and bangu=$bangu`,
+				{
+					$query: query + '%',
+					$bangu: bangu
+				}
+			).filter(
 				(valsi) =>
 					typeof valsi.s === 'string' &&
 					new RegExp(`^${query}[0-9]*[a-z]*$`).test(valsi.s)
 			)
 		}
 	} else if (seskari === 'fanva') {
-		rows = runQuery(`SELECT * FROM valsi where w= ?`, [query_apos]).sort(
+		rows = runQuery(`SELECT * FROM valsi where w= $valsi`, { $valsi: query_apos }).sort(
 			(a, b) => {
-				if (a.bangu === bangu) {
-					return -1
-				}
-				if (supportedLangs[a.bangu].searchPriority) {
-					return 0
-				}
-				return 1
+				if (a.bangu === bangu) return -1
+				return supportedLangs?.[b.bangu]?.searchPriority - supportedLangs?.[a.bangu]?.searchPriority
 			}
 		)
 	} else if (queryDecomposition.length > 1) {
@@ -746,15 +748,9 @@ async function cnanosisku({
 			const { cache, ...rest } = el
 			return rest
 		})
-		.sort((a, b) => {
-			if (supportedLangs[a.bangu].searchPriority) {
-				return -1
-			}
-			if (supportedLangs[b.bangu].searchPriority) {
-				return 1
-			}
-			return 0
-		})
+		.sort(
+			(a, b) => supportedLangs?.[b.bangu]?.searchPriority - supportedLangs?.[a.bangu]?.searchPriority
+		)
 	mapti_vreji = mapti_vreji.slice().concat(rows)
 	if (seskari === 'fanva' || bangu === 'muplis') {
 		return { result: mapti_vreji, decomposed: false }
@@ -814,10 +810,10 @@ async function cnanosisku({
 		//full match
 		const [type, parsedWord] = maklesi_levalsi(allMatches[0][0].w)
 		if (type.indexOf("fu'ivla") >= 0 && parsedWord.indexOf('-') >= 0) {
-			const pseudoRafsi = parsedWord.split('-')[0]
+			const rafsi = parsedWord.split('-')[0]
 			const selrafsi = runQuery(
-				`SELECT * FROM valsi, json_each(valsi.r) where json_valid(valsi.r) and json_each.value=? and valsi.bangu=? limit 1`,
-				[pseudoRafsi, bangu]
+				`SELECT * FROM valsi, json_each(valsi.r) where json_valid(valsi.r) and json_each.value=$rafsi and valsi.bangu=$bangu limit 1`,
+				{ $rafsi: rafsi, $bangu: bangu }
 			)
 			allMatches[0][0].rfs = selrafsi
 		}
@@ -941,15 +937,15 @@ async function jmina_ro_cmima_be_lehivalsi({ query, def, bangu }) {
 			d: { nasezvafahi: true },
 		}))
 		for (let j = 0; j < vuhi_le_valsi.length; j++) {
-			const le_valsi = vuhi_le_valsi[j].w
+			const valsi = vuhi_le_valsi[j].w
 			const le_se_skicu_veljvo = runQuery(
-				`SELECT * FROM valsi where w = ? and bangu=? limit 1`,
-				[le_valsi, bangu]
+				`SELECT * FROM valsi where w = $valsi and bangu=$bangu limit 1`,
+				{ $valsi: valsi, $bangu: bangu }
 			)[0]
 
 			if (le_se_skicu_veljvo) {
 				vuhi_le_valsi[j] = le_se_skicu_veljvo
-				vuhi_le_valsi[j]['w'] = le_valsi
+				vuhi_le_valsi[j]['w'] = valsi
 			}
 		}
 	} else {
@@ -1030,23 +1026,23 @@ async function shortget({
 				vuhilevelujvo = vuhilevelujvo.slice(1)
 
 				for (let j = 0; j < vuhilevelujvo.length; j++) {
-					const le_valsi = vuhilevelujvo[j]
+					const valsi = vuhilevelujvo[j]
 					const le_se_skicu_valsi = runQuery(
-						`SELECT * FROM valsi where w = ? and bangu=? limit 1`,
-						[le_valsi, bangu]
+						`SELECT * FROM valsi where w =$valsi and bangu=$bangu limit 1`,
+						{ $valsi: valsi, $bangu: bangu }
 					)[0]
 
 					if (le_se_skicu_valsi) {
 						vuhilevelujvo[j] = le_se_skicu_valsi
-						vuhilevelujvo[j]['w'] = le_valsi
+						vuhilevelujvo[j]['w'] = valsi
 					}
 				}
 				secupra.concat(vuhilevelujvo)
 			} else if (vuhilevelujvo) {
 				for (const r of vuhilevelujvo) {
 					const foundRafsi = runQuery(
-						`SELECT value FROM valsi, json_each(valsi.r) where json_valid(valsi.r) and json_each.value=? and valsi.bangu=? limit 1`,
-						[r, bangu]
+						`SELECT value FROM valsi, json_each(valsi.r) where json_valid(valsi.r) and json_each.value=$r and valsi.bangu=bangu limit 1`,
+						{ $r: r, $bangu: bangu }
 					)[0]
 					if (foundRafsi) secupra.push(foundRafsi)
 				}
@@ -1387,8 +1383,8 @@ async function sisku(searching, callback) {
 		const regexpedQuery = query.toLowerCase().replace(/'/g, "''")
 		// const regexpedQueryPrecise = regexpedQuery.replace(/\^/g, '').replace(/\$/g, '').replace(/^(.*)$/g, '\\b$1\\b')
 		let first1000 = runQuery(
-			`SELECT * FROM valsi where bangu = ? and regexp('${regexpedQuery}',w) limit 1000`,
-			[bangu]
+			`SELECT * FROM valsi where bangu =$bangu and regexp('${regexpedQuery}',w) limit 1000`,
+			{ $bangu: bangu }
 		)
 
 		secupra_vreji = julne_setca_lotcila(
@@ -1596,7 +1592,7 @@ async function siskurimni({ query, bangu }) {
 	if (r === null) return []
 	queryR[0] = r[1]
 	if (queryR.length === 2) {
-		r = runQuery(`SELECT * FROM valsi where bangu=?`, [bangu]).filter(
+		r = runQuery(`SELECT * FROM valsi where bangu=$bangu`, { $bangu: bangu }).filter(
 			(valsi) => {
 				const queryRn = krulermorna(valsi.w)
 					.replace(/([aeiouḁąęǫy])/g, '$1-')
@@ -1614,7 +1610,7 @@ async function siskurimni({ query, bangu }) {
 		)
 	} else {
 		query_apos = regexify((queryR || []).join(''))
-		r = runQuery(`SELECT * FROM valsi where bangu=?`, [bangu]).filter(
+		r = runQuery(`SELECT * FROM valsi where bangu = $bangu`, { $bangu: bangu }).filter(
 			({ w }) => {
 				if (krulermorna(w).match(`${query_apos.toLowerCase()}$`)) return true
 				return false

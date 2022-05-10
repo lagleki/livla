@@ -478,7 +478,7 @@ function showLoading({ completedRows, totalRows, innerText, hideProgress }) {
   }
   const bangu_loading = document.getElementById('bangu_loading')
   bangu_loading.classList[hideProgress ? 'add' : 'remove']('simple')
-  bangu_loading.innerHTML = innerText
+  bangu_loading.innerText = innerText
 }
 
 async function getOrFetchResource({ url }) {
@@ -581,19 +581,34 @@ function macitri() {
   return citri
 }
 
+function makeNodeEmpty(node) {
+  node.innerHTML = '';
+}
+
 function RenderCitri() {
-  if (state.citri.length > 0)
-    citri.innerHTML = ` <span class="romoi_lehiseciska" data-jufra="window.purc">${window.purc || ''
-      }</span>${state.citri
-        .filter(({ seskari }) => seskari !== 'velcusku')
-        .map(
-          ({ seskari, versio, query, bangu }) =>
-            `<a class="a-${versio !== 'masno' ? versio : seskari
-            }" href="#seskari=${seskari}&versio=${versio}&sisku=${encodeUrl(
+  if (state.citri.length > 0) {
+    makeNodeEmpty(citri);
+    const span = document.createElement('span')
+    span.classList.add('romoi_lehiseciska');
+    span.setAttribute('data-jufra', 'window.purc')
+    span.innerText = (window.purc || '') + " "
+    citri.appendChild(span)
+
+    state.citri
+      .forEach(
+        ({ seskari, versio, query, bangu }) => {
+          if (seskari === 'velcusku') return;
+          const a = document.createElement('a')
+          a.classList.add(`citrycmi`, `a-${versio !== 'masno' ? versio : seskari}`);
+          a.setAttribute("href", buildURLParams({
+            seskari, versio, sisku: encodeUrl(
               query
-            )}&bangu=${bangu}">${escHtml(query)}</a>`
-        )
-        .join(', ')}`
+            ), bangu
+          }));
+          a.innerText = query;
+          citri.appendChild(a);
+        });
+  }
 }
 
 function RenderDasri({ seskari, sepia }) {
@@ -693,7 +708,7 @@ async function RenderResults({ query, seskari, bangu, versio }) {
   removePlumbs()
   window.jimte = seskari === 'velcusku' ? 201 : 30
   resultCount = 0
-  outp.innerHTML = ''
+  makeNodeEmpty(outp);
   if (seskari === 'cnano' && supportedLangs[bangu].semanticSearchPossible) {
     const out = document.createElement('div')
     out.className = 'term noselect nasezvafahi'
@@ -1014,7 +1029,7 @@ worker.onmessage = (ev) => {
       showLoading({
         completedRows: data.completedRows,
         totalRows: data.totalRows,
-        innerText: '🗃️ ' + data.bangu,
+        innerText: '🗃️ ' + (supportedLangs[data.bangu]?.n ?? data.bangu),
       })
     } else if (cmene === 'loaded') {
       showLoaded()
@@ -1357,20 +1372,16 @@ function updateDOMWithLocales(jufra, miniState) {
   }
 
   Array.from(document.querySelectorAll('[data-jufra]')).forEach((node) => {
-    const key = node.attributes['data-jufra'].nodeValue
-    let val = jufra[key]
-    if (key.indexOf('window.') === 0) {
-      val = jufra.window[key]
-      const subKey = key.replace('window.', '')
-      window[subKey] = jufra.window[key]
-    }
-    switch (node.nodeName) {
-      case 'INPUT':
-        node.placeholder = val || node.placeholder
-        break
-      default:
-        node.innerHTML = val || node.innerHTML
-    }
+    const key = node.attributes['data-jufra'].nodeValue.replace('window.', '')
+    const val = jufra.window[key] ?? jufra[key]
+    if (val)
+      switch (node.nodeName) {
+        case 'INPUT':
+          node.placeholder = val
+          break
+        default:
+          node.innerHTML = val
+      }
   })
   SiteTitleFull = document.querySelector('#site-title')
   // RenderDasri({ ...miniState, sepia: 'none' })
@@ -1626,6 +1637,14 @@ function placeTagHasExpansion(v) {
   return v.length > 1 || (jalge[0] && jalge[0] !== 'x')
 }
 
+function renderAsMathJax(string) {
+  const core = MathJax.tex2chtml(string
+    .replace(/^\$/, '')
+    .replace(/\$$/, '')).innerHTML
+
+  return `<mjx-container class="MathJax" jax="CHTML" style="position: relative;">${core}</mjx-container>`
+}
+
 function getVeljvoString({
   placeTag,
   fullDef,
@@ -1765,10 +1784,7 @@ function melbi_uenzi({
         span.setAttribute('data-arr', stringifiedPlaceTag)
       if (!isHead)
         span.setAttribute('data-color', number2ColorHue(number, 256, 32))
-      span.innerHTML = replacementTag
-        .replace(/\{/g, '\\curlyleft')
-        .replace(/\}/g, '\\curlyright')
-        .replace(/^<span /, `<span `)
+      span.innerHTML = renderAsMathJax(replacementTag)
       return span.outerHTML
     })
     .replace(
@@ -1808,7 +1824,7 @@ function melbi_uenzi({
       })}</a><span>`
     })
     .replace(/\$.*?\$/g, (c) =>
-      c.replace(/\\curlyleft/g, '{').replace(/\\curlyright/g, '}')
+      renderAsMathJax(c)
     )
   jalge = `<span>${jalge}</span>`
   jalge = jalge
@@ -2028,7 +2044,7 @@ async function skicu_palodovalsi({
   if (
     def.bangu === 'en-pixra' &&
     !(await getOrFetchResource({
-      url: `../pixra/xraste/${encodeURIComponent(def.d)}`,
+      url: def.d.indexOf("../") === 0 ? (def.d) : `../pixra/xraste/${encodeURIComponent(def.d)}`,
     }))
   )
     return
@@ -2068,7 +2084,7 @@ async function skicu_palodovalsi({
   if (def.from) {
     const inDefElement = document.createElement('div')
     inDefElement.className = 'tutci klesi klesi-tutci'
-    inDefElement.innerHTML = def.from
+    inDefElement.innerText = def.from
   }
   let hasTranslateButton = false
   const word = document.createElement('h4')
@@ -2127,25 +2143,25 @@ async function skicu_palodovalsi({
       jvs.setAttribute('rel', 'noreferrer')
     }
     if (window.xuzganalojudri && !def.l) {
-      text = `${escHtml(def.t)}# `
+      text = `${def.t}# `
       if (def.d && def.d.nasezvafahi) text = `➕ ${text}`
     }
-    jvs.innerHTML = text
+    jvs.innerText = text
   }
-  if (def.t && def.t.type) {
+  if (def?.t?.type) {
     jvs = document.createElement('a')
     jvs.href = 'javascript:;'
     jvs.className = 'klesi'
-    jvs.innerHTML = def.t.type
+    jvs.innerText = def.t.type
 
-    if (def.t.bangu && def.t.bangu !== 'lojbo')
+    if (def?.t?.bangu !== 'lojbo')
       word.classList.add('na_eisesance')
   }
   if (def.date) {
     jvs = document.createElement('div')
     jvs.className = 'tutci klesi klesi-tutci'
     jvs.style.whiteSpace = 'nowrap'
-    jvs.innerHTML = def.date
+    jvs.innerText = def.date
   }
 
   let prettifiedDefinition = {}
@@ -2164,7 +2180,7 @@ async function skicu_palodovalsi({
       })
     else
       prettifiedDefinition = {
-        tergeha: `<img src="../pixra/xraste/${encodeURIComponent(def.d)}"/>`,
+        tergeha: def.d.indexOf("../") === 0 ? `<img src="${def.d}"/>` : `<img src="../pixra/xraste/${encodeURIComponent(def.d)}"/>`,
         hasExpansion: false,
         stringifiedPlaceTags,
       }
@@ -2240,25 +2256,15 @@ async function skicu_palodovalsi({
         replace: false,
       })
     }
-    // translateButton.innerHTML = `<img src="../pixra/fanva.svg" class="cukta"/>`
     translateButton.style = 'background-image: url(../pixra/terdi.svg);'
-    // translateButton.innerHTML = `🌍`
   }
 
   const banguEl = document.createElement('div')
   banguEl.classList.add('segerna', 'sampu', 'noselect')
-  // if (supportedLangs[bangu]) {
-  //   banguEl.innerHTML = `<div style='background-size:cover;background-image: url("../pixra/${supportedLangs[bangu].p}.svg");width:40px;height:21px'></div>`
-  // } else
-  const ban =
-    def.bangu && supportedLangs[def.bangu].n
-      ? supportedLangs[def.bangu].n
-      : def.bangu || ''
-  banguEl.innerHTML = ban
-  // banguEl.onclick = function () {
-  //   EmptyState(def.bangu);
-  //   window.location = `#seskari=catni&sisku=&bangu=${def.bangu.replace(/-(cll)/, '')}`
-  // }
+
+  banguEl.innerText = def.bangu && supportedLangs[def.bangu].n
+    ? supportedLangs[def.bangu].n
+    : def.bangu || ''
 
   const famymahos =
     typeof def.s === 'string' && listFamymaho[def.s]
@@ -2404,7 +2410,7 @@ async function skicu_palodovalsi({
     if (def.d && def.d.nasezvafahi) {
       if (!def.t && (def.rfs || []).length === 0) return
       inDefElement.classList.add('nasezvafahi', 'noselect')
-      inDefElement.innerHTML = window.nasezvafahi
+      inDefElement.innerText = window.nasezvafahi
     } else {
       // if (seskari !== 'velcusku') prettifiedDefinition.tergeha = `${prettifiedDefinition.tergeha.replace(/\n/g, '<br/>')} `
       inDefElement.innerHTML = prettifiedDefinition.tergeha
@@ -2426,7 +2432,7 @@ async function skicu_palodovalsi({
     inDefElement.style.display = 'none'
     if (def.d && def.d.nasezvafahi) {
       inDefElement.classList.add('nasezvafahi', 'noselect')
-      inDefElement.innerHTML = window.nasezvafahi
+      inDefElement.innerText = window.nasezvafahi
     } else {
       inDefElement.innerHTML = `${basna({
         def: def.d.replace(/([a-z0-9])\/([a-z0-9])/gi, '$1 / $2'),
@@ -2470,7 +2476,7 @@ async function skicu_palodovalsi({
 
     const rafcme = document.createElement('div')
     rafcme.className = 'tanxe zunle_tanxe'
-    rafcme.innerHTML = window.rafsi || 'rafsi'
+    rafcme.innerText = window.rafsi || 'rafsi'
     tanxe_leirafsi.appendChild(rafcme)
 
     const rafsi = document.createElement('div')
@@ -2504,7 +2510,7 @@ async function skicu_palodovalsi({
 
     const rafcme = document.createElement('div')
     rafcme.className = 'tanxe zunle_tanxe kurfa_tanxe'
-    rafcme.innerHTML = 'BAI'
+    rafcme.innerText = 'BAI'
     tanxe_leirafsi.appendChild(rafcme)
 
     const rafsi = document.createElement('div')

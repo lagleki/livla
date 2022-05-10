@@ -13,12 +13,6 @@ const unpackVectors = function (data, type) {
     return array;
 }
 
-const fetchModel = async function (url) {
-    var response = await fetch(url);
-    var data = await response.json();
-    return data;
-}
-
 class WordEmbeddings {
     constructor(codes, centroids, vocabulary) {
         this.vocabulary = vocabulary;
@@ -139,10 +133,9 @@ class WordEmbeddings {
     }
 }
 
-export const loadModel = async function (url) {
+export const loadModel = async function (model) {
     // setWasmPaths('/sutysisku/lojban/w2v/');
     // await tf.setBackend('wasm');
-    const model = await fetchModel(url);
     console.log({ event: "Unpacking codes" });
     var codes = unpackVectors(model.codes, 'int32');
     await tf.nextFrame();

@@ -88,6 +88,7 @@ async function generatePremadeDicts({ name, url }: { name: string, url?: string 
       i++
     }
     content.data.data[0].rows = arr
+    await generateNinxrasteDictionary(content);
   }
 
   fs.writeFileSync(
@@ -101,6 +102,53 @@ async function generatePremadeDicts({ name, url }: { name: string, url?: string 
     jsonTimes = JSON.parse(fs.readFileSync(versio, { encoding: 'utf8' }))
   } catch (error) { }
   jsonTimes[name] = hash
+  if (!url) fs.writeFileSync(versio, JSON.stringify(jsonTimes))
+}
+
+async function generateNinxrasteDictionary(content) {
+
+  const arr = fs.readdirSync('/livla/src/sutysisku/src/pixra/ninxraste').map(fileName => ({
+    w: fileName.replace(/\..*?$/, ''),
+    d: `../pixra/ninxraste/${fileName}`,
+  })
+  )
+
+  const outp = {
+    "formatName": "dexie",
+    "formatVersion": 1,
+    "data": {
+      "databaseName": "sorcu1",
+      "databaseVersion": 1,
+      "tables": [
+        {
+          "name": "valsi",
+          "schema": "++id, bangu, w, d, n, t, g, *r, *cache",
+          "rowCount": arr.length
+        }
+      ],
+      "data": [{
+        "tableName": "valsi",
+        "inbound": true,
+        "rows": arr
+      }]
+    }
+  }
+
+  fs.writeFileSync(
+    path.join('/livla/build/sutysisku/data', 'parsed-en-pixra-1.bin'),
+    brotli.compress(Buffer.from(JSON.stringify(outp)))
+  )
+  fs.writeFileSync(
+    path.join('/livla/build/sutysisku/data', 'parsed-en-pixra-1.json'),
+    JSON.stringify(outp)
+  )
+  const hash = require('object-hash')({ ninxra: outp, pixra: content })
+  const versio = '/livla/build/sutysisku/data/versio.json'
+  let jsonTimes: { [x: string]: string; } = {}
+  try {
+    jsonTimes = JSON.parse(fs.readFileSync(versio, { encoding: 'utf8' }))
+  } catch (error) { }
+  jsonTimes['en-pixra'] = hash
   fs.writeFileSync(versio, JSON.stringify(jsonTimes))
 }
 
@@ -191,7 +239,7 @@ const settings = {
   vreji: [
     './',
     './index.html',
-    'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+    // 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
     'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff',
     'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff',
     'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff',
@@ -209,7 +257,7 @@ const settings = {
     // './w2v/tfjs-backend-wasm.wasm',
     // './w2v/tfjs-backend-wasm-simd.wasm',
     // './w2v/tfjs-backend-wasm-threaded-simd.wasm',
-    './w2v/word-embeddings.json',
+    '../data/embeddings-en.json.bin',
     './index.js?detri={now}',
     './index.css?detri={now}',
     './worker.js?sisku={now}',
@@ -416,6 +464,7 @@ function processTemplate({ config, fallback, now, file }: { config: { [x: string
 (async () => {
   // generate files
   for (let lang of langs) {
+    fs.copySync(`/livla/src/sutysisku/src/pixra/ninxraste`, `/livla/build/sutysisku/pixra/ninxraste`)
     fs.copySync(`/livla/src/sutysisku/template/sqljs`, `/livla/build/sutysisku/${lang}/sqljs`)
     fs.copySync(`/livla/src/sutysisku/template/asql`, `/livla/build/sutysisku/${lang}/asql`)
     fs.copySync(`/livla/src/sutysisku/template/w2v`, `/livla/build/sutysisku/${lang}/w2v`)
@@ -581,6 +630,15 @@ function processTemplate({ config, fallback, now, file }: { config: { [x: string
     path.join(__dirname, `./template/tejufra.json`),
     path.join(`/livla/build/sutysisku/lojban/tejufra.json`)
   )
+  fs.writeFileSync(
+    path.join(`/livla/build/sutysisku/data/embeddings-en.json.bin`),
+    brotli.compress(
+      Buffer.from(
+        fs.readFileSync(path.join(__dirname, `./template/w2v/word-embeddings.json`), { encoding: 'utf8' })
+      )
+    )
+  )
+
 
   const langs_jbo = [
     'jbo',

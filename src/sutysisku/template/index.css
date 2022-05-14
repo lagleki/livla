@@ -1,13 +1,3 @@
-@keyframes nodeInserted {
-  from {
-    opacity: 0.99;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes granim {
   0% {
     background-position: 10% 0%;
@@ -56,11 +46,6 @@ blockquote {
   padding-left: 8px;
   padding-right: 8px;
   width: auto;
-}
-
-.searchRendered {
-  animation-duration: 0.001s;
-  animation-name: nodeInserted;
 }
 
 .granim-css {
@@ -792,6 +777,10 @@ body {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.valsi {
+  hyphens: none;
 }
 
 .valsi,
@@ -1811,4 +1800,27 @@ user-select: none; */
     margin-top: 30%;
     margin-left: 80%;
   }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 18;
+  }
+}
+
+.arrow {
+  pointer-events: none;
+}
+
+.arrow__path {
+  stroke: #000;
+  fill: transparent;
+  stroke-dasharray: 6 3;
+  stroke-width: 3px;
+  animation: dash 2.9s linear reverse infinite;
+}
+
+.arrow__head line {
+  stroke: #000;
+  stroke-width: 3px;
 }

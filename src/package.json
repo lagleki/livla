@@ -57,7 +57,7 @@
     "seek-bzip": "~2.0.0",
     "socket.io": "^4.5.0",
     "string-format": "^2.0.0",
-    "tar": "^6.1.11",
+    "tar": "^6.1.9",
     "twitter-lite": "^1.1.0",
     "universal-analytics": "^0.5.3"
   },

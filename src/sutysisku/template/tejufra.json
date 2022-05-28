@@ -16,66 +16,61 @@
     "xuzganalojudri": false,
     "ogtitle": "Kukduvri",
     "pron_guide": "Pronunciation guide",
-    "window": {
-      "window.queryLanguage": "loglan",
-      "window.custom_links": [
-        {
-          "uncll": {
-            "title": "Reference Grammar",
-            "url": "http://www.loglan.org/Loglan1/",
-            "picture": "../pixra/loglan-refgram.png"
-          }
-        },
-        {
-          "chat": {
-            "url": "#seskari=cnano&sisku=lepo_takna&bangu=loglan&versio=masno",
-            "title": "Live chat for your questions",
-            "picture": "../pixra/nunsku.svg"
-          }
-        },
-        {
-          "introbook": {
-            "url": "http://www.loglan.org/Articles/easy-loglan-introduction.html",
-            "title": "Easy Loglan",
-            "picture": "../pixra/murse.jpg"
-          }
-        },
-        {
-          "parser": {
-            "url": "https://tli-loglan.github.io/loglan-parser/parse.html",
-            "title": "Grammar checker",
-            "picture": "../pixra/shuffle.svg"
-          }
+    "queryLanguage": "loglan",
+    "custom_links": [
+      {
+        "uncll": {
+          "title": "Reference Grammar",
+          "url": "http://www.loglan.org/Loglan1/",
+          "picture": "../pixra/loglan-refgram.png"
         }
-      ],
-      "Live chat for your questions": "Live chat for your questions",
-      "la muplis": "la muplis - useful phrases",
-      "window.lojbo": false,
-      "window.cmene": "English",
-      "window.nasezvafahi": "No definition has been found",
-      "window.rimni": "rhymes",
-      "window.bangudecomp": "decomposing ...",
-      "window.bangubuild": "Building index...",
-      "window.xuzganalojudri": false,
-      "window.judri": false,
-      "window.purc": "Last searched",
-      "window.bangu": "english",
-      "window.muplis": true,
-      "window.booting": "Booting the data for you",
-      "window.copied": "Copied to clipboard!",
-      "window.feedback": "Feedback",
-      "window.rafsi": "djifoa",
-      "window.modal_reset": "Reset",
-      "window.report_feedback_main": "Feedback",
-      "window.report_feedback": "Send suggestion",
-      "window.report_feedback_corrected original": "Corrected Loglan phrase",
-      "window.report_feedback_corrected translation": "Corrected translation from Lojban",
-      "window.report_feedback_description": "Describe your issue or share your ideas",
-      "window.report_feedback_thankyou": "Thank you!",
-      "window.report_feedback_has_been_submitted": "Your feedback has been submitted.",
-      "window.report_feedback_issues_repo": "Read the issues",
-      "window.report_feedback_problem": "We had a problem sending your feedback. Please, try again later or report to the live chat instead."
-    }
+      },
+      {
+        "chat": {
+          "url": "#seskari=cnano&sisku=lepo_takna&bangu=loglan&versio=masno",
+          "title": "Live chat for your questions",
+          "picture": "../pixra/nunsku.svg"
+        }
+      },
+      {
+        "introbook": {
+          "url": "http://www.loglan.org/Articles/easy-loglan-introduction.html",
+          "title": "Easy Loglan",
+          "picture": "../pixra/murse.jpg"
+        }
+      },
+      {
+        "parser": {
+          "url": "https://tli-loglan.github.io/loglan-parser/parse.html",
+          "title": "Grammar checker",
+          "picture": "../pixra/shuffle.svg"
+        }
+      }
+    ],
+    "Live chat for your questions": "Live chat for your questions",
+    "la muplis": "la muplis - useful phrases",
+    "lojbo": false,
+    "cmene": "English",
+    "nasezvafahi": "No definition has been found",
+    "rimni": "rhymes",
+    "bangudecomp": "decomposing ...",
+    "bangubuild": "Building index...",
+    "judri": false,
+    "purc": "Last searched",
+    "booting": "Booting the data for you",
+    "copied": "Copied to clipboard!",
+    "feedback": "Feedback",
+    "rafsi": "djifoa",
+    "modal_reset": "Reset",
+    "report_feedback_main": "Feedback",
+    "report_feedback": "Send suggestion",
+    "report_feedback_corrected original": "Corrected Loglan phrase",
+    "report_feedback_corrected translation": "Corrected translation from Lojban",
+    "report_feedback_description": "Describe your issue or share your ideas",
+    "report_feedback_thankyou": "Thank you!",
+    "report_feedback_has_been_submitted": "Your feedback has been submitted.",
+    "report_feedback_issues_repo": "Read the issues",
+    "report_feedback_problem": "We had a problem sending your feedback. Please, try again later or report to the live chat instead."
   },
   "en": {
     "bangudesc": "<h1><b>la sutysisku</b> is a fast dictionary for the Lojban language.</h1><div style=\"text-align:justify,\">- Can I use it if I lose internet access?<br/>- Yes, if this happens try opening this very address from this browser.<br/>It should still open. A latest version of Chrome, Safari or Firefox is required.<ul class='liste'><li>'search' prefers official words and shows them first, 'search+' sets equal priority to both official and experimental words.</li><li>Press <code>/</code> to focus the search field.</li><li>For advanced users: to enable regular expressions search in titles, definitions and notes either start the string with <code>^</code> or end with <code>$</code>: <a href='#seskari=cnano&sisku=%5Eui&bangu=en&versio=masno' class='judri'><code>^ui</code></a>, <a href='#seskari=cnano&sisku=sku%24&bangu=en&versio=masno' class='judri'><code>sku$</code></a> are examples.</li></ul>Transliterations to <a href='#seskari=cnano&sisku=zbalermorna&bangu=en&versio=masno'>zbalermorna</a> orthography are provided for your searches.</div><h1>Got feedback on la sutysisku? Please, report to the live chat via any of the following channels:</h1><ul><li><a target='_blank' href='https://discord.gg/BVm4EYR'>Discord messenger chat</a></li><li><a target='_blank' href='https://t.me/joinchat/BLVsYz3hCF8mCAb6fzW1Rw'>Telegram messenger chat</a></li><li><a target='_blank' href='https://join.slack.com/t/lojban/shared_invite/zt-k3s96tvq-4mtkvG0ZlW2rFIwTPb4rIg'>Slack messenger chat</a></li><li>IRC chat: #lojban at irc.libera.chat</a></li></ul>",
@@ -87,82 +82,80 @@
     "opdescr": "Lojban dictionary: works offline (+ English and other languages)",
     "bangu": "english",
     "muplis": "false",
-    "catni": "search",
+    "catni": "precise",
     "cnano": "similar",
     "velcusku": "chat",
     "arxivo": "archive",
     "xuzganalojudri": "true",
     "ogtitle": "Sutysisku",
     "pron_guide": "Pronunciation guide",
-    "window": {
-      "window.custom_links": [
-        {
-          "uncll": {
-            "title": "Reference Grammar",
-            "url": "https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/",
-            "picture": "../pixra/cll.png"
-          }
-        },
-        {
-          "introbook": {
-            "url": "https://lojban.pw/books/learn-lojban/#",
-            "title": "Learn Lojban",
-            "picture": "../pixra/cogwheel-5.svg"
-          }
-        },
-        {
-          "chat": {
-            "url": "#seskari=cnano&sisku=lai jbosnu&bangu=en&versio=masno",
-            "title": "Live chat for your questions",
-            "picture": "../pixra/nunsku.svg"
-          }
-        },
-        {
-          "valsr": {
-            "url": "https://la-lojban.github.io/valsr/",
-            "title": "«Guess the word» game",
-            "picture": "../pixra/valsr.png"
-          }
-        },
-        {
-          "muplis": {
-            "url": "#seskari=cnano&sisku={lastQuery}&bangu=muplis&versio=masno",
-            "title": "Phrases",
-            "picture": "../pixra/taplamuplis.svg",
-            "width": 2.1
-          }
+    "custom_links": [
+      {
+        "uncll": {
+          "title": "Reference Grammar",
+          "url": "https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/",
+          "picture": "../pixra/cll.png"
         }
-      ],
-      "Live chat for your questions": "Live chat for your questions",
-      "la muplis": "la muplis - useful phrases",
-      "window.semanticSearchAlert": "Similar meanings search via word embeddings",
-      "window.distance": "${distance}: word embedding affinity of the query with the glossword",
-      "window.lojbo": true,
-      "window.cmene": "English",
-      "window.nasezvafahi": "No definition has been found",
-      "window.rimni": "rhymes",
-      "window.bangudecomp": "decomposing ...",
-      "window.bangubuild": "Building index...",
-      "window.xuzganalojudri": "true",
-      "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.purc": "Last searched",
-      "window.bangu": "english",
-      "window.muplis": true,
-      "window.booting": "Booting the data for you",
-      "window.copied": "Copied to clipboard!",
-      "window.feedback": "Feedback",
-      "window.modal_reset": "Reset",
-      "window.rafsi": "rafsi",
-      "window.report_feedback_main": "Feedback",
-      "window.report_feedback": "Send suggestion",
-      "window.report_feedback_corrected original": "Corrected Lojban phrase",
-      "window.report_feedback_corrected translation": "Corrected translation from Lojban",
-      "window.report_feedback_description": "Describe your issue or share your ideas",
-      "window.report_feedback_thankyou": "Thank you!",
-      "window.report_feedback_has_been_submitted": "Your feedback has been submitted.",
-      "window.report_feedback_issues_repo": "Read the issues",
-      "window.report_feedback_problem": "We had a problem sending your feedback. Please, try again later or report to the live chat instead."
-    }
+      },
+      {
+        "introbook": {
+          "url": "https://lojban.pw/books/learn-lojban/#",
+          "title": "Learn Lojban",
+          "picture": "../pixra/cogwheel-5.svg"
+        }
+      },
+      {
+        "chat": {
+          "url": "#seskari=cnano&sisku=lai jbosnu&bangu=en&versio=masno",
+          "title": "Live chat for your questions",
+          "picture": "../pixra/nunsku.svg"
+        }
+      },
+      {
+        "valsr": {
+          "url": "https://la-lojban.github.io/valsr/",
+          "title": "«Guess the word» game",
+          "picture": "../pixra/valsr.png"
+        }
+      },
+      {
+        "muplis": {
+          "url": "#seskari=cnano&sisku={lastQuery}&bangu=muplis&versio=masno",
+          "title": "Phrases",
+          "picture": "../pixra/taplamuplis.svg",
+          "width": 2.1
+        }
+      }
+    ],
+    "Live chat for your questions": "Live chat for your questions",
+    "la muplis": "la muplis - useful phrases",
+    "alerts": {
+      "semanticSearchAlert": "Similar meanings search via word embeddings",
+      "rhymesSearchAlert": "Rhymes search enabled"
+    },
+    "distance": "${distance}: word embedding affinity of the query with the glossword",
+    "lojbo": true,
+    "cmene": "English",
+    "nasezvafahi": "No definition has been found",
+    "rimni": "rhymes",
+    "bangudecomp": "decomposing ...",
+    "bangubuild": "Building index...",
+    "judri": "http://jbovlaste.lojban.org/dict/",
+    "purc": "Last searched",
+    "booting": "Booting the data for you",
+    "copied": "Copied to clipboard!",
+    "feedback": "Feedback",
+    "modal_reset": "Reset",
+    "rafsi": "rafsi",
+    "report_feedback_main": "Feedback",
+    "report_feedback": "Send suggestion",
+    "report_feedback_corrected original": "Corrected Lojban phrase",
+    "report_feedback_corrected translation": "Corrected translation from Lojban",
+    "report_feedback_description": "Describe your issue or share your ideas",
+    "report_feedback_thankyou": "Thank you!",
+    "report_feedback_has_been_submitted": "Your feedback has been submitted.",
+    "report_feedback_issues_repo": "Read the issues",
+    "report_feedback_problem": "We had a problem sending your feedback. Please, try again later or report to the live chat instead."
   },
   "ru": {
     "bangudesc": "<h1><b>la sutysisku</b> - быстрый словарь языка 'ложбан'.</h1><div style=\"text-align:justify,\">- Будет ли эта страничка открываться, если у меня будет недоступен интернет?<br>- Да, если это случится, всё равно откройте этот же адрес с этого же самого браузера. Страничка всё равно должна открыться. Требуется последняя версия браузера Chrome, Яндекс Браузера, Safari или Firefox. Работает на устройствах Android и Apple.<ul class='liste'><li>'поиск' вначал показывает официальные слова, 'поиск+' выдает равный проритет и официальным, и экспериментальным словам.</li><li>Нажмите <code>/</code>, чтобы перейти в поле поиска.</li><li>Для гиков: поиск регулярными выражениями по словарю доступен добавлением перед словом символа <code>^</code> или позади слова символа <code>$</code>. Примеры: <code>^mi</code>, <code>gau$</code>.</li></ul>Больше ресурсов на русском на сайте <a href='http://mw.lojban.org/index.php?title=Lojban&setlang=ru' target='_blank'>lojban.org</a>.</br/>В результатах поиска также представлена орфография zbalermorna.</div>",
@@ -180,21 +173,17 @@
     "velcusku": "чат",
     "arxivo": "архив",
     "pron_guide": "Руководство по произношению",
-    "window": {
-      "Live chat for your questions": "Чат для Ваших вопросов",
-      "la muplis": "la muplis - полезные фразы",
-      "window.cmene": "русский",
-      "window.nasezvafahi": "не найдено",
-      "window.rimni": "рифмы",
-      "window.bangubuild": "Создаём индексы ...",
-      "window.bangudecomp": "разбиваем слова ...",
-      "window.purc": "Ранее искали",
-      "window.xuzganalojudri": true,
-      "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.bangu": "русский",
-      "window.booting": "Подготавливаем данные для вас",
-      "window.copied": "Скопировано в буфер!"
-    }
+    "Live chat for your questions": "Чат для Ваших вопросов",
+    "la muplis": "la muplis - полезные фразы",
+    "cmene": "русский",
+    "nasezvafahi": "не найдено",
+    "rimni": "рифмы",
+    "bangubuild": "Создаём индексы ...",
+    "bangudecomp": "разбиваем слова ...",
+    "purc": "Ранее искали",
+    "judri": "http://jbovlaste.lojban.org/dict/",
+    "booting": "Подготавливаем данные для вас",
+    "copied": "Скопировано в буфер!"
   },
   "fr-facile": {
     "bangudesc": "<h1><b>la sutysisku</b> est un dictionnaire rapide pour le lojban.</h1><div style=\"text-align:justify,\">- Puis-je l'utilise si je perd l'accès à Internet ?<br/>- Oui, si cela arrive, essayer d'ouvrir cette même adresse depuis le même navigateur. Elle devrait encore s'ouvrir. Un version récente de Chrome, Safari ou Firefox est requise.<ul class='liste'><li>Presser <code>/</code> pour se focaliser sur le champ de recherche.</li><li>Pour des utilisateurs avancés: pour activer la recherche par expression régulière, commencez la recherhce avec <code>^</code> ou finissez la avec <code>$</code>. Par exemple: <code>^mi</code>, <code>gau$</code>.</li></ul>Pour plus d'informations, visitez <a href='http://mw.lojban.org/index.php?title=Lojban&setlang=fr' target='_blank'>le Wiki du Lojban</a>.</div>",
@@ -208,16 +197,12 @@
     "catni": "chercher",
     "kunti": "Effacer",
     "pron_guide": "Guide de prononciation",
-    "window": {
-      "window.nasezvafahi": "Aucune définition n'a été trouvée.",
-      "window.bangubuild": "Nous construisons l'indice...",
-      "window.rimni": "rimes",
-      "window.bangudecomp": "décomposer...",
-      "window.purc": "Vu la dernière fois",
-      "window.xuzganalojudri": true,
-      "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.bangu": "français"
-    }
+    "nasezvafahi": "Aucune définition n'a été trouvée.",
+    "bangubuild": "Nous construisons l'indice...",
+    "rimni": "rimes",
+    "bangudecomp": "décomposer...",
+    "purc": "Vu la dernière fois",
+    "judri": "http://jbovlaste.lojban.org/dict/"
   },
   "eo": {
     "bangudesc": "<p><b>la sutysisku</b> estas rapida vortara ilo por la lingvo Loĵbana.<p>- Ĉu mi povas ĝin uzi tiam, kiam mi estas malkonektite el la Interreto?<br>- Jes, tiaokaze provu malfermi tiun adreson per via komputilo.<br>Ĝi devus malfermiĝi malgraŭe. Necesas Freŝdata versio de Chrome, Safari aŭ Firefox.<br><br>Por pluaj resursoj, vizitu <a href='https://mw.lojban.org' target='_blank'>la Loĵbanan Vikion.</a>.</p>",
@@ -225,21 +210,17 @@
     "bangulo": "Ŝargando vortaron ...",
     "siskudescr": "Search the Lojban dictionary la jbovlaste.",
     "opdescr": "A dictionary for Lojban, English and other languages that can work offline.",
-    "xuzganalojudri": "true",
     "lojbo": true,
     "catni": "serĉi",
     "kunti": "Vakigi",
     "pron_guide": "Gvidilo de elparolo",
-    "window": {
-      "window.nasezvafahi": "ne troviĝas",
-      "window.bangubuild": "Konstruando indekson...",
-      "window.rimni": "mitysisku lo'e rimni",
-      "window.bangudecomp": "fendando ...",
-      "window.purc": "Lastaj serĉoj:",
-      "window.xuzganalojudri": true,
-      "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.bangu": "esperanto"
-    }
+    "nasezvafahi": "ne troviĝas",
+    "bangubuild": "Konstruando indekson...",
+    "rimni": "mitysisku lo'e rimni",
+    "bangudecomp": "fendando ...",
+    "purc": "Lastaj serĉoj:",
+    "judri": "http://jbovlaste.lojban.org/dict/",
+    "bangu": "esperanto"
   },
   "es": {
     "bangudesc": "<p><b>la sutysisku</b> es un diccionario rápido de la lengua “lojban”.<p>- ¿Puedo usarlo si pierdo el acceso a Internet?<br>- Sí, si esto ocurre abra esta misma dirección en este navegador.<br>Aun así debe abrirse. Se necesita una versión reciente de Chrome, Safari o Firefox.<br/>Para obtener más recursos visita <a href='https://mw.lojban.org' target='_blank'>Wiki del lojban</a>.</p>",
@@ -253,16 +234,12 @@
     "kunti": "Vaciar",
     "catni": "buscar",
     "pron_guide": "Guía de pronunciación",
-    "window": {
-      "window.nasezvafahi": "No se encuentra",
-      "window.bangubuild": "Construyendo el índice ...",
-      "window.rimni": "rimas",
-      "window.bangudecomp": "descomponiendo ...",
-      "window.xuzganalojudri": true,
-      "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.purc": "Visto por última vez:",
-      "window.bangu": "español"
-    }
+    "nasezvafahi": "No se encuentra",
+    "bangubuild": "Construyendo el índice ...",
+    "rimni": "rimas",
+    "bangudecomp": "descomponiendo ...",
+    "judri": "http://jbovlaste.lojban.org/dict/",
+    "purc": "Visto por última vez:"
   },
   "ja": {
     "bangudesc": "<h1><b>la sutysisku</b> は、素早く検索できるロジバンの辞書です。</h1><div style=\"text-align:justify;\">――インターネットに接続していない時にでも使えるの？<br/>――使えます。接続していない時にこのブラウザから今のこのアドレスを開いてみて下さい。開くはずです。 Chrome か Safari か Firefox の最新版が必要です。<ul class='liste'><li>探索欄に焦点を当てさせるために、<code>「／」</code>というキーを押してください。</li><li>上級ユーザーの場合：正規表現でタイトルに探索することを可能にするには、文字列が<code>「^」</code>で始め、又は文字列が<code>「$」</code>で終わることにしてください。例えば<code>「^mi, gau$」</code>。</li></ul>他の教材については<a href='http://mw.lojban.org/index.php?title=Lojban&setlang=ja' target='_blank'>ロジバンのウィキ</a>を訪れて下さい。</div>",
@@ -275,16 +252,13 @@
     "kunti": "消去",
     "catni": "探す",
     "pron_guide": "発音ガイド",
-    "window": {
-      "window.nasezvafahi": "定義は一つも見出せませんでした。",
-      "window.bangubuild": "索引を作成しています ...",
-      "window.rimni": "韻探索",
-      "window.bangudecomp": "以下に分けます ...",
-      "window.xuzganalojudri": true,
-      "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.purc": "最新検索履歴",
-      "window.bangu": "日本"
-    }
+    "nasezvafahi": "定義は一つも見出せませんでした。",
+    "bangubuild": "索引を作成しています ...",
+    "rimni": "韻探索",
+    "bangudecomp": "以下に分けます ...",
+    "judri": "http://jbovlaste.lojban.org/dict/",
+    "purc": "最新検索履歴",
+    "bangu": "日本"
   },
   "jb": {
     "bangudesc": "<h1><b>la sutysisku</b> is a fast dictionary with examples for the Lojban language.</h1><div style=\"text-align:justify;\">- Can I use it if I lose internet access?<br/>- Yes, if this happens try opening this very address from this browser.<br/>It should still open. A latest version of Chrome, Safari or Firefox is required.<ul class='liste'><li>Press <code>/</code> to focus the search field.</li><li>For advanced users: to enable regular expressions search in titlesm definitions and notes either start the string with <code>^</code> or end with <code>$</code>: <a href='#seskari=cnano&sisku=%5Eui&bangu=en&versio=masno' class='judri'><code>^ui</code></a>, <a href='#seskari=cnano&sisku=sku%24&bangu=en&versio=masno' class='judri'><code>sku$</code></a> are examples.</li></ul>Transliterations to <a href='#seskari=cnano&sisku=zbalermorna&bangu=en&versio=masno'>zbalermorna</a> orthography are provided for your searches.</div>",
@@ -299,17 +273,13 @@
     "catni": "search",
     "lojbo": true,
     "pron_guide": "Pronunciation guide",
-    "window": {
-      "window.nasezvafahi": "not found",
-      "window.bangubuild": "Building index...",
-      "window.rimni": "mitysisku lo'e rimni",
-      "window.bangudecomp": "decomposing ...",
-      "window.xuzganalojudri": true,
-      "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.cllnotci": "The Reference Grammar on this topic:",
-      "window.purc": "Last searched:",
-      "window.bangu": "english"
-    }
+    "nasezvafahi": "not found",
+    "bangubuild": "Building index...",
+    "rimni": "mitysisku lo'e rimni",
+    "bangudecomp": "decomposing ...",
+    "judri": "http://jbovlaste.lojban.org/dict/",
+    "cllnotci": "The Reference Grammar on this topic:",
+    "purc": "Last searched:"
   },
   "jbo": {
     "bangudesc": "<p><b>la sutysisku</b> cu sutra tutci co jbobau vlaste<p>- .i xu mi kakne loi ka pilno la sutysisku vau va'o le nu na ka'e kibro pilno<br>- .i ja'a go'i .i va'o le nu kibro kakne naku cu .e'u troci loi ka gau do le brauzero cu cpacu le se judri be le me dei moi<br> .i la'a sai le mutpapri cu tolcanci to'e ri'a nai .i le mutce cnino klesi be la romge .a la tsafari .a la faglo'u cu jai sarcu le nu pilno la sutysisku<br><br>.i le nu djica co zenba co cilre tu'a la sutysisku cu .e'u banzu le nu tcidu fi <a href='https://mw.lojban.org' target='_blank'>la lojbo uitki</a>.",
@@ -323,17 +293,13 @@
     "catni": "sisku",
     "kunti": "jai gau kunti",
     "pron_guide": "tadji le nu bacru le lance",
-    "window": {
-      "la muplis": "xamgu jufra do'e la muplis",
-      "window.nasezvafahi": ".i no da se zvafa'i",
-      "window.rimni": "rimni",
-      "window.bangubuild": "ca'o zbasu lo indice",
-      "window.bangudecomp": "te katna",
-      "window.xuzganalojudri": true,
-      "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.purc": "to ro moi loi ka se mitysisku toi",
-      "window.bangu": "lojban"
-    }
+    "la muplis": "xamgu jufra do'e la muplis",
+    "nasezvafahi": ".i no da se zvafa'i",
+    "rimni": "rimni",
+    "bangubuild": "ca'o zbasu lo indice",
+    "bangudecomp": "te katna",
+    "judri": "http://jbovlaste.lojban.org/dict/",
+    "purc": "to ro moi loi ka se mitysisku toi"
   },
   "muplis": {
     "bangudesc": "<h1>.i <b>la .muplis.</b> cu sutra tutci lo nu mitysisku lo mupli pe la'o zoi.<a href='http://tatoeba.org/jbo' target='_blank'>Tatoeba.org</a>.zoi.</h1><div style=\"text-align:justify;\">ni'o xu va'o lo nu zu'i na ka'e pilno le kibro vau zu'i ka'e pilno la .muplis.<br>.i ja'a go'i .i .e'u va'o lo nu zu'i na kakne tu'a le kibro cu troci loi ka gau zu'i le brauzero cu cpacu lo se judri be le me dei moi .i la'a sai le mutpapri cu tolcanci to'e ri'a nai .i lo cnino klesi be la xromium .a la'oi Safari .a la'oi Firefox cu jai sarcu loi ka pilno la .muplis.<br/>ni'o lo nu djica co zenba co cilre tu'a la .muplis. cu .e'u banzu lo nu tcidy fi <a href='https://lojban.pw' target='_blank'>le lojbo stuzi</a>.</div>",
@@ -359,26 +325,22 @@
     "icon16": "../pixra/plise.svg",
     "icon32": "../pixra/plise.svg",
     "ogtitle": "Muplis",
-    "window": {
-      "window.uncll_url": "https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/",
-      "window.nasezvafahi": "na se zvafa'i",
-      "window.bangubuild": "ca'o zbasu lo indice",
-      "window.xuzganalojudri": false,
-      "window.bangudecomp": "te katna",
-      "window.arrcll": {},
-      "window.purc": "to ro moi loi ka se mitysisku toi",
-      "window.muplis": true,
-      "window.rimni": "rimni lo'e pa jufra",
-      "window.bangu": "english",
-      "window.report_feedback": "Send suggestion",
-      "window.report_feedback_corrected original": "Corrected Lojban phrase",
-      "window.report_feedback_corrected translation": "Corrected translation from Lojban",
-      "window.report_feedback_description": "Describe your issue or share your ideas",
-      "window.report_feedback_thankyou": "Thank you!",
-      "window.report_feedback_has_been_submitted": "Your feedback has been submitted.",
-      "window.report_feedback_issues_repo": "Read the issues",
-      "window.report_feedback_problem": "We had a problem sending your feedback. Please, try again later or report directly to the live chat/issues repository instead."
-    }
+    "uncll_url": "https://la-lojban.github.io/uncll/uncll-1.2.14/xhtml_section_chunks/",
+    "nasezvafahi": "na se zvafa'i",
+    "bangubuild": "ca'o zbasu lo indice",
+    "bangudecomp": "te katna",
+    "arrcll": {},
+    "purc": "to ro moi loi ka se mitysisku toi",
+    "rimni": "rimni lo'e pa jufra",
+    "bangu": "english",
+    "report_feedback": "Send suggestion",
+    "report_feedback_corrected original": "Corrected Lojban phrase",
+    "report_feedback_corrected translation": "Corrected translation from Lojban",
+    "report_feedback_description": "Describe your issue or share your ideas",
+    "report_feedback_thankyou": "Thank you!",
+    "report_feedback_has_been_submitted": "Your feedback has been submitted.",
+    "report_feedback_issues_repo": "Read the issues",
+    "report_feedback_problem": "We had a problem sending your feedback. Please, try again later or report directly to the live chat/issues repository instead."
   },
   "zh": {
     "bangudesc": "<h1><b>la sutysisku</b> 是逻辑语的快速词典。</h1><div style=\"text-align:justify;\">- 离线时还能使用吗？<br/>- 只要使用该网址打开就可以。这个功能要求最新版的 QQ Browser、UC Browser、Safari 或 Firefox。<ul class='liste'><li>按 <code>/</code> 键定位到搜索框。</li><li>对于高级用户：如果查询以 <code>^</code> 开始或以 <code>$</code> 结束，则启用正则表达式搜索。例如 <a href='#seskari=cnano&sisku=%5Eui&bangu=zh&versio=masno' class='judri'><code>^ui</code>, <a href='#seskari=cnano&sisku=sku%24&bangu=zh&versio=masno' class='judri'><code>sku$</code></a>。</li></ul></div>",
@@ -392,15 +354,11 @@
     "muplis": "false",
     "xuzganalojudri": "true",
     "pron_guide": "发音指南",
-    "window": {
-      "window.nasezvafahi": "没有找到定义。",
-      "window.bangudecomp": " 分解中 ...",
-      "window.rimni": "mitysisku lo'e rimni",
-      "window.bangubuild": "正在构建索引 ...",
-      "window.xuzganalojudri": true,
-      "window.judri": "http://jbovlaste.lojban.org/dict/",
-      "window.purc": "最后搜索:",
-      "window.bangu": "中文"
-    }
+    "nasezvafahi": "没有找到定义。",
+    "bangudecomp": " 分解中 ...",
+    "rimni": "mitysisku lo'e rimni",
+    "bangubuild": "正在构建索引 ...",
+    "judri": "http://jbovlaste.lojban.org/dict/",
+    "purc": "最后搜索:"
   }
 }

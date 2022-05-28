@@ -4,10 +4,59 @@ const externalConfig = {
   feedback_backend_url: 'https://sutysisku-report.herokuapp.com/',
   issues_repo:
     'https://github.com/La-Lojban/pinka/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc',
-  sql_mode: 'memory',
+  sql_buffer_mode: 'shared-memory',
+  sql_pragma_mode: 'memory',
   GA_MEASUREMENT_ID: 'UA-45171210-6',
   SUTYSISKU_URL: 'la-lojban.github.io/sutysisku',
 }
+
+const filesToWorkWith = [
+  {
+    file: 'index.html',
+    out: 'index.html',
+  },
+  {
+    file: 'index.css',
+    out: 'index.css',
+  },
+  {
+    file: 'sqljs/sql-wasm.wasm',
+    out: 'sql-wasm.wasm',
+    simpleCopy: true,
+  },
+  {
+    file: 'socket.io.js',
+    out: 'socket.io.js',
+    simpleCopy: true,
+  },
+  {
+    file: 'cmaxes.js',
+    out: 'cmaxes.js',
+    simpleCopy: true,
+  },
+  {
+    file: 'tejufra.json',
+    out: 'tejufra.json',
+    simpleCopy: true,
+  },
+  {
+    file: 'sisku.xml',
+    out: 'sisku.xml',
+  },
+  {
+    file: 'coi.js',
+    out: 'coi.js',
+  },
+  {
+    file: 'worker.js',
+    out: 'worker.js',
+  },
+  {
+    file: 'index.js',
+    out: 'index.js',
+    uglify: true,
+  },
+];
 
 declare global {
   interface String {
@@ -27,7 +76,7 @@ const path = require('path-extra')
 // const babel = require('@babel/core')
 // const env = require('@babel/preset-env')
 
-const now = new Date().getTime()
+const now = new Date().getTime().toString()
 // config
 const args = process.argv.slice(2)
 const langs =
@@ -300,6 +349,7 @@ const settings = {
     '../pixra/144.png',
     '../pixra/32.png',
     '../pixra/shuffle.svg',
+    '../pixra/sance.svg',
     '../pixra/terdi.svg',
     '../pixra/fukpi.svg',
     '../pixra/valsr.png',
@@ -363,7 +413,7 @@ const settings = {
     '../sance/lerfu/z.ogg',
   ],
 }
-settings.vreji = settings.vreji.map((i) => i.replace(/{now}/g, now.toString()))
+settings.vreji = settings.vreji.map((i) => i.replace(/{now}/g, now))
 
 fs.writeFileSync(settings_path, JSON.stringify(settings))
 
@@ -483,27 +533,23 @@ String.prototype.stripout = function (
 String.prototype.replaceMergefield = function (config: {
   [x: string]: any
 }): string {
-  return Object.keys(config).reduce(
-    (acc, i) => acc.replace(new RegExp(`['"]%${i}%['"]`, 'g'), config[i]),
-    this
-  ) as string
+  const Mustache = require('mustache')
+  let passed = this
+  passed = Mustache.render(passed, config, {}, ["'{{", "}}'"])
+  passed = Mustache.render(passed, config, {}, ['{{', '}}'])
+
+  return passed
 }
 
 function processTemplate({
   config,
-  fallback,
-  now,
   file,
 }: {
   config: { [x: string]: any }
-  fallback: { [x: string]: any }
-  now: number
   file: string
 }) {
   let output = file
-    .replace(/{now}/g, now.toString())
     .replaceMergefield(config)
-    .replaceMergefield(fallback)
     /// /strip out according to Lojbanicity of the sutysisku
     .stripout(config, 'xuzganalojudri\\|lojbo')
     .stripout(config, 'xuzganalojudri')
@@ -550,6 +596,7 @@ function processTemplate({
     else config.production = 'production'
     const config_fallback = {
       lang,
+      now,
       ...externalConfig,
       title: "la sutysisku zo'u: ze'i mitysisku lo valsi",
       favicon: '../pixra/snime.svg',
@@ -606,6 +653,8 @@ function processTemplate({
       arxivo: 'archive',
       velcusku: 'read chat',
       parse: 'parse',
+      'template': `https://${externalConfig.SUTYSISKU_URL}/${lang}/index.html#seskari=cnano&amp;sisku={searchTerms}`,
+      'shortname': `${lang}-sutysisku`,
     }
     const arr = (config.mupliskari4 || config_fallback.mupliskari4)
       .split(',')
@@ -613,41 +662,7 @@ function processTemplate({
     config.mupliskariralju = fullColorHex(arr[0], arr[1], arr[2])
 
     // read template.html into var
-    for (const el of [
-      {
-        file: 'index.html',
-        out: 'index.html',
-      },
-      {
-        file: 'index.css',
-        out: 'index.css',
-      },
-      {
-        file: 'sqljs/sql-wasm.wasm',
-        out: 'sql-wasm.wasm',
-        simpleCopy: true,
-      },
-      {
-        file: 'socket.io.js',
-        out: 'socket.io.js',
-        simpleCopy: true,
-      },
-      {
-        file: 'cmaxes.js',
-        out: 'cmaxes.js',
-        simpleCopy: true,
-      },
-      {
-        file: 'worker.js',
-        out: 'worker.js',
-        // simpleCopy: true,
-      },
-      {
-        file: 'index.js',
-        out: 'index.js',
-        uglify: true,
-      },
-    ]) {
+    for (const el of filesToWorkWith) {
       if (el.simpleCopy) {
         fs.copyFileSync(
           path.join(__dirname, './template', el.file),
@@ -655,10 +670,8 @@ function processTemplate({
         )
         continue
       }
-      let output = processTemplate({
-        config,
-        fallback: config_fallback,
-        now,
+      const output = processTemplate({
+        config: { ...config_fallback, ...config },
         file: fs.readFileSync(path.join(__dirname, './template', el.file), {
           encoding: 'utf8',
         }),
@@ -668,40 +681,8 @@ function processTemplate({
         output
       )
     }
-
-    // current datetime
-    const d = new Date()
-
-    // read sisku.xml template into var
-    const b = fs
-      .readFileSync(path.join(__dirname, './template', 'sisku.xml'), {
-        encoding: 'utf8',
-      })
-      .replace(
-        '%template%',
-        `https://${externalConfig.SUTYSISKU_URL}/${lang}/index.html#seskari=cnano&amp;sisku={searchTerms}`
-      )
-      .replace('%shortname%', `${lang}-sutysisku`)
-      .replaceMergefield(config)
-    fs.writeFileSync(path.join('/livla/build/sutysisku/', lang, 'sisku.xml'), b)
-    // copy coi.js
-    try {
-      fs.writeFileSync(
-        path.join('/livla/build/sutysisku/', lang, 'coi.js'),
-        fs
-          .readFileSync(path.join(__dirname, 'template', 'coi.js'), {
-            encoding: 'utf8',
-          })
-          .replace(/{now}/g, now.toString())
-          .replace(/{lang}/g, lang)
-      )
-    } catch (error) {}
   }
 
-  fs.copyFileSync(
-    path.join(__dirname, `./template/tejufra.json`),
-    path.join(`/livla/build/sutysisku/lojban/tejufra.json`)
-  )
   fs.writeFileSync(
     path.join(`/livla/build/sutysisku/data/embeddings-en.json.bin`),
     brotli.compress(

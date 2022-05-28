@@ -1076,8 +1076,15 @@ const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
         json[word].t === 'experimental gismu' ||
         (json[word].t || '').indexOf("fu'ivla") >= 0
       )
-        json[word].r.push(word)
-
+        {json[word].r.push(word)}
+      else if (json[word].t==='lujvo'){
+        const veljvo = lojban.jvokaha_gui(word);
+        if (veljvo.length<2){
+          json[word].v = word.split(/ zei /g).map(i=>i.trim()).filter(Boolean);
+        }else{
+          json[word].v = veljvo
+        }
+      }
       if (json[word].r && json[word].r.length === 0) delete json[word].r
       i++
       let rec = { w: word, ...json[word] }

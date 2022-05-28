@@ -1,7 +1,3 @@
-# xraste
-
-* for each dict entry if it's a en-pixra check if the image can be fetched from cache/fallback to the inets. if yes display, if not skip entry
-
 # Semantic search
 
 * + Scrap DwE dictionary and add z-glosses to the english dump
@@ -24,8 +20,8 @@
 * Check for sem prop in def and
   * @todo: show it,
   * @todo: hilite it
-* @todo: alert widget: if en and cnano then show buttons and disclaimer
-* 
+* alert widget: if en and cnano then show buttons and disclaimer
+* @todo French and Russian vectors
 
 # Checks
 

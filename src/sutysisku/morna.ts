@@ -4,7 +4,7 @@ const externalConfig = {
   feedback_backend_url: 'https://sutysisku-report.herokuapp.com/',
   issues_repo:
     'https://github.com/La-Lojban/pinka/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc',
-  sql_mode: 'memory',
+  sql_mode: 'shared-memory',
   GA_MEASUREMENT_ID: 'UA-45171210-6',
   SUTYSISKU_URL: 'la-lojban.github.io/sutysisku',
 }
@@ -34,30 +34,30 @@ const langs =
   args.length > 0
     ? args
     : [
-        'lojban',
-        // 'ile',
-        // 'ina',
-        // 'ithkuil',
-        // 'laadan',
-        // 'ldp',
-        // 'zamenhofo',
-        // 'epo-tha',
-        // 'simplingua-zho',
-        // 'toki',
-        // 'ktv-eng',
-        // 'en-pt-BR',
-        // 'muplis-eng-pol',
-      ]
+      'lojban',
+      // 'ile',
+      // 'ina',
+      // 'ithkuil',
+      // 'laadan',
+      // 'ldp',
+      // 'zamenhofo',
+      // 'epo-tha',
+      // 'simplingua-zho',
+      // 'toki',
+      // 'ktv-eng',
+      // 'en-pt-BR',
+      // 'muplis-eng-pol',
+    ]
 
 generateCLLDictionary()
 generateLLDictionary()
-;[
-  { name: 'sutysisku' },
-  {
-    name: 'en-pixra',
-    url: 'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/%d&width=200&height=200',
-  },
-].forEach((i) => generatePremadeDicts(i))
+  ;[
+    { name: 'sutysisku' },
+    {
+      name: 'en-pixra',
+      url: 'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/%d&width=200&height=200',
+    },
+  ].forEach((i) => generatePremadeDicts(i))
 
 // functions
 // generic
@@ -125,7 +125,7 @@ async function generatePremadeDicts({
   let jsonTimes: { [x: string]: string } = {}
   try {
     jsonTimes = JSON.parse(fs.readFileSync(versio, { encoding: 'utf8' }))
-  } catch (error) {}
+  } catch (error) { }
   jsonTimes[name] = hash
   if (!url) fs.writeFileSync(versio, JSON.stringify(jsonTimes))
 }
@@ -174,7 +174,7 @@ async function generateNinxrasteDictionary(content) {
   let jsonTimes: { [x: string]: string } = {}
   try {
     jsonTimes = JSON.parse(fs.readFileSync(versio, { encoding: 'utf8' }))
-  } catch (error) {}
+  } catch (error) { }
   jsonTimes['en-pixra'] = hash
   fs.writeFileSync(versio, JSON.stringify(jsonTimes))
 }
@@ -187,41 +187,41 @@ async function generateCLLDictionary() {
     { name: 'ix02.html', type: 'English' },
   ]) {
     const appendix = externalConfig.cll_source + file.name
-    ;(await axios(appendix)).data
-      .match(/<dt>(.*?)<\/dt>[ \t\n\r]*((?=<dt>)|(?=<\/)|<dd>(.*?)<\/dd>)/gs)
-      .forEach((el: string) => {
-        const arrEl = el
-          .replace(/[ \t]*\n[ \t]*/g, '')
-          .replace(/>[ \t]+/g, '>')
-          .replace(/^<dt>(.*?)(?=<a )(.*)$/s, '$1\t$2')
-          .split(/\t/)
-        if (arrEl.length === 2) {
-          let selmaho = arrEl[0]
-            .replace(/ *<.*?>.*/g, '')
-            .trim()
-            .replace(/ (selma'o|construct)/g, '')
-            .replace(/ *:/g, '')
-            .replace(/^\./, '')
-            .replace(/\.$/, '')
-          const jsonLinks: { [x: string]: string } = {}
-          ;((arrEl[1] || '').match(/<a (.*?)<\/a>/gs) || []).forEach(
-            (i: string) => {
-              const arrI = i
-                .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
-                .split(/\t/)
-              jsonLinks[arrI[0]] = arrI[1]
-                .replace(/[\n\r]/g, ' ')
-                .replace(/ {2,}/g, ' ')
-                .trim()
-            }
-          )
-          json[selmaho] = { d: jsonLinks }
-          if (file.type === 'English')
-            json[selmaho].t = { bangu: 'glico', type: 'English term', k: 0 }
-        } else {
-          console.log(el)
-        }
-      })
+      ; (await axios(appendix)).data
+        .match(/<dt>(.*?)<\/dt>[ \t\n\r]*((?=<dt>)|(?=<\/)|<dd>(.*?)<\/dd>)/gs)
+        .forEach((el: string) => {
+          const arrEl = el
+            .replace(/[ \t]*\n[ \t]*/g, '')
+            .replace(/>[ \t]+/g, '>')
+            .replace(/^<dt>(.*?)(?=<a )(.*)$/s, '$1\t$2')
+            .split(/\t/)
+          if (arrEl.length === 2) {
+            let selmaho = arrEl[0]
+              .replace(/ *<.*?>.*/g, '')
+              .trim()
+              .replace(/ (selma'o|construct)/g, '')
+              .replace(/ *:/g, '')
+              .replace(/^\./, '')
+              .replace(/\.$/, '')
+            const jsonLinks: { [x: string]: string } = {}
+              ; ((arrEl[1] || '').match(/<a (.*?)<\/a>/gs) || []).forEach(
+                (i: string) => {
+                  const arrI = i
+                    .replace(/<a .*?href="(.*?)(?:#.*?)?".*?>(.*?)<\/a>/s, '$1\t$2')
+                    .split(/\t/)
+                  jsonLinks[arrI[0]] = arrI[1]
+                    .replace(/[\n\r]/g, ' ')
+                    .replace(/ {2,}/g, ' ')
+                    .trim()
+                }
+              )
+            json[selmaho] = { d: jsonLinks }
+            if (file.type === 'English')
+              json[selmaho].t = { bangu: 'glico', type: 'English term', k: 0 }
+          } else {
+            console.log(el)
+          }
+        })
   }
 
   const arr = Object.keys(json).map((i) => ({
@@ -265,7 +265,7 @@ async function generateCLLDictionary() {
   let jsonTimes: { [x: string]: string } = {}
   try {
     jsonTimes = JSON.parse(fs.readFileSync(versio, { encoding: 'utf8' }))
-  } catch (error) {}
+  } catch (error) { }
   jsonTimes['en-cll'] = hash
   fs.writeFileSync(versio, JSON.stringify(jsonTimes))
 }
@@ -300,6 +300,7 @@ const settings = {
     '../pixra/144.png',
     '../pixra/32.png',
     '../pixra/shuffle.svg',
+    '../pixra/sance.svg',
     '../pixra/terdi.svg',
     '../pixra/fukpi.svg',
     '../pixra/valsr.png',
@@ -426,7 +427,7 @@ async function generateLLDictionary() {
   let jsonTimes: { [x: string]: string } = {}
   try {
     jsonTimes = JSON.parse(fs.readFileSync(versio, { encoding: 'utf8' }))
-  } catch (error) {}
+  } catch (error) { }
   jsonTimes['en-ll'] = hash
   fs.writeFileSync(versio, JSON.stringify(jsonTimes))
 }
@@ -483,10 +484,12 @@ String.prototype.stripout = function (
 String.prototype.replaceMergefield = function (config: {
   [x: string]: any
 }): string {
-  return Object.keys(config).reduce(
-    (acc, i) => acc.replace(new RegExp(`['"]%${i}%['"]`, 'g'), config[i]),
-    this
-  ) as string
+  const Mustache = require('mustache');
+  let passed = this;
+  passed = Mustache.render(passed, config, {}, ["'{{", "}}'"]);
+  passed = Mustache.render(passed, config, {}, ['{{', '}}']);
+
+  return passed
 }
 
 function processTemplate({
@@ -512,7 +515,7 @@ function processTemplate({
   return output
 }
 
-;(async () => {
+; (async () => {
   // generate files
   for (let lang of langs) {
     fs.copySync(
@@ -678,10 +681,10 @@ function processTemplate({
         encoding: 'utf8',
       })
       .replace(
-        '%template%',
+        '{{template}}',
         `https://${externalConfig.SUTYSISKU_URL}/${lang}/index.html#seskari=cnano&amp;sisku={searchTerms}`
       )
-      .replace('%shortname%', `${lang}-sutysisku`)
+      .replace('{{shortname}}', `${lang}-sutysisku`)
       .replaceMergefield(config)
     fs.writeFileSync(path.join('/livla/build/sutysisku/', lang, 'sisku.xml'), b)
     // copy coi.js
@@ -695,7 +698,7 @@ function processTemplate({
           .replace(/{now}/g, now.toString())
           .replace(/{lang}/g, lang)
       )
-    } catch (error) {}
+    } catch (error) { }
   }
 
   fs.copyFileSync(
@@ -759,7 +762,7 @@ NETWORK:
         path.join('/livla/build/sutysisku/', lang, 'webapp.appcache'),
         dummyAppcache
       )
-    } catch (error) {}
+    } catch (error) { }
   }
   if (process.env.MUPLIS == 'true') {
     const childProcess = require('child_process')

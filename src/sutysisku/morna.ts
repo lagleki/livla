@@ -766,6 +766,21 @@ NETWORK:
                 test: /\.html$/i,
                 loader: 'html-loader',
               },
+              {
+                test: /\.js$/,
+                use: {
+                  loader: "babel-loader",
+                  options: {
+                    presets: ["@babel/preset-env"], // ensure compatibility with older browsers
+                    plugins: ["@babel/plugin-transform-object-assign"], // ensure compatibility with IE 11
+                  },
+                },
+                type: 'javascript/auto',
+              },
+              // {
+              //   test: /\.js$/,
+              //   loader: "webpack-remove-debug", // remove "debug" package
+              // },
             ],
           },
           entry: {
@@ -786,6 +801,7 @@ NETWORK:
             fallback: {
               stream: require.resolve('stream-browserify'),
               buffer: require.resolve('buffer'),
+              'process/browser': require.resolve('process/browser'),
               crypto: false,
               path: false,
               fs: false,
@@ -836,7 +852,6 @@ NETWORK:
             )
           } else console.log('webpacked')
 
-          fs
           resolve(null)
         }
       )

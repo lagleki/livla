@@ -2,7 +2,7 @@ import initSqlJs from './sqljs/sql-wasm.js'
 import { SQLiteFS } from './asql/index.js'
 import IndexedDBBackend from './asql/indexeddb-backend.js'
 import { parse } from './cmaxes.js'
-import { loadModel } from './w2v/embeddings'
+import { loadModel } from './w2v/embeddings.js'
 import jsonTeJufra from './tejufra.json'
 
 const decompress = require('brotli/decompress')

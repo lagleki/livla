@@ -6,14 +6,14 @@ const require = createRequire(import.meta.url);
 // livla bot
 import fs from "fs-extra";
 import path from "path-extra";
-import R from "ramda";
+import * as R from "ramda";
 import lojban from "lojban";
 import he from "he";
 import { to } from "await-to-js";
 import mkdirp from "mkdirp";
 import axios from "axios";
 import MDBReader from "mdb-reader";
-import fastXMLParser from 'fast-xml-parser';
+const fastXMLParser = require('fast-xml-parser');
 import objectHash from 'object-hash'
 import peggy from 'peggy'
 import Twitter from "twitter-lite";

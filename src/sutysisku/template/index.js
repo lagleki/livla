@@ -1,5 +1,5 @@
 //imports:
-import io from './socket.io.js'
+import io from 'socket.io-client';
 import { initBackend } from './asql/indexeddb-main-thread.js'
 import patchDOM from 'morphdom'
 import arrowCreate, { HEAD } from 'arrows-svg'
@@ -1067,24 +1067,24 @@ worker.onmessage = (ev) => {
     const hd2 = Array.from(
       document.querySelectorAll(`[data-valsi-play="${encodedWord}"]`)
     )[0]
-    if (hd && !hd2) {
-      try {
-        const gotAudio = window.runSpeakableAudio(
-          word,
-          true,
-          data.req.queryLanguage
-        )
-        if (gotAudio)
-          hd.appendChild(
-            h('button', {
-              class: ['tutci-blanu'],
-              attributes: { 'data-valsi-play': encodedWord },
-              onclick: () => window.runSpeakableAudio(word),
-              children: h('img', { src: '../pixra/sance.svg' }),
-            })
-          )
-      } catch (error) {}
-    }
+    // if (hd && !hd2) {
+    //   try {
+    //     const gotAudio = window.runSpeakableAudio(
+    //       word,
+    //       true,
+    //       data.req.queryLanguage
+    //     )
+    //     if (gotAudio)
+    //       hd.appendChild(
+    //         h('button', {
+    //           class: ['tutci-blanu'],
+    //           attributes: { 'data-valsi-play': encodedWord },
+    //           onclick: () => window.runSpeakableAudio(word),
+    //           children: h('img', { src: '../pixra/sance.svg' }),
+    //         })
+    //       )
+    //   } catch (error) {}
+    // }
   } else if (kind == 'loader') {
     if (cmene === 'loading') {
       if (

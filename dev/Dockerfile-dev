@@ -12,9 +12,9 @@ RUN apt-get install -y python3 python3-dev
 # get install script and pass it to execute: 
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
 # and install node 
-RUN apt-get install nodejs
+RUN apt-get install -y nodejs
 
-RUN apt-get install -y rsync
+RUN apt-get install -y rsync git vim
 
 RUN mkdir -p /livla/build/dumps
 COPY src/package*.json /livla/

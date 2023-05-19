@@ -164,6 +164,8 @@ async function initSQLDB() {
   wordEmbeddings = await loadModel(JSON.parse(decompressedData))
 }
 
+const log = (output, level) => console[level ?? 'log'](output)
+
 function runMigrations() {
   try {
     db.run(`alter table valsi add column b text`)
@@ -176,6 +178,9 @@ function runMigrations() {
   } catch (error) {}
 }
 
+function prettifySqlQuery(query){
+  return query.replace(/[\n\t]/g,' ')
+}
 function runQuery(sqlQuery, params = {}) {
   const start = new Date()
   let stmt = db.prepare(sqlQuery)
@@ -184,7 +189,7 @@ function runQuery(sqlQuery, params = {}) {
   while (stmt.step()) rows.push(stmt.getAsObject())
   stmt.free()
   if (self.production !== 'production')
-    console.log({ duration: new Date() - start, sqlQuery, params, rows })
+    log({ duration: new Date() - start, sqlQuery: prettifySqlQuery(sqlQuery), params, rows })
 
   return rows.map((row) => {
     if (self.production === 'production') {
@@ -300,14 +305,14 @@ const fancu = {
         `/sutysisku/data/versio.json?sisku=${new Date().getTime()}`
       )
     } catch (error) {
-      console.log({
+      log({
         event: "can't fetch new version, skipping database updates",
-      })
+      },'error')
       return
     }
 
     let json = {}
-    if (response.ok) {
+    if (response?.ok) {
       json = await response.json()
 
       const stmt = db.prepare(
@@ -335,7 +340,7 @@ const fancu = {
           searching,
           json
         )
-        console.log({
+        log({
           event: 'Database updated',
           'No. of languages updated': langsUpdated.length,
         })
@@ -386,7 +391,7 @@ async function jufra({ bapli }) {
       Object.keys(jsonTeJufra).forEach((key) => {
         stmt.run([key, JSON.stringify(jsonTeJufra[key])])
       })
-      console.log({ event: 'Locales fully updated' })
+      log({ event: 'Locales fully updated' })
     }
   })
 }
@@ -458,7 +463,7 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
   langs = langs
     .filter((lang) => lang == searching.bangu)
     .concat(langs.filter((lang) => lang != searching.bangu))
-  console.log({
+  log({
     event: 'Preparing imports into the database',
     languages: langsToUpdate,
   })
@@ -479,7 +484,7 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
     langs = langs.slice(1)
 
     let completedRows = 0
-    console.log({ event: 'Updating the language', language: lang })
+    log({ event: 'Updating the language', language: lang })
 
     self.postMessage({
       kind: 'loader',
@@ -539,7 +544,7 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
           })
         }
 
-        console.log({
+        log({
           event: 'Records inserted',
           language: lang,
           'speed, records/sec': (
@@ -548,7 +553,7 @@ async function cnino_sorcu(cb, langsToUpdate, searching, json) {
           ).toFixed(2),
         })
       } else {
-        console.log({ event: 'HTTP error', status: response.status, url })
+        log({ event: 'HTTP error', status: response.status, url },'error')
         break
       }
     }

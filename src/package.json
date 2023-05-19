@@ -12,7 +12,8 @@
 		"sisku": "npx browserslist@latest --update-db && rsync -av --exclude=\".*\"  src/sutysisku/src/* build/sutysisku/ ; ts-node src/sutysisku/morna.ts",
 		"morna": "cd /livla/src/sutysisku/ && ts-node morna.ts && cd /livla",
 		"sutysisku": "rsync -av --exclude=\".*\"  src/sutysisku/src/* build/sutysisku/ ; npm run morna",
-		"deploy": "npm run sutysisku ; cd build/sutysisku ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push ; cd .."
+		"deploy": "npm run sutysisku ; cd build/sutysisku ; git remote add origin https://github.com/La-Lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push ; cd ..",
+		"gitlab": "npm run sutysisku ; cd build/sutysisku ; git config --global user.email gleki.is.my.name@gmail.com ; git config --global user.name lagleki ; git init ; git remote add origin https://gitlab.com/lojban/sutysisku.git ; git add . ; git commit -m 'commit' ; git push --set-upstream origin master -f ; cd ../.."
 	},
 	"dependencies": {
 		"@jlongster/sql.js": "^1.6.7",

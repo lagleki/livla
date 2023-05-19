@@ -3041,11 +3041,6 @@ function allAreSafeWords(
 }
 
 function PollyPlayer(params) {
-  AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: params.IdentityPoolId,
-  })
-  AWS.config.region = params.region
-
   function matchForm(word, form) {
     let regex = '^'
     const working = word.replace(/[\.\?»«]/g, '')
@@ -3194,26 +3189,10 @@ function PollyPlayer(params) {
 
   function downloadAudio(Text, dontSpeak, queryLanguage) {
     return new Promise(function (resolve, reject) {
-      const polly = new AWS.Polly()
-      polly.synthesizeSpeech(
-        {
-          Text,
-          VoiceId: params.VoiceId,
-          LanguageCode: params.LanguageCode,
-          Engine: params.Engine,
-          OutputFormat: 'mp3',
-          TextType: 'ssml',
-          SampleRate: '24000',
-        },
-        (error, data) => {
-          if (error) {
-            reject()
-          } else {
-            cacheAudio(Text, data.AudioStream, dontSpeak)
-            resolve(data.AudioStream)
-          }
-        }
-      )
+      fetch(`https://github.com/La-Lojban/sutysisku/raw/asql/sance/vreji/${encodeURIComponent(Text)}.mp3`).then(res=>{
+        cacheAudio(Text, res, dontSpeak)
+        resolve(res)
+      }).catch(reject);
     })
   }
 

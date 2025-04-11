@@ -140,23 +140,23 @@ if (typeof window === 'undefined') {
 	})();
 }
 
-function fromNetwork(request, timeout) {
-	return new Promise(function (fulfill, reject) {
-		var timeoutId = setTimeout(reject, timeout);
-		fetch(request).then(function (response) {
-			clearTimeout(timeoutId);
-			fulfill(response);
-		}, reject);
-	});
-}
+// function fromNetwork(request, timeout) {
+// 	return new Promise(function (fulfill, reject) {
+// 		var timeoutId = setTimeout(reject, timeout);
+// 		fetch(request).then(function (response) {
+// 			clearTimeout(timeoutId);
+// 			fulfill(response);
+// 		}, reject);
+// 	});
+// }
 
-function fromCache(request) {
-	return caches.open(CACHE_NAME).then(function (cache) {
-		return cache.match(request).then(function (matching) {
-			return matching || Promise.reject('no-match');
-		});
-	});
-}
+// function fromCache(request) {
+// 	return caches.open(CACHE_NAME).then(function (cache) {
+// 		return cache.match(request).then(function (matching) {
+// 			return matching || Promise.reject('no-match');
+// 		});
+// 	});
+// }
 
 function unableToResolve() {
 	return new Response('<h1>Service Unavailable</h1>', {

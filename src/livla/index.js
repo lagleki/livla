@@ -6,14 +6,14 @@ const require = createRequire(import.meta.url);
 // livla bot
 import fs from "fs-extra";
 import path from "path-extra";
-import R from "ramda";
+import * as R from "ramda";
 import lojban from "lojban";
 import he from "he";
 import { to } from "await-to-js";
 import mkdirp from "mkdirp";
 import axios from "axios";
 import MDBReader from "mdb-reader";
-import fastXMLParser from 'fast-xml-parser';
+const fastXMLParser = require('fast-xml-parser');
 import objectHash from 'object-hash'
 import peggy from 'peggy'
 import Twitter from "twitter-lite";
@@ -1076,8 +1076,15 @@ const ningau_paladeksi_sutysisku = async ({ json, segerna }) => {
         json[word].t === 'experimental gismu' ||
         (json[word].t || '').indexOf("fu'ivla") >= 0
       )
-        json[word].r.push(word)
-
+        {json[word].r.push(word)}
+      else if (json[word].t==='lujvo'){
+        const veljvo = lojban.jvokaha_gui(word);
+        if (veljvo.length<2){
+          json[word].v = word.split(/ zei /g).map(i=>i.trim()).filter(Boolean);
+        }else{
+          json[word].v = veljvo
+        }
+      }
       if (json[word].r && json[word].r.length === 0) delete json[word].r
       i++
       let rec = { w: word, ...json[word] }

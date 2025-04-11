@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html
-  lang="'%lang%'"
+  lang="{{lang}}"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:og="http://ogp.me/ns#"
   xmlns:fb="https://www.facebook.com/2008/fbml"
@@ -19,9 +19,9 @@
       }
       gtag('js', new Date())
 
-      gtag('config', "'%GA_MEASUREMENT_ID%'", {
+      gtag("config", "{{{GA_MEASUREMENT_ID}}}", {
         linker: {
-          domains: ["'%SUTYSISKU_URL%'"],
+          domains: ["{{{SUTYSISKU_URL}}}"],
         },
         forceSSL: true,
       })
@@ -57,30 +57,30 @@
         },
       }
     </script>
-    <title>'%title%'</title>
+    <title>{{title}}</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no"
     />
-    <meta name="theme-color" content="'%mupliskariralju%'" />
-    <meta name="Description" content="'%ogtitle%'" />
-    <meta property="og:title" content="'%ogtitle%'" />
+    <meta name="theme-color" content="{{mupliskariralju}}" />
+    <meta name="Description" content="{{ogtitle}}" />
+    <meta property="og:title" content="{{ogtitle}}" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="'%ogurl%'" />
+    <meta property="og:url" content="{{ogurl}}" />
     <meta property="og:image" content="../pixra/sutysisku2015-06-22.png" />
-    <meta property="og:site_name" content="'%ogtitle%'" />
+    <meta property="og:site_name" content="{{ogtitle}}" />
     <meta property="fb:app_id" content="191051864394489" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@Jbotcan" />
     <!--<meta property="al:android:url" content="la sutysisku://" />
-	<meta property="al:android:app_name" content="'%ogtitle%'" />
-	<meta property="al:android:package" content="'%ogtitle%'" />
-	<meta property="al:windows_phone:app_name" content="'%ogtitle%'" />
+	<meta property="al:android:app_name" content="{{ogtitle}}" />
+	<meta property="al:android:package" content="{{ogtitle}}" />
+	<meta property="al:windows_phone:app_name" content="{{ogtitle}}" />
 	<meta property="al:windows_phone:app_id" content="" />
 	<meta name="apple-itunes-app" content="app-id=" />
 	<meta name="google-play-app" content="app-id=" />-->
-    <meta name="apple-mobile-web-app-title" content="'%ogtitle%'" />
+    <meta name="apple-mobile-web-app-title" content="{{ogtitle}}" />
     <link rel="apple-touch-icon" sizes="192x192" href="../pixra/192.png" />
     <link rel="apple-touch-icon" sizes="512x512" href="../pixra/512.png" />
     <link rel="apple-touch-icon" sizes="57x57" href="../pixra/57.png" />
@@ -89,22 +89,21 @@
     <link rel="apple-touch-icon" sizes="144x144" href="../pixra/144.png" />
     <link rel="apple-touch-icon" sizes="120x120" href="../pixra/120.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="../pixra/152.png" />
-    <link rel="icon" type="image/png" href="'%icon32%'" sizes="32x32" />
-    <link rel="icon" type="image/png" href="'%icon16%'" sizes="16x16" />
-    <meta name="application-name" content="'%ogtitle%'" />
-    <meta name="msapplication-TileColor" content="'%mupliskariralju%'" />
+    <link rel="icon" type="image/png" href="{{icon32}}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{icon16}}" sizes="16x16" />
+    <meta name="application-name" content="{{ogtitle}}" />
+    <meta name="msapplication-TileColor" content="{{mupliskariralju}}" />
     <meta name="msapplication-TileImage" content="../pixra/144.png" />
-    <meta property="og:description" content="'%opdescr%'" />
-    <link rel="shortcut icon" href="'%favicon%'" />
+    <meta property="og:description" content="{{opdescr}}" />
+    <link rel="shortcut icon" href="{{favicon}}" />
     <link
       rel="search"
       type="application/opensearchdescription+xml"
-      href="'%searchurl%'"
-      title="'%searchtitle%'"
+      href="{{searchurl}}"
+      title="{{searchtitle}}"
     />
-    <link rel="stylesheet" href="./index.css?detri={now}" />
+    <link rel="stylesheet" href="./index.css?detri={{now}}" />
     <link rel="manifest" href="../manifest.json" />
-    <script defer src="../assets/scripts/leader-line.min.js"></script>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
@@ -113,41 +112,42 @@
     <script defer>
       window.MathJax = {
         options: {
+          menuOptions: {
+            settings: {
+              assistiveMml: false, // true to enable assitive MathML
+              collapsible: false, // true to enable collapsible math
+              explorer: false, // true to enable the expression explorer
+            },
+          },
           renderActions: {
             addMenu: [],
             checkLoading: [],
           },
         },
-        tex: {
-          inlineMath: [['$', '$']],
-        },
       }
     </script>
-    <script defer src="../assets/scripts/aws-sdk.min.js"></script>
-    <script defer src="./index.js?detri={now}"></script>
+    <!-- <script defer src="../assets/scripts/aws-sdk.min.js"></script> -->
+    <script defer src="./index.js?detri={{now}}"></script>
     <script defer src="./coi.js"></script>
-    <script defer src="./bangu.js?sisku={now}"></script>
+    <script defer src="./bangu.js?sisku={{now}}"></script>
   </head>
 
   <body class="body-sutysisku">
     <div id="galtu-dasri" class="kampu-dasri cnano-dasri noselect">
       <form id="se-vasru-lo-galtu-dasri" onsubmit="return false" novalidate>
-        <div data-jufra="titlelogo">'%titlelogo%'</div>
+        <div>{{{titlelogo}}}</div>
         <div id="kicne1"></div>
         <input
-          aria-label="'%cnano%'"
+          aria-label="{{cnano}}"
           id="ciska"
-          class="ciska"
           type="text"
           name="focus"
           required
-          data-jufra="bangusisku"
-          placeholder="'%bangusisku%'"
+          placeholder="{{bangusisku}}"
           autocorrect="off"
           autocapitalize="off"
           autocomplete="false"
         />
-        <div id="kicne2"></div>
         <button aria-label="clear" id="clear" type="reset"></button>
       </form>
     </div>
@@ -158,7 +158,6 @@
       </div>
     </div>
     <div id="contentWrapper">
-      <!-- <div id="scrollableContent"> -->
       <div id="content" class="content">
         <button
           onclick="window.switchBorderScroll();"
@@ -167,50 +166,32 @@
         <div class="content-panel">
           <div id="sidju" class="sidju sidju-top ralju noselect">
             <div id="citri" class="citri"></div>
-            <div id="leitutci">
-              <!-- <a class="tutci velcusku-tutci" id="velcusku">'%velcusku%'</a> -->
-              <button class="xp-btn ralju-tutci" data-jufra="catni" id="catni">
-                '%catni%'
-              </button>
-              <xuzganalojudri|lojbo>
-                <button
-                  class="xp-btn ralju-tutci"
-                  data-jufra="cnano"
-                  id="cnano"
-                >
-                  '%cnano%'
-                </button>
-              </xuzganalojudri|lojbo>
-              <button
-                class="xp-btn ralju-tutci rimni-tutci"
-                data-jufra="rimni"
-                id="rimni"
-              >
-                '%rimni%'
-              </button>
-              <!-- <a class="tutci arxivo-tutci" id="arxivo">'%arxivo%'</a> -->
+            <div id="leitutci" class="xp-btn-list">
+              <!-- <a class="tutci velcusku-tutci" id="velcusku">{{velcusku}}</a> -->
+              <button class="xp-btn ralju-tutci" id="catni">{{catni}}</button>
+              <button class="xp-btn ralju-tutci" id="cnano">{{cnano}}</button>
+              <button class="xp-btn ralju-tutci" id="rimni">{{rimni}}</button>
+              <!-- <a class="xp-btn ralju-tutci" id="arxivo">{{arxivo}}</a> -->
             </div>
           </div>
-          <div id="drata" style="text-align: center"></div>
-          <div id="descr">
-            <div class="term termouter" data-jufra="bangudesc">
-              '%bangudesc%'
-            </div>
-            <xuzganalojudri|lojbo>
+          <div id="rectu">
+            <div id="drata" style="text-align: center"></div>
+            <div id="descr">
+              <div class="term termouter" data-jufra="bangudesc">
+                {{{bangudesc}}}
+              </div>
               <div class="term termouter">
                 <h1 id="pronunciation" style="font-weight: bold">
-                  <span data-jufra="pron_guide">'%pron_guide%'</span>
+                  <span data-jufra="pron_guide">{{pron_guide}}</span>
                 </h1>
                 <div>. , a b c d e f g ' i j k l m n o p r s t u v x y z</div>
-                <div id="table"></div>
                 <audio id="audio"></audio>
               </div>
-            </xuzganalojudri|lojbo>
+            </div>
+            <div id="outp"></div>
           </div>
-          <div id="outp"></div>
         </div>
       </div>
-      <!-- </div> -->
     </div>
     <div id="velsku" class="noselect">
       <a id="velsku_sebenji" href="https://lojban.pw/articles/live_chat/"></a>
@@ -223,9 +204,9 @@
     <div
       id="report_feedback_main"
       data-jufra="window.report_feedback_main"
-      class="tutci dizlo"
+      class="xp-btn tutci-dizlo"
     >
-      '%feedback%'
+      {{feedback}}
     </div>
   </body>
 </html>

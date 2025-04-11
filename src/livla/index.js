@@ -130,7 +130,7 @@ let httpPort = 3000
 let http_sutysisku_port = 3001
 let password = ''
 let server = 'irc.freenode.net'
-let twitter_id = 'good_opinions,opinions_good,cunsku'
+let twitter_id = 'good_opinions,opinions_good,cunsku,tutubingbakal7'
 let consumer_key, consumer_secret, access_token_key, access_token_secret
 let arr_twitter_id
 let config = {}
@@ -455,7 +455,7 @@ const GetWordDef = ({ word, language, jsonDoc }) => {
       if (v.type === 'cmavo' && v.user && v.user.username !== 'officialdata') {
         let enword
         if (language === 'en') {
-          enword = valsi
+          enword = word
         } else {
           enword = jsonDocDirection(jsonDocEn).valsi.filter(
             (valsi) => valsi.word.toLowerCase() === word
@@ -1383,14 +1383,14 @@ async function updateParser(lang) {
 }
 
 // updateParser('loglan');
-updateXmlDumps()
-setInterval(() => {
-  (async () => {
-    await updateXmlDumps()
+// updateXmlDumps()
+// setInterval(() => {
+//   (async () => {
+//     await updateXmlDumps()
 
-  })()
+//   })()
 
-}, 1 * 24 * 60 * 60 * 1000) // update logs once a day
+// }, 1 * 24 * 60 * 60 * 1000) // update logs once a day
 
 const GimkaConflicts = (valsi) => {
   const r = WhichIsInConflictAll(valsi, jsonDocEn)
@@ -1694,6 +1694,7 @@ async function processCommand({ socket, sendTo, text = '', origText = '' }) {
     benji({ socket, sendTo, what })
     return true
   }
+  console.log(cmd)
   if (jsonWiktionary[cmd]) {
     jsonWiktionary[cmd]({ socket, sendTo, text })
     return true

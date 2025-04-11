@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM docker.io/library/ubuntu:latest
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC

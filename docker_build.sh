@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t livla .
+docker build --no-cache -t livla .

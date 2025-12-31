@@ -1860,10 +1860,17 @@ async function processor({ from, towhom, text, socket }) {
 
 if (!config.disableIrcBots && password) {
   let identified = false
-  let channelsToJoin = tcan.split(',').map(c => c.trim()).filter(c => c)
+  let channelsToJoin = []
+  try {
+    channelsToJoin = String(tcan || '').split(',').map(c => c.trim()).filter(c => c)
+  } catch (e) {
+    log('Error parsing channels list:', e)
+  }
+  log(`Initialized with channels to join: ${JSON.stringify(channelsToJoin)}`)
   let joinChannelsTimeout = null
 
   const joinChannels = () => {
+    log(`joinChannels() invoked. Identified: ${identified}`)
     if (identified) {
       log(`joinChannels() called but already identified, skipping`)
       return // Already joined
@@ -1872,6 +1879,7 @@ if (!config.disableIrcBots && password) {
     log(`Joining channels: ${channelsToJoin.join(', ')}`)
     channelsToJoin.forEach((channel, index) => {
       setTimeout(() => {
+        log(`Attempting to join ${channel}...`)
         clientmensi.join(channel)
       }, index * 500) // Stagger joins to avoid flood
     })
@@ -1884,6 +1892,10 @@ if (!config.disableIrcBots && password) {
       // Try IDENTIFY command - on Libera Chat, the format is: IDENTIFY password
       // Some networks require: IDENTIFY nickname password, but Libera uses just password
       setTimeout(() => {
+        if (identified) {
+          log(`Already identified, skipping explicit IDENTIFY command`)
+          return
+        }
         log(`Sending: /msg NickServ IDENTIFY ${password.substring(0, 3)}...`)
         clientmensi.say('NickServ', `IDENTIFY ${password}`)
       }, 1000)
@@ -1961,7 +1973,14 @@ if (!config.disableIrcBots && password) {
           joinChannels() // This will set identified = true
         }
       }
+    } else if (['400', '401', '402', '403', '404', '405', '406', '407', '433', '471', '472', '473', '474', '475', '476', '477', 'JOIN'].includes(message.command) || message.command >= 400) {
+       // Log errors and JOINs
+       log(`[RAW] ${message.command} args=${JSON.stringify(message.args)}`)
     }
+  })
+
+  clientmensi.on('join', (channel, nick, message) => {
+    log(`Joined ${channel} as ${nick}`)
   })
 
   // Listen for notices from NickServ to confirm identification

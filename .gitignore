@@ -1,4 +1,4 @@
-.specstory/history/*
+.specstory/history/
 .env
 *.tsv
 build/lojbo.arxivo/*.sql

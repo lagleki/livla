@@ -269,7 +269,7 @@ const configmensi = {
     autoConnect: true,
     autoRejoin: true,
     autoRenick: true,
-    channels: [tcan],
+    channels: [], // Start with empty channels - we'll join after NickServ identification
     password,
     debug: false,
     messageSplit: 1900,
@@ -1854,14 +1854,55 @@ async function processor({ from, towhom, text, socket }) {
 }
 
 if (!config.disableIrcBots && password) {
-  // Identify with NickServ after registration
+  let identified = false
+  let channelsToJoin = tcan.split(',').map(c => c.trim()).filter(c => c)
+  let joinChannelsTimeout = null
+
+  const joinChannels = () => {
+    if (identified) return // Already joined
+    identified = true
+    log(`Joining channels: ${channelsToJoin.join(', ')}`)
+    channelsToJoin.forEach((channel, index) => {
+      setTimeout(() => {
+        clientmensi.join(channel)
+      }, index * 500) // Stagger joins to avoid flood
+    })
+  }
+
+  // Identify with NickServ immediately after registration
   clientmensi.on('registered', () => {
     if (password) {
-      // Small delay to ensure connection is fully ready
-      setTimeout(() => {
-        log(`Identifying with NickServ as ${replier}`)
-        clientmensi.say('NickServ', `IDENTIFY ${password}`)
-      }, 1000)
+      log(`Identifying with NickServ as ${replier}`)
+      clientmensi.say('NickServ', `IDENTIFY ${password}`)
+      // Fallback: join channels after 5 seconds if we don't get a notice
+      joinChannelsTimeout = setTimeout(() => {
+        if (!identified) {
+          log(`Timeout waiting for NickServ confirmation, attempting to join channels anyway...`)
+          joinChannels()
+        }
+      }, 5000)
+    }
+  })
+
+  // Listen for notices from NickServ to confirm identification
+  clientmensi.on('notice', (from, to, text) => {
+    if (from && from.toLowerCase() === 'nickserv') {
+      const noticeText = text.toLowerCase()
+      // Check for successful identification messages (various formats)
+      if (noticeText.includes('password accepted') || 
+          noticeText.includes('you are now identified') ||
+          noticeText.includes('successfully identified') ||
+          noticeText.includes('you are already identified') ||
+          (noticeText.includes('identified') && !noticeText.includes('not'))) {
+        if (joinChannelsTimeout) {
+          clearTimeout(joinChannelsTimeout)
+          joinChannelsTimeout = null
+        }
+        if (!identified) {
+          log(`Successfully identified with NickServ`)
+          joinChannels()
+        }
+      }
     }
   })
 
@@ -1880,9 +1921,10 @@ if (!config.disableIrcBots && password) {
     if (message.rawCommand === '477' || message.command === 'err_needreggednick') {
       const channel = message.args && message.args[1] ? message.args[1] : 'unknown'
       log(`warning: Cannot join registered-only channel ${channel} - need to identify with NickServ first`)
-      // Try to identify again in case identification failed
-      if (password) {
+      // If we haven't identified yet, try again
+      if (!identified && password) {
         setTimeout(() => {
+          log(`Retrying NickServ identification...`)
           clientmensi.say('NickServ', `IDENTIFY ${password}`)
         }, 2000)
       }

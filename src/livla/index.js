@@ -129,6 +129,7 @@ let replier = 'mensi'
 let httpPort = 3000
 let http_sutysisku_port = 3001
 let password = ''
+let email = ''
 let server = 'irc.freenode.net'
 let twitter_id = 'good_opinions,opinions_good,cunsku,tutubingbakal7'
 let consumer_key, consumer_secret, access_token_key, access_token_secret
@@ -214,6 +215,7 @@ const loadConfig = () => {
   tcan = either(localConfig, 'tcan', tcan)
   server = either(localConfig, 'server', server)
   password = either(localConfig, 'replier.password', '')
+  email = either(localConfig, 'replier.email', '')
   consumer_key = either(localConfig, 'consumer_key', '')
   consumer_secret = either(localConfig, 'consumer_secret', '')
   access_token_key = either(localConfig, 'access_token_key', '')
@@ -893,13 +895,16 @@ function prepareSutysiskuJsonDump(language) {
       json[v.word].r.push('brod')
     }
     if (json[v.word].r.length === 0) delete json[v.word].r
-    Object.keys(json[v.word]).forEach(
-      (key) =>
-        (json[v.word][key] === undefined || json[v.word][key] === []) &&
-        delete json[v.word][key]
-    )
-  })
-  json = addBAIReferences(json, language)
+    Object.keys(json[v.word]).forEach((key) => {
+      if (
+        json[v.word][key] === undefined ||
+        (Array.isArray(json[v.word][key]) && json[v.word][key].length === 0)
+      ) {
+        delete json[v.word][key];
+      }
+    });
+  });
+  json = addBAIReferences(json, language);
   return {
     js: `sorcu["${language}"] = ${JSON.stringify(json)}`,
     json: JSON.stringify(json),
@@ -1904,8 +1909,41 @@ if (!config.disableIrcBots && password) {
       if (nick.toLowerCase() === 'nickserv' || prefix.toLowerCase().includes('nickserv')) {
         const noticeText = args[1] ? String(args[1]) : (args[0] ? String(args[0]) : '')
         log(`[RAW] NickServ NOTICE text: "${noticeText}"`)
-        // Also try to trigger identification success from raw message
         const noticeTextLower = noticeText.toLowerCase()
+        
+        // Check if nickname is not registered and try to register it
+        if ((noticeTextLower.includes('is not a registered nickname') || 
+             noticeTextLower.includes('is not registered') ||
+             noticeTextLower.includes('not a registered')) && !identified) {
+          log(`Nickname ${replier} is not registered. Attempting to register...`)
+          if (email) {
+            log(`Registering ${replier} with email ${email}`)
+            clientmensi.say('NickServ', `REGISTER ${password} ${email}`)
+          } else {
+            log(`WARNING: No email configured for registration. Please add "replier.email" to config.json`)
+            log(`Attempting registration without email (may not work on all networks)...`)
+            // Some networks allow registration without email, but Libera Chat requires it
+            clientmensi.say('NickServ', `REGISTER ${password}`)
+          }
+          return
+        }
+        
+        // Check for successful registration
+        if (noticeTextLower.includes('registered successfully') ||
+            noticeTextLower.includes('has been registered') ||
+            noticeTextLower.includes('registration successful')) {
+          log(`Nickname ${replier} registered successfully. Verifying email if needed...`)
+          // After registration, we still need to identify
+          setTimeout(() => {
+            if (password) {
+              log(`Identifying with NickServ after registration...`)
+              clientmensi.say('NickServ', `IDENTIFY ${password}`)
+            }
+          }, 2000)
+          return
+        }
+        
+        // Also try to trigger identification success from raw message
         if ((noticeTextLower.includes('password accepted') || 
              noticeTextLower.includes('you are now identified') ||
              noticeTextLower.includes('successfully identified') ||
@@ -1976,9 +2014,29 @@ if (!config.disableIrcBots && password) {
         log(`NickServ response: ${textStr}`)
       } else if (noticeText.includes('not registered') || 
                  noticeText.includes('not found') ||
-                 noticeText.includes('is not registered')) {
-        log(`ERROR: Nick ${replier} is not registered with NickServ`)
+                 noticeText.includes('is not registered') ||
+                 noticeText.includes('is not a registered nickname')) {
+        log(`Nick ${replier} is not registered with NickServ. Attempting to register...`)
         log(`NickServ response: ${textStr}`)
+        if (email) {
+          log(`Registering ${replier} with email ${email}`)
+          clientmensi.say('NickServ', `REGISTER ${password} ${email}`)
+        } else {
+          log(`WARNING: No email configured for registration. Please add "replier.email" to config.json`)
+          log(`Attempting registration without email (may not work on all networks)...`)
+          clientmensi.say('NickServ', `REGISTER ${password}`)
+        }
+      } else if (noticeText.includes('registered successfully') ||
+                 noticeText.includes('has been registered') ||
+                 noticeText.includes('registration successful')) {
+        log(`Nickname ${replier} registered successfully. Verifying email if needed...`)
+        // After registration, we still need to identify
+        setTimeout(() => {
+          if (password) {
+            log(`Identifying with NickServ after registration...`)
+            clientmensi.say('NickServ', `IDENTIFY ${password}`)
+          }
+        }, 2000)
       } else if (noticeText.includes('not logged in') || noticeText.includes('you are not logged')) {
         log(`WARNING: Not logged in - identification may have failed`)
         log(`NickServ response: ${textStr}`)

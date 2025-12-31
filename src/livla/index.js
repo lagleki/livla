@@ -1,5 +1,5 @@
 /* jshint bitwise: false */
-const lg = console.log.bind(console)
+const log = console.log.bind(console)
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 
@@ -307,7 +307,7 @@ const updateUserSettings = (callback) => {
   const file = path.join(configDirectory, filename)
   try {
     fs.writeFileSync(file, body)
-    lg('User settings updated')
+    log('User settings updated')
   } catch (e) {
     // If we get an “ENOENT” error, we return an empty string.
     // Other errors are still thrown.
@@ -320,7 +320,7 @@ const updateUserSettings = (callback) => {
 // IRC bot
 let clientmensi
 if (!config.disableIrcBots && password) {
-  lg('channels', configmensi.options.channels)
+  log('channels', configmensi.options.channels)
   clientmensi = new Irc.Client(
     configmensi.server,
     configmensi.nick,
@@ -603,7 +603,7 @@ const MultipleDefs = ({ word, language }) => {
         }
       }
     } catch (e) {
-      lg(e.toString())
+      log(e.toString())
       return { count: 0, reply: e.toString() }
     }
   }
@@ -1159,7 +1159,7 @@ const ningau_palasutysisku = async (segerna, lojbo) => {
           })
           .replace(/\n# .+\n/, `\n# ${n}\n`)
         fs.writeFileSync(t, pars)
-        lg(`${t} updated`)
+        log(`${t} updated`)
       } catch (err) { }
     }
   }
@@ -1334,7 +1334,7 @@ async function updateXmlDumps() {
     try {
       await ningau_palasutysisku(language, langs.includes(language) ? 1 : 0)
     } catch (error) {
-      lg(error)
+      log(error)
       erroredLangs.push(language)
     }
   }
@@ -1830,7 +1830,7 @@ async function processor({ from, towhom, text, socket }) {
           what: "sei ca ca'o jai gau cnino be fai le pe mi sorcu",
         })
         const [err, erroredLangs] = await to(updateXmlDumps())
-        if (err) lg(err)
+        if (err) log(err)
         benji({ socket, sendTo, what: "i ba'o jai gau cnino" })
         if (erroredLangs && erroredLangs.length > 0) {
           benji({
@@ -1854,12 +1854,41 @@ async function processor({ from, towhom, text, socket }) {
 }
 
 if (!config.disableIrcBots && password) {
+  // Identify with NickServ after registration
+  clientmensi.on('registered', () => {
+    if (password) {
+      // Small delay to ensure connection is fully ready
+      setTimeout(() => {
+        log(`Identifying with NickServ as ${replier}`)
+        clientmensi.say('NickServ', `IDENTIFY ${password}`)
+      }, 1000)
+    }
+  })
+
   clientmensi.on('message', (from, towhom, text) => {
     processor({ from, towhom, text })
   })
 
   clientmensi.on('error', (message) => {
-    lg(`error on ${replier}'s listening`, JSON.stringify(message))
+    // Handle invite-only channel errors (473) gracefully
+    if (message.rawCommand === '473' || message.command === 'err_inviteonlychan') {
+      const channel = message.args && message.args[1] ? message.args[1] : 'unknown'
+      log(`warning: Cannot join invite-only channel ${channel} - skipping`)
+      return
+    }
+    // Handle registered-only channel errors (477) gracefully
+    if (message.rawCommand === '477' || message.command === 'err_needreggednick') {
+      const channel = message.args && message.args[1] ? message.args[1] : 'unknown'
+      log(`warning: Cannot join registered-only channel ${channel} - need to identify with NickServ first`)
+      // Try to identify again in case identification failed
+      if (password) {
+        setTimeout(() => {
+          clientmensi.say('NickServ', `IDENTIFY ${password}`)
+        }, 2000)
+      }
+      return
+    }
+    log(`error on ${replier}'s listening`, JSON.stringify(message))
   })
 } else {
   console.log('IRC bots not started. Either password not specified or disableIrcBots enabled')

@@ -1,0 +1,9 @@
+
+# Don't index SpecStory auto-save files, but allow explicit context inclusion via @ references
+.specstory/**
+src/jbofihe
+src/tcepru
+src/sutysisku/src/data
+*.peg
+*.appcache
+LICENSE

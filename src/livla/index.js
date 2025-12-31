@@ -1864,7 +1864,10 @@ if (!config.disableIrcBots && password) {
   let joinChannelsTimeout = null
 
   const joinChannels = () => {
-    if (identified) return // Already joined
+    if (identified) {
+      log(`joinChannels() called but already identified, skipping`)
+      return // Already joined
+    }
     identified = true
     log(`Joining channels: ${channelsToJoin.join(', ')}`)
     channelsToJoin.forEach((channel, index) => {
@@ -1954,9 +1957,8 @@ if (!config.disableIrcBots && password) {
             clearTimeout(joinChannelsTimeout)
             joinChannelsTimeout = null
           }
-          identified = true
           log(`Successfully identified with NickServ (via raw event)`)
-          joinChannels()
+          joinChannels() // This will set identified = true
         }
       }
     }

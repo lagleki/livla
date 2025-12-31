@@ -1873,11 +1873,12 @@ if (!config.disableIrcBots && password) {
   clientmensi.on('registered', () => {
     if (password) {
       log(`Identifying with NickServ as ${replier} (password length: ${password.length} chars)`)
-      // First check status, then identify
-      clientmensi.say('NickServ', `STATUS ${replier}`)
+      // Try IDENTIFY command - on Libera Chat, the format is: IDENTIFY password
+      // Some networks require: IDENTIFY nickname password, but Libera uses just password
       setTimeout(() => {
+        log(`Sending: /msg NickServ IDENTIFY ${password.substring(0, 3)}...`)
         clientmensi.say('NickServ', `IDENTIFY ${password}`)
-      }, 500)
+      }, 1000)
       // Fallback: join channels after 5 seconds if we don't get a notice
       joinChannelsTimeout = setTimeout(() => {
         if (!identified) {
@@ -1892,16 +1893,22 @@ if (!config.disableIrcBots && password) {
 
   // Listen for notices from NickServ to confirm identification
   clientmensi.on('notice', (from, to, text) => {
+    // Convert to string in case it's a Buffer
+    const textStr = text && text.toString ? text.toString() : String(text || '')
+    const fromStr = from && from.toString ? from.toString() : String(from || '')
+    
     // Log all notices from NickServ for debugging
-    if (from && from.toLowerCase() === 'nickserv') {
-      log(`NickServ notice: ${text}`)
-      const noticeText = text.toLowerCase()
+    if (fromStr && fromStr.toLowerCase() === 'nickserv') {
+      log(`NickServ notice (from=${fromStr}, to=${to}): ${textStr}`)
+      const noticeText = textStr.toLowerCase()
+      
       // Check for successful identification messages (various formats)
       if (noticeText.includes('password accepted') || 
           noticeText.includes('you are now identified') ||
           noticeText.includes('successfully identified') ||
           noticeText.includes('you are already identified') ||
-          (noticeText.includes('identified') && !noticeText.includes('not'))) {
+          noticeText.includes('you have been identified') ||
+          (noticeText.includes('identified') && !noticeText.includes('not') && !noticeText.includes('not logged'))) {
         if (joinChannelsTimeout) {
           clearTimeout(joinChannelsTimeout)
           joinChannelsTimeout = null
@@ -1913,14 +1920,29 @@ if (!config.disableIrcBots && password) {
       } else if (noticeText.includes('password incorrect') || 
                  noticeText.includes('invalid password') ||
                  noticeText.includes('authentication failed') ||
-                 noticeText.includes('incorrect password')) {
+                 noticeText.includes('incorrect password') ||
+                 noticeText.includes('invalid credentials')) {
         log(`ERROR: NickServ authentication failed - password may be incorrect`)
-        log(`NickServ response: ${text}`)
+        log(`NickServ response: ${textStr}`)
       } else if (noticeText.includes('not registered') || 
-                 noticeText.includes('not found')) {
+                 noticeText.includes('not found') ||
+                 noticeText.includes('is not registered')) {
         log(`ERROR: Nick ${replier} is not registered with NickServ`)
-        log(`NickServ response: ${text}`)
+        log(`NickServ response: ${textStr}`)
+      } else if (noticeText.includes('not logged in') || noticeText.includes('you are not logged')) {
+        log(`WARNING: Not logged in - identification may have failed`)
+        log(`NickServ response: ${textStr}`)
+        // Try identifying again
+        if (!identified && password) {
+          setTimeout(() => {
+            log(`Retrying NickServ identification after 'not logged in' message...`)
+            clientmensi.say('NickServ', `IDENTIFY ${password}`)
+          }, 1000)
+        }
       }
+    } else {
+      // Log all notices for debugging (can be removed later)
+      log(`Notice from ${fromStr} to ${to}: ${textStr}`)
     }
   })
 

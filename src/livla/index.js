@@ -1879,13 +1879,14 @@ if (!config.disableIrcBots && password) {
         log(`Sending: /msg NickServ IDENTIFY ${password.substring(0, 3)}...`)
         clientmensi.say('NickServ', `IDENTIFY ${password}`)
       }, 1000)
-      // Fallback: join channels after 5 seconds if we don't get a notice
+      // Fallback: join channels after 15 seconds if we don't get a notice
+      // (increased from 5s to allow more time for NickServ response)
       joinChannelsTimeout = setTimeout(() => {
         if (!identified) {
           log(`Timeout waiting for NickServ confirmation, attempting to join channels anyway...`)
           joinChannels()
         }
-      }, 5000)
+      }, 15000)
     } else {
       log(`WARNING: No password configured for NickServ identification`)
     }
@@ -1893,11 +1894,16 @@ if (!config.disableIrcBots && password) {
 
   // Add raw event listener to catch NickServ messages for debugging
   clientmensi.on('raw', (message) => {
+    // Log all NOTICE messages to see structure
     if (message.command === 'NOTICE') {
-      const nick = message.nick || message.prefix?.split('!')[0] || ''
-      if (nick.toLowerCase() === 'nickserv') {
-        const noticeText = (message.args && message.args[1]) ? String(message.args[1]) : ''
-        log(`[RAW] NickServ NOTICE: ${noticeText}`)
+      const prefix = message.prefix || ''
+      const nick = message.nick || prefix.split('!')[0] || ''
+      const args = message.args || []
+      log(`[RAW] NOTICE from prefix="${prefix}" nick="${nick}" args=${JSON.stringify(args)} command=${message.command}`)
+      
+      if (nick.toLowerCase() === 'nickserv' || prefix.toLowerCase().includes('nickserv')) {
+        const noticeText = args[1] ? String(args[1]) : (args[0] ? String(args[0]) : '')
+        log(`[RAW] NickServ NOTICE text: "${noticeText}"`)
         // Also try to trigger identification success from raw message
         const noticeTextLower = noticeText.toLowerCase()
         if ((noticeTextLower.includes('password accepted') || 
@@ -1920,6 +1926,9 @@ if (!config.disableIrcBots && password) {
 
   // Listen for notices from NickServ to confirm identification
   clientmensi.on('notice', (...args) => {
+    // Log all notice events to debug structure
+    log(`[NOTICE EVENT] args.length=${args.length}, args=${JSON.stringify(args.map(a => typeof a === 'string' ? a : (a?.toString ? a.toString() : typeof a)))}`)
+    
     // Handle different possible parameter formats
     let from, to, text
     if (args.length === 3) {
@@ -1929,9 +1938,9 @@ if (!config.disableIrcBots && password) {
       to = null
     } else if (args.length === 1) {
       const msg = args[0]
-      from = msg.nick || msg.from
-      to = msg.to
-      text = msg.message || msg.text || msg.args?.[1]
+      from = msg.nick || msg.from || msg.prefix?.split('!')[0]
+      to = msg.to || msg.target
+      text = msg.message || msg.text || msg.args?.[1] || msg.args?.[0]
     }
     
     // Convert to string in case it's a Buffer
@@ -1940,7 +1949,7 @@ if (!config.disableIrcBots && password) {
     
     // Log all notices from NickServ for debugging
     if (fromStr && fromStr.toLowerCase() === 'nickserv') {
-      log(`NickServ notice (from=${fromStr}, to=${to}, args.length=${args.length}): ${textStr}`)
+      log(`NickServ notice (from=${fromStr}, to=${to}, text="${textStr}"): ${textStr}`)
       const noticeText = textStr.toLowerCase()
       
       // Check for successful identification messages (various formats)

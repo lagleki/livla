@@ -1891,15 +1891,56 @@ if (!config.disableIrcBots && password) {
     }
   })
 
+  // Add raw event listener to catch NickServ messages for debugging
+  clientmensi.on('raw', (message) => {
+    if (message.command === 'NOTICE') {
+      const nick = message.nick || message.prefix?.split('!')[0] || ''
+      if (nick.toLowerCase() === 'nickserv') {
+        const noticeText = (message.args && message.args[1]) ? String(message.args[1]) : ''
+        log(`[RAW] NickServ NOTICE: ${noticeText}`)
+        // Also try to trigger identification success from raw message
+        const noticeTextLower = noticeText.toLowerCase()
+        if ((noticeTextLower.includes('password accepted') || 
+             noticeTextLower.includes('you are now identified') ||
+             noticeTextLower.includes('successfully identified') ||
+             noticeTextLower.includes('you are already identified') ||
+             noticeTextLower.includes('you have been identified') ||
+             (noticeTextLower.includes('identified') && !noticeTextLower.includes('not') && !noticeTextLower.includes('not logged'))) && !identified) {
+          if (joinChannelsTimeout) {
+            clearTimeout(joinChannelsTimeout)
+            joinChannelsTimeout = null
+          }
+          identified = true
+          log(`Successfully identified with NickServ (via raw event)`)
+          joinChannels()
+        }
+      }
+    }
+  })
+
   // Listen for notices from NickServ to confirm identification
-  clientmensi.on('notice', (from, to, text) => {
+  clientmensi.on('notice', (...args) => {
+    // Handle different possible parameter formats
+    let from, to, text
+    if (args.length === 3) {
+      [from, to, text] = args
+    } else if (args.length === 2) {
+      [from, text] = args
+      to = null
+    } else if (args.length === 1) {
+      const msg = args[0]
+      from = msg.nick || msg.from
+      to = msg.to
+      text = msg.message || msg.text || msg.args?.[1]
+    }
+    
     // Convert to string in case it's a Buffer
     const textStr = text && text.toString ? text.toString() : String(text || '')
     const fromStr = from && from.toString ? from.toString() : String(from || '')
     
     // Log all notices from NickServ for debugging
     if (fromStr && fromStr.toLowerCase() === 'nickserv') {
-      log(`NickServ notice (from=${fromStr}, to=${to}): ${textStr}`)
+      log(`NickServ notice (from=${fromStr}, to=${to}, args.length=${args.length}): ${textStr}`)
       const noticeText = textStr.toLowerCase()
       
       // Check for successful identification messages (various formats)

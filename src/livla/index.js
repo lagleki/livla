@@ -1872,8 +1872,12 @@ if (!config.disableIrcBots && password) {
   // Identify with NickServ immediately after registration
   clientmensi.on('registered', () => {
     if (password) {
-      log(`Identifying with NickServ as ${replier}`)
-      clientmensi.say('NickServ', `IDENTIFY ${password}`)
+      log(`Identifying with NickServ as ${replier} (password length: ${password.length} chars)`)
+      // First check status, then identify
+      clientmensi.say('NickServ', `STATUS ${replier}`)
+      setTimeout(() => {
+        clientmensi.say('NickServ', `IDENTIFY ${password}`)
+      }, 500)
       // Fallback: join channels after 5 seconds if we don't get a notice
       joinChannelsTimeout = setTimeout(() => {
         if (!identified) {
@@ -1881,12 +1885,16 @@ if (!config.disableIrcBots && password) {
           joinChannels()
         }
       }, 5000)
+    } else {
+      log(`WARNING: No password configured for NickServ identification`)
     }
   })
 
   // Listen for notices from NickServ to confirm identification
   clientmensi.on('notice', (from, to, text) => {
+    // Log all notices from NickServ for debugging
     if (from && from.toLowerCase() === 'nickserv') {
+      log(`NickServ notice: ${text}`)
       const noticeText = text.toLowerCase()
       // Check for successful identification messages (various formats)
       if (noticeText.includes('password accepted') || 
@@ -1902,11 +1910,47 @@ if (!config.disableIrcBots && password) {
           log(`Successfully identified with NickServ`)
           joinChannels()
         }
+      } else if (noticeText.includes('password incorrect') || 
+                 noticeText.includes('invalid password') ||
+                 noticeText.includes('authentication failed') ||
+                 noticeText.includes('incorrect password')) {
+        log(`ERROR: NickServ authentication failed - password may be incorrect`)
+        log(`NickServ response: ${text}`)
+      } else if (noticeText.includes('not registered') || 
+                 noticeText.includes('not found')) {
+        log(`ERROR: Nick ${replier} is not registered with NickServ`)
+        log(`NickServ response: ${text}`)
+      }
+    }
+  })
+
+  // Also listen for private messages from NickServ (some networks use PRIVMSG instead of NOTICE)
+  clientmensi.on('pm', (from, text) => {
+    if (from && from.toLowerCase() === 'nickserv') {
+      log(`NickServ PM: ${text}`)
+      const messageText = text.toLowerCase()
+      if (messageText.includes('password accepted') || 
+          messageText.includes('you are now identified') ||
+          messageText.includes('successfully identified') ||
+          messageText.includes('you are already identified') ||
+          (messageText.includes('identified') && !messageText.includes('not'))) {
+        if (joinChannelsTimeout) {
+          clearTimeout(joinChannelsTimeout)
+          joinChannelsTimeout = null
+        }
+        if (!identified) {
+          log(`Successfully identified with NickServ (via PM)`)
+          joinChannels()
+        }
       }
     }
   })
 
   clientmensi.on('message', (from, towhom, text) => {
+    // Debug: log messages from NickServ
+    if (from && from.toLowerCase() === 'nickserv') {
+      log(`NickServ message to ${towhom}: ${text}`)
+    }
     processor({ from, towhom, text })
   })
 

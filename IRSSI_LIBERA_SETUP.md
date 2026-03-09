@@ -146,3 +146,4 @@ If SASL authentication doesn't work:
 - Your SASL username is typically your IRC nickname
 - Keep your NickServ password secure
 
+

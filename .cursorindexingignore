@@ -3,7 +3,6 @@
 .specstory/**
 src/jbofihe
 src/tcepru
-src/sutysisku/src/data
 *.peg
 *.appcache
 LICENSE

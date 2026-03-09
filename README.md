@@ -50,10 +50,3 @@ instead of those of “irc.freenode.net”.
  - `server` is the name of the IRC network to which the bot will connect.
 
 # Development
-
-## la sutysisku
-
-In order to test la sutysisku 
-* enter your docker environment via `bash dev.sh`
-* `COMPRESS=false npm run sutysisku`
-** la sutysisku gets compiled. You can test it either locally fromthe outside of your docker environment from `build/sytysisku` folder (which you may wish to be made accessible from a https address as well for a full staging env) 

@@ -1,10 +1,11 @@
-.specstory/history/
+.specstory/**
 .env
 *.tsv
 build/lojbo.arxivo/*.sql
 config/
 src/node_modules/*
 node_modules/*
+package-lock.json
 src/skripto/node_modules/
 build/
 _build/

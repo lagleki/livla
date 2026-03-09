@@ -16,9 +16,10 @@ RUN apt-get install nodejs
 
 RUN apt-get install -y rsync
 
+RUN corepack enable && corepack prepare pnpm@9.15.0 --activate
 RUN mkdir -p /livla/build/dumps
-COPY src/package*.json /livla/
+COPY src/package.json src/pnpm-lock.yaml /livla/
 COPY src/tsconfig.json /livla/
 WORKDIR /livla
-RUN npm i --force ; npm i -g npm-check-updates pm2@latest typescript
+RUN pnpm install --frozen-lockfile && pnpm add -g npm-check-updates pm2@latest typescript
 CMD ["pm2-runtime", "/livla/src/livla/index.js"]

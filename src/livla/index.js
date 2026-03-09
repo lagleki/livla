@@ -31,6 +31,23 @@ const LANGUAGE_CODE_MAX_LENGTH = 100
 const nodasezvafahi = "no da se zvafa'i"
 const commandPrefix = '^ *(\\.|\\!)'
 
+// Lensisku API expects language IDs from languages.langid (see lensisku dump jbocma.sql), not tags
+const LENSISKU_LANG_TAG_TO_ID = {
+  xx: 0, 'nolanguage': 0, no: 19, en: 2, hi: 3, es: 4, ru: 5, zh: 6, ar: 7, fr: 8, de: 9, ja: 10,
+  pl: 11, da: 12, it: 13, ko: 14, ro: 15, el: 16, he: 17, cs: 18, pt: 21, sv: 22, sr: 23, tr: 24,
+  fa: 25, ka: 26, gu: 27, sq: 28, eu: 29, be: 30, id: 31, mg: 32, ne: 33, sa: 34, so: 35, br: 36,
+  ch: 37, kw: 38, ca: 39, la: 40, hr: 41, nl: 42, hu: 43, lt: 44, bg: 45, sk: 46, sl: 47, vi: 48,
+  et: 49, gl: 50, uk: 51, am: 52, cy: 53, ga: 54, ia: 55, wa: 56, tlh: 57, 'art-loglan': 58, loglan: 58,
+  eo: 59, tpi: 60, jbo: 1, test: 315, ta: 314, 'art-guaspi': 316, guaspi: 316, 'en-simple': 317,
+  fi: 20, 'fr-facile': 318, lv: 319, 'pt-br': 320, 'en-bpfk': 321, tok: 322, toki: 322,
+}
+const LENSISKU_DEFAULT_LANG_ID = 2 // English
+function lensiskuLangId(tag) {
+  if (tag == null || tag === '') return LENSISKU_DEFAULT_LANG_ID
+  const t = String(tag).toLowerCase().trim()
+  return LENSISKU_LANG_TAG_TO_ID[t] ?? LENSISKU_DEFAULT_LANG_ID
+}
+
 let langs = [
   'jbo',
   'en',
@@ -280,11 +297,12 @@ const getLocalizationString = ({
 }
 // --- Lensisku API (online search; phrases excluded) ---
 async function lensiskuSemanticSearch({ search, language, per_page = 10 }) {
+  const langId = lensiskuLangId(language)
   const [err, res] = await to(
-    axios.get(`${LENSISKU_BASE}/jbovlaste/semantic-search`, {
+    axios.get(`${LENSISKU_BASE}/api/jbovlaste/semantic-search`, {
       params: {
         search: search || '',
-        languages: language || 'en',
+        languages: langId,
         search_in_phrases: false,
         per_page: per_page || 10,
       },
@@ -303,15 +321,16 @@ async function lensiskuSemanticSearch({ search, language, per_page = 10 }) {
 }
 
 async function lensiskuDefinitionsSearch({ search, language, selmaho, per_page = 30 }) {
+  const langId = lensiskuLangId(language)
   const params = {
     search: search || undefined,
-    languages: language || 'en',
+    languages: langId,
     search_in_phrases: false,
     per_page: per_page || 30,
   }
   if (selmaho) params.selmaho = selmaho
   const [err, res] = await to(
-    axios.get(`${LENSISKU_BASE}/jbovlaste/definitions`, {
+    axios.get(`${LENSISKU_BASE}/api/jbovlaste/definitions`, {
       params,
       timeout: LENSISKU_TIMEOUT_MS,
     })

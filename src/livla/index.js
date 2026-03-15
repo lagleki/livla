@@ -42,6 +42,7 @@ const LENSISKU_LANG_TAG_TO_ID = {
   fi: 20, 'fr-facile': 318, lv: 319, 'pt-br': 320, 'en-bpfk': 321, tok: 322, toki: 322,
 }
 const LENSISKU_DEFAULT_LANG_ID = 2 // English
+const LENSISKU_MIN_SIMILARITY = 0.5 // for .en / language-code search, only show results above this
 function lensiskuLangId(tag) {
   if (tag == null || tag === '') return LENSISKU_DEFAULT_LANG_ID
   const t = String(tag).toLowerCase().trim()
@@ -320,6 +321,11 @@ async function lensiskuSemanticSearch({ search, language, per_page = 10 }) {
   }
 }
 
+function filterBySimilarity(definitions, minSimilarity = LENSISKU_MIN_SIMILARITY) {
+  if (!Array.isArray(definitions)) return definitions
+  return definitions.filter((d) => typeof d.similarity !== 'number' || d.similarity > minSimilarity)
+}
+
 async function lensiskuDefinitionsSearch({ search, language, selmaho, per_page = 30 }) {
   const langId = lensiskuLangId(language)
   const params = {
@@ -436,7 +442,7 @@ async function multipleDefs({ word, language }) {
       const arr_defs = []
       for (const { lujvo } of fslice) {
         const data = await lensiskuSemanticSearch({ search: lujvo, language, per_page: 3 })
-        const defs = (data.definitions || []).map((d) => formatLensiskuDef(d, language))
+        const defs = filterBySimilarity(data.definitions || []).map((d) => formatLensiskuDef(d, language))
         if (defs.length) arr_defs.push(defs.join('\n'))
       }
       const l_joined = l.join(' ')
@@ -453,9 +459,10 @@ async function multipleDefs({ word, language }) {
     }
   }
   const data = await lensiskuSemanticSearch({ search: lin, language, per_page: 5 })
-  if (data.definitions && data.definitions.length > 0) {
-    const reply = data.definitions.map((d) => formatLensiskuDef(d, language)).join('\n')
-    return { count: data.definitions.length, reply }
+  const defs = filterBySimilarity(data.definitions || [])
+  if (defs.length > 0) {
+    const reply = defs.map((d) => formatLensiskuDef(d, language)).join('\n')
+    return { count: defs.length, reply }
   }
   const mulno = await mulnoSisku({ word: lin, language })
   if (mulno.count > 0) return { count: mulno.count, reply: pre + mulno.reply }
@@ -485,7 +492,8 @@ async function mulnoSisku({ word, language }) {
     const single = defs.find((d) => (d.valsiword || '').toLowerCase() === r[0].toLowerCase())
     const reply = single ? formatLensiskuDef(single, language) : await (async () => {
       const d2 = await lensiskuSemanticSearch({ search: r[0], language, per_page: 1 })
-      return (d2.definitions && d2.definitions[0]) ? formatLensiskuDef(d2.definitions[0], language) : nodasezvafahi
+      const one = filterBySimilarity(d2.definitions || [])[0]
+      return one ? formatLensiskuDef(one, language) : nodasezvafahi
     })()
     return { count: 1, reply }
   }

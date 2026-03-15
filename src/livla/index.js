@@ -26,6 +26,7 @@ const MESSAGE_SPLIT_MIN = 190
 const MESSAGE_SPLIT_MAX = 250
 const MAX_DEFINITIONS_LIST = 30
 const LANGUAGE_CODE_MAX_LENGTH = 100
+const LUJVO_TOP_N = 3
 
 
 const nodasezvafahi = "no da se zvafa'i"
@@ -186,19 +187,18 @@ const loadUserSettings = () => {
 loadUserSettings()
 
 const updateUserSettings = () => {
-  readConfig('user-settings.json')
-
-  const body = JSON.stringify(userSettings)
-  const configDirectory = path.join(home_path, 'config/.livla')
+  const configDirectory = path.join(home_path, 'config')
+  ensureDirExistence(configDirectory)
+  const body = JSON.stringify(userSettings, null, 2)
   const filename = 'user-settings.json'
   const file = path.join(configDirectory, filename)
   try {
-    fs.writeFileSync(file, body)
+    fs.writeFileSync(file, body, 'utf8')
     log('User settings updated')
   } catch (e) {
     // If we get an “ENOENT” error, we return an empty string.
     // Other errors are still thrown.
-    if (!e.code || e.code !== 'ENOENT') {
+    if (e.code !== 'ENOENT') {
       throw e
     }
   }
@@ -270,19 +270,18 @@ const retrieveUserLanguage = (username, lng) => {
 }
 
 const lojTemplate = (s) => {
-  s = s.replace(/\$.*?\$/g, (c) => {
-    c = c.substring(1, c.length - 1)
-    return c
+  let out = s.replace(/\$.*?\$/g, (match) => {
+    const inner = match.slice(1, -1)
+    return inner
       .replace(/(\w+)_\{(\d+)\}/g, '$1$2')
       .replace(/(\w+)_(.+)/g, '$1$2')
       .replace(/\{/g, '[')
       .replace(/\}/g, ']')
   })
-  s = s
-    .replace(/\{(.*?)\}/g, (c) => c.substring(1, c.length - 1))
+  return out
+    .replace(/\{(.*?)\}/g, (_, inner) => inner)
     .replace(/`/g, "'")
     .replace(/ {2,}/g, ' ')
-  return s
 }
 
 const getLocalizationString = ({
@@ -438,7 +437,7 @@ async function multipleDefs({ word, language }) {
       const f = lojban
         .jvozba(l)
         .filter(({ lujvo }) => /[aeiou]/.test(lujvo.slice(-1)))
-      const fslice = f.slice(0, Math.min(f.length, 3))
+      const fslice = f.slice(0, Math.min(f.length, LUJVO_TOP_N))
       const arr_defs = []
       for (const { lujvo } of fslice) {
         const data = await lensiskuSemanticSearch({ search: lujvo, language, per_page: 3 })
@@ -490,14 +489,17 @@ async function mulnoSisku({ word, language }) {
   }
   if (r.length === 1) {
     const single = defs.find((d) => (d.valsiword || '').toLowerCase() === r[0].toLowerCase())
-    const reply = single ? formatLensiskuDef(single, language) : await (async () => {
+    let reply
+    if (single) {
+      reply = formatLensiskuDef(single, language)
+    } else {
       const d2 = await lensiskuSemanticSearch({ search: r[0], language, per_page: 1 })
       const one = filterBySimilarity(d2.definitions || [])[0]
-      return one ? formatLensiskuDef(one, language) : nodasezvafahi
-    })()
+      reply = one ? formatLensiskuDef(one, language) : nodasezvafahi
+    }
     return { count: 1, reply }
   }
-  return { count: 0 }
+  return { count: 0, reply: nodasezvafahi }
 }
 
 async function selmaho(word) {
@@ -546,6 +548,7 @@ const wordnet = ({ socket, sendTo, text }) => {
   wn.lookup(text, (defs) => {
     if (!defs || defs.length === 0) {
       benji({ socket, sendTo, what: '[not found]' })
+      return
     }
     defs.forEach((w) => {
       const num = w.synsetOffset ? `[${w.synsetOffset}] ` : ''
@@ -663,16 +666,6 @@ const jsonCommand = {
   gimka: ({ text }) => gimkaConflicts(text.replace(/[^a-z'.\*0-9]/g, '')),
   loi: ({ text }) => lojban.lojban2loglan(text),
   coi: ({ text }) => lojban.loglan2lojban(text),
-  ze: async ({ text }) => {
-    await new Promise((resolve) => {
-      lojban.zmifanva(text, 'en2jb', (a) => resolve(a))
-    })
-  },
-  zj: async ({ text }) => {
-    await new Promise((resolve) => {
-      lojban.zmifanva(text, 'jb2en', (a) => resolve(a))
-    })
-  },
   rot13: ({ text }) => lojban.rotpaci(text),
   jb: ({ }) =>
     'Dictionary with Examples can be accessed via https://mw.lojban.org/papri/L17-B',
@@ -694,7 +687,9 @@ async function processCommand({ socket, sendTo, text = '', origText = '', from }
       const fallbackLang = sendTo === '#jbosnu' ? 'jbo' : 'en'
       return processCommand({ socket, sendTo, text: `.${fallbackLang} ${text}`, origText: `.${fallbackLang} ${origText}`, from })
     }
-    benji({ socket, sendTo, what })
+    if (what != null) {
+      benji({ socket, sendTo, what })
+    }
     return true
   }
   const leftMatched = Object.keys(jsonCommand).filter(
@@ -702,7 +697,9 @@ async function processCommand({ socket, sendTo, text = '', origText = '', from }
   )
   if (leftMatched[0]) {
     const what = await jsonCommand[leftMatched[0]](ctx)
-    benji({ socket, sendTo, what })
+    if (what != null) {
+      benji({ socket, sendTo, what })
+    }
     return true
   }
   log('Unknown command:', cmd)
@@ -745,7 +742,7 @@ function removePrefix(text) {
 }
 
 async function processor({ from, towhom, text, socket }) {
-  let sendTo = towhom && towhom.indexOf('#') ? from : towhom
+  const sendTo = towhom && towhom.includes('#') ? towhom : from
   const bridgeMatch = text.match(/^<(.*?)>: /)
   if (bridgeMatch) {
     from = bridgeMatch[1]
@@ -868,6 +865,32 @@ if (!config.disableIrcBots && password) {
     if (clientmensi && clientmensi.conn && !clientmensi.conn.destroyed) startIrcWatchdog()
   }
 
+  // If socket stops being writable (half-open connection), force reconnect
+  const IRC_WRITABILITY_CHECK_MS = 2 * 60 * 1000 // 2 minutes
+  let ircWritabilityCheckInterval = null
+  const startIrcWritabilityCheck = () => {
+    if (ircWritabilityCheckInterval) return
+    ircWritabilityCheckInterval = setInterval(() => {
+      if (!clientmensi || !clientmensi.conn) return
+      const conn = clientmensi.conn
+      if (conn.destroyed || conn.writable === false) {
+        log('IRC socket not writable or destroyed, disconnecting to reconnect')
+        clearIrcWatchdog()
+        if (ircWritabilityCheckInterval) {
+          clearInterval(ircWritabilityCheckInterval)
+          ircWritabilityCheckInterval = null
+        }
+        clientmensi.disconnect()
+      }
+    }, IRC_WRITABILITY_CHECK_MS)
+  }
+  const stopIrcWritabilityCheck = () => {
+    if (ircWritabilityCheckInterval) {
+      clearInterval(ircWritabilityCheckInterval)
+      ircWritabilityCheckInterval = null
+    }
+  }
+
   const joinChannels = () => {
     log(`joinChannels() invoked. Identified: ${identified}`)
     if (identified) {
@@ -887,6 +910,7 @@ if (!config.disableIrcBots && password) {
   // Identify with NickServ immediately after registration
   clientmensi.on('registered', () => {
     startIrcWatchdog()
+    startIrcWritabilityCheck()
     if (password) {
       log(`Identifying with NickServ as ${replier} (password length: ${password.length} chars)`)
       // Try IDENTIFY command - on Libera Chat, the format is: IDENTIFY password
@@ -1086,7 +1110,14 @@ if (!config.disableIrcBots && password) {
     if (from && from.toLowerCase() === 'nickserv') {
       log(`NickServ message to ${towhom}: ${text}`)
     }
-    processor({ from, towhom, text })
+    try {
+      Promise.resolve(processor({ from, towhom, text })).catch((err) => {
+        log('IRC processor error (message still processed next time)', err && err.message ? err.message : err)
+        if (err && err.stack) log(err.stack)
+      })
+    } catch (err) {
+      log('IRC processor sync error', err && err.message ? err.message : err)
+    }
   })
 
   clientmensi.on('error', (message) => {
@@ -1115,6 +1146,7 @@ if (!config.disableIrcBots && password) {
   clientmensi.on('close', () => {
     identified = false
     clearIrcWatchdog()
+    stopIrcWritabilityCheck()
     if (joinChannelsTimeout) {
       clearTimeout(joinChannelsTimeout)
       joinChannelsTimeout = null
@@ -1130,6 +1162,11 @@ if (!config.disableIrcBots && password) {
 
   clientmensi.on('netError', (err) => {
     log(`IRC netError:`, err && err.message ? err.message : err)
+  })
+
+  // Log unhandled rejections so one failing command doesn't silently break the bot
+  process.on('unhandledRejection', (reason, promise) => {
+    log('Unhandled rejection (IRC/processor may be affected)', reason)
   })
 } else {
   log('IRC bots not started. Either password not specified or disableIrcBots enabled')

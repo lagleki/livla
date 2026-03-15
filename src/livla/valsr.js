@@ -1,16 +1,34 @@
-// 
+/**
+ * Builds valsr (Lojban dictionary) hint and definition files from jbovlaste dumps.
+ * Writes to /livla/build/valsr/ (hints.txt, common-words.txt, definitions.txt).
+ */
 
-const fs = require("fs");
+const fs = require('fs')
+const path = require('path')
+
+const BUILD_DIR = '/livla/build'
+const DUMPS_DIR = path.join(BUILD_DIR, 'dumps')
+const VALSR_DIR = path.join(BUILD_DIR, 'valsr')
 
 function getJboDefs() {
-    let arr = [];
-    JSON.parse(fs.readFileSync("/livla/build/dumps/jbo.json")).dictionary.direction[0].valsi.forEach(e => {
-        let ds = e.definition.trim().replace(/\$.*?\$/g, 'zo\'e').replace(/ +/g, ' ').split(/\.i(?! *je)/g).filter(Boolean).filter(i => i.trim() !== "je")
-        for (let d of ds) {
+  const arr = []
+  const jboPath = path.join(DUMPS_DIR, 'jbo.json')
+  const data = JSON.parse(fs.readFileSync(jboPath, 'utf8'))
+  const valsi = data.dictionary.direction[0].valsi
 
-            let mutated = true
-            while (mutated === true) {
-                const d_new = d
+  for (const e of valsi) {
+    const ds = e.definition
+      .trim()
+      .replace(/\$.*?\$/g, "zo'e")
+      .replace(/ +/g, ' ')
+      .split(/\.i(?! *je)/g)
+      .filter(Boolean)
+      .filter((i) => i.trim() !== 'je')
+
+    for (let d of ds) {
+      let mutated = true
+      while (mutated) {
+        const d_new = d
                     .trim()
                     .replace(/\bzo'e boi\b/g, "zo'e")
                     .replace(/^zo'e noi\b */g, 'ti noi ')
@@ -37,30 +55,61 @@ function getJboDefs() {
                     .replace(/ (fa|fe|fi|fo|fu|fai)$/g, '')
                     .replace(/ be la'oi?[ \.]*(.*?)[ \.]*.*?[ \.]*\1[ \.]*$/g, '')
                     .replace(/ la'oi?[ \.]*(.*?)[ \.]*.*?[ \.]*\1[ \.]*$/g, '')
-                    .replace(/ +/g, ' ')
-                if (d_new === d) { mutated = false } else { d = d_new }
-            }
-            if (!/\b(to'e)\b/.test(d) && ["gismu", "experimental gismu", "fu'ivla", "lujvo"].includes(e.type) && [5, 6].includes(e.word.length))
-                arr.push([e.word, d]);
+          .replace(/ +/g, ' ')
+        if (d_new === d) {
+          mutated = false
+        } else {
+          d = d_new
         }
-    });
-    const jbo = arr.map(i => i[0])
-    arr = arr.map(i => `${i[0].toUpperCase()}\t${i[1]}`).join("\n")
-    fs.writeFileSync("/livla/build/valsr/hints.txt", arr);
-    return jbo
+      }
+      if (
+        !/\b(to'e)\b/.test(d) &&
+        ['gismu', 'experimental gismu', "fu'ivla", 'lujvo'].includes(e.type) &&
+        [5, 6].includes(e.word.length)
+      ) {
+        arr.push([e.word, d])
+      }
+    }
+  }
+
+  const jbo = arr.map((i) => i[0])
+  const hintsText = arr.map((i) => `${i[0].toUpperCase()}\t${i[1]}`).join('\n')
+  fs.mkdirSync(VALSR_DIR, { recursive: true })
+  fs.writeFileSync(path.join(VALSR_DIR, 'hints.txt'), hintsText, 'utf8')
+  return jbo
 }
+
 function getEnglishDefs(jbo) {
-    let arr = [];
-    let arr_common = [];
-    JSON.parse(fs.readFileSync("/livla/build/dumps/en.json")).dictionary.direction[0].valsi.forEach(e => {
-        let ds = e.definition.trim().replace(/[\$_\{\}]/g, '').replace(/ +/g, ' ').replace(/\//g, ' / ').trim()
-        if (jbo.includes(e.word) || e.type === "gismu") {
-            arr.push([e.word.toUpperCase(), ds]);
-            arr_common.push([e.word.toUpperCase()]);
-        }
-    });
-    fs.writeFileSync("/livla/build/valsr/common-words.txt", arr_common.map(i => `${i[0]}`).join("\n"));
-    fs.writeFileSync("/livla/build/valsr/definitions.txt", arr.map(i => `${i[0]}\t${i[1]}`).join("\n"));
+  const arr = []
+  const arrCommon = []
+  const enPath = path.join(DUMPS_DIR, 'en.json')
+  const data = JSON.parse(fs.readFileSync(enPath, 'utf8'))
+  const valsi = data.dictionary.direction[0].valsi
+
+  for (const e of valsi) {
+    const ds = e.definition
+      .trim()
+      .replace(/[\$_{}]/g, '')
+      .replace(/ +/g, ' ')
+      .replace(/\//g, ' / ')
+      .trim()
+    if (jbo.includes(e.word) || e.type === 'gismu') {
+      arr.push([e.word.toUpperCase(), ds])
+      arrCommon.push([e.word.toUpperCase()])
+    }
+  }
+
+  fs.writeFileSync(
+    path.join(VALSR_DIR, 'common-words.txt'),
+    arrCommon.map((i) => i[0]).join('\n'),
+    'utf8'
+  )
+  fs.writeFileSync(
+    path.join(VALSR_DIR, 'definitions.txt'),
+    arr.map((i) => `${i[0]}\t${i[1]}`).join('\n'),
+    'utf8'
+  )
 }
-const arr = getJboDefs();
-getEnglishDefs(arr);
+
+const jboWords = getJboDefs()
+getEnglishDefs(jboWords)

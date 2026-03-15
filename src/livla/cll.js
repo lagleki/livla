@@ -1,6 +1,9 @@
-// JavaScript Document
+/**
+ * CLL (Complete Lojban Language) selma'o to documentation URL mapping.
+ * @returns {Record<string, string>} Map of selma'o names to CLL chapter URLs.
+ */
 function cllk() {
-return {A:"http://lojban.github.io/cll/14/6/",
+  return {A:"http://lojban.github.io/cll/14/6/",
 BAI:"http://lojban.github.io/cll/9/6/",
 BAhE:"http://lojban.github.io/cll/19/11/",
 BE:"http://lojban.github.io/cll/5/7/",
@@ -134,8 +137,8 @@ ZI:"http://lojban.github.io/cll/10/4/",
 ZIhE:"http://lojban.github.io/cll/8/4/",
 ZO:"http://lojban.github.io/cll/19/10/",
 ZOI:"http://lojban.github.io/cll/19/10/",
-ZOhU:"http://lojban.github.io/cll/16/2/ http://lojban.github.io/cll/19/4/"
-};
-
+ZOhU: "http://lojban.github.io/cll/16/2/ http://lojban.github.io/cll/19/4/",
+  }
 }
-module.exports.cllk = cllk;
+
+module.exports.cllk = cllk

@@ -296,15 +296,19 @@ const getLocalizationString = ({
   return (json[language][string] || '').replace(/%s/g, param || '')
 }
 // --- Lensisku API (online search; phrases excluded) ---
-async function lensiskuSemanticSearch({ search, language, per_page = 10 }) {
+async function lensiskuSemanticSearch({ search, language, per_page = 10, page = 1 }) {
   const langId = lensiskuLangId(language)
   const [err, res] = await to(
     axios.get(`${LENSISKU_BASE}/api/jbovlaste/semantic-search`, {
       params: {
-        search: search || '',
-        languages: langId,
-        search_in_phrases: false,
+        page: page || 1,
         per_page: per_page || 10,
+        search: search || '',
+        include_comments: true,
+        languages: langId,
+        group_by_thread: false,
+        search_in_phrases: false,
+        semantic: true,
       },
       timeout: LENSISKU_TIMEOUT_MS,
     })
@@ -320,9 +324,14 @@ async function lensiskuSemanticSearch({ search, language, per_page = 10 }) {
   }
 }
 
-function filterBySimilarity(definitions, minSimilarity = LENSISKU_MIN_SIMILARITY) {
+function filterBySimilarity(definitions, query = null, minSimilarity = LENSISKU_MIN_SIMILARITY) {
   if (!Array.isArray(definitions)) return definitions
-  return definitions.filter((d) => typeof d.similarity !== 'number' || d.similarity > minSimilarity)
+  const q = query != null ? String(query).trim().toLowerCase() : null
+  return definitions.filter((d) => {
+    const word = (d.valsiword || '').trim().toLowerCase()
+    if (q !== null && word === q) return true
+    return typeof d.similarity !== 'number' || d.similarity > minSimilarity
+  })
 }
 
 async function lensiskuDefinitionsSearch({ search, language, selmaho, per_page = 30 }) {
@@ -441,7 +450,7 @@ async function multipleDefs({ word, language }) {
       const arr_defs = []
       for (const { lujvo } of fslice) {
         const data = await lensiskuSemanticSearch({ search: lujvo, language, per_page: 3 })
-        const defs = filterBySimilarity(data.definitions || []).map((d) => formatLensiskuDef(d, language))
+        const defs = filterBySimilarity(data.definitions || [], lujvo).map((d) => formatLensiskuDef(d, language))
         if (defs.length) arr_defs.push(defs.join('\n'))
       }
       const l_joined = l.join(' ')
@@ -458,7 +467,7 @@ async function multipleDefs({ word, language }) {
     }
   }
   const data = await lensiskuSemanticSearch({ search: lin, language, per_page: 5 })
-  const defs = filterBySimilarity(data.definitions || [])
+  const defs = filterBySimilarity(data.definitions || [], lin)
   if (defs.length > 0) {
     const reply = defs.map((d) => formatLensiskuDef(d, language)).join('\n')
     return { count: defs.length, reply }
@@ -494,7 +503,7 @@ async function mulnoSisku({ word, language }) {
       reply = formatLensiskuDef(single, language)
     } else {
       const d2 = await lensiskuSemanticSearch({ search: r[0], language, per_page: 1 })
-      const one = filterBySimilarity(d2.definitions || [])[0]
+      const one = filterBySimilarity(d2.definitions || [], r[0])[0]
       reply = one ? formatLensiskuDef(one, language) : nodasezvafahi
     }
     return { count: 1, reply }

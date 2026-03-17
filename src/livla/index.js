@@ -916,10 +916,66 @@ if (!config.disableIrcBots && password) {
     })
   }
 
+  // Normalize channel name for comparison (IRC channels are case-insensitive)
+  const chanKey = (ch) => (ch && String(ch).toLowerCase()) || ''
+
+  // Re-identify with NickServ and re-join given channels (e.g. after kick or lost identification)
+  let rejoinScheduled = null
+  const reIdentifyAndRejoinChannels = (channelList) => {
+    if (!channelList || channelList.length === 0) return
+    const channels = [...new Set(channelList)]
+    if (rejoinScheduled) {
+      clearTimeout(rejoinScheduled)
+      rejoinScheduled = null
+    }
+    log(`Re-identifying with NickServ and re-joining ${channels.length} channel(s): ${channels.join(', ')}`)
+    if (password) {
+      clientmensi.say('NickServ', `IDENTIFY ${password}`)
+    }
+    rejoinScheduled = setTimeout(() => {
+      rejoinScheduled = null
+      channels.forEach((channel, index) => {
+        setTimeout(() => {
+          log(`Re-joining ${channel}...`)
+          clientmensi.join(channel)
+        }, index * 600) // Stagger to avoid flood
+      })
+    }, 4000) // Wait for NickServ to process IDENTIFY
+  }
+
+  // Return list of channels we expect to be in but are not (according to client.chans)
+  const getMissingChannels = () => {
+    const chans = clientmensi.chans || {}
+    const current = new Set(Object.keys(chans).map(chanKey))
+    return channelsToJoin.filter((ch) => !current.has(chanKey(ch)))
+  }
+
+  // Periodically check we are still in all expected channels; re-identify and re-join if any are missing
+  const CHANNEL_AUDIT_MS = 1 * 60 * 1000 // 1 minute
+  let channelAuditInterval = null
+  const startChannelAudit = () => {
+    if (channelAuditInterval) return
+    channelAuditInterval = setInterval(() => {
+      if (!clientmensi || !clientmensi.conn || clientmensi.conn.destroyed) return
+      const missing = getMissingChannels()
+      if (missing.length > 0) {
+        log(`Channel audit: missing ${missing.length} channel(s): ${missing.join(', ')}; re-identifying and re-joining`)
+        reIdentifyAndRejoinChannels(missing)
+      }
+    }, CHANNEL_AUDIT_MS)
+  }
+  const stopChannelAudit = () => {
+    if (channelAuditInterval) {
+      clearInterval(channelAuditInterval)
+      channelAuditInterval = null
+    }
+  }
+
   // Identify with NickServ immediately after registration
   clientmensi.on('registered', () => {
     startIrcWatchdog()
     startIrcWritabilityCheck()
+    startChannelAudit()
     if (password) {
       log(`Identifying with NickServ as ${replier} (password length: ${password.length} chars)`)
       // Try IDENTIFY command - on Libera Chat, the format is: IDENTIFY password
@@ -1009,6 +1065,25 @@ if (!config.disableIrcBots && password) {
 
   clientmensi.on('join', (channel, nick, _message) => {
     log(`Joined ${channel} as ${nick}`)
+  })
+
+  // When we are kicked from a channel (e.g. lost identification on Libera), re-identify and re-join
+  clientmensi.on('kick', (channel, nick, by, reason, _message) => {
+    const ourNick = (clientmensi.nick || replier || '').toLowerCase()
+    const kickedNick = (nick && String(nick)).toLowerCase()
+    if (kickedNick !== ourNick) return
+    log(`Kicked from ${channel} by ${by} (${reason || 'no reason'}); re-identifying and re-joining`)
+    reIdentifyAndRejoinChannels([channel])
+  })
+
+  // When we part a channel (we left or were removed by server), re-join if it's one we expect to be in
+  clientmensi.on('part', (channel, nick, reason, _message) => {
+    const ourNick = (clientmensi.nick || replier || '').toLowerCase()
+    const partingNick = (nick && String(nick)).toLowerCase()
+    if (partingNick !== ourNick) return
+    if (!channelsToJoin.some((ch) => chanKey(ch) === chanKey(channel))) return // not a channel we care about
+    log(`Parted ${channel} (${reason || 'no reason'}); re-identifying and re-joining`)
+    reIdentifyAndRejoinChannels([channel])
   })
 
   // Listen for notices from NickServ to confirm identification
@@ -1138,14 +1213,10 @@ if (!config.disableIrcBots && password) {
     }
     // Handle registered-only channel errors (477) gracefully
     if (message.rawCommand === '477' || message.command === 'err_needreggednick') {
-      const channel = message.args && message.args[1] ? message.args[1] : 'unknown'
-      log(`warning: Cannot join registered-only channel ${channel} - need to identify with NickServ first`)
-      // If we haven't identified yet, try again
-      if (!identified && password) {
-        setTimeout(() => {
-          log(`Retrying NickServ identification...`)
-          clientmensi.say('NickServ', `IDENTIFY ${password}`)
-        }, 2000)
+      const channel = message.args && message.args[1] ? message.args[1] : null
+      log(`warning: Cannot join registered-only channel ${channel || 'unknown'} - re-identifying and re-joining`)
+      if (channel && password) {
+        reIdentifyAndRejoinChannels([channel])
       }
       return
     }
@@ -1156,6 +1227,11 @@ if (!config.disableIrcBots && password) {
     identified = false
     clearIrcWatchdog()
     stopIrcWritabilityCheck()
+    stopChannelAudit()
+    if (rejoinScheduled) {
+      clearTimeout(rejoinScheduled)
+      rejoinScheduled = null
+    }
     if (joinChannelsTimeout) {
       clearTimeout(joinChannelsTimeout)
       joinChannelsTimeout = null

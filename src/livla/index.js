@@ -19,7 +19,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 let home_path = '/livla'
 
-// Online lensisku API (semantic search); phrases excluded from results
+// Online lensisku API (semantic search for gloss languages; normal search for .jbo); phrases excluded from results
 const LENSISKU_BASE = 'https://lensisku.lojban.org'
 const LENSISKU_TIMEOUT_MS = 15_000
 const MESSAGE_SPLIT_MIN = 190
@@ -359,6 +359,25 @@ async function lensiskuDefinitionsSearch({ search, language, selmaho, per_page =
   }
 }
 
+function isJboLanguage(language) {
+  return String(language || '').toLowerCase() === 'jbo'
+}
+
+// .jbo uses exact/normal definitions search; other language codes use semantic search
+async function lensiskuLookup({ search, language, per_page = 10, page = 1 }) {
+  if (isJboLanguage(language)) {
+    return lensiskuDefinitionsSearch({ search, language, per_page })
+  }
+  return lensiskuSemanticSearch({ search, language, per_page, page })
+}
+
+function filterLookupDefs(definitions, query, language) {
+  if (isJboLanguage(language)) {
+    return Array.isArray(definitions) ? definitions : []
+  }
+  return filterBySimilarity(definitions, query)
+}
+
 function formatLensiskuDef(d, language) {
   const arr = []
   if (d.type_name)
@@ -449,8 +468,8 @@ async function multipleDefs({ word, language }) {
       const fslice = f.slice(0, Math.min(f.length, LUJVO_TOP_N))
       const arr_defs = []
       for (const { lujvo } of fslice) {
-        const data = await lensiskuSemanticSearch({ search: lujvo, language, per_page: 3 })
-        const defs = filterBySimilarity(data.definitions || [], lujvo).map((d) => formatLensiskuDef(d, language))
+        const data = await lensiskuLookup({ search: lujvo, language, per_page: 3 })
+        const defs = filterLookupDefs(data.definitions || [], lujvo, language).map((d) => formatLensiskuDef(d, language))
         if (defs.length) arr_defs.push(defs.join('\n'))
       }
       const l_joined = l.join(' ')
@@ -466,8 +485,8 @@ async function multipleDefs({ word, language }) {
       return { count: 0, reply: e.toString() }
     }
   }
-  const data = await lensiskuSemanticSearch({ search: lin, language, per_page: 5 })
-  const defs = filterBySimilarity(data.definitions || [], lin)
+  const data = await lensiskuLookup({ search: lin, language, per_page: 5 })
+  const defs = filterLookupDefs(data.definitions || [], lin, language)
   if (defs.length > 0) {
     const reply = defs.map((d) => formatLensiskuDef(d, language)).join('\n')
     return { count: defs.length, reply }
@@ -502,8 +521,8 @@ async function mulnoSisku({ word, language }) {
     if (single) {
       reply = formatLensiskuDef(single, language)
     } else {
-      const d2 = await lensiskuSemanticSearch({ search: r[0], language, per_page: 1 })
-      const one = filterBySimilarity(d2.definitions || [], r[0])[0]
+      const d2 = await lensiskuLookup({ search: r[0], language, per_page: 1 })
+      const one = filterLookupDefs(d2.definitions || [], r[0], language)[0]
       reply = one ? formatLensiskuDef(one, language) : nodasezvafahi
     }
     return { count: 1, reply }
